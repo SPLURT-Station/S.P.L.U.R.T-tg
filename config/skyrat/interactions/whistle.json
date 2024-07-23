@@ -1,0 +1,15 @@
+{
+    "name": "Whistle",
+    "description" : "Whistle for someone's attention!",
+    "usage": "other",
+    "category": "Miscellaneous",
+    "distance_allowed": 1,
+    "message": [
+        "%USER% whistles at %TARGET%!",
+		"%USER% tries to get %TARGET%'s attention by whistling!"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% whistles at you!</span>",
+		"<span class='purple'>%USER% whistles at you, trying to get your attention!</span>"
+    ]
+}

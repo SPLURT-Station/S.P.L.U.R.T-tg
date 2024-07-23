@@ -1,0 +1,23 @@
+{
+    "name": "Cuddle",
+    "description" : "Cuddle someone you like!",
+    "usage": "other",
+    "category": "Romance",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% cuddles up to %TARGET%!",
+        "%USER% snuggles comfortably with %TARGET%.",
+        "%USER% wraps their arms around %TARGET%'s shoulders."
+    ],
+    "user_messages": [
+        "<span class='purple'>You cuddle up closely with %TARGET%!</span>",
+        "<span class='purple'>You snuggle comfortably with %TARGET%.</span>",
+        "<span class='purple'>You wrap your arms snuggly around %TARGET%'s shoulders.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% cuddles up to you!</span>",
+		"<span class='purple'>%USER% snuggles comfortably with you.</span>",
+        "<span class='purple'>You feel %USER%'s arms wrap warmly around your shoulders.</span>"
+    ],
+    "color": "green"
+}

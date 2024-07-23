@@ -1,0 +1,29 @@
+{
+    "name": "Facesit (ass)",
+    "description" : "Make a chair out of someone else's face.",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% sits down on %TARGET%'s face.",
+        "%USER% plops their ass onto %TARGET%'s face.",
+		"%USER% makes a throne out of %TARGET%'s face."
+            ],
+    "user_messages": [
+        "<span class='purple'>You sit down on %TARGET%'s face!</span>",
+        "<span class='purple'>You plop your ass onto %TARGET%'s face.</span>",
+		"<span class='purple'>You make a throne out of %TARGET%'s face.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% sits down on your face!</span>",
+        "<span class='purple'>%USER% plops their ass on your face!</span>",
+		"<span class='purple'>%USER% makes a throne of your face. Gory, what a helluva way to die!</span>"
+    ],
+    "user_pleasure": 2,
+    "user_arousal": 3,
+    "target_pleasure": 0,
+    "target_arousal": 3,
+	"target_pain": 3,
+    "lewd": 1,
+    "color": "pink"
+}

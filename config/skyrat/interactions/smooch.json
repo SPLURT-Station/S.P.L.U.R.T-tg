@@ -1,0 +1,24 @@
+{
+    "name": "Smooch",
+    "description" : "Give a friend or partner a cute kiss!",
+    "usage": "other",
+    "category": "Romance",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% gives %TARGET% a small kiss on the lips!",
+        "%USER% pecks %TARGET% sweetly.",
+        "%USER% presses their lips against %TARGET%'s briefly!"
+    ],
+    "user_messages": [
+        "<span class='purple'>You feel a quick and casual kiss on the lips!</span>",
+        "<span class='purple'>Your lips tingle as you give %TARGET% a peck on the lips.</span>",
+		"<span class='purple'>You press your lips against %TARGET%'s briefly!</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>You feel a quick and casual kiss on the lips!</span>",
+        "<span class='purple'>You feel %USER% peck you on the lips!</span>",
+		"<span class='purple'>You feel %USER% press their lips against yours briefly!</span>"
+    ],
+    "lewd": 1,
+    "color": "green"
+}

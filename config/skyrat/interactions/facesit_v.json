@@ -1,0 +1,32 @@
+{
+    "name": "Facesit (vagina)",
+    "description" : "Ride someone's face like a bike!",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% sits down on %TARGET%'s face.",
+        "%USER% sits on %TARGET%'s face, pressing their sex against their lips.",
+		"%USER% straddles %TARGET%'s face."
+            ],
+    "user_messages": [
+        "<span class='purple'>You sit down on %TARGET%'s face!</span>",
+        "<span class='purple'>You sit on %TARGET%'s face, pressing your sex against their lips.</span>",
+		"<span class='purple'>You straddle %TARGET%'s face.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% sits down on your face!</span>",
+        "<span class='purple'>%USER% sits on your face, pressing their sex against your lips!</span>",
+		"<span class='purple'>%USER% straddles your face!</span>"
+    ],
+	"user_required_parts": [
+        "vagina"
+    ],
+    "user_pleasure": 4,
+    "user_arousal": 3,
+    "target_pleasure": 0,
+    "target_arousal": 3,
+	"target_pain": 2,
+    "lewd": 1,
+    "color": "pink"
+}

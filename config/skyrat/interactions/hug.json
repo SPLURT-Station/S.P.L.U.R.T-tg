@@ -1,0 +1,20 @@
+{
+    "name": "Hug",
+    "description" : "Hug them tightly!",
+    "usage": "other",
+    "category": "Romance",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% wraps their arms around %TARGET%, hugging them tightly!",
+        "%USER% slides their arms around %TARGET%, hugging them tightly!"
+    ],
+    "user_messages": [
+        "<span class='purple'>You feel a warm body against your own as you engage in a tight hug!</span>",
+		"<span class='purple'>You squeeze %TARGET% tightly as you hug them!</span>"
+    ],
+    "target_messages": [
+		"<span class='purple'>You feel a warm body against your own as you are hugged!.</span>",
+		"<span class='purple'>You are squeezed tightly by %USER% in a warm hug!</span>"
+    ],
+	"color": "green"
+}

@@ -1,0 +1,34 @@
+{
+    "name": "Fuck (vagina)",
+    "description" : "Push your cock inside their vagina!",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% fucks %TARGET%, pushing their cock inside of their vagina.",
+        "%USER% humps %TARGET% using their cock.",
+        "%USER% pushes their dick inside %TARGET%'s pussy."
+	],
+    "user_messages": [
+        "<span class='purple'>You fuck %TARGET%, pushing your cock inside of their vagina.</span>",
+        "<span class='purple'>You hump %TARGET% using your cock.</span>",
+        "<span class='purple'>You push your dick inside %TARGET%'s pussy.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% fucks you, pushing their cock inside of your vagina.</span>",
+        "<span class='purple'>%USER% humps you using their cock.</span>",
+        "<span class='purple'>%USER% pushes their dick inside of your pussy.</span>"
+    ],
+    "target_required_parts": [
+        "vagina"
+    ],
+    "user_required_parts": [
+        "penis"
+    ],
+    "user_pleasure": 7,
+    "user_arousal": 5,
+    "target_pleasure": 7,
+    "target_arousal": 5,
+    "lewd": 1,
+    "color": "pink"
+}
