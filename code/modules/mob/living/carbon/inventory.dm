@@ -16,7 +16,7 @@
 	if(hidden_slots & HIDEEYES)
 		obscured |= ITEM_SLOT_EYES
 	if(hidden_slots & HIDEEARS)
-		obscured |= ITEM_SLOT_EARS
+		obscured |= ITEM_SLOT_EARS_LEFT // SPLURT EDIT - Extra inventory
 	if(hidden_slots & HIDEGLOVES)
 		obscured |= ITEM_SLOT_GLOVES
 	if(hidden_slots & HIDEJUMPSUIT)
@@ -27,6 +27,12 @@
 		obscured |= ITEM_SLOT_SUITSTORE
 	if(hidden_slots & HIDEHEADGEAR)
 		obscured |= ITEM_SLOT_HEAD
+	// SPLURT EDIT ADDITION - Extra inventory
+	if(hidden_slots & HIDEUNDERWEAR)
+		obscured |= ITEM_SLOT_UNDERWEAR | ITEM_SLOT_SHIRT | ITEM_SLOT_BRA | ITEM_SLOT_SOCKS
+	if(hidden_slots & HIDEWRISTS)
+		obscured |= ITEM_SLOT_WRISTS
+	// SPLURT EDIT END
 
 	return obscured
 
@@ -78,7 +84,7 @@
 		ITEM_SLOT_ICLOTHING,
 		ITEM_SLOT_GLOVES,
 		ITEM_SLOT_EYES,
-		ITEM_SLOT_EARS,
+		ITEM_SLOT_EARS_LEFT, // SPLURT EDIT - Extra inventory
 		ITEM_SLOT_MASK,
 		ITEM_SLOT_HEAD,
 		ITEM_SLOT_FEET,

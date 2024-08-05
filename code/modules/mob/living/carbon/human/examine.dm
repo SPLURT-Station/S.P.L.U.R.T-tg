@@ -74,6 +74,15 @@
 				accessory_message = " with [english_list(accessories)] attached"
 
 		. += "[t_He] [t_is] wearing [w_uniform.get_examine_string(user)][accessory_message]."
+	//SPLURT EDIT - shirt
+	if(w_shirt && !((obscured & ITEM_SLOT_SHIRT) && (obscured & ITEM_SLOT_EXTRA)) && !(w_shirt.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [w_shirt.get_examine_string(user)]."
+	//SPLURT EDIT - bra
+	if(w_bra && !(obscured & ITEM_SLOT_BRA) && !(w_bra.item_flags & EXAMINE_SKIP) && !(w_bra.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [w_bra.get_examine_string(user)]."
+	//SPLURT EDIT - underwear
+	if(w_underwear && !((obscured & ITEM_SLOT_UNDERWEAR) && (obscured & ITEM_SLOT_EXTRA)) && !(w_underwear.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [w_underwear.get_examine_string(user)]."
 	//head
 	if(head && !(obscured & ITEM_SLOT_HEAD) && !(head.item_flags & EXAMINE_SKIP))
 		. += "[t_He] [t_is] wearing [head.get_examine_string(user)] on [t_his] head."
@@ -100,6 +109,10 @@
 		if(num_hands)
 			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "]blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
+	//SPLURT EDIT - wrists
+	if(wrists && !((obscured & ITEM_SLOT_WRISTS) && (obscured & ITEM_SLOT_EXTRA)) && !(wrists.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [wrists.get_examine_string(user)]."
+
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/restraints/handcuffs/cable))
@@ -114,6 +127,10 @@
 	//shoes
 	if(shoes && !(obscured & ITEM_SLOT_FEET)  && !(shoes.item_flags & EXAMINE_SKIP))
 		. += "[t_He] [t_is] wearing [shoes.get_examine_string(user)] on [t_his] feet."
+
+	//SPLURT EDIT - socks
+	if(w_socks && !((obscured & ITEM_SLOT_SOCKS) && (obscured & ITEM_SLOT_EXTRA)) && !(w_socks.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [w_socks.get_examine_string(user)] on [t_his] feet."
 
 	//mask
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK)  && !(wear_mask.item_flags & EXAMINE_SKIP))
@@ -132,8 +149,19 @@
 			. += "<span class='warning'><B>[t_His] eyes are bloodshot!</B></span>"
 
 	//ears
-	if(ears && !(obscured & ITEM_SLOT_EARS) && !(ears.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.get_examine_string(user)] on [t_his] ears."
+	if(ears && !(obscured & ITEM_SLOT_EARS_LEFT) && !(ears.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_has] [ears.get_examine_string(user)] on [t_his] left ear." // extra inventory
+
+	//SPLURT EDIT - ears extra
+	if(ears_extra && !((obscured & ITEM_SLOT_EARS_RIGHT) && (obscured & ITEM_SLOT_EXTRA)) && !(ears_extra.item_flags & EXAMINE_SKIP))
+		. += "[t_He] [t_has] [ears_extra.get_examine_string(user)] on [t_his] right ear."
+
+	//SPLURT EDIT - ears extra
+	//wearing two ear items makes you look like an idiot
+	if((istype(ears, /obj/item/radio/headset) && !((obscured & ITEM_SLOT_EARS_LEFT) && (obscured & ITEM_SLOT_EXTRA)) && !(ears.item_flags & EXAMINE_SKIP)) && (istype(ears_extra, /obj/item/radio/headset) && !((obscured & ITEM_SLOT_EARS_RIGHT) && (obscured & ITEM_SLOT_EXTRA)) && !(ears_extra.item_flags & EXAMINE_SKIP)))
+		. += span_warning("[t_He] looks quite tacky wearing both \an [ears.name] and \an [ears_extra.name] on [t_his] head.")
+
+	//
 
 	//ID
 	if(wear_id && !(wear_id.item_flags & EXAMINE_SKIP))

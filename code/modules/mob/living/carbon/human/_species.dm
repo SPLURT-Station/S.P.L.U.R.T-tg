@@ -879,7 +879,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(ITEM_SLOT_EARS)
+		if(ITEM_SLOT_EARS_LEFT)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
