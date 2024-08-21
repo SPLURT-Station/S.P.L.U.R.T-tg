@@ -11,6 +11,8 @@
 		obscured |= ITEM_SLOT_NECK
 	if(hidden_slots & HIDEMASK)
 		obscured |= ITEM_SLOT_MASK
+	if(hidden_slots & HIDEBELT)
+		obscured |= ITEM_SLOT_BELT
 	if(hidden_slots & HIDEEYES)
 		obscured |= ITEM_SLOT_EYES
 	if(hidden_slots & HIDEEARS)
@@ -76,7 +78,7 @@
 		ITEM_SLOT_ICLOTHING,
 		ITEM_SLOT_GLOVES,
 		ITEM_SLOT_EYES,
-		ITEM_SLOT_EARS,
+		ITEM_SLOT_EARS_LEFT, // SPLURT EDIT - Extra inventory
 		ITEM_SLOT_MASK,
 		ITEM_SLOT_HEAD,
 		ITEM_SLOT_FEET,

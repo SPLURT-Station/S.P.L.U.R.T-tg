@@ -102,7 +102,6 @@
 #include "bespoke_id.dm"
 #include "binary_insert.dm"
 #include "bitrunning.dm"
-#include "blackmarket.dm"
 #include "blindness.dm"
 #include "bloody_footprints.dm"
 #include "breath.dm"
@@ -139,6 +138,7 @@
 #include "dummy_spawn.dm"
 #include "dynamic_ruleset_sanity.dm"
 #include "egg_glands.dm"
+#include "embedding.dm"
 #include "emoting.dm"
 #include "ensure_subtree_operational_datum.dm"
 #include "explosion_action.dm"
@@ -150,6 +150,7 @@
 #include "gas_transfer.dm"
 #include "get_turf_pixel.dm"
 #include "geyser.dm"
+#include "gloves_and_shoes_armor.dm"
 #include "greyscale_config.dm"
 #include "hallucination_icons.dm"
 #include "heretic_knowledge.dm"
@@ -182,6 +183,7 @@
 #include "mapload_space_verification.dm"
 #include "mapping.dm"
 #include "mapping_nearstation_test.dm"
+#include "market.dm"
 #include "mecha_damage.dm"
 #include "medical_wounds.dm"
 #include "merge_type.dm"
@@ -293,6 +295,9 @@
 #include "~skyrat\automapper.dm"
 #include "~skyrat\opposing_force.dm"
 // SKYRAT EDIT END
+// SPLURT EDIT START
+#include "~splurt\underwear_items.dm"
+// SPLURT EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"

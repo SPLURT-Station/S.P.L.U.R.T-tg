@@ -552,7 +552,7 @@
 #undef CPR_PANIC_SPEED
 
 /mob/living/carbon/human/cuff_resist(obj/item/I)
-	if(dna?.check_mutation(/datum/mutation/human/hulk))
+	if(HAS_TRAIT(src, TRAIT_HULK))
 		say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
 		if(..(I, cuff_break = FAST_CUFFBREAK))
 			dropItemToGround(I)
@@ -621,6 +621,24 @@
 
 	if(!is_mouth_covered() && clean_lips())
 		. = TRUE
+
+	// SPLURT EDIT - Extra inventory
+	if(!underwear_hidden() && w_underwear?.wash(clean_types))
+		update_worn_underwear()
+		. = TRUE
+	if(!socks_hidden() && w_socks?.wash(clean_types))
+		update_worn_socks()
+		. = TRUE
+	if(!(undershirt_hidden()) && w_shirt?.wash(clean_types))
+		update_worn_shirt()
+		. = TRUE
+	if(!bra_hidden() && w_bra?.wash(clean_types))
+		update_worn_bra()
+		. = TRUE
+	if(!wrists_hidden() && wrists?.wash(clean_types))
+		update_worn_wrists()
+		. = TRUE
+	//
 
 	// Wash hands if exposed
 	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(obscured & ITEM_SLOT_GLOVES))
@@ -1053,10 +1071,6 @@
 
 /mob/living/carbon/human/updatehealth()
 	. = ..()
-	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))
-		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
-		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
-		return
 	var/health_deficiency = max((maxHealth - health), staminaloss)
 	if(health_deficiency >= 40)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
@@ -1172,3 +1186,6 @@
 
 /mob/living/carbon/human/species/zombie/infectious
 	race = /datum/species/zombie/infectious
+
+/mob/living/carbon/human/species/voidwalker
+	race = /datum/species/voidwalker

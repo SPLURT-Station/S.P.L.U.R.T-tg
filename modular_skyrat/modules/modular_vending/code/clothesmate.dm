@@ -5,6 +5,7 @@
 			"icon" = "hat-cowboy",
 			"products" = list(
 				/obj/item/clothing/head/beret/badge = 5,
+				/obj/item/clothing/head/beret/clown/rainbow = 5,
 				/obj/item/clothing/head/colourable_flatcap= 5,
 				/obj/item/clothing/head/cowboy/skyrat/cattleman = 5,
 				/obj/item/clothing/head/cowboy/skyrat/cattleman/wide = 5,
@@ -168,3 +169,18 @@
 		/obj/item/clothing/suit/blackfurrich = 1,
 		/obj/item/clothing/suit/frenchtrench = 1,
 	)
+
+/obj/machinery/vending/clothing/Initialize(mapload)
+	var/list/underwears = list()
+	for(var/obj/item/clothing/underwear/briefs/briefs in typesof(/obj/item/clothing/underwear/briefs))
+		underwears[briefs] = 5
+
+	product_categories += list(
+		list(
+			"name" = "Underwear",
+			"icon" = "socks",
+			"products" = underwears
+		),
+	)
+
+	return ..()

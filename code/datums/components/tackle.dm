@@ -43,7 +43,7 @@
 	src.min_distance = min_distance
 
 	var/mob/P = parent
-	to_chat(P, span_notice("You are now able to launch tackles! You can do so by activating throw mode, and clicking on your target with an empty hand."))
+	to_chat(P, span_notice("You are now able to launch tackles! You can do so by activating throw mode, and ") + span_boldnotice("RIGHT-CLICKING on your target with an empty hand."))
 
 	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE)
 
@@ -72,6 +72,9 @@
 	SIGNAL_HANDLER
 
 	if(modifiers[ALT_CLICK] || modifiers[SHIFT_CLICK] || modifiers[CTRL_CLICK] || modifiers[MIDDLE_CLICK])
+		return
+
+	if(!modifiers[RIGHT_CLICK])
 		return
 
 	if(!user.throw_mode || user.get_active_held_item() || user.pulling || user.buckled || user.incapacitated())
@@ -394,6 +397,10 @@
 
 		if(isnull(tackle_target.wear_suit) && isnull(tackle_target.w_uniform)) // who honestly puts all of their effort into tackling a naked guy?
 			defense_mod += 2
+			// SPLURT EDIT - Extra inventory
+			if(isnull(tackle_target.w_underwear) && isnull(tackle_target.w_socks) && isnull(tackle_target.w_shirt))
+				defense_mod += 1
+			//
 		if(tackle_target.mob_negates_gravity())
 			defense_mod += 1
 		if(HAS_TRAIT(tackle_target, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED)) // riot armor and such

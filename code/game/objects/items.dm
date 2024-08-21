@@ -79,6 +79,8 @@
 	var/pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound
+	///Do the drop and pickup sounds vary?
+	var/sound_vary = FALSE
 	///Whether or not we use stealthy audio levels for this item's attack sounds
 	var/stealthy_audio = FALSE
 	///Sound which is produced when blocking an attack
@@ -701,7 +703,7 @@
 	item_flags &= ~IN_INVENTORY
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	if(!silent)
-		playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+		playsound(src, drop_sound, DROP_SOUND_VOLUME, vary = sound_vary, ignore_walls = FALSE)
 	user?.update_equipment_speed_mods()
 
 /// called just as an item is picked up (loc is not yet changed)
@@ -1308,7 +1310,7 @@
 	if((item_flags & ABSTRACT) || HAS_TRAIT(src, TRAIT_NODROP))
 		return
 	user.dropItemToGround(src, silent = TRUE)
-	if(throwforce && HAS_TRAIT(user, TRAIT_PACIFISM))
+	if(throwforce && (HAS_TRAIT(user, TRAIT_PACIFISM)) || HAS_TRAIT(user, TRAIT_NO_THROWING))
 		to_chat(user, span_notice("You set [src] down gently on the ground."))
 		return
 	return src
@@ -1565,8 +1567,8 @@
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
 	var/direction = get_dir(source, target)
-	var/to_x = target.base_pixel_x
-	var/to_y = target.base_pixel_y
+	var/to_x = target.base_pixel_x + target.base_pixel_w
+	var/to_y = target.base_pixel_y + target.base_pixel_z
 
 	if(direction & NORTH)
 		to_y += 32
@@ -1698,7 +1700,7 @@
 			return (zone == BODY_ZONE_PRECISE_GROIN)
 		if(ITEM_SLOT_GLOVES)
 			return (zone == BODY_ZONE_R_ARM || zone == BODY_ZONE_L_ARM)
-		if(ITEM_SLOT_HEAD, ITEM_SLOT_EARS, ITEM_SLOT_NECK)
+		if(ITEM_SLOT_HEAD, ITEM_SLOT_EARS_LEFT, ITEM_SLOT_EARS_RIGHT, ITEM_SLOT_EARS, ITEM_SLOT_NECK) // SPLURT EDIT - Extra Inventory
 			return (zone == BODY_ZONE_HEAD)
 		if(ITEM_SLOT_MASK)
 			return (zone == BODY_ZONE_PRECISE_MOUTH)
@@ -1826,6 +1828,20 @@
 	if(!isnull(loc))
 		SEND_SIGNAL(loc, COMSIG_ATOM_CONTENTS_WEIGHT_CLASS_CHANGED, src, old_w_class, new_w_class)
 	return TRUE
+
+/**
+ * Used to determine if an item should be considered contraband by N-spect scanners or scanner gates.
+ * Returns true when an item has the contraband trait, or is included in the traitor uplink.
+ */
+/obj/item/proc/is_contraband()
+	if(HAS_TRAIT(src, TRAIT_CONTRABAND))
+		return TRUE
+	for(var/datum/uplink_item/traitor_item as anything in SStraitor.uplink_items)
+		if(istype(src, traitor_item.item))
+			if(!(traitor_item.uplink_item_flags & SYNDIE_TRIPS_CONTRABAND))
+				return FALSE
+			return TRUE
+	return FALSE
 
 /// Fetches embedding data
 /obj/item/proc/get_embed()
