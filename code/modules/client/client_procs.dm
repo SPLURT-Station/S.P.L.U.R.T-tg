@@ -264,7 +264,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	initialize_commandbar_spy()
 
-	set_right_click_menu_mode(TRUE)
+	set_right_click_menu_mode()
 
 	GLOB.ahelp_tickets.ClientLogin(src)
 	GLOB.interviews.client_login(src)
@@ -1153,15 +1153,15 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		holder.particle_test = new /datum/particle_editor(in_atom)
 		holder.particle_test.ui_interact(mob)
 
-/client/proc/set_right_click_menu_mode(shift_only)
-	if(shift_only)
+/client/proc/set_right_click_menu_mode()
+	if(!classic_rclick)
 		winset(src, "mapwindow.map", "right-click=true")
 		winset(src, "ShiftUp", "is-disabled=false")
 		winset(src, "Shift", "is-disabled=false")
 	else
 		winset(src, "mapwindow.map", "right-click=false")
-		winset(src, "default.Shift", "is-disabled=true")
-		winset(src, "default.ShiftUp", "is-disabled=true")
+		winset(src, "ShiftToUseMode.Shift", "is-disabled=true")
+		winset(src, "ShiftToUseMode.ShiftUp", "is-disabled=true")
 
 /client/proc/update_ambience_pref(value)
 	if(value)
