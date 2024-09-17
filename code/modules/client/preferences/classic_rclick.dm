@@ -10,7 +10,7 @@
 	else
 		winset(src, "mapwindow.map", "macro=default")
 	client.set_macros()
-	client.set_right_click_menu_mode(!value)
+	client.set_right_click_menu_mode()
 
 /datum/preference/toggle/classic_rclick/apply_to_client(client/client, value)
 	setup_keybinds(client, value)
