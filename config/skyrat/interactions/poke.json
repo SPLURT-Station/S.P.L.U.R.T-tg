@@ -1,0 +1,22 @@
+{
+    "name": "Poke",
+    "description" : "Poke a friend!",
+    "usage": "other",
+    "category": "Miscellaneous",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% pokes %TARGET%!"
+    ],
+    "user_messages": [
+        "<span class='purple'>You lightly tap %TARGET% on the shoulder.</span>",
+        "<span class='purple'>You gently prod %TARGET% with your finger.</span>",
+        "<span class='purple'>You softly nudge %TARGET% with your finger.</span>",
+        "<span class='purple'>You poke at %TARGET% with your finger.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% taps you on the shoulder!</span>",
+		"<span class='purple'>%USER% prods you lightly, trying to get your attention.</span>",
+		"<span class='purple'>%USER% nudges you gently with their finger.</span>",
+        "<span class='purple'>You feel %USER%'s finger poke you in the side.</span>"
+    ]
+}
