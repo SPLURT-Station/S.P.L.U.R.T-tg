@@ -266,6 +266,9 @@
 	/// Does this client have typing indicators enabled?
 	var/typing_indicators = FALSE
 
+	// Are they using the classic right click control scheme?
+	var/classic_rclick = FALSE
+
 	/// Loot panel for the client
 	var/datum/lootpanel/loot_panel
 
