@@ -28,7 +28,7 @@
 	RegisterSignal(user, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(armor_reaction))
 
 /obj/item/clothing/suit/jacket/det_suit/noir/heister/proc/armor_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
-	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, *damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
 		return SUCCESSFUL_BLOCK
 	return NONE
 

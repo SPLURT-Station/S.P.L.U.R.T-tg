@@ -177,7 +177,8 @@
 /mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	if(!isitem(AM))
 		// Filled with made up numbers for non-items.
-		if(check_block(AM, 30, "\the [AM.name]", THROWN_PROJECTILE_ATTACK, 0, BRUTE))
+		var/dummy_var = 30
+		if(check_block(AM, &dummy_var, "\the [AM.name]", THROWN_PROJECTILE_ATTACK, 0, BRUTE))
 			hitpush = FALSE
 			skipcatch = TRUE
 			blocked = TRUE
@@ -193,7 +194,8 @@
 	if(thrown_item.thrownby == WEAKREF(src)) //No throwing stuff at yourself to trigger hit reactions
 		return ..()
 
-	if(check_block(AM, thrown_item.throwforce, "\the [thrown_item.name]", THROWN_PROJECTILE_ATTACK, 0, thrown_item.damtype))
+	var/damage = thrown_item.throwforce
+	if(check_block(AM, &damage, "\the [thrown_item.name]", THROWN_PROJECTILE_ATTACK, 0, thrown_item.damtype))
 		hitpush = FALSE
 		skipcatch = TRUE
 		blocked = TRUE
@@ -216,10 +218,10 @@
 		return ..()
 	visible_message(span_danger("[src] is hit by [thrown_item]!"), \
 					span_userdanger("You're hit by [thrown_item]!"))
-	if(!thrown_item.throwforce)
+	if(!damage)
 		return
 	var/armor = run_armor_check(zone, MELEE, "Your armor has protected your [parse_zone_with_bodypart(zone)].", "Your armor has softened hit to your [parse_zone_with_bodypart(zone)].", thrown_item.armour_penetration, "", FALSE, thrown_item.weak_against_armour)
-	apply_damage(thrown_item.throwforce, thrown_item.damtype, zone, armor, sharpness = thrown_item.get_sharpness(), wound_bonus = (nosell_hit * CANT_WOUND))
+	apply_damage(damage, thrown_item.damtype, zone, armor, sharpness = thrown_item.get_sharpness(), wound_bonus = (nosell_hit * CANT_WOUND))
 	if(QDELETED(src)) //Damage can delete the mob.
 		return
 	if(body_position == LYING_DOWN) // physics says it's significantly harder to push someone by constantly chucking random furniture at them if they are down on the floor.
@@ -259,7 +261,8 @@
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_LIVING_GRAB, target) & (COMPONENT_CANCEL_ATTACK_CHAIN|COMPONENT_SKIP_ATTACK))
 		return FALSE
-	if(target.check_block(src, 0, "[src]'s grab"))
+	var/dummy_var = 0
+	if(target.check_block(src, &dummy_var, "[src]'s grab"))
 		return FALSE
 	target.grabbedby(src)
 	return TRUE
@@ -365,7 +368,7 @@
 		return FALSE
 
 	var/damage = rand(user.melee_damage_lower, user.melee_damage_upper)
-	if(check_block(user, damage, "[user]'s [user.attack_verb_simple]", MELEE_ATTACK/*or UNARMED_ATTACK?*/, user.armour_penetration, user.melee_damage_type))
+	if(check_block(user, &damage, "[user]'s [user.attack_verb_simple]", MELEE_ATTACK/*or UNARMED_ATTACK?*/, user.armour_penetration, user.melee_damage_type))
 		return FALSE
 
 	if(user.attack_sound)
@@ -455,7 +458,8 @@
 			to_chat(L, span_warning("You don't want to hurt anyone!"))
 			return FALSE
 
-		if(check_block(L, 1, "[L]'s bite", UNARMED_ATTACK, 0, BRUTE))
+		var/dummy_var = 1
+		if(check_block(L, &dummy_var, "[L]'s bite", UNARMED_ATTACK, 0, BRUTE))
 			return FALSE
 
 		L.do_attack_animation(src)
@@ -479,8 +483,9 @@
 
 /mob/living/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	SEND_SIGNAL(src, COMSIG_MOB_ATTACK_ALIEN, user, modifiers)
+	var/dummy_var = 0
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		if(check_block(user, 0, "[user]'s tackle", MELEE_ATTACK, 0, BRUTE))
+		if(check_block(user, &dummy_var, "[user]'s tackle", MELEE_ATTACK, 0, BRUTE))
 			return FALSE
 		user.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		return TRUE
@@ -489,7 +494,9 @@
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
 			to_chat(user, span_warning("You don't want to hurt anyone!"))
 			return FALSE
-		if(check_block(user, user.melee_damage_upper, "[user]'s slash", MELEE_ATTACK, 0, BRUTE))
+
+		dummy_var = user.melee_damage_upper
+		if(check_block(user, &dummy_var, "[user]'s slash", MELEE_ATTACK, 0, BRUTE))
 			return FALSE
 		user.do_attack_animation(src)
 		return TRUE
@@ -771,8 +778,8 @@
 		span_userdanger("You're shoved by [shover][weapon ? " with [weapon]" : ""]!"), span_hear("You hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE, shover)
 	to_chat(shover, span_danger("You shove [name][weapon ? " with [weapon]" : ""]!"))
 
-/mob/living/proc/check_block(atom/hit_by, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0, damage_type = BRUTE)
-	if(SEND_SIGNAL(src, COMSIG_LIVING_CHECK_BLOCK, hit_by, damage, attack_text, attack_type, armour_penetration, damage_type) & SUCCESSFUL_BLOCK)
+/mob/living/proc/check_block(atom/hit_by, damage_ptr, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0, damage_type = BRUTE)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_CHECK_BLOCK, hit_by, damage_ptr, attack_text, attack_type, armour_penetration, damage_type) & SUCCESSFUL_BLOCK)
 		return TRUE
 
 	return FALSE

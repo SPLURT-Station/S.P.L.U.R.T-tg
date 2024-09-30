@@ -53,10 +53,10 @@
 )
 	SIGNAL_HANDLER
 
-	if(damage <= 0 ||damage_type == STAMINA)
+	if(*damage <= 0 || damage_type == STAMINA)
 		return NONE
 
-	if(damage >= damage_threshold || number_of_hits <= 0)
+	if(*damage >= damage_threshold || number_of_hits <= 0)
 		return NONE
 
 	playsound(get_turf(parent), 'sound/weapons/tap.ogg', 20)

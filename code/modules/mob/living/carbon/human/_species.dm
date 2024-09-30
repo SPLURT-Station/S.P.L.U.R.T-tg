@@ -1253,7 +1253,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return
 	if(owner.mind)
 		attacker_style = owner.mind.martial_art
-	if((owner != target) && target.check_block(owner, 0, owner.name, attack_type = UNARMED_ATTACK))
+	var/dummy_var = 0
+	if((owner != target) && target.check_block(owner, &dummy_var, owner.name, attack_type = UNARMED_ATTACK))
 		log_combat(owner, target, "attempted to touch")
 		target.visible_message(span_warning("[owner] attempts to touch [target]!"), \
 						span_danger("[owner] attempts to touch you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, owner)

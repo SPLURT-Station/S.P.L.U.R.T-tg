@@ -160,7 +160,8 @@
 		bonus_damage += 5
 		picked_hit_type = "stomp"
 
-	if(defender.check_block(attacker, 10 + bonus_damage, "[attacker]'s [picked_hit_type]", UNARMED_ATTACK))
+	var/dummy_var = 10 + bonus_damage
+	if(defender.check_block(attacker, &dummy_var, "[attacker]'s [picked_hit_type]", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 	if(check_streak(attacker, defender))
 		return MARTIAL_ATTACK_SUCCESS
@@ -186,7 +187,8 @@
 	return MARTIAL_ATTACK_SUCCESS
 
 /datum/martial_art/krav_maga/disarm_act(mob/living/attacker, mob/living/defender)
-	if(defender.check_block(attacker, 0, attacker.name, UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, attacker.name, UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 	if(check_streak(attacker, defender))
 		return MARTIAL_ATTACK_SUCCESS

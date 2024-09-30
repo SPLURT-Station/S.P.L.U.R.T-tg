@@ -72,7 +72,8 @@
 			var/blocked = FALSE
 			if(ishuman(hit_atom))
 				var/mob/living/carbon/human/H = hit_atom
-				if(H.check_block(src, 0, "the [name]", attack_type = LEAP_ATTACK))
+				var/dummy_var = 0
+				if(H.check_block(src, &dummy_var, "the [name]", attack_type = LEAP_ATTACK))
 					blocked = TRUE
 			if(!blocked)
 				L.visible_message(span_danger("[src] pounces on [L]!"), span_userdanger("[src] pounces on you!"))

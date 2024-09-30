@@ -64,7 +64,7 @@
 )
 	SIGNAL_HANDLER
 
-	if(hit_reaction(owner, hitby, attack_text, 0, damage, attack_type) && (owner.belt == src))
+	if(hit_reaction(owner, hitby, attack_text, 0, *damage, attack_type) && (owner.belt == src))
 		return SUCCESSFUL_BLOCK
 	return NONE
 

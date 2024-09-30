@@ -3,6 +3,8 @@
 	var/hide_underwear_examine = FALSE
 	/// Underwear and extra slots
 	var/extra_slot_flags = NONE
+	/// The block/parry data for this item. Can be either a typepath or (in case of adminbus) an instance.
+	var/datum/active_defense_data/active_defense_data = null
 
 /obj/item/update_slot_icon()
 	. = ..()
@@ -23,4 +25,3 @@
 		owner.update_worn_ears_extra()
 	if((flags & ITEM_SLOT_WRISTS) && (flags & ITEM_SLOT_EXTRA))
 		owner.update_worn_wrists()
-	//

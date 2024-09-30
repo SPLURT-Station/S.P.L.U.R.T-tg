@@ -161,7 +161,8 @@
 	tackling = FALSE
 	tackle.gentle = TRUE
 
-	if(target.check_block(user, 0, user.name, attack_type = LEAP_ATTACK))
+	var/dummy_var = 0
+	if(target.check_block(user, &dummy_var, user.name, attack_type = LEAP_ATTACK))
 		user.visible_message(span_danger("[user]'s tackle is blocked by [target], softening the effect!"), span_userdanger("Your tackle is blocked by [target], softening the effect!"), ignored_mobs = target)
 		to_chat(target, span_userdanger("[target] blocks [user]'s tackle attempt, softening the effect!"))
 		neutral_outcome(user, target, tackle_word) //Forces a neutral outcome so you're not screwed too much from being blocked while tackling

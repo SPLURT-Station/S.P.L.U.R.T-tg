@@ -41,7 +41,8 @@ If you make a derivative work from this code, you must include this notification
 	return ..()
 
 /datum/martial_art/wrestling/proc/check_streak(mob/living/attacker, mob/living/defender)
-	if(defender.check_block(attacker, 10, "[attacker]'s [streak]", UNARMED_ATTACK))
+	var/dummy_var = 10
+	if(defender.check_block(attacker, &dummy_var, "[attacker]'s [streak]", UNARMED_ATTACK))
 		return FALSE
 
 	switch(streak)
@@ -471,7 +472,8 @@ If you make a derivative work from this code, you must include this notification
 /datum/martial_art/wrestling/grab_act(mob/living/attacker, mob/living/defender)
 	if(check_streak(attacker, defender))
 		return MARTIAL_ATTACK_SUCCESS
-	if(defender.check_block(attacker, 0, "[attacker]'s grab", UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, "[attacker]'s grab", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 	if(attacker.pulling == defender)
 		return MARTIAL_ATTACK_FAIL
