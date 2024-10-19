@@ -1,0 +1,13 @@
+{
+    "name": "Wave",
+    "description" : "Wave at them!",
+    "usage": "other",
+    "category": "Miscellaneous",
+    "distance_allowed": 1,
+    "message": [
+        "%USER% waves at %TARGET%!"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% waves at you!</span>"
+    ]
+}

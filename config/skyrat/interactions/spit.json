@@ -1,0 +1,22 @@
+{
+    "name": "Spit in their mouth",
+    "description" : "Force their mouth open and spit into it.",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% forces %TARGET%'s mouth open, spitting into it!",
+        "%USER% spits into %TARGET%'s open mouth."
+    ],
+    "user_messages": [
+        "<span class='purple'>You spit into %TARGET%'s open mouth.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>Your mouth is filled with %USER%'s saliva as they spit into your open mouth.</span>",
+        "<span class='purple'>You taste drool as %USER% spits into your mouth.</span>"
+    ],
+    "user_arousal": 3,
+    "target_arousal": 3,
+    "lewd": 1,
+    "color": "pink"
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Applaud",
+    "description" : "Clap for someone!",
+    "usage": "other",
+    "category": "Miscellaneous",
+    "distance_allowed": 1,
+    "message": [
+		"%USER% claps for %TARGET%!",
+		"%USER% applauds %TARGET%!"
+    ],
+    "target_messages": [
+        "<span class='purple'>%USER% claps for you!</span>",
+		"<span class='purple'>%USER% applauds you!</span>"
+    ]
+}
