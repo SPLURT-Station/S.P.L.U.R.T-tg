@@ -10,8 +10,8 @@
 		var/disarm_damage = rand(user.melee_damage_lower * 1.5, user.melee_damage_upper * 1.5)
 
 		if(mob_held_item)
-
-			if(check_block(user, damage = 0, attack_text = "[user.name]"))
+			var/dummy_var = 0
+			if(check_block(user, &dummy_var, attack_text = "[user.name]"))
 				playsound(loc, 'sound/weapons/parry.ogg', 25, TRUE, -1) //Audio feedback to the fact you just got blocked
 				apply_damage(disarm_damage / 2, STAMINA)
 				visible_message(span_danger("[user] attempts to touch [src]!"), \

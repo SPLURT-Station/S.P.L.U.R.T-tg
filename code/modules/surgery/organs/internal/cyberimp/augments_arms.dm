@@ -463,14 +463,6 @@
 			source.Paralyze(1 SECONDS)
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/human_target = target
-		if(human_target.check_block(source, punch_damage, "[source]'s' [picked_hit_type]"))
-			source.do_attack_animation(target)
-			playsound(living_target.loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-			log_combat(source, target, "attempted to [picked_hit_type]", "muscle implant")
-			return COMPONENT_CANCEL_ATTACK_CHAIN
-
 	var/potential_damage = punch_damage
 	var/obj/item/bodypart/attacking_bodypart = hand
 	potential_damage += rand(attacking_bodypart.unarmed_damage_low, attacking_bodypart.unarmed_damage_high)
@@ -478,6 +470,15 @@
 	var/is_correct_biotype = living_target.mob_biotypes & biotype_bonus_targets
 	if(biotype_bonus_targets && is_correct_biotype) //If we are punching one of our special biotype targets, increase the damage floor by a factor of two.
 		potential_damage += biotype_bonus_damage
+
+	if(ishuman(target))
+		var/mob/living/carbon/human/human_target = target
+		if(human_target.check_block(source, &potential_damage, "[source]'s' [picked_hit_type]"))
+			source.do_attack_animation(target)
+			playsound(living_target.loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
+			log_combat(source, target, "attempted to [picked_hit_type]", "muscle implant")
+			return COMPONENT_CANCEL_ATTACK_CHAIN
+
 
 	source.do_attack_animation(target, ATTACK_EFFECT_SMASH)
 	playsound(living_target.loc, 'sound/weapons/punch1.ogg', 25, TRUE, -1)

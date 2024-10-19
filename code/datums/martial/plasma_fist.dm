@@ -139,14 +139,16 @@
 	dying.death()
 
 /datum/martial_art/plasma_fist/harm_act(mob/living/attacker, mob/living/defender)
-	if(defender.check_block(attacker, 10, attacker.name, UNARMED_ATTACK))
+	var/dummy_var = 10
+	if(defender.check_block(attacker, &dummy_var, attacker.name, UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("H", defender)
 	return check_streak(attacker, defender) ? MARTIAL_ATTACK_SUCCESS : MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/plasma_fist/disarm_act(mob/living/attacker, mob/living/defender)
-	if(defender.check_block(attacker, 0, attacker.name, UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, attacker.name, UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 	add_to_streak("D", defender)
 	if(check_streak(attacker, defender))
@@ -157,7 +159,8 @@
 	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/plasma_fist/grab_act(mob/living/attacker, mob/living/defender)
-	if(defender.check_block(attacker, 0, "[attacker]'s grab", UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, "[attacker]'s grab", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("G", defender)

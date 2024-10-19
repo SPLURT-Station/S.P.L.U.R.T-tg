@@ -18,14 +18,15 @@
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
 			to_chat(user, span_warning("You don't want to hurt [src]!"))
 			return
-		if(check_block(user, harm_intent_damage, "[user]'s punch", UNARMED_ATTACK, 0, BRUTE))
+		var/damage = harm_intent_damage
+		if(check_block(user, &damage, "[user]'s punch", UNARMED_ATTACK, 0, BRUTE))
 			return
 		user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
 		visible_message(span_danger("[user] [response_harm_continuous] [src]!"),\
 						span_userdanger("[user] [response_harm_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_danger("You [response_harm_simple] [src]!"))
 		playsound(loc, attacked_sound, 25, TRUE, -1)
-		apply_damage(harm_intent_damage)
+		apply_damage(damage)
 		log_combat(user, src, "attacked")
 		return TRUE
 

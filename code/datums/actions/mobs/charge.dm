@@ -216,7 +216,8 @@
 	var/mob/living/living_target = target
 	if(ishuman(living_target))
 		var/mob/living/carbon/human/human_target = living_target
-		if(human_target.check_block(source, 0, "the [source.name]", attack_type = LEAP_ATTACK) && living_source)
+		var/recoil_duration = src.recoil_duration
+		if(human_target.check_block(source, &recoil_duration, "the [source.name]", attack_type = LEAP_ATTACK) && living_source)
 			living_source.Stun(recoil_duration, ignore_canstun = TRUE)
 			return
 

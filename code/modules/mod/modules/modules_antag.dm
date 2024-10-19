@@ -146,7 +146,7 @@
 )
 	SIGNAL_HANDLER
 
-	if(mod.hit_reaction(owner, hitby, attack_text, 0, damage, attack_type))
+	if(mod.hit_reaction(owner, hitby, attack_text, 0, *damage, attack_type))
 		drain_power(use_energy_cost)
 		return SUCCESSFUL_BLOCK
 	return NONE
