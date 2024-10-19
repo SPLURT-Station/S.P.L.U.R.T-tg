@@ -30,9 +30,15 @@
 	if(message)
 		user.visible_message(span_lewd("[user] [message]."))
 		M.handle_post_sex(lust_amt, null, user, organ) //SPLURT edit
+<<<<<<< Updated upstream
 		playsound(loc, pick('modular_sand/sound/interactions/bang4.ogg',
 							'modular_sand/sound/interactions/bang5.ogg',
 							'modular_sand/sound/interactions/bang6.ogg'), 70, 1, -1)
+=======
+		playsound(loc, pick('modular_zzplurt/sound/interactions/bang4.ogg',
+							'modular_zzplurt/sound/interactions/bang5.ogg',
+							'modular_zzplurt/sound/interactions/bang6.ogg'), 70, 1, -1)
+>>>>>>> Stashed changes
 	else if(user.a_intent == INTENT_HARM)
 		return ..()
 

@@ -287,3 +287,6 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		return "([AREACOORD(T)])"
 	else if(A.loc)
 		return "(UNKNOWN (?, ?, ?))"
+
+/proc/log_subsystem(subsystem, text)
+	WRITE_LOG(GLOB.subsystem_log, "[subsystem]: [text]")

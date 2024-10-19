@@ -153,6 +153,7 @@
 			soundfile_to_play = interaction_sound
 		playsound(get_turf(user), soundfile_to_play, 50, 1, -1)
 	return
+<<<<<<< Updated upstream
 
 //Interact Defines -Evan
 /// Exposed states, your friendly non-carbon returns
@@ -214,3 +215,5 @@
 	"icon" = "flask", \
 	"color" = "transparent" \
 	)
+=======
+>>>>>>> Stashed changes
