@@ -133,6 +133,11 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HIDEWRISTS		(1<<20)
 // SPLURT EDIT END
 
+//zzplurt interact port
+//hides accessories. Probably not necessary but i'm too lazy to remove references to this -Evan
+#define HIDEACCESSORY	(1<<21)
+// */zzplurt interact port
+
 //bitflags for clothing coverage - also used for limbs
 #define HEAD (1<<0)
 #define CHEST (1<<1)

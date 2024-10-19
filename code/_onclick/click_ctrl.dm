@@ -75,6 +75,10 @@
  * Unused except for AI
  */
 /mob/proc/CtrlShiftClickOn(atom/A)
+	. = SEND_SIGNAL(src, COMSIG_MOB_CTRLSHIFTCLICKON, A)
+	if(. & COMSIG_MOB_CANCEL_CLICKON)
+		return
+	A.CtrlShiftClick(src)
 	base_click_ctrl_shift(A)
 
 /**
