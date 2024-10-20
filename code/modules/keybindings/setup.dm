@@ -12,7 +12,12 @@
 // removes all the existing macros
 /client/proc/erase_all_macros()
 	var/erase_output = ""
-	var/list/macro_set = params2list(winget(src, "default.*", "command")) // The third arg doesnt matter here as we're just removing them all
+	var/win_macro_mode = ""
+	if(classic_rclick)
+		win_macro_mode = "default"
+	else
+		win_macro_mode = "ShiftToUseMode"
+	var/list/macro_set = params2list(winget(src, win_macro_mode+".*", "command")) // The third arg doesnt matter here as we're just removing them all
 	for(var/k in 1 to length(macro_set))
 		var/list/split_name = splittext(macro_set[k], ".")
 		var/macro_name = "[split_name[1]].[split_name[2]]" // [3] is "command"
@@ -31,7 +36,10 @@
 	for(var/k in 1 to length(macro_set))
 		var/key = macro_set[k]
 		var/command = macro_set[key]
-		winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[command]")
+		if(classic_rclick)
+			winset(src, "ShiftToUseMode-[REF(key)]", "parent=ShiftToUseMode;name=[key];command=[command]")
+		else
+			winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[command]")
 
 	//Reactivate any active tgui windows mouse passthroughs macros
 	for(var/datum/tgui_window/window in tgui_windows)
