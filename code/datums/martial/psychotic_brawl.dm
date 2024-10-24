@@ -25,7 +25,8 @@
 			attacker.Stun(2 SECONDS)
 			atk_verb = "cried looking at"
 		if(3)
-			if(defender.check_block(attacker, 0, "[attacker]'s grab", UNARMED_ATTACK))
+			var/dummy_var = 0
+			if(defender.check_block(attacker, &dummy_var, "[attacker]'s grab", UNARMED_ATTACK))
 				return MARTIAL_ATTACK_FAIL
 			if(attacker.body_position == LYING_DOWN)
 				return MARTIAL_ATTACK_INVALID
@@ -54,7 +55,7 @@
 		if(4)
 			atk_verb = "headbutt"
 			var/defender_damage = rand(5, 10)
-			if(defender.check_block(attacker, defender_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
+			if(defender.check_block(attacker, &defender_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
 				return MARTIAL_ATTACK_FAIL
 
 			attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)
@@ -80,7 +81,8 @@
 				attacker.add_mood_event("bypassed_pacifism", /datum/mood_event/pacifism_bypassed)
 		if(5,6)
 			atk_verb = pick("kick", "hit", "slam")
-			if(defender.check_block(attacker, 0, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
+			var/dummy_var = 0
+			if(defender.check_block(attacker, &dummy_var, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
 				return MARTIAL_ATTACK_FAIL
 
 			attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)

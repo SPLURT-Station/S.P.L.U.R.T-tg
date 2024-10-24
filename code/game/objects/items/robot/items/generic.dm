@@ -29,7 +29,8 @@
 		return
 	if(ishuman(attacked_mob))
 		var/mob/living/carbon/human/human = attacked_mob
-		if(human.check_block(src, 0, "[attacked_mob]'s [name]", MELEE_ATTACK))
+		var/dummy_var = 0
+		if(human.check_block(src, &dummy_var, "[attacked_mob]'s [name]", MELEE_ATTACK))
 			playsound(attacked_mob, 'sound/weapons/genhit.ogg', 50, TRUE)
 			return FALSE
 	if(iscyborg(user))
