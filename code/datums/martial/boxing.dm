@@ -130,7 +130,7 @@
 		log_combat(attacker, defender, "attempted to hit", current_atk_verb)
 		return FALSE
 
-	if(defender.check_block(attacker, damage, "[attacker]'s [current_atk_verb]", UNARMED_ATTACK))
+	if(defender.check_block(attacker, &damage, "[attacker]'s [current_atk_verb]", UNARMED_ATTACK))
 		return FALSE
 
 	var/obj/item/bodypart/affecting = defender.get_bodypart(defender.get_random_valid_zone(attacker.zone_selected))
@@ -254,9 +254,9 @@
 	if(!honor_check(attacker))
 		return NONE
 
-	var/experience_earned = round(damage * 0.25, 0.1)
+	var/experience_earned = round(*damage * 0.25, 0.1)
 
-	if(!damage)
+	if(!*damage)
 		experience_earned = 2
 
 	// WE reward experience for getting punched while boxing

@@ -15,7 +15,7 @@
 
 	var/final_damage = rand(15, 30)
 	var/atk_verb = pick("punch", "smash", "crack")
-	if(defender.check_block(attacker, final_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
+	if(defender.check_block(attacker, &final_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
 		return
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)

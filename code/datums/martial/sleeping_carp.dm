@@ -97,7 +97,8 @@
 	if(!can_deflect(attacker)) //allows for deniability
 		return MARTIAL_ATTACK_INVALID
 
-	if(defender.check_block(attacker, 0, "[attacker]'s grab", UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, "[attacker]'s grab", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("G", defender)
@@ -143,7 +144,7 @@
 
 	var/atk_verb = pick("kick", "chop", "hit", "slam")
 	var/final_damage = rand(10, 15)
-	if(defender.check_block(attacker, final_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
+	if(defender.check_block(attacker, &final_damage, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("H", defender)
@@ -168,7 +169,8 @@
 /datum/martial_art/the_sleeping_carp/disarm_act(mob/living/attacker, mob/living/defender)
 	if(!can_deflect(attacker)) //allows for deniability
 		return MARTIAL_ATTACK_INVALID
-	if(defender.check_block(attacker, 0, attacker.name, UNARMED_ATTACK))
+	var/dummy_var = 0
+	if(defender.check_block(attacker, &dummy_var, attacker.name, UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("D", defender)

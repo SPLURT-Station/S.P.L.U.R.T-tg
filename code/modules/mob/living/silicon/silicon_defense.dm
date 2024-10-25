@@ -85,11 +85,11 @@
 		SEND_SIGNAL(user, COMSIG_MOB_PAT_BORG)
 		return TRUE
 
-/mob/living/silicon/check_block(atom/hitby, damage, attack_text, attack_type, armour_penetration, damage_type, attack_flag)
+/mob/living/silicon/check_block(atom/hitby, damage_ptr, attack_text, attack_type, armour_penetration, damage_type, attack_flag)
 	. = ..()
 	if(.)
 		return TRUE
-	if(damage_type == BRUTE && attack_type == UNARMED_ATTACK && attack_flag == MELEE && damage <= 10)
+	if(damage_type == BRUTE && attack_type == UNARMED_ATTACK && attack_flag == MELEE && *damage_ptr <= 10)
 		playsound(src, 'sound/effects/bang.ogg', 10, TRUE)
 		visible_message(span_danger("[attack_text] doesn't leave a dent on [src]!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		return TRUE
