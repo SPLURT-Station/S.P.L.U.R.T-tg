@@ -1,0 +1,23 @@
+{
+    "name": "Bite",
+    "description" : "Chomp!",
+    "usage": "other",
+    "category": "Romance",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% bites %TARGET%!",
+		"%USER% chomps %TARGET%!",
+		"%USER% nibbles %TARGET%!"
+    ],
+    "user_messages": [
+		"<span class='purple'>You bite %TARGET%!</span>",
+        "<span class='purple'>You chomp %TARGET%!</span>",
+        "<span class='purple'>You nibble %TARGET%!</span>"
+    ],
+    "target_messages": [
+		"<span class='purple'>%USER% bites you!</span>",
+        "<span class='purple'>%USER% chomps you!</span>",
+        "<span class='purple'>%USER% nibbles you!</span>"
+    ],
+	"color": "green"
+}
