@@ -1,0 +1,29 @@
+{
+    "name": "Choke",
+    "description" : "Restrict a partner's airflow.",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% places their hand around %TARGET%'s neck, choking them!",
+        "%USER% constricts %TARGET%'s' neck, squeezing!",
+        "%USER% begins to choke %TARGET%'s airway!",
+		"%USER% squeezes %TARGET%'s throat!"
+            ],
+    "user_messages": [
+        "<span class='purple'>You place your hand around %TARGET%'s neck, choking them!</span>",
+        "<span class='purple'>Your fingers constrict %TARGET%'s neck.</span>",
+        "<span class='purple'>You place your hand around %TARGET%'s airway, choking them.</span>",
+        "<span class='purple'>You grab %TARGET% by the neck, squeezing their throat!</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>You feel %USER% place their hand on your neck and choke you. It's difficult to breathe!</span>",
+        "<span class='purple'>You choke as %USER% constricts your neck!</span>",
+        "<span class='purple'>You feel a little light-headed as %USER% puts pressure on your airway!</span>",
+        "<span class='purple'>You can feel %USER%'s fingers squeezing your throat!</span>"
+    ],
+
+    "target_pain": 4,
+    "lewd": 1,
+    "color": "red"
+}

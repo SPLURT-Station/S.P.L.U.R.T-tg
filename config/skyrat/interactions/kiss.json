@@ -1,0 +1,24 @@
+{
+    "name": "Kiss",
+    "description" : "Kiss them on the lips.",
+    "usage": "other",
+    "category": "Sex",
+    "distance_allowed": 0,
+    "message": [
+        "%USER% pushes their lips against %TARGET%'s, kissing them passionately.",
+        "%USER% kisses %TARGET% passionately.",
+        "%USER% engages in a passionate kiss with %TARGET%."
+    ],
+    "user_messages": [
+        "<span class='purple'>You feel a warm mouth pushing against your own.</span>",
+        "<span class='purple'>Your lips are met with the warm sensation of %TARGET%'s.</span>"
+    ],
+    "target_messages": [
+        "<span class='purple'>You feel a warm mouth pushing against your own.</span>",
+        "<span class='purple'>Your lips are met with the warm sensation of %USER%'s.</span>"
+    ],
+    "user_arousal": 2,
+    "target_arousal": 2,
+    "lewd": 1,
+    "color": "pink"
+}
