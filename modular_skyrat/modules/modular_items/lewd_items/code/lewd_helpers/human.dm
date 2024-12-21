@@ -19,11 +19,11 @@
 */
 
 /// Are we wearing something that covers our chest?
-/mob/living/carbon/human/proc/is_topless()
+/mob/living/carbon/human/is_topless()
 	return (!(wear_suit) || !(wear_suit.body_parts_covered & CHEST)) && (!(w_uniform) || !(w_uniform.body_parts_covered & CHEST))
 
 /// Are we wearing something that covers our groin?
-/mob/living/carbon/human/proc/is_bottomless()
+/mob/living/carbon/human/is_bottomless()
 	return (!(wear_suit) || !(wear_suit.body_parts_covered & GROIN)) && (!(w_uniform) || !(w_uniform.body_parts_covered & GROIN))
 
 /// Are we wearing something that covers our shoes?
@@ -37,7 +37,7 @@
 	return (head?.body_parts_covered & HEAD)
 
 /// Returns true if the human has an accessible penis for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_penis(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_penis(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!genital)
 		return FALSE
@@ -53,7 +53,7 @@
 			return TRUE
 
 /// Returns true if the human has a accessible balls for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_balls(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_balls(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(!genital)
 		return FALSE
@@ -69,7 +69,7 @@
 			return TRUE
 
 /// Returns true if the human has an accessible vagina for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_vagina(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_vagina(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_VAGINA)
 	if(!genital)
 		return FALSE
@@ -85,7 +85,7 @@
 			return TRUE
 
 /// Returns true if the human has a accessible breasts for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_breasts(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_breasts(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!genital)
 		return FALSE
@@ -101,7 +101,7 @@
 			return TRUE
 
 /// Returns true if the human has an accessible anus for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_anus(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_anus(required_state = REQUIRE_GENITAL_ANY)
 	if(issilicon(src))
 		return TRUE
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_ANUS)
@@ -149,7 +149,7 @@
 			return hand_count
 
 /// Returns true if the human has a accessible feet for the parameter, returning the number of feet the human has if they do. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_feet(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_feet(required_state = REQUIRE_GENITAL_ANY)
 	var/feet_count = 0
 
 	for(var/obj/item/bodypart/leg/left/left_leg in bodyparts)
@@ -174,11 +174,11 @@
 			return feet_count
 
 /// Gets the number of feet the human has.
-/mob/living/carbon/human/proc/get_num_feet()
+/mob/living/carbon/human/get_num_feet()
 	return has_feet(REQUIRE_GENITAL_ANY)
 
 /// Returns true if the human has a accessible ears for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_ears(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_ears(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/genital = get_organ_slot(ORGAN_SLOT_EARS)
 	if(!genital)
 		return FALSE
@@ -194,7 +194,7 @@
 			return TRUE
 
 /// Returns true if the human has accessible eyes for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
-/mob/living/carbon/human/proc/has_eyes(required_state = REQUIRE_GENITAL_ANY)
+/mob/living/carbon/human/has_eyes(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/genital = get_organ_slot(ORGAN_SLOT_EYES)
 	if(!genital)
 		return FALSE

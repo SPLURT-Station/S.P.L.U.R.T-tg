@@ -12,7 +12,7 @@
 	else
 		dispSize = dispSize / 2
 		. += "[t_He] appear\s to be around [dispSize] feet tall."
-	if(user.client?.prefs?.read_preference(/datum/preference/toggle/erp/sounds))
+	if(READ_PREFS(user, /toggle/erp/sounds))
 		. += "[t_He] player has allowed lewd verbs.\n"
 	else
 		. += "[t_He] player has not allowed lewd verbs.\n"

@@ -29,13 +29,6 @@ var/list/interactions
 		dat += "...have a mouth, which is [mouth_is_free() ? "uncovered" : "covered"]."
 	return dat
 
-/mob/living/proc/get_refraction_dif() //Got snapped in upstream, may delete later when I figure something out
-	var/dif = (refractory_period - world.time)
-	if(dif < 0)
-		return 0
-	else
-		return dif
-
 /datum/interaction
 	var/command = "interact"
 	var/description = "Interact with them."
