@@ -7,7 +7,7 @@
 
 /mob/living/carbon/human
 	/// Used to prevent nightmare scenarios.
-	var/refractory_period
+	//var/refractory_period
 
 /mob/living/carbon/human/proc/climax(manual = TRUE)
 	if (CONFIG_GET(flag/disable_erp_preferences))

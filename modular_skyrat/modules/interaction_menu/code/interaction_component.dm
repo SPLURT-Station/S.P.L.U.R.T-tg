@@ -1,4 +1,4 @@
-
+/*
 /datum/component/interactable
 	/// A hard reference to the parent
 	var/mob/living/carbon/human/self = null
@@ -248,3 +248,4 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+*/

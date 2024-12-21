@@ -1,4 +1,4 @@
-
+/*
 GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 /datum/interaction
@@ -263,3 +263,4 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 ADMIN_VERB(reload_interactions, R_DEBUG, "Reload Interactions", "Force reload interactions.", ADMIN_CATEGORY_DEBUG)
 	populate_interaction_instances()
+*/
