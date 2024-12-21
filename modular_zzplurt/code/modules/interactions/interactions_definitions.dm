@@ -23,7 +23,7 @@
 	description = "Give them a high-five."
 	require_user_mouth = 1
 	simple_message = "USER high fives TARGET!"
-	interaction_sound = 'modular_zzbluemoon/sound/interactions/slap.ogg'
+	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	needs_physical_contact = 1
 
 /datum/interaction/headpat

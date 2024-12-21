@@ -51,7 +51,7 @@
 			return genital.visibility_preference != GENITAL_ALWAYS_SHOW && !is_bottomless()
 		else
 			return TRUE
-/*
+
 /// Returns true if the human has a accessible balls for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
 /mob/living/carbon/human/proc/has_balls(required_state = REQUIRE_GENITAL_ANY)
 	var/obj/item/organ/external/genital/genital = get_organ_slot(ORGAN_SLOT_TESTICLES)
@@ -99,7 +99,7 @@
 			return genital.visibility_preference != GENITAL_ALWAYS_SHOW && !is_topless()
 		else
 			return TRUE
-*/
+
 /// Returns true if the human has an accessible anus for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
 /mob/living/carbon/human/proc/has_anus(required_state = REQUIRE_GENITAL_ANY)
 	if(issilicon(src))

@@ -105,7 +105,7 @@
 		load_whitelist()
 
 	// SKYRAT EDIT ADDITION START
-	populate_interaction_instances()
+	//populate_interaction_instances()
 	remove_erp_things()
 	// SKYRAT EDIT ADDITION END
 
