@@ -109,14 +109,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c" || "d" || "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f" || "g" || "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
-				if("i")
+				if(BREAST_SIZE_I)
 					modifier = 4
-				if("j")
+				if(BREAST_SIZE_J)
 					modifier = 5
 				else
 					modifier = 1
@@ -129,14 +129,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c" || "d" || "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f" || "g" || "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
-				if("i")
+				if(BREAST_SIZE_I)
 					modifier = 4
-				if("j")
+				if(BREAST_SIZE_J)
 					modifier = 5
 				else
 					modifier = 1
@@ -150,14 +150,14 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c" || "d" || "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f" || "g" || "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
-				if("i")
+				if(BREAST_SIZE_I)
 					modifier = 4
-				if("j")
+				if(BREAST_SIZE_J)
 					modifier = 5
 				else
 					modifier = 1

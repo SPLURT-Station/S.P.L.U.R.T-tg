@@ -32,7 +32,7 @@
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num ,frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
-		if(!H.client || READ_PREFS(H, /toggle/erp/sounds))
+		if(!H.client || READ_PREFS(H, toggle/erp/sounds))
 			continue
 
 		LAZYADD(hearing_mobs, H)
@@ -728,10 +728,18 @@
 	if(multiorgasms < sexual_potency)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
+			/*
 			if(!partner)
 				H.mob_climax(TRUE, TRUE)
 			else
 				H.mob_climax(TRUE, partner, cumin)
+			*/
+			// SPLURT START
+			if(!partner)
+				H.climax(FALSE)
+			else
+				H.climax(FALSE)
+			// SPLURT END
 	set_lust(0)
 /*
 /mob/living/cum(mob/living/partner, target_orifice)
@@ -1608,7 +1616,7 @@
 		if(M.client)
 			var/client/cli = M.client
 
-			if(!(READ_PREFS(M, /toggle/erp))) //Note: This probably could do with a specific preference
+			if(!READ_PREFS(M, toggle/erp)) //Note: This probably could do with a specific preference
 				nope += M
 			else if(extreme && (READ_PREFS(M, choiced/erp_status_extm) == "No"))
 				nope += M

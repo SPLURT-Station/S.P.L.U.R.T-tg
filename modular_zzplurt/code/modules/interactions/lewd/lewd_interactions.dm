@@ -4,7 +4,7 @@
 	description = "Slap their ass."
 	simple_message = "USER slaps TARGET right on the ass!"
 	simple_style = "danger"
-	interaction_sound = 'sound/weapons/slap.ogg'
+	interaction_sound = 'sound/items/weapons/slap.ogg'
 	needs_physical_contact = TRUE
 	require_ooc_consent = TRUE
 	max_distance = 1
@@ -279,7 +279,7 @@
 					return FALSE
 
 		if(require_ooc_consent)
-			if(READ_PREFS(user, /toggle/erp/sounds))
+			if(READ_PREFS(user, toggle/erp/sounds))
 				return TRUE
 		return FALSE
 	return FALSE
@@ -500,7 +500,7 @@
 			return FALSE
 
 		if(require_ooc_consent)
-			if(READ_PREFS(target, /toggle/erp))
+			if(READ_PREFS(target, toggle/erp))
 				return TRUE
 		return FALSE
 	return FALSE

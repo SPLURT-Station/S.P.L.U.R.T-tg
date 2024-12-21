@@ -44,7 +44,7 @@
 	var/message = ""
 	if(istype(M, /mob/living/carbon/human) && user.zone_selected == BODY_ZONE_PRECISE_GROIN && M.is_bottomless())
 		if(M.client && M.client.prefs)
-			if(READ_PREFS(M, /toggle/erp))
+			if(READ_PREFS(M, toggle/erp))
 				if(hole == CUM_TARGET_VAGINA && M.has_vagina())
 					message = (user == M) ? pick("fucks their own pussy with \the [src]","shoves the [src] into their pussy", "jams the [src] into their pussy") : pick("fucks [M] right in the pussy with \the [src]", "jams \the [src] right into [M]'s pussy")
 				else if(hole == CUM_TARGET_ANUS && M.has_anus())
@@ -120,7 +120,7 @@
 	var/message = ""
 	if(istype(M, /mob/living/carbon/human) && M.is_bottomless())
 		if(M.client && M.client.prefs)
-			if(READ_PREFS(M, /toggle/erp))
+			if(READ_PREFS(M, toggle/erp))
 				if(hole == CUM_TARGET_VAGINA && M.has_vagina())
 					message = (user == M) ? pick("fucks their own pussy with \the [src]","shoves the [src] into their pussy", "jams the [src] into their pussy") : pick("fucks [M] right in the pussy with \the [src]", "jams \the [src] right into [M]'s pussy")
 				else if(hole == CUM_TARGET_ANUS && M.has_anus())
