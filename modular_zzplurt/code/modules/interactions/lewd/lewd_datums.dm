@@ -1,3 +1,16 @@
+/datum/interaction/lewd
+	var/list/blacklisted_mobs = list(/mob/living/basic/pet,
+									/mob/living/basic/cockroach,
+									/mob/living/basic/butterfly,
+									/mob/living/basic/chick,
+									/mob/living/basic/chicken,
+									/mob/living/basic/cow,
+									/mob/living/basic/crab,
+									/mob/living/basic/kiwi,
+									/mob/living/basic/parrot,
+									/mob/living/basic/sloth,
+									/mob/living/basic/goat)
+
 /datum/interaction/lewd/kiss
 	command = "deepkiss"
 	description = "Kiss them deeply."
