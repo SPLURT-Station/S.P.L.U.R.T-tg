@@ -12,11 +12,11 @@
 		message = "[pick("wraps [t_His] hand around [t_His] cock.",
 			"starts to stroke [t_His] cock.",
 			"starts playing with [t_His] cock.")]"
-		user.set_is_fucking(src, CUM_TARGET_HAND, user.getorganslot(ORGAN_SLOT_PENIS) ? user.getorganslot(ORGAN_SLOT_PENIS) : null)
+		user.set_is_fucking(src, CUM_TARGET_HAND, user.get_organ_slot(ORGAN_SLOT_PENIS) ? user.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
-	playlewdinteractionsound(src, pick('sandcode/sound/interactions/bang1.ogg',
-						'sandcode/sound/interactions/bang2.ogg',
-						'sandcode/sound/interactions/bang3.ogg'), 70, 1, -1)
+	playlewdinteractionsound(src, pick('modular_zzplurt/sound/interactions/bang1.ogg',
+						'modular_zzplurt/sound/interactions/bang2.ogg',
+						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
 	visible_message(message = "<font color=purple><b>\The [src]</b> [message]</font>") //can't not consent to yourself, if you did it, you wanted it
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
@@ -27,7 +27,7 @@
 	visible_message(message = "<font color=purple><b>\The [src]</b> [pick("fingers [t_Him]self.",
 		"fingers [t_His] asshole.",
 		"fingers [t_Him]self hard.")]</font>") //can't not consent to yourself, if you did it, you wanted it
-	playlewdinteractionsound(loc, 'sandcode/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
 /mob/living/proc/do_fingering_self(mob/living/user)
@@ -37,14 +37,14 @@
 		"fingers [t_His] pussy.",
 		"plays with [t_His] pussy",
 		"fingers [t_His] own pussy hard.")]</font>") //can't not consent to yourself, if you did it, you wanted it
-	playlewdinteractionsound(loc, 'sandcode/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
 /mob/living/proc/do_titgrope_self(mob/living/user)
 	var/message
 	var/t_His = p_their()
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == INTENT_HARM)
 		message = "[pick("aggressively gropes [t_His] breast.",
 					"grabs [t_His] breasts.",
 					"tightly squeezes [t_His] breasts.",
@@ -65,5 +65,5 @@
 				"shudders softly.",
 				"trembles as [t_His] hands run across bare skin.")]</font>")
 	visible_message(message = "<font color=purple><b>\The [src]</b> [message]</font>") //can't not consent to yourself, if you did it, you wanted it
-	playlewdinteractionsound(loc, 'sandcode/sound/interactions/squelch1.ogg', 50, 1, -1)
+	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
