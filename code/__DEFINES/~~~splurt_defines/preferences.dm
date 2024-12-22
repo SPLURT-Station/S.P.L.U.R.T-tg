@@ -1,1 +1,1 @@
-#define LAZY_READ_PREF(target, pref) (CLIENT_FROM_VAR(target)?.prefs?.read_preference() || "Unset")
+#define LAZY_READ_PREF(target, pref) (!QDELETED(mob) && !isnull(mob.client) && mob.client.prefs.read_preference(pref))

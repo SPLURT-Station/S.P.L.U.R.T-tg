@@ -47,7 +47,7 @@
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num, frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y, list/ignored_mobs)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
-		if(!H.client || (LAZY_READ_PREF(H, /datum/preference/toggle/erp/sounds)))
+		if(!H.client || (LAZY_READ_PREF(H, /datum/preference/toggle/erp/sounds) == TRUE))
 			continue
 		LAZYADD(hearing_mobs, H)
 	if(ignored_mobs?.len)
@@ -419,7 +419,6 @@
 	// If didn't stop before, then we're topless
 	return TRUE
 
-GLOBAL_LIST_INIT(slots, list("head", "wear_mask", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store"))
 ///Are we wearing something that covers our groin?
 /mob/living/proc/is_bottomless()
 	for(var/slot in GLOB.slots)
@@ -884,9 +883,9 @@ GLOBAL_LIST_INIT(slots, list("head", "wear_mask", "back", "wear_suit", "w_unifor
 	for(var/mob/M in range(7, src))
 		if(M.client)
 			var/client/cli = M.client
-			if(!LAZY_READ_PREF(cli, /datum/preference/toggle/erp)) //Note: This probably could do with a specific preference
+			if(LAZY_READ_PREF(cli, /datum/preference/toggle/erp) == FALSE) //Note: This probably could do with a specific preference
 				nope += M
-			else if(extreme && (cli.prefs.extremepref == "No"))
+			else if(extreme && LAZY_READ_PREF(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				nope += M
 		else
 			nope += M
