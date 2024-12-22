@@ -47,7 +47,7 @@
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num, frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y, list/ignored_mobs)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
-		if(!H.client || (H.client.prefs.toggles & LEWD_VERB_SOUNDS))
+		if(!H.client || (LAZY_READ_PREF(H, /datum/preference/toggle/erp/sounds)))
 			continue
 		LAZYADD(hearing_mobs, H)
 	if(ignored_mobs?.len)
@@ -260,9 +260,9 @@
 		var/handcount = 0
 		var/covered = 0
 		var/iscovered = FALSE
-		for(var/obj/item/bodypart/l_arm/L in C.bodyparts)
+		for(var/obj/item/bodypart/arm/left/L in C.bodyparts)
 			handcount++
-		for(var/obj/item/bodypart/r_arm/R in C.bodyparts)
+		for(var/obj/item/bodypart/arm/right/R in C.bodyparts)
 			handcount++
 		if(C.get_item_by_slot(ITEM_SLOT_HANDS))
 			var/obj/item/clothing/gloves/G = C.get_item_by_slot(ITEM_SLOT_HANDS)
@@ -292,9 +292,9 @@
 		var/feetcount = 0
 		var/covered = 0
 		var/iscovered = FALSE
-		for(var/obj/item/bodypart/l_leg/L in C.bodyparts)
+		for(var/obj/item/bodypart/leg/left/L in C.bodyparts)
 			feetcount++
-		for(var/obj/item/bodypart/r_leg/R in C.bodyparts)
+		for(var/obj/item/bodypart/leg/right/R in C.bodyparts)
 			feetcount++
 		if(!C.is_barefoot())
 			covered = TRUE
@@ -419,6 +419,7 @@
 	// If didn't stop before, then we're topless
 	return TRUE
 
+GLOBAL_LIST_INIT(slots, list("head", "wear_mask", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store"))
 ///Are we wearing something that covers our groin?
 /mob/living/proc/is_bottomless()
 	for(var/slot in GLOB.slots)
@@ -821,10 +822,18 @@
 	if(multiorgasms < get_sexual_potency())
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
+			/*
 			if(!partner)
 				H.mob_climax(TRUE, "masturbation", "none")
 			else
 				H.mob_climax(TRUE, "sex", partner, !cumin, target_gen)
+			*/
+			// SPLURT START
+			if(!partner)
+				H.climax(FALSE)
+			else
+				H.climax(FALSE)
+			// SPLURT END
 	set_lust(0)
 
 /mob/living/proc/is_fucking(mob/living/partner, orifice)
@@ -875,7 +884,7 @@
 	for(var/mob/M in range(7, src))
 		if(M.client)
 			var/client/cli = M.client
-			if(!(cli.prefs.toggles & VERB_CONSENT)) //Note: This probably could do with a specific preference
+			if(!LAZY_READ_PREF(cli, /datum/preference/toggle/erp)) //Note: This probably could do with a specific preference
 				nope += M
 			else if(extreme && (cli.prefs.extremepref == "No"))
 				nope += M
