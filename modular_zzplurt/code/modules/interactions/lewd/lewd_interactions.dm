@@ -68,12 +68,13 @@
 	var/user_refractory_cost
 	var/target_refractory_cost
 
-/datum/interaction/lewd/evaluate_user(mob/living/carbon/human/user, silent = TRUE)
-	if(..(user, silent))
+/datum/interaction/lewd/evaluate_user(mob/living/carbon/human/user, silent = TRUE, action_check = TRUE)
+	if(..(user, silent, action_check))
 		if(user_not_tired && user.get_refraction_dif())
 			if(!silent) //bye spam
 				to_chat(user, "<span class='warning'>You're still exhausted from the last time. You need to wait [DisplayTimeText(user.get_refraction_dif(), TRUE)] until you can do that!</span>")
-			return FALSE
+			if(action_check)
+				return FALSE
 
 		if(require_user_bottomless && !user.is_bottomless())
 			if(!silent)
@@ -281,8 +282,10 @@
 		if(require_ooc_consent)
 			if(READ_PREFS(user, toggle/erp/sounds))
 				return TRUE
+		if(action_check)
+			return FALSE
+	if(action_check)
 		return FALSE
-	return FALSE
 
 /datum/interaction/lewd/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
 	if(..(user, target, silent))
@@ -516,26 +519,18 @@
 	user.cleartimer = addtimer(CALLBACK(user, /mob/living/proc/clear_lewd_datum), 300, TIMER_STOPPABLE)
 	return ..()
 
-/datum/interaction/lewd/get_action_link_for(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(user.stat == DEAD)
-		to_chat(user, "<span class='warning'>You cannot do that while deceased!</span>")
-		return
-	if(extreme)
-		return "<font color='#FF0000'><b>EXTREME:</b></font> [..()]"
-	return "<font color='#FF0000'><b>LEWD:</b></font> [..()]"
-
 /mob/living/carbon/human/list_interaction_attributes(var/mob/living/LM)
 	var/dat = ..()
 	if(get_refraction_dif())
-		dat += "<br>...are sexually exhausted for the time being."
+		dat += "...are sexually exhausted for the time being."
 	if(combat_mode == INTENT_HELP)
-		dat += "<br>...are acting gentle."
+		dat += "...are acting gentle."
 	else if (combat_mode == INTENT_DISARM)
-		dat += "<br>...are acting playful."
+		dat += "...are acting playful."
 	else if (combat_mode == INTENT_GRAB)
-		dat += "<br>...are acting rough."
+		dat += "...are acting rough."
 	else if(combat_mode == INTENT_HARM)
-		dat += "<br>...are fighting anyone who comes near."
+		dat += "...are fighting anyone who comes near."
 	//Here comes the fucking weird shit.
 	if(client)
 		var/client/cli = client
@@ -544,40 +539,40 @@
 			if(!ucli || (READ_PREFS(LM, choiced/erp_status_extm) != "No"))
 				if(!get_item_by_slot(ITEM_SLOT_EARS))
 					if(has_ears())
-						dat += "<br>...have unprotected ears."
+						dat += "...have unprotected ears."
 					else
-						dat += "<br>...have a hole where their ears should be."
+						dat += "...have a hole where their ears should be."
 				else
-					dat += "<br>...have covered ears."
+					dat += "...have covered ears."
 				if(!get_item_by_slot(ITEM_SLOT_EYES))
 					if(has_eyes())
-						dat += "<br>...have exposed eyes."
+						dat += "...have exposed eyes."
 					else
-						dat += "<br>...have exposed eyesockets."
+						dat += "...have exposed eyesockets."
 				else
-					dat += "<br>...have covered eyes."
+					dat += "...have covered eyes."
 	//
 	if(is_topless()  && is_bottomless())
-		dat += "<br>...are naked."
+		dat += "...are naked."
 	else
 		if((is_topless() && !is_bottomless()) || (!is_topless() && is_bottomless()))
-			dat += "<br>...are partially clothed."
+			dat += "...are partially clothed."
 		else
-			dat += "<br>...are clothed."
+			dat += "...are clothed."
 	if(has_breasts(REQUIRE_EXPOSED))
-		dat += "<br>...have breasts."
+		dat += "...have breasts."
 	if(has_penis(REQUIRE_EXPOSED))
-		dat += "<br>...have a penis."
+		dat += "...have a penis."
 	if(has_balls(REQUIRE_EXPOSED))
-		dat += "<br>...have a ballsack."
+		dat += "...have a ballsack."
 	if(has_vagina(REQUIRE_EXPOSED))
-		dat += "<br>...have a vagina."
+		dat += "...have a vagina."
 	if(has_anus(REQUIRE_EXPOSED))
-		dat += "<br>...have an anus."
+		dat += "...have an anus."
 	if(has_feet(REQUIRE_EXPOSED))
 		switch(has_feet(REQUIRE_EXPOSED))
 			if(2)
-				dat += "<br>...have a pair of feet."
+				dat += "...have a pair of feet."
 			if(1)
-				dat += "<br>...have a single foot."
+				dat += "...have a single foot."
 	return dat

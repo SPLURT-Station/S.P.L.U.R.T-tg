@@ -19,29 +19,10 @@
 	set category = "IC"
 	set src in view()
 
-	if(!usr.restrained() && ishuman(src))
-		usr.try_interaction(src)
-
-/mob/living/carbon/human/try_interaction(mob/living/carbon/human/partner)
-	var/dat
-	if(partner != src)
-		dat = "<B><HR><FONT size=3>Interacting with \the [partner]...</FONT></B><HR>"
-	else
-		dat = "<B><HR><FONT size=3>Interacting with yourself...</FONT></B><HR>"
-
-	dat += "You...<br>[list_interaction_attributes(src)]<hr>"
-	if(partner != src)
-		dat += "They...<br>[partner.list_interaction_attributes(src)]<hr>"
-
-	make_interactions()
-	for(var/interaction_key in interactions)
-		var/datum/interaction/I = interactions[interaction_key]
-		if(I.evaluate_user(src) && I.evaluate_target(src, partner))
-			dat += I.get_action_link_for(src, partner)
-
-	var/datum/browser/popup = new(usr, "interactions", "Interactions", 340, 480)
-	popup.set_content(dat)
-	popup.open()
+	usr.mind.interaction_holder.target = src
+	if(!usr.mind.interaction_holder.self)
+		usr.mind.interaction_holder.self = usr
+	usr.mind.interaction_holder.ui_interact(usr)
 
 /*
 /atom/movable/attack_hand(mob/living/carbon/human/user)
@@ -55,3 +36,66 @@
 		if(user_buckle_mob(M, user))
 			return 1
 */
+
+/datum/mind
+	var/datum/interaction_menu/interaction_holder
+
+/datum/mind/New(key)
+	. = ..()
+	interaction_holder = new(src)
+
+/datum/interaction_menu
+	var/mob/living/self
+	var/mob/living/target
+
+/datum/interaction_menu/ui_state(mob/user)
+	return GLOB.conscious_state
+
+/datum/interaction_menu/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MobInteraction", "Interactions")
+		ui.open()
+
+/datum/interaction_menu/ui_data(mob/user)
+	var/list/data = list()
+	data["isTargetSelf"] = target == self
+	data["interactingWith"] = target != self ? "Interacting with \the [target]..." : "Interacting with yourself..."
+	data["selfAttributes"] = self.list_interaction_attributes(self)
+	if(target != self)
+		data["theirAttributes"] = target.list_interaction_attributes(self)
+
+	make_interactions()
+	var/list/sent_interactions = list()
+	for(var/interaction_key in interactions)
+		var/datum/interaction/I = interactions[interaction_key]
+		if(I.evaluate_user(self, action_check = FALSE) && I.evaluate_target(self, target))
+			if(I.user_is_target == TRUE && target != self)
+				continue
+			var/list/interaction = list()
+			interaction += I.command
+			interaction += I.description
+			if(istype(I, /datum/interaction/lewd))
+				var/datum/interaction/lewd/O = I
+				if(O.extreme)
+					interaction += 2
+				else
+					interaction += 1
+			else
+				interaction += 0
+			sent_interactions += list(interaction)
+	data["interactions"] = sent_interactions
+
+	return data
+
+/datum/interaction_menu/ui_act(action, params)
+	if(..())
+		return
+	if(action)
+		for(var/i in interactions)
+			var/datum/interaction/o = interactions[i]
+			if(o.command == action)
+				o.do_action(self, target)
+				return TRUE
+	else
+		stack_trace("[self] used action [action ? action : "null"] on [target]")
