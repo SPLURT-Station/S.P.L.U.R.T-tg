@@ -1341,12 +1341,25 @@ $border-width-px: $border-width * 1px;
   margin: 8px 16px 8px 16px;
 }
 
+// SPLURT EDIT ADDITION START
+/* hornichems */
 .userlove {
-  color: #ff1493;
+  color: #ff42a6;
   font-style: italic;
   font-weight: bold;
-  text-shadow: 0 0 6px #ff6dbc;
+  text-shadow: 0 0 6px #82365e;
 }
+
+.love {
+  color: #ff4591;
+  font-style: italic;
+  text-shadow: 0 0 6px #994449;
+}
+
+.lewd {
+  color: #800080;
+}
+// SPLURT EDIT ADDITION END
 
 .crossooc {
   color: #9f6efc;

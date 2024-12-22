@@ -69,8 +69,8 @@
 
 	make_interactions()
 	var/list/sent_interactions = list()
-	for(var/interaction_key in GLOB.interactions)
-		var/datum/interaction/I = GLOB.interactions[interaction_key]
+	for(var/interaction_key in SSinteractions.interactions)
+		var/datum/interaction/I = SSinteractions.interactions[interaction_key]
 		if(I.evaluate_user(self, action_check = FALSE) && I.evaluate_target(self, target))
 			if(I.user_is_target == TRUE && target != self)
 				continue
@@ -95,7 +95,7 @@
 		return
 	switch(action)
 		if("interact")
-			var/datum/interaction/o = GLOB.interactions[params["interaction"]]
+			var/datum/interaction/o = SSinteractions.interactions[params["interaction"]]
 			if(o)
 				o.do_action(usr, target)
 				return TRUE

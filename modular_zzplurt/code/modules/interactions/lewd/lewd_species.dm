@@ -13,4 +13,4 @@
 	return has_anus
 
 /datum/species/proc/has_breasts(mob/living/carbon/human/H)
-	return has_breasts || (H.has_breasts)
+	return has_breasts

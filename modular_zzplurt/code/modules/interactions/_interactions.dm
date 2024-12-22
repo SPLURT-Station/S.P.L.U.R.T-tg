@@ -7,20 +7,8 @@
 - Fuck you, Vic. ERP is back. - TT
 - >using var/ on everything, also TRUE
 - "TGUIzes" the panel because yes - SandPoot
-- Makes all the code because yes as well - SandPoot
+- Makes all the code good because yes as well - SandPoot
 **/
-
-
-// Rectum? Damn near killed 'em.
-GLOBAL_LIST_EMPTY(interactions)
-
-/// Makes the interactions, they're also a global list because having it as a list and just hanging around there is stupid
-/proc/make_interactions()
-	if(!GLOB.interactions || !length(GLOB.interactions))
-		GLOB.interactions = list()
-		for(var/itype in subtypesof(/datum/interaction))
-			var/datum/interaction/I = new itype()
-			GLOB.interactions[I.command] = I
 
 /mob/living/proc/list_interaction_attributes()
 	var/dat = list()

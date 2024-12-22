@@ -280,7 +280,7 @@
 					return FALSE
 
 		if(require_ooc_consent)
-			if(READ_PREFS(user, toggle/erp/sounds))
+			if((!user.ckey) || (user.client && READ_PREFS(user, toggle/erp/sounds)))
 				return TRUE
 		if(action_check)
 			return FALSE
@@ -503,7 +503,7 @@
 			return FALSE
 
 		if(require_ooc_consent)
-			if(READ_PREFS(target, toggle/erp))
+			if((!target.ckey) || (target.client && READ_PREFS(target, toggle/erp))) //sneaky change, let hell go through earth
 				return TRUE
 		return FALSE
 	return FALSE
