@@ -222,6 +222,20 @@ export const erp_status_pref_nc: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
+// SPLURT EDIT START
+
+export const erp_status_pref_extremepref: FeatureChoiced = {
+  name: 'Extreme ERP verbs',
+  component: FeatureDropdownInput,
+};
+
+export const erp_status_pref_extremeharm: FeatureChoiced = {
+  name: 'Harmful ERP verbs',
+  component: FeatureDropdownInput,
+};
+
+// SPLURT EDIT END
+
 export const erp_status_pref_v: FeatureChoiced = {
   name: 'ERP Vore Status',
   component: FeatureDropdownInput,
