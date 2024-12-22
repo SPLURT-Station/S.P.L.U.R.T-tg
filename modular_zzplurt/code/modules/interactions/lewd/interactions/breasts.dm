@@ -1,3 +1,4 @@
+/*
 /datum/interaction/lewd/do_breastfeed
 	command = "do_breastfeed"
 	description = "Breastfeed them"
@@ -45,6 +46,7 @@
 			else
 				modifier = 1
 	target.reagents.add_reagent(milktype, rand(1,3 * modifier))
+*/
 
 /datum/interaction/lewd/titgrope
 	command = "titgrope"

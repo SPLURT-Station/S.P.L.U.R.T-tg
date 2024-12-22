@@ -45,7 +45,7 @@
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num, frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y, list/ignored_mobs)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
-		if(!H.client || (LAZY_READ_PREF_MOB(H, /datum/preference/toggle/erp/sounds) == TRUE))
+		if(!H.client || (LAZY_READ_PREF_FROM_MOB(H, /datum/preference/toggle/erp/sounds) == TRUE))
 			continue
 		LAZYADD(hearing_mobs, H)
 	if(ignored_mobs?.len)

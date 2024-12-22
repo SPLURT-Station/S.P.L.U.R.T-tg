@@ -37,7 +37,7 @@
 	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, user)
 
-
+/*
 /datum/interaction/lewd/self_nipsuck
 	command = "self_nipsuck"
 	description = "Suck your own nips."
@@ -84,3 +84,4 @@
 			else
 				modifier = 1
 	user.reagents.add_reagent(milktype, rand(1,3 * modifier))
+*/

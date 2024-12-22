@@ -31,7 +31,7 @@
 		var/client/cli = partner.client
 		var/mob/living/carbon/C = partner
 		if(cli && istype(C))
-			if(LAZY_READ_PREF_CLIENT(cli, /datum/preference/choiced/erp_status_extmharm) != "No")
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extmharm) != "No")
 				if(prob(15))
 					C.bleed(2)
 				if(prob(25))
