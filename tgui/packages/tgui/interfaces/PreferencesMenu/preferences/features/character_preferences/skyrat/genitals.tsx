@@ -237,13 +237,13 @@ export const erp_status_pref_extmharm: FeatureChoiced = {
 export const erp_lust_tolerance_pref: FeatureNumeric = {
   name: 'Lust tolerance',
   description: 'Set how long you can last without climaxing. \n(75 = minimum, 200 = maximum.)',
-  component: FeatureDropdownInput,
+  component: FeatureNumberInput,
 };
 
 export const erp_sexual_potency_pref: FeatureNumeric = {
   name: 'Sexual potency',
   description: 'Set your sexual potency. \n(10 = minimum, 25 = maximum.)',
-  component: FeatureDropdownInput,
+  component: FeatureNumberInput,
 };
 
 // SPLURT EDIT END
