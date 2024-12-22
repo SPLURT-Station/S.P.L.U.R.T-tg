@@ -519,7 +519,7 @@
 	user.cleartimer = addtimer(CALLBACK(user, /mob/living/proc/clear_lewd_datum), 300, TIMER_STOPPABLE)
 	return ..()
 
-/mob/living/list_interaction_attributes(var/mob/living/LM)
+/mob/living/list_interaction_attributes(mob/living/LM)
 	var/dat = ..()
 	if(get_refraction_dif())
 		dat += "...are sexually exhausted for the time being."
@@ -553,10 +553,13 @@
 				else
 					dat += "...have covered eyes."
 	//
-	if(is_topless()  && is_bottomless())
+	// check those loops only once, thanks
+	var/is_topless = is_topless()
+	var/is_bottomless = is_bottomless()
+	if(is_topless && is_bottomless)
 		dat += "...are naked."
 	else
-		if((is_topless() && !is_bottomless()) || (!is_topless() && is_bottomless()))
+		if((is_topless && !is_bottomless) || (!is_topless && is_bottomless))
 			dat += "...are partially clothed."
 		else
 			dat += "...are clothed."
