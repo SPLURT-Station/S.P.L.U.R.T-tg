@@ -56,7 +56,6 @@
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
 		if(!H.client || READ_PREFS(H, toggle/erp/sounds))
 			continue
-
 		LAZYADD(hearing_mobs, H)
 	for(var/mob/H in hearing_mobs)
 		H.playsound_local(turf_source, soundin, vol, vary, frequency, falloff)
@@ -109,7 +108,6 @@
 		return 0
 	else
 		return dif
-
 
 /mob/living/proc/add_lust(add)
 	var/cur = get_lust() //GetLust handles per-time lust loss
@@ -455,7 +453,19 @@
 
 /mob/living/proc/cum(mob/living/partner, target_orifice)
 	var/message
+	var/u_His = p_their()
+	var/u_He = p_they()
+	var/u_S = p_s()
+	var/t_His = partner.p_their()
 	var/cumin = FALSE
+	var/partner_carbon_check = FALSE
+	var/obj/item/organ/genital/target_gen = null
+	var/mob/living/carbon/c_partner = null
+	//Carbon checks
+	if(iscarbon(partner))
+		c_partner = partner
+		partner_carbon_check = TRUE
+
 	if(src != partner)
 		if(!last_genital)
 			if(has_penis())
@@ -476,6 +486,8 @@
 							message = "cums on \the <b>[partner]</b>'s face."
 					if(CUM_TARGET_VAGINA)
 						if(partner.has_vagina(REQUIRE_EXPOSED))
+							if(partner_carbon_check)
+								target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 							message = "cums in \the <b>[partner]</b>'s pussy."
 							cumin = TRUE
 						else
@@ -498,12 +510,12 @@
 							message = "cums on \the <b>[partner]</b>'s chest and neck."
 					if(NUTS_TO_FACE)
 						if(partner.has_mouth() && partner.mouth_is_free())
-							message = "vigorously ruts their nutsack into \the <b>[partner]</b>'s mouth before shooting their thick, sticky jizz all over their eyes and hair."
+							message = "vigorously ruts [u_His] nutsack into \the <b>[partner]</b>'s mouth before shooting [u_His] thick, sticky jizz all over [t_His] eyes and hair."
 					if(THIGH_SMOTHERING)
 						if(has_penis(REQUIRE_EXPOSED)) //it already checks for the cock before, why the hell would you do this redundant shit
-							message = "keeps \the <b>[partner]</b> locked in their thighs as their cock throbs, dumping its heavy load all over their face."
+							message = "keeps \the <b>[partner]</b> locked in [u_His] thighs as [u_His] cock throbs, dumping its heavy load all over [t_His] face."
 						else
-							message = "reaches their peak, locking their legs around \the <b>[partner]</b>'s head extra hard as they cum straight onto the head stuck between their thighs"
+							message = "reaches [u_His] peak, locking [u_His] legs around \the <b>[partner]</b>'s head extra hard as [u_He] cum[u_S] straight onto the head stuck between [u_His] thighs"
 						cumin = TRUE
 					if(CUM_TARGET_FEET)
 						if(!last_lewd_datum.require_target_num_feet)
@@ -550,7 +562,7 @@
 							message = "squirts on \the <b>[partner]</b>'s face."
 					if(CUM_TARGET_THROAT)
 						if(partner.has_mouth() && partner.mouth_is_free())
-							message = "rubs their vagina against \the <b>[partner]</b>'s mouth and cums."
+							message = "rubs [u_His] vagina against \the <b>[partner]</b>'s mouth and cums."
 							cumin = TRUE
 						else
 							message = "squirts on \the <b>[partner]</b>'s face."
@@ -578,9 +590,9 @@
 							message = "squirts on \the <b>[partner]</b>'s chest and neck."
 					if(NUTS_TO_FACE)
 						if(partner.has_mouth() && partner.mouth_is_free())
-							message = "vigorously ruts their clit into \the <b>[partner]</b>'s mouth before shooting their femcum all over their eyes and hair."
+							message = "vigorously ruts [u_His] clit into \the <b>[partner]</b>'s mouth before shooting [u_His] femcum all over [t_His] eyes and hair."
 					if(THIGH_SMOTHERING)
-						message = "keeps \the <b>[partner]</b> locked in their thighs as they orgasm, squirting over their face."
+						message = "keeps \the <b>[partner]</b> locked in [u_His] thighs as [u_He] orgasm[u_S], squirting over [t_His] face."
 						cumin = TRUE
 					if(CUM_TARGET_FEET)
 						if(!last_lewd_datum.require_target_num_feet)
@@ -638,6 +650,8 @@
 								message = "cums on \the <b>[partner]</b>'s face."
 						if(CUM_TARGET_VAGINA)
 							if(partner.has_vagina(REQUIRE_EXPOSED))
+								if(partner_carbon_check)
+									target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 								message = "cums in \the <b>[partner]</b>'s pussy."
 								cumin = TRUE
 							else
@@ -660,12 +674,12 @@
 								message = "cums on \the <b>[partner]</b>'s chest and neck."
 						if(NUTS_TO_FACE)
 							if(partner.has_mouth() && partner.mouth_is_free())
-								message = "vigorously ruts their nutsack into \the <b>[partner]</b>'s mouth before shooting their thick, sticky jizz all over their eyes and hair."
+								message = "vigorously ruts [u_His] nutsack into \the <b>[partner]</b>'s mouth before shooting [u_His] thick, sticky jizz all over [t_His] eyes and hair."
 						if(THIGH_SMOTHERING)
 							if(has_penis()) //it already checks for the cock before, why the hell would you do this redundant shit
-								message = "keeps \the <b>[partner]</b> locked in their thighs as their cock throbs, dumping its heavy load all over their face."
+								message = "keeps \the <b>[partner]</b> locked in [u_His] thighs as [u_His] cock throbs, dumping its heavy load all over [t_His] face."
 							else
-								message = "reaches their peak, locking their legs around \the <b>[partner]</b>'s head extra hard as they cum straight onto the head stuck between their thighs"
+								message = "reaches [u_His] peak, locking [u_His] legs around \the <b>[partner]</b>'s head extra hard as [u_He] cum[u_S] straight onto the head stuck between [u_His] thighs"
 							cumin = TRUE
 						if(CUM_TARGET_FEET)
 							if(!last_lewd_datum || !last_lewd_datum.require_target_num_feet)
@@ -712,7 +726,7 @@
 								message = "squirts on \the <b>[partner]</b>'s face."
 						if(CUM_TARGET_THROAT)
 							if(partner.has_mouth() && partner.mouth_is_free())
-								message = "rubs their vagina against \the <b>[partner]</b>'s mouth and cums."
+								message = "rubs [u_His] vagina against \the <b>[partner]</b>'s mouth and cums."
 								cumin = TRUE
 							else
 								message = "squirts on \the <b>[partner]</b>'s face."
@@ -740,10 +754,10 @@
 								message = "squirts on \the <b>[partner]</b>'s chest and neck."
 						if(NUTS_TO_FACE)
 							if(partner.has_mouth() && partner.mouth_is_free())
-								message = "vigorously ruts their clit into \the <b>[partner]</b>'s mouth before shooting their femcum all over their eyes and hair."
+								message = "vigorously ruts [u_His] clit into \the <b>[partner]</b>'s mouth before shooting [u_His] femcum all over [t_His] eyes and hair."
 
 						if(THIGH_SMOTHERING)
-							message = "keeps \the <b>[partner]</b> locked in their thighs as they orgasm, squirting over their face."
+							message = "keeps \the <b>[partner]</b> locked in [u_His] thighs as [u_He] orgasm[u_S], squirting over [t_His] face."
 
 						if(CUM_TARGET_FEET)
 							if(!last_lewd_datum || !last_lewd_datum.require_target_num_feet)
@@ -836,10 +850,14 @@
 	---------------LEWD PROCESS DATUM-----------------
 	--------------------------------------------------
 */
+
 /mob/living/proc/do_oral(mob/living/partner, var/fucktarget = "penis")
 	var/message
 	var/obj/item/organ/external/genital/peepee = null
 	var/lust_increase = NORMAL_LUST
+	var/u_His = p_their()
+	var/u_He = p_they()
+	var/u_Were = p_theyre()
 
 	if(partner.is_fucking(src, CUM_TARGET_MOUTH))
 		if(prob(partner.get_sexual_potency()))
@@ -855,9 +873,9 @@
 					if(partner.has_vagina())
 						message = pick(
 							"licks \the <b>[partner]</b>'s pussy.",
-							"runs their tongue up the shape of \the <b>[partner]</b>'s pussy.",
-							"traces \the <b>[partner]</b>'s slit with their tongue.",
-							"darts the tip of their tongue around \the <b>[partner]</b>'s clit.",
+							"runs [u_His] tongue up the shape of \the <b>[partner]</b>'s pussy.",
+							"traces \the <b>[partner]</b>'s slit with [u_His] tongue.",
+							"darts the tip of [u_His] tongue around \the <b>[partner]</b>'s clit.",
 							"laps slowly at \the <b>[partner]</b>.",
 							"kisses \the <b>[partner]</b>'s delicate folds.",
 							"tastes \the <b>[partner]</b>.",
@@ -868,12 +886,12 @@
 					if(partner.has_penis())
 						message = pick(
 							"sucks \the <b>[partner]</b>'s off.",
-							"runs their tongue up the shape of \the <b>[partner]</b>'s cock.",
-							"traces \the <b>[partner]</b>'s cock with their tongue.",
-							"darts the tip of their tongue around tip of \the <b>[partner]</b>'s cock.",
+							"runs [u_His] tongue up the shape of \the <b>[partner]</b>'s cock.",
+							"traces \the <b>[partner]</b>'s cock with [u_His] tongue.",
+							"darts the tip of [u_His] tongue around tip of \the <b>[partner]</b>'s cock.",
 							"laps slowly at \the <b>[partner]</b>'s shaft.",
 							"kisses the base of \the <b>[partner]</b>'s shaft.",
-							"takes \the <b>[partner]</b> deeper into their mouth.",
+							"takes \the <b>[partner]</b> deeper into [u_His] mouth.",
 						)
 					else
 						improv = TRUE
@@ -882,9 +900,9 @@
 				message = pick(
 					"licks \the <b>[partner]</b>.",
 					"looks a little unsure of where to lick \the <b>[partner]</b>.",
-					"runs their tongue between \the <b>[partner]</b>'s legs.",
+					"runs [u_His] tongue between \the <b>[partner]</b>'s legs.",
 					"kisses \the <b>[partner]</b>'s thigh.",
-					"tries their best with \the <b>[partner]</b>.",
+					"tries [u_His] best with \the <b>[partner]</b>.",
 				)
 	else
 		var/improv = FALSE
@@ -892,23 +910,23 @@
 			if("vagina")
 				if(partner.has_vagina())
 					message = pick(
-						"buries their face in \the <b>[partner]</b>'s pussy.",
+						"buries [u_His] face in \the <b>[partner]</b>'s pussy.",
 						"nuzzles \the <b>[partner]</b>'s wet sex.",
-						"finds their face caught between \the <b>[partner]</b>'s thighs.",
+						"finds [u_His] face caught between \the <b>[partner]</b>'s thighs.",
 						"kneels down between \the <b>[partner]</b>'s legs.",
 						"grips \the <b>[partner]</b>'s legs, pushing them apart.",
-						"sinks their face in between \the <b>[partner]</b>'s thighs.",
+						"sinks [u_His] face in between \the <b>[partner]</b>'s thighs.",
 					)
 				else
 					improv = TRUE
 			if("penis")
 				if(partner.has_penis())
 					message = pick(
-						"takes \the <b>[partner]</b>'s cock into their mouth.",
-						"wraps their lips around \the <b>[partner]</b>'s cock.",
-						"finds their face between \the <b>[partner]</b>'s thighs.",
+						"takes \the <b>[partner]</b>'s cock into [u_His] mouth.",
+						"wraps [u_His] lips around \the <b>[partner]</b>'s cock.",
+						"finds [u_His] face between \the <b>[partner]</b>'s thighs.",
 						"kneels down between \the <b>[partner]</b>'s legs.",
-						"grips \the <b>[partner]</b>'s legs, kissing at the tip of their cock.",
+						"grips \the <b>[partner]</b>'s legs, kissing at the tip of [u_His] cock.",
 						"goes down on \the <b>[partner]</b>.",
 					)
 				else
@@ -920,7 +938,7 @@
 				"sinks down between \the <b>[partner]</b>'s thighs.",
 				"briefly flashes a puzzled look from between \the <b>[partner]</b>'s legs.",
 				"looks unsure of how to handle \the <b>[partner]</b>'s lack of genitalia.",
-				"seems like they were expecting \the <b>[partner]</b> to have a cock or a pussy or ... something.",
+				"seems like [u_He] [u_Were] expecting \the <b>[partner]</b> to have a cock or a pussy or ... something.",
 			)
 			peepee = null
 		else
@@ -953,18 +971,22 @@
 	var/obj/item/organ/external/genital/peepee = null
 	var/retaliation_message = FALSE
 
+	var/u_His = p_their()
+	var/t_Him = partner.p_them()
+	var/t_Hes = partner.p_theyre()
+
 	if(is_fucking(partner, CUM_TARGET_MOUTH))
 		var/improv = FALSE
 		switch(fucktarget)
 			if("vagina")
 				if(has_vagina())
 					message = pick(
-						"grinds their pussy into \the <b>[partner]</b>'s face.",
-						"grips the back of \the <b>[partner]</b>'s head, forcing them onto their pussy.",
-						"rolls their pussy against \the <b>[partner]</b>'s tongue.",
-						"slides \the <b>[partner]</b>'s mouth between their legs.",
-						"looks \the <b>[partner]</b>'s in the eyes as their pussy presses into a waiting tongue.",
-						"sways their hips, pushing their sex into \the <b>[partner]</b>'s face.",
+						"grinds [u_His] pussy into \the <b>[partner]</b>'s face.",
+						"grips the back of \the <b>[partner]</b>'s head, forcing [t_Him] onto [u_His] pussy.",
+						"rolls [u_His] pussy against \the <b>[partner]</b>'s tongue.",
+						"slides \the <b>[partner]</b>'s mouth between [u_His] legs.",
+						"looks \the <b>[partner]</b>'s in the eyes as [u_His] pussy presses into a waiting tongue.",
+						"sways [u_His] hips, pushing [u_His] sex into \the <b>[partner]</b>'s face.",
 						)
 					if(partner.combat_mode == INTENT_HARM)
 						// adjustBruteLoss(5)
@@ -978,11 +1000,11 @@
 				if(has_penis())
 					message = pick(
 						"roughly fucks \the <b>[partner]</b>'s mouth.",
-						"forces their cock down \the <b>[partner]</b>'s throat.",
+						"forces [u_His] cock down \the <b>[partner]</b>'s throat.",
 						"pushes in against \the <b>[partner]</b>'s tongue until a tight gagging sound comes.",
-						"grips \the <b>[partner]</b>'s hair and draws them to the base of the cock.",
-						"looks \the <b>[partner]</b>'s in the eyes as their cock presses into a waiting tongue.",
-						"rolls their hips hard, sinking into \the <b>[partner]</b>'s mouth.",
+						"grips \the <b>[partner]</b>'s hair and draws [t_Him] to the base of the cock.",
+						"looks \the <b>[partner]</b>'s in the eyes as [u_His] cock presses into a waiting tongue.",
+						"rolls [u_His] hips hard, sinking into \the <b>[partner]</b>'s mouth.",
 						)
 					if(partner.combat_mode == INTENT_HARM)
 						// adjustBruteLoss(5)
@@ -997,9 +1019,9 @@
 				"grinds against \the <b>[partner]</b>'s face.",
 				"feels \the <b>[partner]</b>'s face between bare legs.",
 				"pushes in against \the <b>[partner]</b>'s tongue.",
-				"grips \the <b>[partner]</b>'s hair, drawing them into the strangely sexless spot between their legs.",
-				"looks \the <b>[partner]</b>'s in the eyes as they're caught beneath two thighs.",
-				"rolls their hips hard against \the <b>[partner]</b>'s face.",
+				"grips \the <b>[partner]</b>'s hair, drawing [t_Him] into the strangely sexless spot between [u_His] legs.",
+				"looks \the <b>[partner]</b>'s in the eyes as [t_Hes] caught beneath two thighs.",
+				"rolls [u_His] hips hard against \the <b>[partner]</b>'s face.",
 				)
 			if(partner.combat_mode == INTENT_HARM)
 				// adjustBruteLoss(5)
@@ -1012,19 +1034,19 @@
 		switch(fucktarget)
 			if("vagina")
 				if(has_vagina())
-					message = "forces \the <b>[partner]</b>'s face into their pussy."
+					message = "forces \the <b>[partner]</b>'s face into [u_His] pussy."
 				else
 					improv = TRUE
 			if("penis")
 				if(has_penis())
 					if(is_fucking(partner, CUM_TARGET_THROAT))
-						message = "retracts their cock from \the <b>[partner]</b>'s throat"
+						message = "retracts [u_His] cock from \the <b>[partner]</b>'s throat"
 					else
-						message = "shoves their cock into \the <b>[partner]</b>'s mouth"
+						message = "shoves [u_His] cock into \the <b>[partner]</b>'s mouth"
 				else
 					improv = TRUE
 		if(improv)
-			message = "shoves their crotch into \the <b>[partner]</b>'s face."
+			message = "shoves [u_His] crotch into \the <b>[partner]</b>'s face."
 		else
 			if(ishuman(partner))
 				var/mob/living/carbon/human/pardner = partner
@@ -1047,44 +1069,49 @@
 	var/obj/item/organ/external/genital/peepee = null
 	var/lust_increase = 1
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+	var/t_Him = partner.p_them()
+	var/t_Hes = partner.p_theyre()
+
 	if(is_fucking(partner, THIGH_SMOTHERING))
 		var/improv = FALSE
 		switch(fucktarget)
 			if("vagina")
 				if(has_vagina())
 					message = pick(list(
-						"presses their weight down onto \the <b>[partner]</b>'s face, blocking their vision completely.",
-						"rides \the <b>[partner]</b>'s face, grinding their wet pussy all over it."))
+						"presses [u_His] weight down onto \the <b>[partner]</b>'s face, blocking [t_His] vision completely.",
+						"rides \the <b>[partner]</b>'s face, grinding [u_His] wet pussy all over it."))
 				else
 					improv = TRUE
 			if("penis")
 				if(has_penis())
-					message = pick(list("presses their weight down onto \the <b>[partner]</b>'s face, blocking their vision completely.",
-						"forces their dick and nutsack into \the <b>[partner]</b>'s face as they're stuck locked in between their thighs.",
-						"slips their cock into \the <b>[partner]</b>'s helpless mouth, keeping their shaft pressed hard into their face."))
+					message = pick(list("presses [u_His] weight down onto \the <b>[partner]</b>'s face, blocking [t_His] vision completely.",
+						"forces [u_His] dick and nutsack into \the <b>[partner]</b>'s face as [t_Hes] stuck locked in between [u_His] thighs.",
+						"slips [u_His] cock into \the <b>[partner]</b>'s helpless mouth, keeping [u_His] shaft pressed hard into [t_His] face."))
 				else
 					improv = TRUE
 		if(improv)
-			message = "rubs their groin up and down \the <b>[partner]</b>'s face."
+			message = "rubs [u_His] groin up and down \the <b>[partner]</b>'s face."
 	else
 		var/improv = FALSE
 		switch(fucktarget)
 			if("vagina")
 				if(has_vagina())
 					message = pick(list(
-						"clambers over \the <b>[partner]</b>'s face and pins them down with their thighs, their moist slit rubbing all over \the <b>[partner]</b>'s mouth and nose.",
-						"locks their legs around \the <b>[partner]</b>'s head before pulling it into their mound."))
+						"clambers over \the <b>[partner]</b>'s face and pins [t_Him] down with [u_His] thighs, [u_His] moist slit rubbing all over \the <b>[partner]</b>'s mouth and nose.",
+						"locks [u_His] legs around \the <b>[partner]</b>'s head before pulling it into [u_His] mound."))
 				else
 					improv = TRUE
 			if("penis")
 				if(has_penis())
 					message = pick(list(
-						"clambers over \the <b>[partner]</b>'s face and pins them down with their thighs, then slowly inching closer and covering their eyes and nose with their leaking erection.",
-						"locks their legs around \the <b>[partner]</b>'s head before pulling it into their fat package, smothering them."))
+						"clambers over \the <b>[partner]</b>'s face and pins [t_Him] down with [u_His] thighs, then slowly inching closer and covering [t_His] eyes and nose with [u_His] leaking erection.",
+						"locks [u_His] legs around \the <b>[partner]</b>'s head before pulling it into [u_His] fat package, smothering [t_Him]."))
 				else
 					improv = TRUE
 		if(improv)
-			message = "deviously locks their legs around \the <b>[partner]</b>'s head and smothers it in their thighs."
+			message = "deviously locks [u_His] legs around \the <b>[partner]</b>'s head and smothers it in [u_His] thighs."
 		else
 			if(ishuman(partner))
 				var/mob/living/carbon/human/pardner = partner
@@ -1095,7 +1122,7 @@
 						peepee = pardner.get_organ_slot(ORGAN_SLOT_PENIS)
 		set_is_fucking(partner , THIGH_SMOTHERING, peepee)
 
-	var file = pick('modular_zzplurt/sound/interactions/bj10.ogg',
+	var/file = pick('modular_zzplurt/sound/interactions/bj10.ogg',
 					'modular_zzplurt/sound/interactions/bj3.ogg',
 					'modular_zzplurt/sound/interactions/foot_wet1.ogg',
 					'modular_zzplurt/sound/interactions/foot_dry3.ogg')
@@ -1111,11 +1138,15 @@
 	var/obj/item/organ/external/genital/peepee = null
 	var/retaliation_message = FALSE
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+	var/t_Him = partner.p_them()
+
 	if(is_fucking(partner, CUM_TARGET_THROAT))
 		message = "[pick(
-			"brutally shoves their cock into  \the <b>[partner]</b>'s throat to make them gag.",
-			"chokes \the <b>[partner]</b> on their dick, going in balls deep.",
-			"slams in and out of \the <b>[partner]</b>'s mouth, their balls slapping off their face.")]"
+			"brutally shoves [u_His] cock into  \the <b>[partner]</b>'s throat to make [t_Him] gag.",
+			"chokes \the <b>[partner]</b> on [u_His] dick, going in balls deep.",
+			"slams in and out of \the <b>[partner]</b>'s mouth, [u_His] balls slapping off [t_His] face.")]"
 		if(rand(3))
 			partner.emote("chokes on \The [src]")
 			if(prob(1) && istype(partner, /mob/living))
@@ -1128,13 +1159,13 @@
 				"struggles to escape from between \the [src]'s legs.",
 			)
 	else if(is_fucking(partner, CUM_TARGET_MOUTH))
-		message = "thrusts deeper into \the <b>[partner]</b>'s mouth and down their throat."
+		message = "thrusts deeper into \the <b>[partner]</b>'s mouth and down [t_His] throat."
 		if(ishuman(src))
 			var/mob/living/carbon/human/coomer = partner
 			peepee = coomer.get_organ_slot(ORGAN_SLOT_PENIS)
 		set_is_fucking(partner , CUM_TARGET_THROAT, peepee)
 	else
-		message = "forces their dick deep down \the <b>[partner]</b>'s throat"
+		message = "forces [u_His] dick deep down \the <b>[partner]</b>'s throat"
 		if(ishuman(src))
 			var/mob/living/carbon/human/coomer = partner
 			peepee = coomer.get_organ_slot(ORGAN_SLOT_PENIS)
@@ -1151,16 +1182,19 @@
 
 	var/message
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+
 	var/lust_increase = 1
 
 	if(is_fucking(partner, NUTS_TO_FACE))
 		message = pick(list(
-			"grabs the back of <b>[partner]</b>'s head and pulls it into their crotch.",
-			"jams their nutsack right into <b>[partner]</b>'s face.",
-			"roughly grinds their fat nutsack into <b>[partner]</b>'s mouth.",
-			"pulls out their saliva-covered nuts from <b>[partner]</b>'s violated mouth and then wipes off the slime onto their face."))
+			"grabs the back of <b>[partner]</b>'s head and pulls it into [u_His] crotch.",
+			"jams [u_His] nutsack right into <b>[partner]</b>'s face.",
+			"roughly grinds [u_His] fat nutsack into <b>[partner]</b>'s mouth.",
+			"pulls out [u_His] saliva-covered nuts from <b>[partner]</b>'s violated mouth and then wipes off the slime onto [t_His] face."))
 	else
-		message = pick(list("wedges a digit into the side of <b>[partner]</b>'s jaw and pries it open before using their other hand to shove their whole nutsack inside!", "stands with their groin inches away from [partner]'s face, then thrusting their hips forward and smothering [partner]'s whole face with their heavy ballsack."))
+		message = pick(list("wedges a digit into the side of <b>[partner]</b>'s jaw and pries it open before using [u_His] other hand to shove [u_His] whole nutsack inside!", "stands with [u_His] groin inches away from [partner]'s face, then thrusting [u_His] hips forward and smothering [partner]'s whole face with [u_His] heavy ballsack."))
 		set_is_fucking(partner , NUTS_TO_FACE, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	/*playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/nuts1.ogg',
@@ -1173,17 +1207,20 @@
 /mob/living/proc/do_anal(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+
 	if(is_fucking(partner, CUM_TARGET_ANUS))
 		message = "[pick(
 			"thrusts in and out of \the <b>[partner]</b>'s ass.",
 			"pounds \the <b>[partner]</b>'s ass.",
-			"slams their hips up against \the <b>[partner]</b>'s ass hard.",
+			"slams [u_His] hips up against \the <b>[partner]</b>'s ass hard.",
 			"goes balls deep into \the <b>[partner]</b>'s ass over and over again.")]"
 	else
 		message = "[pick(
-			"works their cock into \the <b>[partner]</b>'s asshole.",
-			"grabs the base of their twitching cock and presses the tip into \the <b>[partner]</b>'s asshole.",
-			"shoves their dick deep inside of \the <b>[partner]</b>'s ass, making their rear jiggle.")]"
+			"works [u_His] cock into \the <b>[partner]</b>'s asshole.",
+			"grabs the base of [u_His] twitching cock and presses the tip into \the <b>[partner]</b>'s asshole.",
+			"shoves [u_His] dick deep inside of \the <b>[partner]</b>'s ass, making [t_His] rear jiggle.")]"
 		set_is_fucking(partner, CUM_TARGET_ANUS, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/bang1.ogg',
@@ -1192,19 +1229,20 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, partner)
 	partner.handle_post_sex(NORMAL_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /mob/living/proc/do_vaginal(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(partner, CUM_TARGET_VAGINA))
 		message = "[pick(
 			"pounds \the <b>[partner]</b>'s pussy.",
-			"shoves their dick deep into \the <b>[partner]</b>'s pussy",
+			"shoves [u_His] dick deep into \the <b>[partner]</b>'s pussy",
 			"thrusts in and out of \the <b>[partner]</b>'s cunt.",
 			"goes balls deep into \the <b>[partner]</b>'s pussy over and over again.")]"
 	else
-		message = "slides their cock into \the <b>[partner]</b>'s pussy."
+		message = "slides [u_His] cock into \the <b>[partner]</b>'s pussy."
 		set_is_fucking(partner, CUM_TARGET_VAGINA, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/champ1.ogg',
@@ -1216,11 +1254,13 @@
 /mob/living/proc/do_mount(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_VAGINA))
 		message = "[pick("rides \the <b>[partner]</b>'s dick.",
-			"forces <b>[partner]</b>'s cock on their pussy")]"
+			"forces <b>[partner]</b>'s cock on [u_His] pussy")]"
 	else
-		message = "slides their pussy onto \the <b>[partner]</b>'s cock."
+		message = "slides [u_His] pussy onto \the <b>[partner]</b>'s cock."
 		partner.set_is_fucking(src, CUM_TARGET_VAGINA, partner.get_organ_slot(ORGAN_SLOT_PENIS) ? partner.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
@@ -1232,11 +1272,13 @@
 /mob/living/proc/do_mountass(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_ANUS))
 		message = "[pick("rides \the <b>[partner]</b>'s dick.",
-			"forces <b>[partner]</b>'s cock on their ass")]"
+			"forces <b>[partner]</b>'s cock on [u_His] ass")]"
 	else
-		message = "lowers their ass onto \the <b>[partner]</b>'s cock."
+		message = "lowers [u_His] ass onto \the <b>[partner]</b>'s cock."
 		partner.set_is_fucking(src, CUM_TARGET_ANUS, partner.get_organ_slot(ORGAN_SLOT_PENIS) ? partner.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
@@ -1248,13 +1290,15 @@
 /mob/living/proc/do_tribadism(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_VAGINA))
-		message = "[pick("grinds their pussy against \the <b>[partner]</b>'s cunt.",
-			"rubs their cunt against \the <b>[partner]</b>'s pussy.",
+		message = "[pick("grinds [u_His] pussy against \the <b>[partner]</b>'s cunt.",
+			"rubs [u_His] cunt against \the <b>[partner]</b>'s pussy.",
 			"thrusts against \the <b>[partner]</b>'s pussy.",
-			"humps \the <b>[partner]</b>, their pussies grinding against each other.")]"
+			"humps \the <b>[partner]</b>, [u_His] pussies grinding against each other.")]"
 	else
-		message = "presses their pussy into \the <b>[partner]</b>'s own."
+		message = "presses [u_His] pussy into \the <b>[partner]</b>'s own."
 		partner.set_is_fucking(src, CUM_TARGET_VAGINA, partner.get_organ_slot(ORGAN_SLOT_VAGINA) ? partner.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/squelch1.ogg',
 						'modular_zzplurt/sound/interactions/squelch2.ogg',
@@ -1266,34 +1310,33 @@
 /mob/living/proc/do_fingering(mob/living/partner)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [pick("fingers \the <b>[partner]</b>.",
 		"fingers \the <b>[partner]</b>'s pussy.",
-		"fingers \the <b>[partner]</b> hard.")]</font>", ignored_mobs = get_unconsenting())
+		"fingers \the <b>[partner]</b> hard.")]</span>", ignored_mobs = get_unconsenting())
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, null, src)
-	partner.dir = get_dir(partner, src)
 
 /mob/living/proc/do_fingerass(mob/living/partner)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [pick("fingers \the <b>[partner]</b>.",
 		"fingers \the <b>[partner]</b>'s asshole.",
-		"fingers \the <b>[partner]</b> hard.")]</font>", ignored_mobs = get_unconsenting())
+		"fingers \the <b>[partner]</b> hard.")]</span>", ignored_mobs = get_unconsenting())
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, null, src)
-	partner.dir = get_dir(partner, src)
 
 /mob/living/proc/do_rimjob(mob/living/partner)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> licks \the <b>[partner]</b>'s asshole.</span>", ignored_mobs = get_unconsenting())
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /mob/living/proc/do_handjob(mob/living/partner)
 	var/message
+
+	var/u_His = p_their()
 
 	if(partner.is_fucking(src, CUM_TARGET_HAND))
 		message = "[pick("jerks \the <b>[partner]</b> off.",
 			"works \the <b>[partner]</b>'s shaft.",
 			"wanks \the <b>[partner]</b>'s cock hard.")]"
 	else
-		message = "[pick("wraps their hand around \the <b>[partner]</b>'s cock.",
+		message = "[pick("wraps [u_His] hand around \the <b>[partner]</b>'s cock.",
 			"starts playing with \the <b>[partner]</b>'s cock")]"
 		partner.set_is_fucking(src, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_PENIS) ? partner.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
@@ -1306,13 +1349,15 @@
 /mob/living/proc/do_breastfuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(partner, CUM_TARGET_BREASTS))
 		message = "[pick("fucks \the <b>[partner]</b>'s' breasts.",
-			"grinds their cock between \the <b>[partner]</b>'s boobs.",
+			"grinds [u_His] cock between \the <b>[partner]</b>'s boobs.",
 			"thrusts into \the <b>[partner]</b>'s tits.",
-			"grabs \the <b>[partner]</b>'s breasts together and presses their dick between them.")]"
+			"grabs \the <b>[partner]</b>'s breasts together and presses [u_His] dick between them.")]"
 	else
-		message = "pushes \the <b>[partner]</b>'s breasts together and presses their dick between them."
+		message = "pushes \the <b>[partner]</b>'s breasts together and presses [u_His] dick between them."
 		set_is_fucking(partner , CUM_TARGET_BREASTS, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 
@@ -1325,13 +1370,15 @@
 /mob/living/proc/do_mountface(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(partner, GRINDING_FACE_WITH_ANUS))
-		message = "[pick("grinds their ass into \the <b>[partner]</b>'s face.",
-			"shoves their ass into \the <b>[partner]</b>'s face.")]"
+		message = "[pick("grinds [u_His] ass into \the <b>[partner]</b>'s face.",
+			"shoves [u_His] ass into \the <b>[partner]</b>'s face.")]"
 	else
 		message = "[pick(
-			"grabs the back of \the <b>[partner]</b>'s head and forces it into their asscheeks.",
-			"squats down and plants their ass right on \the <b>[partner]</b>'s face")]"
+			"grabs the back of \the <b>[partner]</b>'s head and forces it into [u_His] asscheeks.",
+			"squats down and plants [u_His] ass right on \the <b>[partner]</b>'s face")]"
 		set_is_fucking(partner , GRINDING_FACE_WITH_ANUS, null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/squelch1.ogg',
@@ -1339,7 +1386,6 @@
 						'modular_zzplurt/sound/interactions/squelch3.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /mob/living/proc/do_lickfeet(mob/living/partner)
 	var/message
@@ -1352,41 +1398,43 @@
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /*Grinding YOUR feet in TARGET's face*/
 /mob/living/proc/do_grindface(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+
 	if(is_fucking(partner, GRINDING_FACE_WITH_FEET))
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("grinds their [get_shoes()] into <b>[partner]</b>'s face.",
-				"presses their footwear down hard on <b>[partner]</b>'s face.",
-				"rubs off the dirt from their [get_shoes()] onto <b>[partner]</b>'s face."))]</span>"
+			message = "[pick(list("grinds [u_His] [get_shoes()] into <b>[partner]</b>'s face.",
+				"presses [u_His] footwear down hard on <b>[partner]</b>'s face.",
+				"rubs off the dirt from [u_His] [get_shoes()] onto <b>[partner]</b>'s face."))]</span>"
 		else
-			message = "[pick(list("grinds their bare feet into <b>[partner]</b>'s face.",
-				"deviously covers <b>[partner]</b>'s mouth and nose with their bare feet.",
-				"runs the soles of their bare feet against <b>[partner]</b>'s lips."))]</span>"
+			message = "[pick(list("grinds [u_His] bare feet into <b>[partner]</b>'s face.",
+				"deviously covers <b>[partner]</b>'s mouth and nose with [u_His] bare feet.",
+				"runs the soles of [u_His] bare feet against <b>[partner]</b>'s lips."))]</span>"
 
 	else if(is_fucking(partner, GRINDING_MOUTH_WITH_FEET))
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("pulls their [get_shoes()] out of <b>[partner]</b>'s mouth and puts them on their face.",
-				"slowly retracts their [get_shoes()] from <b>[partner]</b>'s mouth, putting them on their face instead."))]</span>"
+			message = "[pick(list("pulls [u_His] [get_shoes()] out of <b>[partner]</b>'s mouth and puts them on [t_His] face.",
+				"slowly retracts [u_His] [get_shoes()] from <b>[partner]</b>'s mouth, putting them on [t_His] face instead."))]</span>"
 		else
-			message = "[pick(list("pulls their bare feet out of <b>[partner]</b>'s mouth and rests them on their face instead.",
-				"retracts their bare feet from <b>[partner]</b>'s mouth and grinds them into their face instead."))]</span>"
+			message = "[pick(list("pulls [u_His] bare feet out of <b>[partner]</b>'s mouth and rests them on [t_His] face instead.",
+				"retracts [u_His] bare feet from <b>[partner]</b>'s mouth and grinds them into [t_His] face instead."))]</span>"
 
 		set_is_fucking(partner , GRINDING_FACE_WITH_FEET, null)
 
 	else
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("plants their [get_shoes()] ontop of <b>[partner]</b>'s face.",
-				"rests their [get_shoes()] on <b>[partner]</b>'s face and presses down hard.",
-				"harshly places their [get_shoes()] atop <b>[partner]</b>'s face."))]</span>"
+			message = "[pick(list("plants [u_His] [get_shoes()] ontop of <b>[partner]</b>'s face.",
+				"rests [u_His] [get_shoes()] on <b>[partner]</b>'s face and presses down hard.",
+				"harshly places [u_His] [get_shoes()] atop <b>[partner]</b>'s face."))]</span>"
 		else
-			message = "[pick(list("plants their bare feet ontop of <b>[partner]</b>'s face.",
-				"rests their feet on <b>[partner]</b>'s face, smothering them.",
-				"positions their bare feet atop <b>[partner]</b>'s face."))]</span>"
+			message = "[pick(list("plants [u_His] bare feet ontop of <b>[partner]</b>'s face.",
+				"rests [u_His] feet on <b>[partner]</b>'s face, smothering them.",
+				"positions [u_His] bare feet atop <b>[partner]</b>'s face."))]</span>"
 
 		set_is_fucking(partner, GRINDING_FACE_WITH_FEET, null)
 
@@ -1396,40 +1444,45 @@
 						'modular_zzplurt/sound/interactions/foot_dry4.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /*Grinding YOUR feet in TARGET's mouth*/
 /mob/living/proc/do_grindmouth(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+	var/t_His = partner.p_their()
+	var/t_Him = partner.p_them()
+	var/t_He = partner.p_they()
+	var/t_S = partner.p_s()
+
 	if(is_fucking(partner, GRINDING_MOUTH_WITH_FEET))
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("roughly shoves their [get_shoes()] deeper into <b>[partner]</b>'s mouth.",
-				"harshly forces another inch of their [get_shoes()] into <b>[partner]</b>'s mouth.",
-				"presses their weight down, their [get_shoes()] prying deeper into <b>[partner]</b>'s mouth."))]</span>"
+			message = "[pick(list("roughly shoves [u_His] [get_shoes()] deeper into <b>[partner]</b>'s mouth.",
+				"harshly forces another inch of [u_His] [get_shoes()] into <b>[partner]</b>'s mouth.",
+				"presses [u_His] weight down, [u_His] [get_shoes()] prying deeper into <b>[partner]</b>'s mouth."))]</span>"
 		else
-			message = "[pick(list("wiggles their toes deep inside <b>[partner]</b>'s mouth.",
-				"crams their barefeet down deeper into <b>[partner]</b>'s mouth, making them gag.",
-				"roughly grinds their feet on <b>[partner]</b>'s tongue."))]</span>"
+			message = "[pick(list("wiggles [u_His] toes deep inside <b>[partner]</b>'s mouth.",
+				"crams [u_His] barefeet down deeper into <b>[partner]</b>'s mouth, making [t_Him] gag.",
+				"roughly grinds [u_His] feet on <b>[partner]</b>'s tongue."))]</span>"
 
 	else if(is_fucking(partner, GRINDING_FACE_WITH_FEET))
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("decides to force their [get_shoes()] deep into <b>[partner]</b>'s mouth.",
-				"pressed the tip of their [get_shoes()] against <b>[partner]</b>'s lips and shoves inwards."))]</span>"
+			message = "[pick(list("decides to force [u_His] [get_shoes()] deep into <b>[partner]</b>'s mouth.",
+				"pressed the tip of [u_His] [get_shoes()] against <b>[partner]</b>'s lips and shoves inwards."))]</span>"
 		else
-			message = "[pick(list("pries open <b>[partner]</b>'s mouth with their toes and shoves their bare foot in.",
-				"presses down their foot even harder, cramming their foot into <b>[partner]</b>'s mouth."))]</span>"
+			message = "[pick(list("pries open <b>[partner]</b>'s mouth with [u_His] toes and shoves [u_His] bare foot in.",
+				"presses down [u_His] foot even harder, cramming [u_His] foot into <b>[partner]</b>'s mouth."))]</span>"
 
 		set_is_fucking(partner , GRINDING_MOUTH_WITH_FEET, null)
 
 	else
 		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
-			message = "[pick(list("readies themselves and in one swift motion, shoves their [get_shoes()] into <b>[partner]</b>'s mouth.",
-				"grinds the tip of their [get_shoes()] against <b>[partner]</b>'s mouth before pushing themselves in."))]</span>"
+			message = "[pick(list("readies themselves and in one swift motion, shoves [u_His] [get_shoes()] into <b>[partner]</b>'s mouth.",
+				"grinds the tip of [u_His] [get_shoes()] against <b>[partner]</b>'s mouth before pushing themselves in."))]</span>"
 		else
-			message = "[pick(list("rubs their dirty bare feet across <b>[partner]</b>'s face before prying them into their muzzle.",
-				"forces their barefeet into <b>[partner]</b>'s mouth.",
-				"covers <b>[partner]</b>'s mouth and nose with their foot until they gasp for breath, then shoves both feet inside before they can react."))]</span>"
+			message = "[pick(list("rubs [u_His] dirty bare feet across <b>[partner]</b>'s face before prying them into [t_His] muzzle.",
+				"forces [u_His] barefeet into <b>[partner]</b>'s mouth.",
+				"covers <b>[partner]</b>'s mouth and nose with [u_His] foot until [t_He] gasp[t_S] for breath, then shoves both feet inside before [t_He] can react."))]</span>"
 		set_is_fucking(partner , GRINDING_MOUTH_WITH_FEET, null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_wet1.ogg',
@@ -1437,19 +1490,20 @@
 						'modular_zzplurt/sound/interactions/foot_wet3.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(src, partner)
 
 /mob/living/proc/do_footfuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(src, CUM_TARGET_FEET))
 		message = "[pick("fucks \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
-			"rubs their dick on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
-			"grinds their cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
+			"rubs [u_His] dick on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
+			"grinds [u_His] cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
 	else
-		message = "[pick("positions their cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
-			"positions their cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot","sole")].",
-			"starts grinding their cock against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
+		message = "[pick("positions [u_His] cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
+			"positions [u_His] cock on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot","sole")].",
+			"starts grinding [u_His] cock against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
 		set_is_fucking(src, CUM_TARGET_FEET, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1462,14 +1516,16 @@
 /mob/living/proc/do_dfootfuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(src, CUM_TARGET_FEET))
 		message = "[pick("fucks \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
-			"rubs their dick between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
-			"thrusts their cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].")]"
+			"rubs [u_His] dick between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
+			"thrusts [u_His] cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].")]"
 	else
-		message = "[pick("positions their cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
-			"starts grinding their cock against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
-			"starts grinding their cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].")]"
+		message = "[pick("positions [u_His] cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
+			"starts grinding [u_His] cock against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].",
+			"starts grinding [u_His] cock between \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes() : pick("feet", "soles")].")]"
 		set_is_fucking(src, CUM_TARGET_FEET, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1482,14 +1538,16 @@
 /mob/living/proc/do_vfootfuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(src, CUM_TARGET_FEET))
-		message = "[pick("grinds their pussy against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
-			"rubs their clit on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
+		message = "[pick("grinds [u_His] pussy against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
+			"rubs [u_His] clit on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
 			"ruts on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
 	else
-		message = "[pick("positions their vagina on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
-			"positions their clit on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot","sole")].",
-			"starts grinding their pussy against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
+		message = "[pick("positions [u_His] vagina on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].",
+			"positions [u_His] clit on \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot","sole")].",
+			"starts grinding [u_His] pussy against \the <b>[partner]</b>'s [partner.get_shoes() ? partner.get_shoes(TRUE) : pick("foot", "sole")].")]"
 		set_is_fucking(src, CUM_TARGET_FEET, get_organ_slot(ORGAN_SLOT_VAGINA) ? get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1502,13 +1560,15 @@
 /mob/living/proc/do_footjob(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_FEET))
-		message = "[pick("jerks \the <b>[partner]</b> off with their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")].",
-			"rubs their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s shaft.",
-			"works their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")] up and down on \the <b>[partner]</b>'s cock.")]"
+		message = "[pick("jerks \the <b>[partner]</b> off with [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")].",
+			"rubs [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s shaft.",
+			"works [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")] up and down on \the <b>[partner]</b>'s cock.")]"
 	else
-		message = "[pick("[get_shoes() ? "positions their [get_shoes(TRUE)] on" :"positions their foot on"] \the <b>[partner]</b>'s cock.",
-			"starts playing around with \the <b>[partner]</b>'s cock, using their [get_shoes() ? get_shoes(TRUE) :"foot"].")]"
+		message = "[pick("[get_shoes() ? "positions [u_His] [get_shoes(TRUE)] on" :"positions [u_His] foot on"] \the <b>[partner]</b>'s cock.",
+			"starts playing around with \the <b>[partner]</b>'s cock, using [u_His] [get_shoes() ? get_shoes(TRUE) :"foot"].")]"
 		partner.set_is_fucking(src, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_PENIS) ? partner.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1521,14 +1581,16 @@
 /mob/living/proc/do_dfootjob(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_FEET))
-		message = "[pick("jerks \the <b>[partner]</b> off with their [get_shoes() ? get_shoes() : pick("feet", "soles")].",
-			"rubs their [get_shoes() ? get_shoes() : pick("feet", "soles")] on \the <b>[partner]</b>'s shaft.",
-			"rubs [get_shoes() ? "their [get_shoes()]" : "all of their toes"] on \the <b>[partner]</b>'s cock.",
-			"works their [get_shoes() ? get_shoes() : pick("feet", "soles")] up and down on \the <b>[partner]</b>'s cock.")]"
+		message = "[pick("jerks \the <b>[partner]</b> off with [u_His] [get_shoes() ? get_shoes() : pick("feet", "soles")].",
+			"rubs [u_His] [get_shoes() ? get_shoes() : pick("feet", "soles")] on \the <b>[partner]</b>'s shaft.",
+			"rubs [get_shoes() ? "[u_His] [get_shoes()]" : "all of [u_His] toes"] on \the <b>[partner]</b>'s cock.",
+			"works [u_His] [get_shoes() ? get_shoes() : pick("feet", "soles")] up and down on \the <b>[partner]</b>'s cock.")]"
 	else
-		message = "[pick("[get_shoes() ? "wraps their [get_shoes()] around" : "wraps their [pick("feet", "soles")] around"] \the <b>[partner]</b>'s cock.",
-			"starts playing around with \the <b>[partner]</b>'s cock, using their [get_shoes() ? get_shoes() : "feet"].")]"
+		message = "[pick("[get_shoes() ? "wraps [u_His] [get_shoes()] around" : "wraps [u_His] [pick("feet", "soles")] around"] \the <b>[partner]</b>'s cock.",
+			"starts playing around with \the <b>[partner]</b>'s cock, using [u_His] [get_shoes() ? get_shoes() : "feet"].")]"
 		partner.set_is_fucking(src, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_PENIS) ? partner.get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1541,14 +1603,16 @@
 /mob/living/proc/do_footjob_v(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(partner.is_fucking(src, CUM_TARGET_FEET))
-		message = "[pick("rubs \the <b>[partner]</b> clit with their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")].",
-			"rubs their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s coochie.",
-			"rubs their [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s vagina.",
-			"rubs their foot up and down on \the <b>[partner]</b>'s pussy.")]"
+		message = "[pick("rubs \the <b>[partner]</b> clit with [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole")].",
+			"rubs [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s coochie.",
+			"rubs [u_His] [get_shoes() ? get_shoes(TRUE) : pick("foot", "sole", "toes")] on \the <b>[partner]</b>'s vagina.",
+			"rubs [u_His] foot up and down on \the <b>[partner]</b>'s pussy.")]"
 	else
-		message = "[pick("[get_shoes() ? "positions their [get_shoes(TRUE)] on" : "positions their foot on"] \the <b>[partner]</b>'s pussy.",
-			"starts playing around with \the <b>[partner]</b>'s pussy, using their [get_shoes() ? get_shoes(TRUE) : "foot"].")]"
+		message = "[pick("[get_shoes() ? "positions [u_His] [get_shoes(TRUE)] on" : "positions [u_His] foot on"] \the <b>[partner]</b>'s pussy.",
+			"starts playing around with \the <b>[partner]</b>'s pussy, using [u_His] [get_shoes() ? get_shoes(TRUE) : "foot"].")]"
 		partner.set_is_fucking(src, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_VAGINA) ? partner.get_organ_slot(ORGAN_SLOT_VAGINA) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
@@ -1609,10 +1673,12 @@
 /mob/living/proc/do_eyefuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(partner, CUM_TARGET_EYES))
 		message = "[pick(
 			"pounds into \the <b>[partner]</b>'s [has_eyes() ? "eye":"eyesocket"].",
-			"shoves their dick deep into \the <b>[partner]</b>'s skull",
+			"shoves [u_His] dick deep into \the <b>[partner]</b>'s skull",
 			"thrusts in and out of \the <b>[partner]</b>'s [has_eyes() ? "eye":"eyesocket"].",
 			"goes balls deep into \the <b>[partner]</b>'s cranium over and over again.")]"
 		var/client/cli = partner.client
@@ -1625,7 +1691,7 @@
 					C.adjustOrganLoss(ORGAN_SLOT_EYES,rand(3,7))
 					C.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(3,7))
 	else
-		message = "forcefully slides their cock inbetween \the <b>[partner]</b>'s [has_eyes() ? "eyelid":"eyesocket"]."
+		message = "forcefully slides [u_His] cock inbetween \the <b>[partner]</b>'s [has_eyes() ? "eyelid":"eyesocket"]."
 		set_is_fucking(partner, CUM_TARGET_EYES, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/champ1.ogg',
@@ -1637,10 +1703,12 @@
 /mob/living/proc/do_earfuck(mob/living/partner)
 	var/message
 
+	var/u_His = p_their()
+
 	if(is_fucking(partner, CUM_TARGET_EARS))
 		message = "[pick(
 			"pounds into \the <b>[partner]</b>'s [has_eyes() ? "ear":"earsocker"].",
-			"shoves their dick deep into \the <b>[partner]</b>'s skull",
+			"shoves [u_His] dick deep into \the <b>[partner]</b>'s skull",
 			"thrusts in and out of \the <b>[partner]</b>'s [has_eyes() ? "ear":"eyesocket"].",
 			"goes balls deep into \the <b>[partner]</b>'s cranium over and over again.")]"
 		var/client/cli = partner.client
@@ -1653,7 +1721,7 @@
 					C.adjustOrganLoss(ORGAN_SLOT_EARS, rand(3,7))
 					C.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(3,7))
 	else
-		message = "forcefully slides their cock inside \the <b>[partner]</b>'s [has_ears() ? "ear":"earsocket"]."
+		message = "forcefully slides [u_His] cock inside \the <b>[partner]</b>'s [has_ears() ? "ear":"earsocket"]."
 		set_is_fucking(partner, CUM_TARGET_EARS, get_organ_slot(ORGAN_SLOT_PENIS) ? get_organ_slot(ORGAN_SLOT_PENIS) : null)
 
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/champ1.ogg',
