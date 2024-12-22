@@ -67,7 +67,7 @@
 	if(target != self)
 		data["theirAttributes"] = target.list_interaction_attributes(self)
 
-	make_interactions()
+	//Getting interactions
 	var/list/sent_interactions = list()
 	for(var/interaction_key in SSinteractions.interactions)
 		var/datum/interaction/I = SSinteractions.interactions[interaction_key]
