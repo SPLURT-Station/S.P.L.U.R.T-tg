@@ -1,14 +1,6 @@
 /mob/proc/try_interaction()
 	return
 
-/*
-/mob/living/carbon/human/MouseDrop(var/mob/living/carbon/human/dropped_on, mob/living/carbon/human/user as mob)
-	if(src != dropped_on && !src.restrained())
-		try_interaction(dropped_on)
-		return
-	return ..()
-*/
-
 /mob/living/silicon/robot/verb/toggle_gender() //Change to add silicon genderchanges. Experimental.
 	set category = "IC"
 	set name = "Set Gender"
@@ -17,17 +9,17 @@
 		to_chat(usr, "<span class='warning'>You cannot toggle your gender while unconcious!</span>")
 		return
 
-	var/choice = alert(src, "Select Gender.", "Gender", "Both", "Male", "Female")
+	var/choice = alert(usr, "Select Gender.", "Gender", "Both", "Male", "Female")
 	switch(choice)
 		if("Both")
-			src.has_penis = TRUE
-			src.has_vagina = TRUE
+			has_penis = TRUE
+			has_vagina = TRUE
 		if("Male")
-			src.has_penis = TRUE
-			src.has_vagina = FALSE
+			has_penis = TRUE
+			has_vagina = FALSE
 		if("Female")
-			src.has_penis = FALSE
-			src.has_vagina = TRUE
+			has_penis = FALSE
+			has_vagina = TRUE
 
 /mob/living/carbon/human/click_ctrl_shift(mob/user) //We have to remove the can_interact check from humans.
 	user.try_interaction(src)
@@ -39,23 +31,16 @@
 	set category = "IC"
 	set src in view()
 
-	usr.mind.interaction_holder.target = src
-	if(!usr.mind.interaction_holder.self)
-		usr.mind.interaction_holder.self = usr
-	usr.mind.interaction_holder.ui_interact(usr)
+	if(!mind.interaction_holder)
+		mind.interaction_holder = new(src)
+	if(!mind.interaction_holder.self)
+		mind.interaction_holder.self = usr
+	mind.interaction_holder.target = src
+	mind.interaction_holder.ui_interact(usr)
 
-/*
-/atom/movable/attack_hand(mob/living/carbon/human/user)
-	. = ..()
-	if(can_buckle && buckled_mob)
-		if(user_unbuckle_mob(user))
-			return 1
-/atom/movable/MouseDrop_T(mob/living/carbon/human/M, mob/living/carbon/human/user)
-	. = ..()
-	if(can_buckle && istype(M) && !buckled_mob)
-		if(user_buckle_mob(M, user))
-			return 1
-*/
+#define INTERACTION_NORMAL 0
+#define INTERACTION_LEWD 1
+#define INTERACTION_EXTREME 2
 
 /datum/mind
 	var/datum/interaction_menu/interaction_holder
@@ -98,11 +83,11 @@
 			if(istype(I, /datum/interaction/lewd))
 				var/datum/interaction/lewd/O = I
 				if(O.extreme)
-					interaction += 2
+					interaction += INTERACTION_EXTREME
 				else
-					interaction += 1
+					interaction += INTERACTION_LEWD
 			else
-				interaction += 0
+				interaction += INTERACTION_NORMAL
 			sent_interactions += list(interaction)
 	data["interactions"] = sent_interactions
 
@@ -111,11 +96,14 @@
 /datum/interaction_menu/ui_act(action, params)
 	if(..())
 		return
-	if(action)
-		for(var/i in interactions)
-			var/datum/interaction/o = interactions[i]
-			if(o.command == action)
-				o.do_action(self, target)
-				return TRUE
-	else
-		stack_trace("[self] used action [action ? action : "null"] on [target]")
+	switch(action)
+		if("interact")
+			for(var/i in interactions)
+				var/datum/interaction/o = interactions[i]
+				if(o.command == params["interaction"])
+					o.do_action(self, target)
+					return TRUE
+
+#undef INTERACTION_NORMAL
+#undef INTERACTION_LEWD
+#undef INTERACTION_EXTREME
