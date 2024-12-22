@@ -10,7 +10,7 @@
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [pick("fingers \the <b>[partner]</b>.",
 		"fingers \the <b>[partner]</b>'s pussy.",
 		"fingers \the <b>[partner]</b> hard.")]</span>", ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, null, user)
 
 /datum/interaction/lewd/fingerass
@@ -25,5 +25,5 @@
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [pick("fingers \the <b>[partner]</b>.",
 		"fingers \the <b>[partner]</b>'s asshole.",
 		"fingers \the <b>[partner]</b> hard.")]</span>", ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, null, user)

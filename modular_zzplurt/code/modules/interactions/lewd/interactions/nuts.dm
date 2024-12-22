@@ -26,17 +26,17 @@
 		message = pick(list("wedges a digit into the side of <b>[partner]</b>'s jaw and pries it open before using [u_His] other hand to shove [u_His] whole nutsack inside!", "stands with [u_His] groin inches away from [partner]'s face, then thrusting [u_His] hips forward and smothering [partner]'s whole face with [u_His] heavy ballsack."))
 		user.set_is_fucking(partner, NUTS_TO_FACE, user.get_organ_slot(ORGAN_SLOT_PENIS))
 
-	/*playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/nuts1.ogg',
-						'modular_sand/sound/interactions/nuts2.ogg',
-						'modular_sand/sound/interactions/nuts3.ogg',
-						'modular_sand/sound/interactions/nuts4.ogg'), 70, 1, -1)*/ //These files don't even exist but nobody noticed because double-quotes were used instead of single.
+	/*playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/nuts1.ogg',
+						'modular_zzplurt/sound/interactions/nuts2.ogg',
+						'modular_zzplurt/sound/interactions/nuts3.ogg',
+						'modular_zzplurt/sound/interactions/nuts4.ogg'), 70, 1, -1)*/ //These files don't even exist but nobody noticed because double-quotes were used instead of single.
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(lust_increase, CUM_TARGET_MOUTH, partner)
 
 /datum/interaction/lewd/nut_smack
 	command = "smack_nuts"
 	description = "Smack their nuts."
-	interaction_sound = 'modular_sand/sound/interactions/slap.ogg'
+	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	simple_message = "USER slaps TARGET's nuts!"
 	require_target_balls = REQUIRE_EXPOSED
 	needs_physical_contact = TRUE

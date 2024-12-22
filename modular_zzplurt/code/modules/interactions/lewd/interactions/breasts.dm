@@ -31,8 +31,8 @@
 
 	message = "<span class='lewd'>\The <b>[user]</b> [pick(lines)]</span>"
 	user.visible_message(message, ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/oral1.ogg',
-						'modular_sand/sound/interactions/oral2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
+						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 
 	switch(milkers.size)
 		if("c", "d", "e")

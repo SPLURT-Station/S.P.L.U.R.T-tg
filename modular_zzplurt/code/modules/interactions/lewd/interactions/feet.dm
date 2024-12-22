@@ -47,10 +47,10 @@
 
 		user.set_is_fucking(partner, GRINDING_FACE_WITH_FEET, null)
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
-						'modular_sand/sound/interactions/foot_dry2.ogg',
-						'modular_sand/sound/interactions/foot_dry3.ogg',
-						'modular_sand/sound/interactions/foot_dry4.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry2.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry4.ogg'), 70, 1, -1)
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(LOW_LUST, null, user)
 
@@ -104,9 +104,9 @@
 				"covers <b>[partner]</b>'s mouth and nose with [u_His] foot until [t_He] gasp[t_S] for breath, then shoves both feet inside before [t_He] can react."))]</span>"
 		user.set_is_fucking(partner, GRINDING_MOUTH_WITH_FEET, null)
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_wet1.ogg',
-						'modular_sand/sound/interactions/foot_wet2.ogg',
-						'modular_sand/sound/interactions/foot_wet3.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/foot_wet1.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet2.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet3.ogg'), 70, 1, -1)
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(LOW_LUST, null, user)
 
@@ -135,10 +135,10 @@
 			"starts playing around with \the <b>[partner]</b>'s cock, using [u_His] [shoes ? shoes :"foot"].")]"
 		partner.set_is_fucking(user, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_PENIS))
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
-						'modular_sand/sound/interactions/foot_dry3.ogg',
-						'modular_sand/sound/interactions/foot_wet1.ogg',
-						'modular_sand/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, user)
 
@@ -164,10 +164,10 @@
 			"starts playing around with \the <b>[partner]</b>'s cock, using [u_His] [shoes ? shoes : "feet"].")]"
 		partner.set_is_fucking(user, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_PENIS))
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
-						'modular_sand/sound/interactions/foot_dry3.ogg',
-						'modular_sand/sound/interactions/foot_wet1.ogg',
-						'modular_sand/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, user)
 
@@ -194,9 +194,9 @@
 			"starts playing around with \the <b>[partner]</b>'s pussy, using [u_His] [shoes ? shoes : "foot"].")]"
 		partner.set_is_fucking(user, CUM_TARGET_FEET, partner.get_organ_slot(ORGAN_SLOT_VAGINA))
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/foot_dry1.ogg',
-						'modular_sand/sound/interactions/foot_dry3.ogg',
-						'modular_sand/sound/interactions/foot_wet1.ogg',
-						'modular_sand/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/foot_dry1.ogg',
+						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, user)

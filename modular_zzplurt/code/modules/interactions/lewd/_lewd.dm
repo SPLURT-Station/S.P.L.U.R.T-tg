@@ -10,19 +10,17 @@
  * their requirements must be satisfied, and the mob must not be of a blacklisted type.
 */
 /datum/interaction/lewd
-	var/list/blacklisted_mobs = list(/mob/living/simple_animal/pet,
-									/mob/living/simple_animal/cockroach,
-									/mob/living/simple_animal/babyKiwi,
-									/mob/living/simple_animal/butterfly,
-									/mob/living/simple_animal/chick,
-									/mob/living/simple_animal/chicken,
-									/mob/living/simple_animal/cow,
-									/mob/living/simple_animal/crab,
-									/mob/living/simple_animal/kiwi,
-									/mob/living/simple_animal/parrot,
-									/mob/living/simple_animal/sloth,
-									/mob/living/simple_animal/pickle,
-									/mob/living/simple_animal/hostile/retaliate/goat)
+	var/list/blacklisted_mobs = list(/mob/living/basic/pet,
+									/mob/living/basic/cockroach,
+									/mob/living/basic/butterfly,
+									/mob/living/basic/chick,
+									/mob/living/basic/chicken,
+									/mob/living/basic/cow,
+									/mob/living/basic/crab,
+									/mob/living/basic/kiwi,
+									/mob/living/basic/parrot,
+									/mob/living/basic/sloth,
+									/mob/living/basic/goat)
 
 
 /// This should not be too weighty on the server, as the check is only run to generate the menu options.
@@ -70,8 +68,10 @@
 	var/lastlusttime = 0
 	var/lust = 0
 	var/multiorgasms = 1
+	/*
 	var/refractory_period = 0
 	var/last_interaction_time = 0
+	*/
 	var/datum/interaction/lewd/last_lewd_datum	//Recording our last lewd datum allows us to do stuff like custom cum messages.
 												//Yes i feel like an idiot writing this.
 	var/cleartimer //Timer for clearing the "last_lewd_datum". This prevents some oddities.
@@ -796,19 +796,19 @@
 	else //todo: better self cum messages
 		message = "cums all over themselves!"
 	if(gender == MALE)
-		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/final_m1.ogg',
-							'modular_sand/sound/interactions/final_m2.ogg',
-							'modular_sand/sound/interactions/final_m3.ogg',
-							'modular_sand/sound/interactions/final_m4.ogg',
-							'modular_sand/sound/interactions/final_m5.ogg'), 90, 1, 0)
+		playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/final_m1.ogg',
+							'modular_zzplurt/sound/interactions/final_m2.ogg',
+							'modular_zzplurt/sound/interactions/final_m3.ogg',
+							'modular_zzplurt/sound/interactions/final_m4.ogg',
+							'modular_zzplurt/sound/interactions/final_m5.ogg'), 90, 1, 0)
 	else if(gender == FEMALE)
-		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/final_f1.ogg',
-							'modular_sand/sound/interactions/final_f2.ogg',
-							'modular_sand/sound/interactions/final_f3.ogg'), 70, 1, 0)
+		playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/final_f1.ogg',
+							'modular_zzplurt/sound/interactions/final_f2.ogg',
+							'modular_zzplurt/sound/interactions/final_f3.ogg'), 70, 1, 0)
 	else
-		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/final_f1.ogg',
-							'modular_sand/sound/interactions/final_f2.ogg',
-							'modular_sand/sound/interactions/final_f3.ogg'), 70, 1, 0)
+		playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/final_f1.ogg',
+							'modular_zzplurt/sound/interactions/final_f2.ogg',
+							'modular_zzplurt/sound/interactions/final_f3.ogg'), 70, 1, 0)
 	visible_message(message = "<span class='userlove'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	multiorgasms += 1
 
@@ -883,9 +883,9 @@
 	for(var/mob/M in range(7, src))
 		if(M.client)
 			var/client/cli = M.client
-			if(LAZY_READ_PREF(cli, /datum/preference/toggle/erp) == FALSE) //Note: This probably could do with a specific preference
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/toggle/erp) == FALSE) //Note: This probably could do with a specific preference
 				nope += M
-			else if(extreme && LAZY_READ_PREF(cli, /datum/preference/choiced/erp_status_extm) == "No")
+			else if(extreme && LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				nope += M
 		else
 			nope += M

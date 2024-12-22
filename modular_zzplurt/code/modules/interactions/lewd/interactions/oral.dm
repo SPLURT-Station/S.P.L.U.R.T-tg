@@ -112,16 +112,16 @@
 					genital = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 		partner.set_is_fucking(user, CUM_TARGET_MOUTH, genital)
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bj1.ogg',
-									'modular_sand/sound/interactions/bj2.ogg',
-									'modular_sand/sound/interactions/bj3.ogg',
-									'modular_sand/sound/interactions/bj4.ogg',
-									'modular_sand/sound/interactions/bj5.ogg',
-									'modular_sand/sound/interactions/bj6.ogg',
-									'modular_sand/sound/interactions/bj7.ogg',
-									'modular_sand/sound/interactions/bj8.ogg',
-									'modular_sand/sound/interactions/bj9.ogg',
-									'modular_sand/sound/interactions/bj10.ogg',
-									'modular_sand/sound/interactions/bj11.ogg'), 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bj1.ogg',
+									'modular_zzplurt/sound/interactions/bj2.ogg',
+									'modular_zzplurt/sound/interactions/bj3.ogg',
+									'modular_zzplurt/sound/interactions/bj4.ogg',
+									'modular_zzplurt/sound/interactions/bj5.ogg',
+									'modular_zzplurt/sound/interactions/bj6.ogg',
+									'modular_zzplurt/sound/interactions/bj7.ogg',
+									'modular_zzplurt/sound/interactions/bj8.ogg',
+									'modular_zzplurt/sound/interactions/bj9.ogg',
+									'modular_zzplurt/sound/interactions/bj10.ogg',
+									'modular_zzplurt/sound/interactions/bj11.ogg'), 50, 1, -1)
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(lust_increase, CUM_TARGET_MOUTH, user)

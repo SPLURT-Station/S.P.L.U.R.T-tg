@@ -137,6 +137,6 @@
 				 "<span class='lewd'>\The <b>[target]</b> elbows <b>[user]</b>'s mouth away.</span>"))
 	target.dir = get_dir(target, user)
 	user.dir = get_dir(user, target)
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/oral1.ogg',
-						'modular_sand/sound/interactions/oral2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
+						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 	return

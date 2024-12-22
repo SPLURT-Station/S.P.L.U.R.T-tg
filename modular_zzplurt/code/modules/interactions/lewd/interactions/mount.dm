@@ -17,9 +17,9 @@
 	else
 		message = "slides [u_His] pussy onto \the <b>[partner]</b>'s cock."
 		partner.set_is_fucking(user, CUM_TARGET_VAGINA, partner.get_organ_slot(ORGAN_SLOT_PENIS))
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
-						'modular_sand/sound/interactions/bang2.ogg',
-						'modular_sand/sound/interactions/bang3.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
+						'modular_zzplurt/sound/interactions/bang2.ogg',
+						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, user)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, partner)
@@ -43,9 +43,9 @@
 	else
 		message = "lowers [u_His] ass onto \the <b>[partner]</b>'s cock."
 		partner.set_is_fucking(user, CUM_TARGET_ANUS, partner.get_organ_slot(ORGAN_SLOT_PENIS))
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/bang1.ogg',
-						'modular_sand/sound/interactions/bang2.ogg',
-						'modular_sand/sound/interactions/bang3.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
+						'modular_zzplurt/sound/interactions/bang2.ogg',
+						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, user)
 	user.handle_post_sex(NORMAL_LUST, null, partner)
@@ -72,9 +72,9 @@
 			"squats down and plants [u_His] ass right on \the <b>[partner]</b>'s face")]"
 		user.set_is_fucking(partner, GRINDING_FACE_WITH_ANUS, null)
 
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/squelch1.ogg',
-						'modular_sand/sound/interactions/squelch2.ogg',
-						'modular_sand/sound/interactions/squelch3.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/squelch1.ogg',
+						'modular_zzplurt/sound/interactions/squelch2.ogg',
+						'modular_zzplurt/sound/interactions/squelch3.ogg'), 70, 1, -1)
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(LOW_LUST, null, partner)
 
@@ -154,13 +154,13 @@
 					genital = partner.get_organ_slot(ORGAN_SLOT_PENIS)
 		user.set_is_fucking(partner, THIGH_SMOTHERING, genital)
 
-	var/file = pick('modular_sand/sound/interactions/bj10.ogg',
-					'modular_sand/sound/interactions/bj3.ogg',
-					'modular_sand/sound/interactions/foot_wet1.ogg',
-					'modular_sand/sound/interactions/foot_dry3.ogg')
+	var/file = pick('modular_zzplurt/sound/interactions/bj10.ogg',
+					'modular_zzplurt/sound/interactions/bj3.ogg',
+					'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+					'modular_zzplurt/sound/interactions/foot_dry3.ogg')
 	playlewdinteractionsound(get_turf(user), file, 70, 1, -1)
 	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(lust_increase, THIGH_SMOTHERING, partner)
-	playlewdinteractionsound(get_turf(user), pick('modular_sand/sound/interactions/oral1.ogg',
-						'modular_sand/sound/interactions/oral2.ogg'), 70, 1, -1)
+	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
+						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_MOUTH, partner)
