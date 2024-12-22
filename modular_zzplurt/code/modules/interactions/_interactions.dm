@@ -20,7 +20,7 @@ var/list/interactions
 			var/datum/interaction/I = new itype()
 			interactions[I.command] = I
 
-/mob/living/carbon/human/proc/list_interaction_attributes()
+/mob/living/proc/list_interaction_attributes()
 	var/dat = list()
 	if(has_hands())
 		dat += "...have hands."
@@ -76,6 +76,7 @@ var/list/interactions
 
 	if(user.last_interaction_time < world.time)
 		return TRUE
+
 	if(action_check)
 		return FALSE
 	else
