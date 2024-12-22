@@ -34,10 +34,6 @@
 			has_penis = FALSE
 			has_vagina = TRUE
 
-/mob/living/carbon/human/click_ctrl_shift(mob/user) //We have to remove the can_interact check from humans.
-	user.try_interaction(src)
-	return
-
 #define INTERACTION_NORMAL 0
 #define INTERACTION_LEWD 1
 #define INTERACTION_EXTREME 2
