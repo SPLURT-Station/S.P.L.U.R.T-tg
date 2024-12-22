@@ -1,5 +1,8 @@
 /// Helper to format the text that gets thrown onto the chem hud element.
 #define FORMAT_CHEM_CHARGES_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#dd66dd'>[round(charges)]</font></div>")
+// SPLURT EDIT START
+GLOBAL_LIST_INIT(slots, list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store"))
+// SPLURT EDIT END
 
 /datum/antagonist/changeling
 	name = "\improper Changeling"
@@ -611,7 +614,10 @@
 	// Grab the target's sechut icon.
 	new_profile.id_icon = target.wear_id?.get_sechud_job_icon_state()
 
-	var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store")
+	// SPLURT EDIT START
+	//var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store")
+	var/list/slots = GLOB.slots
+	// SPLURT EDIT END
 	for(var/slot in slots)
 		if(!(slot in target.vars))
 			continue

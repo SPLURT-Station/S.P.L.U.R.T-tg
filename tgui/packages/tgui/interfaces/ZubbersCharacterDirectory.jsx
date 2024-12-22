@@ -236,6 +236,22 @@ const CharacterDirectoryList = (props) => {
           >
             Noncon
           </SortButton>
+          <SortButton
+            id="extreme"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Extreme
+          </SortButton>
+          <SortButton
+            id="extremeharm"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Extreme Harm
+          </SortButton>
           <Table.Cell collapsing textAlign="right">
             Advert
           </Table.Cell>
