@@ -36,7 +36,7 @@
 						"looks \the <b>[partner]</b>'s in the eyes as [u_His] pussy presses into a waiting tongue.",
 						"sways [u_His] hips, pushing [u_His] sex into \the <b>[partner]</b>'s face.",
 						)
-					if(partner.a_intent == INTENT_HARM)
+					if(partner.combat_mode == INTENT_HARM)
 						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"looks deeply displeased to be there.",
@@ -54,7 +54,7 @@
 						"looks \the <b>[partner]</b>'s in the eyes as [u_His] cock presses into a waiting tongue.",
 						"rolls [u_His] hips hard, sinking into \the <b>[partner]</b>'s mouth.",
 						)
-					if(partner.a_intent == INTENT_HARM)
+					if(partner.combat_mode == INTENT_HARM)
 						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"stares up from between \the [user]'s knees, trying to squirm away.",
@@ -71,7 +71,7 @@
 				"looks \the <b>[partner]</b>'s in the eyes as [t_Hes] caught beneath two thighs.",
 				"rolls [u_His] hips hard against \the <b>[partner]</b>'s face.",
 				)
-			if(partner.a_intent == INTENT_HARM)
+			if(partner.combat_mode == INTENT_HARM)
 				// adjustBruteLoss(5)
 				retaliation_message = pick(
 					"stares up from between \the [user]'s knees, trying to squirm away.",
@@ -136,7 +136,7 @@
 			partner.emote("chokes on \the [user]")
 			if(prob(1) && istype(partner))
 				partner.adjustOxyLoss(5)
-		if(partner.a_intent == INTENT_HARM)
+		if(partner.combat_mode == INTENT_HARM)
 			// adjustBruteLoss(5)
 			retaliation_message = pick(
 				"stares up from between \the [user]'s knees, trying to squirm away.",

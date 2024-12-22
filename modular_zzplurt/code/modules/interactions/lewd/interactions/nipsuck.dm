@@ -9,7 +9,7 @@
 	max_distance = 1
 
 /datum/interaction/lewd/nipsuck/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if((user.a_intent == INTENT_HELP) || (user.a_intent == INTENT_DISARM))
+	if((user.combat_mode == INTENT_HELP) || (user.combat_mode == INTENT_DISARM))
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> gently sucks on \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> gently nibs \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
@@ -17,40 +17,42 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c", "d", "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f", "g", "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
+				if(BREAST_SIZE_I)
+					modifier = 4
+				if(BREAST_SIZE_J)
+					modifier = 5
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
-					else
-						modifier = 1
+					modifier = 1
 			if(B.fluid_id)
 				user.reagents.add_reagent(B.fluid_id, rand(1,2 * modifier))
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == INTENT_HARM)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> bites \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> aggressively sucks \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>"))
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c", "d", "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f", "g", "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
+				if(BREAST_SIZE_I)
+					modifier = 4
+				if(BREAST_SIZE_J)
+					modifier = 5
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
-					else
-						modifier = 1
+					modifier = 1
 			if(B.fluid_id)
 				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
 
-	if(user.a_intent == INTENT_GRAB)
+	if(user.combat_mode == INTENT_GRAB)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> sucks \the <b>[target]</b>'s [pick("nipple", "nipples")] intently.</span>",
 					"<span class='lewd'>\The <b>[user]</b> feasts \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
@@ -58,21 +60,22 @@
 		if(target.has_breasts(REQUIRE_EXPOSED))
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
-			switch(B.size)
-				if("c", "d", "e")
+			switch(GLOB.breast_size_translation["[B.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f", "g", "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
+				if(BREAST_SIZE_I)
+					modifier = 4
+				if(BREAST_SIZE_J)
+					modifier = 5
 				else
-					if(B.size in B.breast_values)
-						modifier = clamp(B.breast_values[B.size] - 5, 0, INFINITY)
-					else
-						modifier = 1
+					modifier = 1
 			if(B.fluid_id)
 				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
 
 	if(prob(5 + target.get_lust()))
-		if(target.a_intent == INTENT_HELP)
+		if(target.combat_mode == INTENT_HELP)
 			if(!target.has_breasts())
 				user.visible_message(
 					pick("<span class='lewd'>\The <b>[target]</b> shivers in arousal.</span>",
@@ -92,7 +95,7 @@
 						"<span class='lewd'>\The <b>[target]</b> quivers in arousal as \the <b>[user]</b> delights themselves on their milk.</span>"))
 			if(target.get_lust() < 5)
 				target.set_lust(5)
-		if(target.a_intent == INTENT_DISARM)
+		if(target.combat_mode == INTENT_DISARM)
 			if (target.restrained())
 				if(!target.has_breasts())
 					user.visible_message(
@@ -122,12 +125,12 @@
 							"<span class='lewd'>\The <b>[target]</b> rubs their breasts against \the <b>[user]</b>'s head.</span>"))
 			if(target.get_lust() < 10)
 				target.add_lust(1)
-	if(target.a_intent == INTENT_GRAB)
+	if(target.combat_mode == INTENT_GRAB)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> grips \the <b>[user]</b>'s head tight.</span>",
 				 "<span class='lewd'>\The <b>[target]</b> digs nails into \the <b>[user]</b>'s scalp.</span>",
 				 "<span class='lewd'>\The <b>[target]</b> grabs and shoves \the <b>[user]</b>'s head away.</span>"))
-	if(target.a_intent == INTENT_HARM)
+	if(target.combat_mode == INTENT_HARM)
 		user.adjustBruteLoss(1)
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[target]</b> slaps \the <b>[user]</b> away.</span>",

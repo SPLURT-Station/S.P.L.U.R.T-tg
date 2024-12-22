@@ -13,7 +13,7 @@
 	var/message
 	var/t_His = user.p_their()
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == INTENT_HARM)
 		message = "[pick("aggressively gropes [t_His] breast.",
 					"grabs [t_His] breasts.",
 					"tightly squeezes [t_His] breasts.",
