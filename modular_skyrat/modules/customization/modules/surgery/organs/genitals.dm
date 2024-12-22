@@ -548,16 +548,15 @@
 			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
 			update_body()
 		if(picked_organ == "anus")
-			var/picked_visibility = input(src, "Chose visibility setting", "Expose/Hide genitals") as null|anything in list("Always visible", "Hidden by underwear", "Always hidden")
-			anus_toggle_visibility(picked_visibility)
+			anus_toggle_visibility(gen_vis_trans[picked_visibility])
 	return
 
 /mob/living/carbon/proc/anus_toggle_visibility(visibility)
 	switch(visibility)
-		if("Always visible")
+		if(GENITAL_ALWAYS_SHOW)
 			anus_exposed = TRUE
 			log_message("Exposed their anus", LOG_EMOTE)
-		if("Hidden by underwear")
+		if(GENITAL_HIDDEN_BY_CLOTHES)
 			anus_exposed = FALSE
 			log_message("Hid their anus under underwear", LOG_EMOTE)
 		else
