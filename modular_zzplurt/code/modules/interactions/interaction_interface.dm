@@ -1,7 +1,20 @@
-/mob/proc/try_interaction()
-	return
+/// Attempts to open the tgui menu
 
-/mob/living/silicon/robot/verb/toggle_gender() //Change to add silicon genderchanges. Experimental.
+/mob/living/verb/interact_with()
+	set name = "Interact With"
+	set desc = "Perform an interaction with someone."
+	set category = "IC"
+	set src in view()
+
+	if(!usr.mind) //Mindless boys, honestly just don't, it's better this way
+		return
+	if(!usr.mind.interaction_holder)
+		usr.mind.interaction_holder = new(usr.mind)
+	usr.mind.interaction_holder.target = src
+	usr.mind.interaction_holder.ui_interact(usr)
+
+/// Allows "cyborg" players to change gender at will
+/mob/living/silicon/robot/verb/toggle_gender()
 	set category = "IC"
 	set name = "Set Gender"
 	set desc = "Allows you to set your gender."
@@ -25,19 +38,6 @@
 	user.try_interaction(src)
 	return
 
-/mob/living/verb/interact_with()
-	set name = "Interact With"
-	set desc = "Perform an interaction with someone."
-	set category = "IC"
-	set src in view()
-
-	if(!usr.mind.interaction_holder)
-		usr.mind.interaction_holder = new(usr)
-	if(!usr.mind.interaction_holder.self)
-		usr.mind.interaction_holder.self = usr
-	usr.mind.interaction_holder.target = src
-	usr.mind.interaction_holder.ui_interact(usr)
-
 #define INTERACTION_NORMAL 0
 #define INTERACTION_LEWD 1
 #define INTERACTION_EXTREME 2
@@ -49,8 +49,8 @@
 	. = ..()
 	interaction_holder = new(src)
 
+/// The menu itself, only var is target which is the mob you are interacting with
 /datum/interaction_menu
-	var/mob/living/self
 	var/mob/living/target
 
 /datum/interaction_menu/ui_state(mob/user)
@@ -63,6 +63,7 @@
 		ui.open()
 
 /datum/interaction_menu/ui_data(mob/user)
+	var/mob/living/self = user
 	var/list/data = list()
 	data["isTargetSelf"] = target == self
 	data["interactingWith"] = target != self ? "Interacting with \the [target]..." : "Interacting with yourself..."
@@ -72,22 +73,22 @@
 
 	make_interactions()
 	var/list/sent_interactions = list()
-	for(var/interaction_key in interactions)
-		var/datum/interaction/I = interactions[interaction_key]
+	for(var/interaction_key in GLOB.interactions)
+		var/datum/interaction/I = GLOB.interactions[interaction_key]
 		if(I.evaluate_user(self, action_check = FALSE) && I.evaluate_target(self, target))
 			if(I.user_is_target == TRUE && target != self)
 				continue
 			var/list/interaction = list()
-			interaction += I.command
-			interaction += I.description
+			interaction["key"] = I.command
+			interaction["desc"] = I.description
 			if(istype(I, /datum/interaction/lewd))
 				var/datum/interaction/lewd/O = I
 				if(O.extreme)
-					interaction += INTERACTION_EXTREME
+					interaction["type"] = INTERACTION_EXTREME
 				else
-					interaction += INTERACTION_LEWD
+					interaction["type"] = INTERACTION_LEWD
 			else
-				interaction += INTERACTION_NORMAL
+				interaction["type"] = INTERACTION_NORMAL
 			sent_interactions += list(interaction)
 	data["interactions"] = sent_interactions
 
@@ -98,11 +99,11 @@
 		return
 	switch(action)
 		if("interact")
-			for(var/i in interactions)
-				var/datum/interaction/o = interactions[i]
-				if(o.command == params["interaction"])
-					o.do_action(self, target)
-					return TRUE
+			var/datum/interaction/o = GLOB.interactions[params["interaction"]]
+			if(o)
+				o.do_action(usr, target)
+				return TRUE
+			return FALSE
 
 #undef INTERACTION_NORMAL
 #undef INTERACTION_LEWD

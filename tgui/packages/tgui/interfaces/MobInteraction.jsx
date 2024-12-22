@@ -43,11 +43,11 @@ export const MobInteraction = (props, context) => {
             <Flex direction="column">
               {interactions.map(interaction => (
                 <Button
-                  key={interaction[1]}
-                  content={interaction[1]}
-                  color={interaction[2] === 2 ? "red" : interaction[2] ? "pink" : "default"}
+                  key={interaction['key']}
+                  content={interaction['desc']}
+                  color={interaction['type'] === 2 ? "red" : interaction['type'] ? "pink" : "default"}
                   onClick={() => act('interact', {
-                    interaction: interaction[0],
+                    interaction: interaction['key'],
                   })} />
               ))}
             </Flex>

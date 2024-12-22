@@ -307,6 +307,9 @@
 #include "find_reference_sanity.dm"
 #endif
 
+/// SPLURT TESTS
+#include "interactions.dm" //No regrets
+
 #undef TEST_ASSERT
 #undef TEST_ASSERT_EQUAL
 #undef TEST_ASSERT_NOTEQUAL
