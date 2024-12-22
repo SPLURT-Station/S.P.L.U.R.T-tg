@@ -68,7 +68,7 @@
 	var/user_refractory_cost
 	var/target_refractory_cost
 
-/datum/interaction/lewd/evaluate_user(mob/living/carbon/human/user, silent = TRUE, action_check = TRUE)
+/datum/interaction/lewd/evaluate_user(mob/living/user, silent = TRUE, action_check = TRUE)
 	if(..(user, silent, action_check))
 		if(user_not_tired && user.get_refraction_dif())
 			if(!silent) //bye spam
@@ -287,7 +287,7 @@
 	if(action_check)
 		return FALSE
 
-/datum/interaction/lewd/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
+/datum/interaction/lewd/evaluate_target(mob/living/user, mob/living/target, silent = TRUE)
 	if(..(user, target, silent))
 		if(target_not_tired && target.get_refraction_dif())
 			if(!silent) //same with this
@@ -508,7 +508,7 @@
 		return FALSE
 	return FALSE
 
-/datum/interaction/lewd/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/lewd/post_interaction(mob/living/user, mob/living/target)
 	if(user_refractory_cost)
 		user.refractory_period = world.time + user_refractory_cost*10
 	if(target_refractory_cost)
@@ -519,7 +519,7 @@
 	user.cleartimer = addtimer(CALLBACK(user, /mob/living/proc/clear_lewd_datum), 300, TIMER_STOPPABLE)
 	return ..()
 
-/mob/living/carbon/human/list_interaction_attributes(var/mob/living/LM)
+/mob/living/list_interaction_attributes(var/mob/living/LM)
 	var/dat = ..()
 	if(get_refraction_dif())
 		dat += "...are sexually exhausted for the time being."

@@ -9,11 +9,31 @@
 	return ..()
 */
 
+/mob/living/silicon/robot/verb/toggle_gender() //Change to add silicon genderchanges. Experimental.
+	set category = "IC"
+	set name = "Set Gender"
+	set desc = "Allows you to set your gender."
+	if(stat != CONSCIOUS)
+		to_chat(usr, "<span class='warning'>You cannot toggle your gender while unconcious!</span>")
+		return
+
+	var/choice = alert(src, "Select Gender.", "Gender", "Both", "Male", "Female")
+	switch(choice)
+		if("Both")
+			src.has_penis = TRUE
+			src.has_vagina = TRUE
+		if("Male")
+			src.has_penis = TRUE
+			src.has_vagina = FALSE
+		if("Female")
+			src.has_penis = FALSE
+			src.has_vagina = TRUE
+
 /mob/living/carbon/human/click_ctrl_shift(mob/user) //We have to remove the can_interact check from humans.
 	user.try_interaction(src)
 	return
 
-/mob/living/carbon/human/verb/interact_with()
+/mob/living/verb/interact_with()
 	set name = "Interact With"
 	set desc = "Perform an interaction with someone."
 	set category = "IC"

@@ -119,6 +119,8 @@
 
 /mob/living/proc/has_penis(var/nintendo = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
+	if(issilicon(src) && C.has_penis)
+		return TRUE
 	if(istype(C))
 		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(peepee)
@@ -163,6 +165,8 @@
 
 /mob/living/proc/has_vagina(var/nintendo = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
+	if(issilicon(src) && C.has_vagina)
+		return TRUE
 	if(istype(C))
 		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_VAGINA)
 		if(peepee)
@@ -206,6 +210,8 @@
 	return FALSE
 
 /mob/living/proc/has_anus(var/nintendo = REQUIRE_ANY)
+	if(issilicon(src))
+		return TRUE
 	switch(nintendo)
 		if(REQUIRE_EXPOSED)
 			if(is_bottomless())

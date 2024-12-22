@@ -51,7 +51,7 @@ var/list/interactions
 	var/user_is_target = FALSE //Boolean. Pretty self explanatory.
 
 //Action check added because please stop deleting my buttons.
-/datum/interaction/proc/evaluate_user(mob/living/carbon/human/user, silent = TRUE, action_check = TRUE)
+/datum/interaction/proc/evaluate_user(mob/living/user, silent = TRUE, action_check = TRUE)
 	if(user.get_refraction_dif())
 		if(!silent) //bye spam
 			to_chat(user, "<span class='warning'>You're still exhausted from the last time. You need to wait [DisplayTimeText(user.get_refraction_dif(), TRUE)] until you can do that!</span>")
@@ -59,17 +59,17 @@ var/list/interactions
 			return FALSE
 
 	if(require_user_mouth)
-		if(!user.has_mouth())
+		if(!user.has_mouth() && !issilicon(user)) //Again, silicons do not have the required parts normally.
 			if(!silent)
 				to_chat(user, "<span class = 'warning'>You don't have a mouth.</span>")
 			return FALSE
 
-		if(!user.mouth_is_free())
+		if(!user.mouth_is_free() && !issilicon(user)) //Borgs cannot wear mouthgear, bypassing the check.
 			if(!silent)
 				to_chat(user, "<span class = 'warning'>Your mouth is covered.</span>")
 			return FALSE
 
-	if(require_user_hands && !user.has_hands())
+	if(require_user_hands && !user.has_hands() && !issilicon(user)) //Edited to allow silicons to interact.
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>You don't have hands.</span>")
 		return FALSE
@@ -82,7 +82,7 @@ var/list/interactions
 	else
 		return TRUE
 
-/datum/interaction/proc/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
+/datum/interaction/proc/evaluate_target(mob/living/user, mob/living/target, silent = TRUE)
 	if(!user_is_target)
 		if(user == target)
 			if(!silent)
@@ -95,19 +95,19 @@ var/list/interactions
 				to_chat(user, "<span class = 'warning'>They don't have a mouth.</span>")
 			return FALSE
 
-		if(!target.mouth_is_free())
+		if(!target.mouth_is_free() && !issilicon(target))
 			if(!silent)
 				to_chat(user, "<span class = 'warning'>Their mouth is covered.</span>")
 			return FALSE
 
-	if(require_target_hands && !target.has_hands())
+	if(require_target_hands && !target.has_hands() && !issilicon(target))
 		if(!silent)
 			to_chat(user, "<span class = 'warning'>They don't have hands.</span>")
 		return FALSE
 
 	return TRUE
 
-/datum/interaction/proc/do_action(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/do_action(mob/living/user, mob/living/target)
 	if(!user_is_target)
 		if(user == target) //tactical href fix
 			to_chat(user, "<span class='warning'>You cannot target yourself.</span>")
@@ -140,34 +140,34 @@ var/list/interactions
 		//add_logs(target, user, "fucked2")
 	//target.attack_log += text("\[[time_stamp()]\] <font color='orange'>[write_log_target] [user.name] ([user.ckey])</font>")
 
-/datum/interaction/proc/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/display_interaction(mob/living/user, mob/living/target)
 	if(simple_message)
 		var/use_message = replacetext(simple_message, "USER", "\the [user]")
 		use_message = replacetext(use_message, "TARGET", "\the [target]")
 		user.visible_message("<span class='[simple_style]'>[capitalize(use_message)]</span>")
 
-/datum/interaction/proc/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/post_interaction(mob/living/user, mob/living/target)
 	user.last_interaction_time = world.time + 6
 	if(interaction_sound)
 		playsound(get_turf(user), interaction_sound, 50, 1, -1)
 	return
 /*
-/atom/movable/attack_hand(mob/living/carbon/human/user)
+/atom/movable/attack_hand(mob/living/user)
 	. = ..()
 	if(can_buckle && buckled_mob)
 		if(user_unbuckle_mob(user))
 			return TRUE
-/atom/movable/MouseDrop_T(mob/living/carbon/human/M, mob/living/carbon/human/user)
+/atom/movable/MouseDrop_T(mob/living/M, mob/living/user)
 	. = ..()
 	if(can_buckle && istype(M) && !buckled_mob)
 		if(user_buckle_mob(M, user))
 			return TRUE
-/atom/movable/attack_hand(mob/living/carbon/human/user)
+/atom/movable/attack_hand(mob/living/user)
 	. = ..()
 	if(can_buckle && buckled_mob)
 		if(user_unbuckle_mob(user))
 			return TRUE
-/atom/movable/MouseDrop_T(mob/living/carbon/human/M, mob/living/carbon/human/user)
+/atom/movable/MouseDrop_T(mob/living/carbon/human/M, mob/living/user)
 	. = ..()
 	if(can_buckle && istype(M) && !buckled_mob)
 		if(user_buckle_mob(M, user))
