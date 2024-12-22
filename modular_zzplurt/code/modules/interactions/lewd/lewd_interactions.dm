@@ -523,14 +523,15 @@
 	var/dat = ..()
 	if(get_refraction_dif())
 		dat += "...are sexually exhausted for the time being."
-	if(combat_mode == INTENT_HELP)
-		dat += "...are acting gentle."
-	else if (combat_mode == INTENT_DISARM)
-		dat += "...are acting playful."
-	else if (combat_mode == INTENT_GRAB)
-		dat += "...are acting rough."
-	else if(combat_mode == INTENT_HARM)
-		dat += "...are fighting anyone who comes near."
+	switch(combat_mode)
+		if(INTENT_HELP)
+			dat += "...are acting gentle."
+		if(INTENT_DISARM)
+			dat += "...are acting playful."
+		if(INTENT_GRAB)
+			dat += "...are acting rough."
+		if(INTENT_HARM)
+			dat += "...are fighting anyone who comes near."
 	//Here comes the fucking weird shit.
 	if(client)
 		var/client/cli = client

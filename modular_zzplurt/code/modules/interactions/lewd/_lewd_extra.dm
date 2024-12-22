@@ -1,3 +1,13 @@
+/mob/living/proc/do_frot(mob/living/target)
+	var/message
+	var/t_His = p_their()
+
+	message = "rubs [t_His] penis against [target]'s."
+	set_is_fucking(target, CUM_TARGET_PENIS, getorganslot(ORGAN_SLOT_PENIS))
+	visible_message("<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
+	handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, target)
+	target.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, src)
+
 /mob/living/proc/do_jackoff(mob/living/user)
 	var/message
 	var/t_His = p_their()
@@ -17,7 +27,7 @@
 	playlewdinteractionsound(src, pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
-	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>") //can't not consent to yourself, if you did it, you wanted it
+	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>")
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
 /mob/living/proc/do_fingerass_self(mob/living/user)
@@ -26,7 +36,7 @@
 
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [pick("fingers [t_Him]self.",
 		"fingers [t_His] asshole.",
-		"fingers [t_Him]self hard.")]</span>") //can't not consent to yourself, if you did it, you wanted it
+		"fingers [t_Him]self hard.")]</span>")
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
@@ -36,7 +46,7 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [pick("fingers [t_His] pussy deep.",
 		"fingers [t_His] pussy.",
 		"plays with [t_His] pussy",
-		"fingers [t_His] own pussy hard.")]</span>") //can't not consent to yourself, if you did it, you wanted it
+		"fingers [t_His] own pussy hard.")]</span>")
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
 
@@ -64,6 +74,6 @@
 				"gasps.",
 				"shudders softly.",
 				"trembles as [t_His] hands run across bare skin.")]</span>")
-	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>") //can't not consent to yourself, if you did it, you wanted it
+	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>")
 	playlewdinteractionsound(loc, 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)

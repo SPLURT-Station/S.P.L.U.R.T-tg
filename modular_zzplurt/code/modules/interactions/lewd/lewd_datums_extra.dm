@@ -1,3 +1,17 @@
+/datum/interaction/lewd/frotting
+	command = "frotting"
+	description = "Rub your penis against theirs"
+	require_user_penis = REQUIRE_EXPOSED
+	require_target_penis = REQUIRE_EXPOSED
+	user_not_tired = TRUE
+	max_distance = 1
+
+/datum/interaction/lewd/frotting/display_interaction(mob/living/user, mob/living/target)
+	user.do_frot(target)
+
+/**
+ * Self Interactions!
+ */
 /datum/interaction/lewd/jack
 	command = "jack"
 	description = "Jerk yourself off."
@@ -15,7 +29,7 @@
 	command = "fingerm_self"
 	description = "Finger yourself."
 	interaction_sound = null
-	require_user_hands = REQUIRE_ANY
+	require_user_hands = TRUE
 	require_user_anus = REQUIRE_EXPOSED
 	user_not_tired = TRUE
 	user_is_target = TRUE
@@ -27,7 +41,7 @@
 /datum/interaction/lewd/finger_self
 	command = "finger_self"
 	description = "Finger your own pussy."
-	require_user_hands = REQUIRE_ANY
+	require_user_hands = TRUE
 	require_user_vagina = REQUIRE_EXPOSED
 	interaction_sound = null
 	user_not_tired = TRUE
@@ -40,6 +54,7 @@
 /datum/interaction/lewd/titgrope_self
 	command = "titgrope_self"
 	description = "Grope your own breasts."
+	require_user_hands = TRUE
 	require_user_breasts = REQUIRE_ANY
 	user_is_target = TRUE
 	write_log_user = "groped themself."

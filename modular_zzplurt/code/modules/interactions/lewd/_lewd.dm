@@ -5,6 +5,7 @@
 #define CUM_TARGET_HAND "hand"
 #define CUM_TARGET_BREASTS "breasts"
 #define CUM_TARGET_FEET "feet"
+#define CUM_TARGET_PENIS "penis"
 //Weird defines go here
 #define CUM_TARGET_EARS "ears"
 #define CUM_TARGET_EYES "eyes"
@@ -97,7 +98,7 @@
 
 
 /mob/living/proc/add_lust(add)
-	var/cur = src.get_lust() //GetLust handles per-time lust loss
+	var/cur = get_lust() //GetLust handles per-time lust loss
 	if((cur + add) < 0) //in case we retract lust
 		lust = 0
 	else
@@ -121,7 +122,7 @@
 
 /mob/living/proc/has_penis(var/nintendo = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
-	if(has_penis)
+	if(has_penis && !istype(C))
 		return TRUE
 	if(istype(C))
 		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_PENIS)
@@ -167,7 +168,7 @@
 
 /mob/living/proc/has_vagina(var/nintendo = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
-	if(has_vagina)
+	if(has_vagina && !istype(C))
 		return TRUE
 	if(istype(C))
 		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_VAGINA)
@@ -191,7 +192,7 @@
 
 /mob/living/proc/has_breasts(var/nintendo = REQUIRE_ANY)
 	var/mob/living/carbon/C = src
-	if(has_breasts)
+	if(has_breasts && !istype(C))
 		return TRUE
 	if(istype(C))
 		var/obj/item/organ/external/genital/peepee = C.get_organ_slot(ORGAN_SLOT_BREASTS)
@@ -214,7 +215,7 @@
 	return FALSE
 
 /mob/living/proc/has_anus(var/nintendo = REQUIRE_ANY)
-	if(has_anus)
+	if(has_anus && !iscarbon(src))
 		return TRUE
 	switch(nintendo)
 		if(REQUIRE_ANY)
@@ -485,7 +486,7 @@
 						if(partner.has_mouth() && partner.mouth_is_free())
 							message = "vigorously ruts their nutsack into \the <b>[partner]</b>'s mouth before shooting their thick, sticky jizz all over their eyes and hair."
 					if(THIGH_SMOTHERING)
-						if(src.has_penis(REQUIRE_EXPOSED)) //it already checks for the cock before, why the hell would you do this redundant shit
+						if(has_penis(REQUIRE_EXPOSED)) //it already checks for the cock before, why the hell would you do this redundant shit
 							message = "keeps \the <b>[partner]</b> locked in their thighs as their cock throbs, dumping its heavy load all over their face."
 						else
 							message = "reaches their peak, locking their legs around \the <b>[partner]</b>'s head extra hard as they cum straight onto the head stuck between their thighs"
@@ -515,7 +516,11 @@
 							message = "cums inside \the <b>[partner]</b>'s eyesocket."
 						cumin = TRUE
 					//
-
+					if(CUM_TARGET_PENIS)
+						if(partner.has_penis(REQUIRE_EXPOSED))
+							message = "cums on \the <b>[partner]</b>."
+						else
+							message = "cums on the floor!"
 					else
 						message = "cums on the floor!"
 			else if(has_vagina())
@@ -588,7 +593,11 @@
 							message = "squirts on \the <b>[partner]</b>'s eyesocket."
 						cumin = TRUE
 					//
-
+					if(CUM_TARGET_PENIS)
+						if(partner.has_penis(REQUIRE_EXPOSED))
+							message = "squirts on \the <b>[partner]</b>'s penis"
+						else
+							message = "squirts on the floor!"
 					else
 						message = "squirts on the floor!"
 
@@ -639,7 +648,7 @@
 							if(partner.has_mouth() && partner.mouth_is_free())
 								message = "vigorously ruts their nutsack into \the <b>[partner]</b>'s mouth before shooting their thick, sticky jizz all over their eyes and hair."
 						if(THIGH_SMOTHERING)
-							if(src.has_penis()) //it already checks for the cock before, why the hell would you do this redundant shit
+							if(has_penis()) //it already checks for the cock before, why the hell would you do this redundant shit
 								message = "keeps \the <b>[partner]</b> locked in their thighs as their cock throbs, dumping its heavy load all over their face."
 							else
 								message = "reaches their peak, locking their legs around \the <b>[partner]</b>'s head extra hard as they cum straight onto the head stuck between their thighs"
@@ -669,6 +678,11 @@
 								message = "cums inside \the <b>[partner]</b>'s eyesocket."
 							cumin = TRUE
 						//
+						if(CUM_TARGET_PENIS)
+							if(partner.has_penis(REQUIRE_EXPOSED))
+								message = "cums on \the <b>[partner]</b>."
+							else
+								message = "cums on the floor!"
 						else
 							message = "cums on the floor!"
 				if(/obj/item/organ/external/genital/vagina)
@@ -742,6 +756,11 @@
 								message = "squirts on \the <b>[partner]</b>'s eyesocket."
 							cumin = TRUE
 						//
+						if(CUM_TARGET_PENIS)
+							if(partner.has_penis(REQUIRE_EXPOSED))
+								message = "squirts on \the <b>[partner]</b>'s penis"
+							else
+								message = "squirts on the floor!"
 						else
 							message = "squirts on the floor!"
 				else
@@ -767,18 +786,18 @@
 
 	if(multiorgasms > (sexual_potency * 0.34)) //AAAAA, WE DONT WANT NEGATIVES HERE, RE
 		refractory_period = world.time + rand(300, 900) - sexual_potency//sex cooldown
-		src.set_drugginess(rand(20, 30))
+		set_drugginess(rand(20, 30))
 	else
 		refractory_period = world.time + rand(300, 900) - sexual_potency
-		src.set_drugginess(rand(5, 10))
+		set_drugginess(rand(5, 10))
 	if(multiorgasms < sexual_potency)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
 			/*
 			if(!partner)
-				H.mob_climax(TRUE, "none")
+				H.mob_climax(TRUE, "masturbation", "none")
 			else
-				H.mob_climax(TRUE, partner, !cumin)
+				H.mob_climax(TRUE, "sex", partner, !cumin)
 			*/
 			// SPLURT START
 			if(!partner)
@@ -913,7 +932,6 @@
 									'modular_zzplurt/sound/interactions/bj11.ogg'), 50, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(lust_increase, CUM_TARGET_MOUTH, src)
-	partner.dir = get_dir(partner,src)
 	lust_increase = NORMAL_LUST //RESET IT REE
 
 /mob/living/proc/do_facefuck(mob/living/partner, var/fucktarget = "penis")
@@ -935,7 +953,7 @@
 						"sways their hips, pushing their sex into \the <b>[partner]</b>'s face.",
 						)
 					if(partner.combat_mode == INTENT_HARM)
-						// src.adjustBruteLoss(5)
+						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"looks deeply displeased to be there.",
 							"struggles to escape from between \the [src]'s thighs.",
@@ -953,7 +971,7 @@
 						"rolls their hips hard, sinking into \the <b>[partner]</b>'s mouth.",
 						)
 					if(partner.combat_mode == INTENT_HARM)
-						// src.adjustBruteLoss(5)
+						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"stares up from between \the [src]'s knees, trying to squirm away.",
 							"struggles to escape from between \the [src]'s legs.",
@@ -970,7 +988,7 @@
 				"rolls their hips hard against \the <b>[partner]</b>'s face.",
 				)
 			if(partner.combat_mode == INTENT_HARM)
-				// src.adjustBruteLoss(5)
+				// adjustBruteLoss(5)
 				retaliation_message = pick(
 					"stares up from between \the [src]'s knees, trying to squirm away.",
 					"struggles to escape from between \the [src]'s legs.",
@@ -1009,7 +1027,6 @@
 	if(retaliation_message)
 		visible_message(message = "<font color=red><b>\The <b>[partner]</b></b> [retaliation_message]</font>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_MOUTH, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/thigh_smother(mob/living/partner, var/fucktarget = "penis")
 	var/message
@@ -1071,11 +1088,9 @@
 	playlewdinteractionsound(loc, file, 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(lust_increase, THIGH_SMOTHERING, partner)
-	partner.dir = get_dir(partner,src)
 	playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_MOUTH, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_throatfuck(mob/living/partner)
 	var/message
@@ -1093,7 +1108,7 @@
 				var/mob/living/H = partner
 				H.adjustOxyLoss(5)
 		if(partner.combat_mode == INTENT_HARM)
-			// src.adjustBruteLoss(5)
+			// adjustBruteLoss(5)
 			retaliation_message = pick(
 				"stares up from between \the [src]'s knees, trying to squirm away.",
 				"struggles to escape from between \the [src]'s legs.",
@@ -1117,7 +1132,6 @@
 	if(retaliation_message)
 		visible_message(message = "<font color=red><b>\The <b>[partner]</b></b> [retaliation_message]</font>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_THROAT, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/nut_face(var/mob/living/partner)
 
@@ -1141,7 +1155,6 @@
 						'modular_zzplurt/sound/interactions/nuts4.ogg'), 70, 1, -1)*/ //These files don't even exist but nobody noticed because double-quotes were used instead of single.
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(lust_increase, CUM_TARGET_MOUTH, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_anal(mob/living/partner)
 	var/message
@@ -1185,7 +1198,6 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, partner)
 	partner.handle_post_sex(NORMAL_LUST, null, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_mount(mob/living/partner)
 	var/message
@@ -1202,7 +1214,6 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, src)
 	handle_post_sex(NORMAL_LUST, null, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_mountass(mob/living/partner)
 	var/message
@@ -1219,7 +1230,6 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, src)
 	handle_post_sex(NORMAL_LUST, null, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_tribadism(mob/living/partner)
 	var/message
@@ -1238,7 +1248,6 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, src)
 	handle_post_sex(NORMAL_LUST, null, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_fingering(mob/living/partner)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [pick("fingers \the <b>[partner]</b>.",
@@ -1279,7 +1288,6 @@
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_breastfuck(mob/living/partner)
 	var/message
@@ -1299,7 +1307,6 @@
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_BREASTS, partner)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_mountface(mob/living/partner)
 	var/message
@@ -1338,7 +1345,7 @@
 	var/message
 
 	if(is_fucking(partner, GRINDING_FACE_WITH_FEET))
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("grinds their [get_shoes()] into <b>[partner]</b>'s face.",
 				"presses their footwear down hard on <b>[partner]</b>'s face.",
 				"rubs off the dirt from their [get_shoes()] onto <b>[partner]</b>'s face."))]</span>"
@@ -1348,7 +1355,7 @@
 				"runs the soles of their bare feet against <b>[partner]</b>'s lips."))]</span>"
 
 	else if(is_fucking(partner, GRINDING_MOUTH_WITH_FEET))
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("pulls their [get_shoes()] out of <b>[partner]</b>'s mouth and puts them on their face.",
 				"slowly retracts their [get_shoes()] from <b>[partner]</b>'s mouth, putting them on their face instead."))]</span>"
 		else
@@ -1358,7 +1365,7 @@
 		set_is_fucking(partner , GRINDING_FACE_WITH_FEET, null)
 
 	else
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("plants their [get_shoes()] ontop of <b>[partner]</b>'s face.",
 				"rests their [get_shoes()] on <b>[partner]</b>'s face and presses down hard.",
 				"harshly places their [get_shoes()] atop <b>[partner]</b>'s face."))]</span>"
@@ -1382,7 +1389,7 @@
 	var/message
 
 	if(is_fucking(partner, GRINDING_MOUTH_WITH_FEET))
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("roughly shoves their [get_shoes()] deeper into <b>[partner]</b>'s mouth.",
 				"harshly forces another inch of their [get_shoes()] into <b>[partner]</b>'s mouth.",
 				"presses their weight down, their [get_shoes()] prying deeper into <b>[partner]</b>'s mouth."))]</span>"
@@ -1392,7 +1399,7 @@
 				"roughly grinds their feet on <b>[partner]</b>'s tongue."))]</span>"
 
 	else if(is_fucking(partner, GRINDING_FACE_WITH_FEET))
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("decides to force their [get_shoes()] deep into <b>[partner]</b>'s mouth.",
 				"pressed the tip of their [get_shoes()] against <b>[partner]</b>'s lips and shoves inwards."))]</span>"
 		else
@@ -1402,7 +1409,7 @@
 		set_is_fucking(partner , GRINDING_MOUTH_WITH_FEET, null)
 
 	else
-		if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
+		if(get_item_by_slot(ITEM_SLOT_FEET) != null)
 			message = "[pick(list("readies themselves and in one swift motion, shoves their [get_shoes()] into <b>[partner]</b>'s mouth.",
 				"grinds the tip of their [get_shoes()] against <b>[partner]</b>'s mouth before pushing themselves in."))]</span>"
 		else
@@ -1437,7 +1444,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_dfootfuck(mob/living/partner)
 	var/message
@@ -1458,7 +1464,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_vfootfuck(mob/living/partner)
 	var/message
@@ -1479,7 +1484,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_footjob(mob/living/partner)
 	var/message
@@ -1499,7 +1503,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_dfootjob(mob/living/partner)
 	var/message
@@ -1520,7 +1523,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_footjob_v(mob/living/partner)
 	var/message
@@ -1541,7 +1543,6 @@
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/get_shoes(var/singular = FALSE)
 	var/obj/A = get_item_by_slot(ITEM_SLOT_FEET)
@@ -1557,20 +1558,23 @@
 				txt = copytext(A.name, 1, length(A.name))
 			return txt
 
+/// Handles the sex, if cumming returns true.
 /mob/living/proc/handle_post_sex(amount, orifice, mob/living/partner)
 	if(stat != CONSCIOUS)
-		return
+		return FALSE
 
 	if(amount)
 		add_lust(amount)
 	if(get_lust() >= lust_tolerance)
 		if(prob(10))
 			to_chat(src, "<b>You struggle to not orgasm!</b>")
-			return
+			return FALSE
 		if(lust >= lust_tolerance*3)
 			cum(partner, orifice)
+			return TRUE
 	else
 		moan()
+	return FALSE
 
 /mob/living/proc/get_unconsenting(var/extreme = FALSE, var/list/ignored_mobs)
 	var/list/nope = list()
@@ -1615,7 +1619,6 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting(TRUE))
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_EYES, partner)
 	partner.handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(partner,src)
 
 /mob/living/proc/do_earfuck(mob/living/partner)
 	var/message
@@ -1644,4 +1647,3 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting(TRUE))
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_EARS, partner)
 	partner.handle_post_sex(LOW_LUST, null, src)
-	partner.dir = get_dir(partner,src)
