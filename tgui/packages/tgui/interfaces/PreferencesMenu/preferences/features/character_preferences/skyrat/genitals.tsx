@@ -224,13 +224,25 @@ export const erp_status_pref_nc: FeatureChoiced = {
 
 // SPLURT EDIT START
 
-export const erp_status_pref_extremepref: FeatureChoiced = {
+export const erp_status_pref_extm: FeatureChoiced = {
   name: 'Extreme ERP verbs',
   component: FeatureDropdownInput,
 };
 
-export const erp_status_pref_extremeharm: FeatureChoiced = {
+export const erp_status_pref_extmharm: FeatureChoiced = {
   name: 'Harmful ERP verbs',
+  component: FeatureDropdownInput,
+};
+
+export const erp_lust_tolerance_pref: FeatureNumeric = {
+  name: 'Lust tolerance',
+  description: 'Set how long you can last without climaxing. \n(75 = minimum, 200 = maximum.)',
+  component: FeatureDropdownInput,
+};
+
+export const erp_sexual_potency_pref: FeatureNumeric = {
+  name: 'Sexual potency',
+  description: 'Set your sexual potency. \n(10 = minimum, 25 = maximum.)',
   component: FeatureDropdownInput,
 };
 

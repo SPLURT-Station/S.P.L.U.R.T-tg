@@ -57,3 +57,35 @@
 
 /datum/preference/choiced/erp_status_extmharm/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+
+/datum/preference/numeric/erp_lust_tolerance
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_key = "erp_lust_tolerance_pref"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+	minimum = 75
+	maximum = 200
+
+/datum/preference/numeric/erp_lust_tolerance/apply_to_human(mob/living/carbon/human/target, value)
+	target.age = value
+
+/datum/preference/numeric/erp_lust_tolerance/create_informed_default_value(datum/preferences/preferences)
+	return 100
+
+
+//--
+
+/datum/preference/numeric/erp_sexual_potency
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_key = "erp_sexual_potency_pref"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+	minimum = 10
+	maximum = 25
+
+/datum/preference/numeric/age/apply_to_human(mob/living/carbon/human/target, value)
+	target.age = value
+
+/datum/preference/numeric/age/create_informed_default_value(datum/preferences/preferences)
+	return 15

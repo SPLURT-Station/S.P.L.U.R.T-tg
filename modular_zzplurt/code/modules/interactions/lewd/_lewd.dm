@@ -89,6 +89,20 @@
 	sexual_potency =  rand(10,25)
 	lust_tolerance = rand(75,200)
 
+/mob/living/proc/get_lust_tolerance()
+	. = lust_tolerance
+	if(has_dna())
+		var/mob/living/carbon/user = src
+		if(user.dna.features["lust_tolerance"])
+			. = user.dna.features["lust_tolerance"]
+
+/mob/living/proc/get_sexual_potency()
+	. = sexual_potency
+	if(has_dna())
+		var/mob/living/carbon/user = src
+		if(user.dna.features["sexual_potency"])
+			. = user.dna.features["sexual_potency"]
+
 /mob/living/proc/get_refraction_dif()
 	var/dif = (refractory_period - world.time)
 	if(dif < 0)
@@ -428,7 +442,7 @@
 		return TRUE
 
 /mob/living/proc/moan()
-	if(!(prob(get_lust() / lust_tolerance * 65)))
+	if(!(prob(get_lust() / get_lust_tolerance() * 65)))
 		return
 	var/moan = rand(1, 7)
 	if(moan == lastmoan)
@@ -784,13 +798,13 @@
 	visible_message(message = "<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	multiorgasms += 1
 
-	if(multiorgasms > (sexual_potency * 0.34)) //AAAAA, WE DONT WANT NEGATIVES HERE, RE
-		refractory_period = world.time + rand(300, 900) - sexual_potency//sex cooldown
-		set_drugginess(rand(20, 30))
+	if(multiorgasms > (get_sexual_potency() * 0.34)) //AAAAA, WE DONT WANT NEGATIVES HERE, RE
+		refractory_period = world.time + rand(300, 900) - get_sexual_potency()//sex cooldown
+		// set_drugginess(rand(20, 30))
 	else
-		refractory_period = world.time + rand(300, 900) - sexual_potency
-		set_drugginess(rand(5, 10))
-	if(multiorgasms < sexual_potency)
+		refractory_period = world.time + rand(300, 900) - get_sexual_potency()
+		// set_drugginess(rand(5, 10))
+	if(multiorgasms < get_sexual_potency())
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
 			/*
@@ -828,7 +842,7 @@
 	var/lust_increase = NORMAL_LUST
 
 	if(partner.is_fucking(src, CUM_TARGET_MOUTH))
-		if(prob(partner.sexual_potency))
+		if(prob(partner.get_sexual_potency()))
 			if(istype(src, /mob/living)) // Argh.
 				var/mob/living/H = src
 				H.adjustOxyLoss(3)
@@ -1565,11 +1579,11 @@
 
 	if(amount)
 		add_lust(amount)
-	if(get_lust() >= lust_tolerance)
+	if(get_lust() >= get_lust_tolerance())
 		if(prob(10))
 			to_chat(src, "<b>You struggle to not orgasm!</b>")
 			return FALSE
-		if(lust >= lust_tolerance*3)
+		if(lust >= get_lust_tolerance()*3)
 			cum(partner, orifice)
 			return TRUE
 	else

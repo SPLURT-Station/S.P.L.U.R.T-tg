@@ -43,12 +43,13 @@
 
 /// Checks if user can do an interaction, action_check is for whether you're actually doing it or not (useful for the menu and not removing the buttons)
 /datum/interaction/proc/evaluate_user(mob/living/user, silent = TRUE, action_check = TRUE)
+	/* Temporarily closed
 	if(user.get_refraction_dif())
 		if(!silent) //bye spam
 			to_chat(user, "<span class='warning'>You're still exhausted from the last time. You need to wait [DisplayTimeText(user.get_refraction_dif(), TRUE)] until you can do that!</span>")
 		if(action_check)
 			return FALSE
-
+	*/
 	if(require_user_mouth)
 		if(!user.has_mouth() && !issilicon(user)) //Again, silicons do not have the required parts normally.
 			if(!silent)

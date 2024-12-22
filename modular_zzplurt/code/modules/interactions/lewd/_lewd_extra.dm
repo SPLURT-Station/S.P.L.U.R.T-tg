@@ -3,7 +3,7 @@
 	var/t_His = p_their()
 
 	message = "rubs [t_His] penis against [target]'s."
-	set_is_fucking(target, CUM_TARGET_PENIS, getorganslot(ORGAN_SLOT_PENIS))
+	set_is_fucking(target, CUM_TARGET_PENIS, get_organ_slot(ORGAN_SLOT_PENIS))
 	visible_message("<span class='lewd'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, target)
 	target.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, src)
