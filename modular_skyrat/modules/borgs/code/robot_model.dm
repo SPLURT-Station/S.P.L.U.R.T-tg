@@ -354,6 +354,7 @@
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher,
 		/obj/item/universal_scanner,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_SUPPLY)
 	emag_modules = list(
@@ -418,6 +419,7 @@
 		/obj/item/holosign_creator/cyborg,
 		/obj/item/stamp/chameleon,
 		/obj/item/borg_shapeshifter,
+		/obj/item/dildo/cyborg,
 		)
 	cyborg_base_icon = "synd_engi"
 	model_select_icon = "malf"
@@ -466,7 +468,8 @@
 		/obj/item/gun/ballistic/revolver/grenadelauncher/cyborg,
 		/obj/item/card/emag,
 		/obj/item/crowbar/cyborg,
-		/obj/item/extinguisher/mini
+		/obj/item/extinguisher/mini,
+		/obj/item/dildo/cyborg,
 		)
 	cyborg_base_icon = "ninja_sec"
 	cyborg_icon_override = CYBORG_ICON_NINJA
@@ -520,7 +523,8 @@
 		/obj/item/stack/medical/gauze,
 		/obj/item/gun/medbeam,
 		/obj/item/borg/apparatus/organ_storage,
-		/obj/item/surgical_processor
+		/obj/item/surgical_processor,
+		/obj/item/dildo/cyborg,
 		)
 	cyborg_base_icon = "ninja_medical"
 	cyborg_icon_override = CYBORG_ICON_NINJA
@@ -549,7 +553,8 @@
 		/obj/item/stamp/chameleon,
 		/obj/item/card/emag,
 		/obj/item/stack/cable_coil,
-		/obj/item/borg_shapeshifter
+		/obj/item/borg_shapeshifter,
+		/obj/item/dildo/cyborg,
 		)
 	cyborg_base_icon = "ninja_engi"
 	cyborg_icon_override = CYBORG_ICON_NINJA

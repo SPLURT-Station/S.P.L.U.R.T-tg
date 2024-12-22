@@ -393,6 +393,7 @@
 		/obj/item/picket_sign/cyborg,
 		/obj/item/reagent_containers/borghypo/clown,
 		/obj/item/extinguisher/mini,
+		/obj/item/dildo/cyborg,
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/clown/hacked,
@@ -438,6 +439,7 @@
 		/obj/item/lightreplacer/cyborg, // Skyrat Edit - Surprised Engie borgs don't get these
 		/obj/item/stack/tile/iron/base/cyborg,
 		/obj/item/stack/cable_coil,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_ENGINEERING)
 	emag_modules = list(
@@ -466,6 +468,7 @@
 		/obj/item/holosign_creator,
 		/obj/item/reagent_containers/spray/cyborg_drying,
 		/obj/item/wirebrush,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(
@@ -735,6 +738,7 @@
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/borg/apparatus/organ_storage,
 		/obj/item/borg/lollipop,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_MEDICAL)
 	emag_modules = list(
@@ -765,6 +769,7 @@
 		/obj/item/gps/cyborg,
 		/obj/item/stack/marker_beacon,
 		/obj/item/t_scanner/adv_mining_scanner/cyborg,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SUPPLY)
 	emag_modules = list(
@@ -790,6 +795,7 @@
 		/obj/item/borg/cyborghug/peacekeeper,
 		/obj/item/extinguisher,
 		/obj/item/borg/projectile_dampen,
+		/obj/item/dildo/cyborg,
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/peace/hacked,
@@ -813,6 +819,7 @@
 		/obj/item/gun/energy/disabler/cyborg,
 		/obj/item/clothing/mask/gas/sechailer/cyborg,
 		/obj/item/extinguisher/mini,
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_SECURITY)
 	emag_modules = list(
@@ -883,6 +890,7 @@
 		/obj/item/reagent_containers/cup/rag,
 		//obj/item/storage/bag/money, //This is never used and there's already too much bloat
 		// SKYRAT EDIT END
+		/obj/item/dildo/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(
@@ -920,6 +928,7 @@
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher/mini,
 		/obj/item/pinpointer/syndicate_cyborg,
+		/obj/item/dildo/cyborg,
 	)
 	cyborg_base_icon = "synd_sec"
 	model_select_icon = "malf"
@@ -955,6 +964,7 @@
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/gun/medbeam,
 		/obj/item/borg/apparatus/organ_storage,
+		/obj/item/dildo/cyborg,
 	)
 	cyborg_base_icon = "synd_medical"
 	model_select_icon = "malf"
@@ -984,6 +994,7 @@
 		/obj/item/pinpointer/syndicate_cyborg,
 		/obj/item/borg_chameleon,
 		/obj/item/card/emag,
+		/obj/item/dildo/cyborg,
 	)
 	cyborg_base_icon = "synd_engi"
 	model_select_icon = "malf"
@@ -996,6 +1007,7 @@
 	basic_modules = list(
 		/obj/item/claymore/highlander/robot,
 		/obj/item/pinpointer/nuke,
+		/obj/item/dildo/cyborg,
 	)
 	model_select_icon = "kilt"
 	cyborg_base_icon = "kilt"

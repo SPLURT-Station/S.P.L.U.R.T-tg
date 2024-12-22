@@ -63,7 +63,9 @@
 		/obj/item/quadborg_nose,
 		/obj/item/quadborg_tongue,
 		/obj/item/reagent_containers/borghypo,
-		/obj/item/borg_shapeshifter/stable)
+		/obj/item/borg_shapeshifter/stable,
+		/obj/item/dildo/cyborg,
+		)
 	hat_offset = list("north" = list(0, -3), "south" = list(0, -3), "east" = list(0, -3), "west" = list(0, -3))
 
 /obj/item/borg_shapeshifter/stable
