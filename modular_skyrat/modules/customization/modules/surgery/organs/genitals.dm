@@ -537,7 +537,7 @@
 		return
 	//Full list of exposable genitals created
 	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
+	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list + list("anus")
 	if(picked_organ && (picked_organ in organs))
 		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
 												"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
@@ -547,7 +547,22 @@
 		if(picked_visibility && picked_organ && (picked_organ in organs))
 			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
 			update_body()
+		if(picked_organ == "anus")
+			var/picked_visibility = input(src, "Chose visibility setting", "Expose/Hide genitals") as null|anything in list("Always visible", "Hidden by underwear", "Always hidden")
+			anus_toggle_visibility(picked_visibility)
 	return
+
+/mob/living/carbon/proc/anus_toggle_visibility(visibility)
+	switch(visibility)
+		if("Always visible")
+			anus_exposed = TRUE
+			log_message("Exposed their anus", LOG_EMOTE)
+		if("Hidden by underwear")
+			anus_exposed = FALSE
+			log_message("Hid their anus under underwear", LOG_EMOTE)
+		else
+			anus_exposed = -1
+			log_message("Hid their anus completely", LOG_EMOTE)
 
 //Removing ERP IC verb depending on config
 /mob/living/carbon/human/Initialize(mapload)

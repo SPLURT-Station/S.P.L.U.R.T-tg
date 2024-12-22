@@ -64,6 +64,7 @@
 	var/has_penis = FALSE
 	var/has_vagina = FALSE
 	var/has_breasts = FALSE
+	var/anus_exposed = FALSE
 	var/last_partner
 	var/last_orifice
 	var/obj/item/organ/last_genital
@@ -213,18 +214,30 @@
 	if(issilicon(src))
 		return TRUE
 	switch(nintendo)
-		if(REQUIRE_EXPOSED)
-			if(is_bottomless())
-				return TRUE
-			else
-				return FALSE
 		if(REQUIRE_ANY)
 			return TRUE
+		if(REQUIRE_EXPOSED)
+			switch(anus_exposed)
+				if(-1)
+					return FALSE
+				if(1)
+					return TRUE
+				else
+					if(is_bottomless())
+						return TRUE
+					else
+						return FALSE
 		if(REQUIRE_UNEXPOSED)
-			if(!is_bottomless())
-				return TRUE
+			if(anus_exposed == -1)
+				if(!anus_exposed)
+					if(!is_bottomless())
+						return TRUE
+					else
+						return FALSE
+				else
+					return FALSE
 			else
-				return FALSE
+				return TRUE
 		else
 			return TRUE
 
@@ -270,10 +283,9 @@
 			feetcount++
 		for(var/obj/item/bodypart/leg/right/R in C.bodyparts)
 			feetcount++
-		if(C.get_item_by_slot(ITEM_SLOT_FEET))
-			var/obj/item/clothing/shoes/S = C.get_item_by_slot(ITEM_SLOT_FEET)
-			covered = S.body_parts_covered
-		if(covered & FEET)
+		if(!C.is_barefoot())
+			covered = TRUE
+		if(covered)
 			iscovered = TRUE
 		switch(nintendo)
 			if(REQUIRE_ANY)
@@ -384,11 +396,32 @@
 					return TRUE
 	return FALSE
 
+///Are we wearing something that covers our chest?
 /mob/living/proc/is_topless()
-	return TRUE
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		if((!(H.wear_suit) || !(H.wear_suit.body_parts_covered & CHEST)) && (!(H.w_uniform) || !(H.w_uniform.body_parts_covered & CHEST)) && (!(H.w_shirt) || !(H.w_shirt.body_parts_covered & CHEST)))
+			return TRUE
+	else
+		return TRUE
 
+///Are we wearing something that covers our groin?
 /mob/living/proc/is_bottomless()
-	return TRUE
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		if((!(H.wear_suit) || !(H.wear_suit.body_parts_covered & GROIN)) && (!(H.w_uniform) || !(H.w_uniform.body_parts_covered & GROIN)) && (!(H.w_underwear) || !(H.w_underwear.body_parts_covered & GROIN)))
+			return TRUE
+	else
+		return TRUE
+
+///Are we wearing something that covers our shoes?
+/mob/living/proc/is_barefoot()
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		if((!(H.wear_suit) || !(H.wear_suit.body_parts_covered & GROIN)) && (!(H.w_socks) || !(H.w_socks.body_parts_covered & FEET)))
+			return TRUE
+	else
+		return TRUE
 
 /mob/living/proc/moan()
 	if(!(prob(get_lust() / lust_tolerance * 65)))

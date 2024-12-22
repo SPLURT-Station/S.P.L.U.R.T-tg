@@ -17,7 +17,7 @@
 *	This code needed to determine if the human is naked in that part of body or not
 *	You can use this for your own stuff if you want, haha.
 */
-
+/*
 /// Are we wearing something that covers our chest?
 /mob/living/carbon/human/is_topless()
 	return (!(wear_suit) || !(wear_suit.body_parts_covered & CHEST)) && (!(w_uniform) || !(w_uniform.body_parts_covered & CHEST))
@@ -25,7 +25,7 @@
 /// Are we wearing something that covers our groin?
 /mob/living/carbon/human/is_bottomless()
 	return (!(wear_suit) || !(wear_suit.body_parts_covered & GROIN)) && (!(w_uniform) || !(w_uniform.body_parts_covered & GROIN))
-
+*/
 /// Are we wearing something that covers our shoes?
 /mob/living/carbon/human/proc/is_barefoot()
 	return (!(wear_suit) || !(wear_suit.body_parts_covered & GROIN)) && (!(shoes) || !(shoes.body_parts_covered & FEET))
