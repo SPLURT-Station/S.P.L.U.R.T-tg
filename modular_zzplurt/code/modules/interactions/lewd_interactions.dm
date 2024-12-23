@@ -3,7 +3,7 @@
 	description = "Slap their ass."
 	simple_message = "USER slaps TARGET right on the ass!"
 	simple_style = "danger"
-	interaction_sound = 'sound/weapons/slap.ogg'
+	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	needs_physical_contact = TRUE
 	require_ooc_consent = TRUE
 	max_distance = 1
@@ -274,13 +274,13 @@
 	if(extreme)
 		var/client/cli = user.client
 		if(cli)
-			if(cli.prefs.extremepref == "No")
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				if(!silent)
 					to_chat(user, "<span class='warning'>That's way too much for you.</span>")
 				return FALSE
 
 	if(require_ooc_consent)
-		if((!user.ckey) || (user.client && user.client.prefs.toggles & VERB_CONSENT))
+		if((!user.ckey) || (LAZY_READ_PREF_FROM_MOB(user, /datum/preference/toggle/erp) == TRUE))
 			return TRUE
 		if(action_check)
 			return FALSE
@@ -493,13 +493,13 @@
 	if(extreme)
 		var/client/cli = target.client
 		if(cli)
-			if(target.client.prefs.extremepref == "No")
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				if(!silent)
 					to_chat(user, "<span class='warning'>For some reason, you don't want to do this to [target].</span>")
 				return FALSE
 
 	if(require_ooc_consent)
-		if((!target.ckey) || (target.client && target.client.prefs.toggles & VERB_CONSENT))
+		if((!target.ckey) || (LAZY_READ_PREF_FROM_MOB(target, /datum/preference/toggle/erp) == TRUE))
 			return TRUE
 	return FALSE
 
@@ -518,7 +518,7 @@
 	var/dat = ..()
 	if(!COOLDOWN_FINISHED(LM, refractory_period))
 		dat += "...are sexually exhausted for the time being."
-	switch(a_intent)
+	switch(combat_mode)
 		if(INTENT_HELP)
 			dat += "...are acting gentle."
 		if(INTENT_DISARM)
@@ -531,8 +531,8 @@
 	if(client)
 		var/client/cli = client
 		var/client/ucli = LM.client
-		if(cli.prefs.extremepref != "No")
-			if(!ucli || (ucli.prefs.extremepref != "No"))
+		if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) != "No")
+			if(!ucli || (LAZY_READ_PREF_FROM_CLIENT(ucli, /datum/preference/choiced/erp_status_extm) != "No"))
 				if(!get_item_by_slot(ITEM_SLOT_EARS_LEFT) && !get_item_by_slot(ITEM_SLOT_EARS_RIGHT))
 					if(has_ears())
 						dat += "...have unprotected ears."

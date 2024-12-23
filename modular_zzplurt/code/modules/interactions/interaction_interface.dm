@@ -88,7 +88,7 @@
 				interaction["type"] = INTERACTION_NORMAL
 			sent_interactions += list(interaction)
 	.["interactions"] = sent_interactions
-
+/*
 	//Get their genitals
 	var/list/genitals = list()
 	var/mob/living/carbon/get_genitals = self
@@ -127,7 +127,7 @@
 		simulated_ass["possible_choices"] = GLOB.genitals_visibility_toggles - GEN_VISIBLE_NO_CLOTHES
 		genitals += list(simulated_ass)
 	.["genitals"] = genitals
-/*
+
 	var/datum/preferences/prefs = usr?.client.prefs
 	if(prefs)
 	//Getting char prefs
