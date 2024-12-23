@@ -72,8 +72,21 @@
 	.["isTargetSelf"] = target == self
 	.["interactingWith"] = target != self ? "Interacting with \the [target]..." : "Interacting with yourself..."
 	.["selfAttributes"] = self.list_interaction_attributes(self)
+	.["lust"] = self.get_lust()
+	.["maxLust"] = self.get_lust_tolerance() * 3
 	if(target != self)
 		.["theirAttributes"] = target.list_interaction_attributes(self)
+		// Trait not exists
+		/*
+		if(HAS_TRAIT(user, TRAIT_ESTROUS_DETECT))
+			.["theirLust"] = target.get_lust()
+			.["theirMaxLust"] = target.get_lust_tolerance() * 3
+		else
+			.["theirLust"] = null
+			.["theirMaxLust"] = null
+		*/
+		.["theirLust"] = null
+		.["theirMaxLust"] = null
 
 	//Getting interactions
 	var/list/sent_interactions = list()

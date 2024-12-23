@@ -2,16 +2,87 @@ import { filter, map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Button, Flex, LabeledList, Icon, Input, Section, Table, Tabs, Stack } from '../components';
+import { BlockQuote, Button, Flex, Icon, Input, LabeledList, ProgressBar, Section, Table, Tabs, Stack } from '../components';
+import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 
+type HeaderInfo = {
+  isTargetSelf: boolean;
+  interactingWith: string;
+  lust: number;
+  maxLust: number;
+  selfAttributes: string[];
+  theirAttributes: string[];
+  theirLust: number;
+  theirMaxLust: number;
+}
+
+type ContentInfo = {
+  interactions: InteractionData[];
+}
+
+type InteractionData = {
+  key: string;
+  desc: string;
+  type: number;
+}
+
+type GenitalInfo = {
+  genitals: GenitalData[];
+}
+
+type GenitalData = {
+  name: string,
+  key: string,
+  visibility: string,
+  possible_choices: string[],
+  can_arouse: boolean,
+  arousal_state: boolean,
+  always_accessible: boolean,
+}
+
+type CharacterPrefsInfo = {
+  erp_pref: number,
+  noncon_pref: number,
+  vore_pref: number,
+  extreme_pref: number,
+  extreme_harm: boolean,
+}
+
+type ContentPrefsInfo = {
+  verb_consent: boolean,
+  lewd_verb_sounds: boolean,
+  arousable: boolean,
+  genital_examine: boolean,
+  vore_examine: boolean,
+  medihound_sleeper: boolean,
+  eating_noises: boolean,
+  digestion_noises: boolean,
+  trash_forcefeed: boolean,
+  forced_fem: boolean,
+  forced_masc: boolean,
+  hypno: boolean,
+  bimbofication: boolean,
+  breast_enlargement: boolean,
+  penis_enlargement: boolean,
+  butt_enlargement: boolean,
+  never_hypno: boolean,
+  no_aphro: boolean,
+  no_ass_slap: boolean,
+  no_auto_wag: boolean,
+}
+
 export const MobInteraction = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<HeaderInfo>(context);
   const {
     isTargetSelf,
     interactingWith,
+    lust,
+    maxLust,
     selfAttributes,
     theirAttributes,
+    theirLust,
+    theirMaxLust,
   } = data;
   const [tabIndex, setTabIndex] = useLocalState(context, 'tabIndex', 0);
 
@@ -23,37 +94,49 @@ export const MobInteraction = (props, context) => {
       <Window.Content overflow="auto">
         <Section title={interactingWith}>
           <Table>
-            <Table.Cell>
-              <BlockQuote>
-                You...<br />
-                {selfAttributes.map(attribute => (
-                  <div key={attribute}>
-                    {attribute}<br />
-                  </div>
-                ))}
-              </BlockQuote>
-            </Table.Cell>
-            {!isTargetSelf ? (
+            <Table.Row>
               <Table.Cell>
                 <BlockQuote>
-                  They...<br />
-                  {theirAttributes.map(attribute => (
+                  You...<br />
+                  {selfAttributes.map(attribute => (
                     <div key={attribute}>
                       {attribute}<br />
                     </div>
                   ))}
                 </BlockQuote>
               </Table.Cell>
-            ) : (null)}
+              {!isTargetSelf ? (
+                <Table.Cell>
+                  <BlockQuote>
+                    They...<br />
+                    {theirAttributes.map(attribute => (
+                      <div key={attribute}>
+                        {attribute}<br />
+                      </div>
+                    ))}
+                  </BlockQuote>
+                </Table.Cell>
+              ) : (null)}
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <ProgressBar value={lust} maxValue={maxLust} color="purple" mt="10px"><Icon name="heart" /></ProgressBar>
+              </Table.Cell>
+              {(!isTargetSelf && !isNaN(theirLust)) ? (
+                <Table.Cell>
+                  <ProgressBar value={theirLust} maxValue={theirMaxLust} color="purple"><Icon name="heart" /></ProgressBar>
+                </Table.Cell>
+              ) : (null)}
+            </Table.Row>
           </Table>
         </Section>
         <Section>
-          <Tabs>
+          <Tabs fluid textAlign="center">
             <Tabs.Tab selected={tabIndex === 0} onClick={() => setTabIndex(0)}>
               Interactions
             </Tabs.Tab>
             <Tabs.Tab selected={tabIndex === 1} onClick={() => setTabIndex(1)}>
-              Genital Visibility
+              Genital Options
             </Tabs.Tab>
             <Tabs.Tab selected={tabIndex === 2} onClick={() => setTabIndex(2)}>
               Character Prefs
@@ -65,7 +148,7 @@ export const MobInteraction = (props, context) => {
           {tabIndex === 0 && (
             <InteractionsTab />
           ) || tabIndex === 1 && (
-            <GenitalVisibilityTab />
+            <GenitalTab />
           ) || tabIndex === 2 && (
             <CharacterPrefsTab />
           ) || tabIndex === 3 && (
@@ -78,7 +161,7 @@ export const MobInteraction = (props, context) => {
 };
 
 const InteractionsTab = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<ContentInfo>(context);
   const [
     searchText,
     setSearchText,
@@ -103,20 +186,20 @@ const InteractionsTab = (props, context) => {
       {
         interactions.length ? (
           interactions.map((interaction) => (
-            <Table.Row key={interaction["key"]}>
+            <Table.Row key={interaction.key}>
               <Button
-                key={interaction['key']}
-                content={interaction['desc']}
-                color={interaction['type'] === 2 ? "red" : interaction['type'] ? "pink" : "default"}
+                key={interaction.key}
+                content={interaction.desc}
+                color={interaction.type === 2 ? "red" : interaction.type ? "pink" : "default"}
                 fluid
                 mb={0.3}
                 onClick={() => act('interact', {
-                  interaction: interaction['key'],
+                  interaction: interaction.key,
                 })} />
             </Table.Row>
           ))
         ) : (
-          <center>
+          <Section align="center">
             {
               searchText ? (
                 "No matching results."
@@ -124,7 +207,7 @@ const InteractionsTab = (props, context) => {
                 "No interactions available."
               )
             }
-          </center>
+          </Section>
         )
       }
     </Table>
@@ -135,7 +218,8 @@ const InteractionsTab = (props, context) => {
  * Interaction sorter! also search box
  */
 export const sortInteractions = (interactions, searchText = '') => {
-  const testSearch = createSearch(searchText, interaction => interaction.desc);
+  const testSearch = createSearch<InteractionData>(searchText,
+    interaction => interaction.desc);
   return flow([
     // Optional search term
     searchText && filter(testSearch),
@@ -153,36 +237,83 @@ const ModeToIcon = {
   "Always hidden": "eye-slash",
 };
 
-const GenitalVisibilityTab = (props, context) => {
-  const { act, data } = useBackend(context);
+/*
+  Greetings you, yes you, adding more stuff to actions,
+  To not have as much headache as i did,
+  do not attempt to make a sum of 100% with the buttons
+  as it will mess up math somewhere and overflow.
+
+  Also this is adjusted only for the current size,
+  if anyone feels like shrinking,
+  their window it will overflow anyways.
+  Single items is fine.
+*/
+const GenitalTab = (props, context) => {
+  const { act, data } = useBackend<GenitalInfo>(context);
   const genitals = data.genitals || [];
   return (
     genitals.length ? (
       <Flex direction="column">
-        <LabeledList>
-          {genitals.map(genital => (
-            <LabeledList.Item key={genital['key']} label={genital['name']}>
-              {genital.possible_choices.map(choice => (
+        {genitals.map(genital => (
+          <Section key={genital.key} title={genital.name} textAlign="center">
+            <Table>
+              <TableCell width="50%" textAlign="center">
+                Visibility<br />
+                {genital.possible_choices.map(choice => (
+                  <Button
+                    width={((1 / genital.possible_choices.length) * 97) + "%"}
+                    key={choice}
+                    tooltip={choice}
+                    icon={ModeToIcon[choice]}
+                    color={genital.visibility === choice ? "green" : "default"}
+                    onClick={() => act('genital', {
+                      genital: genital.key,
+                      visibility: choice,
+                    })} />
+                ))}
+              </TableCell>
+              <TableCell textAlign="center">
+                Actions<br />
                 <Button
-                  key={choice}
-                  tooltip={choice}
-                  icon={ModeToIcon[choice]}
-                  color={genital.visibility === choice ? "green" : "default"}
+                  width="49%"
+                  key={genital.arousal_state}
+                  tooltip={genital.can_arouse
+                    ? ((genital.arousal_state ? "Unarouse" : "Arouse") + " your " + genital.name.toLowerCase())
+                    : "You cannot modify arousal on your " + genital.name.toLowerCase()}
+                  icon={genital.arousal_state ? "heart" : "heart-broken"}
+                  color={genital.can_arouse ? (genital.arousal_state ? "green" : "default") : "grey"}
                   onClick={() => act('genital', {
-                    genital: genital['key'],
-                    visibility: choice,
+                    genital: genital.key,
+                    set_arousal: !genital.arousal_state,
                   })} />
-              ))}
-            </LabeledList.Item>
-          ))}
-        </LabeledList>
+                <Button
+                  width="49%"
+                  key={genital.always_accessible}
+                  tooltip={genital.always_accessible
+                    ? "Forbid others from manipulating this genital at any moment"
+                    : "Allow others to manipulate this genital at any moment"}
+                  icon={genital.always_accessible ? "hand-paper" : 'hand-rock'}
+                  color={genital.always_accessible ? "green" : "default"}
+                  onClick={() => act('genital', {
+                    genital: genital.key,
+                    set_accessibility: true,
+                  })} />
+              </TableCell>
+            </Table>
+          </Section>
+        ))}
       </Flex>
-    ) : ("You don't seem to have any genitals... Or any that you could modify")
+    ) : (
+      <Section align="center">
+        You don&apos;t seem to have any genitals...
+        Or any that you could modify.
+      </Section>
+    )
   );
 };
 
 const CharacterPrefsTab = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<CharacterPrefsInfo>(context);
   const {
     erp_pref,
     noncon_pref,
@@ -289,14 +420,14 @@ const CharacterPrefsTab = (props, context) => {
           <LabeledList.Item label="Extreme Harm">
             <Button
               icon={"check"}
-              color={extreme_harm === 1 ? "green" : "default"}
+              color={extreme_harm ? "green" : "default"}
               onClick={() => act('char_pref', {
                 char_pref: 'extreme_harm',
                 value: 1,
               })} />
             <Button
               icon={"times"}
-              color={extreme_harm === 0 ? "red" : "default"}
+              color={extreme_harm ? "default" : "red"}
               onClick={() => act('char_pref', {
                 char_pref: 'extreme_harm',
                 value: 0,
@@ -309,7 +440,7 @@ const CharacterPrefsTab = (props, context) => {
 };
 
 const ContentPreferencesTab = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<ContentPrefsInfo>(context);
   const {
     verb_consent,
     lewd_verb_sounds,
