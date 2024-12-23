@@ -1,15 +1,13 @@
 /datum/interaction/lewd/facefuck
 	description = "Fuck their mouth using your penis"
 	interaction_sound = null
-	require_target_mouth = TRUE
-	require_user_penis = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 	var/fucktarget = "penis"
 
 /datum/interaction/lewd/facefuck/vag
 	description = "Fuck their mouth using your vagina"
-	require_user_penis = null
-	require_user_vagina = REQUIRE_EXPOSED
+	required_from_user_exposed = INTERACTION_REQUIRE_VAGINA
 	fucktarget = "vagina"
 
 /datum/interaction/lewd/facefuck/display_interaction(mob/living/user, mob/living/partner)
@@ -34,7 +32,7 @@
 						"looks \the <b>[partner]</b>'s in the eyes as [u_His] pussy presses into a waiting tongue.",
 						"sways [u_His] hips, pushing [u_His] sex into \the <b>[partner]</b>'s face.",
 						)
-					if(partner.combat_mode == INTENT_HARM)
+					if(partner.a_intent == INTENT_HARM)
 						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"looks deeply displeased to be there.",
@@ -52,7 +50,7 @@
 						"looks \the <b>[partner]</b>'s in the eyes as [u_His] cock presses into a waiting tongue.",
 						"rolls [u_His] hips hard, sinking into \the <b>[partner]</b>'s mouth.",
 						)
-					if(partner.combat_mode == INTENT_HARM)
+					if(partner.a_intent == INTENT_HARM)
 						// adjustBruteLoss(5)
 						retaliation_message = pick(
 							"stares up from between \the [user]'s knees, trying to squirm away.",
@@ -69,7 +67,7 @@
 				"looks \the <b>[partner]</b>'s in the eyes as [t_Hes] caught beneath two thighs.",
 				"rolls [u_His] hips hard against \the <b>[partner]</b>'s face.",
 				)
-			if(partner.combat_mode == INTENT_HARM)
+			if(partner.a_intent == INTENT_HARM)
 				// adjustBruteLoss(5)
 				retaliation_message = pick(
 					"stares up from between \the [user]'s knees, trying to squirm away.",
@@ -103,7 +101,7 @@
 
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	if(retaliation_message)
 		user.visible_message("<font color=red><b>\The <b>[partner]</b></b> [retaliation_message]</span>", ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_MOUTH, partner)
@@ -111,9 +109,8 @@
 /datum/interaction/lewd/throatfuck
 	description = "Fuck their throat. | Does oxy damage."
 	interaction_sound = null
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_mouth = TRUE
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 
 /datum/interaction/lewd/throatfuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -133,7 +130,7 @@
 			partner.emote("chokes on \the [user]")
 			if(prob(1) && istype(partner))
 				partner.adjustOxyLoss(5)
-		if(partner.combat_mode == INTENT_HARM)
+		if(partner.a_intent == INTENT_HARM)
 			// adjustBruteLoss(5)
 			retaliation_message = pick(
 				"stares up from between \the [user]'s knees, trying to squirm away.",
@@ -154,7 +151,7 @@
 
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
-	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(message = span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	if(retaliation_message)
 		user.visible_message(message = "<font color=red><b>\The <b>[partner]</b></b> [retaliation_message]</span>", ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_THROAT, partner)

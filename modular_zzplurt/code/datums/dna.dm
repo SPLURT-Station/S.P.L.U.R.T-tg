@@ -34,7 +34,7 @@
 
 	/* Needs genital updates
 	var/mob/living/carbon/C = holder
-	for(var/obj/item/organ/genital/G in C.internal_organs)
+	for(var/obj/item/organ/external/genital/G in C.internal_organs)
 		if(istype(G))
 			G.update()
 	*/

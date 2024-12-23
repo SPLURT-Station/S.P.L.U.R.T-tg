@@ -1,17 +1,15 @@
 /datum/interaction/lewd/earfuck
 	description = "Fuck their ear."
 	interaction_sound = null
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_ears = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target_exposed = INTERACTION_REQUIRE_EARS
+	interaction_flags = INTERACTION_FLAG_ADJACENT | INTERACTION_FLAG_OOC_CONSENT | INTERACTION_FLAG_EXTREME_CONTENT
 	write_log_user = "earfucked"
 	write_log_target = "had their ear fucked by"
-	extreme = TRUE
 
 /datum/interaction/lewd/earfuck/earsocketfuck
 	description = "Fuck their earsocket."
-	require_target_ears = null
-	require_target_earsockets = REQUIRE_EXPOSED
+	required_from_target_exposed = INTERACTION_REQUIRE_EARSOCKETS
 	write_log_user = "earsocket fucked"
 	write_log_target = "had their earsocket fucked by"
 
@@ -41,6 +39,6 @@
 
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/champ1.ogg',
 												'modular_zzplurt/sound/interactions/champ2.ogg'), 50, 1, -1)
-	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting(TRUE))
+	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting(interaction_flags))
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_EARS, partner)
 	partner.handle_post_sex(LOW_LUST, null, user)

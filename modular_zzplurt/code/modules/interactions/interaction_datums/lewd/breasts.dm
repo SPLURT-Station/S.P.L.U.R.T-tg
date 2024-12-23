@@ -1,9 +1,8 @@
 /*
 /datum/interaction/lewd/do_breastfeed
 	description = "Breastfeed them"
-	require_user_breasts = REQUIRE_EXPOSED
-	require_target_mouth = TRUE
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_BREASTS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 	write_log_user = "breastfed"
 	write_log_target = "was breastfed by"
 	interaction_sound = null
@@ -49,8 +48,9 @@
 
 /datum/interaction/lewd/titgrope
 	description = "Grope their breasts."
-	require_user_hands = TRUE
-	require_target_breasts = REQUIRE_ANY
+	required_from_user = INTERACTION_REQUIRE_HANDS
+	required_from_target_exposed = INTERACTION_REQUIRE_BREASTS
+	required_from_target_unexposed = INTERACTION_REQUIRE_BREASTS
 	write_log_user = "groped"
 	write_log_target = "was groped by"
 	interaction_sound = null

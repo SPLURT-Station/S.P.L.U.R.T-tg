@@ -31,34 +31,41 @@
 	var/interaction_sound
 
 	var/max_distance = 1
-	var/require_ooc_consent = FALSE
-	var/require_user_mouth
-	var/require_user_hands
-	var/require_target_mouth
-	var/require_target_hands
-	var/needs_physical_contact
 
-	var/user_is_target = FALSE //Boolean. Pretty self explanatory.
+	var/interaction_flags = INTERACTION_FLAG_ADJACENT
+
+	var/required_from_user = NONE
+	var/required_from_user_exposed = NONE
+	var/required_from_user_unexposed = NONE
+
+	var/required_from_target = NONE
+	var/required_from_target_exposed = NONE
+	var/required_from_target_unexposed = NONE
+
+	/// Refuses to accept more than one entry for some reason, fix sometime
+	var/list/additional_details
 
 /// Checks if user can do an interaction, action_check is for whether you're actually doing it or not (useful for the menu and not removing the buttons)
 /datum/interaction/proc/evaluate_user(mob/living/user, silent = TRUE, action_check = TRUE)
 	if(SSinteractions.is_blacklisted(user))
 		return FALSE
-	if(require_user_mouth)
-		if(!user.has_mouth() && !issilicon(user)) //Again, silicons do not have the required parts normally.
+
+	if(required_from_user & INTERACTION_REQUIRE_MOUTH)
+		if(!user.has_mouth())
 			if(!silent)
-				to_chat(user, "<span class='warning'>You don't have a mouth.</span>")
+				to_chat(user, span_warning("You don't have a mouth."))
 			return FALSE
 
-		if(!user.mouth_is_free() && !issilicon(user)) //Borgs cannot wear mouthgear, bypassing the check.
+		if(!user.mouth_is_free())
 			if(!silent)
-				to_chat(user, "<span class='warning'>Your mouth is covered.</span>")
+				to_chat(user, span_warning("Your mouth is covered."))
 			return FALSE
 
-	if(require_user_hands && !user.has_hands() && !issilicon(user)) //Edited to allow silicons to interact.
-		if(!silent)
-			to_chat(user, "<span class='warning'>You don't have hands.</span>")
-		return FALSE
+	if(required_from_user & INTERACTION_REQUIRE_HANDS)
+		if(!user.has_hands())
+			if(!silent)
+				to_chat(user, span_warning("You don't have hands."))
+			return FALSE
 
 	if(COOLDOWN_FINISHED(user, last_interaction_time))
 		return TRUE
@@ -73,41 +80,42 @@
 	if(SSinteractions.is_blacklisted(target))
 		return FALSE
 
-	if(!user_is_target)
+	if(!(interaction_flags & INTERACTION_FLAG_USER_IS_TARGET))
 		if(user == target)
 			if(!silent)
-				to_chat(user, "<span class='warning'>You can't do that to yourself.</span>")
+				to_chat(user, span_warning("You can't do that to yourself."))
 			return FALSE
 
-	if(require_target_mouth)
+	if(required_from_target & INTERACTION_REQUIRE_MOUTH)
 		if(!target.has_mouth())
 			if(!silent)
-				to_chat(user, "<span class='warning'>They don't have a mouth.</span>")
+				to_chat(user, span_warning("They don't have a mouth."))
 			return FALSE
 
-		if(!target.mouth_is_free() && !issilicon(target))
+		if(!target.mouth_is_free())
 			if(!silent)
-				to_chat(user, "<span class='warning'>Their mouth is covered.</span>")
+				to_chat(user, span_warning("Their mouth is covered."))
 			return FALSE
 
-	if(require_target_hands && !target.has_hands() && !issilicon(target))
-		if(!silent)
-			to_chat(user, "<span class='warning'>They don't have hands.</span>")
-		return FALSE
+	if(required_from_target & INTERACTION_REQUIRE_HANDS)
+		if(!target.has_hands())
+			if(!silent)
+				to_chat(user, span_warning("They don't have hands."))
+			return FALSE
 
 	return TRUE
 
 /// Actually doing the action, has a few checks to see if it's valid, usually overwritten to be make things actually happen and what-not
 /datum/interaction/proc/do_action(mob/living/user, mob/living/target)
-	if(!user_is_target)
+	if(!(interaction_flags & INTERACTION_FLAG_USER_IS_TARGET))
 		if(user == target) //tactical href fix
-			to_chat(user, "<span class='warning'>You cannot target yourself.</span>")
+			to_chat(user, span_warning("You cannot target yourself."))
 			return
 	if(get_dist(user, target) > max_distance)
-		to_chat(user, "<span class='warning'>They are too far away.</span>")
+		to_chat(user, span_warning("They are too far away."))
 		return
-	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, "<span class='warning'>You cannot get to them.</span>")
+	if(interaction_flags & INTERACTION_FLAG_ADJACENT && !(user.Adjacent(target) && target.Adjacent(user)))
+		to_chat(user, span_warning("You cannot get to them."))
 		return
 	if(!evaluate_user(user, silent = FALSE))
 		return
@@ -115,9 +123,9 @@
 		return
 
 	if(write_log_user)
-		user.log_message("[write_log_user] [target]", INDIVIDUAL_ATTACK_LOG)
+		user.log_message("[write_log_user] [target]", LOG_ATTACK)
 	if(write_log_target)
-		target.log_message("[write_log_target] [user]", INDIVIDUAL_ATTACK_LOG)
+		target.log_message("[write_log_target] [user]", LOG_VICTIM, log_globally = FALSE)
 
 	display_interaction(user, target)
 	post_interaction(user, target)

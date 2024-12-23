@@ -1,9 +1,8 @@
 /datum/interaction/lewd/nuts
 	description = "Nuts to face."
 	interaction_sound = null
-	require_user_balls = REQUIRE_EXPOSED
-	require_target_mouth = TRUE
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_BALLS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 	write_log_user = "make-them-suck-their-nuts"
 	write_log_target = "was made to suck nuts by"
 
@@ -29,15 +28,14 @@
 						'modular_zzplurt/sound/interactions/nuts2.ogg',
 						'modular_zzplurt/sound/interactions/nuts3.ogg',
 						'modular_zzplurt/sound/interactions/nuts4.ogg'), 70, 1, -1)*/ //These files don't even exist but nobody noticed because double-quotes were used instead of single.
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(lust_increase, CUM_TARGET_MOUTH, partner)
 
 /datum/interaction/lewd/nut_smack
 	description = "Smack their nuts."
 	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	simple_message = "USER slaps TARGET's nuts!"
-	require_target_balls = REQUIRE_EXPOSED
-	needs_physical_contact = TRUE
-	max_distance = 1
+	required_from_user = INTERACTION_REQUIRE_HANDS
+	required_from_target_exposed = INTERACTION_REQUIRE_BALLS
 	write_log_user = "slapped-nuts"
 	write_log_target = "had their nuts slapped by"

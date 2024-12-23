@@ -1,8 +1,7 @@
 /datum/interaction/lewd/frotting
 	description = "Rub your penis against theirs"
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_penis = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target_exposed = INTERACTION_REQUIRE_PENIS
 	write_log_user = "frotted"
 	write_log_target = "was frotted by"
 	interaction_sound = null
@@ -13,16 +12,15 @@
 
 	message = "rubs [t_His] penis against [partner]'s."
 	user.set_is_fucking(partner, CUM_TARGET_PENIS, user.get_organ_slot(ORGAN_SLOT_PENIS))
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, partner)
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, user)
 
 /datum/interaction/lewd/tribadism
 	description = "Grind your pussy against theirs."
 	interaction_sound = null
-	require_target_vagina = REQUIRE_EXPOSED
-	require_user_vagina = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_VAGINA
+	required_from_target_exposed = INTERACTION_REQUIRE_VAGINA
 
 /datum/interaction/lewd/tribadism/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -40,6 +38,6 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/squelch1.ogg',
 						'modular_zzplurt/sound/interactions/squelch2.ogg',
 						'modular_zzplurt/sound/interactions/squelch3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, user)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, partner)

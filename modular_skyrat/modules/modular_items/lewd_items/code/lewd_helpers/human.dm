@@ -180,7 +180,7 @@
 
 /// Returns true if the human has a accessible ears for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
 /mob/living/carbon/human/has_ears(required_state = REQUIRE_GENITAL_ANY)
-	var/obj/item/organ/genital = get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/external/genital = get_organ_slot(ORGAN_SLOT_EARS)
 	if(!genital)
 		return FALSE
 
@@ -196,7 +196,7 @@
 
 /// Returns true if the human has accessible eyes for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
 /mob/living/carbon/human/has_eyes(required_state = REQUIRE_GENITAL_ANY)
-	var/obj/item/organ/genital = get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/external/genital = get_organ_slot(ORGAN_SLOT_EYES)
 	if(!genital)
 		return FALSE
 
@@ -212,7 +212,7 @@
 
 /// Returns true if the human has accessible tail for the parameter. Accepts any of the `REQUIRE_GENITAL_` defines.
 /mob/living/carbon/human/proc/has_tail(required_state = REQUIRE_GENITAL_ANY)
-	var/obj/item/organ/genital = get_organ_slot(ORGAN_SLOT_TAIL)
+	var/obj/item/organ/external/genital = get_organ_slot(ORGAN_SLOT_TAIL)
 	if(!genital)
 		return FALSE
 

@@ -1,9 +1,8 @@
 /datum/interaction/lewd/mount
 	description = "Mount with your pussy."
 	interaction_sound = null
-	require_user_vagina = REQUIRE_EXPOSED
-	require_target_penis = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_VAGINA
+	required_from_target_exposed = INTERACTION_REQUIRE_PENIS
 
 /datum/interaction/lewd/mount/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -19,16 +18,15 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, user)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, partner)
 
 /datum/interaction/lewd/mountass
 	description = "Mount with your ass."
 	interaction_sound = null
-	require_user_anus = REQUIRE_EXPOSED
-	require_target_penis = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_ANUS
+	required_from_target_exposed = INTERACTION_REQUIRE_PENIS
 
 /datum/interaction/lewd/mountass/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -44,16 +42,15 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, user)
 	user.handle_post_sex(NORMAL_LUST, null, partner)
 
 /datum/interaction/lewd/mountface
 	description = "Ass to face."
 	interaction_sound = null
-	require_target_mouth = TRUE
-	require_user_anus = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_ANUS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 
 /datum/interaction/lewd/mountface/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -72,14 +69,13 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/squelch1.ogg',
 						'modular_zzplurt/sound/interactions/squelch2.ogg',
 						'modular_zzplurt/sound/interactions/squelch3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(LOW_LUST, null, partner)
 
 /datum/interaction/lewd/thighs
 	description = "Smother them using your penis."
-	max_distance = 1
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_mouth = TRUE
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 	interaction_sound = null
 	write_log_user = "thigh-trapped (penis)"
 	write_log_target = "was smothered (penis) by"
@@ -87,8 +83,7 @@
 
 /datum/interaction/lewd/thighs/vagina
 	description = "Smother them using your vagina."
-	require_user_penis = REQUIRE_NONE
-	require_user_vagina = REQUIRE_EXPOSED
+	required_from_user_exposed = INTERACTION_REQUIRE_VAGINA
 	write_log_user = "thigh-trapped (vagina)"
 	write_log_target = "was smothered (vagina) by"
 	fucktarget = "vagina"
@@ -154,7 +149,7 @@
 					'modular_zzplurt/sound/interactions/foot_wet1.ogg',
 					'modular_zzplurt/sound/interactions/foot_dry3.ogg')
 	playlewdinteractionsound(get_turf(user), file, 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(lust_increase, THIGH_SMOTHERING, partner)
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)

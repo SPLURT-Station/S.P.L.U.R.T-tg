@@ -1,11 +1,10 @@
 /datum/interaction/lewd/kiss
 	description = "Kiss them deeply."
-	require_user_mouth = TRUE
-	require_target_mouth = TRUE
+	required_from_user = INTERACTION_REQUIRE_MOUTH
+	required_from_target = INTERACTION_REQUIRE_MOUTH
 	write_log_user = "kissed"
 	write_log_target = "was kissed by"
 	interaction_sound = null
-	max_distance = 1
 
 /datum/interaction/lewd/kiss/post_interaction(mob/living/user, mob/living/partner)
 	. = ..()
@@ -16,6 +15,6 @@
 
 /datum/interaction/lewd/kiss/display_interaction(mob/living/user, mob/living/partner)
 	if(user.get_lust() >= 3)
-		user.visible_message("<span class='lewd'>\The <b>[user]</b> gives an intense, lingering kiss to \the <b>[partner]</b>.</span>")
+		user.visible_message(span_lewd("\The <b>[user]</b> gives an intense, lingering kiss to \the <b>[partner]</b>."))
 	else
-		user.visible_message("<span class='lewd'>\The <b>[user]</b> kisses \the <b>[partner]</b> deeply.</span>")
+		user.visible_message(span_lewd("\The <b>[user]</b> kisses \the <b>[partner]</b> deeply."))

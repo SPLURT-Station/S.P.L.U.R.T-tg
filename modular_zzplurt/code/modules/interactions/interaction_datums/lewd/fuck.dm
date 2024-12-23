@@ -1,11 +1,10 @@
 /datum/interaction/lewd/fuck
 	description = "Fuck their pussy."
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_vagina = REQUIRE_EXPOSED
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target_exposed = INTERACTION_REQUIRE_VAGINA
 	write_log_user = "fucked"
 	write_log_target = "was fucked by"
 	interaction_sound = null
-	max_distance = 1
 
 /datum/interaction/lewd/fuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -24,14 +23,13 @@
 
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/champ1.ogg',
 						'modular_zzplurt/sound/interactions/champ2.ogg'), 50, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_VAGINA, partner)
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, user)
 
 /datum/interaction/lewd/fuck/anal
 	description = "Fuck their ass."
-	require_target_vagina = null
-	require_target_anus = REQUIRE_EXPOSED
+	required_from_target_exposed = INTERACTION_REQUIRE_ANUS
 
 /datum/interaction/lewd/fuck/anal/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -55,16 +53,15 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_ANUS, partner)
 	partner.handle_post_sex(NORMAL_LUST, null, user)
 
 /datum/interaction/lewd/breastfuck
 	description = "Fuck their breasts."
 	interaction_sound = null
-	require_user_penis = REQUIRE_EXPOSED
-	require_target_breasts = REQUIRE_EXPOSED
-	max_distance = 1
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target_exposed = INTERACTION_REQUIRE_BREASTS
 
 /datum/interaction/lewd/breastfuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -84,16 +81,16 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_BREASTS, partner)
 
 /datum/interaction/lewd/footfuck
 	description = "Rub your cock on their foot."
 	interaction_sound = null
+	required_from_user_exposed = INTERACTION_REQUIRE_PENIS
+	required_from_target_exposed = INTERACTION_REQUIRE_FEET
+	required_from_target_unexposed = INTERACTION_REQUIRE_FEET
 	require_target_num_feet = 1
-	require_target_feet = REQUIRE_ANY
-	require_user_penis = REQUIRE_EXPOSED
-	max_distance = 1
 
 /datum/interaction/lewd/footfuck/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -116,7 +113,7 @@
 						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, partner)
 
 /datum/interaction/lewd/footfuck/double
@@ -144,17 +141,14 @@
 						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, partner)
 
 /datum/interaction/lewd/footfuck/vag
 	description = "Rub your vagina on their foot."
 	interaction_sound = null
+	required_from_user_exposed = INTERACTION_REQUIRE_VAGINA
 	require_target_num_feet = 1
-	require_target_feet = REQUIRE_ANY
-	require_user_vagina = REQUIRE_EXPOSED
-	require_user_penis = REQUIRE_NONE
-	max_distance = 1
 
 /datum/interaction/lewd/footfuck/vag/display_interaction(mob/living/user, mob/living/partner)
 	var/message
@@ -177,5 +171,5 @@
 						'modular_zzplurt/sound/interactions/foot_dry3.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet1.ogg',
 						'modular_zzplurt/sound/interactions/foot_wet2.ogg'), 70, 1, -1)
-	user.visible_message("<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, partner)

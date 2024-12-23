@@ -1,7 +1,7 @@
 /datum/interaction/lewd/nipsuck
 	description = "Suck their nipples."
-	require_target_topless = TRUE
-	require_user_mouth = TRUE
+	required_from_user = INTERACTION_REQUIRE_MOUTH
+	required_from_target_exposed = INTERACTION_REQUIRE_BREASTS
 	write_log_user = "sucked nipples"
 	write_log_target = "had their nipples sucked by"
 	interaction_sound = null
@@ -13,7 +13,8 @@
 				pick("<span class='lewd'>\The <b>[user]</b> gently sucks on \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> gently nibs \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> licks \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>"))
-		if(target.has_breasts(REQUIRE_EXPOSED))
+		var/has_breasts = target.has_breasts()
+		if(has_breasts == TRUE || has_breasts == HAS_EXPOSED_GENITAL)
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(GLOB.breast_size_translation["[B.genital_size]"])
@@ -36,7 +37,8 @@
 		user.visible_message(
 				pick("<span class='lewd'>\The <b>[user]</b> bites \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> aggressively sucks \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>"))
-		if(target.has_breasts(REQUIRE_EXPOSED))
+		var/has_breasts = target.has_breasts()
+		if(has_breasts == TRUE || has_breasts == HAS_EXPOSED_GENITAL)
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(GLOB.breast_size_translation["[B.genital_size]"])
@@ -60,7 +62,8 @@
 				pick("<span class='lewd'>\The <b>[user]</b> sucks \the <b>[target]</b>'s [pick("nipple", "nipples")] intently.</span>",
 					"<span class='lewd'>\The <b>[user]</b> feasts \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>",
 					"<span class='lewd'>\The <b>[user]</b> glomps \the <b>[target]</b>'s [pick("nipple", "nipples")].</span>"))
-		if(target.has_breasts(REQUIRE_EXPOSED))
+		var/has_breasts = target.has_breasts()
+		if(has_breasts == TRUE || has_breasts == HAS_EXPOSED_GENITAL)
 			var/modifier = 1
 			var/obj/item/organ/external/genital/breasts/B = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 			switch(GLOB.breast_size_translation["[B.genital_size]"])
