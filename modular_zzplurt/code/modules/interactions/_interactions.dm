@@ -15,8 +15,6 @@
 	if(has_hands())
 		dat += "...have hands."
 	if(has_mouth())
-		if(dat != "")
-			dat += "<br>"
 		dat += "...have a mouth, which is [mouth_is_free() ? "uncovered" : "covered"]."
 	return dat
 
