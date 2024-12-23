@@ -517,16 +517,16 @@
 /mob/living/list_interaction_attributes(mob/living/LM)
 	var/dat = ..()
 	if(!COOLDOWN_FINISHED(LM, refractory_period))
-		dat += "...are sexually exhausted for the time being."
+		. += "...are sexually exhausted for the time being."
 	switch(combat_mode)
 		if(INTENT_HELP)
-			dat += "...are acting gentle."
+			. += "...are acting gentle."
 		if(INTENT_DISARM)
-			dat += "...are acting playful."
+			. += "...are acting playful."
 		if(INTENT_GRAB)
-			dat += "...are acting rough."
+			. += "...are acting rough."
 		if(INTENT_HARM)
-			dat += "...are fighting anyone who comes near."
+			. += "...are fighting anyone who comes near."
 	//Here comes the fucking weird shit.
 	if(client)
 		var/client/cli = client
@@ -535,43 +535,42 @@
 			if(!ucli || (LAZY_READ_PREF_FROM_CLIENT(ucli, /datum/preference/choiced/erp_status_extm) != "No"))
 				if(!get_item_by_slot(ITEM_SLOT_EARS_LEFT) && !get_item_by_slot(ITEM_SLOT_EARS_RIGHT))
 					if(has_ears())
-						dat += "...have unprotected ears."
+						. += "...have unprotected ears."
 					else
-						dat += "...have a hole where their ears should be."
+						. += "...have a hole where their ears should be."
 				else
-					dat += "...have covered ears."
+					. += "...have covered ears."
 				if(!get_item_by_slot(ITEM_SLOT_EYES))
 					if(has_eyes())
-						dat += "...have exposed eyes."
+						. += "...have exposed eyes."
 					else
-						dat += "...have exposed eyesockets."
+						. += "...have exposed eyesockets."
 				else
-					dat += "...have covered eyes."
+					. += "...have covered eyes."
 	//
 	// check those loops only once, thanks
 	var/is_topless = is_topless()
 	var/is_bottomless = is_bottomless()
 	if(is_topless && is_bottomless)
-		dat += "...are naked."
+		. += "...are naked."
 	else
 		if((is_topless && !is_bottomless) || (!is_topless && is_bottomless))
-			dat += "...are partially clothed."
+			. += "...are partially clothed."
 		else
-			dat += "...are clothed."
+			. += "...are clothed."
 	if(has_breasts(REQUIRE_EXPOSED))
-		dat += "...have breasts."
+		. += "...have breasts."
 	if(has_penis(REQUIRE_EXPOSED))
-		dat += "...have a penis."
+		. += "...have a penis."
 	if(has_balls(REQUIRE_EXPOSED))
-		dat += "...have a ballsack."
+		. += "...have a ballsack."
 	if(has_vagina(REQUIRE_EXPOSED))
-		dat += "...have a vagina."
+		. += "...have a vagina."
 	if(has_anus(REQUIRE_EXPOSED))
-		dat += "...have an anus."
+		. += "...have an anus."
 	if(has_feet(REQUIRE_EXPOSED))
 		switch(has_feet(REQUIRE_EXPOSED))
 			if(2)
-				dat += "...have a pair of feet."
+				. += "...have a pair of feet."
 			if(1)
-				dat += "...have a single foot."
-	return dat
+				. += "...have a single foot."

@@ -10,13 +10,15 @@
 - Makes all the code good because yes as well - SandPoot
 **/
 
-/mob/living/proc/list_interaction_attributes()
-	var/dat = list()
+/mob/proc/list_interaction_attributes()
+	return list()
+
+/mob/living/list_interaction_attributes()
+	. = ..()
 	if(has_hands())
-		dat += "...have hands."
+		. += "...have hands."
 	if(has_mouth())
-		dat += "...have a mouth, which is [mouth_is_free() ? "uncovered" : "covered"]."
-	return dat
+		. += "...have a mouth, which is [mouth_is_free() ? "uncovered" : "covered"]."
 
 /// The base of all interactions
 /datum/interaction
