@@ -489,7 +489,7 @@
 	. = ..()
 	if(!COOLDOWN_FINISHED(LM, refractory_period))
 		. += "...are sexually exhausted for the time being."
-	switch(a_intent)
+	switch(combat_mode)
 		if(INTENT_HELP)
 			. += "...are acting gentle."
 		if(INTENT_DISARM)

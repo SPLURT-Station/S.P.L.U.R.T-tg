@@ -94,7 +94,7 @@
 /mob/living/proc/has_genital(slot)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/genital/genital = C.getorganslot(slot)
+		var/obj/item/organ/external/genital/genital = C.getorganslot(slot)
 		if(genital)
 			if(genital.is_exposed() || genital.always_accessible)
 				return HAS_EXPOSED_GENITAL
@@ -153,9 +153,9 @@
 		var/mob/living/carbon/C = src
 		var/handcount = 0
 		var/covered = 0
-		for(var/obj/item/bodypart/l_arm/L in C.bodyparts)
+		for(var/obj/item/bodypart/arm/left/L in C.bodyparts)
 			handcount++
-		for(var/obj/item/bodypart/r_arm/R in C.bodyparts)
+		for(var/obj/item/bodypart/arm/right/R in C.bodyparts)
 			handcount++
 		if(!handcount)
 			return FALSE
@@ -173,9 +173,9 @@
 		var/mob/living/carbon/C = src
 		var/feetcount = 0
 		var/covered = 0
-		for(var/obj/item/bodypart/l_leg/L in C.bodyparts)
+		for(var/obj/item/bodypart/leg/left/L in C.bodyparts)
 			feetcount++
-		for(var/obj/item/bodypart/r_leg/R in C.bodyparts)
+		for(var/obj/item/bodypart/leg/right/R in C.bodyparts)
 			feetcount++
 		if(!feetcount)
 			return FALSE
@@ -192,9 +192,9 @@
 
 /mob/living/carbon/get_num_feet()
 	. = ..()
-	for(var/obj/item/bodypart/l_leg/L in bodyparts)
+	for(var/obj/item/bodypart/leg/left/L in bodyparts)
 		.++
-	for(var/obj/item/bodypart/r_leg/R in bodyparts)
+	for(var/obj/item/bodypart/leg/right/R in bodyparts)
 		.++
 
 //weird procs go here
@@ -283,7 +283,7 @@
 	var/t_His = partner?.p_their()
 	var/cumin = FALSE
 	var/partner_carbon_check = FALSE
-	var/obj/item/organ/genital/target_gen = null
+	var/obj/item/organ/external/genital/target_gen = null
 	var/mob/living/carbon/c_partner = null
 
 	// Do not display to those people as well
@@ -469,7 +469,7 @@
 					message = pick("orgasms violently!", "twists in orgasm.")
 			else
 				switch(last_genital.type)
-					if(/obj/item/organ/genital/penis)
+					if(/obj/item/organ/external/genital/penis)
 						if(!istype(partner))
 							target_orifice = null
 
@@ -554,7 +554,7 @@
 									message = "cums on the floor!"
 							else
 								message = "cums on the floor!"
-					if(/obj/item/organ/genital/vagina)
+					if(/obj/item/organ/external/genital/vagina)
 						if(!istype(partner))
 							target_orifice = null
 
@@ -641,9 +641,9 @@
 		else if(istype(partner, /obj/item/reagent_containers))
 			var/did_anything = TRUE
 			switch(last_genital.type)
-				if(/obj/item/organ/genital/penis)
+				if(/obj/item/organ/external/genital/penis)
 					message = "cums into \the <b>[partner]</b>!"
-				if(/obj/item/organ/genital/vagina)
+				if(/obj/item/organ/external/genital/vagina)
 					message = "squirts into \the <b>[partner]</b>!"
 				else
 					did_anything = FALSE
@@ -652,15 +652,15 @@
 	if(!message) //todo: better self cum messages
 		message = "cums all over themselves!"
 	if(gender == MALE)
-		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/final_m1.ogg',
-							'modular_sand/sound/interactions/final_m2.ogg',
-							'modular_sand/sound/interactions/final_m3.ogg',
-							'modular_sand/sound/interactions/final_m4.ogg',
-							'modular_sand/sound/interactions/final_m5.ogg'), 90, 1, 0)
+		playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/final_m1.ogg',
+							'modular_zzplurt/sound/interactions/final_m2.ogg',
+							'modular_zzplurt/sound/interactions/final_m3.ogg',
+							'modular_zzplurt/sound/interactions/final_m4.ogg',
+							'modular_zzplurt/sound/interactions/final_m5.ogg'), 90, 1, 0)
 	else
-		playlewdinteractionsound(loc, pick('modular_sand/sound/interactions/final_f1.ogg',
-							'modular_sand/sound/interactions/final_f2.ogg',
-							'modular_sand/sound/interactions/final_f3.ogg'), 70, 1, 0)
+		playlewdinteractionsound(loc, pick('modular_zzplurt/sound/interactions/final_f1.ogg',
+							'modular_zzplurt/sound/interactions/final_f2.ogg',
+							'modular_zzplurt/sound/interactions/final_f3.ogg'), 70, 1, 0)
 	visible_message(message = span_userlove("<b>\The [src]</b> [message]"), ignored_mobs = get_unconsenting(ignored_mobs = obscure_to))
 	multiorgasms += 1
 
@@ -668,19 +668,27 @@
 	if(multiorgasms < get_sexual_potency())
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
+			/*
 			if(!partner)
 				H.mob_climax(TRUE, "masturbation", "none")
 			else if(istype(partner, /obj/item/reagent_containers))
 				H.mob_fill_container(last_genital, partner, 0)
 			else
 				H.mob_climax(TRUE, "sex", partner, !cumin, target_gen)
+			*/
+			// SPLURT START
+			if(!partner)
+				H.climax(FALSE)
+			else
+				H.climax(FALSE)
+			// SPLURT END
 	set_lust(0)
 
 	SEND_SIGNAL(src, COMSIG_MOB_POST_CAME, target_orifice, partner)
 
 	return TRUE
 
-/mob/living/proc/is_fucking(mob/living/partner, orifice, obj/item/organ/genital/genepool, datum/interaction/lewd/lewd_datum)
+/mob/living/proc/is_fucking(mob/living/partner, orifice, obj/item/organ/external/genital/genepool, datum/interaction/lewd/lewd_datum)
 	var/failed = FALSE
 	if(partner)
 		if(partner != last_partner)
@@ -698,7 +706,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/proc/set_is_fucking(mob/living/partner, orifice, obj/item/organ/genital/genepool)
+/mob/living/proc/set_is_fucking(mob/living/partner, orifice, obj/item/organ/external/genital/genepool)
 	last_partner = partner
 	last_orifice = orifice
 	last_genital = genepool
