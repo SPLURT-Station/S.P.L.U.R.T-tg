@@ -33,24 +33,22 @@
 
 /datum/component/interaction_menu_granter/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON, .proc/open_menu)
+	RegisterSignal(parent, COMSIG_MOB_CTRL_SHIFT_CLICKED, .proc/open_menu)
 
 /datum/component/interaction_menu_granter/Destroy(force, ...)
-	var/mob/parent_mob = parent
-	remove_verb(parent_mob, /mob/proc/interact_with)
 	target = null
-	UnregisterSignal(parent_mob, COMSIG_MOB_CLICKON)
 	. = ..()
 
 /datum/component/interaction_menu_granter/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON)
+	UnregisterSignal(parent, COMSIG_MOB_CTRL_SHIFT_CLICKED)
 	. = ..()
+
 /// The one interacting is clicker, the interacted is clicked.
 /datum/component/interaction_menu_granter/proc/open_menu(mob/clicker, mob/clicked)
 	// Don't cancel admin quick spawn
 	if(isobserver(clicked) && check_rights_for(clicker, R_SPAWN))
 		return FALSE
-	// COMSIG_MOB_CTRLSHIFTCLICKON accepts `atom`s, prevent it
+	// COMSIG_MOB_CTRL_SHIFT_CLICKED accepts `atom`s, prevent it
 	if(!istype(clicked))
 		return FALSE
 	target = clicked
