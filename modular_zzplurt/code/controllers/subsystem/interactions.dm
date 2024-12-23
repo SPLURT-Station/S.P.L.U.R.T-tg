@@ -24,6 +24,14 @@ SUBSYSTEM_DEF(interactions)
 /datum/controller/subsystem/interactions/Initialize(timeofday)
 	prepare_interactions()
 	prepare_blacklisted_mobs()
+	. = ..()
+	var/extra_info = "<font style='transform: translate(0%, -25%);'>↳</font> Loaded [LAZYLEN(interactions)] interactions!"
+	to_chat(world, span_boldannounce(extra_info))
+	//log_game(src, extra_info)
+
+/datum/controller/subsystem/interactions/stat_entry(msg)
+	msg += "|🖐:[LAZYLEN(interactions)]|"
+	msg += "🚫👨:[LAZYLEN(blacklisted_mobs)]"
 	return ..()
 
 /// Makes the interactions, they're also a global list because having it as a list and just hanging around there is stupid
