@@ -1,6 +1,5 @@
 /*
 /datum/interaction/lewd/do_breastfeed
-	command = "do_breastfeed"
 	description = "Breastfeed them"
 	require_user_breasts = REQUIRE_EXPOSED
 	require_target_mouth = TRUE
@@ -49,7 +48,6 @@
 */
 
 /datum/interaction/lewd/titgrope
-	command = "titgrope"
 	description = "Grope their breasts."
 	require_user_hands = TRUE
 	require_target_breasts = REQUIRE_ANY

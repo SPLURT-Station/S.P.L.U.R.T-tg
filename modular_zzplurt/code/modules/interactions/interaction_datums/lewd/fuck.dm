@@ -1,5 +1,4 @@
 /datum/interaction/lewd/fuck
-	command = "fuckvag"
 	description = "Fuck their pussy."
 	require_user_penis = REQUIRE_EXPOSED
 	require_target_vagina = REQUIRE_EXPOSED
@@ -30,7 +29,6 @@
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, user)
 
 /datum/interaction/lewd/fuck/anal
-	command = "fuckass"
 	description = "Fuck their ass."
 	require_target_vagina = null
 	require_target_anus = REQUIRE_EXPOSED
@@ -62,7 +60,6 @@
 	partner.handle_post_sex(NORMAL_LUST, null, user)
 
 /datum/interaction/lewd/breastfuck
-	command = "breastfuck"
 	description = "Fuck their breasts."
 	interaction_sound = null
 	require_user_penis = REQUIRE_EXPOSED
@@ -91,7 +88,6 @@
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_BREASTS, partner)
 
 /datum/interaction/lewd/footfuck
-	command = "footfuck"
 	description = "Rub your cock on their foot."
 	interaction_sound = null
 	require_target_num_feet = 1
@@ -124,7 +120,6 @@
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, partner)
 
 /datum/interaction/lewd/footfuck/double
-	command = "footfuckdouble"
 	description = "Rub your cock between their feet."
 	require_target_num_feet = 2
 
@@ -153,7 +148,6 @@
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, partner)
 
 /datum/interaction/lewd/footfuck/vag
-	command = "footfuckvag"
 	description = "Rub your vagina on their foot."
 	interaction_sound = null
 	require_target_num_feet = 1

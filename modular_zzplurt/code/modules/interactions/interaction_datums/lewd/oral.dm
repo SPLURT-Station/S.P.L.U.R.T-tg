@@ -1,5 +1,4 @@
 /datum/interaction/lewd/oral
-	command = "suckvag"
 	description = "Go down on them."
 	require_user_mouth = TRUE
 	require_target_vagina = REQUIRE_EXPOSED
@@ -10,7 +9,6 @@
 	var/fucktarget = "vagina"
 
 /datum/interaction/lewd/oral/blowjob
-	command = "suckcock"
 	description = "Suck them off."
 	require_target_vagina = null
 	require_target_penis = REQUIRE_EXPOSED

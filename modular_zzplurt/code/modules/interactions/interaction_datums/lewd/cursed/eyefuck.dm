@@ -1,5 +1,4 @@
 /datum/interaction/lewd/eyefuck
-	command = "eyefuck"
 	description = "Fuck their eye."
 	interaction_sound = null
 	require_user_penis = REQUIRE_EXPOSED
@@ -10,7 +9,6 @@
 	extreme = TRUE
 
 /datum/interaction/lewd/eyefuck/eyesocketfuck
-	command = "eyesocketfuck"
 	description = "Fuck their eyesocket."
 	require_target_eyes = null
 	require_target_eyesockets = REQUIRE_EXPOSED

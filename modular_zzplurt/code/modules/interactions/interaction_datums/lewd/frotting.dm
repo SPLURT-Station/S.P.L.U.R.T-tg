@@ -1,5 +1,4 @@
 /datum/interaction/lewd/frotting
-	command = "frotting"
 	description = "Rub your penis against theirs"
 	require_user_penis = REQUIRE_EXPOSED
 	require_target_penis = REQUIRE_EXPOSED
@@ -19,7 +18,6 @@
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, user)
 
 /datum/interaction/lewd/tribadism
-	command = "tribadism"
 	description = "Grind your pussy against theirs."
 	interaction_sound = null
 	require_target_vagina = REQUIRE_EXPOSED

@@ -1,5 +1,4 @@
 /datum/interaction/lewd/nipsuck
-	command = "nipsuck"
 	description = "Suck their nipples."
 	require_target_topless = TRUE
 	require_user_mouth = TRUE

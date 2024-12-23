@@ -1,5 +1,4 @@
 /datum/interaction/lewd/grindface
-	command = "grindface"
 	description = "Feet grind their face."
 	interaction_sound = null
 	require_target_mouth = TRUE
@@ -55,7 +54,6 @@
 	partner.handle_post_sex(LOW_LUST, null, user)
 
 /datum/interaction/lewd/grindmouth
-	command = "grindmouth"
 	description = "Feet grind their mouth."
 	interaction_sound = null
 	require_target_mouth = TRUE
@@ -111,7 +109,6 @@
 	partner.handle_post_sex(LOW_LUST, null, user)
 
 /datum/interaction/lewd/footjob
-	command = "footjob"
 	description = "Jerk them off with your foot."
 	interaction_sound = null
 	require_user_num_feet = 1
@@ -143,7 +140,6 @@
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, user)
 
 /datum/interaction/lewd/footjob/double
-	command = "footjob_double"
 	description = "Jerk them off with both of your feet."
 	require_user_num_feet = 2
 
@@ -172,7 +168,6 @@
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_FEET, user)
 
 /datum/interaction/lewd/footjob/vagina
-	command = "footjob_vaginal"
 	description = "Rub their vagina with your foot."
 	require_target_vagina = REQUIRE_EXPOSED
 	require_target_penis = null

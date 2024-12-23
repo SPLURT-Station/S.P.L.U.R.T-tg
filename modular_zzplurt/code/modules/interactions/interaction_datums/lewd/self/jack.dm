@@ -1,5 +1,4 @@
 /datum/interaction/lewd/jack
-	command = "jack"
 	description = "Jerk yourself off."
 	interaction_sound = null
 	require_user_hands = TRUE

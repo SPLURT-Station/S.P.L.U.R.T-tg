@@ -1,5 +1,4 @@
 /datum/interaction/lewd/nuts
-	command = "nut_face"
 	description = "Nuts to face."
 	interaction_sound = null
 	require_user_balls = REQUIRE_EXPOSED
@@ -34,7 +33,6 @@
 	user.handle_post_sex(lust_increase, CUM_TARGET_MOUTH, partner)
 
 /datum/interaction/lewd/nut_smack
-	command = "smack_nuts"
 	description = "Smack their nuts."
 	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	simple_message = "USER slaps TARGET's nuts!"

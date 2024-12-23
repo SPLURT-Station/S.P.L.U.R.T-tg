@@ -1,5 +1,4 @@
 /datum/interaction/lewd/rimjob
-	command = "rimjob"
 	description = "Lick their ass."
 	interaction_sound = null
 	require_user_mouth = TRUE
@@ -12,7 +11,6 @@
 	partner.handle_post_sex(NORMAL_LUST, null, user)
 
 /datum/interaction/lewd/lickfeet
-	command = "lickfeet"
 	description = "Lick their feet."
 	interaction_sound = null
 	require_user_mouth = TRUE

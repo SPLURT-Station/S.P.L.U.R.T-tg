@@ -2,18 +2,46 @@ SUBSYSTEM_DEF(interactions)
 	name = "Interactions"
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_INTERACTIONS
-	var/list/interactions = list()
+	var/list/interactions
+	VAR_PROTECTED/list/blacklisted_mobs = list(
+		/mob/living/basic/pet,
+		/mob/living/basic/cockroach,
+		/mob/living/basic/butterfly,
+		/mob/living/basic/chick,
+		/mob/living/basic/chicken,
+		/mob/living/basic/cow,
+		/mob/living/basic/crab,
+		/mob/living/basic/kiwi,
+		/mob/living/basic/parrot,
+		/mob/living/basic/sloth,
+		/mob/living/basic/goat
+	)
+	VAR_PROTECTED/initialized_blacklist
 
 /datum/controller/subsystem/interactions/Initialize(timeofday)
-	make_interactions()
+	prepare_interactions()
+	prepare_blacklisted_mobs()
 	return ..()
 
 /// Makes the interactions, they're also a global list because having it as a list and just hanging around there is stupid
-/datum/controller/subsystem/interactions/proc/make_interactions()
-	if(!interactions || !length(interactions))
-		interactions = list()
-		for(var/itype in subtypesof(/datum/interaction))
-			var/datum/interaction/I = new itype()
-			interactions[I.command] = I
-	else
-		message_admins("make_interactions() called with interactions already made!")
+/datum/controller/subsystem/interactions/proc/prepare_interactions()
+	QDEL_NULL_LIST(interactions)
+	interactions = list()
+	for(var/itype in subtypesof(/datum/interaction))
+		var/datum/interaction/I = new itype()
+		interactions["[itype]"] = I
+
+/// Blacklisting!
+/datum/controller/subsystem/interactions/proc/prepare_blacklisted_mobs()
+	blacklisted_mobs = typecacheof(blacklisted_mobs)
+	initialized_blacklist = TRUE
+
+/*
+ * Lewd interactions have a blacklist for certain mobs. When we evalute the user and target, both of
+ * their requirements must be satisfied, and the mob must not be of a blacklisted type.
+*/
+/datum/controller/subsystem/interactions/proc/is_blacklisted(mob/living/creature)
+	if(!creature || !initialized_blacklist)
+		return TRUE
+	if(is_type_in_typecache(creature, blacklisted_mobs))
+		return TRUE

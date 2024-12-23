@@ -1,5 +1,4 @@
 /datum/interaction/lewd/mount
-	command = "mount"
 	description = "Mount with your pussy."
 	interaction_sound = null
 	require_user_vagina = REQUIRE_EXPOSED
@@ -25,7 +24,6 @@
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_PENIS, partner)
 
 /datum/interaction/lewd/mountass
-	command = "mountm"
 	description = "Mount with your ass."
 	interaction_sound = null
 	require_user_anus = REQUIRE_EXPOSED
@@ -51,7 +49,6 @@
 	user.handle_post_sex(NORMAL_LUST, null, partner)
 
 /datum/interaction/lewd/mountface
-	command = "mountface"
 	description = "Ass to face."
 	interaction_sound = null
 	require_target_mouth = TRUE
@@ -79,7 +76,6 @@
 	user.handle_post_sex(LOW_LUST, null, partner)
 
 /datum/interaction/lewd/thighs
-	command = "thigh_smother"
 	description = "Smother them using your penis."
 	max_distance = 1
 	require_user_penis = REQUIRE_EXPOSED
@@ -90,7 +86,6 @@
 	var/fucktarget = "penis"
 
 /datum/interaction/lewd/thighs/vagina
-	command = "thigh_smother_vag"
 	description = "Smother them using your vagina."
 	require_user_penis = REQUIRE_NONE
 	require_user_vagina = REQUIRE_EXPOSED

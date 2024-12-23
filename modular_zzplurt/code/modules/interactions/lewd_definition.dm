@@ -5,43 +5,6 @@
 */
 //I'm sorry, lewd should not have mob procs such as life() and such in it. //NO SHIT IT SHOULDNT I REMOVED THEM
 
-/*
- * Lewd interactions have a blacklist for certain mobs. When we evalute the user and target, both of
- * their requirements must be satisfied, and the mob must not be of a blacklisted type.
-*/
-/datum/interaction/lewd
-	var/list/blacklisted_mobs = list(/mob/living/basic/pet,
-									/mob/living/basic/cockroach,
-									/mob/living/basic/butterfly,
-									/mob/living/basic/chick,
-									/mob/living/basic/chicken,
-									/mob/living/basic/cow,
-									/mob/living/basic/crab,
-									/mob/living/basic/kiwi,
-									/mob/living/basic/parrot,
-									/mob/living/basic/sloth,
-									/mob/living/basic/goat)
-
-
-/// This should not be too weighty on the server, as the check is only run to generate the menu options.
-/datum/interaction/lewd/evaluate_user(mob/living/user, silent, action_check)
-	. = ..()
-	if(.)
-		if((user.stat == DEAD))
-			return FALSE
-		for(var/check in blacklisted_mobs)
-			if(istype(user, check))
-				return FALSE
-
-/datum/interaction/lewd/evaluate_target(mob/living/user, mob/living/target, silent = TRUE)
-	. = ..()
-	if(.)
-		if((target.stat == DEAD))
-			return FALSE
-		for(var/check in blacklisted_mobs)
-			if(istype(target, check))
-				return FALSE
-
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num, frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y, list/ignored_mobs)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
@@ -68,10 +31,8 @@
 	var/lastlusttime = 0
 	var/lust = 0
 	var/multiorgasms = 1
-	/*
-	var/refractory_period = 0
-	var/last_interaction_time = 0
-	*/
+	COOLDOWN_DECLARE(refractory_period)
+	COOLDOWN_DECLARE(last_interaction_time)
 	var/datum/interaction/lewd/last_lewd_datum	//Recording our last lewd datum allows us to do stuff like custom cum messages.
 												//Yes i feel like an idiot writing this.
 	var/cleartimer //Timer for clearing the "last_lewd_datum". This prevents some oddities.
@@ -80,7 +41,7 @@
 	last_lewd_datum = null
 	last_genital = null
 
-/mob/living/Initialize()
+/mob/living/Initialize(mapload)
 	. = ..()
 	sexual_potency =rand(10,25)
 	lust_tolerance = rand(75,200)
@@ -98,13 +59,6 @@
 		var/mob/living/carbon/user = src
 		if(user.dna.features["sexual_potency"])
 			. = user.dna.features["sexual_potency"]
-
-/mob/living/proc/get_refraction_dif()
-	var/dif = (refractory_period - world.time)
-	if(dif < 0)
-		return 0
-	else
-		return dif
 
 /mob/living/proc/add_lust(add)
 	var/cur = get_lust() //GetLust handles per-time lust loss
@@ -812,12 +766,7 @@
 	visible_message(message = "<span class='userlove'><b>\The [src]</b> [message]</span>", ignored_mobs = get_unconsenting())
 	multiorgasms += 1
 
-	if(multiorgasms > (get_sexual_potency() * 0.34)) //AAAAA, WE DONT WANT NEGATIVES HERE, RE
-		refractory_period = world.time + rand(300, 900) - get_sexual_potency()//sex cooldown
-		// set_drugginess(rand(20, 30))
-	else
-		refractory_period = world.time + rand(300, 900) - get_sexual_potency()
-		// set_drugginess(rand(5, 10))
+	COOLDOWN_START(src, refractory_period, (rand(300, 900) - get_sexual_potency()))//sex cooldown
 	if(multiorgasms < get_sexual_potency())
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src

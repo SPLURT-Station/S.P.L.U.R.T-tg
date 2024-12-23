@@ -1,5 +1,4 @@
 /datum/interaction/lewd/kiss
-	command = "deepkiss"
 	description = "Kiss them deeply."
 	require_user_mouth = TRUE
 	require_target_mouth = TRUE

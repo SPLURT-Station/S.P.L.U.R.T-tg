@@ -1,5 +1,4 @@
 /datum/interaction/lewd/facefuck
-	command = "facefuck"
 	description = "Fuck their mouth using your penis"
 	interaction_sound = null
 	require_target_mouth = TRUE
@@ -8,7 +7,6 @@
 	var/fucktarget = "penis"
 
 /datum/interaction/lewd/facefuck/vag
-	command = "facefuckvag"
 	description = "Fuck their mouth using your vagina"
 	require_user_penis = null
 	require_user_vagina = REQUIRE_EXPOSED
@@ -111,7 +109,6 @@
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_MOUTH, partner)
 
 /datum/interaction/lewd/throatfuck
-	command = "throatfuck"
 	description = "Fuck their throat. | Does oxy damage."
 	interaction_sound = null
 	require_user_penis = REQUIRE_EXPOSED

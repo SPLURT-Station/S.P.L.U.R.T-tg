@@ -1,5 +1,4 @@
 /datum/interaction/lewd/titgrope_self
-	command = "titgrope_self"
 	description = "Grope your own breasts."
 	require_user_hands = TRUE
 	require_user_breasts = REQUIRE_ANY
@@ -39,7 +38,6 @@
 
 /*
 /datum/interaction/lewd/self_nipsuck
-	command = "self_nipsuck"
 	description = "Suck your own nips."
 	require_user_breasts = REQUIRE_EXPOSED
 	require_user_mouth = TRUE

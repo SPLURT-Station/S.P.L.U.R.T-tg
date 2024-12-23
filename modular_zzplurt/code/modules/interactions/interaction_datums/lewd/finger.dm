@@ -1,5 +1,4 @@
 /datum/interaction/lewd/finger
-	command = "finger"
 	description = "Finger their pussy."
 	require_user_hands = TRUE
 	require_target_vagina = REQUIRE_EXPOSED
@@ -14,7 +13,6 @@
 	partner.handle_post_sex(NORMAL_LUST, null, user)
 
 /datum/interaction/lewd/fingerass
-	command = "fingerm"
 	description = "Finger their ass."
 	interaction_sound = null
 	require_user_hands = TRUE

@@ -22,7 +22,6 @@
 
 /// The base of all interactions
 /datum/interaction
-	var/command = "interact"
 	var/description = "Interact with them."
 	var/simple_message
 	var/simple_style = "notice"
@@ -43,13 +42,8 @@
 
 /// Checks if user can do an interaction, action_check is for whether you're actually doing it or not (useful for the menu and not removing the buttons)
 /datum/interaction/proc/evaluate_user(mob/living/user, silent = TRUE, action_check = TRUE)
-	/* Temporarily closed
-	if(user.get_refraction_dif())
-		if(!silent) //bye spam
-			to_chat(user, "<span class='warning'>You're still exhausted from the last time. You need to wait [DisplayTimeText(user.get_refraction_dif(), TRUE)] until you can do that!</span>")
-		if(action_check)
-			return FALSE
-	*/
+	if(SSinteractions.is_blacklisted(user))
+		return FALSE
 	if(require_user_mouth)
 		if(!user.has_mouth() && !issilicon(user)) //Again, silicons do not have the required parts normally.
 			if(!silent)
@@ -66,7 +60,7 @@
 			to_chat(user, "<span class='warning'>You don't have hands.</span>")
 		return FALSE
 
-	if(user.last_interaction_time < world.time)
+	if(COOLDOWN_FINISHED(user, last_interaction_time))
 		return TRUE
 
 	if(action_check)
@@ -74,8 +68,11 @@
 	else
 		return TRUE
 
-/// Same as evaluate_user but with no action_check
+/// Same as evaluate_user, but for target
 /datum/interaction/proc/evaluate_target(mob/living/user, mob/living/target, silent = TRUE)
+	if(SSinteractions.is_blacklisted(target))
+		return FALSE
+
 	if(!user_is_target)
 		if(user == target)
 			if(!silent)
@@ -134,7 +131,7 @@
 
 /// After the interaction, the base only plays the sound and only if it has one
 /datum/interaction/proc/post_interaction(mob/living/user, mob/living/target)
-	user.last_interaction_time = world.time + 6
+	COOLDOWN_START(user, last_interaction_time, 0.6 SECONDS)
 	if(interaction_sound)
 		playsound(get_turf(user), interaction_sound, 50, 1, -1)
 	return
