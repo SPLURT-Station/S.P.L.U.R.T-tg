@@ -1,70 +1,77 @@
 /// Attempts to open the tgui menu
 
-/mob/proc/interact_with()
+/mob/verb/interact_with()
 	set name = "Interact With"
 	set desc = "Perform an interaction with someone."
 	set category = "IC"
 	set src in view()
 
-	if(!src)
+	var/datum/component/interaction_menu_granter/menu = usr.GetComponent(/datum/component/interaction_menu_granter)
+	if(!menu)
+		to_chat(usr, span_warning("You must have done something really bad to not have an interaction component."))
 		return
-	var/datum/component/interaction/interaction = GetComponent(/datum/component/interaction)
-	if(interaction)
-		interaction.open_menu(usr, src)
-	else // you bad
-		remove_verb(src, /mob/proc/interact_with)
+	if(!src)
+		to_chat(usr, span_warning("Your interaction target is gone!"))
+		return
+	menu.open_menu(usr, src)
 
 #define INTERACTION_NORMAL 0
 #define INTERACTION_LEWD 1
 #define INTERACTION_EXTREME 2
 
 /// The menu itself, only var is target which is the mob you are interacting with
-/datum/component/interaction
+/datum/component/interaction_menu_granter
 	var/mob/living/target
 
-/datum/component/interaction/Initialize(...)
+/datum/component/interaction_menu_granter/Initialize(...)
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
 	var/mob/parent_mob = parent
 	if(!parent_mob.client)
 		return COMPONENT_INCOMPATIBLE
-	add_verb(parent_mob, /mob/proc/interact_with)
-	/// > Why don't you attach it to COMSIG_CLICK_CTRL_SHIFT
-	/// I want to open the ui on myself, not everyone has it and it's just bad practice i guess.
-	RegisterSignal(parent_mob, COMSIG_MOB_CLICKON, .proc/open_menu)
 	. = ..()
 
-/datum/component/interaction/Destroy(force, ...)
+/datum/component/interaction_menu_granter/RegisterWithParent()
+	. = ..()
+	RegisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON, .proc/open_menu)
+
+/datum/component/interaction_menu_granter/Destroy(force, ...)
 	var/mob/parent_mob = parent
 	remove_verb(parent_mob, /mob/proc/interact_with)
 	target = null
 	UnregisterSignal(parent_mob, COMSIG_MOB_CLICKON)
 	. = ..()
 
-/datum/component/interaction/proc/open_menu(mob/clicker, mob/clicked, mouse_params)
-	// COMSIG_MOB_CLICKON is sent for EVERYTHING your mob character clicks, avoid non-mob
+/datum/component/interaction_menu_granter/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON)
+	. = ..()
+/// The one interacting is clicker, the interacted is clicked.
+/datum/component/interaction_menu_granter/proc/open_menu(mob/clicker, mob/clicked)
+	// Don't cancel admin quick spawn
+	if(isobserver(clicked) && check_rights_for(clicker, R_SPAWN))
+		return FALSE
+	// COMSIG_MOB_CTRLSHIFTCLICKON accepts `atom`s, prevent it
 	if(!istype(clicked))
 		return FALSE
-	// Using the verb calls leaves this empty
-	if(mouse_params)
-		var/list/params = params2list(mouse_params)
-		if(!(params[LEFT_CLICK] && params[CTRL_CLICK] && params[SHIFT_CLICK]))
-			// Continue click normally
-			return FALSE
 	target = clicked
 	ui_interact(clicker)
 	return COMSIG_MOB_CANCEL_CLICKON
 
-/datum/component/interaction/ui_state(mob/user)
-	return GLOB.conscious_state
+/datum/component/interaction_menu_granter/ui_state(mob/user)
+	// Funny admin, don't you dare be the extra funny now.
+	if(user.client.holder)
+		return GLOB.always_state
+	if(user == parent)
+		return GLOB.conscious_state
+	return GLOB.never_state
 
-/datum/component/interaction/ui_interact(mob/user, datum/tgui/ui)
+/datum/component/interaction_menu_granter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MobInteraction", "Interactions")
 		ui.open()
 
-/datum/component/interaction/ui_data(mob/user)
+/datum/component/interaction_menu_granter/ui_data(mob/user)
 	. = ..()
 	//Getting player
 	var/mob/living/self = parent
@@ -180,7 +187,7 @@
 		.["no_auto_wag"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_AUTO_WAG)
 */
 // TODO
-/datum/component/interaction/ui_act(action, params)
+/datum/component/interaction_menu_granter/ui_act(action, params)
 	if(..())
 		return
 	var/mob/living/parent_mob = parent
