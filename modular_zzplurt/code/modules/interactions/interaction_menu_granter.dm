@@ -42,7 +42,7 @@
 /datum/component/interaction_menu_granter/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_CTRL_SHIFT_CLICKED)
 	if(target)
-		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(target, COMSIG_QDELETING)
 	. = ..()
 
 /// The one interacting is clicker, the interacted is clicked.
@@ -55,15 +55,15 @@
 		return FALSE
 	// Changing targets!!
 	if(target)
-		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(target, COMSIG_QDELETING)
 	target = clicked
-	RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/on_target_deleted)
+	RegisterSignal(target, COMSIG_QDELETING, .proc/on_target_deleted)
 	ui_interact(clicker)
 	return COMSIG_MOB_CANCEL_CLICKON
 
 /// Such a shame
 /datum/component/interaction_menu_granter/proc/on_target_deleted(datum/source, ...)
-	UnregisterSignal(target, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(target, COMSIG_QDELETING)
 	target = null
 	SStgui.close_user_uis(parent, src)
 
@@ -348,7 +348,7 @@
 			genital_entry["arousal_state"] = genital.aroused_state
 			genital_entry["always_accessible"] = genital.always_accessible
 			genitals += list(genital_entry)
-*/
+
 		var/simulated_ass = list()
 		simulated_ass["name"] = "Anus"
 		simulated_ass["key"] = "anus"
@@ -365,10 +365,11 @@
 		simulated_ass["always_accessible"] = get_genitals.anus_always_accessible
 		genitals += list(simulated_ass)
 	.["genitals"] = genitals
-
+*/
+/*
 	var/datum/preferences/prefs = self?.client.prefs
 	if(prefs)
-/*
+
 	//Getting char prefs
 		.["erp_pref"] = 			pref_to_num(prefs.erppref)
 		.["noncon_pref"] = 			pref_to_num(prefs.nonconpref)
@@ -454,6 +455,7 @@
 				o.do_action(parent_mob, target)
 				return TRUE
 			return FALSE
+			/*
 		if("genital")
 			var/mob/living/carbon/self = parent_mob
 			if("visibility" in params)
@@ -577,7 +579,7 @@
 					return FALSE
 			prefs.save_preferences()
 			return TRUE
-
+*/
 #undef INTERACTION_NORMAL
 #undef INTERACTION_LEWD
 #undef INTERACTION_EXTREME

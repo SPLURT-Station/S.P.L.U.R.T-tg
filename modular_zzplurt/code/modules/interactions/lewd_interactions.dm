@@ -3,7 +3,7 @@
 	description = "Slap their ass."
 	simple_message = "USER slaps TARGET right on the ass!"
 	simple_style = "danger"
-	interaction_sound = 'sound/weapons/slap.ogg'
+	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
 	interaction_flags = INTERACTION_FLAG_ADJACENT | INTERACTION_FLAG_OOC_CONSENT
 
 	write_log_user = "ass-slapped"
@@ -235,13 +235,13 @@
 	if(interaction_flags & INTERACTION_FLAG_EXTREME_CONTENT)
 		var/client/cli = user.client
 		if(cli)
-			if(cli.prefs.extremepref == "No")
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				if(!silent)
 					to_chat(user, span_warning("That's way too much for you."))
 				return FALSE
 
 	if(interaction_flags & INTERACTION_FLAG_OOC_CONSENT)
-		if((!user.ckey) || (user.client && user.client.prefs.toggles & VERB_CONSENT))
+		if((!user.ckey) || (LAZY_READ_PREF_FROM_CLIENT(user.client, /datum/preference/toggle/erp) == TRUE))
 			return TRUE
 		if(action_check)
 			return FALSE
@@ -464,13 +464,13 @@
 	if(interaction_flags & INTERACTION_FLAG_EXTREME_CONTENT)
 		var/client/cli = target.client
 		if(cli)
-			if(target.client.prefs.extremepref == "No")
+			if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No")
 				if(!silent)
 					to_chat(user, span_warning("For some reason, you don't want to do this to [target]."))
 				return FALSE
 
 	if(interaction_flags & INTERACTION_FLAG_OOC_CONSENT)
-		if((!target.ckey) || (target.client && target.client.prefs.toggles & VERB_CONSENT))
+		if((!target.ckey) || (LAZY_READ_PREF_FROM_CLIENT(target.client, /datum/preference/toggle/erp) == TRUE))
 			return TRUE
 	return FALSE
 
@@ -502,8 +502,8 @@
 	if(client)
 		var/client/cli = client
 		var/client/ucli = LM.client
-		if(cli.prefs.extremepref != "No")
-			if(!ucli || (ucli.prefs.extremepref != "No"))
+		if(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) != "No")
+			if(!ucli || (LAZY_READ_PREF_FROM_CLIENT(ucli, /datum/preference/choiced/erp_status_extm) != "No"))
 				if(!get_item_by_slot(ITEM_SLOT_EARS_LEFT) && !get_item_by_slot(ITEM_SLOT_EARS_RIGHT))
 					if(has_ears())
 						. += "...have unprotected ears."

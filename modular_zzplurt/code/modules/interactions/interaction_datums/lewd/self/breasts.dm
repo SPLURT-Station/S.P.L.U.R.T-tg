@@ -1,8 +1,9 @@
 /datum/interaction/lewd/titgrope_self
 	description = "Grope your own breasts."
-	require_user_hands = TRUE
-	require_user_breasts = REQUIRE_ANY
-	user_is_target = TRUE
+	required_from_user = INTERACTION_REQUIRE_HANDS
+	required_from_user_exposed = INTERACTION_REQUIRE_BREASTS
+	required_from_user_unexposed = INTERACTION_REQUIRE_BREASTS
+	interaction_flags = INTERACTION_FLAG_OOC_CONSENT | INTERACTION_FLAG_USER_IS_TARGET
 	interaction_sound = null
 	max_distance = 0
 	write_log_user = "groped own breasts"
@@ -39,9 +40,9 @@
 /*
 /datum/interaction/lewd/self_nipsuck
 	description = "Suck your own nips."
-	require_user_breasts = REQUIRE_EXPOSED
-	require_user_mouth = TRUE
-	user_is_target = TRUE
+	required_from_user = INTERACTION_REQUIRE_MOUTH
+	required_from_user_exposed = INTERACTION_REQUIRE_BREASTS
+	interaction_flags = INTERACTION_FLAG_OOC_CONSENT | INTERACTION_FLAG_USER_IS_TARGET
 	interaction_sound = null
 	max_distance = 0
 	write_log_user = "sucked their own nips"

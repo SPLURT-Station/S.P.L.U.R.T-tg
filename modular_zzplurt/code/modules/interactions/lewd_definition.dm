@@ -8,7 +8,7 @@
 /proc/playlewdinteractionsound(turf/turf_source, soundin, vol as num, vary, extrarange as num, frequency, falloff, channel = 0, pressure_affected = TRUE, sound/S, envwet = -10000, envdry = 0, manual_x, manual_y, list/ignored_mobs)
 	var/list/hearing_mobs
 	for(var/mob/H in get_hearers_in_view(4, turf_source))
-		if(!H.client || (H.client.prefs.toggles & LEWD_VERB_SOUNDS))
+		if(!H.client || (LAZY_READ_PREF_FROM_CLIENT(H.client, /datum/preference/toggle/erp/sounds) == TRUE))
 			continue
 		LAZYADD(hearing_mobs, H)
 	if(ignored_mobs?.len)
@@ -96,7 +96,7 @@
 	if(istype(C))
 		var/obj/item/organ/external/genital/genital = C.get_organ_slot(slot)
 		if(genital)
-			if(genital.is_exposed() || genital.always_accessible)
+			if(genital.is_exposed()) // || genital.always_accessible)
 				return HAS_EXPOSED_GENITAL
 			else
 				return HAS_UNEXPOSED_GENITAL
@@ -750,9 +750,9 @@
 	for(var/mob/M in range(7, src))
 		if(M.client)
 			var/client/cli = M.client
-			if(!(cli.prefs.toggles & VERB_CONSENT)) //Note: This probably could do with a specific preference
+			if(!(LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/toggle/erp) == TRUE)) //Note: This probably could do with a specific preference
 				nope += M
-			else if(interaction_flags & INTERACTION_FLAG_EXTREME_CONTENT && (cli.prefs.extremepref == "No"))
+			else if(interaction_flags & INTERACTION_FLAG_EXTREME_CONTENT && (LAZY_READ_PREF_FROM_CLIENT(cli, /datum/preference/choiced/erp_status_extm) == "No"))
 				nope += M
 		else
 			nope += M
