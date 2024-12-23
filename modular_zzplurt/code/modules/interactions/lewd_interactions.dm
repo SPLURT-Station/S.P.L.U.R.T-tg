@@ -160,7 +160,7 @@
 	var/user_require_eyes_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_EYES)
 	if(user_require_eyes_exposed || user_require_eyes_unexposed)
 		var/has_eyes = user.has_eyes()
-		if(!user.getorganslot(ORGAN_SLOT_EYES))
+		if(!user.get_organ_slot(ORGAN_SLOT_EYES))
 			if(!silent)
 				to_chat(user, span_warning("You don't have eyes."))
 			return FALSE
@@ -179,7 +179,7 @@
 	var/user_require_eyesockets_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_EYESOCKETS)
 	if(user_require_eyesockets_exposed || user_require_eyesockets_unexposed)
 		var/has_eyes = user.has_eyes()
-		if(user.getorganslot(ORGAN_SLOT_EYES))
+		if(user.get_organ_slot(ORGAN_SLOT_EYES))
 			if(!silent)
 				to_chat(user, span_warning("You have eyes!"))
 			return FALSE
@@ -198,7 +198,7 @@
 	var/user_require_ear_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_EARS)
 	if(user_require_ear_exposed || user_require_ear_unexposed)
 		var/has_ears = user.has_ears()
-		if(!user.getorganslot(ORGAN_SLOT_EARS))
+		if(!user.get_organ_slot(ORGAN_SLOT_EARS))
 			if(!silent)
 				to_chat(user, span_warning("You don't have ears."))
 			return FALSE
@@ -217,7 +217,7 @@
 	var/user_require_earsockets_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_EARSOCKETS)
 	if(user_require_earsockets_exposed || user_require_earsockets_unexposed)
 		var/has_ears = user.has_ears()
-		if(user.getorganslot(ORGAN_SLOT_EARS))
+		if(user.get_organ_slot(ORGAN_SLOT_EARS))
 			if(!silent)
 				to_chat(user, span_warning("You have ears!"))
 			return FALSE
@@ -389,7 +389,7 @@
 	var/target_require_eyes_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_EYES)
 	if(target_require_eyes_exposed || target_require_eyes_unexposed)
 		var/has_eyes = target.has_eyes()
-		if(!target.getorganslot(ORGAN_SLOT_EYES))
+		if(!target.get_organ_slot(ORGAN_SLOT_EYES))
 			if(!silent)
 				to_chat(target, span_warning("They don't have eyes."))
 			return FALSE
@@ -408,7 +408,7 @@
 	var/target_require_eyesockets_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_EYESOCKETS)
 	if(target_require_eyesockets_exposed || target_require_eyesockets_unexposed)
 		var/has_eyes = target.has_eyes()
-		if(target.getorganslot(ORGAN_SLOT_EYES))
+		if(target.get_organ_slot(ORGAN_SLOT_EYES))
 			if(!silent)
 				to_chat(target, span_warning("They have eyes!"))
 			return FALSE
@@ -427,7 +427,7 @@
 	var/target_require_ears_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_EARS)
 	if(target_require_ears_exposed || target_require_ears_unexposed)
 		var/has_ears = target.has_ears()
-		if(!target.getorganslot(ORGAN_SLOT_EARS))
+		if(!target.get_organ_slot(ORGAN_SLOT_EARS))
 			if(!silent)
 				to_chat(target, span_warning("They don't have ears."))
 			return FALSE
@@ -446,7 +446,7 @@
 	var/target_require_earsockets_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_EARSOCKETS)
 	if(target_require_earsockets_exposed || target_require_earsockets_unexposed)
 		var/has_ears = target.has_ears()
-		if(target.getorganslot(ORGAN_SLOT_EARS))
+		if(target.get_organ_slot(ORGAN_SLOT_EARS))
 			if(!silent)
 				to_chat(target, span_warning("They have ears!"))
 			return FALSE

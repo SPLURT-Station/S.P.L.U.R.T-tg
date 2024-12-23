@@ -94,7 +94,7 @@
 /mob/living/proc/has_genital(slot)
 	var/mob/living/carbon/C = src
 	if(istype(C))
-		var/obj/item/organ/external/genital/genital = C.getorganslot(slot)
+		var/obj/item/organ/external/genital/genital = C.get_organ_slot(slot)
 		if(genital)
 			if(genital.is_exposed() || genital.always_accessible)
 				return HAS_EXPOSED_GENITAL
@@ -317,7 +317,7 @@
 							var/has_vagina = partner.has_vagina()
 							if(has_vagina == TRUE || has_vagina == HAS_EXPOSED_GENITAL)
 								if(partner_carbon_check)
-									target_gen = c_partner.getorganslot(ORGAN_SLOT_VAGINA)
+									target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 								message = "cums in \the <b>[partner]</b>'s pussy."
 								cumin = TRUE
 							else
@@ -490,7 +490,7 @@
 								var/has_vagina = partner.has_vagina()
 								if(has_vagina == TRUE || has_vagina == HAS_EXPOSED_GENITAL)
 									if(partner_carbon_check)
-										target_gen = c_partner.getorganslot(ORGAN_SLOT_VAGINA)
+										target_gen = c_partner.get_organ_slot(ORGAN_SLOT_VAGINA)
 									message = "cums in \the <b>[partner]</b>'s pussy."
 									cumin = TRUE
 								else

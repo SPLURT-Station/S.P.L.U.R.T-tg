@@ -33,21 +33,21 @@
 
 /datum/component/interaction_menu_granter/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON, .proc/open_menu)
+	RegisterSignal(parent, COMSIG_MOB_CTRL_SHIFT_CLICKED, .proc/open_menu)
 
 /datum/component/interaction_menu_granter/Destroy(force, ...)
 	target = null
 	. = ..()
 
 /datum/component/interaction_menu_granter/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_MOB_CTRLSHIFTCLICKON)
+	UnregisterSignal(parent, COMSIG_MOB_CTRL_SHIFT_CLICKED)
 	if(target)
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 	. = ..()
 
 /// The one interacting is clicker, the interacted is clicked.
 /datum/component/interaction_menu_granter/proc/open_menu(mob/clicker, mob/clicked)
-	// COMSIG_MOB_CTRLSHIFTCLICKON accepts `atom`s, prevent it
+	// COMSIG_MOB_CTRL_SHIFT_CLICKED accepts `atom`s, prevent it
 	if(!istype(clicked))
 		return FALSE
 	// Don't cancel admin quick spawn
@@ -311,13 +311,15 @@
 		.["required_from_target_exposed"] = required_from_target_exposed
 		.["required_from_target_unexposed"] = required_from_target_unexposed
 		.["target_num_feet"] = target.get_num_feet()
+		/*
 		if(target?.client?.prefs)
 			.["theyAllowLewd"] = !!(target.client.prefs.toggles & VERB_CONSENT)
 			.["theyAllowExtreme"] = !!pref_to_num(target.client.prefs.extremepref)
 		if(HAS_TRAIT(user, TRAIT_ESTROUS_DETECT))
 			.["theirLust"] = target.get_lust()
 			.["theirMaxLust"] = target.get_lust_tolerance() * 3
-
+			*/
+/*
 	//Get their genitals
 	var/list/genitals = list()
 	var/mob/living/carbon/get_genitals = self
@@ -346,7 +348,7 @@
 			genital_entry["arousal_state"] = genital.aroused_state
 			genital_entry["always_accessible"] = genital.always_accessible
 			genitals += list(genital_entry)
-
+*/
 		var/simulated_ass = list()
 		simulated_ass["name"] = "Anus"
 		simulated_ass["key"] = "anus"
@@ -359,20 +361,22 @@
 			else
 				visibility = "Always hidden"
 		simulated_ass["visibility"] = visibility
-		simulated_ass["possible_choices"] = GLOB.genitals_visibility_toggles - GEN_VISIBLE_NO_CLOTHES
+		//simulated_ass["possible_choices"] = GLOB.genitals_visibility_toggles - GEN_VISIBLE_NO_CLOTHES
 		simulated_ass["always_accessible"] = get_genitals.anus_always_accessible
 		genitals += list(simulated_ass)
 	.["genitals"] = genitals
 
 	var/datum/preferences/prefs = self?.client.prefs
 	if(prefs)
+/*
 	//Getting char prefs
 		.["erp_pref"] = 			pref_to_num(prefs.erppref)
 		.["noncon_pref"] = 			pref_to_num(prefs.nonconpref)
 		.["vore_pref"] = 			pref_to_num(prefs.vorepref)
 		.["extreme_pref"] = 		pref_to_num(prefs.extremepref)
 		.["extreme_harm"] = 		pref_to_num(prefs.extremeharm)
-
+*/
+/*
 	//Getting preferences
 		.["verb_consent"] = 		!!CHECK_BITFIELD(prefs.toggles, VERB_CONSENT)
 		.["lewd_verb_sounds"] = 	!CHECK_BITFIELD(prefs.toggles, LEWD_VERB_SOUNDS)
@@ -394,6 +398,7 @@
 		.["no_aphro"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_APHRO)
 		.["no_ass_slap"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_ASS_SLAP)
 		.["no_auto_wag"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_AUTO_WAG)
+*/
 
 /datum/component/interaction_menu_granter/ui_static_data(mob/user)
 	. = ..()
