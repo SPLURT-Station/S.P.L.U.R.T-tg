@@ -162,11 +162,11 @@ export const sortInteractions = (interactions:InteractionData[], searchText = ''
             : theyAllowLewd && theyAllowExtreme)),
 
     // Is self
-    (interactions) => filter(interactions, (interaction:InteractionData) =>
-      {
-        const flagCheck = (INTERACTION_FLAG_USER_IS_TARGET & interaction.interactionFlags) !== 0;
-        return isTargetSelf ? flagCheck : !flagCheck;
-      }),
+    // (interactions) => filter(interactions, (interaction:InteractionData) =>
+    //   {
+    //     const flagCheck = (INTERACTION_FLAG_USER_IS_TARGET & interaction.interactionFlags) !== 0;
+    //     return isTargetSelf ? flagCheck : !flagCheck;
+    //   }),
     // Has a player or none at all
     (interactions) => filter(interactions, (interaction:InteractionData) =>
       (!isTargetSelf && (target_has_active_player === 1)
