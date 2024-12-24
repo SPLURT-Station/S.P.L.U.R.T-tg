@@ -12,8 +12,8 @@ export const MainContent = (props, context) => {
   const [
     searchText,
     setSearchText,
-  ] = useLocalState(context, 'searchText', '');
-  const [tabIndex, setTabIndex] = useLocalState(context, 'tabIndex', 0);
+  ] = useLocalState('searchText', '');
+  const [tabIndex, setTabIndex] = useLocalState('tabIndex', 0);
   return (
     <Section fill>
       <Stack vertical fill>

@@ -10,7 +10,7 @@ type CharacterPrefsInfo = {
 }
 
 export const CharacterPrefsTab = (props, context) => {
-  const { act, data } = useBackend<CharacterPrefsInfo>(context);
+  const { act, data } = useBackend<CharacterPrefsInfo>();
   const {
     erp_pref,
     noncon_pref,

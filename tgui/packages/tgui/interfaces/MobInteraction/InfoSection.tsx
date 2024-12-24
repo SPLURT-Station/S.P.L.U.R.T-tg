@@ -13,7 +13,7 @@ type HeaderInfo = {
 }
 
 export const InfoSection = (props, context) => {
-  const { act, data } = useBackend<HeaderInfo>(context);
+  const { act, data } = useBackend<HeaderInfo>();
   const {
     isTargetSelf,
     interactingWith,
@@ -58,7 +58,7 @@ export const InfoSection = (props, context) => {
         <Stack.Item>
           <Stack fill>
             <Stack.Item grow>
-              <ProgressBar fill value={lust} maxValue={maxLust} color="purple"><Icon name="heart" /></ProgressBar>
+              <ProgressBar value={lust} maxValue={maxLust} color="purple"><Icon name="heart" /></ProgressBar>
             </Stack.Item>
             {(!isTargetSelf && (theirLust !== null) ? (
               <Stack.Item grow>

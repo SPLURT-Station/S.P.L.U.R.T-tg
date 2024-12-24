@@ -1,6 +1,7 @@
-import { filter, map, sortBy } from 'common/collections';
+import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
+
 import { useBackend, useLocalState } from '../../../backend';
 import { Button, Icon, Section, Stack, Tooltip } from '../../../components';
 import { Box } from '../../../components';
@@ -16,6 +17,26 @@ type InteractionData = {
   desc: string;
   type: number;
   additionalDetails: string[];
+
+  interactionFlags:number;
+  maxDistance:any;
+  extreme_pref:any;
+  isTargetSelf:any;
+  target_has_active_player:any;
+  target_is_blacklisted:any;
+  theyAllowExtreme:any;
+  theyAllowLewd:any;
+  user_is_blacklisted:any;
+  verb_consent:any;
+  max_distance:any;
+  required_from_user:any;
+  required_from_user_exposed:any;
+  required_from_user_unexposed:any;
+  user_num_feet:any;
+  required_from_target:any;
+  required_from_target_exposed:any;
+  required_from_target_unexposed:any;
+  target_num_feet:any;
 }
 
 const INTERACTION_NORMAL = 0;
@@ -30,11 +51,11 @@ const INTERACTION_FLAG_USER_IS_TARGET = (1<<4);
 const INTERACTION_FLAG_USER_NOT_TIRED = (1<<5);
 
 export const InteractionsTab = (props, context) => {
-  const { act, data } = useBackend<ContentInfo>(context);
+  const { act, data } = useBackend<ContentInfo>();
   const [
     searchText,
     setSearchText,
-  ] = useLocalState(context, 'searchText', '');
+  ] = useLocalState('searchText', '');
   const interactions = sortInteractions(
     data.interactions,
     searchText,
@@ -87,9 +108,9 @@ export const InteractionsTab = (props, context) => {
 /**
  * Interaction sorter! also search box
  */
-export const sortInteractions = (interactions, searchText = '', data) => {
+export const sortInteractions = (interactions:InteractionData[], searchText = '', data) => {
   const testSearch = createSearch<InteractionData>(searchText,
-    interaction => interaction.desc);
+    (interaction:InteractionData) => interaction.desc);
   const {
     extreme_pref,
     isTargetSelf,
@@ -114,14 +135,14 @@ export const sortInteractions = (interactions, searchText = '', data) => {
   } = data;
   return flow([
     // Blacklists completely disable any and all interactions
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       !user_is_blacklisted && !target_is_blacklisted),
 
     // Optional search term, do before the others so we don't even run the tests
-    searchText && filter(testSearch),
+    (interactions) => searchText && filter(interactions, testSearch),
 
     // Filter off interactions depending on pref
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       // Regular interaction
       (interaction.type === INTERACTION_NORMAL ? true
         // Lewd interaction
@@ -130,7 +151,7 @@ export const sortInteractions = (interactions, searchText = '', data) => {
           : verb_consent && extreme_pref)),
 
     // Filter off interactions depending on target's pref
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       // If it's ourself, we've just checked it above, ignore
       ((isTargetSelf || (target_has_active_player === 0)) ? true
         // Regular interaction
@@ -141,25 +162,26 @@ export const sortInteractions = (interactions, searchText = '', data) => {
             : theyAllowLewd && theyAllowExtreme)),
 
     // Is self
-    filter(interaction =>
-      (isTargetSelf ? (INTERACTION_FLAG_USER_IS_TARGET
-        & interaction.interactionFlags)
-        : !(INTERACTION_FLAG_USER_IS_TARGET & interaction.interactionFlags))),
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
+      {
+        const flagCheck = (INTERACTION_FLAG_USER_IS_TARGET & interaction.interactionFlags) !== 0;
+        return isTargetSelf ? flagCheck : !flagCheck;
+      }),
     // Has a player or none at all
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       (!isTargetSelf && (target_has_active_player === 1)
         ? !(INTERACTION_FLAG_OOC_CONSENT
           & interaction.interactionFlags) : true)),
     // Distance
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       max_distance <= interaction.maxDistance),
     // User requirements
-    filter(interaction =>
+    (interactions) => filter(interactions, (interaction:InteractionData) =>
       interaction.required_from_user
         ? !!((required_from_user & interaction.required_from_user)
           === interaction.required_from_user) : true),
 
-    filter(interaction => {
+    (interactions) => filter(interactions, (interaction:InteractionData) => {
       // User requires exposed
       const exposed = !interaction.required_from_user_exposed
       || ((interaction.required_from_user_exposed
@@ -181,14 +203,14 @@ export const sortInteractions = (interactions, searchText = '', data) => {
     }),
 
     // User required feet amount
-    filter(interaction => interaction.user_num_feet
+    (interactions) => filter(interactions, (interaction:InteractionData) => interaction.user_num_feet
       ? (interaction.user_num_feet <= user_num_feet) : true),
     // Target requirements
-    filter(interaction => interaction.required_from_target
+    (interactions) => filter(interactions, (interaction:InteractionData) => interaction.required_from_target
       ? !!((required_from_target
         & interaction.required_from_target)
           === interaction.required_from_target) : true),
-    filter(interaction => {
+    (interactions) => filter(interactions, (interaction:InteractionData) => {
       // Target requires exposed
       const exposed = !interaction.required_from_target_exposed
           || ((interaction.required_from_target_exposed
@@ -209,12 +231,12 @@ export const sortInteractions = (interactions, searchText = '', data) => {
       }
     }),
     // Target required feet amount
-    filter(interaction => interaction.target_num_feet
+    (interactions) => filter(interactions, (interaction:InteractionData) => interaction.target_num_feet
       ? (interaction.target_num_feet <= target_num_feet) : true),
 
     // Searching by "desc"
-    sortBy(interaction => interaction.desc),
+    (interactions) => sortBy(interactions, (interaction:InteractionData) => interaction.desc),
     // Searching by type
-    sortBy(interaction => interaction.type),
+    (interactions) => sortBy(interactions, (interaction:InteractionData) => interaction.type),
   ])(interactions);
 };

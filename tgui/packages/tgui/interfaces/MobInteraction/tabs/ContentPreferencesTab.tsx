@@ -25,7 +25,7 @@ type ContentPrefsInfo = {
 }
 
 export const ContentPreferencesTab = (props, context) => {
-  const { act, data } = useBackend<ContentPrefsInfo>(context);
+  const { act, data } = useBackend<ContentPrefsInfo>();
   const {
     verb_consent,
     lewd_verb_sounds,

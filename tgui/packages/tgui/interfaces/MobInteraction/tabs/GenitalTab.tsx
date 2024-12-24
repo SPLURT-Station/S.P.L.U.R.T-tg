@@ -1,6 +1,7 @@
-import { filter, map, sortBy } from 'common/collections';
+import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
+
 import { useBackend, useLocalState } from '../../../backend';
 import { Button, Flex, Section, Stack } from '../../../components';
 
@@ -19,11 +20,11 @@ type GenitalData = {
 }
 
 export const GenitalTab = (props, context) => {
-  const { act, data } = useBackend<GenitalInfo>(context);
+  const { act, data } = useBackend<GenitalInfo>();
   const [
     searchText,
     setSearchText,
-  ] = useLocalState(context, 'searchText', '');
+  ] = useLocalState('searchText', '');
   const genitals = sortGenitals(data.genitals, searchText) || [];
   return (
     <Section>
@@ -107,14 +108,16 @@ export const GenitalTab = (props, context) => {
 /**
  * Genital sorter!
  */
-const sortGenitals = (genitals, searchText = '') => {
+const sortGenitals = (genitals:GenitalData[], searchText = '') => {
   const testSearch = createSearch<GenitalData>(searchText,
     genital => genital.name);
   return flow([
+    (genitals) => {
     // Optional search term
-    searchText && filter(testSearch),
+    return searchText && filter(genitals, testSearch);
     // Slightly expensive, but way better than sorting in BYOND
-    sortBy(genital => genital.name),
+    },
+    (genitals) => sortBy(genitals, (genital:GenitalData) => genital.name),
   ])(genitals);
 };
 
