@@ -68,7 +68,7 @@
 	maximum = 200
 
 /datum/preference/numeric/erp_lust_tolerance/apply_to_human(mob/living/carbon/human/target, value)
-	target.age = value
+	target.erp_lust_tolerance = value
 
 /datum/preference/numeric/erp_lust_tolerance/create_informed_default_value(datum/preferences/preferences)
 	return 100
@@ -84,8 +84,8 @@
 	minimum = 10
 	maximum = 25
 
-/datum/preference/numeric/age/apply_to_human(mob/living/carbon/human/target, value)
-	target.age = value
+/datum/preference/numeric/erp_sexual_potency/apply_to_human(mob/living/carbon/human/target, value)
+	target.sexual_potency = value
 
-/datum/preference/numeric/age/create_informed_default_value(datum/preferences/preferences)
+/datum/preference/numeric/erp_sexual_potency/create_informed_default_value(datum/preferences/preferences)
 	return 15
