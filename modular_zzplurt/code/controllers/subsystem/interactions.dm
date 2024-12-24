@@ -38,9 +38,12 @@ SUBSYSTEM_DEF(interactions)
 /datum/controller/subsystem/interactions/proc/prepare_interactions()
 	QDEL_NULL_LIST(interactions)
 	interactions = list()
-	for(var/itype in subtypesof(/datum/interaction))
-		var/datum/interaction/I = new itype()
-		interactions["[itype]"] = I
+	for(var/datum/interaction/interaction as anything in subtypesof(/datum/interaction))
+		// Basetype, do not create
+		if(!initial(interaction.description))
+			continue
+		interaction = new interaction()
+		interactions["[interaction.type]"] = interaction
 
 /// Blacklisting!
 /datum/controller/subsystem/interactions/proc/prepare_blacklisted_mobs()

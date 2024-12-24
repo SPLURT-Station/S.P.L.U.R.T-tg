@@ -1,13 +1,8 @@
 // If I could have gotten away with using a tilde in the type path, I would have.
 /datum/interaction/lewd
-	description = "Slap their ass."
-	simple_message = "USER slaps TARGET right on the ass!"
-	simple_style = "danger"
-	interaction_sound = 'modular_zzplurt/sound/interactions/slap.ogg'
+	description = null
+	simple_style = "lewd"
 	interaction_flags = INTERACTION_FLAG_ADJACENT | INTERACTION_FLAG_OOC_CONSENT
-
-	write_log_user = "ass-slapped"
-	write_log_target = "was ass-slapped by"
 
 	/// Use the number of required feet.
 	var/require_user_num_feet
@@ -46,15 +41,16 @@
 			return FALSE
 
 		// Special behavior for things like non-humans and if both sides are allowed
-		if(!(has_penis == TRUE) || !(user_require_penis_exposed && user_require_penis_unexposed))
-			if((user_require_penis_exposed) && has_penis == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your penis need to be exposed."))
-				return FALSE
-			if((user_require_penis_unexposed) && has_penis == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your penis need to be unexposed."))
-				return FALSE
+		if(!(user_require_penis_exposed && user_require_penis_unexposed))
+			if(!(has_penis == TRUE))
+				if((user_require_penis_exposed) && has_penis == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your penis need to be exposed."))
+					return FALSE
+				if((user_require_penis_unexposed) && has_penis == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your penis need to be unexposed."))
+					return FALSE
 
 	var/user_require_balls_exposed = !!(required_from_user_exposed & INTERACTION_REQUIRE_BALLS)
 	var/user_require_balls_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_BALLS)
@@ -65,15 +61,16 @@
 				to_chat(user, span_warning("You don't have balls."))
 			return FALSE
 
-		if(!(has_balls == TRUE) || !(user_require_balls_exposed && user_require_balls_unexposed))
-			if((user_require_balls_exposed) && has_balls == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your balls need to be exposed."))
-				return FALSE
-			if((user_require_balls_unexposed) && has_balls == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your balls need to be unexposed."))
-				return FALSE
+		if(!(user_require_balls_exposed && user_require_balls_unexposed))
+			if(!(has_balls == TRUE))
+				if((user_require_balls_exposed) && has_balls == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your balls need to be exposed."))
+					return FALSE
+				if((user_require_balls_unexposed) && has_balls == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your balls need to be unexposed."))
+					return FALSE
 
 	var/user_require_anus_exposed = !!(required_from_user_exposed & INTERACTION_REQUIRE_ANUS)
 	var/user_require_anus_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_ANUS)
@@ -84,15 +81,16 @@
 				to_chat(user, span_warning("You don't have an anus."))
 			return FALSE
 
-		if(!(has_anus == TRUE) || !(user_require_anus_exposed && user_require_anus_unexposed))
-			if(user_require_anus_exposed && has_anus == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your anus needs to be exposed."))
-				return FALSE
-			if(user_require_anus_unexposed && has_anus == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your anus needs to be unexposed."))
-				return FALSE
+		if(!(user_require_anus_exposed && user_require_anus_unexposed))
+			if(!(has_anus == TRUE))
+				if(user_require_anus_exposed && has_anus == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your anus needs to be exposed."))
+					return FALSE
+				if(user_require_anus_unexposed && has_anus == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your anus needs to be unexposed."))
+					return FALSE
 
 	var/user_require_vagina_exposed = !!(required_from_user_exposed & INTERACTION_REQUIRE_VAGINA)
 	var/user_require_vagina_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_VAGINA)
@@ -103,15 +101,16 @@
 				to_chat(user, span_warning("You don't have a vagina."))
 			return FALSE
 
-		if(!(has_vagina == TRUE) || !(user_require_vagina_exposed && user_require_vagina_unexposed))
-			if(user_require_vagina_exposed && has_vagina == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your vagina needs to be exposed."))
-				return FALSE
-			if(user_require_vagina_unexposed && has_vagina == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your vagina needs to be unexposed."))
-				return FALSE
+		if(!(user_require_vagina_exposed && user_require_vagina_unexposed))
+			if(!(has_vagina == TRUE))
+				if(user_require_vagina_exposed && has_vagina == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your vagina needs to be exposed."))
+					return FALSE
+				if(user_require_vagina_unexposed && has_vagina == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your vagina needs to be unexposed."))
+					return FALSE
 
 	var/user_require_breasts_exposed = !!(required_from_user_exposed & INTERACTION_REQUIRE_BREASTS)
 	var/user_require_breasts_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_BREASTS)
@@ -122,15 +121,16 @@
 				to_chat(user, span_warning("You don't have breasts."))
 			return FALSE
 
-		if(!(has_breasts == TRUE) || !(user_require_breasts_exposed && user_require_breasts_unexposed))
-			if(user_require_breasts_exposed && has_breasts == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your breasts need to be exposed."))
-				return FALSE
-			if(user_require_breasts_unexposed && has_breasts == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(user, span_warning("Your breasts need to be unexposed."))
-				return FALSE
+		if(!(user_require_breasts_exposed && user_require_breasts_unexposed))
+			if(!(has_breasts == TRUE))
+				if(user_require_breasts_exposed && has_breasts == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your breasts need to be exposed."))
+					return FALSE
+				if(user_require_breasts_unexposed && has_breasts == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(user, span_warning("Your breasts need to be unexposed."))
+					return FALSE
 
 	var/user_require_feet_exposed = !!(required_from_user_exposed & INTERACTION_REQUIRE_FEET)
 	var/user_require_feet_unexposed = !!(required_from_user_unexposed & INTERACTION_REQUIRE_FEET)
@@ -275,15 +275,16 @@
 				to_chat(target, span_warning("They don't have a penis."))
 			return FALSE
 
-		if(!(has_penis == TRUE) || !(target_require_penis_exposed && target_require_penis_unexposed))
-			if(target_require_penis_exposed && has_penis == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their penis needs to be exposed."))
-				return FALSE
-			if(target_require_penis_unexposed && has_penis == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their penis needs to be unexposed."))
-				return FALSE
+		if(!(target_require_penis_exposed && target_require_penis_unexposed))
+			if(!(has_penis == TRUE))
+				if(target_require_penis_exposed && has_penis == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their penis needs to be exposed."))
+					return FALSE
+				if(target_require_penis_unexposed && has_penis == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their penis needs to be unexposed."))
+					return FALSE
 
 	var/target_require_balls_exposed = !!(required_from_target_exposed & INTERACTION_REQUIRE_BALLS)
 	var/target_require_balls_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_BALLS)
@@ -294,15 +295,16 @@
 				to_chat(target, span_warning("They don't have balls."))
 			return FALSE
 
-		if(!(has_balls == TRUE) || !(target_require_balls_exposed && target_require_balls_unexposed))
-			if(target_require_balls_exposed && has_balls == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their balls need to be exposed."))
-				return FALSE
-			if(target_require_balls_unexposed && has_balls == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their balls need to be unexposed."))
-				return FALSE
+		if(!(target_require_balls_exposed && target_require_balls_unexposed))
+			if(!(has_balls == TRUE))
+				if(target_require_balls_exposed && has_balls == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their balls need to be exposed."))
+					return FALSE
+				if(target_require_balls_unexposed && has_balls == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their balls need to be unexposed."))
+					return FALSE
 
 	var/target_require_anus_exposed = !!(required_from_target_exposed & INTERACTION_REQUIRE_ANUS)
 	var/target_require_anus_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_ANUS)
@@ -313,15 +315,16 @@
 				to_chat(target, span_warning("They don't have an anus."))
 			return FALSE
 
-		if(!(has_anus == TRUE) || !(target_require_anus_exposed && target_require_anus_unexposed))
-			if(target_require_anus_exposed && has_anus == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their anus needs to be exposed."))
-				return FALSE
-			if(target_require_anus_unexposed && has_anus == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their anus needs to be unexposed."))
-				return FALSE
+		if(!(target_require_anus_exposed && target_require_anus_unexposed))
+			if(!(has_anus == TRUE))
+				if(target_require_anus_exposed && has_anus == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their anus needs to be exposed."))
+					return FALSE
+				if(target_require_anus_unexposed && has_anus == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their anus needs to be unexposed."))
+					return FALSE
 
 	var/target_require_vagina_exposed = !!(required_from_target_exposed & INTERACTION_REQUIRE_VAGINA)
 	var/target_require_vagina_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_VAGINA)
@@ -332,15 +335,16 @@
 				to_chat(target, span_warning("They don't have a vagina."))
 			return FALSE
 
-		if(!(has_vagina == TRUE) || !(target_require_vagina_exposed && target_require_vagina_unexposed))
-			if(target_require_vagina_exposed && has_vagina == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their vagina needs to be exposed."))
-				return FALSE
-			if(target_require_vagina_unexposed && has_vagina == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their vagina needs to be unexposed."))
-				return FALSE
+		if(!(target_require_vagina_exposed && target_require_vagina_unexposed))
+			if(!(has_vagina == TRUE))
+				if(target_require_vagina_exposed && has_vagina == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their vagina needs to be exposed."))
+					return FALSE
+				if(target_require_vagina_unexposed && has_vagina == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their vagina needs to be unexposed."))
+					return FALSE
 
 	var/target_require_breasts_exposed = !!(required_from_target_exposed & INTERACTION_REQUIRE_BREASTS)
 	var/target_require_breasts_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_BREASTS)
@@ -351,15 +355,16 @@
 				to_chat(target, span_warning("They don't have breasts."))
 			return FALSE
 
-		if(!(has_breasts == TRUE) || !(target_require_breasts_exposed && target_require_breasts_unexposed))
-			if(target_require_breasts_exposed && has_breasts == HAS_UNEXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their breasts need to be exposed."))
-				return FALSE
-			if(target_require_breasts_unexposed && has_breasts == HAS_EXPOSED_GENITAL)
-				if(!silent)
-					to_chat(target, span_warning("Their breasts need to be unexposed."))
-				return FALSE
+		if(!(target_require_breasts_exposed && target_require_breasts_unexposed))
+			if(!(has_breasts == TRUE))
+				if(target_require_breasts_exposed && has_breasts == HAS_UNEXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their breasts need to be exposed."))
+					return FALSE
+				if(target_require_breasts_unexposed && has_breasts == HAS_EXPOSED_GENITAL)
+					if(!silent)
+						to_chat(target, span_warning("Their breasts need to be unexposed."))
+					return FALSE
 
 	var/target_require_feet_exposed = !!(required_from_target_exposed & INTERACTION_REQUIRE_FEET)
 	var/target_require_feet_unexposed = !!(required_from_target_unexposed & INTERACTION_REQUIRE_FEET)

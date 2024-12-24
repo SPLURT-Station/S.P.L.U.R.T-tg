@@ -3,4 +3,14 @@
 	SSinteractions.prepare_interactions()
 	if(!SSinteractions.interactions || !length(SSinteractions.interactions))
 		TEST_FAIL("make_interactions() was called but SSinteractions.interactions is empty.")
+	for(var/interaction_type in SSinteractions.interactions)
+		var/datum/interaction/interaction = SSinteractions.interactions[interaction_type]
+		if(!interaction.description)
+			TEST_FAIL("Basetype [interaction.type] located within SSinteractions.interactions")
+		if(interaction.required_from_user_exposed && interaction.required_from_user_unexposed)
+			if(interaction.required_from_user_exposed != interaction.required_from_user_unexposed)
+				TEST_FAIL("Interaction [interaction.description]([interaction.type]) has non-matching requirements for user exposed and unexposed, this is unsupported!")
+		if(interaction.required_from_target_exposed && interaction.required_from_target_unexposed)
+			if(interaction.required_from_target_exposed != interaction.required_from_target_unexposed)
+				TEST_FAIL("Interaction [interaction.description]([interaction.type]) has non-matching requirements for target exposed and unexposed, this is unsupported!")
 	return

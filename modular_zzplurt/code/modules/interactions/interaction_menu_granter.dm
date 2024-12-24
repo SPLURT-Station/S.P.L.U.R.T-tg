@@ -407,6 +407,9 @@
 	var/list/sent_interactions = list()
 	for(var/interaction_key in SSinteractions.interactions)
 		var/datum/interaction/I = SSinteractions.interactions[interaction_key]
+		// THIS IS A BASETYPE, DO NOT SEND
+		if(!I.description)
+			continue
 		var/list/interaction = list()
 		interaction["key"] = I.type
 		interaction["desc"] = I.description

@@ -20,6 +20,8 @@ type HeaderInfo = {
 
 type ContentInfo = {
   interactions: InteractionData[];
+  user_is_blacklisted: boolean;
+  target_is_blacklisted: boolean;
 }
 
 type InteractionData = {
@@ -78,12 +80,12 @@ const INTERACTION_NORMAL = 0;
 const INTERACTION_LEWD = 1;
 const INTERACTION_EXTREME = 2;
 
-const INTERACTION_FLAG_OOC_CONSENT = (1<<0);
-const INTERACTION_FLAG_ADJACENT = (1<<1);
-const INTERACTION_FLAG_USER_IS_TARGET = (1<<2);
-const INTERACTION_FLAG_USER_NOT_TIRED = (1<<3);
-const INTERACTION_FLAG_TARGET_NOT_TIRED = (1<<4);
-const INTERACTION_FLAG_EXTREME_CONTENT = (1<<5);
+const INTERACTION_FLAG_ADJACENT = (1<<0);
+const INTERACTION_FLAG_EXTREME_CONTENT = (1<<1);
+const INTERACTION_FLAG_OOC_CONSENT = (1<<2);
+const INTERACTION_FLAG_TARGET_NOT_TIRED = (1<<3);
+const INTERACTION_FLAG_USER_IS_TARGET = (1<<4);
+const INTERACTION_FLAG_USER_NOT_TIRED = (1<<5);
 
 export const MobInteraction = (props, context) => {
   const { act, data } = useBackend<HeaderInfo>(context);
@@ -207,6 +209,7 @@ const InteractionsTab = (props, context) => {
     searchText,
     data)
     || [];
+  const { user_is_blacklisted, target_is_blacklisted } = data;
   return (
     <Section overflow="auto" position="absolute" right="6px" left="6px" bottom={(364 - innerHeight) + "px"} top="58px">
       <Table>
@@ -244,11 +247,10 @@ const InteractionsTab = (props, context) => {
           ) : (
             <Section align="center">
               {
-                searchText ? (
-                  "No matching results."
-                ) : (
-                  "No interactions available."
-                )
+                user_is_blacklisted || target_is_blacklisted
+                  ? `${user_is_blacklisted ? "Your" : "Their"} mob type is blacklisted from interactions`
+                  : searchText ? "No matching results."
+                    : "No interactions available."
               }
             </Section>
           )
@@ -265,12 +267,15 @@ export const sortInteractions = (interactions, searchText = '', data) => {
   const testSearch = createSearch<InteractionData>(searchText,
     interaction => interaction.desc);
   const {
-    isTargetSelf,
-    verb_consent,
     extreme_pref,
+    isTargetSelf,
     target_has_active_player,
-    theyAllowLewd,
+    target_is_blacklisted,
     theyAllowExtreme,
+    theyAllowLewd,
+    user_is_blacklisted,
+    verb_consent,
+
 
     max_distance,
     required_from_user,
@@ -284,6 +289,10 @@ export const sortInteractions = (interactions, searchText = '', data) => {
     target_num_feet,
   } = data;
   return flow([
+    // Blacklists completely disable any and all interactions
+    filter(interaction =>
+      !user_is_blacklisted && !target_is_blacklisted),
+
     // Optional search term, do before the others so we don't even run the tests
     searchText && filter(testSearch),
 
@@ -319,19 +328,33 @@ export const sortInteractions = (interactions, searchText = '', data) => {
           & interaction.interactionFlags) : true)),
     // Distance
     filter(interaction =>
-      interaction.maxDistance >= max_distance),
+      max_distance <= interaction.maxDistance),
     // User requirements
     filter(interaction =>
       interaction.required_from_user
         ? !!(required_from_user & interaction.required_from_user) : true),
-    // User requires exposed
-    filter(interaction => interaction.required_from_user_exposed
-      ? !!(required_from_user_exposed
-        & interaction.required_from_user_exposed) : true),
-    // User requires unexposed
-    filter(interaction => interaction.required_from_user_unexposed
-      ? !!(required_from_user_unexposed
-        & interaction.required_from_user_unexposed) : true),
+
+    filter(interaction => {
+      // User requires exposed
+      const exposed = !interaction.required_from_user_exposed
+      || ((interaction.required_from_user_exposed
+        & required_from_user_exposed)
+          === interaction.required_from_user_exposed);
+      // User requires unexposed
+      const unexposed = !interaction.required_from_user_unexposed
+      || ((interaction.required_from_user_unexposed
+        & required_from_user_unexposed)
+          === interaction.required_from_user_unexposed);
+
+      if (interaction.required_from_user_exposed
+        && interaction.required_from_user_unexposed) {
+        return exposed || unexposed;
+      }
+      else {
+        return exposed && unexposed;
+      }
+    }),
+
     // User required feet amount
     filter(interaction => interaction.user_num_feet
       ? (interaction.user_num_feet <= user_num_feet) : true),
@@ -339,14 +362,26 @@ export const sortInteractions = (interactions, searchText = '', data) => {
     filter(interaction => interaction.required_from_target
       ? !!(required_from_target
         & interaction.required_from_target) : true),
-    // Target requires exposed
-    filter(interaction => interaction.required_from_target_exposed
-      ? !!(required_from_target_exposed
-        & interaction.required_from_target_exposed) : true),
-    // Target requires unexposed
-    filter(interaction => interaction.required_from_target_unexposed
-      ? !!(required_from_target_unexposed
-        & interaction.required_from_target_unexposed) : true),
+    filter(interaction => {
+      // Target requires exposed
+      const exposed = !interaction.required_from_target_exposed
+          || ((interaction.required_from_target_exposed
+            & required_from_target_exposed)
+              === interaction.required_from_target_exposed);
+      // Target requires unexposed
+      const unexposed = !interaction.required_from_target_unexposed
+          || ((interaction.required_from_target_unexposed
+            & required_from_target_unexposed)
+              === interaction.required_from_target_unexposed);
+
+      if (interaction.required_from_target_exposed
+            && interaction.required_from_target_unexposed) {
+        return exposed || unexposed;
+      }
+      else {
+        return exposed && unexposed;
+      }
+    }),
     // Target required feet amount
     filter(interaction => interaction.target_num_feet
       ? (interaction.target_num_feet <= target_num_feet) : true),
