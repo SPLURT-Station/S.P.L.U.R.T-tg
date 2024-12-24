@@ -139,7 +139,7 @@ export const sortInteractions = (interactions:InteractionData[], searchText = ''
       !user_is_blacklisted && !target_is_blacklisted),
 
     // Optional search term, do before the others so we don't even run the tests
-    (interactions) => searchText && filter(interactions, testSearch),
+    (interactions) => searchText ? filter(interactions, testSearch) : interactions,
 
     // Filter off interactions depending on pref
     (interactions) => filter(interactions, (interaction:InteractionData) =>
