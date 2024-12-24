@@ -141,5 +141,15 @@
 /datum/interaction/proc/post_interaction(mob/living/user, mob/living/target)
 	COOLDOWN_START(user, last_interaction_time, 0.6 SECONDS)
 	if(interaction_sound)
-		playsound(get_turf(user), interaction_sound, 50, 1, -1)
+		var/soundfile_to_play
+
+		// pickweight so you can make a certain sound play
+		// more times. This does NOT mean you are forced to
+		// use the system. If you do not make the list
+		// associative, all options will have the same chances!
+		if(islist(interaction_sound))
+			soundfile_to_play = pickweight(interaction_sound)
+		else
+			soundfile_to_play = interaction_sound
+		playsound(get_turf(user), soundfile_to_play, 50, 1, -1)
 	return
