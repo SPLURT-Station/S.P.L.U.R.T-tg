@@ -67,6 +67,15 @@
 	minimum = 75
 	maximum = 200
 
+/datum/preference/choiced/erp_lust_tolerance/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
 /datum/preference/numeric/erp_lust_tolerance/apply_to_human(mob/living/carbon/human/target, value)
 	target.lust_tolerance = value
 
@@ -83,6 +92,15 @@
 
 	minimum = 10
 	maximum = 25
+
+/datum/preference/choiced/erp_sexual_potency/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
 
 /datum/preference/numeric/erp_sexual_potency/apply_to_human(mob/living/carbon/human/target, value)
 	target.sexual_potency = value
