@@ -68,7 +68,7 @@
 	maximum = 200
 
 /datum/preference/numeric/erp_lust_tolerance/apply_to_human(mob/living/carbon/human/target, value)
-	target.erp_lust_tolerance = value
+	target.lust_tolerance = value
 
 /datum/preference/numeric/erp_lust_tolerance/create_informed_default_value(datum/preferences/preferences)
 	return 100

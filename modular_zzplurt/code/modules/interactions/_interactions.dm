@@ -148,7 +148,7 @@
 		// use the system. If you do not make the list
 		// associative, all options will have the same chances!
 		if(islist(interaction_sound))
-			soundfile_to_play = pickweight(interaction_sound)
+			soundfile_to_play = pick_weight(interaction_sound)
 		else
 			soundfile_to_play = interaction_sound
 		playsound(get_turf(user), soundfile_to_play, 50, 1, -1)
