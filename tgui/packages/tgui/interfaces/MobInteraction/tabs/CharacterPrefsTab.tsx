@@ -32,22 +32,14 @@ export const CharacterPrefsTab = (props, context) => {
               value: 1,
             })} />
           <Button
-            icon={"question"}
-            color={erp_pref === 2 ? "yellow" : "default"}
-            onClick={() => act('char_pref', {
-              char_pref: 'erp_pref',
-              value: 2,
-            })} />
-          <Button
             icon={"times"}
             color={erp_pref === 0 ? "red" : "default"}
             onClick={() => act('char_pref', {
               char_pref: 'erp_pref',
               value: 0,
             })} />
-            {erp_pref}
         </LabeledList.Item>
-        <LabeledList.Item label="Noncon Preference">
+        {/* <LabeledList.Item label="Noncon Preference">
           <Button
             icon={"check"}
             color={noncon_pref === 1 ? "green" : "default"}
@@ -69,8 +61,7 @@ export const CharacterPrefsTab = (props, context) => {
               char_pref: 'noncon_pref',
               value: 0,
             })} />
-            {noncon_pref}
-        </LabeledList.Item>
+        </LabeledList.Item> */}
         <LabeledList.Item label="Vore Preference">
           <Button
             icon={"check"}
@@ -80,20 +71,12 @@ export const CharacterPrefsTab = (props, context) => {
               value: 1,
             })} />
           <Button
-            icon={"question"}
-            color={vore_pref === 2 ? "yellow" : "default"}
-            onClick={() => act('char_pref', {
-              char_pref: 'vore_pref',
-              value: 2,
-            })} />
-          <Button
             icon={"times"}
             color={vore_pref === 0 ? "red" : "default"}
             onClick={() => act('char_pref', {
               char_pref: 'vore_pref',
               value: 0,
             })} />
-            {vore_pref}
         </LabeledList.Item>
         <LabeledList.Item label="Extreme Preference">
           <Button
@@ -104,20 +87,12 @@ export const CharacterPrefsTab = (props, context) => {
               value: 1,
             })} />
           <Button
-            icon={"question"}
-            color={extreme_pref === 2 ? "yellow" : "default"}
-            onClick={() => act('char_pref', {
-              char_pref: 'extreme_pref',
-              value: 2,
-            })} />
-          <Button
             icon={"times"}
             color={extreme_pref === 0 ? "red" : "default"}
             onClick={() => act('char_pref', {
               char_pref: 'extreme_pref',
               value: 0,
             })} />
-            {extreme_pref}
         </LabeledList.Item>
         {extreme_pref ? (
           <LabeledList.Item label="Extreme Harm">
@@ -135,7 +110,6 @@ export const CharacterPrefsTab = (props, context) => {
                 char_pref: 'extreme_harm',
                 value: 0,
               })} />
-              {extreme_harm}
           </LabeledList.Item>
         ) : (null)}
       </LabeledList>

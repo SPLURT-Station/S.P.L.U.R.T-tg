@@ -81,13 +81,16 @@
 		ui = new(user, src, "MobInteraction", "Interactions")
 		ui.open()
 
-/datum/preferences/proc/pref_to_object(datum/preference/pref)
+/datum/preferences/proc/pref_to_object(datum/preference/pref, desc)
 	. = list()
-	.["key"] = initial(pref.savefile_key)
+	.["key"] = pref
 	.["value"] = pref_to_num(pref)
-	.["desc"] = initial(pref.savefile_key)
+	.["desc"] = desc
+	. = list(.)
 
 /datum/preferences/proc/pref_to_num(datum/preference/pref)
+	if(!pref)
+		return 0
 	var/pref_value = read_preference(pref)
 	switch(pref_value)
 		if("Yes")
@@ -384,15 +387,15 @@
 	if(prefs)
 
 	//Getting char prefs
-		// .["erp_pref"] = 			pref_to_num(prefs.erppref)
+		character_prefs["erp_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp)
 		// .["noncon_pref"] = 			pref_to_num(prefs.nonconpref)
 		character_prefs["vore_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp/vore_enable)
-		character_prefs["extreme_pref"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extmharm)
-		character_prefs["extreme_harm"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extm)
+		character_prefs["extreme_pref"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extm)
+		character_prefs["extreme_harm"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extmharm)
 
 	//Getting preferences
-		erp_prefs["verb_consent"] += 		prefs.pref_to_object(/datum/preference/toggle/erp)
-		erp_prefs["lewd_verb_sounds"] += 	prefs.pref_to_object(/datum/preference/toggle/erp/sounds)
+		erp_prefs += prefs.pref_to_object(/datum/preference/toggle/erp, "Allow lewd verbs")
+		erp_prefs += prefs.pref_to_object(/datum/preference/toggle/erp/sounds, "Lewd verb sounds")
 		// .["arousable"] = 			prefs.arousable
 		// .["genital_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, GENITAL_EXAMINE)
 		// .["vore_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, VORE_EXAMINE)
@@ -517,14 +520,15 @@
 		*/
 		if("char_pref")
 			var/datum/preferences/prefs = parent_mob.client.prefs
-			var/value = num_to_choiced_pref(params["value"])
+			var/toggle_value = !!params["value"]
+			var/choice_value = num_to_choiced_pref(params["value"])
 
 			switch(params["char_pref"])
 				if("erp_pref")
-					if(prefs.read_preference(/datum/preference/toggle/erp) == value)
+					if(prefs.read_preference(/datum/preference/toggle/erp) == toggle_value)
 						return FALSE
 					else
-						prefs.write_preference(/datum/preference/toggle/erp, value)
+						prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp], toggle_value)
 						/*
 				if("noncon_pref")
 					if(prefs.nonconpref == value)
@@ -533,31 +537,31 @@
 						prefs.nonconpref = value
 						*/
 				if("vore_pref")
-					if(prefs.read_preference(/datum/preference/toggle/erp/vore_enable) == value)
+					if(prefs.read_preference(/datum/preference/toggle/erp/vore_enable) == toggle_value)
 						return FALSE
 					else
-						prefs.write_preference(/datum/preference/toggle/erp/vore_enable, value)
+						prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/vore_enable], toggle_value)
 				if("extreme_pref")
-					if(prefs.read_preference(/datum/preference/choiced/erp_status_extm) == num_to_choiced_pref(value))
+					if(prefs.read_preference(/datum/preference/choiced/erp_status_extm) == choice_value)
 						return FALSE
 					else
-						prefs.write_preference(/datum/preference/choiced/erp_status_extm, num_to_choiced_pref(value))
+						prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_status_extm], choice_value)
 				if("extreme_harm")
-					if(prefs.read_preference(/datum/preference/choiced/erp_status_extmharm) == num_to_choiced_pref(value))
+					if(prefs.read_preference(/datum/preference/choiced/erp_status_extmharm) == choice_value)
 						return FALSE
 					else
-						prefs.write_preference(/datum/preference/choiced/erp_status_extmharm, num_to_choiced_pref(value))
+						prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_status_extmharm], choice_value)
 				else
 					return FALSE
 			prefs.save_character()
 			return TRUE
 		if("pref")
 			var/datum/preferences/prefs = parent_mob.client.prefs
-			switch(params["pref"])
-				if("verb_consent")
-					prefs.write_preference(/datum/preference/toggle/erp)
-				if("lewd_verb_sounds")
-					prefs.write_preference(/datum/preference/toggle/erp/sounds)
+			switch(text2path(params["pref"]))
+				if(/datum/preference/toggle/erp)
+					prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp], toggle_value)
+				if(/datum/preference/toggle/erp/sounds)
+					prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/sounds], toggle_value)
 				else
 					return FALSE
 			prefs.save_preferences()
