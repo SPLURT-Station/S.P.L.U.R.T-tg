@@ -191,7 +191,7 @@
 			required_from_user_unexposed |= INTERACTION_REQUIRE_BALLS
 
 	var/user_has_ears = self.has_ears()
-	if(self.getorganslot(ORGAN_SLOT_EARS))
+	if(self.get_organ_slot(ORGAN_SLOT_EARS))
 		switch(user_has_ears)
 			if(HAS_EXPOSED_GENITAL)
 				required_from_user_exposed |= INTERACTION_REQUIRE_EARS
@@ -205,7 +205,7 @@
 				required_from_user_unexposed |= INTERACTION_REQUIRE_EARSOCKETS
 
 	var/user_has_eyes = self.has_eyes()
-	if(self.getorganslot(ORGAN_SLOT_EYES))
+	if(self.get_organ_slot(ORGAN_SLOT_EYES))
 		switch(user_has_eyes)
 			if(HAS_EXPOSED_GENITAL)
 				required_from_user_exposed |= INTERACTION_REQUIRE_EYES
@@ -315,7 +315,7 @@
 				required_from_target_unexposed |= INTERACTION_REQUIRE_BALLS
 
 		var/target_has_ears = target.has_ears()
-		if(target.getorganslot(ORGAN_SLOT_EARS))
+		if(target.get_organ_slot(ORGAN_SLOT_EARS))
 			switch(target_has_ears)
 				if(HAS_EXPOSED_GENITAL)
 					required_from_target_exposed |= INTERACTION_REQUIRE_EARS
@@ -328,7 +328,7 @@
 				if(HAS_UNEXPOSED_GENITAL)
 					required_from_target_unexposed |= INTERACTION_REQUIRE_EARSOCKETS
 		var/target_has_eyes = target.has_eyes()
-		if(target.getorganslot(ORGAN_SLOT_EYES))
+		if(target.get_organ_slot(ORGAN_SLOT_EYES))
 			switch(target_has_eyes)
 				if(HAS_EXPOSED_GENITAL)
 					required_from_target_exposed |= INTERACTION_REQUIRE_EYES
