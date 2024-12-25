@@ -59,7 +59,7 @@
 	if(!milkers || !milktype)
 		return
 
-	var/milktext = initial(milktype)
+	var/milktext = initial(milktype.name)
 
 	lines = list(
 		"brings [u_His] own milk tanks to [u_His] mouth and sucks deeply into them",

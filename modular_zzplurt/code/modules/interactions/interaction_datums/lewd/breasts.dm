@@ -20,7 +20,7 @@
 	if(!milkers || !milktype)
 		return
 
-	var/milktext = milktype.name
+	var/milktext = initial(milktype.name)
 
 	lines = list(
 		"pushes [u_His] breasts against \the <b>[target]</b>'s mouth, squirting [u_His] warm [lowertext(milktext)] into [t_His] mouth",
