@@ -380,9 +380,7 @@
 
 	var/datum/preferences/prefs = self?.client.prefs
 	var/character_prefs = list()
-	.["character_prefs"] = character_prefs
 	var/erp_prefs = list()
-	.["erp_prefs"] = erp_prefs
 	if(prefs)
 
 	//Getting char prefs
@@ -393,8 +391,8 @@
 		character_prefs["extreme_harm"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extm)
 
 	//Getting preferences
-		erp_prefs["verb_consent"] = 		prefs.pref_to_object(/datum/preference/toggle/erp)
-		erp_prefs["lewd_verb_sounds"] = 	prefs.pref_to_object(/datum/preference/toggle/erp/sounds)
+		erp_prefs["verb_consent"] += 		prefs.pref_to_object(/datum/preference/toggle/erp)
+		erp_prefs["lewd_verb_sounds"] += 	prefs.pref_to_object(/datum/preference/toggle/erp/sounds)
 		// .["arousable"] = 			prefs.arousable
 		// .["genital_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, GENITAL_EXAMINE)
 		// .["vore_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, VORE_EXAMINE)
@@ -413,6 +411,9 @@
 		// .["no_aphro"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_APHRO)
 		// .["no_ass_slap"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_ASS_SLAP)
 		// .["no_auto_wag"] = 			!CHECK_BITFIELD(prefs.cit_toggles, NO_AUTO_WAG)
+
+	.["character_prefs"] = character_prefs
+	.["erp_prefs"] = erp_prefs
 
 /datum/component/interaction_menu_granter/ui_static_data(mob/user)
 	. = ..()
@@ -451,7 +452,7 @@
 		sent_interactions += list(interaction)
 	.["interactions"] = sent_interactions
 
-/proc/num_to_pref(num)
+/proc/num_to_choiced_pref(num)
 	switch(num)
 		if(1)
 			return "Yes"
@@ -513,37 +514,39 @@
 				return TRUE
 			else
 				return FALSE
+		*/
 		if("char_pref")
 			var/datum/preferences/prefs = parent_mob.client.prefs
-			var/value = num_to_pref(params["value"])
+			var/value = num_to_choiced_pref(params["value"])
+
 			switch(params["char_pref"])
 				if("erp_pref")
-					if(prefs.erppref == value)
+					if(prefs.read_preference(/datum/preference/toggle/erp) == value)
 						return FALSE
 					else
-						prefs.erppref = value
+						prefs.write_preference(/datum/preference/toggle/erp, value)
+						/*
 				if("noncon_pref")
 					if(prefs.nonconpref == value)
 						return FALSE
 					else
 						prefs.nonconpref = value
+						*/
 				if("vore_pref")
-					if(prefs.vorepref == value)
+					if(prefs.read_preference(/datum/preference/toggle/erp/vore_enable) == value)
 						return FALSE
 					else
-						prefs.vorepref = value
+						prefs.write_preference(/datum/preference/toggle/erp/vore_enable, value)
 				if("extreme_pref")
-					if(prefs.extremepref == value)
+					if(prefs.read_preference(/datum/preference/choiced/erp_status_extm) == num_to_choiced_pref(value))
 						return FALSE
 					else
-						prefs.extremepref = value
-						if(prefs.extremepref == "No")
-							prefs.extremeharm = "No"
+						prefs.write_preference(/datum/preference/choiced/erp_status_extm, num_to_choiced_pref(value))
 				if("extreme_harm")
-					if(prefs.extremeharm == value)
+					if(prefs.read_preference(/datum/preference/choiced/erp_status_extmharm) == num_to_choiced_pref(value))
 						return FALSE
 					else
-						prefs.extremeharm = value
+						prefs.write_preference(/datum/preference/choiced/erp_status_extmharm, num_to_choiced_pref(value))
 				else
 					return FALSE
 			prefs.save_character()
@@ -552,50 +555,14 @@
 			var/datum/preferences/prefs = parent_mob.client.prefs
 			switch(params["pref"])
 				if("verb_consent")
-					TOGGLE_BITFIELD(prefs.toggles, VERB_CONSENT)
+					prefs.write_preference(/datum/preference/toggle/erp)
 				if("lewd_verb_sounds")
-					TOGGLE_BITFIELD(prefs.toggles, LEWD_VERB_SOUNDS)
-				if("arousable")
-					prefs.arousable = !prefs.arousable
-				if("genital_examine")
-					TOGGLE_BITFIELD(prefs.cit_toggles, GENITAL_EXAMINE)
-				if("vore_examine")
-					TOGGLE_BITFIELD(prefs.cit_toggles, VORE_EXAMINE)
-				if("medihound_sleeper")
-					TOGGLE_BITFIELD(prefs.cit_toggles, MEDIHOUND_SLEEPER)
-				if("eating_noises")
-					TOGGLE_BITFIELD(prefs.cit_toggles, EATING_NOISES)
-				if("digestion_noises")
-					TOGGLE_BITFIELD(prefs.cit_toggles, DIGESTION_NOISES)
-				if("trash_forcefeed")
-					TOGGLE_BITFIELD(prefs.cit_toggles, TRASH_FORCEFEED)
-				if("forced_fem")
-					TOGGLE_BITFIELD(prefs.cit_toggles, FORCED_FEM)
-				if("forced_masc")
-					TOGGLE_BITFIELD(prefs.cit_toggles, FORCED_MASC)
-				if("hypno")
-					TOGGLE_BITFIELD(prefs.cit_toggles, HYPNO)
-				if("bimbofication")
-					TOGGLE_BITFIELD(prefs.cit_toggles, BIMBOFICATION)
-				if("breast_enlargement")
-					TOGGLE_BITFIELD(prefs.cit_toggles, BREAST_ENLARGEMENT)
-				if("penis_enlargement")
-					TOGGLE_BITFIELD(prefs.cit_toggles, PENIS_ENLARGEMENT)
-				if("butt_enlargement")
-					TOGGLE_BITFIELD(prefs.cit_toggles, BUTT_ENLARGEMENT)
-				if("never_hypno")
-					TOGGLE_BITFIELD(prefs.cit_toggles, NEVER_HYPNO)
-				if("no_aphro")
-					TOGGLE_BITFIELD(prefs.cit_toggles, NO_APHRO)
-				if("no_ass_slap")
-					TOGGLE_BITFIELD(prefs.cit_toggles, NO_ASS_SLAP)
-				if("no_auto_wag")
-					TOGGLE_BITFIELD(prefs.cit_toggles, NO_AUTO_WAG)
+					prefs.write_preference(/datum/preference/toggle/erp/sounds)
 				else
 					return FALSE
 			prefs.save_preferences()
 			return TRUE
-*/
+
 #undef INTERACTION_NORMAL
 #undef INTERACTION_LEWD
 #undef INTERACTION_EXTREME
