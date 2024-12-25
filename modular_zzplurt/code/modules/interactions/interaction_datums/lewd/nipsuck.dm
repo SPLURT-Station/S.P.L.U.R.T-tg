@@ -28,10 +28,8 @@
 					modifier = 5
 				else
 					modifier = 1
-			/*
-			if(B.fluid_id)
-				user.reagents.add_reagent(B.fluid_id, rand(1,2 * modifier))
-			*/
+			if(B.internal_fluid_datum)
+				user.reagents.add_reagent(B.internal_fluid_datum, rand(1,2 * modifier))
 
 	if(user.combat_mode == INTENT_HARM)
 		user.visible_message(
@@ -52,10 +50,8 @@
 					modifier = 5
 				else
 					modifier = 1
-			/*
-			if(B.fluid_id)
-				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
-			*/
+			if(B.internal_fluid_datum)
+				user.reagents.add_reagent(B.internal_fluid_datum, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
 
 	if(user.combat_mode == INTENT_GRAB)
 		user.visible_message(
@@ -77,10 +73,9 @@
 					modifier = 5
 				else
 					modifier = 1
-			/*
-			if(B.fluid_id)
-				user.reagents.add_reagent(B.fluid_id, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
-			*/
+			if(B.internal_fluid_datum)
+				user.reagents.add_reagent(B.internal_fluid_datum, rand(1,3 * modifier)) //aggressive sucking leads to high rewards
+
 	if(prob(5 + target.get_lust()))
 		if(target.combat_mode == INTENT_HELP)
 			if(!target.has_breasts())
