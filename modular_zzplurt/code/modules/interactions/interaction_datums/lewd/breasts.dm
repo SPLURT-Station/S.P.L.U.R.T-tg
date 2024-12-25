@@ -1,4 +1,4 @@
-/*
+
 /datum/interaction/lewd/do_breastfeed
 	description = "Breastfeed them"
 	required_from_user_exposed = INTERACTION_REQUIRE_BREASTS
@@ -13,14 +13,14 @@
 	var/u_He = user.p_they()
 	var/t_His = target.p_their()
 	var/obj/item/organ/external/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
-	var/milktype = milkers?.fluid_id
+	var/datum/reagent/consumable/milktype = milkers?.internal_fluid_datum
 	var/modifier
 	var/list/lines
 
 	if(!milkers || !milktype)
 		return
 
-	var/milktext = initial(milktype)
+	var/milktext = milktype.name
 
 	lines = list(
 		"pushes [u_His] breasts against \the <b>[target]</b>'s mouth, squirting [u_His] warm [lowertext(milktext)] into [t_His] mouth",
@@ -33,18 +33,20 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 
-	switch(milkers.size)
-		if("c", "d", "e")
+	switch(GLOB.breast_size_translation["[milkers.genital_size]"])
+		if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 			modifier = 2
-		if("f", "g", "h")
+		if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 			modifier = 3
+		if(BREAST_SIZE_I)
+			modifier = 4
+		if(BREAST_SIZE_J)
+			modifier = 5
 		else
-			if(milkers.size in milkers.breast_values)
-				modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
-			else
-				modifier = 1
+			modifier = 1
+
 	target.reagents.add_reagent(milktype, rand(1,3 * modifier))
-*/
+
 
 /datum/interaction/lewd/titgrope
 	description = "Grope their breasts."

@@ -37,7 +37,7 @@
 	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, user)
 
-/*
+
 /datum/interaction/lewd/self_nipsuck
 	description = "Suck your own nips."
 	required_from_user = INTERACTION_REQUIRE_MOUTH
@@ -52,7 +52,7 @@
 	var/message
 	var/u_His = user.p_their()
 	var/obj/item/organ/external/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
-	var/milktype = milkers?.fluid_id
+	var/datum/reagent/consumable/milktype = milkers?.internal_fluid_datum
 	var/modifier
 	var/list/lines
 
@@ -72,15 +72,17 @@
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
 
-	switch(milkers.size)
-		if("c", "d", "e")
+	switch(GLOB.breast_size_translation["[milkers.genital_size]"])
+		if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 			modifier = 2
-		if("f", "g", "h")
+		if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 			modifier = 3
+		if(BREAST_SIZE_I)
+			modifier = 4
+		if(BREAST_SIZE_J)
+			modifier = 5
 		else
-			if(milkers.size in milkers.breast_values)
-				modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
-			else
-				modifier = 1
+			modifier = 1
+
 	user.reagents.add_reagent(milktype, rand(1,3 * modifier))
-*/
+
