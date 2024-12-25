@@ -2,11 +2,13 @@ import { useBackend } from '../../../backend';
 import { Button, Flex, LabeledList } from '../../../components';
 
 type CharacterPrefsInfo = {
-  erp_pref: number,
-  noncon_pref: number,
-  vore_pref: number,
-  extreme_pref: number,
-  extreme_harm: boolean,
+  character_prefs: {
+    erp_pref: number,
+    noncon_pref: number,
+    vore_pref: number,
+    extreme_pref: number,
+    extreme_harm: boolean,
+  }
 }
 
 export const CharacterPrefsTab = (props, context) => {
@@ -17,7 +19,7 @@ export const CharacterPrefsTab = (props, context) => {
     vore_pref,
     extreme_pref,
     extreme_harm,
-  } = data;
+  } = data.character_prefs;
   return (
     <Flex direction="column">
       <LabeledList>
@@ -43,6 +45,7 @@ export const CharacterPrefsTab = (props, context) => {
               char_pref: 'erp_pref',
               value: 0,
             })} />
+            {erp_pref}
         </LabeledList.Item>
         <LabeledList.Item label="Noncon Preference">
           <Button
@@ -66,6 +69,7 @@ export const CharacterPrefsTab = (props, context) => {
               char_pref: 'noncon_pref',
               value: 0,
             })} />
+            {noncon_pref}
         </LabeledList.Item>
         <LabeledList.Item label="Vore Preference">
           <Button
@@ -89,6 +93,7 @@ export const CharacterPrefsTab = (props, context) => {
               char_pref: 'vore_pref',
               value: 0,
             })} />
+            {vore_pref}
         </LabeledList.Item>
         <LabeledList.Item label="Extreme Preference">
           <Button
@@ -112,6 +117,7 @@ export const CharacterPrefsTab = (props, context) => {
               char_pref: 'extreme_pref',
               value: 0,
             })} />
+            {extreme_pref}
         </LabeledList.Item>
         {extreme_pref ? (
           <LabeledList.Item label="Extreme Harm">
@@ -129,6 +135,7 @@ export const CharacterPrefsTab = (props, context) => {
                 char_pref: 'extreme_harm',
                 value: 0,
               })} />
+              {extreme_harm}
           </LabeledList.Item>
         ) : (null)}
       </LabeledList>

@@ -81,8 +81,15 @@
 		ui = new(user, src, "MobInteraction", "Interactions")
 		ui.open()
 
-/proc/pref_to_num(pref)
-	switch(pref)
+/datum/preferences/proc/pref_to_object(datum/preference/pref)
+	. = list()
+	.["key"] = initial(pref.savefile_key)
+	.["value"] = pref_to_num(pref)
+	.["desc"] = initial(pref.savefile_key)
+
+/datum/preferences/proc/pref_to_num(datum/preference/pref)
+	var/pref_value = read_preference(pref)
+	switch(pref_value)
 		if("Yes")
 			return 1
 		if("Ask")
@@ -372,18 +379,22 @@
 */
 
 	var/datum/preferences/prefs = self?.client.prefs
+	var/character_prefs = list()
+	.["character_prefs"] = character_prefs
+	var/erp_prefs = list()
+	.["erp_prefs"] = erp_prefs
 	if(prefs)
 
 	//Getting char prefs
 		// .["erp_pref"] = 			pref_to_num(prefs.erppref)
 		// .["noncon_pref"] = 			pref_to_num(prefs.nonconpref)
-		.["vore_pref"] = 	pref_to_num(prefs.read_preference(/datum/preference/toggle/erp/vore_enable))
-		.["extreme_pref"] = pref_to_num(prefs.read_preference(/datum/preference/choiced/erp_status_extmharm))
-		.["extreme_harm"] = pref_to_num(prefs.read_preference(/datum/preference/choiced/erp_status_extm))
+		character_prefs["vore_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp/vore_enable)
+		character_prefs["extreme_pref"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extmharm)
+		character_prefs["extreme_harm"] = prefs.pref_to_num(/datum/preference/choiced/erp_status_extm)
 
 	//Getting preferences
-		.["verb_consent"] = 		pref_to_num(prefs.read_preference(/datum/preference/toggle/erp))
-		.["lewd_verb_sounds"] = 	pref_to_num(prefs.read_preference(/datum/preference/toggle/erp/sounds))
+		erp_prefs["verb_consent"] = 		prefs.pref_to_object(/datum/preference/toggle/erp)
+		erp_prefs["lewd_verb_sounds"] = 	prefs.pref_to_object(/datum/preference/toggle/erp/sounds)
 		// .["arousable"] = 			prefs.arousable
 		// .["genital_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, GENITAL_EXAMINE)
 		// .["vore_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, VORE_EXAMINE)
