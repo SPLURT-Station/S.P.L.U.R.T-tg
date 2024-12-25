@@ -142,24 +142,24 @@ export const sortInteractions = (interactions:InteractionData[], searchText = ''
     (interactions) => searchText ? filter(interactions, testSearch) : interactions,
 
     // Filter off interactions depending on pref
-    (interactions) => filter(interactions, (interaction:InteractionData) =>
-      // Regular interaction
-      (interaction.type === INTERACTION_NORMAL ? true
-        // Lewd interaction
-        : interaction.type === INTERACTION_LEWD ? verb_consent
-          // Extreme interaction
-          : verb_consent && extreme_pref)),
+    // (interactions) => filter(interactions, (interaction:InteractionData) =>
+    //   // Regular interaction
+    //   (interaction.type === INTERACTION_NORMAL ? true
+    //     // Lewd interaction
+    //     : interaction.type === INTERACTION_LEWD ? verb_consent
+    //       // Extreme interaction
+    //       : verb_consent && extreme_pref)),
 
     // Filter off interactions depending on target's pref
-    (interactions) => filter(interactions, (interaction:InteractionData) =>
-      // If it's ourself, we've just checked it above, ignore
-      ((isTargetSelf || (target_has_active_player === 0)) ? true
-        // Regular interaction
-        : interaction.type === INTERACTION_NORMAL ? true
-          // Lewd interaction
-          : interaction.type === INTERACTION_LEWD ? theyAllowLewd
-          // Extreme interaction
-            : theyAllowLewd && theyAllowExtreme)),
+    // (interactions) => filter(interactions, (interaction:InteractionData) =>
+    //   // If it's ourself, we've just checked it above, ignore
+    //   ((isTargetSelf || (target_has_active_player === 0)) ? true
+    //     // Regular interaction
+    //     : interaction.type === INTERACTION_NORMAL ? true
+    //       // Lewd interaction
+    //       : interaction.type === INTERACTION_LEWD ? theyAllowLewd
+    //       // Extreme interaction
+    //         : theyAllowLewd && theyAllowExtreme)),
 
     // Is self
     // (interactions) => filter(interactions, (interaction:InteractionData) =>
