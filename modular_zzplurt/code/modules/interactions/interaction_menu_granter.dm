@@ -116,6 +116,7 @@
 	.["maxLust"] = self.get_lust_tolerance() * 3
 
 	.["max_distance"] = 0
+	.["user_is_blacklisted"] = SSinteractions.is_blacklisted(self)
 	var/required_from_user = NONE
 	if(self.has_mouth())
 		required_from_user |= INTERACTION_REQUIRE_MOUTH
@@ -226,6 +227,7 @@
 	.["theirAttributes"] = null
 	.["target_has_active_player"] = null
 	.["max_distance"] = null
+	.["target_is_blacklisted"] = null
 	.["required_from_target"] = null
 	.["required_from_target_exposed"] = null
 	.["required_from_target_unexposed"] = null
@@ -240,6 +242,7 @@
 		// Always TRUE if has key, 2 if cliented, FALSE if nobody owns it
 		.["target_has_active_player"] = target.ckey ? (target.client ? 2 : TRUE) : FALSE
 		.["max_distance"] = get_dist(self, target)
+		.["target_is_blacklisted"] = SSinteractions.is_blacklisted(target)
 		var/required_from_target = NONE
 		if(target.has_mouth())
 			required_from_target |= INTERACTION_REQUIRE_MOUTH

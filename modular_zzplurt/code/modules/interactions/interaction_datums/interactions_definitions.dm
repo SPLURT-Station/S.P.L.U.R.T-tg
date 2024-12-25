@@ -2,6 +2,7 @@
 	description = "Shake their hand."
 	simple_message = "USER shakes the hand of TARGET."
 	required_from_user = INTERACTION_REQUIRE_HANDS
+	required_from_target = INTERACTION_REQUIRE_HANDS
 
 /datum/interaction/pat
 	description = "Pat their shoulder."
@@ -43,6 +44,7 @@
 	description = "Make a pinky promise with them!"
 	simple_message = "USER hooks their pinky with TARGET's! Pinky Promise!"
 	required_from_user = INTERACTION_REQUIRE_HANDS
+	required_from_target = INTERACTION_REQUIRE_HANDS
 
 /datum/interaction/bird
 	description = "Flip them the bird!"
