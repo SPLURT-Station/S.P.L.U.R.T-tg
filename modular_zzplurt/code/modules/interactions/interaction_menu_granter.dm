@@ -87,6 +87,10 @@
 			return 1
 		if("Ask")
 			return 2
+		if(TRUE)
+			return 1
+		if(FALSE)
+			return 0
 		else
 			return 0
 
@@ -379,7 +383,7 @@
 
 	//Getting preferences
 		.["verb_consent"] = 		pref_to_num(prefs.read_preference(/datum/preference/toggle/erp))
-		.["lewd_verb_sounds"] = 	pref_to_num(prefs.read_preference(/datum/preference/toggle/erp_status_extm))
+		.["lewd_verb_sounds"] = 	pref_to_num(prefs.read_preference(/datum/preference/toggle/erp/sounds))
 		// .["arousable"] = 			prefs.arousable
 		// .["genital_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, GENITAL_EXAMINE)
 		// .["vore_examine"] = 		!!CHECK_BITFIELD(prefs.cit_toggles, VORE_EXAMINE)
