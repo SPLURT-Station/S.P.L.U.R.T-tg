@@ -33,7 +33,7 @@
 				"gasps.",
 				"shudders softly.",
 				"trembles as [t_His] hands run across bare skin.")]</span>")
-	user.visible_message(message = "<span class='lewd'><b>\The [user]</b> [message]</span>", ignored_mobs = user.get_unconsenting())
+	user.visible_message(message = span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
 	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, user)
 
@@ -67,7 +67,7 @@
 		"fills [u_His] own mouth with a big gulp of [u_His] warm [lowertext(milktext)]"
 	)
 
-	message = "<span class='lewd'>\The <b>[user]</b> [pick(lines)]</span>"
+	message = span_lewd("\The <b>[user]</b> [pick(lines)]")
 	user.visible_message(message, ignored_mobs = user.get_unconsenting())
 	playlewdinteractionsound(get_turf(user), pick('modular_zzplurt/sound/interactions/oral1.ogg',
 						'modular_zzplurt/sound/interactions/oral2.ogg'), 70, 1, -1)
