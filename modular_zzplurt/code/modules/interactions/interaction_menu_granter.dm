@@ -556,6 +556,7 @@
 			prefs.save_character()
 			return TRUE
 		if("pref")
+			var/toggle_value = !!params["value"]
 			var/datum/preferences/prefs = parent_mob.client.prefs
 			switch(text2path(params["pref"]))
 				if(/datum/preference/toggle/erp)

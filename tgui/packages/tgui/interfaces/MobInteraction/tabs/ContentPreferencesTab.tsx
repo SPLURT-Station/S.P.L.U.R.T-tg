@@ -27,6 +27,7 @@ export const ContentPreferencesTab = (props, context) => {
           selected={erp_pref.value}
           onClick={() => act('pref', {
             pref: erp_pref.key,
+            value: !erp_pref.value
           })}
         >
           {erp_pref.desc}
