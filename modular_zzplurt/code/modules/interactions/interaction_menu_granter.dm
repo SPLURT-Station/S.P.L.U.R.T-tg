@@ -408,7 +408,8 @@
 	var/character_prefs = list()
 	var/erp_prefs = list()
 	if(prefs)
-
+	//Let's get their favorites!
+		.["favorite_interactions"] = SANITIZE_LIST(prefs.favorite_interactions)
 	//Getting char prefs
 		.["verb_consent"] = prefs.pref_to_num(/datum/preference/toggle/erp)
 		character_prefs["erp_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp)
@@ -497,6 +498,17 @@
 			var/datum/interaction/o = SSinteractions.interactions[params["interaction"]]
 			if(o)
 				o.do_action(parent_mob, target)
+				return TRUE
+			return FALSE
+		if("favorite")
+			var/datum/interaction/interaction = SSinteractions.interactions[params["interaction"]]
+			if(interaction)
+				var/datum/preferences/prefs = parent_mob.client.prefs
+				if(interaction.type in prefs.favorite_interactions)
+					LAZYREMOVE(prefs.favorite_interactions, interaction.type)
+				else
+					LAZYADD(prefs.favorite_interactions, interaction.type)
+				prefs.save_preferences()
 				return TRUE
 			return FALSE
 			/*

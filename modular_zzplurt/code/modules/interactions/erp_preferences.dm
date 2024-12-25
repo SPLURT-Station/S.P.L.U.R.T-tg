@@ -1,3 +1,6 @@
+/datum/preferences
+	var/list/favorite_interactions
+
 /datum/preference/choiced/erp_status_extm
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER

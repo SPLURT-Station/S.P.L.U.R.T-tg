@@ -3,11 +3,12 @@ import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
 
 import { useBackend, useLocalState } from '../../../backend';
-import { Button, Icon, Section, Stack, Tooltip } from '../../../components';
+import { Button, Icon, Section, Stack, Tabs, Tooltip } from '../../../components';
 import { Box } from '../../../components';
 
 type ContentInfo = {
   interactions: InteractionData[];
+  favorite_interactions: string[];
   user_is_blacklisted: boolean;
   target_is_blacklisted: boolean;
 }
@@ -61,13 +62,35 @@ export const InteractionsTab = (props, context) => {
     searchText,
     data)
     || [];
+  const favorite_interactions = data.favorite_interactions || [];
+  const [
+    tab,
+    setTab,
+  ] = useLocalState('tab', 0);
+  const valid_favorites = interactions.filter(interaction => favorite_interactions.includes(interaction.key));
+  const interactions_to_display = tab === 1
+    ? valid_favorites
+    : interactions;
+  if (tab === 1 && !favorite_interactions.length) {
+    setTab(0);
+  }
   const { user_is_blacklisted, target_is_blacklisted } = data;
   return (
     <Stack vertical>
+      {(!!valid_favorites.length || !!tab) && (
+        <Stack.Item>
+          <Tabs fluid textAlign="center">
+            <Tabs.Tab selected={tab === 0} onClick={() => setTab(0)}>Normal</Tabs.Tab>
+            <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>Favorites</Tabs.Tab>
+          </Tabs>
+        </Stack.Item>
+      )}
       {
-        interactions.length ? (
-          interactions.map((interaction) => (
+        interactions_to_display.length ? (
+          interactions_to_display.map((interaction) => (
             <Stack.Item key={interaction.key}>
+              <Stack fill>
+                <Stack.Item grow>
               <Button
                 key={interaction.key}
                 content={interaction.desc}
@@ -88,6 +111,17 @@ export const InteractionsTab = (props, context) => {
                     )))}
                 </Box>
               </Button>
+              </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    icon="star"
+                    onClick={() => act('favorite', {
+                      interaction: interaction.key,
+                    })}
+                    selected={favorite_interactions.includes(interaction.key)}
+                  />
+                </Stack.Item>
+              </Stack>
             </Stack.Item>
           ))
         ) : (
