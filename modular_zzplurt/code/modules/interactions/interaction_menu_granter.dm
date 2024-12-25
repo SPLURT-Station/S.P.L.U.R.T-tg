@@ -344,10 +344,11 @@
 		.["required_from_target_exposed"] = required_from_target_exposed
 		.["required_from_target_unexposed"] = required_from_target_unexposed
 		.["target_num_feet"] = target.get_num_feet()
-		/*
+
 		if(target?.client?.prefs)
-			.["theyAllowLewd"] = !!(target.client.prefs.toggles & VERB_CONSENT)
-			.["theyAllowExtreme"] = !!pref_to_num(target.client.prefs.extremepref)
+			.["theyAllowLewd"] = !!target.client.prefs.pref_to_num(/datum/preference/toggle/erp)
+			.["theyAllowExtreme"] = target.client.prefs.pref_to_num(/datum/preference/choiced/erp_status_extm) != "No"
+		/*
 		if(HAS_TRAIT(user, TRAIT_ESTROUS_DETECT))
 			.["theirLust"] = target.get_lust()
 			.["theirMaxLust"] = target.get_lust_tolerance() * 3
@@ -406,6 +407,7 @@
 	if(prefs)
 
 	//Getting char prefs
+		.["verb_consent"] = prefs.pref_to_num(/datum/preference/toggle/erp)
 		character_prefs["erp_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp)
 		// .["noncon_pref"] = 			pref_to_num(prefs.nonconpref)
 		character_prefs["vore_pref"] = 	prefs.pref_to_num(/datum/preference/toggle/erp/vore_enable)
