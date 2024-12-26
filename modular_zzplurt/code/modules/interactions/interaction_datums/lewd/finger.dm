@@ -23,8 +23,8 @@
 		"fingers \the <b>[partner]</b>'s pussy",
 		"fingers \the <b>[partner]</b> hard")]"
 
-	if(!partner.is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_VAGINA)))
-		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_VAGINA))
+	if(!partner.is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_VAGINA)))
+		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_VAGINA))
 
 	if(liquid_container)
 		message += " over \the [liquid_container]"

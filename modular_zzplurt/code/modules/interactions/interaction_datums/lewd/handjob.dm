@@ -23,14 +23,14 @@
 		if(istype(cached_item, /obj/item/reagent_containers))
 			liquid_container = cached_item
 
-	if(partner.is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_PENIS)))
+	if(partner.is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_PENIS)))
 		message = "[pick("jerks \the <b>[partner]</b> off",
 			"works \the <b>[partner]</b>'s shaft",
 			"wanks \the <b>[partner]</b>'s cock hard")]"
 	else
 		message = "[pick("wraps [u_His] hand around \the <b>[partner]</b>'s cock",
 			"starts playing with \the <b>[partner]</b>'s cock")]"
-		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_PENIS))
+		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_PENIS))
 	if(liquid_container)
 		message += " over \the [liquid_container]"
 

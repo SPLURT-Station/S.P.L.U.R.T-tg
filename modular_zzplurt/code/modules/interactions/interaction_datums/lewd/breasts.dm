@@ -72,27 +72,28 @@
 			liquid_container = cached_item
 
 	if(liquid_container)
-		var/obj/item/organ/genital/breasts/milkers = target.getorganslot(ORGAN_SLOT_BREASTS)
-		var/milktype = milkers?.fluid_id
+		var/obj/item/organ/external/genital/breasts/milkers = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+		var/milktype = milkers?.internal_fluid_datum
 
 		if(milkers && milktype)
 			var/modifier
-			switch(milkers.size)
-				if("c", "d", "e")
+			switch(GLOB.breast_size_translation["[milkers.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f", "g", "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
+				if(BREAST_SIZE_I)
+					modifier = 4
+				if(BREAST_SIZE_J)
+					modifier = 5
 				else
-					if(milkers.size in milkers.breast_values)
-						modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
-					else
-						modifier = 1
+					modifier = 1
 			liquid_container.reagents.add_reagent(milktype, rand(1,3 * modifier))
 
 			user.visible_message(span_lewd("<b>\The [user]</b> milks <b>[target]</b>'s breasts into \the [liquid_container]."), ignored_mobs = user.get_unconsenting())
 			playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/squelch1.ogg', 50, 1, -1)
 	else
-		if(user.a_intent == INTENT_HARM)
+		if(user.combat_mode == INTENT_HARM)
 			user.visible_message(
 					pick(span_lewd("\The <b>[user]</b> aggressively gropes \the <b>[target]</b>'s breast."),
 						span_lewd("\The <b>[user]</b> grabs \the <b>[target]</b>'s breasts."),
@@ -108,7 +109,7 @@
 						span_lewd("\The <b>[user]</b> delicately teases \the <b>[target]</b>'s nipple."),
 						span_lewd("\The <b>[user]</b> traces a touch across \the <b>[target]</b>'s breast.")))
 		if(prob(5 + target.get_lust()))
-			if(target.a_intent == INTENT_HELP)
+			if(target.combat_mode == INTENT_HELP)
 				user.visible_message(
 					pick(span_lewd("\The <b>[target]</b> shivers in arousal."),
 						span_lewd("\The <b>[target]</b> moans quietly."),
@@ -118,7 +119,7 @@
 						span_lewd("\The <b>[target]</b> trembles as hands run across bare skin.")))
 				if(target.get_lust() < 5)
 					target.set_lust(5)
-			if(target.a_intent == INTENT_DISARM)
+			if(target.combat_mode == INTENT_DISARM)
 				if (target.restrained())
 					user.visible_message(
 						pick(span_lewd("\The <b>[target]</b> twists playfully against the restraints."),
@@ -133,12 +134,12 @@
 							span_lewd("\The <b>[target]</b> teasingly laces a few fingers over <b>[user]</b>'s knuckles.")))
 				if(target.get_lust() < 10)
 					target.add_lust(1)
-		if(target.a_intent == INTENT_GRAB)
+		if(target.combat_mode == INTENT_GRAB)
 			user.visible_message(
 					pick(span_lewd("\The <b>[target]</b> grips <b>[user]</b>'s wrist tight."),
 					span_lewd("\The <b>[target]</b> digs nails into <b>[user]</b>'s arm."),
 					span_lewd("\The <b>[target]</b> grabs <b>[user]</b>'s wrist for a second.")))
-		if(target.a_intent == INTENT_HARM)
+		if(target.combat_mode == INTENT_HARM)
 			user.adjustBruteLoss(1)
 			user.visible_message(
 					pick(span_lewd("\The <b>[target]</b> pushes <b>[user]</b> roughly away."),
