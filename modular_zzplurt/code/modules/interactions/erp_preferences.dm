@@ -1,14 +1,13 @@
 /datum/preferences
-	var/list/favorite_interactions
+	var/list/favorite_interactions = list()
 
-/datum/preferences/save_preferences(bypass_cooldown, silent)
-	. = ..()
+/datum/preferences/save_preferences()
 	if(!savefile)
 		CRASH("Attempted to save the preferences of [parent] without a savefile. This should have been handled by load_preferences()")
 	savefile.set_entry("favorite_interactions", favorite_interactions)
-
-/datum/preferences/load_preferences(bypass_cooldown)
 	. = ..()
+
+/datum/preferences/load_preferences()
 	if(!savefile)
 		stack_trace("Attempted to load the preferences of [parent] without a savefile; did you forget to call load_savefile?")
 		load_savefile()
@@ -27,6 +26,7 @@
 		if(!initial(interaction_path.description))
 			LAZYREMOVE(favorite_interactions, interaction)
 			continue
+	. = ..()
 
 /datum/preference/choiced/erp_status_extm
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
