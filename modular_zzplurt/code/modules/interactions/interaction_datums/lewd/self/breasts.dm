@@ -23,7 +23,7 @@
 		if(istype(cached_item, /obj/item/reagent_containers))
 			liquid_container = cached_item
 
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode == INTENT_HARM)
 		message = pick("aggressively gropes [t_His] breast",
 					"grabs [t_His] breasts",
 					"tightly squeezes [t_His] breasts",
@@ -49,25 +49,26 @@
 	if(liquid_container)
 		message += " over \the [liquid_container]"
 
-		var/obj/item/organ/genital/breasts/milkers = user.getorganslot(ORGAN_SLOT_BREASTS)
-		var/milktype = milkers?.fluid_id
+		var/obj/item/organ/external/genital/breasts/milkers = user.get_organ_slot(ORGAN_SLOT_BREASTS)
+		var/milktype = milkers?.internal_fluid_datum
 
 		if(milkers && milktype)
 			var/modifier
-			switch(milkers.size)
-				if("c", "d", "e")
+			switch(GLOB.breast_size_translation["[milkers.genital_size]"])
+				if(BREAST_SIZE_C, BREAST_SIZE_D, BREAST_SIZE_E)
 					modifier = 2
-				if("f", "g", "h")
+				if(BREAST_SIZE_F, BREAST_SIZE_G, BREAST_SIZE_H)
 					modifier = 3
+				if(BREAST_SIZE_I)
+					modifier = 4
+				if(BREAST_SIZE_J)
+					modifier = 5
 				else
-					if(milkers.size in milkers.breast_values)
-						modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
-					else
-						modifier = 1
+					modifier = 1
 			liquid_container.reagents.add_reagent(milktype, rand(1,3 * modifier))
 
 	user.visible_message(message = span_lewd("<b>\The [user]</b> [message]."), ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/squelch1.ogg', 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
 
 
 /datum/interaction/lewd/self_nipsuck

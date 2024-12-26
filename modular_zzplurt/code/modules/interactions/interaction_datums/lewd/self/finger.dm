@@ -50,12 +50,12 @@
 		"fingers [t_His] pussy",
 		"plays with [t_His] pussy",
 		"fingers [t_His] own pussy hard")
-	if(!user.is_fucking(user, CUM_TARGET_HAND, user.getorganslot(ORGAN_SLOT_VAGINA)))
-		user.set_is_fucking(user, CUM_TARGET_HAND, user.getorganslot(ORGAN_SLOT_VAGINA))
+	if(!user.is_fucking(user, CUM_TARGET_HAND, user.get_organ_slot(ORGAN_SLOT_VAGINA)))
+		user.set_is_fucking(user, CUM_TARGET_HAND, user.get_organ_slot(ORGAN_SLOT_VAGINA))
 
 	if(liquid_container)
 		message += " over \the [liquid_container]"
 
 	user.visible_message(span_lewd("<b>\The [user]</b> [message]."), ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, liquid_container ? liquid_container : user)

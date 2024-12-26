@@ -677,10 +677,7 @@
 				H.mob_climax(TRUE, "sex", partner, !cumin, target_gen)
 			*/
 			// SPLURT START
-			if(!partner)
-				H.climax(FALSE)
-			else
-				H.climax(FALSE)
+			H.climax(FALSE)
 			// SPLURT END
 	set_lust(0)
 
