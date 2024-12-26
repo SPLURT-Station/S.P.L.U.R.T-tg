@@ -63,7 +63,7 @@ export const InteractionsTab = (props, context) => {
     data)
     || [];
   const favorite_interactions = data.favorite_interactions || [];
-  const [inFavorites, setInFavorites] = useLocalState(context, 'inFavorites', false);
+  const [inFavorites, setInFavorites] = useLocalState('inFavorites', false);
   const valid_favorites = interactions.filter(interaction => favorite_interactions.includes(interaction.key));
   const interactions_to_display = inFavorites
     ? valid_favorites
@@ -113,14 +113,28 @@ export const InteractionsTab = (props, context) => {
           ))
         ) : (
           <Section align="center">
-            {
-              user_is_blacklisted || target_is_blacklisted
-                ? `${user_is_blacklisted ? "Your" : "Their"} mob type is blacklisted from interactions`
-                : searchText ? "No matching results."
-                  : inFavorites ? favorite_interactions.length ? "No favorites available. Maybe you or your partner lack something your favorites require." : "You have no favorites! Choose some by clicking the star to the right of any interactions!"
-                    : "No interactions available."
-            }
+            {(() => {
+              let message;
+              if (user_is_blacklisted || target_is_blacklisted) {
+                message = `${user_is_blacklisted ? "Your" : "Their"} mob type is blacklisted from interactions`;
+              }
+              else if (searchText) {
+                message = "No matching results.";
+              }
+              else if (inFavorites) {
+                if (favorite_interactions.length > 0) {
+                  message = "No favorites available. Maybe you or your partner lack something your favorites require.";
+                } else {
+                  message = "You have no favorites! Choose some by clicking the star to the right of any interactions!";
+                }
+              }
+              else {
+                message = "No interactions available.";
+              }
+              return <>{message}</>;
+            })()}
           </Section>
+
         )
       }
     </Stack>
