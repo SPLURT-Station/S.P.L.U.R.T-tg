@@ -27,6 +27,9 @@
 	max_distance = 0
 	write_log_user = "fingered own pussy"
 	write_log_target = null
+	additional_details = list(
+		INTERACTION_FILLS_CONTAINERS
+	)
 
 /datum/interaction/lewd/finger_self/display_interaction(mob/living/user)
 	var/t_His = user.p_their()

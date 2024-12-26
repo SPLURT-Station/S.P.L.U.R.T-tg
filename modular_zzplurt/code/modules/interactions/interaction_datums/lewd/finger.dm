@@ -5,11 +5,7 @@
 	interaction_sound = null
 
 	additional_details = list(
-		list(
-			"info" = "You can fill a container if you hold it in your hand or pull it",
-			"icon" = "flask",
-			"color" = "transparent"
-			)
+		INTERACTION_FILLS_CONTAINERS
 	)
 
 /datum/interaction/lewd/finger/display_interaction(mob/living/user, mob/living/partner)

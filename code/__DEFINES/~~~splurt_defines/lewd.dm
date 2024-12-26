@@ -51,3 +51,10 @@
 #define INTERACTION_FLAG_TARGET_NOT_TIRED (1<<3)
 #define INTERACTION_FLAG_USER_IS_TARGET (1<<4)
 #define INTERACTION_FLAG_USER_NOT_TIRED (1<<5)
+
+/// Copy-paste prevention for additional details
+#define INTERACTION_FILLS_CONTAINERS list( \
+	"info" = "You can fill a container if you have it in your active hand or are pulling it", \
+	"icon" = "flask", \
+	"color" = "transparent" \
+	)

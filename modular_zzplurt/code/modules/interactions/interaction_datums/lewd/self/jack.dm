@@ -7,6 +7,9 @@
 	max_distance = 0
 	write_log_user = "jerked off"
 	write_log_target = null
+	additional_details = list(
+		INTERACTION_FILLS_CONTAINERS
+	)
 
 /datum/interaction/lewd/jack/display_interaction(mob/living/user)
 	var/message

@@ -5,7 +5,6 @@
 	write_log_user = "sucked nipples"
 	write_log_target = "had their nipples sucked by"
 	interaction_sound = null
-	max_distance = 1
 
 /datum/interaction/lewd/nipsuck/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if((user.combat_mode == INTENT_HELP) || (user.combat_mode == INTENT_DISARM))

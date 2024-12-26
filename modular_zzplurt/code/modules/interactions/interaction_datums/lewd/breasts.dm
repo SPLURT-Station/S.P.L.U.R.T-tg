@@ -56,7 +56,9 @@
 	write_log_user = "groped"
 	write_log_target = "was groped by"
 	interaction_sound = null
-	max_distance = 1
+	additional_details = list(
+		INTERACTION_FILLS_CONTAINERS
+	)
 
 /datum/interaction/lewd/titgrope/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.combat_mode == INTENT_HELP)

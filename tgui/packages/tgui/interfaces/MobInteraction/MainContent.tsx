@@ -1,5 +1,5 @@
 import { useLocalState } from '../../backend';
-import { Icon, Input, Section, Tabs, Stack } from '../../components';
+import { Button, Icon, Input, Section, Tabs, Stack } from '../../components';
 
 import {
   InteractionsTab,
@@ -14,12 +14,20 @@ export const MainContent = (props, context) => {
     setSearchText,
   ] = useLocalState('searchText', '');
   const [tabIndex, setTabIndex] = useLocalState('tabIndex', 0);
+  const [inFavorites, setInFavorites] = useLocalState('inFavorites', false);
   return (
     <Section fill>
       <Stack vertical fill>
         <Stack.Item>
           <Tabs fluid textAlign="center">
-            <Tabs.Tab selected={tabIndex === 0} onClick={() => setTabIndex(0)}>
+            <Tabs.Tab selected={tabIndex === 0} onClick={() => setTabIndex(0)}
+              rightSlot={
+                <Button
+                  icon={"star" + (inFavorites ? "" : "-o")}
+                  color="transparent"
+                  onClick={() => setInFavorites(!inFavorites)}
+                  tooltip={`Click here to ${inFavorites ? "show all" : "show favorites"}`} />
+              }>
               Interactions
             </Tabs.Tab>
             <Tabs.Tab selected={tabIndex === 1} onClick={() => setTabIndex(1)}>
