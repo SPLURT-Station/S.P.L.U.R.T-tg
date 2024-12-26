@@ -23,14 +23,14 @@
 		"fingers \the <b>[partner]</b>'s pussy",
 		"fingers \the <b>[partner]</b> hard")]"
 
-	if(!partner.is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_VAGINA)))
-		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.get_organ_slot(ORGAN_SLOT_VAGINA))
+	if(!partner.is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_VAGINA)))
+		partner.set_is_fucking(user, CUM_TARGET_HAND, partner.getorganslot(ORGAN_SLOT_VAGINA))
 
 	if(liquid_container)
 		message += " over \the [liquid_container]"
 
 	user.visible_message(span_lewd("<b>\The [user]</b> [message]."), ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/champ_fingering.ogg', 50, 1, -1)
+	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/champ_fingering.ogg', 50, 1, -1)
 	partner.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, liquid_container ? liquid_container : user)
 
 /datum/interaction/lewd/fingerass
