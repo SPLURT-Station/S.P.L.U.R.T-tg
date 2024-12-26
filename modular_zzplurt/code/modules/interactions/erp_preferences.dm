@@ -1,87 +1,32 @@
 /datum/preferences
 	var/list/favorite_interactions
 
-/datum/preference/choiced_list
-    var/should_generate_icons = FALSE
-    var/list/cached_values
-    var/main_feature_name
-    abstract_type = /datum/preference/choiced_list
-
-/datum/preference/choiced_list/proc/get_choices()
-    SHOULD_NOT_OVERRIDE(TRUE)
-    if (isnull(cached_values))
-        cached_values = init_possible_values()
-        ASSERT(cached_values.len)
-    return cached_values
-
-/datum/preference/choiced_list/proc/get_choices_serialized()
-    SHOULD_NOT_OVERRIDE(TRUE)
-    var/list/serialized_choices = list()
-    for (var/choice in get_choices())
-        serialized_choices += serialize(choice)
-    return serialized_choices
-
-/datum/preference/choiced_list/proc/init_possible_values()
-    CRASH("`init_possible_values()` was not implemented for [type]!")
-
-/datum/preference/choiced_list/proc/icon_for(value)
-    SHOULD_CALL_PARENT(FALSE)
-    SHOULD_NOT_SLEEP(TRUE)
-    CRASH("`icon_for()` was not implemented for [type], even though should_generate_icons = TRUE!")
-
-/datum/preference/choiced_list/is_valid(value)
-    return value in get_choices()
-
-/datum/preference/choiced_list/deserialize(input, datum/preferences/preferences)
-    return sanitize_inlist(input, get_choices(), create_default_value())
-
-/datum/preference/choiced_list/create_default_value()
-    return pick(get_choices())
-
-/datum/preference/choiced_list/compile_constant_data()
-    var/list/data = list()
-    var/list/choices = list()
-    for (var/choice in get_choices())
-        choices += choice
-    data["choices"] = choices
-    if (should_generate_icons)
-        var/list/icons = list()
-        for (var/choice in choices)
-            icons[choice] = get_spritesheet_key(choice)
-        data["icons"] = icons
-    if (!isnull(main_feature_name))
-        data["name"] = main_feature_name
-    return data
-
-
-
-/datum/preference/choiced_list/favorite_interactions
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "favorite_interactions"
-
-/datum/preference/choiced_list/favorite_interactions/init_possible_values()
-	return subtypesof(/datum/interaction)
-
-/datum/preference/choiced_list/favorite_interactions/create_default_value()
-	return null
-
-/datum/preference/choiced_list/favorite_interactions/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
-		return FALSE
-
-	return TRUE
-
-/datum/preference/choiced_list/favorite_interactions/deserialize(input, datum/preferences/preferences)
-	if(!preferences.read_preference(/datum/preference/choiced_list/favorite_interactions))
-		return null
+/datum/preferences/save_preferences(bypass_cooldown, silent)
 	. = ..()
+	if(!savefile)
+		CRASH("Attempted to save the preferences of [parent] without a savefile. This should have been handled by load_preferences()")
+	savefile.set_entry("favorite_interactions", favorite_interactions)
 
-/datum/preference/choiced_list/favorite_interactions/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
+/datum/preferences/load_preferences(bypass_cooldown)
+	. = ..()
+	if(!savefile)
+		stack_trace("Attempted to load the preferences of [parent] without a savefile; did you forget to call load_savefile?")
+		load_savefile()
+		if(!savefile)
+			stack_trace("Failed to load the savefile for [parent] after manually calling load_savefile; something is very wrong.")
+			return FALSE
+	favorite_interactions = savefile.get_entry("favorite_interactions")
 
-/datum/preference/choiced_list/favorite_interactions/apply_to_client(client/client, value)
-	client.prefs.favorite_interactions = value
+	favorite_interactions = SANITIZE_LIST(favorite_interactions)
+
+	for(var/interaction in favorite_interactions)
+		var/datum/interaction/interaction_path = ispath(interaction) ? interaction : text2path(interaction)
+		if(!interaction_path)
+			LAZYREMOVE(favorite_interactions, interaction)
+			continue
+		if(!initial(interaction_path.description))
+			LAZYREMOVE(favorite_interactions, interaction)
+			continue
 
 /datum/preference/choiced/erp_status_extm
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
@@ -152,7 +97,7 @@
 	minimum = 75
 	maximum = 200
 
-/datum/preference/choiced/erp_lust_tolerance/is_accessible(datum/preferences/preferences)
+/datum/preference/numeric/erp_lust_tolerance/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
 		return FALSE
 
@@ -178,7 +123,7 @@
 	minimum = 10
 	maximum = 25
 
-/datum/preference/choiced/erp_sexual_potency/is_accessible(datum/preferences/preferences)
+/datum/preference/numeric/erp_sexual_potency/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
 		return FALSE
 
