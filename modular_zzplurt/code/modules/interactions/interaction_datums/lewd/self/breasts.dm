@@ -13,29 +13,61 @@
 	var/message
 	var/t_His = user.p_their()
 
-	if(user.combat_mode == INTENT_HARM)
-		message = "[pick("aggressively gropes [t_His] breast.",
-					"grabs [t_His] breasts.",
-					"tightly squeezes [t_His] breasts.",
-					"slaps at [t_His] breasts.",
-					"gropes [t_His] breasts roughly.")]"
+	var/obj/item/reagent_containers/liquid_container
+
+	var/obj/item/cached_item = user.get_active_held_item()
+	if(istype(cached_item, /obj/item/reagent_containers))
+		liquid_container = cached_item
 	else
-		message = "[pick("gently gropes [t_His] breast.",
-					"softly squeezes [t_His] breasts.",
-					"grips [t_His] breasts.",
-					"runs a few fingers over [t_His] breast.",
-					"delicately teases [t_His] nipple.",
-					"traces a touch across [t_His] breast.")]"
+		cached_item = user.pulling
+		if(istype(cached_item, /obj/item/reagent_containers))
+			liquid_container = cached_item
+
+	if(user.a_intent == INTENT_HARM)
+		message = pick("aggressively gropes [t_His] breast",
+					"grabs [t_His] breasts",
+					"tightly squeezes [t_His] breasts",
+					"slaps at [t_His] breasts",
+					"gropes [t_His] breasts roughly")
+	else
+		message = pick("gently gropes [t_His] breast",
+					"softly squeezes [t_His] breasts",
+					"grips [t_His] breasts",
+					"runs a few fingers over [t_His] breast",
+					"delicately teases [t_His] nipple",
+					"traces a touch across [t_His] breast")
+
 	if(prob(5 + user.get_lust()))
-		user.visible_message("<span class='lewd'><b>\The [user]</b> [pick("shivers in arousal.",
+		user.visible_message(span_lewd("<b>\The [user]</b> [pick(
+				"shivers in arousal.",
 				"moans quietly.",
 				"breathes out a soft moan.",
 				"gasps.",
 				"shudders softly.",
-				"trembles as [t_His] hands run across bare skin.")]</span>")
-	user.visible_message(message = span_lewd("<b>\The [user]</b> [message]"), ignored_mobs = user.get_unconsenting())
-	playlewdinteractionsound(get_turf(user), 'modular_zzplurt/sound/interactions/squelch1.ogg', 50, 1, -1)
-	user.handle_post_sex(NORMAL_LUST, CUM_TARGET_HAND, user)
+				"trembles as [t_His] hands run across bare skin.")]"))
+
+	if(liquid_container)
+		message += " over \the [liquid_container]"
+
+		var/obj/item/organ/genital/breasts/milkers = user.getorganslot(ORGAN_SLOT_BREASTS)
+		var/milktype = milkers?.fluid_id
+
+		if(milkers && milktype)
+			var/modifier
+			switch(milkers.size)
+				if("c", "d", "e")
+					modifier = 2
+				if("f", "g", "h")
+					modifier = 3
+				else
+					if(milkers.size in milkers.breast_values)
+						modifier = clamp(milkers.breast_values[milkers.size] - 5, 0, INFINITY)
+					else
+						modifier = 1
+			liquid_container.reagents.add_reagent(milktype, rand(1,3 * modifier))
+
+	user.visible_message(message = span_lewd("<b>\The [user]</b> [message]."), ignored_mobs = user.get_unconsenting())
+	playlewdinteractionsound(get_turf(user), 'modular_sand/sound/interactions/squelch1.ogg', 50, 1, -1)
 
 
 /datum/interaction/lewd/self_nipsuck
