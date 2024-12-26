@@ -504,10 +504,10 @@
 			var/datum/interaction/interaction = SSinteractions.interactions[params["interaction"]]
 			if(interaction)
 				var/datum/preferences/prefs = parent_mob.client.prefs
-				if(interaction.type in prefs.favorite_interactions)
-					LAZYREMOVE(prefs.favorite_interactions, interaction.type)
+				if(params["interaction"] in prefs.favorite_interactions)
+					LAZYREMOVE(prefs.favorite_interactions, params["interaction"])
 				else
-					LAZYADD(prefs.favorite_interactions, interaction.type)
+					LAZYADD(prefs.favorite_interactions, params["interaction"])
 				prefs.save_preferences()
 				return TRUE
 			return FALSE
