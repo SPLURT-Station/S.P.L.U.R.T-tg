@@ -43,6 +43,9 @@ export const MESSAGE_TYPE_MENTOR = 'mentor';
 export const MESSAGE_TYPE_LOOC = 'looc';
 export const MESSAGE_TYPE_REMOTE_LOOC = 'rlooc';
 // BUBBER EDIT ADDITION END
+// SPLURT EDIT ADDITION START
+export const MESSAGE_TYPE_LEWD = 'lewd';
+// SPLURT EDIT ADDITION END
 
 // Metadata for each message type
 export const MESSAGE_TYPES = [
@@ -180,4 +183,12 @@ export const MESSAGE_TYPES = [
     admin: true,
   },
   // BUBBER EDIT ADDITION END
+  // SPLURT EDIT ADDITION START
+  {
+    type: MESSAGE_TYPE_LEWD,
+    name: 'Lewd messages',
+    description: 'You came!',
+    selector: '.userlove, .love, .lewd',
+  },
+  // SPLURT EDIT ADDITION END
 ];

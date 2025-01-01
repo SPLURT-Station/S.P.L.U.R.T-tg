@@ -35,3 +35,9 @@
 
 		// Play the ripped poster sound
 		playsound(loc, 'sound/items/poster/poster_ripped.ogg', 50, 1)
+
+/mob/living/carbon/is_muzzled()
+	return(istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
+
+/mob/living/carbon/restrained(ignore_grab)
+	. = (handcuffed || (!ignore_grab && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE))

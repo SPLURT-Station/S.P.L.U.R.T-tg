@@ -1,0 +1,139 @@
+/datum/preferences
+	var/list/favorite_interactions = list()
+
+/datum/preferences/save_preferences()
+	if(!savefile)
+		CRASH("Attempted to save the preferences of [parent] without a savefile. This should have been handled by load_preferences()")
+	savefile.set_entry("favorite_interactions", favorite_interactions)
+	. = ..()
+
+/datum/preferences/load_preferences()
+	if(!savefile)
+		stack_trace("Attempted to load the preferences of [parent] without a savefile; did you forget to call load_savefile?")
+		load_savefile()
+		if(!savefile)
+			stack_trace("Failed to load the savefile for [parent] after manually calling load_savefile; something is very wrong.")
+			return FALSE
+	favorite_interactions = savefile.get_entry("favorite_interactions")
+
+	favorite_interactions = SANITIZE_LIST(favorite_interactions)
+
+	for(var/interaction in favorite_interactions)
+		var/datum/interaction/interaction_path = ispath(interaction) ? interaction : text2path(interaction)
+		if(!interaction_path)
+			LAZYREMOVE(favorite_interactions, interaction)
+			continue
+		if(!initial(interaction_path.description))
+			LAZYREMOVE(favorite_interactions, interaction)
+			continue
+	. = ..()
+
+/datum/preference/choiced/erp_status_extm
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_status_pref_extm"
+
+/datum/preference/choiced/erp_status_extm/init_possible_values()
+	return list("Yes - Switch", "Yes - Dom", "Yes - Sub", "Yes", "Ask (L)OOC", "Check OOC Notes", "No")
+
+/datum/preference/choiced/erp_status_extm/create_default_value()
+	return "No"
+
+/datum/preference/choiced/erp_status_extm/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
+/datum/preference/choiced/erp_status_extm/deserialize(input, datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return "No"
+	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		return "No"
+	. = ..()
+
+/datum/preference/choiced/erp_status_extm/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+/datum/preference/choiced/erp_status_extmharm
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_status_pref_extmharm"
+
+/datum/preference/choiced/erp_status_extmharm/init_possible_values()
+	return list("Yes - Switch", "Yes - Dom", "Yes - Sub", "Yes", "Ask (L)OOC", "Check OOC Notes", "No")
+
+/datum/preference/choiced/erp_status_extmharm/create_default_value()
+	return "No"
+
+/datum/preference/choiced/erp_status_extmharm/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
+/datum/preference/choiced/erp_status_extmharm/deserialize(input, datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return "No"
+	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		return "No"
+	. = ..()
+
+/datum/preference/choiced/erp_status_extmharm/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+
+/datum/preference/numeric/erp_lust_tolerance
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_key = "erp_lust_tolerance_pref"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+	minimum = 75
+	maximum = 200
+
+/datum/preference/numeric/erp_lust_tolerance/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
+/datum/preference/numeric/erp_lust_tolerance/apply_to_human(mob/living/carbon/human/target, value)
+	target.lust_tolerance = value
+
+/datum/preference/numeric/erp_lust_tolerance/create_informed_default_value(datum/preferences/preferences)
+	return 100
+
+
+//--
+
+/datum/preference/numeric/erp_sexual_potency
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_key = "erp_sexual_potency_pref"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+	minimum = 10
+	maximum = 25
+
+/datum/preference/numeric/erp_sexual_potency/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
+/datum/preference/numeric/erp_sexual_potency/apply_to_human(mob/living/carbon/human/target, value)
+	target.sexual_potency = value
+
+/datum/preference/numeric/erp_sexual_potency/create_informed_default_value(datum/preferences/preferences)
+	return 15

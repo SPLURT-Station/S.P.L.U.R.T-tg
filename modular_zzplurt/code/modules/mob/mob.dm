@@ -11,3 +11,9 @@
 /mob/Destroy()
 	QDEL_NULL(mob_panel)
 	. = ..()
+
+/mob/proc/restrained(ignore_grab)
+	return
+
+/mob/proc/is_muzzled()
+	return FALSE
