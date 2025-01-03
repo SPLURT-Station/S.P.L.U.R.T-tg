@@ -14,11 +14,15 @@
 
 /client/verb/go2relay()
 	var/list/static/relays = list(
+		// SPLURT EDIT START: NO RELAY
+		/*
 		US_EAST_RELAY,
 		US_WEST_RELAY,
 		SYDNEY_RELAY,
 		EU_RELAY,
 		NO_RELAY,
+		*/
+		// SPLURT EDIT END: NO RELAY
 	)
 	var/choice = tgui_input_list(usr, "Which relay do you wish to use?", "Relay Select", relays)
 	var/destination
