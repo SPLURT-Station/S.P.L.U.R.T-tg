@@ -12,10 +12,14 @@
 	switch(intent)
 		if(INTENT_HELP)
 			return "help"
+		// PHOENIX EDIT START: NO INTENTS
+		/*
 		if(INTENT_DISARM)
 			return "disarm"
 		if(INTENT_GRAB)
 			return "grab"
+		*/
+		// PHOENIX EDIT END: NO INTENTS
 		if(INTENT_HARM)
 			return "harm"
 

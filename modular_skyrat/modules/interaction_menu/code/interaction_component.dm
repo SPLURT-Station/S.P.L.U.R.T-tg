@@ -160,10 +160,14 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 	switch(resolve_intent_name(target.combat_mode))
 		if(INTENT_HELP)
 			attributes += "are acting gentle"
+		// PHOENIX EDIT START: NO INTENTS
+		/*
 		if(INTENT_DISARM)
 			attributes += "are acting playful"
 		if(INTENT_GRAB)
 			attributes += "are acting rough"
+		*/
+		// PHOENIX EDIT END: NO INTENTS
 		if(INTENT_HARM)
 			attributes += "are fighting anyone who comes near"
 

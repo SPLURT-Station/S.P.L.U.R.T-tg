@@ -321,7 +321,7 @@
 		return
 
 	// Check for combat mode
-	if(action_target.combat_focus)
+	if(action_target.combat_mode) // PHOENIX EDIT START: NO INTENTS
 		// Warn the users, then return
 		to_chat(action_owner, span_warning("[action_target] is acting too defensively! You'll need [action_target.p_them()] to lower [action_target.p_their()] guard first!"))
 		to_chat(action_target, span_notice("[action_owner] tries to stare into your eyes, but can't get a read on you."))

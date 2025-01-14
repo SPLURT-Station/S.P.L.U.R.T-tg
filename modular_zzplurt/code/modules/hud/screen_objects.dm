@@ -1,4 +1,5 @@
-
+// PHOENIX EDIT START: NO INTENTS
+/*
 /atom/movable/screen/intent_toggle
 	name = "intent"
 	icon_state = "help"
@@ -52,3 +53,5 @@
 
 	icon_state = user.combat_focus ? "combat" : "combat_off"
 	return ..()
+*/
+// PHOENIX EDIT END: NO INTENTS

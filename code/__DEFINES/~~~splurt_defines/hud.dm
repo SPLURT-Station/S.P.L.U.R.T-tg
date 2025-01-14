@@ -1,3 +1,5 @@
+// PHOENIX EDIT START: NO INTENTS
+/*
 //redefines
 #undef ui_combat_toggle
 #undef ui_crafting
@@ -10,6 +12,8 @@
 #define ui_building "EAST-5:22,SOUTH:21"
 #define ui_language_menu "EAST-5:6,SOUTH:21"
 #define ui_navigate_menu "EAST-5:22,SOUTH:5"
+*/
+// PHOENIX EDIT END: NO INTENTS
 
 // Extra inventory
 #define ui_inventory_extra "WEST:6,SOUTH+3:11"

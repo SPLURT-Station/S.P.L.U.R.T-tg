@@ -1,6 +1,10 @@
 /mob/living/carbon/human
 	/// Are we currently in combat focus?
+	// PHOENIX EDIT START: NO INTENTS
+	/*
 	var/combat_focus = FALSE
+	*/
+	// PHOENIX EDIT END: NO INTENTS
 
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
