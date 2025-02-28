@@ -291,8 +291,7 @@
 /datum/interaction/lewd/portal/finger_mouth
 	name = "Portal Fingering (Mouth)"
 	description = "Play with their mouth through the portal fleshlight."
-	interaction_requires = list(INTERACTION_REQUIRE_SELF_HAND)
-	target_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_HAND, INTERACTION_REQUIRE_TARGET_MOUTH)
 	message = list(
 		"plays with %TARGET%'s mouth through the portal fleshlight",
 		"slides their fingers into %TARGET%'s mouth through the portal fleshlight",

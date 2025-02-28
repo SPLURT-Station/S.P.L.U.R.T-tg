@@ -281,8 +281,8 @@
 /datum/interaction/lewd/portal/fuck_mouth
 	name = "Portal Fuck (Mouth)"
 	description = "Fuck their mouth through the portal fleshlight."
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_MOUTH)
 	message = list(

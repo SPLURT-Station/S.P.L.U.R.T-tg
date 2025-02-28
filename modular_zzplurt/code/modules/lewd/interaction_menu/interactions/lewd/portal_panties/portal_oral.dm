@@ -299,8 +299,7 @@
 /datum/interaction/lewd/portal/oral_mouth
 	name = "Portal Kiss"
 	description = "Kiss them through the portal fleshlight."
-	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
-	target_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH, INTERACTION_REQUIRE_TARGET_MOUTH)
 	message = list(
 		"kisses %TARGET% through the portal fleshlight",
 		"presses their lips against %TARGET%'s through the portal fleshlight",

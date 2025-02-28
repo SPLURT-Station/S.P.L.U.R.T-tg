@@ -228,8 +228,12 @@
 			size_affix = "3"
 		if(37 to 48)
 			size_affix = "4"
-		else
+		if(49 to 56)
 			size_affix = "5"
+		if(57 to 64)
+			size_affix = "6"
+		else
+			size_affix = "7"
 	//SPLURT EDIT END
 	var/passed_string = "[genital_type]_[size_affix]_[is_erect]"
 	if(uses_skintones)
