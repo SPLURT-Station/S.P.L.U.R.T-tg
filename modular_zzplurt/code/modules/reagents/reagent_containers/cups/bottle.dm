@@ -32,3 +32,11 @@
 		/datum/reagent/consumable/ethanol/wine = 40,
 		/datum/reagent/blood = 60
 	)
+
+/obj/item/reagent_containers/cup/glass/bottle/pitcher
+	name = "glass pitcher"
+	desc = "This is a pitcher for large amounts of liquid of any kind."
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "pitcher"
+	volume = 120
+	fill_icon = 'modular_zzplurt/icons/obj/drinks/reagent_fillings.dmi'
