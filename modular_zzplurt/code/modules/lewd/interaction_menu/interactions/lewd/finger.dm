@@ -24,14 +24,14 @@
 
 /datum/interaction/lewd/finger/act(mob/living/user, mob/living/target)
 	var/list/original_messages = message.Copy()
-	var/obj/item/reagent_containers/liquid_container
+	var/obj/item/liquid_container
 
 	var/obj/item/cached_item = user.get_active_held_item()
-	if(istype(cached_item, /obj/item/reagent_containers))
+	if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 		liquid_container = cached_item
 	else
 		cached_item = user.pulling
-		if(istype(cached_item, /obj/item/reagent_containers))
+		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 			liquid_container = cached_item
 
 	if(liquid_container)
@@ -47,14 +47,14 @@
 
 /datum/interaction/lewd/finger/post_climax(mob/living/cumming, mob/living/came_in, position)
 	if(interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER)
-		var/obj/item/reagent_containers/liquid_container
+		var/obj/item/liquid_container
 
 		var/obj/item/cached_item = came_in.get_active_held_item()
-		if(istype(cached_item, /obj/item/reagent_containers))
+		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 			liquid_container = cached_item
 		else
 			cached_item = came_in.pulling
-			if(istype(cached_item, /obj/item/reagent_containers))
+			if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 				liquid_container = cached_item
 
 		if(liquid_container)

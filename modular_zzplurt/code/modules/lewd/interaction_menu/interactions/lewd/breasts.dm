@@ -120,14 +120,14 @@
 /datum/interaction/lewd/titgrope/post_interaction(mob/living/user, mob/living/target)
 	. = ..()
 	if(interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER)
-		var/obj/item/reagent_containers/liquid_container
+		var/obj/item/liquid_container
 
 		var/obj/item/cached_item = user.get_active_held_item()
-		if(istype(cached_item, /obj/item/reagent_containers))
+		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 			liquid_container = cached_item
 		else
 			cached_item = user.pulling
-			if(istype(cached_item, /obj/item/reagent_containers))
+			if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 				liquid_container = cached_item
 
 		if(liquid_container)

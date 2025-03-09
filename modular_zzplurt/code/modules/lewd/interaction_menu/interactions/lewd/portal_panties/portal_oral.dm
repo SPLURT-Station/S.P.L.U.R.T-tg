@@ -2,7 +2,7 @@
 	name = "Portal Oral (Penis)"
 	description = "Suck their cock through the portal dildo."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_TARGET = CLIMAX_TARGET_MOUTH)
 	message = list(
@@ -107,7 +107,7 @@
 	name = "Portal Oral (Vagina)"
 	description = "Lick their pussy through the portal fleshlight."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
-	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_VAGINA)
 	cum_target = list(CLIMAX_POSITION_TARGET = CLIMAX_TARGET_MOUTH)
 	message = list(
@@ -203,7 +203,7 @@
 	name = "Portal Oral (Anus)"
 	description = "Rim their ass through the portal fleshlight."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
-	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_BOTH)
 	cum_target = list(CLIMAX_POSITION_TARGET = null)
 	message = list(
@@ -299,8 +299,7 @@
 /datum/interaction/lewd/portal/oral_mouth
 	name = "Portal Kiss"
 	description = "Kiss them through the portal fleshlight."
-	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
-	target_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH, INTERACTION_REQUIRE_TARGET_MOUTH)
 	message = list(
 		"kisses %TARGET% through the portal fleshlight",
 		"presses their lips against %TARGET%'s through the portal fleshlight",

@@ -486,8 +486,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	if (initial(ui_style) || ui_style == new_ui_style)
 		return
 
-	// SPLURT EDIT - Extra inventory added
-	for(var/atom/item in static_inventory + toggleable_inventory + extra_inventory + hotkeybuttons + infodisplay + always_visible_inventory + inv_slots)
+	for(var/atom/item in static_inventory + toggleable_inventory + hotkeybuttons + infodisplay + always_visible_inventory + inv_slots)
 		if (item.icon == ui_style)
 			item.icon = new_ui_style
 
