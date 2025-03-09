@@ -28,7 +28,7 @@
 	var/insurance_evaluation = 0
 
 /datum/round_event/shuttle_insurance/announce(fake)
-	priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", SSstation.announcer.get_rand_report_sound())
+	priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", SSstation.announcer.event_sounds[ANNOUNCER_SHUTTLE_INSURANCE] || SSstation.announcer.get_rand_report_sound()) // SPLURT EDIT - ORIGINAL: priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", SSstation.announcer.get_rand_report_sound())
 
 /datum/round_event/shuttle_insurance/setup()
 	ship_name = pick(strings(PIRATE_NAMES_FILE, "rogue_names"))

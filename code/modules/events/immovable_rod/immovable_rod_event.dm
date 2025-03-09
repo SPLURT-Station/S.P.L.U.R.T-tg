@@ -19,7 +19,7 @@
 	var/force_looping = FALSE
 
 /datum/round_event/immovable_rod/announce(fake)
-	priority_announce("What the fuck was that?!", "General Alert")
+	priority_announce("What the fuck was that?!", "General Alert", ANNOUNCER_IMMOVABLE_ROD) // SPLURT EDIT - ORIGINAL: priority_announce("What the fuck was that?!", "General Alert")
 
 /datum/round_event/immovable_rod/start()
 	var/startside = pick(GLOB.cardinals)
