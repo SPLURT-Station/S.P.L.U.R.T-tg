@@ -10,6 +10,10 @@
 	steal_objective.find_target()
 	return steal_objective
 
+//SPLURT EDIT REMOVAL BEGIN - Traitor Side Objectives Override
+/*
 /datum/uplink_handler/generate_objectives()
 	on_update()
 	return FALSE
+*/
+//SPLURT EDIT REMOVAL END
