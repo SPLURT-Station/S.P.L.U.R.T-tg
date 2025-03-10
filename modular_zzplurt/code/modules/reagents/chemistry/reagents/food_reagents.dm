@@ -9,3 +9,11 @@
 	. = ..()
 
 	SEND_SIGNAL(affected_mob, COMSIG_REAGENT_EXPOSE_SALT, src, methods, reac_volume)
+
+/datum/reagent/consumable/alienhoney
+	name = "Honey (Safe)"
+	description = "Sweet, sweet honey that does not decay into sugar."
+	color = "#d3a308"
+	nutriment_factor = 5 * REAGENTS_METABOLISM
+	metabolization_rate = 1 * REAGENTS_METABOLISM
+	taste_description = "sweetness"

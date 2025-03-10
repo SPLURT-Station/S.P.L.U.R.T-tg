@@ -7,6 +7,14 @@
 	minspeed = 5
 	maxspeed = 11
 
+/datum/blooper/bark
+	name = "Bark"
+	id = "bark"
+	allow_random = TRUE
+	soundpath = 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg'
+	minspeed = 5
+	maxspeed = 11
+
 // The Mayhem Special Continued
 /datum/blooper/eugh
 	name = "Eugh"

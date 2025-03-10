@@ -55,6 +55,12 @@
 				back = duffelbag //Department duffel bag
 			if(DMESSENGER)
 				back = messenger //Department messenger bag
+			// SPLURT EDIT ADDITION - Extra roundstart backpacks
+			if(SNAIL_SHELL)
+				back = /obj/item/storage/backpack/snail_replica //Snail shell
+			if(SLOOG_SHELL)
+				back = /obj/item/storage/backpack/sloogshell //Sloog shell
+			// SPLURT EDIT END
 			else
 				back = backpack //Department backpack
 

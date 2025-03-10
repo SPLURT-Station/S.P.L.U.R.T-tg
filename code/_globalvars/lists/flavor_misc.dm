@@ -106,6 +106,10 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define GSATCHEL "Grey Satchel"
 #define GMESSENGER "Grey Messenger Bag"
 #define LSATCHEL "Leather Satchel"
+// SPLURT EDIT ADDITION - Extra roundstart backpacks
+#define SNAIL_SHELL "Snail Shell"
+#define SLOOG_SHELL "Sloog Shell"
+// SPLURT EDIT ADDITION END
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
 	DDUFFELBAG,
@@ -116,6 +120,10 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	GSATCHEL,
 	GMESSENGER,
 	LSATCHEL,
+	// SPLURT EDIT ADDITION - Extra roundstart backpacks
+	SNAIL_SHELL,
+	SLOOG_SHELL,
+	// SPLURT EDIT ADDITION END
 ))
 
 	//Suit/Skirt
