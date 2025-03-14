@@ -50,7 +50,7 @@
 
 /datum/interaction/lewd/nipsuck/post_interaction(mob/living/user, mob/living/target)
 	. = ..()
-	var/obj/item/organ/external/genital/breasts/breasts = target.get_organ_slot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genital/breasts/breasts = target.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(breasts?.internal_fluid_datum)
 		// Calculate milk amount based on how full the breasts are (0.5 to 2 multiplier)
 		var/milk_multiplier = 0.5

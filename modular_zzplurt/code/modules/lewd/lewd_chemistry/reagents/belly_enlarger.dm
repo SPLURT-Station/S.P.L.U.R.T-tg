@@ -47,7 +47,7 @@
 	if(!ishuman(exposed_mob))
 		return
 
-	var/obj/item/organ/external/genital/belly/mob_belly = exposed_mob.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/genital/belly/mob_belly = exposed_mob.get_organ_slot(ORGAN_SLOT_BELLY)
 
 	// Create belly if they don't have one
 	if(!mob_belly)
@@ -57,7 +57,7 @@
 	// Grow existing belly
 	grow_belly(exposed_mob)
 
-/datum/reagent/drug/aphrodisiac/belly_enlarger/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/external/genital/belly/mob_belly)
+/datum/reagent/drug/aphrodisiac/belly_enlarger/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/genital/belly/mob_belly)
 	if(!mob_belly)
 		return
 

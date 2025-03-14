@@ -1,4 +1,4 @@
-/obj/item/organ/external/genital/belly
+/obj/item/organ/genital/belly
 	name = "belly"
 	desc = "You see a belly on their midsection."
 	icon = null //apparently theres no organ sprite?
@@ -13,12 +13,12 @@
 	mutantpart_key = ORGAN_SLOT_BELLY
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Belly", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 
-/obj/item/organ/external/genital/belly/get_sprite_size_string()
+/obj/item/organ/genital/belly/get_sprite_size_string()
 	. = "[genital_type]_[floor(genital_size)]"
 	if(uses_skintones)
 		. += "_s"
 
-/obj/item/organ/external/genital/belly/set_size(size)
+/obj/item/organ/genital/belly/set_size(size)
 	var/old_size = genital_size
 	. = ..()
 	if(size > old_size)
@@ -27,18 +27,18 @@
 		to_chat(owner, span_warning("Your guts [pick("shrink down to", "decrease into", "wobble down into", "diminish into", "deflate into", "contracts into")] a smaller midsection."))
 
 
-/obj/item/organ/external/genital/belly/build_from_dna(datum/dna/DNA, associated_key)
+/obj/item/organ/genital/belly/build_from_dna(datum/dna/DNA, associated_key)
 	uses_skin_color = DNA.features["belly_uses_skincolor"]
 	set_size(DNA.features["belly_size"])
 
 	return ..()
 
-/obj/item/organ/external/genital/belly/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+/obj/item/organ/genital/belly/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["belly_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
 	return ..()
 
-/obj/item/organ/external/genital/belly/get_description_string(datum/sprite_accessory/genital/gas)
+/obj/item/organ/genital/belly/get_description_string(datum/sprite_accessory/genital/gas)
 	var/size_name
 	switch(round(genital_size))
 		if(1)

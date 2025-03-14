@@ -145,6 +145,10 @@
 	//quirk_holder.adjust_thirst(6)
 
 // Status effect for Cursed Blood that applies Holy Water effects
+/datum/status_effect/quirk_cursed_blood // Necessary for linters
+	id = "cursed_blood_broken"
+	alert_type = null
+
 /datum/status_effect/quirk_cursed_blood/dreaming
 	id = "cursed_blood_dream"
 	//duration = 10 SECONDS

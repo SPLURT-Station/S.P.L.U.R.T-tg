@@ -1,6 +1,4 @@
 import { Fragment } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -8,7 +6,9 @@ import {
   NoticeBox,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 const damageTypes = [

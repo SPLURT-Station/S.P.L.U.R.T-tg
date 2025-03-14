@@ -43,7 +43,7 @@
 	// Check for slapping quirk
 	if(HAS_TRAIT(src, TRAIT_JIGGLY_ASS))
 		// Check for non-con pref
-		if(READ_PREFS(src, choiced/erp_status_nc) != "Yes")
+		if(!findtext(client?.prefs.read_preference(/datum/preference/choiced/erp_status_nc), "Yes"))
 			// Don't do it
 			return
 

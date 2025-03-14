@@ -108,7 +108,7 @@
 		return FALSE
 
 	// Define owner's eyes
-	var/obj/item/organ/internal/eyes/owner_eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/owner_eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 
 	// Check if eyes exist
 	if(!istype(owner_eyes))
@@ -292,7 +292,7 @@
 		return
 
 	// Check if client has denied hypnosis preference
-	if(READ_PREFS(action_target, choiced/erp_status_hypno) == "No")
+	if(action_target.client?.prefs.read_preference(/datum/preference/choiced/erp_status_hypno) == "No")
 		// Warn the users, then return
 		to_chat(action_owner, span_warning("You sense that [action_target] is not comfortable with this type of interaction, and decide to respect [action_target.p_their()] preferences."))
 		to_chat(action_target, span_notice("[action_owner] stares into your eyes with a strange conviction, but turns away after a moment."))
@@ -343,7 +343,7 @@
 	var/input_consent
 
 	// Check for non-consensual setting
-	if(READ_PREFS(action_target, choiced/erp_status_nc) != "Yes")
+	if(!findtext(action_target.client?.prefs.read_preference(/datum/preference/choiced/erp_status_nc), "Yes"))
 		// Non-consensual is NOT enabled
 		// Define warning suffix
 		var/warning_target = (mode_brainwash ? "You will become a brainwashed victim, and be required to follow all orders given. [action_owner] accepts all responsibility for antagonistic orders." : "These are only suggestions, and you may disobey cases that strongly violate your character.")

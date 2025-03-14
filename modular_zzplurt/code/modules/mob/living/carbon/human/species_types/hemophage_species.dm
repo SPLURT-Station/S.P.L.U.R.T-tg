@@ -16,12 +16,12 @@
 	. = ..()
 
 // Called when a mob gains this species
-/datum/species/hemophage/on_species_gain(mob/living/carbon/human/human_target, datum/species/old_species, pref_load)
+/datum/species/hemophage/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 
 	// Add profane penalties
-	human_target.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, SPECIES_HEMOPHAGE, /datum/element/chapel_weakness)
-	human_target.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, SPECIES_HEMOPHAGE, /datum/element/holywater_weakness)
+	human_who_gained_species.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, SPECIES_HEMOPHAGE, /datum/element/chapel_weakness)
+	human_who_gained_species.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, SPECIES_HEMOPHAGE, /datum/element/holywater_weakness)
 
 // Called when a mob loses this species
 /datum/species/hemophage/on_species_loss(mob/living/carbon/human/human_target, datum/species/new_species, pref_load)

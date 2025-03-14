@@ -1,12 +1,12 @@
-import { useBackend } from '../../backend';
 import {
   BlockQuote,
-  Grid,
   Icon,
   ProgressBar,
   Section,
   Stack,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 
 type HeaderInfo = {
   isTargetSelf: boolean;
@@ -52,8 +52,8 @@ export const InfoSection = () => {
       <Stack vertical fill>
         <Stack.Item grow basis={0}>
           <Section fill scrollable>
-            <Grid>
-              <Grid.Column>
+            <Stack>
+              <Stack.Item grow>
                 <BlockQuote>
                   You...
                   <br />
@@ -64,9 +64,9 @@ export const InfoSection = () => {
                     </div>
                   ))}
                 </BlockQuote>
-              </Grid.Column>
+              </Stack.Item>
               {!isTargetSelf ? (
-                <Grid.Column>
+                <Stack.Item grow>
                   <BlockQuote>
                     They...
                     <br />
@@ -77,9 +77,9 @@ export const InfoSection = () => {
                       </div>
                     ))}
                   </BlockQuote>
-                </Grid.Column>
+                </Stack.Item>
               ) : null}
-            </Grid>
+            </Stack>
           </Section>
         </Stack.Item>
         <Stack.Item>

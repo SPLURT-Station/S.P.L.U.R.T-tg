@@ -1,5 +1,6 @@
+import { Button, Icon, Stack } from 'tgui-core/components';
+
 import { useBackend } from '../../../backend';
-import { Button, Icon, Stack } from '../../../components';
 
 type LewdItemsInfo = {
   lewd_slots: Array<{

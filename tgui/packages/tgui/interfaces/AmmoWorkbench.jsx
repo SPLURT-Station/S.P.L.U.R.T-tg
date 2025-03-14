@@ -1,8 +1,5 @@
 // THIS IS A SKYRAT UI FILE
-import { toTitleCase } from 'common/string';
 import { useState } from 'react';
-
-import { useBackend, useSharedState } from '../backend';
 import {
   Box,
   Button,
@@ -16,7 +13,10 @@ import {
   Table,
   Tabs,
   Tooltip,
-} from '../components';
+} from 'tgui-core/components';
+import { toTitleCase } from 'tgui-core/string';
+
+import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 export const AmmoWorkbench = (props) => {

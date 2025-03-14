@@ -1,4 +1,4 @@
-/datum/species/vampire/New()
+/datum/species/human/vampire/New()
 	var/list/extra_inherent_traits = list(
 		TRAIT_NOTHIRST
 	)

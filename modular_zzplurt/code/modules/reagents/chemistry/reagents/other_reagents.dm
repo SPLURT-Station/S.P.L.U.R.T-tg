@@ -17,7 +17,6 @@
 /datum/reagent/consumable/notriment
 	name = "Strange Nutriment"
 	description = "An exotic form of nutriment produced by unusual digestive systems."
-	reagent_state = /datum/reagent/consumable/nutriment::reagent_state
 	nutriment_factor = /datum/reagent/consumable/nutriment::nutriment_factor
 	color = /datum/reagent/consumable/nutriment::color
 	// Allow processing without a liver

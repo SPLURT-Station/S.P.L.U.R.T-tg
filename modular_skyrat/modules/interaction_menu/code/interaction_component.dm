@@ -376,7 +376,7 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 	// SPLURT EDIT START - INTERACTIONS - Currently only humans may have genitalia
 	if(ishuman(user))
 	// SPLURT EDIT END
-		for(var/obj/item/organ/external/genital/genital in human_user.organs)
+		for(var/obj/item/organ/genital/genital in human_user.organs)
 			if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
 				var/list/genital_data = list(
 					"name" = genital.name,
@@ -582,7 +582,7 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 		if("toggle_genital_visibility")
 			if(!ishuman(user))
 				return FALSE
-			var/obj/item/organ/external/genital/genital = user.get_organ_slot(params["genital"])
+			var/obj/item/organ/genital/genital = user.get_organ_slot(params["genital"])
 			if(!genital || !istype(genital))
 				return FALSE
 
@@ -597,7 +597,7 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 		if("toggle_genital_arousal")
 			if(!ishuman(user))
 				return FALSE
-			var/obj/item/organ/external/genital/genital = user.get_organ_slot(params["genital"])
+			var/obj/item/organ/genital/genital = user.get_organ_slot(params["genital"])
 			if(!genital || !istype(genital) || genital.aroused == AROUSAL_CANT)
 				return FALSE
 
@@ -613,7 +613,7 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 		if("toggle_genital_accessibility")
 			if(!ishuman(user))
 				return FALSE
-			var/obj/item/organ/external/genital/genital = user.get_organ_slot(params["genital"])
+			var/obj/item/organ/genital/genital = user.get_organ_slot(params["genital"])
 			if(!genital || !istype(genital))
 				return FALSE
 

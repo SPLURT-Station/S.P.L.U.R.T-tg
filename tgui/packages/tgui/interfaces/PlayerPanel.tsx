@@ -1,6 +1,4 @@
 import { useState } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -15,7 +13,9 @@ import {
   Slider,
   Tabs,
   Tooltip,
-} from '../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type Data = {
@@ -833,12 +833,7 @@ const PunishmentActions = () => {
           </Flex>
         }
       >
-        <Collapsible
-          width="100%"
-          color="orange"
-          title="Details"
-          disabled={!client_ckey}
-        >
+        <Collapsible width="100%" color="orange" title="Details">
           <LabeledList>
             <LabeledList.Item label="NOW" color="label">
               {current_time}

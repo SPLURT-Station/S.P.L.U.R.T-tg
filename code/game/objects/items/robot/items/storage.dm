@@ -197,6 +197,7 @@
 		/obj/item/reagent_containers/condiment,
 		/obj/item/reagent_containers/cup/coffeepot,
 		/obj/item/reagent_containers/cup/bottle/syrup_bottle,
+		/obj/item/reagent_containers/cup/beaker,
 	)
 
 /obj/item/borg/apparatus/beaker/service2/add_glass()
@@ -324,7 +325,7 @@
 
 /obj/item/borg/apparatus/service
 	name = "service apparatus"
-	desc = "A special apparatus for carrying seeds, food, bowls, plates, oven trays, soup pots, and paper."
+	desc = "A special apparatus for carrying food, seeds, grafts, bowls, plates, oven trays, soup pots and paper."
 	icon_state = "borg_service_apparatus"
 	storable = list(
 		/obj/item/food,
@@ -334,6 +335,8 @@
 		/obj/item/reagent_containers/cup/bowl,
 		/obj/item/reagent_containers/cup/soup_pot,
 		/obj/item/seeds,
+		/obj/item/graft,
+		/obj/item/fish,
 	)
 
 /obj/item/borg/apparatus/service/Initialize(mapload)

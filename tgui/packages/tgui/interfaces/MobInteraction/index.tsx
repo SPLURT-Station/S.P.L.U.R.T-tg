@@ -1,4 +1,5 @@
-import { Stack } from '../../components';
+import { Stack } from 'tgui-core/components';
+
 import { Window } from '../../layouts';
 import { InfoSection } from './InfoSection';
 import { MainContent } from './MainContent';

@@ -9,7 +9,7 @@
 
 	var/last_climax = 0
 	var/climax_cooldown = 0
-	var/obj/item/organ/external/genital/last_climax_source = null
+	var/obj/item/organ/genital/last_climax_source = null
 
 	var/refractory_period
 

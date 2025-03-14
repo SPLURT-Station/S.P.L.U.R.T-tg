@@ -1,5 +1,6 @@
+import { Button, Stack } from 'tgui-core/components';
+
 import { useBackend } from '../../../backend';
-import { Button, Stack } from '../../../components';
 
 type ContentPrefsInfo = {
   // Master ERP pref

@@ -236,22 +236,22 @@
 		useable = FALSE
 		return
 
-	var/obj/item/organ/external/genital/target_organ
+	var/obj/item/organ/genital/target_organ
 
 	// Get the appropriate genital based on panties target
 	if(linked_panties.current_target == ORGAN_SLOT_VAGINA)
 		target_organ = target_wearer.get_organ_slot(ORGAN_SLOT_VAGINA)
-		if(!target_organ || !istype(target_organ, /obj/item/organ/external/genital/vagina))
+		if(!target_organ || !istype(target_organ, /obj/item/organ/genital/vagina))
 			useable = FALSE
 			return
 	else if(linked_panties.current_target == ORGAN_SLOT_PENIS)
 		target_organ = target_wearer.get_organ_slot(ORGAN_SLOT_PENIS)
-		if(!target_organ || !istype(target_organ, /obj/item/organ/external/genital/penis))
+		if(!target_organ || !istype(target_organ, /obj/item/organ/genital/penis))
 			useable = FALSE
 			return
 	else if(linked_panties.current_target == ORGAN_SLOT_ANUS)
 		target_organ = target_wearer.get_organ_slot(ORGAN_SLOT_ANUS)
-		if(!target_organ || !istype(target_organ, /obj/item/organ/external/genital/anus))
+		if(!target_organ || !istype(target_organ, /obj/item/organ/genital/anus))
 			useable = FALSE
 			return
 
@@ -280,7 +280,7 @@
 		var/mutable_appearance/organ
 		switch(linked_panties.current_target)
 			if(ORGAN_SLOT_VAGINA)
-				var/obj/item/organ/external/genital/vagina/vag = target_organ
+				var/obj/item/organ/genital/vagina/vag = target_organ
 				organ = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_vag")
 				if(vag.uses_skin_color)
 					organ.color = target_wearer.dna.features["mcolor"]
@@ -292,7 +292,7 @@
 				organ = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_anus")
 				organ.color = target_organ.color
 			if(ORGAN_SLOT_PENIS)
-				var/obj/item/organ/external/genital/penis/penis = target_organ
+				var/obj/item/organ/genital/penis/penis = target_organ
 				organ = mutable_appearance('modular_zzplurt/icons/obj/lewd/dildo.dmi', "penis")
 				switch(penis.genital_name)
 					if("Human")

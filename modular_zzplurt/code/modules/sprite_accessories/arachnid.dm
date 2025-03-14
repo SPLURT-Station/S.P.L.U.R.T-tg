@@ -4,7 +4,7 @@
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/arachnid_legs
+	organ_type = /obj/item/organ/arachnid_legs
 	recommended_species = list(SPECIES_ARACHNID)
 
 	icon = 'modular_zzplurt/icons/mob/human/species/arachnid_misc.dmi'
@@ -34,7 +34,7 @@
 	default_color = DEFAULT_PRIMARY
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/spinneret
+	organ_type = /obj/item/organ/spinneret
 	recommended_species = list(SPECIES_ARACHNID)
 
 	icon = 'modular_zzplurt/icons/mob/human/species/arachnid_misc.dmi'
@@ -64,7 +64,7 @@
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/mandibles
+	organ_type = /obj/item/organ/mandibles
 	recommended_species = list(SPECIES_ARACHNID)
 
 	icon = 'modular_zzplurt/icons/mob/human/species/arachnid_misc.dmi'

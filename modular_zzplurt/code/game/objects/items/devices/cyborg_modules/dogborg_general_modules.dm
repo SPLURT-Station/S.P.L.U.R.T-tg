@@ -198,7 +198,7 @@
 		message += format_gas_concentration(plasma_concentration, 0.005, "Plasma", "greater than")
 
 	message += span_boldnotice("Analysis summary: [within_operational_parameters ? "enviroment within operational parameters." : "<span class='danger'>enviroment outside operational parameters!</span>"]")
-	to_chat(user, examine_block(jointext(message, "\n")), type = MESSAGE_TYPE_INFO)
+	to_chat(user, custom_boxed_message("purple_box", jointext(message, "\n")), type = MESSAGE_TYPE_INFO)
 
 /obj/item/dogborg/dogborg_nose/attack(atom/target, mob/user, proximity)
 	if(!proximity)

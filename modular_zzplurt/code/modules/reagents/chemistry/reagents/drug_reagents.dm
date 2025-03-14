@@ -1,7 +1,6 @@
 /datum/reagent/drug/copium
 	name = "Copium"
 	description = "Cope and sssethe"
-	reagent_state = LIQUID
 	taste_description = "coping"
 	color = "#0f0"
 	trippy = FALSE

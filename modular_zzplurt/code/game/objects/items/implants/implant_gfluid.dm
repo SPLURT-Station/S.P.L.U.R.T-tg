@@ -32,13 +32,13 @@
 
 /obj/item/implant/genital_fluid/proc/update_genital_fluid(mob/living/carbon/human/genital_owner, should_use_blacklist = TRUE)
 	// Set list of possible genitals
-	var/list/obj/item/organ/external/genital/genitals_list
+	var/list/obj/item/organ/genital/genitals_list
 
 	// Set list of possible fluids
 	var/list/datum/reagent/fluid_list = list()
 
 	// List their genitals if they have any at all
-	for(var/obj/item/organ/external/genital/genital_checked in list(genital_owner.get_organ_slot(ORGAN_SLOT_TESTICLES), genital_owner.get_organ_slot(ORGAN_SLOT_VAGINA), genital_owner.get_organ_slot(ORGAN_SLOT_BREASTS)))
+	for(var/obj/item/organ/genital/genital_checked in list(genital_owner.get_organ_slot(ORGAN_SLOT_TESTICLES), genital_owner.get_organ_slot(ORGAN_SLOT_VAGINA), genital_owner.get_organ_slot(ORGAN_SLOT_BREASTS)))
 		if(istype(genital_checked))
 			// Add genitals to the list
 			LAZYADD(genitals_list, genital_checked)
@@ -69,7 +69,7 @@
 		return
 
 	// Prompt user for which genital to use
-	var/obj/item/organ/external/genital/genital_input = tgui_input_list(genital_owner, "Pick a genital", "Genital Fluid Infuser", genitals_list)
+	var/obj/item/organ/genital/genital_input = tgui_input_list(genital_owner, "Pick a genital", "Genital Fluid Infuser", genitals_list)
 	if(!genital_input)
 		// No selection was made
 		return

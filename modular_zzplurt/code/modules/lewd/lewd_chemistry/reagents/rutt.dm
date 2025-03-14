@@ -2,7 +2,6 @@
 	name = "\improper R.U.T.T."
 	description = "Chemically condensed dopamine, sexual proteins, estrogens, and adrenalines. This aphrodisiac is an extremely powerful narcotic which may cause unintended climax."
 	taste_description = "potent and floral sexual musk"
-	reagent_state = LIQUID
 	color = "#ffa9a9"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_NO_RANDOM_RECIPE
 	var/maximum_pleasure = 15

@@ -1,7 +1,7 @@
 
 /// Helper proc that checks if a human has a genital of a specific type and exposure state
 /mob/living/carbon/human/proc/has_genital(required_state = REQUIRE_GENITAL_ANY, genital_slot)
-	var/obj/item/organ/external/genital/genital = get_organ_slot(genital_slot)
+	var/obj/item/organ/genital/genital = get_organ_slot(genital_slot)
 	if(!genital)
 		return FALSE
 

@@ -60,8 +60,8 @@
 	var/self_their = p_their()
 
 	if(climax_choice == CLIMAX_PENIS || climax_choice == CLIMAX_BOTH)
-		var/obj/item/organ/external/genital/penis/penis = get_organ_slot(ORGAN_SLOT_PENIS)
-		if(!get_organ_slot(ORGAN_SLOT_TESTICLES) && ishuman(src)) //If we have no god damn balls, we can't cum anywhere... GET BALLS!
+		var/obj/item/organ/genital/penis/penis = get_organ_slot(ORGAN_SLOT_PENIS)
+		if(!get_organ_slot(ORGAN_SLOT_TESTICLES) && ishuman(src)) //If we have no god damn balls, we can't cum anywhere... GET BALLS! // SPLURT EDIT - Interactions
 			visible_message(span_userlove("[src] orgasms, but nothing comes out of [self_their] penis!"), \
 				span_userlove("You orgasm, it feels great, but nothing comes out of your penis!"))
 
@@ -121,7 +121,7 @@
 						target_buttons += ORGAN_SLOT_ANUS //SPLURT EDIT CHANGE - Interactions - Changed asshole to anus for consistency
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
-						var/obj/item/organ/external/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
+						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
 						if(other_penis.sheath != "None")
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
@@ -161,7 +161,7 @@
 							interactable.climax_inflate_genital(src, "testicles", climax_into_choice)
 						//SPLURT EDIT ADDITION END
 
-			var/obj/item/organ/external/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
+			var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
 			//SPLURT EDIT CHANGE BEGIN - Interactions
 			if(!(climax_interaction?.interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER) && ishuman(src))
 				if(create_cum_decal)
@@ -208,7 +208,7 @@
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
-		var/obj/item/organ/external/genital/vagina/vagina = get_organ_slot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/genital/vagina/vagina = get_organ_slot(ORGAN_SLOT_VAGINA)
 		//SPLURT EDIT CHANGE BEGIN - Interactions
 		if(!is_bottomless() && vagina.visibility_preference != GENITAL_ALWAYS_SHOW)
 			visible_message(span_userlove("[src] cums in [self_their] underwear from [self_their] vagina!"), \
@@ -258,7 +258,7 @@
 						target_buttons += ORGAN_SLOT_ANUS
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
-						var/obj/item/organ/external/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
+						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
 						if(other_penis.sheath != "None")
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"

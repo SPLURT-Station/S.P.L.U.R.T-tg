@@ -7,4 +7,4 @@
 	activation_cost = 0
 
 	// Allow on all NIF units
-	compatible_nifs = list(/obj/item/organ/internal/cyberimp/brain/nif)
+	compatible_nifs = list(/obj/item/organ/cyberimp/brain/nif)

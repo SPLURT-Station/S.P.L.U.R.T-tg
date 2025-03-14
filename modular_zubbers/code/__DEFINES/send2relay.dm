@@ -13,7 +13,7 @@
 #define NO_RELAY "No Relay (Direct Connect)"
 
 /client/verb/go2relay()
-	var/list/static/relays = list(
+	var/static/list/relays = list(
 		// SPLURT EDIT START: NO RELAY
 		/*
 		US_EAST_RELAY,

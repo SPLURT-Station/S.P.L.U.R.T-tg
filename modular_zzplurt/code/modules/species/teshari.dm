@@ -1,6 +1,6 @@
 /datum/species/teshari
 
-/datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load)
+/datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 	var/datum/action/cooldown/sonar_ping/sonar_ping = new(new_teshari)
 	sonar_ping.Grant(new_teshari)

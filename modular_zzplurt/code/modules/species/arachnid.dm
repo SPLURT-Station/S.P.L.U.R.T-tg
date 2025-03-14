@@ -14,15 +14,15 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/arachnid,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/arachnid
 	)
-	mutanteyes = /obj/item/organ/internal/eyes/night_vision/arachnid
-	mutanttongue = /obj/item/organ/internal/tongue/arachnid
+	mutanteyes = /obj/item/organ/eyes/night_vision/arachnid
+	mutanttongue = /obj/item/organ/tongue/arachnid
 	changesource_flags = MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | WABBAJACK | MIRROR_BADMIN | SLIME_EXTRACT
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	mutant_organs = list(
-		/obj/item/organ/external/mandibles = "Plain",
-		/obj/item/organ/external/spinneret = "Plain",
-		/obj/item/organ/external/arachnid_legs = "Plain",
+		/obj/item/organ/mandibles = "Plain",
+		/obj/item/organ/spinneret = "Plain",
+		/obj/item/organ/arachnid_legs = "Plain",
 	)
 	meat = /obj/item/food/meat/slab/spider
 	species_language_holder = /datum/language_holder/arachnid
@@ -36,13 +36,13 @@
 		"arachnid_legs" = list("Plain", TRUE),
 	)
 
-/datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
+/datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
 
-/datum/species/arachnid/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+/datum/species/arachnid/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
-	UnregisterSignal(C, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
+	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
 
 /datum/species/arachnid/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	SIGNAL_HANDLER
@@ -50,19 +50,19 @@
 	if(istype(attacking_item, /obj/item/melee/flyswatter))
 		damage_mods += 10 // 10x damage modifier, little less than flypeople
 
-/datum/species/arachnid/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
+/datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 	var/datum/action/innate/arachnid/spin_web/spin_web = new
 	var/datum/action/innate/arachnid/spin_cocoon/spin_cocoon = new
-	spin_web.Grant(H)
-	spin_cocoon.Grant(H)
+	spin_web.Grant(human_who_gained_species)
+	spin_cocoon.Grant(human_who_gained_species)
 
-/datum/species/arachnid/on_species_loss(mob/living/carbon/human/H)
+/datum/species/arachnid/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
-	var/datum/action/innate/arachnid/spin_web/spin_web = locate() in H.actions
-	var/datum/action/innate/arachnid/spin_cocoon/spin_cocoon = locate() in H.actions
-	spin_web?.Remove(H)
-	spin_cocoon?.Remove(H)
+	var/datum/action/innate/arachnid/spin_web/spin_web = locate() in human.actions
+	var/datum/action/innate/arachnid/spin_cocoon/spin_cocoon = locate() in human.actions
+	spin_web?.Remove(human)
+	spin_cocoon?.Remove(human)
 
 
 #define WEB_SPIN_NUTRITION_LOSS 25
@@ -186,6 +186,7 @@
 
 
 /datum/status_effect/web_cooldown
+	id = "web_cooldown"
 	duration = 20 SECONDS
 	alert_type = null
 	remove_on_fullheal = TRUE

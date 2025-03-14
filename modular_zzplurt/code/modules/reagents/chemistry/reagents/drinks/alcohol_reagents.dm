@@ -167,12 +167,12 @@
 /datum/reagent/consumable/ethanol/skullfucker_deluxe/overdose_process(mob/living/M)
 	. = ..()
 	//Do nothing if they're already fwuffy OwO
-	var/obj/item/organ/internal/tongue/T = M.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(istype(T, /obj/item/organ/internal/tongue/fluffy))
+	var/obj/item/organ/tongue/T = M.get_organ_slot(ORGAN_SLOT_TONGUE)
+	if(istype(T, /obj/item/organ/tongue/fluffy))
 		return
 
 	//Replace their tongue with a fwuffy one
-	var/obj/item/organ/internal/tongue/nT = new /obj/item/organ/internal/tongue/fluffy
+	var/obj/item/organ/tongue/nT = new /obj/item/organ/tongue/fluffy
 	T.Remove(M, special = TRUE)
 	nT.Insert(M, special = TRUE)
 	qdel(T)
@@ -242,7 +242,7 @@
 		var/mob/living/carbon/human/H = drinker
 		if(!H.dna || !H.dna.species)
 			return
-		var/obj/item/organ/external/tail/tail = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		var/obj/item/organ/tail/tail = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 		if(tail?.wag_flags & WAG_ABLE)
 			H.emote("wag")
 

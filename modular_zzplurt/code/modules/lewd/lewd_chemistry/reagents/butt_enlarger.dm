@@ -46,7 +46,7 @@
 	if(!ishuman(exposed_mob))
 		return
 
-	var/obj/item/organ/external/genital/butt/mob_butt = exposed_mob.get_organ_slot(ORGAN_SLOT_BUTT)
+	var/obj/item/organ/genital/butt/mob_butt = exposed_mob.get_organ_slot(ORGAN_SLOT_BUTT)
 
 	// Create butt if they don't have one
 	if(!mob_butt)
@@ -56,7 +56,7 @@
 	// Grow existing butt
 	grow_butt(exposed_mob)
 
-/datum/reagent/drug/aphrodisiac/butt_enlarger/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/external/genital/butt/mob_butt)
+/datum/reagent/drug/aphrodisiac/butt_enlarger/growth_to_chat(mob/living/carbon/human/exposed_mob, obj/item/organ/genital/butt/mob_butt)
 	if(!mob_butt)
 		return
 

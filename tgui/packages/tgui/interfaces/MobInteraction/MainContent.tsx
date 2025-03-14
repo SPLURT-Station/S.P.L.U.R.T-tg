@@ -1,6 +1,13 @@
 import { useState } from 'react';
+import {
+  Button,
+  Icon,
+  Input,
+  Section,
+  Stack,
+  Tabs,
+} from 'tgui-core/components';
 
-import { Button, Icon, Input, Section, Stack, Tabs } from '../../components';
 import {
   CharacterPrefsTab,
   ContentPreferencesTab,

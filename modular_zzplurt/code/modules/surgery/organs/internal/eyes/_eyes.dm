@@ -1,4 +1,4 @@
-/obj/item/organ/internal/eyes/night_vision/arachnid
+/obj/item/organ/eyes/night_vision/arachnid
 	name = "arachnid eyes"
 	desc = "These eyes seem to have increased sensitivity to bright light, offset by basic night vision."
 

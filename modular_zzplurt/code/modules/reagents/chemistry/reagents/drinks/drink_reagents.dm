@@ -44,7 +44,7 @@
 	H.adjust_arousal(35)
 	/* Not supported yet
 	for(var/g in genits)
-		var/obj/item/organ/external/genital/G = g
+		var/obj/item/organ/genital/G = g
 		to_chat(M, span_userlove("[G.arousal_verb]!"))*/
 
 	..()

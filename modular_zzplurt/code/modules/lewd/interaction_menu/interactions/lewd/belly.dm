@@ -92,7 +92,7 @@
 
 /datum/interaction/lewd/deflate_belly/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
-	var/obj/item/organ/external/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
 		gut.set_size(gut.genital_size - 1)
 		user.update_body()
@@ -115,7 +115,7 @@
 
 /datum/interaction/lewd/inflate_belly/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
-	var/obj/item/organ/external/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
+	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
 		gut.set_size(gut.genital_size + 1)
 		user.update_body()

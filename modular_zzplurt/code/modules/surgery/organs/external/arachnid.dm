@@ -1,4 +1,4 @@
-/obj/item/organ/external/mandibles
+/obj/item/organ/mandibles
 	name = "mandibles"
 	desc = "Fancy lips for those who think they're above having lips."
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'
@@ -28,7 +28,7 @@
 	return SSaccessories.sprite_accessories["mandibles"]
 
 
-/obj/item/organ/external/spinneret
+/obj/item/organ/spinneret
 	name = "spinneret"
 	desc = "This is where your icecream comes from."
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'
@@ -58,7 +58,7 @@
 	return SSaccessories.sprite_accessories["spinneret"]
 
 
-/obj/item/organ/external/arachnid_legs
+/obj/item/organ/arachnid_legs
 	name = "spider legs"
 	desc = "Objectively inferior to regular legs." //idk i suck at descs
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'

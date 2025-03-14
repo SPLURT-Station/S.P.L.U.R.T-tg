@@ -47,7 +47,7 @@
 
 /datum/element/skirt_peeking/proc/on_closer_look(mob/living/carbon/human/peeked, mob/peeker, list/examine_content)
 	if(can_skirt_peek(peeked, peeker))
-		for(var/obj/item/organ/external/genital/genital in peeked.organs)
+		for(var/obj/item/organ/genital/genital in peeked.organs)
 			if(genital.zone != BODY_ZONE_PRECISE_GROIN)
 				continue
 			if(genital.visibility_preference == GENITAL_SKIP_VISIBILITY)

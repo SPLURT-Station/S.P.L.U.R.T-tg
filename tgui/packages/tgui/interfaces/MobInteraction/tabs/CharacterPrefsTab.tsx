@@ -1,5 +1,6 @@
+import { Button, Dropdown, Flex, LabeledList } from 'tgui-core/components';
+
 import { useBackend } from '../../../backend';
-import { Button, Dropdown, Flex, LabeledList } from '../../../components';
 
 type CharacterPrefsInfo = {
   erp_pref: string;

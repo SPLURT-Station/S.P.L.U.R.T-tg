@@ -30,7 +30,7 @@
 * suppress_chat - whether or not to display a message in chat
 * mob_belly - the belly to cause to grow
 */
-/datum/reagent/drug/aphrodisiac/proc/grow_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+/datum/reagent/drug/aphrodisiac/proc/grow_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
 	if(!mob_belly)
 		return
 
@@ -63,7 +63,7 @@
 * suppress_chat - whether or not to display a message in chat
 * mob_butt - the butt to cause to grow
 */
-/datum/reagent/drug/aphrodisiac/proc/grow_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+/datum/reagent/drug/aphrodisiac/proc/grow_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
 	if(!mob_butt)
 		return
 
@@ -95,14 +95,14 @@
 * suppress_chat - whether or not to display a message in chat
 * mob_belly - the mob's belly
 */
-/datum/reagent/drug/aphrodisiac/proc/create_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+/datum/reagent/drug/aphrodisiac/proc/create_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
 	if(mob_belly)
 		return
 
 	if(!exposed_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
 		return
 
-	var/obj/item/organ/external/genital/belly/new_belly = new
+	var/obj/item/organ/genital/belly/new_belly = new
 	new_belly.build_from_dna(exposed_mob.dna, ORGAN_SLOT_BELLY)
 	new_belly.Insert(exposed_mob, 0, FALSE)
 	new_belly.genital_size = belly_minimum_size
@@ -118,14 +118,14 @@
 * suppress_chat - whether or not to display a message in chat
 * mob_butt - the mob's butt
 */
-/datum/reagent/drug/aphrodisiac/proc/create_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+/datum/reagent/drug/aphrodisiac/proc/create_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
 	if(mob_butt)
 		return
 
 	if(!exposed_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
 		return
 
-	var/obj/item/organ/external/genital/butt/new_butt = new
+	var/obj/item/organ/genital/butt/new_butt = new
 	new_butt.build_from_dna(exposed_mob.dna, ORGAN_SLOT_BUTT)
 	new_butt.Insert(exposed_mob, 0, FALSE)
 	new_butt.genital_size = butt_minimum_size
@@ -142,7 +142,7 @@
 * mob_belly - the belly to shrink
 * message - the message to send to chat
 */
-/datum/reagent/drug/aphrodisiac/proc/shrink_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
+/datum/reagent/drug/aphrodisiac/proc/shrink_belly(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/belly/mob_belly = exposed_mob?.get_organ_slot(ORGAN_SLOT_BELLY))
 	if(!mob_belly)
 		return
 
@@ -165,7 +165,7 @@
 * mob_butt - the butt to shrink
 * message - the message to send to chat
 */
-/datum/reagent/drug/aphrodisiac/proc/shrink_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/external/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
+/datum/reagent/drug/aphrodisiac/proc/shrink_butt(mob/living/carbon/human/exposed_mob, suppress_chat = FALSE, obj/item/organ/genital/butt/mob_butt = exposed_mob?.get_organ_slot(ORGAN_SLOT_BUTT))
 	if(!mob_butt)
 		return
 

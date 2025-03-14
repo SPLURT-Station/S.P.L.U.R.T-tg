@@ -45,7 +45,7 @@
 	brute_modifier = 1.1
 	biological_state = BIO_FLESH_BONE
 	///Arachnids' phylum is arthropods, which include butterflies. Might as well hit them with moth wings.
-	wing_types = list(/obj/item/organ/external/wings/functional/moth/megamoth, /obj/item/organ/external/wings/functional/moth/mothra)
+	wing_types = list(/obj/item/organ/wings/functional/moth/megamoth, /obj/item/organ/wings/functional/moth/mothra)
 	should_draw_greyscale = FALSE
 
 /obj/item/bodypart/head/arachnid
