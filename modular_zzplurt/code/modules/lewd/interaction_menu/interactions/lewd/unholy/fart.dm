@@ -76,20 +76,20 @@
 		CLIMAX_POSITION_USER = ORGAN_SLOT_ANUS
 	)
 	message = list(
-		"pounds %TARGET%'s ass while letting out farts",
-		"releases gas while fucking %TARGET%'s hole",
-		"farts with each thrust into %TARGET%'s ass",
-		"fills %TARGET% with their flatulence while fucking them"
+		"pounds %TARGET%'s ass as they release gas on their cock",
+		"fucks %TARGET%'s hole while they let out farts",
+		"thrusts into %TARGET%'s ass as they release flatulence",
+		"gets their cock gassed by %TARGET%'s farts while fucking them"
 	)
 	user_messages = list(
-		"You feel relief as you release gas while fucking %TARGET%",
-		"You let out farts as you pound %TARGET%'s ass",
-		"You make %TARGET% feel your gas inside them"
+		"You feel %TARGET%'s gas washing over your cock as you fuck them",
+		"You pound %TARGET%'s ass while they fart on your member",
+		"You get blasted by %TARGET%'s flatulence with each thrust"
 	)
 	target_messages = list(
-		"%USER% releases their gas inside your ass",
-		"You feel %USER%'s farts filling you up",
-		"%USER%'s flatulence mingles with their thrusts"
+		"You release gas all over %USER%'s cock inside you",
+		"You let out farts around %USER%'s thrusting member",
+		"Your flatulence envelops %USER%'s cock as they fuck you"
 	)
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/bang1.ogg',

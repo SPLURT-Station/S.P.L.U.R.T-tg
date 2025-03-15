@@ -2,7 +2,7 @@
 	name = "Portal Fuck (Vagina)"
 	description = "Fuck their pussy through the portal fleshlight."
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_VAGINA)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_VAGINA, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
 
@@ -142,7 +142,7 @@
 	name = "Portal Fuck (Anus)"
 	description = "Fuck their ass through the portal fleshlight."
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_BOTH)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_ANUS)
 	message = list(
@@ -281,8 +281,8 @@
 /datum/interaction/lewd/portal/fuck_mouth
 	name = "Portal Fuck (Mouth)"
 	description = "Fuck their mouth through the portal fleshlight."
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_MOUTH)
 	message = list(
@@ -420,7 +420,7 @@
 	name = "Portal Fuck (Urethra)"
 	description = "Fuck their urethra through the portal dildo."
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
 	message = list(
@@ -560,7 +560,7 @@
 	name = "Portal Vaginal Ride"
 	description = "Ride the portal dildo with your vagina."
 	user_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_VAGINA)
 
@@ -651,7 +651,7 @@
 	name = "Portal Anal Ride"
 	description = "Ride the portal dildo with your ass."
 	user_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_BOTH, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_TARGET = ORGAN_SLOT_ANUS)
 
@@ -743,7 +743,7 @@
 	name = "Portal Urethral Ride"
 	description = "Let them fuck your urethra through the portal dildo."
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS)
 
@@ -864,7 +864,7 @@
 	name = "Portal Frotting"
 	description = "Rub your cock against theirs through the portal dildo."
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = null, CLIMAX_POSITION_TARGET = null)
 	message = list(
@@ -1003,7 +1003,7 @@
 /datum/interaction/lewd/portal/tribadism
 	name = "Portal Tribadism"
 	description = "Grind your pussy against theirs through the portal."
-	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_ANY)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA, CLIMAX_POSITION_TARGET = CLIMAX_VAGINA)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_VAGINA, CLIMAX_POSITION_TARGET = ORGAN_SLOT_VAGINA)
 	message = list(

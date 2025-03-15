@@ -32,11 +32,11 @@
 			mob_belly = new
 			mob_belly.build_from_dna(human_self.dna, ORGAN_SLOT_BELLY)
 			mob_belly.Insert(human_self, 0, FALSE)
-			mob_belly.genital_size = 2
+			mob_belly.genital_size = BELLY_MIN_SIZE
 
 		if(mob_belly && human_self.client?.prefs.read_preference(/datum/preference/toggle/erp/belly_enlargement))
 			var/prev_size = mob_belly.genital_size
-			mob_belly.genital_size = min(mob_belly.genital_size + growth_amount, 7)
+			mob_belly.genital_size = min(mob_belly.genital_size + growth_amount, BELLY_MAX_SIZE)
 			to_update += mob_belly
 			if(mob_belly.genital_size > prev_size)
 				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s belly bloats outwards as it gets pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
@@ -48,11 +48,11 @@
 				mob_butt = new
 				mob_butt.build_from_dna(human_self.dna, ORGAN_SLOT_BUTT)
 				mob_butt.Insert(human_self, 0, FALSE)
-				mob_butt.genital_size = 2
+				mob_butt.genital_size = BUTT_MIN_SIZE
 
 			if(mob_butt && human_self.client?.prefs.read_preference(/datum/preference/toggle/erp/butt_enlargement))
 				var/prev_size = mob_butt.genital_size
-				mob_butt.genital_size = min(mob_butt.genital_size + growth_amount, 8)
+				mob_butt.genital_size = min(mob_butt.genital_size + growth_amount, BUTT_MAX_SIZE)
 				to_update += mob_butt
 				if(mob_butt.genital_size > prev_size)
 					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s ass swells outwards as it gets pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
@@ -140,7 +140,7 @@
 			mob_breasts = new
 			mob_breasts.build_from_dna(human_self.dna, ORGAN_SLOT_BREASTS)
 			mob_breasts.Insert(human_self, 0, FALSE)
-			mob_breasts.genital_size = 2
+			mob_breasts.genital_size = BREASTS_MIN_SIZE
 
 			if(mob_breasts.visibility_preference == GENITAL_ALWAYS_SHOW || human_self.is_topless())
 				human_self.visible_message(span_notice("[human_self]'s bust suddenly expands!"))
@@ -151,7 +151,7 @@
 
 		if(mob_breasts && human_self.client?.prefs.read_preference(/datum/preference/toggle/erp/breast_enlargement))
 			var/prev_size = mob_breasts.genital_size
-			mob_breasts.genital_size = min(mob_breasts.genital_size + growth_amount, 16)
+			mob_breasts.genital_size = min(mob_breasts.genital_size + growth_amount, BREASTS_MAX_SIZE)
 			to_update += mob_breasts
 			if(mob_breasts.genital_size > prev_size)
 				if(mob_breasts.visibility_preference == GENITAL_ALWAYS_SHOW || human_self.is_topless())

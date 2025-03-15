@@ -46,6 +46,11 @@ export const ZubbersCharacterDirectory = (props) => {
     personalVoreTag,
     personalHypnoTag,
     personalNonconTag,
+    // SPLURT EDIT START: EXTRA TAGS
+    personalExtremeTag,
+    personalExtremeHarmTag,
+    personalUnholyTag,
+    // SPLURT EDIT END: EXTRA TAGS
   } = data;
 
   return (
@@ -76,6 +81,17 @@ export const ZubbersCharacterDirectory = (props) => {
             <LabeledList.Item label="Noncon">
               <Button fluid>{personalNonconTag}</Button>
             </LabeledList.Item>
+            {/* SPLURT EDIT START: EXTRA TAGS */}
+            <LabeledList.Item label="Extreme">
+              <Button fluid>{personalExtremeTag}</Button>
+            </LabeledList.Item>
+            <LabeledList.Item label="Extreme Harm">
+              <Button fluid>{personalExtremeHarmTag}</Button>
+            </LabeledList.Item>
+            <LabeledList.Item label="Unholy">
+              <Button fluid>{personalUnholyTag}</Button>
+            </LabeledList.Item>
+            {/* SPLURT EDIT END: EXTRA TAGS */}
           </LabeledList>
         </Section>
         <CharacterDirectoryList />
@@ -236,6 +252,7 @@ const CharacterDirectoryList = (props) => {
           >
             Noncon
           </SortButton>
+          {/* SPLURT EDIT START: EXTRA TAGS */}
           <SortButton
             id="extreme"
             sortId={sortId}
@@ -260,6 +277,7 @@ const CharacterDirectoryList = (props) => {
           >
             Unholy
           </SortButton>
+          {/* SPLURT EDIT END: EXTRA TAGS */}
           <Table.Cell collapsing textAlign="right">
             Advert
           </Table.Cell>
@@ -287,6 +305,11 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell>{character.vore}</Table.Cell>
             <Table.Cell>{character.hypno}</Table.Cell>
             <Table.Cell>{character.noncon}</Table.Cell>
+            {/* SPLURT EDIT START: EXTRA TAGS */}
+            <Table.Cell>{character.extreme}</Table.Cell>
+            <Table.Cell>{character.extremeharm}</Table.Cell>
+            <Table.Cell>{character.unholy}</Table.Cell>
+            {/* SPLURT EDIT END: EXTRA TAGS */}
             <Table.Cell collapsing textAlign="right">
               <Button
                 onClick={() => act('view', { ref: character.ref })}

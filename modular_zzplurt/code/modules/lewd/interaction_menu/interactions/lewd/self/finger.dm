@@ -5,6 +5,7 @@
 	user_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
 	usage = INTERACTION_SELF
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA)
+	additional_details = list(INTERACTION_FILLS_CONTAINERS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
 		"cums hard on their fingers",
 		"shudders as they cum on their hand",
@@ -15,7 +16,6 @@
 		"You shudder as you cum on your hand",
 		"You finger yourself to climax"
 	))
-	additional_details = list(INTERACTION_FILLS_CONTAINERS)
 	message = list(
 		"fingers their pussy deep",
 		"fingers their pussy",
@@ -31,14 +31,14 @@
 	user_arousal = 6
 
 /datum/interaction/lewd/finger_self_vagina/act(mob/living/user, mob/living/target)
-	var/obj/item/reagent_containers/liquid_container
+	var/obj/item/liquid_container
 
 	var/obj/item/cached_item = user.get_active_held_item()
-	if(istype(cached_item, /obj/item/reagent_containers))
+	if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 		liquid_container = cached_item
 	else
 		cached_item = user.pulling
-		if(istype(cached_item, /obj/item/reagent_containers))
+		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 			liquid_container = cached_item
 
 	if(liquid_container)
@@ -55,13 +55,13 @@
 /datum/interaction/lewd/finger_self_vagina/post_climax(mob/living/user, mob/living/target, position)
 	if(!ishuman(user))
 		return
-	var/obj/item/reagent_containers/liquid_container
+	var/obj/item/liquid_container
 	var/obj/item/cached_item = user.get_active_held_item()
-	if(istype(cached_item, /obj/item/reagent_containers))
+	if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 		liquid_container = cached_item
 	else
 		cached_item = user.pulling
-		if(istype(cached_item, /obj/item/reagent_containers))
+		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
 			liquid_container = cached_item
 
 	if(liquid_container)
