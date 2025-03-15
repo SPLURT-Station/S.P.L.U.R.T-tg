@@ -6,7 +6,7 @@
 	value = 0
 	gain_text = span_notice("Your limbs feel like they could come off with a bit of effort.")
 	lose_text = span_notice("Your limbs feel more firmly attached.")
-	medical_record_text = "Patient has undergone an experimental ligament hook surgery."
+	medical_record_text = "Patient has detachable limbs."
 	mob_trait = TRAIT_MODULAR_LIMBS
 	icon = FA_ICON_PUZZLE_PIECE
 
@@ -25,7 +25,7 @@
 
 	// Self-amputation ability from Autotomy genetic
 	// Define quirk action
-	var/datum/action/cooldown/spell/self_amputation/modularlimbs/quirk_action = new
+	var/datum/action/cooldown/spell/modularlimbs/quirk_action = new
 
 	// Grant quirk action
 	quirk_action.Grant(quirk_holder)
@@ -44,22 +44,47 @@
 	), TRAIT_MODULAR_LIMBS)
 
 	// Define quirk action
-	var/datum/action/cooldown/spell/self_amputation/modularlimbs/quirk_action = new
+	var/datum/action/cooldown/spell/modularlimbs/quirk_action = new
 
 	// Revoke quirk action
 	quirk_action.Remove(quirk_holder)
 
 // Variant of self amputation spell
-/datum/action/cooldown/spell/self_amputation/modularlimbs
+/datum/action/cooldown/spell/modularlimbs
 	// More descriptive text, with warning
 	name = "Eject a random limb"
-	desc = "Violently eject a random limb from your body. This will hurt."
+	desc = "Eject a random limb from your body."
 
 	// Default ability background
 	background_icon = 'icons/mob/actions/backgrounds.dmi'
 	background_icon_state = ACTION_BUTTON_DEFAULT_BACKGROUND
 	overlay_icon = 'icons/mob/actions/backgrounds.dmi'
 	overlay_icon_state = null
+
+/datum/action/cooldown/spell/modularlimbs/is_valid_target(atom/cast_on)
+	return iscarbon(cast_on)
+
+/datum/action/cooldown/spell/modularlimbs/cast(mob/living/carbon/cast_on)
+	. = ..()
+	if(HAS_TRAIT(cast_on, TRAIT_NODISMEMBER))
+		to_chat(cast_on, span_notice("You concentrate really hard, but nothing happens."))
+		return
+
+	var/list/parts = list()
+	for(var/obj/item/bodypart/to_remove as anything in cast_on.bodyparts)
+		if(to_remove.body_zone == BODY_ZONE_HEAD || to_remove.body_zone == BODY_ZONE_CHEST)
+			continue
+		if(to_remove.bodypart_flags & BODYPART_UNREMOVABLE)
+			continue
+		parts += to_remove
+
+	if(!length(parts))
+		to_chat(cast_on, span_notice("You can't shed any more limbs!"))
+		return
+
+	var/obj/item/bodypart/to_remove = pick(parts)
+	to_remove.drop_limb()
+	playsound(cast_on, 'sound/effects/cartoon_sfx/cartoon_pop.ogg', 70)
 
 // New verb to alter limbs
 /mob/living/proc/alterlimbs()
