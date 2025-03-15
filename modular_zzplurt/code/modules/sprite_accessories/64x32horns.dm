@@ -3,6 +3,7 @@
 	dimension_x = 64
 	dimension_y = 32
 	color_src = USE_MATRIXED_COLORS
+	center = TRUE
 
 /*
 Big Horns

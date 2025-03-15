@@ -15,9 +15,11 @@
 	name = "Tall Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/tall
 
+/* They exist nonmodularly and adding them causes issues with the loadout.
 /datum/loadout_item/shoes/highheels
 	name = "High Heels"
 	item_path = /obj/item/clothing/shoes/highheels
+*/
 
 /datum/loadout_item/shoes/latex
 	name = "Latex Socks"

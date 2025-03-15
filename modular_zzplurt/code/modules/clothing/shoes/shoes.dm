@@ -36,12 +36,14 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/shoes.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
 
+/* They exist nonmodularly and adding them causes issues with the loadout.
 /obj/item/clothing/shoes/highheels
 	name = "high heels"
 	desc = "They make the wearer appear taller, and more noisey!"
 	icon_state = "highheels"
 	icon = 'modular_zzplurt/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/feet.dmi'
+*/
 
 /obj/item/clothing/shoes/highheel_sandals
 	name = "high-heel sandals"

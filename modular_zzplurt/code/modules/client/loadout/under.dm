@@ -89,6 +89,7 @@
 	name = "Carpskin suit"
 	item_path = /obj/item/clothing/under/suit/carpskin
 
+/* They exist nonmodularly and adding them causes issues with the loadout.
 /datum/loadout_item/uniform/suit/pencil
 	name = "Black Pencilskirt"
 	item_path = /obj/item/clothing/under/suit/pencil
@@ -149,6 +150,7 @@
 /datum/loadout_item/uniform/suit/helltaker/skirt
 	name = "Red Shirt with White Skirt"
 	item_path = /obj/item/clothing/under/suit/helltaker/skirt
+*/
 
 /datum/loadout_item/uniform/suit/clussy_outfit
 	name = "Clussy outfit"

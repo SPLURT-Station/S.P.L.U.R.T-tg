@@ -77,6 +77,10 @@
 #define TRAIT_VACUUM_RESIST		"vacuum_resist"
 /// Trait for quirk: Overweight
 #define TRAIT_OVERWEIGHT		"overweight"
+/// Trait for quirk: Trashcan
+#define TRAIT_TRASHCAN			"trashcan"
+/// Trait for quirk: Quick Step
+#define TRAIT_SPEEDY_STEP		"speedy_step"
 
 ///
 // Element traits
