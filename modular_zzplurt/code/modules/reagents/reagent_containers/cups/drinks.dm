@@ -25,3 +25,11 @@
 	desc = "Looks like cola, smells like iron."
 	icon_state = "cola"
 	list_reagents = list(/datum/reagent/blood = 30)
+
+/obj/item/reagent_containers/cup/glass/waterbottle/wataur
+	name = "Bottle of Wataur"
+	desc = "Finally, a bottle as proportionate as you."
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "wataur"
+	list_reagents = list(/datum/reagent/water = 100)
+	volume = 100
