@@ -730,6 +730,13 @@
 /obj/effect/mapping_helpers/damaged_window,
 /turf/open/indestructible/plating,
 /area/misc/hilbertshotel)
+"Og" = (
+/obj/machinery/room_controller/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/hilbertshotel)
 "PC" = (
 /obj/machinery/firealarm/directional/north{
 	soundloop = /datum/looping_sound/firealarm;
@@ -1193,7 +1200,7 @@ cA
 cK
 Jr
 bl
-jp
+Og
 Rt
 Ka
 uN

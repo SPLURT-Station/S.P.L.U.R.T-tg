@@ -33,6 +33,10 @@
 /obj/effect/decal/remains/xeno,
 /turf/open/misc/dirt/jungle/dark,
 /area/misc/hilbertshotel)
+"gr" = (
+/obj/structure/barricade/wooden/crude,
+/turf/open/misc/dirt/jungle/dark,
+/area/misc/hilbertshotel)
 "gQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/large,
@@ -269,7 +273,9 @@
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Je" = (
-/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/machinery/room_controller/directional/north{
+	layer = 3.5
+	},
 /turf/open/misc/dirt/jungle/dark,
 /area/misc/hilbertshotel)
 "JW" = (
@@ -421,7 +427,7 @@ Zq
 "}
 (4,1,1) = {"
 Zq
-Zq
+gr
 Je
 Tu
 DX

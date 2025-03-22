@@ -49,6 +49,11 @@
  */
 /datum/component/wall_mounted/proc/on_turf_changing(datum/source, path, new_baseturfs, flags, post_change_callbacks)
 	SIGNAL_HANDLER
+	// SPLURT ADD START - Hilbert's Hotel room saving workaround
+	var/obj/hanging_parent = parent
+	if(hanging_parent.resistance_flags & INDESTRUCTIBLE)
+		return
+	// SPLURT ADD END
 	if (ispath(path, /turf/open))
 		drop_wallmount()
 
@@ -58,6 +63,11 @@
  */
 /datum/component/wall_mounted/proc/on_move(datum/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
+	// SPLURT ADD START - Hilbert's Hotel room saving workaround
+	var/obj/hanging_parent = parent
+	if(hanging_parent.resistance_flags & INDESTRUCTIBLE)
+		return
+	// SPLURT ADD END
 	// If we're having our lighting messed with we're likely to get dragged about
 	// That shouldn't lead to a decon
 	if(HAS_TRAIT(parent, TRAIT_LIGHTING_DEBUGGED))
@@ -71,6 +81,11 @@
 /datum/component/wall_mounted/proc/drop_wallmount()
 	SIGNAL_HANDLER
 	var/obj/hanging_parent = parent
+
+	// SPLURT ADD START - Hilbert's Hotel room saving workaround
+	if(hanging_parent.resistance_flags & INDESTRUCTIBLE)
+		return
+	// SPLURT ADD END
 
 	if(on_drop)
 		hanging_parent.visible_message(message = span_warning("\The [hanging_parent] falls off the wall!"), vision_distance = 5)
@@ -96,7 +111,7 @@
 		attachable_wall = get_step(src, dir)
 	else
 		attachable_wall = loc ///Pull from the curent object loc
-	if(!iswallturf(attachable_wall))
+	if(!isclosedturf(attachable_wall)) // SPLURT EDIT - was `!iswallturf(attachable_wall)`
 		return FALSE//Nothing to latch onto, or not the right thing.
 	src.AddComponent(/datum/component/wall_mounted, attachable_wall, custom_drop_callback)
 	return TRUE

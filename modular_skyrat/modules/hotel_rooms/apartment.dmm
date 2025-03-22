@@ -38,13 +38,7 @@
 /obj/machinery/light_switch/directional/north{
 	pixel_x = 18
 	},
-/obj/structure/showcase{
-	name = "doorphone";
-	icon = 'modular_skyrat/modules/aesthetics/intercom/icons/intercom.dmi';
-	icon_state = "intercom";
-	pixel_y = 24;
-	density = 0
-	},
+/obj/machinery/room_controller/directional/north,
 /turf/open/floor/carpet/lone,
 /area/misc/hilbertshotel)
 "cz" = (

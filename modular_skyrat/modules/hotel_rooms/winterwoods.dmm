@@ -5,7 +5,6 @@
 "aI" = (
 /obj/structure/flora/bush/snow/style_random,
 /mob/living/basic/pet/penguin/baby/permanent/snowdin,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "aL" = (
@@ -27,14 +26,12 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "cg" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 4
 	},
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "cI" = (
@@ -67,18 +64,15 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/clothing/under/costume/soviet,
 /obj/item/clothing/under/costume/soviet,
-/obj/effect/overlay/light_snow,
 /obj/item/gun/ballistic/revolver/nagant,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "es" = (
 /obj/item/grown/log/tree,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "fQ" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "fS" = (
@@ -93,7 +87,6 @@
 /area/misc/hilbertshotel/winterwoods)
 "gD" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/effect/overlay/light_snow,
 /turf/closed/indestructible/rock/snow/ice/ore,
 /area/misc/hilbertshotel/winterwoods)
 "ht" = (
@@ -107,6 +100,7 @@
 	dir = 1
 	},
 /obj/item/toy/plush/skyrat/snow_owl,
+/obj/machinery/room_controller/directional/west,
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel/winterwoods)
 "kv" = (
@@ -115,17 +109,14 @@
 	color = "#76502e";
 	name = "Lover's Watch"
 	},
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "lf" = (
-/obj/effect/overlay/light_snow,
 /obj/structure/flora/bush/snow/style_4,
 /obj/structure/flora/tree/pine,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "mU" = (
-/obj/effect/overlay/light_snow,
 /obj/structure/flora/bush/snow/style_4,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
@@ -159,7 +150,6 @@
 /area/misc/hilbertshotel/winterwoods)
 "tT" = (
 /obj/structure/flora/bush/snow/style_random,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "ua" = (
@@ -186,11 +176,9 @@
 /area/misc/hilbertshotel/winterwoods)
 "uY" = (
 /obj/item/wisp_lantern,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "wq" = (
-/obj/effect/overlay/light_snow,
 /obj/effect/decal/remains/plasma,
 /turf/open/floor/fakeice/slippery,
 /area/misc/hilbertshotel/winterwoods)
@@ -207,15 +195,12 @@
 /area/misc/hilbertshotel/winterwoods)
 "xR" = (
 /obj/structure/flora/tree/pine/style_random,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "yd" = (
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "yf" = (
-/obj/effect/overlay/light_snow,
 /obj/structure/flora/tree/dead/style_random,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
@@ -224,16 +209,13 @@
 /area/misc/hilbertshotel/winterwoods)
 "AY" = (
 /obj/structure/flora/grass/both/style_random,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "Cs" = (
-/obj/effect/overlay/light_snow,
 /obj/structure/flora/tree/pine,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "CC" = (
-/obj/effect/overlay/light_snow,
 /turf/open/lava/plasma/biodome,
 /area/misc/hilbertshotel/winterwoods)
 "Dx" = (
@@ -242,7 +224,6 @@
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "EN" = (
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fakeice/slippery,
 /area/misc/hilbertshotel/winterwoods)
 "ET" = (
@@ -257,7 +238,6 @@
 /area/misc/hilbertshotel/winterwoods)
 "Hg" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/effect/overlay/light_snow,
 /obj/structure/statue/snow/snowman,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
@@ -276,7 +256,6 @@
 /turf/closed/indestructible/wood,
 /area/misc/hilbertshotel/winterwoods)
 "Jv" = (
-/obj/effect/overlay/light_snow,
 /turf/open/floor/plating/snowed/smoothed{
 	planetary_atmos = 0
 	},
@@ -292,7 +271,6 @@
 /area/misc/hilbertshotel/winterwoods)
 "Mr" = (
 /obj/effect/turf_decal/weather/snow,
-/obj/effect/overlay/light_snow,
 /turf/open/misc/dirt/jungle,
 /area/misc/hilbertshotel/winterwoods)
 "MJ" = (
@@ -307,7 +285,6 @@
 /area/misc/hilbertshotel/winterwoods)
 "No" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/plating/snowed/smoothed{
 	planetary_atmos = 0
 	},
@@ -315,19 +292,16 @@
 "OB" = (
 /obj/structure/bonfire/prelit,
 /obj/effect/turf_decal/weather/snow,
-/obj/effect/overlay/light_snow,
 /turf/open/misc/dirt/jungle,
 /area/misc/hilbertshotel/winterwoods)
 "OH" = (
 /mob/living/basic/pet/penguin/baby/permanent/snowdin,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "ON" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "Qb" = (
@@ -335,7 +309,6 @@
 	dir = 4
 	},
 /obj/structure/railing/wooden_fencing,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "Tt" = (
@@ -362,7 +335,6 @@
 	name = "Lover's Watch"
 	},
 /obj/structure/railing/wooden_fencing,
-/obj/effect/overlay/light_snow,
 /turf/open/floor/fake_snow/safe,
 /area/misc/hilbertshotel/winterwoods)
 "ZK" = (
@@ -391,12 +363,12 @@ rB
 "}
 (2,1,1) = {"
 rB
-Lw
-Lw
+rB
+rB
 yd
 yd
-Lw
-Lw
+rB
+rB
 gD
 AG
 Yk
@@ -408,10 +380,10 @@ rB
 "}
 (3,1,1) = {"
 rB
-Lw
+rB
 tT
 yd
-wr
+yf
 yd
 yd
 fQ
@@ -443,7 +415,7 @@ rB
 (5,1,1) = {"
 rB
 yd
-MJ
+Cs
 yd
 lf
 yd
@@ -464,7 +436,7 @@ yd
 Mr
 yd
 yd
-wr
+yf
 fQ
 AG
 Jn
@@ -476,7 +448,7 @@ rB
 "}
 (7,1,1) = {"
 rB
-MJ
+Cs
 Mr
 OB
 Mr
@@ -497,7 +469,7 @@ yd
 es
 Mr
 yd
-wr
+yf
 No
 Jv
 AY
@@ -505,7 +477,7 @@ Jv
 yd
 yd
 yd
-MJ
+Cs
 rB
 "}
 (9,1,1) = {"
@@ -520,7 +492,7 @@ Jv
 Jv
 Jv
 yd
-MJ
+Cs
 EN
 yd
 rB
@@ -528,31 +500,31 @@ rB
 (10,1,1) = {"
 rB
 yd
-wr
+yf
 yd
-wr
+yf
 yd
 Cs
 EN
 yd
-wr
+yf
 uY
 kv
 YY
-Lw
+rB
 rB
 "}
 (11,1,1) = {"
 rB
-Dx
+AY
 OH
 yd
-Dx
+AY
 yd
 yd
-wr
+yf
 yd
-MJ
+Cs
 cg
 cg
 Qb
@@ -561,9 +533,9 @@ rB
 "}
 (12,1,1) = {"
 rB
-MJ
+Cs
 yd
-wr
+yf
 yd
 yd
 yf
@@ -579,18 +551,18 @@ rB
 (13,1,1) = {"
 rB
 yd
-Dx
+AY
 yd
 AY
 yd
 Jv
 yd
-MJ
+Cs
 CC
 CC
 CC
 CC
-Lw
+rB
 rB
 "}
 (14,1,1) = {"
@@ -601,7 +573,7 @@ EN
 yd
 Cs
 yd
-Dx
+AY
 EN
 CC
 CC
@@ -613,7 +585,7 @@ rB
 (15,1,1) = {"
 rB
 yd
-Ve
+ET
 yd
 yd
 yd
@@ -624,7 +596,7 @@ wq
 CC
 CC
 CC
-Lw
+rB
 rB
 "}
 (16,1,1) = {"
