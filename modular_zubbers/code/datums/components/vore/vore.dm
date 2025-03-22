@@ -3,7 +3,7 @@
 	desc = "<b>Left Click</b> to switch into vore mode<br><b>Right click</b> to see the vore UI<br>When aggressively grabbing someone in vore mode:<br><ul><li>Click on <b>yourself</b> to eat them</li><li>Click on <b>them</b> to feed yourself to them</li><li>Click on <b>someone else</b> to feed them who you're holding</li></ul>"
 	click_action = TRUE
 	ranged_mousepointer = 'modular_zubbers/icons/effects/mouse_pointers/vore.dmi'
-	default_button_position = "EAST-5:22,SOUTH+1:5" // We're bottom left, it's bottom right, it's perfect // SPLURT EDIT - reset if we remove intents
+	default_button_position = "EAST-4:-10,SOUTH:5" // We're bottom left, it's bottom right, it's perfect
 
 	background_icon = 'modular_zubbers/icons/mob/actions/vore.dmi'
 	background_icon_state = "bg"

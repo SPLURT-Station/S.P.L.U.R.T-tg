@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		if (targetMob.ckey)
 			.["last_ckey"] = copytext(targetMob.ckey, 2)
 
-/datum/player_panel/ui_static_data()
+/datum/player_panel/ui_static_data(mob/user)
 	. = list()
 
 	.["transformables"] = GLOB.pp_transformables
@@ -85,8 +85,8 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		.["data_related_cid"] = targetClient.related_accounts_cid
 		.["data_related_ip"] = targetClient.related_accounts_ip
 
-		var/datum/persistent_client/PC = GLOB.persistent_clients[targetClient.ckey]
-		.["data_old_names"] = PC.get_played_names() || null
+		var/datum/persistent_client/PC = GLOB.persistent_clients_by_ckey[targetClient.ckey]
+		.["data_old_names"] = PC?.get_played_names() || null
 
 		var/list/player_ranks = list()
 		if(SSplayer_ranks.is_donator(targetClient, admin_bypass = FALSE))

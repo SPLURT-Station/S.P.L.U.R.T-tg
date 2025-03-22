@@ -85,28 +85,31 @@ class SurgeryInitiatorInner extends Component<
               />
             </Stack.Item>
 
-            <Stack.Item width="95%">
-              <Stack vertical height="100%">
+            {/* SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream */}
+            <Stack.Item width="70%" style={{ overflowY: 'auto' }}>
+              <Stack vertical>
                 {surgeries.map((surgery, index) => (
-                  <Button
-                    onClick={() => {
-                      act('start_surgery', {
-                        surgery_name: surgery.name,
-                      });
-                    }}
-                    disabled={surgery.blocked}
-                    selected={index === this.state.selectedSurgeryIndex}
-                    tooltip={
-                      surgery.blocked
-                        ? (surgery.blocked_reason ??
-                          'That surgery is unavailable!')
-                        : undefined
-                    } // SKYRAT EDIT - ORIGINAL: tooltip={surgery.blocked ? "Their body is covered!" : undefined}
-                    key={surgery.name}
-                    fluid
-                  >
-                    {surgery.name}
-                  </Button>
+                  <Stack.Item key={surgery.name}>
+                    <Button
+                      onClick={() => {
+                        act('start_surgery', {
+                          surgery_name: surgery.name,
+                        });
+                      }}
+                      disabled={surgery.blocked}
+                      selected={index === this.state.selectedSurgeryIndex}
+                      tooltip={
+                        surgery.blocked
+                          ? (surgery.blocked_reason ??
+                            'That surgery is unavailable!')
+                          : undefined
+                      }
+                      fluid
+                    >
+                      {surgery.name}
+                    </Button>
+                  </Stack.Item>
+                  /* SPLURT TEMPORARY FIX END */
                 ))}
               </Stack>
             </Stack.Item>

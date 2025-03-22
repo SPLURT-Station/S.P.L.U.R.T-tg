@@ -85,7 +85,16 @@ export function TechwebOverview(props) {
           </Flex.Item>
         </Flex>
       </Flex.Item>
-      <Flex.Item className="Techweb__OverviewNodes" height="100%">
+      {/* SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream */}
+      <Flex.Item
+        className="Techweb__OverviewNodes"
+        grow={1}
+        style={{
+          minHeight: 0,
+          overflowY: 'auto',
+        }}
+      >
+        {/* SPLURT TEMPORARY FIX END*/}
         <VirtualList key={tabIndex + searchText}>
           {displayedNodes.map((n) => (
             <TechNode node={n} key={n.id} />
