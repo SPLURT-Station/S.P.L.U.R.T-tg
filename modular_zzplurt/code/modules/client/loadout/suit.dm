@@ -99,3 +99,8 @@
 	name = "Fed (Modern) uniform, Yellow"
 	item_path = /obj/item/clothing/suit/storage/fluff/modernfedcoat/eng
 	restricted_roles = list(JOB_CHIEF_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_STATION_ENGINEER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_QUARTERMASTER)
+
+/datum/loadout_item/suit/armored_harness
+	name = "Armored Harness"
+	item_path = /obj/item/clothing/suit/armor/vest/harness
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_CENTRAL, JOB_CAPTAIN, JOB_ORDERLY, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BOUNCER, JOB_SCIENCE_GUARD)

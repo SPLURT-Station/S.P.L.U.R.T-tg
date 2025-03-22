@@ -94,3 +94,12 @@
 	name = "yellow trencher coat"
 	desc = "A trench coat of the boring wars. This one have yellow insignias."
 	icon_state = "goner_suit_y"
+
+/obj/item/clothing/suit/armor/vest/harness
+	name = "armored harness"
+	desc = "A simple, inconspicuous harness replacement for an armor vest."
+	icon = 'modular_zubbers/icons/obj/clothing/suits.dmi'
+	icon_state = "suit_harness"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/suits.dmi'
+	worn_icon_state = "suit_harness"
+	inhand_icon_state = "armor"
