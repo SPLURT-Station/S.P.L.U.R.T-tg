@@ -4,3 +4,5 @@
  * This puts this last on priority, very far from other subsystems,
 */
 #define INIT_ORDER_INTERACTIONS		-150
+
+#define INIT_ORDER_HILBERTSHOTEL -160
