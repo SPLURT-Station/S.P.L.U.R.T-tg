@@ -88,3 +88,33 @@
 /datum/loadout_item/mask/donator/chameleon
 	name = "Chameleon Mask"
 	item_path = /obj/item/clothing/mask/chameleon
+
+// Plushies
+/datum/loadout_item/toys/donator/chaotic_toaster
+	name = "Chaotic Toaster"
+	item_path = /obj/item/toy/plush/chaotic_toaster
+
+/datum/loadout_item/toys/donator/synth_plushie
+	name = "Synth Plushie"
+	item_path = /obj/item/toy/plush/Synth
+
+/datum/loadout_item/toys/donator/mal0_plushie
+	name = "Mal0 Plushie"
+	item_path = /obj/item/toy/plush/mal0
+
+/datum/loadout_item/toys/donator/foth_plushie
+	name = "Foth Plushie"
+	item_path = /obj/item/toy/plush/foth
+
+/datum/loadout_item/toys/donator/braixen_plushie
+	name = "Braixen Plushie"
+	item_path = /obj/item/toy/plush/braixen
+
+/datum/loadout_item/toys/donator/ethanol_shark_plushie
+	name = "Ethanol shark plushie"
+	item_path = /obj/item/toy/plush/ethanol_shark
+
+/datum/loadout_item/toys/donator/thomas_plushie
+	name = "Thomas Plushie"
+	item_path = /obj/item/toy/plush/thomas_plush
+
