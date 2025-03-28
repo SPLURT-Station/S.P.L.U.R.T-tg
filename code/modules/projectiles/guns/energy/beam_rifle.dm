@@ -32,7 +32,7 @@
 		return
 
 	. = ..()
-	message_admins("[ADMIN_LOOKUPFLW(user)] has fired an anti-existential beam at [ADMIN_VERBOSEJMP(user)].")
+	// message_admins("[ADMIN_LOOKUPFLW(user)] has fired an anti-existential beam at [ADMIN_VERBOSEJMP(user)].") SPLURT EDIT
 
 /obj/item/ammo_casing/energy/event_horizon
 	projectile_type = /obj/projectile/beam/event_horizon
