@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(title)
 
 		if(LAZYLEN(formatted_list) > 1 && LOWER_TEXT(formatted_list[1]) == "startup_splash")
 			var/file_path = "[global.config.directory]/title_screens/images/[screen]"
+			splashscreen_name = screen // SPLURT EDIT ADDITION - Roundend Embeds
 			ASSERT(fexists(file_path))
 			startup_splash = new(fcopy_rsc(file_path))
 
@@ -64,6 +65,7 @@ SUBSYSTEM_DEF(title)
 			ASSERT(fexists(file_path))
 			var/icon/title2use = new(fcopy_rsc(file_path))
 			title_screens += title2use
+			title_screen_names[title2use] = i // SPLURT EDIT ADDITION - Roundend Embeds
 
 	return SS_INIT_SUCCESS
 

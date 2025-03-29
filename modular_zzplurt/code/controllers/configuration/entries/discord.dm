@@ -7,3 +7,16 @@
 /datum/config_entry/flag/discord_bunker
 
 /datum/config_entry/flag/forced_discord_stay
+
+/datum/config_entry/flag/roundend_embeds
+
+/datum/config_entry/string/roundend_ping_role
+
+/datum/config_entry/string/roundend_image_url
+
+/datum/config_entry/string/roundend_thumbnail_url
+
+/datum/config_entry/string/roundend_splashscreen_url
+
+/datum/config_entry/string/splashscreen_webserver_path
+

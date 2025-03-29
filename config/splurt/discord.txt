@@ -18,3 +18,27 @@
 ## Uncomment this if your players need to remain in the discord to keep verification ##
 ## Note, this only produces aesthetic changes, the real magic happens with the redbot modules
 #FORCED_DISCORD_STAY
+
+# Roundend embeds
+## Overrides the roundend messages with a custom embed system
+#ROUNDEND_EMBEDS
+
+# Roundend ping role
+## Role to ping with the roundend message. So we can ping users when the round ends so they can prepare and also when the round starts.
+#ROUNDEND_PING_ROLE
+
+# Roundend image URL
+## The URL of the image to show in the roundend embed
+#ROUNDEND_IMAGE_URL
+
+# Roundend thumbnail URL
+## The URL of the thumbnail to show in the roundend embed
+#ROUNDEND_THUMBNAIL_URL
+
+# Roundend splashscreen URL
+## The URL to use in case we want to override the discord roundend embed image with a splashscreen
+#ROUNDEND_SPLASHSCREEN_URL
+
+# Splashscreen webserver path
+## The path to copy splashscreen images to on the webserver so they can be loaded later by discord
+#SPLASHSCREEN_WEBSERVER_PATH
