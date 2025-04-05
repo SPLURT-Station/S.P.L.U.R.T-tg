@@ -3,7 +3,7 @@
 	name = "KITTY POWER!!"
 	desc = "Take on the shape of a kitty cat! Gain their powers at a loss of vitality."
 
-	cooldown_time = 20 SECONDS
+	cooldown_time = 120 SECONDS
 	invocation = "MRR MRRRW!!"
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC

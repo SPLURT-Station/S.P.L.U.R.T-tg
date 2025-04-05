@@ -94,7 +94,7 @@
 /mob/living/basic/pet/cat/syndicat/super
 	name = "Super Syndie Cat"
 	desc = "OH GOD! RUN!! IT CAN SMELL THE DISK!"
-	speed = 0.3 // Slightly slower than a normal super cat since they have a suit
+	speed = 0.6 // Slightly slower than a normal super cat since they have a suit
 	health = SYNDIE_SUPER_KITTY_HEALTH
 	maxHealth = SYNDIE_SUPER_KITTY_HEALTH
 
