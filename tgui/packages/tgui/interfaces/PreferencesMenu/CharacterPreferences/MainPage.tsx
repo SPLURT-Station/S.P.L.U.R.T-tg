@@ -636,6 +636,16 @@ export function MainPage(props: MainPageProps) {
       <Stack height={`${CLOTHING_SIDEBAR_ROWS * CLOTHING_CELL_SIZE}px`}>
         <Stack.Item>
           <Stack vertical fill>
+            <Stack.Item position="relative">
+              <NameInput
+                name={data.character_preferences.names[data.name_to_use]}
+                handleUpdateName={createSetPreference(act, data.name_to_use)}
+                openMultiNameInput={() => {
+                  setMultiNameInputOpen(true);
+                }}
+              />
+            </Stack.Item>
+
             <Stack.Item>
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
@@ -688,16 +698,6 @@ export function MainPage(props: MainPageProps) {
               <CharacterPreview
                 height="100%"
                 id={data.character_preview_view}
-              />
-            </Stack.Item>
-
-            <Stack.Item position="relative">
-              <NameInput
-                name={data.character_preferences.names[data.name_to_use]}
-                handleUpdateName={createSetPreference(act, data.name_to_use)}
-                openMultiNameInput={() => {
-                  setMultiNameInputOpen(true);
-                }}
               />
             </Stack.Item>
           </Stack>
