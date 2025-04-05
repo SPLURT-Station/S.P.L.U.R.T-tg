@@ -26,11 +26,11 @@ SUBSYSTEM_DEF(interactions)
 	prepare_interactions()
 	prepare_blacklisted_mobs()
 	prepare_genital_fluids()
-	. = ..()
 	var/extra_info = "<font style='transform: translate(0%, -25%);'>↳</font> Loaded [LAZYLEN(interactions)] interactions!"
 	to_chat(world, span_boldannounce(extra_info))
 	log_config(extra_info)
-
+	return SS_INIT_SUCCESS
+	
 /datum/controller/subsystem/interactions/stat_entry(msg)
 	msg += "|🖐:[LAZYLEN(interactions)]|"
 	msg += "🚫👨:[LAZYLEN(blacklisted_mobs)]"

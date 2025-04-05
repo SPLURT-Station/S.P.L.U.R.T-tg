@@ -227,7 +227,6 @@
 /area/misc/hilbertshotel)
 "uX" = (
 /obj/structure/table/wood/poker,
-/obj/item/stack/spacecash/c1000,
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "wb" = (
@@ -255,7 +254,6 @@
 /area/misc/hilbertshotel)
 "xT" = (
 /obj/structure/table/wood/poker,
-/obj/item/stack/spacecash/c1000,
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "zA" = (
@@ -376,7 +374,6 @@
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "JW" = (
-/obj/machinery/vending/boozeomat/all_access,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
@@ -487,8 +484,9 @@
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "UQ" = (
-/obj/machinery/vending/boozeomat/all_access,
-/turf/open/floor/wood,
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/room_controller/directional/east,
+/turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "UU" = (
 /obj/structure/closet/emcloset,
@@ -594,7 +592,7 @@ oZ
 Oh
 Je
 jr
-jr
+UQ
 jr
 fi
 zY
@@ -636,7 +634,7 @@ oZ
 oZ
 oZ
 oZ
-UQ
+Dc
 HL
 oZ
 "}

@@ -12,3 +12,12 @@
 
 ## Should cyborg sleepers be functional?
 ENABLE_DOGBORG_SLEEPERS
+
+## Hilbert's Hotel
+# Toggle on to enable Hilbert's hotel and its functionalities
+# Editing in round will require to reinitialize the hilbert's hotel controller and might cause issues with infinidorms entry points
+HILBERTSHOTEL_ENABLED
+
+## Max rooms that can be spawned by hilbert's hotel
+# -1 for infinity
+#HILBERTSHOTEL_MAX_ROOMS 100
