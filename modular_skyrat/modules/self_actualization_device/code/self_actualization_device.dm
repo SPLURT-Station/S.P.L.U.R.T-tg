@@ -214,6 +214,11 @@
 	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient, visuals_only = TRUE)
 	patient.dna.update_dna_identity()
 	SSquirks.AssignQuirks(patient, patient.client)
+	// SPLURT ADDITION START - Fix of naga with shoes
+	var/taur_mode = patient.get_taur_mode()
+	if(taur_mode & STYLE_TAUR_SNAKE)
+		patient.dropItemToGround(patient.shoes, TRUE)
+	// SPLURT ADDITION END - Fix of naga with shoes
 	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
 
 	if(patient.dna.real_name != original_name)
