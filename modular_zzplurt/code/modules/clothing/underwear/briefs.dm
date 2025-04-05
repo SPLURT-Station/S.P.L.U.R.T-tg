@@ -1,7 +1,7 @@
 /obj/item/clothing/underwear/briefs
 	name = "briefs"
 	desc = "Not going commando."
-	icon_state = "briefs"
+	icon_state = "male_briefs"
 	body_parts_covered = GROIN
 	extra_slot_flags = ITEM_SLOT_UNDERWEAR
 

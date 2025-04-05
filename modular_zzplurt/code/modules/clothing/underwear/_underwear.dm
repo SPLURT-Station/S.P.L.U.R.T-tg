@@ -4,7 +4,7 @@
 	desc = "If you're reading this, something went wrong."
 	icon = 'modular_zzplurt/icons/mob/clothing/underwear.dmi' //if someone is willing to make proper inventory sprites that'd be very cash money
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/underwear_digi.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
 	body_parts_covered = GROIN
 	slot_flags = null //These should use the extra slots
 	extra_slot_flags = NONE

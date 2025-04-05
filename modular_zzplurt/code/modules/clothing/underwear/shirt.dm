@@ -1,7 +1,7 @@
 /obj/item/clothing/underwear/shirt
 	name = "shirt"
 	desc = "A shirt."
-	icon_state = "undershirt"
+	icon_state = "shirt_white"
 	body_parts_covered = CHEST | ARMS
 	extra_slot_flags = ITEM_SLOT_SHIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

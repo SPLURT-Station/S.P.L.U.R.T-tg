@@ -48,5 +48,9 @@
 				continue
 			mannequin.add_quirk(quirk_type, parent)
 
+	// SPLURT EDIT START - Ensure underwear updates properly when preview body changes
+	mannequin.update_underwear_on_bodytype_change()
+	// SPLURT EDIT END
+
 	mannequin.update_body()
 	return mannequin.appearance
