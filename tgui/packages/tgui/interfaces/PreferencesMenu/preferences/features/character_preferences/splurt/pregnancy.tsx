@@ -1,4 +1,10 @@
-import { CheckboxInput, Feature, FeatureChoiced, FeatureNumberInput, FeatureToggle } from '../../base';
+import {
+  CheckboxInput,
+  Feature,
+  FeatureChoiced,
+  FeatureNumberInput,
+  FeatureToggle,
+} from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const pregnancy_chance: Feature<number> = {
@@ -10,8 +16,7 @@ export const pregnancy_chance: Feature<number> = {
 
 export const pregnancy_duration: Feature<number> = {
   name: 'Pregnancy: Duration',
-  description:
-    'How long, in minutes, your characters pregnancy will last.',
+  description: 'How long, in minutes, your characters pregnancy will last.',
   component: FeatureNumberInput,
 };
 
@@ -32,19 +37,22 @@ export const pregnancy_egg_duration: Feature<number> = {
 
 export const pregnancy_oviposition: FeatureToggle = {
   name: 'Pregnancy: Oviposition',
-  description: 'Whether or not your character will lay an egg instead of giving birth.',
+  description:
+    'Whether or not your character will lay an egg instead of giving birth.',
   component: CheckboxInput,
 };
 
 export const pregnancy_cryptic: FeatureToggle = {
   name: 'Pregnancy: Cryptic',
-  description: 'Cryptic pregnancies cannot be medically detected, no matter the stage.',
+  description:
+    'Cryptic pregnancies cannot be medically detected, no matter the stage.',
   component: CheckboxInput,
 };
 
 export const pregnancy_belly_inflation: FeatureToggle = {
   name: 'Pregnancy: Belly inflation',
-  description: 'When toggled, pregnancy will make your characters belly increase in size.',
+  description:
+    'When toggled, pregnancy will make your characters belly increase in size.',
   component: CheckboxInput,
 };
 
@@ -56,7 +64,8 @@ export const pregnancy_insemination_womb: FeatureToggle = {
 
 export const pregnancy_insemination_vagina: FeatureToggle = {
   name: 'Pregnancy: Vaginal insemination',
-  description: 'When toggled, you can get impregnated from vaginal insemination.',
+  description:
+    'When toggled, you can get impregnated from vaginal insemination.',
   component: CheckboxInput,
 };
 

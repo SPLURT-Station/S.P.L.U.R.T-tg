@@ -137,7 +137,7 @@
 
 /datum/component/pregnancy/process(seconds_per_tick)
 	if(!isliving(parent))
-		pregnancy_progress += seconds_per_tick
+		pregnancy_progress += (seconds_per_tick SECONDS)
 		var/previous_stage = pregnancy_stage
 		pregnancy_stage = min(FLOOR((pregnancy_progress / pregnancy_duration) * 5, 1), 5)
 		if(pregnancy_stage >= 5)
