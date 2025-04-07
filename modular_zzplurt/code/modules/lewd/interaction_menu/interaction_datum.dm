@@ -129,6 +129,11 @@
 	var/nonhuman_client_bypass_user = !ishuman(user) && !user.client && !SSinteractions.is_blacklisted(user)
 	var/nonhuman_client_bypass_target = !ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target)
 
+	#ifdef TESTING
+	nonhuman_client_bypass_user = TRUE
+	nonhuman_client_bypass_target = TRUE
+	#endif
+
 	var/mob/living/carbon/human/human_user = user
 	var/mob/living/carbon/human/human_target = target
 

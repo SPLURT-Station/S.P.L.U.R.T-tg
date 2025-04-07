@@ -83,6 +83,9 @@
 /// Trait for quirk: Quick Step
 #define TRAIT_SPEEDY_STEP		"speedy_step"
 
+/// Trait that makes you unable to get pregnant, make people pregnant, and triggers abortions too
+#define TRAIT_INFERTILE "pregnancy_infertile"
+
 ///
 // Element traits
 ///
