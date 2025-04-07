@@ -46,6 +46,7 @@ GLOBAL_LIST_INIT(pregnancy_egg_skins, list( \
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 
 /obj/item/food/egg/oviposition/spawn_impact_chick(turf/spawn_turf)
+	/* redo this with new epic pregnant component
 	var/datum/component/pregnancy/pregnancy = GetComponent(/datum/component/pregnancy)
 	if(!pregnancy)
 		return
@@ -55,3 +56,4 @@ GLOBAL_LIST_INIT(pregnancy_egg_skins, list( \
 	baby_type_name ||= pregnancy.baby_type::name
 	visible_message(span_notice("\A [baby_type_name] comes out of the cracked egg!"))
 	pregnancy.give_birth(loc)
+	*/

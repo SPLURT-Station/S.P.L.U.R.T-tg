@@ -28,7 +28,7 @@
 	var/pregnancy_flags = NONE
 
 	/// How long until the baby is ready to do hard labor
-	var/pregnancy_duration = PREGNANCY_DURATION_DEFAULT
+	var/pregnancy_duration = PREGNANCY_DURATION_DEFAULT * PREGNANCY_DURATION_MULTIPLIER
 
 	/// How long until the egg hatches
 	var/pregnancy_egg_duration = PREGNANCY_EGG_DURATION
@@ -61,6 +61,11 @@
 		stack_trace("Invalid egg_type given to pregnancy component!")
 		return COMPONENT_INCOMPATIBLE
 
+	var/atom/atomic_habits = parent
+	if(atomic_habits.GetComponent(/datum/component/pregnant))
+		stack_trace("NEVER double pregnant someone. This is the horror.")
+		return COMPONENT_INCOMPATIBLE
+
 	mother_dna = new()
 	if(ishuman(mother))
 		var/mob/living/carbon/human/baby_momma = mother
@@ -85,14 +90,13 @@
 		var/client/preference_source = GET_CLIENT(baby_momma)
 		if(preference_source)
 			pregnancy_flags = NONE
-			if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oviposition))
-				pregnancy_flags |= PREGNANCY_FLAG_OVIPOSITION
 			if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/cryptic))
 				pregnancy_flags |= PREGNANCY_FLAG_CRYPTIC
 			if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/belly_inflation))
 				pregnancy_flags |= PREGNANCY_FLAG_BELLY_INFLATION
 
-			pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_DIVIDER
+			pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration)
+			pregnancy_egg_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration/egg)
 			pregnancy_genetic_distribution = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/genetic_distribution)
 	else
 		RegisterSignal(parent, COMSIG_ATOM_BREAK, PROC_REF(on_atom_break))
@@ -139,22 +143,22 @@
 	if(!isliving(parent))
 		pregnancy_progress += (seconds_per_tick SECONDS)
 		var/previous_stage = pregnancy_stage
-		pregnancy_stage = min(FLOOR((pregnancy_progress / pregnancy_duration) * 5, 1), 5)
+		pregnancy_stage = min(FLOOR((pregnancy_progress / (pregnancy_egg_duration * PREGNANCY_DURATION_MULTIPLIER)) * 5, 1), 5)
 		if(pregnancy_stage >= 5)
 			var/atom/thingamabob = parent
 			if(previous_stage < 5)
 				thingamabob.audible_message(span_warning("[thingamabob] starts shaking and rumbling!"))
-			else
-				give_birth(get_turf(thingamabob))
+			else if(SPT_PROB(5, seconds_per_tick))
+				INVOKE_ASYNC(src, PROC_REF(gestate))
 				qdel(src)
 		return
 
 	if(HAS_TRAIT(parent, TRAIT_STASIS))
 		return
 
-	pregnancy_progress += seconds_per_tick
+	pregnancy_progress += (seconds_per_tick SECONDS)
 	var/previous_stage = pregnancy_stage
-	pregnancy_stage = min(FLOOR((pregnancy_progress / pregnancy_duration) * 5, 1), 5)
+	pregnancy_stage = min(FLOOR((pregnancy_progress / (pregnancy_duration * PREGNANCY_DURATION_MULTIPLIER)) * 5, 1), 5)
 
 	var/mob/living/baby_momma = parent
 	if(pregnancy_stage >= 2)
@@ -163,9 +167,9 @@
 			to_chat(baby_momma, span_warning("You can feel some pressure build up against your chest cavity."))
 		//big wave of nausea every 40 seconds or so
 		else
-			if(SPT_PROB(3, seconds_per_tick))
+			if(SPT_PROB(1.5, seconds_per_tick))
 				baby_momma.adjust_disgust(30)
-				to_chat(baby_momma, span_warning("Something squirms inside you."))
+				to_chat(baby_momma, span_warning("Something [pick("squirms", "shakes", "kicks")] inside you."))
 
 	if(pregnancy_stage >= 3)
 		if(previous_stage < 3)
@@ -175,7 +179,7 @@
 					previous_belly_size = belly.genital_size
 					if(belly.genital_size < 4)
 						belly.set_size(4)
-						to_chat(baby_momma, span_warning("Your [belly] balloons in size as your [pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION ? "egg" : "baby"] grows."))
+						to_chat(baby_momma, span_warning("Your [belly] balloons in size as your egg grows."))
 		else if(baby_momma.getStaminaLoss() < 50)
 			baby_momma.adjustStaminaLoss(2.5 * seconds_per_tick)
 
@@ -184,12 +188,12 @@
 			baby_momma.add_mood_event("preggers", /datum/mood_event/pregnant_labor)
 			baby_momma.adjustStaminaLoss(rand(50, 100))
 			baby_momma.emote("scream")
-			to_chat(baby_momma, span_userdanger("Your water broke! You need to lay down and squeeze the [pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION ? "egg" : "baby"] out!"))
+			to_chat(baby_momma, span_userdanger("Your water broke! You need to lay down and squeeze the egg out!"))
 		else
-			if((baby_momma.body_position != LYING_DOWN) || !SPT_PROB(10, seconds_per_tick))
+			if((baby_momma.body_position != LYING_DOWN) || !SPT_PROB(5, seconds_per_tick))
 				//constant nausea
 				baby_momma.adjust_disgust(3 * seconds_per_tick)
-				if((baby_momma.getStaminaLoss() < 100) && SPT_PROB(10, seconds_per_tick))
+				if((baby_momma.getStaminaLoss() < 100) && SPT_PROB(5, seconds_per_tick))
 					baby_momma.emote("scream")
 					baby_momma.adjustStaminaLoss("You REALLY need to give birth!")
 			else
@@ -198,20 +202,20 @@
 					var/mob/living/carbon/human/human_momma = baby_momma
 					baby_species = LOWER_TEXT(human_momma.dna.species.name)
 				baby_momma.visible_message(\
-					span_nicegreen("[baby_momma] gives birth to \a [baby_species] [pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION ? "egg" : "baby"]!"), \
-					span_nicegreen("You give birth to \a [baby_species] [pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION ? "egg" : "baby"]!"))
+					span_nicegreen("[baby_momma] gives birth to \a [baby_species] egg!"), \
+					span_nicegreen("You give birth to \a [baby_species] egg!"))
 
 				var/obj/item/organ/genital/belly/belly = baby_momma.get_organ_slot(ORGAN_SLOT_BELLY)
 				if(istype(belly) && !isnull(previous_belly_size))
 					belly.set_size(previous_belly_size)
 
-				if(pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION)
+				if(ismob(parent))
 					INVOKE_ASYNC(src, PROC_REF(lay_egg), get_turf(baby_momma), baby_species, egg_skin)
 				else
-					INVOKE_ASYNC(src, PROC_REF(give_birth), get_turf(baby_momma))
+					INVOKE_ASYNC(src, PROC_REF(gestate))
 				if(!QDELETED(src))
 					qdel(src)
-				baby_momma.add_mood_event("preggers", (pregnancy_flags & PREGNANCY_FLAG_OVIPOSITION ? /datum/mood_event/pregnant_relief/egg : /datum/mood_event/pregnant_relief))
+				baby_momma.add_mood_event("preggers", /datum/mood_event/pregnant_relief/egg)
 
 /datum/component/pregnancy/proc/lay_egg(atom/location, egg_species, egg_skin = src.egg_skin)
 	var/atom/movable/egg = new egg_type(location)
@@ -233,12 +237,12 @@
 	mother_name = src.mother_name
 	father_dna.copy_dna(new_preggers.father_dna)
 	father_name = src.father_name
-	new_preggers.pregnancy_flags = (src.pregnancy_flags & ~PREGNANCY_FLAG_OVIPOSITION)
-	new_preggers.pregnancy_duration = src.pregnancy_egg_duration
+	new_preggers.pregnancy_flags = src.pregnancy_flags
+	new_preggers.pregnancy_duration = src.pregnancy_duration
 	new_preggers.pregnancy_egg_duration = src.pregnancy_egg_duration
 
-/datum/component/pregnancy/proc/give_birth(atom/location)
-	var/mob/living/babby = new baby_type(location)
+/datum/component/pregnancy/proc/gestate()
+	var/mob/living/babby = new baby_type(src)
 	if(ishuman(babby))
 		var/mob/living/carbon/human/human_babby = babby
 		determine_baby_dna(human_babby)
@@ -246,9 +250,13 @@
 			human_babby.real_name = baby_name
 			human_babby.name = baby_name
 			human_babby.updateappearance()
-		babby.set_resting(TRUE, silent = TRUE, instant = TRUE)
+		babby.set_resting(new_resting = TRUE, silent = TRUE, instant = TRUE)
 	babby.AdjustUnconscious(30 SECONDS)
 
+	var/atom/atom_parent = parent
+	atom_parent.AddComponent(/datum/component/pregnant, src, babby)
+
+	/* this is the horror, use newly created redundant pregnant component instead
 	playsound(parent, 'sound/effects/splat.ogg', 80, vary = TRUE)
 
 	babby.AddComponent(\
@@ -266,6 +274,7 @@
 	var/atom/atom_parent = parent
 	if(atom_parent.uses_integrity)
 		atom_parent.atom_break(BRUTE)
+	*/
 
 /datum/component/pregnancy/proc/determine_baby_dna(mob/living/carbon/human/babby)
 	babby.set_hairstyle(pick("Bedhead", "Bedhead 2", "Bedhead 3"), update = FALSE)

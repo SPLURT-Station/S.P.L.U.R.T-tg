@@ -92,13 +92,6 @@
 /datum/preference/numeric/pregnancy/genetic_distribution/create_default_value()
 	return PREGNANCY_GENETIC_DISTRIBUTION_DEFAULT
 
-/// If enabled, you shit out an egg instead of a full grown manbaby
-/datum/preference/toggle/pregnancy/oviposition
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_oviposition"
-	default_value = FALSE
-
 /// If enabled, health analyzers will not show that you are a pregnancy - No relation to cryptocurrencies
 /datum/preference/toggle/pregnancy/cryptic
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES

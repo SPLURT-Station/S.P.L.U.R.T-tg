@@ -35,13 +35,6 @@ export const pregnancy_egg_duration: Feature<number> = {
   component: FeatureNumberInput,
 };
 
-export const pregnancy_oviposition: FeatureToggle = {
-  name: 'Pregnancy: Oviposition',
-  description:
-    'Whether or not your character will lay an egg instead of giving birth.',
-  component: CheckboxInput,
-};
-
 export const pregnancy_cryptic: FeatureToggle = {
   name: 'Pregnancy: Cryptic',
   description:

@@ -1,15 +1,15 @@
 /// The divider for pregnancy duration, to allow for more or less precision
-#define PREGNANCY_DURATION_DIVIDER (1 MINUTES)
+#define PREGNANCY_DURATION_MULTIPLIER (1 MINUTES)
 
 /// Default duration of pregnancy, can be changed in preferences
-#define PREGNANCY_DURATION_DEFAULT ((10 MINUTES) / PREGNANCY_DURATION_DIVIDER)
+#define PREGNANCY_DURATION_DEFAULT ((10 MINUTES) / PREGNANCY_DURATION_MULTIPLIER)
 /// MINIMUM duration of pregnancy, set this to something reasonable or people are gonna pregnancymaxx to lag the server 🫄
-#define PREGNANCY_DURATION_MINIMUM ((1 MINUTES) / PREGNANCY_DURATION_DIVIDER)
+#define PREGNANCY_DURATION_MINIMUM ((1 MINUTES) / PREGNANCY_DURATION_MULTIPLIER)
 /// MAXIMUM duration of pregnancy, can be a ridiculous amount just fine but we shouldn't let players integer overflow 🫄
-#define PREGNANCY_DURATION_MAXIMUM ((4 HOURS) / PREGNANCY_DURATION_DIVIDER)
+#define PREGNANCY_DURATION_MAXIMUM ((4 HOURS) / PREGNANCY_DURATION_MULTIPLIER)
 
 /// Duration of the egg cycle for people who enabled oviposition, separate from the normal pregnancy cycle
-#define PREGNANCY_EGG_DURATION ((5 MINUTES) / PREGNANCY_DURATION_DIVIDER)
+#define PREGNANCY_EGG_DURATION ((5 MINUTES) / PREGNANCY_DURATION_MULTIPLIER)
 
 /// Default chance to get pregnant when someone cums inside you, I'm not gonna add a menstrual cycle or anything, simple 1-100 stuff
 #define PREGNANCY_CHANCE_DEFAULT 1
@@ -28,9 +28,7 @@
 // Cool flags determining pregnancy behavior
 /// Cryptic pregnancies are not detected by health analyzers
 #define PREGNANCY_FLAG_CRYPTIC (1 << 0)
-/// You will shit out an egg, not a human
-#define PREGNANCY_FLAG_OVIPOSITION (1 << 1)
 /// Pregnancy will inflate your belly
-#define PREGNANCY_FLAG_BELLY_INFLATION (1 << 2)
+#define PREGNANCY_FLAG_BELLY_INFLATION (1 << 1)
 
 #define PREGNANCY_FLAGS_DEFAULT (PREGNANCY_FLAG_BELLY_INFLATION)
