@@ -155,10 +155,29 @@
 							span_userlove("You hilt your cock into [target_mob]'s [climax_into_choice], shooting cum into [target_mob_them]!"))
 						to_chat(target_mob, span_userlove("Your [climax_into_choice] fills with warm cum as [src] shoots [self_their] load into it."))
 						conditional_pref_sound(get_turf(target_mob), climax_into_choice == "mouth" ? pick('modular_zzplurt/sound/interactions/mouthend (1).ogg', 'modular_zzplurt/sound/interactions/mouthend (2).ogg') : 'modular_zzplurt/sound/interactions/endout.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds) //SPLURT EDIT CHANGE - Interactions
-						//SPLURT EDIT ADDITION BEGIN - Genital Inflation
+						//SPLURT EDIT ADDITION BEGIN - Genital Inflation and pregnancy
 						var/datum/component/interactable/interactable = target_mob.GetComponent(/datum/component/interactable)
 						if(interactable)
 							interactable.climax_inflate_genital(src, "testicles", climax_into_choice)
+						var/client/preference_source = GET_CLIENT(target_mob)
+						if(preference_source)
+							var/genital_pass = FALSE
+							switch(interaction_inside)
+								if(ORGAN_SLOT_ANUS)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/anal_insemination)
+								if(ORGAN_SLOT_VAGINA)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/vaginal_insemination)
+								if(CLIMAX_TARGET_MOUTH)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
+							if(genital_pass && \
+								prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance) && \
+								(!preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/womb_insemination) || target_mob.get_organ_slot(ORGAN_SLOT_WOMB))) \
+							)
+								target_mob.AddComponent(/datum/component/pregnancy, src, target_mob)
+						#ifdef TESTING
+						else
+							target_mob.AddComponent(/datum/component/pregnancy, src, target_mob)
+						#endif
 						//SPLURT EDIT ADDITION END
 
 			var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)

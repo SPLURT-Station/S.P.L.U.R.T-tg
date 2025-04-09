@@ -107,6 +107,10 @@ GLOBAL_LIST_INIT(interaction_menu_preferences, typecacheof(list(
 		var/datum/interaction/interaction = SSinteractions.interactions[iterating_interaction_id]
 	//SPLURT EDIT CHANGE END
 		if(interaction.lewd)
+			#ifdef TESTING
+			interactions.Add(interaction)
+			continue
+			#endif
 			if(!self.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(self) && !self.client && !SSinteractions.is_blacklisted(self))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 				continue
 			/*
