@@ -23,6 +23,8 @@
 	var/winner_method = VOTE_WINNER_METHOD_SIMPLE
 	/// Should we show details about the number of votes submitted for each option?
 	var/display_statistics = TRUE
+	/// The threshold for a winner in ranked voting as a percentage (0-100)
+	var/ranked_winner_threshold = 50
 
 	// Internal values used when tracking ongoing votes.
 	// Don't mess with these, change the above values / override procs for subtypes.
@@ -133,6 +135,8 @@
 			return get_simple_winner()
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			return get_random_winner()
+		if(VOTE_WINNER_METHOD_RANKED)
+			return get_ranked_winner()
 
 	stack_trace("invalid select winner method: [winner_method]. Defaulting to simple.")
 	return get_simple_winner()
@@ -160,6 +164,168 @@
 	var/winner = pick_weight(choices)
 	return winner ? list(winner) : list()
 
+/// Gets the winner using ranked choice voting.
+/datum/vote/proc/get_ranked_winner()
+	// Total number of voters who submitted at least one ranked choice
+	var/total_voters = 0
+	// List of all voter ckeys
+	var/list/all_voters = list()
+
+	// Collect all voters and create a map of their current rankings
+	var/list/voter_rankings = list() // Stores current rankings for each voter
+	for(var/key in choices_by_ckey)
+		var/split_key = splittext(key, "_")
+		if(length(split_key) != 2)
+			continue
+
+		var/ckey = split_key[1]
+		var/choice = split_key[2]
+		var/rank = choices_by_ckey[key]
+
+		if(rank > 0)
+			if(!(ckey in all_voters))
+				all_voters += ckey
+				total_voters++
+				voter_rankings[ckey] = list()
+
+			voter_rankings[ckey][choice] = rank
+
+	// Log initial state to admins
+	var/admin_msg = "Ranked Vote Initial State:\n"
+	admin_msg += "Total Voters: [total_voters]\n"
+	admin_msg += "Current Choices:\n"
+	for(var/choice in choices)
+		admin_msg += "\t[choice]: [choices[choice]] votes\n"
+	admin_msg += "\nVoter Rankings:\n"
+	for(var/ckey in voter_rankings)
+		admin_msg += "\t[ckey]'s rankings:\n\t\t"
+		var/list/sorted_rankings = list()
+		var/list/rankings = voter_rankings[ckey]
+		for(var/i in 1 to length(rankings))
+			for(var/choice in rankings)
+				if(rankings[choice] == i)
+					sorted_rankings += "[i]. [choice]"
+		admin_msg += sorted_rankings.Join(", ") + "\n"
+	message_admins(admin_msg)
+
+	// If no one voted, return empty list
+	if(total_voters == 0)
+		return list()
+
+	// Calculate the threshold for victory
+	var/victory_threshold = round((total_voters * ranked_winner_threshold) / 100, 1)
+	message_admins("Victory threshold set to [victory_threshold] votes ([ranked_winner_threshold]% of [total_voters] voters)")
+
+	var/round_number = 1
+	// While we still have choices to consider
+	while(length(choices) > 1)
+		message_admins("=== Round [round_number] of Ranked Choice Voting ===")
+
+		// Find highest vote count and check if it meets threshold
+		var/highest_votes = 0
+		var/list/highest_choices = list()
+
+		for(var/option in choices)
+			var/votes = choices[option]
+			if(votes > highest_votes)
+				highest_votes = votes
+				highest_choices = list(option)
+			else if(votes == highest_votes)
+				highest_choices += option
+
+		// Check if any option has reached the threshold
+		if(highest_votes >= victory_threshold)
+			message_admins("Victory threshold ([victory_threshold]) reached! Winner(s): [highest_choices.Join(", ")] with [highest_votes] votes")
+			return highest_choices
+
+		// Find lowest vote count to eliminate
+		var/lowest_votes = INFINITY
+		var/list/lowest_choices = list()
+
+		for(var/option in choices)
+			var/votes = choices[option]
+			if(votes < lowest_votes)
+				lowest_votes = votes
+				lowest_choices = list(option)
+			else if(votes == lowest_votes)
+				lowest_choices += option
+
+		// If we have multiple options with the lowest votes, pick one randomly
+		var/option_to_eliminate
+		if(length(lowest_choices) > 1)
+			option_to_eliminate = pick(lowest_choices)
+			message_admins("Multiple options tied for lowest votes ([lowest_votes]): [lowest_choices.Join(", ")]. Randomly eliminating: [option_to_eliminate]")
+		else
+			option_to_eliminate = lowest_choices[1]
+			message_admins("Eliminating [option_to_eliminate] with lowest votes: [lowest_votes]")
+
+		// Remove the eliminated option from choices
+		choices -= option_to_eliminate
+
+		// Update rankings and redistribute votes
+		var/redistribution_msg = "Vote redistribution after eliminating [option_to_eliminate]:\n"
+		for(var/ckey in voter_rankings)
+			var/list/rankings = voter_rankings[ckey]
+			var/eliminated_rank = rankings[option_to_eliminate]
+			if(!eliminated_rank)
+				continue
+
+			// Remove the eliminated option from their rankings
+			rankings -= option_to_eliminate
+
+			// If it was their first choice, we need to redistribute their vote
+			if(eliminated_rank == 1)
+				// Find their new first choice
+				var/new_first_choice
+				var/lowest_rank = INFINITY
+				for(var/choice in rankings)
+					var/rank = rankings[choice]
+					if(rank < lowest_rank)
+						lowest_rank = rank
+						new_first_choice = choice
+
+				// Redistribute the vote if they have another choice
+				if(new_first_choice)
+					redistribution_msg += "\t[ckey]'s vote moved from [option_to_eliminate] to [new_first_choice]\n"
+					choices[new_first_choice]++
+
+				// Adjust all remaining ranks down by 1
+				for(var/choice in rankings)
+					rankings[choice]--
+
+			// Update the choices_by_ckey list to reflect the new rankings
+			for(var/choice in rankings)
+				choices_by_ckey["[ckey]_[choice]"] = rankings[choice]
+
+		message_admins(redistribution_msg)
+
+		// Log current state of choices and rankings
+		var/status_msg = "Current vote counts after round [round_number]:\n"
+		for(var/option in choices)
+			status_msg += "\t[option]: [choices[option]] votes\n"
+		status_msg += "\nUpdated Rankings:\n"
+		for(var/ckey in voter_rankings)
+			status_msg += "\t[ckey]'s rankings:\n\t\t"
+			var/list/sorted_rankings = list()
+			var/list/rankings = voter_rankings[ckey]
+			for(var/i in 1 to length(rankings))
+				for(var/choice in rankings)
+					if(rankings[choice] == i)
+						sorted_rankings += "[i]. [choice]"
+			status_msg += sorted_rankings.Join(", ") + "\n"
+		message_admins(status_msg)
+
+		round_number++
+
+	// If we're down to one option, it's the winner
+	if(length(choices) == 1)
+		message_admins("Only one option remains: [choices[1]] is the winner!")
+		return list(choices[1])
+
+	// This should never happen but just in case
+	message_admins("ERROR: Ranked choice voting ended with no winner!")
+	return list()
+
 /**
  * Gets the resulting text displayed when the vote is completed.
  *
@@ -183,6 +349,8 @@
 			returned_text += "None"
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			returned_text += "Weighted Random"
+		if(VOTE_WINNER_METHOD_RANKED)
+			returned_text += "Ranked"
 		else
 			returned_text += "Simple"
 

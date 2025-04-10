@@ -29,9 +29,9 @@
 /datum/vote/custom_vote/create_vote(mob/vote_creator)
 	var/custom_count_method = tgui_input_list(
 		user = vote_creator,
-		message = "Single or multiple choice?",
+		message = "Single, multiple, or ranked choice?",
 		title = "Choice Method",
-		items = list("Single", "Multiple"),
+		items = list("Single", "Multiple", "Ranked"),
 		default = "Single",
 	)
 	switch(custom_count_method)
@@ -39,6 +39,20 @@
 			count_method = VOTE_COUNT_METHOD_SINGLE
 		if("Multiple")
 			count_method = VOTE_COUNT_METHOD_MULTI
+		if("Ranked")
+			count_method = VOTE_COUNT_METHOD_RANKED
+			// Ask for the threshold if it's ranked voting
+			var/threshold = tgui_input_number(
+				user = vote_creator,
+				message = "Set the victory threshold percentage (1-100)",
+				title = "Ranked Choice Threshold",
+				default = 50,
+				min_value = 1,
+				max_value = 100
+			)
+			if(isnull(threshold))
+				return FALSE
+			ranked_winner_threshold = threshold
 		if(null)
 			return FALSE
 		else
@@ -50,7 +64,7 @@
 		user = vote_creator,
 		message = "How should the vote winner be determined?",
 		title = "Winner Method",
-		items = list("Simple", "Weighted Random", "No Winner"),
+		items = list("Simple", "Weighted Random", "No Winner", "Ranked"),
 		default = "Simple",
 	)
 	switch(custom_win_method)
@@ -60,6 +74,8 @@
 			winner_method = VOTE_WINNER_METHOD_WEIGHTED_RANDOM
 		if("No Winner")
 			winner_method = VOTE_WINNER_METHOD_NONE
+		if("Ranked")
+			winner_method = VOTE_WINNER_METHOD_RANKED
 		if(null)
 			return FALSE
 		else
