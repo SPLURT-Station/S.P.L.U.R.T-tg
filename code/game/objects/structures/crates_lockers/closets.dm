@@ -494,7 +494,13 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	opened = TRUE
 	if(!dense_when_open)
 		set_density(FALSE)
+	/* SPLURT EDIT REMOVAL - Packing peanuts
 	dump_contents()
+	*/
+	// SPLURT EDIT - Packing peanuts
+	if(!packing_overlay)
+		dump_contents()
+	// SPLURT EDIT END
 	if(special_effects)
 		animate_door(FALSE)
 	update_appearance()
@@ -1023,6 +1029,10 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	if(isstructure(loc))
 		relay_container_resist_act(user, loc)
 	if(opened)
+		// SPLURT EDIT ADDITION - PACKING PEANUTS
+		if(packing_overlay)
+			dump_contents()
+		// SPLURT EDIT END
 		return
 	if(ismovable(loc))
 		user.changeNext_move(CLICK_CD_BREAKOUT)
