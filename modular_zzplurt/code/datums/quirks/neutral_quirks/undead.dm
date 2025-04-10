@@ -29,17 +29,7 @@
 	// Add undead traits
 	// Based on the High-Functioning Zombie species
 	// Powergamer traits are in separate quirks
-	quirk_mob.add_traits(list(
-		// SHARED WITH ALL ZOMBIES
-		TRAIT_EASILY_WOUNDED,
-		TRAIT_EASYDISMEMBER,
-		TRAIT_FAKEDEATH,
-		TRAIT_LIMBATTACHMENT,
-		TRAIT_NO_DNA_COPY,
-		TRAIT_NO_ZOMBIFY,
-		// HIGH FUNCTIONING UNIQUE
-		TRAIT_NOBLOOD
-	), TRAIT_UNDEAD)
+	quirk_mob.add_traits(list(TRAIT_NOTHIRST) + /datum/species/zombie::inherent_traits, TRAIT_UNDEAD)
 
 	// Add fake health HUD
 	quirk_holder.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
@@ -51,23 +41,15 @@
 	// Define quirk holder mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
+	if(QDELETED(quirk_mob))
+		return
+
 	// Revert biotypes
 	quirk_mob.mob_biotypes += MOB_ORGANIC
 	quirk_mob.mob_biotypes -= MOB_UNDEAD
 
 	// Remove undead traits
-	quirk_mob.remove_traits(list(
-		// SHARED WITH ALL ZOMBIES
-		TRAIT_EASILY_WOUNDED,
-		TRAIT_EASYDISMEMBER,
-		TRAIT_FAKEDEATH,
-		TRAIT_LIMBATTACHMENT,
-		TRAIT_LIVERLESS_METABOLISM,
-		TRAIT_NO_DNA_COPY,
-		TRAIT_NO_ZOMBIFY,
-		// HIGH FUNCTIONING UNIQUE
-		TRAIT_NOBLOOD
-	), TRAIT_UNDEAD)
+	quirk_mob.remove_traits(list(TRAIT_NOTHIRST) + /datum/species/zombie::inherent_traits, TRAIT_UNDEAD)
 
 	// Remove fake health HUD
 	quirk_holder.remove_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
