@@ -1,0 +1,65 @@
+2025-03-12:
+  MosleyTheMalO:
+  - sound: Makes our custom default announcer
+  - sound: Makes our custom intern announcer
+  sakke03:
+  - rscadd: Added coo, whine and huh emotes from old codebase
+  - rscadd: Added meow4 emote from Monkestation's meow
+  - bugfix: Fixed emote sound cooldown being 5 seconds instead of 2 seconds due to
+      a default value in the individual cooldown override
+2025-03-17:
+  Anonymous:
+  - rscadd: You can now buy trencher/Blastwave outfit from Clothesmate (minus gasmask).
+  - rscadd: Cargo can import armored variant of trencher clothing as contraband.
+  - bugfix: Removed duplicate trencher/Blastwave clothing.
+  MosleyTheMalO:
+  - image: resprites breasts
+  - image: resprites penises
+  - image: resprites balls
+  - bugfix: fixes the Character Directory entries
+  - bugfix: fixes fart fuck verbs because
+  - bugfix: fixes inflation mechanics shrinking genitals.
+  - rscadd: adds bark blooper
+  - rscadd: quick step quirk
+  - rscadd: adds trashcan quirk
+  - rscadd: snail backpacks
+  - rscadd: alien honey as a reagent
+  - rscadd: adds puddle transformation ability to slimes
+  - bugfix: Fixes slugbobbers
+  - bugfix: fixes loadout items duplication
+2025-03-18:
+  MosleyTheMalO:
+  - rscadd: item coloring in loadout
+  - rscadd: New spans for subtler.
+  - rscadd: readds some quirks to the quirk selection
+2025-03-20:
+  sakke03:
+  - rscadd: Added malaysia and pain emotes from oldbase
+  - rscadd: Events no longer run if the shuttle is moving towards the station in a
+      no-recall state.
+  - rscadd: Fixes several moonstation bugs/issues/whatever.
+2025-03-24:
+  MosleyTheMalO:
+  - bugfix: fixes the buttons ui
+  - bugfix: readds the dogborg sleeper config
+  - bugfix: fixes some uis not having a scrollwheel
+  - bugfix: fixes colormate rendering
+  - bugfix: fixes player playtimes admin tab
+  - admin: makes the round type appear with the new round messages
+2025-03-25:
+  funnyfreeperson:
+  - bugfix: makes modular limbs spell work
+2025-03-14:
+  SaraSayomi:
+  - bugfix: Wench dress can be worn chest out style again.
+  - bugfix: Sheer dress is now visible.
+  - bugfix: The sheer miniskirt now has the skirt part.
+  - bugfix: The V-neck now has it's boob mesh back.
+  - bugfix: removed a few icon states that are no longer needed in greyscale that
+      were in polychrome, to lessen bloat.
+2025-03-15:
+  evandarksky:
+  - rscadd: Changed NT Rep to use *_ADMIN xp type.
+  - code_imp: Cleans up a bit of human punch code.
+  - bugfix: Stagger combos occur at the correct threshold, and properly utilize armor
+      or a threshold minimum, adjusted for puncher limb accuracy.

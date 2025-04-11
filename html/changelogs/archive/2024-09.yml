@@ -1,160 +1,4 @@
-2024-09-01:
-  BurgerBB:
-  - balance: Reworks (mostly) and renames all the storytellers and improves the code.
-2024-09-03:
-  Moostard:
-  - bugfix: Ceremonial rifle crate now contains 3 rifles as advertised. The naming
-      of the single-pack variant is more clear as well.
-2024-09-05:
-  Doomtail:
-  - rscadd: Added twisted, twisted long, wicked, and inari hairstyles.
-  - rscadd: Added cervine snout.
-  - rscadd: Added naja hood frill.
-  Majkl-J:
-  - rscadd: Syndicate maid kit, a kit containing armored syndicate maid clothing
-  - bugfix: Cargo shelves now drop crates upon being destroyed
-  Odairu:
-  - balance: removed slipstick from uplink
-  StrangeWeirdKitten:
-  - qol: Divides Jukebox volume by 2
-  plsleavemealon:
-  - bugfix: lets zombies be gendered
-2024-09-06:
-  BurgerBB:
-  - bugfix: Fixes a typo in map voting code that prevented the fallback "no maps to
-      vote for" code to work.
-  - rscadd: Predictable Chaos now has 50% more antagonists.
-  - rscdel: Disables "The Bomb" storyteller from being votable because engineering
-      cryos every time it's voted.
-  Majkl-J:
-  - bugfix: Moth climb works again
-  Odairu:
-  - rscadd: hypno lipstick
-2024-09-08:
-  BurgerBB:
-  - rscadd: People who sign up roundstart get triple the starting cash compared to
-      latejoiners.
-  Swiftfeather:
-  - bugfix: Can no longer rapid fire kisses, you boykisser.
-  plsleavemealon:
-  - rscadd: Makes the numb quirk actually numb you
-2024-09-14:
-  LT3:
-  - code_imp: Modularised and updated scrubber overflow event
-  - code_imp: Boykissers resume boy kissing! Kiss emote no longer causes a progress
-      bar after using
-  - balance: Syndie/death kiss projectiles have a 1.6 second cooldown
-  Majkl-J:
-  - rscadd: Added Lone infiltrator ghost midround
-  - rscadd: Added Malf AI midround
-  - rscdel: Removes predictable chaos as all tellers now use its main gimmick as a
-      baseline
-  - qol: Storyteller votes now prevent a constant voting streak of the same type of
-      tellers
-  - balance: All storytellers now roll antags more often, but in smaller numbers per
-      roll
-  - balance: Clown storyteller no longer cares about event weights and just does whatever
-      rng decides
-  - balance: Meteors can no longer run repeatedly in a single round
-  - balance: Makes ghost roles actually roll somewhat frequently
-  - bugfix: Fixed a few bugs with storytellers, namely the tracks sometimes going
-      into negatives, and voidwalker running on planet maps
-  - refactor: Refactored how storytellers handle tracks to be easier to code with
-  Odairu:
-  - bugfix: neck gaiter no longer has sec radio
-2024-09-18:
-  BurgerBB:
-  - bugfix: Fixes Moonstation Library Wiring and Disposal Pipe
-  - rscdel: The mold event can no longer be triggered by events except by admin intervention.
-  Majkl-J:
-  - bugfix: Storyteller now actually rolls stuff correctly and in respect to the antag
-      cap
-  ShadowLarkens:
-  - bugfix: Delete button on belly messages no longer has a rendering error.
-  Swiftfeather:
-  - balance: Reduced heretic weighting.
-  nikothedude:
-  - rscadd: '*esigh, for exasperated sighing'
-  shellspeed1:
-  - rscadd: Cargo Companies are now available to offstation factions
-  - rscadd: Tarkon now has a cargo setup available to them
-  theselfish:
-  - rscadd: Adds unused Red Pauldrons to Sec Vendor, as well as the Sec Med beret
-      and Armadyne belts.
-2024-09-24:
-  Arturlang:
-  - refactor: Heavily refactors how bloodsucker powers function.
-  - refactor: Tremere powers no longer have subtypes for each level.
-  - rscadd: Completely redoes how bloodsucker ability descriptions, both the longer
-      antag panel and the action button hover over, they will actually tell you actual
-      values that the game itself uses for damage, cooldowns, and effect durations
-  - balance: Tremere powers can now level up as far as you want.
-  - balance: Mesmerize is heavily reworked, now it no longer forces both parties to
-      stand still for it to work, but it is obvious to the victim when used, however
-      the victim is muted for the duration of the spool up, and will stun and mute
-      normally if the do_after completes.
-  - rscadd: 'Mesmerize now has a secondary that allows you to mute and confuse your
-      victim that happens on a right-click,
-
-      dominate, the tremere''s version instead knockdowns.'
-  - rscadd: Tremere's dominate now has a visual timer for temporary vassals, visible
-      only to the master's vassals and the master themselves.
-  - balance: Tremere's dominate now only requires level 2 to create temporary vassals,
-      but the duration now scales with the level. It now requires the potential vassal
-      to have more than 336 blood, and will use it all up once the duration ends,
-      effectively making it only usable once per person.
-  - balance: All tremere powers can now level up past level 4
-  - balance: Thaumaturgy is heavily reworked, it now has a charge system, and while
-      the projectile deal less damage, you can shoot a lot more of them, and the projectiles
-      will seek towards any non-vassal mob near where you cast it.
-  - refactor: Separates bloodsucker ability bitfields and action bitfields to avoid
-      overriding eachother
-  - balance: Bloodsuckers going into torpor outside of coffins will always die, but
-      will wake out of torpor at 20% maxhealth(not counting critical health)
-  - balance: A coffin being opened during sol will wake you up, given you are LITERALL
-      BURNING UN-ALIVE.
-  - balance: The range of haste is now 5 tiles.
-  - balance: Bloodsuckers are no longer highly wound resistant, but their coffins
-      will now heal all wounds
-  - bugfix: Should fix the issue with bloodsucker bleeding staying active forever
-  BurgerBB:
-  - balance: Reduces RBMK2 temperature gain based on matter bin tier
-  - balance: Overhauls requirements for Anomaly Refinement, and removes some limits
-      and implements some more.
-  - balance: Makes Space Dragons immune to toxin + oxy damage because I saw a Space
-      Dragon die to simplemobs on Moonstation Once
-  KathrinBailey:
-  - rscadd: Loincloths from Sandstorm.
-  - bugfix: Jean shorts/skirt no longer covers legs and chest.
-  Majkl-J:
-  - qol: The tank manipulator now gives feedback about what's in it
-  Odairu:
-  - balance: nerfs heretics ability to ascend
-  Redrover1760:
-  - balance: Reverts 9x25mm and 9x25mm AP skyrat nerf to tg values.
-  Shadow-Quill:
-  - spellcheck: Fixed a typo in the message that appeared when someone with the Well-Trained
-      perk examined someone with the Dominant Aura trait.
-  nevimer:
-  - bugfix: airbags are no longer haunted
-  shayoki:
-  - rscadd: Added fitness equipment to Box Station's Fitness Room.
-  theselfish:
-  - bugfix: The Neck Gaiter no longer hides glasses.
-2024-09-27:
-  LT3:
-  - image: Added a moth to your taskbar
-  - qol: New vote reminder notification, enabled for storyteller votes
-  ReturnToZender:
-  - balance: NTC no longer gets Stardust shells, they get only their laser.
 2024-09-04:
-  KathrinBailey:
-  - bugfix: Jean skirts no longer cover chest/legs.
-  SkyratBot:
-  - balance: Plexagon Crew Manifest is now a default PDA app for everyone, and is
-      free.
-  - balance: Plexagon Crew Manifest no longer provides Detomatix resistance, but security
-      records and status display control now do.
   00-Steven:
   - balance: Fax machines with hacked input servos can now send chap slices and cookies.
       Please accept them.
@@ -214,8 +58,6 @@
       disassembling than you put into the recipe
   - bugfix: fixed 'Enable Radio Noise' pref only being respected for deaf people
 2024-09-05:
-  Erol509:
-  - bugfix: Repathed tesh satchels, removed not needed hood overlay on Teshari characters
   Archimus12:
   - bugfix: Makes the Cytology Vendor sell science bio suits instead of medical bio
       suits.
@@ -273,14 +115,44 @@
   - bugfix: fixed a few minor nits with aquarium fish visuals.
   - qol: You can kill germs by actually cooking the food (i.e. frying and grilling)
       now, or by setting it on fire.
-  grungussuss:
-  - sound: being sacrificed by a heretic is now spookier
   Hardly:
   - sound: Plumbing Constructor and Rapid-Tiling-Device now has RCD's pick up and
       UI sounds
   - bugfix: Fixes ghosts being able to interact with the RCD, RPLD and RPDs
   Jewelry-x:
   - spellcheck: fixed a wrong extension in the RUNNING_A_SERVER.md
+  KazooBard:
+  - qol: All cans (soda cans etc) fit on utility belts now. Drink on the job!
+  LT3:
+  - image: 'The ''shit is fucked'' default turf no longer flashes
+
+      /:cl'
+  Majkl-J:
+  - bugfix: Embed updating now actually updates embeds
+  Melbert:
+  - refactor: Refactored heretic influences a tiny bit, now ghosts can see them! Report
+      any oddities.
+  OverwatchVoice:
+  - spellcheck: Changed description of Rebar crossbow.
+  - bugfix: Rebar crossbow description will no longer lie about it's missfire potential.
+  Rhials:
+  - bugfix: Runtime station has delivery beacons and navbeacons again.
+  Singul0:
+  - sound: adds sounds for energy shieldbashing
+  - code_imp: Shieldbashing feature is now consistent across all shield types
+  SmArtKar:
+  - bugfix: Changelings can no longer spawn undetectable spider eggs inside of vents
+  - bugfix: Acromegaly no longer makes you bonk your head on airlocks while you're
+      inside of objects
+  TwistedSilicon:
+  - bugfix: The Codex Cicatrix ritual now consumes the item in the case where a hide
+      was used instead of a corpse. No more free books.
+  Y0SH1M4S73R:
+  - admin: Dreamluau provides a more informative error message when trying to pass
+      references to qdeleted datums back to BYOND.
+  grungussuss:
+  - sound: some more items will vary in pitch when picking them up and placing them
+      down
   jlsnow301:
   - rscadd: 'Added two new bitrunning maps: Grasslands Hunt and Meta Central.'
   - rscadd: Deer are now more complex animals, granting them enhanced ability to run
@@ -288,69 +160,11 @@
   - balance: Reduced the cost of most BR vendor items.
   - bugfix: Fixes an issue where modular virtual domains spawned less mobs than intended.
   - bugfix: These modular spawns are now valid mutation targets to become an antagonist.
-  KazooBard:
-  - qol: All cans (soda cans etc) fit on utility belts now. Drink on the job!
-  LT3:
-  - image: 'The ''shit is fucked'' default turf no longer flashes'
-  Majkl-J:
-  - bugfix: Embed updating now actually updates embeds
-  Melbert:
-  - refactor: Refactored heretic influences a tiny bit, now ghosts can see them! Report
-      any oddities.
-  - bugfix: Some spy items should spawn less broken
-  oranges:
-  - rscadd: ghosts can now jump, bhop your way to life
-  OverwatchVoice:
-  - spellcheck: Changed description of Rebar crossbow.
-  - bugfix: Rebar crossbow description will no longer lie about it's missfire potential.
   r3dj4ck0424:
   - spellcheck: made the grammar on the brimdemon horn crusher trophy nicer
-  Rhials:
-  - bugfix: Runtime station has delivery beacons and navbeacons again.
-  - spellcheck: Anomaly suicides now use proper grammar.
-  - bugfix: Anomaly suicides work again.
-  Singul0:
-  - sound: adds sounds for energy shieldbashing
-  - code_imp: Shieldbashing feature is now consistent across all shield types
-  SkyratBot:
-  - qol: Smartfridges now lets you set how many pills you want to vend, rather than
-      popping out a second separate tgui window.
-  - bugfix: fixed a bug that could sometimes cause jump boots users to retain the
-      floating trait indefinitely when using the ability
-  - bugfix: Rum can be synthetized again.
-  - bugfix: Big manipulator hands now move smoothly with the base when it's moved.
-  - bugfix: Cardborg costume no longer gets its appearance deleted when you drop a
-      second hat/suit you are holding in your hand
-  - qol: Unsettle (Voidwalker) doesn't go on cooldown if line of sight is broken
-  - qol: Mirrors now have text tooltips for their radial menus
-  - bugfix: Fixed pride mirrors not dumping you into space after use
-  - bugfix: Buckling yourself to a bed or stasis bed will now make you actually use
-      the headrest/pillow and face up.
-  - bugfix: fixed that screwdriwing radio headset in combat mode don't do anything.
-  - bugfix: You will now be ejected from any jaunt (i.e bloodcrawl or shadow walk)
-      if you lose consciousness somehow during the jaunt.
-  - bugfix: due to a clerical error, all ballistic guns were shipping with built-in
-      silencers. this has been resolved-they will now make noise once again when fired.
-  - bugfix: Changelings can no longer spawn undetectable spider eggs inside of vents
-  - spellcheck: fixed a few typos with energy shield descriptions.
-  SmArtKar:
-  - bugfix: Changelings can no longer spawn undetectable spider eggs inside of vents
-  - bugfix: Acromegaly no longer makes you bonk your head on airlocks while you're
-      inside of objects
-  thegrb93:
-  - bugfix: Fixes vox breath mask being unable to eat or drink through after adjusting
-      it
-  - sound: some more items will vary in pitch when picking them up and placing them
-      down
-  TwistedSilicon:
-  - bugfix: The Codex Cicatrix ritual now consumes the item in the case where a hide
-      was used instead of a corpse. No more free books.
   vinylspiders:
   - bugfix: fixed a bug that could sometimes cause jump boots users to retain the
       floating trait indefinitely when using the ability
-  Y0SH1M4S73R:
-  - admin: Dreamluau provides a more informative error message when trying to pass
-      references to qdeleted datums back to BYOND.
 2024-09-07:
   Ben10Omintrix:
   - bugfix: fixes basic mobs not losing their aggroed appearance after death
@@ -368,11 +182,6 @@
       won't be triggered when caught. no more plates shattering despite being caught
       for example.
   - rscadd: Goldfish, lavaloops, needlefish and armorfish can now be used as baits.
-  grungussuss and kayozz:
-  - sound: gravity generator has a new sound
-  Melbert:
-  - refactor: Refactored heretic influences a tiny bit, now ghosts can see them! Report
-      any oddities.
   MrStonedOne:
   - bugfix: Fixed the taskbar/menu bar icon showing the virgin orange byond icon instead
       of the chad blue ss13 icon.
@@ -381,19 +190,6 @@
       to Space Station 13 and related Nanotrasen Installations.
   Singul0:
   - bugfix: Fixes makarov-stechkin mix up on forgotten ship virtual domain.
-  SkyratBot:
-  - bugfix: Embed updating now actually updates embeds
-  - spellcheck: Changed description of Rebar crossbow.
-  - bugfix: Rebar crossbow description will no longer lie about it's missfire potential.
-  - sound: adds sounds for energy shieldbashing
-  - code_imp: Shieldbashing feature is now consistent across all shield types
-  - qol: All cans (soda cans etc) fit on utility belts now. Drink on the job!
-  - image: Added new sprites for hellfire lasers
-  - bugfix: fixed the die of fate deleting all your organs when rolling a 4
-  - balance: When silicons use their radio they will not whisper out loud anymore
-  TwistedSilicon:
-  - bugfix: The Codex Cicatrix ritual now consumes the item in the case where a hide
-      was used instead of a corpse. No more free books.
   Xackii:
   - qol: You don't need two hands to stream with broadcast camera.
 2024-09-08:
@@ -1155,12 +951,3 @@
   - rscadd: added the manufacturing smelter,router,sorter,crafter,lathe,crusher,unloader
   tonty:
   - code_imp: made some code relating to the world's icon size more readable
-  xXPawnStarrXx:
-  - bugfix: fixed cyborg upgrades deleting the bonesetter and giving no alternative.
-2024-09-08:
-  LT3:
-  - balance: Increased PDA default battery capacity
-  SkyratBot:
-  - bugfix: Fixed the taskbar/menu bar icon showing the virgin orange byond icon instead
-      of the chad blue ss13 icon.
-

@@ -83,6 +83,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"fe" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/wood/parquet,
+/area/misc/hilbertshotel)
 "fi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -225,10 +229,6 @@
 	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
-"uX" = (
-/obj/structure/table/wood/poker,
-/turf/open/floor/wood,
-/area/misc/hilbertshotel)
 "wb" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -251,10 +251,6 @@
 /obj/structure/chair/sofa/left/brown,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/misc/hilbertshotel)
-"xT" = (
-/obj/structure/table/wood/poker,
-/turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "zA" = (
 /obj/structure/table,
@@ -325,6 +321,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
+"Eu" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/room_controller/directional/east,
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
 "EX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -373,9 +374,9 @@
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
-"JW" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/parquet,
+"Kk" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "LC" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -483,11 +484,6 @@
 /obj/item/reagent_containers/cup/glass/shaker,
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
-"UQ" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/machinery/room_controller/directional/east,
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
 "UU" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -523,6 +519,11 @@
 "WX" = (
 /obj/structure/chair/sofa/right/brown,
 /turf/open/floor/wood,
+/area/misc/hilbertshotel)
+"YH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "YW" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -592,7 +593,7 @@ oZ
 Oh
 Je
 jr
-UQ
+Eu
 jr
 fi
 zY
@@ -648,7 +649,7 @@ Tj
 bz
 LC
 oZ
-uX
+Kk
 HO
 FN
 Zq
@@ -766,7 +767,7 @@ zA
 oZ
 kW
 pD
-xT
+fe
 DR
 kD
 kS
@@ -781,7 +782,7 @@ QJ
 gQ
 aC
 oZ
-JW
+YH
 BR
 Tj
 AO
