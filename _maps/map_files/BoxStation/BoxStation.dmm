@@ -2880,8 +2880,7 @@
 /area/station/maintenance/starboard/aft)
 "arB" = (
 /obj/structure/chair/sofa/bench/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8
@@ -4612,7 +4611,8 @@
 	},
 /obj/machinery/door/window/left/directional/north,
 /obj/structure/fans/tiny{
-	pixel_y = 12
+	pixel_y = 15;
+	pixel_x = 0
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 1
@@ -13808,8 +13808,7 @@
 /area/station/security/checkpoint/escape)
 "bdW" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 5;
-	layer = 10007
+	dir = 5
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/qm)
@@ -37829,14 +37828,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "eAc" = (
-/obj/structure/flora/rock/pile/jungle/large/style_3{
-	pixel_x = -30;
-	pixel_y = 9
-	},
 /obj/structure/flora/bush/jungle/c/style_2,
 /obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 6;
-	layer = 10007
+	dir = 6
 	},
 /obj/machinery/space_heater/wall_mounted/directional/south,
 /obj/structure/flora/tree/jungle/small/style_5{
@@ -38028,13 +38022,11 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "eGN" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/chair/wood{
 	dir = 8
 	},
 /obj/effect/landmark/start/assistant,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/carpet,
 /area/station/hallway/secondary/entry)
 "eGU" = (
@@ -38856,17 +38848,19 @@
 /area/station/maintenance/starboard/fore)
 "ffy" = (
 /obj/structure/window/spawner/directional/west,
-/obj/structure/flora/bush/jungle/b/style_2{
-	layer = 2.91;
-	pixel_y = -2
-	},
 /obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 10;
-	layer = 10007
+	dir = 10
 	},
 /mob/living/basic/lizard/tegu{
 	name = "venomoose";
 	desc = "Oh, hi, venomoose!"
+	},
+/obj/structure/flora/rock/pile/jungle/large/style_3{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/structure/flora/bush/jungle/b/style_2{
+	pixel_y = -2
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/qm)
@@ -39654,9 +39648,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "fFN" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/mug/britcup{
 	pixel_y = 6
@@ -39669,6 +39660,7 @@
 	pixel_x = -9;
 	pixel_y = 0
 	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/carpet,
 /area/station/hallway/secondary/entry)
 "fFP" = (
@@ -44869,8 +44861,7 @@
 	dir = 8
 	},
 /obj/structure/chair/sofa/bench/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -49244,12 +49235,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/machinery/door/window/right/directional/north{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/machinery/door/window/right/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/entry)
 "kRc" = (
@@ -50016,16 +50005,6 @@
 	dir = 1
 	},
 /obj/structure/decorative/fluff{
-	icon = 'icons/turf/decals.dmi';
-	icon_state = "trimline_mid_fill";
-	anchored = 1;
-	color = "#2a2e2e";
-	name = "decorative tile covers";
-	pixel_y = 6;
-	pixel_x = 16;
-	layer = 2.91
-	},
-/obj/structure/decorative/fluff{
 	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
 	base_icon_state = "stairs-old";
 	icon_state = "stairs-old";
@@ -50044,13 +50023,13 @@
 	},
 /obj/structure/decorative/fluff{
 	icon = 'icons/turf/decals.dmi';
-	icon_state = "warningline";
+	icon_state = "warningline_white";
 	anchored = 1;
 	name = "warning line"
 	},
 /obj/structure/decorative/fluff{
 	icon = 'icons/turf/decals.dmi';
-	icon_state = "warningline_white";
+	icon_state = "warningline";
 	anchored = 1;
 	name = "warning line"
 	},
@@ -54492,16 +54471,12 @@
 /turf/open/floor/iron/white,
 /area/station/science/research)
 "oeL" = (
-/obj/structure/window/spawner/directional/east{
-	dir = 2
-	},
-/obj/structure/window/spawner/directional/east{
-	dir = 8
-	},
 /obj/machinery/oven,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/entry)
 "ofT" = (
@@ -57217,8 +57192,9 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/rock/pile/style_2,
+/obj/structure/flora/rock,
 /obj/structure/ore_vein/gold,
-/turf/open/floor/fakebasalt,
+/turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "pKc" = (
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -58607,15 +58583,13 @@
 /turf/open/floor/iron,
 /area/station/science/ordnance/bomb)
 "qCu" = (
-/obj/structure/window/spawner/directional/east{
-	dir = 8
-	},
 /obj/structure/table/wood,
 /obj/machinery/coffeemaker/impressa{
 	pixel_y = 7;
 	pixel_x = 4
 	},
 /obj/effect/turf_decal/siding/wood/corner,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/entry)
 "qCU" = (
@@ -58934,8 +58908,7 @@
 	pixel_y = -16
 	},
 /obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 9;
-	layer = 10007
+	dir = 9
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/qm)
@@ -59306,7 +59279,8 @@
 	pixel_y = -27
 	},
 /obj/structure/fans/tiny{
-	pixel_y = -13
+	pixel_y = -17;
+	pixel_x = 0
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
 /turf/open/floor/iron/smooth_edge{
@@ -60274,9 +60248,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "rxn" = (
-/obj/structure/window/spawner/directional/east{
-	dir = 2
-	},
 /obj/structure/table/wood,
 /obj/machinery/coffeemaker/impressa{
 	pixel_y = 4
@@ -60291,6 +60262,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/entry)
 "rxv" = (
@@ -63827,13 +63799,11 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/command/heads_quarters/rd)
 "tBj" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/chair/wood{
 	dir = 4
 	},
 /obj/effect/landmark/start/assistant,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/carpet,
 /area/station/hallway/secondary/entry)
 "tBt" = (
@@ -65768,12 +65738,10 @@
 	pixel_y = 4
 	},
 /obj/effect/turf_decal/bot,
-/obj/structure/window/spawner/directional/east{
-	dir = 2
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/entry)
 "uJF" = (
