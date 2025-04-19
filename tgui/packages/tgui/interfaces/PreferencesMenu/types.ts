@@ -239,6 +239,9 @@ export type PreferencesMenuData = {
   ckey: string;
   is_donator: BooleanLike;
   // SKYRAT EDIT END
+  // SPLURT EDIT START
+  donator_tier: number;
+  // SPLURT EDIT END
 
   keybindings: Record<string, string[]>;
   overflow_role: string;
