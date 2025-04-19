@@ -2131,9 +2131,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
-/obj/machinery/duct,
 /obj/machinery/shower/directional/west{
-	layer = 3.8;
 	reagent_capacity = 60000
 	},
 /obj/structure/decorative{
@@ -2141,7 +2139,6 @@
 	pixel_y = 0;
 	icon = 'modular_skyrat/modules/liquids/icons/obj/structures/drains.dmi';
 	base_icon_state = "drain";
-	layer = 2.91;
 	dir = 8;
 	pixel_x = -16;
 	name = "drain";
@@ -2155,7 +2152,6 @@
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
 	base_icon_state = "tile_half";
-	layer = 2.91;
 	color = "#1f1f1f";
 	dir = 8;
 	name = "decorative panel";
@@ -2166,7 +2162,6 @@
 	icon_state = "siding_plain";
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
-	layer = 2.91;
 	dir = 8;
 	color = "#878787";
 	anchored = 1;
@@ -2701,6 +2696,7 @@
 /obj/effect/turf_decal/siding/wood/end,
 /obj/effect/turf_decal/trimline/dark/filled/end,
 /obj/effect/turf_decal/trimline/dark_red/end,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/persistance/service/lockers)
 "gS" = (
@@ -4456,7 +4452,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
-/obj/machinery/duct,
 /obj/effect/overlay/water/top{
 	icon_state = "OLD_top"
 	},
@@ -5277,7 +5272,6 @@
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
 	base_icon_state = "tile_half";
-	layer = 2.91;
 	color = "#1f1f1f";
 	dir = 8;
 	name = "decorative panel";
@@ -5288,7 +5282,6 @@
 	icon_state = "siding_plain";
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
-	layer = 2.91;
 	dir = 8;
 	color = "#878787";
 	anchored = 1;
@@ -5483,37 +5476,29 @@
 	pixel_y = 5;
 	icon = 'modular_skyrat/modules/wargame_projectors/icons/projectors_and_holograms.dmi';
 	base_icon_state = "projector";
-	layer = 2.91;
 	dir = 8;
 	pixel_x = 0;
 	anchored = 1;
 	name = "hologram projector"
 	},
-/obj/structure/decorative{
-	icon_state = "hologram_on";
-	pixel_y = 16;
-	icon = 'icons/obj/machines/shuttle_manipulator.dmi';
-	base_icon_state = "hologram_on";
-	layer = 4.1;
-	dir = 8;
-	pixel_x = -17;
-	anchored = 1;
-	name = "hologram trail"
-	},
-/obj/structure/decorative{
-	icon_state = "planet";
-	pixel_y = 40;
-	icon = 'modular_skyrat/modules/wargame_projectors/icons/projectors_and_holograms.dmi';
-	base_icon_state = "planet";
-	layer = 4.1;
-	dir = 8;
-	pixel_x = 0;
-	color = "#a6ffed";
-	anchored = 1;
-	name = "lavaland hologram";
-	desc = "You're currently here."
-	},
 /obj/structure/marker_beacon/cerulean,
+/obj/structure/flora/bush/large/style_2{
+	name = "hologram trail";
+	icon_state = "hologram_on";
+	desc = null;
+	pixel_x = -17;
+	pixel_y = 16;
+	icon = 'icons/obj/machines/shuttle_manipulator.dmi'
+	},
+/obj/structure/flora/bush/large/style_2{
+	desc = "You're currently here.";
+	icon = 'modular_skyrat/modules/wargame_projectors/icons/projectors_and_holograms.dmi';
+	icon_state = "planet";
+	name = "lavaland hologram";
+	pixel_y = 40;
+	pixel_x = 0;
+	color = "#a6ffed"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/service/lounge)
 "nM" = (
@@ -7948,12 +7933,11 @@
 	},
 /obj/item/bong{
 	pixel_x = -7;
-	pixel_y = 6
+	pixel_y = 3
 	},
 /obj/machinery/pollution_scrubber{
 	pixel_x = -8;
-	pixel_y = 5;
-	layer = 2.92
+	pixel_y = 1
 	},
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/dark/textured_large,
@@ -8007,7 +7991,6 @@
 	},
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "tG" = (
-/obj/machinery/duct,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -8029,7 +8012,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison)
 "tL" = (
-/obj/machinery/duct,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
@@ -9126,6 +9108,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/atmospherics/pipe/smart/simple/dark/hidden,
+/obj/structure/holosign/barrier/atmos/sturdy,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/atmospherics)
 "wl" = (
@@ -9564,7 +9547,6 @@
 	dir = 8
 	},
 /obj/machinery/shower/directional/west{
-	layer = 3.8;
 	reagent_capacity = 60000
 	},
 /obj/effect/overlay/water,
@@ -10099,8 +10081,7 @@
 	},
 /obj/structure/flora/bush/large{
 	pixel_x = -16;
-	pixel_y = -3;
-	layer = 5.02
+	pixel_y = -3
 	},
 /obj/structure/flora/bush/jungle/a{
 	pixel_x = -3;
@@ -12502,8 +12483,7 @@
 "ED" = (
 /obj/structure/flora/bush/large{
 	pixel_x = -16;
-	pixel_y = -3;
-	layer = 5.02
+	pixel_y = -3
 	},
 /obj/structure/flora/bush/jungle/a{
 	pixel_x = -3;
@@ -12703,7 +12683,6 @@
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
 	base_icon_state = "tile_half";
-	layer = 2.91;
 	color = "#1f1f1f";
 	dir = 8;
 	name = "decorative panel";
@@ -12714,7 +12693,6 @@
 	icon_state = "siding_plain";
 	pixel_y = 0;
 	icon = 'icons/turf/decals.dmi';
-	layer = 2.91;
 	dir = 8;
 	color = "#878787";
 	anchored = 1;
@@ -15710,7 +15688,6 @@
 	dir = 8
 	},
 /obj/machinery/shower/directional/west{
-	layer = 3.8;
 	reagent_capacity = 60000
 	},
 /obj/effect/overlay/water,
@@ -17814,7 +17791,6 @@
 	pixel_y = 28;
 	icon = 'icons/obj/machines/wallmounts.dmi';
 	base_icon_state = "tile_half";
-	layer = 2.92;
 	dir = 8;
 	pixel_x = 0
 	},
