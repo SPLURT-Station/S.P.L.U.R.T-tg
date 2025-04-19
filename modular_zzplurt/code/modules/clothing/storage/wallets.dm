@@ -34,7 +34,7 @@
 	update_slot_icon()
 
 
-/obj/item/storage/wallet/tailbag/Initialize()
+/obj/item/storage/wallet/tailbag/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 6
 	atom_storage.can_hold += typecacheof(list( // Extra items that can go in tailbags, more than wallets

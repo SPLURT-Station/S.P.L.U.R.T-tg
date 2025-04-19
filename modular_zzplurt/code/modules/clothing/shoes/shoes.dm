@@ -24,7 +24,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/shoes.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
 
-/obj/item/clothing/shoes/jackboots/tall/Initialize()
+/obj/item/clothing/shoes/jackboots/tall/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_zzplurt/sound/effects/footstep/highheel1.ogg' = 1,'modular_zzplurt/sound/effects/footstep/highheel2.ogg' = 1), 20)
 
@@ -53,7 +53,7 @@
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
 	icon_state = "highheel_sandals"
 
-/obj/item/clothing/shoes/highheel_sandals/Initialize()
+/obj/item/clothing/shoes/highheel_sandals/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_zzplurt/sound/effects/footstep/highheel1.ogg' = 1,'modular_zzplurt/sound/effects/footstep/highheel2.ogg' = 1), 20)
 

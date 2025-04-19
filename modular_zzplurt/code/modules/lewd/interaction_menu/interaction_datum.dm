@@ -21,24 +21,24 @@
 	/// List of clown-specific messages for different genital types
 	var/static/list/clown_genital_messages = list(
 		ORGAN_SLOT_VAGINA = list(
-			"\The <b>%OWNER%</b>'s clussy honks[pick(" loudly", "")]!",
-			"\The <b>%OWNER%</b>'s pussy squeaks[pick(" loudly", "")]!"
+			"<b>%OWNER%</b>'s clussy honks[pick(" loudly", "")]!",
+			"<b>%OWNER%</b>'s pussy squeaks[pick(" loudly", "")]!"
 		),
 		ORGAN_SLOT_PENIS = list(
-			"\The <b>%OWNER%</b>'s cock honks[pick(" loudly", "")]!",
-			"\The <b>%OWNER%</b>'s penis squeaks[pick(" loudly", "")]!"
+			"<b>%OWNER%</b>'s cock honks[pick(" loudly", "")]!",
+			"<b>%OWNER%</b>'s penis squeaks[pick(" loudly", "")]!"
 		),
 		ORGAN_SLOT_ANUS = list(
-			"\The <b>%OWNER%</b>'s fun hole honks[pick(" loudly", "")]!",
-			"\The <b>%OWNER%</b>'s ass squeaks[pick(" loudly", "")]!"
+			"<b>%OWNER%</b>'s fun hole honks[pick(" loudly", "")]!",
+			"<b>%OWNER%</b>'s ass squeaks[pick(" loudly", "")]!"
 		),
 		ORGAN_SLOT_BREASTS = list(
-			"\The <b>%OWNER%</b>'s honkers produce a loud squeak!",
+			"<b>%OWNER%</b>'s honkers produce a loud squeak!",
 			"\The <b>%OWNER%</b>'s breasts honk[pick(" loudly", "")]!"
 		),
 		ORGAN_SLOT_MOUTH = list(
-			"\The <b>%OWNER%</b>'s mouth honks[pick(" loudly", "")]!",
-			"\The <b>%OWNER%</b>'s throat squeaks[pick(" loudly", "")]!"
+			"<b>%OWNER%</b>'s mouth honks[pick(" loudly", "")]!",
+			"<b>%OWNER%</b>'s throat squeaks[pick(" loudly", "")]!"
 		)
 	)
 

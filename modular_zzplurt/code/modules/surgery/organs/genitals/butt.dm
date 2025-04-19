@@ -33,7 +33,7 @@
 		else
 			size_name = "nonexistent"
 
-	return "You see a [lowertext(gas.icon_state)] of [size_name] asscheeks."
+	return "You see a [LOWER_TEXT(gas.icon_state)] of [size_name] asscheeks."
 
 /obj/item/organ/genital/butt/set_size(size)
 	. = ..()

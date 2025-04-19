@@ -27,7 +27,7 @@
 	var/datum/reagent/milk = find_reagent_object_from_type(breasts.internal_fluid_datum)
 	var/list/original_messages = message.Copy()
 	var/chosen_message = pick(message)
-	chosen_message = replacetext(chosen_message, "%MILK%", lowertext(milk.name))
+	chosen_message = replacetext(chosen_message, "%MILK%", LOWER_TEXT(milk.name))
 	message = list(chosen_message)
 	. = ..()
 	message = original_messages

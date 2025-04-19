@@ -12,7 +12,7 @@
 	var/dat = {"
 		<b>Implant Specifications:</b><BR>
 		<b>Name:</b> Rapid Disrobe Implant<BR>
-		<b>Important Notes:</b> Nanotransen requires employees to follow workplace safety standards, including protective clothing.<BR>
+		<b>Important Notes:</b> Nanotrasen requires employees to follow workplace safety standards, including protective clothing.<BR>
 		<HR>
 		<b>Implant Details:</b><BR>
 		<b>Function:</b> Lines the subject's epidermis with high power static charge nodes, allowing the rapid removal of worn clothing.<BR>

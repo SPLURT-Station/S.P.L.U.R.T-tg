@@ -365,7 +365,7 @@
 
 	anonymous = !anonymous
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
-	balloon_alert(user, "Anonymous mode: [anonymous ? "ON" : "OFF"]")
+	balloon_alert(user, "anonymous mode: [anonymous ? "ON" : "OFF"]")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 #undef URETHRA_TOP

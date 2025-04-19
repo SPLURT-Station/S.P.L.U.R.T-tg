@@ -104,7 +104,7 @@
 		to_chat(owner, span_warning("There's already a web here!"))
 		return FALSE
 
-	 // Should have some minimum amount of food before trying to activate
+	// Should have some minimum amount of food before trying to activate
 	to_chat(owner, "<i>You begin spinning some web...</i>")
 	if(!do_after(owner, 10 SECONDS, target_turf, interaction_key = SPECIES_ARACHNID))
 		to_chat(owner, span_warning("Your web spinning was interrupted!"))

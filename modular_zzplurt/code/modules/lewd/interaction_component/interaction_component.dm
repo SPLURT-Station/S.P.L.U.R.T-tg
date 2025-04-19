@@ -39,7 +39,7 @@
 			mob_belly.genital_size = min(mob_belly.genital_size + growth_amount, BELLY_MAX_SIZE)
 			to_update += mob_belly
 			if(mob_belly.genital_size > prev_size)
-				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s belly bloats outwards as it gets pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
+				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s belly bloats outwards as it gets pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 
 		// Handle butt inflation when belly gets big enough from anal
 		if(slot == ORGAN_SLOT_ANUS && mob_belly.genital_size >= 3)
@@ -55,7 +55,7 @@
 				mob_butt.genital_size = min(mob_butt.genital_size + growth_amount, BUTT_MAX_SIZE)
 				to_update += mob_butt
 				if(mob_butt.genital_size > prev_size)
-					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s ass swells outwards as it gets pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
+					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s ass swells outwards as it gets pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 
 	// Handle penis and testicles inflation
 	else if(slot == ORGAN_SLOT_PENIS)
@@ -113,7 +113,7 @@
 			mob_penis.girth = min(mob_penis.girth + (growth_amount * 0.5), PENIS_MAX_GIRTH)
 			to_update += mob_penis
 			if(mob_penis.genital_size > prev_size || mob_penis.girth > prev_girth)
-				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s penis swells larger as it gets pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
+				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s penis swells larger as it gets pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 
 		var/obj/item/organ/genital/testicles/mob_testicles = human_self.get_organ_slot(ORGAN_SLOT_TESTICLES)
 		if(!mob_testicles && human_self.client?.prefs.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
@@ -127,7 +127,7 @@
 			mob_testicles.genital_size = min(mob_testicles.genital_size + (growth_amount * 0.5), TESTICLES_MAX_SIZE)
 			to_update += mob_testicles
 			if(mob_testicles.genital_size > prev_size)
-				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s balls grow heavier as they get pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
+				human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s balls grow heavier as they get pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 
 	// Handle breast inflation
 	else if(slot == ORGAN_SLOT_BREASTS)
@@ -155,7 +155,7 @@
 			to_update += mob_breasts
 			if(mob_breasts.genital_size > prev_size)
 				if(mob_breasts.visibility_preference == GENITAL_ALWAYS_SHOW || human_self.is_topless())
-					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s breasts swell larger as they get pumped full of [lowertext(initial(fluid_source.internal_fluid_datum:name))]!"))
+					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s breasts swell larger as they get pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 				else
 					human_self.visible_message(span_lewd("\The area around [human_self]'s chest suddenly bounces a bit."))
 

@@ -435,37 +435,37 @@
  * Call this whenever digitigrade legs or other body types that affect clothing are changed
  */
 /mob/living/carbon/human/proc/update_underwear_on_bodytype_change()
-    // Force update all underwear items
-    update_worn_underwear()
-    update_worn_socks()
-    update_worn_shirt()
-    update_worn_bra()
+	// Force update all underwear items
+	update_worn_underwear()
+	update_worn_socks()
+	update_worn_shirt()
+	update_worn_bra()
 
-    // Since we're changing body type, make sure colors are properly applied
-    if(w_underwear && (w_underwear.flags_1 & IS_PLAYER_COLORABLE_1))
-        w_underwear.color = underwear_color
+	// Since we're changing body type, make sure colors are properly applied
+	if(w_underwear && (w_underwear.flags_1 & IS_PLAYER_COLORABLE_1))
+		w_underwear.color = underwear_color
 
-    if(w_socks && (w_socks.flags_1 & IS_PLAYER_COLORABLE_1))
-        w_socks.color = socks_color
-        // Force update socks icon for digitigrade legs
-        if((bodyshape & BODYSHAPE_DIGITIGRADE) && (w_socks.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-            // Update the icon state for digitigrade if needed
-            if(w_socks.worn_icon_digi == w_socks.worn_icon)
-                var/digit_state = "[w_socks.icon_state]_d"
-                // This ensures the correct icon state is used for the current leg type
-                w_socks.worn_icon_state = digit_state
-        else if(!(bodyshape & BODYSHAPE_DIGITIGRADE) && w_socks.worn_icon_state)
-            // Revert back to normal state when changing from digi to normal
-            w_socks.worn_icon_state = initial(w_socks.worn_icon_state)
+	if(w_socks && (w_socks.flags_1 & IS_PLAYER_COLORABLE_1))
+		w_socks.color = socks_color
+		// Force update socks icon for digitigrade legs
+		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (w_socks.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+			// Update the icon state for digitigrade if needed
+			if(w_socks.worn_icon_digi == w_socks.worn_icon)
+				var/digit_state = "[w_socks.icon_state]_d"
+				// This ensures the correct icon state is used for the current leg type
+				w_socks.worn_icon_state = digit_state
+		else if(!(bodyshape & BODYSHAPE_DIGITIGRADE) && w_socks.worn_icon_state)
+			// Revert back to normal state when changing from digi to normal
+			w_socks.worn_icon_state = initial(w_socks.worn_icon_state)
 
-    if(w_shirt && (w_shirt.flags_1 & IS_PLAYER_COLORABLE_1))
-        w_shirt.color = undershirt_color
+	if(w_shirt && (w_shirt.flags_1 & IS_PLAYER_COLORABLE_1))
+		w_shirt.color = undershirt_color
 
-    if(w_bra && (w_bra.flags_1 & IS_PLAYER_COLORABLE_1))
-        w_bra.color = bra_color
+	if(w_bra && (w_bra.flags_1 & IS_PLAYER_COLORABLE_1))
+		w_bra.color = bra_color
 
-    // Update the body parts to ensure everything renders correctly
-    update_body_parts()
+	// Update the body parts to ensure everything renders correctly
+	update_body_parts()
 
 #undef RESOLVE_ICON_STATE
 

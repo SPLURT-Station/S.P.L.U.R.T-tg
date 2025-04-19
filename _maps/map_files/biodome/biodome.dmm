@@ -26052,21 +26052,6 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/aft)
-"jbQ" = (
-/obj/structure/rack,
-/obj/item/lighter,
-/obj/item/clothing/glasses/meson{
-	pixel_y = 4
-	},
-/obj/item/stock_parts/power_store/cell/high,
-/obj/item/reagent_containers/pill/patch/aiuri,
-/obj/machinery/light/directional/north,
-/obj/machinery/firealarm/directional/north,
-/obj/effect/turf_decal/siding/thinplating_new/light{
-	dir = 10
-	},
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/ce)
 "jcb" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -59239,6 +59224,21 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
+"uoo" = (
+/obj/structure/rack,
+/obj/item/lighter,
+/obj/item/clothing/glasses/meson{
+	pixel_y = 4
+	},
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/reagent_containers/applicator/patch/aiuri,
+/obj/machinery/light/directional/north,
+/obj/machinery/firealarm/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 10
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/ce)
 "uop" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/misc/asteroid,
@@ -106326,7 +106326,7 @@ fhc
 fhc
 fhc
 gMZ
-jbQ
+uoo
 mZo
 oBb
 gJD

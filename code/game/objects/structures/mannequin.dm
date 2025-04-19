@@ -102,7 +102,7 @@
 /obj/structure/mannequin/update_overlays()
 	. = ..()
 	var/mutable_appearance/pedestal = mutable_appearance(icon, "pedestal_[material]")
-	pedestal.pixel_y = -3
+	pedestal.pixel_z = -3
 	. += pedestal
 	/* SPLURT EDIT REMOVAL - Extra Inventory
 	var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[underwear_name]
