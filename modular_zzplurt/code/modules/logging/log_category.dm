@@ -1,0 +1,5 @@
+/datum/log_category/create_entry(message, list/data, list/semver_store)
+	. = ..()
+	if(findtext(category, "admin"))
+		for(var/channel_tag in CONFIG_GET(str_list/admin_logs_channel))
+			send2chat(new /datum/tgs_message_content(message), channel_tag, TRUE)
