@@ -96,3 +96,6 @@
 // Cyborg traits
 /// Any model that is a dogborg
 #define TRAIT_R_DOGBORG "dogborg"
+
+/// Trait that makes you unable to get pregnant, make people pregnant, and triggers abortions too
+#define TRAIT_INFERTILE "pregnancy_infertile"
