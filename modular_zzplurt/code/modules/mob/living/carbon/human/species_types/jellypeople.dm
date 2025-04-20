@@ -31,6 +31,7 @@
 	var/datum/component/squeak/squeak
 	var/transforming = FALSE
 	var/original_mobility_flags
+	var/original_pass_flags
 
 /datum/action/innate/slime_blobform/IsAvailable(feedback = FALSE)
 	if(!..())
@@ -78,7 +79,12 @@
 				//ADD_TRAIT(H, TRAIT_ARMOR_BROKEN, SLIMEPUDDLE_TRAIT)
 
 				H.add_movespeed_modifier(/datum/movespeed_modifier/slime_puddle)
+
+				original_pass_flags = H.pass_flags
 				H.pass_flags |= PASSMOB
+				H.pass_flags |= PASSTABLE
+				H.pass_flags |= PASSDOORS
+				H.layer = 3
 				squeak = H.AddComponent(/datum/component/squeak, list('sound/effects/blob/blobattack.ogg'))
 
 				sleep(in_transformation_duration)
@@ -108,6 +114,8 @@
 	REMOVE_TRAIT(H, TRAIT_PARALYSIS_R_ARM, SLIMEPUDDLE_TRAIT)
 	REMOVE_TRAIT(H, TRAIT_INVISIBLE_MAN, SLIMEPUDDLE_TRAIT)
 	H.mobility_flags = original_mobility_flags
+	H.pass_flags = original_pass_flags
+	H.layer = initial(H.layer)
 	//REMOVE_TRAIT(H, TRAIT_SPRINT_LOCKED, SLIMEPUDDLE_TRAIT)
 	//REMOVE_TRAIT(H, TRAIT_ARMOR_BROKEN, SLIMEPUDDLE_TRAIT)
 	H.remove_movespeed_modifier(/datum/movespeed_modifier/slime_puddle)
