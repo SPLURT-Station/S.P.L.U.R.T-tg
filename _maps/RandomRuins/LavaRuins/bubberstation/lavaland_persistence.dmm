@@ -253,11 +253,6 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "aE" = (
 /obj/effect/spawner/random/entertainment/plushie,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/effect/mapping_helpers/apc/cut_AI_wire,
-/obj/effect/mapping_helpers/apc/full_charge,
-/obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/structure/cable,
 /obj/structure/chair/sofa/corp/left{
 	dir = 4
 	},
@@ -6396,6 +6391,7 @@
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bubbers/persistance/service/gym)
 "oM" = (
@@ -16756,7 +16752,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 1
 	},
