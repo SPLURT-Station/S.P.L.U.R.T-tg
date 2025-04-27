@@ -1043,13 +1043,8 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/green/hidden{
 	dir = 6
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	dir = 5
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -2115,11 +2110,14 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "fe" = (
 /obj/effect/turf_decal/tile/dark_red,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/machinery/camera/autoname/directional/north{
 	network = list("persistence_xeno");
 	name = "persistence_xeno_north"
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "ff" = (
@@ -6290,6 +6288,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison)
 "oP" = (
 /obj/effect/turf_decal/vg_decals/numbers/three,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "oR" = (
@@ -7221,9 +7225,6 @@
 "qS" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	dir = 5
-	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "qT" = (
@@ -7361,6 +7362,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/engineering/atmospherics)
 "re" = (
 /obj/effect/turf_decal/vg_decals/numbers/five,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "rf" = (
@@ -7896,6 +7900,9 @@
 /obj/structure/marker_beacon/cerulean{
 	pixel_x = -16;
 	pixel_y = 19
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
 	},
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -9023,6 +9030,9 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 4
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "vh" = (
@@ -9779,7 +9789,6 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "wY" = (
@@ -11599,6 +11608,9 @@
 /obj/effect/turf_decal/box/white{
 	color = "#700047"
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "AV" = (
@@ -12942,6 +12954,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "DN" = (
@@ -13755,6 +13770,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "FD" = (
 /obj/effect/turf_decal/vg_decals/numbers/six,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "FE" = (
@@ -14166,7 +14184,6 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "GB" = (
 /obj/effect/turf_decal/tile/dark_red/half,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "GD" = (
@@ -14184,6 +14201,9 @@
 	network = list("persistence_xeno")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "GH" = (
@@ -14627,6 +14647,9 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 4
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "HL" = (
@@ -14922,6 +14945,9 @@
 /obj/structure/cable,
 /obj/machinery/computer/camera_advanced/xenobio{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -15306,6 +15332,13 @@
 	},
 /turf/open/floor/glass/reinforced/plasma,
 /area/ruin/space/has_grav/bubbers/persistance/service/diner)
+"Ju" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Jw" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -16418,7 +16451,8 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "LT" = (
 /obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate")
+	req_access = list("syndicate");
+	name = "Slime Euthanization Chamber"
 	},
 /obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
@@ -16442,6 +16476,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8;
 	icon_state = "siding_plain_end"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -16935,6 +16972,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/hydro)
 "Nf" = (
 /obj/effect/turf_decal/vg_decals/numbers/one,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Nj" = (
@@ -18049,7 +18089,6 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Pu" = (
@@ -18150,6 +18189,9 @@
 	pixel_x = 0
 	},
 /obj/structure/marker_beacon/indigo,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "PF" = (
@@ -18600,6 +18642,17 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/ruin/space/has_grav/bubbers/dauntless/command/vault)
+"QL" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = -16;
+	pixel_y = 12
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "QM" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/bed/maint,
@@ -19046,6 +19099,12 @@
 	dir = 8;
 	icon_state = "siding_plain_end"
 	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate");
+	name = "Slime Pacification Chamber";
+	pixel_x = -8
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "RO" = (
@@ -19433,6 +19492,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/med)
 "SG" = (
 /obj/effect/turf_decal/vg_decals/numbers/two,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "SI" = (
@@ -20239,7 +20304,7 @@
 /area/ruin/space/has_grav/bubbers/persistance/sci/ordnance)
 "UW" = (
 /obj/machinery/door/window/survival_pod/left/directional/east{
-	name = "Slime Pacification Chamber";
+	name = "Cytology Abominations Containment";
 	req_access = list("syndicate")
 	},
 /obj/effect/turf_decal/trimline/dark/filled/warning{
@@ -20910,10 +20975,6 @@
 "Ww" = (
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
-	},
-/obj/machinery/door/window/survival_pod/left/directional/east{
-	name = "Cytology Abominations Containment";
-	req_access = list("syndicate")
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/green/hidden{
 	dir = 9
@@ -23068,7 +23129,7 @@ ix
 dk
 Vq
 qS
-Br
+QL
 qS
 Br
 DN
@@ -23137,9 +23198,9 @@ LX
 Cy
 JD
 Vq
-QC
+Ju
 SG
-QC
+Ju
 re
 tg
 tg
@@ -23208,7 +23269,7 @@ UM
 tO
 Vq
 qS
-Br
+QL
 qS
 Br
 tg
@@ -23277,9 +23338,9 @@ cg
 on
 on
 on
-QC
+Ju
 oP
-QC
+Ju
 FD
 tg
 Zv
@@ -23348,7 +23409,7 @@ on
 AP
 GF
 qS
-Br
+QL
 qS
 Br
 tg
