@@ -2496,7 +2496,6 @@
 "eZ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/pollution_scrubber,
-/obj/machinery/duct,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service/janitorial)
 "fa" = (
@@ -9666,7 +9665,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/lockers)
 "ua" = (
-/obj/structure/sink/directional/west,
 /obj/structure/mirror/directional/east,
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -9679,6 +9677,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/duct,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/bubbers/persistance/command/admiral)
 "ub" = (
@@ -17031,7 +17030,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/atmospherics)
 "IQ" = (
-/obj/machinery/light/directional/west,
 /obj/effect/turf_decal/siding/white{
 	dir = 9
 	},
@@ -17039,6 +17037,7 @@
 	pixel_x = 0;
 	pixel_y = 4
 	},
+/obj/structure/sink/directional/east,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/bubbers/persistance/command/admiral)
 "IR" = (
