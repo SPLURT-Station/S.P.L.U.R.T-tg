@@ -755,10 +755,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/atmospherics)
 "bz" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("persistence_xeno");
-	name = "persistence_xeno_north"
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on,
 /obj/structure/grille,
 /turf/open/floor/circuit/telecomms,
@@ -2073,7 +2069,9 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/space/has_grav/bubbers/persistance/sec/interrogation)
 "eu" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	brightness = 7.5
+	},
 /obj/effect/turf_decal/trimline/white{
 	color = "#2cbf9d";
 	alpha = 200
@@ -3325,7 +3323,7 @@
 /obj/effect/turf_decal/box/red,
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/frame/machine/secured,
-/obj/item/circuitboard/machine/mechfab/interdyne,
+/obj/item/circuitboard/machine/circuit_imprinter/offstation,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "hb" = (
@@ -3891,7 +3889,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
@@ -5353,10 +5352,6 @@
 "kY" = (
 /obj/effect/turf_decal/tile/dark_red,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("persistence_xeno");
-	name = "persistence_xeno_north"
-	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "kZ" = (
@@ -6052,7 +6047,9 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	brightness = 7.5
+	},
 /obj/effect/turf_decal/trimline/dark{
 	alpha = 255;
 	color = "#36373a"
@@ -6526,17 +6523,14 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/med/treatment)
 "nx" = (
-/obj/machinery/autolathe/hacked,
-/obj/item/book/manual/wiki/robotics_cyborgs{
-	pixel_x = -6;
-	pixel_y = 10
-	},
 /obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/box/red,
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/structure/sign/poster/contraband/self_ai_liberation/directional/north,
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/mechfab/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "ny" = (
@@ -7521,16 +7515,28 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/trimline/dark/filled/warning{
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
 	alpha = 160;
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/purple/warning{
-	alpha = 200;
-	color = "#2cbf9d";
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/dark{
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#2cbf9d";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#2cbf9d";
+	alpha = 200;
 	dir = 1
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -8588,6 +8594,7 @@
 	dir = 8;
 	icon_state = "siding_plain_end"
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "rO" = (
@@ -10429,8 +10436,11 @@
 /obj/machinery/light_switch/directional/south,
 /obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/box/red,
-/obj/structure/frame/machine/secured,
-/obj/item/circuitboard/machine/circuit_imprinter/offstation,
+/obj/machinery/autolathe/hacked,
+/obj/item/book/manual/wiki/robotics_cyborgs{
+	pixel_x = -6;
+	pixel_y = 10
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "vo" = (
@@ -11040,7 +11050,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
@@ -12717,7 +12728,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/neutral/corner{
 	color = "#1dc251";
@@ -14416,7 +14428,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -15502,7 +15515,9 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	brightness = 7.5
+	},
 /obj/effect/turf_decal/trimline/white{
 	color = "#2cbf9d";
 	alpha = 200
@@ -15901,7 +15916,32 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
-/turf/open/floor/iron/dark/textured_large,
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/end{
+	alpha = 200;
+	color = "#2cbf9d";
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1;
+	icon_state = "siding_plain_end"
+	},
+/turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "Fz" = (
 /obj/effect/turf_decal/tile/dark_red/half{
@@ -17708,6 +17748,10 @@
 	},
 /obj/structure/sign/poster/contraband/arc_slimes/directional/north,
 /obj/structure/grille,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("persistence_xeno");
+	name = "persistence_xeno_north"
+	},
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Jz" = (
@@ -18042,9 +18086,6 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "Kp" = (
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
@@ -18066,6 +18107,9 @@
 	},
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
 	},
 /turf/open/floor/mineral/plastitanium/red{
 	icon_state = "plastitanium"
@@ -18316,7 +18360,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark,
-/obj/machinery/light/floor,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "KR" = (
@@ -19694,7 +19737,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/purple/corner{
 	color = "#700047";
@@ -19868,9 +19912,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "Oe" = (
-/obj/machinery/camera/autoname/directional/west{
-	network = list("persistence_xeno")
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -20332,7 +20373,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/neutral/corner{
 	color = "#1dc251";
@@ -22767,6 +22809,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "TZ" = (
@@ -22922,7 +22965,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/purple/corner{
 	color = "#2cbf9d";
@@ -23209,6 +23253,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/interrogation)
 "UV" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/space/has_grav/bubbers/persistance/cargo)
+"UW" = (
+/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/box/red,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/cargo)
 "UX" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -25205,7 +25255,8 @@
 "Zi" = (
 /obj/machinery/light/floor{
 	pixel_x = 0;
-	pixel_y = 16
+	pixel_y = 16;
+	brightness = 7.5
 	},
 /obj/item/toy/plush/slimeplushie,
 /turf/open/floor/engine,
@@ -28474,7 +28525,7 @@ Yd
 rf
 hC
 LG
-hC
+UW
 LG
 hR
 Dp
