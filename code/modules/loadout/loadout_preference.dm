@@ -60,6 +60,10 @@
 				continue
 			if(loadout_item?.donator_only && !GLOB.donator_list[owner_client?.ckey])
 				continue
+			// SPLURT EDIT START: Donator tier check
+			if(loadout_item?.donator_tier && GLOB.donator_list[owner_client?.ckey] < loadout_item.donator_tier)
+				continue
+			// SPLURT EDIT END
 		// SKYRAT EDIT END
 
 		// Set into sanitize list using converted path key
