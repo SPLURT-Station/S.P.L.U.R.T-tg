@@ -32,6 +32,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor/examine(mob/user)
 	. = ..()
+	. += span_notice("Examine more to inspect armor values applied to mechs...")
 	if(flat_armor)
 		if(!isnull(max_flat_mecha_hp))
 			switch(flat_mecha_hp / max_flat_mecha_hp)
@@ -46,35 +47,57 @@
 				if(0 to 0.25)
 					. += span_danger("[p_Theyre()] falling apart!")
 				if(-INFINITY to 0)
-					. += span_danger("[p_Theyre()] fractured and will no longer protect any mechs!")
-		. += span_notice("[src] has flat damage reduction when applied to a mech! Examine more to inspect the values...")
+					. += span_danger("[p_Theyre()] fractured and will no longer protect mechs!")
 
 /obj/item/mecha_parts/mecha_equipment/armor/examine_more(mob/user)
 	. = ..()
-	if(!flat_armor)
-		return
-
 	var/list/readout = list()
 
 	var/added_damage_header = FALSE
-	for(var/damage_key in ARMOR_LIST_DAMAGE())
-		var/rating = flat_armor.get_rating(damage_key)
-		if(!rating)
-			continue
-		if(!added_damage_header)
-			readout += "<b><u>ARMOR (I-X)</u></b>"
-			added_damage_header = TRUE
-		readout += "[armor_to_protection_name(damage_key)] [armor_to_protection_class(rating)]"
+	if(armor_mod)
+		var/datum/armor/armor_mod = get_armor_by_type(src.armor_mod)
+		added_damage_header = FALSE
+		for(var/damage_key in ARMOR_LIST_DAMAGE())
+			var/rating = armor_mod.get_rating(damage_key)
+			if(!rating)
+				continue
+			if(!added_damage_header)
+				readout += "<b><u>MULTIPLICATIVE ARMOR (I-X)</u></b>"
+				added_damage_header = TRUE
+			readout += "[armor_to_protection_name(damage_key)] [armor_to_protection_class(rating)]"
+	if(flat_armor)
+		added_damage_header = FALSE
+		for(var/damage_key in ARMOR_LIST_DAMAGE())
+			var/rating = flat_armor.get_rating(damage_key)
+			if(!rating)
+				continue
+			if(!added_damage_header)
+				readout += "<b><u>FLAT ARMOR (I-X)</u></b>"
+				added_damage_header = TRUE
+			readout += "[armor_to_protection_name(damage_key)] [armor_to_protection_class(rating)]"
 
 	var/added_durability_header = FALSE
-	for(var/durability_key in ARMOR_LIST_DURABILITY())
-		var/rating = flat_armor.get_rating(durability_key)
-		if(!rating)
-			continue
-		if(!added_durability_header)
-			readout += "<b><u>DURABILITY (I-X)</u></b>"
-			added_durability_header = TRUE
-		readout += "[armor_to_protection_name(durability_key)] [armor_to_protection_class(rating)]"
+	if(armor_mod)
+		var/datum/armor/armor_mod = get_armor_by_type(src.armor_mod)
+		added_durability_header = FALSE
+		for(var/durability_key in ARMOR_LIST_DURABILITY())
+			var/rating = armor_mod.get_rating(durability_key)
+			if(!rating)
+				continue
+			if(!added_durability_header)
+				readout += "<b><u>MULTIPLICATIVE DURABILITY (I-X)</u></b>"
+				added_durability_header = TRUE
+			readout += "[armor_to_protection_name(durability_key)] [armor_to_protection_class(rating)]"
+	if(flat_armor)
+		added_durability_header = FALSE
+		for(var/durability_key in ARMOR_LIST_DURABILITY())
+			var/rating = flat_armor.get_rating(durability_key)
+			if(!rating)
+				continue
+			if(!added_durability_header)
+				readout += "<b><u>FLAT DURABILITY (I-X)</u></b>"
+				added_durability_header = TRUE
+			readout += "[armor_to_protection_name(durability_key)] [armor_to_protection_class(rating)]"
 
 	if(!length(readout))
 		readout += "No armor or durability information available."
@@ -101,7 +124,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor/basic
 	name = "Basic Mech Armor"
-	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian grade exosuits"
+	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian grade exosuits."
 	icon = 'modular_zzplurt/icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"

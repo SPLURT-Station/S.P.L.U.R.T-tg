@@ -7,5 +7,5 @@
 			var/flat_armor = mech_armor.flat_armor?.get_rating(damage_flag)
 			if(!flat_armor)
 				continue
-			damage_taken = max(0, damage_taken - (flat_armor * max(0, 100 - armour_penetration)))
+			damage_taken = max(0, damage_taken - (flat_armor * max(0, 100 - armour_penetration)/100))
 	return damage_taken

@@ -71,6 +71,7 @@ export const Content = (props) => {
                 <Stack.Item>
                   <LabeledList>
                     <IntegrityBar />
+                    <FlatArmorIntegrityBar />
                     <PowerBar />
                     <LightsBar />
                     <CabinSeal />
@@ -321,16 +322,14 @@ const DNALock = (props) => {
 };
 
 // SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
-const FlatIntegrityBar = (props) => {
+const FlatArmorIntegrityBar = (props) => {
   const { act, data } = useBackend<MainData>();
   const { flat_armor_name, flat_armor_integrity, flat_armor_integrity_max } =
     data;
   return (
     flat_armor_name && (
       <LabeledList.Item
-        label={
-          flat_armor_name ? flat_armor_name + ' Integrity' : 'Armor Integrity'
-        }
+        label={flat_armor_name ? flat_armor_name : 'Armor Integrity'}
       >
         <ProgressBar
           value={flat_armor_integrity / flat_armor_integrity_max}
