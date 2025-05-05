@@ -20,9 +20,23 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
+//light mech armor, not very good but does not burden whatsoever
+/datum/design/mech_armor/light
+	name = "Light Mech Armor"
+	desc = "Flexible armor plates composed of ultralight plasma-fibres, ideal for low-intensity situations where mobility is key."
+	build_path = /obj/item/mecha_parts/mecha_equipment/armor/light
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4)
+
+//medium mech armor, just good overall
+/datum/design/mech_armor/medium
+	name = "Medium Mech Armor"
+	desc = "Sets of reinforced plasma-fibre bundles pressed into rigid plates, for good protection while remaining somewhat lightweight."
+	build_path = /obj/item/mecha_parts/mecha_equipment/armor/medium
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3)
+
 //heavy mech armor, very slow but also soaks a lot more damage
 /datum/design/mech_armor/heavy
 	name = "Heavy Mech Armor"
 	desc = "Sacrificial plasteel plates for heavy duty reinforcement, twice as durable as basic mech armor but slows you down considerably."
 	build_path = /obj/item/mecha_parts/mecha_equipment/armor/heavy
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2)
+	materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 4, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2)

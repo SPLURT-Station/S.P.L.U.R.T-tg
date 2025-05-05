@@ -125,9 +125,10 @@
 		"armor_integrity_max" = max_mecha_hp,
 	)
 
+// BASIC ARMOR
 /obj/item/mecha_parts/mecha_equipment/armor/basic
 	name = "Basic mech armor"
-	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian grade exosuits."
+	desc = "Sacrificial plate of iron, designed to increase survivability. Standard issue for civillian grade exosuits."
 	icon = 'modular_zzplurt/icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"
@@ -139,9 +140,9 @@
 	flat_armor = /datum/armor/flat_mecha_armor/basic
 
 /datum/armor/mecha_armor/basic
-	melee = 15
 	bullet = 10
 	laser = 10
+	melee = 15
 
 /datum/armor/flat_mecha_armor/basic
 	bomb = 10
@@ -150,6 +151,51 @@
 	laser = 3
 	melee = 5
 
+// LIGHT ARMOR
+/obj/item/mecha_parts/mecha_equipment/armor/light
+	name = "Light mech armor"
+	desc = "A flexible armor plate composed of ultralight plasma-fibres covering most of the exosuit's chassis, ideal for low-intensity situations where mobility is key."
+	iconstate_name = "range"
+	protect_name = "Light Armor"
+	applied_slowdown = 1
+	max_mecha_hp = 150
+	mecha_hp = 150
+	armor_mod = /datum/armor/mecha_armor/light
+	flat_armor = /datum/armor/flat_mecha_armor/light
+
+/datum/armor/mecha_armor/light
+	bullet = 15
+	laser = 10
+	melee = 10
+
+/datum/armor/flat_mecha_armor/light
+	bullet = 5
+	laser = 5
+	melee = 5
+
+// MEDIUM ARMOR
+/obj/item/mecha_parts/mecha_equipment/armor/medium
+	name = "Medium mech armor"
+	desc = "A set of reinforced plasma-fibre bundles pressed into rigid plates, for good protection while remaining somewhat lightweight."
+	iconstate_name = "range"
+	protect_name = "Medium Armor"
+	applied_slowdown = 1.175
+	max_mecha_hp = 150
+	mecha_hp = 150
+	armor_mod = /datum/armor/mecha_armor/medium
+	flat_armor = /datum/armor/flat_mecha_armor/medium
+
+/datum/armor/mecha_armor/medium
+	bullet = 20
+	laser = 10
+	melee = 25
+
+/datum/armor/flat_mecha_armor/medium
+	bullet = 5
+	laser = 5
+	melee = 10
+
+// HEAVY ARMOR
 /obj/item/mecha_parts/mecha_equipment/armor/heavy
 	name = "Heavy mech armor"
 	desc = "Sacrificial plate of plasteel, designed for combat. Very durable and effective, but slows mechs down considerably."
@@ -160,13 +206,11 @@
 	flat_armor = /datum/armor/flat_mecha_armor/heavy
 
 /datum/armor/mecha_armor/heavy
-	melee = 25
-	bullet = 20
-	laser = 10
+	bullet = 45
+	laser = 50
+	melee = 50
 
 /datum/armor/flat_mecha_armor/heavy
-	bomb = 20
-	bullet = 5
-	energy = 5
-	laser = 5
-	melee = 10
+	bullet = 20
+	laser = 25
+	melee = 25
