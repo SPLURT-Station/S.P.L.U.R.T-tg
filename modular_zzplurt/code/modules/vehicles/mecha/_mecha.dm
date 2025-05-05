@@ -1,10 +1,10 @@
 /obj/vehicle/sealed/mecha
 	internal_damage_probability = 30 //makes internal damage more likely, since armor is more common
 	/**
-	 * Ignore armor plate flat damage reduction while set to TRUE, useful in damage code
+	 * Ignore armor plate damage reduction while set to TRUE, useful in damage code
 	 * A bit janky, but adding another argument to run_atom_armor() would be worse IMHO
 	 */
-	var/ignore_flat_reduction = FALSE
+	var/ignore_armor_equipment_reduction = FALSE
 
 /obj/vehicle/sealed/mecha/Initialize(mapload, built_manually)
 	if(!built_manually && equip_by_category[MECHA_ARMOR] && !length(equip_by_category[MECHA_ARMOR]))

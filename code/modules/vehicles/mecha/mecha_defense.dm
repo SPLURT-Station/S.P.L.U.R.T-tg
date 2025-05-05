@@ -39,11 +39,11 @@
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	var/damage_taken = ..()
 	// SPLURT EDIT ADDITION - Mech armor
-	ignore_flat_reduction = TRUE
+	ignore_armor_equipment_reduction = TRUE
 	// We have to run armor so we know the actual damage value, without taking armor plates into account
 	// This is the damage the plates will take!
 	var/damage_with_armor = run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
-	ignore_flat_reduction = FALSE
+	ignore_armor_equipment_reduction = FALSE
 	if(damage_with_armor >= DAMAGE_PRECISION)
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
 			if(damage_with_armor < DAMAGE_PRECISION)
