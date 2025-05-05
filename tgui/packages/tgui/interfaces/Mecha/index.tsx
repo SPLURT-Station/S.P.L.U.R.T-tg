@@ -19,7 +19,7 @@ import { ModulesPane } from './ModulesPane';
 export const Mecha = (props) => {
   const { data } = useBackend<MainData>();
   return (
-    <Window theme={data.ui_theme} width={800} height={600}>
+    <Window theme={data.ui_theme} width={800} height={620}>
       <Window.Content>
         <Content />
       </Window.Content>
@@ -357,13 +357,13 @@ const SlowdownDisplay = (props) => {
         ranges={{
           bad: [0.8, Infinity],
           average: [0.6, 0.8],
-          good: [-Infinity, 0.5],
+          good: [-Infinity, 0.6],
         }}
         style={{
           textShadow: '1px 1px 0 black',
         }}
       >
-        {(current_slowdown / initial_slowdown) * 100}%
+        {Math.ceil((current_slowdown / initial_slowdown) * 100)}%
       </ProgressBar>
     </LabeledList.Item>
   );
