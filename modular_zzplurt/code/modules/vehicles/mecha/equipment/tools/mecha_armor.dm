@@ -112,16 +112,6 @@
 		"flat_armor_integrity_max" = max_flat_mecha_hp,
 	)
 
-/*
-/obj/item/mecha_parts/mecha_equipment/armor/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
-	. = ..()
-	chassis.update_servos_speed()
-
-/obj/item/mecha_parts/mecha_equipment/armor/detach(atom/moveto)
-	. = ..()
-	chassis.update_servos_speed()
-*/
-
 /obj/item/mecha_parts/mecha_equipment/armor/basic
 	name = "Basic mech armor"
 	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian grade exosuits."
@@ -129,6 +119,7 @@
 	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"
 	protect_name = "Basic Armor"
+	applied_slowdown = 1.175
 	max_flat_mecha_hp = 100
 	flat_mecha_hp = 100
 	flat_armor = /datum/armor/flat_mecha_armor/basic
