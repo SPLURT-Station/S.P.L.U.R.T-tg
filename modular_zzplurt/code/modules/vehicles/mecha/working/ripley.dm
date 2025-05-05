@@ -1,6 +1,8 @@
 /obj/vehicle/sealed/mecha/ripley
 	movedelay = 1.275 //movespeed buff due to armor slowdown - originally 1.5
 	max_integrity = 175 //integrity nerf to offset the armor buff - originally 200
+	fast_pressure_step_in = 1.275 //movespeed buff due to armor slowdown - originally 1.5
+	slow_pressure_step_in = 1.7 //movespeed buff due to armor slowdown - originally 1.5
 
 /datum/armor/mecha_ripley
 	melee = 20 //original: 40
