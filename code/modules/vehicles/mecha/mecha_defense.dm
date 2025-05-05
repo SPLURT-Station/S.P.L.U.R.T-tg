@@ -48,7 +48,12 @@
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
 			if(damage_with_armor < DAMAGE_PRECISION)
 				break
-			if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0) || !mech_armor.flat_armor?.get_rating(damage_flag))
+			if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0))
+				continue
+			var/datum/armor/armor_mod_datum
+			if(mech_armor.armor_mod)
+				armor_mod_datum = get_armor_by_type(mech_armor.armor_mod)
+			if(!mech_armor.flat_armor?.get_rating(damage_flag) || !armor_mod_datum?.get_rating(damage_flag))
 				continue
 			var/old_hp = mech_armor.mecha_hp
 			mech_armor.mecha_hp = round(max(0, mech_armor.mecha_hp - damage_with_armor), DAMAGE_PRECISION)

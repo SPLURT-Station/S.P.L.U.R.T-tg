@@ -5,3 +5,8 @@
 /datum/action/vehicle/sealed/mecha/skyfall/land()
 	. = ..()
 	chassis.update_equipment_slowdown()
+
+/datum/armor/mecha_savannah_ivanov
+	melee = 23 //original: 45
+	bullet = 20 //original: 40
+	laser = 15 //original: 30

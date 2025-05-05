@@ -6,6 +6,10 @@
 	 */
 	var/ignore_armor_equipment_reduction = FALSE
 
+/datum/armor/sealed_mecha
+	melee = 10 //original: 20
+	bullet = 5 //original: 10
+
 /obj/vehicle/sealed/mecha/Initialize(mapload, built_manually)
 	if(!built_manually && equip_by_category[MECHA_ARMOR] && !length(equip_by_category[MECHA_ARMOR]))
 		equip_by_category[MECHA_ARMOR] += /obj/item/mecha_parts/mecha_equipment/armor/basic
