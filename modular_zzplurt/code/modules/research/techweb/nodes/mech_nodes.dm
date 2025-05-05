@@ -1,3 +1,3 @@
 /datum/techweb_node/mech_assembly/New()
 	. = ..()
-	design_ids |= "basic_mech_armor"
+	design_ids |= "mech_armor_basic"

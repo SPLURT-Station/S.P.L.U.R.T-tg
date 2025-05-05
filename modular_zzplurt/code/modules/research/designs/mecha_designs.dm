@@ -2,7 +2,7 @@
 /datum/design/basic_mech_armor
 	name = "Basic Mech Armor"
 	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian exosuits."
-	id = "basic_mech_armor"
+	id = "mech_armor_basic"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/armor/basic
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2)
