@@ -13,7 +13,7 @@
 
 /obj/vehicle/sealed/mecha/toggle_overclock(forced_state)
 	. = ..()
-	move_delay *= get_equipment_slowdown()
+	movedelay *= get_equipment_slowdown()
 
 /// Returns movespeed multipliers for the mecha, mostly for the sake of armor slowdown
 /obj/vehicle/sealed/mecha/proc/get_equipment_slowdown()
