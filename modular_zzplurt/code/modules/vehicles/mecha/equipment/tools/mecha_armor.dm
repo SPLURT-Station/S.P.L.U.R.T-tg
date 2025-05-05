@@ -145,10 +145,8 @@
 	melee = 15
 
 /datum/armor/flat_mecha_armor/basic
-	bomb = 10
 	bullet = 5
-	energy = 2
-	laser = 3
+	laser = 5
 	melee = 5
 
 // LIGHT ARMOR
