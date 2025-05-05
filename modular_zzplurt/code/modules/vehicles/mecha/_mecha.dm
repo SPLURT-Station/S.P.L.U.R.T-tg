@@ -1,7 +1,4 @@
 /obj/vehicle/sealed/mecha
-	movedelay = 0.85 SECONDS //faster, gets slower when equipment (mostly armor) is applied
-	max_integrity = 200 //integrity nerf to offset the armor buff
-	internal_damage_threshold = 10 //integrity nerf to offset the armor buff
 	/**
 	 * Ignore armor plate flat damage reduction while set to TRUE, useful in damage code
 	 * A bit janky, but adding another argument to run_atom_armor() would be worse IMHO
@@ -22,4 +19,4 @@
 	var/slowdown = 1
 	for(var/obj/item/mecha_parts/mecha_equipment/equipment in flat_equipment)
 		slowdown *= equipment.applied_slowdown
-	return FLOOR(slowdown, 0.01)
+	return CEILING(slowdown, 0.01)

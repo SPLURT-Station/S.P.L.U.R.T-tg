@@ -1,6 +1,7 @@
 #define MECHA_SNOWFLAKE_ID_ARMOR "armor_snowflake"
 
 /obj/item/mecha_parts/mecha_equipment/armor
+	applied_slowdown = 1.175
 	/// Max health points inside the mecha, when null it will apply damage reduction regardless
 	var/max_flat_mecha_hp
 	/// Current health points inside a mecha for purposes of flat damage reduction, when it reaches 0, no more damage reduction
@@ -119,7 +120,6 @@
 	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"
 	protect_name = "Basic Armor"
-	applied_slowdown = 1.175
 	max_flat_mecha_hp = 100
 	flat_mecha_hp = 100
 	flat_armor = /datum/armor/flat_mecha_armor/basic
