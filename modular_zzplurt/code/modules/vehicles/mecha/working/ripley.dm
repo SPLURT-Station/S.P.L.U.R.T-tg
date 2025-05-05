@@ -4,7 +4,7 @@
 
 /obj/vehicle/sealed/mecha/ripley/update_pressure()
 	. = ..()
-	movedelay *= get_equipment_slowdown()
+	update_equipment_slowdown()
 
 /obj/vehicle/sealed/mecha/ripley/cargo/Initialize(mapload)
 	. = ..()
