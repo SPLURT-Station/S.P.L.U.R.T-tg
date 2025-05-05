@@ -197,7 +197,7 @@
 /obj/item/mecha_parts/mecha_equipment/armor/heavy
 	name = "Heavy mech armor"
 	desc = "Sacrificial plate of plasteel, designed for combat. Very durable and effective, but slows mechs down considerably."
-	applied_slowdown = 1.35
+	applied_slowdown = 1.425
 	max_mecha_hp = 200
 	mecha_hp = 200
 	armor_mod = /datum/armor/mecha_armor/heavy
