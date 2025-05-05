@@ -1,4 +1,5 @@
 /obj/vehicle/sealed/mecha
+	internal_damage_probability = 30 //makes internal damage more likely, since armor is more common
 	/**
 	 * Ignore armor plate flat damage reduction while set to TRUE, useful in damage code
 	 * A bit janky, but adding another argument to run_atom_armor() would be worse IMHO
