@@ -6,7 +6,7 @@
 	/// Current health points inside a mecha for purposes of flat damage reduction, when it reaches 0, no more damage reduction
 	var/flat_mecha_hp
 	/// Basically flat damage reduction that gets applied after the mech's normal armor datum does it's thing
-	var/datum/armor/flat_armor = /datum/armor/flat_mecha_armor
+	var/datum/armor/flat_armor
 
 /datum/armor/flat_mecha_armor
 	acid = 0
@@ -123,7 +123,7 @@
 */
 
 /obj/item/mecha_parts/mecha_equipment/armor/basic
-	name = "Basic Mech Armor"
+	name = "Basic mech armor"
 	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian grade exosuits."
 	icon = 'modular_zzplurt/icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "mech_armor_basic"

@@ -1,6 +1,6 @@
 //generic roundstart armor, bare minimum stuff that's absolutely needed if your mechs wants to be effective in combat
 /datum/design/basic_mech_armor
-	name = "Basic Mecha Armor"
+	name = "Basic Mech Armor"
 	desc = "Sacrificial plate of metal, designed to increase survivability. Standard issue for civillian exosuits."
 	id = "basic_mech_armor"
 	build_type = MECHFAB
