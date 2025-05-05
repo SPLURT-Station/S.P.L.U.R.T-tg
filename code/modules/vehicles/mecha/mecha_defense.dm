@@ -48,12 +48,12 @@
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
 			if(damage_with_armor < DAMAGE_PRECISION)
 				break
-			if(isnull(mech_armor.max_flat_mecha_hp) || (mech_armor.flat_mecha_hp <= 0) || !mech_armor.flat_armor?.get_rating(damage_flag))
+			if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0) || !mech_armor.flat_armor?.get_rating(damage_flag))
 				continue
-			var/old_hp = mech_armor.flat_mecha_hp
-			mech_armor.flat_mecha_hp = round(max(0, mech_armor.flat_mecha_hp - damage_with_armor), DAMAGE_PRECISION)
-			damage_with_armor -= (old_hp - mech_armor.flat_mecha_hp)
-			if(mech_armor.flat_mecha_hp <= 0)
+			var/old_hp = mech_armor.mecha_hp
+			mech_armor.mecha_hp = round(max(0, mech_armor.mecha_hp - damage_with_armor), DAMAGE_PRECISION)
+			damage_with_armor -= (old_hp - mech_armor.mecha_hp)
+			if(mech_armor.mecha_hp <= 0)
 				to_chat(occupants, "[icon2html(src, occupants)][icon2html(mech_armor, occupants)][span_userdanger("[mech_armor] fractured!")]")
 				balloon_alert_to_viewers("[mech_armor] fractured!", vision_distance = COMBAT_MESSAGE_RANGE)
 	// SPLURT EDIT ADDITION END

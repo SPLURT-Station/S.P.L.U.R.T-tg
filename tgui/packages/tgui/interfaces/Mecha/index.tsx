@@ -19,7 +19,7 @@ import { ModulesPane } from './ModulesPane';
 export const Mecha = (props) => {
   const { data } = useBackend<MainData>();
   return (
-    <Window theme={data.ui_theme} width={800} height={560}>
+    <Window theme={data.ui_theme} width={800} height={600}>
       <Window.Content>
         <Content />
       </Window.Content>
@@ -73,6 +73,7 @@ export const Content = (props) => {
                     <IntegrityBar />
                     <FlatArmorIntegrityBar />
                     <PowerBar />
+                    <SlowdownDisplay />
                     <LightsBar />
                     <CabinSeal />
                     <DNALock />
@@ -324,15 +325,12 @@ const DNALock = (props) => {
 // SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
 const FlatArmorIntegrityBar = (props) => {
   const { act, data } = useBackend<MainData>();
-  const { flat_armor_name, flat_armor_integrity, flat_armor_integrity_max } =
-    data;
+  const { armor_name, armor_integrity, armor_integrity_max } = data;
   return (
-    flat_armor_name && (
-      <LabeledList.Item
-        label={flat_armor_name ? flat_armor_name : 'Armor Integrity'}
-      >
+    armor_name && (
+      <LabeledList.Item label={armor_name ? armor_name : 'Armor Integrity'}>
         <ProgressBar
-          value={flat_armor_integrity / flat_armor_integrity_max}
+          value={armor_integrity / armor_integrity_max}
           ranges={{
             good: [0.75, Infinity],
             average: [0.35, 0.75],
@@ -342,10 +340,32 @@ const FlatArmorIntegrityBar = (props) => {
             textShadow: '1px 1px 0 black',
           }}
         >
-          {flat_armor_integrity} of {flat_armor_integrity_max}
+          {armor_integrity} of {armor_integrity_max}
         </ProgressBar>
       </LabeledList.Item>
     )
+  );
+};
+
+const SlowdownDisplay = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { initial_slowdown, current_slowdown } = data;
+  return (
+    <LabeledList.Item label={'Slowdown'}>
+      <ProgressBar
+        value={current_slowdown / (initial_slowdown * 2)}
+        ranges={{
+          bad: [0.8, Infinity],
+          average: [0.6, 0.8],
+          good: [-Infinity, 0.5],
+        }}
+        style={{
+          textShadow: '1px 1px 0 black',
+        }}
+      >
+        {(current_slowdown / initial_slowdown) * 100}%
+      </ProgressBar>
+    </LabeledList.Item>
   );
 };
 // SPLURT EDIT ADDITION END - Mecha additions, better armor

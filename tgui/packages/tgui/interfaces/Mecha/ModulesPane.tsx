@@ -1143,10 +1143,9 @@ const SnowflakeRCD = (props) => {
 const SnowflakeArmor = (props) => {
   const { act, data } = useBackend<MainData>();
   const { ref } = props.module;
-  const { flat_armor_integrity, flat_armor_integrity_max } =
-    props.module.snowflake;
+  const { armor_integrity, armor_integrity_max } = props.module.snowflake;
   return (
-    flat_armor_integrity_max && (
+    armor_integrity_max && (
       <LabeledList.Item label="Integrity">
         <ProgressBar
           ranges={{
@@ -1154,9 +1153,9 @@ const SnowflakeArmor = (props) => {
             average: [0.35, 0.75],
             bad: [-Infinity, 0.35],
           }}
-          value={flat_armor_integrity / flat_armor_integrity_max}
+          value={armor_integrity / armor_integrity_max}
         >
-          {`${flat_armor_integrity} of ${flat_armor_integrity_max}`}
+          {`${armor_integrity} of ${armor_integrity_max}`}
         </ProgressBar>
       </LabeledList.Item>
     )

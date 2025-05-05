@@ -3,11 +3,23 @@
 /obj/item/mecha_parts/mecha_equipment/armor
 	applied_slowdown = 1.175
 	/// Max health points inside the mecha, when null it will apply damage reduction regardless
-	var/max_flat_mecha_hp
+	var/max_mecha_hp
 	/// Current health points inside a mecha for purposes of flat damage reduction, when it reaches 0, no more damage reduction
-	var/flat_mecha_hp
+	var/mecha_hp
 	/// Basically flat damage reduction that gets applied after the mech's normal armor datum does it's thing
 	var/datum/armor/flat_armor
+
+/datum/armor/mecha_armor
+	acid = 0
+	bio = 0
+	bomb = 0
+	bullet = 0
+	consume = 0
+	energy = 0
+	laser = 0
+	fire = 0
+	melee = 0
+	wound = 0
 
 /datum/armor/flat_mecha_armor
 	acid = 0
@@ -25,7 +37,7 @@
 	. = ..()
 	if(flat_armor)
 		flat_armor = get_armor_by_type(flat_armor)
-	flat_mecha_hp = max_flat_mecha_hp
+	mecha_hp = max_mecha_hp
 
 /obj/item/mecha_parts/mecha_equipment/armor/Destroy()
 	. = ..()
@@ -33,10 +45,10 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor/examine(mob/user)
 	. = ..()
-	. += span_notice("[EXAMINE_HINT("Examine more")] to inspect armor values applied to mechs...")
+	. += span_notice("[EXAMINE_HINT("Examine more")] to inspect armor values applied to mechs.")
 	if(flat_armor)
-		if(!isnull(max_flat_mecha_hp))
-			switch(flat_mecha_hp / max_flat_mecha_hp)
+		if(!isnull(max_mecha_hp))
+			switch(mecha_hp / max_mecha_hp)
 				if(1 to INFINITY)
 					. += span_notice("[p_Theyre()] in perfect condition.")
 				if(0.75 to 1)
@@ -109,8 +121,8 @@
 /obj/item/mecha_parts/mecha_equipment/armor/get_snowflake_data()
 	return list(
 		"snowflake_id" = MECHA_SNOWFLAKE_ID_ARMOR,
-		"flat_armor_integrity" = flat_mecha_hp,
-		"flat_armor_integrity_max" = max_flat_mecha_hp,
+		"armor_integrity" = mecha_hp,
+		"armor_integrity_max" = max_mecha_hp,
 	)
 
 /obj/item/mecha_parts/mecha_equipment/armor/basic
@@ -120,13 +132,41 @@
 	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"
 	protect_name = "Basic Armor"
-	max_flat_mecha_hp = 100
-	flat_mecha_hp = 100
+	applied_slowdown = 1.175
+	max_mecha_hp = 100
+	mecha_hp = 100
+	armor_mod = /datum/armor/mecha_armor/basic
 	flat_armor = /datum/armor/flat_mecha_armor/basic
 
+/datum/armor/mecha_armor/basic
+	melee = 15
+	bullet = 10
+	laser = 10
+
 /datum/armor/flat_mecha_armor/basic
-	bomb = 15
+	bomb = 10
 	bullet = 5
 	energy = 2
 	laser = 3
 	melee = 5
+
+/obj/item/mecha_parts/mecha_equipment/armor/heavy
+	name = "Heavy mech armor"
+	desc = "Sacrificial plate of plasteel, designed for combat. Very durable and effective, but slows mechs down considerably."
+	applied_slowdown = 1.35
+	max_mecha_hp = 200
+	mecha_hp = 200
+	armor_mod = /datum/armor/mecha_armor/heavy
+	flat_armor = /datum/armor/flat_mecha_armor/heavy
+
+/datum/armor/mecha_armor/heavy
+	melee = 25
+	bullet = 20
+	laser = 10
+
+/datum/armor/flat_mecha_armor/heavy
+	bomb = 20
+	bullet = 5
+	energy = 5
+	laser = 5
+	melee = 10
