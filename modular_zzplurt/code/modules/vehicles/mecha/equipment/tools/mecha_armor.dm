@@ -32,7 +32,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor/examine(mob/user)
 	. = ..()
-	. += span_notice("Examine more to inspect armor values applied to mechs...")
+	. += span_notice("[EXAMINE_HINT("Examine more")] to inspect armor values applied to mechs...")
 	if(flat_armor)
 		if(!isnull(max_flat_mecha_hp))
 			switch(flat_mecha_hp / max_flat_mecha_hp)
