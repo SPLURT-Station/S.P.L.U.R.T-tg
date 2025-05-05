@@ -54,6 +54,11 @@ export type MainData = {
   modules: MechModule[];
   selected_module_index: number;
   sheet_material_amount: number;
+  // SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+  flat_armor_name: string;
+  flat_armor_integrity: number;
+  flat_armor_integrity_max: number;
+  // SPLURT EDIT ADDITION END - Mecha additions, better armor
 };
 
 export type MechModule = {

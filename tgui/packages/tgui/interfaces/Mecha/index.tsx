@@ -319,3 +319,34 @@ const DNALock = (props) => {
     </LabeledList.Item>
   );
 };
+
+// SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+const FlatIntegrityBar = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { flat_armor_name, flat_armor_integrity, flat_armor_integrity_max } =
+    data;
+  return (
+    flat_armor_name && (
+      <LabeledList.Item
+        label={
+          flat_armor_name ? flat_armor_name + ' Integrity' : 'Armor Integrity'
+        }
+      >
+        <ProgressBar
+          value={flat_armor_integrity / flat_armor_integrity_max}
+          ranges={{
+            good: [0.75, Infinity],
+            average: [0.35, 0.75],
+            bad: [-Infinity, 0.35],
+          }}
+          style={{
+            textShadow: '1px 1px 0 black',
+          }}
+        >
+          {flat_armor_integrity} of {flat_armor_integrity_max}
+        </ProgressBar>
+      </LabeledList.Item>
+    )
+  );
+};
+// SPLURT EDIT ADDITION END - Mecha additions, better armor

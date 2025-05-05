@@ -31,7 +31,24 @@
 	var/internal_damage_to_deal = possible_int_damage
 	internal_damage_to_deal &= ~internal_damage
 	if(internal_damage_to_deal)
+		/* SPLURT EDIT REMOVAL - Mech additions
 		set_internal_damage(pick(bitfield_to_list(internal_damage_to_deal)))
+		*/
+		// SPLURT EDIT ADDITION - Mech additions
+		var/internal_damage_dealt = pick(bitfield_to_list(internal_damage_to_deal))
+		set_internal_damage(internal_damage_dealt)
+		switch(internal_damage_dealt)
+			if(MECHA_INT_FIRE)
+				audible_message(span_warning("Fire extinguisher foam gushes out out of [src]'s armor seams!"))
+			if(MECHA_INT_TEMP_CONTROL)
+				visible_message(span_warning("The heat radiators of [src] come loose!"))
+			if(MECHA_CABIN_AIR_BREACH)
+				audible_message(span_warning("Air pours out of [src]'s crew cabin!"))
+			if(MECHA_INT_CONTROL_LOST)
+				visible_message(span_warning("Sparks fly out of [src]'s servos!"))
+			if(MECHA_INT_SHORT_CIRCUIT)
+				visible_message(span_warning("Black fumes leak from [src]'s circuits!"))
+		// SPLURT EDIT ADDITION END
 
 /// tries to repair any internal damage and plays fluff for it
 /obj/vehicle/sealed/mecha/proc/try_repair_int_damage(mob/user, flag_to_heal)

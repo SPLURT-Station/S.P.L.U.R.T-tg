@@ -311,6 +311,9 @@ const MECHA_SNOWFLAKE_ID_GENERATOR = 'generator_snowflake';
 const MECHA_SNOWFLAKE_ID_ORE_SCANNER = 'orescanner_snowflake';
 const MECHA_SNOWFLAKE_ID_CLAW = 'lawclaw_snowflake';
 const MECHA_SNOWFLAKE_ID_RCD = 'rcd_snowflake';
+// SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+const MECHA_SNOWFLAKE_ID_ARMOR = 'armor_snowflake';
+// SPLURT EDIT ADDITION END - Mecha additions, better armor
 
 export const ModuleDetailsExtra = (props: { module: MechModule }) => {
   const module = props.module;
@@ -335,6 +338,10 @@ export const ModuleDetailsExtra = (props: { module: MechModule }) => {
       return <SnowflakeLawClaw module={module} />;
     case MECHA_SNOWFLAKE_ID_RCD:
       return <SnowflakeRCD module={module} />;
+    // SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+    case MECHA_SNOWFLAKE_ID_ARMOR:
+      return <SnowflakeArmor module={module} />;
+    // SPLURT EDIT ADDITION END - Mecha additions, better armor
     default:
       return null;
   }
@@ -1131,3 +1138,28 @@ const SnowflakeRCD = (props) => {
     </>
   );
 };
+
+// SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+const SnowflakeArmor = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { ref } = props.module;
+  const { flat_armor_integrity, flat_armor_integrity_max } =
+    props.module.snowflake;
+  return (
+    flat_armor_integrity_max && (
+      <LabeledList.Item label="Integrity">
+        <ProgressBar
+          ranges={{
+            good: [0.75, Infinity],
+            average: [0.35, 0.75],
+            bad: [-Infinity, 0.35],
+          }}
+          value={flat_armor_integrity / flat_armor_integrity_max}
+        >
+          {`${flat_armor_integrity} of ${flat_armor_integrity_max}`}
+        </ProgressBar>
+      </LabeledList.Item>
+    )
+  );
+};
+// SPLURT EDIT ADDITION END - Mecha additions, better armor
