@@ -1,8 +1,8 @@
 /obj/projectile/bullet/shotgun_slug
 	name = "12g shotgun slug"
 	icon_state = "pellet"
-	damage = 25
-	armour_penetration = 30
+	damage = 45 // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 25 // why did it do less than a .357???
+	armour_penetration = 15  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 30
 	sharpness = SHARP_POINTY
 	wound_bonus = 0
 	bare_wound_bonus = 15
@@ -11,6 +11,7 @@
 	name = "12g shotgun milspec slug"
 	icon_state = "pellet"
 	damage = 50
+	armour_penetration = 30  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 30
 
 /obj/projectile/bullet/shotgun_slug/executioner
 	name = "executioner slug" // admin only, can dismember limbs

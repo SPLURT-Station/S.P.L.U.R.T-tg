@@ -197,8 +197,8 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
-	armour_penetration = 35
-	block_chance = 50
+	armour_penetration = 20 // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 35
+	block_chance = 5  // SPLURT EDIT ANTAG_NERF, ORIGINAL BLOCK_CHANCE: 50
 	block_sound = 'sound/items/weapons/block_blade.ogg'
 	embed_type = /datum/embedding/esword
 	var/list/alt_continuous = list("stabs", "pierces", "impales")
@@ -215,7 +215,7 @@
 		return FALSE
 
 	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 25 //OH GOD GET IT OFF ME
+		final_block_chance -= 5 //OH GOD GET IT OFF ME  // SPLURT EDIT ANTAG_NERF, ORIGINAL FINAL_BLOCK_CHANCE: -= 25
 
 	return ..()
 

@@ -22,8 +22,8 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	force = 30
 	throwforce = 30
-	block_chance = 50
-	armour_penetration = 50
+	block_chance = 15  // SPLURT EDIT ANTAG_NERF, ORIGINAL BLOCK_CHANCE = 50
+	armour_penetration = 35  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 50
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	pickup_sound = 'sound/items/unsheath.ogg'

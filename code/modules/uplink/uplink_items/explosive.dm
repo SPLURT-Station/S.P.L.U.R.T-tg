@@ -61,15 +61,15 @@
 	name = "Smoke Grenades"
 	desc = "A box that contains five smoke grenades. Useful for vanishing and ninja fans with katana."
 	item = /obj/item/storage/box/syndie_kit/smoke
-	cost = 2
+	cost = 1 // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 2
 
 /datum/uplink_item/explosives/pizza_bomb
 	name = "Pizza Bomb"
 	desc = "A pizza box with a bomb cunningly attached to the lid. The timer needs to be set by opening the box; afterwards, \
 			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!"
 	item = /obj/item/pizzabox/bomb
-	cost = 6
-	surplus = 8
+	cost = 8 // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 6
+	surplus = 10
 
 /datum/uplink_item/explosives/syndicate_minibomb
 	name = "Syndicate Minibomb"
@@ -77,7 +77,7 @@
 			in addition to dealing high amounts of damage to nearby personnel."
 	progression_minimum = 30 MINUTES
 	item = /obj/item/grenade/syndieminibomb
-	cost = 6
+	cost = 10 // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 6
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 
@@ -85,7 +85,7 @@
 	name = "Syndicate EMP Bomb"
 	desc = "A variation of the syndicate bomb designed to produce a large EMP effect."
 	item = /obj/item/sbeacondrop/emp
-	cost = 7
+	cost = 8 // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 7
 
 /datum/uplink_item/explosives/syndicate_bomb/emp/New()
 	..()
@@ -102,8 +102,9 @@
 		The bomb core can be pried out and manually detonated with other explosives."
 	progression_minimum = 30 MINUTES
 	item = /obj/item/sbeacondrop/bomb
-	cost = 11
+	cost = 15 // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 11
 
 /datum/uplink_item/explosives/syndicate_bomb/New()
 	. = ..()
 	desc = replacetext(desc, "%MIN_BOMB_TIMER", SYNDIEBOMB_MIN_TIMER_SECONDS)
+

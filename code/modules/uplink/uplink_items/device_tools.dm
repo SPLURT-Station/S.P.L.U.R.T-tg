@@ -260,7 +260,7 @@
 			traditional bags and boxes. Caution: Will explode if the powernet contains sufficient amounts of energy."
 	progression_minimum = 20 MINUTES
 	item = /obj/item/powersink
-	cost = 11
+	cost = 13  // SPLURT EDIT ANTAG_NERF, ORIGINAL COST: 11
 
 /datum/uplink_item/device_tools/syndicate_contacts
 	name = "Polarized Contact Lenses"

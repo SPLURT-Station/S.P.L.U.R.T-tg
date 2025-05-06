@@ -17,8 +17,8 @@
 
 /obj/projectile/bullet/c9mm/ap
 	name = "9mm armor-piercing bullet"
-	damage = 27
-	armour_penetration = 40
+	damage = 25  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 25
+	armour_penetration = 25  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 40
 	embed_type = null
 	shrapnel_type = null
 
@@ -36,16 +36,16 @@
 
 /obj/projectile/bullet/c10mm
 	name = "10mm bullet"
-	damage = 40
+	damage = 35  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 40
 
 /obj/projectile/bullet/c10mm/ap
 	name = "10mm armor-piercing bullet"
-	damage = 35
-	armour_penetration = 40
+	damage = 25  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 35
+	armour_penetration = 25  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 40
 
 /obj/projectile/bullet/c10mm/hp
 	name = "10mm hollow-point bullet"
-	damage = 50
+	damage = 45  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 50
 	weak_against_armour = TRUE
 
 /obj/projectile/bullet/incendiary/c10mm

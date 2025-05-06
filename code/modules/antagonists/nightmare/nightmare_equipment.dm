@@ -7,8 +7,8 @@
 	icon_state = "arm_blade"
 	inhand_icon_state = "arm_blade"
 	icon_angle = 180
-	force = 25
-	armour_penetration = 35
+	force = 20  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 25
+	armour_penetration = 15  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 35
 	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
 	item_flags = ABSTRACT | DROPDEL

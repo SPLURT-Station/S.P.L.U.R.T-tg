@@ -203,7 +203,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 10
-	armour_penetration = 35
+	armour_penetration = 15  // SPLURT EDIT ANTAG_NERF, ORIGINAL PENETRATION: 35
 	var/can_drop = FALSE
 	var/fake = FALSE
 	var/list/alt_continuous = list("stabs", "pierces", "impales")

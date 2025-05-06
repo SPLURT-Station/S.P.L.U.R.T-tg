@@ -443,7 +443,7 @@
 	return
 
 /mob/living/silicon/rust_heretic_act()
-	adjustBruteLoss(500)
+	adjustBruteLoss(100)   // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 500
 
 /mob/living/silicon/on_floored_start()
 	return // Silicons are always standing by default.

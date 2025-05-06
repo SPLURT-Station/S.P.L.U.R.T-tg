@@ -135,20 +135,20 @@
 
 /obj/projectile/bullet/c357
 	name = ".357 bullet"
-	damage = 60
+	damage = 40 // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 60
 	wound_bonus = -30
 
 /obj/projectile/bullet/c357/phasic
 	name = ".357 phasic bullet"
 	icon_state = "gaussphase"
-	damage = 35
+	damage = 30 // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 35
 	armour_penetration = 100
 	projectile_phasing =  PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS
 
 /obj/projectile/bullet/c357/heartseeker
 	name = ".357 heartseeker bullet"
 	icon_state = "gauss"
-	damage = 50
+	damage = 35  // SPLURT EDIT ANTAG_NERF, ORIGINAL DAMAGE: 50
 	homing_turn_speed = 120
 
 // admin only really, for ocelot memes
