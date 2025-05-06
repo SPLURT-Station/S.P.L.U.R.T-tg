@@ -21763,6 +21763,13 @@
 "Sj" = (
 /obj/machinery/suit_storage_unit/industrial/syndicatecontractor,
 /obj/structure/marker_beacon/burgundy,
+/obj/item/radio/intercom/directional/east{
+	name = "two-way prisoner intercom";
+	freerange = 1;
+	freqlock = 1;
+	frequency = 1245;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/brig)
 "Sk" = (
