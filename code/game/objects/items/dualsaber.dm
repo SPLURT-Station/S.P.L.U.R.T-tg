@@ -24,7 +24,7 @@
 	light_on = FALSE
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
-	block_chance = 75
+	block_chance = 10 // SPLURT EDIT ANTAG_NERF, ORIGINAL BLOCK_CHANCE: 75
 	block_sound = 'sound/items/weapons/block_blade.ogg'
 	max_integrity = 200
 	armor_type = /datum/armor/item_dualsaber
@@ -162,10 +162,10 @@
 		if(our_projectile.reflectable)
 			final_block_chance = 0 //we handle this via IsReflect(), effectively 75% block
 		else
-			final_block_chance -= 25 //We aren't AS good at blocking physical projectiles, like ballistics and thermals
+			final_block_chance -= 10 //We aren't AS good at blocking physical projectiles, like ballistics and thermals // SPLURT EDIT ANTAG_NERF, ORIGINAL BLOCK_CHANCE: -= 25
 
 	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 50 //We are particularly bad at blocking someone JUMPING at us..
+		final_block_chance -= 5 //We are particularly bad at blocking someone JUMPING at us.. // SPLURT EDIT ANTAG_NERF, ORIGINAL BLO_CHANCE: 50
 
 	return ..()
 
