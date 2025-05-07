@@ -7,11 +7,11 @@
 			var/multi_armor
 			if(mech_armor.armor_mod)
 				var/datum/armor/multi_armor_datum = get_armor_by_type(mech_armor.armor_mod)
-				multi_armor = multi_armor_datum.get_rating(damage_flag)
+				multi_armor = multi_armor_datum.get_rating(damage_flag || MELEE)
 				multi_armor = clamp(PENETRATE_ARMOUR(multi_armor, armour_penetration), min(multi_armor, 0), 100)
 			var/flat_armor
 			if(mech_armor.flat_armor)
-				flat_armor = mech_armor.flat_armor.get_rating(damage_flag)
+				flat_armor = mech_armor.flat_armor.get_rating(damage_flag || MELEE)
 				flat_armor *= (100 - armour_penetration) * 0.01
 			damage_taken = max(0, (damage_taken * (100 - multi_armor) * 0.01) - flat_armor)
 	return round(damage_taken, DAMAGE_PRECISION)
