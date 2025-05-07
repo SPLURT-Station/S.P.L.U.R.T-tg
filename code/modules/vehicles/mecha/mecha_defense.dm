@@ -39,28 +39,29 @@
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	var/damage_taken = ..()
 	// SPLURT EDIT ADDITION - Mech armor
-	ignore_armor_equipment_reduction = TRUE
-	// We have to run armor so we know the actual damage value, without taking armor plates into account
-	// This is the damage the plates will take!
-	var/damage_with_armor = run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
-	ignore_armor_equipment_reduction = FALSE
-	if(damage_with_armor >= DAMAGE_PRECISION)
-		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
-			if(damage_with_armor < DAMAGE_PRECISION)
-				break
-			if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0))
-				continue
-			var/datum/armor/armor_mod_datum
-			if(mech_armor.armor_mod)
-				armor_mod_datum = get_armor_by_type(mech_armor.armor_mod)
-			if(!mech_armor.flat_armor?.get_rating(damage_flag) && !armor_mod_datum?.get_rating(damage_flag))
-				continue
-			var/old_hp = mech_armor.mecha_hp
-			mech_armor.mecha_hp = round(max(0, mech_armor.mecha_hp - damage_with_armor), DAMAGE_PRECISION)
-			damage_with_armor -= (old_hp - mech_armor.mecha_hp)
-			if(mech_armor.mecha_hp <= 0)
-				to_chat(occupants, "[icon2html(src, occupants)][icon2html(mech_armor, occupants)][span_userdanger("[mech_armor] fractured!")]")
-				balloon_alert_to_viewers("[mech_armor] fractured!", vision_distance = COMBAT_MESSAGE_RANGE)
+	if(damage_flag)
+		ignore_armor_equipment_reduction = TRUE
+		// We have to run armor so we know the actual damage value, without taking armor plates into account
+		// This is the damage the plates will take!
+		var/damage_with_armor = run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+		ignore_armor_equipment_reduction = FALSE
+		if(damage_with_armor >= DAMAGE_PRECISION)
+			for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
+				if(damage_with_armor < DAMAGE_PRECISION)
+					break
+				if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0))
+					continue
+				var/datum/armor/armor_mod_datum
+				if(mech_armor.armor_mod)
+					armor_mod_datum = get_armor_by_type(mech_armor.armor_mod)
+				if(!mech_armor.flat_armor?.get_rating(damage_flag) && !armor_mod_datum?.get_rating(damage_flag))
+					continue
+				var/old_hp = mech_armor.mecha_hp
+				mech_armor.mecha_hp = round(max(0, mech_armor.mecha_hp - damage_with_armor), DAMAGE_PRECISION)
+				damage_with_armor -= (old_hp - mech_armor.mecha_hp)
+				if(mech_armor.mecha_hp <= 0)
+					to_chat(occupants, "[icon2html(src, occupants)][icon2html(mech_armor, occupants)][span_userdanger("[mech_armor] fractured!")]")
+					balloon_alert_to_viewers("[mech_armor] fractured!", vision_distance = COMBAT_MESSAGE_RANGE)
 	// SPLURT EDIT ADDITION END
 	if(damage_taken <= 0 || atom_integrity < 0)
 		return damage_taken
