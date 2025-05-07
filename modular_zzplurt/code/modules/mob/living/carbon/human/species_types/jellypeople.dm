@@ -83,7 +83,6 @@
 				original_pass_flags = H.pass_flags
 				H.pass_flags |= PASSMOB
 				H.pass_flags |= PASSTABLE
-				H.pass_flags |= PASSDOORS
 				H.layer = 3
 				squeak = H.AddComponent(/datum/component/squeak, list('sound/effects/blob/blobattack.ogg'))
 
