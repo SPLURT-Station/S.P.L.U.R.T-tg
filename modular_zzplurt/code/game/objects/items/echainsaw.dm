@@ -1,11 +1,11 @@
 // An odd mix between the chainsaw and the dualsaber. So odd that I had to rewrite the code from scratch.
 /obj/item/energychainsaw
 	name = "energy chainsaw"
-	desc = "An advanced Syndicate design, this chainsaw is powered by the same technology that runs their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and assault troopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
-	icon = 'icons/obj/weapons/chainsaw.dmi'
+	desc = "An advanced Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and assault troopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
+	icon = 'modular_zzplurt/icons/obj/weapons/esaw.dmi'
 	icon_state = "echainsaw"
-	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/chainsaw_righthand.dmi'
+	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_righthand.dmi'
 	inhand_icon_state = "echainsaw"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_angle = -45
@@ -83,9 +83,11 @@
 	if (active)
 		chainsaw_loop.start()
 		set_light_on(TRUE)
+		slot_flags = 0
 	else
 		chainsaw_loop.stop()
 		set_light_on(FALSE)
+		slot_flags = ITEM_SLOT_BACK
 
 	toolspeed = active ? 0.5 : initial(toolspeed)
 	update_item_action_buttons()
