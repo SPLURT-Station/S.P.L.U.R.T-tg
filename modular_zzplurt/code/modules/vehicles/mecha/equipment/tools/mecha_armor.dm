@@ -8,6 +8,10 @@
 	var/mecha_hp
 	/// Basically flat damage reduction that gets applied after the mech's normal armor datum does it's thing
 	var/datum/armor/flat_armor
+	/// Overlay icon we use on the mecha
+	var/mecha_overlay_icon
+	/// Color we use for the overlay (it's greyscale)
+	var/mecha_overlay_color
 
 /datum/armor/mecha_armor
 	acid = 0
@@ -138,6 +142,9 @@
 	mecha_hp = 100
 	armor_mod = /datum/armor/mecha_armor/basic
 	flat_armor = /datum/armor/flat_mecha_armor/basic
+	mecha_overlay_icon = 'modular_zzplurt/icons/mob/rideables/mecha_armor_overlays.dmi'
+	mecha_overlay_color = COLOR_FLOORTILE_GRAY
+	color = COLOR_FLOORTILE_GRAY
 
 /datum/armor/mecha_armor/basic
 	bullet = 10
@@ -160,6 +167,9 @@
 	mecha_hp = 150
 	armor_mod = /datum/armor/mecha_armor/light
 	flat_armor = /datum/armor/flat_mecha_armor/light
+	mecha_overlay_icon = 'modular_zzplurt/icons/mob/rideables/mecha_armor_overlays.dmi'
+	mecha_overlay_color = COLOR_PALE_PURPLE_GRAY
+	color = COLOR_PALE_PURPLE_GRAY
 
 /datum/armor/mecha_armor/light
 	bullet = 15
@@ -182,6 +192,9 @@
 	mecha_hp = 150
 	armor_mod = /datum/armor/mecha_armor/medium
 	flat_armor = /datum/armor/flat_mecha_armor/medium
+	mecha_overlay_icon = 'modular_zzplurt/icons/mob/rideables/mecha_armor_overlays.dmi'
+	mecha_overlay_color = COLOR_ASSEMBLY_PURPLE
+	color = COLOR_ASSEMBLY_PURPLE
 
 /datum/armor/mecha_armor/medium
 	bullet = 20
@@ -202,6 +215,9 @@
 	mecha_hp = 200
 	armor_mod = /datum/armor/mecha_armor/heavy
 	flat_armor = /datum/armor/flat_mecha_armor/heavy
+	mecha_overlay_icon = 'modular_zzplurt/icons/mob/rideables/mecha_armor_overlays.dmi'
+	mecha_overlay_color = COLOR_ALMOST_BLACK
+	color = COLOR_ALMOST_BLACK
 
 /datum/armor/mecha_armor/heavy
 	bullet = 45

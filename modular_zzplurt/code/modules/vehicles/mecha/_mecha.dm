@@ -15,6 +15,20 @@
 		equip_by_category[MECHA_ARMOR] += /obj/item/mecha_parts/mecha_equipment/armor/basic
 	return ..()
 
+/obj/vehicle/sealed/mecha/update_overlays()
+	. = ..()
+	for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
+		if(!mech_armor.mecha_overlay_icon)
+			continue
+		var/mutable_appearance/armor_appearance = mutable_appearance(mech_armor.mecha_overlay_icon, icon_state)
+		armor_appearance.color = mech_armor.mecha_overlay_color
+		if(!isnull(mech_armor.max_mecha_hp) && (mech_armor.mecha_hp <= 0))
+			var/mutable_appearance/damage_overlay = mutable_appearance('icons/effects/item_damage.dmi', "itemdamaged")
+			damage_overlay.blend_mode = BLEND_INSET_OVERLAY
+			armor_appearance.overlays += damage_overlay
+		. += armor_appearance
+		break
+
 /obj/vehicle/sealed/mecha/toggle_overclock(forced_state)
 	. = ..()
 	update_equipment_slowdown()
