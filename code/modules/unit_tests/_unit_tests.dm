@@ -322,8 +322,8 @@
 #include "~skyrat\opposing_force.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
-#include "~splurt\underwear_items.dm"
 #include "~splurt\mecha_damage.dm"
+#include "~splurt\underwear_items.dm"
 // SPLURT EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
