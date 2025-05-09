@@ -160,6 +160,7 @@
 /obj/item/mecha_parts/mecha_equipment/armor/light
 	name = "Light mech armor"
 	desc = "A flexible armor plate composed of ultralight plasma-fibres covering most of the exosuit's chassis, ideal for low-intensity situations where mobility is key."
+	icon_state = "mech_armor_basic"
 	iconstate_name = "melee"
 	protect_name = "Light Armor"
 	applied_slowdown = 1
@@ -185,6 +186,7 @@
 /obj/item/mecha_parts/mecha_equipment/armor/medium
 	name = "Medium mech armor"
 	desc = "A set of reinforced plasma-fibre bundles pressed into rigid plates, for good protection while remaining somewhat lightweight."
+	icon_state = "mech_armor_basic"
 	iconstate_name = "range"
 	protect_name = "Medium Armor"
 	applied_slowdown = 1.175
@@ -210,6 +212,7 @@
 /obj/item/mecha_parts/mecha_equipment/armor/heavy
 	name = "Heavy mech armor"
 	desc = "Sacrificial plate of plasteel, designed for combat. Very durable and effective, but slows mechs down considerably."
+	icon_state = "mech_armor_basic"
 	iconstate_name = "range"
 	protect_name = "Heavy Armor"
 	applied_slowdown = 1.425
