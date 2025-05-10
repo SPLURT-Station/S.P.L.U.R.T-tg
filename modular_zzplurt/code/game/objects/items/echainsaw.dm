@@ -32,7 +32,7 @@
 	armour_penetration = 40
 	bare_wound_bonus = 20
 
-	actions_types = list(/datum/action/item_action/esaw)
+	actions_types = list(/datum/action/item_action/startesaw)
 
 	light_system = OVERLAY_LIGHT
 	light_range = 6
