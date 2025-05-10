@@ -67,7 +67,9 @@
 	var/cutter_wound_bonus = CUTTER_WOUND_BONUS
 	var/cutter_bare_wound_bonus = CUTTER_WOUND_BONUS
 	tool_behaviour = TOOL_KNIFE
-	toolspeed = 1
+	toolspeed = 5
+	attack_speed = 10
+	force = 7.5 //Splurt Edit/Addition
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 
 /obj/item/knife/razor_claws/attack_self(mob/user)
