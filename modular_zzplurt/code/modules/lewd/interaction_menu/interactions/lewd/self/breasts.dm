@@ -63,6 +63,7 @@
 	description = "Suck your own nipples."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	usage = INTERACTION_SELF
 	message = list(
 		"brings their own milk tanks to their mouth and sucks deeply into them",

@@ -3,6 +3,7 @@
 	description = "Breastfeed them."
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH, INTERACTION_REQUIRE_SELF_HUMAN)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	message = list(
 		"pushes their breasts against %TARGET%'s mouth, squirting their warm %MILK% into their mouth.",
 		"fills %TARGET%'s mouth with warm, sweet %MILK% as they squeeze their boobs, panting.",
