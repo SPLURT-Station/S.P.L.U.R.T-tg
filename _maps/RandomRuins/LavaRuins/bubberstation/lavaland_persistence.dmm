@@ -125,10 +125,12 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/persistance/sec/holding)
 "al" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/marker_beacon/cerulean{
 	pixel_x = -16;
 	pixel_y = 12
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -543,10 +545,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/cargo)
 "bg" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	dir = 5
+	pixel_x = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -757,6 +760,7 @@
 /area/ruin/space/has_grav/bubbers/persistance/engineering/atmospherics)
 "bz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on,
+/obj/structure/grille,
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "bA" = (
@@ -1066,8 +1070,6 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/green/hidden{
 	dir = 6
 	},
@@ -1840,7 +1842,7 @@
 /obj/structure/cable,
 /obj/machinery/button/door/directional/west{
 	id = "syndimining";
-	name = "Blast Doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 0;
 	pixel_y = 32;
@@ -2254,6 +2256,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/kitchen)
 "eP" = (
 /obj/effect/turf_decal/vg_decals/numbers/three,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "eR" = (
@@ -2616,6 +2624,12 @@
 	pixel_x = -12;
 	pixel_y = 1
 	},
+/obj/item/radio/intercom/directional/south{
+	name = "two-way prisoner intercom";
+	freerange = 1;
+	freqlock = 1;
+	frequency = 1245
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sec/armory)
 "fw" = (
@@ -2903,6 +2917,12 @@
 /obj/effect/turf_decal/siding/wideplating_new/corner{
 	dir = 8
 	},
+/obj/item/radio/intercom/directional/west{
+	freqlock = 1;
+	freerange = 1;
+	frequency = 1245;
+	name = "two-way prisoner intercom"
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "ga" = (
@@ -3173,7 +3193,7 @@
 /obj/machinery/button/door{
 	id = "syndihangerb";
 	pixel_x = 25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_y = 5;
 	icon_state = "tram";
@@ -3298,6 +3318,29 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/floor/pod/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/command/vault)
+"gU" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/warning,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/warning,
+/obj/effect/turf_decal/trimline/dark/warning{
+	dir = 1
+	},
+/obj/item/storage/box/donkpockets/donkpocketteriyaki{
+	name = "box of WIN-flavoured donk-pockets";
+	desc = "STAY WINNING"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/bubbers/persistance/cargo)
 "gV" = (
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -3387,10 +3430,6 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/bubbers/persistance/service)
-"hj" = (
-/obj/machinery/light/directional/west,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/bubbers/persistance/engineering/mining)
 "hk" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 8
@@ -3448,19 +3487,10 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "hq" = (
 /obj/structure/cable,
-/obj/item/radio/intercom/directional/east{
-	name = "two-way prisoner intercom";
-	freerange = 1;
-	freqlock = 1;
-	frequency = 1245;
-	pixel_x = 0;
-	pixel_y = -30
-	},
 /obj/machinery/computer/mech_bay_power_console{
 	dir = 1
 	},
@@ -3468,6 +3498,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/delivery/red,
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "hr" = (
@@ -3525,7 +3556,8 @@
 	pixel_y = 5;
 	pixel_x = 25;
 	icon_state = "tram";
-	base_icon_state = "tram"
+	base_icon_state = "tram";
+	req_access = list("syndicate")
 	},
 /obj/structure/marker_beacon/indigo,
 /obj/effect/turf_decal/bot_blue,
@@ -3696,20 +3728,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/brig)
-"hJ" = (
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/lattice/catwalk/mining,
-/obj/machinery/camera/autoname/directional/west{
-	name = "Persistence Exterior West";
-	network = list("persistence_ext")
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/space/has_grav/bubbers/dauntless/command/vault)
 "hM" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -3907,6 +3925,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/gym)
 "if" = (
 /obj/effect/turf_decal/vg_decals/numbers/two,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "ig" = (
@@ -4268,6 +4292,10 @@
 /obj/structure/emergency_shield/cult/weak{
 	name = "Energy Shield"
 	},
+/obj/machinery/camera/autoname/directional/west{
+	name = "Persistence Exterior West";
+	network = list("persistence_ext")
+	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/space/has_grav/bubbers/dauntless/command/vault)
 "iM" = (
@@ -4349,6 +4377,7 @@
 /obj/machinery/camera/autoname/directional/east{
 	network = list("persistence_xeno")
 	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "iZ" = (
@@ -5350,6 +5379,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/morale)
 "kY" = (
 /obj/effect/turf_decal/tile/dark_red,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -5679,7 +5711,7 @@
 /obj/machinery/button/door{
 	id = "syndihangerb";
 	pixel_x = -25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_y = 5;
 	icon_state = "tram";
@@ -5760,7 +5792,7 @@
 /obj/machinery/door/firedoor/heavy,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/freezer{
-	name = "Shower"
+	name = "Showers"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/persistance/service/lockers)
@@ -6009,7 +6041,7 @@
 	},
 /obj/machinery/button/door/directional/west{
 	id = "syndicargo";
-	name = "Hanger Bay Shutters";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 0;
 	pixel_y = 32;
@@ -6542,12 +6574,12 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/gym)
 "nz" = (
 /obj/structure/cable,
-/obj/machinery/duct,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/sign/poster/contraband/syndiemoth/directional/east,
 /obj/machinery/door/firedoor/heavy,
+/obj/machinery/duct,
 /turf/open/floor/iron/shuttle/evac{
 	icon_state = "2,13";
 	dir = 1
@@ -6752,7 +6784,7 @@
 /obj/machinery/button/door{
 	id = "syndihanger";
 	pixel_x = 25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	icon_state = "tram";
 	pixel_y = 5;
@@ -7529,20 +7561,20 @@
 	alpha = 160;
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/dark/corner{
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#2cbf9d";
+	alpha = 200;
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/dark/corner{
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#2cbf9d";
+	alpha = 200;
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/purple/corner{
-	color = "#2cbf9d";
-	alpha = 200;
+/obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/purple/corner{
-	color = "#2cbf9d";
-	alpha = 200;
+/obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -7731,7 +7763,7 @@
 	},
 /obj/machinery/button/door/directional/west{
 	id = "syndicargo";
-	name = "Hanger Bay Shutters";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 0;
 	pixel_y = -22;
@@ -7815,7 +7847,6 @@
 	icon_state = "siding_plain_end"
 	},
 /obj/structure/marker_beacon/purple,
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "qg" = (
@@ -8488,15 +8519,15 @@
 /area/ruin/space/has_grav/bubbers/persistance/sec/interrogation)
 "rF" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/shovel/spade{
-	pixel_x = 0;
-	pixel_y = 13
-	},
-/obj/item/geneshears{
-	pixel_x = 0;
-	pixel_y = 1
-	},
 /obj/structure/marker_beacon/teal,
+/obj/item/geneshears{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/obj/item/shovel/spade{
+	pixel_x = -5;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/space/has_grav/bubbers/persistance/service/hydro)
 "rG" = (
@@ -9005,13 +9036,13 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
-/obj/item/restraints/handcuffs/cable/zipties{
-	pixel_x = 0;
-	pixel_y = 2
-	},
 /obj/item/storage/box/monkeycubes{
 	pixel_x = -4;
 	pixel_y = 3
+	},
+/obj/item/restraints/handcuffs/cable/zipties{
+	pixel_x = 0;
+	pixel_y = 2
 	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
@@ -9262,6 +9293,7 @@
 /obj/item/melee/energy/sword/saber{
 	pixel_x = 8
 	},
+/obj/structure/sign/poster/contraband/energy_swords/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sec/armory)
 "sX" = (
@@ -9663,6 +9695,12 @@
 /obj/machinery/duct,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/bubbers/persistance/service/shower)
+"tI" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/ruin/space/has_grav/bubbers/persistance/service)
 "tJ" = (
 /obj/machinery/oven/range_frontier,
 /obj/item/reagent_containers/cup/soup_pot,
@@ -9719,7 +9757,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable,
 /obj/structure/rack/gunrack,
-/obj/structure/sign/poster/contraband/energy_swords/directional/west,
 /obj/item/gun/microfusion/mcr01/syndie,
 /obj/item/gun/microfusion/mcr01/syndie,
 /turf/open/floor/iron/dark/smooth_large,
@@ -9834,6 +9871,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/vending/clothing{
+	density = 0;
 	pixel_y = 0;
 	all_products_free = 1
 	},
@@ -10045,9 +10083,9 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
 	},
-/obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "uw" = (
@@ -10181,7 +10219,7 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/button/door/directional/west{
 	id = "syndimining";
-	name = "Blast Doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	icon_state = "tram";
 	pixel_x = -25;
@@ -10262,10 +10300,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/persistance/service/shower)
 "uX" = (
-/obj/item/toy/figure/syndie{
-	pixel_x = -6;
-	pixel_y = 1
-	},
 /obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/box/red,
 /obj/effect/turf_decal/vg_decals/numbers/four{
@@ -10546,6 +10580,17 @@
 	dir = 5
 	},
 /obj/structure/chair/comfy/black,
+/obj/structure/noticeboard/directional/east,
+/obj/item/toy/toy_xeno{
+	pixel_x = 31;
+	pixel_y = -8;
+	desc = "A specialized TerraGov-produced ballistic pulse rifle that uses compressed magazines to output absurd firepower in a compact package. This one's fitted with a two-round semi-automatic underbarrel 12 gauge shotgun. Unfortunately, it's been demilitarized and is now not functional.";
+	icon_state = "m44a_sg";
+	icon = 'modular_skyrat/modules/marines/icons/m44a.dmi';
+	name = "\improper NT M44ASG Pulse Rifle";
+	righthand_file = 'modular_skyrat/modules/marines/icons/m44a_r.dmi';
+	lefthand_file = 'modular_skyrat/modules/marines/icons/m44a_l.dmi'
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "vC" = (
@@ -10907,7 +10952,6 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "wf" = (
@@ -11212,7 +11256,7 @@
 "wG" = (
 /obj/machinery/button/door/directional/west{
 	id = "syndimining";
-	name = "Blast Doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_y = 5;
 	pixel_x = -25;
@@ -11284,6 +11328,12 @@
 	icon_state = "siding_plain_end"
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate");
+	name = "Slime Pacification Chamber";
+	pixel_y = 0;
+	pixel_x = -8
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "wL" = (
@@ -11355,6 +11405,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/service/gym)
 "wU" = (
 /obj/effect/turf_decal/vg_decals/numbers/one,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "wV" = (
@@ -11390,6 +11443,9 @@
 /obj/structure/cable,
 /obj/machinery/computer/camera_advanced/xenobio{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -11930,6 +11986,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "yl" = (
@@ -12024,10 +12083,6 @@
 "ys" = (
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
-	},
-/obj/machinery/door/window/survival_pod/left/directional/east{
-	name = "Slime Pacification Chamber";
-	req_access = list("syndicate")
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/green/hidden{
 	dir = 9
@@ -12173,6 +12228,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8;
 	icon_state = "siding_plain_end"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -12363,7 +12421,7 @@
 /area/ruin/space/has_grav/bubbers/persistance/med)
 "yW" = (
 /obj/machinery/reagentgrinder{
-	pixel_y = 9;
+	pixel_y = 19;
 	pixel_x = -8
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -12483,6 +12541,16 @@
 	dir = 1
 	},
 /area/lavaland/surface/outdoors)
+"zj" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	dir = 5
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "zk" = (
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	alpha = 160;
@@ -12506,20 +12574,6 @@
 	},
 /turf/open/floor/iron/white/smooth_corner,
 /area/ruin/space/has_grav/bubbers/persistance/service/kitchen)
-"zo" = (
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
-	},
-/obj/structure/lattice/catwalk/mining,
-/turf/open/floor/pod/dark,
-/area/ruin/space/has_grav/bubbers/dauntless/command/vault)
 "zp" = (
 /obj/machinery/button/camkillswitch/persistence_ext{
 	pixel_y = 24;
@@ -12875,7 +12929,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/button/door/directional/west{
 	id = "syndicargo";
-	name = "Hanger Bay Shutters";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 25;
 	base_icon_state = "tram";
@@ -12917,7 +12971,8 @@
 /obj/structure/sign/poster/contraband/revolver/directional/east,
 /obj/item/toy/figure/syndie{
 	pixel_x = 3;
-	pixel_y = 0
+	pixel_y = 0;
+	desc = "SIR YES SIR OORAH"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/brig)
@@ -13511,12 +13566,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
-/obj/machinery/smartfridge/food,
+/obj/machinery/smartfridge/drinks,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/persistance/service/diner)
 "Bt" = (
 /obj/effect/turf_decal/tile/dark_red/half,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Bu" = (
@@ -13679,16 +13733,6 @@
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/persistance/command/liason)
-"BJ" = (
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/lattice/catwalk/mining,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/space/has_grav/bubbers/persistance/service/dorms/engineering)
 "BN" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -13785,9 +13829,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service/lounge)
 "BY" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
-	dir = 4
-	},
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/iron/shuttle/evac{
 	icon_state = "5,11";
@@ -13886,10 +13927,6 @@
 	},
 /obj/item/pipe_dispenser{
 	pixel_x = -3
-	},
-/obj/item/holosign_creator/atmos{
-	pixel_x = 0;
-	pixel_y = -11
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/mining)
@@ -14267,6 +14304,12 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 8
 	},
+/obj/item/radio/intercom/directional/south{
+	name = "two-way prisoner intercom";
+	freerange = 1;
+	freqlock = 1;
+	frequency = 1245
+	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/persistance/service/diner)
 "CX" = (
@@ -14291,7 +14334,8 @@
 	name = "Blast Doors Toggle";
 	icon_state = "tram";
 	pixel_y = 32;
-	base_icon_state = "tram"
+	base_icon_state = "tram";
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine/hull{
 	initial_gas_mix = "LAVALAND_ATMOS"
@@ -14610,16 +14654,12 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
-/obj/item/book/manual/ripley_build_and_repair{
-	pixel_x = 2;
-	pixel_y = 2
-	},
 /obj/item/clothing/glasses/welding{
-	pixel_x = 0;
+	pixel_x = 7;
 	pixel_y = 5
 	},
 /obj/item/weldingtool/mini{
-	pixel_x = -5;
+	pixel_x = -10;
 	pixel_y = 12
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -14866,6 +14906,9 @@
 	pixel_x = -16;
 	pixel_y = 19
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "DV" = (
@@ -15105,30 +15148,11 @@
 /obj/effect/turf_decal/box/white{
 	color = "#700047"
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
-"El" = (
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/structure/emergency_shield/cult/weak{
-	name = "Energy Shield"
-	},
-/obj/machinery/porta_turret/syndicate{
-	dir = 2;
-	pixel_y = 0
-	},
-/obj/effect/turf_decal/lunar_sand/plating,
-/obj/machinery/camera/autoname/directional/north{
-	name = "Persistence Exterior North";
-	network = list("persistence_ext")
-	},
-/turf/open/floor/iron/shuttle/evac{
-	icon_state = "7,2";
-	dir = 1
-	},
-/area/lavaland/surface/outdoors,
-/area/ruin/space/has_grav/bubbers/dauntless/command/vault)
 "Em" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -15717,7 +15741,8 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /obj/machinery/defibrillator_mount/charging{
 	pixel_y = 30;
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "defib"
 	},
 /obj/structure/marker_beacon/cerulean,
 /turf/open/floor/iron/dark/smooth_large,
@@ -15829,6 +15854,13 @@
 	},
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
+"Fm" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Fn" = (
 /obj/structure/chair{
 	dir = 8
@@ -15947,15 +15979,15 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
 	dir = 1;
 	alpha = 160
 	},
 /obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
 	dir = 8;
-	alpha = 160
-	},
-/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
-	dir = 4;
 	alpha = 160
 	},
 /obj/effect/turf_decal/trimline/purple/end{
@@ -16025,6 +16057,19 @@
 /obj/effect/turf_decal/siding/wideplating_new/corner,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service)
+"FK" = (
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = -16;
+	pixel_y = 12
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "FN" = (
 /obj/effect/turf_decal/siding/wideplating_new/light{
 	dir = 8
@@ -16195,6 +16240,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/engineering/utilities)
 "Ge" = (
 /obj/effect/turf_decal/vg_decals/numbers/six,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Gf" = (
@@ -16781,6 +16829,13 @@
 /obj/effect/turf_decal/vg_decals/atmos/nitrous_oxide,
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/gas)
+"Hu" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/structure/fans/tiny/forcefield,
+/turf/open/floor/plating/reinforced,
+/area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "Hw" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 8;
@@ -17237,7 +17292,6 @@
 	pixel_y = 21;
 	name = "Cells-The-Cook"
 	},
-/obj/structure/marker_beacon/jade,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/kitchen)
 "IC" = (
@@ -17270,7 +17324,7 @@
 /obj/machinery/button/door{
 	id = "syndihanger";
 	pixel_x = -25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	icon_state = "tram";
 	pixel_y = 5;
@@ -17774,6 +17828,7 @@
 	pressure_checks = 0
 	},
 /obj/structure/sign/poster/contraband/arc_slimes/directional/north,
+/obj/structure/grille,
 /obj/machinery/camera/autoname/directional/north{
 	network = list("persistence_xeno");
 	name = "persistence_xeno_north"
@@ -18187,16 +18242,29 @@
 "Kx" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/cultivator{
-	pixel_x = 0;
-	pixel_y = -8
+	pixel_x = 4;
+	pixel_y = -15
 	},
 /obj/item/gun/energy/floragun{
 	pixel_x = 0;
-	pixel_y = 6
+	pixel_y = 11
 	},
 /obj/structure/marker_beacon/teal,
+/obj/item/plant_analyzer{
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/space/has_grav/bubbers/persistance/service/hydro)
+"Ky" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Kz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -18310,6 +18378,7 @@
 	pixel_y = 0;
 	pixel_x = 24
 	},
+/obj/machinery/processor,
 /obj/effect/turf_decal/trimline/dark/filled/end{
 	dir = 4;
 	alpha = 160
@@ -18327,6 +18396,7 @@
 	alpha = 200;
 	dir = 4
 	},
+/obj/structure/marker_beacon/jade,
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/kitchen)
 "KJ" = (
@@ -18472,6 +18542,12 @@
 /obj/effect/spawner/random/exotic/syndie,
 /obj/item/choice_beacon/music,
 /obj/structure/marker_beacon/bronze,
+/obj/item/radio/intercom/directional/south{
+	name = "two-way prisoner intercom";
+	freerange = 1;
+	freqlock = 1;
+	frequency = 1245
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "KZ" = (
@@ -19562,6 +19638,9 @@
 	pixel_x = 0
 	},
 /obj/structure/marker_beacon/indigo,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Nr" = (
@@ -19690,6 +19769,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/bubbers/persistance/cargo)
+"NF" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "NG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/turf_decal/trimline/dark/filled/line{
@@ -19896,6 +19982,11 @@
 "NZ" = (
 /turf/closed/wall/r_wall/syndicate/cruiser,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/chef)
+"Oa" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/bluespace_miner,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/bubbers/persistance/engineering/mining)
 "Ob" = (
 /obj/structure/decorative{
 	icon_state = "siding_plain";
@@ -19936,6 +20027,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "Oe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -8
+	},
 /turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Of" = (
@@ -20328,8 +20422,8 @@
 /obj/machinery/digital_clock/directional/south,
 /obj/effect/turf_decal/box/red,
 /obj/effect/turf_decal/delivery/red,
-/obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/protolathe/interdyne,
+/obj/structure/frame/machine/secured,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "OT" = (
@@ -20429,6 +20523,15 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/persistance/med)
+"Pe" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Pf" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -20720,7 +20823,8 @@
 	},
 /obj/machinery/light/floor{
 	pixel_x = -16;
-	pixel_y = -16
+	pixel_y = -16;
+	brightness = 7.5
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
@@ -20984,6 +21088,10 @@
 	dir = 8
 	},
 /obj/structure/railing,
+/obj/item/book/manual/ripley_build_and_repair{
+	pixel_x = 2;
+	pixel_y = 9
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/robotics)
 "Qt" = (
@@ -21100,7 +21208,7 @@
 /obj/structure/cable,
 /obj/machinery/button/door/directional/west{
 	id = "syndicargo";
-	name = "Hanger Bay Shutters";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 25;
 	base_icon_state = "tram";
@@ -21159,7 +21267,7 @@
 /obj/machinery/button/door{
 	id = "syndihanger";
 	pixel_x = -25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	icon_state = "tram";
 	pixel_y = 5;
@@ -21209,15 +21317,11 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/hatchet{
 	pixel_x = 1;
-	pixel_y = 11
+	pixel_y = 7
 	},
 /obj/item/secateurs{
 	pixel_x = 3;
-	pixel_y = 0
-	},
-/obj/item/plant_analyzer{
-	pixel_x = 1;
-	pixel_y = -12
+	pixel_y = -4
 	},
 /obj/structure/marker_beacon/teal,
 /turf/open/floor/iron/dark/herringbone,
@@ -22452,7 +22556,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "Tx" = (
-/obj/machinery/harvester,
+/obj/machinery/harvester{
+	dir = 8
+	},
 /obj/structure/marker_beacon/indigo,
 /obj/effect/turf_decal/delivery/blue,
 /turf/open/floor/iron/dark/smooth_large,
@@ -22612,7 +22718,7 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/item/reagent_containers/cup/watering_can{
 	pixel_x = 8;
-	pixel_y = 14
+	pixel_y = 13
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/space/has_grav/bubbers/persistance/service/hydro)
@@ -22627,15 +22733,8 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "TK" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/radio/intercom/directional/east{
-	name = "two-way prisoner intercom";
-	freerange = 1;
-	freqlock = 1;
-	frequency = 1245;
-	pixel_x = 0;
-	pixel_y = -30
-	},
 /obj/machinery/cell_charger_multi,
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "TL" = (
@@ -22819,6 +22918,10 @@
 	dir = 6
 	},
 /obj/machinery/light/directional/east,
+/obj/item/toy/toy_xeno{
+	pixel_x = 7;
+	pixel_y = 0
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "TZ" = (
@@ -23430,6 +23533,9 @@
 /area/ruin/space/has_grav/bubbers/persistance/engineering)
 "Vh" = (
 /obj/effect/turf_decal/vg_decals/numbers/five,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Vi" = (
@@ -23506,6 +23612,9 @@
 "Vs" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
@@ -23655,6 +23764,22 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"VH" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/structure/flora/bush/large/style_2{
+	desc = "A taxidermied corpse of an alien runner. Looks pretty realistic, doesn't it?";
+	icon = 'modular_skyrat/modules/xenos_skyrat_redo/icons/big_xenos.dmi';
+	icon_state = "alienrunner";
+	name = "alien runner showcase";
+	pixel_y = 8;
+	pixel_x = 0;
+	dir = 4
+	},
+/obj/structure/fans/tiny/forcefield,
+/turf/open/floor/plating/reinforced,
+/area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "VK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
@@ -23725,6 +23850,24 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/engineering/gas)
+"VT" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 8;
+	pixel_y = 32
+	},
+/obj/structure/emergency_shield/cult/weak{
+	name = "Energy Shield"
+	},
+/obj/structure/emergency_shield/cult/weak{
+	name = "Energy Shield"
+	},
+/obj/machinery/camera/autoname/directional/north{
+	name = "Persistence Exterior North";
+	network = list("persistence_ext")
+	},
+/obj/structure/lattice/catwalk/mining,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/space/has_grav/bubbers/dauntless/command/vault)
 "VU" = (
 /obj/structure/chair/office/tactical{
 	dir = 4
@@ -24229,7 +24372,7 @@
 "WW" = (
 /obj/machinery/button/door/directional/west{
 	id = "syndimining";
-	name = "Blast Doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	pixel_x = 0;
 	pixel_y = -22;
@@ -24608,6 +24751,9 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 4
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "XU" = (
@@ -24635,6 +24781,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/duct,
+/obj/machinery/firealarm/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -24646,9 +24793,6 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/siding/wood/corner,
-/obj/structure/noticeboard/directional/north{
-	name = "today's menu"
-	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/bubbers/persistance/service/diner)
 "XW" = (
@@ -24859,7 +25003,7 @@
 /obj/machinery/button/door{
 	id = "syndihangerb";
 	pixel_x = -25;
-	name = "Hanger doors";
+	name = "Blast Doors Toggle";
 	req_access = list("syndicate");
 	icon_state = "tram";
 	pixel_y = 5;
@@ -25278,7 +25422,9 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison)
 "Zl" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
+	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "Zm" = (
@@ -25352,7 +25498,6 @@
 /obj/structure/marker_beacon/indigo,
 /obj/machinery/firealarm/directional/east,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/processor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/service/kitchen)
 "Zv" = (
@@ -25628,9 +25773,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/persistance/med/treatment)
-"ZZ" = (
-/turf/closed/wall/r_wall/syndicate/cruiser,
-/area/lavaland/surface/outdoors)
 
 (1,1,1) = {"
 gq
@@ -25660,8 +25802,8 @@ gq
 gq
 gq
 gq
+gq
 FQ
-VG
 VG
 VG
 VG
@@ -25729,7 +25871,7 @@ ZD
 hY
 ki
 hY
-ZZ
+hY
 dl
 Mb
 Mb
@@ -25749,7 +25891,7 @@ OB
 OB
 Vm
 Vm
-AQ
+Vm
 qg
 hY
 hY
@@ -25818,7 +25960,7 @@ ti
 Nf
 jS
 be
-yZ
+Kb
 Pk
 sT
 yZ
@@ -25828,10 +25970,10 @@ AQ
 AQ
 gq
 an
-BJ
-BJ
-BJ
-BJ
+VG
+VG
+VG
+VG
 ze
 qs
 gq
@@ -25933,8 +26075,8 @@ AA
 UF
 aB
 DY
-bg
-al
+NF
+FK
 bg
 al
 dl
@@ -26002,9 +26144,9 @@ XQ
 Kz
 uO
 DY
-Zl
+Fm
 if
-Zl
+Pe
 Vh
 eF
 eF
@@ -26071,8 +26213,8 @@ ot
 vW
 ap
 DY
-bg
-al
+NF
+FK
 bg
 al
 eF
@@ -26140,9 +26282,9 @@ ck
 dY
 dY
 dY
-Zl
+Fm
 eP
-Zl
+Pe
 Ge
 eF
 dq
@@ -26209,9 +26351,9 @@ lu
 dY
 bz
 Oe
-bg
-al
-bg
+zj
+FK
+Ky
 al
 eF
 so
@@ -26558,7 +26700,7 @@ AM
 DG
 wb
 Ak
-eF
+VH
 hP
 Ve
 FH
@@ -26627,7 +26769,7 @@ NK
 Xv
 db
 qe
-eF
+Hu
 jg
 vX
 IG
@@ -26903,7 +27045,7 @@ TS
 fZ
 TH
 BY
-Bx
+tI
 IR
 eA
 sR
@@ -27367,8 +27509,8 @@ xp
 Am
 vS
 Wn
-EO
-hj
+Oa
+Sa
 EO
 PD
 fa
@@ -27421,7 +27563,7 @@ EC
 gl
 Vk
 wS
-Ng
+qg
 gq
 gq
 FW
@@ -27490,7 +27632,7 @@ Ls
 sV
 IU
 wS
-El
+qg
 gq
 gq
 FW
@@ -27559,7 +27701,7 @@ rh
 cY
 So
 wS
-zi
+qg
 gq
 gq
 FW
@@ -27697,7 +27839,7 @@ ry
 wS
 wS
 wS
-VG
+VT
 gq
 gq
 FW
@@ -27902,8 +28044,8 @@ zG
 Lr
 MT
 pb
-mH
-Ng
+Tf
+VG
 gq
 gq
 gq
@@ -27972,7 +28114,7 @@ Zb
 LN
 LP
 mH
-aP
+VG
 gq
 gq
 gq
@@ -28041,7 +28183,7 @@ oM
 NG
 bR
 mH
-zi
+VG
 gq
 gq
 gq
@@ -28179,7 +28321,7 @@ sy
 fg
 Oo
 Tf
-qg
+Ng
 gq
 gq
 gq
@@ -28248,7 +28390,7 @@ IB
 KH
 Fi
 mH
-qg
+aP
 gq
 gq
 gq
@@ -28317,7 +28459,7 @@ Ej
 mH
 mH
 ZK
-qg
+zi
 gq
 gq
 gq
@@ -28744,7 +28886,7 @@ ec
 in
 Rb
 Ec
-Rb
+gU
 uX
 YK
 OG
@@ -29025,7 +29167,7 @@ xv
 Jr
 UV
 UV
-uS
+UV
 UV
 Jp
 JM
@@ -29136,7 +29278,7 @@ JU
 Pg
 op
 Pg
-jq
+Lj
 Lj
 Lj
 Lj
@@ -29187,7 +29329,7 @@ EP
 Sh
 VG
 hY
-zo
+hY
 jR
 hY
 hs
@@ -29195,7 +29337,7 @@ VG
 vR
 gq
 gq
-vR
+VG
 Lx
 JU
 JU
@@ -29268,7 +29410,7 @@ gq
 Rk
 VG
 VG
-hJ
+VG
 VG
 iL
 gq
