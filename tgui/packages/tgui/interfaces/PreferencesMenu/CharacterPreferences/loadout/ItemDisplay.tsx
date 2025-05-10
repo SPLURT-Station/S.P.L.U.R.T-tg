@@ -144,7 +144,7 @@ type TabProps = {
 // SKYRAT EDIT START - EXPANDED LOADOUT
 const FilterItemList = (items: LoadoutItem[]) => {
   const { data } = useBackend<LoadoutManagerData>();
-  const { is_donator } = data;
+  const { is_donator, donator_tier } = data; // SPLURT EDIT - Donator tier - ORIGINAL: const { is_donator } = data;
   const ckey = data.ckey;
 
   return items.filter((item: LoadoutItem) => {
@@ -154,6 +154,11 @@ const FilterItemList = (items: LoadoutItem[]) => {
     if (item.donator_only && !is_donator) {
       return false;
     }
+    // SPLURT EDIT START: Donator tier check
+    if (!!item.donator_tier && donator_tier < item.donator_tier) {
+      return false;
+    }
+    // SPLURT EDIT END
     return true;
   });
 };

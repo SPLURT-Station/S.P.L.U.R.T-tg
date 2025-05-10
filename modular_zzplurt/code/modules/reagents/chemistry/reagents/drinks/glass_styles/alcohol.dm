@@ -123,3 +123,19 @@
 	desc = "Be sure to spread this feeling, for some lack it in their life, be the reason they have a smile on their face.\n-Leo Oxto"
 	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
 	icon_state = "midnight_joy"
+
+//Donator items
+/datum/glass_style/drinking_glass/gem_grape_juice
+	required_drink_type = /datum/reagent/consumable/ethanol/gem_grape_juice
+	name = "Gem Brand Grape Juice"
+	desc = "A grape-flavored drink with restorative properties and a hint of alcohol."
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "gem_grape_juice"
+
+//Donator items
+/datum/glass_style/drinking_glass/gem_grape_soda
+	required_drink_type = /datum/reagent/consumable/ethanol/gem_grape_soda
+	name = "Gem Brand Grape Soda"
+	desc = "A grape-flavored soda with restorative properties and a hint of alcohol."
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "gem_grape_soda"

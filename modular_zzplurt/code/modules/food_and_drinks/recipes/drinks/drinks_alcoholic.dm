@@ -234,3 +234,20 @@
 	)
 	mix_message = "The mixture takes on a sour aroma..."
 
+//Donator items
+/datum/chemical_reaction/drink/gem_grape_juice
+	results = list(/datum/reagent/consumable/ethanol/gem_grape_juice = 2)
+	required_reagents = list(
+		/datum/reagent/consumable/ethanol/bastion_bourbon = 1,
+		/datum/reagent/consumable/grapejuice = 1
+	)
+	mix_message = "The mixture gives off a sweet aroma..."
+
+//Donator items
+/datum/chemical_reaction/drink/gem_grape_soda
+	results = list(/datum/reagent/consumable/ethanol/gem_grape_soda = 2)
+	required_reagents = list(
+		/datum/reagent/consumable/ethanol/bastion_bourbon = 1,
+		/datum/reagent/consumable/grape_soda = 1,
+	)
+	mix_message = "The mixture gives off a sweet aroma..."

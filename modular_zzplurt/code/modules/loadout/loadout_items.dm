@@ -1,5 +1,18 @@
 /datum/loadout_item
 	var/can_be_colored = TRUE
+	var/donator_tier = DONATOR_TIER_NONE
+
+/datum/loadout_item/New(category)
+	. = ..()
+	if((donator_tier || LAZYLEN(ckeywhitelist)) && !donator_only)
+		donator_only = TRUE
+	if((donator_only || LAZYLEN(ckeywhitelist)) && !donator_tier)
+		donator_tier = DONATOR_TIER_1
+
+/datum/loadout_item/to_ui_data()
+	var/list/data = ..()
+	data["donator_tier"] = donator_tier
+	return data
 
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
 	. = ..()
