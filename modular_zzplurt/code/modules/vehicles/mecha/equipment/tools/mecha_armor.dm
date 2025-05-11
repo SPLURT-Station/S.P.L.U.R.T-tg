@@ -64,7 +64,7 @@
 	while(mecha_hp < max_mecha_hp)
 		if(tool.use_tool(src, user, 2.5 SECONDS, volume = 50))
 			did_the_thing = TRUE
-			mecha_hp = min(max_mecha_hp, mecha_hp + 20)
+			mecha_hp = clamp(mecha_hp + 20, 0, max_mecha_hp)
 			audible_message(span_hear("You hear welding."))
 		else
 			break
