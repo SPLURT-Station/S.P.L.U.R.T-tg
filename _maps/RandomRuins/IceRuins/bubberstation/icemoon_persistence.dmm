@@ -22135,6 +22135,20 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
+"SH" = (
+/obj/structure/cable,
+/obj/machinery/duct,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/item/radio/intercom/directional/west{
+	freqlock = 1;
+	freerange = 1;
+	frequency = 1245;
+	name = "two-way prisoner intercom"
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/bubbers/persistance/service)
 "SI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -22573,20 +22587,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/bubbers/persistance/cargo)
-"TM" = (
-/obj/structure/cable,
-/obj/machinery/duct,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/item/radio/intercom/directional/west{
-	freqlock = 1;
-	freerange = 1;
-	frequency = 1245;
-	name = "two-way prisoner intercom"
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/bubbers/persistance/service)
 "TN" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -22755,8 +22755,7 @@
 	name = "alien runner showcase";
 	pixel_y = 8;
 	pixel_x = 0;
-	dir = 4;
-	can_be_unanchored = 1
+	dir = 4
 	},
 /obj/structure/fans/tiny/forcefield,
 /obj/structure/window/reinforced/tinted/frosted/spawner/directional/south,
@@ -28213,7 +28212,7 @@ ZB
 pR
 bL
 WF
-TM
+SH
 xY
 bL
 bL

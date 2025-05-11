@@ -4984,20 +4984,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/persistance/service/diner)
-"kf" = (
-/obj/structure/cable,
-/obj/machinery/duct,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/item/radio/intercom/directional/west{
-	freqlock = 1;
-	freerange = 1;
-	frequency = 1245;
-	name = "two-way prisoner intercom"
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/space/has_grav/bubbers/persistance/service)
 "kg" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -11201,6 +11187,20 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 10
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/bubbers/persistance/service)
+"wv" = (
+/obj/structure/cable,
+/obj/machinery/duct,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/item/radio/intercom/directional/west{
+	freqlock = 1;
+	freerange = 1;
+	frequency = 1245;
+	name = "two-way prisoner intercom"
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/persistance/service)
@@ -25787,8 +25787,7 @@
 	name = "alien runner showcase";
 	pixel_y = 8;
 	pixel_x = 0;
-	dir = 4;
-	can_be_unanchored = 1
+	dir = 4
 	},
 /obj/structure/fans/tiny/forcefield,
 /obj/structure/window/reinforced/tinted/frosted/spawner/directional/south,
@@ -27972,7 +27971,7 @@ ZT
 JI
 qa
 Zz
-kf
+wv
 wx
 qa
 qa
