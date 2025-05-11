@@ -4937,7 +4937,7 @@
 /area/ruin/space/has_grav/bubbers/persistance/command/bridge)
 "ks" = (
 /obj/effect/turf_decal/siding/wood{
-	dir = 4
+	dir = 5
 	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
@@ -6504,6 +6504,16 @@
 	name = "photo of marines";
 	desc = "The photo depicts a group of marines, all with their heads crossed over except for one... Tough."
 	},
+/obj/item/toy/toy_dagger{
+	righthand_file = 'modular_skyrat/modules/marines/icons/m44a_r.dmi';
+	name = "\improper NT M44ASG Pulse Rifle";
+	icon_state = "m44a_sg";
+	icon = 'modular_skyrat/modules/marines/icons/m44a.dmi';
+	desc = "A specialized TerraGov-produced ballistic pulse rifle that uses compressed magazines to output absurd firepower in a compact package. This one's fitted with a two-round semi-automatic underbarrel 12 gauge shotgun. Unfortunately, it's been demilitarized and is now not functional.";
+	lefthand_file = 'modular_skyrat/modules/marines/icons/m44a_l.dmi';
+	pixel_x = 0;
+	pixel_y = 12
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "no" = (
@@ -7795,6 +7805,9 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 8
 	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "pP" = (
@@ -8338,17 +8351,6 @@
 	dir = 5
 	},
 /obj/structure/chair/comfy/black,
-/obj/structure/noticeboard/directional/east,
-/obj/item/toy/toy_xeno{
-	pixel_x = 31;
-	pixel_y = -8;
-	desc = "A specialized TerraGov-produced ballistic pulse rifle that uses compressed magazines to output absurd firepower in a compact package. This one's fitted with a two-round semi-automatic underbarrel 12 gauge shotgun. Unfortunately, it's been demilitarized and is now not functional.";
-	icon_state = "m44a_sg";
-	icon = 'modular_skyrat/modules/marines/icons/m44a.dmi';
-	name = "\improper NT M44ASG Pulse Rifle";
-	righthand_file = 'modular_skyrat/modules/marines/icons/m44a_r.dmi';
-	lefthand_file = 'modular_skyrat/modules/marines/icons/m44a_l.dmi'
-	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/persistance/service/dorms/maa)
 "qU" = (
@@ -9097,7 +9099,14 @@
 /area/ruin/space/has_grav/bubbers/persistance/service)
 "sr" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/lighter/skull,
+/obj/item/lighter/skull{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/stack/sheet/mineral/wood/fifty{
+	pixel_x = 5;
+	pixel_y = 3
+	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "ss" = (
@@ -10594,10 +10603,14 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/persistance/sci/xenobio)
 "vy" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/tinted/spawner/directional/south,
-/obj/structure/window/reinforced/tinted/spawner/directional/north,
 /obj/structure/fans/tiny/forcefield,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/south,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/north,
+/obj/structure/table/reinforced/titaniumglass,
+/obj/structure/hedge/opaque{
+	alpha = 100;
+	color = "#FFFFFF"
+	},
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "vB" = (
@@ -10959,11 +10972,13 @@
 /turf/open/floor/iron/dark/smooth_corner,
 /area/ruin/space/has_grav/bubbers/persistance/med)
 "wg" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
 /obj/structure/fireplace,
-/turf/open/floor/carpet/royalblack,
+/obj/structure/railing{
+	dir = 1;
+	pixel_y = -7
+	},
+/obj/effect/turf_decal/siding/wood/end,
+/turf/open/floor/stone,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
 "wh" = (
 /obj/effect/mob_spawn/ghost_role/human/persistence/prisoner{
@@ -13326,7 +13341,7 @@
 "AQ" = (
 /obj/structure/chair/sofa/corp/corner,
 /obj/effect/turf_decal/siding/wood{
-	dir = 1
+	dir = 5
 	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison/rec)
@@ -22558,6 +22573,20 @@
 	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/bubbers/persistance/cargo)
+"TM" = (
+/obj/structure/cable,
+/obj/machinery/duct,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/item/radio/intercom/directional/west{
+	freqlock = 1;
+	freerange = 1;
+	frequency = 1245;
+	name = "two-way prisoner intercom"
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/space/has_grav/bubbers/persistance/service)
 "TN" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -22719,9 +22748,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/service/hydro)
 "Uc" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/tinted/spawner/directional/south,
-/obj/structure/window/reinforced/tinted/spawner/directional/north,
 /obj/structure/flora/bush/large/style_2{
 	desc = "A taxidermied corpse of an alien runner. Looks pretty realistic, doesn't it?";
 	icon = 'modular_skyrat/modules/xenos_skyrat_redo/icons/big_xenos.dmi';
@@ -22729,9 +22755,17 @@
 	name = "alien runner showcase";
 	pixel_y = 8;
 	pixel_x = 0;
-	dir = 4
+	dir = 4;
+	can_be_unanchored = 1
 	},
 /obj/structure/fans/tiny/forcefield,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/south,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/north,
+/obj/structure/table/reinforced/titaniumglass,
+/obj/structure/hedge/opaque{
+	color = "#FFFFFF";
+	alpha = 100
+	},
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/bubbers/persistance/sci/rnd)
 "Ud" = (
@@ -24662,6 +24696,10 @@
 /obj/machinery/computer/quantum_console{
 	dir = 1
 	},
+/obj/item/bitrunning_disk/prefs{
+	pixel_x = -4;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison)
 "Ya" = (
@@ -25103,6 +25141,13 @@
 	dir = 6
 	},
 /obj/machinery/light/directional/east,
+/obj/item/radio/intercom/directional/east{
+	name = "two-way prisoner intercom";
+	freerange = 1;
+	freqlock = 1;
+	frequency = 1245;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/bubbers/persistance/sec/prison)
 "YN" = (
@@ -28168,7 +28213,7 @@ ZB
 pR
 bL
 WF
-bL
+TM
 xY
 bL
 bL
