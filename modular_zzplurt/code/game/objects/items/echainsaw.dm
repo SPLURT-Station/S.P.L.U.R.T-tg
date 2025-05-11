@@ -7,6 +7,8 @@
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_righthand.dmi'
 	inhand_icon_state = "echainsaw"
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/back.dmi'
+	worn_icon_state = "echainsaw"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_angle = -45
 	attack_verb_continuous = list("saws", "tears", "lacerates", "cuts", "chops", "dices")
@@ -31,6 +33,10 @@
 	// Armour penetration. Slightly higher than the desword.
 	armour_penetration = 40
 	bare_wound_bonus = 20
+
+	// Mildly worse at blocking than the desword, it's an unwieldy chainsaw after all.
+	block_chance = 66
+	block_sound = 'sound/items/weapons/block_blade.ogg'
 
 	actions_types = list(/datum/action/item_action/startesaw)
 
@@ -84,10 +90,12 @@
 		chainsaw_loop.start()
 		set_light_on(TRUE)
 		slot_flags = 0
+		playsound(source, 'sound/items/weapons/saberon.ogg', vol = 65, vary = TRUE)
 	else
 		chainsaw_loop.stop()
 		set_light_on(FALSE)
 		slot_flags = ITEM_SLOT_BACK
+		playsound(source, 'sound/items/weapons/saberoff.ogg', vol = 65, vary = TRUE)
 
 	toolspeed = active ? 0.5 : initial(toolspeed)
 	update_item_action_buttons()
@@ -118,6 +126,20 @@
 
 /obj/item/energychainsaw/proc/has_same_head(mob/living/target_mob, obj/item/bodypart/head)
 	return target_mob.get_bodypart(BODY_ZONE_HEAD) == head
+
+/obj/item/energychainsaw/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(attack_type == PROJECTILE_ATTACK)
+		var/obj/projectile/our_projectile = hitby
+
+		if(our_projectile.reflectable)
+			final_block_chance += 10 // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
+		else
+			final_block_chance -= 25 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
+
+	if(attack_type == LEAP_ATTACK)
+		final_block_chance -= 10 // You'd be bold to leap at a guy with an energy chainsaw.
+
+	return ..()
 
 /datum/looping_sound/esaw
 	start_sound = 'sound/machines/generator/generator_start.ogg'
