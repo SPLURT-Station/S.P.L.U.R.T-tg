@@ -47,6 +47,33 @@
 	. = ..()
 	flat_armor = null
 
+/obj/item/mecha_parts/mecha_equipment/armor/welder_act(mob/living/user, obj/item/tool)
+	if(isnull(max_mecha_hp))
+		return ..()
+	if(DOING_INTERACTION(user, src))
+		balloon_alert(user, "you're already repairing it!")
+		return ITEM_INTERACT_FAILURE
+	if(mecha_hp >= max_mecha_hp)
+		balloon_alert(user, "not damaged!")
+		return ITEM_INTERACT_FAILURE
+	if(!tool.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
+		return ITEM_INTERACT_FAILURE
+	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
+	audible_message(span_hear("You hear welding."))
+	var/did_the_thing
+	while(mecha_hp < max_mecha_hp)
+		if(tool.use_tool(src, user, 2.5 SECONDS, volume = 50))
+			did_the_thing = TRUE
+			mecha_hp = min(max_mecha_hp, mecha_hp + 20)
+			audible_message(span_hear("You hear welding."))
+		else
+			break
+	if(did_the_thing)
+		user.balloon_alert_to_viewers("[(mecha_hp >= max_mecha_hp) ? "fully" : "partially"] repaired [src]")
+	else
+		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
+	return ITEM_INTERACT_SUCCESS
+
 /obj/item/mecha_parts/mecha_equipment/armor/examine(mob/user)
 	. = ..()
 	. += span_notice("[EXAMINE_HINT("Examine more")] to inspect armor values applied to mechs.")
@@ -234,5 +261,5 @@
 
 /datum/armor/flat_mecha_armor/heavy
 	bullet = 20
-	laser = 25
-	melee = 25
+	laser = 20
+	melee = 20
