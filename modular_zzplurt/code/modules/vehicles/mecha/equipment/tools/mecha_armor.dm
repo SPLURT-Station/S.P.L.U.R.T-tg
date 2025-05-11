@@ -56,7 +56,7 @@
 	if(mecha_hp >= max_mecha_hp)
 		balloon_alert(user, "not damaged!")
 		return ITEM_INTERACT_FAILURE
-	if(!tool.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
+	if(!tool.tool_start_check(user, amount=2, heat_required = HIGH_TEMPERATURE_REQUIRED))
 		return ITEM_INTERACT_FAILURE
 	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
 	audible_message(span_hear("You hear welding."))
@@ -64,7 +64,7 @@
 	while(mecha_hp < max_mecha_hp)
 		if(tool.use_tool(src, user, 2.5 SECONDS, volume = 50))
 			did_the_thing = TRUE
-			mecha_hp = clamp(mecha_hp + 20, 0, max_mecha_hp)
+			mecha_hp = clamp(mecha_hp + 25, 0, max_mecha_hp)
 			audible_message(span_hear("You hear welding."))
 		else
 			break
