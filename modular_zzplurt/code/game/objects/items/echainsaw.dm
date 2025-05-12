@@ -20,7 +20,7 @@
 	resistance_flags = FIRE_PROOF
 
 	w_class = WEIGHT_CLASS_HUGE
-	// Can fit in your backpack slot, or else it's way too cumbersome to use.
+	// Can fit in your backpack slot, or else it's way too cumbersome to mount anywhere else.
 	slot_flags = ITEM_SLOT_BACK
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
@@ -35,7 +35,7 @@
 	bare_wound_bonus = 20
 
 	// Mildly worse at blocking than the desword, it's an unwieldy chainsaw after all.
-	block_chance = 66
+	block_chance = 67
 	block_sound = 'sound/items/weapons/block_blade.ogg'
 
 	actions_types = list(/datum/action/item_action/startesaw)
@@ -56,6 +56,8 @@
 	var/datum/looping_sound/esaw/chainsaw_loop
 	/// How long it takes to behead someone with this chainsaw. Slightly faster than a normal chainsaw.
 	var/behead_time = 10 SECONDS
+	// Determines if the chainsaw can block attacks.
+	var/can_block = FALSE
 
 /obj/item/energychainsaw/Initialize(mapload)
 	. = ..()
@@ -64,7 +66,7 @@
 		speed = 3 SECONDS, \
 		effectiveness = 100, \
 		bonus_modifier = 0, \
-		butcher_sound = 'sound/items/weapons/blade1.ogg', \
+		butcher_sound = 'modular_zzplurt/sound/items/weapons/echainhit.ogg', \
 		disabled = TRUE, \
 	)
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
@@ -74,7 +76,7 @@
 		throwforce_on = throwforce_on, \
 		throw_speed_on = throw_speed_on, \
 		sharpness_on = SHARP_EDGED, \
-		hitsound_on = 'sound/items/weapons/blade1.ogg', \
+		hitsound_on = 'modular_zzplurt/sound/items/weapons/echainhit.ogg', \
 		w_class_on = w_class, \
 	)
 
@@ -86,6 +88,7 @@
 	to_chat(user, span_notice("As you toggle the energy blade via the [src]'s control panel, [active ? "it begins to rev to life" : "the energy blade dissipates"]."))
 	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
 	butchering.butchering_enabled = active
+	can_block = active
 	if (active)
 		chainsaw_loop.start()
 		set_light_on(TRUE)
@@ -113,7 +116,7 @@
 	if (isnull(head))
 		return ..()
 
-	playsound(user, 'sound/items/weapons/blade1.ogg', vol = 80, vary = TRUE)
+	playsound(user, 'modular_zzplurt/sound/items/weapons/echainhit.ogg', vol = 80, vary = TRUE)
 
 	target_mob.balloon_alert(user, "cutting off head...")
 	if (!do_after(user, behead_time, target_mob, extra_checks = CALLBACK(src, PROC_REF(has_same_head), target_mob, head)))
@@ -128,16 +131,19 @@
 	return target_mob.get_bodypart(BODY_ZONE_HEAD) == head
 
 /obj/item/energychainsaw/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(!can_block)
+		return FALSE // We can't block if the chainsaw isn't active.
+
 	if(attack_type == PROJECTILE_ATTACK)
 		var/obj/projectile/our_projectile = hitby
 
 		if(our_projectile.reflectable)
-			final_block_chance += 10 // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
+			return ..() // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
 		else
-			final_block_chance -= 25 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
+			final_block_chance -= 33 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
 
 	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 10 // You'd be bold to leap at a guy with an energy chainsaw.
+		final_block_chance -= 33 // You'd be bold to leap at a guy with an energy chainsaw.
 
 	return ..()
 
