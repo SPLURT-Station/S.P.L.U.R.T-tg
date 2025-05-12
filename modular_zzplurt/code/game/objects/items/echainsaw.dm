@@ -147,6 +147,25 @@
 
 	return ..()
 
+/datum/uplink_item/dangerous/echainsaw
+	name = "Prototype Energy Chainsaw"
+	desc = "An alternative deisng to the classic double-bladed energy sword, the energy chainsaw does more damage than its counterpart at the expense of being difficult to conceal and less stealthy. It is also more difficult to block attacks with the chainsaw and is completely unable to reflect energy projectiles."
+	progression_minimum = 30 MINUTES
+	population_minimum = TRAITOR_POPULATION_LOWPOP
+	item = /obj/item/energychainsaw
+
+	cost = 13
+	purchasable_from = ~UPLINK_CLOWN_OPS // A little too serious for the clowns.
+
+/datum/uplink_item/dangerous/echainsaw/get_discount_value(discount_type)
+	switch(discount_type)
+		if(TRAITOR_DISCOUNT_BIG)
+			return 0.5
+		if(TRAITOR_DISCOUNT_AVERAGE)
+			return 0.35
+		else
+			return 0.2
+
 /datum/looping_sound/esaw
 	start_sound = 'sound/machines/generator/generator_start.ogg'
 	start_length = 0.4 SECONDS
