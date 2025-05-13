@@ -272,12 +272,12 @@
 	greyscale_colors = null
 	allowed = list(
 		/obj/item/analyzer,
-        	/obj/item/construction/rcd,
-        	/obj/item/pipe_dispenser,
-        	/obj/item/construction/rld,
-        	/obj/item/construction/rtd,
-        	/obj/item/gun/ballistic/rifle/rebarxbow,
-        	/obj/item/storage/bag/rebar_quiver,
+		/obj/item/construction/rcd,
+		/obj/item/pipe_dispenser,
+		/obj/item/construction/rld,
+		/obj/item/construction/rtd,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
+		/obj/item/storage/bag/rebar_quiver,
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/flashlight,
 		/obj/item/radio,
@@ -299,12 +299,12 @@
 	icon_state = "atmos"
 	allowed = list(
 		/obj/item/analyzer,
-        	/obj/item/construction/rcd,
-        	/obj/item/pipe_dispenser,
-        	/obj/item/construction/rld,
-        	/obj/item/construction/rtd,
-        	/obj/item/gun/ballistic/rifle/rebarxbow,
-        	/obj/item/storage/bag/rebar_quiver,
+		/obj/item/construction/rcd,
+		/obj/item/pipe_dispenser,
+		/obj/item/construction/rld,
+		/obj/item/construction/rtd,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
+		/obj/item/storage/bag/rebar_quiver,
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/flashlight,
 		/obj/item/radio,
@@ -344,6 +344,24 @@
 	icon_state = "ce"
 	allowed = list(
 		/obj/item/analyzer,
+		/obj/item/construction/rcd,
+		/obj/item/pipe_dispenser,
+		/obj/item/construction/rld,
+		/obj/item/construction/rtd,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
+		/obj/item/storage/bag/rebar_quiver,
+		/obj/item/fireaxe/metal_h2_axe,
+		/obj/item/flashlight,
+		/obj/item/radio,
+		/obj/item/storage/bag/construction,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/t_scanner,
+		/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
+		/obj/item/melee/baton/telescopic,
+	)
+	allowed = list(
+		/obj/item/analyzer,
         	/obj/item/construction/rcd,
         	/obj/item/pipe_dispenser,
         	/obj/item/construction/rld,
@@ -358,7 +376,7 @@
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/t_scanner,
 		/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
-		/obj/item/melee/baton/telescopic,
+
 	)
 	icon = 'modular_zubbers/icons/obj/clothing/suits/jacket.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/suits/jacket.dmi'
