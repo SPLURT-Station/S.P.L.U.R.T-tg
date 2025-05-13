@@ -1,7 +1,7 @@
 // An odd mix between the chainsaw and the dualsaber. So odd that I had to rewrite the code from scratch.
 /obj/item/energychainsaw
 	name = "energy chainsaw"
-	desc = "An advanced Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and shocktroopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
+	desc = "An prototype Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and shocktroopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
 	icon = 'modular_zzplurt/icons/obj/weapons/esaw.dmi'
 	icon_state = "echainsaw"
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_lefthand.dmi'
@@ -34,8 +34,8 @@
 	armour_penetration = 40
 	bare_wound_bonus = 20
 
-	// Mildly worse at blocking than the desword, it's an unwieldy chainsaw after all.
-	block_chance = 67
+	// Worse at blocking than the desword, it's an unwieldy chainsaw after all.
+	block_chance = 50
 	block_sound = 'sound/items/weapons/block_blade.ogg'
 
 	actions_types = list(/datum/action/item_action/startesaw)
@@ -140,10 +140,10 @@
 		if(our_projectile.reflectable)
 			return ..() // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
 		else
-			final_block_chance -= 33 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
+			final_block_chance -= 25 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
 
 	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 33 // You'd be bold to leap at a guy with an energy chainsaw.
+		final_block_chance -= 25 // You'd be bold (but correct) to leap at a guy with an energy chainsaw.
 
 	return ..()
 
