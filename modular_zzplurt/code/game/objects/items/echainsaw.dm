@@ -154,7 +154,7 @@
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	item = /obj/item/energychainsaw
 
-	cost = 13
+	cost = 12
 	purchasable_from = ~UPLINK_CLOWN_OPS // A little too serious for the clowns.
 
 /datum/uplink_item/dangerous/echainsaw/get_discount_value(discount_type)
