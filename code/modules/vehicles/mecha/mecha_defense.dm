@@ -37,7 +37,30 @@
 		playsound(src, gear.destroy_sound, 50)
 
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
-	var/damage_taken = ..()
+	//splurt edit start -- Mecha additions, better armor
+	var/armor_damage_amount
+	if(equip_by_category[MECHA_ARMOR])
+		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in flat_equipment)
+			if(!mech_armor.armor_operational)
+				continue
+			armor_damage_amount = run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+			/*ARMOR EXTRA INTEGRITY
+			This allows the armor plates to soak up the damage from incoming hits. Uses inherent hull armor values.
+			*/
+			if(mech_armor.armor_integrity > armor_damage_amount)
+				mech_armor.armor_integrity -= armor_damage_amount
+				armor_damage_amount = 0
+				playsound(src, 'sound/effects/bang.ogg', 10, TRUE)
+				return
+
+			else
+				armor_damage_amount -= mech_armor.armor_integrity
+				mech_armor.armor_operational = FALSE
+				qdel(mech_armor)
+
+	var/damage_taken = armor_damage_amount | ..()
+	//splurt edit end -- Mecha additions, better armor
+
 	if(damage_taken <= 0 || atom_integrity < 0)
 		return damage_taken
 

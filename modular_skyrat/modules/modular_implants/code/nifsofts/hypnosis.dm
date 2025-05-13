@@ -60,6 +60,12 @@
 		var/input_text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
 		to_chat(user, span_purple("You whisper into [target_human]'s ears in a soothing voice."))
 		to_chat(target_human, span_hypnophrase("[input_text]"))
+
+		// SPLURT EDIT START: Add logging
+		message_admins("[ADMIN_LOOKUPFLW(user)] gave [ADMIN_LOOKUPFLW(target_human)] a hypnotic suggestion: '[input_text]'.")
+		user.log_message("gave [key_name(target_human)] a hypnotic suggestion: '[input_text]'", LOG_GAME)
+		// SPLURT EDIT END
+
 		secondary_choice = tgui_alert(user, "Would you like to give [target_human] an additional hypnotic suggestion or release them?", "Hypnosis", list("Suggestion", "Release"))
 
 	user.visible_message(span_purple("You wake up from your deep, hypnotic slumber. The suggestions from [user] now settled into your mind."), span_purple("[target_human] wakes up from their slumber."))

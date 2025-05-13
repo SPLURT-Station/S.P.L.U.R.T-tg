@@ -412,6 +412,11 @@
 
 	// Remove sleep, then return
 	action_target.SetSleeping(0)
+
+	// Add logging
+	message_admins("[ADMIN_LOOKUPFLW(action_owner)] hypnotized [ADMIN_LOOKUPFLW(action_target)] with the suggestion '[input_suggestion]'.")
+	owner.log_message("hypnotized [key_name(action_target)] with the suggestion '[input_suggestion]'", LOG_GAME)
+
 	return
 
 #undef HYPNOEYES_COOLDOWN_NORMAL

@@ -1,9 +1,21 @@
-SUBSYSTEM_DEF(interactions)
+PROCESSING_SUBSYSTEM_DEF(interactions)
 	name = "Interactions"
-	flags = SS_NO_FIRE
+	flags = SS_BACKGROUND | SS_POST_FIRE_TIMING
 	init_order = INIT_ORDER_INTERACTIONS
+	wait = INTERACTION_SPEED_MIN
+	stat_tag = "ACT"
 	var/list/datum/interaction/interactions
 	var/list/genital_fluids_paths
+	var/list/interaction_menu_preferences = list(
+		/datum/preference/toggle/master_erp_preferences,
+		/datum/preference/toggle/erp,
+		/datum/preference/choiced/erp_status,
+		/datum/preference/choiced/erp_status_nc,
+		/datum/preference/choiced/erp_status_v,
+		/datum/preference/choiced/erp_status_extm,
+		/datum/preference/choiced/erp_status_unholy,
+		/datum/preference/choiced/erp_status_extmharm,
+	)
 	VAR_PROTECTED/list/blacklisted_mobs = list(
 		/mob/dead,
 		/mob/dview,
@@ -22,7 +34,7 @@ SUBSYSTEM_DEF(interactions)
 	)
 	VAR_PROTECTED/initialized_blacklist
 
-/datum/controller/subsystem/interactions/Initialize()
+/datum/controller/subsystem/processing/interactions/Initialize()
 	prepare_interactions()
 	prepare_blacklisted_mobs()
 	prepare_genital_fluids()
@@ -30,30 +42,30 @@ SUBSYSTEM_DEF(interactions)
 	to_chat(world, span_boldannounce(extra_info))
 	log_config(extra_info)
 	return SS_INIT_SUCCESS
-	
-/datum/controller/subsystem/interactions/stat_entry(msg)
+
+/datum/controller/subsystem/processing/interactions/stat_entry(msg)
 	msg += "|🖐:[LAZYLEN(interactions)]|"
 	msg += "🚫👨:[LAZYLEN(blacklisted_mobs)]"
 	return ..()
 
-/datum/controller/subsystem/interactions/proc/prepare_interactions()
+/datum/controller/subsystem/processing/interactions/proc/prepare_interactions()
 	QDEL_LIST_ASSOC_VAL(interactions)
 	QDEL_NULL(interactions)
 	interactions = list()
 	populate_interaction_instances()
 
-/datum/controller/subsystem/interactions/proc/prepare_blacklisted_mobs()
+/datum/controller/subsystem/processing/interactions/proc/prepare_blacklisted_mobs()
 	blacklisted_mobs = typecacheof(blacklisted_mobs)
 	initialized_blacklist = TRUE
 
-/datum/controller/subsystem/interactions/proc/is_blacklisted(mob/living/creature)
+/datum/controller/subsystem/processing/interactions/proc/is_blacklisted(mob/living/creature)
 	if(!creature || !initialized_blacklist)
 		return TRUE
 	if(is_type_in_typecache(creature, blacklisted_mobs))
 		return TRUE
 	return FALSE
 
-/datum/controller/subsystem/interactions/proc/prepare_genital_fluids()
+/datum/controller/subsystem/processing/interactions/proc/prepare_genital_fluids()
 	// Define disallowed reagents
 	var/list/blacklisted = list(
 		// Base ethanol

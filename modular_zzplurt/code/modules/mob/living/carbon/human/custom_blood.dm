@@ -80,7 +80,7 @@
 
 /atom/transfer_mob_blood_dna(mob/living/injected_mob)
 	var/new_blood_dna = injected_mob.get_blood_dna_list()
-	if(!new_blood_dna)
+	if(!new_blood_dna || !forensics)
 		return ..()
 	. = ..()
 	forensics.blood_DNA["color"] = new_blood_dna["color"]
