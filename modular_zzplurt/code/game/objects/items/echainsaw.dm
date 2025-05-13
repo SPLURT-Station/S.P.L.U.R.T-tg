@@ -1,7 +1,7 @@
 // An odd mix between the chainsaw and the dualsaber. So odd that I had to rewrite the code from scratch.
 /obj/item/energychainsaw
 	name = "energy chainsaw"
-	desc = "An advanced Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and assault troopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
+	desc = "An advanced Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and shocktroopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
 	icon = 'modular_zzplurt/icons/obj/weapons/esaw.dmi'
 	icon_state = "echainsaw"
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_lefthand.dmi'
@@ -149,7 +149,7 @@
 
 /datum/uplink_item/dangerous/echainsaw
 	name = "Prototype Energy Chainsaw"
-	desc = "An alternative deisng to the classic double-bladed energy sword, the energy chainsaw does more damage than its counterpart at the expense of being difficult to conceal and less stealthy. It is also more difficult to block attacks with the chainsaw and is completely unable to reflect energy projectiles."
+	desc = "An alternative to the classic double-bladed energy sword, the energy chainsaw does more damage than its portable counterpart at the expense of being unwieldly, highly conspicuous and loud. Attacks are more difficult to block with the chainsaw due to this and it is unable to reflect energy projectiles."
 	progression_minimum = 30 MINUTES
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	item = /obj/item/energychainsaw
