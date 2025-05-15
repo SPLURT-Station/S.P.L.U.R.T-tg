@@ -271,13 +271,6 @@
 
 	greyscale_colors = null
 	allowed = list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/flashlight,
 		/obj/item/radio,
@@ -297,23 +290,6 @@
 	name = "atmospheric technician's tailcoat"
 	desc = "A heavy duty fire-tailcoat worn by bunny themed atmospheric technicians. Reinforced with asbestos weave that makes this both stylish and lung-cancer inducing."
 	icon_state = "atmos"
-	allowed = list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
-		/obj/item/fireaxe/metal_h2_axe,
-		/obj/item/flashlight,
-		/obj/item/radio,
-		/obj/item/storage/bag/construction,
-		/obj/item/tank/internals/emergency_oxygen,
-		/obj/item/tank/internals/plasmaman,
-		/obj/item/t_scanner,
-		/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
-	)
 	icon = 'modular_zubbers/icons/obj/clothing/suits/jacket.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/suits/jacket.dmi'
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/suits/jacket_digi.dmi'
@@ -342,24 +318,6 @@
 	name = "chief engineer's tailcoat"
 	desc = "A heavy duty green and white coat worn by bunny themed chief engineers. Made of a three layered composite fabric that is both insulating and fireproof, it also has an open face rendering all this useless."
 	icon_state = "ce"
-	allowed = list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
-		/obj/item/fireaxe/metal_h2_axe,
-		/obj/item/flashlight,
-		/obj/item/radio,
-		/obj/item/storage/bag/construction,
-		/obj/item/tank/internals/emergency_oxygen,
-		/obj/item/tank/internals/plasmaman,
-		/obj/item/t_scanner,
-		/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
-		/obj/item/melee/baton/telescopic,
-	)
 	icon = 'modular_zubbers/icons/obj/clothing/suits/jacket.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/suits/jacket.dmi'
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/suits/jacket_digi.dmi'
