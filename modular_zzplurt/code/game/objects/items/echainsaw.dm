@@ -35,7 +35,7 @@
 	bare_wound_bonus = 20
 
 	// Worse at blocking than the desword, it's an unwieldy chainsaw after all.
-	block_chance = 50
+	block_chance = 67
 	block_sound = 'sound/items/weapons/block_blade.ogg'
 
 	actions_types = list(/datum/action/item_action/startesaw)
@@ -140,10 +140,10 @@
 		if(our_projectile.reflectable)
 			return ..() // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
 		else
-			final_block_chance -= 25 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
+			final_block_chance -= 34 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
 
 	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 25 // You'd be bold (but correct) to leap at a guy with an energy chainsaw.
+		final_block_chance -= 34 // You'd be bold (but correct) to leap at a guy with an energy chainsaw.
 
 	return ..()
 
@@ -154,7 +154,7 @@
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	item = /obj/item/energychainsaw
 
-	cost = 12
+	cost = 13
 	purchasable_from = ~UPLINK_CLOWN_OPS // A little too serious for the clowns.
 
 /datum/uplink_item/dangerous/echainsaw/get_discount_value(discount_type)
