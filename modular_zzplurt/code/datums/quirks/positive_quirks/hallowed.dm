@@ -14,7 +14,7 @@
 
 /datum/quirk/hallowed/add(client/client_source)
 	// Give the holy trait.
-	ADD_TRAIT(quirk_holder, TRAIT_HOLY, TRAIT_HALLOWED)
+	// ADD_TRAIT(quirk_holder, TRAIT_HOLY, TRAIT_HALLOWED)
 
 	// Add status effect
 	quirk_holder.apply_status_effect(/datum/status_effect/quirk_examine/hallowed)
@@ -34,7 +34,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Remove the holy trait.
-	REMOVE_TRAIT(quirk_mob, TRAIT_HOLY, TRAIT_HALLOWED)
+	// REMOVE_TRAIT(quirk_mob, TRAIT_HOLY, TRAIT_HALLOWED)
 
 	// Check if the holder is a deacon
 	if(quirk_holder.mind?.holy_role == HOLY_ROLE_DEACON)
@@ -66,7 +66,7 @@
 	// These effects should be a foil to bloodfledge penalties
 	quirk_holder.adjust_disgust(-2)
 	quirk_holder.adjust_nutrition(6)
-	//quirk_holder.adjust_thirst(6)
+	quirk_holder.adjust_thirst(6)
 
 // Examine text status effect
 /datum/status_effect/quirk_examine/hallowed

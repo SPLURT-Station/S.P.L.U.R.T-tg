@@ -585,7 +585,10 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/storage/pill_bottle/liquid_solder = 20,
 		/obj/item/storage/pill_bottle/liquid_solder/braintumor = 20,
 		/obj/item/storage/pill_bottle/nanite_slurry = 20,
-		/obj/item/storage/pill_bottle/system_cleaner = 20
+		/obj/item/storage/pill_bottle/system_cleaner = 20,
+		/obj/item/storage/pill_bottle/labebium = 50, // MOON ADD
+		/obj/item/storage/pill_bottle/zvezdochka = 50, // MOON ADD
+		/obj/item/storage/pill_bottle/pendosovka = 50 // MOON ADD
 	) = 40,
 	list(
 		/obj/item/storage/lunchbox = 100,

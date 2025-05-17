@@ -16,7 +16,7 @@
 	desc = "A bottle of frothy pink juice. It smells floral and musky."
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt = 30)
 
-/obj/item/reagent_containers/pill/rutt
+/obj/item/reagent_containers/applicator/pill/rutt
 	name = "\improper R.U.T.T. pill (25u)"
 	desc = "This aphrodisiac is an extremely powerful narcotic which may cause unintended climax."
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'

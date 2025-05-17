@@ -974,6 +974,9 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/reagent_containers/applicator/pill/maintenance/achievement = 200,
 		/obj/item/reagent_containers/applicator/pill/nanite_slurry = 5,
 		/obj/item/reagent_containers/applicator/pill/zoom = 5,
+		/obj/item/reagent_containers/applicator/pill/zvezdochka = 150,  // MOON ADD
+		/obj/item/reagent_containers/applicator/pill/labebium = 150,  // MOON ADD
+		/obj/item/reagent_containers/applicator/pill/pendosovka = 150,  // MOON ADD
 		/obj/item/reagent_containers/syringe/contraband/bath_salts = 1,
 		/obj/item/reagent_containers/syringe/contraband/fentanyl = 1,
 		/obj/item/reagent_containers/syringe/contraband/krokodil = 1,

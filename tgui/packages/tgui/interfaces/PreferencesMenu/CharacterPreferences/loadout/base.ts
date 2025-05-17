@@ -40,6 +40,9 @@ export type LoadoutItem = {
   donator_only: BooleanLike;
   erp_item: BooleanLike;
   // SKYRAT EDIT
+  // SPLURT EDIT START
+  donator_tier: number | null;
+  // SPLURT EDIT END
 };
 
 // Category of items in the loadout
