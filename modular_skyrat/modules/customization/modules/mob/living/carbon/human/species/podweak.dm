@@ -19,7 +19,6 @@
 	name = "Podperson"
 	id = SPECIES_PODPERSON_WEAK
 	examine_limb_id = SPECIES_PODPERSON
-	mutantlungs = /obj/item/organ/lungs/pod // splurt edit PR 377
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
