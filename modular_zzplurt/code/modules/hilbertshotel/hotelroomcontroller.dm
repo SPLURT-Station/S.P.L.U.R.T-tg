@@ -45,7 +45,7 @@
 	. = ..()
 	. += span_info("The screen displays [!room_number ? "the word \"Error\". Nothing else." : "some small text and a large number [room_number]."]")
 
-/obj/machinery/room_controller/Initialize()
+/obj/machinery/room_controller/Initialize(mapload)
 	. = ..()
 	if(!SShilbertshotel.initialized)
 		message_admins("Attention: [ADMIN_VERBOSEJMP(src)] at room [room_number] failed to locate the main hotel sphere!")

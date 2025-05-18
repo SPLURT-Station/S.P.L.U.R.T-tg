@@ -1,10 +1,10 @@
-/*
-  _  _ _ _ _             _   _      	 _  _     _       _
- | || (_) | |__  ___ _ _| |_( )___ 		| || |___| |_ ___| |
- | __ | | | '_ \/ -_) '_|  _|/(_-< 		| __ / _ \  _/ -_) |
- |_||_|_|_|_.__/\___|_|  \__| /__/ 		|_||_\___/\__\___|_|
+//
+//   _  _ _ _ _             _   _      	 _  _     _       _
+//  | || (_) | |__  ___ _ _| |_( )___ 		| || |___| |_ ___| |
+//  | __ | | | '_ \/ -_) '_|  _|/(_-< 		| __ / _ \  _/ -_) |
+//  |_||_|_|_|_.__/\___|_|  \__| /__/ 		|_||_\___/\__\___|_|
 
-*/
+//
 
 /obj/item/hilbertshotel
 	name = "Hilbert's Hotel"
@@ -17,11 +17,6 @@
 
 /obj/item/hilbertshotel/New()
 	. = ..()
-
-#ifndef UNIT_TESTS // This is a hack to prevent the storage turf from being loaded in unit tests and causing errors
-	if(!SShilbertshotel.storageTurf && CONFIG_GET(flag/hilbertshotel_enabled)) // setting up a storage for the room objects
-		SShilbertshotel.setup_storage_turf()
-#endif
 
 /obj/item/hilbertshotel/Initialize(mapload)
 	. = ..()
@@ -54,6 +49,9 @@
 
 	to_chat(user, span_notice("You invite [target_mob] to the hotel."))
 	ui_interact(target_mob)
+
+/obj/item/hilbertshotel/ghostdojo
+	w_class = WEIGHT_CLASS_GIGANTIC
 
 /obj/item/hilbertshotel/ghostdojo/examine(mob/user)
 	. = ..()

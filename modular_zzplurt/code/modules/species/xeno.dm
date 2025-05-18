@@ -10,8 +10,6 @@
 
 /datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
-
-	. = ..()
 	var/datum/action/innate/reconstitute_form/reconstitute_form = new(human_who_gained_species) //shit ahh var name
 	var/datum/action/cooldown/sonar_ping/sonar_ping = new(human_who_gained_species)
 	reconstitute_form.Grant(human_who_gained_species)

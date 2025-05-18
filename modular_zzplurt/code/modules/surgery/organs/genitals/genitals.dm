@@ -1,5 +1,6 @@
 /obj/item/organ/genital
 	var/always_accessible = FALSE
+	var/written_text = ""
 
 /obj/item/organ/genital/is_exposed()
 	if(always_accessible)

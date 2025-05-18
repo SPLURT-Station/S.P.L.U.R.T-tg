@@ -1,7 +1,7 @@
 /datum/job/captain/New()
 	var/list/extra_titles = list(
 		"Station Director",
-		"Station Commander",
+		// "Station Commander",
 		"Station Overseer",
 		"Station Mistress",
 		"Station Master",
@@ -10,7 +10,8 @@
 		"Senator",
 		"Consul",
 		"Cap-Slut",
-		"Condom"
+		"Condom",
+		"Ark Commander"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -44,13 +45,14 @@
 
 /datum/job/head_of_security/New()
 	var/list/extra_titles = list(
-		"Security Commander",
+		// "Security Commander",
 		"Head of Slutcurity",
 		"Division Leader",
 		"Cerberus Leader",
 		"Head of Studcurity",
 		"Big Iron",
-		"Commissar"
+		"Commissar",
+		"Head of Red Hawk"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -115,11 +117,11 @@
 	var/list/extra_titles = list(
 		"Stripper",
 		"Escort",
-		"Tourist",
+		// "Tourist",
 		"Clerk",
 		"Secretary",
 		"Blacksmith",
-		"Waiter",
+		// "Waiter",
 		"All-purpose fleshlight",
 		"All-purpose dildo",
 		"Cumdump",
@@ -134,7 +136,9 @@
 		"Belly Massager",
 		"Freeloader",
 		"Station Pet",
-		"Pet"
+		"Pet",
+		"Slavic Activist",
+		"Bear Communist"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -163,11 +167,11 @@
 /datum/job/chaplain/New()
 	var/list/extra_titles = list(
 		"Bishop",
-		"Priestess",
+		// "Priestess",
 		"Prior",
-		"Monk",
+		// "Monk",
 		"Tiger Cooperative Disciple",
-		"Nun",
+		// "Nun",
 		"Keeper of Cum",
 		"Counselor",
 		"Techpriest"
@@ -177,11 +181,12 @@
 
 /datum/job/clown/New()
 	var/list/extra_titles = list(
-		"Jester",
-		"Comedian",
+		// "Jester",
+		// "Comedian",
 		"Cumedian",
 		"Sexy Clown",
-		"Performer"
+		"Performer",
+		"Zeleboba"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -194,8 +199,8 @@
 		"Poissonier",
 		"Chef De Sexe",
 		"Boss Of This Gym",
-		"Waffle Co. Specialist",
-		"Baker"
+		"Waffle Co. Specialist"
+		// "Baker"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -203,20 +208,21 @@
 /datum/job/curator/New()
 	var/list/extra_titles = list(
 		"Keeper",
-		"Archaeologist",
-		"Historian",
+		// "Archaeologist",
+		// "Historian",
 		"Scholar",
 		"Hentai Artist",
-		"Artist"
+		"Artist",
+		"Nerd"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
 /datum/job/botanist/New()
 	var/list/extra_titles = list(
-		"Hydroponicist",
-		"Farmer",
-		"Beekeeper",
+		// "Hydroponicist",
+		// "Farmer",
+		// "Beekeeper",
 		"Plants Breeder",
 		"Vintner",
 		"Soiler"
@@ -227,7 +233,7 @@
 /datum/job/lawyer/New()
 	var/list/extra_titles = list(
 		"Law-Slut",
-		"Internal Affairs Agent",
+		// "Internal Affairs Agent",
 		"Attorney"
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -273,20 +279,21 @@
 
 /datum/job/chemist/New()
 	var/list/extra_titles = list(
-		"Alchemist",
+		// "Alchemist",
 		"Apothecarist",
 		"Chemical Plumber",
 		"Organomegaly Healer",
 		"Hexocrocin Therapist",
 		"Chemi-Slut",
-		"Chemi-Stud"
+		"Chemi-Stud",
+		"Matter Converter"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
 /datum/job/doctor/New()
 	var/list/extra_titles = list(
-		"Physician",
+		// "Physician",
 		"Medical Intern",
 		"Medical Resident",
 		"Medtech",
@@ -300,8 +307,8 @@
 
 /datum/job/psychologist/New()
 	var/list/extra_titles = list(
-		"Therapist",
-		"Psychiatrist",
+		// "Therapist",
+		// "Psychiatrist",
 		"Hypnotist",
 		"Hypnosis Expert",
 		"Hypnotherapist",
@@ -356,7 +363,8 @@
 		"Van Dorn Agent",
 		"Forensic Investigator",
 		"Cinder Dick",
-		"Cooperate Auditor"
+		"Cooperate Auditor",
+		"RHIB Agent"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -371,7 +379,8 @@
 		"Tyranny Lover",
 		"Cerberus",
 		"Slutcurity Officer",
-		"Studcurity Officer"
+		"Studcurity Officer",
+		"Red Hawk Private"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -385,7 +394,10 @@
 		"Brig Superintendent",
 		"Brig Overwatch",
 		"Slutcurity Captain",
-		"Voreden"
+		"Voreden",
+		"Red Hawk Sergeant",
+		"Security Sergeant",
+		"Slutgeant"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -393,8 +405,8 @@
 /datum/job/cargo_technician/New()
 	var/list/extra_titles = list(
 		"Deliveries Officer",
-		"Mail Man",
-		"Mail Woman",
+		// "Mail Man",
+		// "Mail Woman",
 		"Mailroom Technician",
 		"Logistics Technician",
 		"Cryptocurrency Technician",
@@ -424,11 +436,16 @@
 	var/list/extra_titles = list(
 		"Low Security Prisoner",
 		"Medium Security Prisoner",
-		"Maximum Security Prisoner",
+		// "Maximum Security Prisoner",
 		"Supermax Prisoner",
-		"Protective Custody Prisoner",
+		// "Protective Custody Prisoner",
 		"Prison Slut",
-		"Prison Stud"
+		"Prison Stud",
+		"Captured Syndicate Member",
+		"Security Bitch",
+		"Security Slave",
+		"Cum Holder",
+		"Cum Receiver"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()

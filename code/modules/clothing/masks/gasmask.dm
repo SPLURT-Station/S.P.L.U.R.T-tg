@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		LAZYADD(gas_filters, inserted_filter)
 	has_filter = TRUE
 
-/obj/item/clothing/mask/gas/worn_overlays(mutable_appearance/standing, isinhands)
+/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
 	. = ..()
 	if(!isinhands && cig)
 		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
@@ -91,6 +91,9 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		if(ismob(loc))
 			var/mob/wearer = loc
 			wearer.update_worn_mask()
+		// SPLURT EDIT ADDITION BEGIN - Smokin' fat darts
+		update_appearance(UPDATE_ICON)
+		// SPLURT EDIT ADDITION END
 
 /obj/item/clothing/mask/gas/attackby(obj/item/tool, mob/user)
 	var/valid_wearer = ismob(loc)
@@ -112,6 +115,9 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		cig.forceMove(src)
 		if(valid_wearer)
 			wearer.update_worn_mask()
+		// SPLURT EDIT ADDITION BEGIN - Smokin' fat darts
+		update_appearance(UPDATE_ICON)
+		// SPLURT EDIT ADDITION END
 		return TRUE
 
 	if(cig)
@@ -136,6 +142,9 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		if(ismob(loc))
 			var/mob/wearer = loc
 			wearer.update_worn_mask()
+		// SPLURT EDIT ADDITION BEGIN - Smokin' fat darts
+		update_appearance(UPDATE_ICON)
+		// SPLURT EDIT ADDITION END
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(!has_filter || !max_filters)
 		return SECONDARY_ATTACK_CONTINUE_CHAIN

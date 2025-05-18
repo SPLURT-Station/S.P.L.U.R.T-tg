@@ -103,9 +103,9 @@
 	else
 		qdel(src)
 
-/obj/item/clothing/attack(mob/living/target, mob/living/user, params)
+/obj/item/clothing/attack(mob/living/target, mob/living/user, list/modifiers)
 	// SPLURT EDIT - Cloth Eater quirk
-	if(user.combat_mode || ispickedupmob(src))
+	if(user.combat_mode || ispickedupmob(src)) // Original: if(user.combat_mode || !ismoth(target) || ispickedupmob(src))
 		return ..()
 	if(!(ismoth(target) || HAS_TRAIT(target, TRAIT_CLOTH_EATER))) // Moth OR Cloth Eater
 		return ..()
@@ -114,7 +114,7 @@
 		return ..()
 	if(isnull(moth_snack))
 		create_moth_snack()
-	moth_snack.attack(target, user, params)
+	moth_snack.attack(target, user, modifiers)
 
 /// Creates a food object in null space which we can eat and imagine we're eating this pair of shoes
 /obj/item/clothing/proc/create_moth_snack()

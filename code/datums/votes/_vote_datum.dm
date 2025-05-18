@@ -133,6 +133,10 @@
 			return get_simple_winner()
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			return get_random_winner()
+		// SPLURT EDIT ADDITION - Ranked Choice Voting
+		if(VOTE_WINNER_METHOD_RANKED)
+			return get_ranked_winner()
+		// SPLURT EDIT ADDITION - End
 
 	stack_trace("invalid select winner method: [winner_method]. Defaulting to simple.")
 	return get_simple_winner()
@@ -183,6 +187,10 @@
 			returned_text += "None"
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			returned_text += "Weighted Random"
+		// SPLURT EDIT ADDITION - Ranked Choice Voting
+		if(VOTE_WINNER_METHOD_RANKED)
+			returned_text += "Ranked"
+		// SPLURT EDIT ADDITION - End
 		else
 			returned_text += "Simple"
 

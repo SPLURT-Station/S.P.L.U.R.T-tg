@@ -268,3 +268,67 @@
 	. = ..()
 	if (prob(7))
 		drinker.emote("giggle")
+
+//Donator items
+/datum/reagent/consumable/ethanol/gem_grape_juice
+	name = "Gem Brand Grape Juice"
+	description = "The Gem Emporium's take on grape juice, providing a very healthy alternative with a kick described as 'Energizes you like a short rest!'"
+	color = "#290029"
+	taste_description = "Cool refreshing grapes with a hint of fruit"
+	boozepwr = 15
+	quality = DRINK_FANTASTIC
+	metabolization_rate = 2 * REAGENTS_METABOLISM //0.4u per second
+	ph = 4
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
+
+/datum/reagent/consumable/ethanol/gem_grape_juice/on_mob_metabolize(mob/living/affected_mob) //Update this if bastion_bourbon is changed.
+	. = ..()
+	var/heal_points = 10
+	if(affected_mob.health <= 0)
+		heal_points = 20 //heal more if we're in softcrit
+	var/need_mob_update
+	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
+	need_mob_update = affected_mob.adjustBruteLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjustFireLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjustToxLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjustOxyLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	// heal stamina loss on first metabolization, but only to a max of 20
+	need_mob_update += affected_mob.adjustStaminaLoss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	if(need_mob_update)
+		affected_mob.updatehealth()
+	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
+	if(!affected_mob.stat && heal_points == 20) //brought us out of softcrit
+		affected_mob.visible_message(span_danger("[affected_mob] lurches to [affected_mob.p_their()] feet!"), span_boldnotice("Up and at 'em, kid."))
+
+//Donator items
+/datum/reagent/consumable/ethanol/gem_grape_soda
+	name = "Gem Brand Grape Soda"
+	description = "The Gem Emporium's take on grape juice, providing a very healthy alternative with a kick described as 'Energizes you like a short rest!' Now carbonated!"
+	color = "#290029"
+	taste_description = "Cool refreshing grapes with a hint of fruit"
+	boozepwr = 15
+	quality = DRINK_FANTASTIC
+	metabolization_rate = 2 * REAGENTS_METABOLISM //0.4u per second
+	ph = 4
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	glass_price = DRINK_PRICE_HIGH
+
+/datum/reagent/consumable/ethanol/gem_grape_soda/on_mob_metabolize(mob/living/affected_mob) //Update this if bastion_bourbon is changed.
+	. = ..()
+	var/heal_points = 10
+	if(affected_mob.health <= 0)
+		heal_points = 20 //heal more if we're in softcrit
+	var/need_mob_update
+	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
+	need_mob_update = affected_mob.adjustBruteLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjustFireLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjustToxLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjustOxyLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	// heal stamina loss on first metabolization, but only to a max of 20
+	need_mob_update += affected_mob.adjustStaminaLoss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	if(need_mob_update)
+		affected_mob.updatehealth()
+	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
+	if(!affected_mob.stat && heal_points == 20) //brought us out of softcrit
+		affected_mob.visible_message(span_danger("[affected_mob] lurches to [affected_mob.p_their()] feet!"), span_boldnotice("Up and at 'em, kid."))

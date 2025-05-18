@@ -2,7 +2,7 @@
 /*
 /datum/quirk/fluid_infuser
 	name = "Fluid Infuser"
-	desc = "You start the shift with one of NanoTrasen's new genital fluid inducers."
+	desc = "You start the shift with one of Nanotrasen's new genital fluid inducers."
 	value = 0
 	gain_text = span_notice("Your Fluid Infuser implant has been activated.")
 	lose_text = span_notice("Your Fluid Infuser implant encounters a critical error.")

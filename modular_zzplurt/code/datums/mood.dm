@@ -1,0 +1,16 @@
+/datum/mood/proc/get_thirst_mood(mob/user)
+	var/mob/living/target = user
+	var/water_level = target.water_level
+	switch(water_level)
+		if(THIRST_LEVEL_FULL to INFINITY)
+			return span_nicegreen("I'm completely full of water!")
+		if(THIRST_LEVEL_QUENCHED to THIRST_LEVEL_FULL)
+			return span_nicegreen("I'm well hydrated.")
+		if(THIRST_LEVEL_BIT_THIRSTY to THIRST_LEVEL_QUENCHED)
+			return span_info("I'm not thirsty.")
+		if(THIRST_LEVEL_THIRSTY to THIRST_LEVEL_BIT_THIRSTY)
+			return span_info("I could use a drink to quench my thirst.")
+		if(THIRST_LEVEL_PARCHED to THIRST_LEVEL_THIRSTY)
+			return span_warning("I feel quite thirsty!")
+		if(0 to THIRST_LEVEL_PARCHED)
+			return span_danger("I'm parched!")

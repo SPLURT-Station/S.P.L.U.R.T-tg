@@ -39,8 +39,8 @@
 		for(var/item_to_add in zzplurt_contraband)
 			contraband[item_to_add] = zzplurt_contraband[item_to_add]
 
-	QDEL_NULL(zzplurt_products)
-	QDEL_NULL(zzplurt_product_categories)
-	QDEL_NULL(zzplurt_premium)
-	QDEL_NULL(zzplurt_contraband)
+	zzplurt_products?.Cut()
+	zzplurt_product_categories?.Cut()
+	zzplurt_premium?.Cut()
+	zzplurt_contraband?.Cut()
 	return ..()

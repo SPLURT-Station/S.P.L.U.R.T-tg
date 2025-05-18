@@ -5,7 +5,7 @@
 	icon_state = "box"
 	illustration = null
 
-/obj/item/storage/box/bulk_condoms/Initialize()
+/obj/item/storage/box/bulk_condoms/Initialize(mapload)
 	. = ..()
 
 	atom_storage.max_slots = 10

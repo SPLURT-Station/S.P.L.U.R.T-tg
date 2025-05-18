@@ -311,6 +311,7 @@ const MECHA_SNOWFLAKE_ID_GENERATOR = 'generator_snowflake';
 const MECHA_SNOWFLAKE_ID_ORE_SCANNER = 'orescanner_snowflake';
 const MECHA_SNOWFLAKE_ID_CLAW = 'lawclaw_snowflake';
 const MECHA_SNOWFLAKE_ID_RCD = 'rcd_snowflake';
+const MECHA_SNOWFLAKE_ID_ARMOR = 'armor_snowflake'; // splurt edit -- Mecha additions, better armor
 
 export const ModuleDetailsExtra = (props: { module: MechModule }) => {
   const module = props.module;
@@ -335,6 +336,8 @@ export const ModuleDetailsExtra = (props: { module: MechModule }) => {
       return <SnowflakeLawClaw module={module} />;
     case MECHA_SNOWFLAKE_ID_RCD:
       return <SnowflakeRCD module={module} />;
+    case MECHA_SNOWFLAKE_ID_ARMOR: // splurt edit start -- Mecha additions, better armor
+      return <SnowflakeArmor module={module} />; // splurt edit end
     default:
       return null;
   }
@@ -1131,3 +1134,18 @@ const SnowflakeRCD = (props) => {
     </>
   );
 };
+
+// splurt edit start -- Mecha additions, better armor
+const SnowflakeArmor = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { ref } = props.module;
+  const { armor_integrity, max_armor_integrity } = props.module.snowflake;
+  return (
+    <LabeledList.Item label="Integrity">
+      <ProgressBar value={armor_integrity / max_armor_integrity}>
+        {`${armor_integrity} of ${max_armor_integrity}`}
+      </ProgressBar>
+    </LabeledList.Item>
+  );
+};
+// splurt edit end -- Mecha additions, better armor

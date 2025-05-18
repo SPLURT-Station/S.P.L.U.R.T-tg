@@ -361,7 +361,7 @@
 			if(iscarbon(target)) // Handle the target being a mob
 				var/mob/living/carbon/this_target = target
 				if(this_target.stat == DEAD && check_vore_preference(this_target, /datum/vore_pref/toggle/digestion))	// Mob is now dead
-					message_admins("[key_name(hound)] has digested [key_name(this_target)] as a dogborg. ([hound ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[hound.x];Y=[hound.y];Z=[hound.z]'>JMP</a>" : "null"])")
+					message_admins("[key_name(hound)] has digested [key_name(this_target)] as a dogborg. [ADMIN_JMP(hound)]")
 					to_chat(hound,"<span class='notice'>You feel your belly slowly churn around [this_target], breaking them down into a soft slurry to be used as power for your systems.</span>")
 					to_chat(this_target,"<span class='notice'>You feel [hound]'s belly slowly churn around your form, breaking you down into a soft slurry to be used as power for [hound]'s systems.</span>")
 					hound.cell.give(30000) // yummers

@@ -40,7 +40,7 @@
 	name = "purple nail polish"
 	paint = "purple"
 
-/obj/item/nailpolish/Initialize()
+/obj/item/nailpolish/Initialize(mapload)
 	. = ..()
 	bottle = mutable_appearance('modular_zzplurt/icons/obj/cosmetic.dmi', "nailpolish")
 	bottle.color = paint

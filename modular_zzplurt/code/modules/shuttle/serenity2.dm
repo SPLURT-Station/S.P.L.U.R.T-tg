@@ -22,16 +22,16 @@
 	fire_detect = FALSE
 
 /area/shuttle/serenity2/cockpit
-    name = "FSC 'Serenity II' Control Room"
+	name = "FSC 'Serenity II' Control Room"
 
 /area/shuttle/serenity2/midship
-    name = "FSC 'Serenity II' Midship Compartment"
+	name = "FSC 'Serenity II' Midship Compartment"
 
 /area/shuttle/serenity2/kitchen
-    name = "FSC 'Serenity II' Kitchen"
+	name = "FSC 'Serenity II' Kitchen"
 
 /area/shuttle/serenity2/restroom
-    name = "FSC 'Serenity II' Restroom"
+	name = "FSC 'Serenity II' Restroom"
 
 /obj/docking_port/mobile/serenity2
 	callTime = 15 SECONDS
@@ -48,4 +48,4 @@
 		/area/shuttle/serenity2/midship,
 		/area/shuttle/serenity2/kitchen,
 		/area/shuttle/serenity2/restroom
-    )
+	)

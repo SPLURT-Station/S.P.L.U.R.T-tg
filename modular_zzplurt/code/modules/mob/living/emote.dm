@@ -165,17 +165,17 @@
 
 /*
 /datum/emote/living/bababooey/run_emote(mob/user, params)
- 	// Check if user is muzzled
+	// Check if user is muzzled
 	if(user.is_muzzled())
- 		// Set muzzled sound
+		// Set muzzled sound
 		sound = 'modular_zzplurt/sound/voice/bababooey/ffff.ogg'
 
-// 	// User is not muzzled
+//	// User is not muzzled
 	else
 		// Set random emote sound
 		sound = pick('modular_zzplurt/sound/voice/bababooey/bababooey.ogg', 'modular_zzplurt/sound/voice/bababooey/bababooey2.ogg')
 
- 	// Return normally
+	// Return normally
 	. = ..()
 */
 
@@ -199,7 +199,7 @@
 
 /*
 /datum/emote/living/fafafooey/run_emote(mob/user, params)
- 	// Check if user is muzzled
+	// Check if user is muzzled
 	if(user.is_muzzled())
 		// Set muzzled sound
 		sound = 'modular_zzplurt/sound/voice/bababooey/ffff.ogg'
@@ -842,7 +842,7 @@
 	message = "screams!"
 	message_mime = "acts out a rather silly scream!"
 	sound = 'modular_zzplurt/sound/voice/cscream1.ogg'
-// 	vary = FALSE
+//	vary = FALSE
 
 /datum/emote/living/scream2/get_sound(mob/living/user)
 	. = ..()

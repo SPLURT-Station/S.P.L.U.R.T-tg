@@ -33,4 +33,20 @@
 		return
 	return ..()
 
+/datum/reagent/consumable/peanut_butter/packing
+	name = "Packing Peanut Butter"
+	description = "A tasteless, starchy spread produced by grinding packing peanuts."
+	taste_description = "starch"
+	color = "#FFB9EA" //pinkut...
+	nutriment_factor = 0.5 //absolutely no nutritive value
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	default_container = /obj/item/reagent_containers/condiment/peanut_butter/packing
+
+/datum/reagent/consumable/peanut_butter/packing/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver && HAS_TRAIT(liver, TRAIT_CARGO_METABOLISM))
+		if(affected_mob.heal_bodypart_damage(brute = 1 * REM * seconds_per_tick, burn = 1 * REM * seconds_per_tick, updating_health = FALSE))
+			return UPDATE_MOB_HEALTH
+
 #undef CONCUBUS_FLUIDS

@@ -606,12 +606,7 @@
 	cortical_owner.health = max(cortical_owner.health, 1, cortical_owner.health -= OUT_OF_HOST_EGG_COST)
 	produce_egg()
 	var/turf/borer_turf = get_turf(cortical_owner)
-	// SPLURT EDIT - Colored Blood
-	//new /obj/effect/decal/cleanable/blood/splatter(borer_turf)
-	var/obj/effect/decal/cleanable/blood/splatter/splatter = new /obj/effect/decal/cleanable/blood/splatter(borer_turf)
-	splatter.color = splatter.blood_DNA_to_color(splatter.color)
-	splatter.icon = splatter.colored_blood_icon(splatter.icon)
-	// SPLURT EDIT END - Colored Blood
+	new/obj/effect/decal/cleanable/blood/splatter(borer_turf)
 	playsound(borer_turf, 'sound/effects/splat.ogg', 50, TRUE)
 	var/logging_text = "[key_name(cortical_owner)] gave birth alone at [loc_name(borer_turf)]"
 	cortical_owner.log_message(logging_text, LOG_GAME)

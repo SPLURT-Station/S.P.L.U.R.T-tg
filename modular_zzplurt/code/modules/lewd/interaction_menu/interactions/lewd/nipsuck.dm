@@ -3,6 +3,7 @@
 	description = "Suck their nipples."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
 	target_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	message = list(
 		"gently sucks on %TARGET%'s nipple.",
 		"gently nibs %TARGET%'s nipple.",

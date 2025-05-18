@@ -22,3 +22,5 @@
 
 /datum/config_entry/string/roundend_embed_color
 	default = "ff4ff0"
+
+/datum/config_entry/str_list/admin_logs_channel

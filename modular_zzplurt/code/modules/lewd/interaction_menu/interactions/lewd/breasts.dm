@@ -3,6 +3,7 @@
 	description = "Breastfeed them."
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH, INTERACTION_REQUIRE_SELF_HUMAN)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	message = list(
 		"pushes their breasts against %TARGET%'s mouth, squirting their warm %MILK% into their mouth.",
 		"fills %TARGET%'s mouth with warm, sweet %MILK% as they squeeze their boobs, panting.",
@@ -27,7 +28,7 @@
 	var/datum/reagent/milk = find_reagent_object_from_type(breasts.internal_fluid_datum)
 	var/list/original_messages = message.Copy()
 	var/chosen_message = pick(message)
-	chosen_message = replacetext(chosen_message, "%MILK%", lowertext(milk.name))
+	chosen_message = replacetext(chosen_message, "%MILK%", LOWER_TEXT(milk.name))
 	message = list(chosen_message)
 	. = ..()
 	message = original_messages

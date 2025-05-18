@@ -1,3 +1,17 @@
+// If you have a dart in your mask, an overlay is shown on it
+/obj/item/clothing/mask/gas
+
+/obj/item/clothing/mask/gas/update_overlays()
+	. = ..()
+	if(cig)
+		var/mutable_appearance/dart_appearance = new /mutable_appearance(cig)
+		dart_appearance.plane = FLOAT_PLANE
+		dart_appearance.layer = FLOAT_LAYER
+		dart_appearance.pixel_x = -ICON_SIZE_X/8
+		dart_appearance.pixel_y = -ICON_SIZE_Y/8
+		dart_appearance.transform *= 0.5
+		. += dart_appearance
+
 /obj/item/clothing/mask/gas/cosmetic
 	name = "aesthetic gas mask"
 	desc = "A face-covering mask that resembles a traditional gas mask, but without the breathing functionality."

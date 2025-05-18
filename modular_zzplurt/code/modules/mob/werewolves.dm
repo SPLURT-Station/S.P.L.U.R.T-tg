@@ -29,7 +29,7 @@
 	. = ..()
 
 /mob/living/basic/werewolf/hostile
-	ai_controller = /datum/ai_controller/basic_controller/simple_hostile
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile
 
 /mob/living/basic/werewolf/hostile/icewolf
 	name = "Ice-bound Werewolf"
@@ -39,7 +39,7 @@
 
 /mob/living/basic/werewolf/hostile/alphawolf
 	name = "Alpha Werewolf"
-	ai_controller = /datum/ai_controller/basic_controller/simple_hostile_obstacles
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 
 /mob/living/basic/werewolf/hostile/death()
 	..()

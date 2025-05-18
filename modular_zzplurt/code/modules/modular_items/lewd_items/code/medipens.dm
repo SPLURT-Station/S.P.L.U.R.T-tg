@@ -80,7 +80,7 @@
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/growthchem = 30)
 
-/obj/item/reagent_containers/hypospray/medipen/prospacillin/Initialize()
+/obj/item/reagent_containers/hypospray/medipen/prospacillin/Initialize(mapload)
 	. = ..()
 	if(prob(50))
 		desc = "Macro haters' worst enemy"
