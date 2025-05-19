@@ -26,13 +26,17 @@
 	/// Determines if you can deconstruct this with a RCD
 	var/rcd_proof = FALSE
 
+/turf/open/floor/proc/CMakeDirty()
+	MakeDirty()
+
 /turf/open/floor/Initialize(mapload)
 	. = ..()
 	if(mapload && prob(33))
-		MakeDirty()
+		CMakeDirty() 
 
 	if(is_station_level(z))
 		GLOB.station_turfs += src
+	
 
 /turf/open/floor/broken_states()
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")

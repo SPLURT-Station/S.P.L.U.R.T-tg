@@ -35,7 +35,7 @@
 		return
 
 
-	if(prob(80)) //mid dirt  - 1/15
+	if(prob(20)) //mid dirt  - 1/15
 		return
 
 		//Construction zones. Blood, sweat, and oil.  Oh, and dirt. A small colony of space-ants or two will pop up
@@ -90,7 +90,7 @@
 		return
 
 
-	if(prob(75)) //low dirt  - 1/60
+	if(prob(50)) //low dirt  - 1/30
 		return
 
 		//Areas where gibs will be present. Robusting probably happened some time ago.
@@ -114,11 +114,11 @@
 	))
 	if(is_type_in_typecache(A, kitchen_dirt_areas))
 		if(prob(60))
-			if(prob(50))
+			if(prob(40))
 				new /obj/effect/decal/cleanable/food/egg_smudge(src)
 			else
 				new /obj/effect/decal/cleanable/food/flour(src)
-		else if(prob(20)) //12% effective chance
+		else if(prob(10)) //12% effective chance
 			new /obj/effect/decal/cleanable/ants(src)
 		return
 
@@ -133,7 +133,7 @@
 				new /obj/effect/decal/cleanable/blood/gibs/old(src)
 			else
 				new /obj/effect/decal/cleanable/blood/old(src)
-		else if(prob(30))
+		else if(prob(20))
 			if(istype(A, /area/station/medical/morgue))
 				new /obj/item/ectoplasm(src)
 			else
