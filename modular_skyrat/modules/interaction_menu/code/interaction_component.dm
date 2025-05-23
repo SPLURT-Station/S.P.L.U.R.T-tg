@@ -6,6 +6,8 @@
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
 	var/interact_next = 0
+	///Holds a reference to a relayed body if one exists
+	var/obj/body_relay = null
 
 /datum/component/interactable/Initialize(...)
 	if(QDELETED(parent))
@@ -60,7 +62,8 @@
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
-		return FALSE
+		if(!body_relay || !target.Adjacent(body_relay))
+			return FALSE
 	if(interaction.category == INTERACTION_CAT_HIDE)
 		return FALSE
 	if(self == target && interaction.usage == INTERACTION_OTHER)
@@ -124,6 +127,9 @@
 	data["ref_self"] = REF(self)
 	data["self"] = self.name
 	data["block_interact"] = user_interaction_component?.interact_next >= world.time // SPLURT EDIT - INTERACTIONS - Original: interact_next >= world.time
+	if(body_relay)
+		if(!can_see(user, self))
+			data["self"] = body_relay.name
 	data["interactions"] = categories
 
 	var/list/parts = list()
@@ -191,8 +197,10 @@
 
 			if(interact_next >= world.time)
 				return FALSE
-
-			selected_interaction.act(source, target)
+			if(body_relay && !can_see(user, self))
+				selected_interaction.act(source, target, body_relay)
+			else
+				selected_interaction.act(source, target)
 			var/datum/component/interactable/interaction_component = source.GetComponent(/datum/component/interactable)
 			interaction_component.interact_last = world.time
 			interaction_component.interact_next = interaction_component.interact_last + INTERACTION_COOLDOWN
