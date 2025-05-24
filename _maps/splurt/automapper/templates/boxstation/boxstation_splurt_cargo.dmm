@@ -2180,16 +2180,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/floor,
 /obj/structure/decorative/fluff{
-	icon = 'icons/turf/decals.dmi';
-	icon_state = "trimline_mid_fill";
-	anchored = 1;
-	color = "#2a2e2e";
-	name = "decorative tile covers";
-	pixel_y = 6;
-	pixel_x = 16;
-	layer = 2.91
-	},
-/obj/structure/decorative/fluff{
 	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
 	base_icon_state = "stairs-old";
 	icon_state = "stairs-old";
@@ -2217,6 +2207,15 @@
 	icon_state = "warningline_white";
 	anchored = 1;
 	name = "warning line"
+	},
+/obj/structure/decorative/fluff{
+	icon = 'icons/turf/decals.dmi';
+	icon_state = "trimline_mid_fill";
+	anchored = 1;
+	color = "#2a2e2e";
+	name = "decorative tile covers";
+	pixel_y = 6;
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/storage)
@@ -3339,6 +3338,21 @@
 	icon_state = "warningline";
 	anchored = 1;
 	name = "warning line"
+	},
+/obj/structure/decorative/fluff{
+	icon = 'icons/turf/decals.dmi';
+	icon_state = "warningline_white";
+	anchored = 1;
+	name = "warning line"
+	},
+/obj/structure/decorative/fluff{
+	icon = 'icons/turf/decals.dmi';
+	icon_state = "trimline_mid_fill";
+	anchored = 1;
+	color = "#2a2e2e";
+	name = "decorative tile covers";
+	pixel_y = 6;
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/storage)
