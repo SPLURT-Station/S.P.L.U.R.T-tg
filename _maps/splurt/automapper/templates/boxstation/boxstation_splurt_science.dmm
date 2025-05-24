@@ -1,0 +1,8055 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/machinery/button/door{
+	id = "Skynet_launch";
+	name = "Mech Bay Door Control";
+	pixel_x = 6;
+	pixel_y = 24;
+	req_access = list("robotics")
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"aw" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/airlock/command/glass{
+	name = "Research Director"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/rd,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"aE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"aN" = (
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"aO" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/lab)
+"aS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 5;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"aW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"bm" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"bp" = (
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"bz" = (
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1;
+	color = "#ae4fd6"
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/item/robot_suit,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"bI" = (
+/obj/structure/sign/departments/xenobio/directional/south,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"bK" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"bR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"bW" = (
+/obj/item/surgery_tray/full,
+/obj/structure/table/glass,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 10
+	},
+/obj/machinery/digital_clock/directional/south,
+/obj/item/healthanalyzer{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"bY" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics";
+	name = "Robotics Lab Shutters";
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"cz" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/sign/poster/contraband/killingjoke/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"cG" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	color = "#6a3182";
+	alpha = 160;
+	dir = 4
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = -25;
+	pixel_y = 38
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"cI" = (
+/obj/item/radio/intercom/directional/west,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"da" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 1
+	},
+/obj/effect/landmark/start/roboticist,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"dg" = (
+/obj/machinery/cell_charger,
+/obj/structure/table/glass,
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"ds" = (
+/obj/machinery/firealarm/directional/east,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"dA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1;
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"dC" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"ek" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/computer/operating{
+	dir = 1;
+	name = "Robotics Operating Computer"
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"eq" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"ev" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"eH" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "Skynet_launch";
+	name = "Mech Bay"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"eK" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/right/directional/south{
+	name = "Research and Development Desk";
+	req_access = list("science")
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/desk_bell{
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -6
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd";
+	name = "Research Lab Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/hallway/primary/starboard)
+"eU" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd";
+	name = "Research Lab Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/hallway/primary/starboard)
+"fc" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research{
+	name = "Xenobiology Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"fg" = (
+/obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/breakroom)
+"fs" = (
+/obj/structure/plasticflaps/opaque,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=8";
+	location = "Research Division"
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark/textured,
+/area/station/science/research)
+"ft" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/lab)
+"fE" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"fF" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/research)
+"fH" = (
+/obj/effect/spawner/random/food_or_drink/snack,
+/obj/structure/table/wood/fancy/purple,
+/obj/structure/marker_beacon/purple,
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"fI" = (
+/obj/machinery/door/airlock/research{
+	name = "Genetics Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/genetics,
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/navigate_destination,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/genetics)
+"fM" = (
+/obj/machinery/computer/rdconsole{
+	dir = 4
+	},
+/obj/machinery/requests_console/directional/west{
+	department = "Science";
+	name = "Science Requests Console"
+	},
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"fO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"fS" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,11";
+	dir = 4
+	},
+/area/station/science/research)
+"gi" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"gk" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"gn" = (
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","xeno")
+	},
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	name = "killroom vent";
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
+"gw" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"gE" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Research Division North"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"gT" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	color = "#6a3182";
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	color = "#6a3182";
+	alpha = 160;
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"gV" = (
+/obj/machinery/mech_bay_recharge_port{
+	dir = 2
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/science/robotics/mechbay)
+"gX" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle/a/style_5,
+/obj/structure/flora/grass/green/style_2,
+/obj/structure/flora/grass/jungle/b/style_5{
+	pixel_x = 0;
+	pixel_y = 14
+	},
+/obj/structure/marker_beacon/olive,
+/turf/open/floor/grass,
+/area/station/science/robotics/lab)
+"gY" = (
+/turf/closed/wall/r_wall,
+/area/station/science/robotics/lab)
+"ha" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics2";
+	name = "Robotics Lab Shutters"
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/machinery/door/window/right/directional/west{
+	req_access = list("robotics");
+	name = "Robotics Desk"
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"hb" = (
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"hc" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"hi" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/airalarm/directional/west,
+/obj/structure/chair/sofa/corp{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"ho" = (
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/plating,
+/area/station/science/breakroom)
+"hr" = (
+/obj/structure/chair/stool/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/lab)
+"hs" = (
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/four{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"hw" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"hy" = (
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/trimline/dark,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"hF" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"hM" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"hS" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"ia" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"ib" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"ic" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/lab)
+"id" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"ig" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/right/directional/south{
+	name = "Robotics Desk";
+	req_access = list("robotics")
+	},
+/obj/structure/marker_beacon/olive,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics";
+	name = "Robotics Lab Shutters";
+	dir = 1
+	},
+/obj/item/stamp/granted{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"in" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"iq" = (
+/obj/structure/table/glass,
+/obj/machinery/cell_charger{
+	pixel_y = 5
+	},
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_y = 0;
+	pixel_x = 0
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"iu" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"iy" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/end{
+	dir = 1;
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"iR" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"iS" = (
+/obj/machinery/power/shieldwallgen/xenobiologyaccess,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"iV" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"jj" = (
+/obj/machinery/firealarm/directional/north,
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"jm" = (
+/obj/machinery/light_switch{
+	pixel_x = -23
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/item/stack/sheet/plasteel{
+	amount = 10;
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 2;
+	pixel_y = -4
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 10;
+	pixel_y = 4
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = 10;
+	pixel_y = -4
+	},
+/obj/structure/table/glass,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"jn" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"js" = (
+/obj/structure/table,
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/microwave/engineering/cell_included,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/breakroom)
+"jt" = (
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"jz" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"jA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"jG" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"jH" = (
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"jJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd2";
+	name = "Research Lab Shutters"
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 8
+	},
+/area/station/science/lab)
+"jO" = (
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"jZ" = (
+/obj/machinery/door/window/right/directional/west{
+	name = "Research Division Delivery";
+	req_access = list("research")
+	},
+/obj/effect/turf_decal/delivery/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"kg" = (
+/obj/structure/sink/directional/east,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"kh" = (
+/obj/machinery/modular_computer/preset/civilian{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"kq" = (
+/turf/open/floor/iron/stairs{
+	color = "#3d3e42";
+	icon_state = "stairs-old"
+	},
+/area/station/science/robotics/lab)
+"kJ" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"kS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"kY" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1;
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"la" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Research Division West"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"lf" = (
+/obj/machinery/door/firedoor/heavy,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13"
+	},
+/area/station/science/research)
+"ll" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"lm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"lq" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Robotics Lab";
+	network = list("ss13","rd")
+	},
+/obj/machinery/button/door{
+	id = "robotics";
+	name = "Shutters Control Button";
+	pixel_x = 6;
+	pixel_y = 24;
+	req_access = list("robotics")
+	},
+/obj/machinery/rnd/production/circuit_imprinter/department/science,
+/obj/structure/marker_beacon/indigo,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"lt" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"lu" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"lC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1;
+	icon_state = "siding_plain_end"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"lM" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "Skynet_launch";
+	name = "Mech Bay"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"lU" = (
+/obj/structure/table/reinforced,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/slime_scanner{
+	pixel_x = -6
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"lY" = (
+/obj/structure/disposaloutlet{
+	dir = 4;
+	name = "Synth Delivery"
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"ma" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Xenobiology Cell 3";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"me" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"mm" = (
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/structure/marker_beacon/violet,
+/obj/effect/turf_decal/delivery/white{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"mt" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"mD" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"mQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"mR" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"mV" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"mW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"nb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/computer/security/telescreen/xeno/directional/north,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"ne" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"ng" = (
+/obj/machinery/door/airlock/research{
+	name = "Robotics Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"nm" = (
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/light/directional/east,
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/end{
+	alpha = 200;
+	color = "#700047";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4;
+	icon_state = "siding_plain_end"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lab)
+"nu" = (
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("robotics");
+	name = "Outlet Access"
+	},
+/obj/effect/turf_decal/loading_area/white{
+	dir = 4;
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"nz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 10;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"nM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"ol" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd2";
+	name = "Research Lab Shutters"
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 4
+	},
+/area/station/science/lab)
+"op" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/lab)
+"os" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"ov" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"ow" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/research)
+"oC" = (
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/mail_sorting/science/research,
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/end{
+	alpha = 200;
+	color = "#700047";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4;
+	icon_state = "siding_plain_end"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lab)
+"oD" = (
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"oJ" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/scientist,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/xenobiology)
+"oK" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet,
+/obj/machinery/camera/directional/west{
+	c_tag = "Xenobiology Cell 6";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"oM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"oW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/end{
+	alpha = 200;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 2;
+	icon_state = "siding_plain_end"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"pi" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"pj" = (
+/turf/open/floor/circuit/red,
+/area/station/science/robotics/mechbay)
+"pm" = (
+/obj/machinery/door/window/left/directional/west{
+	name = "Containment Cell";
+	req_access = list("xenobiology")
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/seven{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"pr" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"pA" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/delivery/white{
+	color = "#a56dc2"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"pB" = (
+/mob/living/basic/slime{
+	name = "rob"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"pM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"pW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"pX" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"pY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
+"pZ" = (
+/obj/effect/landmark/start/scientist,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"qd" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"qm" = (
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/item/borg/upgrade/rename{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/crowbar{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/structure/table/glass,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"qn" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"qx" = (
+/obj/machinery/space_heater,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"qz" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"qA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/lab)
+"qP" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"qS" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"qV" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/circuit/red,
+/area/station/science/robotics/mechbay)
+"qX" = (
+/obj/machinery/camera/directional/west{
+	c_tag = "Research Lab"
+	},
+/obj/item/radio/intercom/directional/west,
+/obj/structure/filingcabinet/chestdrawer,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"qY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/scientist,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"rr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"rB" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 6;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"rE" = (
+/obj/structure/cable,
+/obj/structure/frame/computer{
+	dir = 8
+	},
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"rF" = (
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/research)
+"rL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"rS" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/end{
+	dir = 8;
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"rT" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lab)
+"rW" = (
+/obj/machinery/requests_console{
+	department = "Robotics";
+	name = "Robotics RC";
+	pixel_y = 30
+	},
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"sg" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"sl" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/research{
+	name = "Research Division Access"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
+/obj/effect/landmark/navigate_destination,
+/obj/effect/mapping_helpers/airlock/unres,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"sy" = (
+/obj/structure/sign/warning/biohazard,
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"sN" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/research{
+	name = "Research Division Access"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
+/obj/effect/mapping_helpers/airlock/unres,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"tp" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/machinery/light/directional/north,
+/obj/machinery/vending/wardrobe/science_wardrobe,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/breakroom)
+"tq" = (
+/obj/structure/closet/emcloset,
+/obj/machinery/camera/directional/north{
+	c_tag = "Research Division Access"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"tF" = (
+/obj/effect/landmark/event_spawn,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/marker_beacon/violet,
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 200
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"tM" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/smartfridge/organ,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"tS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard";
+	name = "Biohazard Containment Door"
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 4
+	},
+/area/station/science/research)
+"up" = (
+/obj/machinery/door/firedoor/heavy,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 1
+	},
+/area/station/science/research)
+"uq" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"uy" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 255;
+	color = "#a56dc2"
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"uA" = (
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/science/breakroom)
+"uD" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"uE" = (
+/obj/machinery/shower/directional/west,
+/obj/structure/sign/warning/secure_area/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"uU" = (
+/obj/machinery/mechpad,
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"vd" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/lab)
+"vj" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"vp" = (
+/obj/machinery/door/airlock/research{
+	name = "Xenobiology Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"vt" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/autolathe,
+/obj/structure/marker_beacon/jade,
+/obj/structure/marker_beacon/purple,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"vv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"vw" = (
+/obj/machinery/modular_computer/preset/cargochat/science{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"vB" = (
+/obj/structure/table/glass,
+/obj/item/experi_scanner{
+	pixel_y = -3
+	},
+/obj/item/experi_scanner{
+	pixel_y = 1
+	},
+/obj/item/experi_scanner{
+	pixel_y = 6
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"vC" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"vD" = (
+/obj/item/radio/intercom/directional/south,
+/obj/structure/table/optable{
+	name = "Robotics Operating Table"
+	},
+/obj/effect/landmark/event_spawn,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"vJ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"vK" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"vP" = (
+/obj/machinery/door/firedoor/heavy,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,11";
+	dir = 4
+	},
+/area/station/science/research)
+"vU" = (
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1;
+	color = "#ae4fd6"
+	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"vW" = (
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/flatpacker,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"wg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/research)
+"wh" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13"
+	},
+/area/station/science/xenobiology)
+"wn" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/table/glass,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 5
+	},
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/clothing/gloves/latex,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"wt" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"wK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"wX" = (
+/obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/lab)
+"xe" = (
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"xh" = (
+/turf/closed/wall/r_wall,
+/area/station/science/xenobiology)
+"xm" = (
+/obj/structure/chair/stool/directional/west,
+/obj/effect/decal/cleanable/oil/slippery,
+/obj/effect/landmark/start/scientist,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/station/science/lab)
+"xq" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet,
+/obj/machinery/camera/directional/west{
+	c_tag = "Xenobiology Cell 7";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"xr" = (
+/obj/structure/sign/warning/no_smoking{
+	pixel_x = 25
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/research)
+"xB" = (
+/obj/item/beacon{
+	anchored = 1
+	},
+/obj/machinery/igniter{
+	id = "changelingmoment"
+	},
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"xD" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/machinery/atmospherics/components/unary/portables_connector{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 9;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/xenobiology)
+"xG" = (
+/obj/item/storage/medkit/regular{
+	empty = 1;
+	name = "First-Aid (empty)";
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/regular{
+	empty = 1;
+	name = "First-Aid (empty)";
+	pixel_x = -2;
+	pixel_y = 7
+	},
+/obj/item/storage/medkit/regular{
+	empty = 1;
+	name = "First-Aid (empty)";
+	pixel_x = -2;
+	pixel_y = 12
+	},
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/structure/table/glass,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"xP" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"xT" = (
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"xV" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"xY" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 10
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"yc" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"ye" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5;
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/research)
+"yi" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/railing,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/lab)
+"yj" = (
+/obj/structure/marker_beacon/violet,
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 200;
+	color = "#a56dc2"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"ys" = (
+/obj/machinery/newscaster/directional/north,
+/obj/structure/table,
+/obj/machinery/coffeemaker,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/breakroom)
+"yt" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"yx" = (
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/obj/structure/table/glass,
+/obj/machinery/fax{
+	fax_name = "Research Division";
+	name = "Research Division Fax Machine";
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"yC" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"yE" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -7;
+	pixel_y = 13
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/cup/beaker{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"yM" = (
+/turf/closed/wall,
+/area/station/science/xenobiology)
+"ze" = (
+/turf/closed/wall,
+/area/station/science/lab)
+"zf" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"zT" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/research)
+"zZ" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard";
+	name = "Biohazard Containment Door"
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/noticeboard/directional/north,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 1
+	},
+/area/station/science/research)
+"Af" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/structure/marker_beacon/violet,
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 200
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"Ah" = (
+/obj/item/radio/intercom/directional/south,
+/obj/structure/chair/sofa/corp{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"Ak" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"AQ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/xenobiology)
+"AU" = (
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/one{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Ba" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"Bf" = (
+/obj/machinery/light/directional/south,
+/obj/structure/table/reinforced,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/glasses/science,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Bi" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,11";
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"Bp" = (
+/obj/item/storage/belt/utility{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/belt/utility{
+	pixel_x = -4;
+	pixel_y = 14
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/multitool{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/structure/table,
+/obj/structure/marker_beacon/purple{
+	pixel_x = 0;
+	pixel_y = -10
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Bq" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"Bz" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"BB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 2
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/research)
+"BD" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1;
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"BK" = (
+/obj/structure/marker_beacon/purple,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"BL" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"BQ" = (
+/obj/structure/cable,
+/obj/machinery/portable_atmospherics/canister/bz,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"BR" = (
+/obj/structure/rack,
+/obj/item/mmi{
+	pixel_x = 2;
+	pixel_y = -4
+	},
+/obj/item/mmi{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/mmi{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/tank/internals/anesthetic,
+/obj/item/clothing/mask/surgical{
+	pixel_x = -1;
+	pixel_y = -6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Ch" = (
+/turf/closed/wall,
+/area/station/science/research)
+"Cl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research{
+	name = "Mech Bay"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/lab)
+"Cz" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"CA" = (
+/obj/structure/fireaxecabinet/mechremoval/directional/south,
+/obj/structure/table/reinforced/rglass,
+/obj/structure/bedsheetbin/empty{
+	pixel_x = -4;
+	pixel_y = 5;
+	name = "plastic bin"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/mcgipc.dmi';
+	icon_state = "robotic_l_leg";
+	pixel_x = -10;
+	pixel_y = 18
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/mcgipc.dmi';
+	icon_state = "robotic_l_arm";
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/mcgipc.dmi';
+	icon_state = "robotic_chest";
+	pixel_x = 11;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"CC" = (
+/turf/closed/wall,
+/area/station/science/robotics/lab)
+"CL" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_y = 4;
+	pixel_x = 1
+	},
+/obj/structure/table/wood/fancy/purple,
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"CQ" = (
+/obj/machinery/light_switch{
+	pixel_x = 8;
+	pixel_y = 26
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/end{
+	dir = 1;
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"CW" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"Dc" = (
+/obj/structure/closet/crate/mod,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Di" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"Do" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/flora/grass/jungle/a/style_3,
+/obj/structure/flora/grass/green/style_3,
+/turf/open/floor/grass,
+/area/station/science/robotics/lab)
+"Dp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/end{
+	alpha = 200;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 2;
+	icon_state = "siding_plain_end"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/lab)
+"DA" = (
+/obj/machinery/mecha_part_fabricator,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/dark/end,
+/obj/structure/marker_beacon/indigo,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Eb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/landmark/start/roboticist,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"El" = (
+/obj/structure/table,
+/obj/item/pen{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/coffee{
+	pixel_x = 10
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"Eo" = (
+/turf/closed/wall/r_wall,
+/area/station/science/lab)
+"Er" = (
+/obj/structure/table/glass,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 9
+	},
+/obj/item/clipboard{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/obj/item/paper{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"Es" = (
+/obj/machinery/door/airlock/research{
+	name = "Research Access"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"EF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	color = "#6a3182";
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"EM" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/item/sticker/pslime,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"ES" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"EV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/table,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"EW" = (
+/obj/machinery/newscaster/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/lab)
+"EZ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"Ff" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/item/extinguisher/mini{
+	pixel_x = 17;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Fh" = (
+/obj/structure/table/glass,
+/obj/item/stack/sheet/mineral/plasma/thirty{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/cup/beaker,
+/obj/item/reagent_containers/dropper{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Fi" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research{
+	name = "Robotics Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"Fr" = (
+/obj/machinery/door/airlock/research{
+	name = "Toxins Storage"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/ordnance_storage,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/ordnance/storage)
+"Fs" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"Ft" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"Fx" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"FA" = (
+/turf/template_noop,
+/area/template_noop)
+"FF" = (
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/station/science/lab)
+"FT" = (
+/obj/effect/landmark/event_spawn,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/breakroom)
+"Gh" = (
+/obj/structure/chair/comfy{
+	color = "#596479"
+	},
+/obj/effect/landmark/start/scientist,
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"Gu" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"Gx" = (
+/obj/machinery/firealarm/directional/east,
+/obj/machinery/computer/mechpad{
+	dir = 8
+	},
+/obj/structure/railing,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"GE" = (
+/obj/structure/sink/directional/west,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"GK" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/research)
+"GQ" = (
+/obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner,
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"GZ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/lab)
+"Hd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Xenobiology Maintenance"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"He" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"Hp" = (
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/plating,
+/area/station/science/breakroom)
+"Hy" = (
+/obj/machinery/firealarm/directional/north,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"HM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/station/science/robotics/lab)
+"HN" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/scientist,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/xenobiology)
+"HO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 10;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"HQ" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"Ia" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"Il" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ip" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Xenobiology Experimentation Cell";
+	network = list("ss13","xeno")
+	},
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"Iw" = (
+/obj/structure/closet/firecloset,
+/obj/machinery/light/directional/west,
+/obj/machinery/status_display/evac/directional/west,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"Ix" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"ID" = (
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
+"IL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"IR" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13"
+	},
+/area/station/science/research)
+"Jj" = (
+/turf/closed/wall,
+/area/station/science/breakroom)
+"Jt" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/obj/machinery/processor/slime,
+/obj/effect/turf_decal/delivery/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"JI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/mail_sorting/science/rd_office,
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/lab)
+"JR" = (
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/plating,
+/area/station/science/breakroom)
+"JU" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"JX" = (
+/obj/machinery/modular_computer/preset/civilian{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Kc" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 18;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"Kf" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/station/science/lab)
+"Kg" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard";
+	name = "Biohazard Containment Door"
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13"
+	},
+/area/station/science/research)
+"Kp" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 5;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"Kq" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"Ks" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"Ku" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "Containment Cell";
+	req_access = list("xenobiology")
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/science/xenobiology)
+"Kv" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 6;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"KA" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"KP" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/lab)
+"KR" = (
+/mob/living/basic/slime{
+	name = "alice"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"KT" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 9;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/xenobiology)
+"Ld" = (
+/obj/machinery/button/door{
+	id = "robotics2";
+	name = "Shutters Control Button";
+	pixel_x = 24;
+	pixel_y = -24;
+	req_access = list("robotics")
+	},
+/mob/living/basic/pet/dog/corgi/borgi,
+/obj/structure/chair/office/light{
+	dir = 4;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"Lj" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd2";
+	name = "Research Lab Shutters"
+	},
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/lab)
+"Lr" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"Ly" = (
+/obj/machinery/rnd/production/protolathe/department/science,
+/obj/structure/marker_beacon/purple,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"LD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/shower/directional/west,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"LJ" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"LO" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Robotics Lab - South";
+	network = list("ss13","rd")
+	},
+/obj/structure/noticeboard/directional/south{
+	pixel_x = 0;
+	pixel_y = -24
+	},
+/obj/item/photo/old{
+	pixel_x = -6;
+	pixel_y = -28
+	},
+/obj/item/key{
+	pixel_x = 5;
+	pixel_y = -29
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/item/assembly/signaler{
+	pixel_x = 14;
+	pixel_y = 9
+	},
+/obj/item/shears{
+	pixel_x = 9;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi';
+	icon_state = "robotic_chest";
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi';
+	icon_state = "robotic_head";
+	pixel_x = -3;
+	pixel_y = -11
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi';
+	icon_state = "robotic_l_arm";
+	pixel_x = -16;
+	pixel_y = -5
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi';
+	icon_state = "robotic_r_leg";
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "salvaged prosthesis";
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case. Display only.";
+	icon = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi';
+	icon_state = "robotic_l_leg";
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Ma" = (
+/obj/structure/sign/warning/secure_area/directional/east,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"Mh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/lab)
+"Mj" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "Skynet_launch";
+	name = "Mech Bay"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"Ml" = (
+/obj/machinery/status_display/evac/directional/west,
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"Mp" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"Mv" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/science/xenobiology)
+"MA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/smartfridge/extract/preloaded,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"MH" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/airlock/research{
+	name = "Break Room"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/breakroom)
+"MW" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"Nb" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"Nv" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/airlock/research{
+	name = "Ordnance Lab"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/any/science/ordnance,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/ordnance)
+"Ny" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/lab)
+"NA" = (
+/obj/structure/table/glass,
+/obj/machinery/light/directional/south,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -14;
+	pixel_y = 7
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = 0;
+	pixel_y = 7
+	},
+/obj/machinery/firealarm/directional/south,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"NC" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"ND" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 4;
+	name = "Injector Intake"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"NP" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"NS" = (
+/turf/closed/wall,
+/area/station/science/robotics/mechbay)
+"NX" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Mech Bay Maintenance"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/mechbay)
+"Ob" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"Of" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "Containment Cell";
+	req_access = list("xenobiology")
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Ok" = (
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/two{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Oo" = (
+/obj/item/toy/plush/slimeplushie{
+	name = "triss"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Os" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/computer/camera_advanced/xenobio{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Ou" = (
+/turf/closed/wall/r_wall,
+/area/station/science/research)
+"Ov" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"OJ" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/obj/item/mop{
+	pixel_x = -13;
+	pixel_y = 0
+	},
+/obj/item/clothing/suit/caution{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"OS" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"OX" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/marker_beacon/violet,
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 200
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"Pc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 6;
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/science/research)
+"Pn" = (
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/structure/table/glass,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Pw" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/airlock/research{
+	name = "Toxins Storage"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/ordnance_storage,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/ordnance/storage)
+"PB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8;
+	color = "#ae4fd6"
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"PP" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"PR" = (
+/mob/living/basic/slime{
+	name = "stanley"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"PU" = (
+/obj/structure/chair/sofa/corp{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"PV" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/trimline/purple{
+	alpha = 255;
+	color = "#a56dc2"
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/xenobiology)
+"Qa" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics2";
+	name = "Robotics Lab Shutters"
+	},
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"Qr" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet,
+/obj/machinery/camera/directional/west{
+	c_tag = "Xenobiology Cell 5";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Qy" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 8;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/corner,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
+"QG" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Research Division South"
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"QH" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"QW" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/trimline/dark,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"QZ" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Rc" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Xenobiology Cell 4";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Rh" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/holopad,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"Rj" = (
+/obj/structure/table/reinforced,
+/obj/machinery/button/ignition{
+	id = "changelingmoment"
+	},
+/obj/item/wrench{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Rl" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/research)
+"Rv" = (
+/obj/machinery/light/directional/south,
+/obj/structure/chair/comfy{
+	color = "#596479";
+	dir = 1
+	},
+/obj/machinery/requests_console/directional/south,
+/turf/open/floor/carpet/black,
+/area/station/science/breakroom)
+"Ry" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/camera/autoname/directional/east,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"RK" = (
+/obj/machinery/monkey_recycler,
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"RN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 2;
+	icon_state = "siding_plain_end"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/science/research)
+"RQ" = (
+/obj/machinery/door/airlock/research{
+	name = "Testing Lab"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/science/general,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/explab)
+"RT" = (
+/obj/structure/cable,
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/crowbar/large,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/science/robotics/mechbay)
+"Sa" = (
+/mob/living/basic/slime{
+	name = "garold"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Sd" = (
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"SC" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/trimline/dark,
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"SI" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet,
+/obj/machinery/camera/directional/west{
+	c_tag = "Xenobiology Cell 8";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"SL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/research)
+"SS" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
+"SW" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/flora/grass/jungle/a,
+/obj/structure/flora/grass/green,
+/obj/structure/flora/grass/jungle/b/style_4{
+	pixel_x = -1;
+	pixel_y = 15
+	},
+/turf/open/floor/grass,
+/area/station/science/robotics/lab)
+"SX" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/wood/parquet,
+/area/station/science/breakroom)
+"Te" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics2";
+	name = "Robotics Lab Shutters";
+	dir = 4
+	},
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"Tj" = (
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"Tp" = (
+/obj/machinery/door/window/left/directional/west{
+	name = "Containment Cell";
+	req_access = list("xenobiology")
+	},
+/obj/effect/turf_decal/vg_decals/numbers/five{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Tw" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	color = "#700047";
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/lab)
+"Tx" = (
+/obj/machinery/vending/wardrobe/robo_wardrobe,
+/obj/item/toy/figure/roboticist{
+	pixel_y = 16;
+	pixel_x = -7
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"TG" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"TJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"TT" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/table/reinforced,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"TW" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on,
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
+"TZ" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Ua" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 9
+	},
+/obj/effect/decal/cleanable/robot_debris/up,
+/obj/item/stack/cable_coil/five{
+	pixel_x = 0;
+	pixel_y = -3
+	},
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/bodypart/chest/robot/android{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/item/bodypart/head/robot/android{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"Ui" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/machinery/door/window/right/directional/east{
+	name = "Robotics Surgery";
+	req_access = list("robotics")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/lab)
+"Ul" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Uy" = (
+/obj/item/radio/intercom/directional/east,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"Uz" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"UI" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"UK" = (
+/obj/machinery/posialert{
+	pixel_y = 32
+	},
+/obj/machinery/ecto_sniffer{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/book/manual/wiki/robotics_cyborgs{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/structure/table/glass,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"UR" = (
+/obj/structure/closet/l3closet/scientist,
+/obj/item/storage/bag/xeno,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"UW" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Mech Bay"
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182"
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"UX" = (
+/obj/structure/table,
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/obj/structure/marker_beacon/purple{
+	pixel_x = 0;
+	pixel_y = 7
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/utility/welding{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Vk" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"VL" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 4;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"VU" = (
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Containment Cell"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/three{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Wc" = (
+/obj/machinery/rnd/production/circuit_imprinter/department/science,
+/obj/machinery/light/directional/west,
+/obj/machinery/button/door/directional/west{
+	pixel_y = 6;
+	pixel_x = -36;
+	name = "Desk Shutters";
+	id = "rnd"
+	},
+/obj/machinery/light_switch/directional/west,
+/obj/machinery/button/door/directional/west{
+	pixel_y = -7;
+	pixel_x = -36;
+	name = "Lab Shutters";
+	id = "rnd2"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"Wi" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard";
+	name = "Biohazard Containment Door"
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 8
+	},
+/area/station/science/research)
+"Wk" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/station/science/lab)
+"Wl" = (
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 10;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/station/science/xenobiology)
+"Wy" = (
+/obj/item/multitool{
+	pixel_x = 7;
+	pixel_y = 0
+	},
+/obj/item/clothing/head/utility/welding{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/item/storage/pill_bottle{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"WI" = (
+/turf/closed/wall/r_wall,
+/area/station/science/robotics/mechbay)
+"WP" = (
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 4;
+	name = "killroom vent"
+	},
+/obj/structure/grille,
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
+"WR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	color = "#a56dc2";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"WS" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"WW" = (
+/obj/machinery/rnd/destructive_analyzer,
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/lab)
+"Xe" = (
+/obj/machinery/chem_master,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Xi" = (
+/obj/structure/table/reinforced/rglass,
+/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder{
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/item/clothing/accessory/dogtag{
+	pixel_x = -2;
+	pixel_y = 0;
+	desc = "Doesn't look like there are any markings left."
+	},
+/obj/item/reagent_containers/medigel/sterilizine{
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Xp" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/hedge,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "robotics";
+	name = "Robotics Lab Shutters";
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
+"Xs" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/xenobiology)
+"Xt" = (
+/obj/structure/table/glass,
+/obj/machinery/reagentgrinder{
+	desc = "Used to grind things up into raw materials and liquids.";
+	pixel_y = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"Xu" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/research)
+"XH" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard";
+	name = "Biohazard Containment Door"
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,11";
+	dir = 4
+	},
+/area/station/science/research)
+"XJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/science/research)
+"XK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"XP" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -12;
+	pixel_y = 3
+	},
+/obj/item/extinguisher/mini{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+"XS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 10
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"XT" = (
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot_white{
+	color = "#D381C9"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#D381C9"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/research)
+"XZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/carpet/black,
+/area/station/science/robotics/lab)
+"Yf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	dir = 2;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/science/xenobiology)
+"Ym" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 2;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 6;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"Yr" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Xenobiology Cell 2";
+	network = list("ss13","xeno")
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"Yy" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 1;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/science/xenobiology)
+"YH" = (
+/obj/machinery/light/small/directional/east,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
+"YI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/station/science/research)
+"YN" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/south,
+/obj/machinery/camera/directional/south{
+	c_tag = "Mechbay"
+	},
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	alpha = 160;
+	color = "#6a3182";
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics/mechbay)
+"YS" = (
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "2,13";
+	dir = 1
+	},
+/area/station/science/research)
+"Zf" = (
+/obj/machinery/mecha_part_fabricator,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ae4fd6"
+	},
+/obj/effect/turf_decal/siding/dark/end,
+/obj/structure/marker_beacon/indigo,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/item/storage/box/stickers/googly{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"Zn" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 8
+	},
+/area/station/science/research)
+"Zp" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	alpha = 200;
+	color = "#700047";
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	color = "#700047";
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/station/science/lab)
+"Zy" = (
+/obj/structure/bodycontainer/morgue{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/robotics/lab)
+"ZG" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	alpha = 160;
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4;
+	alpha = 160
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	alpha = 200;
+	dir = 5;
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/science/xenobiology)
+"ZY" = (
+/obj/machinery/door/window/left/directional/west{
+	name = "Containment Cell";
+	req_access = list("xenobiology")
+	},
+/obj/effect/turf_decal/bot_white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#a56dc2"
+	},
+/obj/effect/turf_decal/vg_decals/numbers/six{
+	color = "#a56dc2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/science/xenobiology)
+
+(1,1,1) = {"
+NS
+NX
+NS
+NS
+NS
+NS
+WI
+gY
+gY
+HM
+gY
+FA
+FA
+FA
+FA
+FA
+FA
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+Hd
+sy
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+"}
+(2,1,1) = {"
+NS
+ad
+gV
+qV
+jO
+Ks
+NS
+Zy
+BR
+lY
+gY
+Ou
+Es
+FA
+FA
+FA
+FA
+xh
+xe
+xe
+xe
+xh
+iS
+BQ
+xD
+nz
+Xs
+QH
+xh
+gn
+WP
+yM
+Qr
+hb
+qn
+yM
+oK
+hb
+qn
+yM
+xq
+hb
+qn
+yM
+SI
+hb
+qn
+xh
+"}
+(3,1,1) = {"
+Mj
+BD
+rr
+rr
+oM
+vC
+NS
+iy
+cG
+nu
+CC
+Wi
+tS
+FA
+FA
+FA
+FA
+xh
+xe
+xe
+xe
+xh
+jG
+Rj
+ND
+Yf
+oJ
+Os
+SS
+pY
+pY
+yM
+mQ
+mm
+TZ
+yM
+mQ
+mm
+TZ
+yM
+mQ
+mm
+TZ
+yM
+mQ
+mm
+TZ
+xh
+"}
+(4,1,1) = {"
+lM
+dA
+bK
+hy
+RT
+UW
+NS
+Er
+gT
+bW
+CC
+fF
+wg
+FA
+FA
+FA
+FA
+xh
+xe
+xe
+xe
+TW
+vJ
+TT
+nb
+mV
+yE
+Jt
+SS
+ID
+pY
+yM
+iu
+pB
+WS
+yM
+iu
+WR
+WS
+yM
+iu
+KR
+WS
+yM
+iu
+PR
+WS
+xh
+"}
+(5,1,1) = {"
+eH
+kY
+rL
+rL
+zf
+YN
+NS
+tM
+BK
+vD
+CC
+kJ
+kS
+FA
+FA
+FA
+FA
+xh
+Ip
+xB
+xe
+xe
+Of
+EM
+iR
+Yf
+HN
+Os
+SS
+ID
+pY
+yM
+jG
+Ku
+jG
+yM
+jG
+Ku
+jG
+yM
+jG
+Ku
+jG
+yM
+jG
+Ku
+jG
+xh
+"}
+(6,1,1) = {"
+Fi
+Gu
+gV
+pj
+jt
+Ks
+NS
+wn
+Ui
+ek
+CC
+kJ
+xP
+FA
+FA
+FA
+FA
+xh
+xe
+xe
+xe
+jH
+yC
+uD
+Yy
+mV
+AQ
+MA
+yM
+SS
+vp
+yM
+hS
+AU
+xY
+yM
+hS
+Ok
+xY
+yM
+hS
+VU
+xY
+yM
+hS
+hs
+xY
+xh
+"}
+(7,1,1) = {"
+gY
+Cl
+Do
+gX
+SW
+CC
+CC
+os
+ov
+CA
+CC
+la
+fO
+FA
+FA
+FA
+FA
+xh
+xe
+xe
+xe
+xh
+jG
+yc
+Yy
+Qy
+Kq
+HO
+wh
+KT
+aW
+bm
+fE
+NC
+yt
+cI
+fE
+NC
+yt
+kg
+fE
+NC
+yt
+kg
+fE
+NC
+Wl
+SS
+"}
+(8,1,1) = {"
+gY
+jA
+KP
+ic
+yi
+jm
+qm
+vK
+uq
+LO
+CC
+kJ
+fO
+FA
+FA
+FA
+FA
+xh
+GQ
+xe
+xe
+xh
+iS
+bp
+ZG
+wt
+pA
+aE
+Bi
+Fx
+PV
+Ff
+Lr
+uy
+Il
+vj
+Lr
+uy
+Il
+vj
+Lr
+uy
+Il
+vj
+Lr
+uy
+qP
+Di
+"}
+(9,1,1) = {"
+gY
+rW
+eq
+QW
+eq
+eq
+BL
+kq
+aN
+Xi
+CC
+Hy
+wK
+FA
+FA
+FA
+FA
+xh
+jj
+xh
+xh
+xh
+yM
+yM
+RK
+Fs
+xT
+Kv
+Ry
+Kp
+vv
+OJ
+VL
+gw
+Uz
+GE
+VL
+gw
+Uz
+qS
+VL
+gw
+Uz
+Uy
+VL
+gw
+rB
+SS
+"}
+(10,1,1) = {"
+gY
+UK
+Dc
+Ua
+mR
+EZ
+bz
+Zf
+ev
+XS
+Qa
+Ix
+fO
+FA
+FA
+FA
+FA
+Jj
+js
+rS
+Bq
+hi
+KA
+yM
+Xe
+mt
+gi
+lU
+yM
+QZ
+EV
+yM
+FA
+FA
+FA
+yM
+LJ
+Tp
+lt
+yM
+LJ
+ZY
+lt
+yM
+LJ
+pm
+lt
+xh
+"}
+(11,1,1) = {"
+gY
+gY
+lq
+da
+UX
+Bp
+Kc
+dg
+SC
+Eb
+ng
+JU
+fO
+FA
+FA
+FA
+FA
+Jj
+ys
+FT
+CL
+fH
+Ah
+yM
+Fh
+mt
+gi
+XP
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+yM
+jG
+Mv
+jG
+yM
+jG
+Mv
+jG
+yM
+jG
+Mv
+jG
+xh
+"}
+(12,1,1) = {"
+FA
+Xp
+kh
+gk
+hF
+jn
+vU
+DA
+Ft
+XZ
+Qa
+Ix
+xP
+FA
+FA
+FA
+FA
+Jj
+fg
+bR
+pX
+PU
+SX
+yM
+Xt
+mt
+pM
+oW
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+yM
+PP
+Sa
+qn
+yM
+PP
+in
+qn
+yM
+PP
+Oo
+qn
+xh
+"}
+(13,1,1) = {"
+FA
+ig
+ll
+QW
+eq
+eq
+BL
+kq
+NP
+Tx
+CC
+kJ
+BB
+FA
+FA
+FA
+FA
+Jj
+tp
+ES
+He
+HQ
+hc
+yM
+UR
+XK
+gi
+Bf
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+yM
+mQ
+mm
+TZ
+yM
+mQ
+mm
+TZ
+yM
+mQ
+mm
+TZ
+xh
+"}
+(14,1,1) = {"
+FA
+bY
+cz
+Pn
+xG
+Gx
+uU
+Wy
+Ld
+JX
+CC
+kJ
+fO
+FA
+FA
+FA
+FA
+Jj
+CQ
+EF
+Gh
+El
+Rv
+yM
+UR
+aS
+Ym
+qx
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+yM
+Yr
+YH
+Ul
+yM
+ma
+YH
+Ul
+yM
+Rc
+YH
+Ul
+xh
+"}
+(15,1,1) = {"
+FA
+gY
+gY
+gY
+gY
+gY
+CC
+Te
+ha
+CC
+CC
+kJ
+fO
+FA
+FA
+FA
+FA
+Jj
+uA
+MH
+JR
+ho
+Hp
+yM
+SS
+fc
+bI
+yM
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+yM
+yM
+yM
+yM
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+"}
+(16,1,1) = {"
+FA
+Ch
+tq
+Iw
+XT
+Ou
+Kg
+GK
+hM
+hw
+Ml
+dC
+XJ
+lu
+Mp
+Zn
+zT
+IR
+ow
+TJ
+hw
+lu
+Ak
+lu
+pr
+Ia
+pr
+lu
+lu
+lu
+Mp
+Sd
+zT
+lf
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(17,1,1) = {"
+FA
+sl
+lC
+qY
+RN
+sN
+XH
+OS
+Af
+iV
+Ob
+Rh
+IL
+nM
+mW
+tF
+ia
+fS
+Xu
+OX
+qd
+id
+jz
+me
+me
+Ba
+pW
+pW
+pW
+UI
+oD
+yj
+pZ
+vP
+RQ
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(18,1,1) = {"
+FA
+Ch
+jZ
+uE
+LD
+Ou
+zZ
+Rl
+ib
+xV
+ds
+sg
+gE
+CW
+pi
+Cz
+rF
+YS
+SL
+Cz
+lm
+CW
+mD
+YI
+Tj
+MW
+ne
+QG
+Ma
+Nb
+qz
+Vk
+xr
+up
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(19,1,1) = {"
+FA
+Ou
+fs
+Ou
+Eo
+Eo
+ze
+ze
+jJ
+ol
+ze
+Eo
+FA
+FA
+FA
+FA
+FA
+Ou
+TG
+Pc
+PB
+ye
+Bz
+Ov
+Ch
+FA
+FA
+FA
+FA
+Fr
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(20,1,1) = {"
+FA
+FA
+FA
+eU
+qX
+Wc
+fM
+WW
+Ny
+op
+vw
+Eo
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+Nv
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(21,1,1) = {"
+FA
+FA
+FA
+eU
+vd
+xm
+hr
+Wk
+qA
+ft
+vW
+Lj
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(22,1,1) = {"
+FA
+FA
+FA
+eK
+Kf
+Ly
+wX
+vt
+JI
+aO
+vB
+Lj
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(23,1,1) = {"
+FA
+FA
+FA
+eU
+Tw
+FF
+rT
+Zp
+GZ
+Mh
+NA
+Eo
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(24,1,1) = {"
+FA
+FA
+FA
+eU
+iq
+nm
+oC
+yx
+rE
+EW
+Dp
+aw
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
+(25,1,1) = {"
+FA
+FA
+FA
+FA
+FA
+FA
+fI
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+Pw
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+"}
