@@ -23,7 +23,7 @@
 		REMOVE_KEEP_TOGETHER(source_item, type)
 	return ..()
 
-/datum/element/decal/blood/generate_appearance(_icon, _icon_state, _dir, _plane, _layer, _color, _alpha, _smoothing, source)
+/datum/element/decal/blood/generate_appearance(_icon, _icon_state, _dir, _plane, _layer, _color = BLOOD_COLOR_RED, _alpha, _smoothing, source)
 	var/obj/item/as_item = source
 	ADD_KEEP_TOGETHER(as_item, type)
 	var/icon/icon_for_size = icon(as_item.icon, as_item.icon_state)
@@ -32,7 +32,7 @@
 	var/mutable_appearance/blood_splatter = mutable_appearance('icons/effects/blood.dmi', "itemblood", appearance_flags = RESET_COLOR) //MA of the blood that we apply
 	blood_splatter.transform = blood_splatter.transform.Scale(scale_factor_x, scale_factor_y)
 	blood_splatter.blend_mode = BLEND_INSET_OVERLAY
-	blood_splatter.color = _color || as_item.blood_DNA_to_color(_color) // SPLURT EDIT - Colored Blood
+	blood_splatter.color = _color
 	if (uses_filter)
 		blood_splatter.appearance_flags |= KEEP_APART
 		if (!as_item.render_target)

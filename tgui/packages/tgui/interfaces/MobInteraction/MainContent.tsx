@@ -74,7 +74,7 @@ export const MainContent = () => {
                           ? 'Search for an item'
                           : 'Searching is unavailable for this tab'
                 }
-                onInput={(e, value) => setSearchText(value)}
+                onChange={(value) => setSearchText(value)}
               />
             </Stack.Item>
             {tabIndex === 0 && (

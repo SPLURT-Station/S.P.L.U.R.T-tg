@@ -1,7 +1,3 @@
-#define LUMA_R 0.213
-#define LUMA_G 0.715
-#define LUMA_B 0.072
-/////////////////////
 // COLOUR MATRICES //
 /////////////////////
 
@@ -206,7 +202,3 @@ list(0.393,0.349,0.272,0, 0.769,0.686,0.534,0, 0.189,0.168,0.131,0, 0,0,0,1, 0,0
 	color[2] = color[1] * cm[4] + color[2] * cm[5] + color[3] * cm[6] + cm[11] * 255
 	color[3] = color[1] * cm[7] + color[2] * cm[8] + color[3] * cm[9] + cm[12] * 255
 	return rgb(color[1], color[2], color[3])
-
-#undef LUMA_R
-#undef LUMA_G
-#undef LUMA_B

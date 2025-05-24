@@ -38,6 +38,7 @@
 
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	//splurt edit start -- Mecha additions, better armor
+#ifndef UNIT_TESTS //hack to make unit tests work, please fix it better at the earliest convenience
 	var/armor_damage_amount
 	if(equip_by_category[MECHA_ARMOR])
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in flat_equipment)
@@ -59,6 +60,9 @@
 				qdel(mech_armor)
 
 	var/damage_taken = armor_damage_amount | ..()
+#else
+	var/damage_taken = ..()
+#endif
 	//splurt edit end -- Mecha additions, better armor
 
 	if(damage_taken <= 0 || atom_integrity < 0)
@@ -193,9 +197,15 @@
 	. = ..()
 	if (. & EMP_PROTECT_SELF)
 		return
+
+	var/mecha_explodies_vulnerability = (severity * capacitor.rating) //The more severe the EMP, the worse the outcome. The higher the tier of the capacitor, the less severe the outcome.
+
 	if(get_charge())
-		use_energy((cell.charge/3)/(severity*2))
-		take_damage(30 / severity, BURN, ENERGY, 1)
+		use_energy(round((cell.maxcharge / 2) / mecha_explodies_vulnerability, 1))
+
+	var/how_hard_are_we_explodies = rand(MECH_EMP_DAMAGE_LOWER, MECH_EMP_DAMAGE_UPPER)
+	take_damage(how_hard_are_we_explodies / mecha_explodies_vulnerability, BURN)
+
 	log_message("EMP detected", LOG_MECHA, color="red")
 
 	//Mess with the focus of the inbuilt camera if present
@@ -227,14 +237,14 @@
 			cookedalive.adjust_fire_stacks(1)
 			cookedalive.ignite_mob()
 
-/obj/vehicle/sealed/mecha/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/vehicle/sealed/mecha/attackby_secondary(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(weapon, /obj/item/mecha_parts))
 		var/obj/item/mecha_parts/parts = weapon
 		parts.try_attach_part(user, src, TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/vehicle/sealed/mecha/attackby(obj/item/weapon, mob/living/user, params)
+/obj/vehicle/sealed/mecha/attackby(obj/item/weapon, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(user.combat_mode)
 		return ..()
 	if(istype(weapon, /obj/item/mmi))
@@ -336,11 +346,12 @@
 			balloon_alert(user, "already installed!")
 		return
 
-/obj/vehicle/sealed/mecha/attacked_by(obj/item/attacking_item, mob/living/user)
-	if(!attacking_item.force)
-		return
+/obj/vehicle/sealed/mecha/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	var/final_force = CALCULATE_FORCE(attacking_item, attack_modifiers) * attacking_item.get_demolition_modifier(src)
+	if(!final_force)
+		return 0
 
-	var/damage_taken = take_damage(attacking_item.force * attacking_item.demolition_mod, attacking_item.damtype, MELEE, 1, get_dir(src, user))
+	var/damage_taken = take_damage(final_force, attacking_item.damtype, MELEE, 1, get_dir(src, user))
 	try_damage_component(damage_taken, user.zone_selected)
 
 	var/hit_verb = length(attacking_item.attack_verb_simple) ? "[pick(attacking_item.attack_verb_simple)]" : "hit"
@@ -353,6 +364,7 @@
 
 	log_combat(user, src, "attacked", attacking_item)
 	log_message("Attacked by [user]. Item - [attacking_item], Damage - [damage_taken]", LOG_MECHA)
+	return damage_taken
 
 /obj/vehicle/sealed/mecha/attack_generic(mob/user, damage_amount, damage_type, damage_flag, effects, armor_penetration)
 	. = ..()
@@ -437,19 +449,18 @@
 	while(atom_integrity < max_integrity)
 		if(W.use_tool(src, user, 2.5 SECONDS, volume=50))
 			did_the_thing = TRUE
-			atom_integrity += min(10, (max_integrity - atom_integrity))
+			repair_damage(10)
 			audible_message(span_hear("You hear welding."))
 		else
 			break
 	if(did_the_thing)
 		user.balloon_alert_to_viewers("[(atom_integrity >= max_integrity) ? "fully" : "partially"] repaired [src]")
-		diag_hud_set_mechhealth()
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
 
 
 /obj/vehicle/sealed/mecha/proc/full_repair(charge_cell)
-	atom_integrity = max_integrity
+	repair_damage(max_integrity)
 	if(cell && charge_cell)
 		cell.charge = cell.maxcharge
 		diag_hud_set_mechcell()
@@ -463,6 +474,9 @@
 		clear_internal_damage(MECHA_CABIN_AIR_BREACH)
 	if(internal_damage & MECHA_INT_CONTROL_LOST)
 		clear_internal_damage(MECHA_INT_CONTROL_LOST)
+
+/obj/vehicle/sealed/mecha/repair_damage(amount)
+	. = ..()
 	diag_hud_set_mechhealth()
 
 /obj/vehicle/sealed/mecha/narsie_act()

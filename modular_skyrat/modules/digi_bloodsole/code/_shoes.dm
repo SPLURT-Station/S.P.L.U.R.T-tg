@@ -12,6 +12,6 @@
 				. += mutable_appearance('modular_skyrat/modules/digi_bloodsole/icons/blood.dmi', "shoeblood_digi")
 		else
 			if(clothing_flags & LARGE_WORN_ICON)
-				. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large") // SPLURT - We need new white icons for colored blood (I'm not spriter)
+				. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
 			else
-				. += mutable_appearance(colored_blood_icon('icons/effects/blood.dmi'), "shoeblood", color = blood_DNA_to_color(), blend_mode = blood_DNA_to_blend()) // SPLURT EDIT - Colored Blood
+				. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")

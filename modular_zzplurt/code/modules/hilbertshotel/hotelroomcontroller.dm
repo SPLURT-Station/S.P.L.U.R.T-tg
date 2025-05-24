@@ -203,7 +203,7 @@
 	SStgui.update_uis(src)
 	return TRUE
 
-/obj/machinery/room_controller/attackby(obj/item/item, mob/user, params)
+/obj/machinery/room_controller/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(item, /obj/item/card/id))
 		if(inserted_id)
 			to_chat(user, span_warning("There's already an ID card inside!"))

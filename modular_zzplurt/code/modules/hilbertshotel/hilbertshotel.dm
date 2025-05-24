@@ -18,11 +18,6 @@
 /obj/item/hilbertshotel/New()
 	. = ..()
 
-#ifndef UNIT_TESTS // This is a hack to prevent the storage turf from being loaded in unit tests and causing errors
-	if(!SShilbertshotel.storageTurf && CONFIG_GET(flag/hilbertshotel_enabled)) // setting up a storage for the room objects
-		SShilbertshotel.setup_storage_turf()
-#endif
-
 /obj/item/hilbertshotel/Initialize(mapload)
 	. = ..()
 

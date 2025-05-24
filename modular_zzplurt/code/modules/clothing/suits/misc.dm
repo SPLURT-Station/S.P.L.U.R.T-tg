@@ -40,7 +40,7 @@
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/cup/vial,
 		/obj/item/reagent_containers/cup/beaker,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/storage/pill_bottle,
 		/obj/item/restraints/handcuffs,
 		/obj/item/hypospray
@@ -143,7 +143,7 @@
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/cup/vial,
 		/obj/item/reagent_containers/cup/beaker,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/storage/pill_bottle,
 		/obj/item/restraints/handcuffs,
 		/obj/item/hypospray

@@ -215,7 +215,6 @@
 
 	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient, visuals_only = TRUE)
 	patient.dna.update_dna_identity()
-	SSquirks.AssignQuirks(patient, patient.client)
 	// SPLURT ADDITION START - Fix of naga with shoes
 	var/taur_mode = patient.get_taur_mode()
 	if((taur_mode & STYLE_TAUR_SNAKE) && (patient.shoes))
@@ -231,6 +230,7 @@
 	say("Procedure complete! Enjoy your life being a new you!")
 
 	open_machine()
+	SSquirks.OverrideQuirks(patient, patient.client)
 
 /// Ejection and shut down of the machine, used before the preferences have been applied to the player. Damage optional.
 /obj/machinery/self_actualization_device/proc/eject_old_you(damaged_goods = FALSE)
