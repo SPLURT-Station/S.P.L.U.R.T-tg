@@ -328,7 +328,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 		if ("logs")
 			var/source = targetMob.client ? LOGSRC_CKEY : LOGSRC_MOB
-			show_individual_logging_panel(targetMob, source)
+			show_individual_logging_panel_tgui(targetMob, source)
 
 		if ("mute")
 			if(!targetMob.client)
