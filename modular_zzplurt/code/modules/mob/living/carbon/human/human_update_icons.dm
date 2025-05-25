@@ -275,7 +275,7 @@
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		var/obscured_slots = check_obscured_slots(transparent_protection = TRUE)
+		var/obscured_slots = check_obscured_slots()
 		if(obscured_slots & ITEM_SLOT_EARS_RIGHT)
 			return
 

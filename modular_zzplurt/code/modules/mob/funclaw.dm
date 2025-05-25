@@ -39,7 +39,7 @@
 
 /mob/living/basic/deathclaw/hostile
 	icon_state = "newclaw"
-	ai_controller = /datum/ai_controller/basic_controller/simple_hostile
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile
 	/*
 	var/base_state = "newclaw"
 	var/cock_state = "newclaw_cocked"
@@ -49,7 +49,7 @@
 /mob/living/basic/deathclaw/hostile/alphaclaw
 	name = "Alpha Funclaw"
 	icon_state = "alphaclaw"
-	ai_controller = /datum/ai_controller/basic_controller/simple_hostile_obstacles
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	//base_state = "alphaclaw"
 	//cock_state = "alphaclaw_cocked"
 

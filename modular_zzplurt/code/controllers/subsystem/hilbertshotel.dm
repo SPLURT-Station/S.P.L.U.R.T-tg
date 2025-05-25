@@ -45,19 +45,17 @@ SUBSYSTEM_DEF(hilbertshotel)
 		return SS_INIT_NO_NEED
 	RegisterSignal(src, COMSIG_HILBERT_ROOM_UPDATED, PROC_REF(on_room_updated))
 	hhMysteryroom_number = hhMysteryroom_number || rand(1, 999999)
-#ifndef UNIT_TESTS // This is a hack to prevent the storage turf from being loaded in unit tests and causing errors
-	setup_storage_turf()
-#endif
 	prepare_rooms()
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/hilbertshotel/proc/setup_storage_turf()
-	if(!storageTurf) // setting up a storage for the room objects
-		var/datum/map_template/hilbertshotelstorage/storageTemp = new()
-		var/datum/turf_reservation/storageReservation = SSmapping.request_turf_block_reservation(3, 3)
-		var/turf/bottom_left = get_turf(storageReservation.bottom_left_turfs[1])
-		storageTemp.load(bottom_left)
-		storageTurf = locate(bottom_left.x + 1, bottom_left.y + 1, bottom_left.z)
+	if(storageTurf) // setting up a storage for the room objects
+		return
+	var/datum/map_template/hilbertshotelstorage/storageTemp = new()
+	var/datum/turf_reservation/storageReservation = SSmapping.request_turf_block_reservation(3, 3)
+	var/turf/bottom_left = get_turf(storageReservation.bottom_left_turfs[1])
+	storageTemp.load(bottom_left)
+	storageTurf = locate(bottom_left.x + 1, bottom_left.y + 1, bottom_left.z)
 
 /datum/controller/subsystem/hilbertshotel/proc/prepare_rooms()
 	if(length(hotel_map_list))
@@ -350,6 +348,8 @@ SUBSYSTEM_DEF(hilbertshotel)
 
 /// "Reserves" the room when the last guest leaves it. Creates an abstract storage object and forceMoves all the contents into it, deleting the reservation afterwards.
 /datum/controller/subsystem/hilbertshotel/proc/conservate_room(area/misc/hilbertshotel/current_area)
+	if(!storageTurf)
+		setup_storage_turf()
 	var/datum/map_template/template = hotel_map_list[room_data["[current_area.room_number]"]["template"]]
 	var/turf/room_bottom_left = current_area.reservation.bottom_left_turfs[1]
 	var/list/storage = list()

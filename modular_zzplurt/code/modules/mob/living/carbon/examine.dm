@@ -1,7 +1,7 @@
 /mob/living/carbon/proc/get_size_examine_info(mob/living/user)
 	. = list()
 
-	var/t_He = p_they()
+	var/t_He = p_They()
 
 	//Approximate character height based on current sprite scale
 	var/dispSize = round(12*get_size(src)) // gets the character's sprite size percent and converts it to the nearest half foot

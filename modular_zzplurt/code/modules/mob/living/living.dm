@@ -81,3 +81,10 @@
 		return
 
 	return ..()
+
+/mob/living/verb/switch_scaling()
+	set name = "Switch scaling mode"
+	set category = "IC"
+	set desc = "Switch sharp/fuzzy scaling for current mob."
+	fuzzy = !fuzzy
+	regenerate_icons()

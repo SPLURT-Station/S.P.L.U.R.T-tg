@@ -518,7 +518,7 @@
 	injection_chems = list() //So they don't have all the same chems as the medihound!
 	medical_scanner = FALSE
 
-/obj/item/storage/attackby(obj/item/dogborg/sleeper/K9, mob/user, proximity)
+/obj/item/storage/attackby(obj/item/dogborg/sleeper/K9, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(K9))
 		K9.afterattack(src, user ,1)
 	else

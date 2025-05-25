@@ -1,15 +1,25 @@
+import { useState } from 'react';
 import {
   Box,
   Button,
   Collapsible,
   Icon,
+  Modal,
   NoticeBox,
   Section,
+  Slider,
   Stack,
   Tooltip,
 } from 'tgui-core/components';
 
 import { useBackend } from '../../../backend';
+
+type AutoInteractionInfo = {
+  speed: number;
+  target: string;
+  target_name: string;
+  next_interaction: number;
+};
 
 type InteractionsInfo = {
   categories: string[];
@@ -25,6 +35,8 @@ type InteractionsInfo = {
     string,
     { info: string; icon: string; color: string }[]
   >;
+  auto_interaction_info: Record<string, AutoInteractionInfo>;
+  auto_interaction_speed_values: number[];
 };
 
 type InteractionsTabProps = {
@@ -33,12 +45,123 @@ type InteractionsTabProps = {
   showCategories: boolean;
 };
 
+type AutoInteractionModalProps = {
+  interaction: string;
+  ref_self: string;
+  onClose: () => void;
+};
+
+const AutoInteractionModal = ({
+  interaction,
+  ref_self,
+  onClose,
+}: AutoInteractionModalProps) => {
+  const { act, data } = useBackend<InteractionsInfo>();
+  const { auto_interaction_info, auto_interaction_speed_values } = data;
+  const isActive = !!auto_interaction_info[`${interaction}_target_${ref_self}`];
+
+  return (
+    <Modal width="400px" height="200px">
+      <Section
+        title={`Auto Interaction: ${interaction}`}
+        buttons={
+          <Button color="red" icon="window-close" onClick={onClose}>
+            Close
+          </Button>
+        }
+      >
+        <Stack vertical fill>
+          {isActive && (
+            <Stack.Item>
+              <Box>
+                Interacting with:{' '}
+                {auto_interaction_info[`${interaction}_target_${ref_self}`]
+                  ?.target_name || 'No one'}
+              </Box>
+            </Stack.Item>
+          )}
+          <Stack.Item>
+            <Box>
+              Speed:{' '}
+              {auto_interaction_info[`${interaction}_target_${ref_self}`]
+                ?.speed || 'Stopped'}
+            </Box>
+          </Stack.Item>
+          <Stack.Item>
+            <Slider
+              minValue={auto_interaction_speed_values[0]}
+              maxValue={auto_interaction_speed_values[1]}
+              value={
+                auto_interaction_info[`${interaction}_target_${ref_self}`]
+                  ?.speed || auto_interaction_speed_values[1]
+              }
+              onChange={(e, value) => {
+                if (
+                  auto_interaction_info[`${interaction}_target_${ref_self}`]
+                ) {
+                  act('auto_interaction', {
+                    interaction_text: `${interaction}_target_${ref_self}`,
+                    speed: value,
+                    selfref: ref_self,
+                  });
+                }
+              }}
+            />
+          </Stack.Item>
+          <Stack.Item>
+            <Stack fill>
+              {auto_interaction_info[`${interaction}_target_${ref_self}`] ? (
+                <Stack.Item grow>
+                  <Button
+                    fluid
+                    color="red"
+                    icon="stop"
+                    onClick={() => {
+                      act('auto_interaction', {
+                        interaction_text: `${interaction}_target_${ref_self}`,
+                        action: 'stop',
+                      });
+                    }}
+                  >
+                    Stop
+                  </Button>
+                </Stack.Item>
+              ) : (
+                <Stack.Item grow>
+                  <Button
+                    fluid
+                    color="green"
+                    icon="play"
+                    onClick={() => {
+                      act('auto_interaction', {
+                        interaction_text: `${interaction}_target_${ref_self}`,
+                        speed: auto_interaction_speed_values[1],
+                        selfref: ref_self,
+                      });
+                    }}
+                  >
+                    Play
+                  </Button>
+                </Stack.Item>
+              )}
+            </Stack>
+          </Stack.Item>
+        </Stack>
+      </Section>
+    </Modal>
+  );
+};
+
 export const InteractionsTab = ({
   searchText,
   inFavorites,
   showCategories,
 }: InteractionsTabProps) => {
   const { act, data } = useBackend<InteractionsInfo>();
+  const [autoInteractionModalOpen, setAutoInteractionModalOpen] = useState<
+    string | null
+  >(null);
+
   const {
     categories = [],
     interactions,
@@ -50,6 +173,8 @@ export const InteractionsTab = ({
     ref_self,
     self,
     additional_details,
+    auto_interaction_info,
+    auto_interaction_speed_values,
   } = data;
 
   // Filter interactions based on search text and favorites
@@ -87,60 +212,103 @@ export const InteractionsTab = ({
   };
 
   // Render an individual interaction button
-  const renderInteractionButton = (interaction: string) => (
-    <Stack fill>
-      <Stack.Item grow>
-        <Button
-          fluid
-          color={block_interact ? 'grey' : colors[interaction]}
-          tooltip={descriptions[interaction]}
-          disabled={block_interact}
-          onClick={() =>
-            act('interact', {
-              interaction: interaction,
-              selfref: ref_self,
-              userref: ref_user,
-            })
-          }
-        >
-          {interaction}
-          <Box textAlign="right" fillPositionedParent>
-            {additional_details[interaction]?.map(
-              (detail: { info: string; icon: string; color: string }) => (
-                <Tooltip content={detail.info} key={detail.info}>
-                  <Icon name={detail.icon} />
-                </Tooltip>
-              ),
-            )}
-          </Box>
-        </Button>
-      </Stack.Item>
-      <Stack.Item>
-        <Button
-          icon={favorite_interactions.includes(interaction) ? 'star' : 'star-o'}
-          color={
-            favorite_interactions.includes(interaction) ? 'yellow' : 'default'
-          }
-          tooltip={`${
-            favorite_interactions.includes(interaction)
-              ? 'Remove from'
-              : 'Add to'
-          } favorites`}
-          onClick={() =>
-            act('favorite', {
-              interaction: interaction,
-            })
-          }
-        />
-      </Stack.Item>
-    </Stack>
-  );
+  const renderInteractionButton = (interaction: string) => {
+    const hasAutoInteraction =
+      !!auto_interaction_info[`${interaction}_target_${ref_self}`];
+
+    return (
+      <Stack fill>
+        <Stack.Item grow>
+          <Button
+            fluid
+            color={block_interact ? 'grey' : colors[interaction]}
+            tooltip={descriptions[interaction]}
+            disabled={block_interact}
+            onClick={() =>
+              act('interact', {
+                interaction: interaction,
+                selfref: ref_self,
+                userref: ref_user,
+              })
+            }
+          >
+            {interaction}
+            <Box textAlign="right" fillPositionedParent>
+              {additional_details[interaction]?.map(
+                (detail: { info: string; icon: string; color: string }) => (
+                  <Tooltip content={detail.info} key={detail.info}>
+                    <Box mx={0.5} as="span">
+                      <Icon name={detail.icon} />
+                    </Box>
+                  </Tooltip>
+                ),
+              )}
+            </Box>
+          </Button>
+        </Stack.Item>
+        <Stack.Item>
+          <Button
+            icon={
+              favorite_interactions.includes(interaction) ? 'star' : 'star-o'
+            }
+            color={
+              favorite_interactions.includes(interaction) ? 'yellow' : 'default'
+            }
+            tooltip={`${
+              favorite_interactions.includes(interaction)
+                ? 'Remove from'
+                : 'Add to'
+            } favorites`}
+            onClick={() =>
+              act('favorite', {
+                interaction: interaction,
+              })
+            }
+          />
+        </Stack.Item>
+        <Stack.Item>
+          <Button
+            icon={hasAutoInteraction ? 'play' : 'stop'}
+            color={hasAutoInteraction ? 'green' : 'red'}
+            tooltip="Auto Interaction"
+            onClick={() => setAutoInteractionModalOpen(interaction)}
+          />
+        </Stack.Item>
+      </Stack>
+    );
+  };
 
   return (
     <Stack vertical fill>
       <Stack.Item>
         <NoticeBox>
-          {block_interact ? 'Unable to Interact' : 'Able to Interact'}
+          <Stack>
+            <Stack.Item grow>
+              {block_interact ? 'Unable to Interact' : 'Able to Interact'}
+            </Stack.Item>
+            {Object.keys(auto_interaction_info).length > 0 && (
+              <Stack.Item>
+                <Button
+                  color="red"
+                  icon="stop"
+                  tooltip="Stop all auto interactions"
+                  onClick={() => {
+                    // Stop all active auto interactions
+                    Object.keys(auto_interaction_info).forEach(
+                      (interaction_text) => {
+                        act('auto_interaction', {
+                          interaction_text: interaction_text,
+                          action: 'stop',
+                        });
+                      },
+                    );
+                  }}
+                >
+                  Stop all auto interactions
+                </Button>
+              </Stack.Item>
+            )}
+          </Stack>
         </NoticeBox>
       </Stack.Item>
       <Stack.Item grow>
@@ -187,6 +355,13 @@ export const InteractionsTab = ({
           </Section>
         )}
       </Stack.Item>
+      {autoInteractionModalOpen && (
+        <AutoInteractionModal
+          interaction={autoInteractionModalOpen}
+          ref_self={ref_self}
+          onClose={() => setAutoInteractionModalOpen(null)}
+        />
+      )}
     </Stack>
   );
 };

@@ -129,7 +129,7 @@ export const PlayerPanel = () => {
               <Input
                 width="100%"
                 value={mob_name}
-                onChange={(e, value) => act('set_name', { name: value })}
+                onChange={(value) => act('set_name', { name: value })}
               />
             </Flex.Item>
             {!!client_ckey && (
@@ -564,9 +564,9 @@ const PhysicalActions = () => {
             value={mobScale}
             stepPixelSize={12}
             step={0.25}
-            onChange={(e, value) => {
-              setMobScale(value); // Update slider value
-              act('scale', { new_scale: value }); // Update mob's value
+            onChange={(_event, value: number) => {
+              setMobScale(value);
+              act('scale', { new_scale: value });
             }}
             unit="x"
           />
@@ -580,7 +580,7 @@ const PhysicalActions = () => {
           <Flex.Item grow={1}>
             <Input
               width="100%"
-              onEnter={(e, value) => act('force_say', { to_say: value })}
+              onEnter={(value) => act('force_say', { to_say: value })}
             />
           </Flex.Item>
         </Flex>
@@ -591,7 +591,7 @@ const PhysicalActions = () => {
           <Flex.Item grow={1}>
             <Input
               width="100%"
-              onEnter={(e, value) => act('force_emote', { to_emote: value })}
+              onEnter={(value) => act('force_emote', { to_emote: value })}
             />
           </Flex.Item>
         </Flex>
@@ -1055,7 +1055,7 @@ const FunActions = () => {
             <Input
               width="100%"
               my=".5rem"
-              onInput={(e, value) => setNarrateMessage(value)}
+              onChange={(value) => setNarrateMessage(value)}
             />
           </Flex.Item>
 

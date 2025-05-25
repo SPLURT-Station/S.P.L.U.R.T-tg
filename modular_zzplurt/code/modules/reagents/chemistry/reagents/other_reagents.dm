@@ -1,14 +1,3 @@
-/datum/reagent/blood
-	//data = /datum/reagent/blood::data + list("bloodcolor" = BLOOD_COLOR_STANDARD,"bloodblend" = BLEND_MULTIPLY) // recursive constant reference: data
-	color = BLOOD_COLOR_STANDARD
-
-/datum/reagent/blood/New()
-	. = ..()
-	if(!data["bloodcolor"])
-		data["bloodcolor"] = BLOOD_COLOR_STANDARD
-	if(!data["bloodblend"])
-		data["bloodblend"] = BLEND_MULTIPLY
-
 /**
  * This is a special reagent used by 'alternative food' quirks
  * It functionally matches Nutriment, but can be processed with liverless metabolism

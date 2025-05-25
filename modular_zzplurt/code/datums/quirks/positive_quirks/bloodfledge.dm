@@ -14,6 +14,31 @@
 #define BLOODFLEDGE_HEAL_AMT -2
 /// List of traits inherent to bloodfledges
 #define BLOODFLEDGE_TRAITS list(TRAIT_NO_MIRROR_REFLECTION, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
+
+// This is has more potential uses, and is probably faster than the old proc. //SPLURT REVIVAL - this was removed from nonmodular apparently???
+/proc/get_safe_blood(bloodtype)
+	. = list()
+	if(!bloodtype)
+		return
+
+	var/static/list/bloodtypes_safe = list(
+		"A-" = list("A-", "O-"),
+		"A+" = list("A-", "A+", "O-", "O+"),
+		"B-" = list("B-", "O-"),
+		"B+" = list("B-", "B+", "O-", "O+"),
+		"AB-" = list("A-", "B-", "O-", "AB-"),
+		"AB+" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+"),
+		"O-" = list("O-"),
+		"O+" = list("O-", "O+"),
+		"L" = list("L"),
+		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
+	)
+
+	var/safe = bloodtypes_safe[bloodtype]
+	if(safe)
+		. = safe
+
+
 /datum/quirk/item_quirk/bloodfledge
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 300
@@ -344,7 +369,7 @@
 		list(
 			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
 			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
+			LOCATION_BACKPACK = ITEM_SLOT_BACK,
 			LOCATION_HANDS = ITEM_SLOT_HANDS,
 		)
 	)

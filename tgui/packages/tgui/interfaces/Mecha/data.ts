@@ -54,6 +54,7 @@ export type MainData = {
   modules: MechModule[];
   selected_module_index: number;
   sheet_material_amount: number;
+  diagnostic_status: BooleanLike;
   // SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
   armor_name: string;
   armor_integrity: number;
