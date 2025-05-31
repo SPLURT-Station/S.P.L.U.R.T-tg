@@ -966,3 +966,27 @@ directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
 trait_name = "Station"
+
+# Boxstation Splurt Edit Science
+[templates.boxstation_splurt_science]
+map_files = ["boxstation_splurt_science.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [164, 80, 1]
+trait_name = "Station"
+
+# Boxstation Splurt Edit Arrivals
+[templates.boxstation_splurt_arrivals]
+map_files = ["boxstation_splurt_arrivals.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [21, 116, 1]
+trait_name = "Station"
+
+# Boxstation Splurt Edit Cargo
+[templates.boxstation_splurt_cargo]
+map_files = ["boxstation_splurt_cargo.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [68, 95, 1]
+trait_name = "Station"
