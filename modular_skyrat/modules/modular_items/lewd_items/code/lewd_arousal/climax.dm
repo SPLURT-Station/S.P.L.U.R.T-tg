@@ -172,7 +172,14 @@
 
 					//SPLURT EDIT CHANGE BEGIN - Interactions
 					var/climax_into_choice
-					var/interaction_inside = partner?.get_organ_slot(climax_interaction?.cum_target[interaction_position]) || target_buttons.Find(climax_interaction?.cum_target[interaction_position])
+					var/interaction_inside = partner?.get_organ_slot(climax_interaction?.cum_target[interaction_position])
+					if(!interaction_inside)
+						interaction_inside = target_buttons.Find(climax_interaction?.cum_target[interaction_position])
+						if(interaction_inside)
+							interaction_inside = climax_interaction.cum_target[interaction_position]
+					else
+						var/obj/item/organ/genital = interaction_inside
+						interaction_inside = genital.slot
 
 					if(climax_interaction && !manual && interaction_inside)
 						climax_into_choice = climax_interaction.cum_target[interaction_position]
@@ -199,10 +206,27 @@
 							span_userlove("You hilt your cock into [target_mob]'s [climax_into_choice], shooting cum into [target_mob_them]!"))
 						to_chat(target_mob, span_userlove("Your [climax_into_choice] fills with warm cum as [src] shoots [self_their] load into it."))
 						conditional_pref_sound(get_turf(target_mob), climax_into_choice == "mouth" ? pick('modular_zzplurt/sound/interactions/mouthend (1).ogg', 'modular_zzplurt/sound/interactions/mouthend (2).ogg') : 'modular_zzplurt/sound/interactions/endout.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds) //SPLURT EDIT CHANGE - Interactions
-						//SPLURT EDIT ADDITION BEGIN - Genital Inflation
+						//SPLURT EDIT ADDITION BEGIN - Genital Inflation and pregnancy
 						var/datum/component/interactable/interactable = target_mob.GetComponent(/datum/component/interactable)
 						if(interactable)
 							interactable.climax_inflate_genital(src, "testicles", climax_into_choice)
+						var/client/preference_source = GET_CLIENT(target_mob)
+						#ifdef TESTING
+						if(!preference_source)
+							preference_source = GET_CLIENT(src)
+						#endif
+						if(ishuman(target_mob) && preference_source && \
+							!HAS_TRAIT(src, TRAIT_INFERTILE) && !HAS_TRAIT(target_mob, TRAIT_INFERTILE))
+							var/genital_pass = FALSE
+							switch(interaction_inside)
+								if(ORGAN_SLOT_ANUS)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/anal_insemination)
+								if(ORGAN_SLOT_VAGINA)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/vaginal_insemination)
+								if(CLIMAX_TARGET_MOUTH)
+									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
+							if(genital_pass && prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
+								target_mob.apply_status_effect(/datum/status_effect/pregnancy, target_mob, src)
 						//SPLURT EDIT ADDITION END
 
 			var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
@@ -308,7 +332,14 @@
 					target_buttons += "On [target_mob_them]"
 
 					var/climax_into_choice
-					var/interaction_inside = partner?.get_organ_slot(climax_interaction?.cum_target[interaction_position]) || target_buttons.Find(climax_interaction?.cum_target[interaction_position])
+					var/interaction_inside = partner?.get_organ_slot(climax_interaction?.cum_target[interaction_position])
+					if(!interaction_inside)
+						interaction_inside = target_buttons.Find(climax_interaction?.cum_target[interaction_position])
+						if(interaction_inside)
+							interaction_inside = climax_interaction.cum_target[interaction_position]
+					else
+						var/obj/item/organ/genital = interaction_inside
+						interaction_inside = genital.slot
 
 					if(climax_interaction && !manual && interaction_inside)
 						climax_into_choice = climax_interaction.cum_target[interaction_position]

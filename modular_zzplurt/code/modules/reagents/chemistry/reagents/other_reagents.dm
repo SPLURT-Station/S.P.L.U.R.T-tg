@@ -65,3 +65,12 @@
 	. = ..()
 
 	SEND_SIGNAL(exposed_mob, COMSIG_REAGENT_EXPOSE_SALT, src, methods, reac_volume, show_message, touch_protection)
+
+// Sterilizine makes you sterile!
+/datum/reagent/space_cleaner/sterilizine/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+	ADD_TRAIT(affected_mob, TRAIT_INFERTILE, "[src.type]")
+
+/datum/reagent/space_cleaner/sterilizine/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+	REMOVE_TRAIT(affected_mob, TRAIT_INFERTILE, "[src.type]")
