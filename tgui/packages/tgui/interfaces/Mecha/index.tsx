@@ -19,7 +19,7 @@ import { ModulesPane } from './ModulesPane';
 export const Mecha = (props) => {
   const { data } = useBackend<MainData>();
   return (
-    <Window theme={data.ui_theme} width={800} height={560}>
+    <Window theme={data.ui_theme} width={800} height={620}>
       <Window.Content>
         <Content />
       </Window.Content>
@@ -83,7 +83,9 @@ export const Content = (props) => {
                 <Stack.Item>
                   <LabeledList>
                     <IntegrityBar />
+                    <FlatArmorIntegrityBar />
                     <PowerBar />
+                    <SlowdownDisplay />
                     <LightsBar />
                     <CabinSeal />
                     <DNALock />
@@ -331,3 +333,51 @@ const DNALock = (props) => {
     </LabeledList.Item>
   );
 };
+
+// SPLURT EDIT ADDITION BEGIN - Mecha additions, better armor
+const FlatArmorIntegrityBar = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { armor_name, armor_integrity, armor_integrity_max } = data;
+  return (
+    armor_name && (
+      <LabeledList.Item label={armor_name ? armor_name : 'Armor Integrity'}>
+        <ProgressBar
+          value={armor_integrity / armor_integrity_max}
+          ranges={{
+            good: [0.75, Infinity],
+            average: [0.35, 0.75],
+            bad: [-Infinity, 0.35],
+          }}
+          style={{
+            textShadow: '1px 1px 0 black',
+          }}
+        >
+          {armor_integrity} of {armor_integrity_max}
+        </ProgressBar>
+      </LabeledList.Item>
+    )
+  );
+};
+
+const SlowdownDisplay = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { initial_slowdown, current_slowdown } = data;
+  return (
+    <LabeledList.Item label={'Slowdown'}>
+      <ProgressBar
+        value={current_slowdown / (initial_slowdown * 2)}
+        ranges={{
+          bad: [0.8, Infinity],
+          average: [0.6, 0.8],
+          good: [-Infinity, 0.6],
+        }}
+        style={{
+          textShadow: '1px 1px 0 black',
+        }}
+      >
+        {Math.ceil((current_slowdown / initial_slowdown) * 100)}%
+      </ProgressBar>
+    </LabeledList.Item>
+  );
+};
+// SPLURT EDIT ADDITION END - Mecha additions, better armor
