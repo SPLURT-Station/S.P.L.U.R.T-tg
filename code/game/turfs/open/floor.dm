@@ -26,13 +26,10 @@
 	/// Determines if you can deconstruct this with a RCD
 	var/rcd_proof = FALSE
 
-/turf/open/floor/proc/CMakeDirty()
-	MakeDirty()
-
 /turf/open/floor/Initialize(mapload)
 	. = ..()
 	if(mapload && prob(33))
-		CMakeDirty() 
+		MakeDirty() 
 
 	if(is_station_level(z))
 		GLOB.station_turfs += src
