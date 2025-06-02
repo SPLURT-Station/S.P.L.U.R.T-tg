@@ -145,7 +145,7 @@
 
 	perform_interaction(user, target, target_wearer, panty_target, fleshlight_target)
 
-/obj/item/clothing/sextoy/portal_fleshlight/attackby(obj/item/W, mob/user, params)
+/obj/item/clothing/sextoy/portal_fleshlight/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 
 	// Handle portal fleshlight interaction

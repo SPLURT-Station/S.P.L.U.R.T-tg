@@ -347,14 +347,14 @@
 		var/arousal_message
 		switch(arousal)
 			if(AROUSAL_MINIMUM_DETECTABLE to AROUSAL_LOW)
-				arousal_message = span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] slightly blushed.") + "\n" // Splurt - Replaces weirdly placed p_they with p_They. This is supposed to be CAPITALIZED
 			if(AROUSAL_LOW to AROUSAL_MEDIUM)
-				arousal_message = span_purple("[p_they()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n" // Splurt - Replaces weirdly placed p_they with p_They. This is supposed to be CAPITALIZED
 			if(AROUSAL_HIGH to AROUSAL_AUTO_CLIMAX_THRESHOLD)
-				arousal_message = span_purple("[p_they()] [p_are()] aroused as hell.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] aroused as hell.") + "\n" // Splurt - Replaces weirdly placed p_they with p_They. This is supposed to be CAPITALIZED
 			if(AROUSAL_AUTO_CLIMAX_THRESHOLD to INFINITY)
-				arousal_message = span_purple("[p_they()] [p_are()] extremely excited, exhausting from entolerable desire.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] extremely excited, exhausting from entolerable desire.") + "\n" // Splurt - Replaces weirdly placed p_they with p_They. This is supposed to be CAPITALIZED
 		if(arousal_message)
 			. += arousal_message
 	else if(arousal > AROUSAL_MINIMUM_DETECTABLE)
-		. += span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+		. += span_purple("[p_They()] [p_are()] slightly blushed.") + "\n" // Splurt - Replaces weirdly placed p_they with p_They. This is supposed to be CAPITALIZED

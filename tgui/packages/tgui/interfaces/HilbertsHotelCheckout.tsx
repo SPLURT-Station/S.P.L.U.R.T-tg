@@ -18,6 +18,8 @@ import { Window } from '../layouts';
 type RoomsData = {
   current_room: number;
   selected_template: string;
+  user_donator_tier: number;
+  user_ckey: string;
   active_rooms: any[];
   conservated_rooms: any[];
   hotel_map_list: any[];
@@ -374,7 +376,10 @@ const RoomsTab = (props) => {
 
   const targetCategory = category.toLowerCase();
   const filteredRooms = hotel_map_list.filter(
-    (room) => room.category?.toLowerCase() === targetCategory,
+    (room) =>
+      room.category?.toLowerCase() === targetCategory &&
+      (!room.ckeywhitelist?.length ||
+        room.ckeywhitelist.includes(data.user_ckey)),
   );
 
   const categoryIcons = {
@@ -435,7 +440,18 @@ const RoomsTab = (props) => {
                   style={{ marginLeft: '5px', marginRight: '5px' }}
                 />
               </Stack.Item>
-              <Stack.Item>{room.name}</Stack.Item>
+              <Stack.Item grow>
+                <Stack>
+                  <Stack.Item>{room.name}</Stack.Item>
+                  {room.donator_tier > data.user_donator_tier && (
+                    <Stack.Item grow textAlign="right" color="red">
+                      {' | Donator tier ' +
+                        room.donator_tier +
+                        ' access required'}
+                    </Stack.Item>
+                  )}
+                </Stack>
+              </Stack.Item>
             </Stack>
           </Box>
         ))}

@@ -32,9 +32,10 @@
 /obj/item/clothing/wrists/armwarmer_striped
 	name = "Striped Arm Warmers"
 	desc = "A pair of striped arm warmers."
-	icon = 'modular_zzplurt/icons/obj/clothing/wrist.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/wrists.dmi'
-	icon_state = "armwarmer_striped"
+	icon_state = "/obj/item/clothing/wrists/armwarmer_striped"
+	post_init_icon_state = "armwarmer_striped"
 	body_parts_covered = ARMS
 	greyscale_colors = "#FFFFFF#FFFFFF"
 	greyscale_config = /datum/greyscale_config/armwarmer_striped
@@ -53,9 +54,10 @@
 /obj/item/clothing/wrists/armwarmer_striped/long
 	name = "Long Striped Arm Warmers"
 	desc = "A pair of long striped arm warmers."
-	icon = 'modular_zzplurt/icons/obj/clothing/wrist.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/wrists.dmi'
-	icon_state = "armwarmer_striped_long"
+	icon_state = "/obj/item/clothing/wrists/armwarmer_striped/long"
+	post_init_icon_state = "armwarmer_striped_long"
 	body_parts_covered = ARMS
 	greyscale_config = /datum/greyscale_config/armwarmer_striped_long
 	greyscale_config_worn = /datum/greyscale_config/armwarmer_striped_long/worn

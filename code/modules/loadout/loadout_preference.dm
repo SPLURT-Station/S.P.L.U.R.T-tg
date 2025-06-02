@@ -58,12 +58,6 @@
 			var/datum/loadout_item/loadout_item = GLOB.all_loadout_datums[real_path]
 			if(loadout_item?.ckeywhitelist && !(owner_client?.ckey in loadout_item.ckeywhitelist))
 				continue
-			if(loadout_item?.donator_only && !GLOB.donator_list[owner_client?.ckey])
-				continue
-			// SPLURT EDIT START: Donator tier check
-			if(loadout_item?.donator_tier && GLOB.donator_list[owner_client?.ckey] < loadout_item.donator_tier)
-				continue
-			// SPLURT EDIT END
 		// SKYRAT EDIT END
 
 		// Set into sanitize list using converted path key
