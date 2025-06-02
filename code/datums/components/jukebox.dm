@@ -1,4 +1,4 @@
-// Reasons for appling STATUS_MUTE to a mob's sound status
+/*// Reasons for appling STATUS_MUTE to a mob's sound status
 /// The mob is deaf
 #define MUTE_DEAF (1<<0)
 /// The mob has disabled jukeboxes in their preferences
@@ -407,3 +407,4 @@
 	song_name = "Tintin on the Moon"
 	song_length = 3 MINUTES + 52 SECONDS
 	song_beat = 1 SECONDS
+*/

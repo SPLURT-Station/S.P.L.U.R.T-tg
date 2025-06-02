@@ -1,5 +1,5 @@
 // Lavaland ash storms
-/datum/weather/ash_storm/weather_act(mob/living/victim)
+/datum/weather/ash_storm/weather_act_mob(mob/living/victim)
 	// Check for resistance quirk
 	if(HAS_TRAIT(victim, TRAIT_ASHRESISTANCE))
 		// Do stamina damage instead

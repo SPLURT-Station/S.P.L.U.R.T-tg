@@ -51,8 +51,8 @@
 	donator_tier = DONATOR_TIER_1
 
 /datum/loadout_item/suit/donator/press_vest
-	name = "Press vest"
-	item_path = /obj/item/clothing/suit/hazardvest/press
+	name = "Press armor vest"
+	item_path = /obj/item/clothing/suit/armor/vest/press
 	donator_tier = DONATOR_TIER_1
 
 //Head

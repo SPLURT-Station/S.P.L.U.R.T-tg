@@ -427,3 +427,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/inteq/inteq_no
 	icon_state = "poster_inteq_vulp"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/inteq/inteq_vulp, 32)
+
+/obj/structure/sign/poster/contraband/sisyphus
+	name = "Sisyphus"
+	desc = "A poster showing a man endlessly rolling a huge boulder up a steep hill."
+	icon_state = "sisyphus"
+	icon = 'modular_zzz/icons/obj/poster.dmi'
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/vulpes/sisyphus, 32)

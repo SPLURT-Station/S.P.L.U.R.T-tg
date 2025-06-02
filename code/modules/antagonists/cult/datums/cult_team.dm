@@ -8,8 +8,8 @@
 	///Timer for the blood mark expiration
 	var/blood_target_reset_timer
 
-	///Has a vote been called for a leader?
-	var/cult_vote_called = FALSE
+	///Has the cult leader passed on their responsibilities to someone else?
+	var/leader_passed_on = FALSE
 	///The cult leader
 	var/datum/antagonist/cult/cult_leader_datum
 	///Has the mass teleport been used yet?
@@ -64,9 +64,8 @@
 	if(ratio > CULT_ASCENDENT && !cult_ascendent)
 		for(var/datum/mind/mind as anything in members)
 			if(mind.current)
-				SEND_SOUND(mind.current, 'sound/music/antag/bloodcult/bloodcult_halos.ogg')
-				to_chat(mind.current, span_cult_large(span_warning("Your cult is ascendant and the red harvest approaches - you cannot hide your true nature for much longer!!")))
 				mind.current.AddElement(/datum/element/cult_halo)
+		priority_announce("На вашей станции обнаружена внепространственная активность, связанная с культом Нар’Си. Данные свидетельствуют о том, что в ряды культа обращено около Сорока Процентов Экипажа Станции. Служба безопасности получает право свободно применять летальную силу против культистов. Прочий персонал должен быть готов защищать себя и свои рабочие места от нападений культистов (в том числе используя летальную силу в качестве крайней меры самообороны), но не должен выслеживать культистов и охотиться на них. Погибшие члены экипажа должны быть оживлены и деконвертированы, как только ситуация будет взята под контроль.", "Центральное Командование, Отдел Работы с Реальностью", 'modular_skyrat/modules/alerts/sound/misc/admin_horror_music.ogg')
 		cult_ascendent = TRUE
 		log_game("The blood cult has ascended with [cultplayers] players.")
 #endif
@@ -160,12 +159,15 @@
 	for(var/datum/mind/cultist as anything in members)
 		if(!cultist.current)
 			continue
+
 		if(cultist.current.stat == DEAD || !cultist.current.client)
 			continue
 
 		to_chat(cultist.current, span_bold(span_cult_large("[marker] has marked [blood_target] in \the [target_area] as the cult's top priority, get there immediately!")))
 		SEND_SOUND(cultist.current, sound(SFX_HALLUCINATION_OVER_HERE, 0, 1, 75))
 		cultist.current.client.images += blood_target_image
+		if (cultist.current.hud_used)
+			new /atom/movable/screen/navigate_arrow(null, cultist.current.hud_used, get_turf(new_target), COLOR_CULT_RED)
 
 	if(duration != INFINITY)
 		blood_target_reset_timer = addtimer(CALLBACK(src, PROC_REF(unset_blood_target)), duration, TIMER_STOPPABLE)

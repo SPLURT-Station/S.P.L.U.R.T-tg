@@ -58,6 +58,7 @@
 
 	cooldown_time = 1 SECONDS
 	spell_requirements = NONE
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
 
 	// Default ability background
 	background_icon = 'icons/mob/actions/backgrounds.dmi'

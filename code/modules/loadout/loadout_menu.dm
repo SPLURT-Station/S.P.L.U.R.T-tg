@@ -80,13 +80,13 @@
 		to_chat(preferences.parent, span_warning("You cannot select this item!"))
 		return
 
-	if(selected_item.donator_only && !GLOB.donator_list[preferences?.parent?.ckey])
+	if(selected_item.donator_only && !SSplayer_ranks.is_donator(preferences.parent))
 		to_chat(preferences.parent, span_warning("This item is for donators only."))
 		return
 	// SKYRAT EDIT END
 	// SPLURT EDIT START: Donator tier check
 	if(selected_item.donator_tier && GLOB.donator_list[preferences?.parent?.ckey] < selected_item.donator_tier)
-		to_chat(preferences.parent, span_warning("You do not have access to this item."))
+		to_chat(preferences.parent, span_warning("Tier [selected_item.donator_tier] donator access required."))
 		return
 	// SPLURT EDIT END
 
@@ -118,11 +118,7 @@
 /datum/preference_middleware/loadout/get_ui_static_data(mob/user)
 	var/list/data = list()
 	data["loadout_preview_view"] = preferences.character_preview_view.assigned_map
-	// SKYRAT EDIT START - EXPANDED LOADOUT
-	data["ckey"] = user.ckey
-	if(SSplayer_ranks.is_donator(user.client))
-		data["is_donator"] = TRUE
-	// SKYRAT EDIT END
+	data["ckey"] = user.ckey // BUBBER EDIT ADDITION: Filter ckey-locked items
 	return data
 
 /datum/preference_middleware/loadout/get_constant_data()

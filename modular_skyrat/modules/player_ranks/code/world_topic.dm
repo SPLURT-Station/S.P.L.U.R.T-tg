@@ -34,10 +34,10 @@
 // 		.["message"] = "No valid admin datum was found associated with the ckey associated to your Discord account."
 // 		return
 
-// 	if(!linked_admin_holder.check_for_rights(R_PERMISSIONS))
-// 		.["success"] = FALSE
-// 		.["message"] = "You do not possess the permissions to execute this command."
-// 		return
+	// if(!linked_admin_holder.check_for_rights(R_ADMIN))
+	// 	.["success"] = FALSE
+	// 	.["message"] = "You do not possess the permissions to execute this command."
+	// 	return
 
 // 	var/target_rank = input["target_rank"]
 

@@ -67,9 +67,13 @@
 		return
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(clothing_flags & LARGE_WORN_ICON)
-			. += mutable_appearance('icons/effects/64x64.dmi', "helmetblood_large") // SPLURT - We need new white icons for colored blood (I'm not spriter)
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/64x64.dmi', "helmetblood_large")
+			blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
+			. += blood_overlay
 		else
-			. += mutable_appearance(colored_blood_icon('icons/effects/blood.dmi'), "helmetblood", color = blood_DNA_to_color(), blend_mode = blood_DNA_to_blend()) // SPLURT EDIT - Colored Blood
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "helmetblood")
+			blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
+			. += blood_overlay
 
 /obj/item/clothing/head/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()

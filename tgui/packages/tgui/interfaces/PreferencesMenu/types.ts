@@ -237,7 +237,6 @@ export type PreferencesMenuData = {
   positive_quirk_count: number;
   species_restricted_jobs?: string[];
   ckey: string;
-  is_donator: BooleanLike;
   // SKYRAT EDIT END
   // SPLURT EDIT START
   donator_tier: number;
@@ -246,6 +245,7 @@ export type PreferencesMenuData = {
   keybindings: Record<string, string[]>;
   overflow_role: string;
   selected_quirks: string[];
+  species_disallowed_quirks: string[];
 
   antag_bans?: string[];
   antag_days_left?: Record<string, number>;

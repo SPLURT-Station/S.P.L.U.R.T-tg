@@ -1,4 +1,4 @@
-/obj/machinery/jukebox
+/*/obj/machinery/jukebox
 	name = "jukebox"
 	desc = "A classic music player."
 	icon = 'icons/obj/machines/music.dmi'
@@ -388,3 +388,4 @@
 /obj/machinery/jukebox/disco/proc/dance4_revert(mob/living/dancer, matrix/starting_matrix)
 	animate(dancer, transform = starting_matrix, time = 5, loop = 0)
 	REMOVE_TRAIT(dancer, TRAIT_DISCO_DANCER, REF(src))
+*/

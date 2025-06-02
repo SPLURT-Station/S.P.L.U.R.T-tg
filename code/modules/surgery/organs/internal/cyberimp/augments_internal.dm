@@ -57,11 +57,11 @@
 
 /datum/bodypart_overlay/augment/generate_icon_cache()
 	. = ..()
-	. += implant.get_overlay_state()
+	. += implant?.get_overlay_state()
 
 /datum/bodypart_overlay/augment/get_overlay(layer, obj/item/bodypart/limb)
 	layer = bitflag_to_layer(layer)
-	var/list/imageset = implant.get_overlay(layer, limb)
+	var/list/imageset = implant?.get_overlay(layer, limb)
 	if(blocks_emissive == EMISSIVE_BLOCK_NONE || !limb)
 		return imageset
 
@@ -358,15 +358,3 @@
 	if(prob(60/severity))
 		to_chat(owner, span_warning("Your breathing tube suddenly closes!"))
 		owner.losebreath += 2
-
-//BOX O' IMPLANTS
-
-/obj/item/storage/box/cyber_implants
-	name = "boxed cybernetic implants"
-	desc = "A sleek, sturdy box."
-	icon_state = "cyber_implants"
-
-/obj/item/storage/box/cyber_implants/PopulateContents()
-	new /obj/item/autosurgeon/syndicate/xray_eyes(src)
-	new /obj/item/autosurgeon/syndicate/anti_stun(src)
-	new /obj/item/autosurgeon/syndicate/reviver(src)

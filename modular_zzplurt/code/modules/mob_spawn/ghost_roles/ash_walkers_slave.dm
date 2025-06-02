@@ -1,14 +1,15 @@
 /obj/effect/mob_spawn/ghost_role/human/ash_walkers_slave
-	name = "Ashwalkers Slave"
-	mob_name = "Ashwalkers Slave"
+	name = "Necropolis Slave Casket"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "oldpod"
 	prompt_name = "a ashwalkers slave"
-	you_are_text = "You are a slave or slave of the Ash Walkers."
-	flavour_text = "You're enjoying everything. Comply with ANY of Ash's requests. The desire to escape to the station should be minimal."
+	you_are_text = "You are a slave of the Necropolis and the Ash Walkers that protect it."
+	flavour_text = "It is in your best interest to comply with any orders given by your superiors, the desire to escape \
+	should be minimized under most circumstances."
+	important_text = "You MUST submit an Opfor or Adminhelp to defy your superiors and/or escape!"
 	outfit = /datum/outfit/ashwalker/slave
 	spawner_job_path = /datum/job/ash_walker
-	random_appearance = FALSE // SKYRAT EDIT ADDITION
+	random_appearance = FALSE
 	var/datum/team/ashwalkers/team
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walkers_slave/special(mob/living/new_spawn)

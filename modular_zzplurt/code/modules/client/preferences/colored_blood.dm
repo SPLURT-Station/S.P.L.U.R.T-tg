@@ -17,13 +17,6 @@
 
 /datum/preference/color/blood_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.species.exotic_blood_color = value
-
-	//Might cause issues, remove if so
-	for(var/obj/item/organ/organ in target.organs)
-		if(!IS_ROBOTIC_ORGAN(organ))
-			organ.blood_dna_info = target.get_blood_dna_list()
-			organ.forensics?.blood_DNA["color"] = value
-
 	return TRUE
 
 /datum/preference/color/blood_color/is_accessible(datum/preferences/preferences)
@@ -31,5 +24,5 @@
 		return FALSE
 	return preferences.read_preference(/datum/preference/toggle/custom_blood_color)
 
-/datum/preference/color/create_default_value()
-	return BLOOD_COLOR_STANDARD
+/datum/preference/color/blood_color/create_default_value()
+	return BLOOD_COLOR_RED

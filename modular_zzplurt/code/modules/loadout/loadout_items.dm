@@ -14,6 +14,11 @@
 	data["donator_tier"] = donator_tier
 	return data
 
+/datum/loadout_item/get_item_information()
+	. = ..()
+	if(donator_tier)
+		. += list(FA_ICON_MONEY_BILL = "Tier [donator_tier] Donator only")
+
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
 	. = ..()
 

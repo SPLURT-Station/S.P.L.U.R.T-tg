@@ -1,5 +1,5 @@
 /obj/item/clothing/mask/gas/syndicate
-	icon = 'modular_zzz/icons/obj/clothing/masks.dmi'
+	icon = 'modular_zzz/icons/obj/clothing/masks/mask.dmi'
 	worn_icon = 'modular_zzz/icons/mob/clothing/mask.dmi'
 	// worn_icon_muzzled = 'modular_zzz/icons/mob/clothing/mask_muzzled.dmi'
 

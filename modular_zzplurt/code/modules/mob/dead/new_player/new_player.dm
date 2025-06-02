@@ -1,4 +1,9 @@
 /mob/dead/new_player/Topic(href, list/href_list)
+	//maturity check
+	if(!client?.maturity_prompt_whitelist && !SSmaturity_guard.age_check(src))
+		return
+
+	//discord check
 	var/vibe_check = SSdiscord?.check_login(src)
 	if(isnull(vibe_check))
 		to_chat(usr, span_notice("The server is still starting up. Please wait... "))

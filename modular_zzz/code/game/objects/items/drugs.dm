@@ -75,10 +75,8 @@
 /obj/item/storage/pill_bottle/zvezdochka
 	name = "Mazz Zvezdochka"
 	desc = "Может вызвать ожог глаз. По крайней мере в старой инструкции так было написано."
-
-/obj/item/storage/pill_bottle/zvezdochka/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/applicator/pill/zvezdochka(src)
+	spawn_count = 7
+	spawn_type = /obj/item/reagent_containers/applicator/pill/zvezdochka
 
 /datum/reagent/drug/pendosovka
 	name = "Pendosovka"
@@ -180,10 +178,8 @@
 /obj/item/storage/pill_bottle/pendosovka
 	name = "Mazz Pendosovka"
 	desc = "Может вызвать ожог глаз. По крайней мере в старой инструкции так было написано."
-
-/obj/item/storage/pill_bottle/pendosovka/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/applicator/pill/pendosovka(src)
+	spawn_count = 7
+	spawn_type = /obj/item/reagent_containers/applicator/pill/pendosovka
 
 /datum/reagent/drug/labebium
 	name = "Лабебиум"
@@ -482,9 +478,7 @@
 /obj/item/storage/pill_bottle/labebium
 	name = "Лабебиум"
 	desc = "Поглощение одной такой таблетки превратит тебя в овоща. Я не шучу."
-
-/obj/item/storage/pill_bottle/labebium/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/applicator/pill/labebium(src)
+	spawn_count = 7
+	spawn_type = /obj/item/reagent_containers/applicator/pill/labebium
 
 #undef DRUGS_SOURCE

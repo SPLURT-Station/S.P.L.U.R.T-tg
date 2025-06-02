@@ -57,7 +57,7 @@
 	try_unpacking(user, create_peanuts = TRUE)
 	return CLICK_ACTION_BLOCKING
 
-/obj/structure/closet/attackby(obj/item/W, mob/user, params)
+/obj/structure/closet/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(W, /obj/item/stack/packing_peanuts) && opened && packable && !packing_overlay)
 		try_packing(W, user)
 		take_contents()

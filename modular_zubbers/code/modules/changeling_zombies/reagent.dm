@@ -25,10 +25,15 @@
 	list_reagents = list()
 
 /obj/item/reagent_containers/cup/glass/changeling_zombie_virus/smash(...)
+	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
+	var/datum/reagents/zombie_holder = new(10)
+	var/zombie_holder_location = get_turf(src) //we need to set up the smoke beforehand
+	zombie_holder.add_reagent(/datum/reagent/changeling_zombie_virus, 30)
+	var/datum/effect_system/fluid_spread/smoke/chem/quick/smoke = new
+	smoke.set_up(6, holder = src, location = zombie_holder_location, carry = zombie_holder)
+	smoke.start()
+	QDEL_NULL(zombie_holder) // Reagents have a ref to their holder which has a ref to them. No leaks please.
 	. = ..()
-	if(.)
-		var/datum/D = .
-		D.AddComponent(/datum/component/changeling_zombie_infection_item)
 
 /datum/component/changeling_zombie_infection_item/Initialize()
 	. = ..()

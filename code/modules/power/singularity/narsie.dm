@@ -104,7 +104,7 @@
 		if (player.stat != DEAD && is_station_level(player.loc?.z) && !IS_CULTIST(player))
 			souls_needed[player] = TRUE
 
-	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.75)
+	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.1)
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(begin_the_end))
 
 /// Cleans up all of Nar'Sie's abilities, stats, and ends her round-ending capabilities. This should only be called if `start_ending_the_round()` successfully started.

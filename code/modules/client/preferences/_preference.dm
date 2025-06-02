@@ -384,7 +384,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	if (isnull(cached_values))
-		cached_values = init_possible_values()
+		cached_values = sort_list(init_possible_values()) // REDMOON EDIT - SORTING_LISTS - WAS: cached_values = init_possible_values()
 		ASSERT(cached_values.len)
 
 	return cached_values

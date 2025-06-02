@@ -7,9 +7,8 @@
 	var/datum/objective/minor_sacrifice/sac_objective = locate() in heretic_datum.objectives
 	if(heretic_datum.total_sacrifices == (sac_objective.target_amount - 1))
 		priority_announce(
-			text = "High levels of eldri[generate_heretic_text()] energy detected - Threat levels elevated stop [generate_heretic_text(4)][user][generate_heretic_text(4)] at all costs. station loss imminent!",
+			text = "Обнаружен высокий уровень потусто[generate_heretic_text()] энергии - предотвратите её рост [generate_heretic_text(4)][user][generate_heretic_text(4)] любой ценой. Возможна потеря станции!",
 			title = generate_heretic_text(),
 			sound = "sound/music/antag/bloodcult/bloodcult_halos.ogg",
 			color_override = "purple",
 		)
-

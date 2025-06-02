@@ -29,6 +29,7 @@
 
 /obj/structure/closet/crate/changeling_zombie/PopulateContents()
 	new /obj/item/reagent_containers/cup/glass/changeling_zombie_virus(src)
+	new /obj/item/reagent_containers/cup/glass/changeling_zombie_virus/empty(src)
 	var/obj/item/reagent_containers/cup/glass/changeling_zombie_virus/empty/broken_one = new(src)
 	broken_one.smash(src.loc,null,FALSE,TRUE)
 
@@ -41,6 +42,4 @@
 	new /obj/item/paper/fluff/shuttles/changeling_zombie_instructions(src)
 	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
 	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
-
-/obj/structure/closet/crate/medical/changeling_zombie_cure/populate_contents_immediate() //This has no reason to exist other than to satisfy linters.
 	new /obj/item/gun/ballistic/shotgun/lethal(src)

@@ -85,7 +85,7 @@
 	data["revision"] = GLOB.revdata.commit
 	data["revision_date"] = GLOB.revdata.date
 
-	data["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
+	data["round_duration"] = world.time - SSticker.round_start_time
 
 	statuscode = 200
 	response = "Status retrieved"

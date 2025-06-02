@@ -53,8 +53,9 @@
 	chassis.update_move_speed()
 
 /obj/item/mecha_parts/mecha_equipment/armor/detach(atom/moveto)
+	var/obj/vehicle/sealed/mecha/old_mecha = chassis
 	. = ..()
-	chassis.update_move_speed()
+	old_mecha.update_move_speed()
 
 /obj/item/mecha_parts/mecha_equipment/armor/roundstart
 	max_armor_integrity = 100
