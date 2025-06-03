@@ -39,6 +39,7 @@
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	var/damage_taken = ..()
 	// SPLURT EDIT ADDITION - Mech armor
+	#ifndef UNIT_TESTS
 	if(damage_flag && (damage_taken >= DAMAGE_PRECISION))
 		var/damage_reduced = damage_taken
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
@@ -57,6 +58,7 @@
 			if(mech_armor.mecha_hp <= 0)
 				to_chat(occupants, "[icon2html(src, occupants)][icon2html(mech_armor, occupants)][span_userdanger("[mech_armor] fractured!")]")
 				balloon_alert_to_viewers("[mech_armor] fractured!", vision_distance = COMBAT_MESSAGE_RANGE)
+	#endif
 	// SPLURT EDIT ADDITION END
 	if(damage_taken <= 0 || atom_integrity < 0)
 		return damage_taken

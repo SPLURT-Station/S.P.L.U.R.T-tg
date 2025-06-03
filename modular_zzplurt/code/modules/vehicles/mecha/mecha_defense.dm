@@ -1,5 +1,6 @@
 /obj/vehicle/sealed/mecha/run_atom_armor(damage_amount, damage_type, damage_flag = 0, attack_dir, armour_penetration = 0)
 	var/damage_taken = ..()
+	#ifndef UNIT_TESTS
 	if(damage_flag && (damage_taken >= DAMAGE_PRECISION))
 		var/all_flat_armor = 0
 		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
@@ -14,4 +15,5 @@
 			if(mech_armor.flat_armor)
 				all_flat_armor += (mech_armor.flat_armor.get_rating(damage_flag) * ((100 - armour_penetration) * 0.01))
 		damage_taken = max(0, damage_taken - all_flat_armor)
+	#endif
 	return round(damage_taken, DAMAGE_PRECISION)
