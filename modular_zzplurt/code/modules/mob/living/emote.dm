@@ -74,6 +74,7 @@
 /datum/emote/living/fart/get_sound(mob/living/user)
 	return pick(GLOB.brap_noises)
 
+/*
 /datum/emote/living/speen
 	key = "speen"
 	key_third_person ="speens"
@@ -94,7 +95,7 @@
 		return
 	if(!iscarbon(user))
 		return
-
+*/
 
 /datum/emote/living/burp/get_sound(mob/living/user)
 	. = ..()
@@ -137,6 +138,7 @@
 	specific_emote_audio_cooldown = 0.3 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
+/*
 /datum/emote/living/monkeytwerk
 	key = "twerk"
 	key_third_person = "twerks"
@@ -163,7 +165,6 @@
 	specific_emote_audio_cooldown = 0.9 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
-/*
 /datum/emote/living/bababooey/run_emote(mob/user, params)
 	// Check if user is muzzled
 	if(user.is_muzzled())
@@ -177,7 +178,6 @@
 
 	// Return normally
 	. = ..()
-*/
 
 /datum/emote/living/babafooey
 	key = "babafooey"
@@ -197,7 +197,6 @@
 	specific_emote_audio_cooldown = 0.7 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
-/*
 /datum/emote/living/fafafooey/run_emote(mob/user, params)
 	// Check if user is muzzled
 	if(user.is_muzzled())
@@ -211,7 +210,6 @@
 
 	// Return normally
 	. = ..()
-*/
 
 /datum/emote/living/fafafoggy
 	key = "fafafoggy"
@@ -222,7 +220,6 @@
 	specific_emote_audio_cooldown = 0.9 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
-/*
 /datum/emote/living/fafafoggy/run_emote(mob/user, params)
 	// Check if user is muzzled
 	if(user.is_muzzled())
@@ -236,7 +233,6 @@
 
 	// Return normally
 	. = ..()
-*/
 
 /datum/emote/living/hohohoy
 	key = "hohohoy"
@@ -481,6 +477,7 @@
 	sound = 'modular_zzplurt/sound/voice/agony.ogg'
 	specific_emote_audio_cooldown = 7 SECONDS
 	emote_type = EMOTE_AUDIBLE
+*/
 
 /datum/emote/living/wtune
 	key = "whistletune"
@@ -505,6 +502,7 @@
 	specific_emote_audio_cooldown = 0.78 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
+/*
 /datum/emote/living/terror
 	key = "terror"
 	key_third_person = "terrors"
@@ -561,6 +559,7 @@
 	sound_volume = 100
 	sound = 'modular_zzplurt/sound/voice/orchestrahit.ogg'
 	emote_type = EMOTE_VISIBLE
+*/
 
 /datum/emote/living/weh2
 	key = "weh2"
@@ -590,6 +589,7 @@
 	specific_emote_audio_cooldown = 0.35 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
+/*
 /datum/emote/living/waa
 	key = "waa"
 	key_third_person = "waas"
@@ -598,6 +598,7 @@
 	sound = 'modular_zzplurt/sound/voice/waa.ogg'
 	specific_emote_audio_cooldown = 3.5 SECONDS
 	emote_type = EMOTE_AUDIBLE
+*/
 
 /datum/emote/living/bark2
 	key = "bark2"
@@ -652,6 +653,7 @@
 	message = "sticks their tongue for a moment. Mlem!"
 	emote_type = EMOTE_VISIBLE
 
+/*
 /datum/emote/living/snore/snore2
 	key = "snore2"
 	key_third_person = "snores2"
@@ -676,6 +678,7 @@
 
 	// Return normally
 	. = ..()
+*/
 
 /datum/emote/living/pant
 	key = "pant"
@@ -692,6 +695,7 @@
 	message = pick(pants)
 	. = ..()
 
+/*
 /datum/emote/living/yippee
 	key = "yippee"
 	key_third_person = "yippees"
@@ -735,6 +739,7 @@
 
 	// Return normally
 	. = ..()
+*/
 
 /datum/emote/living/facemetacarpus
 	key = "facehand"
@@ -774,6 +779,7 @@
 	key_third_person = "facehoofs"
 	metacarpus_type = "hoof"
 
+/*
 /datum/emote/living/poyo
 	key = "poyo"
 	key_third_person = "poyos"
@@ -1154,6 +1160,7 @@
 	sound = 'modular_zzplurt/sound/voice/canon_event.ogg'
 	cooldown = 5.0 SECONDS
 	sound_volume = 27
+*/
 
 /datum/emote/living/meow2/get_sound(mob/living/user)
 	. = ..()
@@ -1196,6 +1203,7 @@
 	cooldowns = 0.8 SECONDS
 	vary = FALSE
 
+/*
 /datum/emote/living/gay
 	key = "gay"
 	key_third_person = "points at a player"
@@ -1230,6 +1238,7 @@
 	sound = 'modular_zzplurt/sound/voice/gachi/ah.ogg'
 	cooldown = 0.67 SECONDS
 	sound_volume = 25
+*/
 
 /datum/emote/living/hiss
 	key = "hiss"
@@ -1251,11 +1260,13 @@
 	vary = TRUE
 	sound = 'modular_zzplurt/sound/voice/coo.ogg'
 
+/*
 /datum/emote/living/huh
 	key = "huh"
 	key_third_person = "huh's"
 	message = "seems confused."
 	sound = 'modular_zzplurt/sound/voice/huh.ogg'
+*/
 
 /datum/emote/living/whine
 	key = "whine"
@@ -1286,6 +1297,7 @@
 		return pick('modular_zzplurt/sound/voice/human_male_pain_1.ogg', 'modular_zzplurt/sound/voice/human_male_pain_2.ogg', 'modular_zzplurt/sound/voice/human_male_pain_3.ogg', 'modular_zzplurt/sound/voice/human_male_pain_rare.ogg', 'modular_zzplurt/sound/voice/human_male_scream_1.ogg', 'modular_zzplurt/sound/voice/human_male_scream_2.ogg', 'modular_zzplurt/sound/voice/human_male_scream_3.ogg', 'modular_zzplurt/sound/voice/human_male_scream_4.ogg')
 	return pick('modular_zzplurt/sound/voice/human_female_pain_1.ogg', 'modular_zzplurt/sound/voice/human_female_pain_2.ogg', 'modular_zzplurt/sound/voice/human_female_pain_3.ogg', 'modular_zzplurt/sound/voice/human_female_scream_2.ogg', 'modular_zzplurt/sound/voice/human_female_scream_3.ogg', 'modular_zzplurt/sound/voice/human_female_scream_4.ogg')
 
+/*
 /datum/emote/living/malaysia
 	key = "malaysia"
 	key_third_person = "admits to blowing up Malaysia!"
@@ -1293,3 +1305,4 @@
 	message_mime = "silently explains they blew up Malaysia!"
 	emote_type = EMOTE_AUDIBLE
 	sound = 'modular_zzplurt/sound/voice/malaysia.ogg'
+*/
