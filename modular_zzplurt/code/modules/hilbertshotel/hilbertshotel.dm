@@ -139,7 +139,9 @@
 		var/datum/map_template/ghost_cafe_rooms/room_template = SShilbertshotel.hotel_map_list[template]
 		.["hotel_map_list"] += list(list(
 			"name" = room_template.name,
-			"category" = room_template.category || "Misc"
+			"category" = room_template.category || "Misc",
+			"donator_tier" = istype(room_template) ? room_template.donator_tier : DONATOR_TIER_NONE,
+			"ckeywhitelist" = istype(room_template) ? room_template.ckeywhitelist : list()
 		))
 
 /obj/item/hilbertshotel/ui_data(mob/user)
@@ -148,11 +150,14 @@
 	if(!SShilbertshotel.user_data[user.ckey])
 		SShilbertshotel.user_data[user.ckey] = list(
 			"room_number" = 1,
-			"template" = SShilbertshotel.default_template
+			"template" = SShilbertshotel.default_template,
+			"donator_tier" = GLOB.donator_list[user.ckey] || DONATOR_TIER_NONE
 		)
 
 	data["current_room"] = SShilbertshotel.user_data[user.ckey]["room_number"]
 	data["selected_template"] = SShilbertshotel.user_data[user.ckey]["template"]
+	data["user_donator_tier"] = SShilbertshotel.user_data[user.ckey]["donator_tier"]
+	data["user_ckey"] = user.ckey
 
 	data["active_rooms"] = list()
 	for(var/room_number in SShilbertshotel.room_data)

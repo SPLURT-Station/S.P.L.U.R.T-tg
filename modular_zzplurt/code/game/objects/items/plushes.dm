@@ -76,3 +76,45 @@
 	icon_state = "artificer_kobold"
 	worn_icon_state = "artificer_kobold"
 	squeak_override = list('modular_zubbers/code/modules/emotes/sound/voice/yip.ogg' = 1)
+
+/obj/item/toy/plush/mossy
+	name = "Ethereal Skulldog Plushie"
+	desc = "It's a marketable plushie of our glorious leader, There seems to be some extra padding on the rear area..."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "plushie_mossy"
+	worn_icon_state = "plushie_mossy"
+	attack_verb_simple = list("lick", "nuzzle", "hump", "bark")
+	attack_verb_continuous = list("licks", "nuzzles", "humps", "barks")
+	squeak_override = list('modular_zzplurt/sound/voice/bork.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark1.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
+
+/obj/item/toy/plush/panic
+	name = "Tired Raccoon Plushie"
+	desc = "He doesn't want to be here. Tired, exhausted, and hailing from maints. \
+		The plushie has a camcorder stuck in it's stuffing... You can't take it out."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "plushie_panic"
+	worn_icon_state = "plushie_panic"
+	attack_verb_simple = list("record", "clip", "examine")
+	attack_verb_continuous = list("records", "clips", "examines")
+	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/wurble.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/warbles.ogg' = 10)
+
+/obj/item/toy/plush/tree_ferret
+	name = "Tree Ferret Plushie"
+	desc = "This plush will always put on a smile to make your day as bright as the sun. \
+		Hugging him makes you feel warm and fuzzy. Comes with plush chemical vials to fix your non emotional traumas too!"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "plushie_sels"
+	worn_icon_state = "plushie_sels"
+	attack_verb_simple = list("hug", "cackle at", "health analyze")
+	attack_verb_continuous = list("hugs", "cackles at", "health analyzes")
+	squeak_override = list('sound/effects/bush/crunchybushwhack1.ogg' = 1)
+
+/obj/item/toy/plush/plush_bro
+	name = "Homeboy Plush"
+	desc = "A rosey-colored bro. A depiction of an absolute homeboy, This fox figurine sports massive boots, a big tail, and it's own eyepatch!"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "plush_bro"
+	worn_icon_state = "plush_bro"
+	attack_verb_simple = list("beast")
+	attack_verb_continuous = list("beasts")
+	squeak_override = list('modular_zzplurt/sound/voice/gachi/woop.ogg' = 1)

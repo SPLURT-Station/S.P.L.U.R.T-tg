@@ -62,6 +62,13 @@
 	update_icon()
 	START_PROCESSING(SSobj, src)
 
+/obj/item/storage/box/bluespace/Destroy(force)
+	if(origin_controller)
+		var/obj/machinery/room_controller/controller = origin_controller.resolve()
+		if(controller)
+			controller.bluespace_box = null
+	. = ..()
+
 /obj/item/storage/box/bluespace/process()
 	if(!creation_area)
 		return
