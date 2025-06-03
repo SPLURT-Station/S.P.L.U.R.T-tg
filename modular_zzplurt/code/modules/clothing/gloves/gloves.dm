@@ -22,9 +22,10 @@
 /obj/item/clothing/gloves/polymaid
 	name = "polychromic maid gloves"
 	desc = "Colourable maid gloves!"
-	icon = 'modular_zzplurt/icons/obj/clothing/gloves.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hands.dmi'
-	icon_state = "maid_arms"
+	icon_state = "/obj/item/clothing/gloves/polymaid"
+	post_init_icon_state = "maid_arms"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_config = /datum/greyscale_config/maid_arms
 	greyscale_config_worn = /datum/greyscale_config/maid_arms/worn

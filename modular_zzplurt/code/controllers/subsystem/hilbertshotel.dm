@@ -245,7 +245,17 @@ SUBSYSTEM_DEF(hilbertshotel)
 	if(lore_room_spawned && room_number == mysteryRoom)
 		load_from = hotel_room_template_lore
 	else if(template in hotel_map_list)
-		load_from = hotel_map_list[template]
+		var/datum/map_template/ghost_cafe_rooms/room_template = hotel_map_list[template]
+		if(!istype(room_template)) // Default hilbert's hotel room
+			load_from = room_template
+		else if(GLOB.donator_list[user.ckey] < room_template.donator_tier)
+			to_chat(user, span_warning("Tier [room_template.donator_tier] donator access required to use [room_template.name]."))
+			return
+		else if(LAZYLEN(room_template.ckeywhitelist) && !(room_template.ckeywhitelist.Find(user.ckey)))
+			to_chat(user, span_warning("You are not whitelisted to use [room_template.name]."))
+			return
+		else
+			load_from = room_template
 	else
 		to_chat(user, span_warning("You are washed over by a wave of heat as the sphere violently wiggles. You wonder if you did something wrong..."))
 		return

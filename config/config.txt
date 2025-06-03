@@ -18,6 +18,7 @@ $include map_vote.txt
 $include splurt/discord.txt
 $include splurt/fetish_content.txt
 $include splurt/game_options.txt
+$include splurt/age_gate.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
@@ -663,3 +664,7 @@ TGUI_MAX_CHUNK_COUNT 32
 
 ## Uncomment and replace with the URL where users can verify their byond accounts
 #FORUM_LINK_URI
+
+## While this is uncommented, server initialization will include some asset generation usually useful for development.
+## It increases initialization time significantly so you'll want to disable this in live environments.
+GENERATE_ASSETS_IN_INIT
