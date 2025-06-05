@@ -4,7 +4,7 @@
 	More combat-focused and frequent events than the Default, but stays ordered to avoid creating a hellshift, unlike the Clown."
 	welcome_text = "Welcome to the Gamer storyteller. Now with 50% more ahelps!"
 
-	track_data = /datum/storyteller_data/tracks/gamer
+	track_data = /datum/storyteller_data/tracks/heavy
 
 	tag_multipliers = list(
 		TAG_COMBAT = 1.5,
