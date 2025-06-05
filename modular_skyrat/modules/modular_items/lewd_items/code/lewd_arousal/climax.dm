@@ -9,6 +9,7 @@
 #define CLIMAX_ON_FLOOR "On the floor"
 #define CLIMAX_IN_OR_ON "Climax in or on someone"
 #define CLIMAX_OPEN_CONTAINER "Fill reagent container"
+#define CLIMAX_PORTAL "Through the portal"
 
 /mob/living/proc/climax(manual = TRUE, mob/living/partner = null, datum/interaction/climax_interaction = null, interaction_position = null) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 	if (CONFIG_GET(flag/disable_erp_preferences))
@@ -98,7 +99,13 @@
 			if(interactable_inrange_open_containers.len)
 				buttons += CLIMAX_OPEN_CONTAINER
 
+			// If your using a LustWish portal lets you cum through it
+			var/obj/structure/lewd_portal/portal = src.buckled
+			if(istype(portal, /obj/structure/lewd_portal))
+				buttons += CLIMAX_PORTAL
+
 			var/penis_climax_choice = climax_interaction && !manual ? CLIMAX_IN_OR_ON : tgui_alert(src, "Choose where to shoot your load.", "Load preference!", buttons) //SPLURT EDIT CHANGE - Interactions
+
 			var/create_cum_decal = FALSE
 
 			if(!penis_climax_choice || penis_climax_choice == CLIMAX_ON_FLOOR)
@@ -140,6 +147,11 @@
 						create_cum_decal = TRUE
 						visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
 							span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+
+			else if(penis_climax_choice == CLIMAX_PORTAL)
+				to_chat(src, "You shoot string after string of hot cum, hitting whatever is on the other side!")
+				portal.relayed_body.visible_message("[portal.relayed_body] shoots its sticky load onto the floor!")
+				add_cum_splatter_floor(get_turf(portal.relayed_body))
 
 			else
 				target_choice = climax_interaction && !manual ? partner?.name : tgui_input_list(src, "Choose a person to cum in or on.", "Choose target!", interactable_inrange_mobs) //SPLURT EDIT CHANGE - Interactions
@@ -188,7 +200,7 @@
 					else
 						climax_into_choice = "On [target_mob_them]"
 
-					if(climax_interaction && !manual && climax_interaction.show_climax(src, target_mob, interaction_position))
+					if(climax_interaction && !manual && climax_interaction.show_climax(src, target_mob, interaction_position, portal)) //I think gloryhole portals could be way less snowflakey
 						create_cum_decal = !interaction_inside
 					else if(!climax_into_choice)
 					//SPLURT EDIT CHANGE END
@@ -425,3 +437,4 @@
 #undef CLIMAX_ON_FLOOR
 #undef CLIMAX_IN_OR_ON
 #undef CLIMAX_OPEN_CONTAINER
+#undef CLIMAX_PORTAL
