@@ -7370,6 +7370,17 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
+"czd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	filter_type = list(/datum/gas/nitrogen);
+	piping_layer = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer5,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "czq" = (
 /obj/machinery/door/poddoor/incinerator_atmos_main,
 /turf/open/floor/engine,
@@ -10671,7 +10682,6 @@
 /turf/open/floor/carpet,
 /area/station/cargo/office)
 "dGE" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/camera/directional/west{
 	c_tag = "Engineering - Supermatter Starboard";
 	network = list("ss13","engine")
@@ -16602,7 +16612,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "fJq" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical,
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	filter_type = list(/datum/gas/nitrogen)
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer5,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "fJu" = (
@@ -18244,6 +18260,13 @@
 /obj/structure/floodlight_frame,
 /turf/open/floor/engine/hull,
 /area/station/asteroid)
+"gkf" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer4,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "gkC" = (
 /obj/structure/table,
 /obj/item/surgical_drapes,
@@ -21302,6 +21325,11 @@
 /obj/structure/flora/rock/style_random,
 /turf/open/floor/grass,
 /area/station/biodome/aft)
+"hnD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/meter,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "hoa" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -26633,9 +26661,18 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood/large,
 /area/station/service/theater)
+"jls" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer2,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "jlt" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/fore/greater)
+"jlx" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/general/visible,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "jly" = (
 /obj/machinery/disposal/delivery_chute{
 	dir = 4
@@ -30706,6 +30743,14 @@
 /obj/structure/sign/xenobio_guide/directional/east,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
+"kEr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer5,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "kEu" = (
 /obj/effect/decal/cleanable/robot_debris/down,
 /turf/open/floor/plating,
@@ -30766,6 +30811,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/science/cytology)
+"kFs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer2,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "kFt" = (
 /obj/structure/sign/warning/gas_mask,
 /turf/closed/wall,
@@ -31396,13 +31447,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/black,
 /area/station/security/prison)
-"kPl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "kPB" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/iron,
@@ -31833,6 +31877,17 @@
 /obj/machinery/telecomms/bus/preset_four,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
+"kWQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	filter_type = list(/datum/gas/nitrogen);
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "kXn" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/table,
@@ -35436,7 +35491,6 @@
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "meW" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -35732,7 +35786,6 @@
 "mjV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/meter,
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "mkb" = (
@@ -35807,6 +35860,17 @@
 /obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/science/breakroom)
+"mkT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
+	filter_type = list(/datum/gas/nitrogen);
+	piping_layer = 2
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer5,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "mkZ" = (
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
@@ -47867,6 +47931,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/black,
 /area/station/security/prison)
+"qsf" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible/layer1,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "qsh" = (
 /turf/open/floor/wood/large,
 /area/station/biodome)
@@ -59105,9 +59173,14 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/qm)
 "ulI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	filter_type = list(/datum/gas/nitrogen)
+	filter_type = list(/datum/gas/nitrogen);
+	piping_layer = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer5,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "ulJ" = (
@@ -64445,7 +64518,6 @@
 /area/station/hallway/primary/central)
 "wfH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/obj/machinery/meter,
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -65205,12 +65277,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
-"wpi" = (
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "wpr" = (
 /obj/effect/spawner/random/trash/botanical_waste,
 /turf/open/floor/plating,
@@ -109433,13 +109499,13 @@ lCT
 ict
 jNJ
 mjV
-kPl
+gjj
 meW
-kPl
+gjj
 dGE
-kPl
-kPl
-kPl
+gjj
+gjj
+gjj
 meW
 gjj
 isp
@@ -109689,15 +109755,15 @@ siV
 wIa
 ric
 bGq
-wpi
 vlo
-gXp
 vlo
-gXp
-gXp
 vlo
-gXp
-vlo
+jlx
+kEr
+gkf
+kFs
+jls
+qsf
 gXp
 wqN
 tgU
@@ -109947,15 +110013,15 @@ qUH
 qUH
 cXZ
 wfH
+tIc
+hnD
+jlx
+kWQ
+czd
 fJq
-tIc
-fJq
-tIc
-tIc
-fJq
-tIc
+mkT
 ulI
-wqN
+jlx
 pMw
 eEK
 eHk
