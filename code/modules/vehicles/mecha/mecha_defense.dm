@@ -37,34 +37,29 @@
 		playsound(src, gear.destroy_sound, 50)
 
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
-	//splurt edit start -- Mecha additions, better armor
-#ifndef UNIT_TESTS //hack to make unit tests work, please fix it better at the earliest convenience
-	var/armor_damage_amount
-	if(equip_by_category[MECHA_ARMOR])
-		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in flat_equipment)
-			if(!mech_armor.armor_operational)
-				continue
-			armor_damage_amount = run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
-			/*ARMOR EXTRA INTEGRITY
-			This allows the armor plates to soak up the damage from incoming hits. Uses inherent hull armor values.
-			*/
-			if(mech_armor.armor_integrity > armor_damage_amount)
-				mech_armor.armor_integrity -= armor_damage_amount
-				armor_damage_amount = 0
-				playsound(src, 'sound/effects/bang.ogg', 10, TRUE)
-				return
-
-			else
-				armor_damage_amount -= mech_armor.armor_integrity
-				mech_armor.armor_operational = FALSE
-				qdel(mech_armor)
-
-	var/damage_taken = armor_damage_amount | ..()
-#else
 	var/damage_taken = ..()
-#endif
-	//splurt edit end -- Mecha additions, better armor
-
+	// SPLURT EDIT ADDITION - Mech armor
+	#ifndef UNIT_TESTS
+	if(damage_flag && (damage_taken >= DAMAGE_PRECISION))
+		var/damage_reduced = damage_taken
+		for(var/obj/item/mecha_parts/mecha_equipment/armor/mech_armor in equip_by_category[MECHA_ARMOR])
+			if(damage_reduced < DAMAGE_PRECISION)
+				break
+			if(isnull(mech_armor.max_mecha_hp) || (mech_armor.mecha_hp <= 0))
+				continue
+			var/datum/armor/armor_mod_datum
+			if(mech_armor.armor_mod)
+				armor_mod_datum = get_armor_by_type(mech_armor.armor_mod)
+			if(!mech_armor.flat_armor?.get_rating(damage_flag) && !armor_mod_datum?.get_rating(damage_flag))
+				continue
+			var/old_hp = mech_armor.mecha_hp
+			mech_armor.mecha_hp = round(max(0, mech_armor.mecha_hp - damage_reduced), DAMAGE_PRECISION)
+			damage_reduced -= (old_hp - mech_armor.mecha_hp)
+			if(mech_armor.mecha_hp <= 0)
+				to_chat(occupants, "[icon2html(src, occupants)][icon2html(mech_armor, occupants)][span_userdanger("[mech_armor] fractured!")]")
+				balloon_alert_to_viewers("[mech_armor] fractured!", vision_distance = COMBAT_MESSAGE_RANGE)
+	#endif
+	// SPLURT EDIT ADDITION END
 	if(damage_taken <= 0 || atom_integrity < 0)
 		return damage_taken
 
