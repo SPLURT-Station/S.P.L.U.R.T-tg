@@ -134,6 +134,16 @@
 	ckeywhitelist = list("drarielpro")
 	category = GHC_SPECIAL
 
+/datum/map_template/ghost_cafe_rooms/apartment_dragonslair
+	name = "Dragon Cave Lair"
+	mappath = "_maps/splurt/templates/apartment_dragonslair.dmm"
+	category = GHC_MISC
+
+/datum/map_template/ghost_cafe_rooms/apartment_fortuneteller
+	name = "Arcane Library"
+	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
+	category = GHC_MISC
+
 #undef GHC_MISC
 #undef GHC_APARTMENT
 #undef GHC_BEACH
