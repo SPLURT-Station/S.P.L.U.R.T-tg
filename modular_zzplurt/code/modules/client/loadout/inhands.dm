@@ -128,11 +128,6 @@
 	item_path = /obj/item/clothing/strapon
 
 //
-/datum/loadout_item/pocket_items/plushbox
-	name = "Plushie Choice Box"
-	item_path = /obj/item/choice_beacon/box/plushie
-
-//
 /datum/loadout_item/pocket_items/bone
 	name = "Polychromic Bone"
 	item_path = /obj/item/toy/fluff/bone_greyscale
