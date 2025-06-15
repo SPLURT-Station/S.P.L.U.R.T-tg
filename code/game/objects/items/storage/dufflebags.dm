@@ -22,7 +22,6 @@
 
 /obj/item/storage/backpack/duffelbag/Initialize(mapload)
 	. = ..()
-	slowdown += zip_slowdown
 	set_zipper(TRUE)
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_speed_potioned))
 

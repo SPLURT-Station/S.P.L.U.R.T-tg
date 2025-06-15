@@ -93,6 +93,7 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
+  species_whitelist: Record<string, string>[]; // BUBBER EDIT ADDITION - Species quirks
 };
 
 // SKYRAT EDIT START

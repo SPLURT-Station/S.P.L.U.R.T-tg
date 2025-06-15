@@ -415,7 +415,7 @@
 	id = "c10mm_rihdf"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 15)
-	build_path = /obj/item/ammo_box/c10mm/speedloader/ihdf
+	build_path = /obj/item/ammo_box/c10mm/speedloader
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)

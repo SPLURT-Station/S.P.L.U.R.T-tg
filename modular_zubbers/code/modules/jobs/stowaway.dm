@@ -53,4 +53,7 @@
 	blacklisted_stations = list("Runtime Station", "MultiZ Debug", "Gateway Test")
 	amount_to_spawn = 5
 	desired_atom = /obj/effect/landmark/start/stowaway
-	target_areas = list(/area/station/hallway/secondary/entry, /area/station/terminal/interlink)
+
+/datum/area_spawn/stowaway_landmark/New()
+	. = ..()
+	target_areas = shuffle(typesof(/area/station/maintenance/fore) | typesof(/area/station/maintenance/aft) | typesof(/area/station/maintenance/port) | typesof(/area/station/maintenance/starboard))

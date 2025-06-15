@@ -95,8 +95,3 @@
 	icon = 'modular_zubbers/icons/customization/hair.dmi'
 	name = "Slime Tendrils - Bangs"
 	icon_state = "hair_slimetendrils_bangs"
-
-/datum/sprite_accessory/hair/fluffball
-	icon = 'modular_zubbers/icons/customization/hair.dmi'
-	name = "Fluffball"
-	icon_state = "hair_fluffball"
