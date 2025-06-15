@@ -1,9 +1,3 @@
-GLOBAL_LIST_INIT(armorbreakprogression, list(/datum/status_effect/armorbreak,
-	/datum/status_effect/armorbreak/crack,
-	/datum/status_effect/armorbreak/bbreak,
-	/datum/status_effect/armorbreak/shatter
-))
-
 /datum/element/armorbreaking
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
@@ -36,7 +30,8 @@ GLOBAL_LIST_INIT(armorbreakprogression, list(/datum/status_effect/armorbreak,
 		return
 
 	if(stackhit && target.has_status_effect(/datum/status_effect/armorbreak))
-		target.apply_status_effect(stackstep(GLOB.armorbreakprogression[target.has_status_effect(/datum/status_effect/armorbreak).stackID]))
+		var/datum/status_effect/armorbreak/targetedbreak = stackstep(get_armorbreak_progression()[target.has_status_effect(/datum/status_effect/armorbreak)])
+		target.apply_status_effect(targetedbreak.stackID)
 		return
 
 	switch(breaking_strength)
@@ -50,4 +45,13 @@ GLOBAL_LIST_INIT(armorbreakprogression, list(/datum/status_effect/armorbreak,
 			target.apply_status_effect(/datum/status_effect/armorbreak/shatter)
 
 /datum/element/armorbreaking/proc/stackstep(inputbreak = 1)
-	return GLOB.armorbreakprogression[clamp(inputbreak + breaking_strength, 1, 4)]
+	return get_armorbreak_progression()[clamp(inputbreak + breaking_strength, 1, 4)]
+
+/datum/element/armorbreaking/proc/get_armorbreak_progression()
+	var/static/list/armorbreak_progression = list(
+		/datum/status_effect/armorbreak,
+		/datum/status_effect/armorbreak/crack,
+		/datum/status_effect/armorbreak/bbreak,
+		/datum/status_effect/armorbreak/shatter
+	)
+	return armorbreak_progression

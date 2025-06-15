@@ -51,7 +51,7 @@
 	icon_state = "armorshatter" // WIP.
 
 /datum/status_effect/armorbreak/on_apply()
-	to_chat(owner, span_userdanger("Your armor's effectiveness has been reduced!"))
+	to_chat(owner, span_userdanger("Your defenses's effectiveness has been reduced!"))
 	var/mob/living/carbon/human/carbon_owner = owner
 	carbon_owner.physiology.damage_resistance -= breaking_strength
 	if(breaking_strength > 30) // AKA: Break or shatter causes excessive bleeding.
