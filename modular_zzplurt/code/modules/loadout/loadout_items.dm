@@ -30,7 +30,8 @@
 /datum/loadout_item/on_equip_item(obj/item/equipped_item, datum/preferences/preference_source, list/preference_list, mob/living/carbon/human/equipper, visuals_only)
 	. = ..()
 
-	ASSERT(!isnull(equipped_item))
+	if(isnull(equipped_item))
+		return NONE
 
 	var/list/item_details = preference_list[item_path]
 

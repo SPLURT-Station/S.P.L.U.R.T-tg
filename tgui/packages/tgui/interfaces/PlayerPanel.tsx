@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -11,6 +11,7 @@ import {
   NumberInput,
   Section,
   Slider,
+  Stack,
   Tabs,
   Tooltip,
 } from 'tgui-core/components';
@@ -26,6 +27,7 @@ type Data = {
   client_rank: string;
   ranks: string;
   last_ckey: string;
+  discord_id: string;
   playtimes_enabled: boolean;
   playtime: string;
   godmode: boolean;
@@ -39,6 +41,9 @@ type Data = {
   data_account_join_date: string;
   data_byond_version: string;
   data_old_names: string;
+  mob_speed: number;
+  mob_status_flags: number;
+  current_faction: string[];
 
   glob_mute_bits: {
     name: string;
@@ -48,6 +53,12 @@ type Data = {
   glob_limbs: {
     [key: string]: string;
   };
+
+  glob_status_flags: {
+    [key: string]: number;
+  };
+
+  glob_factions: string[];
 
   transformables: {
     name: string;
@@ -118,154 +129,164 @@ export const PlayerPanel = () => {
   } = data;
 
   return (
-    <Window title={`${mob_name} Player Panel`} width={650} height={500}>
-      <Window.Content scrollable>
-        <Section>
-          <Flex>
-            <Flex.Item width="80px" color="label" align="center">
-              Name:
-            </Flex.Item>
-            <Flex.Item grow={1}>
-              <Input
-                width="100%"
-                value={mob_name}
-                onChange={(value) => act('set_name', { name: value })}
-              />
-            </Flex.Item>
-            {!!client_ckey && (
-              <Flex.Item>
-                <Box inline ml=".75rem" mr=".5rem" color="label">
-                  Rank:
-                </Box>
-                <Flex.Item inline>
-                  <Button
-                    minWidth="11rem"
-                    textAlign="center"
-                    onClick={() => act('edit_rank')}
-                  >
-                    {client_rank}
-                  </Button>
-                </Flex.Item>
-              </Flex.Item>
-            )}
-          </Flex>
-          <Flex mt={1} align="center" wrap="wrap" justify="flex-end">
-            <Flex.Item width="80px" color="label">
-              Mob Type:
-            </Flex.Item>
-            <Flex.Item grow={1} align="right">
-              {mob_type}
-            </Flex.Item>
-            <Flex.Item align="right">
-              <Button
-                minWidth="11rem"
-                textAlign="center"
-                ml=".5rem"
-                icon="window-restore"
-                onClick={() => act('access_variables')}
-              >
-                Access Variables
-              </Button>
-            </Flex.Item>
-            {!!client_ckey && (
-              <Flex.Item>
-                <Button
-                  minWidth="11rem"
-                  textAlign="center"
-                  ml=".5rem"
-                  icon="window-restore"
-                  disabled={!playtimes_enabled}
-                  onClick={() => act('access_playtimes')}
-                >
-                  {playtimes_enabled ? playtime : 'Playtimes'}
-                </Button>
-              </Flex.Item>
-            )}
-          </Flex>
-          {(!!client_ckey || !!last_ckey) && (
-            <Flex mt={1} align="center">
-              <Flex.Item width="80px" color="label">
-                {client_ckey ? 'Client:' : 'Last client:'}
-              </Flex.Item>
-              <Flex.Item tooltip grow={1}>
-                <Tooltip
-                  position="bottom"
-                  content={ranks || 'No additional ranks'}
-                >
-                  <Box
-                    inline
-                    style={{
-                      borderBottom: ranks
-                        ? '2px dotted rgba(255, 255, 255, 0.8)'
-                        : 'none',
-                    }}
-                  >
-                    {client_ckey || last_ckey}
-                  </Box>
-                </Tooltip>
-
-                {!client_ckey && !!last_ckey && (
-                  <Button
-                    ml={1}
-                    icon="magnifying-glass"
-                    tooltip="Get player's current panel"
-                    onClick={() => act('open_latest_panel')}
+    <Window title={`${mob_name} Player Panel`} width={600} height={480}>
+      <Window.Content>
+        <Stack fill vertical>
+          <Stack.Item>
+            <Section>
+              <Stack>
+                <Stack.Item width="80px" color="label">
+                  Name:
+                </Stack.Item>
+                <Stack.Item grow={1}>
+                  <Input
+                    width="100%"
+                    value={mob_name}
+                    onChange={(value) => act('set_name', { name: value })}
                   />
+                </Stack.Item>
+                {!!client_ckey && (
+                  <Stack.Item>
+                    <Box inline ml=".75rem" mr=".5rem" color="label">
+                      Rank:
+                    </Box>
+                    <Stack.Item inline>
+                      <Button
+                        minWidth="11rem"
+                        textAlign="center"
+                        onClick={() => act('edit_rank')}
+                      >
+                        {client_rank}
+                      </Button>
+                    </Stack.Item>
+                  </Stack.Item>
                 )}
-              </Flex.Item>
+              </Stack>
 
-              {!!client_ckey && (
-                <Flex.Item align="right">
+              <Stack mt={1}>
+                <Stack.Item width="80px" color="label">
+                  Mob Type:
+                </Stack.Item>
+                <Stack.Item grow={1}>{mob_type}</Stack.Item>
+                <Stack.Item>
                   <Button
                     minWidth="11rem"
                     textAlign="center"
-                    mx=".5rem"
-                    icon="comment-dots"
-                    onClick={() => act('private_message')}
+                    ml=".5rem"
+                    icon="window-restore"
+                    onClick={() => act('access_variables')}
                   >
-                    Private Message
+                    Access Variables
                   </Button>
-                  <Button
-                    minWidth="11rem"
-                    textAlign="center"
-                    icon="phone-alt"
-                    onClick={() => act('subtle_message')}
-                  >
-                    Subtle Message
-                  </Button>
-                </Flex.Item>
-              )}
-            </Flex>
-          )}
-        </Section>
-        <Flex grow>
-          <Flex.Item>
-            <Section fitted>
-              <Tabs vertical>
-                {PAGES.map((page, i) => {
-                  if (page.canAccess && !page.canAccess(data)) {
-                    return;
-                  }
-
-                  return (
-                    <Tabs.Tab
-                      key={i}
-                      color={page.color}
-                      selected={i === pageIndex}
-                      icon={page.icon}
-                      onClick={() => setPageIndex(i)}
+                </Stack.Item>
+                {!!client_ckey && (
+                  <Stack.Item>
+                    <Button
+                      minWidth="11rem"
+                      textAlign="center"
+                      ml=".5rem"
+                      icon="window-restore"
+                      disabled={!playtimes_enabled}
+                      onClick={() => act('access_playtimes')}
                     >
-                      {page.title}
-                    </Tabs.Tab>
-                  );
-                })}
-              </Tabs>
+                      {playtimes_enabled ? playtime : 'Playtimes'}
+                    </Button>
+                  </Stack.Item>
+                )}
+              </Stack>
+
+              {(!!client_ckey || !!last_ckey) && (
+                <Stack mt={1}>
+                  <Stack.Item width="80px" color="label">
+                    {client_ckey ? 'Client:' : 'Last client:'}
+                  </Stack.Item>
+                  <Stack.Item grow={1}>
+                    <Tooltip
+                      position="bottom"
+                      content={ranks || 'No additional ranks'}
+                    >
+                      <Box
+                        inline
+                        style={{
+                          borderBottom: ranks
+                            ? '2px dotted rgba(255, 255, 255, 0.8)'
+                            : 'none',
+                        }}
+                      >
+                        {client_ckey || last_ckey}
+                      </Box>
+                    </Tooltip>
+
+                    {!client_ckey && !!last_ckey && (
+                      <Button
+                        ml={1}
+                        icon="magnifying-glass"
+                        tooltip="Get player's current panel"
+                        onClick={() => act('open_latest_panel')}
+                      />
+                    )}
+                  </Stack.Item>
+
+                  {!!client_ckey && (
+                    <Stack.Item>
+                      <Button
+                        minWidth="11rem"
+                        textAlign="center"
+                        ml=".5rem"
+                        icon="comment-dots"
+                        onClick={() => act('private_message')}
+                      >
+                        Private Message
+                      </Button>
+                      <Button
+                        minWidth="11rem"
+                        textAlign="center"
+                        ml=".5rem"
+                        icon="phone-alt"
+                        onClick={() => act('subtle_message')}
+                      >
+                        Subtle Message
+                      </Button>
+                    </Stack.Item>
+                  )}
+                </Stack>
+              )}
             </Section>
-          </Flex.Item>
-          <Flex.Item grow>
-            <PageComponent />
-          </Flex.Item>
-        </Flex>
+          </Stack.Item>
+
+          <Stack.Item grow>
+            <Stack fill>
+              <Stack.Item>
+                <Section fitted>
+                  <Tabs vertical>
+                    {PAGES.map((page, i) => {
+                      if (page.canAccess && !page.canAccess(data)) {
+                        return;
+                      }
+
+                      return (
+                        <Tabs.Tab
+                          key={i}
+                          color={page.color}
+                          selected={i === pageIndex}
+                          icon={page.icon}
+                          onClick={() => setPageIndex(i)}
+                        >
+                          {page.title}
+                        </Tabs.Tab>
+                      );
+                    })}
+                  </Tabs>
+                </Section>
+              </Stack.Item>
+              <Stack.Item grow basis={0} ml={1}>
+                <Section fill scrollable>
+                  <PageComponent />
+                </Section>
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        </Stack>
       </Window.Content>
     </Window>
   );
@@ -277,7 +298,7 @@ const GeneralActions = () => {
   return (
     <Section>
       <Section title="Damage">
-        <Flex>
+        <Stack>
           <Button
             width="100%"
             icon="heart"
@@ -289,7 +310,6 @@ const GeneralActions = () => {
           </Button>
           <Button
             width="100%"
-            height="100%"
             icon="bolt"
             color="orange"
             disabled={!mob_type.includes('/mob/living/carbon/human')}
@@ -297,11 +317,11 @@ const GeneralActions = () => {
           >
             Smite
           </Button>
-        </Flex>
+        </Stack>
       </Section>
 
       <Section title="Teleportation">
-        <Flex>
+        <Stack>
           <Button.Confirm
             width="100%"
             icon="reply"
@@ -314,36 +334,16 @@ const GeneralActions = () => {
           </Button>
           <Button.Confirm
             width="100%"
-            height="100%"
             icon="share"
             onClick={() => act('jump_to')}
           >
             Jump To
           </Button.Confirm>
-        </Flex>
+        </Stack>
       </Section>
 
       <Section title="Miscellaneous">
-        <Flex>
-          <Button
-            width="100%"
-            icon="user-tie"
-            disabled={!mob_type.includes('/mob/living/carbon/human')}
-            onClick={() => act('select_equipment')}
-          >
-            Select Equipment
-          </Button>
-          <Button.Confirm
-            icon="trash-alt"
-            width="100%"
-            height="100%"
-            disabled={!mob_type.includes('/mob/living/carbon/human')}
-            onClick={() => act('strip')}
-          >
-            Drop All Items
-          </Button.Confirm>
-        </Flex>
-        <Flex>
+        <Stack>
           <Button.Confirm
             icon="snowflake"
             width="100%"
@@ -355,7 +355,6 @@ const GeneralActions = () => {
           </Button.Confirm>
           <Button.Confirm
             width="100%"
-            height="100%"
             color="orange"
             icon="undo"
             disabled={!mob_type.includes('/mob/dead/observer')}
@@ -368,10 +367,21 @@ const GeneralActions = () => {
           >
             Send To Lobby
           </Button.Confirm>
-        </Flex>
+        </Stack>
+        <Stack>
+          <Button
+            width="100%"
+            icon="user-cog"
+            disabled={!mob_type.includes('/mob/living/carbon/human')}
+            onClick={() => act('load_preferences')}
+          >
+            Load Preferences
+          </Button>
+        </Stack>
       </Section>
+
       <Section title="Control">
-        <Flex>
+        <Stack>
           <Button.Confirm
             width="100%"
             icon="ghost"
@@ -394,7 +404,6 @@ const GeneralActions = () => {
           </Button.Confirm>
           <Button.Confirm
             width="100%"
-            height="100%" // weird ass bug here, so height set to 100%
             icon="ghost"
             tooltip="Offers control to ghosts"
             disabled={!mob_type.includes('/mob/living')}
@@ -402,7 +411,7 @@ const GeneralActions = () => {
           >
             Offer Control
           </Button.Confirm>
-        </Flex>
+        </Stack>
       </Section>
     </Section>
   );
@@ -410,86 +419,63 @@ const GeneralActions = () => {
 
 const PhysicalActions = () => {
   const { act, data } = useBackend<Data>();
-  const { glob_limbs, godmode, mob_type } = data;
+  const {
+    glob_limbs,
+    glob_status_flags,
+    mob_speed,
+    mob_status_flags,
+    mob_type,
+    current_faction,
+    glob_factions,
+  } = data;
   const [mobScale, setMobScale] = useState(1);
+  const [mobSpeed, setMobSpeed] = useState(mob_speed || 0);
   const limbs = Object.keys(glob_limbs);
   const limb_flags = limbs.map((_, i) => 1 << i);
   const [delimbOption, setDelimbOption] = useState(0);
 
+  // Update local speed state when server data changes
+  React.useEffect(() => {
+    setMobSpeed(mob_speed || 0);
+  }, [mob_speed]);
+
   return (
     <Section fill>
-      <Section
-        title="Traits"
-        buttons={
-          <Button
-            icon={godmode ? 'check-square-o' : 'square-o'}
-            color={godmode ? 'green' : 'transparent'}
-            onClick={() => act('toggle_godmode')}
-          >
-            God Mode
-          </Button>
-        }
-      >
-        <Flex>
-          <Button
-            width="100%"
-            icon="paw"
-            disabled={!mob_type.includes('/mob/living/carbon/human')}
-            onClick={() => act('species')}
-          >
-            Species
-          </Button>
-          <Button
-            width="100%"
-            icon="bolt"
-            disabled={!mob_type.includes('/mob/living/carbon/human')}
-            onClick={() => act('quirk')}
-          >
-            Quirks
-          </Button>
-          <Button
-            width="100%"
-            height="100%"
-            icon="magic"
-            onClick={() => act('spell')}
-          >
-            Spells
-          </Button>
-        </Flex>
-        <Flex>
-          <Button
-            width="100%"
-            icon="fist-raised"
-            disabled={!mob_type.includes('/mob/living/carbon/human')}
-            onClick={() => act('martial_art')}
-          >
-            Martial Arts
-          </Button>
-          <Button
-            width="100%"
-            icon="lightbulb"
-            onClick={() => act('skill_panel')}
-          >
-            Skills
-          </Button>
-          <Button
-            width="100%"
-            height="100%"
-            icon="comment-dots"
-            onClick={() => act('languages')}
-          >
-            Languages
-          </Button>
-        </Flex>
+      <Section title="Status Flags">
+        <Stack wrap>
+          {Object.keys(glob_status_flags).map((flag) => {
+            let isActive;
+            if (flag === 'Godmode') {
+              isActive = data.godmode;
+            } else {
+              isActive = mob_status_flags & glob_status_flags[flag];
+            }
+            return (
+              <Button.Checkbox
+                key={flag}
+                checked={isActive}
+                color={isActive ? 'green' : 'red'}
+                onClick={() =>
+                  act('toggle_status_flag', {
+                    flag: glob_status_flags[flag],
+                    enabled: !isActive,
+                  })
+                }
+              >
+                {flag}
+              </Button.Checkbox>
+            );
+          })}
+        </Stack>
       </Section>
+
       <Section
         title="Limbs"
         buttons={
-          <Flex>
+          <Stack>
             {limbs.map((val, index) => (
               <Button.Checkbox
                 key={index}
-                height="100%"
                 checked={delimbOption & limb_flags[index]}
                 disabled={!mob_type.includes('/mob/living/carbon/human')}
                 onClick={() =>
@@ -503,10 +489,10 @@ const PhysicalActions = () => {
                 {val}
               </Button.Checkbox>
             ))}
-          </Flex>
+          </Stack>
         }
       >
-        <Flex>
+        <Stack>
           <Button.Confirm
             width="100%"
             icon="unlink"
@@ -526,7 +512,6 @@ const PhysicalActions = () => {
           </Button.Confirm>
           <Button.Confirm
             width="100%"
-            height="100%"
             icon="link"
             color="green"
             disabled={!mob_type.includes('/mob/living/carbon/human')}
@@ -541,8 +526,9 @@ const PhysicalActions = () => {
           >
             Relimb
           </Button.Confirm>
-        </Flex>
+        </Stack>
       </Section>
+
       <Section
         title="Scale"
         buttons={
@@ -557,44 +543,141 @@ const PhysicalActions = () => {
           </Button>
         }
       >
-        <Flex mt={1}>
-          <Slider
-            minValue={0.25}
-            maxValue={8}
-            value={mobScale}
-            stepPixelSize={12}
-            step={0.25}
-            onChange={(_event, value: number) => {
-              setMobScale(value);
-              act('scale', { new_scale: value });
-            }}
-            unit="x"
-          />
-        </Flex>
+        <Slider
+          minValue={0.25}
+          maxValue={8}
+          value={mobScale}
+          stepPixelSize={12}
+          step={0.25}
+          onChange={(_event, value: number) => {
+            setMobScale(value);
+            act('scale', { new_scale: value });
+          }}
+          unit="x"
+        />
       </Section>
+
+      <Section title="Speed">
+        <Tooltip
+          content="Negative values = faster, positive values = slower"
+          position="bottom"
+        >
+          <Box
+            mb={1}
+            color="label"
+            style={{
+              borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
+              display: 'inline-block',
+              cursor: 'help',
+            }}
+          >
+            Current speed: {mobSpeed}
+          </Box>
+        </Tooltip>
+        <Slider
+          minValue={-10}
+          maxValue={10}
+          value={mobSpeed}
+          stepPixelSize={6}
+          step={0.25}
+          onChange={(_event, value: number) => {
+            setMobSpeed(value);
+            act('set_speed', { speed: value });
+          }}
+          unit="Speed"
+        />
+      </Section>
+
       <Section title="Speak">
-        <Flex mt={1}>
-          <Flex.Item width="100px" color="label">
+        <Stack mt={1}>
+          <Stack.Item width="100px" color="label">
             Force Say:
-          </Flex.Item>
-          <Flex.Item grow={1}>
+          </Stack.Item>
+          <Stack.Item grow={1}>
             <Input
               width="100%"
               onEnter={(value) => act('force_say', { to_say: value })}
             />
-          </Flex.Item>
-        </Flex>
-        <Flex mt={2}>
-          <Flex.Item width="100px" color="label">
+          </Stack.Item>
+        </Stack>
+        <Stack mt={2}>
+          <Stack.Item width="100px" color="label">
             Force Emote:
-          </Flex.Item>
-          <Flex.Item grow={1}>
+          </Stack.Item>
+          <Stack.Item grow={1}>
             <Input
               width="100%"
               onEnter={(value) => act('force_emote', { to_emote: value })}
             />
-          </Flex.Item>
-        </Flex>
+          </Stack.Item>
+        </Stack>
+      </Section>
+
+      <Section title="Equipment">
+        <Stack>
+          <Button
+            width="100%"
+            icon="user-tie"
+            disabled={!mob_type.includes('/mob/living/carbon/human')}
+            onClick={() => act('select_equipment')}
+          >
+            Select Equipment
+          </Button>
+          <Button.Confirm
+            icon="trash-alt"
+            width="100%"
+            disabled={!mob_type.includes('/mob/living/carbon/human')}
+            onClick={() => act('strip')}
+          >
+            Drop All Items
+          </Button.Confirm>
+        </Stack>
+      </Section>
+
+      <Section title="Faction">
+        <Stack vertical>
+          <Stack.Item>
+            <Stack>
+              <Stack.Item width="100px" color="label">
+                Current:
+              </Stack.Item>
+              <Stack.Item grow={1}>
+                {current_faction && current_faction.length > 0 ? (
+                  <Stack wrap>
+                    {current_faction.map((faction, index) => (
+                      <Button
+                        key={index}
+                        color="orange"
+                        icon="times"
+                        tooltip="Click to remove faction"
+                        onClick={() => act('remove_faction', { faction })}
+                      >
+                        {faction}
+                      </Button>
+                    ))}
+                  </Stack>
+                ) : (
+                  <Box color="label">No factions</Box>
+                )}
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+          <Stack.Item>
+            <Stack>
+              <Stack.Item width="100px" color="label">
+                Add:
+              </Stack.Item>
+              <Stack.Item grow={1}>
+                <Dropdown
+                  width="100%"
+                  placeholder="Select faction to add"
+                  options={glob_factions}
+                  onSelected={(value) => act('add_faction', { faction: value })}
+                />
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        </Stack>
       </Section>
     </Section>
   );
@@ -650,6 +733,7 @@ const PunishmentActions = () => {
   const { act, data } = useBackend<Data>();
   const {
     client_ckey,
+    last_ckey,
     mob_type,
     is_frozen,
     is_slept,
@@ -661,25 +745,29 @@ const PunishmentActions = () => {
     data_player_join_date,
     data_account_join_date,
     data_old_names,
+    discord_id,
     current_time,
   } = data;
+
+  // Check if we have any key (current client or last known)
+  const hasAnyKey = !!(client_ckey || last_ckey);
+
   return (
     <Section>
-      <Flex>
+      <Stack>
         <Button
           width="50%"
           py=".5rem"
           icon="clipboard-list"
           color="orange"
           textAlign="center"
-          disabled={!client_ckey}
+          disabled={!hasAnyKey}
           onClick={() => act('notes')}
         >
           Notes
         </Button>
         <Button
           width="50%"
-          height="100%"
           py=".5rem"
           icon="clipboard-list"
           color="orange"
@@ -688,9 +776,9 @@ const PunishmentActions = () => {
         >
           Logs
         </Button>
-      </Flex>
+      </Stack>
       <Section title="Contain">
-        <Flex>
+        <Stack>
           <Button
             width="100%"
             color={is_frozen ? 'orange' : ''}
@@ -711,7 +799,6 @@ const PunishmentActions = () => {
           </Button>
           <Button.Confirm
             width="100%"
-            height="100%"
             icon="share"
             color="bad"
             disabled={!mob_type.includes('/mob/living')}
@@ -719,11 +806,11 @@ const PunishmentActions = () => {
           >
             Admin Prison
           </Button.Confirm>
-        </Flex>
+        </Stack>
       </Section>
 
       <Section title="Banishment">
-        <Flex>
+        <Stack>
           <Button.Confirm
             width="100%"
             icon="ban"
@@ -737,22 +824,21 @@ const PunishmentActions = () => {
             width="100%"
             icon="gavel"
             color="red"
-            disabled={!client_ckey}
+            disabled={!hasAnyKey}
             onClick={() => act('ban')}
           >
             Ban
           </Button>
           <Button.Confirm
             width="100%"
-            height="100%"
             icon="gavel"
             color="red"
-            disabled={!client_ckey}
+            disabled={!hasAnyKey}
             onClick={() => act('sticky_ban')}
           >
             Sticky Ban
           </Button.Confirm>
-        </Flex>
+        </Stack>
       </Section>
 
       <Section
@@ -778,14 +864,13 @@ const PunishmentActions = () => {
           </>
         }
       >
-        <Flex>
+        <Stack>
           {glob_mute_bits.map((bit, i) => {
             const isMuted = client_muted && client_muted & bit.bitflag;
             return (
               <Button
                 key={i}
                 width="100%"
-                height="100%"
                 icon={isMuted ? 'check-square-o' : 'square-o'}
                 color={isMuted ? 'bad' : ''}
                 disabled={!client_ckey}
@@ -801,15 +886,15 @@ const PunishmentActions = () => {
               </Button>
             );
           })}
-        </Flex>
+        </Stack>
       </Section>
       <Section
         title="Investigate"
         buttons={
-          <Flex>
-            <Flex.Item align="center" mr=".5rem" color="label">
+          <Stack>
+            <Stack.Item align="center" mr=".5rem" color="label">
               Related accounts by:
-            </Flex.Item>
+            </Stack.Item>
             <Button
               minWidth="5rem"
               color="orange"
@@ -822,7 +907,6 @@ const PunishmentActions = () => {
             </Button>
             <Button
               minWidth="5rem"
-              height="100%"
               color="orange"
               textAlign="center"
               disabled={!data_related_ip}
@@ -830,7 +914,7 @@ const PunishmentActions = () => {
             >
               IP
             </Button>
-          </Flex>
+          </Stack>
         }
       >
         <Collapsible width="100%" color="orange" title="Details">
@@ -849,6 +933,30 @@ const PunishmentActions = () => {
             </LabeledList.Item>
             <LabeledList.Item label="Old names">
               {data_old_names}
+            </LabeledList.Item>
+            <LabeledList.Item label="Discord">
+              {discord_id &&
+              discord_id !== 'Not found' &&
+              discord_id !== 'Database error' &&
+              discord_id !== 'No ckey found' ? (
+                <Box color="good">{'<@' + discord_id + '>'}</Box>
+              ) : discord_id === 'Not found' ? (
+                <Box color="bad">No Discord ID found</Box>
+              ) : discord_id === 'Database error' ? (
+                <Box color="bad">Database error</Box>
+              ) : discord_id === 'No ckey found' ? (
+                <Box color="bad">No ckey found</Box>
+              ) : (
+                <Button
+                  icon="discord"
+                  color="purple"
+                  compact
+                  disabled={!hasAnyKey}
+                  onClick={() => act('show_discord_id')}
+                >
+                  Get ID
+                </Button>
+              )}
             </LabeledList.Item>
           </LabeledList>
         </Collapsible>
@@ -1149,6 +1257,16 @@ const OtherActions = () => {
           onClick={() => act('apply_client_quirks')}
         >
           Apply Client Quirks
+        </Button>
+        <Button
+          width="100%"
+          p=".5rem"
+          mb=".5rem"
+          textAlign="center"
+          disabled={!mob_type.includes('/mob/living/silicon/robot')}
+          onClick={() => act('borg_panel')}
+        >
+          Borg Panel
         </Button>
       </Section>
     </Section>
