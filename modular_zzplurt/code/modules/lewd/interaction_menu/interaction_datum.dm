@@ -247,7 +247,14 @@
 				playsound(target, 'sound/items/bikehorn.ogg', 40, TRUE, -1)
 
 // Called when either the user or target is cumming from the interaction, makes the interaction text
-/datum/interaction/proc/show_climax(mob/living/cumming, mob/living/came_in, position)
+/datum/interaction/proc/show_climax(mob/living/cumming, mob/living/came_in, position, obj/structure/lewd_portal/body_relay = null)
+	// Support for gloryhole portals
+	if(istype(body_relay, /obj/structure/lewd_portal))
+		to_chat(cumming, "You shoot string after string of hot cum, hitting whatever is on the other side!")
+		body_relay.relayed_body.visible_message("[body_relay.relayed_body] shoots its sticky load onto the floor!")
+		cumming.add_cum_splatter_floor(get_turf(body_relay.relayed_body))
+		return TRUE
+
 	var/override_check = length(cum_message_text_overrides[position]) && length(cum_self_text_overrides[position]) && (length(cum_partner_text_overrides[position]) || cumming == came_in)
 	if(!override_check)
 		return FALSE
