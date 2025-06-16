@@ -54,7 +54,7 @@ type UserData = {
 enum VoteSystem {
   VOTE_SINGLE = 1,
   VOTE_MULTI = 2,
-  VOTE_RANKED = 3, // SPLURT EDIT ADDITION - Ranked Choice Voting
+  VOTE_RANKED = 3, // BUBBER EDIT ADDITION - Ranked Choice Voting
 }
 
 type Data = {
@@ -316,7 +316,8 @@ const ChoicesPanel = (props) => {
                   }
                 >
                   {user.multiSelection &&
-                  user.multiSelection[user.ckey.concat(choice.name)] === 1 ? (
+                  // BUBBER EDIT CHANGE - Original: [user.ckey.concat(choice.name)]
+                  user.multiSelection[`${user.ckey}_${choice.name}`] === 1 ? (
                     <Icon align="right" mr={2} color="blue" name="vote-yea" />
                   ) : null}
                   {
@@ -330,7 +331,7 @@ const ChoicesPanel = (props) => {
             ))}
           </LabeledList>
         ) : null}
-        {/* SPLURT EDIT ADDITION - Ranked Choice Voting */}
+        {/* BUBBER EDIT ADDITION - Ranked Choice Voting */}
         {currentVote && currentVote.countMethod === VoteSystem.VOTE_RANKED ? (
           <NoticeBox success>
             Click options to rank them in order of preference. Click again to
@@ -454,7 +455,7 @@ const ChoicesPanel = (props) => {
               })}
           </LabeledList>
         ) : null}
-        {/* SPLURT EDIT ADDITION - End */}
+        {/* BUBBER EDIT ADDITION END */}
         {currentVote ? null : <NoticeBox>No vote active!</NoticeBox>}
       </Section>
     </Stack.Item>
