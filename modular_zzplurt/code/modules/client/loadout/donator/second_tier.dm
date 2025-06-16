@@ -34,3 +34,8 @@
 	item_path = /obj/item/clothing/mask/chameleon
 	donator_tier = DONATOR_TIER_2
 */
+
+/datum/loadout_item/inhand/donator/backpack/plushie
+	name = "Choice Box (plushie)"
+	item_path = /obj/item/choice_beacon/box/plushie
+	donator_tier = DONATOR_TIER_2

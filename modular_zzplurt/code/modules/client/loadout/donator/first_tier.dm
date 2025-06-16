@@ -21,11 +21,6 @@
 	item_path = /obj/item/reagent_containers/hypospray/medipen/penisgrowth
 	donator_tier = DONATOR_TIER_1
 
-/datum/loadout_item/inhand/donator/backpack/plushbox/deluxe
-	name = "Deluxe Plushie Choice Box"
-	item_path = /obj/item/choice_beacon/box/plushie/deluxe
-	donator_tier = DONATOR_TIER_1
-
 /datum/loadout_item/inhand/donator/backpack/bdsm_whip
 	name = "Leather Whip"
 	item_path = /obj/item/clothing/mask/leatherwhip
