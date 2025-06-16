@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 /datum/player_panel
 	var/mob/targetMob
 	var/client/targetClient
+	var/discord_id_cache = null
 
 /datum/player_panel/New(mob/target)
 	. = ..()
@@ -29,6 +30,45 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 	SStgui.close_uis(src)
 	return ..()
+
+/datum/player_panel/proc/get_target_ckey()
+	if(targetMob.client)
+		return targetMob.client.ckey
+	if(targetMob.ckey)
+		if(copytext(targetMob.ckey, 1, 2) == "@")
+			var/result = copytext(targetMob.ckey, 2)
+			return result
+		else
+			return targetMob.ckey
+	return null
+
+/datum/player_panel/proc/load_discord_id()
+	if(!targetMob)
+		return
+
+	var/target_ckey = get_target_ckey()
+	if(!target_ckey)
+		discord_id_cache = "No ckey found"
+		return
+
+	var/datum/db_query/discord_query = SSdbcore.NewQuery(
+		"SELECT CAST(discord_id AS CHAR) FROM [format_table_name("discord_links")] WHERE ckey = :ckey",
+		list("ckey" = target_ckey)
+	)
+	if(discord_query.warn_execute())
+		if(discord_query.NextRow())
+			discord_id_cache = discord_query.item[1]
+		else
+			discord_id_cache = "Not found"
+	else
+		discord_id_cache = "Database error"
+	qdel(discord_query)
+
+/datum/player_panel/proc/update_after_transform(mob/admin_user)
+	if(!targetMob || !admin_user)
+		return
+	// Force update the UI data after transformation
+	SStgui.update_uis(src)
 
 /datum/player_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!targetMob)
@@ -44,36 +84,75 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 
 /datum/player_panel/ui_data(mob/user)
 	. = list()
+
+	if(!targetMob)
+		return .
+
 	.["mob_name"] = targetMob.real_name
 	.["mob_type"] = targetMob.type
 	.["admin_mob_type"] = user.client?.mob.type
-	.["godmode"] = HAS_TRAIT(user, TRAIT_GODMODE)
+	.["godmode"] = HAS_TRAIT(targetMob, TRAIT_GODMODE)
 
 	var/mob/living/L = targetMob
 	if (istype(L))
 		.["is_frozen"] = L.admin_frozen
 		.["is_slept"] = L.admin_sleeping
 		.["mob_scale"] = L.current_size
+		.["mob_speed"] = L.cached_multiplicative_slowdown
+		.["mob_status_flags"] = L.status_flags
+		if(islist(L.faction))
+			.["current_faction"] = L.faction
+		else if(L.faction)
+			.["current_faction"] = list(L.faction)
+		else
+			.["current_faction"] = list()
 
 	if(targetMob.client)
 		targetClient = targetMob.client
 		.["client_ckey"] = targetClient.ckey
 		.["client_muted"] = targetClient.prefs.muted
 		.["client_rank"] = targetClient.holder ? targetClient.holder.ranks : "Player"
+		.["discord_id"] = discord_id_cache
 	else
 		targetClient = null
 		.["client_ckey"] = null
+		.["discord_id"] = discord_id_cache
 
 		if (targetMob.ckey)
-			.["last_ckey"] = copytext(targetMob.ckey, 2)
+			.["last_ckey"] = get_target_ckey()
 
 /datum/player_panel/ui_static_data(mob/user)
 	. = list()
+
+	if(!targetMob)
+		return .
 
 	.["transformables"] = GLOB.pp_transformables
 	.["glob_limbs"] = GLOB.pp_limbs
 	.["glob_mute_bits"] = GLOB.mute_bits
 	.["current_time"] = time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")
+
+	// Status flags
+	.["glob_status_flags"] = list(
+		"Stun" = CANSTUN,
+		"Knockdown" = CANKNOCKDOWN,
+		"Unconscious" = CANUNCONSCIOUS,
+		"Push" = CANPUSH,
+		"Godmode" = "godmode" // Special string for godmode trait
+	)
+
+	// Factions list
+	.["glob_factions"] = list(
+		"None",
+		"neutral",
+		"crew",
+		"hostile",
+		"mining",
+		"pirate",
+		"spider",
+		"wizard",
+		"Custom"
+	)
 
 	if(targetClient)
 		var/byond_version = "Unknown"
@@ -85,6 +164,8 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		.["data_related_cid"] = targetClient.related_accounts_cid
 		.["data_related_ip"] = targetClient.related_accounts_ip
 
+
+
 		var/datum/persistent_client/PC = GLOB.persistent_clients_by_ckey[targetClient.ckey]
 		.["data_old_names"] = PC?.get_played_names() || null
 
@@ -93,10 +174,6 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			player_ranks += "Donator"
 		if(SSplayer_ranks.is_mentor(targetClient, admin_bypass = FALSE))
 			player_ranks += "Mentor"
-		// SPLURT EDIT: Remove Veteran. Veteran cut from the Bubberstation build.
-		// if(SSplayer_ranks.is_veteran(targetClient, admin_bypass = FALSE))
-		//	player_ranks += "Veteran"
-		//
 		if(SSplayer_ranks.is_vetted(targetClient, admin_bypass = FALSE))
 			player_ranks |= "Vetted"
 		.["ranks"] = length(player_ranks) ? player_ranks.Join(", ") : null
@@ -104,9 +181,17 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		if(CONFIG_GET(flag/use_exp_tracking))
 			.["playtimes_enabled"] = TRUE
 			.["playtime"] = targetMob.client.get_exp_living()
+	else if(targetMob.ckey)
+		var/target_ckey = get_target_ckey()
+		if(target_ckey)
+			var/datum/persistent_client/PC = GLOB.persistent_clients_by_ckey[target_ckey]
+			.["data_old_names"] = PC?.get_played_names() || null
 
 /datum/player_panel/ui_act(action, params, datum/tgui/ui)
 	. = ..()
+
+	if(!targetMob)
+		return TRUE
 
 	var/mob/adminMob = ui.user
 	var/client/adminClient = adminMob.client
@@ -122,8 +207,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			if (targetMob.client || !targetMob.ckey)
 				return
 
-			// Remove '@' from the start of the ckey.
-			var/ckey = copytext(targetMob.ckey, 2)
+			var/ckey = get_target_ckey()
 			var/mob/latestMob = get_mob_by_ckey(ckey)
 
 			if(!latestMob)
@@ -311,20 +395,29 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			qdel(targetClient)
 
 		if ("ban")
-			var/player_key = targetMob.key
-			var/player_ip = targetMob.client.address
-			var/player_cid = targetMob.client.computer_id
-			adminClient.holder.ban_panel(player_key, player_ip, player_cid)
+			var/target_ckey = get_target_ckey()
+			var/player_ip = targetMob.client?.address
+			var/player_cid = targetMob.client?.computer_id
+			if(!target_ckey)
+				to_chat(adminClient, span_warning("No ckey found for this mob."))
+				return
+			adminClient.holder.ban_panel(target_ckey, player_ip, player_cid)
 
 		if ("sticky_ban")
 			var/list/ban_settings = list()
-			if(targetMob.client)
-				ban_settings["ckey"] = targetMob.ckey
+			var/target_ckey = get_target_ckey()
+			if(!target_ckey)
+				to_chat(adminClient, span_warning("No ckey found for this mob."))
+				return
+			ban_settings["ckey"] = target_ckey
 			adminClient.holder.stickyban("add", ban_settings)
 
 		if ("notes")
-			if (targetMob.client)
-				browse_messages(target_ckey = ckey(targetMob.ckey))
+			var/target_ckey = get_target_ckey()
+			if(!target_ckey)
+				to_chat(adminClient, span_warning("No ckey found for this mob."))
+				return
+			browse_messages(target_ckey = target_ckey)
 
 		if ("logs")
 			var/source = targetMob.client ? LOGSRC_CKEY : LOGSRC_MOB
@@ -369,6 +462,10 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 				dat += related_accounts
 				adminClient << browse(dat.Join("<br>"), "window=related_[targetMob.client];size=420x300")
 
+		if ("show_discord_id")
+			load_discord_id()
+			SStgui.update_uis(src)
+
 		if ("transform")
 			var/choice = params["newType"]
 			if (choice == "/mob/living")
@@ -377,9 +474,6 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 					return
 
 			adminClient.holder.transformMob(targetMob, adminMob, choice, params["newTypeName"])
-
-		if ("toggle_godmode")
-			adminClient.cmd_admin_godmode(targetMob)
 
 		if ("spell")
 			SSadmin_verbs.dynamic_invoke_verb(adminClient, /datum/admin_verb/give_spell, targetMob)
@@ -462,6 +556,12 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		if ("skill_panel")
 			SSadmin_verbs.dynamic_invoke_verb(adminClient, /datum/admin_verb/show_skill_panel, targetMob)
 
+		if ("borg_panel")
+			if(!iscyborg(targetMob))
+				to_chat(adminClient, span_warning("This can only be used on cyborgs."))
+				return
+			SSadmin_verbs.dynamic_invoke_verb(adminClient, /datum/admin_verb/borg_panel, targetMob)
+
 		if ("commend")
 			if(!targetMob.ckey)
 				to_chat(adminClient, span_warning("This mob either no longer exists or no longer is being controlled by someone!"))
@@ -490,4 +590,92 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			SSquirks.AssignQuirks(H, H.client)
 			log_admin("[key_name(adminClient)] applied client quirks to [key_name(H)].")
 			message_admins(span_adminnotice("[key_name_admin(adminClient)] applied client quirks to [key_name_admin(H)]."))
+
+		if ("toggle_status_flag")
+			var/mob/living/L = targetMob
+			if(!istype(L))
+				return
+
+			var/flag = params["flag"]
+			var/enabled = params["enabled"]
+
+			// Special handling for godmode trait
+			if(flag == "godmode")
+				adminClient.cmd_admin_godmode(targetMob)
+			else
+				var/numeric_flag = text2num(flag)
+				if(enabled)
+					L.status_flags |= numeric_flag
+				else
+					L.status_flags &= ~numeric_flag
+				log_admin("[key_name(adminClient)] [enabled ? "enabled" : "disabled"] status flag [numeric_flag] on [key_name(targetMob)].")
+
+		if ("set_speed")
+			var/mob/living/L = targetMob
+			if(!istype(L))
+				return
+
+			var/new_speed = text2num(params["speed"])
+			if(isnull(new_speed))
+				return
+
+			// Remove existing admin speed modifier
+			L.remove_movespeed_modifier(/datum/movespeed_modifier/admin_varedit)
+			var/diff = new_speed - L.cached_multiplicative_slowdown
+			if(diff != 0)
+				L.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/admin_varedit, multiplicative_slowdown = diff)
+
+			log_admin("[key_name(adminClient)] set speed of [key_name(targetMob)] to [new_speed].")
+
+		if ("add_faction")
+			var/mob/living/L = targetMob
+			if(!istype(L))
+				return
+
+			var/new_faction = params["faction"]
+			if(new_faction == "Custom")
+				new_faction = input(adminClient, "Enter custom faction name:", "Custom Faction") as text
+				if(!new_faction)
+					return
+
+			if(!L.faction)
+				L.faction = list()
+			else if(!islist(L.faction))
+				L.faction = list(L.faction)
+
+			if(!(new_faction in L.faction))
+				L.faction += new_faction
+
+			log_admin("[key_name(adminClient)] added faction [new_faction] to [key_name(targetMob)].")
+			message_admins(span_adminnotice("[key_name_admin(adminClient)] added faction [new_faction] to [key_name_admin(targetMob)]."))
+
+		if ("remove_faction")
+			var/mob/living/L = targetMob
+			if(!istype(L))
+				return
+
+			var/faction_to_remove = params["faction"]
+			if(!L.faction || !islist(L.faction))
+				return
+
+			L.faction -= faction_to_remove
+
+			if(!length(L.faction))
+				L.faction = null
+
+			log_admin("[key_name(adminClient)] removed faction [faction_to_remove] from [key_name(targetMob)].")
+			message_admins(span_adminnotice("[key_name_admin(adminClient)] removed faction [faction_to_remove] from [key_name_admin(targetMob)]."))
+
+		if ("load_preferences")
+			var/mob/living/carbon/human/H = targetMob
+			if(!istype(H))
+				to_chat(adminClient, "This can only be used on humans.", confidential = TRUE)
+				return
+			if(!H.client)
+				to_chat(adminClient, "[H] has no client!", confidential = TRUE)
+				return
+
+			H.client.prefs.apply_prefs_to(H)
+			log_admin("[key_name(adminClient)] loaded preferences onto [key_name(H)].")
+			message_admins(span_adminnotice("[key_name_admin(adminClient)] loaded preferences onto [key_name_admin(H)]."))
 
