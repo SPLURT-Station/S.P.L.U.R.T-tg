@@ -10,6 +10,13 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/smooth_edge,
 /area/station/hallway/secondary/entry)
+"av" = (
+/obj/effect/turf_decal/weather/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "aw" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/siding/white,
@@ -1250,6 +1257,10 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
+"qt" = (
+/obj/effect/turf_decal/weather/snow,
+/turf/open/floor/plating,
+/area/space/nearstation)
 "qz" = (
 /obj/effect/landmark/start/assistant,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
@@ -1340,6 +1351,10 @@
 "rr" = (
 /obj/item/food/breadslice/moldy{
 	name = "moldby 'bread' slice"
+	},
+/obj/effect/turf_decal/weather/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
 	},
 /turf/open/floor/plating,
 /area/space/nearstation)
@@ -1524,6 +1539,9 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/entry)
+"tK" = (
+/turf/open/floor/plating,
+/area/space/nearstation)
 "tV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/siding/dark{
@@ -2058,6 +2076,13 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/entry)
+"Aa" = (
+/obj/effect/turf_decal/weather/snow,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "Af" = (
 /obj/effect/turf_decal/siding/white,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2075,9 +2100,8 @@
 	},
 /area/station/hallway/secondary/entry)
 "Aq" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/station/construction/mining/aux_base)
 "AC" = (
 /turf/closed/wall,
 /area/station/security/checkpoint/customs)
@@ -4067,10 +4091,10 @@ kW
 kW
 kW
 vO
-rt
 kW
-rt
-rt
+kW
+kW
+kW
 Yq
 ae
 Nx
@@ -4103,10 +4127,10 @@ lG
 kW
 kW
 kW
-Aq
-rt
+YP
 kW
-rt
+kW
+kW
 kW
 Yq
 ae
@@ -4141,9 +4165,9 @@ kW
 kW
 kW
 YP
-rt
-rt
-rt
+kW
+kW
+kW
 kW
 Yq
 ae
@@ -4178,9 +4202,9 @@ px
 um
 px
 YP
-rt
 kW
-rt
+kW
+kW
 YP
 kP
 ae
@@ -4346,10 +4370,10 @@ kW
 kW
 "}
 (13,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 Yw
 YP
 VH
@@ -4383,12 +4407,12 @@ kW
 kW
 "}
 (14,1,1) = {"
-JY
-JY
-JY
-JY
-kW
-kW
+Aq
+Aq
+Aq
+Aq
+tK
+tK
 VH
 Hl
 MV
@@ -4420,12 +4444,12 @@ kW
 kW
 "}
 (15,1,1) = {"
-JY
-JY
-JY
-JY
-kW
-kW
+Aq
+Aq
+Aq
+Aq
+qt
+tK
 VH
 Mr
 BI
@@ -4457,12 +4481,12 @@ kW
 kW
 "}
 (16,1,1) = {"
-JY
-JY
-JY
-JY
-kW
-kW
+Aq
+Aq
+Aq
+Aq
+av
+qt
 VH
 Mr
 BI
@@ -4494,12 +4518,12 @@ kW
 kW
 "}
 (17,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 rr
-kW
+Aa
 VH
 XP
 BI
@@ -4531,11 +4555,11 @@ kW
 kW
 "}
 (18,1,1) = {"
-JY
-JY
-JY
-JY
-VH
+Aq
+Aq
+Aq
+Aq
+NM
 VH
 VH
 Mr
@@ -4568,10 +4592,10 @@ kW
 kW
 "}
 (19,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 fZ
 OH
 VH
@@ -4605,10 +4629,10 @@ kW
 kW
 "}
 (20,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 nl
 TY
 VH
@@ -4642,10 +4666,10 @@ kW
 kW
 "}
 (21,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 aT
 VH
 VH
@@ -4679,10 +4703,10 @@ kW
 kW
 "}
 (22,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 DS
 ey
 HN
@@ -4716,10 +4740,10 @@ kW
 kW
 "}
 (23,1,1) = {"
-JY
-JY
-JY
-JY
+Aq
+Aq
+Aq
+Aq
 ZR
 VH
 VH
@@ -4753,9 +4777,9 @@ kW
 kW
 "}
 (24,1,1) = {"
-JY
-JY
-JY
+Aq
+Aq
+Aq
 uQ
 mO
 zB
@@ -4790,9 +4814,9 @@ kW
 kW
 "}
 (25,1,1) = {"
-JY
-JY
-JY
+Aq
+Aq
+Aq
 Vs
 gH
 pw
@@ -4827,9 +4851,9 @@ kW
 kW
 "}
 (26,1,1) = {"
-JY
-JY
-JY
+Aq
+Aq
+Aq
 uQ
 tb
 Gl
@@ -4864,9 +4888,9 @@ kW
 kW
 "}
 (27,1,1) = {"
-JY
-JY
-JY
+Aq
+Aq
+Aq
 Ma
 gv
 bm
@@ -4901,9 +4925,9 @@ kW
 kW
 "}
 (28,1,1) = {"
-JY
-JY
-JY
+Aq
+Aq
+Aq
 vr
 bj
 Re
