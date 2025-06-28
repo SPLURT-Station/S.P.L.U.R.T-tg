@@ -4,7 +4,7 @@
 	The least hectic storyteller of all, while still having some spice. Best for RP-focused rounds with a few events sprinkled in."
 	welcome_text = "If you vote for this storyteller on Ice Box, you have no originality."
 
-	track_data = /datum/storyteller_data/tracks/chill
+	track_data = /datum/storyteller_data/tracks/light
 
 	guarantees_roundstart_crewset = FALSE
 	tag_multipliers = list(
