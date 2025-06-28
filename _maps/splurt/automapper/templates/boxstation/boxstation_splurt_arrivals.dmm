@@ -328,9 +328,7 @@
 "dV" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 8
 	},
@@ -421,9 +419,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/landmark/start/hangover,
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -437,9 +433,7 @@
 "fm" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -1344,8 +1338,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/entry)
 "rr" = (
-/turf/open/space/basic,
-/area/station/hallway/secondary/entry)
+/obj/item/food/breadslice/moldy{
+	name = "moldby 'bread' slice"
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "rt" = (
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -1860,9 +1857,7 @@
 "xB" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/blue/filled/corner,
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/entry)
@@ -2057,9 +2052,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 8
 	},
@@ -2668,9 +2661,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/landmark/start/hangover,
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/iron/edge{
 	dir = 1
@@ -2902,9 +2893,7 @@
 /turf/closed/wall,
 /area/station/hallway/secondary/entry)
 "MV" = (
-/obj/effect/turf_decal/stripes/white/line{
-	color = "#a56dc2"
-	},
+/obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
@@ -4398,8 +4387,8 @@ JY
 JY
 JY
 JY
-rr
-rr
+kW
+kW
 VH
 Hl
 MV
@@ -4435,8 +4424,8 @@ JY
 JY
 JY
 JY
-rr
-rr
+kW
+kW
 VH
 Mr
 BI
@@ -4472,8 +4461,8 @@ JY
 JY
 JY
 JY
-rr
-rr
+kW
+kW
 VH
 Mr
 BI
@@ -4510,7 +4499,7 @@ JY
 JY
 JY
 rr
-rr
+kW
 VH
 XP
 BI
