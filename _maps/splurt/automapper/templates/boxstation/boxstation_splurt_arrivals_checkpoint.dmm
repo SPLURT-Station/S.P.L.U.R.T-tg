@@ -1,0 +1,335 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Auxillary Base Construction"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/aux_base,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white/corner,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
+"d" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/end{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/checkpoint/customs)
+"e" = (
+/obj/item/radio/off,
+/obj/item/crowbar,
+/obj/item/assembly/flash/handheld,
+/obj/structure/table,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"f" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Security Checkpoint"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 6;
+	pixel_y = -25
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/checkpoint/customs)
+"g" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/station/security/checkpoint/customs)
+"h" = (
+/obj/machinery/computer/records/security,
+/obj/machinery/requests_console{
+	department = "Security";
+	pixel_y = 30
+	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"j" = (
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/structure/table,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"q" = (
+/obj/machinery/computer/security,
+/obj/structure/reagent_dispensers/wall/peppertank{
+	pixel_y = 30
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"v" = (
+/turf/template_noop,
+/area/template_noop)
+"w" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/station/security/checkpoint/customs)
+"z" = (
+/obj/structure/chair/office,
+/obj/effect/landmark/event_spawn,
+/obj/effect/turf_decal/siding/dark/end,
+/turf/open/floor/carpet/black,
+/area/station/security/checkpoint/customs)
+"A" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/closet/secure_closet/security,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"B" = (
+/obj/structure/cable,
+/obj/machinery/vending/wardrobe/sec_wardrobe,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"C" = (
+/turf/closed/wall,
+/area/station/construction/mining/aux_base)
+"D" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/security/checkpoint/customs)
+"H" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/checkpoint/customs)
+"J" = (
+/obj/machinery/door/airlock/security{
+	name = "Security Checkpoint"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/security/checkpoint/customs)
+"L" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/paper,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/right/directional/north{
+	name = "Security Checkpoint"
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/customs)
+"M" = (
+/obj/machinery/modular_computer/preset/id,
+/obj/structure/cable,
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"N" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "aux_base_shutters";
+	name = "Auxillary Base Shutters"
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/siding/white/corner,
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
+"O" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/checkpoint/customs)
+"Q" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "aux_base_shutters";
+	name = "Auxillary Base Shutters"
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
+"S" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/security/checkpoint/customs)
+"T" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/checkpoint/customs)
+"W" = (
+/obj/item/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/pen,
+/obj/structure/table,
+/obj/effect/turf_decal/delivery/blue,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/security/checkpoint/customs)
+"X" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/station/security/checkpoint/customs)
+"Z" = (
+/turf/closed/wall,
+/area/station/security/checkpoint/customs)
+
+(1,1,1) = {"
+v
+v
+v
+C
+"}
+(2,1,1) = {"
+v
+v
+v
+a
+"}
+(3,1,1) = {"
+v
+v
+v
+C
+"}
+(4,1,1) = {"
+v
+v
+v
+Q
+"}
+(5,1,1) = {"
+v
+v
+v
+N
+"}
+(6,1,1) = {"
+v
+v
+v
+v
+"}
+(7,1,1) = {"
+v
+v
+v
+v
+"}
+(8,1,1) = {"
+v
+v
+v
+v
+"}
+(9,1,1) = {"
+d
+H
+f
+Z
+"}
+(10,1,1) = {"
+B
+O
+T
+J
+"}
+(11,1,1) = {"
+q
+w
+W
+S
+"}
+(12,1,1) = {"
+M
+g
+z
+L
+"}
+(13,1,1) = {"
+h
+D
+j
+S
+"}
+(14,1,1) = {"
+A
+X
+e
+Z
+"}
