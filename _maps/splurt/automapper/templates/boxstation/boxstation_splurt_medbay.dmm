@@ -261,6 +261,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/station/medical/pharmacy)
 "cn" = (
@@ -955,6 +956,9 @@
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/pharmacy)
 "jv" = (
@@ -1303,6 +1307,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/small,
 /area/station/medical/pharmacy)
 "li" = (
@@ -1476,6 +1481,7 @@
 /obj/effect/turf_decal/siding/yellow/corner{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -1796,6 +1802,9 @@
 /obj/effect/turf_decal/box,
 /obj/structure/cable,
 /obj/structure/marker_beacon/indigo,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
 "oX" = (
@@ -2352,23 +2361,19 @@
 /area/station/medical/medbay/central)
 "tr" = (
 /obj/machinery/disposal/bin,
-/turf/open/floor/plating/elevatorshaft,
-/area/station/medical/pharmacy)
-"tx" = (
-/obj/structure/hedge,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/door/poddoor/preopen{
-	id = "pharmacy_shutters3";
-	name = "Pharmacy Shutter"
+/obj/effect/turf_decal/siding/yellow{
+	dir = 4
 	},
-/obj/machinery/door/poddoor/preopen{
-	id = "pharmacy_shutters3";
-	name = "Pharmacy Shutter"
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
 "tH" = (
 /obj/structure/table/glass,
@@ -3070,7 +3075,6 @@
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "Az" = (
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -3873,6 +3877,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/pharmacy)
 "GM" = (
@@ -4219,9 +4226,6 @@
 	},
 /area/station/medical/chemistry)
 "JU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	alpha = 160
 	},
@@ -4606,9 +4610,6 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/chemistry)
 "NJ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4621,6 +4622,9 @@
 	alpha = 200
 	},
 /obj/effect/turf_decal/siding/yellow/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/medical/medbay/central)
 "NO" = (
@@ -4837,12 +4841,6 @@
 	pixel_x = -30
 	},
 /turf/open/floor/iron/dark/small,
-/area/station/medical/pharmacy)
-"Pz" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/tile/yellow/fourcorners,
-/obj/machinery/smartfridge/chemistry/preloaded,
-/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
 "PK" = (
 /obj/machinery/defibrillator_mount/directional/south,
@@ -5890,7 +5888,7 @@ Oo
 "}
 (2,1,1) = {"
 YK
-tx
+FR
 ft
 FR
 YK
@@ -5968,7 +5966,7 @@ qo
 oT
 ri
 El
-Pz
+tJ
 Az
 JU
 XS
