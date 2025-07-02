@@ -194,6 +194,9 @@
 	dir = 5;
 	alpha = 200
 	},
+/obj/effect/turf_decal/siding/yellow{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -206,6 +209,9 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 9;
 	alpha = 200
+	},
+/obj/effect/turf_decal/siding/yellow{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/medical/medbay/central)
@@ -734,6 +740,7 @@
 	pixel_y = 17
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/chemist,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
@@ -994,6 +1001,7 @@
 	dir = 10;
 	alpha = 200
 	},
+/obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -1289,6 +1297,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/chemist,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -1482,6 +1491,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -2584,10 +2596,8 @@
 	dir = 6;
 	alpha = 200
 	},
-/obj/effect/turf_decal/siding/yellow/corner{
-	dir = 8
-	},
 /obj/machinery/firealarm/directional/south,
+/obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
@@ -3143,7 +3153,6 @@
 /area/station/security/checkpoint/medical)
 "Bd" = (
 /obj/machinery/holopad,
-/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "Be" = (
@@ -3728,7 +3737,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/medical/cryo)
 "FL" = (
-/obj/structure/marker_beacon/cerulean,
 /obj/effect/turf_decal/trimline/blue{
 	alpha = 200
 	},
@@ -4625,6 +4633,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/medical/medbay/central)
 "NO" = (
@@ -4653,7 +4664,7 @@
 	dir = 1;
 	alpha = 200
 	},
-/obj/effect/turf_decal/siding/yellow/corner{
+/obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_edge{
@@ -5066,7 +5077,6 @@
 /obj/effect/turf_decal/trimline/blue{
 	alpha = 200
 	},
-/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/central)
 "Rr" = (
