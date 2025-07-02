@@ -3590,6 +3590,13 @@
 /obj/structure/closet/crate/freezer/surplus_limbs,
 /obj/structure/sign/calendar/directional/south,
 /obj/effect/turf_decal/weather/snow,
+/obj/item/coin/antagtoken{
+	pixel_x = -1;
+	pixel_y = -5;
+	name = "medbay roulette token";
+	desc = "Oh boy, I sure do hope I get treated here!";
+	sideslist = list("healed","OVERDOSED ON MORPHINE")
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/medical/cryo)
 "ER" = (
@@ -3984,13 +3991,6 @@
 /obj/structure/chair/sofa/bench/right{
 	pixel_y = 0;
 	greyscale_colors = "#2875af"
-	},
-/obj/item/coin/antagtoken{
-	pixel_x = -1;
-	pixel_y = -5;
-	name = "medbay roulette token";
-	desc = "Oh boy, I sure do hope I get treated here!";
-	sideslist = list("healed","OVERDOSED ON MORPHINE")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
@@ -4996,7 +4996,9 @@
 /area/station/medical/chemistry)
 "QM" = (
 /obj/machinery/power/apc/auto_name/directional/east,
-/obj/machinery/medical_kiosk,
+/obj/machinery/medical_kiosk{
+	pixel_x = -2
+	},
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
