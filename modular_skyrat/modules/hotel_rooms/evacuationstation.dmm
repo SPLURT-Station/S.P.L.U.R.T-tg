@@ -219,11 +219,6 @@
 	},
 /area/misc/hilbertshotel)
 "mv" = (
-/obj/item/melee/baton/security/cattleprod{
-	pixel_x = -6;
-	pixel_y = 6;
-	preload_cell_type = /obj/item/stock_parts/power_store/cell/hyper
-	},
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/restraints/handcuffs/cable/yellow,
 /turf/open/indestructible/plating{
@@ -832,9 +827,7 @@
 /area/misc/hilbertshotel)
 "UN" = (
 /obj/structure/cable,
-/obj/structure/closet/secure_closet/engineering_welding{
-	anchored = 1
-	},
+/obj/structure/closet,
 /turf/open/indestructible/plating{
 	force_no_gravity = 1
 	},
@@ -853,9 +846,7 @@
 "Vh" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/engineering_electrical{
-	anchored = 1
-	},
+/obj/structure/closet,
 /turf/open/indestructible/plating{
 	force_no_gravity = 1
 	},

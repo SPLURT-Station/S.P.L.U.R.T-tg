@@ -248,7 +248,8 @@
 /area/misc/hilbertshotel/winterwoods)
 "Jv" = (
 /turf/open/floor/plating/snowed/smoothed{
-	planetary_atmos = 0
+	planetary_atmos = 0;
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/misc/hilbertshotel/winterwoods)
 "KZ" = (
@@ -274,7 +275,8 @@
 "No" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plating/snowed/smoothed{
-	planetary_atmos = 0
+	planetary_atmos = 0;
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/misc/hilbertshotel/winterwoods)
 "OB" = (

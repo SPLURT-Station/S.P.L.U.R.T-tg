@@ -245,9 +245,9 @@
 /area/misc/hilbertshotel)
 "Ep" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/item/stack/spacecash/c5000{
-	pixel_y = 15;
-	pixel_x = 4
+/obj/item/stack/spacecash/c1{
+	pixel_x = 4;
+	pixel_y = 15
 	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
@@ -267,8 +267,8 @@
 /obj/item/food/syndicake,
 /obj/item/food/syndicake,
 /obj/item/food/syndicake,
-/obj/item/toy/crayon/spraycan/infinite,
 /obj/structure/closet/crate/freezer,
+/obj/item/toy/crayon/spraycan,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "FD" = (
@@ -286,16 +286,21 @@
 /area/misc/hilbertshotel)
 "Gv" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/item/stack/spacecash/c200{
-	pixel_y = -11;
-	pixel_x = 7
+/obj/item/stack/spacecash/c1{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/item/stack/spacecash/c10{
+	pixel_x = 0;
+	pixel_y = -13
 	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
 "Gy" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/machinery/pollution_scrubber{
-	pixel_x = 9
+/obj/item/stack/spacecash/c10{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
@@ -368,8 +373,13 @@
 /area/misc/hilbertshotel)
 "Mj" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/item/stack/spacecash/c1000{
-	pixel_x = -10
+/obj/item/stack/spacecash/c1{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/stack/spacecash/c10{
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
@@ -427,7 +437,7 @@
 /area/misc/hilbertshotel)
 "Ry" = (
 /obj/structure/table/reinforced,
-/obj/item/toy/crayon/spraycan/infinite,
+/obj/item/toy/crayon/spraycan,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "Se" = (
@@ -445,9 +455,9 @@
 /area/misc/hilbertshotel)
 "Sp" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/item/stack/spacecash/c500{
-	pixel_y = 2;
-	pixel_x = -6
+/obj/item/stack/spacecash/c1{
+	pixel_x = -9;
+	pixel_y = 1
 	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
@@ -492,7 +502,10 @@
 /area/misc/hilbertshotel)
 "Zf" = (
 /obj/structure/table/reinforced/plasmarglass,
-/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c1{
+	pixel_x = -1;
+	pixel_y = 3
+	},
 /turf/open/floor/light,
 /area/misc/hilbertshotel)
 "Zz" = (
@@ -615,7 +628,7 @@ vM
 Ah
 aC
 aC
-Gy
+FD
 gL
 cy
 Xz
@@ -732,7 +745,7 @@ FN
 FN
 eR
 Sp
-FD
+Gy
 Ep
 Mw
 FN
