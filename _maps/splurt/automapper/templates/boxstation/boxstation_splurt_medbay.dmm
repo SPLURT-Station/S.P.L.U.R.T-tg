@@ -3281,6 +3281,7 @@
 	alpha = 200;
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -4533,26 +4534,25 @@
 "Fw" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	alpha = 160;
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	alpha = 160;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_blue/warning{
+	alpha = 200;
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_blue/warning{
+	alpha = 200;
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	alpha = 160;
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	alpha = 160;
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark_blue/warning{
-	alpha = 200;
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark_blue/warning{
-	alpha = 200;
-	dir = 8
 	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
