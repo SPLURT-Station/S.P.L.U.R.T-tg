@@ -18,13 +18,3 @@
 	if(istype(loc, /obj/item/dogborg/sleeper))
 		return
 	return ..()
-
-/mob/living/silicon/robot/unequip_module_from_slot(obj/item/item_module, module_num)
-	// We need to eject the sleeper's occupant when we unequip it
-	if(istype(item_module, /obj/item/dogborg/sleeper))
-		sleeper_garbage = FALSE
-		sleeper_occupant = FALSE
-		update_icons()
-		var/obj/item/dogborg/sleeper/sleeper_moodule = item_module
-		sleeper_moodule.go_out()
-	return ..()

@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	return TRUE
 */ //SPLURT EDIT END
 
-/datum/interaction/proc/act(mob/living/user, mob/living/target) // SPLURT EDIT - INTERACTIONS - Any mob can initiate an interaction
+/datum/interaction/proc/act(mob/living/user, mob/living/target, obj/body_relay = null) // SPLURT EDIT - INTERACTIONS - Any mob can initiate an interaction
 	if(!allow_act(user, target))
 		return
 	if(!message)
@@ -99,6 +99,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		message_admins("Deprecated message handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
 		message = list(message)
 	var/msg = pick(message)
+	if(!isnull(body_relay))
+		msg = replacetext(msg, "%TARGET%", "\the [body_relay.name]")
 	// We replace %USER% with nothing because manual_emote already prepends it.
 	msg = trim(replacetext(replacetext(msg, "%TARGET%", "[target]"), "%USER%", ""), INTERACTION_MAX_CHAR)
 	if(lewd)
@@ -108,10 +110,14 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		user.manual_emote(msg)
 	if(user_messages.len)
 		var/user_msg = pick(user_messages)
+		if(!isnull(body_relay))
+			user_msg = replacetext(user_msg, "%TARGET%", "\the [body_relay.name]")
 		user_msg = replacetext(replacetext(user_msg, "%TARGET%", "[target]"), "%USER%", "[user]")
 		to_chat(user, user_msg)
 	if(target_messages.len)
 		var/target_msg = pick(target_messages)
+		if(!isnull(body_relay))
+			target_msg = replacetext(target_msg, "%USER%", "Unknown")
 		target_msg = replacetext(replacetext(target_msg, "%TARGET%", "[target]"), "%USER%", "[user]")
 		to_chat(target, target_msg)
 	if(sound_use)
@@ -142,6 +148,9 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			target.adjust_pleasure(target_pleasure * (istype(human_target) ? human_target.dna.features["sexual_potency"] || 1 : 1), user, src, CLIMAX_POSITION_TARGET) //SPLURT EDIT - Interactions
 			target.adjust_arousal(target_arousal)
 			target.adjust_pain(target_pain, user, src, CLIMAX_POSITION_TARGET) //SPLURT EDIT - Interactions
+		if(body_relay)
+			var/obj/lewd_portal_relay/body_portal_relay = body_relay
+			body_portal_relay.update_visuals()
 	post_interaction(user, target) //SPLURT EDIT - Interactions
 	return TRUE
 

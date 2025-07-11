@@ -1,4 +1,4 @@
-/**
+/*/**
  * Ranked choice voting, where voters rank options in order of preference.
  * If an option doesn't reach the threshold, lowest votes are transferred to next preferences.
  */
@@ -42,4 +42,4 @@
 	switch(action)
 		if("voteRanked")
 			return submit_ranked_vote(voter, params["voteOption"], params["voteRank"])
-
+*/

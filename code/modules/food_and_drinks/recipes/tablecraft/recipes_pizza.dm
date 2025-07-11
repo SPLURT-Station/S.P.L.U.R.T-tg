@@ -15,7 +15,7 @@
 	)
 	result = /obj/item/food/pizza/margherita/raw
 
-/datum/crafting_recipe/food/pizza/meat       // SPLURT EDIT - Shows up in crafting menu otherwise
+/datum/crafting_recipe/food/pizza/meatpizza
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/meat/rawcutlet = 4,

@@ -63,14 +63,11 @@
 	desc = "Special armoured ablative plate of metal, designed to increase survivability. Standard issue for military-grade exosuits"
 	icon = 'modular_zzplurt/icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "roundstartarmor"
-	iconstate_name = "melee"
-	protect_name = "General Armor"
 
 /obj/item/mecha_parts/mecha_equipment/armor/roundstart/heavy
 	name = "Heavy Metal Plating"
 	desc = "An heavy armor configuration of general purpose metal plates, offers the same amount of protection \
 		as the newest patented armor designs at the cost of a noticable weight increase."
-	protect_name = "Heavy Armor"
 	move_slowdown = 1.15
 	max_armor_integrity = 200
 

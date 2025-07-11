@@ -70,6 +70,16 @@
 	go_out() // just... sanity I guess, edge case shit
 	return ..()
 
+/obj/item/dogborg/sleeper/cyborg_unequip(mob/user)
+	var/mob/living/silicon/robot/hound = user
+	if(istype(hound))
+		hound.sleeper_garbage = FALSE
+		hound.sleeper_occupant = FALSE
+		hound.update_icons()
+	go_out()
+	. = ..()
+
+
 /obj/item/dogborg/sleeper/Exit(atom/movable/O)
 	return FALSE
 

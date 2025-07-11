@@ -4,15 +4,16 @@
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-| Website                   | Link                                           |
-|---------------------------|------------------------------------------------|
-| Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md) |
-| Website                   | [https://splurtstation.com](https://splurtstation.com) |
-| Code                      | [https://github.com/SPLURT-Station/S.P.L.U.R.T-tg](https://github.com/SPLURT-Station/S.P.L.U.R.T-tg) |
-| Wiki                      | [https://splurtstation.com](https://splurtstation.com) |
-| Codedocs                  | [https://skyrat-ss13.github.io/Skyrat-tg/](https://skyrat-ss13.github.io/Skyrat-tg/) |
-| S.P.L.U.R.T Station Discord     | [https://discord.gg/wynHVMzHzC](https://discord.gg/wynHVMzHzC) |
+| Website                     | Link                                                                                                                                   |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Git / GitHub cheatsheet     | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
+| Guide to Modularization     | [./modular_zzplurt/readme.md](./modular_zzplurt/readme.md)                                                                             |
+| Website                     | [https://splurtstation.com](https://splurtstation.com)                                                                                 |
+| Code                        | [https://github.com/SPLURT-Station/S.P.L.U.R.T-tg](https://github.com/SPLURT-Station/S.P.L.U.R.T-tg)                                   |
+| Wiki                        | [https://splurtstation.com](https://splurtstation.com)                                                                                 |
+| Codedocs                    | [https://skyrat-ss13.github.io/Skyrat-tg/](https://skyrat-ss13.github.io/Skyrat-tg/)                                                   |
+| S.P.L.U.R.T Station Discord | [https://discord.gg/wynHVMzHzC](https://discord.gg/wynHVMzHzC)                                                                         |
+| Coderbus Discord            | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
 
 This is S.P.L.U.R.T Station's downstream fork of bubberstation, which is in turn a fork of TG (formerly skyrat).
 
@@ -23,14 +24,17 @@ Space Station 13 is a paranoia-laden round-based roleplaying game set against th
 ## Contribution Rules and Guidelines
 
 **1. Do Not Be A Dick**
+
 - The S.P.L.U.R.T. main repository is run by and contributed by volunteers and hobbiests. Please be considerate with the people who help maintain our codebase. We reserve the right to permanently remove anyone who does not show both our contributors and maintainers common decency.
 - S.P.L.U.R.T. does not operate a strict "goodboy" points system or have defined goals, and anyone is welcome to contribute to this project. That being said, the maintainers of this project are free to curate comments as seen fit to uphold a respectful environment.
 
 **2. Modularization Standards Will be Upheld**
+
 - This codebase is a active downstream to Bubberstation with frequent upstream merges.
 - Modularization is key to attain code stability, please read our [modularization guide](./modular_zzplurt/readme.md) for more information, or ask any of our maintainers in our discord.
 
 **3. The Licensing is Non-negotiable**
+
 - You are free to take, redistribute, modify, and readapt any code or commit found on this repository.
 - All code files are under **GNU AGPL V3**
 - All asset files (images and sound) are **CC-BY-SA 3.0** unless otherwise stated
@@ -43,7 +47,7 @@ Space Station 13 is a paranoia-laden round-based roleplaying game set against th
 - Modifications or adaptions must disclose the source, the author, and [any changes you've made](https://wiki.creativecommons.org/wiki/License_Versions#Modifications_and_adaptations_must_be_indicated).
 - Goonstation code is incompatible with this codebase due to its licensing.
 
-*Credit: [Goonstation contribution guidelines](https://hackmd.io/@goonstation/docs/%2F%40goonstation%2Fcontribute#What-if-I-change-my-mind-about-my-contributions-being-published)*
+_Credit: [Goonstation contribution guidelines](https://hackmd.io/@goonstation/docs/%2F%40goonstation%2Fcontribute#What-if-I-change-my-mind-about-my-contributions-being-published)_
 
 ## Modularization and codedocs note
 
@@ -92,6 +96,6 @@ See LICENSE and GPLv3.txt for more details.
 The TGS DMAPI is licensed as a subproject under the MIT license.
 The TGS DMAPI is licensed as a subproject under the MIT license.
 
-See the footer of [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
+See the footer of [code/\_\_DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.

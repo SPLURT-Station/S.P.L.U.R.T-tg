@@ -93,7 +93,7 @@
 			return ITALICS | REDUCE_RANGE
 		if(ears_extra && ears_extra.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods))
 			return ITALICS | REDUCE_RANGE
-	else if(GLOB.radiochannels[message_mods[RADIO_EXTENSION]])
+	else if(GLOB.default_radio_channels[message_mods[RADIO_EXTENSION]])
 		if(ears && ears.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods))
 			return ITALICS | REDUCE_RANGE
 		if(ears_extra && ears_extra.talk_into(src, message, message_mods[RADIO_EXTENSION], spans, language, message_mods))

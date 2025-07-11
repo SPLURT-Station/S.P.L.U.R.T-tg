@@ -180,3 +180,6 @@
 
 
 #undef HEMOPHAGE_SPAWN_TEXT
+
+/mob/living/carbon/human/species/hemophage //Why was this never added?
+	race = /datum/species/hemophage

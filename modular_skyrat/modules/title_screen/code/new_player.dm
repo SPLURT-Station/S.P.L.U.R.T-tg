@@ -1,5 +1,5 @@
-/// BYOND timestamp corresponding to deadline (Sept. 1, 2025)
-#define DEADLINE_TIMESTAMP 8100000000
+/// BYOND timestamp corresponding to deadline (Jun. 16, 2025)
+#define DEADLINE_TIMESTAMP 8033472000
 
 /mob/dead/new_player
 	/// Title screen is ready to receive signals
@@ -22,25 +22,25 @@
 		unvetted_notified = TRUE
 		return TRUE
 
-	// Time's up
-	if(DEADLINE_TIMESTAMP - world.realtime <= 0)
-		tgui_alert(
-			src,
-			"Unvetted players are no longer allowed to join or observe rounds, please visit #get-vetted in the Discord to submit a vetting application",
-			"You are unvetted!",
-			timeout = 10 SECONDS,
-		)
-		return FALSE
+	// // Time's up
+	// if(DEADLINE_TIMESTAMP - world.realtime <= 0)
+	// 	tgui_alert(
+	// 		src,
+	// 		"Unvetted players are no longer allowed to join or observe rounds, please visit #get-vetted in the Discord to submit a vetting application",
+	// 		"You are unvetted!",
+	// 		timeout = 10 SECONDS,
+	// 	)
+	// 	return FALSE
 
-	var/remaining_time = round((DEADLINE_TIMESTAMP - world.realtime) / (1 DAYS), 1)
-	tgui_deadline_alert(
-		src,
-		"Unvetted players will lose the ability to join or observe rounds in [remaining_time] day\s!",
-		"Get vetted by [time2text(DEADLINE_TIMESTAMP, "Month DD YYYY")]!",
-		days_remaining = remaining_time,
-		timeout = 10 SECONDS,
-	)
-	unvetted_notified = TRUE
+	// var/remaining_time = round((DEADLINE_TIMESTAMP - world.realtime) / (1 DAYS), 1)
+	// tgui_deadline_alert(
+	// 	src,
+	// 	"Unvetted players will lose the ability to join or observe rounds in [remaining_time] day\s!",
+	// 	"Get vetted by [time2text(DEADLINE_TIMESTAMP, "Month DD YYYY")]!",
+	// 	days_remaining = remaining_time,
+	// 	timeout = 10 SECONDS,
+	// )
+	// unvetted_notified = TRUE
 	return TRUE
 
 /mob/dead/new_player/Topic(href, href_list)

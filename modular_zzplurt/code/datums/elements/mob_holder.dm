@@ -30,7 +30,7 @@
 	UnregisterSignal(source, list(COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM, COMSIG_CLICK_ALT, COMSIG_ATOM_EXAMINE))
 
 /datum/element/mob_holder/proc/on_examine(mob/living/source, mob/user, list/examine_list)
-	if(ishuman(user) && !istype(source.loc, /obj/item/clothing/head/mob_holder))
+	if(ishuman(user) && !istype(source.loc, /obj/item/mob_holder))
 		examine_list += span_notice("Looks like [source.p_they(FALSE)] can be picked up with <b>Alt+Click</b>!")
 
 /datum/element/mob_holder/proc/on_requesting_context_from_item(
@@ -66,14 +66,14 @@
 					span_userdanger("[user] picks you up!"))
 	to_chat(user, span_notice("You pick [source] up."))
 	source.drop_all_held_items()
-	var/obj/item/clothing/head/mob_holder/holder = new(get_turf(source), source, worn_state, alt_worn, right_hand, left_hand, inv_slots)
+	var/obj/item/mob_holder/holder = new(get_turf(source), source, worn_state, alt_worn, right_hand, left_hand, inv_slots)
 
 	if(proctype)
 		INVOKE_ASYNC(src, proctype, source, holder, user)
 	user.put_in_hands(holder)
 	return TRUE
 
-/datum/element/mob_holder/proc/drone_worn_icon(mob/living/basic/drone/D, obj/item/clothing/head/mob_holder/holder, mob/user)
+/datum/element/mob_holder/proc/drone_worn_icon(mob/living/basic/drone/D, obj/item/mob_holder/holder, mob/user)
 	var/new_state = "[D.visualAppearance]_hat"
 	holder.inhand_icon_state = new_state
 	holder.icon_state = new_state
