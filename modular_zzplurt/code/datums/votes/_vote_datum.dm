@@ -1,3 +1,4 @@
+/*
 /datum/vote
 	/// The threshold for a winner in ranked voting as a percentage (0-100)
 	var/ranked_winner_threshold = 50
@@ -194,3 +195,4 @@
 	// This should never happen but just in case
 	log_vote("ERROR: Ranked choice voting ended with no winner!", list())
 	return list()
+*/

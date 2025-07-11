@@ -40,14 +40,6 @@
 /obj/machinery/door/airlock,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
-"gw" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/prisoner{
-	pixel_y = 4;
-	pixel_x = -6
-	},
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
 "hz" = (
 /obj/item/stack/license_plates/empty/fifty,
 /obj/item/stack/license_plates/empty/fifty,
@@ -87,6 +79,14 @@
 	},
 /obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /turf/open/floor/iron/checker,
+/area/misc/hilbertshotel)
+"me" = (
+/obj/structure/closet,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/toy_figure,
+/obj/item/pen/sleepy,
+/turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "mk" = (
 /obj/machinery/vending/hydronutrients{
@@ -129,14 +129,6 @@
 "sv" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
-"tU" = (
-/obj/structure/closet,
-/obj/effect/spawner/random/entertainment/coin,
-/obj/effect/spawner/random/entertainment/coin,
-/obj/effect/spawner/random/entertainment/toy_figure,
-/obj/item/pen/sleepy,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "ui" = (
@@ -191,10 +183,6 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
-"xO" = (
-/obj/machinery/room_controller/directional/north,
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
 "yi" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck/cas{
@@ -222,6 +210,14 @@
 /obj/structure/sink/kitchen/directional/east,
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
+"zx" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/prisoner{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
 "zU" = (
 /obj/structure/hoop{
 	dir = 4
@@ -232,7 +228,7 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
-"Az" = (
+"Ab" = (
 /obj/item/toy/basketball,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
@@ -243,13 +239,6 @@
 	pixel_x = -3
 	},
 /obj/item/toy/figure/hos,
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
-"BS" = (
-/obj/item/toy/figure/secofficer{
-	pixel_y = 16
-	},
-/obj/structure/showcase/fakesec,
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "BT" = (
@@ -377,10 +366,6 @@
 	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
-"MZ" = (
-/obj/machinery/room_controller/directional/south,
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
 "Nt" = (
 /obj/machinery/door/window{
 	dir = 8
@@ -432,6 +417,43 @@
 /obj/machinery/processor,
 /turf/open/floor/iron/checker,
 /area/misc/hilbertshotel)
+"SZ" = (
+/obj/structure/table,
+/obj/item/toy/figure/ian{
+	pixel_x = 8
+	},
+/obj/item/toy/figure/hop{
+	pixel_y = 2
+	},
+/obj/item/toy/figure/ian{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/toy/figure/ian,
+/obj/item/toy/figure/ian{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/toy/figure/ian{
+	pixel_x = -8
+	},
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
+"TZ" = (
+/obj/machinery/room_controller/directional/north,
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
+"Vc" = (
+/obj/item/toy/figure/secofficer{
+	pixel_y = 16
+	},
+/obj/structure/showcase/fakesec,
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
+"Vk" = (
+/obj/machinery/room_controller/directional/south,
+/turf/open/floor/iron,
+/area/misc/hilbertshotel)
 "Vt" = (
 /obj/machinery/deepfryer,
 /obj/structure/window/reinforced{
@@ -469,28 +491,6 @@
 /obj/item/clothing/mask/leatherwhip{
 	pixel_x = -9;
 	pixel_y = 4
-	},
-/turf/open/floor/iron,
-/area/misc/hilbertshotel)
-"Zb" = (
-/obj/structure/table,
-/obj/item/toy/figure/ian{
-	pixel_x = 8
-	},
-/obj/item/toy/figure/hop{
-	pixel_y = 2
-	},
-/obj/item/toy/figure/ian{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/toy/figure/ian,
-/obj/item/toy/figure/ian{
-	pixel_x = 4;
-	pixel_y = 2
-	},
-/obj/item/toy/figure/ian{
-	pixel_x = -8
 	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
@@ -532,7 +532,7 @@ zo
 kP
 LV
 cP
-MZ
+Vk
 LV
 "}
 (3,1,1) = {"
@@ -565,7 +565,7 @@ Od
 CD
 QJ
 FV
-gw
+zx
 NN
 LV
 "}
@@ -582,7 +582,7 @@ NN
 NN
 NN
 FV
-BS
+Vc
 NN
 LV
 "}
@@ -611,7 +611,7 @@ YN
 NN
 NN
 xh
-Zb
+SZ
 LF
 rZ
 NN
@@ -623,7 +623,7 @@ LV
 (8,1,1) = {"
 FV
 QG
-Az
+Ab
 YN
 NN
 NN
@@ -667,8 +667,8 @@ El
 El
 El
 LV
-xO
-tU
+TZ
+me
 LV
 "}
 (11,1,1) = {"

@@ -71,8 +71,8 @@
 		return
 	if(default_unfasten_wrench(user, I, 40))
 		return
-	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
-		var/obj/item/clothing/head/mob_holder/H = I
+	if(allow_mobs && istype(I, /obj/item/mob_holder))
+		var/obj/item/mob_holder/H = I
 		var/mob/victim = H.held_mob
 		if(!user.transferItemToLoc(I, src))
 			to_chat(user, "<span class='warning'>[I] is stuck to your hand!</span>")

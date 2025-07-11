@@ -30,9 +30,9 @@
 		return TRUE
 	return ..()
 
-/datum/action/innate/vore_mode/do_ability(mob/living/caller, atom/clicked_on)
+/datum/action/innate/vore_mode/do_ability(mob/living/clicker, atom/clicked_on)
 	var/datum/component/vore/V = target
-	return V.on_voremode_click(caller, clicked_on)
+	return V.on_voremode_click(clicker, clicked_on)
 
 /datum/action/innate/vore_mode/create_button()
 	var/atom/movable/screen/movable/action_button/button = ..()
@@ -371,7 +371,7 @@
 	var/mob/living/pred = parent
 	if(!prey)
 		prey = pred.pulling
-	if(!check_vore_grab(pred) && !istype(prey.loc, /obj/item/clothing/head/mob_holder))
+	if(!check_vore_grab(pred) && !istype(prey.loc, /obj/item/mob_holder))
 		to_chat(parent, span_danger("You must have a[ishuman(pred) ? "n aggressive" : ""] grab to eat someone."))
 		return
 	if(!check_vore_preferences(parent, pred, prey))
@@ -380,7 +380,7 @@
 	pred.visible_message(span_danger("[pred] is attempting to [LOWER_TEXT(selected_belly.insert_verb)] [prey] into their [LOWER_TEXT(selected_belly.name)]!"), pref_to_check = /datum/preference/toggle/erp/vore_enable)
 	if(!do_after(pred, VORE_DELAY, prey))
 		return
-	if((!check_vore_grab(pred) && !istype(prey.loc, /obj/item/clothing/head/mob_holder)) || !check_vore_preferences(parent, pred, prey, assume_active_consent = TRUE))
+	if((!check_vore_grab(pred) && !istype(prey.loc, /obj/item/mob_holder)) || !check_vore_preferences(parent, pred, prey, assume_active_consent = TRUE))
 		return
 	#endif
 	pred.visible_message(span_danger("[pred] manages to [LOWER_TEXT(selected_belly.insert_verb)] [prey] into their [LOWER_TEXT(selected_belly.name)]!"), pref_to_check = /datum/preference/toggle/erp/vore_enable)
@@ -410,7 +410,7 @@
 	var/mob/living/feeder = parent
 	if(!prey)
 		prey = feeder.pulling
-	if(!check_vore_grab(feeder) && !istype(prey.loc, /obj/item/clothing/head/mob_holder))
+	if(!check_vore_grab(feeder) && !istype(prey.loc, /obj/item/mob_holder))
 		to_chat(feeder, span_danger("You must have a[ishuman(feeder) ? "n aggressive" : ""] grab to feed someone to someone else."))
 		return
 	if(!feeder.can_perform_action(pred, pred.interaction_flags_click | FORBID_TELEKINESIS_REACH))
@@ -423,7 +423,7 @@
 	feeder.visible_message(span_danger("[feeder] is attempting to make [pred] [LOWER_TEXT(pred_component.selected_belly.insert_verb)] [prey] into their [LOWER_TEXT(pred_component.selected_belly.name)]!"), pref_to_check = /datum/preference/toggle/erp/vore_enable)
 	if(!do_after(feeder, VORE_DELAY, pred))
 		return
-	if((!check_vore_grab(pred) && !istype(prey.loc, /obj/item/clothing/head/mob_holder)) || !check_vore_preferences(feeder, pred, prey, assume_active_consent = TRUE))
+	if((!check_vore_grab(pred) && !istype(prey.loc, /obj/item/mob_holder)) || !check_vore_preferences(feeder, pred, prey, assume_active_consent = TRUE))
 		return
 	if(!feeder.can_perform_action(pred, pred.interaction_flags_click | FORBID_TELEKINESIS_REACH))
 		return

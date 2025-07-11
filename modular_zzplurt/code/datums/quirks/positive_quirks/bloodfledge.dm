@@ -1082,186 +1082,62 @@
 		/// Name of exotic blood substitute determined by species
 		var/blood_name = "blood"
 
-		// Check if target has exotic bloodtype
-		if(bite_target.dna?.species?.exotic_bloodtype)
-			// Define blood types for owner and target
-			var/blood_type_owner = action_owner.dna?.species?.exotic_bloodtype
-			var/blood_type_target = bite_target.dna?.species?.exotic_bloodtype
+		// Get blood type datum from target's DNA
+		var/datum/blood_type/target_blood = bite_target.dna?.blood_type
 
-			/// Define if owner and target blood types match. Used for providing a mood bonus and immunity to exotic blood mood penalties.
-			var/blood_type_match = (blood_type_owner == blood_type_target ? TRUE : FALSE)
+		// Get blood type datum from owner's DNA
+		var/datum/blood_type/owner_blood = action_owner.dna?.blood_type
 
-			// Check if types matched
-			if(blood_type_match)
-				// Add positive mood
-				action_owner.add_mood_event(QMOOD_BFLED_DRANK_MATCH, /datum/mood_event/bloodfledge/drankblood/exotic_matched)
-
-			// Switch for target's blood type
-			switch(blood_type_target)
-				// Lizard blood
-				if("L")
-					// Set blood type name
-					blood_name = "reptilian blood"
-
-					// No penalty
-
-				// Bug blood
-				// Not used here
-				/*
-				if("BUG")
-					// Set blood type name
-					blood_name = "hemolymph"
-
-					// Check if blood types match
-					if(!blood_type_match)
-						// Mark blood as invalid
-						blood_valid = FALSE
-
-						// Cause negative mood
-						action_owner.add_mood_event(QMOOD_BFLED_DRANK_BUG, /datum/mood_event/bloodfledge/drankblood/insect)
-				*/
-
-				// Vampire blood
-				if("U")
-					// Set blood type name
-					blood_name = "sanguine blood"
-
-					// EDIT: Allowed again
-					/*
-					// Don't drink from vampires!
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Cause negative mood
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_VAMP, /datum/mood_event/bloodfledge/drankblood/vampire)
-					*/
-
-				// Ethreal blood
-				if("LE")
-					// Set blood type name
-					blood_name = "liquid electricity"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Allow transferring blood from this
-					blood_transfer = TRUE
-
-					// Cause neutral mood
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_ETHER, /datum/mood_event/bloodfledge/drankblood/ethereal)
-
-				// Edge case
-				else
-					// Set blood type name
-					blood_name = "unknown exotic bloodtype"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-		// Check if target has exotic blood reagent
-		// Second check for the separate exotic_blood variable
-		else if(bite_target.dna?.species?.exotic_blood)
-			// Define blood types for owner and target
-			var/blood_type_owner = action_owner.dna?.species?.exotic_blood
-			var/blood_type_target = bite_target.dna?.species?.exotic_blood
-
-			/// Define if owner and target blood types match. Used for providing a mood bonus and immunity to exotic blood mood penalties.
-			var/blood_type_match = (blood_type_owner == blood_type_target ? TRUE : FALSE)
+		// Check if target has blood type
+		if(target_blood)
+			// Define if owner and target blood types match
+			var/blood_type_match = (owner_blood.id == target_blood.id)
 
 			// Check if types matched
 			if(blood_type_match)
 				// Add positive mood
 				action_owner.add_mood_event(QMOOD_BFLED_DRANK_MATCH, /datum/mood_event/bloodfledge/drankblood/exotic_matched)
 
-			// Check for target's blood type
-			switch(blood_type_target)
-				// Synthetic blood
-				if(/datum/reagent/fuel/oil)
-					// Mark blood as invalid
-					blood_valid = FALSE
+			// Set blood name from datum
+			blood_name = target_blood.name
 
-					// Set blood type name
-					blood_name = "oil"
+			// Check blood type specific effects
+			if(target_blood.reagent_type == /datum/reagent/fuel/oil)
+				// Mark blood as invalid
+				blood_valid = FALSE
+				// Cause negative mood
+				action_owner.add_mood_event(QMOOD_BFLED_DRANK_SYNTH, /datum/mood_event/bloodfledge/drankblood/synth)
 
-					// Cause negative mood
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SYNTH, /datum/mood_event/bloodfledge/drankblood/synth)
+			else if(target_blood.reagent_type == /datum/reagent/toxin/slimejelly)
+				blood_valid = FALSE
+				blood_transfer = TRUE
+				if(!blood_type_match)
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SLIME, /datum/mood_event/bloodfledge/drankblood/slime)
 
-				// Slime blood
-				if(/datum/reagent/toxin/slimejelly)
-					// Mark blood as invalid
-					blood_valid = FALSE
+			else if(target_blood.reagent_type == /datum/reagent/water)
+				blood_valid = FALSE
+				action_owner.add_mood_event(QMOOD_BFLED_DRANK_POD, /datum/mood_event/bloodfledge/drankblood/podperson)
 
-					// Allow transferring blood from this
-					blood_transfer = TRUE
+			else if(target_blood.reagent_type == /datum/reagent/lube)
+				blood_valid = FALSE
+				if(!blood_type_match)
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SNAIL, /datum/mood_event/bloodfledge/drankblood/snail)
 
-					// Set blood type name
-					blood_name = "slime jelly"
+			else if(target_blood.reagent_type == /datum/reagent/copper)
+				blood_valid = FALSE
+				if(!blood_type_match)
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SKREL, /datum/mood_event/bloodfledge/drankblood/skrell)
 
-					// Check if blood types match
-					if(!blood_type_match)
-						// Cause negative mood
-						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SLIME, /datum/mood_event/bloodfledge/drankblood/slime)
+			else if(target_blood.reagent_type == /datum/reagent/toxin/acid)
+				blood_valid = FALSE
+				blood_transfer = TRUE
+				if(!blood_type_match)
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_XENO, /datum/mood_event/bloodfledge/drankblood/xeno)
 
-				// Podperson blood
-				if(/datum/reagent/water)
-					// Set blood type name
-					blood_name = "water"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Cause neutral mood
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_POD, /datum/mood_event/bloodfledge/drankblood/podperson)
-
-				// Snail blood
-				if(/datum/reagent/lube)
-					// Set blood type name
-					blood_name = "space lube"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Check if blood types match
-					if(!blood_type_match)
-						// Cause negative mood
-						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SNAIL, /datum/mood_event/bloodfledge/drankblood/snail)
-
-				// Skrell blood
-				if(/datum/reagent/copper)
-					// Set blood type name
-					blood_name = "copper"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Check if blood types match
-					if(!blood_type_match)
-						// Cause negative mood
-						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SKREL, /datum/mood_event/bloodfledge/drankblood/skrell)
-
-				// Xenomorph Hybrid blood
-				if(/datum/reagent/toxin/acid)
-					// Set blood type name
-					blood_name = "sulfuric acid"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
-
-					// Allow transferring blood from this
-					blood_transfer = TRUE
-
-					// Check if blood types match
-					if(!blood_type_match)
-						// Cause negative mood
-						action_owner.add_mood_event(QMOOD_BFLED_DRANK_XENO, /datum/mood_event/bloodfledge/drankblood/xeno)
-
-				// Edge case
-				else
-					// Set blood type name
-					blood_name = "unknown exotic blood"
-
-					// Mark blood as invalid
-					blood_valid = FALSE
+			else if(target_blood.reagent_type == /datum/reagent/colorful_reagent)
+				blood_valid = FALSE
+				blood_transfer = TRUE
+				action_owner.add_mood_event(QMOOD_BFLED_DRANK_ETHER, /datum/mood_event/bloodfledge/drankblood/ethereal)
 
 		// Check if bite target has any blood
 		// Checked later since some species have NOBLOOD and exotic blood type

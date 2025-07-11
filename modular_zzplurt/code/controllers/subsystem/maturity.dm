@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(maturity_guard)
 
 	prompt_cache |= user_ckey
 
-	var/datum/maturity_prompt/prompt = new(user, 60 SECONDS, GLOB.always_state)
+	var/datum/maturity_prompt/prompt = new(user, SHORT_REAL_LIMIT, GLOB.always_state) // can't use INFINITY because of checks
 	prompt.ui_interact(user)
 	prompt.wait()
 	prompt_cache -= user_ckey
@@ -102,7 +102,10 @@ SUBSYSTEM_DEF(maturity_guard)
 			if(AGE_CHECK_INVALID)
 				to_chat_immediate(user, span_warning("Invalid information entered. Please try again."))
 			if(AGE_CHECK_UNDERAGE)
-				create_underage_ban(user)
+				to_chat_immediate(user, span_warning("You are under the age of 18. You cannot play on this server."))
+				qdel(user.client)
+				message_admins("[user.ckey] has FAILED THE AGE CHECK with DOB [prompt.year] [prompt.month] [prompt.day].")
+				//create_underage_ban(user) //Since it's kinda wonky we prefer to handle the banning manually
 			if(AGE_CHECK_PASSED)
 				add_age_to_db(user, prompt.year, prompt.month, prompt.day, prompt.save_birthday, prompt.public_birthday)
 				user.client.maturity_prompt_whitelist = TRUE
@@ -125,12 +128,16 @@ SUBSYSTEM_DEF(maturity_guard)
 	)
 
 	if(!query_age_from_db.warn_execute())
+		qdel(query_age_from_db)
 		return FALSE
 
 	// There should be only one, we're querying by the primary key; if it returns more than one row something is very wrong
 	var/result = query_age_from_db.NextRow()
 	if(result)
-		return query_age_from_db.item
+		var/age_data = query_age_from_db.item
+		qdel(query_age_from_db)
+		return age_data
+	qdel(query_age_from_db)
 	return FALSE
 
 
@@ -159,8 +166,10 @@ SUBSYSTEM_DEF(maturity_guard)
 	)
 
 	if(!add_age_to_db.warn_execute())
+		qdel(add_age_to_db)
 		return FALSE
 
+	qdel(add_age_to_db)
 	return TRUE
 
 // Logic inspired by S.P.L.U.R.T age_gate //Oh really? How kind!

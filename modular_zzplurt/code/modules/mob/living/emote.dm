@@ -1180,17 +1180,17 @@
 	cooldowns = 0.8 SECONDS
 	vary = FALSE
 
-/datum/emote/living/mrrp
-	key = "mrrp"
-	key_third_person = "mrrps"
+/datum/emote/living/cattrill
+	key = "cattrill"
+	key_third_person = "cattrills"
 	message = "trills like a cat!"
 	sound = 'modular_zzplurt/sound/voice/catpeople/cat_mrrp1.ogg'
 	cooldowns = 0.8 SECONDS
 	vary = FALSE
 
-/datum/emote/living/mrrp2
-	key = "mrrp2"
-	key_third_person = "mrrps"
+/datum/emote/living/cattrill2
+	key = "cattrill2"
+	key_third_person = "cattrills"
 	message = "trills like a cat!"
 	sound = 'modular_zzplurt/sound/voice/catpeople/cat_mrrp2.ogg'
 	cooldowns = 0.8 SECONDS
