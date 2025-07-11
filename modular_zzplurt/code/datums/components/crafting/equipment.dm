@@ -15,12 +15,12 @@
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 
 // Bloodfledge emag post-crafting
-/datum/crafting_recipe/emag_bloodfledge/on_craft_completion(mob/user, atom/result)
+/obj/item/card/emag/bloodfledge/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	// Define carbon holder
-	var/mob/living/carbon/item_mob = user
+	var/mob/living/carbon/item_mob = crafter
 
 	// Check for valid holder
-	if(!item_mob)
+	if(!item_mob || !istype(item_mob, /mob/living/carbon))
 		// Do nothing
 		return
 
@@ -30,4 +30,5 @@
 	// Check if blood prefix exists
 	if(blood_name)
 		// Rename the card
-		result.name = LOWER_TEXT("[blood_name]rrhagic Sanguinizer")
+		name = LOWER_TEXT("[blood_name]rrhagic Sanguinizer")
+	. = ..()

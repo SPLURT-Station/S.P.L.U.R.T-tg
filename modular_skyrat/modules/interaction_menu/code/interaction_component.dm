@@ -6,6 +6,8 @@
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
 	var/interact_next = 0
+	///Holds a reference to a relayed body if one exists
+	var/obj/body_relay = null
 
 /datum/component/interactable/Initialize(...)
 	if(QDELETED(parent))
@@ -64,7 +66,8 @@
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
-		return FALSE
+		if(!body_relay || !target.Adjacent(body_relay))
+			return FALSE
 	if(interaction.category == INTERACTION_CAT_HIDE)
 		return FALSE
 	if(self == target && interaction.usage == INTERACTION_OTHER)
@@ -128,10 +131,13 @@
 	data["ref_self"] = REF(self)
 	data["self"] = self.name
 	data["block_interact"] = user_interaction_component?.interact_next >= world.time // SPLURT EDIT - INTERACTIONS - Original: interact_next >= world.time
+	if(body_relay)
+		if(!can_see(user, self))
+			data["self"] = body_relay.name
 	data["interactions"] = categories
 
 	var/list/parts = list()
-	if(ishuman(user) && can_lewd_strip(user, self))
+	if(ishuman(user) && ishuman(self) && can_lewd_strip(user, self)) // SPLURT EDIT - INTERACTIONS - Original: if(ishuman(user) && can_lewd_strip(user, self))
 		if(self.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
 			if(self.has_vagina())
 				parts += list(generate_strip_entry(ORGAN_SLOT_VAGINA, self, user, human_self.vagina)) // SPLURT EDIT - INTERACTIONS - Original: generate_strip_entry(ORGAN_SLOT_VAGINA, self, user, self.vagina)
@@ -196,7 +202,10 @@
 			if(interact_next >= world.time)
 				return FALSE
 
-			selected_interaction.act(source, target)
+			if(body_relay && !can_see(user, self))
+				selected_interaction.act(source, target, body_relay)
+			else
+				selected_interaction.act(source, target)
 			var/datum/component/interactable/interaction_component = source.GetComponent(/datum/component/interactable)
 			interaction_component.interact_last = world.time
 			interaction_component.interact_next = interaction_component.interact_last + INTERACTION_COOLDOWN
@@ -300,6 +309,7 @@
 						target.vars[item_index] = new_item
 						new_item.forceMove(target)
 						new_item.lewd_equipped(target, item_index)
+				if(ishuman(target)) // SPLURT EDIT - INTERACTIONS
 					target.update_inv_lewd()
 
 			else
@@ -384,7 +394,7 @@
 		return FALSE
 	if(!(source.loc == target.loc || source.Adjacent(target)))
 		return FALSE
-	if(!source.has_arms())
+	if(ishuman(source) && !source.has_arms()) // SPLURT EDIT - INTERACTIONS
 		return FALSE
 	if(!slot_index) // This condition is for the UI to decide if the button is shown at all. Slot index should never be null otherwise.
 		return TRUE

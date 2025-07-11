@@ -126,7 +126,7 @@
 	// Primary attributes (user's stats)
 	if(user)
 		.["pleasure"] = user.pleasure || 0
-		.["maxPleasure"] = AROUSAL_LIMIT * (istype(human_user) ? human_user.dna.features["lust_tolerance"] || 1 : 1)
+		.["maxPleasure"] = AROUSAL_LIMIT * (ishuman(user) && human_user.dna.features["lust_tolerance"] ? human_user.dna.features["lust_tolerance"] : 1)
 		.["arousal"] = user.arousal || 0
 		.["maxArousal"] = AROUSAL_LIMIT
 		.["pain"] = user.pain || 0
@@ -145,7 +145,7 @@
 	if(user != self)
 		.["theirAttributes"] = get_interaction_attributes(self)
 		.["theirPleasure"] = self.pleasure || 0
-		.["theirMaxPleasure"] = AROUSAL_LIMIT * (istype(human_self) ? human_self.dna.features["lust_tolerance"] || 1 : 1)
+		.["theirMaxPleasure"] = AROUSAL_LIMIT * (ishuman(self) && human_self.dna.features["lust_tolerance"] ? human_self.dna.features["lust_tolerance"] : 1)
 		.["theirArousal"] = self.arousal || 0
 		.["theirMaxArousal"] = AROUSAL_LIMIT
 		.["theirPain"] = self.pain || 0

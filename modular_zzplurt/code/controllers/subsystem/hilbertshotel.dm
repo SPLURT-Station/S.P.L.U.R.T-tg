@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(hilbertshotel)
 	// Lore stuff
 	var/lore_room_spawned = FALSE
 
-	var/list/hotel_map_list = list()
+	var/list/datum/map_template/ghost_cafe_rooms/hotel_map_list = list()
 	/// Name of the first template in the list - used as default
 	var/default_template
 
@@ -109,9 +109,14 @@ SUBSYSTEM_DEF(hilbertshotel)
 		if(user?.mind && parentSphere)
 			door.entry_points[user.mind] = parentSphere
 
+	// Get the landing coords for the room
+	var/datum/map_template/ghost_cafe_rooms/room_template = hotel_map_list[room["template"]]
+	var/relative_x = istype(room_template) && room_template.landing_coords?[1] ? room_template.landing_coords[1] : hotel_room_template.landingZoneRelativeX
+	var/relative_y = istype(room_template) && room_template.landing_coords?[2] ? room_template.landing_coords[2] : hotel_room_template.landingZoneRelativeY
+
 	user.forceMove(locate(
-		room_bottom_left.x + hotel_room_template.landingZoneRelativeX,
-		room_bottom_left.y + hotel_room_template.landingZoneRelativeY,
+		room_bottom_left.x + relative_x,
+		room_bottom_left.y + relative_y,
 		room_bottom_left.z,
 	))
 	return TRUE
@@ -221,8 +226,8 @@ SUBSYSTEM_DEF(hilbertshotel)
 	/* Not necessary thanks to the ghost cafe configs
 	var/list/all_living_mobs = user.get_all_contents_type(/mob/living)
 	for(var/atom/any_atom in all_living_mobs)
-		if(istype(any_atom, /obj/item/clothing/head/mob_holder))
-			var/obj/item/clothing/head/mob_holder/some_holder = any_atom
+		if(istype(any_atom, /obj/item/mob_holder))
+			var/obj/item/mob_holder/some_holder = any_atom
 			some_holder.release()
 		if(!isliving(any_atom))
 			continue
@@ -231,9 +236,15 @@ SUBSYSTEM_DEF(hilbertshotel)
 	*/
 
 	do_sparks(3, FALSE, get_turf(user))
+
+	// Get the landing coords for the room
+	var/datum/map_template/ghost_cafe_rooms/room_template = hotel_map_list[template_name]
+	var/relative_x = istype(room_template) && room_template.landing_coords?[1] ? room_template.landing_coords[1] : hotel_room_template.landingZoneRelativeX
+	var/relative_y = istype(room_template) && room_template.landing_coords?[2] ? room_template.landing_coords[2] : hotel_room_template.landingZoneRelativeY
+
 	user.forceMove(locate(
-		room_turf.x + hotel_room_template.landingZoneRelativeX,
-		room_turf.y + hotel_room_template.landingZoneRelativeY,
+		room_turf.x + relative_x,
+		room_turf.y + relative_y,
 		room_turf.z,
 	))
 	return TRUE
@@ -296,8 +307,8 @@ SUBSYSTEM_DEF(hilbertshotel)
 	/* Not necessary thanks to the ghost cafe configs
 	var/list/all_living_mobs = user.get_all_contents_type(/mob/living)
 	for(var/atom/any_atom in all_living_mobs)
-		if(istype(any_atom, /obj/item/clothing/head/mob_holder))
-			var/obj/item/clothing/head/mob_holder/some_holder = any_atom
+		if(istype(any_atom, /obj/item/mob_holder))
+			var/obj/item/mob_holder/some_holder = any_atom
 			some_holder.release()
 		if(!isliving(any_atom))
 			continue
@@ -306,9 +317,15 @@ SUBSYSTEM_DEF(hilbertshotel)
 	*/
 
 	do_sparks(3, FALSE, get_turf(user))
+
+	// Get the landing coords for the room
+	var/datum/map_template/ghost_cafe_rooms/room_template = hotel_map_list[template]
+	var/relative_x = istype(room_template) && room_template.landing_coords?[1] ? room_template.landing_coords[1] : hotel_room_template.landingZoneRelativeX
+	var/relative_y = istype(room_template) && room_template.landing_coords?[2] ? room_template.landing_coords[2] : hotel_room_template.landingZoneRelativeY
+
 	user.forceMove(locate(
-		bottom_left.x + hotel_room_template.landingZoneRelativeX,
-		bottom_left.y + hotel_room_template.landingZoneRelativeY,
+		bottom_left.x + relative_x,
+		bottom_left.y + relative_y,
 		bottom_left.z,
 	))
 

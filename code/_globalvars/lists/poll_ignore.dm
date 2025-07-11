@@ -39,6 +39,7 @@
 #define POLL_IGNORE_VENUSHUMANTRAP "venus_human_trap"
 #define POLL_IGNORE_RECOVERED_CREW "recovered_crew"
 #define POLL_IGNORE_EXPERIMENTAL_CLONER "experimental_cloner"
+#define POLL_IGNORE_FREE_SPORE "free_spore"
 #define POLL_IGNORE_PREGNANCY "pregnancy" // SPLURT EDIT ADDITION
 
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
@@ -69,7 +70,7 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_PYROSLIME = "Slime",
 	POLL_IGNORE_RAW_PROPHET = "Raw Prophet",
 	POLL_IGNORE_REGAL_RAT = "Regal rat",
-	POLL_IGNORE_RUST_SPIRIT = "Rust Spirit",
+	POLL_IGNORE_RUST_SPIRIT = "Rust Walker",
 	POLL_IGNORE_SENTIENCE_POTION = "Sentience potion",
 	POLL_IGNORE_SHADE = "Shade",
 	POLL_IGNORE_SHUTTLE_DENIZENS = "Shuttle denizens",
@@ -79,7 +80,8 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_STALKER = "Stalker",
 	POLL_IGNORE_SYNDICATE = "Syndicate",
 	POLL_IGNORE_VENUSHUMANTRAP = "Venus Human Traps",
-	POLL_IGNORE_RECOVERED_CREW = "recovered_crew",
+	POLL_IGNORE_RECOVERED_CREW = "Recovered Crew",
+	POLL_IGNORE_FREE_SPORE = "Free spore",
 	POLL_IGNORE_PREGNANCY = "Pregnancy", // SPLURT EDIT ADDITION
 ))
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())

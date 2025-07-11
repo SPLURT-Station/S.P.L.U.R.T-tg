@@ -135,8 +135,8 @@
 	owner.adjust_nutrition(-COCOON_NUTRITION_LOSS * 0.25)
 	return ..()
 
-/datum/action/innate/arachnid/spin_cocoon/do_ability(mob/living/caller, atom/movable/clicked_on)
-	if(!caller.Adjacent(clicked_on) || !istype(clicked_on) || DOING_INTERACTION(caller, SPECIES_ARACHNID))
+/datum/action/innate/arachnid/spin_cocoon/do_ability(mob/living/clicker, atom/movable/clicked_on)
+	if(!clicker.Adjacent(clicked_on) || !istype(clicked_on) || DOING_INTERACTION(clicker, SPECIES_ARACHNID))
 		return FALSE
 
 	. = TRUE
@@ -147,42 +147,42 @@
 		/atom/movable/screen //???
 	))
 	if(is_type_in_typecache(clicked_on, blacklisted_types))
-		to_chat(caller, span_warning("You cannot wrap this!"))
+		to_chat(clicker, span_warning("You cannot wrap this!"))
 		return FALSE
 
 	if(!isliving(clicked_on) && clicked_on.anchored)
-		to_chat(caller, span_warning("[clicked_on] is bolted to the floor!"))
+		to_chat(clicker, span_warning("[clicked_on] is bolted to the floor!"))
 		return FALSE
 
-	if(clicked_on == caller)
-		caller.visible_message(
-			span_danger("[caller] starts to wrap themselves into a cocoon!"),
+	if(clicked_on == clicker)
+		clicker.visible_message(
+			span_danger("[clicker] starts to wrap themselves into a cocoon!"),
 			span_danger("You start to wrap yourself into a cocoon!")
 		)
 	else
-		caller.visible_message(
-			span_danger("[caller] starts to wrap [clicked_on] into a cocoon!"),
+		clicker.visible_message(
+			span_danger("[clicker] starts to wrap [clicked_on] into a cocoon!"),
 			span_warning("You start to wrap [clicked_on] into a cocoon.")
 		)
 
-	caller.apply_status_effect(/datum/status_effect/web_cooldown)
-	if(!do_after(caller, 10 SECONDS, clicked_on, interaction_key = SPECIES_ARACHNID))
-		to_chat(caller, span_warning("Your web spinning was interrupted!"))
+	clicker.apply_status_effect(/datum/status_effect/web_cooldown)
+	if(!do_after(clicker, 10 SECONDS, clicked_on, interaction_key = SPECIES_ARACHNID))
+		to_chat(clicker, span_warning("Your web spinning was interrupted!"))
 		return FALSE
 
-	caller.adjust_nutrition(-COCOON_NUTRITION_LOSS * 0.75)
-	caller.apply_status_effect(/datum/status_effect/web_cooldown)
+	clicker.adjust_nutrition(-COCOON_NUTRITION_LOSS * 0.75)
+	clicker.apply_status_effect(/datum/status_effect/web_cooldown)
 	var/obj/structure/spider/cocoon/casing = new(clicked_on.loc)
 
 	clicked_on.forceMove(casing)
 	if(clicked_on.density || ismob(clicked_on))
-		if(clicked_on == caller)
-			caller.visible_message(span_danger("[caller] wraps themselves into a large cocoon!"))
+		if(clicked_on == clicker)
+			clicker.visible_message(span_danger("[clicker] wraps themselves into a large cocoon!"))
 		else
-			caller.visible_message(span_danger("[caller] wraps [clicked_on] into a large cocoon!"))
+			clicker.visible_message(span_danger("[clicker] wraps [clicked_on] into a large cocoon!"))
 		casing.icon_state = pick("cocoon_large1", "cocoon_large2", "cocoon_large3")
 	else
-		caller.visible_message(span_danger("[caller] wraps [clicked_on] into a cocoon!"))
+		clicker.visible_message(span_danger("[clicker] wraps [clicked_on] into a cocoon!"))
 
 
 /datum/status_effect/web_cooldown

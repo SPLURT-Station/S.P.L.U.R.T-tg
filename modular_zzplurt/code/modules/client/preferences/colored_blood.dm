@@ -16,7 +16,7 @@
 	savefile_key = "blood_color"
 
 /datum/preference/color/blood_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.species.exotic_blood_color = value
+	target.dna.blood_type.color = value
 	return TRUE
 
 /datum/preference/color/blood_color/is_accessible(datum/preferences/preferences)

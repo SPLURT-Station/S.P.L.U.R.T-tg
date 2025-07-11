@@ -291,7 +291,6 @@
 	control_computer.frozen_item += bluespace_box
 	if(departing_mob.mind)
 		departing_mob.mind.objectives = list()
-		departing_mob.mind.special_role = null
 	visible_message(span_notice("[src] whizzes as it swallows the ID card."))
 	playsound(src, 'sound/machines/terminal/terminal_success.ogg', 50, TRUE)
 	say("Transfer successful.")
