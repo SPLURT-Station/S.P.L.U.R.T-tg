@@ -1302,6 +1302,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	update_icon(UPDATE_ICON_STATE)
 
 /obj/item/highfrequencyblade/proc/slash(atom/target, mob/living/user, list/modifiers)
+	//SPLURT EDIT ADDITION BEGIN - FUNCTIONAL SLASH ANIMATION
+	animate_attack(user, target, ATTACK_ANIMATION_SLASH)
+	//SPLURT EDIT ADDITION END
 	user.do_attack_animation(target, "nothing")
 	var/damage_mod = 1
 	var/x_slashed = text2num(modifiers[ICON_X]) || ICON_SIZE_X/2 //in case we arent called by a client
@@ -1314,8 +1317,12 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	previous_target = WEAKREF(target)
 	previous_x = x_slashed
 	previous_y = y_slashed
-	playsound(src, 'sound/items/weapons/bladeslice.ogg', 100, vary = TRUE)
-	playsound(src, 'sound/items/weapons/zapbang.ogg', 50, vary = TRUE)
+	//SPLURT EDIT CHANGE BEGIN - HITSOUND MODULARITY
+	//playsound(src, 'sound/items/weapons/bladeslice.ogg', 100, vary = TRUE) - SPLURT EDIT - ORIGINAL
+	//playsound(src, 'sound/items/weapons/zapbang.ogg', 50, vary = TRUE) - SPLURT EDIT - ORIGINAL
+	playsound(src, hitsound, 100, vary = TRUE)
+	playsound(src, slice_hitsound, 50, vary = TRUE)
+	//SPLURT EDIT CHANGE END
 	if(isliving(target))
 		var/mob/living/living_target = target
 		living_target.apply_damage(force*damage_mod, BRUTE, sharpness = SHARP_EDGED, wound_bonus = wound_bonus, exposed_wound_bonus = exposed_wound_bonus, def_zone = user.zone_selected)
