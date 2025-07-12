@@ -153,3 +153,16 @@
 /datum/augment_item/organ/tongue/forked
 	name = "Forked tongue"
 	path = /obj/item/organ/tongue/lizard
+
+//EARS
+/datum/augment_item/organ/ears
+	slot = AUGMENT_SLOT_EARS
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/ears/normal
+	name = "Organic ears"
+	path = /obj/item/organ/ears
+
+/datum/augment_item/organ/ears/cybernetic
+	name = "Cybernetic ears"
+	path = /obj/item/organ/ears/cybernetic

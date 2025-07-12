@@ -30,6 +30,7 @@
 		"lungs" = "Lungs",
 		"liver" = "Liver",
 		"stomach" = "Stomach",
+		"ears" = "Ears",
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
 		"Brain implant" = "Brain implant", //BUBBER EDIT
