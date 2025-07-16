@@ -1,6 +1,6 @@
 # The Modularization Handbook - S.P.L.U.R.T. Style, v1.0
 
-## Introduction
+## Introductionn
 
 Welcome to the S.P.L.U.R.T. codebase's modularization handbook! Our goal is to make contributing to our codebase as easy and comfy as possible for coders while upkeeping our code standards. We understand that maintaining a codebase that's a fork of another can be challenging, but with the right practices, we can keep our code clean, organized, and easy to manage. This handbook outlines our modularization protocols and coding standards to help you get started.
 
