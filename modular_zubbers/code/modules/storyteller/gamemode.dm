@@ -688,7 +688,7 @@ SUBSYSTEM_DEF(gamemode)
 	for(var/storyteller_type in storytellers)
 		var/datum/storyteller/storyboy = storytellers[storyteller_type]
 		/// Prevent repeating storytellers
-		if(storyboy.storyteller_type && storyboy.storyteller_type == SSpersistence.last_storyteller_type)
+		if(storyboy.storyteller_type && storyboy.storyteller_type & SSpersistence.last_storyteller_type) //SPLURT EDIT: Uses bitwise - original: storyboy.storyteller_type == SSpersistence.last_storyteller_type
 			continue
 		if(!storyboy.votable)
 			continue
