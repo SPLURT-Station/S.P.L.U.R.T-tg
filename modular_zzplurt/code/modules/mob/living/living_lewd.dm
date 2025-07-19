@@ -11,7 +11,7 @@
 	var/climax_cooldown = 0
 	var/obj/item/organ/genital/last_climax_source = null
 
-	var/refractory_period
+	// var/refractory_period
 
 	var/list/simulated_genitals = list(
 		ORGAN_SLOT_PENIS = FALSE,
