@@ -44,7 +44,7 @@
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC, TAG_MEDIUM)
 
 /datum/round_event_control/obsessed
-	tags = list(TAG_TARGETED, TAG_LOW)
+	tags = list(TAG_TARGETED, TAG_LOW, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/operative
-	tags = list(TAG_MEDIUM)
+	tags = list(TAG_MEDIUM, TAG_OPFOR_ONLY)
