@@ -46,6 +46,12 @@
 /turf/open/floor/iron/edge,
 /area/station/hallway/secondary/entry)
 "bb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
 /obj/machinery/vending/coffee,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/entry)
@@ -138,6 +144,7 @@
 	dir = 10
 	},
 /obj/machinery/mining_weather_monitor/directional/south,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "cl" = (
@@ -1160,6 +1167,7 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
 /turf/open/floor/iron/edge{
 	dir = 8
 	},
@@ -1805,7 +1813,6 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -2404,6 +2411,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/goonplaque,
 /area/station/hallway/secondary/entry)
 "FE" = (
@@ -3439,19 +3447,18 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "Xw" = (
-/obj/effect/turf_decal/siding/white{
+/obj/item/kirbyplants/organic/plant21,
+/obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
+/obj/effect/turf_decal/siding/wood/end,
+/obj/structure/marker_beacon/cerulean{
+	pixel_y = -7
 	},
 /obj/machinery/camera/autoname/directional/north{
 	c_tag = "Arrivals Bay Cafe"
 	},
-/turf/open/floor/iron,
+/turf/open/misc/dirt/station,
 /area/station/hallway/secondary/entry)
 "XP" = (
 /obj/structure/fluff/metalpole,
@@ -4444,8 +4451,8 @@ VH
 xc
 sk
 cl
+Kd
 bb
-AJ
 Kd
 fm
 Lh
@@ -4507,7 +4514,7 @@ nl
 MV
 lr
 VH
-Gl
+jm
 yC
 re
 Bb
