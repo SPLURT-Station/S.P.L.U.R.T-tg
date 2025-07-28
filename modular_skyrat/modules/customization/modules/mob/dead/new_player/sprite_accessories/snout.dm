@@ -377,6 +377,11 @@
 	name = "WahCoon (Top)"
 	icon_state = "fwah"
 
+/datum/sprite_accessory/snouts/mammal/cryptid
+	name = "Cryptid skull"
+	icon_state = "cryptid"
+	organ_type = /obj/item/organ/snout/top_adj
+
 /datum/sprite_accessory/snouts/mammal/skulldog
 	name = "Skulldog"
 	icon_state = "skulldog"
