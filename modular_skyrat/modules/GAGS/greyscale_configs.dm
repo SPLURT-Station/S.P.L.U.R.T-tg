@@ -1225,6 +1225,18 @@ TREK
 	name = "Orange Sneakers (Worn, Teshari)"
 	icon_file = 'modular_skyrat/modules/GAGS/icons/sneakers_teshari.dmi'
 
+/datum/greyscale_config/hightops
+	icon_file = 'modular_skyrat/modules/GAGS/icons/hightops.dmi'
+	json_config = 'modular_skyrat/modules/GAGS/json_configs/shoes/hightops/hightops.json'
+
+/datum/greyscale_config/hightops/worn
+	name = "Hightops (Worn)"
+	icon_file = 'modular_skyrat/modules/GAGS/icons/hightops_worn.dmi'
+
+/datum/greyscale_config/hightops/worn/digi
+	name = "Hightops (Worn, Digi)"
+	icon_file = 'modular_skyrat/modules/GAGS/icons/hightops_digi.dmi'
+
 // Boots
 
 /datum/greyscale_config/boots
