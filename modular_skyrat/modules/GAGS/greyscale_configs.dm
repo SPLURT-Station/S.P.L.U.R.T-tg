@@ -669,7 +669,6 @@
 /datum/greyscale_config/hoodie_branded/worn
 	name = "Branded Hoodie Worn"
 	json_config = 'modular_skyrat/modules/GAGS/json_configs/hoodie/hoodie_branded_worn.json'
-
 // CARDIGAN
 
 /datum/greyscale_config/cardigan
@@ -709,6 +708,15 @@
 /datum/greyscale_config/heart_sweater/worn
 	name = "Heart Sweater (Worn)"
 	icon_file = 'modular_skyrat/modules/GAGS/icons/warm_sweater_worn.dmi'
+
+/datum/greyscale_config/loose_sweater
+	name = "Loose Sweater"
+	icon_file = 'modular_skyrat/modules/GAGS/icons/loose_sweater.dmi'
+	json_config = 'modular_skyrat/modules/GAGS/json_configs/loose_sweater/loose_sweater.json'
+
+/datum/greyscale_config/loose_sweater/worn
+	name = "Loose Sweater (Worn)"
+	icon_file = 'modular_skyrat/modules/GAGS/icons/loose_sweater_worn.dmi'
 
 //Keyhole uses the same configs!
 
