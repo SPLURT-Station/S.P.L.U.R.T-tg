@@ -68,10 +68,6 @@
 	name = "Antlers"
 	icon_state = "antlers"
 
-/datum/sprite_accessory/horns/big/cryptid
-	name = "Cryptid Antlers"
-	icon_state = "cryptid"
-
 /datum/sprite_accessory/horns/big/wideantlers
 	name = "Antlers (Palmated)"
 	icon_state = "wideantlers"
