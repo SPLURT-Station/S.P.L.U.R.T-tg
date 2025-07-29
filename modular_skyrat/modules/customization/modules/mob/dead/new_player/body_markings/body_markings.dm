@@ -145,16 +145,6 @@
 	icon = 'modular_skyrat/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
 
-/datum/body_marking/secondary/cryptid
-	name = "Cryptid Ribs"
-	icon_state = "cryptid"
-	affected_bodyparts = CHEST
-
-/datum/body_marking/secondary/cryptidfluff
-	name = "Cryptid Fur"
-	icon_state = "cryptid_marking"
-	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
-
 /datum/body_marking/secondary/teshari
 	name = "Teshari"
 	icon_state = "teshari"
