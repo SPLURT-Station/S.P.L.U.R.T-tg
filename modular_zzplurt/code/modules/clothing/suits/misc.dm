@@ -21,19 +21,6 @@
 	icon_state = "jacket_transparent"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/loose_sweater
-	name = "loose sweater"
-	desc = "A comfortable looking loose sweater that hangs off your frame, you feel as if you have a heavenly restriction with it on."
-	icon_state = "loose_sweater"
-	greyscale_config = /datum/greyscale_config/loose_sweater
-	greyscale_config_worn = /datum/greyscale_config/loose_sweater/worn
-	greyscale_colors = "#FFFFFF"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	cold_protection = CHEST|GROIN|ARMS
-	body_parts_covered = CHEST|GROIN|ARMS
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/suit/hooded/oversized_hoodie
 	name = "oversized hoodie"
 	desc = "A cozy oversized hoodie."
@@ -53,19 +40,6 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	flags_inv = HIDEHAIR
-
-/obj/item/clothing/suit/loose_sweater
-	name = "loose sweater"
-	desc = "A comfortable looking loose sweater that hangs off your frame, you feel as if you have a heavenly restriction with it on."
-	icon_state = "loose_sweater"
-	greyscale_config = /datum/greyscale_config/loose_sweater
-	greyscale_config_worn = /datum/greyscale_config/loose_sweater/worn
-	greyscale_colors = "#FFFFFF"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	cold_protection = CHEST|GROIN|ARMS
-	body_parts_covered = CHEST|GROIN|ARMS
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 //DS9
 /obj/item/clothing/suit/storage/trek/ds9

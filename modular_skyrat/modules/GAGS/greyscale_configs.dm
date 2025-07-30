@@ -710,15 +710,6 @@
 	name = "Heart Sweater (Worn)"
 	icon_file = 'modular_skyrat/modules/GAGS/icons/warm_sweater_worn.dmi'
 
-/datum/greyscale_config/loose_sweater
-	name = "Loose Sweater"
-	icon_file = 'modular_skyrat/modules/GAGS/icons/loose_sweater.dmi'
-	json_config = 'modular_skyrat/modules/GAGS/json_configs/loose_sweater/loose_sweater.json'
-
-/datum/greyscale_config/loose_sweater/worn
-	name = "Loose Sweater (Worn)"
-	json_config = 'modular_skyrat/modules/GAGS/json_configs/loose_sweater/loose_sweater_worn.json'
-
 //Keyhole uses the same configs!
 
 // OVERALLS
@@ -1233,18 +1224,6 @@ TREK
 /datum/greyscale_config/sneakers_orange/worn/teshari
 	name = "Orange Sneakers (Worn, Teshari)"
 	icon_file = 'modular_skyrat/modules/GAGS/icons/sneakers_teshari.dmi'
-
-/datum/greyscale_config/hightops
-	icon_file = 'modular_skyrat/modules/GAGS/icons/hightops.dmi'
-	json_config = 'modular_skyrat/modules/GAGS/json_configs/shoes/hightops/hightops.json'
-
-/datum/greyscale_config/hightops/worn
-	name = "Hightops (Worn)"
-	json_config = 'modular_skyrat/modules/GAGS/json_configs/shoes/hightops/hightops_worn.json'
-
-/datum/greyscale_config/hightops/worn/digi
-	name = "Hightops (Worn, Digi)"
-	json_config = 'modular_skyrat/modules/GAGS/json_configs/shoes/hightops/hightops_worn_digi.json'
 
 // Boots
 
