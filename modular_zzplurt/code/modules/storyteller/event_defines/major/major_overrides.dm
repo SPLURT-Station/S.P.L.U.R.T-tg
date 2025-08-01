@@ -5,7 +5,7 @@
 	tags = list(TAG_COMMUNAL, TAG_LOW)
 
 /datum/round_event_control/blob
-	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_CHAOTIC, TAG_HIGH)
+	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_CHAOTIC, TAG_HIGH, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/meteor_wave
 	tags = list(TAG_COMMUNAL, TAG_SPACE, TAG_DESTRUCTIVE, TAG_CHAOTIC, TAG_MEDIUM)
@@ -29,26 +29,26 @@
 	tags = list(TAG_DESTRUCTIVE, TAG_HIGH)
 
 /datum/round_event_control/revenant
-	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM)
+	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/abductor
-	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CHAOTIC, TAG_LOW)
+	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CHAOTIC, TAG_LOW, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/fugitives
-	tags = list(TAG_COMBAT, TAG_LOW)
+	tags = list(TAG_COMBAT, TAG_LOW, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/cme
 	tags = list(TAG_DESTRUCTIVE, TAG_COMMUNAL, TAG_CHAOTIC, TAG_HIGH)
 
 /datum/round_event_control/stray_cargo/changeling_zombie
-	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC, TAG_SPOOKY, TAG_HIGH)
+	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC, TAG_SPOOKY, TAG_HIGH, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/pirates
-	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_MEDIUM)
+	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_MEDIUM, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/cortical_borer
-	tags = list(TAG_TARGETED, TAG_SPOOKY, TAG_LOW)
+	tags = list(TAG_TARGETED, TAG_SPOOKY, TAG_LOW, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/morph
-	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM)
+	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM, TAG_OPFOR_ONLY)
 
