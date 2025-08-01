@@ -55,6 +55,8 @@ SUBSYSTEM_DEF(maturity_guard)
 	var/age_from_db = get_age_from_db(user)
 	if(age_from_db && validate_dob(age_from_db[1], age_from_db[2], simple_check=TRUE) == AGE_CHECK_PASSED)
 		user.client.maturity_prompt_whitelist = TRUE
+		var/mob/dead/new_player/update_splashscreen = user
+		update_splashscreen.update_title_screen()
 		return TRUE
 
 	// Let's not hold up other procs
@@ -109,6 +111,8 @@ SUBSYSTEM_DEF(maturity_guard)
 			if(AGE_CHECK_PASSED)
 				add_age_to_db(user, prompt.year, prompt.month, prompt.day, prompt.save_birthday, prompt.public_birthday)
 				user.client.maturity_prompt_whitelist = TRUE
+				var/mob/dead/new_player/update_splashscreen = user
+				update_splashscreen.update_title_screen()
 		qdel(prompt)
 
 
