@@ -60,3 +60,10 @@ Horns
 /datum/sprite_accessory/horns/splurt/halo
 	name = "Halo (Splurt)"
 	icon_state = "halo"
+
+/datum/sprite_accessory/horns/big
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/horns_large.dmi'
+
+/datum/sprite_accessory/horns/big/cryptid
+	name = "Cryptid Antlers"
+	icon_state = "cryptid"

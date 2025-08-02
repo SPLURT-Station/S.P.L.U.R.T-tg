@@ -619,3 +619,14 @@ MARKINGS - HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RI
 	icon_state = "animeeyes"
 	affected_bodyparts = HEAD
 
+//Cryptid
+
+/datum/body_marking/secondary/splurt/cryptid
+	name = "Cryptid Ribs"
+	icon_state = "cryptid"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/secondary/splurt/cryptidfluff
+	name = "Cryptid Fur"
+	icon_state = "cryptid_marking"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT

@@ -25,3 +25,8 @@ Neck Fluff
 /datum/sprite_accessory/fluff/moth/splurt/renamon
 	name = "Renamon (Splurt)"
 	icon_state = "renamon"
+
+/datum/sprite_accessory/fluff/moth/cryptid
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/neck_fluff.dmi'
+	name = "Cryptid Neck Fur"
+	icon_state = "cryptid"
