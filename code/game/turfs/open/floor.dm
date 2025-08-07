@@ -29,10 +29,11 @@
 /turf/open/floor/Initialize(mapload)
 	. = ..()
 	if(mapload && prob(33))
-		MakeDirty()
+		MakeDirty() 
 
 	if(is_station_level(z))
 		GLOB.station_turfs += src
+	
 
 /turf/open/floor/broken_states()
 	return list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5")
