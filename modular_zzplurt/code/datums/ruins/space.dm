@@ -9,3 +9,6 @@
 
 /datum/map_template/ruin/space/bigderelict1
 	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // TG Map edit.
+
+/datum/map_template/ruin/space/allamericandiner
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // TG Map edit.
