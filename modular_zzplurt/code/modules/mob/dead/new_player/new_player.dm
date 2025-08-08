@@ -13,3 +13,8 @@
 			to_chat(src, span_warning("You must link your discord account to your ckey in order to join the game. Join our <a style=\"color: #ff00ff;\" href=\"[CONFIG_GET(string/discord_link)]\">discord</a> and use the <span style=\"color: #ff00ff;\">[CONFIG_GET(string/discordbotcommandprefix)][CONFIG_GET(string/verification_command)]</span> command [CONFIG_GET(string/verification_channel) ? "as indicated in #[CONFIG_GET(string/verification_channel)] " : ""]. It won't take you more than two minutes :)<br>Ahelp or ask staff in the discord if this is an error."))
 			return
 	. = ..()
+
+/mob/dead/new_player/update_title_screen()
+	. = ..()
+	if((client?.prefs?.read_preference(/datum/preference/toggle/hide_splashscreen) || (!client?.maturity_prompt_whitelist && CONFIG_GET(flag/age_prompt_system))) && SStitle.current_title_screen != DEFAULT_TITLE_SCREEN_IMAGE && SStitle.current_title_screen != DEFAULT_TITLE_LOADING_SCREEN)
+		src << browse(DEFAULT_TITLE_SCREEN_IMAGE, "file=loading_screen.gif;display=0")

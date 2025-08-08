@@ -109,6 +109,15 @@
 				);
 				opacity: 0.95;
 				padding: 1em;
+				transition: opacity 0.3s ease;
+			}
+
+			.container_nav.inactive {
+				opacity: 0.2;
+			}
+
+			.container_nav.hidden {
+				opacity: 0;
 			}
 
 			.container_nav hr {
@@ -232,5 +241,78 @@
 		</style>
 	</head>
 	<body>
+		<script type="text/javascript">
+			let lastActivity = Date.now();
+			let fadeTimer;
+			let hideTimer;
+			let isMenuHovered = false;
+			let isMenuHidden = false;
+
+			// Configuration variables - can be adjusted
+			const FADE_DELAY = 100;    // Time before starting to fade (ms)
+			const HIDE_DELAY = 1500;   // Time before completely hiding (ms)
+
+			// Handle menu visibility transitions
+			function updateMenuVisibility() {
+				clearTimeout(fadeTimer);
+				clearTimeout(hideTimer);
+
+				if (!isMenuHovered) {
+					// Start fading immediately with minimal delay
+					fadeTimer = setTimeout(function() {
+						const navContainer = document.querySelector('.container_nav');
+						if (navContainer) {
+							navContainer.classList.add('inactive');
+
+							// Then hide after a short delay
+							hideTimer = setTimeout(function() {
+								if (!isMenuHovered) {
+									const navContainer = document.querySelector('.container_nav');
+									if (navContainer) {
+										navContainer.classList.add('hidden');
+										isMenuHidden = true;
+									}
+								}
+							}, HIDE_DELAY);
+						}
+					}, FADE_DELAY);
+				}
+			}
+
+			// Handle mouse entering menu
+			function handleMenuMouseEnter() {
+				isMenuHovered = true;
+				const navContainer = document.querySelector('.container_nav');
+				if (navContainer) {
+					navContainer.classList.remove('inactive');
+					navContainer.classList.remove('hidden');
+					isMenuHidden = false;
+				}
+				clearTimeout(fadeTimer);
+				clearTimeout(hideTimer);
+			}
+
+			// Handle mouse leaving menu
+			function handleMenuMouseLeave() {
+				isMenuHovered = false;
+				updateMenuVisibility();
+			}
+
+			// Initialize when window loads
+			window.addEventListener('load', function() {
+				const navContainer = document.querySelector('.container_nav');
+				if (navContainer) {
+					// Add initial inactive state
+					navContainer.classList.add('inactive');
+
+					// Setup menu hover events
+					navContainer.addEventListener('mouseenter', handleMenuMouseEnter);
+					navContainer.addEventListener('mouseleave', handleMenuMouseLeave);
+				}
+
+				// Start with menu faded out
+				updateMenuVisibility();
+			});
+		</script>
 	</body>
 </html>
