@@ -1,6 +1,6 @@
 // the SMES
 // stores power
-// SKYRAT EDIT COMMENT: Modularized Power change in modular_nova\master_files\code\modules\power\smes.dm
+// SKYRAT EDIT COMMENT: Modularized Power change in modular_skyrat\master_files\code\modules\power\smes.dm
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."

@@ -16,7 +16,7 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
-	eyes_icon = 'modular_skyrat/modules/organs/icons/akula_eyes.dmi'
+
 	mutanteyes = /obj/item/organ/eyes/akula
 	mutanttongue = /obj/item/organ/tongue/akula
 	inherent_traits = list(

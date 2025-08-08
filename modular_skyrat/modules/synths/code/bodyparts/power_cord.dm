@@ -37,6 +37,11 @@
 /// Attempts to start using an object as a power source.
 /// Checks the user's internal powercell to see if it exists.
 /obj/item/synth_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
+	// Only robotic species can use this
+	if(!(user.mob_biotypes & MOB_ROBOTIC))
+		to_chat(user, span_warning("You plug into [target], but nothing happens! It seems you don't have an internal cell to charge."))
+		return
+
 	/// The current user's nutrition level in joules.
 	var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
 	user.changeNext_move(CLICK_CD_MELEE)
