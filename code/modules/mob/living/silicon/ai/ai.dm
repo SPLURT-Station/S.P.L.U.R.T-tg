@@ -242,6 +242,15 @@
 			Status: [robot_status]",
 			"src=[REF(src)];track_cyborg=[text_ref(connected_robot)]",
 		))
+	// Splurt Edit Start
+	var/connected_ipc_amt = length(connected_ipcs)
+	if(connected_ipc_amt)
+		. += "Connected Synthetics: [connected_ipc_amt]"
+		for(var/mob/living/carbon/human/connected_ipc as anything in connected_ipcs)
+			var/robot_status = (connected_ipc.stat != CONSCIOUS || !connected_ipc.client) ? "OFFLINE" : "Nominal"
+			//Name. Area, and Status! Everything an AI wants to know about it's hacked synthetics!
+			. += "[connected_ipc.name] | S.Integrity: [connected_ipc.health]% | Loc: [get_area_name(connected_ipc, TRUE)] | Status: [robot_status]"
+	// Splurt Edit End
 	. += "AI shell beacons detected: [LAZYLEN(GLOB.available_ai_shells)]" //Count of total AI shells
 
 /mob/living/silicon/ai/proc/ai_call_shuttle()
@@ -924,7 +933,7 @@
 		playsound(get_turf(src), 'sound/machines/buzz/buzz-sigh.ogg', 50, TRUE, ignore_walls = FALSE)
 		return
 
-	malf_picker.processing_time += max(0, 9 - hacked_apcs.len) // Less resources for each apc hacked, 9 instead of 10 is because you will get 1 as soon as the hacked apc processes
+	malf_picker.processing_time += 10
 	var/area/apcarea = apc.area
 	var/datum/ai_module/malf/destructive/nuke_station/doom_n_boom = locate(/datum/ai_module/malf/destructive/nuke_station) in malf_picker.possible_modules["Destructive Modules"]
 	if(doom_n_boom && (is_type_in_list (apcarea, doom_n_boom.discount_areas)) && !(is_type_in_list (apcarea, doom_n_boom.hacked_command_areas)))
@@ -1081,7 +1090,11 @@
 
 /mob/living/silicon/ai/get_exp_list(minutes)
 	. = ..()
-	.[/datum/job/ai::title] = minutes
+
+	var/datum/job/ai/ai_job_ref = SSjob.get_job_type(/datum/job/ai)
+
+	.[ai_job_ref.title] = minutes
+
 
 /mob/living/silicon/ai/GetVoice()
 	. = ..()

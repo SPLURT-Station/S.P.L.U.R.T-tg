@@ -40,6 +40,7 @@
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
 #define ROLE_VOIDWALKER "Voidwalker"
 #define ROLE_SUNWALKER "Sunwalker"
+#define ROLE_INFECTED_SYNTHETIC "Hacked Synthetic" //Splurt Edit
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
