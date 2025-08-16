@@ -103,3 +103,23 @@
 	worn_icon = 'modular_zubbers/icons/mob/clothing/suits.dmi'
 	worn_icon_state = "suit_harness"
 	inhand_icon_state = "armor"
+
+/obj/item/clothing/suit/hooded/explorer/explorerharness
+	name = "explorer suit harness"
+	desc = "An armored harness for those who are more daring than others or just like to show off the goods as they mine."
+	hood_up_affix = ""
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/misc.dmi'
+	icon_state = "gear_harness"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/suits.dmi'
+	worn_icon_state = "suit_harness"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	hoodtype = /obj/item/clothing/head/hooded/explorer/invisiblehood
+
+/obj/item/clothing/head/hooded/explorer/invisiblehood
+	name = "invisifiber hood"
+	desc = "A hood made of transparent fibers, this one is used for the hood of the explorer gear harness"
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "hat_transparent"
+	worn_icon_state = "none"
+	flags_inv = NONE
