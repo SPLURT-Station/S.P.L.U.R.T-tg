@@ -6,7 +6,6 @@
 	name = "Teshari"
 	id = SPECIES_TESHARI
 	no_gender_shaping = TRUE // Female uniform shaping breaks Teshari worn sprites, so this is disabled. This will not affect anything else in regards to gender however.
-	eyes_icon = 'modular_skyrat/modules/organs/icons/teshari_eyes.dmi'
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,

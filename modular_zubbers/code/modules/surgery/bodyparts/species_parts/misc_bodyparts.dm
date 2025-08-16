@@ -6,6 +6,7 @@
 	is_dimorphic = TRUE
 	brute_modifier = 1.2
 	burn_modifier = 1.2
+	eyes_icon = 'modular_zubbers/icons/mob/human/human_face.dmi'
 
 /obj/item/bodypart/chest/shadekin
 	icon_greyscale = BODYPART_ICON_BUBBER

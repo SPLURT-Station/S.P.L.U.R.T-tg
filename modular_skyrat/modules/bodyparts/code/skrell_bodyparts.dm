@@ -8,6 +8,7 @@
 	brute_modifier = SKRELL_BRUTE_MODIFIER
 	burn_modifier = SKRELL_BURN_MODIFIER
 	head_flags = HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN
+	eyes_icon = 'modular_skyrat/modules/organs/icons/skrell_eyes.dmi'
 
 /obj/item/bodypart/chest/mutant/skrell
 	icon_greyscale = BODYPART_ICON_SKRELL
