@@ -232,6 +232,7 @@
 					/obj/item/borg/upgrade/modkit,						// ...their things with them or they dropped them while dead.
 					/obj/item/kinetic_crusher,							// Who's a good boy~?
 					/obj/item/skeleton_key,								// Yes! You are!
+					/obj/item/reagent_containers/hypospray/medipen/survival  // Also a SPLURT edit.
 					)
 
 /obj/item/robot_model/miner/Initialize(mapload)
