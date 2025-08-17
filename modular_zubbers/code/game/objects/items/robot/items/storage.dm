@@ -228,6 +228,10 @@
 					/obj/item/survivalcapsule/,
 					/obj/item/extraction_pack,
 					/obj/item/fulton_core,
+					/obj/item/gun/energy/recharge/kinetic_accelerator,  // SPLURT EDIT. In case if your fellow miners forgets carrying...
+					/obj/item/borg/upgrade/modkit,						// ...their things with them or they dropped them while dead.
+					/obj/item/kinetic_crusher,							// Who's a good boy~?
+					/obj/item/skeleton_key,								// Yes! You are!
 					)
 
 /obj/item/robot_model/miner/Initialize(mapload)
