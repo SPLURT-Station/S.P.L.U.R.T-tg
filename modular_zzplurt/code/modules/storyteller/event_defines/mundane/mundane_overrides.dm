@@ -2,9 +2,13 @@
 	tags = list(TAG_COMMUNAL, TAG_POSITIVE, TAG_SPACE, TAG_LOW)
 
 /datum/round_event_control/brain_trauma
+	weight = 0
+	max_occurrences = 0
 	tags = list(TAG_TARGETED, TAG_LOW)
 
 /datum/round_event_control/heart_attack
+	weight = 0
+	max_occurrences = 0
 	tags = list(TAG_TARGETED, TAG_LOW)
 
 /datum/round_event_control/camera_failure
