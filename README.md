@@ -1,3 +1,7 @@
+<p align="center">
+<img width="539" height="200" alt="splurtlogo" src="https://github.com/user-attachments/assets/69856f7c-58db-4927-a03a-717ec2aec6d6" />
+</p>
+
 ## SPLURT Station (Bubberstation Downstream)
 
 [![CI Suite](https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/actions/workflows/ci_suite.yml)
@@ -8,10 +12,10 @@
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Git / GitHub cheatsheet     | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
 | Guide to Modularization     | [./modular_zzplurt/readme.md](./modular_zzplurt/readme.md)                                                                             |
-| Website                     | [https://splurtstation.com](https://splurtstation.com)                                                                                 |
+| Website                     | [https://splurt.space](https://splurt.space)                                                                                           |
 | Code                        | [https://github.com/SPLURT-Station/S.P.L.U.R.T-tg](https://github.com/SPLURT-Station/S.P.L.U.R.T-tg)                                   |
-| Wiki                        | [https://splurtstation.com](https://splurtstation.com)                                                                                 |
-| Codedocs                    | [https://skyrat-ss13.github.io/Skyrat-tg/](https://skyrat-ss13.github.io/Skyrat-tg/)                                                   |
+| Wiki                        | [https://wiki.splurt.space](https://wiki.splurt.space)                                                                                           |
+| Codedocs                    | [https://splurt-station.github.io/S.P.L.U.R.T-tg](https://splurt-station.github.io/S.P.L.U.R.T-tg)                                                   |
 | S.P.L.U.R.T Station Discord | [https://discord.gg/wynHVMzHzC](https://discord.gg/wynHVMzHzC)                                                                         |
 | Coderbus Discord            | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
 
