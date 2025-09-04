@@ -117,3 +117,8 @@
 	name = "Artificer Kobold"
 	item_path = /obj/item/toy/plush/artificer_kobold
 	donator_only = FALSE //requested by donator
+
+/datum/loadout_item/toys/donator/glitchy_protogen
+	name = "Glitchy Protogen Plush"
+	item_path = /obj/item/toy/plush/glitchy_protogen
+	donator_tier = DONATOR_TIER_1
