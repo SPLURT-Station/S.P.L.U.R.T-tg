@@ -58,7 +58,7 @@
 //we dropping item so we not deaf now. hurray.
 /obj/item/clothing/ears/kinky_headphones/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(!(src == user.ears))
+	if(!(src == user.ears || src == user.ears_extra)) // SPLURT EDIT - fixes the headphones on ears_extra
 		return
 	REMOVE_TRAIT(user, TRAIT_DEAF, CLOTHING_TRAIT)
 	to_chat(user, span_purple("You can finally hear the world around you once more."))

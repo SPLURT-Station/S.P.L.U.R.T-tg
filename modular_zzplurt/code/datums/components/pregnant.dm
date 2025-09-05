@@ -226,7 +226,7 @@
 		var/heelvsbabyface = tgui_input_list(a_living_soul, "What will be your pronouns? (How the game refers to your character)", "The miracle of birth", possible_genders, possible_genders[1])
 		a_living_soul.gender = possible_genders[heelvsbabyface]
 
-	a_living_soul.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE, eyeorgancolor_update = TRUE) //bad proc name
+	a_living_soul.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE) //bad proc name
 
 /proc/determine_baby_dna(mob/living/carbon/human/baby_boy, datum/dna/mother_dna, datum/dna/father_dna, genetic_distribution = PREGNANCY_GENETIC_DISTRIBUTION_DEFAULT)
 	//inherit species from momma no matter what
@@ -238,11 +238,12 @@
 	baby_dna.mutant_bodyparts = list()
 	baby_dna.body_markings = list()
 	//identity blocks first
-	for(var/dna_block_num in 1 to DNA_UNI_IDENTITY_BLOCKS)
+	for(var/block_id in GLOB.dna_identity_blocks)
+		var/datum/dna_block/identity/block = GLOB.dna_identity_blocks[block_id]
 		if(prob(genetic_distribution))
-			baby_dna.set_uni_identity_block(dna_block_num, get_uni_identity_block(father_dna.unique_identity, dna_block_num))
+			baby_dna.unique_identity = block.modified_hash(baby_dna.unique_identity, block.get_block(father_dna.unique_identity))
 		else
-			baby_dna.set_uni_identity_block(dna_block_num, get_uni_identity_block(mother_dna.unique_identity, dna_block_num))
+			baby_dna.unique_identity = block.modified_hash(baby_dna.unique_identity, block.get_block(mother_dna.unique_identity))
 	//features second
 	for(var/feature in (mother_dna.features | father_dna.features))
 		if(prob(genetic_distribution))
@@ -254,17 +255,18 @@
 				continue
 			baby_dna.features[feature] = mother_dna.features[feature]
 	//mutant bodyparts third (this is where the mess begins)
-	for(var/key in SSaccessories.genetic_accessories)
-		if(prob(genetic_distribution))
-			if(!father_dna.mutant_bodyparts[key] || \
-				!(father_dna.mutant_bodyparts[key][MUTANT_INDEX_NAME] in SSaccessories.genetic_accessories[key]))
-				continue
-			baby_dna.mutant_bodyparts[key] = list() | father_dna.mutant_bodyparts[key]
-		else
-			if(!mother_dna.mutant_bodyparts[key] || \
-				!(mother_dna.mutant_bodyparts[key][MUTANT_INDEX_NAME] in SSaccessories.genetic_accessories[key]))
-				continue
-			baby_dna.mutant_bodyparts[key] = list() | father_dna.mutant_bodyparts[key]
+	//removed due to upstream edits, we might need to fix it later.
+	// for(var/key in SSaccessories.genetic_accessories)
+	// 	if(prob(genetic_distribution))
+	// 		if(!father_dna.mutant_bodyparts[key] ||
+	// 			!(father_dna.mutant_bodyparts[key][MUTANT_INDEX_NAME] in SSaccessories.genetic_accessories[key]))
+	// 			continue
+	// 		baby_dna.mutant_bodyparts[key] = list() | father_dna.mutant_bodyparts[key]
+	// 	else
+	// 		if(!mother_dna.mutant_bodyparts[key] ||
+	// 			!(mother_dna.mutant_bodyparts[key][MUTANT_INDEX_NAME] in SSaccessories.genetic_accessories[key]))
+	// 			continue
+	// 		baby_dna.mutant_bodyparts[key] = list() | father_dna.mutant_bodyparts[key]
 	//markings fourth (this is stupid, but i couldnt figure out a better solution than limb based quite yet)
 	for(var/zone in GLOB.marking_zones)
 		if(prob(genetic_distribution))
@@ -300,4 +302,4 @@
 	baby_boy.undershirt = "Nude"
 	baby_boy.socks = "Nude"
 
-	baby_boy.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE, eyeorgancolor_update = TRUE) //bad proc name
+	baby_boy.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE) //bad proc name

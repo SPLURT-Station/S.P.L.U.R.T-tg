@@ -8,7 +8,7 @@
 	medical_record_text = "Patient feels a strong psychological attachment to gas masks."
 	mob_trait = TRAIT_MASKED_MOOK
 	hardcore_value = 1
-	icon = FA_ICON_MASK_VENTILATOR
+	icon = FA_ICON_MASK
 	mail_goodies = list (
 		/obj/item/gas_filter = 1
 	)

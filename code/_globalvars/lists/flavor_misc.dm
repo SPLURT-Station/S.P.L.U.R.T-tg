@@ -110,6 +110,9 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define SNAIL_SHELL "Snail Shell"
 #define SLOOG_SHELL "Sloog Shell"
 // SPLURT EDIT ADDITION END
+#define FBACKPACK "Frontier Backpack"
+#define FSATCHEL "Frontier Satchel"
+#define FMESSENGER "Frontier Messenger Bag"
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
 	DDUFFELBAG,
@@ -124,6 +127,9 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	SNAIL_SHELL,
 	SLOOG_SHELL,
 	// SPLURT EDIT ADDITION END
+	FBACKPACK,
+	FSATCHEL,
+	FMESSENGER,
 ))
 
 	//Suit/Skirt

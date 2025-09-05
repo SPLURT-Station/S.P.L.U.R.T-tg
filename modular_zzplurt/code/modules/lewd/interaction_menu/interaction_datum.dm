@@ -17,6 +17,8 @@
 	var/list/additional_details = list()
 	/// Interaction modifier flags, edits how the interaction works from its original definition
 	var/interaction_modifier_flags = NONE
+	/// Interaction fluid transfer objects
+	var/list/obj/item/reagent_containers/fluid_transfer_objects = list()
 
 	/// List of clown-specific messages for different genital types
 	var/static/list/clown_genital_messages = list(

@@ -113,7 +113,7 @@
 /datum/loadout_item/suit/holographic
 	name = "Holographic Suit V4000"
 	item_path = /obj/item/clothing/suit/misc/holographic
-	ckeywhitelist = list("blovy", "snailomi")
+	//ckeywhitelist = list("blovy", "snailomi") //Splurt Edit: Requested public by Blovy
 
 /datum/loadout_item/suit/flight //Donor item for ironknight060
 	name = "MA-1 flight jacket"
@@ -160,7 +160,7 @@
 /datum/loadout_item/toys/largeredslime
 	name = "Large Red Slime Plush"
 	item_path = /obj/item/toy/plush/largeredslime
-	ckeywhitelist = list("blovy")
+	//ckeywhitelist = list("blovy") //Splurt Edit: Requested public by Blovy
 
 /*
 *	GLOVES
@@ -183,7 +183,7 @@
 /datum/loadout_item/inhand/ornate_bottle	//Donator item exclusive for Blovy. Sprited by Casey/Keila.
 	name = "Ornate Bottle"
 	item_path = /obj/item/reagent_containers/cup/glass/bottle/ornate
-	ckeywhitelist = list("blovy")
+	//ckeywhitelist = list("blovy") //Splurt Edit: Requested public by Blovy
 
 /datum/loadout_item/inhand/vaporsac //donator request for MyGuy49
 	name = "Vaporsac Seeds"

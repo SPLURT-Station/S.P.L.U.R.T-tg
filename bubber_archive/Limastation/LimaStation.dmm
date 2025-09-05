@@ -322,6 +322,12 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
+"aix" = (
+/obj/structure/table/reinforced,
+/obj/item/rcl/pre_loaded,
+/obj/item/reagent_containers/applicator/patch/aiuri,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/ce)
 "aiK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/newscaster/directional/east,
@@ -2412,6 +2418,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
+"baD" = (
+/obj/structure/closet/secure_closet/tac,
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/blueshield)
 "baH" = (
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
@@ -11347,13 +11359,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
-"eCF" = (
-/obj/structure/closet/secure_closet/tac,
-/obj/item/gun/ballistic/shotgun/riot,
-/obj/item/ammo_box/advanced/s12gauge/bean,
-/obj/item/ammo_box/advanced/s12gauge/express,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/blueshield)
 "eCG" = (
 /obj/machinery/light_switch/directional/east{
 	pixel_x = 22;
@@ -14764,19 +14769,6 @@
 "fLb" = (
 /turf/closed/wall,
 /area/station/medical/medbay/central)
-"fLE" = (
-/obj/structure/table,
-/obj/item/reagent_containers/applicator/pill/maintenance{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/applicator/pill/maintenance{
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/applicator/pill/maintenance,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lower)
 "fLK" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/clothing/pirate_or_bandana,
@@ -15790,6 +15782,17 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"ghF" = (
+/obj/structure/closet{
+	anchored = 1;
+	name = "Patient's Belongings"
+	},
+/obj/machinery/light/cold/directional/west,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/patients_rooms)
 "ghJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
@@ -20077,6 +20080,19 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
+"hLj" = (
+/obj/structure/table,
+/obj/item/reagent_containers/applicator/pill/maintenance{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/applicator/pill/maintenance{
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/applicator/pill/maintenance,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lower)
 "hLn" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
@@ -54908,17 +54924,6 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/grass,
 /area/station/hallway/secondary/service)
-"uvo" = (
-/obj/structure/closet{
-	anchored = 1;
-	name = "Patient's Belongings"
-	},
-/obj/machinery/light/cold/directional/west,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
-	},
-/turf/open/floor/iron/white,
-/area/station/medical/patients_rooms)
 "uvq" = (
 /obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot_white,
@@ -59247,12 +59252,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"wgw" = (
-/obj/structure/table/reinforced,
-/obj/item/rcl/pre_loaded,
-/obj/item/reagent_containers/applicator/patch/aiuri,
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/ce)
 "wgF" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/security/telescreen/prison/directional/north{
@@ -62324,6 +62323,17 @@
 	},
 /turf/open/floor/plating,
 /area/station/medical/medbay/lobby)
+"xqI" = (
+/obj/structure/closet{
+	anchored = 1;
+	name = "Patient's Belongings"
+	},
+/obj/machinery/light/cold/directional/west,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/patients_rooms)
 "xqJ" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
@@ -64239,17 +64249,6 @@
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lower)
-"ybO" = (
-/obj/structure/closet{
-	anchored = 1;
-	name = "Patient's Belongings"
-	},
-/obj/machinery/light/cold/directional/west,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/turf/open/floor/iron/white,
-/area/station/medical/patients_rooms)
 "ybQ" = (
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/iron,
@@ -93091,7 +93090,7 @@ mHH
 iIH
 hdM
 hcy
-fLE
+hLj
 mbH
 mbH
 yka
@@ -149143,7 +149142,7 @@ lfw
 itY
 faU
 hnL
-wgw
+aix
 lpH
 kor
 urc
@@ -163528,11 +163527,11 @@ mVz
 aZT
 moo
 pJR
-uvo
+ghF
 muu
 fZW
 clv
-ybO
+xqI
 hVB
 ykb
 bzx
@@ -164602,7 +164601,7 @@ bNJ
 dHV
 wgM
 jvc
-eCF
+baD
 dHV
 jdB
 jvc

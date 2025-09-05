@@ -74,6 +74,10 @@
 		"Quote of the round",
 		quote_of_the_round_data["quote_presentation"] + (quote_of_the_round_data["quote_text"] ? "\n\n[quote_of_the_round_data["quote_text"]]\n[quote_of_the_round_data["quote_attribution"]]" : "")
 	)
+	embed.fields += new /datum/tgs_chat_embed/field(
+		"Next round map",
+		"```\n[SSmap_vote.next_map_config.map_name]\n```"
+	)
 
 	// Embed Image
 	var/image_url = CONFIG_GET(string/roundend_image_url)

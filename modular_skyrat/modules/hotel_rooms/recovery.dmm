@@ -546,6 +546,14 @@
 "Ux" = (
 /obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/item/paper{
+	icon_state = "alienpaper_words";
+	base_icon_state = "alienpaper_words";
+	default_raw_text = "Don't abuse this and our trust.";
+	name = "fair warning";
+	pixel_x = -2;
+	pixel_y = -2
+	},
 /turf/open/indestructible/white/textured,
 /area/misc/hilbertshotel)
 "UC" = (

@@ -160,6 +160,21 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"afj" = (
+/obj/machinery/vending/hydroseeds{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
+"afl" = (
+/obj/machinery/barsign/all_access/directional/north,
+/obj/machinery/vending/wardrobe/bar_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "afr" = (
 /obj/structure/rack{
 	icon = 'icons/obj/fluff/general.dmi';
@@ -257,6 +272,12 @@
 	name = "Shrine"
 	},
 /turf/open/floor/wood,
+/area/centcom/holding/cafe)
+"agr" = (
+/obj/machinery/vending/access/command{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "agy" = (
 /obj/structure/flora/bush/leafy,
@@ -401,15 +422,6 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"aip" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe{
-	default_price = 0;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafe/park)
 "aiw" = (
 /obj/structure/bed/pod,
 /obj/machinery/light/directional/east,
@@ -426,6 +438,31 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
+"aiK" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/vending/cola/black{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "aiM" = (
 /obj/structure/showcase/fakeid{
 	dir = 4
@@ -1053,6 +1090,31 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafe)
+"apA" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/vending/snack/blue{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "apT" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/tile/neutral{
@@ -1096,6 +1158,12 @@
 /obj/structure/bed/double/pod,
 /obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/carpet,
+/area/centcom/holding/cafe)
+"aqy" = (
+/obj/machinery/vending/wardrobe/cargo_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aqG" = (
 /turf/open/floor/plating,
@@ -1238,6 +1306,31 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
+"asT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/machinery/vending/coffee{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "asX" = (
 /obj/structure/flora/bush/lavendergrass{
 	icon_state = "lavendergrass_2"
@@ -1313,6 +1406,27 @@
 	},
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafe/park)
+"auj" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/vending/clothing{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "auo" = (
 /obj/machinery/chem_master/condimaster,
 /turf/open/indestructible/hoteltile{
@@ -1443,6 +1557,14 @@
 	dir = 4
 	},
 /area/centcom/holding/cafe/park)
+"awn" = (
+/obj/machinery/vending/wardrobe/hydro_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "awr" = (
 /obj/structure/bookcase/random/reference,
 /turf/open/indestructible/hotelwood,
@@ -1489,6 +1611,13 @@
 	},
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/wood/large,
+/area/centcom/holding/cafe)
+"awQ" = (
+/obj/machinery/light/directional/south,
+/obj/machinery/vending/wardrobe/engi_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "awU" = (
 /obj/structure/railing/wooden_fencing{
@@ -1753,6 +1882,27 @@
 "ayI" = (
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
+"ayQ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/vending/games{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "azj" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
@@ -1997,6 +2147,12 @@
 	dir = 1
 	},
 /area/centcom/holding/cafe/park)
+"aBk" = (
+/obj/machinery/vending/wardrobe/curator_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "aBm" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -2163,6 +2319,15 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
+"aCY" = (
+/obj/machinery/vending/wardrobe/viro_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "aDa" = (
 /obj/structure/flora/bush/sparsegrass,
 /turf/open/misc/beach/sand,
@@ -2250,6 +2415,14 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
+"aEG" = (
+/obj/machinery/vending/dinnerware{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "cafeteria"
+	},
+/area/centcom/holding/cafe)
 "aEL" = (
 /obj/effect/turf_decal/box,
 /obj/effect/turf_decal/caution/stand_clear,
@@ -2271,13 +2444,6 @@
 /obj/structure/flora/bush/leafy,
 /turf/open/floor/grass/fairy,
 /area/centcom/holding/cafe/park)
-"aEW" = (
-/obj/structure/sign/poster/contraband/space_cola/directional/north,
-/obj/machinery/vending/boozeomat/cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "aEX" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -2401,6 +2567,31 @@
 	},
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafe/park)
+"aGT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/vending/cigarette/syndicate{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "aGV" = (
 /obj/item/sharpener,
 /obj/structure/table/wood,
@@ -2696,6 +2887,12 @@
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
+/area/centcom/holding/cafe)
+"aKD" = (
+/obj/machinery/vending/wardrobe/atmos_wardrobe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aKP" = (
 /turf/open/misc/beach/coast/corner{
@@ -3170,6 +3367,12 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/holding/cafe)
+"aPK" = (
+/obj/machinery/vending/wardrobe/cent_wardrobe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "aPU" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/plating{
@@ -3194,6 +3397,12 @@
 "aPZ" = (
 /obj/structure/sign/painting/library_secure,
 /turf/closed/indestructible/wood,
+/area/centcom/holding/cafe)
+"aQa" = (
+/obj/machinery/vending/wardrobe/det_wardrobe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aQd" = (
 /obj/structure/table/wood/fancy/royalblue,
@@ -3851,6 +4060,27 @@
 	smoothing_flags = 0
 	},
 /area/centcom/holding/cafe/park)
+"aWL" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/machinery/vending/barbervend{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "aWP" = (
 /obj/structure/fence/door/opened,
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
@@ -3868,6 +4098,12 @@
 "aWT" = (
 /obj/structure/easel,
 /obj/item/canvas/twentythree_twentythree,
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
+"aXd" = (
+/obj/machinery/vending/wardrobe/law_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aXl" = (
@@ -3913,6 +4149,17 @@
 "aXG" = (
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"aXN" = (
+/obj/machinery/vending/engivend{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "aXR" = (
 /turf/open/floor/iron/freezer,
 /area/centcom/holding/cafe)
@@ -3942,6 +4189,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafe/park)
+"aYj" = (
+/obj/machinery/vending/wardrobe/chap_wardrobe/unholy/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "aYk" = (
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 8
@@ -4118,6 +4371,15 @@
 /obj/machinery/skill_station,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"bbW" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/gene_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe/park)
 "bcb" = (
 /turf/open/floor/carpet/cyan,
 /area/centcom/holding/cafe)
@@ -4266,15 +4528,6 @@
 /obj/item/melee/chainofcommand,
 /turf/open/indestructible/stone,
 /area/centcom/holding/cafe)
-"bkL" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/viro_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "bll" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -4437,6 +4690,15 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
+"buX" = (
+/obj/machinery/vending/hydronutrients{
+	products = list(/obj/item/reagent_containers/cup/bottle/nutrient/ez = 50, /obj/item/reagent_containers/cup/bottle/nutrient/l4z = 20, /obj/item/reagent_containers/cup/bottle/nutrient/rh = 10, /obj/item/reagent_containers/spray/pestspray = 30, /obj/item/reagent_containers/syringe = 5, /obj/item/storage/bag/plants = 30, /obj/item/cultivator = 10, /obj/item/shovel/spade = 10, /obj/item/plant_analyzer = 10);
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "bvn" = (
 /obj/machinery/door/airlock/security{
 	id_tag = "ghostcafecell1";
@@ -4453,12 +4715,6 @@
 "bvU" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/stairs/medium,
-/area/centcom/holding/cafe)
-"bwl" = (
-/obj/machinery/vending/dorms{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "bwG" = (
 /obj/structure/table/wood,
@@ -4485,29 +4741,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
-"bxC" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "byg" = (
 /obj/item/kirbyplants/organic/plant16,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
@@ -4542,14 +4775,6 @@
 	},
 /turf/open/floor/bamboo,
 /area/centcom/holding/cafe)
-"bBK" = (
-/obj/item/disk/nuclear/fake{
-	pixel_y = 4
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "bBV" = (
 /obj/structure/showcase/fakeid{
 	dir = 4
@@ -4580,29 +4805,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"bDq" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported/yangyu{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "bDM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Communications Access"
@@ -5491,12 +5693,6 @@
 /obj/structure/alien/weeds,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
-"cCV" = (
-/obj/machinery/vending/dorms{
-	shut_up = 1
-	},
-/turf/open/floor/iron/showroomfloor,
-/area/centcom/holding/cafe)
 "cCZ" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/sofa/right/brown,
@@ -5855,15 +6051,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
-"dfl" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/science_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "dfL" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -5959,6 +6146,23 @@
 /area/centcom/interlink)
 "doA" = (
 /turf/open/floor/wood/large,
+/area/centcom/holding/cafe)
+"dpS" = (
+/obj/item/storage/bag/garment/captain,
+/obj/item/storage/belt/sheath/sabre,
+/obj/structure/closet/cabinet,
+/obj/item/sign/flag/nanotrasen,
+/obj/item/clothing/glasses/fake_sunglasses,
+/obj/item/clothing/accessory/medal/gold/captain,
+/obj/item/clothing/accessory/medal/gold/heroism,
+/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
+/obj/structure/plaque/static_plaque/golden/captain{
+	pixel_x = -32
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
 /area/centcom/holding/cafe)
 "dqh" = (
 /obj/effect/turf_decal/delivery,
@@ -6192,6 +6396,16 @@
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"dLs" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/vending/wardrobe/cent_wardrobe{
+	shut_up = 1
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "dMl" = (
 /obj/structure/fermenting_barrel,
 /turf/open/floor/fakebasalt,
@@ -6393,21 +6607,6 @@
 /obj/structure/stone_tile/surrounding_tile/cracked,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafe/park)
-"dYh" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/structure/sign/poster/contraband/lusty_xenomorph/directional/south,
-/obj/machinery/vending/wardrobe/jani_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "white"
-	},
-/area/centcom/holding/cafe/park)
 "eaJ" = (
 /obj/structure/fence{
 	dir = 4
@@ -6448,13 +6647,6 @@
 /area/centcom/holding/cafe)
 "eeZ" = (
 /obj/structure/chair/sofa/corp/right,
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
-"efh" = (
-/obj/machinery/barsign/all_access/directional/north,
-/obj/machinery/vending/wardrobe/bar_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "egn" = (
@@ -6534,6 +6726,29 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"enf" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/vending/imported{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "eof" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/machinery/light/cold/directional/west,
@@ -6576,6 +6791,12 @@
 /obj/machinery/duct,
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
+"erP" = (
+/obj/machinery/vending/dorms{
+	shut_up = 1
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/centcom/holding/cafe)
 "erR" = (
 /obj/structure/flora/grass/jungle/b/style_5,
 /mob/living/basic/rabbit,
@@ -7634,12 +7855,6 @@
 /obj/structure/mirror/directional/west,
 /turf/open/floor/iron/freezer,
 /area/centcom/holding/cafe)
-"fXG" = (
-/obj/machinery/vending/wardrobe/curator_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "fYY" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood/tile,
@@ -7767,6 +7982,15 @@
 /obj/structure/stone_tile/slab/cracked,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafe/park)
+"gmE" = (
+/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "gmT" = (
 /obj/structure/fake_stairs/directional/east,
 /turf/open/misc/dirt/planet,
@@ -7828,14 +8052,6 @@
 	},
 /turf/open/misc/asteroid,
 /area/cruiser_dock)
-"gqf" = (
-/obj/machinery/vending/dinnerware{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "cafeteria"
-	},
-/area/centcom/holding/cafe)
 "gqq" = (
 /obj/structure/railing{
 	invisibility = 100;
@@ -7855,15 +8071,6 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"gqV" = (
-/obj/machinery/vending/boozeomat{
-	shut_up = 1
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "grr" = (
 /obj/structure/table,
 /obj/structure/towel_bin,
@@ -8095,6 +8302,16 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"gJd" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/vending/access/command{
+	shut_up = 1
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "gKe" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/table{
@@ -8646,12 +8863,6 @@
 /obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"hsJ" = (
-/obj/machinery/vending/wardrobe/atmos_wardrobe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "hsU" = (
 /obj/structure/railing/unbreakable{
 	dir = 8
@@ -8687,6 +8898,15 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
+/area/centcom/holding/cafe/park)
+"hyt" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/viro_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
 /area/centcom/holding/cafe/park)
 "hyO" = (
 /obj/effect/turf_decal/box/corners,
@@ -8845,15 +9065,6 @@
 "hLW" = (
 /turf/open/floor/iron/smooth_edge,
 /area/cruiser_dock)
-"hMe" = (
-/obj/machinery/vending/wardrobe/chem_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/centcom/holding/cafe)
 "hMt" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/mineral_door/wood/large_gate{
@@ -9135,27 +9346,6 @@
 	dir = 8
 	},
 /area/centcom/holding/cafe)
-"hYN" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/machinery/vending/clothing{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "hYP" = (
 /obj/structure/chair/sofa/bench,
 /turf/open/floor/wood/large,
@@ -9166,15 +9356,6 @@
 /obj/effect/landmark/latejoin,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
-"iat" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/gene_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "iax" = (
 /obj/effect/turf_decal/trimline/green/line,
 /turf/open/floor/iron/dark,
@@ -9290,29 +9471,6 @@
 /obj/item/clothing/suit/armor/vest,
 /turf/open/floor/iron/dark/textured_large,
 /area/cruiser_dock)
-"ijb" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported/mothic{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "ijv" = (
 /obj/machinery/modular_computer/preset/command,
 /obj/effect/turf_decal/tile/green/opposingcorners,
@@ -9549,6 +9707,13 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
+"iwF" = (
+/obj/effect/turf_decal/sand,
+/obj/machinery/vending/cigarette/beach{
+	shut_up = 1
+	},
+/turf/open/misc/beach/sand,
+/area/centcom/holding/cafe/park)
 "iwK" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
 	dir = 4;
@@ -9580,12 +9745,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
-"izt" = (
-/obj/machinery/vending/access/command{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "izJ" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/asteroid/snow/indestructible/planet,
@@ -9710,31 +9869,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/arrow_cw,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"iLD" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
-	},
-/obj/machinery/vending/coffee{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "iMl" = (
 /obj/effect/turf_decal/skyrat_decals/misc/handicapped,
 /obj/effect/turf_decal/siding/white{
@@ -9891,6 +10025,26 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"iXZ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/light,
+/obj/machinery/vending/autodrobe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "iYh" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -10210,16 +10364,6 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
-"jtk" = (
-/obj/structure/spacevine{
-	name = "thick vines";
-	opacity = 1
-	},
-/obj/machinery/vending/wardrobe/sec_wardrobe/red{
-	shut_up = 1
-	},
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafe/park)
 "jtl" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 8
@@ -10478,6 +10622,12 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"jQM" = (
+/obj/item/hilbertshotel/ghostdojo{
+	is_ghost_cafe = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "jRW" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw{
 	dir = 8
@@ -10523,15 +10673,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"jVi" = (
-/obj/machinery/vending/wardrobe/viro_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/centcom/holding/cafe)
 "jXq" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
@@ -10558,6 +10699,29 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafe/park)
+"jZb" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/vending/imported/mothic{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "jZH" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
@@ -10903,6 +11067,16 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/centcom/interlink)
+"kHZ" = (
+/obj/structure/spacevine{
+	name = "thick vines";
+	opacity = 1
+	},
+/obj/machinery/vending/wardrobe/sec_wardrobe/red{
+	shut_up = 1
+	},
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafe/park)
 "kID" = (
 /obj/structure/cable/layer3,
 /turf/closed/indestructible/steel,
@@ -11458,6 +11632,13 @@
 	},
 /turf/open/indestructible/stone,
 /area/centcom/holding/cafe)
+"lnP" = (
+/obj/structure/sign/poster/contraband/space_cola/directional/north,
+/obj/machinery/vending/boozeomat/cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "loD" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/showcase/machinery/tv{
@@ -11674,14 +11855,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"lIs" = (
-/obj/machinery/vending/coffee{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "lIt" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -11746,6 +11919,15 @@
 	},
 /turf/open/lava/fake,
 /area/centcom/holding/cafe/park)
+"lNi" = (
+/obj/machinery/vending/wardrobe/chem_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "lNR" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/effect/turf_decal/tile/dark_blue{
@@ -11815,6 +11997,29 @@
 /obj/effect/turf_decal/delivery/blue,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"lSB" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/vending/imported/yangyu{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "lSJ" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark{
@@ -12073,12 +12278,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"mlh" = (
-/obj/machinery/vending/boozeomat/cafe{
-	shut_up = 1
-	},
-/turf/open/floor/wood,
-/area/centcom/holding/cafe)
 "mmL" = (
 /obj/machinery/porta_turret/syndicate/assaultops/internal{
 	system_id = "goldeneyebase"
@@ -12179,14 +12378,14 @@
 	icon = 'icons/turf/floors/carpet_royalblack.dmi'
 	},
 /area/centcom/holding/cafe)
-"msc" = (
-/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe{
+"msM" = (
+/obj/machinery/vending/boozeomat{
 	shut_up = 1
 	},
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 1
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
 	},
-/turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "mtv" = (
 /obj/structure/chair/sofa/bench/right{
@@ -12497,15 +12696,6 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/holding/cafe)
-"mFA" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/chem_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "mFL" = (
 /obj/effect/spawner/liquids_spawner,
 /obj/structure/chair/sofa/bench/right{
@@ -12556,15 +12746,11 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/cruiser_dock)
-"mHY" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/vending/wardrobe/cent_wardrobe{
+"mIk" = (
+/obj/machinery/vending/boozeomat/cafe{
 	shut_up = 1
 	},
-/obj/effect/turf_decal/delivery,
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
+/turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "mIp" = (
 /obj/structure/table/wood,
@@ -12774,27 +12960,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"mVm" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/obj/machinery/vending/barbervend{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "mXp" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/multitool{
@@ -13565,13 +13730,6 @@
 	},
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafe/park)
-"nXT" = (
-/obj/effect/turf_decal/tile/red/opposingcorners,
-/obj/machinery/vending/wardrobe/sec_wardrobe{
-	shut_up = 1
-	},
-/turf/open/floor/iron/dark,
-/area/centcom/holding/cafe)
 "nYp" = (
 /obj/structure/chair/sofa/corp/right,
 /obj/effect/turf_decal/stripes/line{
@@ -13716,14 +13874,6 @@
 	dir = 6
 	},
 /area/centcom/holding/cafe/park)
-"ogp" = (
-/obj/machinery/vending/hydroseeds{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "ogq" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
@@ -13916,6 +14066,15 @@
 /obj/structure/fans/tiny/invisible,
 /obj/effect/light_emitter/interlink,
 /turf/open/misc/grass/planet,
+/area/centcom/holding/cafe/park)
+"ovH" = (
+/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe{
+	default_price = 0;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
 "owJ" = (
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted,
@@ -14124,6 +14283,15 @@
 	dir = 4
 	},
 /area/cruiser_dock)
+"oGv" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/chem_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe/park)
 "oHW" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/warning{
 	dir = 1
@@ -14234,13 +14402,6 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
-"oRW" = (
-/obj/machinery/vending/tool{
-	onstation = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "oRX" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/research{
@@ -14292,13 +14453,6 @@
 /turf/open/misc/grass/planet{
 	smoothing_flags = 0
 	},
-/area/centcom/holding/cafe/park)
-"oWv" = (
-/obj/effect/turf_decal/sand,
-/obj/machinery/vending/cola{
-	shut_up = 1
-	},
-/turf/open/misc/beach/sand,
 /area/centcom/holding/cafe/park)
 "oWR" = (
 /obj/structure/fake_stairs/wood/directional/north,
@@ -14360,6 +14514,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
+"oYI" = (
+/obj/machinery/vending/coffee{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "oYO" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -14469,15 +14631,6 @@
 	},
 /turf/open/floor/carpet/cyan,
 /area/centcom/holding/cafe)
-"pfJ" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/coroner_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "pgm" = (
 /obj/structure/hedge/opaque,
 /obj/structure/railing{
@@ -14513,12 +14666,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"phG" = (
-/obj/machinery/vending/wardrobe/chap_wardrobe/unholy/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "pib" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
@@ -14564,23 +14711,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe/park)
-"plp" = (
-/obj/machinery/vending/engivend{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/obj/machinery/light/directional/east,
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
-"plV" = (
-/obj/machinery/vending/games{
-	shut_up = 1
-	},
-/turf/open/floor/carpet/cyan,
-/area/centcom/holding/cafe)
 "pmu" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -15066,12 +15196,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"pOk" = (
-/obj/item/hilbertshotel/ghostdojo{
-	is_ghost_cafe = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "pOS" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -15284,13 +15408,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
-"qbi" = (
-/obj/effect/turf_decal/sand,
-/obj/machinery/vending/snack{
-	shut_up = 1
-	},
-/turf/open/misc/beach/sand,
-/area/centcom/holding/cafe/park)
 "qbk" = (
 /obj/machinery/vending/coffee{
 	all_products_free = 1
@@ -15434,6 +15551,16 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"qlG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/table/wood/fancy/black,
+/turf/open/indestructible/hotelwood{
+	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
+	icon_state = "wood_large"
+	},
+/area/centcom/holding/cafe)
 "qmG" = (
 /obj/machinery/light/directional/south,
 /obj/structure/chair/stool/directional/south{
@@ -15632,6 +15759,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"qwo" = (
+/obj/effect/turf_decal/sand,
+/obj/machinery/vending/snack{
+	shut_up = 1
+	},
+/turf/open/misc/beach/sand,
+/area/centcom/holding/cafe/park)
 "qwJ" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/effect/turf_decal/stripes/line,
@@ -15690,12 +15824,6 @@
 /obj/machinery/vending/primitive_catgirl_clothing_vendor,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafe/park)
-"qCA" = (
-/obj/machinery/vending/wardrobe/law_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "qCU" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating/abductor,
@@ -15769,6 +15897,13 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
+"qGA" = (
+/obj/effect/turf_decal/tile/red/opposingcorners,
+/obj/machinery/vending/wardrobe/sec_wardrobe{
+	shut_up = 1
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/holding/cafe)
 "qGW" = (
 /obj/structure/chair/comfy/brown,
 /turf/open/floor/carpet/executive,
@@ -16143,16 +16278,6 @@
 	},
 /turf/open/floor/plating,
 /area/cruiser_dock)
-"rhA" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/obj/structure/table/wood/fancy/black,
-/turf/open/indestructible/hotelwood{
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi';
-	icon_state = "wood_large"
-	},
-/area/centcom/holding/cafe)
 "rhV" = (
 /obj/structure/table/reinforced,
 /obj/item/folder{
@@ -16435,6 +16560,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
+"rCl" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/science_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe/park)
 "rDg" = (
 /obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
@@ -16962,31 +17096,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
-"sde" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/machinery/vending/snack/blue{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "sdn" = (
 /obj/structure/railing/corner/end/flip/unbreakable{
 	dir = 4
@@ -17000,26 +17109,6 @@
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
-"seb" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/light,
-/obj/machinery/vending/autodrobe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
 	},
 /area/centcom/holding/cafe)
 "sen" = (
@@ -17366,18 +17455,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe/park)
-"sBj" = (
-/obj/machinery/vending/wardrobe/coroner_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
-/area/centcom/holding/cafe)
 "sBJ" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw,
 /obj/effect/turf_decal/trimline/green/filled/arrow_cw{
@@ -17573,6 +17650,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"sKP" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/robo_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe/park)
 "sMF" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /obj/machinery/firealarm/directional/south,
@@ -17747,31 +17833,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
-"sWX" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
-	},
-/obj/machinery/vending/cigarette/syndicate{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
-/area/centcom/holding/cafe)
 "sXR" = (
 /turf/open/floor/stone,
 /area/centcom/holding/cafe)
@@ -17835,6 +17896,13 @@
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"tag" = (
+/obj/machinery/vending/tool{
+	onstation = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "tbI" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
@@ -18026,6 +18094,29 @@
 /obj/structure/chair/stool/bar/directional/south,
 /turf/open/indestructible/cobble/side,
 /area/centcom/holding/cafe/park)
+"tuC" = (
+/obj/machinery/vending/cigarette{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
+"tuO" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/structure/sign/poster/contraband/lusty_xenomorph/directional/south,
+/obj/machinery/vending/wardrobe/jani_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/centcom/holding/cafe/park)
 "tvh" = (
 /obj/structure/fence{
 	dir = 4
@@ -18055,6 +18146,13 @@
 /turf/open/misc/beach/coast{
 	dir = 8
 	},
+/area/centcom/holding/cafe/park)
+"tyG" = (
+/obj/effect/turf_decal/sand,
+/obj/machinery/vending/cola{
+	shut_up = 1
+	},
+/turf/open/misc/beach/sand,
 /area/centcom/holding/cafe/park)
 "tzg" = (
 /obj/structure/table/wood,
@@ -18361,6 +18459,30 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"tXa" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/light,
+/obj/machinery/vending/imported/tiziran{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0;
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "tXj" = (
 /obj/machinery/door/airlock/captain{
 	name = "Captain's Bedroom"
@@ -18814,13 +18936,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"uDi" = (
-/obj/machinery/light/directional/south,
-/obj/machinery/vending/wardrobe/engi_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "uDr" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 1
@@ -19003,15 +19118,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
-"uSC" = (
-/obj/machinery/vending/hydronutrients{
-	products = list(/obj/item/reagent_containers/cup/bottle/nutrient/ez = 50, /obj/item/reagent_containers/cup/bottle/nutrient/l4z = 20, /obj/item/reagent_containers/cup/bottle/nutrient/rh = 10, /obj/item/reagent_containers/spray/pestspray = 30, /obj/item/reagent_containers/syringe = 5, /obj/item/storage/bag/plants = 30, /obj/item/cultivator = 10, /obj/item/shovel/spade = 10, /obj/item/plant_analyzer = 10);
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "uSQ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/drinks,
@@ -19143,31 +19249,6 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood,
-/area/centcom/holding/cafe)
-"uZu" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/machinery/vending/cola/black{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
 /area/centcom/holding/cafe)
 "uZQ" = (
 /obj/structure/disposalpipe/segment{
@@ -19437,6 +19518,21 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"vxC" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/coroner_wardrobe/ghost_cafe{
+	shut_up = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe/park)
+"vxF" = (
+/obj/machinery/vending/games{
+	shut_up = 1
+	},
+/turf/open/floor/carpet/cyan,
+/area/centcom/holding/cafe)
 "vxU" = (
 /turf/open/floor/iron/stairs/medium{
 	dir = 4
@@ -19468,13 +19564,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"vAz" = (
-/obj/effect/turf_decal/sand,
-/obj/machinery/vending/cigarette/beach{
-	shut_up = 1
-	},
-/turf/open/misc/beach/sand,
-/area/centcom/holding/cafe/park)
 "vBx" = (
 /obj/structure/table/wood/fancy/black,
 /obj/item/storage/lockbox/medal{
@@ -19522,6 +19611,14 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/wood,
 /area/centcom/interlink)
+"vFo" = (
+/obj/item/disk/nuclear/fake{
+	pixel_y = 4
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "vFM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -19675,20 +19772,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
-"vTH" = (
-/obj/machinery/vending/cigarette{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
-"vTP" = (
-/obj/machinery/vending/wardrobe/cargo_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "vTT" = (
 /turf/closed/indestructible/steel,
 /area/centcom/holding/cafe)
@@ -20119,23 +20202,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"wzw" = (
-/obj/item/storage/bag/garment/captain,
-/obj/item/storage/belt/sabre,
-/obj/structure/closet/cabinet,
-/obj/item/sign/flag/nanotrasen,
-/obj/item/clothing/glasses/fake_sunglasses,
-/obj/item/clothing/accessory/medal/gold/captain,
-/obj/item/clothing/accessory/medal/gold/heroism,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/structure/plaque/static_plaque/golden/captain{
-	pixel_x = -32
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "wzZ" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/siding/dark/corner{
@@ -20319,16 +20385,6 @@
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool,
 /area/centcom/holding/cafe/park)
-"wMA" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/vending/access/command{
-	shut_up = 1
-	},
-/obj/effect/turf_decal/delivery,
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "wME" = (
 /obj/structure/table,
 /obj/item/paper/pamphlet/centcom/visitor_info{
@@ -20344,27 +20400,6 @@
 	dir = 5
 	},
 /turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
-"wOz" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/machinery/vending/games{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
-	},
 /area/centcom/holding/cafe)
 "wOQ" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -20390,12 +20425,6 @@
 /obj/structure/shipping_container/kosmologistika,
 /turf/open/floor/iron/dark/textured_large,
 /area/cruiser_dock)
-"wSe" = (
-/obj/machinery/vending/wardrobe/cent_wardrobe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "wTv" = (
 /obj/structure/sink/kitchen/directional/west,
 /obj/machinery/light/cold/directional/east,
@@ -20782,6 +20811,12 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"xqI" = (
+/obj/machinery/vending/dorms{
+	shut_up = 1
+	},
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "xrz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -20861,12 +20896,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"xwS" = (
-/obj/machinery/vending/wardrobe/det_wardrobe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hotelwood,
-/area/centcom/holding/cafe)
 "xxv" = (
 /obj/structure/mineral_door/wood,
 /obj/structure/fans/tiny/invisible,
@@ -21030,15 +21059,6 @@
 	name = "Cent Com Prison Shuttle Dock"
 	},
 /area/centcom/interlink)
-"xJY" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/wardrobe/robo_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe/park)
 "xKI" = (
 /obj/effect/turf_decal/trimline/dark_green/line{
 	dir = 1
@@ -21194,29 +21214,17 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
-"xTX" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/light,
-/obj/machinery/vending/imported/tiziran{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0;
+"xTZ" = (
+/obj/machinery/vending/wardrobe/coroner_wardrobe/ghost_cafe{
 	shut_up = 1
 	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "floor"
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
 	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "xVv" = (
 /obj/machinery/button/door/directional/west{
@@ -21327,14 +21335,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth,
 /area/centcom/interlink)
-"ybP" = (
-/obj/machinery/vending/wardrobe/hydro_wardrobe/ghost_cafe{
-	shut_up = 1
-	},
-/turf/open/indestructible/hoteltile{
-	icon_state = "darkfull"
-	},
-/area/centcom/holding/cafe)
 "ybQ" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/sepia,
@@ -58655,9 +58655,9 @@ sfN
 rcq
 iGS
 mQa
-dfl
-pfJ
-xJY
+rCl
+vxC
+sKP
 iGS
 ajj
 ajj
@@ -59168,10 +59168,10 @@ wKb
 fTv
 ltu
 iGS
-iat
+bbW
 tfI
-mFA
-bkL
+oGv
+hyt
 iGS
 ajj
 ajj
@@ -63490,7 +63490,7 @@ lwv
 sGf
 wUS
 gMy
-dYh
+tuO
 lwv
 aBi
 ayA
@@ -63719,11 +63719,11 @@ xao
 wek
 oNl
 vTT
-lIs
+oYI
 tHV
 fGB
 syO
-vTH
+tuC
 vTT
 vTT
 vTT
@@ -63982,7 +63982,7 @@ ucP
 ucP
 ucP
 vGg
-mHY
+dLs
 vTT
 rfP
 pWf
@@ -64283,7 +64283,7 @@ aAE
 azr
 aWT
 aUo
-fXG
+aBk
 aqf
 aFP
 ayI
@@ -65524,7 +65524,7 @@ mZb
 ucP
 ucP
 lIt
-wMA
+gJd
 vTT
 lVI
 der
@@ -65539,7 +65539,7 @@ aqf
 aqf
 atq
 aoq
-gqf
+aEG
 wcf
 mFb
 aQD
@@ -65791,8 +65791,8 @@ aqf
 aqf
 alN
 aGL
-uSC
-ogp
+buX
+afj
 aqf
 aqf
 aqf
@@ -65823,7 +65823,7 @@ lwv
 aqf
 ufz
 nps
-plV
+vxF
 pej
 aqf
 kWr
@@ -66052,7 +66052,7 @@ ayx
 arp
 asp
 aqf
-efh
+afl
 aUo
 aWf
 uZQ
@@ -66062,13 +66062,13 @@ aUo
 aUo
 aUo
 aqf
-iLD
+asT
 arP
 arP
 arP
 arP
 arP
-mVm
+aWL
 aqf
 aUo
 ayo
@@ -66319,21 +66319,21 @@ aUo
 aUo
 aUo
 aTb
-uZu
+aiK
 axL
 aur
 agQ
 aOI
 aOI
-seb
+iXZ
 aqf
 aqR
 alR
 aQd
 aqf
-vTP
+aqy
 uZQ
-izt
+agr
 aqf
 rTU
 bcb
@@ -66576,7 +66576,7 @@ wDG
 aUo
 aUo
 aTb
-hYN
+auj
 aoA
 aAu
 aur
@@ -66588,9 +66588,9 @@ aUo
 axQ
 aRM
 aqf
-wSe
+aPK
 uZQ
-uDi
+awQ
 aqf
 sRt
 btN
@@ -66845,9 +66845,9 @@ aUo
 aUo
 aUz
 aqf
-phG
+aYj
 uZQ
-hsJ
+aKD
 aqf
 aqf
 aqf
@@ -67096,15 +67096,15 @@ agG
 aBs
 axO
 aGo
-bDq
+lSB
 aqf
 aUo
 aME
 gWT
 aqf
-qCA
+aXd
 uZQ
-xwS
+aQa
 aqf
 dyU
 bQR
@@ -67332,7 +67332,7 @@ vTT
 aqf
 asp
 aJA
-ybP
+awn
 aOi
 aeW
 asp
@@ -67353,7 +67353,7 @@ avS
 alm
 asC
 awD
-xTX
+tXa
 aqf
 aqf
 aqf
@@ -67610,7 +67610,7 @@ iYD
 azT
 agG
 asC
-ijb
+jZb
 aqf
 afr
 dqh
@@ -67830,7 +67830,7 @@ aaa
 vTT
 vTT
 iSJ
-gqV
+msM
 vTT
 tAT
 oaR
@@ -67851,7 +67851,7 @@ aUZ
 axz
 asp
 aqf
-aEW
+lnP
 aPo
 xtm
 aUo
@@ -67867,7 +67867,7 @@ siN
 axO
 axO
 aGo
-bxC
+enf
 aqf
 aHP
 uZQ
@@ -68118,7 +68118,7 @@ wDG
 aUo
 aUo
 aTb
-wOz
+ayQ
 aOI
 mKt
 hYt
@@ -68375,7 +68375,7 @@ aUo
 aUo
 aUo
 aTb
-sde
+apA
 aOI
 aOI
 mGi
@@ -68632,7 +68632,7 @@ aUo
 aUo
 aUo
 aqf
-sWX
+aGT
 apx
 apx
 tzr
@@ -69132,8 +69132,8 @@ vTT
 aPf
 aqf
 vxh
-plp
-oRW
+aXN
+tag
 aUo
 aQK
 aQK
@@ -69159,7 +69159,7 @@ ajx
 aUo
 aUo
 aUo
-bwl
+xqI
 aqf
 vTT
 vTT
@@ -69673,7 +69673,7 @@ ajx
 aUo
 aUo
 aUo
-pOk
+jQM
 aqf
 vTT
 pqy
@@ -70148,7 +70148,7 @@ hqv
 hup
 cma
 mco
-wzw
+dpS
 vTT
 aaa
 aaa
@@ -70401,8 +70401,8 @@ aaa
 aaa
 aaa
 aTb
-bBK
-rhA
+vFo
+qlG
 gaL
 lcr
 sbU
@@ -71475,7 +71475,7 @@ aFP
 ayI
 qiI
 aAv
-sBj
+xTZ
 hdV
 awW
 vTT
@@ -71732,7 +71732,7 @@ ayI
 ayI
 kMw
 aZq
-hMe
+lNi
 dOM
 rpX
 vTT
@@ -71989,7 +71989,7 @@ aFP
 aOz
 lWZ
 aZq
-jVi
+aCY
 dOM
 sPA
 aAv
@@ -72246,7 +72246,7 @@ aFP
 ayI
 qAg
 vTT
-msc
+gmE
 azj
 rnK
 vTT
@@ -74529,7 +74529,7 @@ ayI
 ayI
 ayI
 ayI
-aip
+ovH
 rUA
 qBC
 aPf
@@ -75305,7 +75305,7 @@ aNU
 aPf
 aPf
 aPf
-jtk
+kHZ
 ayI
 aPf
 pCd
@@ -76116,7 +76116,7 @@ uoM
 uoM
 uoM
 vTT
-nXT
+qGA
 gUZ
 aPV
 vTT
@@ -78190,9 +78190,9 @@ aUm
 xFU
 xFU
 qpu
-qbi
-oWv
-vAz
+qwo
+tyG
+iwF
 ajj
 ajj
 ajj
@@ -79737,7 +79737,7 @@ noq
 noq
 qWA
 gCR
-cCV
+erP
 aNY
 gCR
 ajj
@@ -81537,7 +81537,7 @@ xFU
 gCR
 jAH
 noq
-mlh
+mIk
 gCR
 ajj
 aaa

@@ -114,7 +114,7 @@
 	// Set skin tone, if possible
 	if(HAS_TRAIT(quirk_mob, TRAIT_USES_SKINTONES) && !(quirk_mob.skin_tone != initial(quirk_mob.skin_tone)))
 		quirk_mob.skin_tone = "albino"
-		quirk_mob.dna.update_ui_block(DNA_SKIN_TONE_BLOCK)
+		quirk_mob.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
 
 	// Add vampiric biotype
 	quirk_mob.mob_biotypes |= MOB_VAMPIRIC

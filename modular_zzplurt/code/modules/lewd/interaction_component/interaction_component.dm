@@ -318,11 +318,11 @@
 
 	// Get fluid amount from source genital
 	var/obj/item/organ/genital/fluid_source = partner.get_organ_slot(source_genital)
-	if(!fluid_source || !fluid_source.internal_fluid_count)
+	if(!fluid_source || !fluid_source.reagents.total_volume)
 		return
 
 	// Calculate growth based on fluid amount relative to max capacity
-	var/growth_amount = ROUND_UP(fluid_source.internal_fluid_count / (fluid_source.internal_fluid_maximum * GENITAL_INFLATION_THRESHOLD))
+	var/growth_amount = ROUND_UP(fluid_source.reagents.total_volume / (fluid_source.internal_fluid_maximum * GENITAL_INFLATION_THRESHOLD))
 	if(!growth_amount)
 		return
 

@@ -220,6 +220,7 @@
 	if((taur_mode & STYLE_TAUR_SNAKE) && (patient.shoes))
 		patient.dropItemToGround(patient.shoes, TRUE)
 	// SPLURT ADDITION END - Fix of naga with shoes
+	patient.wash(CLEAN_SCRUB)
 	if(patient.dna.real_name != original_name)
 		log_game("[key_name(patient)] has used the Self-Actualization Device at [loc_name(src)], changed the name of their character. \
 		Original Name: [original_name], New Name: [patient.dna.real_name].")

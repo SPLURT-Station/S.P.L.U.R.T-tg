@@ -9,8 +9,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/no_gender_shaping
 	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA
 	var/list/list/body_markings = list()
-	///Override of the eyes icon file, used for Vox and maybe more in the future - The future is now, with Teshari using it too
-	var/eyes_icon
+	// ///Override of the eyes icon file, used for Vox and maybe more in the future - The future is now, with Teshari using it too
+	// var/eyes_icon //SPLURT EDIT - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
 	///How are we treated regarding processing reagents, by default we process them as if we're organic
 	var/reagent_flags = PROCESS_ORGANIC
 	///Whether a species can use augmentations in preferences
@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					undershirt_overlay.color = species_human.undershirt_color
 				standing += undershirt_overlay
 
-		if(species_human.socks && species_human.num_legs >= 2 && !(mutant_bodyparts["taur"]) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+		if(species_human.socks && species_human.num_legs >= 2 && !(mutant_bodyparts[FEATURE_TAUR]) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
 			var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
 			if(socks)
 				var/mutable_appearance/socks_overlay
@@ -210,7 +210,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		target.unwag_tail()
 	return ..()
 
-/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 
 	var/robot_organs = HAS_TRAIT(target, TRAIT_ROBOTIC_DNA_ORGANS)

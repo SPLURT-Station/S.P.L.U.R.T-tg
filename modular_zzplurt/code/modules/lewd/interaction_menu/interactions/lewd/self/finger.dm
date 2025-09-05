@@ -44,34 +44,13 @@
 	if(liquid_container)
 		var/list/original_messages = message.Copy()
 		var/chosen_message = pick(message)
+		LAZYADD(fluid_transfer_objects, list("[REF(target)]" = liquid_container))
 		message = list("[chosen_message] over \the [liquid_container]")
-		interaction_modifier_flags |= INTERACTION_OVERRIDE_FLUID_TRANSFER
 		. = ..()
-		interaction_modifier_flags &= ~INTERACTION_OVERRIDE_FLUID_TRANSFER
+		LAZYREMOVE(fluid_transfer_objects, REF(target))
 		message = original_messages
 	else
 		. = ..()
-
-/datum/interaction/lewd/finger_self_vagina/post_climax(mob/living/user, mob/living/target, position)
-	if(!ishuman(user))
-		return
-	var/obj/item/liquid_container
-	var/obj/item/cached_item = user.get_active_held_item()
-	if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
-		liquid_container = cached_item
-	else
-		cached_item = user.pulling
-		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
-			liquid_container = cached_item
-
-	if(liquid_container)
-		var/obj/item/organ/genital/vagina/vagina = user.get_organ_slot(ORGAN_SLOT_VAGINA)
-		if(vagina?.internal_fluid_datum)
-			var/datum/reagents/R = new(vagina.internal_fluid_maximum)
-			vagina.transfer_internal_fluid(R, vagina.internal_fluid_count)
-			R.trans_to(liquid_container, R.total_volume)
-			qdel(R)
-	. = ..()
 
 /datum/interaction/lewd/finger_self_anus
 	name = "Finger Ass (self)"
