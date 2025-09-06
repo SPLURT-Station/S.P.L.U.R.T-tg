@@ -10,16 +10,8 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
-/datum/techweb_node/riot_supression/New() // OVERRIDE.
+/datum/techweb_node/riot_supression/New() // OVERRIDE???
 	design_ids += "wt550_ammo_rubber"
-	design_ids += "s12g_rubber"
-	design_ids += "s12g_bslug"
-	design_ids += "s12g_br"
-	design_ids += "s12g_incinslug"
-	design_ids += "wt550_ammo_normal"
-	design_ids += "m9mm_mag"
-	design_ids += "m45_mag"
-	design_ids += "solgrenade_mag"
 	. = ..()
 
 /obj/projectile/bullet/c46x30mm/rubber
