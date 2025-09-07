@@ -162,7 +162,7 @@
 
 	user.visible_message(span_notice("[user] removes [charging] from [src]."), span_notice("You remove [charging] from [src]."))
 
-/obj/machinery/cell_charger_multi/proc/removecell(mob/living/user)
+/obj/machinery/cell_charger_multi/proc/removecell(mob/living/user) // Splurt Edit for now - Convers this into a living version, it's already only usable by people with hands, so may as well go the full way
 	if(!charging_batteries.len)
 		return FALSE
 	var/obj/item/stock_parts/power_store/cell/charging
@@ -176,8 +176,10 @@
 		charging = charging_batteries[1]
 	if(!charging)
 		return FALSE
+	// Splurt Edit Start - Fixes a problem where people could grab batteries from a distance if they never closed the UI
 	if(!user.can_perform_action(src, NEED_HANDS))
 		return FALSE
+	// Splurt Edit Stop
 	charging.forceMove(drop_location())
 	charging.update_appearance()
 	charging_batteries -= charging
