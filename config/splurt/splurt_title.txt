@@ -36,6 +36,27 @@
 				z-index: 0;
 			}
 
+			/* Top-centered logo container */
+			.container_logo {
+				position: absolute;
+				top: 3vmin; /* padding from the top */
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 2; /* above background and menus */
+				pointer-events: none; /* don't block interactions below */
+				transition: opacity 0.3s ease;
+			}
+
+			/* Responsive logo image sizing */
+			.logo_image {
+				display: block;
+				max-width: 80vmin; /* scale with viewport, stay within scene */
+				max-height: 24vmin; /* avoid covering central splash */
+				width: auto;
+				height: auto;
+				margin: 0 auto;
+			}
+
 			.container_terminal {
 				position: absolute;
 				top: calc(90% - 3vmin);
@@ -113,11 +134,14 @@
 				transition: opacity 0.3s ease;
 			}
 
-			.container_nav.inactive {
+
+			.container_nav.inactive,
+			.container_logo.inactive {
 				opacity: 0.2;
 			}
 
-			.container_nav.hidden {
+			.container_nav.hidden,
+			.container_logo.hidden {
 				opacity: 0;
 			}
 
@@ -262,15 +286,23 @@
 					// Start fading immediately with minimal delay
 					fadeTimer = setTimeout(function() {
 						const navContainer = document.querySelector('.container_nav');
+						const logoContainer = document.querySelector('.container_logo');
 						if (navContainer) {
 							navContainer.classList.add('inactive');
+							if (logoContainer) {
+								logoContainer.classList.add('inactive');
+							}
 
 							// Then hide after a short delay
 							hideTimer = setTimeout(function() {
 								if (!isMenuHovered) {
 									const navContainer = document.querySelector('.container_nav');
+									const logoContainer = document.querySelector('.container_logo');
 									if (navContainer) {
 										navContainer.classList.add('hidden');
+										if (logoContainer) {
+											logoContainer.classList.add('hidden');
+										}
 										isMenuHidden = true;
 									}
 								}
@@ -284,9 +316,13 @@
 			function handleMenuMouseEnter() {
 				isMenuHovered = true;
 				const navContainer = document.querySelector('.container_nav');
+				const logoContainer = document.querySelector('.container_logo');
 				if (navContainer) {
 					navContainer.classList.remove('inactive', 'hidden');
 					isMenuHidden = false;
+				}
+				if (logoContainer) {
+					logoContainer.classList.remove('inactive', 'hidden');
 				}
 				clearTimeout(fadeTimer);
 				clearTimeout(hideTimer);
@@ -300,15 +336,19 @@
 
 			window.addEventListener('load', function() {
 				const navContainer = document.querySelector('.container_nav');
+				const logoContainer = document.querySelector('.container_logo');
 				if (navContainer) {
 					// Setup menu hover events
 					navContainer.addEventListener('mouseenter', handleMenuMouseEnter);
 					navContainer.addEventListener('mouseleave', handleMenuMouseLeave);
 
-					// Reset state
+					// Reset state for both containers
 					isMenuHidden = false;
 					isMenuHovered = false;
 					navContainer.classList.remove('inactive', 'hidden');
+					if (logoContainer) {
+						logoContainer.classList.remove('inactive', 'hidden');
+					}
 
 					setTimeout(function() {
 						if (!isMenuHovered) {
@@ -320,6 +360,20 @@
 
 			function initializeMenu() {
 				const navContainer = document.querySelector('.container_nav');
+				let logoContainer = document.querySelector('.container_logo');
+
+				// Create logo container if it doesn't exist and we have a nav container
+				if (navContainer && !logoContainer) {
+					logoContainer = document.createElement('div');
+					logoContainer.className = 'container_logo';
+					const logoImg = document.createElement('img');
+					logoImg.className = 'logo_image';
+					logoImg.src = 'https://i.ibb.co/FLcjXLfL/splurtlogo.png';
+					logoImg.alt = 'SPLURT Title Logo';
+					logoContainer.appendChild(logoImg);
+					document.body.appendChild(logoContainer);
+				}
+
 				if (navContainer && !navContainer.dataset.initialized) {
 					navContainer.dataset.initialized = 'true';
 
@@ -327,9 +381,15 @@
 					navContainer.addEventListener('mouseenter', handleMenuMouseEnter);
 					navContainer.addEventListener('mouseleave', handleMenuMouseLeave);
 
+					// Reset state for both containers
 					isMenuHidden = false;
 					isMenuHovered = false;
 					navContainer.classList.remove('inactive', 'hidden');
+					if (logoContainer && !logoContainer.dataset.initialized) {
+						logoContainer.dataset.initialized = 'true';
+						logoContainer.classList.remove('inactive', 'hidden');
+					}
+
 					setTimeout(function() {
 						if (!isMenuHovered) {
 							updateMenuVisibility();

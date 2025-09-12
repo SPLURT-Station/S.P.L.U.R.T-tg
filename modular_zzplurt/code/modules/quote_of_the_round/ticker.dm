@@ -95,7 +95,7 @@
 	embed.footer = new("Round #[GLOB.round_id] ([SSgamemode.storyteller.name])")
 	embed.timestamp = time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")
 
-	var/datum/tgs_message_content/message = new("# Round #[GLOB.round_id] ([SSgamemode.storyteller.name]) just ended. [CONFIG_GET(string/roundend_ping_role) ? "<@[CONFIG_GET(string/roundend_ping_role)]>" : ""]")
+	var/datum/tgs_message_content/message = new("# Round #[GLOB.round_id] ([SSgamemode.storyteller.name]) just ended. [CONFIG_GET(string/roundend_ping_role) ? "<@&[CONFIG_GET(string/roundend_ping_role)]>" : ""]")
 	message.embed = embed
 	for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
 		send2chat(message, channel_tag)

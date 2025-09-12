@@ -14,7 +14,7 @@
 			return
 	. = ..()
 
-/mob/dead/new_player/update_title_screen()
-	. = ..()
-	if((client?.prefs?.read_preference(/datum/preference/toggle/hide_splashscreen) || (!client?.maturity_prompt_whitelist && CONFIG_GET(flag/age_prompt_system))) && SStitle.current_title_screen != DEFAULT_TITLE_SCREEN_IMAGE && SStitle.current_title_screen != DEFAULT_TITLE_LOADING_SCREEN)
-		src << browse(DEFAULT_TITLE_SCREEN_IMAGE, "file=loading_screen.gif;display=0")
+// /mob/dead/new_player/update_title_screen()
+// 	. = ..()
+// 	if((client?.prefs?.read_preference(/datum/preference/toggle/hide_splashscreen) || (!client?.maturity_prompt_whitelist && CONFIG_GET(flag/age_prompt_system))) && SStitle.current_title_screen != DEFAULT_TITLE_SCREEN_IMAGE && SStitle.current_title_screen != DEFAULT_TITLE_LOADING_SCREEN)
+// 		src << browse(DEFAULT_TITLE_SCREEN_IMAGE, "file=loading_screen.gif;display=0")
