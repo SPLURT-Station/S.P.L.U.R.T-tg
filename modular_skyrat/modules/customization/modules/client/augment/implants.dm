@@ -18,12 +18,12 @@
 //LEFT ARM IMPLANTS
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
-
+/* Splurt Edit Removal of it from loadout
 /datum/augment_item/implant/l_arm/razor_claws
 	name = "Left Razor Claws"
 	cost = 4
 	path = /obj/item/organ/cyberimp/arm/toolkit/razor_claws/left_arm
-
+*/
 /datum/augment_item/implant/l_arm/rope
 	name = "Left Climbing Hook"
 	cost = 1
@@ -32,12 +32,12 @@
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
-
+/* Splurt Edit Removal of it from loadout
 /datum/augment_item/implant/r_arm/razor_claws
 	name = "Right Razor Claws"
 	cost = 4
 	path = /obj/item/organ/cyberimp/arm/toolkit/razor_claws/right_arm
-
+*/
 /datum/augment_item/implant/r_arm/rope
 	name = "Right Climbing Hook"
 	cost = 1
