@@ -19,14 +19,16 @@
 	quirk_holder.AddElementTrait(TRAIT_FLUTTER_MOVE, TRAIT_FLUTTER, /datum/element/flutter_move, FLUTTER_FUNCTIONAL_FORCE, FLUTTER_MIN_PRESSURE)
 
 	// Add drifting trait
-	ADD_TRAIT(quirk_holder, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_FLUTTER)
+	//ADD_TRAIT(quirk_holder, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_FLUTTER)
 
 /datum/quirk/flutter/remove()
 	// Remove movement element
 	REMOVE_TRAIT(quirk_holder, TRAIT_FLUTTER_MOVE, TRAIT_FLUTTER)
 
 	// Remove drifting trait
-	REMOVE_TRAIT(quirk_holder, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_FLUTTER)
+	//REMOVE_TRAIT(quirk_holder, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_FLUTTER)
 
+	//Originally this trait was supposed to make it so you also don't wall-cling in atmosphere, so you fly forward while fluttering in a hallway.
+	//But this also made it so you can't hold walls in zero atmosphere either, making the trait near-useless
 #undef FLUTTER_FUNCTIONAL_FORCE
 #undef FLUTTER_MIN_PRESSURE

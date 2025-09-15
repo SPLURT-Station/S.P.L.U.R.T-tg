@@ -1,9 +1,11 @@
-#define US_EAST_RELAY_ADDR "byond://useast.bubberstation.org:3000"
-#define US_WEST_RELAY_ADDR "byond://uswest.bubberstation.org:3000"
-#define SYDNEY_RELAY_ADDR "byond://sydney.bubberstation.org:3000"
-#define SINGAPORE_RELAY_ADDR "byond://singapore.bubberstation.org:3000"
-#define EU_RELAY_ADDR "byond://germany.bubberstation.org:3000"
-#define NO_RELAY_ADDR "byond://direct.bubberstation.org:3000"
+// SPLURT STATION EDIT: START
+#define US_EAST_RELAY_ADDR "byond://us-east.splurt.space:42069"
+#define US_WEST_RELAY_ADDR "byond://us-west.splurt.space:42069"
+#define SYDNEY_RELAY_ADDR "byond://sydney.splurt.space:42069"
+#define SINGAPORE_RELAY_ADDR "byond://singapore.splurt.space:42069"
+#define EU_RELAY_ADDR "byond://germany.splurt.space:42069"
+#define NO_RELAY_ADDR "byond://play.splurt.space:42069"
+// SPLURT STATION EDIT: END
 
 #define US_EAST_RELAY "Connect to US-East (Virginia)"
 #define US_WEST_RELAY "Connect to US-West (Oregon)"
@@ -14,15 +16,11 @@
 
 /client/verb/go2relay()
 	var/static/list/relays = list(
-		// SPLURT EDIT START: NO RELAY
-		/*
 		US_EAST_RELAY,
 		US_WEST_RELAY,
 		SYDNEY_RELAY,
 		EU_RELAY,
 		NO_RELAY,
-		*/
-		// SPLURT EDIT END: NO RELAY
 	)
 	var/choice = tgui_input_list(usr, "Which relay do you wish to use?", "Relay Select", relays)
 	var/destination

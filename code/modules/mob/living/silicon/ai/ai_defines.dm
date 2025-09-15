@@ -45,7 +45,7 @@
 	/* ROBOTS */
 	/// List of robots currently synced to the AI
 	VAR_FINAL/list/mob/living/silicon/robot/connected_robots = list()
-
+	var/list/connected_ipcs = list() // Splurt Edit
 
 	/* POWER */
 	/// Reserve emergency power, consumed when the AI has no [var/power_requirement][power source]

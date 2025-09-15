@@ -399,9 +399,12 @@
 "HB" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/spawner/random/entertainment/money_large,
-/obj/effect/spawner/random/entertainment/money_large,
 /obj/machinery/light/directional/south,
+/obj/item/stack/spacecash/c10,
+/obj/item/stack/spacecash/c1{
+	pixel_x = 0;
+	pixel_y = 3
+	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "HL" = (

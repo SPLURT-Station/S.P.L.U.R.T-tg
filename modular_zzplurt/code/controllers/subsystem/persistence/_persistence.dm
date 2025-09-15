@@ -1,0 +1,2 @@
+/datum/controller/subsystem/persistence
+	last_storyteller_type = STORYTELLER_TYPE_ALWAYS_AVAILABLE

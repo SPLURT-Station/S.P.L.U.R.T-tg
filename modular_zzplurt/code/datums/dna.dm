@@ -52,7 +52,7 @@
 	holder.health += healthchange
 	*/
 
-/mob/living/carbon/set_species(datum/species/mrace, icon_update, pref_load, list/override_features, list/override_mutantparts, list/override_markings)
+/mob/living/carbon/set_species(datum/species/mrace, icon_update, pref_load, replace_missing, list/override_features, list/override_mutantparts, list/override_markings)
 	. = ..()
 	adjust_mobsize(get_size(src))
 

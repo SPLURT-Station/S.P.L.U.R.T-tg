@@ -35,34 +35,17 @@
 			liquid_container = cached_item
 
 	if(liquid_container)
-		interaction_modifier_flags |= INTERACTION_OVERRIDE_FLUID_TRANSFER
+		LAZYADD(fluid_transfer_objects, list("[REF(target)]" = liquid_container))
 		message = list(
 			"fingers %TARGET% over \the [liquid_container]",
 			"fingers %TARGET%'s pussy above \the [liquid_container]",
 			"fingers %TARGET% hard while holding \the [liquid_container]"
 		)
-	. = ..()
-	message = original_messages
-	interaction_modifier_flags &= ~INTERACTION_OVERRIDE_FLUID_TRANSFER
-
-/datum/interaction/lewd/finger/post_climax(mob/living/cumming, mob/living/came_in, position)
-	if(interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER)
-		var/obj/item/liquid_container
-
-		var/obj/item/cached_item = came_in.get_active_held_item()
-		if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
-			liquid_container = cached_item
-		else
-			cached_item = came_in.pulling
-			if(istype(cached_item) && cached_item.is_refillable() && cached_item.is_drainable())
-				liquid_container = cached_item
-
-		if(liquid_container)
-			var/obj/item/organ/genital/vagina/vagina = cumming.get_organ_slot(ORGAN_SLOT_VAGINA)
-			if(vagina)
-				vagina.transfer_internal_fluid(liquid_container.reagents, vagina.internal_fluid_count)
-
-	. = ..()
+		. = ..()
+		LAZYREMOVE(fluid_transfer_objects, REF(target))
+		message = original_messages
+	else
+		. = ..()
 
 /datum/interaction/lewd/fingerass
 	name = "Finger Ass"

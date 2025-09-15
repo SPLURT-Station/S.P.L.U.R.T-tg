@@ -50,12 +50,12 @@
 			// Calculate milk amount based on how full the breasts are (0.5 to 2 multiplier)
 			var/milk_multiplier = 0.5
 			if(breasts.internal_fluid_maximum > 0)
-				milk_multiplier = 0.5 + (1.5 * (breasts.internal_fluid_count / breasts.internal_fluid_maximum))
+				milk_multiplier = 0.5 + (1.5 * (breasts.reagents.total_volume / breasts.internal_fluid_maximum))
 
 			var/transfer_amount = rand(1, 3 * milk_multiplier)
 			var/datum/reagents/R = new(breasts.internal_fluid_maximum)
-			breasts.transfer_internal_fluid(R, transfer_amount)
-			R.trans_to(liquid_container, R.total_volume)
+			breasts.reagents.trans_to(R, transfer_amount)
+			R.trans_to(liquid_container, R.total_volume, transferred_by = user)
 			qdel(R)
 
 /datum/interaction/lewd/self_nipsuck
@@ -88,12 +88,12 @@
 		// Calculate milk amount based on how full the breasts are (0.5 to 2 multiplier)
 		var/milk_multiplier = 0.5
 		if(breasts.internal_fluid_maximum > 0)
-			milk_multiplier = 0.5 + (1.5 * (breasts.internal_fluid_count / breasts.internal_fluid_maximum))
+			milk_multiplier = 0.5 + (1.5 * (breasts.reagents.total_volume / breasts.internal_fluid_maximum))
 
 		var/transfer_amount = rand(1, 3 * milk_multiplier)
 		var/datum/reagents/R = new(breasts.internal_fluid_maximum)
-		breasts.transfer_internal_fluid(R, transfer_amount)
-		R.trans_to(user, R.total_volume)
+		breasts.reagents.trans_to(R, transfer_amount)
+		R.trans_to(user, R.total_volume, transferred_by = user)
 		qdel(R)
 
 /datum/interaction/lewd/breastfuck_self

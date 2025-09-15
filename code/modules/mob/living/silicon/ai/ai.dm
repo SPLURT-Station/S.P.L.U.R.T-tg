@@ -242,6 +242,15 @@
 			Status: [robot_status]",
 			"src=[REF(src)];track_cyborg=[text_ref(connected_robot)]",
 		))
+	// Splurt Edit Start
+	var/connected_ipc_amt = length(connected_ipcs)
+	if(connected_ipc_amt)
+		. += "Connected Synthetics: [connected_ipc_amt]"
+		for(var/mob/living/carbon/human/connected_ipc as anything in connected_ipcs)
+			var/robot_status = (connected_ipc.stat != CONSCIOUS || !connected_ipc.client) ? "OFFLINE" : "Nominal"
+			//Name. Area, and Status! Everything an AI wants to know about it's hacked synthetics!
+			. += "[connected_ipc.name] | S.Integrity: [connected_ipc.health]% | Loc: [get_area_name(connected_ipc, TRUE)] | Status: [robot_status]"
+	// Splurt Edit End
 	. += "AI shell beacons detected: [LAZYLEN(GLOB.available_ai_shells)]" //Count of total AI shells
 
 /mob/living/silicon/ai/proc/ai_call_shuttle()
@@ -990,7 +999,7 @@
 	button_icon = 'icons/mob/actions/actions_AI.dmi'
 	button_icon_state = "ai_shell"
 
-/datum/action/innate/deploy_shell/Trigger(trigger_flags)
+/datum/action/innate/deploy_shell/Trigger(mob/clicker, trigger_flags)
 	var/mob/living/silicon/ai/AI = owner
 	if(!AI)
 		return
@@ -1003,7 +1012,7 @@
 	button_icon_state = "ai_last_shell"
 	var/mob/living/silicon/robot/last_used_shell
 
-/datum/action/innate/deploy_last_shell/Trigger(trigger_flags)
+/datum/action/innate/deploy_last_shell/Trigger(mob/clicker, trigger_flags)
 	if(!owner)
 		return
 	if(last_used_shell)
@@ -1081,7 +1090,11 @@
 
 /mob/living/silicon/ai/get_exp_list(minutes)
 	. = ..()
-	.[/datum/job/ai::title] = minutes
+//Splurt Edit Start
+	var/datum/job/ai/ai_job_ref = SSjob.get_job_type(/datum/job/ai)
+
+	.[ai_job_ref.title] = minutes
+//Splurt Edit End
 
 /mob/living/silicon/ai/GetVoice()
 	. = ..()

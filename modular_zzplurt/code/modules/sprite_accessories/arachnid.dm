@@ -1,9 +1,7 @@
 /datum/sprite_accessory/arachnid_legs
 	key = "arachnid_legs"
-	generic = "Arachnid Legs"
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/arachnid_legs
 	recommended_species = list(SPECIES_ARACHNID)
 
@@ -30,10 +28,8 @@
 
 /datum/sprite_accessory/arachnid_spinneret
 	key = "spinneret"
-	generic = "Spinneret"
 	default_color = DEFAULT_PRIMARY
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/spinneret
 	recommended_species = list(SPECIES_ARACHNID)
 
@@ -60,10 +56,8 @@
 
 /datum/sprite_accessory/arachnid_mandibles
 	key = "mandibles"
-	generic = "Mandibles"
 	default_color = DEFAULT_SECONDARY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	organ_type = /obj/item/organ/mandibles
 	recommended_species = list(SPECIES_ARACHNID)
 

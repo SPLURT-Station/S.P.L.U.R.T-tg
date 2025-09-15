@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Box,
   Button,
@@ -61,14 +62,10 @@ const AutoInteractionModal = ({
   const isActive = !!auto_interaction_info[`${interaction}_target_${ref_self}`];
 
   return (
-    <Modal width="400px" height="200px">
+    <Modal width="400px">
       <Section
         title={`Auto Interaction: ${interaction}`}
-        buttons={
-          <Button color="red" icon="window-close" onClick={onClose}>
-            Close
-          </Button>
-        }
+        buttons={<Button color="red" icon="window-close" onClick={onClose} />}
       >
         <Stack vertical fill>
           {isActive && (
@@ -355,13 +352,15 @@ export const InteractionsTab = ({
           </Section>
         )}
       </Stack.Item>
-      {autoInteractionModalOpen && (
-        <AutoInteractionModal
-          interaction={autoInteractionModalOpen}
-          ref_self={ref_self}
-          onClose={() => setAutoInteractionModalOpen(null)}
-        />
-      )}
+      {autoInteractionModalOpen &&
+        createPortal(
+          <AutoInteractionModal
+            interaction={autoInteractionModalOpen}
+            ref_self={ref_self}
+            onClose={() => setAutoInteractionModalOpen(null)}
+          />,
+          document.body,
+        )}
     </Stack>
   );
 };

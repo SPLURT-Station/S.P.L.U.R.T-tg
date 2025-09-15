@@ -65,7 +65,12 @@
 	dir = 4;
 	plane = -3
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit{
+	desc = "Looks like it's been looted already. Damn you, other visitors! Perhaps, if only those visitors didn't loot those storage units and in turn actually left those suits in the rooms...";
+	helmet_type = /obj/item/clothing/head/helmet/space/emergency;
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/emergency
+	},
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "Do" = (
@@ -90,7 +95,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit{
+	desc = "Looks like it's been looted already. Damn you, other visitors! Perhaps, if only those visitors didn't loot those storage units and in turn actually left those suits in the rooms...";
+	helmet_type = /obj/item/clothing/head/helmet/space/emergency;
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/emergency
+	},
 /turf/open/floor/plating/airless,
 /area/misc/hilbertshotel)
 "SS" = (

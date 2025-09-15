@@ -16,7 +16,7 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
-	eyes_icon = 'modular_skyrat/modules/organs/icons/akula_eyes.dmi'
+	//eyes_icon = 'modular_skyrat/modules/organs/icons/akula_eyes.dmi' //SPLURT EDIT - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
 	mutanteyes = /obj/item/organ/eyes/akula
 	mutanttongue = /obj/item/organ/tongue/akula
 	inherent_traits = list(
@@ -89,20 +89,20 @@
 			main_color = "#DB35DE"
 			secondary_color = "#BE3AFE"
 			tertiary_color = "#F5E2EE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = secondary_color
-	features["mcolor3"] = tertiary_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
 	return features
 
 /datum/species/akula/prepare_human_for_preview(mob/living/carbon/human/akula)
 	var/main_color = "#1CD3E5"
 	var/secondary_color = "#6AF1D6"
 	var/tertiary_color = "#CCF6E2"
-	akula.dna.features["mcolor"] = main_color
-	akula.dna.features["mcolor2"] = secondary_color
-	akula.dna.features["mcolor3"] = tertiary_color
-	akula.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
-	akula.dna.features["legs"] = "Normal Legs"
+	akula.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	akula.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	akula.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
+	akula.dna.mutant_bodyparts[FEATURE_TAIL_GENERIC] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
+	akula.dna.features[FEATURE_LEGS] = "Normal Legs"
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
