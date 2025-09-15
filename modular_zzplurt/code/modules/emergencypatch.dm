@@ -16,8 +16,8 @@
 
 /obj/projectile/bullet/c46x30mm/rubber
 	name = "4.6x30mm rubber-tipped bullet"
-	damage = 5
-	stamina = 15
+	damage = 4
+	stamina = 12
 
 	wound_bonus = CANT_WOUND
 	exposed_wound_bonus = CANT_WOUND
@@ -68,8 +68,8 @@
 
 /obj/projectile/bullet/c10mm/rubber
 	name = "10mm rubber bullet"
-	damage = 10
-	stamina = 40
+	damage = 6
+	stamina = 30
 	ricochets_max = 6
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
@@ -93,8 +93,8 @@
 /obj/projectile/bullet/c9mm/rubber
 	name = "9x25mm rubber bullet"
 	icon_state = "pellet"
-	damage = 18
-	stamina = 32
+	damage = 12
+	stamina = 24
 	ricochets_max = 6
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 180
@@ -120,8 +120,8 @@
 
 /obj/projectile/bullet/c34/rubber
 	name = ".34 rubber bullet"
-	damage = 5
-	stamina = 20
+	damage = 4
+	stamina = 15
 	wound_bonus = -75
 	shrapnel_type = null
 	sharpness = NONE
@@ -137,9 +137,9 @@
 
 /obj/projectile/bullet/a223/rubber
 	name = ".277 rubber bullet"
-	damage = 10
+	damage = 6
 	armour_penetration = 10
-	stamina = 30
+	stamina = 22
 	ricochets_max = 6
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
@@ -159,8 +159,8 @@
 
 /obj/projectile/bullet/c45/rubber
 	name = ".460 Ceres rubber bullet"
-	damage = 10
-	stamina = 30
+	damage = 6
+	stamina = 22
 	ricochets_max = 6
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
@@ -184,8 +184,8 @@
 
 /obj/projectile/bullet/strilka310/rubber
 	name = ".310 rubber bullet"
-	damage = 15
-	stamina = 55
+	damage = 12
+	stamina = 40
 	ricochets_max = 5
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
@@ -212,8 +212,8 @@
 
 /obj/projectile/bullet/c27_54cesarzowa/rubber
 	name = ".27-54 Cesarzowa rubber bullet"
-	stamina = 20
-	damage = 10
+	stamina = 15
+	damage = 6
 	weak_against_armour = TRUE
 	wound_bonus = -30
 	exposed_wound_bonus = -10
