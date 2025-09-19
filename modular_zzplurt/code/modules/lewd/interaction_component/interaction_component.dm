@@ -475,3 +475,10 @@
 		return
 
 	menu.open_interaction_menu(src, usr)
+
+// Extends interaction component to detect tail and add "have a tail" attribute
+/datum/component/interactable/get_interaction_attributes(mob/living/carbon/human/target)
+	. = ..()
+	if(istype(target) && target.has_tail(REQUIRE_GENITAL_ANY))
+		. += "have a tail"
+	return .
