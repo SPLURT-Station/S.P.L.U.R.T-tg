@@ -69,8 +69,7 @@
 	SIGNAL_HANDLER
 	if(!istype(source))
 		return
-	var/obscured = source.check_obscured_slots()
-	if(!(obscured & ITEM_SLOT_EYES))
+	if(!(source.obscured_slots & HIDEEYES))
 		examine_text += span_boldwarning("[source.p_Their()] optics are weirdly corrupted")
 
 /datum/antagonist/infected_ipc/proc/set_master(datum/mind/master)

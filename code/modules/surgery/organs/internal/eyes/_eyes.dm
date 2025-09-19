@@ -276,10 +276,9 @@
 	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer, parent) // SKYRAT EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -EYES_LAYER, parent)
 	var/list/overlays = list(eye_left, eye_right)
 
-	var/obscured = parent.check_obscured_slots()
-	if(overlay_ignore_lighting && !(obscured & ITEM_SLOT_EYES))
+	if(overlay_ignore_lighting && !(parent.obscured_slots & HIDEEYES))
 		overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -eyes_layer, alpha = eye_left.alpha) // SPLURT EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -EYES_LAYER, alpha = eye_left.alpha)
-		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // SPLURT EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -EYES_LAYER, alpha = eye_left.alpha)
+		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // SPLURT EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -EYES_LAYER, alpha = eye_right.alpha)
 
 	//var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // SPLURT EDIT REMOVAL -  moved up a few lines
 
@@ -471,7 +470,8 @@
 /// Animates one eyelid at a time, thanks BYOND and thanks animation chains
 /obj/item/organ/eyes/proc/animate_eyelid(obj/effect/abstract/eyelid_effect/eyelid, mob/living/carbon/human/parent, sync_blinking = TRUE, list/anim_times = null)
 	. = list()
-
+	if(isnull(eyelid)) // Can't blink if we don't have an eyelid
+		return
 	var/prevent_loops = HAS_TRAIT(parent, TRAIT_PREVENT_BLINK_LOOPS)
 	animate(eyelid, alpha = 0, time = 0, loop = (prevent_loops ? 0 : -1))
 

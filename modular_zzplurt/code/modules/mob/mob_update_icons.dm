@@ -13,35 +13,26 @@
 	if((slot_flags & ITEM_SLOT_EARS_RIGHT))
 		update_worn_ears_extra()
 
-/mob/update_obscured_slots(obscured_flags)
-	. = ..()
-	if(obscured_flags & HIDEWRISTS)
-		update_worn_wrists(update_obscured = FALSE)
-	if(obscured_flags & HIDEUNDERWEAR)
-		update_worn_underwear(update_obscured = FALSE)
-		update_worn_shirt(update_obscured = FALSE)
-		update_worn_socks(update_obscured = FALSE)
-
 ///Updates the underwear overlay & HUD element.
-/mob/proc/update_worn_underwear(update_obscured = FALSE)
+/mob/proc/update_worn_underwear()
 	return
 
 ///Updates the shirt overlay & HUD element.
-/mob/proc/update_worn_shirt(update_obscured = FALSE)
+/mob/proc/update_worn_shirt()
 	return
 
 ///Updates the bra overlay & HUD element.
-/mob/proc/update_worn_bra(update_obscured = FALSE)
+/mob/proc/update_worn_bra()
 	return
 
 ///Updates the socks overlay & HUD element.
-/mob/proc/update_worn_socks(update_obscured = FALSE)
+/mob/proc/update_worn_socks()
 	return
 
 ///Updates the wrists overlay & HUD element.
-/mob/proc/update_worn_wrists(update_obscured = FALSE)
+/mob/proc/update_worn_wrists()
 	return
 
 ///Updates the headset on the other side overlay & HUD element.
-/mob/proc/update_worn_ears_extra(update_obscured = FALSE)
+/mob/proc/update_worn_ears_extra()
 	return
