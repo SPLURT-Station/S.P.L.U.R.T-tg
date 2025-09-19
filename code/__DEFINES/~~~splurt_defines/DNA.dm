@@ -32,11 +32,11 @@
 #define ORGAN_SLOT_EXTERNAL_SPINNERET "spinneret"
 #define ORGAN_SLOT_EXTERNAL_SPIDER_LEGS "spider_legs"
 
-#define BUTT_MIN_SIZE 1
+#define BUTT_MIN_SIZE 0
 #define BUTT_MAX_SIZE 8
 
 #define BREASTS_MIN_SIZE 0
 #define BREASTS_MAX_SIZE 19
 
-#define BELLY_MIN_SIZE 1
+#define BELLY_MIN_SIZE 0
 #define BELLY_MAX_SIZE 10

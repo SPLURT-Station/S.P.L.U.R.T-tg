@@ -94,7 +94,7 @@
 	. = ..()
 	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
-		gut.set_size(gut.genital_size - 1)
+		gut.set_size(max(gut.genital_size - 1, BELLY_MIN_SIZE))
 		user.update_body()
 
 /datum/interaction/lewd/inflate_belly
@@ -117,5 +117,5 @@
 	. = ..()
 	var/obj/item/organ/genital/belly/gut = user.get_organ_slot(ORGAN_SLOT_BELLY)
 	if(gut)
-		gut.set_size(gut.genital_size + 1)
+		gut.set_size(min(gut.genital_size + 1, BELLY_MAX_SIZE))
 		user.update_body()
