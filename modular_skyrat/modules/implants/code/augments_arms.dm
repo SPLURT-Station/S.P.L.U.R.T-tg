@@ -53,6 +53,8 @@
 	obj_flags |= EMAGGED
 	return TRUE
 
+/* -SPLURT EDIT, because we cant have op things anymore :(
+
 /obj/item/knife/razor_claws
 	name = "implanted razor claws"
 	desc = "A set of sharp, retractable claws built into the fingertips, five double-edged blades sure to turn people into mincemeat. Capable of shifting into 'Precision' mode to act similar to wirecutters."
@@ -144,6 +146,9 @@
 	desc = "You can also activate the claws in your hand to change their mode."
 	button_icon = 'modular_skyrat/master_files/icons/hud/actions.dmi'
 	button_icon_state = "wolverine"
+
+*/
+//	-SPLURT EDIT END
 
 /obj/item/organ/cyberimp/arm/toolkit/hacker
 	name = "hacking arm implant"
