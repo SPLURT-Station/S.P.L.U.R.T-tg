@@ -1,5 +1,6 @@
 /datum/id_trim/job/paramedic
 	minimal_access = list(
+		ACCESS_EXTERNAL_AIRLOCKS,
 		ACCESS_BIT_DEN,
 		ACCESS_CARGO,
 		ACCESS_CONSTRUCTION,
