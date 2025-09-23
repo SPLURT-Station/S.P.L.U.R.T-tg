@@ -1,3 +1,4 @@
+//Modular paramedic access revert. Also adds external.
 /datum/id_trim/job/paramedic
 	minimal_access = list(
 		ACCESS_EXTERNAL_AIRLOCKS,
