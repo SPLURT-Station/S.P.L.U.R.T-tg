@@ -106,9 +106,9 @@
 	icon_state = "mommyclaw"
 	desc = "A machine that turns her victim's pelv<b>is</b> into pelv<b>was</b>."
 	name = "Mommy Funclaw"
-	maxHealth = 1200
-	health = 1200
+	maxHealth = 1000
+	health = 1000
 	obj_damage = 145
-	armour_penetration = 80
-	melee_damage_lower = 80
-	melee_damage_upper = 80
+	armour_penetration = 30
+	melee_damage_lower = 40
+	melee_damage_upper = 40
