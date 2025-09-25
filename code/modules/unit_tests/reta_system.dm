@@ -130,6 +130,8 @@
 	test_card.clear_reta_access()
 	TEST_ASSERT(ACCESS_ENGINEERING in test_card.access, "ID card should still have permanent access after clearing temp access")
 
+
+/* SPLURT EDIT REMOVAL - Yeah nah we're keeping the access thanks
 /datum/unit_test/reta_paramedic_access
 
 /datum/unit_test/reta_paramedic_access/Run()
@@ -150,3 +152,4 @@
 	TEST_ASSERT(ACCESS_MAINT_TUNNELS in paramedic_trim.minimal_access, "Paramedic should have maintenance access")
 	TEST_ASSERT(ACCESS_MORGUE in paramedic_trim.minimal_access, "Paramedic should have morgue access")
 	TEST_ASSERT(ACCESS_MECH_MEDICAL in paramedic_trim.minimal_access, "Paramedic should have medical mech access")
+*/
