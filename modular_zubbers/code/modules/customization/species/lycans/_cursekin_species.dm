@@ -59,10 +59,19 @@
 /mob/living/carbon/human/species/cursekin
 	race = /datum/species/human/cursekin
 
+// SPLURT EDIT ADD - slowdown
+/datum/movespeed_modifier/cursekin_slowdown
+	multiplicative_slowdown = 0.5
+//SPLURT EDIT END - slowdown
+
+
 /datum/species/human/cursekin/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 	gainer.AddElement(/datum/element/inorganic_rejection)
+	gainer.remove_movespeed_modifier(/datum/movespeed_modifier/cursekin_slowdown) // SPLURT EDIT ADD - slowdown
 
 /datum/species/human/cursekin/on_species_loss(mob/living/carbon/human/loser, datum/species/new_species, pref_load)
 	. = ..()
 	loser.RemoveElement(/datum/element/inorganic_rejection)
+	loser.add_movespeed_modifier(/datum/movespeed_modifier/cursekin_slowdown) //SPLURT EDIT ADD - slowdown
+
