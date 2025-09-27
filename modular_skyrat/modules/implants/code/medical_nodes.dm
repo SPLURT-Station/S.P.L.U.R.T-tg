@@ -10,7 +10,7 @@
 		"ci-botany",
 		"ci-janitor",
 		"ci-lighter",
-		"ci-razor",
+		//"ci-razor",
 	)
 	// thrusters in combat_implants
 	design_ids -= list(
