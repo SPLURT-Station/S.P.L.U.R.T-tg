@@ -2,7 +2,7 @@
 
 #define PULL_OVERSIZED_SLOWDOWN 2
 
-#define HUMAN_MAXHEALTH MAX_LIVING_HEALTH
+#define HUMAN_MAXHEALTH MAX_LIVING_HEALTH + 20 //Splurt Edit
 
 #define UNDERWEAR_HIDE_SOCKS (1<<0)
 #define UNDERWEAR_HIDE_SHIRT (1<<1)
@@ -27,6 +27,7 @@
 #define BODYPART_ICON_SYNTHMAMMAL 'modular_skyrat/modules/bodyparts/icons/synthmammal_parts_greyscale.dmi'
 #define BODYPART_ICON_IPC 'modular_skyrat/modules/bodyparts/icons/ipc_parts.dmi'
 #define BODYPART_ICON_SYNTHLIZARD 'modular_skyrat/modules/bodyparts/icons/synthliz_parts_greyscale.dmi'
+#define BODYPART_ICON_LYCAN 'modular_zubbers/icons/mob/species/lycan/lycan_bodyparts.dmi'
 
 #define BUTT_SPRITE_PODPERSON "podperson"
 #define BUTT_SPRITE_VOX "vox"

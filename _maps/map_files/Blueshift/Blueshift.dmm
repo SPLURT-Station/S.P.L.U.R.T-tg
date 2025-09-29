@@ -25087,50 +25087,6 @@
 /obj/item/storage/box/beakers,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
-"eMw" = (
-/obj/structure/table/wood,
-/obj/structure/cable,
-/obj/item/folder{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/item/folder{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/item/folder/yellow{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/folder/yellow{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/folder/red{
-	pixel_x = 1;
-	pixel_y = 2
-	},
-/obj/item/folder/red{
-	pixel_x = 1;
-	pixel_y = 2
-	},
-/obj/item/folder/white{
-	pixel_x = -4;
-	pixel_y = 1
-	},
-/obj/item/folder/white{
-	pixel_x = -4;
-	pixel_y = 1
-	},
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/paper/fluff/ids_for_dummies,
-/obj/item/hand_labeler_refill{
-	pixel_x = 6;
-	pixel_y = 19
-	},
-/turf/open/floor/carpet,
-/area/station/command/heads_quarters/hop)
 "eMA" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/games,
@@ -77130,16 +77086,6 @@
 /obj/structure/falsewall/reinforced,
 /turf/open/floor/plating,
 /area/station/command/secure_bunker)
-"oKg" = (
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/effect/turf_decal/delivery,
-/obj/structure/rack/gunrack,
-/obj/machinery/firealarm/directional/south,
-/obj/effect/spawner/random/armory/e_gun,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/station/ai_monitored/security/armory)
 "oKi" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
@@ -80763,6 +80709,49 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"pvm" = (
+/obj/structure/table/wood,
+/obj/structure/cable,
+/obj/item/folder{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/folder{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/folder/yellow{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/folder/yellow{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/folder/red{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/folder/red{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/folder/white{
+	pixel_x = -4;
+	pixel_y = 1
+	},
+/obj/item/folder/white{
+	pixel_x = -4;
+	pixel_y = 1
+	},
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/item/hand_labeler_refill{
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/carpet,
+/area/station/command/heads_quarters/hop)
 "pvr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -117302,6 +117291,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
+"wne" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/delivery,
+/obj/structure/rack/gunrack,
+/obj/machinery/firealarm/directional/south,
+/obj/effect/spawner/random/armory/e_gun,
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
+/area/station/ai_monitored/security/armory)
 "wng" = (
 /obj/machinery/atmospherics/pipe/smart/simple/general/visible{
 	dir = 6
@@ -160619,7 +160618,7 @@ gkm
 gkm
 ntH
 xTz
-oKg
+wne
 gkm
 eIM
 cIf
@@ -223098,7 +223097,7 @@ mMZ
 ccV
 beF
 bZH
-eMw
+pvm
 kus
 hVt
 whq

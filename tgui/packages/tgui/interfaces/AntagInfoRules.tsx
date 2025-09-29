@@ -22,7 +22,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -36,7 +36,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -50,7 +50,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -64,7 +64,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -78,7 +78,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -92,7 +92,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -106,7 +106,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -120,7 +120,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -134,7 +134,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -148,7 +148,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -162,7 +162,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -176,7 +176,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -190,7 +190,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -204,7 +204,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -218,7 +218,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -232,7 +232,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -246,7 +246,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -260,7 +260,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -274,7 +274,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="http://splurtstation.com/wiki/index.php/Rules">
+              <a href="http://wiki.splurt.space/Rules">
                 Special Rules and Metaprotections!
               </a>
             }
