@@ -1,13 +1,13 @@
 /datum/language_holder/ashmob
 	understood_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
-		/datum/language/ashtongue = list(LANGUAGE_ATOM),
+		// /datum/language/ashtongue = list(LANGUAGE_ATOM), // bubber got rid of ashtongue but will probably be reverted
 	)
 	spoken_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
-		/datum/language/ashtongue = list(LANGUAGE_ATOM),
+		// /datum/language/ashtongue = list(LANGUAGE_ATOM), // bubber got rid of ashtongue but will probably be reverted
 	)
-	selected_language = /datum/language/ashtongue
+	// selected_language = /datum/language/ashtongue // bubber got rid of ashtongue but will probably be reverted
 
 /mob/living/basic/chicken/gunther
 	name = "\improper Gunther"
