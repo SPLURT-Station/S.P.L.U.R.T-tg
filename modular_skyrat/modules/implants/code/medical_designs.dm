@@ -15,6 +15,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
+/* -SPLURT EDIT: Good try sweat, splurt doesnt allow these things here
 /datum/design/cyberimp_claws
 	name = "Razor Claws Implant"
 	desc = "Long, sharp, double-edged razors installed within the fingers, functional for cutting. All kinds of cutting."
@@ -31,6 +32,9 @@
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SECURITY
+
+*/
+//  -SPLURT EDIT END
 
 /datum/design/cyberimp_flash
 	name = "Photon Projector Implant"
