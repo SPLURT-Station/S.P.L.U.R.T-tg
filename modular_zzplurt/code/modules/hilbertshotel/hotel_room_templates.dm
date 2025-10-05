@@ -142,6 +142,13 @@
 	ckeywhitelist = list("drarielpro")
 	category = GHC_SPECIAL
 
+/datum/map_template/ghost_cafe_rooms/ss14_thing
+	name = "Nostalgic Trip"
+	mappath = "_maps/splurt/templates/apartment_donator_ss14.dmm"
+	ckeywhitelist = list("moldb") // TESTING PURPOSES
+	category = GHC_SPECIAL
+	landing_coords = list(34, 26)
+
 /datum/map_template/ghost_cafe_rooms/apartment_dragonslair
 	name = "Dragon Cave Lair"
 	mappath = "_maps/splurt/templates/apartment_dragonslair.dmm"

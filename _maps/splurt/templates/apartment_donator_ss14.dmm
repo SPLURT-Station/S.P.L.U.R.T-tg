@@ -1,4 +1,15 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	alpha = 255;
+	color = "#203144";
+	dir = 1
+	},
+/obj/machinery/biogenerator/medstation/directional/north,
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "ap" = (
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/misc/hilbertshotel)
@@ -31,6 +42,25 @@
 /turf/open/indestructible/hoteltile{
 	icon_state = "podfloor"
 	},
+/area/misc/hilbertshotel)
+"bF" = (
+/obj/structure/table,
+/obj/item/stack/cable_coil{
+	pixel_x = 9;
+	pixel_y = -2;
+	color = "#00aa00"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"bW" = (
+/obj/structure/table/wood,
+/obj/item/food/pizzaslice/margherita{
+	pixel_x = 0;
+	pixel_y = 4
+	},
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "cg" = (
 /turf/open/floor/engine,
@@ -133,6 +163,40 @@
 /obj/structure/sink/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"gx" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/item/food/burger/cheese,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
+"gy" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/item/food/bowled/fried_eggplant_polenta,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "gM" = (
 /obj/structure/flora/tree/jungle/small/style_4,
 /turf/open/floor/grass,
@@ -146,6 +210,10 @@
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
+/area/misc/hilbertshotel)
+"hg" = (
+/obj/item/kirbyplants/organic/plant23,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "hk" = (
 /obj/machinery/light/directional/south,
@@ -166,14 +234,75 @@
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
+"hQ" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_y = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_y = 28
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "iG" = (
 /obj/machinery/light/directional/north,
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"jk" = (
+/obj/structure/table,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = -8
+	},
+/obj/item/toy/plush/lizard_plushie/green{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "jn" = (
 /obj/structure/fluff/fake_vent,
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_x = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_x = 28
+	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "jB" = (
@@ -219,6 +348,30 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"kU" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/item/plate{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/plate{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "le" = (
 /obj/structure/chair/wood,
 /turf/open/floor/wood/large,
@@ -258,6 +411,21 @@
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"mN" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 2;
+	use_holiday_colors = 0
+	},
+/obj/structure/table/wood,
+/obj/item/book/manual/wiki/barman_recipes,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "mQ" = (
@@ -309,6 +477,20 @@
 	color = "#16212e";
 	dir = 1
 	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"nz" = (
+/obj/structure/table/wood,
+/obj/item/instrument/guitar{
+	pixel_x = 0;
+	pixel_y = 4
+	},
+/turf/open/floor/wood/large,
+/area/misc/hilbertshotel)
+"nK" = (
+/obj/structure/sink/directional/south,
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
@@ -371,6 +553,7 @@
 	use_holiday_colors = 0
 	},
 /obj/machinery/light/directional/east,
+/obj/structure/closet/crate/freezer,
 /turf/open/indestructible/hoteltile{
 	icon_state = "white"
 	},
@@ -381,6 +564,32 @@
 /obj/item/clothing/suit/hazardvest,
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"oQ" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/item/plate{
+	pixel_x = -6;
+	pixel_y = -4;
+	color = "#5be1e3"
+	},
+/obj/item/plate{
+	pixel_x = 10;
+	pixel_y = 7;
+	color = "#5be1e3"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "oU" = (
@@ -456,11 +665,56 @@
 /obj/structure/window/fulltile,
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
+"rM" = (
+/obj/structure/showcase/machinery/oldpod/used{
+	dir = 8
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_x = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_x = 28
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "sg" = (
 /obj/structure/chair/wood{
 	dir = 1
 	},
 /turf/open/floor/wood/large,
+/area/misc/hilbertshotel)
+"sh" = (
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_x = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_x = 28
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
 /area/misc/hilbertshotel)
 "sm" = (
 /obj/effect/turf_decal/siding/wood{
@@ -483,6 +737,10 @@
 "tf" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/black,
+/area/misc/hilbertshotel)
+"tg" = (
+/obj/structure/chair/stool/bar/directional/east,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "tA" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -538,6 +796,11 @@
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
+/area/misc/hilbertshotel)
+"ul" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/drinkingglass/filled/cuba_libre,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "uQ" = (
 /obj/effect/turf_decal/tile/dark{
@@ -599,6 +862,20 @@
 /obj/structure/curtain/bounty,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"wJ" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 19;
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/emergency{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "wP" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1;
@@ -611,6 +888,15 @@
 /obj/machinery/light/directional/north,
 /turf/open/indestructible/hoteltile{
 	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
+"xn" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
 "xo" = (
@@ -640,6 +926,12 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"xr" = (
+/obj/machinery/vending/wardrobe/jani_wardrobe,
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "xM" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/indestructible/plating,
@@ -650,6 +942,22 @@
 	alpha = 255;
 	color = "#203144";
 	dir = 1
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_y = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_y = 28
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
@@ -714,6 +1022,23 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"zd" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/item/food/bowled/hua_mulan_congee,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "zx" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/carpet/black,
@@ -724,6 +1049,12 @@
 	alpha = 255;
 	dir = 2
 	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"zM" = (
+/obj/machinery/vending/assist,
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
@@ -739,8 +1070,27 @@
 /obj/item/clothing/head/costume/cowboyhat_old,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"Ae" = (
+/obj/structure/table,
+/obj/item/geiger_counter{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit{
+	pixel_x = 11;
+	pixel_y = 2
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "Au" = (
 /turf/open/misc/dirt/dark/station,
+/area/misc/hilbertshotel)
+"AV" = (
+/obj/structure/table/wood,
+/obj/item/food/cookie,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "AW" = (
 /obj/structure/chair/stool/directional/west,
@@ -767,6 +1117,22 @@
 	color = "#16212e";
 	dir = 2
 	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_y = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_y = 28
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "podfloor"
 	},
@@ -774,6 +1140,11 @@
 "Br" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
+/area/misc/hilbertshotel)
+"Bs" = (
+/obj/machinery/light/directional/east,
+/obj/structure/sign/departments/bar/directional/east,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "BI" = (
 /turf/open/indestructible/hoteltile{
@@ -788,6 +1159,23 @@
 /obj/effect/decal/fakelattice/passthru,
 /turf/open/indestructible/hoteltile{
 	icon_state = "black"
+	},
+/area/misc/hilbertshotel)
+"Cu" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 2;
+	use_holiday_colors = 0
+	},
+/obj/structure/table/wood,
+/obj/machinery/chem_dispenser/drinks{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "CL" = (
@@ -817,8 +1205,30 @@
 /area/misc/hilbertshotel)
 "Dc" = (
 /obj/structure/table,
+/obj/item/book/manual/wiki/ordnance{
+	pixel_x = 0;
+	pixel_y = 4
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"DO" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Kitchen"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "Ee" = (
@@ -877,6 +1287,14 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"Fz" = (
+/obj/structure/table/wood,
+/obj/item/toy/plush/abductor{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/turf/open/floor/wood/large,
+/area/misc/hilbertshotel)
 "FB" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	color = "#203144";
@@ -895,10 +1313,35 @@
 "FK" = (
 /turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
+"FR" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/machinery/reagentgrinder,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "FZ" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
 	color = "#203144"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"Gm" = (
+/obj/structure/mop_bucket/janitorialcart{
+	dir = 8
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
@@ -926,6 +1369,11 @@
 "HX" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood,
+/area/misc/hilbertshotel)
+"HZ" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/glowstick/cyan,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Ix" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -970,6 +1418,23 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"Jy" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/table,
+/obj/machinery/microwave,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
 "JB" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -982,6 +1447,19 @@
 /area/misc/hilbertshotel)
 "JP" = (
 /turf/closed/indestructible/wood,
+/area/misc/hilbertshotel)
+"JT" = (
+/obj/structure/table/wood,
+/obj/item/stack/spacecash/c20,
+/obj/item/stack/spacecash/c20{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/stack/spacecash/c20{
+	pixel_x = 0;
+	pixel_y = 4
+	},
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Ka" = (
 /turf/closed/indestructible/fakedoor/glass_airlock,
@@ -1039,6 +1517,17 @@
 "Lr" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/showroomfloor,
+/area/misc/hilbertshotel)
+"LB" = (
+/obj/machinery/autolathe,
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"LN" = (
+/obj/structure/table/wood,
+/obj/item/food/energybar,
+/turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Md" = (
 /obj/structure/fluff/fake_vent,
@@ -1120,6 +1609,17 @@
 /obj/machinery/door/airlock/freezer,
 /turf/open/floor/iron/freezer/large,
 /area/misc/hilbertshotel)
+"OP" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	alpha = 255;
+	color = "#203144";
+	dir = 1
+	},
+/obj/structure/sign/departments/custodian/directional/north,
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "OQ" = (
 /obj/item/reagent_containers/cup/bucket{
 	pixel_x = -7;
@@ -1153,6 +1653,16 @@
 "Pp" = (
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"PA" = (
+/obj/structure/table,
+/obj/item/storage/medkit{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "PM" = (
 /obj/machinery/shower/directional/north,
 /turf/open/floor/iron/showroomfloor,
@@ -1175,6 +1685,22 @@
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"Ru" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/machinery/vending/wardrobe/chef_wardrobe,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "Rv" = (
@@ -1266,6 +1792,7 @@
 	use_holiday_colors = 0
 	},
 /obj/structure/table,
+/obj/machinery/griddle/frontier_tabletop,
 /turf/open/indestructible/hoteltile{
 	icon_state = "white"
 	},
@@ -1275,6 +1802,20 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
+/area/misc/hilbertshotel)
+"TM" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 2;
+	use_holiday_colors = 0
+	},
+/obj/machinery/vending/boozeomat,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
 /area/misc/hilbertshotel)
 "TR" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1289,6 +1830,39 @@
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"Ui" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/machinery/deepfryer,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
+"Up" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 1;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 2;
+	use_holiday_colors = 0
+	},
+/obj/structure/table/wood,
+/obj/machinery/chem_dispenser/drinks/beer{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 "UU" = (
@@ -1312,6 +1886,52 @@
 /area/misc/hilbertshotel)
 "Vw" = (
 /obj/machinery/light/directional/east,
+/turf/open/floor/wood/large,
+/area/misc/hilbertshotel)
+"VQ" = (
+/obj/structure/railing{
+	color = "#5d341f"
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apc0";
+	pixel_x = 28
+	},
+/obj/structure/decorative{
+	desc = "A control terminal for the area's electrical systems.";
+	name = "apc";
+	anchored = 1;
+	icon = 'modular_skyrat/modules/aesthetics/apc/icons/apc.dmi';
+	icon_state = "apco3-2";
+	pixel_x = 28
+	},
+/turf/open/floor/wood,
+/area/misc/hilbertshotel)
+"VR" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/structure/closet/wardrobe/black,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
+	},
+/area/misc/hilbertshotel)
+"Wt" = (
+/obj/structure/table/wood,
+/obj/item/food/pizzaslice/margherita{
+	pixel_x = 1;
+	pixel_y = 7
+	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "WB" = (
@@ -1382,6 +2002,15 @@
 "Yz" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
+/obj/item/stack/cable_coil{
+	pixel_x = -4;
+	pixel_y = 7;
+	color = "#ff8000"
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = 6;
+	pixel_y = -2
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
 	},
@@ -1427,6 +2056,22 @@
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
+"ZM" = (
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 8;
+	use_holiday_colors = 0
+	},
+/obj/effect/turf_decal/tile/dark{
+	alpha = 50;
+	dir = 4;
+	use_holiday_colors = 0
+	},
+/obj/machinery/vending/dinnerware,
+/turf/open/indestructible/hoteltile{
+	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
 
@@ -2193,7 +2838,7 @@ xM
 hJ
 xM
 FK
-lO
+VQ
 YP
 YP
 YP
@@ -2261,9 +2906,9 @@ jQ
 pi
 pi
 FK
-Dc
-BI
-BI
+wJ
+LB
+zM
 xM
 lV
 BI
@@ -2300,7 +2945,7 @@ jQ
 jQ
 pi
 FK
-Dc
+bF
 BI
 BI
 xM
@@ -2378,7 +3023,7 @@ jQ
 jQ
 pi
 FK
-Dc
+Ae
 BI
 BI
 xM
@@ -2417,9 +3062,9 @@ jQ
 jQ
 pi
 FK
-Dc
-Dc
-BI
+PA
+xn
+rM
 xM
 lV
 BI
@@ -2495,7 +3140,7 @@ jQ
 jQ
 pi
 FK
-BI
+xr
 BI
 BI
 FK
@@ -2534,7 +3179,7 @@ jQ
 jQ
 pi
 FK
-BI
+Gm
 BI
 BI
 FK
@@ -2612,11 +3257,11 @@ jQ
 jQ
 pi
 FK
-BI
+nK
 BI
 BI
 FK
-lV
+OP
 BI
 BI
 BI
@@ -2651,9 +3296,9 @@ pi
 pi
 pi
 FK
+jk
 Dc
-Dc
-BI
+sh
 FK
 Ix
 WZ
@@ -2695,7 +3340,7 @@ FK
 FK
 FK
 FK
-lV
+am
 BI
 FZ
 FK
@@ -2783,7 +3428,7 @@ Rd
 fZ
 le
 Xx
-Xx
+AV
 sg
 SR
 SR
@@ -2821,7 +3466,7 @@ pj
 pj
 np
 le
-Xx
+HZ
 Xx
 sg
 SR
@@ -2861,7 +3506,7 @@ tA
 on
 SR
 Xx
-Xx
+JT
 SR
 SR
 SR
@@ -2900,14 +3545,14 @@ BI
 CL
 SR
 Xx
-Xx
+nz
 SR
 SR
 SR
 uQ
 xS
-SS
-SS
+oQ
+FR
 xS
 FK
 pi
@@ -2938,15 +3583,15 @@ vA
 BI
 CL
 SR
-Xx
-Xx
+Wt
+LN
 sg
 SR
 SR
 uQ
 xS
-SS
-xS
+kU
+Ui
 xS
 FK
 pi
@@ -2984,8 +3629,8 @@ SR
 SR
 uQ
 xS
-SS
-xS
+gy
+Ui
 Se
 FK
 pi
@@ -3023,7 +3668,7 @@ SR
 SR
 uQ
 xS
-SS
+zd
 SS
 xS
 FK
@@ -3062,8 +3707,8 @@ SR
 SR
 xM
 xS
-SS
-SS
+gx
+Jy
 xS
 FK
 pi
@@ -3095,7 +3740,7 @@ BI
 yl
 le
 Xx
-Xx
+bW
 sg
 SR
 hk
@@ -3133,12 +3778,12 @@ bE
 BI
 CL
 le
-Xx
-Xx
+ul
+Fz
 sg
 SR
 SR
-xS
+DO
 Zt
 xS
 xS
@@ -3178,7 +3823,7 @@ SR
 SR
 SR
 FK
-xS
+Ru
 xS
 xS
 xS
@@ -3217,7 +3862,7 @@ SR
 SR
 SR
 FK
-xS
+ZM
 xS
 xS
 xS
@@ -3249,14 +3894,14 @@ qh
 zc
 BI
 CL
-Vw
+Bs
 SR
 SR
+tg
 SR
-SR
-SR
+hg
 FK
-xS
+VR
 xS
 xS
 xS
@@ -3295,7 +3940,7 @@ Ee
 Ee
 FK
 FK
-xS
+hQ
 xS
 xS
 Se
@@ -3445,10 +4090,10 @@ pi
 pi
 pi
 FK
-UY
-UY
-UY
-UY
+TM
+Up
+mN
+Cu
 UY
 ou
 UY
