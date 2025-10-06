@@ -1,4 +1,41 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
+"al" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/processor{
+	color = "#adadcd";
+	name = "dark food processor";
+	light_color = "#adadcd";
+	pixel_y = 9;
+	anchored_tabletop_offset = 0
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "am" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -13,9 +50,38 @@
 "ap" = (
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/misc/hilbertshotel)
+"aw" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 4
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1;
+	color = "#ffffff";
+	alpha = 0
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "aE" = (
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"aP" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/kitchen/rollingpin{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/beakers/bluespace{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "bi" = (
 /obj/structure/table/wood,
 /obj/item/shard{
@@ -25,6 +91,22 @@
 	color = "#b52ab3"
 	},
 /turf/open/floor/carpet/black,
+/area/misc/hilbertshotel)
+"bk" = (
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	color = "#16212e";
+	alpha = 255;
+	dir = 4
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
 /area/misc/hilbertshotel)
 "by" = (
 /obj/structure/drain/big,
@@ -62,9 +144,33 @@
 	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"ca" = (
+/obj/machinery/vending/boozeomat,
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 0;
+	pixel_y = 18
+	},
+/turf/closed/indestructible/steel,
+/area/space)
 "cg" = (
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"cq" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/food/energybar{
+	pixel_x = 0;
+	pixel_y = 13
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "cu" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -75,6 +181,27 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"cw" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/caution/stand_clear/white,
+/obj/structure/decorative{
+	icon_state = "tile-carpet-black";
+	pixel_y = 0;
+	icon = 'icons/obj/tiles.dmi';
+	dir = 8;
+	pixel_x = -32;
+	anchored = 1;
+	name = "guitar holder"
+	},
+/obj/item/instrument/guitar{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/space)
 "cx" = (
 /obj/structure/flora/tree/jungle/small/style_4{
 	pixel_x = -17;
@@ -85,6 +212,13 @@
 "cy" = (
 /turf/open/floor/wood/stairs/right,
 /area/misc/hilbertshotel)
+"cO" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "cU" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4
@@ -101,12 +235,79 @@
 /obj/item/clothing/mask/animal/small/tribal,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"dt" = (
+/obj/effect/turf_decal/tile/dark/half{
+	alpha = 200
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end,
+/obj/effect/turf_decal/siding/wood/end,
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
+"dX" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 4
+	},
+/obj/machinery/vending/dinnerware{
+	onstation = 0;
+	density = 0;
+	pixel_y = 32
+	},
+/turf/open/floor/iron/white/textured_corner{
+	dir = 8
+	},
+/area/space)
 "ed" = (
 /obj/structure/bed,
 /obj/item/bedsheet/yellow,
 /obj/structure/curtain/bounty,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"el" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "eD" = (
 /obj/effect/overlay/water/top,
 /obj/effect/overlay/water,
@@ -123,10 +324,50 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"eV" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_edge{
+	dir = 4
+	},
+/area/space)
 "fk" = (
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"fu" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
+"fB" = (
+/obj/machinery/deepfryer{
+	color = "#adadcd";
+	name = "dark deep fryer";
+	light_color = "#adadcd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "fF" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/showroomfloor,
@@ -197,6 +438,37 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"gC" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/space)
+"gF" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/chem_dispenser/drinks,
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "gM" = (
 /obj/structure/flora/tree/jungle/small/style_4,
 /turf/open/floor/grass,
@@ -234,6 +506,12 @@
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
+"hN" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "hQ" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -265,6 +543,21 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"iB" = (
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/space)
 "iG" = (
 /obj/machinery/light/directional/north,
 /turf/open/indestructible/hoteltile{
@@ -285,6 +578,9 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"jm" = (
+/turf/open/indestructible/dark,
+/area/space)
 "jn" = (
 /obj/structure/fluff/fake_vent,
 /obj/structure/decorative{
@@ -305,6 +601,23 @@
 	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"jz" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	icon = 'icons/obj/small_stairs.dmi';
+	icon_state = "iron";
+	dir = 4;
+	name = "stairs";
+	color = "#5d341f"
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "jB" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -318,10 +631,66 @@
 "jQ" = (
 /turf/open/space/bluespace,
 /area/misc/hilbertshotel)
+"jS" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "jT" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
+"jV" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000"
+	},
+/area/space)
+"jX" = (
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "kH" = (
 /obj/machinery/light/directional/north,
 /obj/structure/rack,
@@ -348,6 +717,22 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"kS" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "kU" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -383,12 +768,57 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"lB" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_corner{
+	dir = 8
+	},
+/area/space)
 "lO" = (
 /obj/structure/railing{
 	color = "#5d341f"
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"lS" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "lV" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -399,6 +829,21 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"mv" = (
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/space)
 "mE" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/iron/freezer/large,
@@ -413,6 +858,10 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"mM" = (
+/obj/structure/fake_stairs/wood/directional/north,
+/turf/open/floor/wood/large,
+/area/space)
 "mN" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1;
@@ -434,6 +883,22 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
+"mS" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "mT" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 1
@@ -468,6 +933,9 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"nk" = (
+/turf/open/indestructible/plating,
+/area/space)
 "np" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#16212e"
@@ -481,6 +949,17 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"nq" = (
+/obj/structure/decorative{
+	name = "hub portal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "hub_portal"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "nz" = (
 /obj/structure/table/wood,
 /obj/item/instrument/guitar{
@@ -495,6 +974,26 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"nN" = (
+/obj/structure/chair/sofa/corp/left,
+/obj/structure/railing/wooden_fencing{
+	dir = 1;
+	color = "#ffffff";
+	alpha = 0
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 4;
+	color = "#ffffff";
+	alpha = 0
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "nO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/mask/animal/frog,
@@ -566,6 +1065,48 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"oD" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/space)
+"oI" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
+"oP" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/space)
 "oQ" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -643,6 +1184,9 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"qq" = (
+/turf/open/space/basic,
+/area/space)
 "qs" = (
 /obj/machinery/light_switch/default_on/directional/east,
 /turf/open/floor/carpet/black,
@@ -661,6 +1205,17 @@
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"rm" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 5;
+	color = "#adadcd";
+	name = "dark microwave";
+	light_color = "#adadcd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "rI" = (
 /obj/structure/window/fulltile,
 /turf/open/floor/grass,
@@ -722,6 +1277,51 @@
 	},
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"sp" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/rag{
+	pixel_x = 7;
+	pixel_y = 18
+	},
+/obj/item/clothing/neck/bowtie{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = -9;
+	pixel_y = 13
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
+"ss" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -27;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "sF" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
@@ -752,6 +1352,41 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"tB" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
+"tG" = (
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_y = 20;
+	density = 0
+	},
+/obj/effect/turf_decal/tile/dark/half{
+	alpha = 200;
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
 "tL" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
@@ -762,6 +1397,25 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"tS" = (
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic";
+	dir = 8
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic";
+	dir = 4;
+	pixel_x = -12;
+	pixel_y = 0
+	},
+/turf/open/floor/engine,
+/area/space)
 "tT" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 1
@@ -818,6 +1472,26 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"vk" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_corner,
+/area/space)
 "vA" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -832,6 +1506,14 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"vF" = (
+/obj/effect/turf_decal/siding/wood/end,
+/obj/structure/railing/corner/end{
+	dir = 4;
+	color = "#5d341f"
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "vI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -862,6 +1544,13 @@
 /obj/structure/curtain/bounty,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"wF" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "wJ" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
@@ -932,6 +1621,9 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"xA" = (
+/turf/open/floor/engine,
+/area/space)
 "xM" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/indestructible/plating,
@@ -989,6 +1681,36 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"ya" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/space)
+"yc" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 8;
+	color = "#5d341f"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/space)
 "yl" = (
 /obj/structure/fluff/fake_vent,
 /obj/effect/turf_decal/stripes/white/line{
@@ -1005,9 +1727,29 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"ys" = (
+/obj/structure/decorative{
+	name = "hub portal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "hub_portal"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "textured_dark"
+	},
+/area/misc/hilbertshotel)
 "yF" = (
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
+"yY" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "zc" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -1053,6 +1795,14 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"zG" = (
+/obj/machinery/griddle{
+	color = "#9d9ddd";
+	name = "dark griddle";
+	light_color = "#9d9ddd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "zM" = (
 /obj/machinery/vending/assist,
 /turf/open/indestructible/hoteltile{
@@ -1137,6 +1887,27 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"Bj" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 8;
+	color = "#5d341f"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
 "Br" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
@@ -1161,6 +1932,54 @@
 	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
+"Ch" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/space)
+"Ck" = (
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/white/smooth_half,
+/area/space)
+"Cq" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/carpet/black,
+/area/space)
 "Cu" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1;
@@ -1186,6 +2005,33 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"CM" = (
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic"
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic";
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic";
+	dir = 4;
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/turf/open/floor/engine,
+/area/space)
 "CO" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 1
@@ -1203,6 +2049,32 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Da" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "Dc" = (
 /obj/structure/table,
 /obj/item/book/manual/wiki/ordnance{
@@ -1213,6 +2085,29 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"DG" = (
+/obj/structure/marker_beacon/teal,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/reagentgrinder{
+	pixel_x = 5;
+	pixel_y = 18;
+	anchored_tabletop_offset = 0
+	},
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_y = 14;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/sharpener,
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "DO" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -1287,6 +2182,21 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"Fu" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/space)
 "Fz" = (
 /obj/structure/table/wood,
 /obj/item/toy/plush/abductor{
@@ -1300,6 +2210,12 @@
 	color = "#203144";
 	alpha = 255;
 	dir = 8
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic"
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "textured_dark"
@@ -1347,6 +2263,45 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Go" = (
+/obj/structure/closet/secure_closet/freezer/meat{
+	req_access = list("syndicate");
+	color = "#9d9ddd";
+	name = "end-of-the-universe meat fridge";
+	light_color = "#9d9ddd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
+"Gu" = (
+/turf/closed/indestructible/steel,
+/area/space)
+"GJ" = (
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic"
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic";
+	dir = 2;
+	pixel_x = -16;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic";
+	dir = 8;
+	pixel_x = 2;
+	pixel_y = -19
+	},
+/turf/open/floor/engine,
+/area/space)
 "GN" = (
 /obj/structure/railing{
 	color = "#5d341f";
@@ -1354,6 +2309,56 @@
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"GQ" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_half,
+/area/space)
+"Hl" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding";
+	density = 1
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -27;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 0
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -27;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "HB" = (
 /obj/structure/lattice/catwalk,
 /turf/open/indestructible/hoteltile{
@@ -1375,6 +2380,11 @@
 /obj/item/flashlight/glowstick/cyan,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"Iq" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/chem_dispenser/drinks/beer,
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "Ix" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -1401,6 +2411,9 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"Jf" = (
+/turf/open/misc/grass,
+/area/space)
 "Jl" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#16212e"
@@ -1445,6 +2458,22 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"JE" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "JP" = (
 /turf/closed/indestructible/wood,
 /area/misc/hilbertshotel)
@@ -1479,6 +2508,56 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Ku" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -27;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 0
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
+"Kv" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
+"KB" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/desk_bell{
+	pixel_x = 7
+	},
+/obj/item/stack/spacecash/c20{
+	pixel_x = 0;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "KT" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 1
@@ -1505,6 +2584,21 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Lk" = (
+/obj/structure/chair/sofa/corp,
+/obj/structure/railing/wooden_fencing{
+	dir = 1;
+	color = "#ffffff";
+	alpha = 0
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "Lq" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -1529,18 +2623,85 @@
 /obj/item/food/energybar,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"LW" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/end,
+/obj/effect/turf_decal/siding/wood/end,
+/turf/open/floor/wood/large,
+/area/space)
 "Md" = (
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"Mh" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_edge{
+	dir = 8
+	},
+/area/space)
 "Mr" = (
 /obj/effect/spawner/structure/window/bronze,
 /turf/open/indestructible/plating,
 /area/misc/hilbertshotel)
+"Mv" = (
+/obj/effect/turf_decal/trimline/dark/filled/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/space)
+"MT" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/oven/range{
+	color = "#9d9ddd";
+	name = "dark range";
+	light_color = "#9d9ddd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "Na" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"Nm" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fencing,
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "Nr" = (
 /obj/structure/flora/tree/jungle/small/style_2{
 	pixel_x = -21;
@@ -1605,10 +2766,29 @@
 /obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"NR" = (
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 8;
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/space)
 "Op" = (
 /obj/machinery/door/airlock/freezer,
 /turf/open/floor/iron/freezer/large,
 /area/misc/hilbertshotel)
+"OI" = (
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = list("syndicate");
+	color = "#9d9ddd";
+	name = "end-of-the-universe kitchen cabinet";
+	light_color = "#9d9ddd"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "OP" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -1646,6 +2826,23 @@
 /obj/item/storage/fancy/cigarettes/cigpack_robust,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"Pg" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
 "Pn" = (
 /obj/structure/chair/stool/directional/east,
 /turf/open/misc/dirt/dark/station,
@@ -1667,11 +2864,35 @@
 /obj/machinery/shower/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"Qd" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "Qf" = (
 /obj/effect/overlay/water,
 /obj/effect/overlay/water/top,
 /turf/open/misc/dirt/dark/station,
 /area/misc/hilbertshotel)
+"QB" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/chair/stool/bar{
+	pixel_y = 10;
+	pixel_x = 2
+	},
+/obj/item/ph_booklet{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/chair/stool/bar{
+	pixel_y = 0;
+	pixel_x = -4
+	},
+/obj/item/ph_paper{
+	pixel_x = 9;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/space)
 "QE" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/effect/mapping_helpers/airlock/access/any/admin/captain,
@@ -1687,6 +2908,41 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Rk" = (
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic"
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic";
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
+	icon_state = "phoronic";
+	dir = 8;
+	pixel_y = -16
+	},
+/obj/structure/decorative{
+	name = "phoronic crystal";
+	anchored = 1;
+	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm_32x64.dmi';
+	icon_state = "phoronic";
+	dir = 4;
+	pixel_x = 9;
+	pixel_y = -33
+	},
+/turf/open/floor/engine,
+/area/space)
 "Ru" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -1707,6 +2963,13 @@
 /obj/structure/table/wood,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"Rx" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/kirbyplants/organic/plant22{
+	pixel_y = 12
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "RC" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -1719,6 +2982,13 @@
 /obj/machinery/light/floor,
 /turf/open/indestructible/hoteltile,
 /area/misc/hilbertshotel)
+"RW" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/carpet/black,
+/area/space)
 "Sd" = (
 /obj/structure/railing/wooden_fence{
 	dir = 4
@@ -1777,6 +3047,10 @@
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"SK" = (
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/wood/parquet,
+/area/space)
 "SR" = (
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
@@ -1832,6 +3106,32 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Uc" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 5;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "Ui" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -1865,6 +3165,22 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"UB" = (
+/obj/structure/hedge,
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black"
+	},
+/area/space)
 "UU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -1926,6 +3242,31 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"VS" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/space)
+"Wm" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fencing,
+/obj/structure/railing/wooden_fencing{
+	dir = 4;
+	color = "#ffffff";
+	alpha = 0
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/space)
 "Wt" = (
 /obj/structure/table/wood,
 /obj/item/food/pizzaslice/margherita{
@@ -1966,6 +3307,30 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Xb" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_corner{
+	dir = 4
+	},
+/area/space)
 "Xd" = (
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
@@ -1981,6 +3346,32 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Xn" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
+/area/space)
 "Xx" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood/large,
@@ -1995,6 +3386,28 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"Yk" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark/filled/corner,
+/turf/open/floor/iron/white/textured_corner{
+	dir = 1
+	},
+/area/space)
 "Yn" = (
 /obj/machinery/light_switch/default_on/directional/west,
 /turf/open/floor/carpet/black,
@@ -2076,6 +3489,69 @@
 /area/misc/hilbertshotel)
 
 (1,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2115,6 +3591,69 @@ jQ
 jQ
 "}
 (2,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2154,6 +3693,69 @@ jQ
 jQ
 "}
 (3,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2193,6 +3795,69 @@ jQ
 jQ
 "}
 (4,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2232,6 +3897,69 @@ jQ
 jQ
 "}
 (5,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2271,6 +3999,69 @@ jQ
 jQ
 "}
 (6,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2310,6 +4101,69 @@ jQ
 jQ
 "}
 (7,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2349,6 +4203,69 @@ jQ
 jQ
 "}
 (8,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2388,6 +4305,69 @@ jQ
 jQ
 "}
 (9,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2427,6 +4407,69 @@ jQ
 jQ
 "}
 (10,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2466,6 +4509,69 @@ jQ
 jQ
 "}
 (11,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2505,6 +4611,69 @@ jQ
 jQ
 "}
 (12,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2544,6 +4713,69 @@ jQ
 jQ
 "}
 (13,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2583,6 +4815,69 @@ jQ
 jQ
 "}
 (14,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2622,6 +4917,69 @@ jQ
 jQ
 "}
 (15,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2661,6 +5019,69 @@ jQ
 jQ
 "}
 (16,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2700,6 +5121,69 @@ jQ
 jQ
 "}
 (17,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2739,6 +5223,69 @@ jQ
 jQ
 "}
 (18,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2778,6 +5325,69 @@ jQ
 jQ
 "}
 (19,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+tB
+kS
+Gu
+tB
+jV
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2817,6 +5427,69 @@ jQ
 jQ
 "}
 (20,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+QB
+fu
+cw
+vF
+Uc
+Da
+jS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2856,6 +5529,69 @@ pi
 pi
 "}
 (21,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+ca
+wF
+yY
+lS
+SK
+aw
+Kv
+Uc
+Da
+jS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2895,6 +5631,69 @@ FK
 FK
 "}
 (22,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Iq
+cO
+KB
+cq
+RW
+Lk
+Rx
+Nm
+oP
+Uc
+jS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2934,6 +5733,69 @@ PM
 FK
 "}
 (23,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+gF
+hN
+sp
+NR
+Cq
+nN
+jz
+Wm
+oD
+LW
+Uc
+kS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -2973,6 +5835,69 @@ PM
 FK
 "}
 (24,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+mS
+UB
+Gu
+tG
+Bj
+mM
+ya
+yc
+Fu
+Mv
+al
+Gu
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3012,6 +5937,69 @@ PM
 FK
 "}
 (25,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+Gu
+nk
+nk
+nk
+nk
+nk
+Pg
+dt
+Gu
+VS
+vk
+gC
+Xb
+tB
+jS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3051,6 +6039,69 @@ FK
 FK
 "}
 (26,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+nk
+nk
+nk
+jm
+jm
+jm
+nk
+nk
+nk
+mS
+Ku
+GQ
+rm
+mv
+fB
+Xn
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3090,6 +6141,69 @@ WB
 FK
 "}
 (27,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+nk
+nk
+jm
+jm
+jm
+nk
+jm
+jm
+jm
+nk
+nk
+Hl
+dX
+Mh
+eV
+Xb
+Uc
+jS
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3129,6 +6243,69 @@ WB
 FK
 "}
 (28,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+nk
+jm
+jm
+nk
+nk
+xA
+nk
+nk
+jm
+jm
+nk
+ss
+el
+Ck
+Qd
+iB
+DG
+Xn
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3168,6 +6345,69 @@ WB
 FK
 "}
 (29,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+nk
+nk
+jm
+nk
+Rk
+xA
+xA
+xA
+CM
+nk
+jm
+nk
+nk
+ab
+lB
+Ch
+Yk
+MT
+Xn
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3207,6 +6447,69 @@ WB
 FK
 "}
 (30,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+nk
+jm
+jm
+nk
+xA
+jX
+jX
+jX
+xA
+nk
+jm
+jm
+nk
+oI
+Go
+OI
+zG
+aP
+JE
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3246,6 +6549,69 @@ WB
 FK
 "}
 (31,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+nk
+jm
+nk
+xA
+xA
+jX
+nq
+jX
+xA
+xA
+nk
+jm
+nk
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 pi
 pi
@@ -3285,6 +6651,69 @@ Lr
 FK
 "}
 (32,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+jm
+nk
+jm
+jm
+nk
+xA
+jX
+jX
+jX
+xA
+nk
+jm
+jm
+nk
+Jf
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3324,6 +6753,69 @@ WB
 FK
 "}
 (33,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+nk
+nk
+jm
+nk
+GJ
+xA
+xA
+xA
+tS
+nk
+jm
+nk
+nk
+Jf
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3363,6 +6855,69 @@ FK
 FK
 "}
 (34,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+nk
+jm
+jm
+nk
+nk
+xA
+nk
+nk
+jm
+jm
+nk
+Jf
+Jf
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3380,7 +6935,7 @@ JB
 JB
 JB
 NP
-BI
+ys
 FB
 JB
 JB
@@ -3402,6 +6957,69 @@ FK
 pi
 "}
 (35,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+nk
+nk
+jm
+jm
+jm
+nk
+jm
+jm
+jm
+nk
+nk
+Jf
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 Ca
 Ca
@@ -3420,7 +7038,7 @@ Rd
 mL
 zD
 Rd
-mL
+bk
 zD
 Rd
 eO
@@ -3441,6 +7059,69 @@ FK
 pi
 "}
 (36,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+nk
+nk
+nk
+jm
+jm
+jm
+nk
+nk
+nk
+Jf
+Jf
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 Ca
 HB
@@ -3480,6 +7161,69 @@ FK
 pi
 "}
 (37,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+Gu
+nk
+nk
+nk
+nk
+nk
+Gu
+Gu
+Gu
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 Ca
 Ca
@@ -3519,6 +7263,69 @@ FK
 pi
 "}
 (38,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+Gu
+Gu
+qq
+qq
+qq
+Gu
+Gu
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3558,6 +7365,69 @@ FK
 pi
 "}
 (39,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3597,6 +7467,69 @@ FK
 pi
 "}
 (40,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 cY
 cY
@@ -3636,6 +7569,69 @@ FK
 pi
 "}
 (41,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 pi
 pi
 pi
@@ -3675,6 +7671,69 @@ FK
 pi
 "}
 (42,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3714,6 +7773,69 @@ FK
 pi
 "}
 (43,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3753,6 +7875,69 @@ FK
 pi
 "}
 (44,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3792,6 +7977,69 @@ FK
 pi
 "}
 (45,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3831,6 +8079,69 @@ FK
 pi
 "}
 (46,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3870,6 +8181,69 @@ FK
 pi
 "}
 (47,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3909,6 +8283,69 @@ FK
 pi
 "}
 (48,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3948,6 +8385,69 @@ FK
 pi
 "}
 (49,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -3987,6 +8487,69 @@ FK
 pi
 "}
 (50,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -4026,6 +8589,69 @@ FK
 pi
 "}
 (51,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -4065,6 +8691,69 @@ FK
 pi
 "}
 (52,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -4104,6 +8793,69 @@ FK
 pi
 "}
 (53,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -4143,6 +8895,69 @@ FK
 pi
 "}
 (54,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 jQ
 jQ
 jQ
@@ -4180,4 +8995,4696 @@ pi
 pi
 pi
 pi
+"}
+(55,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(56,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(57,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(58,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(59,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(60,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(61,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(62,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(63,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(64,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(65,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(66,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(67,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(68,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(69,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(70,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(71,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(72,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(73,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(74,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(75,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(76,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(77,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(78,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(79,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(80,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(81,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(82,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(83,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(84,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(85,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(86,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(87,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(88,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(89,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(90,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(91,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(92,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(93,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(94,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(95,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(96,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(97,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(98,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(99,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+"}
+(100,1,1) = {"
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
 "}

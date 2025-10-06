@@ -145,7 +145,6 @@
 /datum/map_template/ghost_cafe_rooms/ss14_thing
 	name = "Nostalgic Trip"
 	mappath = "_maps/splurt/templates/apartment_donator_ss14.dmm"
-	ckeywhitelist = list("moldb") // TESTING PURPOSES
 	category = GHC_SPECIAL
 	landing_coords = list(34, 26)
 
