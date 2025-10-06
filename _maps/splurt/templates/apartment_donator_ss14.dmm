@@ -70,6 +70,55 @@
 "aE" = (
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"aH" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/fire/directional/north,
+/obj/effect/turf_decal/delivery/white{
+	color = "#ff6600"
+	},
+/turf/open/floor/iron/dark,
+/area/space)
+"aJ" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "tram-nopower";
+	pixel_x = 32;
+	pixel_y = 6;
+	dir = 1;
+	anchored = 1;
+	name = "access point"
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "tram-overlay-signaler";
+	pixel_x = 32;
+	pixel_y = 6;
+	dir = 1;
+	anchored = 1;
+	name = "access point"
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "aP" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/kitchen/rollingpin{
@@ -163,6 +212,21 @@
 "cg" = (
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"co" = (
+/obj/structure/table/reinforced,
+/obj/item/book/manual/wiki/engineering_construction{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/book/manual/wiki/engineering_hacking{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/book/manual/wiki/engineering_guide{
+	pixel_y = 6
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
 "cq" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/food/energybar{
@@ -212,6 +276,27 @@
 "cy" = (
 /turf/open/floor/wood/stairs/right,
 /area/misc/hilbertshotel)
+"cA" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	color = "#EFB341";
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/machinery/bluespace_vendor/directional/south,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "cO" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -354,6 +439,47 @@
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"fs" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	color = "#EFB341";
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "tram-nopower";
+	pixel_x = -32;
+	pixel_y = 6;
+	dir = 1;
+	anchored = 1;
+	name = "access point"
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "tram-overlay-signaler";
+	pixel_x = -32;
+	pixel_y = 6;
+	dir = 1;
+	anchored = 1;
+	name = "access point"
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "fu" = (
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 8
@@ -469,6 +595,24 @@
 /obj/machinery/chem_dispenser/drinks,
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"gG" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror/directional/north,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner,
+/obj/effect/turf_decal/trimline/red/corner,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "gM" = (
 /obj/structure/flora/tree/jungle/small/style_4,
 /turf/open/floor/grass,
@@ -564,6 +708,23 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"iQ" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "jk" = (
 /obj/structure/table,
 /obj/item/reagent_containers/spray/cleaner{
@@ -628,6 +789,19 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"jK" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "jQ" = (
 /turf/open/space/bluespace,
 /area/misc/hilbertshotel)
@@ -757,6 +931,35 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"kZ" = (
+/obj/structure/closet/shuttle/medical{
+	pixel_y = 32
+	},
+/obj/item/storage/medkit,
+/obj/item/reagent_containers/syringe/antiviral{
+	pixel_x = -3;
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	color = "#EFB341";
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "le" = (
 /obj/structure/chair/wood,
 /turf/open/floor/wood/large,
@@ -829,6 +1032,27 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"ms" = (
+/obj/effect/turf_decal/caution{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/corner,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "mv" = (
 /obj/effect/turf_decal/trimline/dark/filled/line,
 /obj/effect/turf_decal/trimline/dark/filled/line{
@@ -844,10 +1068,41 @@
 	},
 /turf/open/floor/iron/white/smooth_half,
 /area/space)
+"mD" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "1,12";
+	dir = 1;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
+/area/space)
 "mE" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/iron/freezer/large,
 /area/misc/hilbertshotel)
+"mF" = (
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "mL" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	color = "#16212e";
@@ -968,6 +1223,20 @@
 	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"nA" = (
+/obj/machinery/vending/wardrobe/jani_wardrobe,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/item/toy/figure/janitor{
+	pixel_y = 17;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/space)
 "nK" = (
 /obj/structure/sink/directional/south,
 /turf/open/indestructible/hoteltile{
@@ -1004,6 +1273,18 @@
 /obj/structure/toilet,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/hilbertshotel)
+"oa" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/end,
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 1
+	},
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Tool Storage"
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
 "on" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#16212e"
@@ -1042,6 +1323,31 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"or" = (
+/obj/structure/railing/corner/end{
+	dir = 8;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/railing/corner{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/structure/flora/bush/large{
+	pixel_x = -16;
+	pixel_y = -3
+	},
+/obj/structure/flora/bush/jungle/a{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/end,
+/turf/open/floor/grass,
+/area/space)
 "ou" = (
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1;
@@ -1146,6 +1452,25 @@
 "pj" = (
 /turf/closed/wall/mineral/plasma,
 /area/misc/hilbertshotel)
+"po" = (
+/turf/closed/indestructible/hotelwall{
+	color = "#000000"
+	},
+/area/space)
+"pq" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Custodial Closet"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
 "pH" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 1
@@ -1163,6 +1488,23 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"pI" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "pY" = (
 /obj/structure/flora/tree/jungle/small/style_4{
 	pixel_x = -27;
@@ -1322,6 +1664,31 @@
 	icon_state = "black"
 	},
 /area/space)
+"sC" = (
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 14
+	},
+/obj/structure/table{
+	icon = 'icons/obj/smooth_structures/alien_table.dmi';
+	base_icon_state = "alien_table";
+	icon_state = "alien_table-0"
+	},
+/obj/item/book/manual/wiki/ordnance{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/item/toy/plush/lizard_plushie/green{
+	pixel_x = 6;
+	pixel_y = 7;
+	name = "Cleans-The-Mess"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/space)
 "sF" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
@@ -1433,6 +1800,20 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"tU" = (
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = 0;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding";
+	density = 1
+	},
+/turf/closed/indestructible/steel,
+/area/space)
 "ub" = (
 /obj/structure/flora/tree/jungle/small/style_5{
 	pixel_x = -15;
@@ -1456,6 +1837,30 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass/filled/cuba_libre,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"uO" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/white{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "uQ" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -1711,6 +2116,14 @@
 	},
 /turf/open/floor/wood/large,
 /area/space)
+"yf" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "1,12";
+	dir = 8;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
+/area/space)
 "yl" = (
 /obj/structure/fluff/fake_vent,
 /obj/effect/turf_decal/stripes/white/line{
@@ -1720,6 +2133,17 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"yn" = (
+/obj/structure/table/reinforced,
+/obj/item/screwdriver{
+	pixel_y = 12
+	},
+/obj/item/screwdriver{
+	pixel_y = 7
+	},
+/obj/item/wirecutters,
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
 "yo" = (
 /obj/structure/flora/tree/jungle/small/style_5{
 	pixel_x = -26;
@@ -1781,6 +2205,42 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"zs" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/white{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/end{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "zx" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/carpet/black,
@@ -1887,6 +2347,40 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"Be" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/cup/bucket{
+	pixel_y = 14;
+	pixel_x = 6
+	},
+/obj/effect/turf_decal/box/white{
+	color = "#f15bff"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
+"Bh" = (
+/obj/structure/table{
+	icon = 'icons/obj/smooth_structures/alien_table.dmi';
+	base_icon_state = "alien_table";
+	icon_state = "alien_table-0"
+	},
+/obj/item/storage/box/mousetraps{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/clothing/gloves/latex{
+	pixel_y = -3
+	},
+/obj/item/storage/bag/trash{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/space)
 "Bj" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
@@ -1969,6 +2463,14 @@
 	},
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/white/smooth_half,
+/area/space)
+"Cp" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,14";
+	dir = 4;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
 /area/space)
 "Cq" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -2085,6 +2587,13 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Dm" = (
+/turf/closed/indestructible/hoteldoor{
+	name = "Exit To Outside";
+	icon_state = "fake_door";
+	icon = 'icons/obj/doors/airlocks/external/external.dmi'
+	},
+/area/space)
 "DG" = (
 /obj/structure/marker_beacon/teal,
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -2107,6 +2616,22 @@
 	},
 /obj/item/sharpener,
 /turf/open/floor/iron/dark/textured_large,
+/area/space)
+"DI" = (
+/obj/machinery/door/airlock/public/glass,
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end{
+	dir = 4
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "podfloor"
+	},
+/area/space)
+"DM" = (
+/obj/structure/sign/departments/custodian,
+/turf/closed/indestructible/steel,
 /area/space)
 "DO" = (
 /obj/effect/turf_decal/tile/dark{
@@ -2359,6 +2884,18 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/space)
+"Hn" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,11";
+	dir = 4;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
+/area/space)
+"Hw" = (
+/obj/machinery/vending/assist,
+/turf/open/floor/iron/dark/smooth_large,
+/area/space)
 "HB" = (
 /obj/structure/lattice/catwalk,
 /turf/open/indestructible/hoteltile{
@@ -2395,6 +2932,14 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"IG" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,14";
+	dir = 2;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
+/area/space)
 "II" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	color = "#16212e";
@@ -2411,6 +2956,25 @@
 	},
 /turf/open/misc/grass,
 /area/misc/hilbertshotel)
+"IX" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/structure/sign/poster/official/cleanliness/directional/east,
+/obj/machinery/digital_clock/directional/north{
+	pixel_y = 25
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "Jf" = (
 /turf/open/misc/grass,
 /area/space)
@@ -2599,6 +3163,14 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/space)
+"Ll" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,16";
+	dir = 2;
+	name = "window";
+	desc = null
+	},
+/area/space)
 "Lq" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -2688,6 +3260,14 @@
 	light_color = "#9d9ddd"
 	},
 /turf/open/floor/iron/dark/textured_large,
+/area/space)
+"MY" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,16";
+	dir = 4;
+	name = "window";
+	desc = null
+	},
 /area/space)
 "Na" = (
 /obj/machinery/light/directional/west,
@@ -2873,6 +3453,26 @@
 /obj/effect/overlay/water/top,
 /turf/open/misc/dirt/dark/station,
 /area/misc/hilbertshotel)
+"Qs" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/obj/item/storage/toolbox/artistic{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/storage/toolbox/crafter{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
 "QB" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/chair/stool/bar{
@@ -2943,6 +3543,32 @@
 	},
 /turf/open/floor/engine,
 /area/space)
+"Rm" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/tram/tram_controllers.dmi';
+	icon_state = "rectifier";
+	anchored = 1;
+	name = "powerbox";
+	pixel_x = 0;
+	pixel_y = -31
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "Ru" = (
 /obj/effect/turf_decal/tile/dark{
 	alpha = 50;
@@ -2976,6 +3602,23 @@
 	},
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"RG" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 2;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/sign/warning/no_smoking/directional/north,
+/obj/effect/turf_decal/trimline/yellow/corner,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "RU" = (
 /obj/effect/overlay/water/top,
 /obj/effect/overlay/water,
@@ -3097,6 +3740,24 @@
 	},
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"TS" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 2;
+	color = "#EFB341"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/space)
 "TZ" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#16212e";
@@ -3181,6 +3842,32 @@
 	icon_state = "black"
 	},
 /area/space)
+"UE" = (
+/obj/structure/table/reinforced,
+/obj/item/geiger_counter{
+	pixel_x = -8;
+	pixel_y = 13
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = 4;
+	pixel_y = 14;
+	color = "#ff8000"
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = 2;
+	pixel_y = 8;
+	color = "#00aa00"
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_x = 2;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
 "UU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -3251,6 +3938,26 @@
 	dir = 4
 	},
 /turf/open/floor/wood/tile,
+/area/space)
+"Wb" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/space)
 "Wm" = (
 /obj/structure/chair/sofa/corp/right{
@@ -3346,6 +4053,20 @@
 	icon_state = "textured_dark"
 	},
 /area/misc/hilbertshotel)
+"Xj" = (
+/obj/structure/mop_bucket/janitorialcart{
+	dir = 8
+	},
+/obj/item/mop{
+	pixel_y = -1
+	},
+/obj/effect/turf_decal/box/white,
+/obj/effect/turf_decal/box/white{
+	color = "#f15bff"
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/dark/herringbone,
+/area/space)
 "Xn" = (
 /obj/structure/decorative{
 	icon_state = "siding_plain";
@@ -3461,6 +4182,14 @@
 	icon_state = "white"
 	},
 /area/misc/hilbertshotel)
+"Zv" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,11";
+	dir = 2;
+	name = "window";
+	desc = "A window into the nothingness."
+	},
+/area/space)
 "ZE" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	alpha = 255;
@@ -5349,8 +6078,8 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 Gu
 tB
 kS
@@ -5449,10 +6178,10 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
+Gu
+Gu
+Gu
+Gu
 Gu
 QB
 fu
@@ -5549,9 +6278,9 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
+Gu
+Gu
+Gu
 qq
 qq
 Gu
@@ -5650,8 +6379,8 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -5751,8 +6480,8 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -5852,8 +6581,8 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -5954,7 +6683,7 @@ qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
@@ -5962,11 +6691,11 @@ qq
 Gu
 Gu
 Gu
-nk
-nk
-nk
-nk
-nk
+jm
+jm
+jm
+jm
+jm
 Pg
 dt
 Gu
@@ -6055,22 +6784,22 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
 Gu
 Gu
-nk
-nk
-nk
 jm
 jm
 jm
-nk
-nk
-nk
+jm
+jm
+jm
+jm
+jm
+jm
 mS
 Ku
 GQ
@@ -6157,23 +6886,23 @@ qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
 qq
 Gu
-nk
-nk
 jm
 jm
-jm
-nk
 jm
 jm
 jm
 nk
-nk
+jm
+jm
+jm
+jm
+jm
 Hl
 dX
 Mh
@@ -6258,14 +6987,14 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
 Gu
 Gu
-nk
+jm
 jm
 jm
 nk
@@ -6275,7 +7004,7 @@ nk
 nk
 jm
 jm
-nk
+jm
 ss
 el
 Ck
@@ -6360,14 +7089,14 @@ qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
 qq
 Gu
-nk
-nk
+jm
+jm
 jm
 nk
 Rk
@@ -6377,8 +7106,8 @@ xA
 CM
 nk
 jm
-nk
-nk
+jm
+jm
 ab
 lB
 Ch
@@ -6462,13 +7191,13 @@ qq
 jm
 jm
 jm
+Gu
 jm
 jm
 jm
 jm
 jm
 jm
-nk
 jm
 jm
 nk
@@ -6480,7 +7209,7 @@ xA
 nk
 jm
 jm
-nk
+jm
 oI
 Go
 OI
@@ -6570,7 +7299,7 @@ jm
 jm
 jm
 jm
-nk
+jm
 jm
 nk
 xA
@@ -6582,7 +7311,7 @@ xA
 xA
 nk
 jm
-nk
+jm
 Gu
 Gu
 Gu
@@ -6666,13 +7395,13 @@ qq
 jm
 jm
 jm
+Gu
 jm
 jm
 jm
 jm
 jm
 jm
-nk
 jm
 jm
 nk
@@ -6684,13 +7413,13 @@ xA
 nk
 jm
 jm
-nk
+jm
 Jf
 qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
@@ -6768,14 +7497,14 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
 Gu
-nk
-nk
+IG
+mD
+mD
+Zv
+Gu
+jm
+jm
 jm
 nk
 GJ
@@ -6785,14 +7514,14 @@ xA
 tS
 nk
 jm
-nk
-nk
+jm
+jm
 Jf
 qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
@@ -6870,14 +7599,14 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
 Gu
 Gu
-nk
+Qs
+UE
+co
+Gu
+Gu
+jm
 jm
 jm
 nk
@@ -6887,14 +7616,14 @@ nk
 nk
 jm
 jm
-nk
+jm
 Jf
 Jf
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -6973,29 +7702,29 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
 Gu
+yn
+iQ
+ms
+fs
+oa
+jm
+jm
+jm
+jm
+jm
 nk
-nk
 jm
 jm
 jm
-nk
 jm
 jm
-jm
-nk
-nk
 Jf
 qq
 qq
 qq
 qq
-qq
+Gu
 qq
 qq
 qq
@@ -7075,29 +7804,29 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
 Gu
 Gu
-nk
-nk
-nk
+RG
+Hw
+TS
+MY
+or
 jm
 jm
 jm
-nk
-nk
-nk
+jm
+jm
+jm
+jm
+jm
+jm
 Jf
 Jf
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -7178,27 +7907,27 @@ qq
 qq
 qq
 qq
-qq
+tU
+kZ
+mF
+cA
+Gu
+Ll
+pq
+DM
+jm
+jm
+jm
+jm
+jm
+Gu
+Gu
+Gu
 qq
 qq
 qq
 qq
 Gu
-Gu
-Gu
-nk
-nk
-nk
-nk
-nk
-Gu
-Gu
-Gu
-qq
-qq
-qq
-qq
-qq
 qq
 qq
 qq
@@ -7280,8 +8009,20 @@ qq
 qq
 qq
 qq
-qq
-qq
+Gu
+Gu
+aH
+Gu
+gG
+uO
+Rm
+Gu
+Gu
+DI
+Ll
+DI
+Gu
+Gu
 qq
 qq
 qq
@@ -7289,18 +8030,6 @@ qq
 qq
 Gu
 Gu
-qq
-qq
-qq
-Gu
-Gu
-qq
-qq
-qq
-qq
-qq
-qq
-qq
 qq
 qq
 qq
@@ -7383,25 +8112,25 @@ qq
 qq
 qq
 qq
+Gu
+Gu
+nA
+Wb
+sC
+pI
+Bh
+Gu
+jm
+jm
+jm
+Cp
+po
 qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -7486,23 +8215,23 @@ qq
 qq
 qq
 qq
+Gu
+Gu
+IX
+aJ
+zs
+jK
+Gu
+jm
+jm
+jm
+yf
+po
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
+Gu
+Gu
 qq
 qq
 qq
@@ -7589,21 +8318,21 @@ qq
 qq
 qq
 qq
+Gu
+Gu
+Gu
+Be
+Xj
+Gu
+jm
+jm
+jm
+Hn
+po
 qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
+Gu
+Gu
+Gu
 qq
 qq
 qq
@@ -7693,17 +8422,17 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
+Gu
+Gu
+Gu
+Gu
+Dm
+Gu
+Dm
+Gu
+Gu
+Gu
+Gu
 qq
 qq
 qq
@@ -7797,13 +8526,13 @@ qq
 qq
 qq
 qq
-qq
-qq
-qq
-qq
-qq
-qq
-qq
+Gu
+po
+po
+po
+po
+po
+Gu
 qq
 qq
 qq
