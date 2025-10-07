@@ -179,6 +179,12 @@ const RoomCheckIn = ({
   tabContent,
 }) => {
   const { current_room = 1, selected_template = 'Standard' } = data;
+  const [localRoom, setLocalRoom] = useState(current_room);
+
+  React.useEffect(() => {
+    setLocalRoom(current_room);
+  }, [current_room]);
+
   return (
     <Section title="Room Check-In">
       <Stack>
@@ -241,13 +247,14 @@ const RoomCheckIn = ({
             minValue={1}
             maxValue={1000000000}
             step={1}
-            value={current_room}
+            value={localRoom}
             format={(value) => String(Math.floor(value))}
-            onDrag={(value) =>
+            onChange={(value) => {
+              setLocalRoom(value);
               act('update_room', {
                 room: value,
-              })
-            }
+              });
+            }}
             lineHeight={1.8}
             fontSize="20px"
           />
@@ -260,7 +267,7 @@ const RoomCheckIn = ({
             confirmContent={'Confirm?'}
             onClick={() =>
               act('checkin', {
-                room: current_room,
+                room: localRoom,
                 template: selected_template,
               })
             }
