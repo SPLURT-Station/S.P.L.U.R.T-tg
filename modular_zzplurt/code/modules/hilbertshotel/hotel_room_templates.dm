@@ -143,10 +143,10 @@
 	category = GHC_SPECIAL
 
 /datum/map_template/ghost_cafe_rooms/ss14_thing
-	name = "Nostalgic Trip"
+	name = "Shadekin Realm"
 	mappath = "_maps/splurt/templates/apartment_donator_ss14.dmm"
 	category = GHC_SPECIAL
-	landing_coords = list(34, 26)
+	landing_coords = list(22, 12)
 
 /datum/map_template/ghost_cafe_rooms/apartment_dragonslair
 	name = "Dragon Cave Lair"
