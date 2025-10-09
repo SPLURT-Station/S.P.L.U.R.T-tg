@@ -213,7 +213,8 @@
 		"Scholar",
 		"Hentai Artist",
 		"Artist",
-		"Nerd"
+		"Nerd",
+		"Author"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
