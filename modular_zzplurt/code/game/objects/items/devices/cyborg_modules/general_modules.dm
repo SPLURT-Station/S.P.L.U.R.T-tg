@@ -7,6 +7,7 @@
 
 /obj/item/borg/apparatus/dropped(mob/user, silent)
 	if(stored)
+		modify_appearance(stored, FALSE)
 		stored.forceMove(user.drop_location())
 	else
 		. = ..()
