@@ -861,8 +861,7 @@
 	name = "void";
 	desc = "...There's fish inside?";
 	icon = 'icons/turf/floors.dmi';
-	icon_state = "black";
-	fishing_datum = /datum/fish_source/holographic
+	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
 "eD" = (
@@ -4586,8 +4585,7 @@
 	name = "void";
 	desc = "...There's fish inside?";
 	icon = 'icons/turf/floors.dmi';
-	icon_state = "black";
-	fishing_datum = /datum/fish_source/holographic
+	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
 "zG" = (
@@ -5019,26 +5017,6 @@
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "black";
 	fishing_datum = /datum/fish_source/moisture_trap
-	},
-/area/misc/hilbertshotel)
-"BH" = (
-/obj/effect/overlay/water/top{
-	icon_state = "OLD_top";
-	color = "#FFFFFF"
-	},
-/obj/effect/overlay/water{
-	icon_state = "OLD_bottom";
-	color = "#FFFFFF"
-	},
-/obj/structure/fans/tiny/invisible{
-	density = 1
-	},
-/turf/open/water/beach{
-	name = "void";
-	desc = "...There's fish inside?";
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "black";
-	fishing_datum = /datum/fish_source/holographic
 	},
 /area/misc/hilbertshotel)
 "BI" = (
@@ -6705,20 +6683,11 @@
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "LV" = (
-/obj/effect/overlay/water/top{
-	icon_state = "OLD_top";
-	color = "#FFFFFF"
-	},
-/obj/effect/overlay/water{
-	icon_state = "OLD_bottom";
-	color = "#FFFFFF"
-	},
 /turf/open/water/beach{
 	name = "void";
 	desc = "...There's fish inside?";
 	icon = 'icons/turf/floors.dmi';
-	icon_state = "black";
-	fishing_datum = /datum/fish_source/holographic
+	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
 "LW" = (
@@ -8751,8 +8720,7 @@
 	name = "void";
 	desc = "...There's fish inside?";
 	icon = 'icons/turf/floors.dmi';
-	icon_state = "black";
-	fishing_datum = /datum/fish_source/holographic
+	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
 "YP" = (
@@ -9507,9 +9475,9 @@ FK
 FK
 "}
 (15,1,1) = {"
-by
-BH
 LV
+RW
+cg
 ev
 zF
 YC
