@@ -265,6 +265,39 @@
 	},
 /area/misc/hilbertshotel)
 "bk" = (
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/decorative{
+	icon_state = "siding_wood";
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 5;
+	anchored = 1;
+	name = "floor binding"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_wood";
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "floor binding"
+	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "bu" = (
@@ -361,10 +394,10 @@
 /area/misc/hilbertshotel)
 "bE" = (
 /obj/structure/closet/secure_closet/freezer/meat{
-	req_access = list("syndicate");
 	color = "#9d9ddd";
 	name = "end-of-the-universe meat fridge";
-	light_color = "#9d9ddd"
+	light_color = "#9d9ddd";
+	req_access = null
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
@@ -474,6 +507,37 @@
 	color = "#573875";
 	dir = 1
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 6;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
@@ -537,7 +601,9 @@
 	name = "void";
 	anchored = 1;
 	icon = 'icons/effects/blood.dmi';
-	icon_state = "vomitnebula_1"
+	icon_state = "vomitnebula_1";
+	pixel_x = 0;
+	pixel_y = -1
 	},
 /obj/structure/decorative{
 	icon_state = "siding_plain";
@@ -619,20 +685,19 @@
 	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
-/obj/item/switchblade{
-	pixel_x = -8;
-	pixel_y = -2;
-	name = "Determined";
-	desc = "If words don't work, this one's determined to get the jobe done. In other words, this knife is still illegal."
-	},
 /obj/structure/marker_beacon/violet,
 /obj/item/flashlight/flashdark{
 	pixel_x = 2;
 	pixel_y = 13
 	},
-/obj/item/clothing/gloves/ring/hypno{
-	pixel_x = 4;
-	pixel_y = -6
+/obj/item/hairbrush/switchblade{
+	icon = 'icons/obj/weapons/sword.dmi';
+	inhand_icon_state = null;
+	icon_angle = -90;
+	name = "Determined";
+	desc = "A switchknife, dulled out beyond repair.";
+	pixel_x = -5;
+	pixel_y = -1
 	},
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
@@ -1093,6 +1158,7 @@
 	pixel_x = 9;
 	pixel_y = 5
 	},
+/obj/effect/turf_decal/weather/sand,
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "gG" = (
@@ -1298,6 +1364,34 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 19;
+	pixel_y = -14
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
 /turf/open/floor/iron/dark/side,
 /area/misc/hilbertshotel)
 "hN" = (
@@ -1344,6 +1438,18 @@
 	pixel_y = 6
 	},
 /turf/open/floor/iron/dark/herringbone,
+/area/misc/hilbertshotel)
+"jg" = (
+/obj/structure/decorative{
+	icon_state = "sand_side";
+	icon = 'icons/obj/fluff/beach.dmi';
+	dir = 8;
+	name = "sand siding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
 /area/misc/hilbertshotel)
 "jk" = (
 /obj/effect/turf_decal/siding/dark,
@@ -1398,6 +1504,26 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
@@ -1621,6 +1747,12 @@
 	icon_state = "black"
 	},
 /area/misc/hilbertshotel)
+"kt" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 8
+	},
+/turf/open/misc/beach/sand,
+/area/misc/hilbertshotel)
 "ku" = (
 /obj/machinery/light/floor{
 	color = "#ff66ff";
@@ -1643,9 +1775,54 @@
 	},
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
+"kK" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 10
+	},
+/turf/open/misc/beach/sand,
+/area/misc/hilbertshotel)
 "kL" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 6;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 18;
+	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 6
@@ -1698,7 +1875,8 @@
 /area/misc/hilbertshotel)
 "kZ" = (
 /obj/structure/closet/shuttle/medical{
-	pixel_y = 32
+	pixel_y = 32;
+	density = 0
 	},
 /obj/item/reagent_containers/syringe/antiviral{
 	pixel_x = -3;
@@ -1730,6 +1908,7 @@
 	pixel_x = 3;
 	pixel_y = 1
 	},
+/obj/effect/turf_decal/weather/sand,
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "le" = (
@@ -1846,6 +2025,61 @@
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "black";
 	fishing_datum = /datum/fish_source/lunar
+	},
+/area/misc/hilbertshotel)
+"mo" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8;
+	color = "#9b4aba"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	color = "#573875";
+	dir = 8
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 17;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 5
 	},
 /area/misc/hilbertshotel)
 "ms" = (
@@ -2333,6 +2567,7 @@
 	pixel_x = -10;
 	pixel_y = 0
 	},
+/obj/effect/turf_decal/weather/sand,
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "ox" = (
@@ -2510,6 +2745,37 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
+"oX" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 10
+	},
+/area/misc/hilbertshotel)
 "pi" = (
 /turf/closed/indestructible/hotelwall{
 	color = "#000000"
@@ -2643,6 +2909,43 @@
 	icon_state = "black";
 	fishing_datum = /datum/fish_source/ocean
 	},
+/area/misc/hilbertshotel)
+"pS" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 5;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/turf/open/floor/iron/dark/side,
 /area/misc/hilbertshotel)
 "pY" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -3066,7 +3369,7 @@
 /area/misc/hilbertshotel)
 "tL" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list("syndicate");
+	req_access = null;
 	color = "#9d9ddd";
 	name = "end-of-the-universe kitchen cabinet";
 	light_color = "#9d9ddd"
@@ -3354,6 +3657,26 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
 	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -3616,6 +3939,61 @@
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "black";
 	fishing_datum = /datum/fish_source/tizira
+	},
+/area/misc/hilbertshotel)
+"xc" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1;
+	color = "#9b4aba"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	color = "#573875";
+	dir = 1
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 6;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 1;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 15;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
 	},
 /area/misc/hilbertshotel)
 "xh" = (
@@ -4345,6 +4723,45 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 17;
+	pixel_y = -16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_wood";
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 5;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16;
+	pixel_y = -16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_wood";
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16;
+	pixel_y = -16
+	},
 /turf/open/floor/iron/checker,
 /area/misc/hilbertshotel)
 "AM" = (
@@ -4507,8 +4924,27 @@
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
+"Bf" = (
+/obj/item/toy/plush/suspicious_protogen{
+	pixel_x = -21;
+	pixel_y = 6
+	},
+/obj/item/toy/plush/mossy{
+	pixel_x = -11;
+	pixel_y = 9
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "black";
+	desc = null;
+	name = "void"
+	},
+/area/misc/hilbertshotel)
 "Bh" = (
-/obj/machinery/vending/tool,
+/obj/machinery/vending/tool{
+	contraband = null;
+	premium = null;
+	products = list(/obj/item/stamp/denied = 1)
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
 "Bj" = (
@@ -4686,6 +5122,26 @@
 	icon_state = "apco3-2";
 	pixel_y = 28
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
 /turf/open/floor/iron/dark/side,
 /area/misc/hilbertshotel)
 "Ck" = (
@@ -4839,6 +5295,18 @@
 	pixel_x = -9
 	},
 /turf/open/floor/engine,
+/area/misc/hilbertshotel)
+"Dz" = (
+/obj/structure/decorative{
+	icon_state = "sand_side";
+	icon = 'icons/obj/fluff/beach.dmi';
+	dir = 1;
+	name = "sand siding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
 /area/misc/hilbertshotel)
 "DB" = (
 /obj/effect/turf_decal/weather/sand,
@@ -5117,7 +5585,7 @@
 /area/misc/hilbertshotel)
 "Fu" = (
 /obj/effect/turf_decal/weather/sand{
-	dir = 1
+	dir = 5
 	},
 /obj/effect/light_emitter/interlink{
 	light_color = "#3e3a57";
@@ -5129,6 +5597,9 @@
 /obj/structure/flora/bush/reed/style_3{
 	pixel_x = 10;
 	pixel_y = -2
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 8
 	},
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
@@ -5327,6 +5798,37 @@
 "GN" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 5;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 8;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 10
@@ -5693,6 +6195,37 @@
 	dir = 1;
 	color = "#59595a"
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 9;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
 /turf/open/floor/iron/dark/corner,
 /area/misc/hilbertshotel)
 "Jp" = (
@@ -5701,6 +6234,12 @@
 	anchored = 1;
 	icon = 'icons/effects/blood.dmi';
 	icon_state = "vomitnebula_1"
+	},
+/obj/structure/decorative{
+	icon_state = "sand_side";
+	icon = 'icons/obj/fluff/beach.dmi';
+	dir = 4;
+	name = "sand siding"
 	},
 /turf/closed/indestructible/hotelwall{
 	color = "#000000";
@@ -5770,6 +6309,18 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
+/area/misc/hilbertshotel)
+"JC" = (
+/obj/structure/decorative{
+	icon_state = "sand_side";
+	icon = 'icons/obj/fluff/beach.dmi';
+	dir = 4;
+	name = "sand siding"
+	},
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
+	},
 /area/misc/hilbertshotel)
 "JE" = (
 /obj/effect/turf_decal/weather/sand{
@@ -6060,6 +6611,43 @@
 	fishing_datum = /datum/fish_source/cursed_spring
 	},
 /area/misc/hilbertshotel)
+"LM" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 9;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/turf/open/floor/iron/dark/corner,
+/area/misc/hilbertshotel)
 "LN" = (
 /obj/item/table_clock{
 	pixel_x = -36;
@@ -6227,6 +6815,34 @@
 	pixel_x = -32;
 	name = "TV screen";
 	desc = "An ancient, though still half-decent television screen, model M0-LDB."
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 18;
+	pixel_y = -12
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
@@ -6553,6 +7169,26 @@
 	color = "#573875";
 	dir = 4
 	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
@@ -6706,6 +7342,37 @@
 	anchored = 1;
 	name = "access point"
 	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 9;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
 /turf/open/floor/iron/dark/corner,
 /area/misc/hilbertshotel)
 "Pp" = (
@@ -6733,6 +7400,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/effect/turf_decal/weather/sand,
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "PJ" = (
@@ -6920,6 +7588,53 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/chem_dispenser/drinks,
 /turf/open/floor/iron/dark/textured_large,
+/area/misc/hilbertshotel)
+"Rj" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 10;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_corner";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 4;
+	anchored = 1;
+	name = "wall binding";
+	pixel_x = 16
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	name = "void";
+	anchored = 1;
+	icon = 'icons/effects/blood.dmi';
+	icon_state = "vomitnebula_1";
+	pixel_x = 17;
+	pixel_y = -6
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
 /area/misc/hilbertshotel)
 "Rk" = (
 /obj/structure/fake_stairs/wood/directional/west,
@@ -7251,6 +7966,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/effect/turf_decal/weather/sand,
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "SE" = (
@@ -7264,6 +7980,26 @@
 /obj/effect/turf_decal/stripes/white/corner{
 	color = "#573875";
 	dir = 8
+	},
+/obj/structure/broken_flooring/plating/always_floorplane/directional/west{
+	color = "#000000";
+	pixel_x = 16;
+	pixel_y = -16;
+	desc = null;
+	icon = 'icons/turf/walls.dmi';
+	name = "darkness";
+	icon_state = "hotelwall"
+	},
+/obj/structure/decorative{
+	icon_state = "siding_plain_end";
+	pixel_y = -16;
+	icon = 'icons/turf/decals.dmi';
+	base_icon_state = "elevatorshaft";
+	color = "#36373a";
+	dir = 2;
+	anchored = 1;
+	name = "floor binding";
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -7877,6 +8613,9 @@
 	pixel_x = 0;
 	pixel_y = -15
 	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 8
+	},
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "Yd" = (
@@ -8335,15 +9074,15 @@ by
 by
 by
 by
-by
+JC
 Jp
-by
-by
+JC
+JC
 Jp
-by
+JC
 by
 nz
-bh
+Bf
 CL
 LN
 RU
@@ -8375,13 +9114,13 @@ Bx
 Bx
 bT
 SS
-jl
-yF
+sm
+kt
 XX
-yF
+kt
 Fz
-yF
-by
+kK
+Dz
 fV
 wB
 hN
@@ -8421,7 +9160,7 @@ xS
 VG
 FC
 PA
-by
+Dz
 bF
 jX
 cY
@@ -8461,7 +9200,7 @@ cp
 UB
 ff
 gF
-by
+Dz
 nz
 Ae
 iB
@@ -8501,7 +9240,7 @@ Jy
 ZH
 ui
 SD
-by
+Dz
 bF
 NQ
 nA
@@ -8541,7 +9280,7 @@ jB
 Rk
 aH
 ou
-by
+Dz
 bF
 Gy
 Yy
@@ -8556,7 +9295,7 @@ uO
 Qx
 bi
 vQ
-cx
+Rj
 aw
 xV
 Ny
@@ -8580,15 +9319,15 @@ Xn
 yF
 yF
 yF
-yF
-by
+Zb
+Dz
 nz
 eO
 vX
 XF
 by
 FK
-Au
+LM
 kL
 AW
 UY
@@ -8828,7 +9567,7 @@ KR
 PJ
 FK
 tg
-Vk
+oX
 lA
 Zv
 NC
@@ -8868,8 +9607,8 @@ mT
 iQ
 FK
 FK
-OU
-SE
+pS
+mo
 js
 TR
 Zv
@@ -8901,7 +9640,7 @@ jB
 sp
 gH
 la
-by
+Dz
 FK
 yY
 aE
@@ -8916,7 +9655,7 @@ mW
 OQ
 mF
 jn
-cq
+xc
 Wb
 OI
 yw
@@ -8941,7 +9680,7 @@ bF
 SW
 bF
 bF
-by
+Dz
 FK
 FK
 Sn
@@ -9134,9 +9873,9 @@ by
 by
 by
 by
-by
-by
-by
+jg
+jg
+jg
 by
 by
 by
