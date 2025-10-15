@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base'; // Editor doing shit automaticly... have to fix it with a web edit...
 
 export const butt_enlargement_pref: FeatureToggle = {
   name: 'Butt enlargement',
@@ -51,5 +51,12 @@ export const cumflation_pref: FeatureToggle = {
   name: 'Cumflation',
   category: 'ERP',
   description: 'Allow your genitals to get cumflated.',
+  component: CheckboxInput,
+};
+
+export const knotting_pref: FeatureToggle = {
+  name: 'Knotting',
+  category: 'ERP',
+  description: 'Allow interactions to knot.',
   component: CheckboxInput,
 };

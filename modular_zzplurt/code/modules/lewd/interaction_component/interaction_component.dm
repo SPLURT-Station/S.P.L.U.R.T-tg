@@ -29,6 +29,7 @@
 		"custom_genital_fluids_pref" = /datum/preference/toggle/erp/custom_genital_fluids,
 		"cumflation_pref" = /datum/preference/toggle/erp/cumflation,
 		"cumflates_partners_pref" = /datum/preference/toggle/erp/cumflates_partners,
+		"knotting_pref" = /datum/preference/toggle/erp/knotting,
 		"favorite_interactions" = /datum/preference/blob/favorite_interactions, // Not a toggle but it shouldn't cause any issues
 		// Vore prefs
 		"vore_enable_pref" = /datum/preference/toggle/erp/vore_enable,
