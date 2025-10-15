@@ -45,11 +45,6 @@
 			if("knotted", "barbknot", "hemiknot")
 				return TRUE
 		return FALSE
-	// Need a way to see if a non-carbon/non-cyborg mob's penis has a knot
-	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws, werewolves so return true
-	if(isliving(user))
-		if(user.simulated_genitals[ORGAN_SLOT_PENIS])
-			return TRUE
 	// Cyborgs still don't have an easy way to check for a knot so we have to list every SKIN_ICON_STATE we want to have a knot...
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/borg = user
@@ -63,6 +58,11 @@
 			"borgi", "valepeace", "borgi-sec", "k9", "k9dark", "oties", "valesec",
 			"borgi-cargo", "valecargo"
 			) return TRUE
+	// Need a way to see if a non-carbon/non-cyborg mob's penis has a knot
+	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws, werewolves so return true
+	if(isliving(user))
+		if(user.simulated_genitals[ORGAN_SLOT_PENIS])
+			return TRUE
 	return FALSE
 
 /* SPLURT EDIT - KNOTTING
@@ -84,10 +84,10 @@
 
 /// Removes the knot if it is required by a new interaction
 /datum/interaction/lewd/proc/knot_check_remove(mob/living/user, mob/living/target)
-	if(!istype(user, /mob/living/) && !istype(target, /mob/living/))
+	if(!istype(user, /mob/living/) || !istype(target, /mob/living/))
 		return // bail if either of us aren't living
 	if(!user.knotted_status && !target.knotted_status)
-		return // bail if either of us aren't knotted
+		return // bail if neither of us are knotted
 	// check if the knot is blocking these actions, and thus requires removal
 	// Mouth, because it needs to be diffrent I guess...
 	if(interaction_requires.len)
@@ -95,20 +95,20 @@
 			switch(requirement)
 				if(INTERACTION_REQUIRE_SELF_MOUTH)
 					if(user.knotted_parts["mouth"])
-						knot_exit(user, slot = "mouth")
+						knot_remove(user, slot = "mouth")
 				if(INTERACTION_REQUIRE_TARGET_MOUTH)
 					if(target.knotted_parts["mouth"])
-						knot_exit(target, slot = "mouth")
+						knot_remove(target, slot = "mouth")
 	// person that initiated this interaction
 	if(user_required_parts.len)
 		for(var/part in user_required_parts)
 			if(user.knotted_parts[part])
-				knot_exit(user, slot = part)
+				knot_remove(user, slot = part)
 	// person that is the target of this interaction
 	if(target_required_parts.len)
 		for(var/part in target_required_parts)
 			if(target.knotted_parts[part])
-				knot_exit(target, slot = part)
+				knot_remove(target, slot = part)
 
 	/* SPLURT - Alright, this is going to be almost imposible to mark all the edits, I'll use diffs to mark them later
 		most of them are just to point at the interation system instead of Scarlet's Sex Controller
@@ -122,7 +122,9 @@
 		return
 	if(!knot_penis_type(user)) // don't have that dog in 'em
 		return
-	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/erp)) // Might want to add a knotting erp pref too
+	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp) || !target.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+		return
+	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting) || !target.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting))
 		return
 	// This feels bad in testing
 	/*
@@ -165,20 +167,21 @@
 	target.knotted_parts[target_slot] = user
 	log_combat(user, target, "Started knot tugging")
 
-	if(user.combat_mode || user.combat_mode == INTENT_GRAB) // if more than playful
-		if(user.combat_mode) // damage if harmful // !!!!! Need a pref here !!!!!
-			var/damage = user == target.knotted_parts["mouth"] ? 10 : 30 // base damage value // These are probably super high for Splurt
-			var/body_zone = user == target.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
-			var/obj/item/bodypart/affecting = target.get_bodypart(body_zone)
-			if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
-				target.apply_damage(damage, BRUTE, body_zone)
-			/* PAIN_EFFECT undefined
-			target.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
-		else
-			target.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
-			*/
-		target.Stun(80) // stun for dramatic effect
-	user.visible_message(span_notice("[user] ties their knot inside of [target]!"), span_notice("I tie my knot inside of [target]."))
+	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		if(user.combat_mode || user.combat_mode == INTENT_GRAB) // if more than playful
+			if(user.combat_mode) // damage if harmful
+				var/damage = user == target.knotted_parts["mouth"] ? 10 : 30 // base damage value // These are probably super high for Splurt
+				var/body_zone = user == target.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
+				var/obj/item/bodypart/affecting = target.get_bodypart(body_zone)
+				if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
+					target.apply_damage(damage, BRUTE, body_zone)
+				/* PAIN_EFFECT undefined
+				target.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
+			else
+				target.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
+				*/
+			target.Stun(80) // stun for dramatic effect
+	user.visible_message(span_lewd("[user] ties their knot inside of [target]!"), span_lewd("I tie my knot inside of [target]."))
 
 	if(target.stat != DEAD)
 		switch(knotted_orifices(target))
@@ -204,6 +207,8 @@
 	target.remove_status_effect(/datum/status_effect/knot_gaped) // Can't be gaped while knotted?
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
+	RegisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE, PROC_REF(knotted_shoved))
+	RegisterSignal(target, COMSIG_LIVING_DISARM_PRESHOVE, PROC_REF(knotted_shoved))
 	/* SPLURT EDIT - KNOTTING - No round stats for us... for now
 	GLOB.scarlet_round_stats[STATS_KNOTTED]++
 	if(!islupian(user)) // only add to counter if top isn't a Lupian (for lore reasons)
@@ -211,6 +216,7 @@
 	*/ // SPLURT EDIT END
 
 /* SPLURT EDIT - KNOTTING - This can be considered a pref break for everyone nearby, not just the doctor that would reattatch it...
+	still carbon dependant but that can be fixed
 	Ask the suggester
 
 /// Dismemberment caused by moving too far away while knotted
@@ -221,10 +227,8 @@
 	penis.Remove(top)
 	penis.forceMove(top.drop_location())
 	penis.add_mob_blood(top)
-/* erp sound pref
-	playsound(get_turf(top), 'sound/combat/dismemberment/dismem (5).ogg', 80, TRUE)
-	playsound(get_turf(top), 'sound/vo/male/tomscream.ogg', 80, TRUE)
-*/
+	conditional_pref_sound(get_turf(top), 'sound/combat/dismemberment/dismem (5).ogg', 80, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
+	conditional_pref_sound(get_turf(top), 'sound/vo/male/tomscream.ogg', 80, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 	to_chat(top, span_userdanger("You feel a sharp pain as your knot is torn asunder!"))
 	to_chat(btm, span_userdanger("You feel their knot withdraw faster than you can process!"))
 	knot_remove(top, btm, forceful_removal = TRUE, notify = FALSE)
@@ -409,36 +413,36 @@
 
 /datum/interaction/lewd/proc/knot_remove(mob/living/top, mob/living/btm, forceful_removal = FALSE, notify = TRUE)
 	if(isliving(btm) && !QDELETED(btm) && isliving(top) && !QDELETED(top))
-		if(forceful_removal)
-			var/damage = top == btm.knotted_parts["mouth"] ? 10 : 30 // base damage value
-			if (top.arousal >= AROUSAL_LOW) // considered still hard, let it rip like a beyblade
-				damage *= 2
-				btm.Knockdown(10)
-				if(notify && !btm.has_status_effect(/datum/status_effect/knot_gaped)) // apply gaped status if extra forceful pull (only if we're not reknotting target)
-					btm.apply_status_effect(/datum/status_effect/knot_gaped)
-			if(top.combat_mode) // damage if harmful // !!!!! Need a pref here !!!!!
-				var/body_zone = top == btm.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
-				var/obj/item/bodypart/affecting = btm.get_bodypart(body_zone)
-				if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
-					btm.apply_damage(damage, BRUTE, body_zone)
-			btm.Stun(80)
-/* erp sound pref
-			playsound(btm, 'modular_zzplurt/sound/Scarlet_Reach/pop.ogg', 100, TRUE, -2, ignore_walls = FALSE)
-			playsound(top, 'modular_zzplurt/sound/Scarlet_Reach/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
-*/
-			btm.emote("paincrit", forced = TRUE)
-			if(notify)
-				top.visible_message(span_notice("[top] yanks their knot out of [btm]!"), span_notice("I yank my knot out from [btm]."))
+		if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+			if(forceful_removal)
+				var/damage = top == btm.knotted_parts["mouth"] ? 10 : 30 // base damage value
+				if (top.arousal >= AROUSAL_LOW) // considered still hard, let it rip like a beyblade
+					damage *= 2
+					btm.Knockdown(10)
+					if(notify && !btm.has_status_effect(/datum/status_effect/knot_gaped)) // apply gaped status if extra forceful pull (only if we're not reknotting target)
+						btm.apply_status_effect(/datum/status_effect/knot_gaped)
+				if(top.combat_mode)
+					var/body_zone = top == btm.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
+					var/obj/item/bodypart/affecting = btm.get_bodypart(body_zone)
+					if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
+						btm.apply_damage(damage, BRUTE, body_zone)
+				btm.Stun(80)
+				conditional_pref_sound(btm, 'modular_zzplurt/sound/Scarlet_Reach/pop.ogg', 100, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
+				conditional_pref_sound(top, 'modular_zzplurt/sound/Scarlet_Reach/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
+				btm.emote("paincrit", forced = TRUE)
+				if(notify)
+					top.visible_message(span_notice("[top] yanks their knot out of [btm]!"), span_notice("I yank my knot out from [btm]."))
+					// PAIN_EFFECT
+					//btm.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
+			else if(notify)
+				conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
+				top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
+				btm.emote("painmoan", forced = TRUE)
 				// PAIN_EFFECT
-				//btm.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
+				//btm.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
 		else if(notify)
-/* erp sound pref
-			playsound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE)
-*/
-			top.visible_message(span_notice("[top] slips their knot out of [btm]!"), span_notice("I slip my knot out from [btm]."))
-			btm.emote("painmoan", forced = TRUE)
-			// PAIN_EFFECT
-			//btm.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
+			conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
+			top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
 		btm.add_cum_splatter_floor(get_turf(btm))
 /* Statuses - probably one of the last things to fix
 	it would be weird if knotting is the only source for these, might want to add them to climax.dm
@@ -471,27 +475,61 @@
 				btm.knotted_parts[btm_part] = null
 	if(isliving(top) && slot) // or if we were only given the slot to remove
 		top.knotted_parts[slot] = null
-	if(isliving(top)) // Revaluate knotted_status
+	if(isliving(top)) // Revaluate top knotted_status
 		var/top_count = 0
 		for(var/top_part in top.knotted_parts)
 			if(top.knotted_parts[top_part])
 				top_count++
-		if(!top_count) //no more ties, remove effects and set knotted_status
+		if(!top_count) // no more ties, remove effects and set knotted_status
 			top.remove_status_effect(/datum/status_effect/knotted)
 			UnregisterSignal(top, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(top, COMSIG_LIVING_DISARM_PRESHOVE)
 			top.knotted_status = FALSE
 		log_combat(top, top, "Stopped knot tugging")
-	if(isliving(btm))
+	if(isliving(btm)) // Revaluate btm knotted_status
 		var/btm_count = 0
 		for(var/btm_part in btm.knotted_parts)
 			if(btm.knotted_parts[btm_part])
 				btm_count++
-		if(!btm_count) //no more ties, remove effects and set knotted_status
+		if(!btm_count) // no more ties, remove effects and set knotted_status
 			btm.remove_status_effect(/datum/status_effect/knotted)
 			UnregisterSignal(btm, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(btm, COMSIG_LIVING_DISARM_PRESHOVE)
 			btm.knotted_status = FALSE
 		log_combat(btm, btm, "Stopped knot tugging")
 	// SPLURT EDIT - KNOTTING - removed sanity check that couldn't be made to work in the rewrite
+
+/// Untie all knots if we are shoved
+/datum/interaction/lewd/proc/knotted_shoved(atom/movable/mover)
+	SIGNAL_HANDLER
+	var/mob/living/user = mover
+	if(!istype(user)) // This should never happen
+		UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
+		return
+	var/mob/living/partner = null
+	for(var/user_part in user.knotted_parts)
+		if(!user.knotted_parts[user_part])
+			continue
+		partner = user.knotted_parts[user_part]
+		user.knotted_parts[user_part] = null
+		var/partner_ties = 0
+		for(var/partner_part in partner.knotted_parts)
+			if(!partner.knotted_parts[partner_part])
+				continue
+			partner_ties++
+			if(user == partner.knotted_parts[partner_part])
+				partner.knotted_parts[partner_part] = null
+				partner_ties--
+		if(partner_ties == 0)
+			partner.knotted_status = FALSE
+			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
+			partner.remove_status_effect(/datum/status_effect/knotted)
+	user.knotted_status = FALSE
+	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
+	user.remove_status_effect(/datum/status_effect/knotted)
+	return
 
 /datum/action/cooldown/werewolf/transform/Activate() // needed to ensure that we safely remove the tie before and after transitioning
 	var/mob/living/user = owner
@@ -513,8 +551,12 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
+			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
+	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
 	user.remove_status_effect(/datum/status_effect/knotted)
 	return ..()
 
@@ -569,9 +611,7 @@
 	if(get_dist(cur_loc, last_loc) <= 5) // too close, don't spawn a puddle
 		return
 	owner.add_cum_splatter_floor(get_turf(owner))
-/* erp sound pref
-	playsound(owner, pick('modular_zzplurt/sound/Scarlet_Reach/bleed (1).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (2).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (3).ogg'), 50, TRUE, -2, ignore_walls = FALSE)
-*/
+	conditional_pref_sound(owner, pick('modular_zzplurt/sound/Scarlet_Reach/bleed (1).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (2).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (3).ogg'), 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 	last_loc = cur_loc
 
 
@@ -613,8 +653,12 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
+			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
+	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
 	user.remove_status_effect(/datum/status_effect/knotted)
 	return FALSE
 
