@@ -45,8 +45,7 @@
 /area/misc/hilbertshotel)
 "gH" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/folder/syndicate/blue,
-/obj/item/pen/edagger,
+/obj/item/folder/white,
 /obj/item/toy/gun,
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
@@ -54,6 +53,7 @@
 /obj/item/kirbyplants/organic/plant22,
 /obj/structure/sign/warning/yes_smoking/circle/directional/north,
 /obj/effect/turf_decal/trimline/dark_red/filled,
+/obj/machinery/room_controller/directional/west,
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
 "hg" = (
@@ -110,7 +110,7 @@
 /area/misc/hilbertshotel)
 "jV" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/vending/boozeomat/syndicate,
+/obj/machinery/vending/boozeomat,
 /turf/open/indestructible/dark/textured{
 	icon_state = "engine"
 	},
@@ -193,9 +193,9 @@
 	pixel_y = 5;
 	pixel_x = 4
 	},
-/obj/item/lighter/skull{
-	pixel_x = -8;
-	pixel_y = 1
+/obj/item/lighter{
+	pixel_y = -2;
+	pixel_x = -8
 	},
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
@@ -219,13 +219,13 @@
 "sx" = (
 /obj/effect/turf_decal/skyrat_decals/syndicate/top/left,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
-	pixel_y = 2;
-	pixel_x = -6
+/obj/item/storage/fancy/cigarettes/cigpack_robust{
+	pixel_x = -6;
+	pixel_y = 2
 	},
-/obj/item/lighter/skull{
-	pixel_x = -5;
-	pixel_y = -2
+/obj/item/lighter{
+	pixel_y = -2;
+	pixel_x = 5
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
@@ -283,8 +283,8 @@
 /turf/closed/indestructible/syndicate,
 /area/misc/hilbertshotel)
 "wa" = (
-/obj/machinery/vending/cigarette/syndicate,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/vending/cigarette,
 /turf/open/indestructible/dark/textured{
 	icon_state = "engine"
 	},
@@ -303,8 +303,8 @@
 /obj/effect/turf_decal/skyrat_decals/syndicate/top/right,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/reagent_containers/cup/glass/coffee/colonial{
-	pixel_x = -14;
-	pixel_y = 11
+	pixel_x = -12;
+	pixel_y = 1
 	},
 /obj/item/paper_bin{
 	pixel_y = 4
@@ -492,7 +492,11 @@
 /area/misc/hilbertshotel)
 "MC" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/stamp{
+/obj/item/paper_bin{
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/obj/item/stamp/granted{
 	pixel_x = 9;
 	pixel_y = 11
 	},
@@ -500,14 +504,16 @@
 	pixel_x = 9;
 	pixel_y = 7
 	},
-/obj/item/paper_bin{
-	pixel_y = 6;
-	pixel_x = -4
-	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "MJ" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe,
+/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe{
+	contraband = list();
+	premium = list();
+	vend_reply = "Clown.";
+	products = list(/obj/item/clothing/accessory/clown_enjoyer_pin = 1);
+	zubbers_products = null
+	},
 /obj/effect/turf_decal/delivery,
 /turf/open/indestructible/dark/textured{
 	icon_state = "engine"
@@ -739,10 +745,10 @@
 /area/misc/hilbertshotel)
 
 (1,1,1) = {"
-vE
-vE
-vE
-vE
+xb
+xb
+xb
+xb
 xb
 xb
 qx
@@ -750,16 +756,16 @@ HI
 qx
 xb
 xb
-vE
-vE
-vE
-vE
+xb
+xb
+xb
+xb
 "}
 (2,1,1) = {"
-vE
-mq
-mq
-mq
+xb
+xb
+xb
+xb
 xb
 gR
 Xu
@@ -767,14 +773,14 @@ Mw
 Vz
 sV
 xb
-mq
-mq
-mq
-vE
+xb
+xb
+xb
+xb
 "}
 (3,1,1) = {"
-vE
-mq
+xb
+xb
 xb
 xb
 xb
@@ -785,12 +791,12 @@ gE
 qx
 xb
 xb
-mq
-mq
-vE
+xb
+xb
+xb
 "}
 (4,1,1) = {"
-vE
+xb
 xb
 xb
 xb
@@ -804,10 +810,10 @@ TM
 vX
 xb
 xb
-vE
+xb
 "}
 (5,1,1) = {"
-vE
+xb
 xb
 WP
 jM
@@ -821,10 +827,10 @@ my
 Rb
 OS
 xb
-vE
+xb
 "}
 (6,1,1) = {"
-vE
+xb
 xb
 Hq
 eF
@@ -838,10 +844,10 @@ Hd
 eF
 Yv
 xb
-vE
+xb
 "}
 (7,1,1) = {"
-vE
+xb
 hg
 ZW
 kS
@@ -855,10 +861,10 @@ IK
 kS
 xD
 hg
-vE
+xb
 "}
 (8,1,1) = {"
-vE
+xb
 xb
 xQ
 HW
@@ -872,10 +878,10 @@ nX
 HW
 ou
 xb
-vE
+xb
 "}
 (9,1,1) = {"
-vE
+xb
 xb
 QG
 nS
@@ -889,10 +895,10 @@ xn
 ry
 BE
 xb
-vE
+xb
 "}
 (10,1,1) = {"
-vE
+xb
 xb
 xb
 xb
@@ -906,11 +912,11 @@ jc
 xb
 xb
 xb
-vE
+xb
 "}
 (11,1,1) = {"
-vE
-mq
+xb
+xb
 xb
 wa
 Xv
@@ -922,12 +928,12 @@ Su
 TN
 MJ
 xb
-mq
-vE
+xb
+xb
 "}
 (12,1,1) = {"
-vE
-mq
+xb
+xb
 xb
 jV
 tF
@@ -939,12 +945,12 @@ Hc
 nr
 Mk
 xb
-mq
-vE
+xb
+xb
 "}
 (13,1,1) = {"
-vE
-mq
+xb
+xb
 xb
 xb
 xb
@@ -956,8 +962,8 @@ yh
 xb
 xb
 xb
-mq
-vE
+xb
+xb
 "}
 (14,1,1) = {"
 vE

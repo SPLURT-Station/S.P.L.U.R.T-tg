@@ -1,7 +1,7 @@
 /datum/quirk/isotropic_stability
 	name = "Isotropic Stability"
 	desc = "Nuka Cola lovers rejoice! Radiation burns are 75% less likely, and you can be irradiated without vomiting, mutating, or losing hair. Being irradiated causes 5x toxin damage, but only when you remain near sources of dangerous radiation."
-	value = 6
+	value = 3 //SPLURT EDIT - halved because we have a full immunity quirk for 6 points
 	medical_record_text = "Patient's body is highly resistant to radiation poisoning."
 	icon = FA_ICON_ATOM
 	// Blacklisted for species which are already immune to radiation

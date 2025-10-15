@@ -1,4 +1,4 @@
-#define DONATOR_TOML_FILE "[global.config.directory]/splurt/donator.toml"
+#define DONATOR_TOML_FILE "[global.config.directory]/splurt/roles.toml"
 
 /datum/player_rank_controller/donator/load_from_query(datum/db_query/query)
 	. = ..()

@@ -103,6 +103,7 @@
 	worn_icon = 'modular_zubbers/icons/mob/clothing/suits.dmi'
 	worn_icon_state = "suit_harness"
 	inhand_icon_state = "armor"
+	body_parts_covered = NONE
 
 /obj/item/clothing/suit/hooded/explorer/explorerharness
 	name = "explorer suit harness"

@@ -57,6 +57,26 @@
 	name = "Loose Jersey"
 	item_path = /obj/item/clothing/suit/large_jersey
 
+/datum/loadout_item/suit/oversized_hoodie
+	name = "Oversized Hoodie"
+	item_path = /obj/item/clothing/suit/hooded/oversized_hoodie
+
+/datum/loadout_item/suit/urban_puffer
+	name = "Urban Puffer Vest"
+	item_path = /obj/item/clothing/suit/urban/puffer
+
+/datum/loadout_item/suit/cropped_jacket
+	name = "Cropped Fur Trimmed Jacket"
+	item_path = /obj/item/clothing/suit/urban/cropped_jacket
+
+/datum/loadout_item/suit/offshoulder_jacket
+	name = "Off Shoulder Jacket"
+	item_path = /obj/item/clothing/suit/urban/offshoulder_jacket
+
+/datum/loadout_item/suit/offshoulder_sweater
+	name = "Off Shoulder Sweater"
+	item_path = /obj/item/clothing/suit/urban/shoulder_sweater
+
 // GWTB
 /datum/loadout_item/suit/blastwave_suit
 	name = "trencher coat"

@@ -1,6 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ae" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	contraband = list();
+	premium = list();
+	products = list(/obj/item/clothing/accessory/clown_enjoyer_pin = 1)
+	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "aC" = (
@@ -15,6 +19,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/west,
+/obj/machinery/room_controller/directional/west,
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
@@ -27,7 +32,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark/half,
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/personal{
+	icon_state = "eng";
+	icon_door = "eng_weld";
+	name = "engineering closet"
+	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "dw" = (
@@ -132,17 +141,22 @@
 "ni" = (
 /obj/structure/table/reinforced,
 /obj/item/tank/internals/emergency_oxygen/engi{
-	pixel_x = 5
+	pixel_x = 5;
+	anchored = 1
 	},
 /obj/item/clothing/gloves/color/black,
-/obj/item/clothing/glasses/meson/engine,
+/obj/item/clothing/glasses/meson/engine{
+	anchored = 1
+	},
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
 "no" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/analyzer,
-/obj/item/pipe_dispenser,
+/obj/item/pipe_dispenser{
+	anchored = 1
+	},
 /obj/item/flashlight,
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
@@ -181,7 +195,11 @@
 /area/misc/hilbertshotel)
 "pT" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/vending/tool,
+/obj/machinery/vending/tool{
+	contraband = list();
+	premium = list();
+	products = list(/obj/item/clothing/accessory/clown_enjoyer_pin = 1)
+	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "qN" = (
@@ -292,7 +310,11 @@
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/personal{
+	icon_state = "eng";
+	icon_door = "eng_weld";
+	name = "engineering closet"
+	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "Cs" = (
@@ -309,7 +331,11 @@
 /turf/open/floor/engine,
 /area/misc/hilbertshotel)
 "CZ" = (
-/obj/structure/closet/radiation,
+/obj/structure/closet/secure_closet/personal{
+	icon_state = "eng";
+	icon_door = "eng_weld";
+	name = "engineering closet"
+	},
 /obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
@@ -331,7 +357,11 @@
 	},
 /area/misc/hilbertshotel)
 "Dy" = (
-/obj/machinery/vending/wardrobe/engi_wardrobe/ghost_cafe,
+/obj/machinery/vending/wardrobe/engi_wardrobe/ghost_cafe{
+	zubbers_products = null;
+	vend_reply = "Clown.";
+	products = list(/obj/item/clothing/accessory/clown_enjoyer_pin = 1)
+	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "DF" = (
@@ -381,7 +411,6 @@
 /area/misc/hilbertshotel)
 "Iz" = (
 /obj/structure/closet/crate,
-/obj/item/storage/toolbox/mechanical/old/clean,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "IE" = (
@@ -481,7 +510,11 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/east,
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/personal{
+	icon_state = "eng";
+	icon_door = "eng_weld";
+	name = "engineering closet"
+	},
 /turf/open/floor/iron,
 /area/misc/hilbertshotel)
 "RM" = (
