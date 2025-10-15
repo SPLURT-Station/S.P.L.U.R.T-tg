@@ -300,6 +300,8 @@
 			apply_status_effect(/datum/status_effect/climax_cooldown)
 			if(self_orgasm)
 				add_mood_event("orgasm", /datum/mood_event/climaxself)
+			if(climax_interaction && !manual)
+				climax_interaction.post_climax(src, partner, interaction_position)
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
