@@ -1,16 +1,36 @@
 
-/datum/interaction // Additional variables to be used by interactions that can knot
+/datum/interaction/lewd // Additional variables to be used by interactions that can knot
 	// Can this interaction knot?
 	var/knotting_supported = FALSE
+	// borgs that can knot
+	var/list/knotty_borgs = list( // ADD EVERY BORG MODEL THAT SHOULD HAVE A KNOTTED PENIS
+			"k69", "k50", "borgi-serv", "valeserv", "valeservdark",
+			"valemine", "cargohound", "cargohounddark", "otiec",
+			"borgi-eng", "otiee", "pupdozer", "valeeng", "engihound", "engihounddark",
+			"borgi-jani", "scrubpup", "J9", "otiej",
+			"borgi-medi", "medihound", "medihounddark", "valemed",
+			"borgi", "valepeace", "borgi-sec", "k9", "k9dark", "oties", "valesec",
+			"borgi-cargo", "valecargo"
+			)
+	// these are because some interactions don't specify a cum_target for the person with a penis
+	// Additional parts user requires for knotting
+	var/list/user_knotting_require = list() // Very limited usage, if user fucks target's penis with their eye for example
+	// Additional parts target requires for knotting
+	var/list/target_knotting_require = list() // More common, if user fucks target's eye
+	// And a variable for the custom_slot to knot, usually the same as user or target knotting_require
+	var/custom_slot = null
 
 /mob/living // Additional variables for tracking knots
 	// ORGAN_SLOT - mob/living pairs, stores the partner occupying our organ slot
-	var/list/knotted_parts = list( // The knotting code should be able to support any organ slot, these are just what Scarlet allowed
+	var/list/knotted_parts = list(
 		ORGAN_SLOT_PENIS = null,
 		ORGAN_SLOT_VAGINA = null,
 		ORGAN_SLOT_ANUS = null,
 		"mouth" = null, // ORGAN_SLOT_MOUTH dosen't exist, and might break things if it did
-		ORGAN_SLOT_SLIT = null // Curently unused by any interactions, also not part of the simulated genitals of simple mobs
+		ORGAN_SLOT_SLIT = null, // Currently unused by any interactions, also not part of the simulated genitals of simple mobs
+		ORGAN_SLOT_EARS = null, // Currently unused, not even by earfuck
+		ORGAN_SLOT_EYES = null, // Currently unused, not even by eyefuck
+		ORGAN_SLOT_NIPPLES = null // Currently unused, not even by nipplefuck
 	)
 	// Boolean for checking if we are knotted at all, faster than checking the list
 	var/knotted_status = FALSE
@@ -27,39 +47,23 @@
 			count++
 	return count
 
-/// Returns a list of characters occupying the orifices of the target, or null if none are occupied
-/datum/interaction/lewd/proc/knotted_tops(mob/living/target)
-	var/list/tops
-	for(var/part in target.knotted_parts)
-		if(target.knotted_parts[part])
-			tops.Add(target.knotted_parts[part])
-	return tops
-
 /// Checks if the user has a penis with a knot
 /datum/interaction/lewd/proc/knot_penis_type(mob/living/user)
 	if(!user.has_penis(REQUIRE_GENITAL_ANY))
 		return FALSE
 	if(iscarbon(user))
 		var/obj/item/organ/genital/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
-		switch(penis.genital_type) // SPLURT EDIT - KNOTTING - Changed so we don't have to create a penis_type enum
+		switch(penis.genital_type)
 			if("knotted", "barbknot", "hemiknot")
 				return TRUE
 		return FALSE
 	// Cyborgs still don't have an easy way to check for a knot so we have to list every SKIN_ICON_STATE we want to have a knot...
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/borg = user
-		switch(borg.model.cyborg_base_icon)
-			if("ADD EVERY BORG MODEL THAT SHOULD HAVE A KNOTTED PENIS",
-			"k69", "k50", "borgi-serv", "valeserv", "valeservdark",
-			"valemine", "cargohound", "cargohounddark", "otiec",
-			"borgi-eng", "otiee", "pupdozer", "valeeng", "engihound", "engihounddark",
-			"borgi-jani", "scrubpup", "J9", "otiej",
-			"borgi-medi", "medihound", "medihounddark", "valemed",
-			"borgi", "valepeace", "borgi-sec", "k9", "k9dark", "oties", "valesec",
-			"borgi-cargo", "valecargo"
-			) return TRUE
+		if(borg.icon_state in knotty_borgs)
+			return TRUE
 	// Need a way to see if a non-carbon/non-cyborg mob's penis has a knot
-	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws, werewolves so return true
+	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws and werewolves so return true
 	if(isliving(user))
 		if(user.simulated_genitals[ORGAN_SLOT_PENIS])
 			return TRUE
@@ -76,7 +80,7 @@
 	var/obj/item/organ/genital/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!penis)
 		return FALSE
-	switch(penis.genital_type) // SPLURT EDIT - KNOTTING? - Changed so we don't have to create a penis_type enum
+	switch(penis.genital_type)
 		if("hemi","hemiknot")
 			return TRUE
 	return FALSE
@@ -84,7 +88,7 @@
 
 /// Removes the knot if it is required by a new interaction
 /datum/interaction/lewd/proc/knot_check_remove(mob/living/user, mob/living/target)
-	if(!istype(user, /mob/living/) || !istype(target, /mob/living/))
+	if(!isliving(user) || !isliving(target))
 		return // bail if either of us aren't living
 	if(!user.knotted_status && !target.knotted_status)
 		return // bail if neither of us are knotted
@@ -95,28 +99,32 @@
 			switch(requirement)
 				if(INTERACTION_REQUIRE_SELF_MOUTH)
 					if(user.knotted_parts["mouth"])
-						knot_remove(user, slot = "mouth")
+						knot_exit(user, slot = "mouth")
 				if(INTERACTION_REQUIRE_TARGET_MOUTH)
 					if(target.knotted_parts["mouth"])
-						knot_remove(target, slot = "mouth")
+						knot_exit(target, slot = "mouth")
 	// person that initiated this interaction
 	if(user_required_parts.len)
 		for(var/part in user_required_parts)
 			if(user.knotted_parts[part])
-				knot_remove(user, slot = part)
+				knot_exit(user, slot = part)
 	// person that is the target of this interaction
 	if(target_required_parts.len)
 		for(var/part in target_required_parts)
 			if(target.knotted_parts[part])
-				knot_remove(target, slot = part)
+				knot_exit(target, slot = part)
+	// user parts that are not in the user_required_parts list for some reason
+	if(user_knotting_require.len)
+		for(var/part in user_required_parts)
+			if(user.knotted_parts[part])
+				knot_exit(user, slot = part)
+	// target parts that are not in the target_require_parts list for some reason
+	if(target_knotting_require.len)
+		for(var/part in target_required_parts)
+			if(target.knotted_parts[part])
+				knot_exit(target, slot = part)
 
-	/* SPLURT - Alright, this is going to be almost imposible to mark all the edits, I'll use diffs to mark them later
-		most of them are just to point at the interation system instead of Scarlet's Sex Controller
-		The main diffrence between the two is sexcon already has the mob,
-		But the interation system needs to be given the mob
-	*/
-
-/// Attempts to knot the user and target
+/// Attempts to knot the user and target. custom_slot is used as a backup if cum_target[CLIMAX_POSITION_USER] is undefined
 /datum/interaction/lewd/proc/knot_try(mob/living/user, mob/living/target) // NOTE - This is only called by cum_into and only when do_knot_action is true and never on selfcest
 	if(!knotting_supported) // the current interaction does not support knot climaxing, abort
 		return
@@ -126,8 +134,23 @@
 		return
 	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting) || !target.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting))
 		return
-	// This feels bad in testing
-	/*
+
+	// match up the cum_target
+	var/target_slot
+	switch(cum_target[CLIMAX_POSITION_USER])
+		if(ORGAN_SLOT_VAGINA) target_slot = ORGAN_SLOT_VAGINA
+		if(ORGAN_SLOT_ANUS) target_slot = ORGAN_SLOT_ANUS
+		if(CLIMAX_TARGET_MOUTH) target_slot = "mouth"
+		if(CLIMAX_TARGET_SHEATH) target_slot = ORGAN_SLOT_SLIT
+
+	if(!target_slot && custom_slot)
+		if(custom_slot in target.knotted_parts)
+			target_slot = custom_slot
+
+	if(!target_slot)
+		message_admins("Interaction '[src]' called knot_try but target_slot could not be set (missing or bad data)")
+		return
+	/* // This feels bad in testing
 	if(iscarbon(user))
 		var/obj/item/organ/genital/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(penis.aroused != AROUSAL_FULL)
@@ -137,28 +160,19 @@
 				to_chat(target, span_notice("I feel their deflated knot slip out."))
 			return
 	*/
+	if(knotted_orifices(user) > 0) // Bottoms can't be tops silly
+		user.visible_message(span_notice("[user] fails to knot [target] while already knotted!"), span_notice("I fail to knot [target] while already knotted"))
+		return
 
-	// SPLURT EDIT - KNOTTING - Removed most of the code here,
-	// it's only purpose was to prevent multiple ties because Scarlet could only handle one knotted partner at a time
+	if(target.knotted_parts[ORGAN_SLOT_PENIS]) // You're a bottom now
+		var/mob/living/target_partner = target.knotted_parts[ORGAN_SLOT_PENIS]
+		knot_remove(target, target_partner)
+		target.visible_message(span_lewd("[target]'s knot slips out of [target_partner] as they are knotted by [user]!"), span_lewd("My knot slips out from [target_partner] as I'm knotted by [user]."))
+
 	if(target.knotted_status) // Only check if we are knotted
 		if(knotted_orifices(target) > 0) // Only if we are a bottom
 			if(!target.has_status_effect(/datum/status_effect/knot_fucked_stupid)) // if the target is getting double teamed,
 				target.apply_status_effect(/datum/status_effect/knot_fucked_stupid) // give them the fucked stupid status
-	// SPLURT EDIT END
-
-	/* SPLURT EDIT - KNOTTING - we don't have Baotha on our server, whatever that is
-	var/we_got_baothad = user.patron && istype(user.patron, /datum/patron/inhumen/baotha)
-	if(we_got_baothad && !target.has_status_effect(/datum/status_effect/knot_fucked_stupid)) // as requested, if the top is of the baotha faith
-		target.apply_status_effect(/datum/status_effect/knot_fucked_stupid)
-	*/ // SPLURT EDIT END
-
-	// match up the cum_target
-	var/target_slot
-	switch(cum_target[CLIMAX_POSITION_USER])
-		if(ORGAN_SLOT_VAGINA) target_slot = ORGAN_SLOT_VAGINA
-		if(ORGAN_SLOT_ANUS) target_slot = ORGAN_SLOT_ANUS
-		if(CLIMAX_TARGET_MOUTH) target_slot = "mouth"
-		if(CLIMAX_TARGET_SHEATH) target_slot = ORGAN_SLOT_SLIT
 
 	// Knot user and target
 	user.knotted_status = TRUE
@@ -170,16 +184,14 @@
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 		if(user.combat_mode || user.combat_mode == INTENT_GRAB) // if more than playful
 			if(user.combat_mode) // damage if harmful
-				var/damage = user == target.knotted_parts["mouth"] ? 10 : 30 // base damage value // These are probably super high for Splurt
+				var/damage = user == target.knotted_parts["mouth"] ? 10 : 30 // base damage value
 				var/body_zone = user == target.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
 				var/obj/item/bodypart/affecting = target.get_bodypart(body_zone)
-				if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
+				if(affecting && affecting.brute_dam < 80-damage) // cap damage applied, can still kill if you hatefuck their mouth and any other orifice
 					target.apply_damage(damage, BRUTE, body_zone)
-				/* PAIN_EFFECT undefined
-				target.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
+				target.adjust_pain(10, user)
 			else
-				target.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
-				*/
+				target.adjust_pain(4, user)
 			target.Stun(80) // stun for dramatic effect
 	user.visible_message(span_lewd("[user] ties their knot inside of [target]!"), span_lewd("I tie my knot inside of [target]."))
 
@@ -193,15 +205,14 @@
 				to_chat(target, span_userdanger("You have been triple-knotted!"))
 			if(4)
 				to_chat(target, span_userdanger("You have been quad-knotted!"))
-		/* SPLURT EDIT - KNOTTING - we don't have Baotha on our server, whatever that is
-		if(we_got_baothad)
-			to_chat(target, span_userdanger("Baotha magick infuses within, you can't think straight!"))
-		*/ // SPLURT EDIT END
+			if(5 to 9)
+				to_chat(target, span_userdanger("Knotting Spree!"))
+			else
+				to_chat(target, span_userdanger("Knotting Frenzy!"))
 
-	// SPLURT EDIT - KNOTTING - changed knot_tied status to knotted status to allow bottoms to untie themselves
+
 	if(!target.has_status_effect(/datum/status_effect/knotted)) // only apply status if we don't have it already
 		target.apply_status_effect(/datum/status_effect/knotted)
-	// SPLURT EDIT END
 	if(!user.has_status_effect(/datum/status_effect/knotted)) // only apply status if we don't have it already
 		user.apply_status_effect(/datum/status_effect/knotted)
 	target.remove_status_effect(/datum/status_effect/knot_gaped) // Can't be gaped while knotted?
@@ -209,11 +220,6 @@
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
 	RegisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE, PROC_REF(knotted_shoved))
 	RegisterSignal(target, COMSIG_LIVING_DISARM_PRESHOVE, PROC_REF(knotted_shoved))
-	/* SPLURT EDIT - KNOTTING - No round stats for us... for now
-	GLOB.scarlet_round_stats[STATS_KNOTTED]++
-	if(!islupian(user)) // only add to counter if top isn't a Lupian (for lore reasons)
-		GLOB.scarlet_round_stats[STATS_KNOTTED_NOT_LUPIANS]++
-	*/ // SPLURT EDIT END
 
 /* SPLURT EDIT - KNOTTING - This can be considered a pref break for everyone nearby, not just the doctor that would reattatch it...
 	still carbon dependant but that can be fixed
@@ -231,6 +237,8 @@
 	conditional_pref_sound(get_turf(top), 'sound/vo/male/tomscream.ogg', 80, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 	to_chat(top, span_userdanger("You feel a sharp pain as your knot is torn asunder!"))
 	to_chat(btm, span_userdanger("You feel their knot withdraw faster than you can process!"))
+	top.adjust_pain(15) // Considering pain caps at 60 this might be high, but you had your cock ripped off sooo...
+	btm.adjust_pain(15)
 	knot_remove(top, btm, forceful_removal = TRUE, notify = FALSE)
 	log_combat(btm, top, "Top had their cock ripped off (knot tugged too far)")
 	return TRUE
@@ -265,7 +273,7 @@
 		return
 	if(top.pulling == btm || btm.pulling == top)
 		return
-	/* Arousal drops back to low RAPIDLY on Splurt
+	/* Arousal drops back to low RAPIDLY
 	if(top.arousal < AROUSAL_LOW)
 		knot_remove(top, btm)
 		return
@@ -280,12 +288,6 @@
 			to_chat(top, span_love("I feel [btm] tightening over my knot."))
 			to_chat(btm, span_love("I feel [top] rubbing inside."))
 
-/* SPLURT EDIT - KNOTTING - no stats for us
-	var/lupineisop = top.STASTR > (btm.STACON + 3) // if the stat difference is too great, don't attempt to disconnect on run
-	if(!lupineisop && top.move_intent == MOVE_INTENT_RUN && (top.mobility_flags & MOBILITY_STAND)) // pop it
-		knot_remove(top, btm, forceful_removal = TRUE)
-		return
-*/
 	var/dist = get_dist(top, btm)
 	if(dist > 1 &&  dist < 6) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		btm.knotted_moved_by = top
@@ -321,8 +323,7 @@
 	top.set_pull_offsets(btm, GRAB_AGGRESSIVE)
 	if(!top.IsStun()) // randomly stun our top so they cannot simply drag without any penality (combat mode doubles the chances)
 		if(prob(!top.combat_mode && !top.has_penis(REQUIRE_GENITAL_EXPOSED) ? 7 : 20))
-			//PAIN_EFFECT undefined
-			//top.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
+			top.adjust_pain(4, btm)
 			if(!top.has_penis(REQUIRE_GENITAL_EXPOSED) && (top.mobility_flags & MOBILITY_STAND)) // only knock down if standing and knot area is blocked
 				top.Knockdown(10)
 				to_chat(top, span_warning("I trip trying to move while my knot is covered."))
@@ -330,11 +331,10 @@
 	if(!btm.IsStun())
 		if(prob(5))
 			btm.emote("groan")
-			//PAIN_EFFECT undefined
-			//btm.sexcon.try_do_pain_effect(PAIN_MED_EFFECT, FALSE)
+			btm.adjust_pain(6, top)
 			btm.Stun(15)
 		else if(prob(3))
-			btm.emote("painmoan")
+			btm.adjust_pain(1, top)
 		else if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 50) // if the current top knotted them orally
 			btm.adjustOxyLoss(1)
 
@@ -350,7 +350,7 @@
 		return
 	if(btm.pulling == top || top.pulling == btm)
 		return
-	/* Arousal drops back to low RAPIDLY on Splurt
+	/* Arousal drops back to low RAPIDLY
 	if(top.arousal < AROUSAL_LOW)
 		knot_remove(top, btm)
 		return
@@ -359,7 +359,7 @@
 	if(dist > 1 &&  dist < 6) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		top.knotted_moved_by = btm
 		for(var/i in 1 to 3)
-			step_towards(top, btm) // SPLURT EDIT - KNOTTING - changed variable order here to move the top to the bottom if the bottom moves
+			step_towards(top, btm)
 			dist = get_dist(top, btm)
 			if(dist <= 1)
 				break
@@ -396,13 +396,12 @@
 	if(!btm.IsStun())
 		if(prob(10))
 			btm.emote("groan")
-			// PAIN_EFFECT undefined
-			//btm.sexcon.try_do_pain_effect(PAIN_MED_EFFECT, FALSE)
+			btm.adjust_pain(6)
 			btm.Stun(15)
 			if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 50) // if the current top knotted them orally
 				btm.adjustOxyLoss(3)
 		else if(prob(4))
-			btm.emote("painmoan")
+			btm.adjust_pain(1, top)
 	// knot_movement_btm_after causes the btm to change direction back and forth rapidly which looks very strange
 	//addtimer(CALLBACK(src, PROC_REF(knot_movement_btm_after), top, btm), 1)
 
@@ -413,33 +412,29 @@
 
 /datum/interaction/lewd/proc/knot_remove(mob/living/top, mob/living/btm, forceful_removal = FALSE, notify = TRUE)
 	if(isliving(btm) && !QDELETED(btm) && isliving(top) && !QDELETED(top))
-		if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		if(top.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 			if(forceful_removal)
 				var/damage = top == btm.knotted_parts["mouth"] ? 10 : 30 // base damage value
 				if (top.arousal >= AROUSAL_LOW) // considered still hard, let it rip like a beyblade
 					damage *= 2
 					btm.Knockdown(10)
-					if(notify && !btm.has_status_effect(/datum/status_effect/knot_gaped)) // apply gaped status if extra forceful pull (only if we're not reknotting target)
+					if(notify && !btm.has_status_effect(/datum/status_effect/knot_gaped)) // apply gaped status if extra forceful pull
 						btm.apply_status_effect(/datum/status_effect/knot_gaped)
 				if(top.combat_mode)
 					var/body_zone = top == btm.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST
 					var/obj/item/bodypart/affecting = btm.get_bodypart(body_zone)
-					if(affecting && affecting.brute_dam < 80-damage) // cap damage applied // SPLURT EDIT - KNOTTING - Lowered this cap arbitrarily so we don't kill people through knots alone, was 150
+					if(affecting && affecting.brute_dam < 80-damage) // cap damage applied, can still kill if you yank out of their mouth and any other orifice
 						btm.apply_damage(damage, BRUTE, body_zone)
 				btm.Stun(80)
 				conditional_pref_sound(btm, 'modular_zzplurt/sound/Scarlet_Reach/pop.ogg', 100, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 				conditional_pref_sound(top, 'modular_zzplurt/sound/Scarlet_Reach/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
-				btm.emote("paincrit", forced = TRUE)
+				btm.adjust_pain(10,top)
 				if(notify)
 					top.visible_message(span_notice("[top] yanks their knot out of [btm]!"), span_notice("I yank my knot out from [btm]."))
-					// PAIN_EFFECT
-					//btm.sexcon.try_do_pain_effect(PAIN_HIGH_EFFECT, FALSE)
 			else if(notify)
 				conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 				top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
-				btm.emote("painmoan", forced = TRUE)
-				// PAIN_EFFECT
-				//btm.sexcon.try_do_pain_effect(PAIN_MILD_EFFECT, FALSE)
+				btm.adjust_pain(4, top)
 		else if(notify)
 			conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 			top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
@@ -470,15 +465,23 @@
 		for(var/top_part in top.knotted_parts)
 			if(btm == top.knotted_parts[top_part])
 				top.knotted_parts[top_part] = null
+				break
 		for(var/btm_part in btm.knotted_parts)
 			if(top == btm.knotted_parts[btm_part])
 				btm.knotted_parts[btm_part] = null
+				break
 	if(isliving(top) && slot) // or if we were only given the slot to remove
-		top.knotted_parts[slot] = null
+		if(isliving(top.knotted_parts[slot]))
+			var/mob/living/partner = top.knotted_parts[slot]
+			knot_remove(top, partner, notify = FALSE)
+		top.knotted_parts[slot] = null // We should have found a partner and already removed the knot, but just in case
 	if(isliving(top)) // Revaluate top knotted_status
 		var/top_count = 0
 		for(var/top_part in top.knotted_parts)
 			if(top.knotted_parts[top_part])
+				if(!isliving(top.knotted_parts[slot]))
+					top.knotted_parts[slot] = null
+					continue
 				top_count++
 		if(!top_count) // no more ties, remove effects and set knotted_status
 			top.remove_status_effect(/datum/status_effect/knotted)
@@ -490,6 +493,9 @@
 		var/btm_count = 0
 		for(var/btm_part in btm.knotted_parts)
 			if(btm.knotted_parts[btm_part])
+				if(!isliving(btm.knotted_parts[slot]))
+					btm.knotted_parts[slot] = null
+					continue
 				btm_count++
 		if(!btm_count) // no more ties, remove effects and set knotted_status
 			btm.remove_status_effect(/datum/status_effect/knotted)
@@ -497,7 +503,6 @@
 			UnregisterSignal(btm, COMSIG_LIVING_DISARM_PRESHOVE)
 			btm.knotted_status = FALSE
 		log_combat(btm, btm, "Stopped knot tugging")
-	// SPLURT EDIT - KNOTTING - removed sanity check that couldn't be made to work in the rewrite
 
 /// Untie all knots if we are shoved
 /datum/interaction/lewd/proc/knotted_shoved(atom/movable/mover)
@@ -508,13 +513,15 @@
 		return
 	var/mob/living/partner = null
 	for(var/user_part in user.knotted_parts)
-		if(!user.knotted_parts[user_part])
+		if(!isliving(user.knotted_parts[user_part]))
+			user.knotted_parts[user_part] = null
 			continue
 		partner = user.knotted_parts[user_part]
 		user.knotted_parts[user_part] = null
 		var/partner_ties = 0
 		for(var/partner_part in partner.knotted_parts)
-			if(!partner.knotted_parts[partner_part])
+			if(!isliving(partner.knotted_parts[partner_part]))
+				partner.knotted_parts[partner_part] = null
 				continue
 			partner_ties++
 			if(user == partner.knotted_parts[partner_part])
@@ -537,13 +544,15 @@
 		return ..()
 	var/mob/living/partner = null
 	for(var/user_part in user.knotted_parts)
-		if(!user.knotted_parts[user_part])
+		if(!isliving(user.knotted_parts[user_part]))
+			user.knotted_parts[user_part] = null
 			continue
 		partner = user.knotted_parts[user_part]
 		user.knotted_parts[user_part] = null
 		var/partner_ties = 0
 		for(var/partner_part in partner.knotted_parts)
-			if(!partner.knotted_parts[partner_part])
+			if(!isliving(partner.knotted_parts[partner_part]))
+				partner.knotted_parts[partner_part] = null
 				continue
 			partner_ties++
 			if(user == partner.knotted_parts[partner_part])
@@ -578,7 +587,6 @@
 	duration = 2 MINUTES
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/knot_fucked_stupid
-	//effectedstats = list("intelligence" = -10) //SPLURT EDIT - KNOTTING - We don't have stats
 
 /atom/movable/screen/alert/status_effect/knot_fucked_stupid
 	name = "Fucked Stupid"
@@ -592,7 +600,6 @@
 	tick_interval = 100 // every 10 seconds
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/knot_gaped
-	//effectedstats = list("strength" = -1, "speed" = -2, "intelligence" = -1) //SPLURT EDIT - KNOTTING - We don't have stats
 	var/last_loc
 
 /datum/status_effect/knot_gaped/on_apply() // Gape the jaw if we have a head and our mouth was knotted
@@ -614,10 +621,9 @@
 	conditional_pref_sound(owner, pick('modular_zzplurt/sound/Scarlet_Reach/bleed (1).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (2).ogg', 'modular_zzplurt/sound/Scarlet_Reach/bleed (3).ogg'), 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 	last_loc = cur_loc
 
-
 /atom/movable/screen/alert/status_effect/knot_gaped
 	name = "Gaped"
-	desc = "You were forcefully withdrawn from. Warmth runs freely down your thighs..."
+	desc = "You were forcefully withdrawn from. Warmth runs freely from your hole..."
 	// Scarlet didn't have an icon for this but it probably should have one
 
 /datum/status_effect/knotted
@@ -632,6 +638,11 @@
 	// need to steal this from Scarlet or get an artist to make it
 	//icon_state = "knotted"
 
+/datum/status_effect/knotted/tick()
+	if(!owner.knotted_parts["mouth"])
+		return
+	owner.adjustOxyLoss(1) // 120 health, -1 oxy per second, probably pretty close to a good value
+
 /atom/movable/screen/alert/status_effect/knotted/Click() // Silently remove all ties
 	..()
 	var/mob/living/user = usr
@@ -639,13 +650,15 @@
 		return FALSE
 	var/mob/living/partner = null
 	for(var/user_part in user.knotted_parts)
-		if(!user.knotted_parts[user_part])
+		if(!isliving(user.knotted_parts[user_part]))
+			user.knotted_parts[user_part] = null
 			continue
 		partner = user.knotted_parts[user_part]
 		user.knotted_parts[user_part] = null
 		var/partner_ties = 0
 		for(var/partner_part in partner.knotted_parts)
-			if(!partner.knotted_parts[partner_part])
+			if(!isliving(partner.knotted_parts[partner_part]))
+				partner.knotted_parts[partner_part] = null
 				continue
 			partner_ties++
 			if(user == partner.knotted_parts[partner_part])
@@ -670,11 +683,11 @@
 	alert_type = null
 
 /datum/status_effect/jaw_gaped/on_apply()
-	ADD_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, "jaw_gaped") // SPLURT EDIT - KNOTTING - Changed trait to one we have, might want to make a new one to not risk interfering with an existing mutation
+	ADD_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, "jaw_gaped") // might want to make a new one to not risk interfering with an existing mutation
 	to_chat(owner, span_warning("My jaw... It stings!"))
 	return ..()
 
 /datum/status_effect/jaw_gaped/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, "jaw_gaped") // SPLURT EDIT - KNOTTING - Changed trait to one we have, might want to make a new one to not risk interfering with an existing mutation
+	REMOVE_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, "jaw_gaped") // might want to make a new one to not risk interfering with an existing mutation
 	if(owner.stat == CONSCIOUS)
 		to_chat(owner, span_warning("I finally feel my jaw again."))
