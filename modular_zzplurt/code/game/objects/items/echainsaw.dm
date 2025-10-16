@@ -1,7 +1,7 @@
 // An odd mix between the chainsaw and the dualsaber. So odd that I had to rewrite the code from scratch.
 /obj/item/energychainsaw
 	name = "energy chainsaw"
-	desc = "An prototype Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. Equally capable of cutting through flesh, steel, and wood, making it a favorite of breachers and shocktroopers alike. Specialized electrostatic technology allows this chainsaw to be attached to your back."
+	desc = "An prototype Syndicate design, this chainsaw is powered by the same technology that operates their infamous energy swords. It is capable of cutting through tough materials making it a favorite of Syndicate breachers, though it can be used for offensive purposes in a pinch. Specialized electrostatic technology allows this chainsaw to be attached to your back."
 	icon = 'modular_zzplurt/icons/obj/weapons/esaw.dmi'
 	icon_state = "echainsaw"
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/esaw_lefthand.dmi'
@@ -25,18 +25,16 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
 	toolspeed = 2
-	demolition_mod = 1.5
+	demolition_mod = 2
 	// The amount of damage the chainsaw deals when not active. This chainsaw has no teeth, so it is not very effective when not powered.
 	force = 8
 	// Ditto.
 	throwforce = 10
-	// Armour penetration. Slightly higher than the desword.
+	// Armour penetration.
 	armour_penetration = 40
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 
-	// Worse at blocking than the desword, it's an unwieldy chainsaw after all.
-	block_chance = 67
-	block_sound = 'sound/items/weapons/block_blade.ogg'
+	// Can't block attacks like a desword can.
 
 	actions_types = list(/datum/action/item_action/startesaw)
 
@@ -45,10 +43,10 @@
 	light_color = LIGHT_COLOR_FLARE
 	light_on = FALSE
 
-	// Amount of damage the chainsaw deals when active. Slightly more than the desword.
-	var/force_on = 45
+	// Amount of damage the chainsaw deals when active.
+	var/force_on = 50
 	// If you're willing to throw it, you can deal a bit more force than normal.
-	var/throwforce_on = 50
+	var/throwforce_on = 75
 	// Ditto.
 	var/throw_speed_on = 3
 
@@ -56,13 +54,12 @@
 	var/datum/looping_sound/esaw/chainsaw_loop
 	/// How long it takes to behead someone with this chainsaw. Slightly faster than a normal chainsaw.
 	var/behead_time = 10 SECONDS
-	// Determines if the chainsaw can block attacks.
-	var/can_block = FALSE
 
 /obj/item/energychainsaw/Initialize(mapload)
 	. = ..()
 	chainsaw_loop = new(src)
-	AddComponent(/datum/component/butchering, \
+	AddComponent(
+		/datum/component/butchering, \
 		speed = 3 SECONDS, \
 		effectiveness = 100, \
 		bonus_modifier = 0, \
@@ -70,7 +67,7 @@
 		disabled = TRUE, \
 	)
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
-	AddComponent( \
+	AddComponent(
 		/datum/component/transforming, \
 		force_on = force_on, \
 		throwforce_on = throwforce_on, \
@@ -78,6 +75,12 @@
 		sharpness_on = SHARP_EDGED, \
 		hitsound_on = 'modular_zzplurt/sound/items/weapons/echainhit.ogg', \
 		w_class_on = w_class, \
+	)
+	AddElement(
+		/datum/element/armorbreaking, \
+		breaking_strength = 1, \
+		thrown_effect = TRUE, \
+		stackhit = TRUE, \
 	)
 
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
@@ -88,7 +91,6 @@
 	to_chat(user, span_notice("As you toggle the energy blade via the [src]'s control panel, [active ? "it begins to rev to life" : "the energy blade dissipates"]."))
 	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
 	butchering.butchering_enabled = active
-	can_block = active
 	if (active)
 		chainsaw_loop.start()
 		set_light_on(TRUE)
@@ -100,7 +102,7 @@
 		slot_flags = ITEM_SLOT_BACK
 		playsound(source, 'sound/items/weapons/saberoff.ogg', vol = 65, vary = TRUE)
 
-	toolspeed = active ? 0.5 : initial(toolspeed)
+	toolspeed = active ? 0.1 : initial(toolspeed)
 	update_item_action_buttons()
 
 	return COMPONENT_NO_DEFAULT_MESSAGE
@@ -130,26 +132,9 @@
 /obj/item/energychainsaw/proc/has_same_head(mob/living/target_mob, obj/item/bodypart/head)
 	return target_mob.get_bodypart(BODY_ZONE_HEAD) == head
 
-/obj/item/energychainsaw/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(!can_block)
-		return FALSE // We can't block if the chainsaw isn't active.
-
-	if(attack_type == PROJECTILE_ATTACK)
-		var/obj/projectile/our_projectile = hitby
-
-		if(our_projectile.reflectable)
-			return ..() // Unlike the desword, we can't reflect projectile back at the attacker, but we can still block it.
-		else
-			final_block_chance -= 34 // We aren't AS good at blocking physical projectiles, like ballistics and thermals.
-
-	if(attack_type == LEAP_ATTACK)
-		final_block_chance -= 34 // You'd be bold (but correct) to leap at a guy with an energy chainsaw.
-
-	return ..()
-
 /datum/uplink_item/dangerous/echainsaw
 	name = "Prototype Energy Chainsaw"
-	desc = "An alternative to the classic double-bladed energy sword, the energy chainsaw does more damage than its portable counterpart at the expense of being unwieldly, highly conspicuous and loud. Attacks are more difficult to block with the chainsaw due to this and it is unable to reflect energy projectiles."
+	desc = "An alternative to the classic double-bladed energy sword, the energy chainsaw does more damage than its portable counterpart (particularly against built structures) at the expense of being unwieldly, highly conspicuous and loud. Attacks cannot be blocked with the chainsaw, nor can it reflect energy projectiles."
 	progression_minimum = 30 MINUTES
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	item = /obj/item/energychainsaw
