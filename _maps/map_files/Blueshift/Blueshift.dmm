@@ -20545,23 +20545,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/crew_quarters/bar)
-"dTa" = (
-/obj/structure/safe,
-/obj/item/storage/briefcase/secure,
-/obj/item/storage/backpack/duffelbag/syndie/hitman,
-/obj/item/card/id/advanced/silver/reaper,
-/obj/item/lazarus_injector,
-/obj/item/gun/ballistic/revolver/russian,
-/obj/item/ammo_box/a357,
-/obj/item/clothing/neck/stethoscope,
-/obj/item/book{
-	desc = "An undeniably handy book.";
-	icon_state = "bookknock";
-	name = "\improper A Simpleton's Guide to Safe-cracking with Stethoscopes"
-	},
-/obj/effect/turf_decal/bot_white/left,
-/turf/open/floor/iron/dark,
-/area/station/ai_monitored/command/nuke_storage)
 "dTd" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -25124,7 +25107,6 @@
 	},
 /obj/item/folder/blue,
 /obj/item/folder/blue,
-/obj/item/paper/fluff/ids_for_dummies,
 /obj/item/hand_labeler_refill{
 	pixel_x = 6;
 	pixel_y = 19
@@ -77130,16 +77112,6 @@
 /obj/structure/falsewall/reinforced,
 /turf/open/floor/plating,
 /area/station/command/secure_bunker)
-"oKg" = (
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/effect/turf_decal/delivery,
-/obj/structure/rack/gunrack,
-/obj/machinery/firealarm/directional/south,
-/obj/effect/spawner/random/armory/e_gun,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/station/ai_monitored/security/armory)
 "oKi" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
@@ -117302,6 +117274,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
+"wne" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/delivery,
+/obj/structure/rack/gunrack,
+/obj/machinery/firealarm/directional/south,
+/obj/effect/spawner/random/armory/e_gun,
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
+/area/station/ai_monitored/security/armory)
 "wng" = (
 /obj/machinery/atmospherics/pipe/smart/simple/general/visible{
 	dir = 6
@@ -125150,6 +125132,23 @@
 /obj/structure/closet/radiation,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
+"xOI" = (
+/obj/structure/safe,
+/obj/item/storage/briefcase/secure,
+/obj/item/storage/backpack/duffelbag/syndie/hitman,
+/obj/item/card/id/advanced/silver/reaper,
+/obj/item/lazarus_injector,
+/obj/item/gun/ballistic/revolver/russian,
+/obj/item/ammo_box/speedloader/c357,
+/obj/item/clothing/neck/stethoscope,
+/obj/item/book{
+	desc = "An undeniably handy book.";
+	icon_state = "bookknock";
+	name = "\improper A Simpleton's Guide to Safe-cracking with Stethoscopes"
+	},
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/iron/dark,
+/area/station/ai_monitored/command/nuke_storage)
 "xOM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/yellow/visible{
 	dir = 4
@@ -160619,7 +160618,7 @@ gkm
 gkm
 ntH
 xTz
-oKg
+wne
 gkm
 eIM
 cIf
@@ -218456,7 +218455,7 @@ xSD
 sFu
 rZJ
 huN
-dTa
+xOI
 urC
 dUu
 sGR

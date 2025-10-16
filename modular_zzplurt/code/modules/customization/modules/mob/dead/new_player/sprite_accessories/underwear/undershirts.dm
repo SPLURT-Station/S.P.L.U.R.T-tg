@@ -55,6 +55,11 @@
 	gender = NEUTER
 	use_static = FALSE
 
+/datum/sprite_accessory/undershirt/spaghetti_strap
+	name = "Shirt - Spaghetti Strap"
+	icon_state = "spaghetti_strap"
+	use_static = FALSE
+
 /datum/sprite_accessory/undershirt/buttondown/short_sleeve
 	name = "Shirt - Short Sleeved Buttondown"
 	icon_state = "buttondown_short"
@@ -79,6 +84,10 @@
 /datum/sprite_accessory/undershirt/turtleneck/sleeveless
 	name = "Sweater - Sleeveless Turtleneck"
 	icon_state = "turtleneck_sleeveless"
+
+/datum/sprite_accessory/undershirt/turtleneck/cropped
+	name = "Sweater - Cropped Turtleneck"
+	icon_state = "turtleneck_croptop"
 
 /datum/sprite_accessory/undershirt/leotard/turtleneck
 	name = "Shirt - Turtleneck Leotard"

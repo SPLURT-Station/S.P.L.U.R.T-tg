@@ -211,3 +211,23 @@
 	name = "Bathrobe"
 	item_path = /obj/item/clothing/under/costume/skyrat/bathrobe
 	can_be_greyscale = TRUE
+
+/datum/loadout_item/uniform/streetwear
+	name = "Casual Streetwear"
+	item_path = /obj/item/clothing/under/urban/casual
+
+/datum/loadout_item/uniform/striped_turtleneck
+	name = "Striped Turtleneck"
+	item_path = /obj/item/clothing/under/urban/turtleneck
+
+/datum/loadout_item/uniform/striped_turtleneck/skirt
+	name = "Striped Skirtleneck"
+	item_path = /obj/item/clothing/under/urban/turtleneck/skirt
+
+/datum/loadout_item/uniform/jeans_torn
+	name = "Torn Jeans"
+	item_path = /obj/item/clothing/under/urban/jeans_torn
+
+/datum/loadout_item/uniform/jeans_high
+	name = "High Waisted Jeans"
+	item_path = /obj/item/clothing/under/urban/jeans_high

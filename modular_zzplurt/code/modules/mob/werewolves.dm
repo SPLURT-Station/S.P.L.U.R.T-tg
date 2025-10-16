@@ -19,8 +19,8 @@
 	health = 500
 	obj_damage = 60
 	armour_penetration = 30
-	melee_damage_lower = 56
-	melee_damage_upper = 56
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 	faction = list("werewolves")
 	unsuitable_atmos_damage = 5
 	gold_core_spawnable = HOSTILE_SPAWN
@@ -56,12 +56,12 @@
 /mob/living/basic/werewolf/funwolf/alpha
 	desc = "I hope you enjoy being stuck on a knot for 5 hours."
 	name = "Alpha Werewolf"
-	maxHealth = 1200
-	health = 1200
+	maxHealth = 1400
+	health = 1400
 	obj_damage = 145
-	armour_penetration = 80
-	melee_damage_lower = 80
-	melee_damage_upper = 80
+	armour_penetration = 50
+	melee_damage_lower = 50
+	melee_damage_upper = 50
 
 /mob/living/basic/werewolf/funwolf/bitch
 	gender = FEMALE

@@ -74,6 +74,10 @@
 		to_chat(cast_on, span_notice("You concentrate really hard, but nothing happens."))
 		return
 
+	if(cast_on.handcuffed)
+		to_chat(cast_on, span_alert("You can't get a good enough grip with your hands bound."))
+		return
+
 	var/list/parts = list()
 	for(var/obj/item/bodypart/to_remove as anything in cast_on.bodyparts)
 		if(to_remove.body_zone == BODY_ZONE_HEAD || to_remove.body_zone == BODY_ZONE_CHEST)

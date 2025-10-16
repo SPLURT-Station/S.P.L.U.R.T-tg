@@ -749,3 +749,137 @@
 /datum/greyscale_config/miniskirt_sheer/worn
 	name = "Sheer Miniskirt (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+//Urban Clothing
+
+/obj/item/clothing/under/urban/turtleneck
+	name = "striped turtleneck"
+	desc = "A turtleneck with a stripe across the chest, along with a snazzy pair of ripped jeans."
+	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+	icon_state = "striped_sweater"
+	post_init_icon_state = "striped_sweater"
+	greyscale_colors = "#381b1e#ffffff#2d2d33"
+	greyscale_config = /datum/greyscale_config/striped_sweater
+	greyscale_config_worn = /datum/greyscale_config/striped_sweater/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/striped_sweater/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/urban/turtleneck/skirt
+	name = "striped skirtleneck"
+	desc = "A turtleneck with a stripe across the chest, along with a modest skirt."
+	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+	icon_state = "striped_sweater_skirt"
+	post_init_icon_state = "striped_sweater_skirt"
+	greyscale_colors = "#381b1e#ffffff#2d2d33"
+	greyscale_config = /datum/greyscale_config/striped_sweater_skirt
+	greyscale_config_worn = /datum/greyscale_config/striped_sweater_skirt/worn
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/urban/casual
+	name = "casual streetwear"
+	desc = "A set of casualwear for the street life, or in this case station life."
+	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+	icon_state = "casual"
+	post_init_icon_state = "casual"
+	can_adjust = FALSE
+	greyscale_colors = "#ffffff#2d2d33"
+	greyscale_config = /datum/greyscale_config/casual
+	greyscale_config_worn = /datum/greyscale_config/casual/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/casual/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/urban/jeans_torn
+	name = "torn jeans"
+	desc = "A snazzy pair of jeans with the knees torn."
+	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+	icon_state = "jeans_torn"
+	post_init_icon_state = "jeans_torn"
+	can_adjust = FALSE
+	body_parts_covered = LEGS
+	greyscale_colors = "#2d2d33#121217#f8d860"
+	greyscale_config = /datum/greyscale_config/jeans_torn
+	greyscale_config_worn = /datum/greyscale_config/jeans_torn/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/jeans_torn/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/urban/jeans_high
+	name = "high waist jeans"
+	desc = "A pair of jeans that go high up on the waist, snug."
+	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+	icon_state = "jeans_high"
+	post_init_icon_state = "jeans_high"
+	can_adjust = FALSE
+	body_parts_covered = LEGS
+	greyscale_colors = "#2d2d33#121217#f8d860"
+	greyscale_config = /datum/greyscale_config/jeans_high
+	greyscale_config_worn = /datum/greyscale_config/jeans_high/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/jeans_high/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/datum/greyscale_config/striped_sweater
+	name = "Striped Turtleneck"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_turtleneck_stripe.json'
+
+/datum/greyscale_config/striped_sweater/worn
+	name = "Striped Turtleneck (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/striped_sweater/worn/digi
+	name = "Striped Turtleneck (Worn, Digi)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
+
+/datum/greyscale_config/striped_sweater_skirt
+	name = "Striped Sweater Skirt"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_turtleneck_stripe_skirt.json'
+
+/datum/greyscale_config/striped_sweater_skirt/worn
+	name = "Striped Sweater Skirt (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/casual
+	name = "Casual Streetwear"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_casual.json'
+
+/datum/greyscale_config/casual/worn
+	name = "Casual Streetwear (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/casual/worn/digi
+	name = "Casual Streetwear (Worn, Digi)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
+
+/datum/greyscale_config/jeans_torn
+	name = "Torn Jeans"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_torn_jeans.json'
+
+/datum/greyscale_config/jeans_torn/worn
+	name = "Torn Jeans (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/jeans_torn/worn/digi
+	name = "Torn Jeans (Worn, Digi)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
+
+/datum/greyscale_config/jeans_high
+	name = "High Waist Jeans"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_waist_jeans.json'
+
+/datum/greyscale_config/jeans_high/worn
+	name = "High Waist Jeans (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/jeans_high/worn/digi
+	name = "High Waist Jeans (Worn, Digi)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'

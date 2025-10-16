@@ -17,7 +17,7 @@
 	var/mob/living/carbon/human/affected_mob = owner
 
 	owner.reagents.add_reagent(/datum/reagent/drug/aphrodisiac/dopamine, 0.5)
-	owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_EXTERNAL)
+	// owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_EXTERNAL) // SPLURT EDIT - Removed stamina loss on climax by external stimulation.
 	affected_mob.adjust_arousal(AROUSAL_REMOVAL_AMOUNT)
 	affected_mob.adjust_pleasure(AROUSAL_REMOVAL_AMOUNT * (affected_mob.dna.features["lust_tolerance"] || 1)) // SPLURT EDIT - Lust tolerance
 
@@ -36,7 +36,7 @@
 	var/mob/living/carbon/human/affected_mob = owner
 
 	owner.reagents.add_reagent(/datum/reagent/drug/aphrodisiac/dopamine, 0.3)
-	owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_SELF)
+	// owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_SELF) // SPLURT EDIT - Removed stamina loss on climax by self stimulation.
 	affected_mob.adjust_arousal(AROUSAL_REMOVAL_AMOUNT)
 	affected_mob.adjust_pleasure(AROUSAL_REMOVAL_AMOUNT)
 

@@ -69,8 +69,7 @@
 	SIGNAL_HANDLER
 	if(!istype(source))
 		return
-	var/obscured = source.check_obscured_slots()
-	if(!(obscured & ITEM_SLOT_EYES))
+	if(!(source.obscured_slots & HIDEEYES))
 		examine_text += span_boldwarning("[source.p_Their()] optics are weirdly corrupted")
 
 /datum/antagonist/infected_ipc/proc/set_master(datum/mind/master)
@@ -136,7 +135,7 @@
 	scan_desc = "malicious programming"
 	can_gain = TRUE
 	random_gain = FALSE
-	resilience = TRAUMA_RESILIENCE_LOBOTOMY
+	resilience = TRAUMA_RESILIENCE_SURGERY
 	var/datum/mind/master_ai
 	var/datum/antagonist/infected_ipc/antagonist
 
