@@ -66,8 +66,8 @@
 			return TRUE
 		return FALSE
 	// Need a way to see if a non-carbon/non-cyborg mob's penis has a knot
-	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws and werewolves so return true
-	if(isliving(user))
+	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws and werewolves so return true for just werewolves
+	if(istype(user, /mob/living/basic/werewolf))
 		if(user.simulated_genitals[ORGAN_SLOT_PENIS])
 			return TRUE
 	return FALSE
@@ -131,6 +131,7 @@
 		return // bail if neither of us are knotted
 	if(knotfucking)
 		knotfucking_check_remove(user, target)
+		return // bitch and a half... the other function was fine, this just did random shit because I forgot to return
 
 	// check if the knot is blocking these actions, and thus requires removal
 	// Mouth, because it needs to be diffrent I guess...
@@ -193,7 +194,8 @@
 
 	// bail if we don't knot what slot to use
 	if(!target_slot)
-		message_admins("Interaction '[src]' called knot_try but target_slot could not be set (missing or bad data)")
+		log_game("Interaction '[src]' called knot_try but target_slot could not be set. Data: cum_target = [cum_target], position = [position], custom_slot = [custom_slot]")
+		message_admins("Interaction '[src]' called knot_try but target_slot could not be set (missing or bad data, check game.log)")
 		return
 
 	if(knotfucking)
