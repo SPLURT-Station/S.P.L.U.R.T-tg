@@ -4,21 +4,23 @@
 // even if that interaction can't knot
 // allow_act dosen't work, can_interact calls it causing ties to be imediately untied when the ui updates
 /datum/interaction/lewd/act(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	knot_check_remove(user, target)
+	knot_check_remove(user, target, knotfucking)
 	..()
 
 // Calls knot_try for actions with knotting support when the user with a penis cums
 /datum/interaction/lewd/post_climax(mob/living/carbon/human/cumming, mob/living/carbon/human/came_in, position)
 	if(!knotting_supported)
 		return ..()
-	if(cumming == came_in)
-		return ..()
 	if(cum_genital[position] == CLIMAX_PENIS)
-		knot_try(cumming, came_in)
+		knot_try(cumming, came_in, position, knotfucking)
 	..()
 
 /* HOW TO ADD KNOTTING SUPPORT TO YOUR INTERACTION
 	The majority of interactions just need knotting_supported = TRUE
+
+	knotfucking interactions should extend /datum/interaction/lewd/knotting/knotfucking
+	this will set the knotfucking and knotting_supported vars to TRUE
+	and call knot_try in that interaction's act proc with automatic top detection
 
 	if your interaction is abnormal you may need to define the additional variables
 	nipplefuck is a good example
@@ -62,10 +64,17 @@
 	target_knotting_require = list(ORGAN_SLOT_EARS)
 	custom_slot = ORGAN_SLOT_EARS
 
+/datum/interaction/lewd/extreme/earsocketfuck
+	knotting_supported = TRUE
+	target_knotting_require = list(ORGAN_SLOT_EARS)
+	custom_slot = ORGAN_SLOT_EARS
+
 /datum/interaction/lewd/extreme/eyefuck
 	knotting_supported = TRUE
 	target_knotting_require = list(ORGAN_SLOT_EYES)
 	custom_slot = ORGAN_SLOT_EYES
 
-// This is not all of the interactions that should have knotting support
-// I just haven't added the others yet
+/datum/interaction/lewd/extreme/eyesocketfuck
+	knotting_supported = TRUE
+	target_knotting_require = list(ORGAN_SLOT_EYES)
+	custom_slot = ORGAN_SLOT_EYES
