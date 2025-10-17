@@ -1,7 +1,7 @@
 /obj/item/pen/attack(mob/living/M, mob/living/user, params)
 	. = ..()
 
-	if(!. || !istype(M) || !istype(user) || force || resolve_intent_name(user.combat_mode) == INTENT_HARM)
+	if(!. || !istype(M) || !istype(user) || force || user.combat_mode)
 		return
 
 	INVOKE_ASYNC(src, PROC_REF(write_on_bodypart), M, user, params) // Necessary because signals??????
