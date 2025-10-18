@@ -1,11 +1,16 @@
 /datum/interaction/lewd/knotting/knotfucking
 	knotfucking = TRUE
 
-/datum/interaction/lewd/knotting/knotfucking/act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/lewd/knotting/knotfucking/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	var/mob/living/btm
 	if(cum_genital[CLIMAX_POSITION_USER] == CLIMAX_PENIS)
 		knot_try(user, target, CLIMAX_POSITION_USER, knotfucking)
+		btm = target
 	else if(cum_genital[CLIMAX_POSITION_TARGET] == CLIMAX_PENIS)
 		knot_try(target, user, CLIMAX_POSITION_TARGET, knotfucking)
+		btm = user
+	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		btm.apply_damage(5, BRUTE)
 	..()
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_pussy
@@ -85,10 +90,11 @@
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_mouth/post_interaction(mob/living/user, mob/living/target)
 	. = ..()
-	var/stat_before = target.stat
-	target.adjustOxyLoss(3)
-	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
-		message = list("%TARGET% passes out on %USER%'s knot.")
+	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		var/stat_before = target.stat
+		target.adjustOxyLoss(3)
+		if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+			message = list("%TARGET% passes out on %USER%'s knot.")
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_nipple
 	target_knotting_require = list(ORGAN_SLOT_NIPPLES)

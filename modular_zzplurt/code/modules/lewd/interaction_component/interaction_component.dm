@@ -248,7 +248,7 @@
 		attributes += "have a mouth, which is [!target.is_mouth_covered() ? "covered" : "uncovered"]"
 
 	// Sexual exhaustion
-	if(!COOLDOWN_FINISHED(target, refractory_period))
+	if(target.refractory_period > REALTIMEOFDAY) // fix - was ticks since server start vs ticks since midnight
 		attributes += "are sexually exhausted for the time being"
 
 	// Intent
