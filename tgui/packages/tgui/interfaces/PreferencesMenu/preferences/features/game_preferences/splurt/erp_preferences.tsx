@@ -53,3 +53,10 @@ export const cumflation_pref: FeatureToggle = {
   description: 'Allow your genitals to get cumflated.',
   component: CheckboxInput,
 };
+
+export const knotting_pref: FeatureToggle = {
+  name: 'Knotting',
+  category: 'ERP',
+  description: 'Allow interactions to knot.',
+  component: CheckboxInput,
+};
