@@ -125,12 +125,12 @@
 /datum/loadout_item/suit/runner_engi
 	name = "Engineer Runner Jacket"
 	item_path = /obj/item/clothing/suit/jacket/runner/engi
-	donator_only = TRUE //Dono item for Kan3
+	//donator_only = TRUE //Dono item for Kan3 //Splurt Edit
 
 /datum/loadout_item/suit/runner_syndi
 	name = "Syndicate Runner Jacket"
 	item_path = /obj/item/clothing/suit/jacket/runner/syndicate
-	donator_only = TRUE //Dono item for Kan3
+	//donator_only = TRUE //Dono item for Kan3 //Splurt Edit
 
 /datum/loadout_item/suit/collared_vest
 	name = "GLP-C 'Úlfur' Vest"
