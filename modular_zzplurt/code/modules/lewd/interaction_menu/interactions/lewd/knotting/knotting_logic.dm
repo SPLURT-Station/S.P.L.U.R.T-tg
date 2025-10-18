@@ -103,7 +103,7 @@
 				knot_exit(user, slot = part)
 	if(target_combined_required_parts.len)
 		for(var/part in target_combined_required_parts)
-			if(target.knotted_parts[part] && target.knotted_parts[part] != target)
+			if(target.knotted_parts[part] && target.knotted_parts[part] != user)
 				knot_exit(target, slot = part)
 	// remove each other from parts not required by this interaction (so a user can't knot the same target multiple times)
 	for(var/part in user.knotted_parts)

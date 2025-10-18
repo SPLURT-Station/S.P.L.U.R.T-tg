@@ -10,7 +10,8 @@
 		knot_try(target, user, CLIMAX_POSITION_TARGET, knotfucking)
 		btm = user
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-		btm.apply_damage(5, BRUTE)
+		if(btm.stat > UNCONSCIOUS) // Got damn, quit fucking yourself into a paste, top can keep going I guess
+			btm.apply_damage(2, BRUTE)
 	..()
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_pussy
