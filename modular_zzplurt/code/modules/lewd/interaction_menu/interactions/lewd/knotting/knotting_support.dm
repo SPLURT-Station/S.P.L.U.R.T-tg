@@ -20,7 +20,7 @@
 
 	knotfucking interactions should extend /datum/interaction/lewd/knotting/knotfucking
 	this will set the knotfucking and knotting_supported vars to TRUE
-	and call knot_try in their post_interact proc with automatic top detection
+	and apply brute damage to the bottom in their post_interact proc with automatic bottom detection
 
 	if your interaction is abnormal you may need to define the additional variables
 	nipplefuck is a good example

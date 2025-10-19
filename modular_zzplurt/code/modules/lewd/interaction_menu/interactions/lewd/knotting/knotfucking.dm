@@ -4,10 +4,10 @@
 /datum/interaction/lewd/knotting/knotfucking/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/mob/living/btm
 	if(cum_genital[CLIMAX_POSITION_USER] == CLIMAX_PENIS)
-		knot_try(user, target, CLIMAX_POSITION_USER, knotfucking)
+		//knot_try(user, target, CLIMAX_POSITION_USER, knotfucking)
 		btm = target
 	else if(cum_genital[CLIMAX_POSITION_TARGET] == CLIMAX_PENIS)
-		knot_try(target, user, CLIMAX_POSITION_TARGET, knotfucking)
+		//knot_try(target, user, CLIMAX_POSITION_TARGET, knotfucking)
 		btm = user
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 		if(btm.stat > UNCONSCIOUS) // Got damn, quit fucking yourself into a paste, top can keep going I guess
@@ -109,19 +109,19 @@
 	target_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums all over %TARGET%'s nipple",
-		"shoots their load into %TARGET%'s breast",
-		"fills %TARGET%'s nipple with cum"
+		"%CUMMING% cums all over %CAME_IN%'s nipple",
+		"%CUMMING% shoots their load into %CAME_IN%'s breast",
+		"%CUMMING% fills %CAME_IN%'s nipple with cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"You cum all over %TARGET%'s nipple",
-		"You shoot your load into %TARGET%'s breast",
-		"You fill %TARGET%'s nipple with cum"
+		"You cum all over %CAME_IN%'s nipple",
+		"You shoot your load into %CAME_IN%'s breast",
+		"You fill %CAME_IN%'s nipple with cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"%USER% cums all over your nipple",
-		"%USER% shoots their load into your breast",
-		"%USER% fills your nipple with cum"
+		"%CUMMING% cums all over your nipple",
+		"%CUMMING% shoots their load into your breast",
+		"%CUMMING% fills your nipple with cum"
 	))
 	message = list(
 		"fucks %TARGET%'s nipple",

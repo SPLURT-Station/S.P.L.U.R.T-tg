@@ -256,6 +256,8 @@
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
 	RegisterSignal(user, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
 	RegisterSignal(target, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
+	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
+	RegisterSignal(target, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
 
 /// Main proc for leashing caracters together by the knot, calls the appropriate proc based on who moved
 /datum/interaction/lewd/proc/knot_movement(atom/movable/mover, atom/oldloc, direction)
@@ -268,6 +270,9 @@
 	var/mob/living/user = mover
 	if(user.knotted_status == FALSE) // this should never hit, but if it does remove callback
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+		return
+	if(user.knotted_moved_by == user) // we are still moving around, ignore this whack double fired signal
+		return
 	for(var/part in user.knotted_parts)
 		if(user.knotted_parts[part])
 			if(user.knotted_parts[part] == user.knotted_moved_by) // The bottom is currently moving us, don't try to move them
@@ -324,13 +329,10 @@
 		return
 
 	var/dist = get_dist(top, btm)
-	if(dist > 1 &&  dist < 6) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
+	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		btm.knotted_moved_by = top
-		for(var/i in 1 to 3) // try moving three times
-			step_towards(btm, top)
-			dist = get_dist(top, btm)
-			if(dist <= 1)
-				break
+		step_towards(btm, top, top.glide_size)
+		dist = get_dist(top, btm)
 		btm.knotted_moved_by = null
 	if(dist > 1) // if we couldn't move them closer, force the knot out
 		knot_remove(top, btm, forceful_removal = TRUE)
@@ -342,6 +344,7 @@
 			if(1) // bottom is below top, check above bottom
 				T = get_step_multiz(btm, UP)
 				if(btm.mobility_flags & MOBILITY_STAND) // the bottom is hanging by the knot, knock them down
+					to_chat(btm, span_warning("You fall over while hanging from [top]'s knot on the floor above!"))
 					btm.Knockdown(10)
 			if(-1) // bottom is above top, check above top
 				T = get_step_multiz(top, UP)
@@ -350,24 +353,10 @@
 		if(!T || !isgroundlessturf(T))
 			knot_remove(top, btm, forceful_removal = TRUE)
 			return
-	btm.face_atom(top)
-	top.set_pull_offsets(btm, GRAB_AGGRESSIVE)
-	if(!top.IsStun()) // randomly stun our top so they cannot simply drag without any penality (combat mode doubles the chances)
-		if(prob(!top.combat_mode && !top.has_penis(REQUIRE_GENITAL_EXPOSED) ? 7 : 20))
-			top.adjust_pain(4, btm, src, top_position)
-			if(!top.has_penis(REQUIRE_GENITAL_EXPOSED) && (top.mobility_flags & MOBILITY_STAND)) // only knock down if standing and knot area is blocked
-				top.Knockdown(10)
-				to_chat(top, span_warning("I trip trying to move while my knot is covered."))
-			top.Stun(15)
-	if(!btm.IsStun())
-		if(prob(5))
-			btm.emote("groan")
-			btm.adjust_pain(6, top, src, btm_position)
-			btm.Stun(15)
-		else if(prob(3))
-			btm.adjust_pain(1, top, src, btm_position)
-		else if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
+	if(prob(5))
+		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+				to_chat(btm, span_warning("I struggle to breath with [top]'s knot in my mouth!"))
 				btm.adjustOxyLoss(2)
 
 /datum/interaction/lewd/proc/knot_movement_btm(mob/living/top, mob/living/btm)
@@ -419,13 +408,10 @@
 		return
 
 	var/dist = get_dist(top, btm)
-	if(dist > 1 &&  dist < 6) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
+	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		top.knotted_moved_by = btm
-		for(var/i in 1 to 3)
-			step_towards(top, btm)
-			dist = get_dist(top, btm)
-			if(dist <= 1)
-				break
+		step_towards(top, btm, btm.glide_size)
+		dist = get_dist(top, btm)
 		top.knotted_moved_by = null
 	if(dist > 1)
 		knot_remove(top, btm, forceful_removal = TRUE)
@@ -437,6 +423,7 @@
 			if(1) // bottom is below top, check above bottom
 				T = get_step_multiz(btm, UP)
 				if(btm.mobility_flags & MOBILITY_STAND) // the bottom is hanging by the knot, knock them down
+					to_chat(btm, span_warning("You fall over while hanging from [top]'s knot on the floor above!"))
 					btm.Knockdown(10)
 			if(-1) // bottom is above top, check above top
 				T = get_step_multiz(top, UP)
@@ -445,31 +432,11 @@
 		if(!T || !isgroundlessturf(T))
 			knot_remove(top, btm, forceful_removal = TRUE)
 			return
-	top.set_pull_offsets(btm, GRAB_AGGRESSIVE)
-	if(btm.mobility_flags & MOBILITY_STAND)
-		if(btm.move_intent == MOVE_INTENT_RUN) // running only makes this worse, darling
-			btm.Knockdown(10)
-			btm.Stun(30)
-			btm.emote("groan", forced = TRUE)
-			return
-	if(!btm.IsStun())
-		if(prob(10))
-			btm.emote("groan")
-			btm.adjust_pain(6, top, src, btm_position)
-			btm.Stun(15)
-			if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
-				if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-					btm.adjustOxyLoss(3)
-		else if(prob(4))
-			btm.adjust_pain(1, top, src, btm_position)
-	// Something else must be making us face the top, still looks strange but I don't even know where to start looking for the cause
-	// knot_movement_btm_after causes the btm to change direction back and forth rapidly which looks very strange
-	//addtimer(CALLBACK(src, PROC_REF(knot_movement_btm_after), top, btm), 1)
-
-/datum/interaction/lewd/proc/knot_movement_btm_after(mob/living/top, mob/living/btm)
-	if(!isliving(btm) || QDELETED(btm) || !isliving(top) || QDELETED(top))
-		return
-	btm.face_atom(top) // This could use a change to make the bottom face backwards if anally dragged
+	if(prob(5))
+		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
+			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+				to_chat(btm, span_warning("I can't catch my breath with [top]'s knot in my mouth!"))
+				btm.adjustOxyLoss(3)
 
 /datum/interaction/lewd/proc/knot_remove(mob/living/top, mob/living/btm, forceful_removal = FALSE, notify = TRUE)
 	if(isliving(btm) && !QDELETED(btm) && isliving(top) && !QDELETED(top))
@@ -536,9 +503,9 @@
 				top_count++
 		if(!top_count) // no more ties, remove effects and set knotted_status
 			top.remove_status_effect(/datum/status_effect/knotted)
-			top.reset_pull_offsets(top, GRABBING_TRAIT)
 			UnregisterSignal(top, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(top, COMSIG_LIVING_DISARM_HIT)
+			UnregisterSignal(top, COMSIG_MOVABLE_PRE_THROW)
 			top.knotted_status = FALSE
 		log_combat(top, top, "Stopped knot tugging")
 	if(isliving(btm)) // Revaluate btm knotted_status
@@ -551,11 +518,19 @@
 				btm_count++
 		if(!btm_count) // no more ties, remove effects and set knotted_status
 			btm.remove_status_effect(/datum/status_effect/knotted)
-			btm.reset_pull_offsets(btm, GRABBING_TRAIT)
 			UnregisterSignal(btm, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(btm, COMSIG_LIVING_DISARM_HIT)
+			UnregisterSignal(btm, COMSIG_MOVABLE_PRE_THROW)
 			btm.knotted_status = FALSE
 		log_combat(btm, btm, "Stopped knot tugging")
+
+/// Untie all knots if we are thrown
+/datum/interaction/lewd/proc/knotted_thrown(mob/living/thrown)
+	SIGNAL_HANDLER
+	if(!isliving(thrown))
+		UnregisterSignal(thrown, COMSIG_MOVABLE_PRE_THROW)
+		return
+	knotted_remove_all(thrown)
 
 /// Untie all knots if we are shoved (disarmed)
 /datum/interaction/lewd/proc/knotted_shoved(mob/living/defender)
@@ -563,7 +538,10 @@
 	if(!isliving(defender))
 		UnregisterSignal(defender, COMSIG_LIVING_DISARM_HIT)
 		return
-	var/mob/living/user = defender
+	knotted_remove_all(defender)
+
+/// Untie all knots
+/datum/interaction/lewd/proc/knotted_remove_all(mob/living/user)
 	var/mob/living/partner
 	for(var/user_part in user.knotted_parts)
 		if(!isliving(user.knotted_parts[user_part]))
@@ -582,14 +560,14 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			partner.reset_pull_offsets(partner, GRABBING_TRAIT)
 			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
+			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	user.reset_pull_offsets(user, GRABBING_TRAIT)
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
+	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)
 
 // Untested, not even sure how to test until werewolves come back
@@ -615,14 +593,14 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			partner.reset_pull_offsets(partner, GRABBING_TRAIT)
 			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
+			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	user.reset_pull_offsets(user, GRABBING_TRAIT)
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
+	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)
 	return ..()
 
@@ -649,14 +627,14 @@
 						partner_ties--
 				if(partner_ties == 0)
 					partner.knotted_status = FALSE
-					partner.reset_pull_offsets(partner, GRABBING_TRAIT)
 					UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
 					UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
+					UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 					partner.remove_status_effect(/datum/status_effect/knotted)
 			cyborg.knotted_status = FALSE
-			cyborg.reset_pull_offsets(cyborg, GRABBING_TRAIT)
 			UnregisterSignal(cyborg, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(cyborg, COMSIG_LIVING_DISARM_PRESHOVE)
+			UnregisterSignal(cyborg, COMSIG_MOVABLE_PRE_THROW)
 			cyborg.remove_status_effect(/datum/status_effect/knotted)
 	return .
 
@@ -758,14 +736,14 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			partner.reset_pull_offsets(partner, GRABBING_TRAIT)
 			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
+			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	user.reset_pull_offsets(user, GRABBING_TRAIT)
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
+	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)
 	return FALSE
 
