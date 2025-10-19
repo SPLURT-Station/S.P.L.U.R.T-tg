@@ -328,12 +328,14 @@
 			to_chat(btm, span_alert("I'm being thrown around as [top] runs!"))
 		return
 
+	top.knotted_moved_by = top // set ourselves to prevent double running
 	var/dist = get_dist(top, btm)
 	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		btm.knotted_moved_by = top
 		step_towards(btm, top, top.glide_size)
 		dist = get_dist(top, btm)
 		btm.knotted_moved_by = null
+	top.knotted_moved_by = null // should be done moving now
 	if(dist > 1) // if we couldn't move them closer, force the knot out
 		knot_remove(top, btm, forceful_removal = TRUE)
 		return
@@ -407,12 +409,14 @@
 			to_chat(btm, span_alert("[top] is being thrown around by their knot as I run!"))
 		return
 
+	btm.knotted_moved_by = btm
 	var/dist = get_dist(top, btm)
 	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
 		top.knotted_moved_by = btm
 		step_towards(top, btm, btm.glide_size)
 		dist = get_dist(top, btm)
 		top.knotted_moved_by = null
+	btm.knotted_moved_by = null
 	if(dist > 1)
 		knot_remove(top, btm, forceful_removal = TRUE)
 		return
