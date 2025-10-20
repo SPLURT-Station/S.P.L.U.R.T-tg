@@ -26,8 +26,8 @@
 	// ORGAN_SLOT - mob/living pairs, stores the partner occupying our organ slot
 	var/list/knotted_parts = list(
 		ORGAN_SLOT_PENIS = null,
-		ORGAN_SLOT_VAGINA = null,
 		ORGAN_SLOT_ANUS = null,
+		ORGAN_SLOT_VAGINA = null,
 		"mouth" = null, // ORGAN_SLOT_MOUTH dosen't exist, and might break things if it did
 		ORGAN_SLOT_SLIT = null, // Currently unused
 		ORGAN_SLOT_EARS = null, // used via custom_slot
@@ -36,8 +36,6 @@
 	)
 	// Boolean for checking if we are knotted at all, faster than checking the list
 	var/knotted_status = FALSE
-	// Who is moving us by the knot or null, used to not attempt moving the person that moved us when leashed by a knot
-	var/knotted_moved_by = null
 
 /// Returns how many times we are knotted
 /datum/interaction/lewd/proc/knotted_orifices(mob/living/target)
@@ -252,36 +250,55 @@
 	if(!user.has_status_effect(/datum/status_effect/knotted)) // only apply status if we don't have it already
 		user.apply_status_effect(/datum/status_effect/knotted)
 	target.remove_status_effect(/datum/status_effect/knot_gaped) // Can't be gaped while knotted?
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
-	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(knot_movement))
+	RegisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement))
+	RegisterSignal(target, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement))
 	RegisterSignal(user, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
 	RegisterSignal(target, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
 	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
 	RegisterSignal(target, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
 
+// Compiler complains because start_pulling -> grabbed_by -> do_after -> stop_lag -> sleep in a signal handler
+// do_after will only be called if user is grabbing themselves
+// if we allow that to happen here that means a user tied themselves and we have a bug that needs fixed anyway
 /// Main proc for leashing caracters together by the knot, calls the appropriate proc based on who moved
-/datum/interaction/lewd/proc/knot_movement(atom/movable/mover, atom/oldloc, direction)
+/datum/interaction/lewd/proc/knot_movement(atom/movable/mover, atom/newloc, direction)
 	SIGNAL_HANDLER
 	if(QDELETED(mover))
 		return
 	if(!isliving(mover)) // this should never hit, but if it does remove callback
-		UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(mover, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 		return
 	var/mob/living/user = mover
 	if(user.knotted_status == FALSE) // this should never hit, but if it does remove callback
-		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 		return
-	if(user.knotted_moved_by == user) // we are still moving around, ignore this whack double fired signal
-		return
+	var/found_first_partner = FALSE
+	var/list/partners_to_remove = list()
 	for(var/part in user.knotted_parts)
 		if(user.knotted_parts[part])
-			if(user.knotted_parts[part] == user.knotted_moved_by) // The bottom is currently moving us, don't try to move them
-				return
-			if(part == ORGAN_SLOT_PENIS)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_top), user, user.knotted_parts[part]), 1) // if we are the top
-			else
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_btm), user.knotted_parts[part], user), 1) // if we are the bottom
+			if(user.pulledby == user.knotted_parts[part]) // Our partner is currently pullng us, try to pull a second partner
+				continue
+			if(found_first_partner) // Untie partners byond the first to prevent abuse, blocking, and strangeness
+				partners_to_remove.Add(user.knotted_parts[part])
+				continue
+			if(user.pulling != user.knotted_parts[part]) // If we aren't already pulling them
+				if(user.start_pulling(user.knotted_parts[part], supress_message = TRUE))
+					found_first_partner = TRUE
+					if(part == ORGAN_SLOT_PENIS) // handle additional pleasure, ect, caused by the movement
+						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_top), user, user.knotted_parts[part]), 1) // if we are the top
+					else
+						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_btm), user.knotted_parts[part], user), 1) // if we are the bottom
+	if(partners_to_remove.len) // Can't untie within the signal handler
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_after), user, partners_to_remove))
 
+/// Unties partners that can't be pulled with us
+/datum/interaction/lewd/proc/knot_movement_after(mob/living/user, list/partners_to_remove)
+	to_chat(user, span_alert("The force of pulling multiple people is too much, you feel some of your partner's knots come out."))
+	for(var/partner in partners_to_remove)
+		to_chat(partner, span_alert("Your knot comes out of [user] while they are already pulling someone"))
+		knot_remove(partner, user, notify = FALSE)
+
+/// Handles aditional pleasure, ect, caused by the top moving
 /datum/interaction/lewd/proc/knot_movement_top(mob/living/top, mob/living/btm)
 	if(!isliving(btm) || QDELETED(btm) || !isliving(top) || QDELETED(top))
 		knot_exit(top, btm)
@@ -292,9 +309,10 @@
 	if(!btm.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting)  && !(!ishuman(btm) && !btm.client && !SSinteractions.is_blacklisted(btm)))
 		knot_exit(top, btm)
 		return
-	if(top.pulling == btm || btm.pulling == top)
-		return
 	if(top in btm.buckled_mobs)
+		return
+	if(get_dist(top, btm) > 1)
+		knot_remove(top, btm, notify = FALSE)
 		return
 
 	// Figure out who is where in the interaction because we couldn't pass it through signals
@@ -328,39 +346,13 @@
 			to_chat(btm, span_alert("I'm being thrown around as [top] runs!"))
 		return
 
-	top.knotted_moved_by = top // set ourselves to prevent double running
-	var/dist = get_dist(top, btm)
-	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
-		btm.knotted_moved_by = top
-		step_towards(btm, top, top.glide_size)
-		dist = get_dist(top, btm)
-		btm.knotted_moved_by = null
-	top.knotted_moved_by = null // should be done moving now
-	if(dist > 1) // if we couldn't move them closer, force the knot out
-		knot_remove(top, btm, forceful_removal = TRUE)
-		return
-	if(top.loc.z != btm.loc.z) // we're not on the same sector
-		var/diff_in_z = top.loc.z - btm.loc.z
-		var/turf/T
-		switch(diff_in_z)
-			if(1) // bottom is below top, check above bottom
-				T = get_step_multiz(btm, UP)
-				if(btm.mobility_flags & MOBILITY_STAND) // the bottom is hanging by the knot, knock them down
-					to_chat(btm, span_warning("You fall over while hanging from [top]'s knot on the floor above!"))
-					btm.Knockdown(10)
-			if(-1) // bottom is above top, check above top
-				T = get_step_multiz(top, UP)
-			else // sector difference is too great, force a disconnect
-				T = null
-		if(!T || !isgroundlessturf(T))
-			knot_remove(top, btm, forceful_removal = TRUE)
-			return
 	if(prob(5))
 		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 				to_chat(btm, span_warning("I struggle to breath with [top]'s knot in my mouth!"))
 				btm.adjustOxyLoss(2)
 
+/// Handles aditional pleasure, ect, caused by the btm moving
 /datum/interaction/lewd/proc/knot_movement_btm(mob/living/top, mob/living/btm)
 	if(!isliving(btm) || QDELETED(btm) || !isliving(top) || QDELETED(top))
 		knot_exit(top, btm)
@@ -377,6 +369,9 @@
 	if(btm.pulling == top || top.pulling == btm)
 		return
 	if(btm in top.buckled_mobs)
+		return
+	if(get_dist(top, btm) > 1)
+		knot_remove(top, btm, notify = FALSE)
 		return
 
 	// Figure out who is where in the interaction because we couldn't pass it through signals
@@ -409,33 +404,6 @@
 			to_chat(btm, span_alert("[top] is being thrown around by their knot as I run!"))
 		return
 
-	btm.knotted_moved_by = btm
-	var/dist = get_dist(top, btm)
-	if(dist == 2) // attempt to move the knot recipient to a minimum of 1 tiles away from the knot owner, so they trail behind
-		top.knotted_moved_by = btm
-		step_towards(top, btm, btm.glide_size)
-		dist = get_dist(top, btm)
-		top.knotted_moved_by = null
-	btm.knotted_moved_by = null
-	if(dist > 1)
-		knot_remove(top, btm, forceful_removal = TRUE)
-		return
-	if(top.loc.z != btm.loc.z) // we're not on the same sector
-		var/diff_in_z = top.loc.z - btm.loc.z
-		var/turf/T
-		switch(diff_in_z)
-			if(1) // bottom is below top, check above bottom
-				T = get_step_multiz(btm, UP)
-				if(btm.mobility_flags & MOBILITY_STAND) // the bottom is hanging by the knot, knock them down
-					to_chat(btm, span_warning("You fall over while hanging from [top]'s knot on the floor above!"))
-					btm.Knockdown(10)
-			if(-1) // bottom is above top, check above top
-				T = get_step_multiz(top, UP)
-			else // sector difference is too great, force a disconnect
-				T = null
-		if(!T || !isgroundlessturf(T))
-			knot_remove(top, btm, forceful_removal = TRUE)
-			return
 	if(prob(5))
 		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
@@ -507,7 +475,7 @@
 				top_count++
 		if(!top_count) // no more ties, remove effects and set knotted_status
 			top.remove_status_effect(/datum/status_effect/knotted)
-			UnregisterSignal(top, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(top, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(top, COMSIG_LIVING_DISARM_HIT)
 			UnregisterSignal(top, COMSIG_MOVABLE_PRE_THROW)
 			top.knotted_status = FALSE
@@ -522,7 +490,7 @@
 				btm_count++
 		if(!btm_count) // no more ties, remove effects and set knotted_status
 			btm.remove_status_effect(/datum/status_effect/knotted)
-			UnregisterSignal(btm, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(btm, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(btm, COMSIG_LIVING_DISARM_HIT)
 			UnregisterSignal(btm, COMSIG_MOVABLE_PRE_THROW)
 			btm.knotted_status = FALSE
@@ -564,12 +532,12 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
 	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)
@@ -597,12 +565,12 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
 	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)
@@ -631,12 +599,12 @@
 						partner_ties--
 				if(partner_ties == 0)
 					partner.knotted_status = FALSE
-					UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+					UnregisterSignal(partner, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 					UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 					UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 					partner.remove_status_effect(/datum/status_effect/knotted)
 			cyborg.knotted_status = FALSE
-			UnregisterSignal(cyborg, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(cyborg, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(cyborg, COMSIG_LIVING_DISARM_PRESHOVE)
 			UnregisterSignal(cyborg, COMSIG_MOVABLE_PRE_THROW)
 			cyborg.remove_status_effect(/datum/status_effect/knotted)
@@ -740,12 +708,12 @@
 				partner_ties--
 		if(partner_ties == 0)
 			partner.knotted_status = FALSE
-			UnregisterSignal(partner, COMSIG_MOVABLE_MOVED)
+			UnregisterSignal(partner, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 			UnregisterSignal(partner, COMSIG_LIVING_DISARM_PRESHOVE)
 			UnregisterSignal(partner, COMSIG_MOVABLE_PRE_THROW)
 			partner.remove_status_effect(/datum/status_effect/knotted)
 	user.knotted_status = FALSE
-	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 	UnregisterSignal(user, COMSIG_LIVING_DISARM_PRESHOVE)
 	UnregisterSignal(user, COMSIG_MOVABLE_PRE_THROW)
 	user.remove_status_effect(/datum/status_effect/knotted)

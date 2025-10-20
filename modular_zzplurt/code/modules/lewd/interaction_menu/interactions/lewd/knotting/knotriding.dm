@@ -22,7 +22,7 @@
 	target_pleasure = 9
 	user_arousal = 12
 	target_arousal = 12
-	target_pain = 2
+	user_pain = 2
 
 /datum/interaction/lewd/knotting/knotfucking/knotride_anus
 	name = "Knotride (Anus)"

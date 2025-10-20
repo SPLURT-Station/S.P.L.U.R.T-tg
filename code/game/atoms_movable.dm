@@ -734,6 +734,10 @@
 	if(loc != newloc)
 		if (!(direct & (direct - 1))) //Cardinal move
 			. = ..()
+			// SPLURT EDIT - KNOTTING - Update pullee late if needed, we start pulling on the COMSIG_MOVABLE_ATTEMPTED_MOVE signal
+			if(pulling && (pullee != pulling)) // our pull target changed when we attempted to move
+				pullee = pulling
+			// SPLURT EDIT END
 		else //Diagonal move, split it into cardinal moves
 			moving_diagonally = FIRST_DIAG_STEP
 			var/first_step_dir
