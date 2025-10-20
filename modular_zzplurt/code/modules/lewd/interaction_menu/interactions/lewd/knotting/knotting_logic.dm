@@ -257,9 +257,6 @@
 	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
 	RegisterSignal(target, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
 
-// Compiler complains because start_pulling -> grabbed_by -> do_after -> stop_lag -> sleep in a signal handler
-// do_after will only be called if user is grabbing themselves
-// if we allow that to happen here that means a user tied themselves and we have a bug that needs fixed anyway
 /// Main proc for leashing caracters together by the knot, calls the appropriate proc based on who moved
 /datum/interaction/lewd/proc/knot_movement(atom/movable/mover, atom/newloc, direction)
 	SIGNAL_HANDLER
@@ -282,7 +279,7 @@
 				partners_to_remove.Add(user.knotted_parts[part])
 				continue
 			if(user.pulling != user.knotted_parts[part]) // If we aren't already pulling them
-				if(user.start_pulling(user.knotted_parts[part], supress_message = TRUE))
+				if(knot_pulling(user, user.knotted_parts[part]))
 					found_first_partner = TRUE
 					if(part == ORGAN_SLOT_PENIS) // handle additional pleasure, ect, caused by the movement
 						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_top), user, user.knotted_parts[part]), 1) // if we are the top
@@ -290,6 +287,67 @@
 						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_btm), user.knotted_parts[part], user), 1) // if we are the bottom
 	if(partners_to_remove.len) // Can't untie within the signal handler
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_after), user, partners_to_remove))
+
+// almost identical to /mob/living/start_pulling(atom/movable/AM, state, force = pull_force, supress_message = FALSE)
+/// Snowflake pulling that dosen't call the grippedby, grabbedby and whatever other nonsense that wasn't safe to use in a signal
+/datum/interaction/lewd/proc/knot_pulling(mob/living/user, atom/movable/target)
+	if(!target || !user)
+		return FALSE
+	if(!(target.can_be_pulled(user, user.pull_force)))
+		return FALSE
+	if(user.throwing || !(user.mobility_flags & MOBILITY_PULL))
+		return FALSE
+	if(SEND_SIGNAL(user, COMSIG_LIVING_TRY_PULL, target, user.pull_force) & COMSIG_LIVING_CANCEL_PULL)
+		return FALSE
+	if(SEND_SIGNAL(target, COMSIG_LIVING_TRYING_TO_PULL, user, user.pull_force) & COMSIG_LIVING_CANCEL_PULL)
+		return FALSE
+
+	target.add_fingerprint(user)
+
+	// If we're pulling something then drop what we're currently pulling and pull this instead.
+	if(user.pulling)
+		// Are we trying to pull something we are already pulling? Then just stop here, no need to continue.
+		if(target == user.pulling)
+			return FALSE
+		user.stop_pulling()
+
+	user.changeNext_move(CLICK_CD_GRABBING)
+
+	if(target.pulledby)
+		log_combat(target, target.pulledby, "pulled from", user)
+		target.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
+
+	user.pulling = target
+	target.set_pulledby(user)
+
+	SEND_SIGNAL(user, COMSIG_LIVING_START_PULL, target, GRAB_PASSIVE, user.pull_force)
+
+	user.update_pull_hud_icon()
+
+	if(ismob(target))
+		var/mob/M = target
+
+		log_combat(user, M, "grabbed", addition="knotting snowflake")
+
+		if(isliving(M))
+			var/mob/living/L = M
+
+			SEND_SIGNAL(M, COMSIG_LIVING_GET_PULLED, user)
+			//Share diseases that are spread by touch
+			for(var/thing in user.diseases)
+				var/datum/disease/D = thing
+				if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+					L.ContactContractDisease(D)
+
+			for(var/thing in L.diseases)
+				var/datum/disease/D = thing
+				if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+					user.ContactContractDisease(D)
+
+			user.update_pull_movespeed()
+
+		user.set_pull_offsets(M, GRAB_PASSIVE)
+		return TRUE
 
 /// Unties partners that can't be pulled with us
 /datum/interaction/lewd/proc/knot_movement_after(mob/living/user, list/partners_to_remove)
