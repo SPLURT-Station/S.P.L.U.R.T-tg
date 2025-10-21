@@ -167,6 +167,8 @@
 		return
 	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting) && !(!ishuman(user) && !user.client && !SSinteractions.is_blacklisted(user)))
 		return
+	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/knots_partners) && !(!ishuman(user) && !user.client && !SSinteractions.is_blacklisted(user)))
+		return
 	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/erp/knotting)  && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target)))
 		return
 
@@ -199,6 +201,7 @@
 		knot = penis.override_string_knot
 		tie = penis.override_string_tie
 
+	/* Renable tops being bottoms too now that we only allow one partner to be pulled again, solving the circular dependency
 	if(knotted_orifices(user) > 0) // Bottoms can't be tops silly
 		user.visible_message(span_notice("[user] fails to [tie] their [knot] in [target] while already knotted!"), span_notice("I fail to [tie] my [knot] in [target] while already knotted"))
 		return
@@ -207,6 +210,7 @@
 		var/mob/living/target_partner = target.knotted_parts[ORGAN_SLOT_PENIS]
 		knot_remove(target, target_partner)
 		target.visible_message(span_lewd("[target]'s [knot] slips out of [target_partner] as they are knotted by [user]!"), span_lewd("My [knot] slips out from [target_partner] as I'm knotted by [user]."))
+	*/
 
 	if(target.knotted_status) // Only check if we are knotted
 		if(knotted_orifices(target) > 0) // Only if we are a bottom
@@ -277,9 +281,12 @@
 		return
 	var/found_first_partner = FALSE
 	var/list/partners_to_remove = list()
+	if(user.pulledby && (user.pulledby in user.knotted_parts)) // we are being pulled by a partner, don't pull another partner
+		knot_pulling(user, user.pulledby)
+		found_first_partner = TRUE
 	for(var/part in user.knotted_parts)
 		if(user.knotted_parts[part])
-			if(user.pulledby == user.knotted_parts[part]) // Our partner is currently pullng us, try to pull a second partner
+			if(user.pulledby == user.knotted_parts[part]) // This partner is pulling us, skip them
 				continue
 			if(found_first_partner) // Untie partners byond the first to prevent abuse, blocking, and strangeness
 				partners_to_remove.Add(user.knotted_parts[part])
@@ -291,8 +298,22 @@
 						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_top), user, user.knotted_parts[part]), 1) // if we are the top
 					else
 						addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_btm), user.knotted_parts[part], user), 1) // if we are the bottom
-	if(partners_to_remove.len) // Can't untie within the signal handler
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/interaction/lewd, knot_movement_after), user, partners_to_remove))
+	if(partners_to_remove.len)
+		to_chat(user, span_alert("The force of moving with multiple ties is too much, you feel some of your partner's knots come out."))
+		for(var/mob/living/partner in partners_to_remove)
+			var/knot = "knot"
+			if(partner == user.knotted_parts[ORGAN_SLOT_PENIS])
+				if(iscarbon(user)) // get text overrides, mostly for a horse cock's flare
+					var/obj/item/organ/genital/penis/penis = partner.get_organ_slot(ORGAN_SLOT_PENIS)
+					knot = penis
+				to_chat(partner, span_alert("[user]'s [knot] comes out of you while they are already pulling someone"))
+				knot_exit_strict(user, partner)
+			else
+				if(iscarbon(partner)) // get text overrides, mostly for a horse cock's flare
+					var/obj/item/organ/genital/penis/penis = partner.get_organ_slot(ORGAN_SLOT_PENIS)
+					knot = penis.override_string_knot
+				to_chat(partner, span_alert("Your [knot] comes out of [user] while they are already pulling someone"))
+				knot_exit_strict(partner, user)
 
 // almost identical to /mob/living/start_pulling(atom/movable/AM, state, force = pull_force, supress_message = FALSE)
 /// Snowflake pulling that dosen't call the grippedby, grabbedby and whatever other nonsense that wasn't safe to use in a signal
@@ -354,17 +375,6 @@
 
 		user.set_pull_offsets(M, GRAB_PASSIVE)
 		return TRUE
-
-/// Unties partners that can't be pulled with us
-/datum/interaction/lewd/proc/knot_movement_after(mob/living/user, list/partners_to_remove)
-	to_chat(user, span_alert("The force of pulling multiple people is too much, you feel some of your partner's knots come out."))
-	for(var/mob/living/partner in partners_to_remove)
-		var/knot = "knot"
-		if(iscarbon(partner)) // get text overrides, mostly for a horse cock's flare
-			var/obj/item/organ/genital/penis/penis = partner.get_organ_slot(ORGAN_SLOT_PENIS)
-			knot = penis.override_string_knot
-		to_chat(partner, span_alert("Your [knot] comes out of [user] while they are already pulling someone"))
-		knot_remove(partner, user, notify = FALSE)
 
 /// Handles aditional pleasure, ect, caused by the top moving
 /datum/interaction/lewd/proc/knot_movement_top(mob/living/top, mob/living/btm)
@@ -577,6 +587,48 @@
 			UnregisterSignal(btm, COMSIG_MOVABLE_PRE_THROW)
 			btm.knotted_status = FALSE
 		log_combat(btm, btm, "Stopped knot tugging")
+
+/// Signal safe version of knot_exit, must have both users
+/datum/interaction/lewd/proc/knot_exit_strict(mob/living/top, mob/living/btm, slot)
+	if(!isliving(top) || !isliving(btm)) // if we were not given two valid users
+		return
+	for(var/top_part in top.knotted_parts)
+		if(btm == top.knotted_parts[top_part])
+			top.knotted_parts[top_part] = null
+			break
+	for(var/btm_part in btm.knotted_parts)
+		if(top == btm.knotted_parts[btm_part])
+			btm.knotted_parts[btm_part] = null
+			btm.add_cum_splatter_floor(get_turf(btm))
+			break
+	var/top_count = 0
+	for(var/top_part in top.knotted_parts)
+		if(top.knotted_parts[top_part])
+			if(!isliving(top.knotted_parts[slot]))
+				top.knotted_parts[slot] = null
+				continue
+			top_count++
+	if(!top_count) // no more ties, remove effects and set knotted_status
+		top.remove_status_effect(/datum/status_effect/knotted)
+		UnregisterSignal(top, COMSIG_MOVABLE_ATTEMPTED_MOVE)
+		UnregisterSignal(top, COMSIG_LIVING_DISARM_HIT)
+		UnregisterSignal(top, COMSIG_MOVABLE_PRE_THROW)
+		top.knotted_status = FALSE
+	log_combat(top, top, "Stopped knot tugging")
+	var/btm_count = 0
+	for(var/btm_part in btm.knotted_parts)
+		if(btm.knotted_parts[btm_part])
+			if(!isliving(btm.knotted_parts[slot]))
+				btm.knotted_parts[slot] = null
+				continue
+			btm_count++
+	if(!btm_count) // no more ties, remove effects and set knotted_status
+		btm.remove_status_effect(/datum/status_effect/knotted)
+		UnregisterSignal(btm, COMSIG_MOVABLE_ATTEMPTED_MOVE)
+		UnregisterSignal(btm, COMSIG_LIVING_DISARM_HIT)
+		UnregisterSignal(btm, COMSIG_MOVABLE_PRE_THROW)
+		btm.knotted_status = FALSE
+	log_combat(btm, btm, "Stopped knot tugging")
 
 /// Untie all knots if we are thrown
 /datum/interaction/lewd/proc/knotted_thrown(mob/living/thrown)

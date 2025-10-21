@@ -1,14 +1,14 @@
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureNumberInput,
-  FeatureNumeric,
-  FeatureToggle,
+  type FeatureNumeric,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -160,5 +160,11 @@ export const vagina_fluid: FeatureChoiced = {
 export const cumflates_partners_pref: FeatureToggle = {
   name: 'Cumflates Partners',
   description: 'Your character cumflates partners.',
+  component: CheckboxInput,
+};
+
+export const knots_partners_pref: FeatureToggle = {
+  name: 'knots Partners',
+  description: 'Your character knots partners.',
   component: CheckboxInput,
 };

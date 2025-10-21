@@ -30,6 +30,7 @@
 		"cumflation_pref" = /datum/preference/toggle/erp/cumflation,
 		"cumflates_partners_pref" = /datum/preference/toggle/erp/cumflates_partners,
 		"knotting_pref" = /datum/preference/toggle/erp/knotting,
+		"knots_partners_pref" = /datum/preference/toggle/erp/knots_partners,
 		"favorite_interactions" = /datum/preference/blob/favorite_interactions, // Not a toggle but it shouldn't cause any issues
 		// Vore prefs
 		"vore_enable_pref" = /datum/preference/toggle/erp/vore_enable,
