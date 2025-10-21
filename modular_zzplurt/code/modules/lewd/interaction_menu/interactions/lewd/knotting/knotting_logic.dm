@@ -260,12 +260,12 @@
 	if(!user.has_status_effect(/datum/status_effect/knotted)) // only apply status if we don't have it already
 		user.apply_status_effect(/datum/status_effect/knotted)
 	target.remove_status_effect(/datum/status_effect/knot_gaped) // Can't be gaped while knotted?
-	RegisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement))
-	RegisterSignal(target, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement))
-	RegisterSignal(user, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
-	RegisterSignal(target, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved))
-	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
-	RegisterSignal(target, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown))
+	RegisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement), TRUE)
+	RegisterSignal(target, COMSIG_MOVABLE_ATTEMPTED_MOVE, PROC_REF(knot_movement), TRUE)
+	RegisterSignal(user, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved), TRUE)
+	RegisterSignal(target, COMSIG_LIVING_DISARM_HIT, PROC_REF(knotted_shoved), TRUE)
+	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown), TRUE)
+	RegisterSignal(target, COMSIG_MOVABLE_PRE_THROW, PROC_REF(knotted_thrown), TRUE)
 
 /// Main proc for leashing caracters together by the knot, calls the appropriate proc based on who moved
 /datum/interaction/lewd/proc/knot_movement(atom/movable/mover, atom/newloc, direction)
@@ -280,14 +280,23 @@
 		UnregisterSignal(user, COMSIG_MOVABLE_ATTEMPTED_MOVE)
 		return
 	var/found_first_partner = FALSE
+	var/partner_pulling = FALSE
 	var/list/partners_to_remove = list()
-	if(user.pulledby && (user.pulledby in user.knotted_parts)) // we are being pulled by a partner, don't pull another partner
-		knot_pulling(user, user.pulledby)
-		found_first_partner = TRUE
+	for(var/part in user.knotted_parts) // These first two loops feel dirty and slow but we can't use `in` with list associations
+		if(user.moving_from_pull && (user.moving_from_pull == user.knotted_parts[part])) // we are being pulled by a partner, don't pull another partner
+			knot_pulling(user, user.moving_from_pull)
+			found_first_partner = TRUE
+			partner_pulling = TRUE
+	if(!partner_pulling) // at least we can skip this one if the first loop finds a partner
+		for(var/part in user.knotted_parts)
+			if(user.pulling && (user.pulling == user.knotted_parts[part])) // Allow the player to choose the knot to maintain if they can
+				found_first_partner = TRUE
 	for(var/part in user.knotted_parts)
 		if(user.knotted_parts[part])
-			if(user.pulledby == user.knotted_parts[part]) // This partner is pulling us, skip them
-				continue
+			if(user.moving_from_pull && (user.moving_from_pull == user.knotted_parts[part]))
+				continue // This partner is pulling us, skip them
+			if(!partner_pulling && user.pulling && (user.pulling == user.knotted_parts[part]))
+				continue // We are pulling this partner and are not being pulled by a partner, skip them
 			if(found_first_partner) // Untie partners byond the first to prevent abuse, blocking, and strangeness
 				partners_to_remove.Add(user.knotted_parts[part])
 				continue
@@ -561,8 +570,8 @@
 		var/top_count = 0
 		for(var/top_part in top.knotted_parts)
 			if(top.knotted_parts[top_part])
-				if(!isliving(top.knotted_parts[slot]))
-					top.knotted_parts[slot] = null
+				if(!isliving(top.knotted_parts[top_part]))
+					top.knotted_parts[top_part] = null
 					continue
 				top_count++
 		if(!top_count) // no more ties, remove effects and set knotted_status
@@ -576,8 +585,8 @@
 		var/btm_count = 0
 		for(var/btm_part in btm.knotted_parts)
 			if(btm.knotted_parts[btm_part])
-				if(!isliving(btm.knotted_parts[slot]))
-					btm.knotted_parts[slot] = null
+				if(!isliving(btm.knotted_parts[btm_part]))
+					btm.knotted_parts[btm_part] = null
 					continue
 				btm_count++
 		if(!btm_count) // no more ties, remove effects and set knotted_status
@@ -589,23 +598,23 @@
 		log_combat(btm, btm, "Stopped knot tugging")
 
 /// Signal safe version of knot_exit, must have both users
-/datum/interaction/lewd/proc/knot_exit_strict(mob/living/top, mob/living/btm, slot)
+/datum/interaction/lewd/proc/knot_exit_strict(mob/living/top, mob/living/btm)
 	if(!isliving(top) || !isliving(btm)) // if we were not given two valid users
 		return
-	for(var/top_part in top.knotted_parts)
-		if(btm == top.knotted_parts[top_part])
-			top.knotted_parts[top_part] = null
+	for(var/part in top.knotted_parts)
+		if(btm == top.knotted_parts[part])
+			top.knotted_parts[part] = null
 			break
-	for(var/btm_part in btm.knotted_parts)
-		if(top == btm.knotted_parts[btm_part])
-			btm.knotted_parts[btm_part] = null
+	for(var/part in btm.knotted_parts)
+		if(top == btm.knotted_parts[part])
+			btm.knotted_parts[part] = null
 			btm.add_cum_splatter_floor(get_turf(btm))
 			break
 	var/top_count = 0
-	for(var/top_part in top.knotted_parts)
-		if(top.knotted_parts[top_part])
-			if(!isliving(top.knotted_parts[slot]))
-				top.knotted_parts[slot] = null
+	for(var/part in top.knotted_parts)
+		if(top.knotted_parts[part])
+			if(!isliving(top.knotted_parts[part]))
+				top.knotted_parts[part] = null
 				continue
 			top_count++
 	if(!top_count) // no more ties, remove effects and set knotted_status
@@ -616,10 +625,10 @@
 		top.knotted_status = FALSE
 	log_combat(top, top, "Stopped knot tugging")
 	var/btm_count = 0
-	for(var/btm_part in btm.knotted_parts)
-		if(btm.knotted_parts[btm_part])
-			if(!isliving(btm.knotted_parts[slot]))
-				btm.knotted_parts[slot] = null
+	for(var/part in btm.knotted_parts)
+		if(btm.knotted_parts[part])
+			if(!isliving(btm.knotted_parts[part]))
+				btm.knotted_parts[part] = null
 				continue
 			btm_count++
 	if(!btm_count) // no more ties, remove effects and set knotted_status
