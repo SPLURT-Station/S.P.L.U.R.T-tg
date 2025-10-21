@@ -1,14 +1,14 @@
 import {
   CheckboxInput,
-  type Feature,
-  type FeatureChoiced,
-  type FeatureChoicedServerData,
+  Feature,
+  FeatureChoiced,
+  FeatureChoicedServerData,
   FeatureNumberInput,
-  type FeatureNumeric,
-  type FeatureToggle,
+  FeatureNumeric,
+  FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  type FeatureValueProps,
+  FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
