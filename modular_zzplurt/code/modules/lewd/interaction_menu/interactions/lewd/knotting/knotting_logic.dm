@@ -52,10 +52,9 @@
 	if(!user.has_penis(REQUIRE_GENITAL_ANY))
 		return FALSE
 	if(iscarbon(user))
-		var/obj/item/organ/genital/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
-		switch(penis.genital_type)
-			if("knotted", "barbknot", "hemiknot")
-				return TRUE
+		var/obj/item/organ/genital/penis/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
+		if(penis.knotted)
+			return TRUE
 		return FALSE
 	// Cyborgs still don't have an easy way to check for a knot so we have to list every SKIN_ICON_STATE we want to have a knot...
 	if(iscyborg(user))
@@ -193,14 +192,21 @@
 		if(target.knotted_parts[target_slot] == user) // Our 'slot' is already occupied by user, we don't need to do anything else
 			return
 
+	var/knot = "knot"
+	var/tie = "tie"
+	if(iscarbon(user)) // get text overrides, mostly for a horse cock's flare
+		var/obj/item/organ/genital/penis/penis = user.get_organ_slot(ORGAN_SLOT_PENIS)
+		knot = penis.override_string_knot
+		tie = penis.override_string_tie
+
 	if(knotted_orifices(user) > 0) // Bottoms can't be tops silly
-		user.visible_message(span_notice("[user] fails to knot [target] while already knotted!"), span_notice("I fail to knot [target] while already knotted"))
+		user.visible_message(span_notice("[user] fails to [tie] their [knot] in [target] while already knotted!"), span_notice("I fail to [tie] my [knot] in [target] while already knotted"))
 		return
 
 	if(target.knotted_parts[ORGAN_SLOT_PENIS]) // You're a bottom now
 		var/mob/living/target_partner = target.knotted_parts[ORGAN_SLOT_PENIS]
 		knot_remove(target, target_partner)
-		target.visible_message(span_lewd("[target]'s knot slips out of [target_partner] as they are knotted by [user]!"), span_lewd("My knot slips out from [target_partner] as I'm knotted by [user]."))
+		target.visible_message(span_lewd("[target]'s [knot] slips out of [target_partner] as they are knotted by [user]!"), span_lewd("My [knot] slips out from [target_partner] as I'm knotted by [user]."))
 
 	if(target.knotted_status) // Only check if we are knotted
 		if(knotted_orifices(target) > 0) // Only if we are a bottom
@@ -228,7 +234,7 @@
 		else
 			target.adjust_pain(4, user, src, position)
 		target.Stun(80) // stun for dramatic effect
-	user.visible_message(span_lewd("[user] ties their knot inside of [target]!"), span_lewd("I tie my knot inside of [target]."))
+	user.visible_message(span_lewd("[user] [tie]s their [knot] inside of [target]!"), span_lewd("I [tie] my [knot] inside of [target]."))
 
 	if(target.stat != DEAD)
 		switch(knotted_orifices(target))
@@ -352,8 +358,12 @@
 /// Unties partners that can't be pulled with us
 /datum/interaction/lewd/proc/knot_movement_after(mob/living/user, list/partners_to_remove)
 	to_chat(user, span_alert("The force of pulling multiple people is too much, you feel some of your partner's knots come out."))
-	for(var/partner in partners_to_remove)
-		to_chat(partner, span_alert("Your knot comes out of [user] while they are already pulling someone"))
+	for(var/mob/living/partner in partners_to_remove)
+		var/knot = "knot"
+		if(iscarbon(partner)) // get text overrides, mostly for a horse cock's flare
+			var/obj/item/organ/genital/penis/penis = partner.get_organ_slot(ORGAN_SLOT_PENIS)
+			knot = penis.override_string_knot
+		to_chat(partner, span_alert("Your [knot] comes out of [user] while they are already pulling someone"))
 		knot_remove(partner, user, notify = FALSE)
 
 /// Handles aditional pleasure, ect, caused by the top moving
@@ -383,6 +393,11 @@
 		top_position = CLIMAX_POSITION_TARGET
 		btm_position = CLIMAX_POSITION_USER
 
+	var/knot = "knot"
+	if(iscarbon(top)) // get text overrides, mostly for a horse cock's flare
+		var/obj/item/organ/genital/penis/penis = top.get_organ_slot(ORGAN_SLOT_PENIS)
+		knot = penis.override_string_knot
+
 	if(btm in top.buckled_mobs) // if the two characters are being held in a fireman carry, let them mutually get pleasure from it
 		if(top.move_intent == MOVE_INTENT_WALK && prob(15))
 			// values here were stolen from fleshlight.dm and not chosen with any kind of thought
@@ -391,7 +406,7 @@
 			btm.adjust_arousal(6)
 			btm.adjust_pleasure(9, top, src, btm_position) // Double Nice
 			if(prob(50))
-				to_chat(top, span_love("I feel [btm] tightening over my knot."))
+				to_chat(top, span_love("I feel [btm] tightening over my [knot]."))
 				to_chat(btm, span_love("I feel [top] rubbing inside."))
 		else if(top.move_intent == MOVE_INTENT_RUN && prob(5))
 			top.adjust_arousal(3)
@@ -400,14 +415,14 @@
 			btm.adjust_arousal(3)
 			btm.adjust_pleasure(5, top, src, btm_position)
 			btm.adjust_pain(3, top, src, btm_position)
-			to_chat(top, span_alert("[btm] is being thrown around tugging on my knot as I run!"))
+			to_chat(top, span_alert("[btm] is being thrown around tugging on my [knot] as I run!"))
 			to_chat(btm, span_alert("I'm being thrown around as [top] runs!"))
 		return
 
 	if(prob(5))
 		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-				to_chat(btm, span_warning("I struggle to breath with [top]'s knot in my mouth!"))
+				to_chat(btm, span_warning("I struggle to breath with [top]'s [knot] in my mouth!"))
 				btm.adjustOxyLoss(2)
 
 /// Handles aditional pleasure, ect, caused by the btm moving
@@ -442,6 +457,11 @@
 		top_position = CLIMAX_POSITION_TARGET
 		btm_position = CLIMAX_POSITION_USER
 
+	var/knot = "knot"
+	if(iscarbon(top)) // get text overrides, mostly for a horse cock's flare
+		var/obj/item/organ/genital/penis/penis = top.get_organ_slot(ORGAN_SLOT_PENIS)
+		knot = penis.override_string_knot
+
 	if(top in btm.buckled_mobs) // if the two characters are being held in a fireman carry, let them mutually get pleasure from it
 		if(btm.move_intent == MOVE_INTENT_WALK && prob(15))
 			// values here were stolen from fleshlight.dm and not chosen with any kind of thought
@@ -449,7 +469,7 @@
 			top.adjust_pleasure(9, btm, src, top_position) // Nice
 			btm.adjust_arousal(6)
 			btm.adjust_pleasure(9, top, src, btm_position) // Double Nice
-			to_chat(top, span_love("I feel [btm] tightening over my knot."))
+			to_chat(top, span_love("I feel [btm] tightening over my [knot]."))
 			to_chat(btm, span_love("I feel [top] rubbing inside."))
 		else if(btm.move_intent == MOVE_INTENT_RUN && prob(5))
 			top.adjust_arousal(3)
@@ -458,18 +478,22 @@
 			btm.adjust_arousal(3)
 			btm.adjust_pleasure(5, top, src, btm_position)
 			btm.adjust_pain(3, top, src, btm_position)
-			to_chat(top, span_alert("I'm being thrown around by my knot as [btm] runs!"))
-			to_chat(btm, span_alert("[top] is being thrown around by their knot as I run!"))
+			to_chat(top, span_alert("I'm being thrown around by my [knot] as [btm] runs!"))
+			to_chat(btm, span_alert("[top] is being thrown around by their [knot] as I run!"))
 		return
 
 	if(prob(5))
 		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-				to_chat(btm, span_warning("I can't catch my breath with [top]'s knot in my mouth!"))
+				to_chat(btm, span_warning("I can't catch my breath with [top]'s [knot] in my mouth!"))
 				btm.adjustOxyLoss(3)
 
 /datum/interaction/lewd/proc/knot_remove(mob/living/top, mob/living/btm, forceful_removal = FALSE, notify = TRUE)
 	if(isliving(btm) && !QDELETED(btm) && isliving(top) && !QDELETED(top))
+		var/knot = "knot"
+		if(iscarbon(top)) // get text overrides, mostly for a horse cock's flare
+			var/obj/item/organ/genital/penis/penis = top.get_organ_slot(ORGAN_SLOT_PENIS)
+			knot = penis.override_string_knot
 		if(top.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 
 			// Figure out who is where in the interaction because we can't rely on it being passed to us (signals)
@@ -496,14 +520,14 @@
 				conditional_pref_sound(top, 'modular_zzplurt/sound/Scarlet_Reach/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
 				btm.adjust_pain(10, top, src, btm_position)
 				if(notify)
-					top.visible_message(span_notice("[top] yanks their knot out of [btm]!"), span_notice("I yank my knot out from [btm]."))
+					top.visible_message(span_notice("[top] yanks their [knot] out of [btm]!"), span_notice("I yank my [knot] out from [btm]."))
 			else if(notify)
 				conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
-				top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
+				top.visible_message(span_lewd("[top] slips their [knot] out of [btm]!"), span_lewd("I slip my [knot] out from [btm]."))
 				btm.adjust_pain(4, top, src, btm_position)
 		else if(notify)
 			conditional_pref_sound(btm, 'sound/misc/moist_impact.ogg', 50, TRUE, -2, ignore_walls = FALSE, pref_to_check = /datum/preference/toggle/erp/sounds)
-			top.visible_message(span_lewd("[top] slips their knot out of [btm]!"), span_lewd("I slip my knot out from [btm]."))
+			top.visible_message(span_lewd("[top] slips their [knot] out of [btm]!"), span_lewd("I slip my [knot] out from [btm]."))
 		btm.add_cum_splatter_floor(get_turf(btm))
 	knot_exit(top, btm)
 

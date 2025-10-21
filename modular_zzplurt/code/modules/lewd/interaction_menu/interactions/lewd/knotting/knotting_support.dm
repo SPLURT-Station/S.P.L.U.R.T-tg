@@ -3,12 +3,12 @@
 // called on all lewd acts to ensure the knot is removed if the slot is needed by another interaction
 // even if that interaction can't knot
 // allow_act dosen't work, can_interact calls it causing ties to be imediately untied when the ui updates
-/datum/interaction/lewd/act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/lewd/act(mob/living/user, mob/living/target)
 	knot_check_remove(user, target, knotfucking)
 	..()
 
 // Calls knot_try for actions with knotting support when the user with a penis cums
-/datum/interaction/lewd/post_climax(mob/living/carbon/human/cumming, mob/living/carbon/human/came_in, position)
+/datum/interaction/lewd/post_climax(mob/living/cumming, mob/living/came_in, position)
 	if(!knotting_supported)
 		return ..()
 	if(cum_genital[position] == CLIMAX_PENIS)

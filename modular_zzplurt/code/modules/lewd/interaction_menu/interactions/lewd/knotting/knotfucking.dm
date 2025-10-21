@@ -22,10 +22,9 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_VAGINA)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_VAGINA, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
 	message = list(
-		"pounds %TARGET%'s pussy with their knot.",
-		"forces their knot deep into %TARGET%'s pussy.",
-		"slams their knot in and out of %TARGET%'s cunt.",
-		"knots %TARGET%'s pussy over and over again."
+		"pounds %TARGET%'s pussy with their %KNOT%.",
+		"forces their %KNOT% deep into %TARGET%'s pussy.",
+		"slams their %KNOT% in and out of %TARGET%'s cunt."
 	)
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/champ1.ogg',
@@ -47,10 +46,9 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_ANUS)
 	message = list(
-		"pounds %TARGET%'s ass with their knot.",
-		"forces their knot deep into %TARGET%'s ass.",
-		"slams their knot in and out of %TARGET%'s ass.",
-		"knots %TARGET%'s ass over and over again."
+		"pounds %TARGET%'s ass with their %KNOT%.",
+		"forces their %KNOT% deep into %TARGET%'s ass.",
+		"slams their %KNOT% in and out of %TARGET%'s ass."
 	)
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/bang1.ogg',
@@ -73,9 +71,9 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_MOUTH)
 	message = list(
-		"shoves their knot into %TARGET%'s throat, bulging their cheeks.",
-		"chokes %TARGET% on their knot, cutting off their air supply.",
-		"slams their knot in and out of %TARGET%'s mouth."
+		"shoves their %KNOT% into %TARGET%'s throat, bulging their cheeks.",
+		"chokes %TARGET% on their %KNOT%, cutting off their air supply.",
+		"slams their %KNOT% in and out of %TARGET%'s mouth."
 	)
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/oral1.ogg',
@@ -95,7 +93,7 @@
 		var/stat_before = target.stat
 		target.adjustOxyLoss(3)
 		if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
-			message = list("%TARGET% passes out on %USER%'s knot.")
+			message = list("%TARGET% passes out on %USER%'s %KNOT%.")
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_nipple
 	target_knotting_require = list(ORGAN_SLOT_NIPPLES)
@@ -125,19 +123,19 @@
 	))
 	message = list(
 		"fucks %TARGET%'s nipple",
-		"slams their knot into %TARGET%'s breast",
+		"slams their %KNOT% into %TARGET%'s breast",
 		"pounds %TARGET%'s nipple",
 		"thrusts deep into %TARGET%'s nipple"
 	)
 	user_messages = list(
-		"You feel %TARGET%'s nipple squeezing your knot",
+		"You feel %TARGET%'s nipple squeezing your %KNOT%",
 		"The warmth of %TARGET%'s breast envelops your shaft",
-		"%TARGET%'s nipple feels amazing around your knot"
+		"%TARGET%'s nipple feels amazing around your %KNOT%"
 	)
 	target_messages = list(
-		"You feel %USER%'s knot stretching your nipple",
+		"You feel %USER%'s %KNOT% stretching your nipple",
 		"%USER%'s shaft pushes deep into your breast",
-		"The warmth of %USER%'s knot fills your nipple"
+		"The warmth of %USER%'s %KNOT% fills your nipple"
 	)
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/bang1.ogg',

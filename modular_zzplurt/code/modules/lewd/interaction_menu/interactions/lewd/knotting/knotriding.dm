@@ -6,9 +6,9 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA, CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_VAGINA)
 	message = list(
-		"rides %TARGET%'s knot.",
-		"forces %TARGET%'s knot into their pussy.",
-		"pops %TARGET%'s knot in and out of their pussy.",
+		"rides %TARGET%'s %KNOT%.",
+		"forces %TARGET%'s %KNOT% into their pussy.",
+		"pops %TARGET%'s %KNOT% in and out of their pussy.",
 		"impales themself on %TARGET%'s cock."
 	)
 	sound_possible = list(
@@ -32,9 +32,9 @@
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_target = list(CLIMAX_POSITION_TARGET = ORGAN_SLOT_ANUS)
 	message = list(
-		"rides %TARGET%'s knot with their ass.",
-		"forces %TARGET%'s knot into their ass.",
-		"pops %TARGET%'s knot in and out of their ass.",
+		"rides %TARGET%'s %KNOT% with their ass.",
+		"forces %TARGET%'s %KNOT% into their ass.",
+		"pops %TARGET%'s %KNOT% in and out of their ass.",
 		"impales their ass on %TARGET%'s cock."
 	)
 	sound_possible = list(

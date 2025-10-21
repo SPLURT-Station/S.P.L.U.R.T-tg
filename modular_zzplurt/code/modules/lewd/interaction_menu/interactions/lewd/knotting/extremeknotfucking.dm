@@ -76,8 +76,8 @@
 	))
 	message = list(
 		"pounds into %TARGET%'s earsocket.",
-		"shoves their knot deep into %TARGET%'s skull",
-		"slams their knot in and out of %TARGET%'s earsocket.",
+		"shoves their %KNOT% deep into %TARGET%'s skull",
+		"slams their %KNOT% in and out of %TARGET%'s earsocket.",
 		"goes balls deep into %TARGET%'s cranium over and over again."
 	)
 	sound_possible = list(
@@ -127,8 +127,8 @@
 	))
 	message = list(
 		"pounds into %TARGET%'s eye.",
-		"shoves their knot deep into %TARGET%'s skull",
-		"slams their knot in and out of %TARGET%'s eye.",
+		"shoves their %KNOT% deep into %TARGET%'s skull",
+		"slams their %KNOT% in and out of %TARGET%'s eye.",
 		"goes balls deep into %TARGET%'s cranium over and over again."
 	)
 	sound_possible = list(
@@ -179,8 +179,8 @@
 	))
 	message = list(
 		"pounds into %TARGET%'s eyesocket.",
-		"shoves their knot deep into %TARGET%'s skull",
-		"slams their knot in and out of %TARGET%'s eyesocket.",
+		"shoves their %KNOT% deep into %TARGET%'s skull",
+		"slams their %KNOT% in and out of %TARGET%'s eyesocket.",
 		"goes balls deep into %TARGET%'s cranium over and over again."
 	)
 	sound_possible = list(
