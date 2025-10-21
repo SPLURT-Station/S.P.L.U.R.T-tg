@@ -297,6 +297,11 @@
 			if(1)
 				attributes += "have a single foot"
 
+	// Tail
+	var/mob/living/carbon/human/human_target = target
+	if(ishuman(human_target) && human_target.has_tail(REQUIRE_GENITAL_ANY))
+		attributes += "have a tail"
+
 	return attributes
 
 /**

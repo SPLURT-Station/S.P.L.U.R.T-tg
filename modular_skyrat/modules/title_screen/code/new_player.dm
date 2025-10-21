@@ -40,7 +40,7 @@
 	// 	days_remaining = remaining_time,
 	// 	timeout = 10 SECONDS,
 	// )
-	// unvetted_notified = TRUE
+	unvetted_notified = TRUE
 	return TRUE
 
 /mob/dead/new_player/Topic(href, href_list)

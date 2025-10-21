@@ -21,6 +21,7 @@
 	SIGNAL_HANDLER
 
 	if(stored)
+		modify_appearance(stored, FALSE) // SPLURT EDIT - CYBORGS - Reverting to original appearance
 		stored.forceMove(get_turf(src))
 		stored = null
 
@@ -249,6 +250,7 @@
 	var/obj/item/organ = stored
 	user.visible_message(span_notice("[user] dumps [organ] from [src]."), span_notice("You dump [organ] from [src]."))
 	cut_overlays()
+	modify_appearance(stored, FALSE) // SPLURT EDIT - CYBORGS - Reverting to original appearance
 	organ.forceMove(get_turf(src))
 	return CLICK_ACTION_SUCCESS
 
