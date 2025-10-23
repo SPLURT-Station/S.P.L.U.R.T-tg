@@ -42,7 +42,7 @@
 /area/misc/hilbertshotel)
 "cH" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/storage/box/zipties,
+/obj/item/storage/box,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
 "eq" = (
@@ -134,11 +134,11 @@
 /obj/machinery/light/directional/south,
 /obj/structure/rack,
 /obj/item/clothing/head/playbunnyears/syndicate/fake,
-/obj/item/clothing/neck/tie/bunnytie/syndicate,
 /obj/item/clothing/suit/jacket/tailcoat/syndicate/fake,
 /obj/item/clothing/under/syndicate/syndibunny/fake,
 /obj/item/toy/balloon/syndicate,
 /obj/item/clothing/under/misc/syndicate_souvenir,
+/obj/item/clothing/neck/tie/bunnytie/security,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
 "ia" = (
@@ -163,19 +163,19 @@
 "im" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/structure/table,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
-	pixel_y = 2;
-	pixel_x = 6
-	},
 /obj/item/lighter{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/cigarette/syndicate{
+/obj/structure/sign/clock/directional/south,
+/obj/item/storage/fancy/cigarettes/cigpack_robust{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/cigarette/robust{
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/structure/sign/clock/directional/south,
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
 "in" = (
@@ -324,12 +324,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
 "mV" = (
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 4
-	},
+/obj/effect/turf_decal/siding/dark_red/end,
 /obj/structure/sign/flag/usa/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/hilbertshotel)
@@ -341,7 +336,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/vest/capcarapace,
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
 "nY" = (
@@ -605,8 +599,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/item/clothing/accessory/armband/syndicate,
-/obj/item/assembly/flash/handheld,
-/obj/item/restraints/handcuffs,
+/obj/item/restraints/handcuffs/fake,
 /turf/open/indestructible/dark/textured{
 	icon_state = "engine"
 	},
@@ -711,16 +704,6 @@
 /obj/machinery/shuttle_manipulator,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
-"Ey" = (
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 8
-	},
-/obj/item/clothing/suit/armor/vest/capcarapace/syndicate,
-/turf/open/floor/wood/large,
-/area/misc/hilbertshotel)
 "EK" = (
 /turf/closed/indestructible/hoteldoor{
 	icon_state = "door_closed";
@@ -756,7 +739,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/restraints/handcuffs{
+/obj/item/restraints/handcuffs/fake{
 	pixel_x = 6;
 	pixel_y = -2
 	},
@@ -886,7 +869,7 @@
 "JI" = (
 /obj/structure/sign/poster/contraband/random/directional/west,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/restraints/handcuffs,
+/obj/item/restraints/handcuffs/fake,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
 "JK" = (
@@ -902,10 +885,6 @@
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
-	},
-/obj/machinery/elevator_control_panel/directional/west{
-	pixel_y = 28;
-	pixel_x = -26
 	},
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
@@ -1004,11 +983,8 @@
 /turf/open/floor/iron/stairs,
 /area/misc/hilbertshotel)
 "Pj" = (
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 4
+/obj/effect/turf_decal/siding/dark_red/end{
+	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/misc/hilbertshotel)
@@ -1017,16 +993,20 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
-	pixel_y = 13
+	pixel_y = 11;
+	anchored = 1
 	},
 /obj/item/toy/mecha/seraph{
 	pixel_x = -3;
-	pixel_y = 18
+	pixel_y = 14;
+	anchored = 1
 	},
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
-	pixel_y = 3
+	pixel_y = 1;
+	anchored = 1
 	},
+/obj/machinery/room_controller/directional/west,
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
 "QX" = (
@@ -1044,15 +1024,19 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/light/directional/west,
 /obj/item/toy/mecha/mauler{
-	pixel_y = 16
-	},
-/obj/item/toy/figure/syndie{
-	pixel_x = 8;
-	pixel_y = 3
+	pixel_y = 11;
+	pixel_x = -3;
+	anchored = 1
 	},
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
-	pixel_y = -7
+	pixel_y = 3;
+	anchored = 1
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -6;
+	anchored = 1
 	},
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
@@ -1108,7 +1092,8 @@
 	},
 /obj/item/disk/nuclear/fake/obvious{
 	pixel_y = -8;
-	pixel_x = -3
+	pixel_x = -3;
+	anchored = 1
 	},
 /turf/open/indestructible/dark/textured,
 /area/misc/hilbertshotel)
@@ -1192,7 +1177,13 @@
 	},
 /area/misc/hilbertshotel)
 "Za" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe,
+/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe{
+	contraband = list();
+	premium = list();
+	vend_reply = "Clown.";
+	products = list(/obj/item/clothing/accessory/clown_enjoyer_pin = 1);
+	zubbers_products = null
+	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/hilbertshotel)
@@ -1439,7 +1430,7 @@ ga
 "}
 (13,1,1) = {"
 ga
-Ey
+pF
 pF
 lU
 jQ

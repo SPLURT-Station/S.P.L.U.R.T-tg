@@ -6,14 +6,14 @@ import {
 } from '../base';
 import { FeatureDropdownInput } from '../dropdowns';
 
-// SPLURT EDIT START
+// BUBBER EDIT ADDITION START
 export const use_tgui_player_panel: FeatureToggle = {
   name: 'Use modern player panel',
   category: 'ADMIN',
   description: 'Whether to use the new TGUI player panel or the old HTML one.',
   component: CheckboxInput,
 };
-// SPLURT EDIT END
+// BUBBER EDIT ADDITION END
 
 export const asaycolor: Feature<string> = {
   name: 'Admin chat color',

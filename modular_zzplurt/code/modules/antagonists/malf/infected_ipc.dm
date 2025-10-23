@@ -135,7 +135,7 @@
 	scan_desc = "malicious programming"
 	can_gain = TRUE
 	random_gain = FALSE
-	resilience = TRAUMA_RESILIENCE_LOBOTOMY
+	resilience = TRAUMA_RESILIENCE_SURGERY
 	var/datum/mind/master_ai
 	var/datum/antagonist/infected_ipc/antagonist
 

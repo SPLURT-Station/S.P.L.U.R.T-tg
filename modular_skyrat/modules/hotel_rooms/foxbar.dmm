@@ -474,7 +474,9 @@
 /turf/closed/indestructible/wood,
 /area/misc/hilbertshotel)
 "NY" = (
-/obj/machinery/vending/wardrobe/bar_wardrobe/ghost_cafe,
+/obj/machinery/vending/wardrobe/bar_wardrobe/ghost_cafe{
+	products = list(/obj/item/clothing/glasses/sunglasses/reagent = 1, /obj/item/clothing/accessory/waistcoat = 2, /obj/item/clothing/head/hats/tophat = 2, /obj/item/clothing/head/soft/black = 2, /obj/item/clothing/neck/petcollar = 1, /obj/item/clothing/neck/bowtie = 2, /obj/item/clothing/under/costume/buttondown/slacks/service = 2, /obj/item/clothing/under/costume/buttondown/skirt/service = 2, /obj/item/clothing/under/rank/civilian/purple_bartender = 2, /obj/item/clothing/suit/toggle/lawyer/greyscale = 1,  /obj/item/clothing/shoes/sneakers/black = 2, /obj/item/storage/bag/money = 2, /obj/item/storage/dice/hazard = 1, /obj/item/rag = 2)
+	},
 /turf/closed/indestructible/wood,
 /area/misc/hilbertshotel)
 "Oq" = (

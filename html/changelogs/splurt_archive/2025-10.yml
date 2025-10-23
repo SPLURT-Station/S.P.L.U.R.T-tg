@@ -1,0 +1,70 @@
+2025-10-01:
+  AbsorbentHeart5:
+  - rscadd: Added Armadyne HUD glasses to the Armadyne Sec Vendor
+  Maggotbait:
+  - image: A shipment of urban clothing have been shipped to the station, live out
+      your greatest streetwear fantasies.
+  - image: a brand new hairstyle, fluffy curls.
+  Mindstormsman:
+  - bugfix: Borgs can no longer pack their modules into containers with packing peanuts
+  Nuk5513:
+  - balance: infdorm delootification - now syndicate doesn't supply terrorists through
+      sex dungeons
+  miguelop1:
+  - balance: reduced funclaw health
+  - balance: reduced funclaw armor penetration and damage
+  - balance: reduced werewolf damage from 56 to 30
+  - balance: reduced werewolf alpha armour penetration from 80 to 50
+  - balance: boosted werewolf alpha maxhealth from 1200 to 1400
+2025-10-05:
+  SapphoQueer:
+  - balance: Civhud implants now only cost 1 point instead of 4.
+  - bugfix: Veteran Sec Advisor, Big Brother, and Bridge Assistant can no longer roll
+      antag. This was an oversight.
+2025-10-07:
+  MosleyTheMalO:
+  - code_imp: makes some edits for enabling the agevet check system
+  - bugfix: fixes infinidorms not allowing you to select the correct numbe
+  - qol: adds a carped under the infinidorms sphere
+  - code_imp: fixes the taiil interaction unndecessary override.
+  SapphoQueer:
+  - bugfix: Paramedic access should now actually work.
+  quantumtechkat:
+  - rscadd: Added the Quantum Server and Bitrunning rewards vendor to the Bitrunning
+      tech node and machine designs list for the circuit imprinter.
+  - code_imp: 'Fixes typo for title of Port Tarkon Research Crew Member in spawner.dm
+
+      :cl:'
+2025-10-14:
+  ItzLollipop:
+  - rscadd: Added additional genitals for vagina types & sleeves based on species
+  - rscdel: Removed Avian reference and replaced it with something reasonable.
+  - bugfix: Fixed Unathi's not being included for lizard sleeve overlays
+  - image: Added and Modified pussies and sleeves in Fleshlight.DMI
+  - code_imp: Changed Avian dna.species reference to something more feasible.
+  Mindstormsman:
+  - bugfix: Armored Harness no longer covers body parts; It is now suitable for Nudists
+      as was originally intended
+  - bugfix: Items dropped by borg modules are no longer invisible
+  MosleyTheMalO:
+  - bugfix: fixes everyone appearing as vetted due to an oversight
+  Phoenix4O4:
+  - qol: tail_thump emote now available for cyborgs
+  - rscadd: Added tail support for cyborg interactions
+  SapphoQueer:
+  - rscadd: Curator now has a "Author" job title.
+  githubuser4141:
+  - balance: Ore Silo is tougher now
+2025-10-17:
+  quantumtechkat:
+  - map: added many additional holopads to Port Tarkon
+  - map: replaced P-T Cargo bitrunning computer with frame
+2025-10-18:
+  Mindstormsman:
+  - code_imp: '`climax` proc no longer fails to call `post_climax` when `climax_choice
+      == CLIMAX_PENIS`'
+  Phoenix4O4:
+  - admin: Restored missing controls in the Library Admin Console (filters, Raw/All
+      toggle, Delete/Restore).
+  k-testbase:
+  - qol: unwhitelists specific donor items from bubber

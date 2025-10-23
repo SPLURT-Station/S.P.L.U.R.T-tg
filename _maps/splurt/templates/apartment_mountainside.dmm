@@ -2430,22 +2430,6 @@
 	pixel_x = 17;
 	pixel_y = 25
 	},
-/obj/item/stack/sticky_tape{
-	pixel_x = -6;
-	pixel_y = 9;
-	desc = "This and hopes and dreams keeps everything together.";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
-/obj/item/stack/sticky_tape{
-	pixel_x = -6;
-	pixel_y = 16;
-	desc = "Всё примотаем... На синюю изоленту! Ах-ха-ха-хах!";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
 "nY" = (
@@ -2940,25 +2924,19 @@
 	uses_integrity = 0
 	},
 /obj/structure/marker_beacon/indigo,
-/obj/item/clothing/mask/muzzle/tape{
-	pixel_x = -7;
-	pixel_y = -2;
-	icon_state = "/obj/item/clothing/mask/muzzle/tape/surgical";
-	base_icon_state = "/obj/item/clothing/mask/muzzle/tape/surgical"
-	},
 /obj/item/stack/medical/bandage{
 	pixel_x = 0;
 	pixel_y = 10;
 	desc = "Don't cum on the servers."
 	},
+/obj/item/clothing/mask/muzzle/tape/surgical{
+	pixel_x = -7;
+	pixel_y = -2
+	},
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "rl" = (
 /obj/structure/table/wood/fancy/black,
-/obj/item/clothing/head/costume/maidheadband/syndicate{
-	pixel_x = 1;
-	pixel_y = 4
-	},
 /obj/item/reagent_containers/cup/glass/bottle/small{
 	pixel_x = 7;
 	pixel_y = 7
@@ -2966,6 +2944,10 @@
 /obj/item/reagent_containers/cup/glass/flask{
 	pixel_x = -2;
 	pixel_y = 4
+	},
+/obj/item/toy/plush/mossy{
+	pixel_y = 35;
+	pixel_x = -31
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
@@ -3520,6 +3502,16 @@
 	pixel_y = 5;
 	pixel_x = -8
 	},
+/obj/item/toy/plush/xenoplush/xenomaidplush{
+	pixel_x = 29;
+	pixel_y = 28
+	},
+/obj/item/toy/plush/rouny{
+	dir = 4;
+	pixel_y = 37;
+	pixel_x = 8;
+	color = "#b357ff"
+	},
 /turf/open/floor/carpet/purple,
 /area/misc/hilbertshotel)
 "uj" = (
@@ -3792,12 +3784,6 @@
 	uses_integrity = 0
 	},
 /obj/structure/marker_beacon/indigo,
-/obj/item/toy/figure/janitor{
-	pixel_x = -9;
-	pixel_y = 15;
-	name = "maintainer";
-	desc = "end me"
-	},
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "vt" = (
@@ -4720,12 +4706,6 @@
 "zY" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
-	},
-/obj/item/toy/plush/rouny{
-	dir = 4;
-	pixel_y = 5;
-	pixel_x = 8;
-	color = "#b357ff"
 	},
 /turf/open/floor/carpet/purple,
 /area/misc/hilbertshotel)
@@ -7375,6 +7355,12 @@
 	uses_integrity = 0;
 	pixel_x = -16
 	},
+/obj/item/toy/figure/janitor{
+	pixel_x = 7;
+	pixel_y = 15;
+	name = "maintainer";
+	desc = "end me"
+	},
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "QC" = (
@@ -7390,10 +7376,6 @@
 	},
 /area/misc/hilbertshotel)
 "QK" = (
-/obj/item/toy/plush/mossy{
-	pixel_y = 35;
-	pixel_x = 1
-	},
 /obj/machinery/light/floor{
 	light_color = "#fcc2ff";
 	color = "#fcc2ff";
@@ -7690,10 +7672,6 @@
 	pixel_y = 2;
 	pixel_x = -12
 	},
-/obj/item/toy/plush/xenoplush/xenomaidplush{
-	pixel_x = -3;
-	pixel_y = -4
-	},
 /obj/machinery/light/floor{
 	light_color = "#fcc2ff";
 	color = "#fcc2ff";
@@ -7966,10 +7944,6 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/obj/item/clothing/head/costume/maidheadband/syndicate{
-	pixel_x = 3;
-	pixel_y = 4
-	},
 /obj/item/pillow{
 	pixel_x = -5;
 	pixel_y = 7;
@@ -8651,14 +8625,6 @@
 	pixel_y = 1
 	},
 /obj/structure/railing,
-/obj/item/stack/sticky_tape{
-	pixel_x = 7;
-	pixel_y = 6;
-	desc = "This and hopes and dreams keeps everything together.";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "XZ" = (

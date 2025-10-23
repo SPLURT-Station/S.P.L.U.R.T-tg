@@ -74,6 +74,7 @@
 	name = "Skyscraper Apartment"
 	mappath = "_maps/splurt/templates/apartment_skyscraper.dmm"
 	category = GHC_APARTMENT
+	landing_coords = list(17, 3)
 
 /datum/map_template/ghost_cafe_rooms/apartment_mountainside
 	name = "Mountainside Apartment"

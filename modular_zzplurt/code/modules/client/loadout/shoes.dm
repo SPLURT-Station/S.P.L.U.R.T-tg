@@ -19,6 +19,11 @@
 	name = "Hightop Sneakers"
 	item_path = /obj/item/clothing/shoes/hightops
 
+/datum/loadout_item/shoes/combat_civ
+	name = "Faux Combat Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/faux_combat
+
+
 /* They exist nonmodularly and adding them causes issues with the loadout.
 /datum/loadout_item/shoes/highheels
 	name = "High Heels"

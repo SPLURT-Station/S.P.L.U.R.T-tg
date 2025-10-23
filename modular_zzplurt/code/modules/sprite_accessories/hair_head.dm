@@ -49,6 +49,10 @@ Hairs
 	name = "Mohawk (Alt)"
 	icon_state = "mohawk"
 
+/datum/sprite_accessory/hair/splurt/fluffycurls
+	name = "Fluffy Curls"
+	icon_state = "hair_fluffycurls"
+
 // Podpeople hair - Making it accesible for all species
 /datum/sprite_accessory/hair/podmale
 	recommended_species = null
