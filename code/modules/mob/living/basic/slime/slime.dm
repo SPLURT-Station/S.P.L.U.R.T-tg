@@ -406,5 +406,5 @@
 #undef SLIME_SHOCK_PERCENTAGE_PER_LEVEL
 
 // SPLURT MODULAR CHANGE - CROWN CODE FOR SLIMES - BEGIN
-#include "slime_crown.dm"
+#include "modular_zzplurt\code\modules\mob\living\basic\slime\slime_crown.dm"
 // SPLURT MODULAR CHANGE - CROWN CODE FOR SLIMES - END
