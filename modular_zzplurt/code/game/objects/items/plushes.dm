@@ -171,3 +171,14 @@
 	user.put_in_hands(new /obj/item/toy/plush/glitchy_protogen(loc))
 	qdel(src)
 	return CLICK_ACTION_SUCCESS
+
+/obj/item/toy/plush/incuboi
+	name = "Incuboi Plushie"
+	desc = "There's a sickening aura of judgement surrounding this soft, oddly warm plushie.  Looks to be made from expensive material."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "plushie_sindri"
+	worn_icon_state = "plushie_sindri"
+	attack_verb_simple = list("corrupt", "scoff at", "drain", "tempt", "judge")
+	attack_verb_continuous = list("corrupt", "scoff at", "drain", "tempt", "judge")
+	squeak_override = list('modular_zzplurt/sound/voice/male_sigh.ogg' = 1)
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
