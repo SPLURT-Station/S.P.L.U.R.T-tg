@@ -1,5 +1,5 @@
 //Let's you place a crown on a slime's head, checks if the slime is alive and not already wearing a crown
-/mob/living/basic/slime/proc/add_crown
+/mob/living/basic/slime/proc/add_crown()
     if(istype(attacking_item, /obj/item/clothing/head/costume/crown) && stat == CONSCIOUS && !wearing_crown)
 		wearing_crown = TRUE
 		del attacking_item
