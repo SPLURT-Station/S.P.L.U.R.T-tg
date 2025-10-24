@@ -407,14 +407,16 @@
 
 // SPLURT MODULAR CHANGE - CROWN CODE FOR SLIMES - BEGIN
 //Let's you place a crown on a slime's head, checks if the slime is alive and not already wearing a crown
-/mob/living/basic/slime/proc/add_crown()
+var/wearing_crown = FALSE
+
+/mob/living/basic/slime/proc/add_crown(obj/item/attacking_item, mob/living/user)
     if(istype(attacking_item, /obj/item/clothing/head/costume/crown) && stat == CONSCIOUS && !wearing_crown)
         wearing_crown = TRUE
         del attacking_item
         update_overlays()
         var/crown = new /obj/item/clothing/head/costume/crown(loc)
         crown.forceMove(src)
-        to_chat(user, span_notice("You place the crown on the slime's head."))
+        to_chat(usr, span_notice("You place the crown on the slime's head."))
 
 //Changes the slime's overlay based on its lifestage and whether it's wearing a crown
 /mob/living/basic/slime/proc/update_crown_overlay()
