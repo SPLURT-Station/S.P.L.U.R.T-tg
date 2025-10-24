@@ -413,6 +413,7 @@ var/wearing_crown = FALSE
     if(istype(attacking_item, /obj/item/clothing/head/costume/crown) && stat == CONSCIOUS && !wearing_crown)
         wearing_crown = TRUE
         del attacking_item
+        update_crown_overlay()
         update_overlays()
         var/obj/item/clothing/head/costume/crown/crown = new /obj/item/clothing/head/costume/crown(loc)
         crown.forceMove(src)
@@ -425,10 +426,5 @@ var/wearing_crown = FALSE
             add_overlay("aslime-crown-baby")
         else if(life_stage == SLIME_LIFE_STAGE_ADULT)
             add_overlay("aslime-crown")
-
-//Updates the slime's overlays, including the crown overlay if applicable
-/mob/living/basic/slime/proc/update_overlays()
-    ..()
-    update_crown_overlay()
 
 // SPLURT MODULAR CHANGE - CROWN CODE FOR SLIMES - END
