@@ -414,7 +414,7 @@ var/wearing_crown = FALSE
         wearing_crown = TRUE
         del attacking_item
         update_overlays()
-        var/crown = new /obj/item/clothing/head/costume/crown(loc)
+        var/obj/item/crown/crown = new /obj/item/clothing/head/costume/crown(loc)
         crown.forceMove(src)
         to_chat(usr, span_notice("You place the crown on the slime's head."))
 
