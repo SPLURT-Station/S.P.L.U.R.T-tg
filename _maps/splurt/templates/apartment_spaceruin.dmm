@@ -67,15 +67,26 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"eQ" = (
+"fa" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/floor/iron/dark,
+/area/misc/hilbertshotel)
+"fg" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
 /obj/structure/cable,
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/fake_camera{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"fa" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+"gN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/fluff/fake_camera,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "ii" = (
@@ -84,16 +95,12 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/plating/foam,
 /area/misc/hilbertshotel)
-"ij" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark,
+"jf" = (
+/obj/structure/sign/directions/cryo/directional/south,
+/turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "jh" = (
-/turf/open/space,
+/turf/open/space/basic,
 /area/misc/hilbertshotel)
 "jC" = (
 /turf/open/floor/plating,
@@ -123,23 +130,11 @@
 "kE" = (
 /turf/closed/wall/r_wall,
 /area/misc/hilbertshotel)
-"lb" = (
-/obj/structure/sign/directions/cryo/directional/south,
-/turf/closed/indestructible/steel,
-/area/misc/hilbertshotel)
 "lS" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/grille/broken,
 /obj/structure/flora/rock/pile,
 /turf/open/floor/iron/dark/smooth_half,
-/area/misc/hilbertshotel)
-"me" = (
-/obj/machinery/light/small/red/dim/directional/south,
-/obj/structure/closet/generic{
-	icon_state = "fire";
-	icon_door = "fire"
-	},
-/turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "mM" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
@@ -163,7 +158,7 @@
 	},
 /area/misc/hilbertshotel)
 "nO" = (
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/greenglow,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "nU" = (
@@ -200,10 +195,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"sG" = (
-/obj/effect/decal/cleanable/greenglow,
-/turf/open/floor/plating,
-/area/misc/hilbertshotel)
 "sL" = (
 /obj/structure/girder/displaced,
 /obj/effect/mapping_helpers/broken_floor,
@@ -212,6 +203,11 @@
 "tC" = (
 /obj/structure/girder,
 /turf/open/floor/plating,
+/area/misc/hilbertshotel)
+"tI" = (
+/obj/machinery/light/red/dim/directional/north,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
 "tN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
@@ -225,12 +221,28 @@
 "tS" = (
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/misc/hilbertshotel)
-"uB" = (
+"tY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
+/area/misc/hilbertshotel)
+"ue" = (
+/obj/effect/decal/cleanable/garbage,
+/turf/open/floor/plating,
+/area/misc/hilbertshotel)
+"uB" = (
+/obj/machinery/light/small/red/dim/directional/south,
+/obj/structure/closet/generic{
+	icon_state = "fire";
+	icon_door = "fire"
+	},
+/turf/open/floor/plating,
+/area/misc/hilbertshotel)
+"uT" = (
+/obj/structure/sign/directions/engineering/directional/south,
+/turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "vs" = (
 /obj/machinery/light/red/dim/directional/south,
@@ -246,14 +258,6 @@
 /obj/effect/mapping_helpers/broken_machine,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/misc/hilbertshotel)
-"vF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/fluff/fake_camera,
-/turf/open/floor/iron/dark,
-/area/misc/hilbertshotel)
 "vS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
@@ -268,8 +272,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
 "wh" = (
-/obj/effect/decal/cleanable/garbage,
-/turf/open/floor/plating,
+/obj/structure/sign/directions/security/directional/west,
+/turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "wp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -293,10 +297,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"wU" = (
-/obj/structure/sign/directions/engineering/directional/south,
-/turf/closed/indestructible/steel,
-/area/misc/hilbertshotel)
 "wX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
@@ -315,10 +315,19 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/foam,
 /area/misc/hilbertshotel)
+"yG" = (
+/obj/structure/closet/firecloset/wall/empty,
+/turf/closed/wall/r_wall,
+/area/misc/hilbertshotel)
 "yN" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/glass,
 /obj/machinery/light/small/broken/directional/south,
+/turf/open/floor/plating,
+/area/misc/hilbertshotel)
+"zm" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "zs" = (
@@ -326,17 +335,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"zE" = (
-/turf/closed/indestructible/fakedoor/glass_airlock{
-	name = "Commons Area"
-	},
-/area/misc/hilbertshotel)
 "Ae" = (
 /obj/structure/fluff/broken_canister_frame,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
+/area/misc/hilbertshotel)
+"Af" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/flora/rock/pile,
+/turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "As" = (
 /obj/structure/table/wood,
@@ -354,6 +363,10 @@
 /area/misc/hilbertshotel)
 "CQ" = (
 /obj/effect/mapping_helpers/broken_machine,
+/turf/closed/wall/r_wall,
+/area/misc/hilbertshotel)
+"Da" = (
+/obj/structure/closet/emcloset/wall/empty,
 /turf/closed/wall/r_wall,
 /area/misc/hilbertshotel)
 "DO" = (
@@ -407,10 +420,6 @@
 /obj/effect/decal/cleanable/ash/large,
 /turf/open/floor/iron/dark/smooth_half,
 /area/misc/hilbertshotel)
-"HW" = (
-/obj/structure/sign/directions/security/directional/west,
-/turf/closed/indestructible/steel,
-/area/misc/hilbertshotel)
 "IY" = (
 /obj/item/flashlight/flare,
 /obj/structure/cable,
@@ -424,13 +433,9 @@
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
-"Jx" = (
-/obj/effect/decal/cleanable/greenglow,
+"JK" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/misc/hilbertshotel)
-"JU" = (
-/obj/structure/closet/firecloset/wall/empty,
-/turf/closed/wall/r_wall,
 /area/misc/hilbertshotel)
 "Kz" = (
 /obj/machinery/light/red/dim/directional/west,
@@ -439,16 +444,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
-"KA" = (
-/obj/structure/closet/emcloset/wall/empty,
-/turf/closed/wall/r_wall,
-/area/misc/hilbertshotel)
-"KZ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark/smooth_half{
-	dir = 1
-	},
-/area/misc/hilbertshotel)
 "LT" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/tank_dispenser/oxygen{
@@ -456,11 +451,6 @@
 	},
 /obj/effect/mapping_helpers/broken_machine,
 /turf/open/floor/iron/dark/smooth_half,
-/area/misc/hilbertshotel)
-"LV" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/structure/flora/rock/pile,
-/turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "LZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -501,7 +491,9 @@
 /turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "NG" = (
-/obj/machinery/light/red/dim/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
@@ -517,6 +509,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
+/area/misc/hilbertshotel)
+"OO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
 /area/misc/hilbertshotel)
 "OV" = (
 /obj/effect/decal/cleanable/glass,
@@ -543,6 +541,19 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
+"PV" = (
+/turf/closed/indestructible/fakedoor/glass_airlock{
+	name = "Commons Area"
+	},
+/area/misc/hilbertshotel)
+"QJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/misc/hilbertshotel)
 "QN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
@@ -551,23 +562,11 @@
 /obj/machinery/door/airlock/command/glass,
 /turf/open/floor/iron/dark,
 /area/misc/hilbertshotel)
-"Rp" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plating,
-/area/misc/hilbertshotel)
 "Rv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/down,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/misc/hilbertshotel)
-"Rz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/light/red/dim/directional/north,
-/turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "RZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -627,6 +626,10 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
+"VK" = (
+/obj/effect/decal/cleanable/greenglow,
+/turf/open/floor/plating,
+/area/misc/hilbertshotel)
 "Wd" = (
 /obj/machinery/light/red/dim/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
@@ -658,16 +661,6 @@
 /obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
-"Xk" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/fluff/fake_camera{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/misc/hilbertshotel)
 "Xr" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/girder/displaced,
@@ -680,6 +673,13 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/misc/hilbertshotel)
+"YT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "YZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
@@ -722,7 +722,7 @@ DR
 Ny
 dx
 kE
-Jx
+nO
 vS
 CK
 jh
@@ -730,7 +730,7 @@ kx
 "}
 (3,1,1) = {"
 tQ
-Rz
+YT
 yj
 wH
 kE
@@ -755,7 +755,7 @@ MK
 np
 jU
 Hb
-KA
+Da
 TH
 nm
 Jn
@@ -765,14 +765,14 @@ kx
 (5,1,1) = {"
 tQ
 Gp
-wU
+uT
 tQ
 kE
 kE
 kE
 EO
 kE
-JU
+yG
 fa
 rj
 Jn
@@ -780,11 +780,11 @@ jh
 kx
 "}
 (6,1,1) = {"
-zE
-eQ
-eQ
+PV
+NG
+NG
 QN
-Xk
+fg
 Kz
 nm
 RZ
@@ -797,8 +797,8 @@ kx
 kx
 "}
 (7,1,1) = {"
-zE
-ij
+PV
+QJ
 Rv
 Eh
 zs
@@ -807,7 +807,7 @@ ed
 Sg
 WH
 Mc
-nO
+JK
 PR
 tQ
 kx
@@ -816,7 +816,7 @@ kx
 (8,1,1) = {"
 tQ
 Gp
-lb
+jf
 tQ
 tC
 jK
@@ -824,8 +824,8 @@ ea
 tC
 tQ
 tQ
-NG
-vF
+tI
+gN
 tQ
 tQ
 kx
@@ -833,14 +833,14 @@ kx
 (9,1,1) = {"
 tQ
 wX
-me
+uB
 tQ
 vu
 UE
 Ae
-KZ
+OO
 wp
-HW
+wh
 eI
 vS
 Or
@@ -849,7 +849,7 @@ kx
 "}
 (10,1,1) = {"
 tQ
-uB
+tY
 Vk
 tQ
 LT
@@ -860,14 +860,14 @@ Wk
 au
 rj
 vS
-nO
+JK
 wt
 kx
 "}
 (11,1,1) = {"
 tQ
-uB
-sG
+tY
+VK
 tQ
 Sh
 Bs
@@ -892,7 +892,7 @@ sf
 vX
 Wk
 tC
-LV
+Af
 sL
 tC
 tQ
@@ -900,7 +900,7 @@ kx
 "}
 (13,1,1) = {"
 tQ
-wh
+ue
 nU
 tQ
 HO
@@ -917,7 +917,7 @@ kx
 "}
 (14,1,1) = {"
 tQ
-Rp
+zm
 tC
 tQ
 de
