@@ -225,7 +225,7 @@
 	. = ..()
 	if(SPT_PROB(5, seconds_per_tick))
 		to_chat(affected_mob, span_danger("Your insides are burning!"))
-		if(affected_mob.adjustToxLoss(rand(20, 60), updating_health = FALSE, required_biotype = affected_biotype))
+		if(affected_mob.adjustToxLoss(rand(7, 15), updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 	else if(SPT_PROB(23, seconds_per_tick))
 		if(affected_mob.heal_bodypart_damage(5))
