@@ -5,19 +5,19 @@
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums all over %TARGET%'s belly",
-		"shoots their load onto %TARGET%'s stomach",
-		"covers %TARGET%'s navel in cum"
+		"%CUMMING% cums all over %CAME_IN%'s belly",
+		"%CUMMING% shoots their load onto %CAME_IN%'s stomach",
+		"%CUMMING% covers %CAME_IN%'s navel in cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"You cum all over %TARGET%'s belly",
-		"You shoot your load onto %TARGET%'s stomach",
-		"You cover %TARGET%'s navel in cum"
+		"You cum all over %CAME_IN%'s belly",
+		"You shoot your load onto %CAME_IN%'s stomach",
+		"You cover %CAME_IN%'s navel in cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"%USER% cums all over your belly",
-		"%USER% shoots their load onto your stomach",
-		"%USER% covers your navel in cum"
+		"%CUMMING% cums all over your belly",
+		"%CUMMING% shoots their load onto your stomach",
+		"%CUMMING% covers your navel in cum"
 	))
 	message = list(
 		"rubs their cock against %TARGET%'s belly",

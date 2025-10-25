@@ -107,9 +107,9 @@
 	usage = INTERACTION_SELF
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums all over their own breasts",
-		"shoots their load onto their tits",
-		"covers their breasts in cum"
+		"%CUMMING% cums all over their own breasts",
+		"%CUMMING% shoots their load onto their tits",
+		"%CUMMING% covers their breasts in cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
 		"You cum all over your own breasts",

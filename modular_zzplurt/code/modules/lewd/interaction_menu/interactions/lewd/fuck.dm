@@ -79,25 +79,25 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"cums all over %TARGET%'s foot.",
-			"shoots their load on %TARGET%'s sole.",
-			"covers %TARGET%'s toes in cum."
+			"%CUMMING% cums all over %CAME_IN%'s foot.",
+			"%CUMMING% shoots their load on %CAME_IN%'s sole.",
+			"%CUMMING% covers %CAME_IN%'s toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"you cum all over %TARGET%'s foot.",
-			"you shoot your load on %TARGET%'s sole.",
-			"you cover %TARGET%'s toes in cum."
+			"you cum all over %CAME_IN%'s foot.",
+			"you shoot your load on %CAME_IN%'s sole.",
+			"you cover %CAME_IN%'s toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"%USER% cums all over your foot.",
-			"%USER% shoots their load on your sole.",
-			"%USER% covers your toes in cum."
+			"%CUMMING% cums all over your foot.",
+			"%CUMMING% shoots their load on your sole.",
+			"%CUMMING% covers your toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
@@ -125,25 +125,25 @@
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_FEET)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"cums all over %TARGET%'s feet.",
-			"shoots their load on %TARGET%'s soles.",
-			"covers %TARGET%'s toes in cum."
+			"%CUMMING% cums all over %CAME_IN%'s feet.",
+			"%CUMMING% shoots their load on %CAME_IN%'s soles.",
+			"%CUMMING% covers %CAME_IN%'s toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"you cum all over %TARGET%'s feet.",
-			"you shoot your load on %TARGET%'s soles.",
-			"you cover %TARGET%'s toes in cum."
+			"you cum all over %CAME_IN%'s feet.",
+			"you shoot your load on %CAME_IN%'s soles.",
+			"you cover %CAME_IN%'s toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"%USER% cums all over your feet.",
-			"%USER% shoots their load on your soles.",
-			"%USER% covers your toes in cum."
+			"%CUMMING% cums all over your feet.",
+			"%CUMMING% shoots their load on your soles.",
+			"%CUMMING% covers your toes in cum."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
@@ -163,25 +163,25 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"squirts all over %TARGET%'s foot.",
-			"orgasms on %TARGET%'s sole.",
-			"coats %TARGET%'s toes with their juices."
+			"%CUMMING% squirts all over %CAME_IN%'s foot.",
+			"%CUMMING% orgasms on %CAME_IN%'s sole.",
+			"%CUMMING% coats %CAME_IN%'s toes with their juices."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"you squirt all over %TARGET%'s foot.",
-			"you orgasm on %TARGET%'s sole.",
-			"you coat %TARGET%'s toes with your juices."
+			"you squirt all over %CAME_IN%'s foot.",
+			"you orgasm on %CAME_IN%'s sole.",
+			"you coat %CAME_IN%'s toes with your juices."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"%USER% squirts all over your foot.",
-			"%USER% orgasms on your sole.",
-			"%USER% coats your toes with their juices."
+			"%CUMMING% squirts all over your foot.",
+			"%CUMMING% orgasms on your sole.",
+			"%CUMMING% coats your toes with their juices."
 		),
 		CLIMAX_POSITION_TARGET = list()
 	)

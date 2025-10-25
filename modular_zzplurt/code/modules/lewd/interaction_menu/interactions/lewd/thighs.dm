@@ -55,19 +55,19 @@
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums all over %TARGET%'s thighs",
-		"shoots their load onto %TARGET%'s legs",
-		"covers %TARGET%'s thighs in cum"
+		"%CUMMING% cums all over %CAME_IN%'s thighs",
+		"%CUMMING% shoots their load onto %CAME_IN%'s legs",
+		"%CUMMING% covers %CAME_IN%'s thighs in cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"You cum all over %TARGET%'s thighs",
-		"You shoot your load onto %TARGET%'s legs",
-		"You cover %TARGET%'s thighs in cum"
+		"You cum all over %CAME_IN%'s thighs",
+		"You shoot your load onto %CAME_IN%'s legs",
+		"You cover %CAME_IN%'s thighs in cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"%USER% cums all over your thighs",
-		"%USER% shoots their load onto your legs",
-		"%USER% covers your thighs in cum"
+		"%CUMMING% cums all over your thighs",
+		"%CUMMING% shoots their load onto your legs",
+		"%CUMMING% covers your thighs in cum"
 	))
 	message = list(
 		"fucks %TARGET%'s thighs",
@@ -104,19 +104,19 @@
 	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"cums all over %USER%'s thighs",
-		"shoots their load onto %USER%'s legs",
-		"covers %USER%'s thighs in cum"
+		"%CUMMING% cums all over %CAME_IN%'s thighs",
+		"%CUMMING% shoots their load onto %CAME_IN%'s legs",
+		"%CUMMING% covers %CAME_IN%'s thighs in cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"%TARGET% cums all over your thighs",
-		"%TARGET% shoots their load onto your legs",
-		"%TARGET% covers your thighs in cum"
+		"%CUMMING% cums all over your thighs",
+		"%CUMMING% shoots their load onto your legs",
+		"%CUMMING% covers your thighs in cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"You cum all over %USER%'s thighs",
-		"You shoot your load onto %USER%'s legs",
-		"You cover %USER%'s thighs in cum"
+		"You cum all over %CAME_IN%'s thighs",
+		"You shoot your load onto %CAME_IN%'s legs",
+		"You cover %CAME_IN%'s thighs in cum"
 	))
 	message = list(
 		"squeezes %TARGET%'s cock between their thighs",

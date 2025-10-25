@@ -81,7 +81,7 @@
 		"squeezes and pulls %TARGET%'s cock with their tail, as if enjoying the pain they cause.",
 		"sharply grips and twists %TARGET%'s cock, acting without mercy and holding with force."
 	)
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("covers %USER%'s tail with cum."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with cum."))
 
 /datum/interaction/lewd/tail/vagina
 	name = "Tail. Penetrate Pussy"
@@ -107,7 +107,7 @@
 	)
 	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
 						'modular_zzplurt/sound/interactions/champ2.ogg')
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("covers %USER%'s tail with juices."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with juices."))
 
 /datum/interaction/lewd/tail/vagina_rub
 	name = "Tail. Rub Pussy"
@@ -133,7 +133,7 @@
 	)
 	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
 						'modular_zzplurt/sound/interactions/champ2.ogg')
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("covers %USER%'s tail with juices."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with juices."))
 
 /datum/interaction/lewd/tail/ass
 	name = "Tail. Penetrate Ass"
@@ -157,7 +157,7 @@
 	sound_possible = list('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg')
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("tightly grips %USER%'s tail."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% tightly grips %CAME_IN%'s tail."))
 
 /datum/interaction/lewd/tail/ass_rub
 	name = "Tail. Slide Between Cheeks"
@@ -181,7 +181,7 @@
 	sound_possible = list('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg')
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("tightly grips %USER%'s tail."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% tightly grips %CAME_IN%'s tail."))
 
 /datum/interaction/lewd/slap/tail
 	name = "Tail. Spank Ass"
@@ -221,7 +221,7 @@
 		"mercilessly rams their tail into %TARGET%'s urethra, not reducing pressure for a second.",
 		"brutally violates %TARGET%'s urethra with their tail, stretching it from inside."
 	)
-	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("tightly grips %USER%'s tail, covering it with cum."))
+	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% tightly grips %CAME_IN%'s tail, covering it with cum."))
 
 /datum/interaction/lewd/tail/breast
 	name = "Tail. Slide Between Breasts"

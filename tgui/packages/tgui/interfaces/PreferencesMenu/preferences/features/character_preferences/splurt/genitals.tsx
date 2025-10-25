@@ -162,3 +162,9 @@ export const cumflates_partners_pref: FeatureToggle = {
   description: 'Your character cumflates partners.',
   component: CheckboxInput,
 };
+
+export const knots_partners_pref: FeatureToggle = {
+  name: 'knots Partners',
+  description: 'Your character knots partners.',
+  component: CheckboxInput,
+};

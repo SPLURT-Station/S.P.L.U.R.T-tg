@@ -147,6 +147,9 @@
 	var/girth = 9
 	var/sheath = SHEATH_NONE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/penis
+	var/knotted = FALSE
+	var/override_string_knot = "knot"
+	var/override_string_tie = "tie"
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
@@ -267,6 +270,9 @@
 		sheath = DNA.features["penis_sheath"]
 	if(DNA.features["penis_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	knotted = snake.knotted
+	override_string_knot = snake.override_string_knot
+	override_string_tie = snake.override_string_tie
 
 /datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_PENIS]
