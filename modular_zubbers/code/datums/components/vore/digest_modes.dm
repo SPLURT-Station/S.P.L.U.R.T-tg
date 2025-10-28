@@ -195,3 +195,49 @@ GLOBAL_DATUM_INIT(vore_cryopod, /obj/machinery/cryopod/quiet/vore, new /obj/mach
 		if(living_parent.nutrition > ABSORB_NUTRITION_BARRIER)
 			living_parent.adjust_nutrition(-ABSORB_NUTRITION_BARRIER)
 			vore_belly.unabsorb(L)
+
+/datum/digest_mode/drain
+	name = DIGEST_MODE_DRAIN
+	gurgle_noises = TRUE
+
+/datum/digest_mode/drain/handle_belly(obj/vore_belly/vore_belly, seconds_per_tick)
+	var/mob/living/living_parent = vore_belly.owner.parent
+
+	for(var/mob/living/L in vore_belly)
+		if(!L.vore_can_digest())
+			continue
+		// Don't drain from dead prey
+		if(L.stat == DEAD)
+			continue
+		// Drain nutrition without dealing damage
+		var/nutrition_drain = NUTRITION_PER_DAMAGE * 2 * seconds_per_tick
+		// Only drain if prey has nutrition to give
+		if(L.nutrition > ABSORB_NUTRITION_BARRIER)
+			L.adjust_nutrition(-nutrition_drain)
+			living_parent.adjust_nutrition(nutrition_drain)
+
+/datum/digest_mode/heal
+	name = DIGEST_MODE_HEAL
+	gurgle_noises = FALSE
+
+/datum/digest_mode/heal/handle_belly(obj/vore_belly/vore_belly, seconds_per_tick)
+	var/mob/living/living_parent = vore_belly.owner.parent
+
+	for(var/mob/living/L in vore_belly)
+		// Don't heal dead prey
+		if(L.stat == DEAD)
+			continue
+		// Calculate healing amount (scales with pred's nutrition)
+		var/heal_amount = 0.5 * seconds_per_tick
+		var/nutrition_cost = NUTRITION_PER_DAMAGE * heal_amount
+
+		// Only heal if pred has nutrition to spare
+		if(living_parent.nutrition > ABSORB_NUTRITION_BARRIER && (L.getBruteLoss() > 0 || L.getFireLoss() > 0))
+			// Heal brute damage
+			if(L.getBruteLoss() > 0)
+				L.adjustBruteLoss(-heal_amount)
+			// Heal burn damage
+			if(L.getFireLoss() > 0)
+				L.adjustFireLoss(-heal_amount)
+			// Cost nutrition from pred
+			living_parent.adjust_nutrition(-nutrition_cost)
