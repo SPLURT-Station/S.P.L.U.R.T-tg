@@ -12,7 +12,7 @@
 #ifdef BODY_SIZE_MIN_OVERRIDE
 	#define BODY_SIZE_MIN BODY_SIZE_MIN_OVERRIDE
 #else
-	#define BODY_SIZE_MIN 0.1
+	#define BODY_SIZE_MIN 0.5
 #endif
 
 //genitals
