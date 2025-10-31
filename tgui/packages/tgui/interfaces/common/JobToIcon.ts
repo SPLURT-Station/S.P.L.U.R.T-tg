@@ -10,7 +10,6 @@ const BASEICONS = {
   Bartender: 'cocktail',
   'Bit Avatar': 'code',
   Bitrunner: 'gamepad',
-  Blacksmith: 'hammer', // SPLURT EDIT - Added an icon to Blacksmith
   Botanist: 'seedling',
   Blacksmith: 'hammer', // BUBBER EDIT
   'Bridge Assistant': 'building-shield',
