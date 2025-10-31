@@ -128,6 +128,12 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/powered/seedvault)
+"cl" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "atmos_end_big_lad"
+	},
+/turf/closed/mineral/volcanic/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "co" = (
 /obj/effect/turf_decal/shuttle/exploration/typhon,
 /obj/structure/fluff{
@@ -710,7 +716,9 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 10
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "seedvault_airlock"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "mY" = (
@@ -922,7 +930,9 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 5
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "seedvault_airlock"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "qA" = (
@@ -2262,7 +2272,9 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "seedvault_airlock"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "PJ" = (
@@ -2542,7 +2554,9 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 9
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "seedvault_airlock"
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "Vp" = (
@@ -2887,7 +2901,7 @@ in
 Hx
 rb
 Sa
-HR
+cl
 Sa
 Sa
 Sa
