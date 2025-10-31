@@ -202,7 +202,7 @@
 	var/obj/item/card/id/this_id = id
 	var/mob/living/carbon/human/this_humanoid = user
 	this_id.forceMove(drop_location())
-	if(this_humanoid.CanReach(this_id))
+	if(this_id.IsReachableBy(this_humanoid))
 		this_humanoid.put_in_hands(this_id)
 	inserted_id = null
 	update_appearance()

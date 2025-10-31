@@ -210,7 +210,7 @@
 /datum/loadout_item/uniform/miscellaneous/bathrobe
 	name = "Bathrobe"
 	item_path = /obj/item/clothing/under/costume/skyrat/bathrobe
-	can_be_greyscale = TRUE
+	loadout_flags = /datum/loadout_item/uniform/miscellaneous::loadout_flags | LOADOUT_FLAG_GREYSCALING_ALLOWED
 
 /datum/loadout_item/uniform/streetwear
 	name = "Casual Streetwear"

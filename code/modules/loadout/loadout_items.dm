@@ -41,7 +41,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	/// Defaults to parent category's title if unset
 	var/group = null
 	/// Loadout flags, see LOADOUT_FLAG_* defines
-	var/loadout_flags = LOADOUT_FLAG_ALLOW_NAMING // BUBBER EDIT CHANGE - Original: var/loadout_flags = NONE
+	var/loadout_flags = LOADOUT_FLAG_ALLOW_NAMING | LOADOUT_FLAG_ALLOW_SIMPLE_COLOR // BUBBER EDIT CHANGE - Original: var/loadout_flags = NONE // SPLURT ADDITION - Added LOADOUT_FLAG_ALLOW_SIMPLE_COLOR
 	/// The actual item path of the loadout item.
 	var/obj/item/item_path
 	/// Icon file (DMI) for the UI to use for preview icons.
