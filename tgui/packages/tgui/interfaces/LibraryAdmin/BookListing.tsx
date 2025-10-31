@@ -3,7 +3,7 @@ import { Box, NoticeBox, Stack } from 'tgui-core/components';
 import { useBackend } from '../../backend';
 import { Window } from '../../layouts';
 import { PageSelect } from '../LibraryConsole/components/PageSelect';
-import { SearchAndDisplay } from './Search'; // SPLURT EDIT: FIX ADMIN CONSOLE
+import { SearchAndDisplay } from './Search';
 import type { LibraryAdminData } from './types';
 
 export function BookListing(props) {
