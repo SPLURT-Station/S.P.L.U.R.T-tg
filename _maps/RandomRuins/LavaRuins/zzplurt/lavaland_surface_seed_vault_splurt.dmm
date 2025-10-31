@@ -917,7 +917,6 @@
 /turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "qw" = (
-/obj/machinery/door/airlock/external/ruin,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden,
@@ -927,6 +926,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "seedvault-airlock"
 	},
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "qA" = (
@@ -2318,6 +2318,12 @@
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/catwalk_floor/wood_smooth,
 /area/ruin/powered/seedvault)
+"QG" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "atmos_end_big_lad"
+	},
+/turf/closed/mineral/volcanic/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "QS" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -2396,12 +2402,6 @@
 /obj/structure/disposaloutlet,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/powered/seedvault)
-"RR" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "atmos_end_big_lad"
-	},
-/turf/closed/mineral/volcanic/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "RX" = (
 /obj/structure/flora/bush/generic/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -2548,7 +2548,6 @@
 /turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "Vn" = (
-/obj/machinery/door/airlock/external/ruin,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
@@ -2557,6 +2556,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "seedvault-airlock"
 	},
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "Vp" = (
@@ -2901,7 +2901,7 @@ in
 Hx
 rb
 Sa
-RR
+QG
 Sa
 Sa
 Sa
