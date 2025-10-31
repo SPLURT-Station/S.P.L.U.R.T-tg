@@ -6,7 +6,7 @@
 
 /datum/component/wall_mounted/Initialize(target_wall, on_drop_callback)
 	. = ..()
-	if(!isobj(parent) || !iswallturf(target_wall))
+	if(!isobj(parent) || !isclosedturf(target_wall)) // SPLURT EDIT - was `!iswallturf(target_wall)`, required for Hilbert's Hotel room saving workaround
 		return COMPONENT_INCOMPATIBLE
 	hanging_wall_turf = target_wall
 
