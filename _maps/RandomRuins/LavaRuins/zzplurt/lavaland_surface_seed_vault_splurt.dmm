@@ -51,7 +51,8 @@
 	dir = 8
 	},
 /obj/machinery/vending/dorms{
-	shut_up = 1
+	shut_up = 1;
+	pixel_x = 2
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
@@ -195,7 +196,11 @@
 /area/ruin/powered/seedvault)
 "cQ" = (
 /obj/structure/flora/bush/flowers_pp/style_random,
-/obj/structure/sink/kitchen/directional/east,
+/obj/structure/water_source{
+	dir = 4;
+	pixel_x = -14;
+	name = "Sink"
+	},
 /turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "cV" = (
@@ -599,8 +604,11 @@
 /turf/open/floor/wood/tile,
 /area/ruin/powered/seedvault)
 "kR" = (
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/structure/sink/kitchen/directional/west,
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/water_source{
+	dir = 8;
+	pixel_x = 14
+	},
 /turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "kX" = (
@@ -692,13 +700,11 @@
 /area/ruin/powered/seedvault)
 "mJ" = (
 /obj/machinery/door/airlock/vault,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 10
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "mY" = (
@@ -904,13 +910,13 @@
 /area/ruin/powered/seedvault)
 "qw" = (
 /obj/machinery/door/airlock/external/ruin,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 5
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "qA" = (
@@ -1249,8 +1255,18 @@
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "vU" = (
-/obj/structure/reagent_dispensers/watertank/high,
-/turf/open/floor/catwalk_floor/wood_smooth,
+/obj/machinery/vending/wardrobe/hydro_wardrobe/ghost_cafe,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/obj/structure/fluff{
+	icon = 'modular_zubbers/icons/maps/biodome/holo_leaves.dmi';
+	icon_state = "holo_leaves";
+	desc = "A hanging vine.";
+	name = "hanging vine";
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "wg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1672,7 +1688,11 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
-/obj/structure/decorative/shelf,
+/obj/structure/rack/shelf{
+	icon_state = "empty_shelf_1";
+	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	desc = "A sturdy wooden shelf to store a variety of items on."
+	},
 /turf/open/floor/stone,
 /area/ruin/powered/seedvault)
 "EU" = (
@@ -1818,13 +1838,13 @@
 /area/ruin/powered/seedvault)
 "IL" = (
 /obj/structure/flora/bush/ferny/style_3,
-/obj/structure/flora/biolumi/lamp/weaklight,
 /obj/structure/closet/secure_closet/wall{
 	pixel_y = -31
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/structure/flora/biolumi/lamp,
 /turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "IY" = (
@@ -1882,6 +1902,8 @@
 	desc = "A hanging vine.";
 	name = "hanging vine"
 	},
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "JE" = (
@@ -2230,13 +2252,11 @@
 /area/ruin/powered/seedvault)
 "PF" = (
 /obj/machinery/door/airlock/vault,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "PJ" = (
@@ -2511,12 +2531,12 @@
 /area/ruin/powered/seedvault)
 "Vn" = (
 /obj/machinery/door/airlock/external/ruin,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 9
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
 "Vp" = (
@@ -3417,8 +3437,8 @@ HR
 qX
 HR
 Sa
-vU
-vU
+EU
+EU
 iK
 nS
 gx
@@ -3446,8 +3466,8 @@ qX
 HR
 Sa
 Sa
-Sa
 dv
+vU
 OG
 hR
 Sa
@@ -3474,7 +3494,7 @@ HR
 HR
 HR
 HR
-HR
+Sa
 Sa
 Sa
 Sa
