@@ -1,5 +1,6 @@
 #define ICON_PATH './modular_zzplurt/icons/mob/robot/robots.dmi'
 #define ICON_PATH_WIDE './modular_zzplurt/icons/mob/robot/widerobot.dmi'
+#define ICON_PATH_TALL './modular_zzplurt/icons/mob/robot/tallrobot.dmi'
 
 /obj/item/robot_model/standard/New()
 	borg_skins += list(
@@ -10,7 +11,8 @@
 
 /obj/item/robot_model/service/New()
 	borg_skins += list(
-		"Assaultron" = list(SKIN_ICON_STATE = "assaultron_service", SKIN_ICON = ICON_PATH)
+		"Assaultron" = list(SKIN_ICON_STATE = "assaultron_service", SKIN_ICON = ICON_PATH),
+		"Meka (Dapper)" = list(SKIN_ICON_STATE = "mekaserve_alt2", SKIN_LIGHT_KEY = "mekaserve_alt2", SKIN_ICON = ICON_PATH_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), TALL_HAT_OFFSET),
 	)
 	. = ..()
 
