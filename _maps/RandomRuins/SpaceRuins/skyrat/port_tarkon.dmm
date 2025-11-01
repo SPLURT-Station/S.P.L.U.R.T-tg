@@ -2389,6 +2389,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "ia" = (
@@ -4052,6 +4054,17 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/storage)
+"om" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/junction{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/porthall)
 "oo" = (
 /obj/structure/falsewall,
 /turf/open/floor/plating,
@@ -4798,10 +4811,10 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/scienceaway)
 "qV" = (
-/obj/machinery/computer,
 /obj/machinery/light/directional/west{
 	dir = 1
 	},
+/obj/structure/frame/computer,
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "qW" = (
@@ -6734,6 +6747,12 @@
 /obj/structure/alien/weeds/node,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/scienceaway)
+"xK" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/kitchen)
 "xL" = (
 /obj/machinery/door/firedoor/solid,
 /obj/structure/disposalpipe/segment{
@@ -7936,6 +7955,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/afthall)
 "BJ" = (
@@ -8066,6 +8087,14 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
+"Cg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/centerhall)
 "Cj" = (
 /obj/structure/chair/office,
 /obj/effect/turf_decal/tile/blue/half{
@@ -8382,6 +8411,13 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/porthall)
+"Dx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/port_tarkon/trauma)
 "Dy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8627,6 +8663,11 @@
 /obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
+"Eo" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/secoff)
 "Ep" = (
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 8
@@ -8634,6 +8675,11 @@
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/observ)
+"Eq" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/mining)
 "Er" = (
 /obj/machinery/portable_atmospherics/scrubber,
 /turf/open/floor/plating,
@@ -9764,6 +9810,12 @@
 /obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/aichamber)
+"IA" = (
+/obj/machinery/holopad/secure,
+/obj/structure/alien/weeds/node,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/comms)
 "IC" = (
 /obj/machinery/piratepad/syndiepad/tarkon,
 /obj/effect/turf_decal/tile/brown/half{
@@ -12085,6 +12137,15 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/trauma)
+"QL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/port_tarkon/developement)
 "QM" = (
 /obj/structure/disposalpipe/junction/flip,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -12216,6 +12277,11 @@
 "Ri" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/port_tarkon/dorms)
+"Rj" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/cargo)
 "Rk" = (
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 4
@@ -12908,6 +12974,8 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
 	},
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Tv" = (
@@ -12973,6 +13041,11 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/scienceaway)
+"TG" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/wood/large,
+/area/ruin/space/has_grav/port_tarkon/lounge)
 "TH" = (
 /obj/effect/turf_decal/tile/purple/half,
 /obj/machinery/mech_bay_recharge_port,
@@ -18273,7 +18346,7 @@ So
 No
 LM
 ee
-ee
+QL
 Yz
 kA
 Mo
@@ -20932,7 +21005,7 @@ jX
 vb
 jC
 Mt
-gI
+Dx
 ud
 fg
 Mt
@@ -22296,7 +22369,7 @@ UX
 xh
 Fe
 qK
-Ak
+om
 Ji
 BU
 aP
@@ -23777,7 +23850,7 @@ fk
 yn
 yn
 Zi
-yn
+Eo
 OF
 yn
 bi
@@ -24492,7 +24565,7 @@ jV
 Fy
 fe
 tP
-fe
+TG
 JQ
 fe
 Fy
@@ -24876,7 +24949,7 @@ Vv
 as
 ga
 SJ
-Vv
+Rj
 Vv
 Vv
 Vv
@@ -25333,7 +25406,7 @@ Sa
 Sa
 Sa
 pn
-CK
+Cg
 WY
 Qi
 TZ
@@ -25478,7 +25551,7 @@ CZ
 sq
 cu
 fy
-bc
+Eq
 Hv
 wD
 bc
@@ -25712,7 +25785,7 @@ JW
 oy
 Gc
 RS
-Gc
+xK
 Gc
 nR
 bC
@@ -25916,7 +25989,7 @@ XG
 XG
 Jq
 fY
-oB
+IA
 Qr
 Di
 FM

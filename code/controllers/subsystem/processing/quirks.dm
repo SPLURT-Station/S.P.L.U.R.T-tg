@@ -67,8 +67,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//list(/datum/quirk/jiggly_ass,/datum/quirk/buns_of_steel),
 	list(/datum/quirk/jiggly_ass,/datum/quirk/personalspace),
 
-	// Both quirks add a cosmetic glow effect.
-	list(/datum/quirk/rad_fiend, /datum/quirk/cosglow),
+	// SPLURT EDIT: Glow seperated from rad fiend - Rad fiend made incompatible with budget version
+	list(/datum/quirk/rad_fiend, /datum/quirk/isotropic_stability),
 
 	// You have an irremovable suit.
 	list(/datum/quirk/nudist,/datum/quirk/equipping/entombed),

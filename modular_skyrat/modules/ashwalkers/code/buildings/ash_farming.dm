@@ -288,6 +288,8 @@
 		else
 			seed = new planted_seed.type(null)
 
+		seed.genes = planted_seed.genes.Copy() // SPLURT EDIT - fixes botany genes
+
 		//we're ASHIE GAMING, we do not concern ourselves with such puny concepts as purity
 		seed.endurance = 100
 		seed.lifespan = 100

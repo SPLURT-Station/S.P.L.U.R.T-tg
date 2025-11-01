@@ -7,7 +7,7 @@
 /datum/loadout_item/gloves/lace_gloves
 	name = "Lace Gloves"
 	item_path = /obj/item/clothing/gloves/evening/lace
-	donator_only = TRUE
+	//donator_only = TRUE //Splurt Edit
 
 /datum/loadout_item/gloves/rubber_gloves
 	name = "Long Rubber Gloves"

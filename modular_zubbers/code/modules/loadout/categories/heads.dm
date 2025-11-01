@@ -155,7 +155,7 @@
 /datum/loadout_item/head/lace_bow
 	name = "Hair Bow"
 	item_path = /obj/item/clothing/head/costume/hairbow
-	donator_only = TRUE
+	//donator_only = TRUE //Splurt Edit
 
 /datum/loadout_item/head/tactical_maid_headband //Donor item for skyefree
 	name = "Tactical Maid Headband"
