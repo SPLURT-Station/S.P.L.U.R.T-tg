@@ -577,10 +577,13 @@
 	icon = 'modular_zzplurt/icons/obj/medieval/shadekindorm.dmi';
 	icon_state = "hub_portal"
 	},
-/turf/open/indestructible/hoteltile{
+/turf/closed/indestructible/hoteldoor{
+	name = "Portal To Outside";
 	icon_state = "black";
-	desc = null;
-	name = "void"
+	icon = 'icons/turf/floors.dmi';
+	density = 0;
+	blocks_air = 0;
+	init_air = 1
 	},
 /area/misc/hilbertshotel)
 "cR" = (
@@ -1509,7 +1512,7 @@
 	},
 /area/misc/hilbertshotel)
 "jQ" = (
-/turf/open/space/bluespace,
+/turf/closed/indestructible/binary,
 /area/misc/hilbertshotel)
 "jS" = (
 /obj/effect/light_emitter/interlink{
@@ -1691,10 +1694,6 @@
 	},
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
-	},
-/obj/machinery/light_switch/directional/north{
-	pixel_x = 32;
-	pixel_y = 30
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
