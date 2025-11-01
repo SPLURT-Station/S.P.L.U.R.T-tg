@@ -134,7 +134,7 @@
 
 /datum/uplink_item/dangerous/echainsaw
 	name = "Prototype Energy Chainsaw"
-	desc = "An alternative to the classic double-bladed energy sword, the energy chainsaw does more damage than its portable counterpart (particularly against built structures) at the expense of being unwieldly, highly conspicuous and loud. Attacks cannot be blocked with the chainsaw, nor can it reflect energy projectiles."
+	desc = "An alternative to the classic double-bladed energy sword, the energy chainsaw does more damage than its portable counterpart with each consequent attack (particularly against built structures) at the expense of being unwieldly, highly conspicuous and loud. Attacks cannot be blocked with the chainsaw, nor can it reflect energy projectiles."
 	progression_minimum = 30 MINUTES
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	item = /obj/item/energychainsaw
