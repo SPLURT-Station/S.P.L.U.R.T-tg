@@ -6,6 +6,8 @@
 
 /obj/vv_do_topic(list/href_list)
 	. = ..()
+	if(!.)
+		return
 	if(href_list[VV_HK_OMe])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/object_me, src)
 
