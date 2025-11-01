@@ -1,5 +1,7 @@
 // Edit to update description
 /datum/quirk/bad_touch
+	medical_record_text = "Patient demonstrates a dislike for physical affection."
+	icon = FA_ICON_SAD_CRY
 	desc = "You don't like physical affection, and have a slight chance of retaliating against others who attempt it."
 	value = 0
 
