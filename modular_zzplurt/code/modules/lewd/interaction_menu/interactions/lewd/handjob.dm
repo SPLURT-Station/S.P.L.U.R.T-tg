@@ -13,23 +13,23 @@
 	)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"cums all over %USER%'s hand.",
-			"shoots their load onto %USER%'s palm.",
-			"covers %USER%'s fingers in cum."
+			"%CUMMING% cums all over %CAME_IN%'s hand.",
+			"%CUMMING% shoots their load onto %CAME_IN%'s palm.",
+			"%CUMMING% covers %CAME_IN%'s fingers in cum."
 		)
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"you cum all over %USER%'s hand.",
-			"you shoot your load onto %USER%'s palm.",
-			"you cover %USER%'s fingers in cum."
+			"you cum all over %CAME_IN%'s hand.",
+			"you shoot your load onto %CAME_IN%'s palm.",
+			"you cover %CAME_IN%'s fingers in cum."
 		)
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"%TARGET% cums all over your hand.",
-			"%TARGET% shoots their load onto your palm.",
-			"%TARGET% covers your fingers in cum."
+			"%CUMMING% cums all over your hand.",
+			"%CUMMING% shoots their load onto your palm.",
+			"%CUMMING% covers your fingers in cum."
 		)
 	)
 	sound_possible = list(

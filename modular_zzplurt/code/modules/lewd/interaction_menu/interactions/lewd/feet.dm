@@ -84,23 +84,23 @@
 	)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"cums all over %USER%'s %FEET%.",
-			"covers %USER%'s %FEET% in cum.",
-			"shoots their load onto %USER%'s %FEET%."
+			"%CUMMING% cums all over %CAME_IN%'s %FEET%.",
+			"%CUMMING% covers %CAME_IN%'s %FEET% in cum.",
+			"%CUMMING% shoots their load onto %CAME_IN%'s %FEET%."
 		)
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"you cum all over %USER%'s %FEET%.",
-			"you cover %USER%'s %FEET% in cum.",
-			"you shoot your load onto %USER%'s %FEET%."
+			"you cum all over %CAME_IN%'s %FEET%.",
+			"you cover %CAME_IN%'s %FEET% in cum.",
+			"you shoot your load onto %CAME_IN%'s %FEET%."
 		)
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"%TARGET% cums all over your %FEET%.",
-			"%TARGET% covers your %FEET% in cum.",
-			"%TARGET% shoots their load onto your %FEET%."
+			"%CUMMING% cums all over your %FEET%.",
+			"%CUMMING% covers your %FEET% in cum.",
+			"%CUMMING% shoots their load onto your %FEET%."
 		)
 	)
 	sound_possible = list(
@@ -195,23 +195,23 @@
 	)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"squirts all over %USER%'s %FEET%.",
-			"orgasms on %USER%'s %FEET%.",
-			"coats %USER%'s %FEET% with their juices."
+			"%CUMMING% squirts all over %CAME_IN%'s %FEET%.",
+			"%CUMMING% orgasms on %CAME_IN%'s %FEET%.",
+			"%CUMMING% coats %CAME_IN%'s %FEET% with their juices."
 		)
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"you squirt all over %USER%'s %FEET%.",
-			"you orgasm on %USER%'s %FEET%.",
-			"you coat %USER%'s %FEET% with your juices."
+			"you squirt all over %CAME_IN%'s %FEET%.",
+			"you orgasm on %CAME_IN%'s %FEET%.",
+			"you coat %CAME_IN%'s %FEET% with your juices."
 		)
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_TARGET = list(
-			"%TARGET% squirts all over your %FEET%.",
-			"%TARGET% orgasms on your %FEET%.",
-			"%TARGET% coats your %FEET% with their juices."
+			"%CUMMING% squirts all over your %FEET%.",
+			"%CUMMING% orgasms on your %FEET%.",
+			"%CUMMING% coats your %FEET% with their juices."
 		)
 	)
 	sound_possible = list(

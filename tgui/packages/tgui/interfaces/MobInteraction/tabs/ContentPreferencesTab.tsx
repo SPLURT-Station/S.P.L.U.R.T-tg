@@ -31,6 +31,8 @@ type ContentPrefsInfo = {
   custom_genital_fluids_pref: boolean;
   cumflation_pref: boolean;
   cumflates_partners_pref: boolean;
+  knotting_pref: boolean;
+  knots_partners_pref: boolean;
   // Vore prefs
   vore_enable_pref: boolean;
   vore_overlays: boolean;
@@ -74,6 +76,8 @@ export const ContentPreferencesTab = ({
     custom_genital_fluids_pref,
     cumflation_pref,
     cumflates_partners_pref,
+    knotting_pref,
+    knots_partners_pref,
     // Vore prefs
     vore_enable_pref,
     vore_overlays,
@@ -229,6 +233,18 @@ export const ContentPreferencesTab = ({
             cumflates_partners_pref,
             'Cumflates Partners',
             'Your character cumflates partners.',
+          )}
+          {renderToggle(
+            'knotting_pref',
+            knotting_pref,
+            'Knotting',
+            'Allow interations to knot.',
+          )}
+          {renderToggle(
+            'knots_partners_pref',
+            knots_partners_pref,
+            'knots Partners',
+            'Your character knots partners.',
           )}
 
           {/* Vore Preferences */}
