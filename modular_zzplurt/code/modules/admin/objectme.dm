@@ -24,3 +24,5 @@ ADMIN_VERB_AND_CONTEXT_MENU(object_me, R_FUN, "OMe", ADMIN_VERB_NO_DESCRIPTION, 
 	log_admin("[key_name(user)] made [speaker] at [AREACOORD(speaker)] emote \"[emote]\"")
 	message_admins(span_adminnotice("[key_name_admin(user)] made [speaker] at [AREACOORD(speaker)] emote \"[emote]\""))
 	BLACKBOX_LOG_ADMIN_VERB("Object Emote")
+
+#undef VV_HK_OMe
