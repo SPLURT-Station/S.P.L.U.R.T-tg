@@ -53,3 +53,10 @@ export const cumflation_pref: FeatureToggle = {
   description: 'Allow your genitals to get cumflated.',
   component: CheckboxInput,
 };
+
+export const stomp_on_pref: FeatureToggle = {
+  name: 'Stomping People',
+  category: 'ERP',
+  description: 'Your character stomps partners.',
+  component: CheckboxInput,
+};

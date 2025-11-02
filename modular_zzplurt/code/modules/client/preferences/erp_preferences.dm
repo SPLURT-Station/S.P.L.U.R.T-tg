@@ -157,3 +157,6 @@
 
 /datum/preference/toggle/erp/cumflation
 	savefile_key = "cumflation_pref"
+
+/datum/preference/toggle/erp/stomping
+	savefile_key = "stomp_on_pref"
