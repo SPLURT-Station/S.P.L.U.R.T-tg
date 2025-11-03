@@ -119,6 +119,8 @@ Speaking of which, daisho are also fun :3
 	var/force_unwielded = 12
 	/// 20 damage is ok. It's the same as shooting a single thermal pistol at a time, when it come to raw DPS difference, this wont cut it.
 	var/two_hand_force = 20
+	var/block_wielded = 40
+	var/block_unwielded = 25
 
 /obj/item/melee/cold_steel/Initialize(mapload)
 	. = ..()
@@ -135,7 +137,10 @@ Speaking of which, daisho are also fun :3
 /obj/item/melee/cold_steel/proc/on_unwield()
 	block_chance = block_unwielded
 
-
+/obj/item/melee/cold_steel/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
+		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+	return ..()
 
 /*
 /obj/item/melee/oscula
