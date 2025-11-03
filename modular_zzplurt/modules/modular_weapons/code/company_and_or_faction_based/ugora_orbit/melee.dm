@@ -87,7 +87,7 @@ Speaking of which, daisho are also fun :3
 			break
 		if(istype(thing, /obj/item/melee/baton/jitte))
 			has_baton = TRUE
-		if(istype(thing, /obj/item/melee/oscula))
+		if(istype(thing, /obj/item/melee/reverbing_blade))
 			has_sword = TRUE
 
 	icon_state = initial(icon_state)
