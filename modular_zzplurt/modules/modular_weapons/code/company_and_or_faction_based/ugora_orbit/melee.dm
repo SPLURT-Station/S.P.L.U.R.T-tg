@@ -36,12 +36,13 @@ Speaking of which, daisho are also fun :3
 	atom_storage.max_slots = 2
 	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY + WEIGHT_CLASS_NORMAL
 	atom_storage.set_holdable(list(
-		/obj/item/melee/oscula,
+// Uncomment when available		/obj/item/melee/oscula,
+		/obj/item/melee/reverbing_blade,
 		/obj/item/melee/baton/jitte,
 		))
 
 /obj/item/storage/belt/secdaisho/full/PopulateContents()
-	new /obj/item/melee/oscula(src)
+	new /obj/item/melee/reverbing_blade(src)
 	new /obj/item/melee/baton/jitte(src)
 	update_appearance()
 
@@ -59,7 +60,7 @@ Speaking of which, daisho are also fun :3
 /obj/item/storage/belt/secdaisho/attack_hand(mob/user, list/modifiers)
 	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BELT) && !(user.get_slot_by_item(src) & ITEM_SLOT_BACK) && !(user.get_slot_by_item(src) & ITEM_SLOT_SUITSTORE))
 		return ..()
-	for(var/obj/item/melee/oscula/yato in contents)
+	for(var/obj/item/melee/reverbing_blade/yato in contents)
 		user.visible_message(span_notice("[user] draws [yato] from [src]."), span_notice("You draw [yato] from [src]."))
 		user.put_in_hands(yato)
 		playsound(user, 'sound/items/sheath.ogg', 50, TRUE)
@@ -105,24 +106,30 @@ Speaking of which, daisho are also fun :3
 		worn_icon_state += next_appendage
 	return ..()
 
-/obj/item/melee/cold_steel
+/obj/item/melee/reverbing_blade
 	name = "reverbing sword"
 	desc = "A long dull blade used by the Ugora militia, they are dull but still quite hefty to get ht by."
-	desc_controls = "This sword attack faster but weaker while unwielded. Use in hand to wield for more damage"
+	desc_controls = "This sword is more effective the weaker your target is"
+
+	icon_state = "secsword0"
+	inhand_icon_state = "secsword0"
+
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword32.dmi'
+	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
+	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
+
 	block_chance = 25
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 12
+	force = 15
 	wound_bonus = 15
 	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
 	/// How much damage to do unwielded, this makes it do less than survival knife
-	var/force_unwielded = 12
-	/// 20 damage is ok. It's the same as shooting a single thermal pistol at a time, when it come to raw DPS difference, this wont cut it.
+	var/force_unwielded = 15
 	var/two_hand_force = 20
 	var/block_wielded = 40
 	var/block_unwielded = 25
 
-/obj/item/melee/cold_steel/Initialize(mapload)
+/obj/item/melee/reverbing_blade/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = 12, \
@@ -131,10 +138,10 @@ Speaking of which, daisho are also fun :3
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)
 
-/obj/item/melee/cold_steel/proc/on_wield()
+/obj/item/melee/reverbing_blade/proc/on_wield()
 	block_chance = block_unwielded
 
-/obj/item/melee/cold_steel/proc/on_unwield()
+/obj/item/melee/reverbing_blade/proc/on_unwield()
 	block_chance = block_unwielded
 
 /obj/item/melee/cold_steel/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -244,7 +251,7 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	wound_bonus = 0 //We want to avoid this being too effective at wounding out of nowhere.
 	exposed_wound_bonus = 20 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 40 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 12 //If you miss or whiff a hit on target, it's slow
+	attack_speed = 12 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
 	. = ..()
@@ -320,9 +327,9 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	inhand_icon_state = "jitte"
 	desc = "A hard plastic jitte to be used in combination with your sword. Not as effective at knocking down target. But easier to swing"
 	desc_controls = "Left click to stun, right click to harm."
-	stamina_damage = 35 //4 hit down. A significant reduction compared to other options
-	cooldown = 0.9 SECONDS //Fast to hit
-	knockdown_time = 0 SECONDS
+	stamina_damage = 30
+	cooldown = 0.6 SECONDS //Fast Attack
+	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	target.set_confusion_if_lower(10 SECONDS)
