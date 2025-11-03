@@ -1,5 +1,5 @@
 /datum/supply_pack/security/armory/secdaisho
-	name = "Oscillating Sword Crate"
+	name = "Reverbing Sword Crate"
 	desc = "A three pack of the Ugora Orbit branded two handed sword and the sheath for them."
 	cost = CARGO_CRATE_VALUE * 20
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
@@ -20,8 +20,8 @@ Speaking of which, daisho are also fun :3
 ===*/
 
 /obj/item/storage/belt/secdaisho
-	name = "security combination sheath"
-	desc = "A modified scabbard intended to hold a sword and compact baton at the same time."
+	name = "security saya
+	desc = "A modified scabbard intended to hold a sword and a specialized baton at the same time."
 	icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi'
 	worn_icon = 'modular_zzplurt/master_files/icons/mob/clothing/job/belt.dmi'
 	icon_state = "secdaisho"
@@ -105,6 +105,39 @@ Speaking of which, daisho are also fun :3
 		worn_icon_state += next_appendage
 	return ..()
 
+/obj/item/melee/cold_steel
+	name = "reverbing sword"
+	desc = "A long dull blade used by the Ugora militia, they are dull but still quite hefty to get ht by."
+	desc_controls = "This sword attack faster but weaker while unwielded. Use in hand to wield for more damage"
+	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword32.dmi'
+	block_chance = 25
+	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	force = 12
+	wound_bonus = 15
+	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
+	/// How much damage to do unwielded, this makes it do less than survival knife
+	var/force_unwielded = 12
+	/// 20 damage is ok. It's the same as shooting a single thermal pistol at a time, when it come to raw DPS difference, this wont cut it.
+	var/two_hand_force = 20
+
+/obj/item/melee/cold_steel/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, \
+		force_unwielded = 12, \
+		force_wielded = 20, \
+		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
+	)
+
+/obj/item/melee/cold_steel/proc/on_wield()
+	block_chance = block_unwielded
+
+/obj/item/melee/cold_steel/proc/on_unwield()
+	block_chance = block_unwielded
+
+
+
+/*
 /obj/item/melee/oscula
 	name = "oscillating sword"
 	desc = "A long dull blade fielded by the Ugora regal guardian. These 'sword' are not sharp due to prohibition agaisnt armament while in vicinity of the empress."
@@ -131,7 +164,6 @@ Speaking of which, daisho are also fun :3
 	///You cant use your other hand so we want to make sure the block chance is there to compensate for it
 	var/block_wielded = 40
 	var/block_unwielded = 25
-	var/active = FALSE
 	/* In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
@@ -187,9 +219,14 @@ Speaking of which, daisho are also fun :3
 	damtype = BURN
 	active = FALSE
 
+Let's pretend this entire section doesn't exist for now while I work on a replacement. We can reactivate it when we're ready. To whom it may concern, yes, it does compile.
+*/
+
+/obj/item/knife
+
 /obj/item/knife/oscu_tanto
-	name = "\improper komuro"
-	desc = "A long thin blade commonly used by Ugoran people as ritual dagger and to finish off dying opponent. Stabbing a <b> proned </b> target will deal more damage"
+	name = "\improper realta"
+	desc = "A long thin blade commonly used by Ugoran warrior caste to finish off vulnerable opponent and in rarer case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
 	icon_state = "tanto"
 	inhand_icon_state = "tantohand"
@@ -197,11 +234,11 @@ Speaking of which, daisho are also fun :3
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
 	worn_icon_state = "knife"
 	force = 10 //This is more effective when the target is laying down
-	w_class = WEIGHT_CLASS_SMALL //It's not exactly big but it's kind of long.
+	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 0 //We want to avoid this being too effective at wounding out of nowhere.
-	exposed_wound_bonus = 18 //It's a slim long knife, prepare yourself.
-	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
+	exposed_wound_bonus = 20 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	armour_penetration = 40 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
 	attack_speed = 12 //If you miss or whiff a hit on target, it's slow
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
@@ -227,7 +264,7 @@ Speaking of which, daisho are also fun :3
 		ritual_worthy = TRUE
 
 	if(ritual_worthy)
-		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough
+		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
 
 	return ..()
 
