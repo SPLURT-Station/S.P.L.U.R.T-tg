@@ -8,17 +8,18 @@
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/projectile.dmi'
 	icon_state = "arrow_energy"
 	damage = 30
-	speed = 1.3
+	speed = 1.6
 	range = 14
 	shrapnel_type = null
 	embed_type = /datum/embedding/energy_arrow
+	wound = 15
 
 /datum/embedding/energy_arrow
-	embed_chance = 35
+	embed_chance = 40
 	fall_chance = 33
-	jostle_chance = 55
+	jostle_chance = 66
 	ignore_throwspeed_threshold = TRUE
 	pain_stam_pct = 1
 	pain_mult = 1
-	jostle_pain_mult = 1.5
-	rip_time = 0.3 SECONDS //Takes no time at all to remove, it's not a physical projectile.
+	jostle_pain_mult = 1
+	rip_time = 0.1 SECONDS //Takes no time at all to remove, it's not a physical projectile.

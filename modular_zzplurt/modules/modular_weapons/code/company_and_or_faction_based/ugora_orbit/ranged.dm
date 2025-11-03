@@ -20,6 +20,7 @@ With help of an aussie catgirl
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/guns48x.dmi'
 
 	shaded_charge = FALSE
+	charge_sections = 1
 
 	icon_state = "yato"
 	inhand_icon_state = "yato"
