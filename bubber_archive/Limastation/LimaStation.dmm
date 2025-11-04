@@ -2418,12 +2418,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
-"baD" = (
-/obj/structure/closet/secure_closet/tac,
-/obj/item/gun/ballistic/shotgun/riot,
-/obj/item/ammo_box/advanced/s12gauge/bean,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/blueshield)
 "baH" = (
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
@@ -11359,6 +11353,12 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"eCF" = (
+/obj/structure/closet/secure_closet/tac,
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/blueshield)
 "eCG" = (
 /obj/machinery/light_switch/directional/east{
 	pixel_x = 22;
@@ -14033,6 +14033,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/science)
+"fxw" = (
+/obj/structure/closet/emcloset/anchored,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron,
+/area/station/hallway/primary/upper)
 "fxR" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=8";
@@ -32016,14 +32024,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"mgj" = (
-/obj/structure/closet/emcloset/anchored,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/effect/landmark/start/hangover/closet,
-/turf/open/floor/iron,
-/area/station/hallway/primary/upper)
 "mgk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/west,
@@ -35230,6 +35230,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
+"nok" = (
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron,
+/area/station/hallway/primary/port)
 "noo" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -42107,17 +42118,6 @@
 /obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
-"pPk" = (
-/obj/structure/closet/emcloset,
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 10
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/landmark/start/hangover/closet,
-/turf/open/floor/iron,
-/area/station/hallway/primary/port)
 "pPu" = (
 /obj/machinery/telecomms/receiver/preset_right,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
@@ -152746,7 +152746,7 @@ xzK
 qSb
 nYG
 xLh
-pPk
+nok
 nvb
 qpi
 sOG
@@ -162249,7 +162249,7 @@ siC
 kDA
 qIo
 qIo
-mgj
+fxw
 owR
 owR
 dcs
@@ -164601,7 +164601,7 @@ bNJ
 dHV
 wgM
 jvc
-baD
+eCF
 dHV
 jdB
 jvc

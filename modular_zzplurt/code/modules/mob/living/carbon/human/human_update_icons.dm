@@ -448,6 +448,70 @@
 	// Update the body parts to ensure everything renders correctly
 	update_body_parts()
 
+/mob/living/carbon/human/update_body(is_creating)
+	update_nails()
+	. = ..()
+
+/mob/living/carbon/human/update_underwear()
+		//Underwear, Undershirts, & Socks
+
+	var/dummy_test = istype(src, /mob/living/carbon/human/dummy) && (usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED || usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED_AROUSED) //hacky af but it works
+	var/list/obj/item/clothing/underwear/worn_underwear = list()
+
+	if(!HAS_TRAIT(src, TRAIT_NO_UNDERWEAR) && !dummy_test)
+		if(underwear && underwear != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+			var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
+			if(underwear_accessory && !w_underwear)
+				var/obj/item/clothing/underwear/briefs/briefs_obj = new underwear_accessory.briefs_obj(src)
+				equip_to_slot_or_del(briefs_obj, ITEM_SLOT_UNDERWEAR)
+				worn_underwear += briefs_obj
+
+		if(bra && bra != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+			var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
+			if(bra_accessory && !w_bra)
+				var/obj/item/clothing/underwear/shirt/bra/bra_obj = new bra_accessory.bra_obj(src)
+				equip_to_slot_or_del(bra_obj, ITEM_SLOT_BRA)
+				worn_underwear += bra_obj
+
+		if(undershirt && !undershirt != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+			var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
+			if(undershirt_accessory && !w_shirt)
+				var/obj/item/clothing/underwear/shirt/shirt_obj = new undershirt_accessory.shirt_obj(src)
+				equip_to_slot_or_del(shirt_obj, ITEM_SLOT_SHIRT)
+				worn_underwear += shirt_obj
+
+		if(socks && num_legs >= 2 && !(dna.features["taur"] && dna.features["taur"] != "None") && !socks != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+			var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
+			if(socks_accessory && !w_socks)
+				var/obj/item/clothing/underwear/socks/socks_obj = new socks_accessory.socks_obj(src)
+				equip_to_slot_or_del(socks_obj, ITEM_SLOT_SOCKS)
+				worn_underwear += socks_obj
+
+		//Make sure character creation knows it's an inventory object
+		if(istype(src, /mob/living/carbon/human/dummy))
+			for(var/obj/item/clothing/underwear/underwear_obj in worn_underwear)
+				if(QDELETED(underwear_obj))
+					continue
+				underwear_obj.item_flags |= IN_INVENTORY
+
+/mob/living/carbon/human/proc/update_nails()
+	if(!nail_style)
+		return
+
+	remove_overlay(BODY_LAYER)
+
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+
+	var/list/standing = list()
+
+	var/mutable_appearance/nail_overlay = mutable_appearance('modular_zzplurt/icons/mobs/nails.dmi', "nails", -BODY_LAYER)
+	nail_overlay.color = nail_color
+	standing += nail_overlay
+	if(standing.len)
+		overlays_standing[BODY_LAYER] = standing
+	apply_overlay(BODY_LAYER)
+
 #undef RESOLVE_ICON_STATE
 
 #undef UNDERWEAR_INDEX
