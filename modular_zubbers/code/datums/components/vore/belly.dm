@@ -6,6 +6,7 @@
 	var/datum/component/vore/owner
 	var/datum/digest_mode/digest_mode
 	var/noise_cooldown = 0
+	var/list/message_timers = list() // Per-prey message cooldowns for digest modes
 
 	// Settings
 	var/can_taste = TRUE
@@ -397,6 +398,8 @@
 		// Unabsorb if they leave by any method
 		REMOVE_TRAIT(M, TRAIT_RESTRAINED, TRAIT_SOURCE_VORE)
 		REMOVE_TRAIT(M, TRAIT_STASIS, TRAIT_SOURCE_VORE)
+		// Clean up message timer to prevent memory leak
+		message_timers -= REF(M)
 		// Absorb control handles deleting itself with binding to COMSIG_MOVABLE_MOVED
 		if(!istype(M.loc, /obj/vore_belly))
 			M.stop_sound_channel(CHANNEL_PREYLOOP)
@@ -567,6 +570,8 @@
 			V.color = overlay_color
 
 /// Handle automatic transfer of prey between bellies
+/// Note: Transfers prey one at a time to prevent spam and allow gradual movement
+/// Timer is belly-wide, not per-prey, meaning all prey transfer on the same schedule
 /obj/vore_belly/proc/handle_autotransfer(seconds_per_tick)
 	if(!autotransfer_enabled || !autotransfer_target)
 		return
@@ -588,7 +593,7 @@
 	if(autotransfer_timer >= autotransfer_delay)
 		autotransfer_timer = 0
 
-		// Transfer first prey in belly
+		// Transfer first prey in belly (one at a time to prevent spam)
 		if(LAZYLEN(contents) > 0)
 			var/atom/movable/prey = contents[1]
 
@@ -596,7 +601,7 @@
 			if(ismob(prey))
 				var/mob/living/L = prey
 				if(HAS_TRAIT_FROM(L, TRAIT_RESTRAINED, TRAIT_SOURCE_VORE))
-					return
+					return // Skip this transfer cycle if first prey is absorbed
 
 			// Do the transfer
 			var/mob/living/living_parent = owner.parent
