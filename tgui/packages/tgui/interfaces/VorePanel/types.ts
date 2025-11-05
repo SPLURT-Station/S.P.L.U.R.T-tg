@@ -12,6 +12,8 @@ export enum DigestMode {
   Digest = 'Digest',
   Absorb = 'Absorb',
   Unabsorbed = 'Unabsorb',
+  Drain = 'Drain',
+  Heal = 'Heal',
 }
 
 export type Belly = {
@@ -78,6 +80,11 @@ export const digestModeToPreyMode = {
   [DigestMode.Digest]: { text: 'being digested.', color: 'bad' },
   [DigestMode.Absorb]: { text: 'being absorbed.', color: 'purple' },
   [DigestMode.Unabsorbed]: { text: 'being reformed.', color: 'good' },
+  [DigestMode.Drain]: {
+    text: 'having their nutrition drained.',
+    color: 'warning',
+  },
+  [DigestMode.Heal]: { text: 'being healed.', color: 'good' },
 };
 
 export const bellyKeyToText = {
