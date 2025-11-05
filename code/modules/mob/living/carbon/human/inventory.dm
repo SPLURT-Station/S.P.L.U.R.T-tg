@@ -210,7 +210,6 @@
 			if(w_uniform)
 				return
 			w_uniform = equipping
-			update_suit_sensors()
 			update_worn_undersuit()
 		// SPLURT EDIT - Extra inventory
 		if(ITEM_SLOT_UNDERWEAR)
@@ -274,7 +273,6 @@
 			update_worn_oversuit()
 	else if(item_dropping == w_uniform)
 		w_uniform = null
-		update_suit_sensors()
 		if(!QDELETED(src))
 			update_worn_undersuit()
 		if(invdrop)
@@ -432,7 +430,7 @@
 
 //delete all equipment without dropping anything
 /mob/living/carbon/human/proc/delete_equipment()
-	for(var/slot in get_equipped_items(INCLUDE_POCKETS))//order matters, dependant slots go first
+	for(var/slot in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))//order matters, dependant slots go first
 		qdel(slot)
 	for(var/obj/item/held_item in held_items)
 		qdel(held_item)

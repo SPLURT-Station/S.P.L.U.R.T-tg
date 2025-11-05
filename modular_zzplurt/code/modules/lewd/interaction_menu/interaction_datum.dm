@@ -38,7 +38,7 @@
 			"<b>%OWNER%</b>'s honkers produce a loud squeak!",
 			"\The <b>%OWNER%</b>'s breasts honk[pick(" loudly", "")]!"
 		),
-		ORGAN_SLOT_MOUTH = list(
+		"mouth" = list(
 			"<b>%OWNER%</b>'s mouth honks[pick(" loudly", "")]!",
 			"<b>%OWNER%</b>'s throat squeaks[pick(" loudly", "")]!"
 		)
@@ -247,6 +247,22 @@
 				message = replacetext(message, "%OWNER%", target)
 				target.visible_message(span_lewd(message))
 				playsound(target, 'sound/items/bikehorn.ogg', 40, TRUE, -1)
+
+	// Handle mouths for clowns
+	for(var/requirement in interaction_requires)
+		switch(requirement)
+			if(INTERACTION_REQUIRE_SELF_MOUTH)
+				if(is_user_clown)
+					var/message = pick(clown_genital_messages["mouth"])
+					message = replacetext(message, "%OWNER%", user)
+					user.visible_message(span_lewd(message))
+					playsound(user, 'sound/items/bikehorn.ogg', 40, TRUE, -1)
+			if(INTERACTION_REQUIRE_TARGET_MOUTH)
+				if(is_target_clown)
+					var/message = pick(clown_genital_messages["mouth"])
+					message = replacetext(message, "%OWNER%", target)
+					target.visible_message(span_lewd(message))
+					playsound(target, 'sound/items/bikehorn.ogg', 40, TRUE, -1)
 
 // Called when either the user or target is cumming from the interaction, makes the interaction text
 /datum/interaction/proc/show_climax(mob/living/cumming, mob/living/came_in, position)
