@@ -39,6 +39,10 @@
 	name = "quartermasters's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the quartermaster."
 
+/obj/item/storage/bag/garment/paramedic
+	name = "EMT's garment bag"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the emergency medical team."
+
 /obj/item/storage/bag/garment/captain/PopulateContents()
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/under/rank/captain/skirt(src)
@@ -54,6 +58,10 @@
 	new /obj/item/clothing/head/hats/caphat/parade(src)
 	new /obj/item/clothing/neck/cloak/cap(src)
 	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/storage/backpack/captain(src)
+	new /obj/item/storage/backpack/satchel/cap(src)
+	new /obj/item/storage/backpack/duffelbag/captain(src)
+	new /obj/item/storage/backpack/messenger/cap(src)
 
 /obj/item/storage/bag/garment/hop/PopulateContents()
 	new /obj/item/clothing/under/rank/civilian/head_of_personnel(src)
@@ -125,6 +133,7 @@
 	new /obj/item/clothing/under/rank/security/head_of_security/skyrat/imperial(src)
 	new /obj/item/clothing/suit/jacket/hos/blue(src)
 	new /obj/item/clothing/neck/mantle/hosmantle(src)
+	new /obj/item/clothing/accessory/badge/holo/hos(src) //SPLURT ADDITION
 
 /obj/item/storage/bag/garment/warden/PopulateContents()
 	new /obj/item/clothing/suit/armor/vest/warden(src)
@@ -138,6 +147,7 @@
 	new /obj/item/clothing/gloves/krav_maga/sec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
+	new /obj/item/clothing/accessory/badge/holo/warden(src) //SPLURT ADDITION
 
 /obj/item/storage/bag/garment/research_director/PopulateContents()
 	new /obj/item/clothing/under/rank/rnd/research_director(src)
@@ -179,7 +189,11 @@
 	new /obj/item/clothing/head/beret/medical/cmo(src)
 	new /obj/item/clothing/head/utility/surgerycap/cmo(src)
 	new /obj/item/clothing/neck/cloak/cmo(src)
-	new /obj/item/clothing/shoes/sneakers/blue (src)
+	new /obj/item/clothing/shoes/sneakers/white(src)
+	new /obj/item/storage/backpack/chief_medic(src)
+	new /obj/item/storage/backpack/satchel/chief_medic(src)
+	new /obj/item/storage/backpack/duffelbag/chief_medic(src)
+	new /obj/item/storage/backpack/messenger/chief_medic(src)
 //Duplication from Commdrobe
 	new /obj/item/clothing/head/beret/medical/cmo/alt(src)
 	new /obj/item/clothing/head/hats/imperial/cmo(src)
@@ -240,3 +254,10 @@
 	new /obj/item/clothing/suit/jacket/tailcoat/quartermaster(src)
 	new /obj/item/clothing/neck/tie/bunnytie/cargo(src)
 
+
+/obj/item/storage/bag/garment/paramedic/PopulateContents()
+	new /obj/item/clothing/under/rank/medical/paramedic(src)
+	new /obj/item/clothing/under/rank/medical/paramedic/skirt(src)
+	new /obj/item/clothing/gloves/latex/nitrile(src)
+	new /obj/item/clothing/shoes/workboots/black(src)
+	new /obj/item/clothing/glasses/hud/health(src)

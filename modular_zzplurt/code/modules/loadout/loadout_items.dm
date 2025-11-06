@@ -1,5 +1,4 @@
 /datum/loadout_item
-	var/can_be_colored = TRUE
 	var/donator_tier = DONATOR_TIER_NONE
 
 /datum/loadout_item/New(category)
@@ -17,26 +16,24 @@
 /datum/loadout_item/get_item_information()
 	. = ..()
 	if(donator_tier)
-		. += list(FA_ICON_MONEY_BILL = "Tier [donator_tier] Donator only")
+		. += list(FA_ICON_MONEY_BILL_ALT = "Tier [donator_tier] Donator only")
 
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
 	. = ..()
 
 	switch(action)
 		if("select_simple_color")
-			if(can_be_colored && !can_be_greyscale)
+			if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED))
 				return set_item_simple_color(manager, user)
 
-/datum/loadout_item/on_equip_item(obj/item/equipped_item, datum/preferences/preference_source, list/preference_list, mob/living/carbon/human/equipper, visuals_only)
+/datum/loadout_item/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
 	. = ..()
 
 	if(isnull(equipped_item))
 		return NONE
 
-	var/list/item_details = preference_list[item_path]
-
 	// SPLURT ADDITION START: Simple item color (changes color var directly)
-	if(can_be_colored && item_details?[INFO_COLOR])
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR && item_details?[INFO_COLOR])
 		equipped_item.color = item_details[INFO_COLOR]
 		. |= equipped_item.slot_flags
 	// SPLURT ADDITION END
@@ -44,7 +41,7 @@
 /datum/loadout_item/get_ui_buttons()
 	. = ..()
 
-	if(can_be_colored && !can_be_greyscale)
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED))
 		UNTYPED_LIST_ADD(., list(
 			"label" = "Simple recolor",
 			"act_key" = "select_simple_color",

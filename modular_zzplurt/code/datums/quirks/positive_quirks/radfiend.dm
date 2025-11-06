@@ -21,10 +21,6 @@
 	// Define quirk holder mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
-	// Add glow control action
-	var/datum/action/cosglow/update_glow/quirk_action = new
-	quirk_action.Grant(quirk_mob)
-
 	// Add radiation immunity
 	ADD_TRAIT(quirk_mob, TRAIT_RADIMMUNE, TRAIT_RAD_FIEND)
 
@@ -37,13 +33,6 @@
 
 	if(QDELETED(quirk_mob))
 		return
-
-	// Remove glow control action
-	var/datum/action/cosglow/update_glow/quirk_action = locate() in quirk_mob.actions
-	quirk_action.Remove(quirk_mob)
-
-	// Remove glow effect
-	quirk_mob.remove_filter("rad_fiend_glow")
 
 	// Remove radiation immunity
 	REMOVE_TRAIT(quirk_mob, TRAIT_RADIMMUNE, TRAIT_RAD_FIEND)

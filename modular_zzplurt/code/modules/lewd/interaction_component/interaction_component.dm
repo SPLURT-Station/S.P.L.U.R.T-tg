@@ -251,7 +251,7 @@
 		attributes += "are sexually exhausted for the time being"
 
 	// Intent
-	switch(resolve_intent_name(target.combat_mode))
+	switch(target.combat_mode)
 		if(INTENT_HELP)
 			attributes += "are acting gentle"
 		if(INTENT_DISARM)

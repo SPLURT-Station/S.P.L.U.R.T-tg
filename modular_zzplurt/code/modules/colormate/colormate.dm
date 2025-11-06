@@ -119,7 +119,7 @@
 	drop_item()
 
 /obj/machinery/gear_painter/proc/drop_item()
-	if(!usr.CanReach(src))
+	if(!IsReachableBy(usr))
 		return
 	if(!inserted)
 		return
