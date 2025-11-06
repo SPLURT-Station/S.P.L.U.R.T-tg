@@ -47,7 +47,7 @@ Speaking of which, daisho are also fun :3
 	update_appearance()
 
 
-//Is it really an issue if AGPL. from doppler #303 If paxil pings me not to use this then it can be altered
+///Is it really an issue if AGPL. from doppler # 303 If paxil pings me not to use this then it can be altered. Or you know, if he DM me. It's not like he won't
 ///Not everything is gonna be the same anyway. People have different vision
 //As of writing this I still have not been able to pull exu alter yet
 //Just one more pull and maybe I can get her
@@ -133,7 +133,7 @@ Speaking of which, daisho are also fun :3
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = 12, \
-		force_wielded = 20, \
+		force_wielded = two_hand_force, \
 		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)

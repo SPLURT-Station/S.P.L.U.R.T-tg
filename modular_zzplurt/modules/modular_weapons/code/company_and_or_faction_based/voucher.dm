@@ -8,7 +8,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 
 /datum/voucher_set/yog_knights/daisho
 	name = "Security Daisho"
-	description = "A set of sword and baton with a dual sheath belt harness."
+	description = "A set of sword and baton with a dual sheath belt harness. This replaces your standard security belt"
 	icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi'
 	icon_state = "secdaisho"
 	set_items = list(
@@ -17,7 +17,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 
 /datum/voucher_set/yog_knight/tanto_belt
 	name = "Standard Belt with Knife"
-	description = "Your standard trustworthy belt, always reliable."
+	description = "Your standard trustworthy belt, always reliable. Comes with a knife"
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "security"
 	set_items = list(
@@ -27,9 +27,9 @@ Yog Knights, Ugora Orbit Knights of Yog.
 /obj/item/melee_voucher
 	name = "security utility belt voucher"
 	desc = "A card with rudimentary identification on it, this one redeems security belts. Use it on a peacekeeping equipment vendor."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "mining_voucher"
-	w_class = WEIGHT_CLASS_TINY
+	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/projectile.dmi'
+	icon_state = "melee_voucher"
+	w_class = WEIGHT_CLASS_SMALL
 
 
 //Code to redeem new items at the mining vendor using the suit voucher
