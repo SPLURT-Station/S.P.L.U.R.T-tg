@@ -82,7 +82,7 @@
 	if(!. || !packing_overlay)
 		return .
 	packing_overlay.update_contents(src)
-	inserted.flags_1 |= IS_ONTOP_1
+	ADD_TRAIT(inserted, TRAIT_SKIP_BASIC_REACH_CHECK, REF(src))
 	RegisterSignal(inserted, COMSIG_MOVABLE_MOVED, PROC_REF(thing_moved))
 
 /obj/structure/closet/proc/try_packing(obj/item/stack/peanuts, mob/user)
@@ -115,7 +115,7 @@
 	packing_overlay = new(null, src)
 	packing_overlay.update_contents(src)
 	for(var/atom/movable/inserted in src)
-		inserted.flags_1 |= IS_ONTOP_1
+		ADD_TRAIT(inserted, TRAIT_SKIP_BASIC_REACH_CHECK, REF(src))
 		RegisterSignal(inserted, COMSIG_MOVABLE_MOVED, PROC_REF(thing_moved))
 	update_appearance(UPDATE_ICON)
 	return TRUE
@@ -133,6 +133,6 @@
 /obj/structure/closet/proc/thing_moved(atom/movable/source)
 	SIGNAL_HANDLER
 
-	source.flags_1 &= ~IS_ONTOP_1
+	REMOVE_TRAIT(source, TRAIT_SKIP_BASIC_REACH_CHECK, REF(src))
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
 	packing_overlay.update_contents(src)

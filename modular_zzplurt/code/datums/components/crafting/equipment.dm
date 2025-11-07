@@ -32,3 +32,11 @@
 		// Rename the card
 		name = LOWER_TEXT("[blood_name]rrhagic Sanguinizer")
 	. = ..()
+
+/datum/crafting_recipe/durathread_utility_belt
+	name = "Durathread Toolbelt"
+	result = /obj/item/storage/backpack/duffelbag/durathread_utility_belt
+	reqs = list(/obj/item/stack/sheet/durathread = 5,
+				/obj/item/stack/sheet/leather = 2)
+	time = 5 SECONDS
+	category = CAT_CLOTHING

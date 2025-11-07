@@ -14,3 +14,7 @@
 	focus_toggle.icon = ui_style
 	focus_toggle.update_appearance()
 	static_inventory += focus_toggle
+
+/datum/hud/human/Destroy()
+	focus_toggle = null
+	. = ..()

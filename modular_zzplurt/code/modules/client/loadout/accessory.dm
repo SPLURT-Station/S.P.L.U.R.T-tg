@@ -13,9 +13,7 @@
 /datum/loadout_item/accessory/genericpin
 	name = "Holographic pin"
 	item_path = /obj/item/clothing/accessory/pride/other
-	can_be_named = TRUE
 
 /datum/loadout_item/accessory/necklace
 	name = "Golden Necklace"
 	item_path = /obj/item/clothing/neck/necklace/dope
-	can_be_named = TRUE

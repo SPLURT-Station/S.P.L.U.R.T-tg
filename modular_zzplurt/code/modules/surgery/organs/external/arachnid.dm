@@ -4,7 +4,6 @@
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'
 	icon_state = "mandibles"
 
-	preference = "feature_mandibles"
 	mutantpart_key = "spinneret" //this shit took me way too fucking long to find
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF")) //fuck azarak
 
@@ -33,7 +32,6 @@
 	desc = "This is where your icecream comes from."
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'
 	icon_state = "spinneret"
-	preference = "feature_spinneret"
 
 	mutantpart_key = "spinneret"
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
@@ -66,7 +64,6 @@
 	desc = "Objectively inferior to regular legs." //idk i suck at descs
 	icon = 'modular_zzplurt/icons/obj/medical/organs/organs.dmi'
 	icon_state = "arachnid_legs"
-	preference = "feature_arachnid_legs"
 
 	mutantpart_key = "spinneret"
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
