@@ -227,10 +227,10 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
 	worn_icon_state = "knife"
-	force = 10 //This is more effective when the target is laying down
+	force = 10 //This is more effective when the target is laying down, or facing away. We don't use stagger however.
 	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
-	wound_bonus = 0 //We want to avoid this being too effective at wounding out of nowhere.
+	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
 	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 40 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
 	attack_speed = 13 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
