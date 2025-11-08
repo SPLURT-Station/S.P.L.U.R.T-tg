@@ -143,7 +143,6 @@ Speaking of which, daisho are also fun :3
 
 	if (living_target.health >= living_target.maxHealth)
 		target.balloon_alert(healer, "not hurt!")
-		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
 
