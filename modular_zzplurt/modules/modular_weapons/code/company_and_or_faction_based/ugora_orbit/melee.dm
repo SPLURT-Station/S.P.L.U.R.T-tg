@@ -301,16 +301,16 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 //A baton not used for knocking down but beating people up. Or something.
 //Lower hit delay and lower stamina damage. Reward certain playstyle.
 /obj/item/melee/baton/jitte
-	name = "lightweight baton"
+	name = "constrictor baton"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte.dmi'
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte_righthand.dmi'
 	icon_state = "jitte"
 	inhand_icon_state = "jitte"
-	desc = "A hard plastic jitte to be used in combination with your sword. Not as effective at knocking down target. But easier to swing"
+	desc = "A hard plastic-metal jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
 	desc_controls = "Left click to stun, right click to harm."
-	stamina_damage = 30
-	cooldown = 0.6 SECONDS //Fast Attack
+	stamina_damage = 23 //It still is technically a baton, just a worse one.
+	cooldown = 1.4 SECONDS //Faster than a baton but still slow
 	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
