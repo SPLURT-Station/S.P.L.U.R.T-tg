@@ -120,10 +120,10 @@ Speaking of which, daisho are also fun :3
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
-	block_chance = 25
-	armour_penetration = 30 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 12
-	wound_bonus = 15
+	block_chance = 30
+	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	force = 15
+	wound_bonus = 18
 	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -231,9 +231,9 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 0 //We want to avoid this being too effective at wounding out of nowhere.
-	exposed_wound_bonus = 20 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 40 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 12 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+	attack_speed = 13 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
 	. = ..()
