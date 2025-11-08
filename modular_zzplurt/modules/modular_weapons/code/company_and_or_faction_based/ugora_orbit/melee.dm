@@ -140,10 +140,10 @@ Speaking of which, daisho are also fun :3
 		return ..()
 
 	var/mob/living/living_target = target
-	var/ritual_worthy = FALSE
 
-	if(living_target.stat == DEAD) // We are using the code from the leito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
-		return ..()
+	if (living_target.health >= living_target.maxHealth)
+		target.balloon_alert(healer, "not hurt!")
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
 
