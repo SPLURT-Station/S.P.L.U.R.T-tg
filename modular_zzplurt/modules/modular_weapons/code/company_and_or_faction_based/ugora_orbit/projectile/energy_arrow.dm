@@ -12,12 +12,12 @@
 	range = 14
 	shrapnel_type = null
 	embed_type = /datum/embedding/energy_arrow
-	wound = 15
+	wound = 20
 
 /datum/embedding/energy_arrow
 	embed_chance = 40
-	fall_chance = 33
-	jostle_chance = 66
+	fall_chance = 35
+	jostle_chance = 69
 	ignore_throwspeed_threshold = TRUE
 	pain_stam_pct = 1
 	pain_mult = 1
