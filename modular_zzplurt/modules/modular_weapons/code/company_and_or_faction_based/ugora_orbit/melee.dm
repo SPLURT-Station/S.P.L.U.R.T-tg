@@ -21,7 +21,7 @@ Speaking of which, daisho are also fun :3
 
 /obj/item/storage/belt/secdaisho
 	name = "security saya
-	desc = "A modified scabbard intended to hold a sword and a specialized baton at the same time."
+	desc = "A modified scabbard intended to hold a sword and a specialized baton at the same time"
 	icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi'
 	worn_icon = 'modular_zzplurt/master_files/icons/mob/clothing/job/belt.dmi'
 	icon_state = "secdaisho"
@@ -106,11 +106,11 @@ Speaking of which, daisho are also fun :3
 		worn_icon_state += next_appendage
 	return ..()
 
-//How fucking rich must kris be if he has an indoor kabuki
-
+//How fucking rich must kris be if he has an indoor kabuki?
+// It's a gift from the holiday clan
 /obj/item/melee/reverbing_blade
 	name = "reverbing sword"
-	desc = "A long dull blade used by the Ugora militia, they are dull but still quite hefty to get ht by."
+	desc = "A long dull blade used by the Yog Guerilla, the blade is hot to the touch"
 	desc_controls = "This sword is more effective the weaker your target is"
 
 	icon_state = "secsword0"
@@ -122,13 +122,31 @@ Speaking of which, daisho are also fun :3
 
 	block_chance = 30
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 15
+	force = 17
 	wound_bonus = 18
 	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
+	damtype = BURN
+//Listen, a welder does 15 burn damage and is readily available. This is a huge ask but it's a bit more fair than you might think
+
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+	return ..()
+
+
+/obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/living_target = target
+	var/ritual_worthy = FALSE
+
+	if(living_target.stat == DEAD) // We are using the code from the leito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
+		return ..()
+
+		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
+
 	return ..()
 
 /*
