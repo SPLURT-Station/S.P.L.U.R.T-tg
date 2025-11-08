@@ -106,6 +106,8 @@ Speaking of which, daisho are also fun :3
 		worn_icon_state += next_appendage
 	return ..()
 
+//How fucking rich must kris be if he has an indoor kabuki
+
 /obj/item/melee/reverbing_blade
 	name = "reverbing sword"
 	desc = "A long dull blade used by the Ugora militia, they are dull but still quite hefty to get ht by."
@@ -119,32 +121,12 @@ Speaking of which, daisho are also fun :3
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
 	block_chance = 25
-	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 15
+	armour_penetration = 30 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	force = 12
 	wound_bonus = 15
 	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
-	/// How much damage to do unwielded, this makes it do less than survival knife
-	var/force_unwielded = 15
-	var/two_hand_force = 20
-	var/block_wielded = 40
-	var/block_unwielded = 25
 
-/obj/item/melee/reverbing_blade/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/two_handed, \
-		force_unwielded = 12, \
-		force_wielded = two_hand_force, \
-		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
-		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
-	)
-
-/obj/item/melee/reverbing_blade/proc/on_wield()
-	block_chance = block_unwielded
-
-/obj/item/melee/reverbing_blade/proc/on_unwield()
-	block_chance = block_unwielded
-
-/obj/item/melee/cold_steel/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+/obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	return ..()
