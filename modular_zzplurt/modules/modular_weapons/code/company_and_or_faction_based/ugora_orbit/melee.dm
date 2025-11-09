@@ -301,10 +301,10 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	inhand_icon_state = "jitte"
 	desc = "A hard plastic-metal jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
 	desc_controls = "Left click to stun, right click to harm."
-	stamina_damage = 23 //It still is technically a baton, just a worse one.
+	stamina_damage = 23 //It still is technically a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
 	cooldown = 1.4 SECONDS //Faster than a baton but still slow
 	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
-	target.set_confusion_if_lower(10 SECONDS)
+	target.set_confusion_if_lower(3 SECONDS)
 	target.set_staggered_if_lower(5 SECONDS)
