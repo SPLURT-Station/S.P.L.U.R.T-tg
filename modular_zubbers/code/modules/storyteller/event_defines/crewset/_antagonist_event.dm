@@ -16,6 +16,10 @@
 		JOB_RESEARCH_DIRECTOR,
 		JOB_QUARTERMASTER,
 		JOB_NT_REP,
+		// Splurt Edit Start
+		JOB_NT_TRN,
+		JOB_HUMAN_AI,
+		// Splurt Edit End
 
 		// Seccies
 		JOB_DETECTIVE,
