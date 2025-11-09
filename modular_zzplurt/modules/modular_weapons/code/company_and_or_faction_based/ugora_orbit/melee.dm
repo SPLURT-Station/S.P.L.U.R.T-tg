@@ -120,11 +120,11 @@ Speaking of which, daisho are also fun :3
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
-	block_chance = 30
+	block_chance = 30 //a 1 in 3 chance to block attack is ok
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 17
+	force = 16
 	wound_bonus = 18
-	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
+	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
 	damtype = BURN
 //Listen, a welder does 15 burn damage and is readily available. This is a huge ask but it's a bit more fair than you might think
 
@@ -142,7 +142,7 @@ Speaking of which, daisho are also fun :3
 
     return ..()
 
-/obj/item/vorpalscythe/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
+/obj/item/reverbing_blade/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
 	//Determines if we are entitled to setting/resetting our timer.
 	//Only reset SCYTHE_EMPOWERED with an empowerment that would grant that.
 	//Only reset SCTHE_SATED if hitting at least simple mobs or nonmonkey carbons.
