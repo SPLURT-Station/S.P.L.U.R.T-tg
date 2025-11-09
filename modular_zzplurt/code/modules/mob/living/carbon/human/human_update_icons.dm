@@ -29,6 +29,9 @@
 		var/obj/item/clothing/underwear/briefs/undies = w_underwear
 		update_hud_underwear(undies)
 
+		if(underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return
+
 		var/target_overlay = undies.icon_state
 		var/mutable_appearance/underwear_overlay
 		var/icon_file = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
@@ -92,6 +95,9 @@
 		var/obj/item/clothing/underwear/shirt/undershirt = w_shirt
 		update_hud_shirt(undershirt)
 
+		if(underwear_visibility & UNDERWEAR_HIDE_SHIRT)
+			return
+
 		var/target_overlay = undershirt.icon_state
 		var/mutable_appearance/shirt_overlay
 		var/icon_file = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
@@ -154,6 +160,9 @@
 	if(istype(w_bra, /obj/item/clothing/underwear/shirt/bra))
 		var/obj/item/clothing/underwear/shirt/bra/bra = w_bra
 		update_hud_bra(bra)
+
+		if(underwear_visibility & UNDERWEAR_HIDE_BRA)
+			return
 
 		var/target_overlay = bra.icon_state
 		var/mutable_appearance/bra_overlay
@@ -285,6 +294,9 @@
 	if(istype(w_socks, /obj/item/clothing/underwear/socks))
 		var/obj/item/clothing/underwear/socks/worn_item = w_socks
 		update_hud_socks(worn_item)
+
+		if(underwear_visibility & UNDERWEAR_HIDE_SOCKS)
+			return
 
 		var/target_overlay = worn_item.icon_state
 		var/icon_file = DEFAULT_SOCKS_FILE
