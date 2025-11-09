@@ -108,6 +108,9 @@ Speaking of which, daisho are also fun :3
 
 //How fucking rich must kris be if he has an indoor kabuki?
 // It's a gift from the holiday clan
+
+
+//The Synthetik Reverbing Blade, I prestiged raider 6 time and did all challenge :)
 /obj/item/melee/reverbing_blade
 	name = "resonance sword"
 	desc = "A long dull blade used by the Yog Guerilla. Made from modified kinetic crusher part"
@@ -130,6 +133,8 @@ Speaking of which, daisho are also fun :3
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
+		final_block_chance = 63 //Don't try it!
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
@@ -149,13 +154,6 @@ Speaking of which, daisho are also fun :3
 		if(empowerment != SCYTHE_EMPOWERED) //We only empower our stats if we beheaded a human with a mind.
 			original_force = force
 			force *= bonus_force_multiplier
-			empowerment = potential_empowerment
-		allow_timer_set = TRUE
-	else if(empowerment < potential_empowerment) //so we don't end up weakening our scythe somehow and creating an infinite empowerment loop, only update empowerment if it is better
-		empowerment = potential_empowerment
-		allow_timer_set = TRUE
-	if(potential_empowerment != SCYTHE_WEAK && allow_timer_set) //And finally, if the empowerment was improved and wasn't too weak to get an empowerment, we set/reset our timer
-		addtimer(CALLBACK(src, PROC_REF(scythe_empowerment_end)), (4 MINUTES / empowerment), TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /*
 /obj/item/melee/oscula
