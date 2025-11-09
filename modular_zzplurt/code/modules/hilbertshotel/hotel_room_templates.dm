@@ -143,7 +143,7 @@
 	category = GHC_SPECIAL
 
 /datum/map_template/ghost_cafe_rooms/ss14_thing
-	name = "Shadekin Realm"
+	name = "Deter's Lair"
 	mappath = "_maps/splurt/templates/apartment_donator_ss14.dmm"
 	ckeywhitelist = list("girko", "moldb")
 	category = GHC_SPECIAL
