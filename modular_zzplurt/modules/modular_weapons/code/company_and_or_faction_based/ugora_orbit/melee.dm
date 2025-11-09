@@ -20,7 +20,7 @@ Speaking of which, daisho are also fun :3
 ===*/
 
 /obj/item/storage/belt/secdaisho
-	name = "security saya
+	name = "security saya"
 	desc = "A modified scabbard intended to hold a sword and a specialized baton at the same time"
 	icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi'
 	worn_icon = 'modular_zzplurt/master_files/icons/mob/clothing/job/belt.dmi'
@@ -136,17 +136,29 @@ Speaking of which, daisho are also fun :3
 
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(!isliving(target))
-		return ..()
+	target.getBruteLoss()
+	target.getBurnLoss()
+        MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, bonus_force_multiplier)
 
-	var/mob/living/living_target = target
+    return ..()
 
-	if (living_target.health >= living_target.maxHealth)
-		target.balloon_alert(healer, "not hurt!")
+/obj/item/vorpalscythe/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
+	//Determines if we are entitled to setting/resetting our timer.
+	//Only reset SCYTHE_EMPOWERED with an empowerment that would grant that.
+	//Only reset SCTHE_SATED if hitting at least simple mobs or nonmonkey carbons.
+	var/allow_timer_set = FALSE
 
-		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
-
-	return ..()
+	if(potential_empowerment == SCYTHE_EMPOWERED)
+		if(empowerment != SCYTHE_EMPOWERED) //We only empower our stats if we beheaded a human with a mind.
+			original_force = force
+			force *= bonus_force_multiplier
+			empowerment = potential_empowerment
+		allow_timer_set = TRUE
+	else if(empowerment < potential_empowerment) //so we don't end up weakening our scythe somehow and creating an infinite empowerment loop, only update empowerment if it is better
+		empowerment = potential_empowerment
+		allow_timer_set = TRUE
+	if(potential_empowerment != SCYTHE_WEAK && allow_timer_set) //And finally, if the empowerment was improved and wasn't too weak to get an empowerment, we set/reset our timer
+		addtimer(CALLBACK(src, PROC_REF(scythe_empowerment_end)), (4 MINUTES / empowerment), TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /*
 /obj/item/melee/oscula
