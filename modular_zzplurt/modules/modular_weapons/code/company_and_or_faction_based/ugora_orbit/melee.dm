@@ -123,7 +123,7 @@ Speaking of which, daisho are also fun :3
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
 	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
-	throwforce = 22
+	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear so I dont see this as a problem
 	wound_bonus = 18
 	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
 
