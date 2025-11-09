@@ -307,4 +307,4 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	target.set_confusion_if_lower(3 SECONDS)
-	target.set_staggered_if_lower(5 SECONDS)
+	target.set_staggered_if_lower(3 SECONDS) //A short 3 second window meant to allow for follow up
