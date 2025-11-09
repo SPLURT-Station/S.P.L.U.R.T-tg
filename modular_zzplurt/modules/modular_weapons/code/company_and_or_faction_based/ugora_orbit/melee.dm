@@ -165,7 +165,7 @@ Speaking of which, daisho are also fun :3
 	inhand_icon_state = "secsword0"
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
-	block_chance = 25
+	block_chance = 40
 	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 8 hit to down. We have too low of a base damage to be an issue
 	force = 12
 	damtype = BURN
@@ -173,15 +173,9 @@ Speaking of which, daisho are also fun :3
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	demolition_mod = 0.8
-	//I understand it's unrealistic, but I want to avoid people using the sword to break crate or locker open. Also yes this means its less effective against a lot of other thing, but we'll get there. Trust.
-	/// How much damage to do unwielded, this makes it do less than survival knife but the same as our Tanto
-	var/force_unwielded = 12
 	/// 20 damage is ok. It's the same as shooting a single thermal pistol at a time, when it come to raw DPS difference, this wont cut it.
 	var/two_hand_force = 20
-	///You cant use your other hand so we want to make sure the block chance is there to compensate for it
-	var/block_wielded = 40
-	var/block_unwielded = 25
+
 	/* In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
@@ -203,7 +197,6 @@ Speaking of which, daisho are also fun :3
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 
-
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
@@ -211,31 +204,6 @@ Speaking of which, daisho are also fun :3
 	if(attack_type == (PROJECTILE_ATTACK || LEAP_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword. Or a road roller, if one happened to hit you.
 	return ..()
-
-/obj/item/melee/oscula/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/two_handed, \
-		force_unwielded = 12, \
-		force_wielded = 20, \
-		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
-		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
-	)
-
-/obj/item/melee/oscula/update_icon_state()
-	icon_state = inhand_icon_state = HAS_TRAIT(src, TRAIT_WIELDED) ? "secsword[HAS_TRAIT(src, TRAIT_WIELDED)]" : "secsword0"
-	return ..()
-
-/obj/item/melee/oscula/proc/on_wield()
-	attack_speed = CLICK_CD_MELEE
-	block_chance = block_unwielded
-	damtype = BRUTE
-	active = TRUE
-
-/obj/item/melee/oscula/proc/on_unwield()
-	attack_speed = 4
-	block_chance = block_unwielded
-	damtype = BURN
-	active = FALSE
 
 Let's pretend this entire section doesn't exist for now while I work on a replacement. We can reactivate it when we're ready. To whom it may concern, yes, it does compile.
 */
