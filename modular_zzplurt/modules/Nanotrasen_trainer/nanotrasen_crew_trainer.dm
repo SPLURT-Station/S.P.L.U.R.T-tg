@@ -48,7 +48,7 @@
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
 	uniform =  /obj/item/clothing/under/rank/centcom/intern
 	suit = /obj/item/clothing/suit/armor/vest
-	suit_store = /obj/item/gun/energy/e_gun/mini
+	suit_store = /obj/item/melee/baton/telescopic
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
