@@ -120,9 +120,9 @@ Speaking of which, daisho are also fun :3
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
-	block_chance = 30 //a 1 in 3 chance to block attack is ok
+	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 16
+	force = 16 //Our damage is somewhat inconsistent due to the increases in
 	wound_bonus = 18
 	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
 	damtype = BURN
