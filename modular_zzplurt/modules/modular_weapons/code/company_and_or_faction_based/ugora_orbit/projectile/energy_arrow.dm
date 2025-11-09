@@ -12,7 +12,7 @@
 	range = 14
 	shrapnel_type = null
 	embed_type = /datum/embedding/energy_arrow
-	wound = 20
+	wound_bonus = 20
 
 /datum/embedding/energy_arrow
 	embed_chance = 40

@@ -109,9 +109,9 @@ Speaking of which, daisho are also fun :3
 //How fucking rich must kris be if he has an indoor kabuki?
 // It's a gift from the holiday clan
 /obj/item/melee/reverbing_blade
-	name = "reverbing sword"
-	desc = "A long dull blade used by the Yog Guerilla, the blade is hot to the touch"
-	desc_controls = "This sword is more effective the weaker your target is"
+	name = "resonance sword"
+	desc = "A long dull blade used by the Yog Guerilla. Made from modified kinetic crusher part"
+	desc_controls = "This sword is more effective the more injured your target is"
 
 	icon_state = "secsword0"
 	inhand_icon_state = "secsword0"
@@ -122,18 +122,15 @@ Speaking of which, daisho are also fun :3
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 16 //Our damage is somewhat inconsistent due to the increases in
+	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
+	throwforce = 22
 	wound_bonus = 18
 	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
-	damtype = BURN
-//Listen, a welder does 15 burn damage and is readily available. This is a huge ask but it's a bit more fair than you might think
-
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	return ..()
-
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	target.getBruteLoss()
