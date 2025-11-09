@@ -22,14 +22,14 @@ With help of an aussie catgirl
 	shaded_charge = FALSE
 	charge_sections = 1
 
-	icon_state = "yato"
-	inhand_icon_state = "yato"
-	base_icon_state = "yato"
+	icon_state = "papel"
+	inhand_icon_state = "papel"
+	base_icon_state = "papel"
 
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_righthand.dmi'
 	worn_icon = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_worn.dmi'
-	worn_icon_state = "yato"
+	worn_icon_state = "papel"
 	ammo_type = list(/obj/item/ammo_casing/energy/hardlight_bow)
 	/// An ID for our drop discharge timer.
 	var/drop_discharge_timerid
@@ -59,7 +59,7 @@ With help of an aussie catgirl
 		charge_amount = STANDARD_CELL_CHARGE, \
 		cooldown_time = 0.8 SECONDS, \
 		charge_sound = 'sound/items/weapons/gun/bow/bow_draw.ogg', \
-		charge_sound_cooldown_time = 0.5 SECONDS, \
+		charge_sound_cooldown_time = 0.1 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 	discharge()
