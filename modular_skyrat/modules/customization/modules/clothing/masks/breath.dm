@@ -83,6 +83,7 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "ringgag"
+	flags_cover = NONE
 
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'icons/map_icons/clothing/mask.dmi'

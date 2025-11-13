@@ -244,7 +244,7 @@
 	if(target.get_bodypart(BODY_ZONE_L_ARM) || target.get_bodypart(BODY_ZONE_R_ARM))
 		attributes += "have hands"
 	if(target.get_bodypart(BODY_ZONE_HEAD) || (!iscarbon(target) && target.simulated_interaction_requirements[INTERACTION_REQUIRE_SELF_MOUTH]))
-		attributes += "have a mouth, which is [!target.is_mouth_covered() ? "covered" : "uncovered"]"
+		attributes += "have a mouth, which is [target.is_mouth_covered() ? "covered" : "uncovered"]"
 
 	// Sexual exhaustion
 	if(!COOLDOWN_FINISHED(target, refractory_period))
