@@ -1,6 +1,6 @@
-/obj/item/clothing/suit/apron/chef/colorable_apron
-	allowed = list(
-		// botany
+/obj/item/clothing/suit/apron/chef/colorable_apron/New()
+	// base apron only holds chef tools, we want botany stuff too
+	allowed += list(
 		/obj/item/cultivator,
 		/obj/item/geneshears,
 		/obj/item/graft,
@@ -15,9 +15,4 @@
 		/obj/item/seeds,
 		/obj/item/storage/bag/plants,
 		/obj/item/tank/internals/emergency_oxygen,
-
-		// chef
-		/obj/item/kitchen,
-		/obj/item/knife/kitchen,
-		/obj/item/storage/bag/tray,
 	)
