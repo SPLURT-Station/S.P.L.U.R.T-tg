@@ -43,7 +43,7 @@
 		/obj/item/clothing/head/helmet/space,
 		/obj/item/clothing/suit/space,
 		/obj/item/reagent_containers/hypospray/cmo,
-		/obj/item/tank/jetpack/oxygen/captain,
+		/obj/item/tank/jetpack/captain,
 		/obj/item/clothing/accessory/medal/gold/captain,
 		/obj/item/clothing/suit/armor,
 		/obj/item/documents,
