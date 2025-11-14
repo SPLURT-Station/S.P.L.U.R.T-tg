@@ -16,4 +16,4 @@
 		/obj/item/storage/bag/plants,
 		/obj/item/tank/internals/emergency_oxygen,
 	)
-	..()
+	. = ..()
