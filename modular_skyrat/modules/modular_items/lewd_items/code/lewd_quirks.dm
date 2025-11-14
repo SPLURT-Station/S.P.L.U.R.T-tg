@@ -28,6 +28,10 @@
 	///how stressed the person is, gained through zero satisfaction
 	//max is 300, min is 0
 	var/stress = 0
+	// SPLURT EDIT ADDITION - additional_minimum_arousal
+	///how much additional_minimum_arousal this trait has added, to prevent interfering with other sources
+	var/added_arousal = 0
+	// SPLURT EDIT END
 
 	COOLDOWN_DECLARE(desire_cooldown)
 	///The time between each desire message within company
@@ -51,25 +55,57 @@
 		return FALSE
 	//we need to feel consequences for being unsatisfied
 	//the message that will be sent to the owner at the end
-	var/lust_message = "Your breath begins to feel warm..."
+	// SPLURT EDIT BEGIN - Message changes and remove hallucination and oxyloss
+	var/lust_message = "Your body begins to feel warm..." // SPLURT EDIT - message, was "Your breath begins to feel warm..."
 	//we are using if statements so that it slowly becomes more and more to the person
 	human_owner.manual_emote(pick(lust_emotes))
 	if(stress >= 60)
 		human_owner.set_jitter_if_lower(40 SECONDS)
-		lust_message = "You feel a static sensation all across your skin..."
+		lust_message = "Your skin is feeling more sensitive..." // SPLURT EDIT - message, was "You feel a static sensation all across your skin..."
 	if(stress >= 120)
 		human_owner.set_eye_blur_if_lower(20 SECONDS)
-		lust_message = "You vision begins to blur, the heat beginning to rise..."
+		lust_message = "You vision begins to blur as your arousal increases further..." // SPLURT EDIT - message, was "You vision begins to blur, the heat beginning to rise..."
 	if(stress >= 180)
-		owner.adjust_hallucinations(60 SECONDS)
-		lust_message = "You begin to fantasize of what you could do to someone..."
+		//owner.adjust_hallucinations(60 SECONDS) SPLURT EDIT - remove hallucinations from hexacrocin OD
+		lust_message = "Images of sex flood your mind, making it hard to concentrate..." // SPLURT EDIT - message, was "You begin to fantasize of what you could do to someone..."
 	if(stress >= 240)
 		human_owner.adjustStaminaLoss(30)
-		lust_message = "You body feels so very hot, almost unwilling to cooperate..."
+		lust_message = "You feel weak as the heat inside you continues to build..." // SPLURT EDIT - message, was "You body feels so very hot, almost unwilling to cooperate..."
 	if(stress >= 300)
-		human_owner.adjustOxyLoss(40)
-		lust_message = "You feel your neck tightening, straining..."
+		//human_owner.adjustOxyLoss(40) SPLURT EDIT - remove oxyloss from hexacrocin OD
+		lust_message =  "The endless arousal grows even stronger... You can still keep keep yourself under control, but these desires are driving you insane!" // SPLURT EDIT - message, was "You feel your neck tightening, straining..."
+	// SPLURT EDIT END
 	to_chat(human_owner, span_purple(lust_message))
+	// SPLURT EDIT BEGIN - additional_minimum_arousal
+	var/overflow = 0
+	switch(stress)
+		if(-INFINITY to 59)
+			if(added_arousal < 10)
+				added_arousal += 10
+				overflow = owner.adjust_minimum_arousal(10)
+		if(60 to 119)
+			if(added_arousal < 20)
+				added_arousal += 10
+				overflow = owner.adjust_minimum_arousal(10)
+		if(120 to 179)
+			if(added_arousal < 30)
+				added_arousal += 10
+				overflow = owner.adjust_minimum_arousal(10)
+		if(180 to 239)
+			if(added_arousal < 45)
+				added_arousal += 15
+				overflow = owner.adjust_minimum_arousal(15)
+		if(240 to 299)
+			if(added_arousal < 60)
+				added_arousal += 15
+				overflow = owner.adjust_minimum_arousal(15)
+		if(300 to INFINITY)
+			if(added_arousal < 75)
+				added_arousal += 15
+				overflow = owner.adjust_minimum_arousal(15)
+	if(overflow)
+		added_arousal -= overflow
+	// SPLURT EDIT END
 	return TRUE
 
 /**
@@ -77,6 +113,10 @@
  */
 /datum/brain_trauma/very_special/bimbo/proc/check_climaxed()
 	if(owner.has_status_effect(/datum/status_effect/climax))
+		// SPLURT EDIT ADDITION - additional_minimum_arousal
+		owner.adjust_minimum_arousal(-added_arousal)
+		added_arousal = 0
+		// SPLURT EDIT END
 		stress = 0
 		satisfaction = 300
 		return TRUE
@@ -113,20 +153,20 @@
 	if(!in_company())
 		//since you aren't within company, you won't be satisfied
 		satisfaction = clamp(satisfaction - 1, 0, 1000)
-		to_chat(human_owner, span_purple("You feel so alone without someone..."))
+		to_chat(human_owner, span_purple("You feel so alone, but you could just... Satisfy yourself...")) // SPLURT EDIT - message, was "You feel so alone without someone..."
 		return
 
 	switch(satisfaction)
 		if(0 to 100)
-			to_chat(human_owner, span_purple("You can't STAND it, you need a partner NOW!"))
+			to_chat(human_owner, span_purple("It's almost impossible to focus your mind on anything other than sex! You NEED release!")) //SPLURT EDIT - message, was "You can't STAND it, you need a partner NOW!"
 		if(101 to 150)
-			to_chat(human_owner, span_purple("You'd hit that. Yeah. That's at least a six."))
+			to_chat(human_owner, span_purple("You find your eyes roaming over the bodies of those around you.")) //SPLURT EDIT - message, was "You'd hit that. Yeah. That's at least a six."
 		if(151 to 200)
-			to_chat(human_owner, span_purple("Your clothes are feeling tight."))
+			to_chat(human_owner, span_purple("Your body feels overly sensitive. Some relief would be nice...")) // SPLURT EDIT - message, was "Your clothes are feeling tight."
 		if(201 to 250)
-			to_chat(human_owner, span_purple("Desire fogs your decisions."))
+			to_chat(human_owner, span_purple("Images of a sexual nature keep popping into your head.")) // SPLURT EDIT - message, was "Desire fogs your decisions."
 		if(251 to 1000)
-			to_chat(human_owner, span_purple("Jeez, it's hot in here.."))
+			to_chat(human_owner, span_purple("Your body gets warmer as your arousal grows.")) // SPLURT EDIT - message, was "Jeez, it's hot in here.."
 
 /**
  * If we have another human in view, return true
@@ -156,6 +196,7 @@
 /datum/brain_trauma/very_special/bimbo/on_gain()
 	. = ..()
 	owner.add_mood_event("bimbo", /datum/mood_event/bimbo)
+	owner.adjust_minimum_arousal(-added_arousal) // SPLURT EDIT ADDITION - additional_minimum_arousal
 	if(!HAS_TRAIT_FROM(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM))
 		ADD_TRAIT(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM)
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech), override=TRUE)
