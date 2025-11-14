@@ -34,14 +34,19 @@
 /datum/sprite_accessory/genital/penis/knotted
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_onmob.dmi'
 	has_skintone_shading = TRUE
+	knotted = TRUE
 
 /datum/sprite_accessory/genital/penis/flared
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_onmob.dmi'
 	has_skintone_shading = TRUE
+	knotted = TRUE
+	override_string_knot = "flare"
+	override_string_tie = "lock"
 
 /datum/sprite_accessory/genital/penis/barbknot
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_onmob.dmi'
 	has_skintone_shading = TRUE
+	knotted = TRUE
 
 /datum/sprite_accessory/genital/penis/tapered
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_onmob.dmi'
@@ -58,6 +63,7 @@
 /datum/sprite_accessory/genital/penis/hemiknot
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_onmob.dmi'
 	has_skintone_shading = TRUE
+	knotted = TRUE
 
 /datum/sprite_accessory/genital/penis/human_old
 	icon_state = /datum/sprite_accessory/genital/penis/human::icon_state
@@ -74,14 +80,19 @@
 /datum/sprite_accessory/genital/penis/knotted_old
 	icon_state = /datum/sprite_accessory/genital/penis/knotted::icon_state
 	name = /datum/sprite_accessory/genital/penis/knotted::name + " (Old)"
+	knotted = TRUE
 
 /datum/sprite_accessory/genital/penis/flared_old
 	icon_state = /datum/sprite_accessory/genital/penis/flared::icon_state
 	name = /datum/sprite_accessory/genital/penis/flared::name + " (Old)"
+	knotted = TRUE
+	override_string_knot = "flare"
+	override_string_tie = "lock"
 
 /datum/sprite_accessory/genital/penis/barbknot_old
 	icon_state = /datum/sprite_accessory/genital/penis/barbknot::icon_state
 	name = /datum/sprite_accessory/genital/penis/barbknot::name + " (Old)"
+	knotted = TRUE
 
 /datum/sprite_accessory/genital/penis/tapered_old
 	icon_state = /datum/sprite_accessory/genital/penis/tapered::icon_state
@@ -98,6 +109,7 @@
 /datum/sprite_accessory/genital/penis/hemiknot_old
 	icon_state = /datum/sprite_accessory/genital/penis/hemiknot::icon_state
 	name = /datum/sprite_accessory/genital/penis/hemiknot::name + " (Old)"
+	knotted = TRUE
 
 // Testicles
 /datum/sprite_accessory/genital/testicles/pair

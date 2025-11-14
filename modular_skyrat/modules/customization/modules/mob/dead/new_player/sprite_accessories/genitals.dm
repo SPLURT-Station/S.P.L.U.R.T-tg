@@ -93,6 +93,9 @@
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	var/can_have_sheath = TRUE
+	var/knotted = FALSE
+	var/override_string_knot = "knot"
+	var/override_string_tie = "tie"
 
 /datum/sprite_accessory/genital/penis/get_special_icon(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()

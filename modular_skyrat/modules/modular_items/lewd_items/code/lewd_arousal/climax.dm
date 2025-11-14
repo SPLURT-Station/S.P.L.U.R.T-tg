@@ -193,7 +193,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 
@@ -409,7 +409,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 
