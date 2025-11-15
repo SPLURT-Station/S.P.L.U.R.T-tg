@@ -45,7 +45,7 @@
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_NECK
 	supports_variations_flags = NONE
 
-/obj/item/clothing/head/hooded/cloakhood/determinations_cloak
+/obj/item/clothing/head/hooded/cloakhood/determinations_cloakcap
 	name = "Determinations Cloak Hood"
 	desc = "A beret fitting to the cloak attached"
 	icon_state = "determinations_cloakcap"
