@@ -8,10 +8,6 @@
 	if(!istype(buckle_relay))
 		return COMPONENT_INCOMPATIBLE
 
-	var/mob/living/carbon/human/parent = src.parent
-
-	taur_parent = parent.get_taur_mode() in list(STYLE_TAUR_HOOF, STYLE_TAUR_PAW)
-
 	RegisterSignal(buckle_relay, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_step))
 
@@ -33,7 +29,7 @@
 /datum/component/bellyriding/proc/update_visuals()
 	var/mob/living/carbon/human/parent = src.parent
 	if(current_victim.dir != parent.dir)
-		current_victim.setDir(dir)
+		current_victim.setDir(parent.dir)
 
 
 	var/datum/sprite_accessory/taur/taur_accessory
@@ -51,27 +47,19 @@
 	var/y_offset = parent.pixel_y + parent.pixel_z
 	var/layer = parent.layer - 0.001 // arbitrary
 	if(taur_accessory)
-		var/counter_clockwise = current_victim.dir == WEST
-		final_transform.Turn(counter_clockwise ? -80 : 80)
-		y_offset + taur_accessory
+		switch(current_victim.dir)
+			if(EAST)
+				final_transform.Turn(80)
+			if(WEST)
+				final_transform.Turn(-80)
 
+		if(parent.body_position == LYING_DOWN)
+			y_offset += (taur_accessory.laydown_offset * 0.5)
 
+	current_victim.transform = final_transform
+	current_victim.add_offsets(BELLYRIDING_SOURCE, w_add = x_offset, z_add = y_offset)
+	current_victim.layer = layer
 
-
-	laydown_offset
-	var/x_offset = GET_X_OFFSET(diroffsets)
-	var/y_offset = GET_Y_OFFSET(diroffsets)
-	var/layer = GET_LAYER(diroffsets, rider.layer)
-
-	// if they are intended to be buckled, offset their existing offset
-	var/atom/movable/seat = parent
-	if(seat.buckle_lying && rider.body_position == LYING_DOWN)
-		y_offset += (-1 * PIXEL_Y_OFFSET_LYING)
-
-	// Rider uses pixel_z offsets as they're above the turf, not up north on the turf
-	rider.add_offsets(RIDING_SOURCE, x_add = x_offset, z_add = y_offset, animate = animate)
-	rider.layer = layer
-#undef BELLYRIDING_SOURCE
 
 /datum/component/bellyriding/proc/heehoo_pp()
 	if(!prob(25))
@@ -92,8 +80,6 @@
 			return // no valid interaction, why are we even here
 
 	ASYNC current_interaction.act(parent, current_victim)
-
-
 
 
 /datum/component/bellyriding/proc/try_buckle_victim(mob/living/carbon/human/victim, mob/user)
