@@ -177,8 +177,7 @@ Just one more pull and maybe I can get her
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	/// 20 damage is ok. It's the same as shooting a single thermal pistol at a time, when it come to raw DPS difference, this wont cut it.
-	var/two_hand_force = 20
+	speed = 4
 
 	/* In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
@@ -196,9 +195,8 @@ Just one more pull and maybe I can get her
 		Yes, this sword is one of the more complicated one in term of balance and it may feel oppressive
 		Due to how many feature it has and the system put in place. And I intend to address all of it one at a time.
 	*/
-	attack_speed = 4 //No, it takes way too damn long with 12 damage to even down a normal threat. I guarantee you this is not an issue
 
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
