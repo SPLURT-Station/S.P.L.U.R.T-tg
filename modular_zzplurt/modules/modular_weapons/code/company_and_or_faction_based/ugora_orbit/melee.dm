@@ -47,9 +47,9 @@ Speaking of which, daisho are also fun :3
 	update_appearance()
 
 /*
-I couldn't careless if I'm right or wrong, more that I didn't sit down and let someone make a godawful PR while all I did was complain
+I couldn't careless if I'm right or wrong, I care that I didn't sit down and let someone make a godawful PR while all I did was complain
 Some of us are bloody fucking awful innit? but that's the thing, people are disagreeable
-And somewhere, somehow. you do need to try.
+And somewhere, somehow. you do need to try to do something you want to see. This project was always made for you, my dearest reader!
 
 Is it really an issue if AGPL. from doppler # 303 If paxil pings me not to use this then it can be altered. Or you know, if he DM me. It's not like he won't
 Not everything is gonna be the same anyway. People have different vision
