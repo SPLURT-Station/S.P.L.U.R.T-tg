@@ -312,3 +312,22 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	target.set_confusion_if_lower(3 SECONDS)
 	target.set_staggered_if_lower(3 SECONDS) //A short 3 second window meant to allow for follow up
+
+
+/obj/item/melee/baton/jitte/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/living_target = target
+	var/ritual_worthy = FALSE
+
+	if(HAS_TRAIT(living_target, TRAIT_INCAPACITATED))
+		ritual_worthy = TRUE
+
+	if(check_behind(user, living_target))
+		ritual_worthy = TRUE
+
+	if(ritual_worthy)
+		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
+
+	return ..()
