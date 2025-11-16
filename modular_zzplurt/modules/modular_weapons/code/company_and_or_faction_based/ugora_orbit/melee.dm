@@ -1,14 +1,14 @@
 /datum/supply_pack/security/armory/secdaisho
 	name = "Reverbing Sword Crate"
 	desc = "A three pack of the Ugora Orbit branded two handed sword and the sheath for them."
-	cost = CARGO_CRATE_VALUE * 20
+	cost = CARGO_CRATE_VALUE * 30
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
-	crate_name = "osculating sword"
+	crate_name = "sword and jitte"
 
 /datum/supply_pack/security/sectanto
 	name = "Tanto Crate"
 	desc = "A three pack of the Ugora Orbit branded tanto. Thin sharp blade meant for last resort."
-	cost = CARGO_CRATE_VALUE * 8
+	cost = CARGO_CRATE_VALUE * 10
 	contains = list(/obj/item/knife/oscu_tanto = 3)
 	crate_name = "security knife"
 
@@ -46,12 +46,16 @@ Speaking of which, daisho are also fun :3
 	new /obj/item/melee/baton/jitte(src)
 	update_appearance()
 
+/*
+I couldn't careless if I'm right or wrong, more that I didn't sit down and let someone make a godawful PR while all I did was complain
+Some of us are bloody fucking awful innit? but that's the thing, people are disagreeable
+And somewhere, somehow. you do need to try.
 
-///Is it really an issue if AGPL. from doppler # 303 If paxil pings me not to use this then it can be altered. Or you know, if he DM me. It's not like he won't
-///Not everything is gonna be the same anyway. People have different vision
-//As of writing this I still have not been able to pull exu alter yet
-//Just one more pull and maybe I can get her
-
+Is it really an issue if AGPL. from doppler # 303 If paxil pings me not to use this then it can be altered. Or you know, if he DM me. It's not like he won't
+Not everything is gonna be the same anyway. People have different vision
+As of writing this I still have not been able to pull exu alter yet
+Just one more pull and maybe I can get her
+*/
 /obj/item/storage/belt/secdaisho/examine(mob/user)
 	. = ..()
 	if(length(contents))
