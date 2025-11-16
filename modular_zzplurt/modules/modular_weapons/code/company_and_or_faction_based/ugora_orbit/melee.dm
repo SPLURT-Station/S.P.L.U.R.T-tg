@@ -124,7 +124,7 @@ Speaking of which, daisho are also fun :3
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
-	armour_penetration = 25 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	armour_penetration = 20 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
 	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
 	wound_bonus = 18
@@ -138,7 +138,7 @@ Speaking of which, daisho are also fun :3
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(target.getBruteLoss() =< 0) && (target.getFireLoss() =< 0)
+	if(target.getBruteLoss() =< 0) || (target.getFireLoss() =< 0)
     return ..()
 
 /obj/item/reverbing_blade/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
@@ -151,6 +151,9 @@ Speaking of which, daisho are also fun :3
 		if(empowerment != SCYTHE_EMPOWERED) //We only empower our stats if we beheaded a human with a mind.
 			original_force = force
 			force *= bonus_force_multiplier
+
+//You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
+//So, have it the way I had in mind
 
 /*
 /obj/item/melee/oscula
