@@ -143,7 +143,7 @@ Just one more pull and maybe I can get her
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(target.BruteLoss() =< 0) || (target.FireLoss() =< 0)
-    return ..()
+	return ..()
 
 /obj/item/reverbing_blade/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
 	//Determines if we are entitled to setting/resetting our timer.
