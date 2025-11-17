@@ -145,6 +145,7 @@ Just one more pull and maybe I can get her
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	var/mob/living/living_target = target
 	if(!isliving(target))
 		return ..()
 	var/mob/living/living_target = target
