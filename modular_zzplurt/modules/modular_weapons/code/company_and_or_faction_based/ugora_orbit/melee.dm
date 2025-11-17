@@ -147,6 +147,7 @@ Just one more pull and maybe I can get her
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return ..()
+	var/mob/living/living_target = target
 	damage = (target.getBruteLoss() + target.getFireLoss())
 	bonus_force = force + clamp(damage/4, 0, 35)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
