@@ -144,7 +144,7 @@ Just one more pull and maybe I can get her
 		final_block_chance = 63 //Don't try it!
 	return ..()
 
-/obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/item/melee/reverbing_blade/pre_attack(mob/living/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return ..()
 	var/mob/living/living_target = target
