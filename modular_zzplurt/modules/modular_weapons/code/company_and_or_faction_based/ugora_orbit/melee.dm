@@ -128,11 +128,14 @@ Just one more pull and maybe I can get her
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
-	armour_penetration = 20 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
+	armour_penetration = 15 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	force = 15 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
 	wound_bonus = 18
 	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
+
+	var/bonus_force = 0
+	var/damage = 0
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
@@ -142,19 +145,11 @@ Just one more pull and maybe I can get her
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(target.BruteLoss() =< 0) || (target.FireLoss() =< 0)
+	if(!isliving(target))
+		return ..()	damage = (target.getBruteLoss() + target.getFireLoss())
+	bonus_force = force + clamp(damage/4, 0, 35)
+	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
 	return ..()
-
-/obj/item/reverbing_blade/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
-	//Determines if we are entitled to setting/resetting our timer.
-	//Only reset SCYTHE_EMPOWERED with an empowerment that would grant that.
-	//Only reset SCTHE_SATED if hitting at least simple mobs or nonmonkey carbons.
-	var/allow_timer_set = FALSE
-
-	if(potential_empowerment == SCYTHE_EMPOWERED)
-		if(empowerment != SCYTHE_EMPOWERED) //We only empower our stats if we beheaded a human with a mind.
-			original_force = force
-			force *= bonus_force_multiplier
 
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
 //So, have it the way I had in mind
