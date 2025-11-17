@@ -150,7 +150,6 @@ Just one more pull and maybe I can get her
 	damage = (target.getBruteLoss() + target.getFireLoss())
 	bonus_force = force + clamp(damage/4, 0, 35)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
-	return ..()
 
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
 //So, have it the way I had in mind
