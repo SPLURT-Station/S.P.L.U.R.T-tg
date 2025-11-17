@@ -142,7 +142,7 @@ Just one more pull and maybe I can get her
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(target.getBruteLoss() =< 0) || (target.getFireLoss() =< 0)
+	if(target.BruteLoss() =< 0) || (target.FireLoss() =< 0)
     return ..()
 
 /obj/item/reverbing_blade/proc/scythe_empowerment(potential_empowerment = SCYTHE_WEAK)
