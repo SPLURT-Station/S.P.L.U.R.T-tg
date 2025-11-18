@@ -19,6 +19,7 @@
 /datum/unit_test/missing_icons/Run()
 	generate_possible_icon_states_list()
 	generate_possible_icon_states_list("icons/effects/")
+	generate_possible_icon_states_list("modular_zzplurt/events/")
 	if(additional_icon_location)
 		generate_possible_icon_states_list(additional_icon_location)
 
