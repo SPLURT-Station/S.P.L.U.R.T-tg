@@ -20,6 +20,7 @@
 
 /datum/unit_test/defined_inhand_icon_states/Run()
 	generate_possible_icon_states_list()
+	generate_possible_icon_states_list("modular_zzplurt/events/")
 	if(additional_inhands_location)
 		generate_possible_icon_states_list(additional_inhands_location)
 
