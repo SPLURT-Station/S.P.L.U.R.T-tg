@@ -28,8 +28,13 @@
 	target_arousal = 2
 
 /datum/interaction/lewd/unholy/facefart/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.assbrap_noises // GLOB.assbrap_noises: expected a constant expression
 	. = ..()
+
+/datum/interaction/lewd/unholy/facefart/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
 
 /datum/interaction/lewd/unholy/crotchfart
 	name = "Crotch Fart"
@@ -60,7 +65,7 @@
 	target_arousal = 4
 
 /datum/interaction/lewd/unholy/crotchfart/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.assbrap_noises // GLOB.assbrap_noises: expected a constant expression
 	. = ..()
 
 /datum/interaction/lewd/unholy/fartfuck
@@ -105,7 +110,7 @@
 	target_arousal = 6
 
 /datum/interaction/lewd/unholy/fartfuck/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.assbrap_noises // GLOB.assbrap_noises: expected a constant expression
 	. = ..()
 
 /datum/interaction/lewd/unholy/fartfuck/post_interaction(mob/living/user, mob/living/target)
@@ -147,5 +152,10 @@
 	target_arousal = 5
 
 /datum/interaction/lewd/unholy/suck_fart/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.assbrap_noises // GLOB.assbrap_noises: expected a constant expression
 	. = ..()
+
+/datum/interaction/lewd/unholy/suck_fart/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
