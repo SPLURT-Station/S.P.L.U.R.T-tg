@@ -46,6 +46,13 @@ GLOBAL_LIST_INIT(digest_modes, init_digest_modes())
 
 	return vore_can_negatively_affect()
 
+/mob/living/proc/vore_can_drain()
+	if(client)
+		var/datum/vore_preferences/vore_prefs = client.get_vore_prefs()
+		return vore_prefs?.read_preference(/datum/vore_pref/toggle/drain)
+
+	return vore_can_negatively_affect()
+
 /obj/machinery/cryopod/quiet/vore
 	name = "vore cryopod"
 
@@ -204,7 +211,8 @@ GLOBAL_DATUM_INIT(vore_cryopod, /obj/machinery/cryopod/quiet/vore, new /obj/mach
 	var/mob/living/living_parent = vore_belly.owner.parent
 
 	for(var/mob/living/L in vore_belly)
-		if(!L.vore_can_digest())
+		// Respect drain preferences - separate from digestion
+		if(!L.vore_can_drain())
 			continue
 		// Don't drain from dead prey
 		if(L.stat == DEAD)
@@ -225,7 +233,7 @@ GLOBAL_DATUM_INIT(vore_cryopod, /obj/machinery/cryopod/quiet/vore, new /obj/mach
 
 /datum/digest_mode/heal
 	name = DIGEST_MODE_HEAL
-	gurgle_noises = FALSE
+	gurgle_noises = TRUE // Heal mode plays soothing gurgle sounds (matches VOREStation/CHOMPStation)
 
 /datum/digest_mode/heal/handle_belly(obj/vore_belly/vore_belly, seconds_per_tick)
 	var/mob/living/living_parent = vore_belly.owner.parent
@@ -234,7 +242,7 @@ GLOBAL_DATUM_INIT(vore_cryopod, /obj/machinery/cryopod/quiet/vore, new /obj/mach
 		// Don't heal dead prey
 		if(L.stat == DEAD)
 			continue
-		
+
 		// Cache damage values to avoid multiple function calls
 		var/brute = L.getBruteLoss()
 		var/burn = L.getFireLoss()
