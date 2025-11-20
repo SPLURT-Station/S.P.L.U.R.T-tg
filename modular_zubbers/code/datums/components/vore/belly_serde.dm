@@ -37,9 +37,11 @@
 		"escape_messages_outside" = escape_messages_outside,
 		"escape_fail_messages_owner" = escape_fail_messages_owner,
 		"escape_fail_messages_prey" = escape_fail_messages_prey,
+		// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 		"autotransfer_enabled" = autotransfer_enabled,
 		"autotransfer_delay" = autotransfer_delay,
 		// Note: autotransfer_target is not serialized, it's set by name/index after load
+		// SPLURT MODULAR EDIT END
 	)
 
 // Called when a savefile passed to us does not match our expected version
@@ -98,8 +100,10 @@
 			if(!fancy_sounds && (new_release_sound in GLOB.vore_sounds_release_classic))
 				release_sound = new_release_sound
 
+	// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 	autotransfer_enabled = sanitize_integer(data["autotransfer_enabled"], FALSE, TRUE, FALSE)
 	autotransfer_delay = sanitize_integer(data["autotransfer_delay"], 10, 3000, 600) // 1 second to 5 minutes, default 60 seconds
+	// SPLURT MODULAR EDIT END
 
 	deserialize_messages(data)
 
