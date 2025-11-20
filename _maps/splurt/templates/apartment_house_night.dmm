@@ -645,8 +645,8 @@
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
 "rw" = (
-/obj/machinery/biogenerator,
-/turf/closed/indestructible/hotelwall,
+/obj/machinery/smartfridge,
+/turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "rL" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
@@ -705,10 +705,6 @@
 	set_luminosity = 4.5
 	},
 /turf/open/floor/grass,
-/area/misc/hilbertshotel)
-"td" = (
-/obj/machinery/seed_extractor,
-/turf/closed/indestructible/hotelwall,
 /area/misc/hilbertshotel)
 "te" = (
 /obj/structure/flora/bush/reed/style_random,
@@ -1018,8 +1014,8 @@
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
 "Cb" = (
-/obj/machinery/smartfridge,
-/turf/closed/indestructible/hotelwall,
+/obj/machinery/biogenerator,
+/turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "CI" = (
 /obj/structure/flora/bush/reed/style_random,
@@ -1215,9 +1211,8 @@
 	icon_state = "riotshotgun";
 	anchored = 1;
 	name = "Decorative Shotgun";
-	pixel_y = 27;
-	desc = "Looking down the barrel (like the smart person that you are.) you can see it has been filled with concrete.";
-	layer = 3
+	pixel_y = 28;
+	desc = "Looking down the barrel (like the smart person that you are.) you can see it has been filled with concrete."
 	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
@@ -1619,6 +1614,7 @@
 /obj/item/reagent_containers/cup/jerrycan/robustharvest,
 /obj/item/reagent_containers/cup/jerrycan/robustharvest,
 /obj/item/reagent_containers/cup/jerrycan/ammonia,
+/obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "OF" = (
@@ -1851,7 +1847,7 @@
 "Vs" = (
 /obj/machinery/smartfridge,
 /obj/structure/sign/clock/directional/north,
-/turf/closed/wall/mineral/wood,
+/turf/open/floor/iron/kitchen/small,
 /area/misc/hilbertshotel)
 "VB" = (
 /obj/machinery/space_heater/wall_mounted/directional/east,
@@ -2045,7 +2041,7 @@ gE
 Hf
 Rx
 aR
-Rx
+Cb
 Pa
 "}
 (3,1,1) = {"
@@ -2077,7 +2073,7 @@ qd
 tT
 tT
 cD
-td
+Pa
 "}
 (4,1,1) = {"
 Pa
@@ -2108,7 +2104,7 @@ Iv
 tT
 tT
 OE
-Cb
+Pa
 "}
 (5,1,1) = {"
 Pa
@@ -2139,7 +2135,7 @@ KL
 tT
 tT
 Kr
-rw
+Pa
 "}
 (6,1,1) = {"
 Pa
@@ -2169,7 +2165,7 @@ gE
 Iv
 Rx
 tT
-Rx
+rw
 Pa
 "}
 (7,1,1) = {"

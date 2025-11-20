@@ -346,8 +346,7 @@
 	name = "Decorative PKA";
 	pixel_y = 25;
 	desc = "Looking down the barrel (like the smart person that you are.) you can see it has been filled with concrete.";
-	pixel_x = -1;
-	layer = 3
+	pixel_x = -1
 	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
@@ -382,13 +381,9 @@
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
-"kh" = (
-/obj/machinery/smartfridge,
-/turf/closed/wall/mineral/titanium/survival/pod,
-/area/misc/hilbertshotel)
 "kA" = (
 /obj/machinery/biogenerator,
-/turf/closed/wall/mineral/titanium/survival/pod,
+/turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
 "kD" = (
 /turf/closed/indestructible/rock,
@@ -635,7 +630,7 @@
 "sp" = (
 /obj/machinery/smartfridge,
 /obj/structure/sign/clock/directional/north,
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/iron/kitchen/small,
 /area/misc/hilbertshotel)
 "sC" = (
 /obj/item/flashlight/flare/candle/infinite,
@@ -1070,8 +1065,8 @@
 /turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
 "Fo" = (
-/obj/machinery/seed_extractor,
-/turf/closed/wall/mineral/titanium/survival/pod,
+/obj/machinery/smartfridge,
+/turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
 "Ft" = (
 /obj/machinery/light/small/directional/south,
@@ -1262,6 +1257,8 @@
 	desc = "Secateurs with a wooden handle. You can see a few stains on the blades."
 	},
 /obj/structure/sign/poster/contraband/lizard/directional/south,
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/pod/dark,
 /area/misc/hilbertshotel)
 "LS" = (
@@ -1784,13 +1781,13 @@ Wz
 Wz
 Wz
 Wz
-ow
-Wz
-My
-My
-My
-My
+kA
 Fo
+My
+My
+My
+My
+hW
 hW
 hW
 hW
@@ -1852,7 +1849,7 @@ My
 My
 My
 My
-kA
+hW
 ET
 XP
 LI
@@ -1878,7 +1875,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+ow
 Wz
 Wz
 Wz
@@ -1914,7 +1911,7 @@ My
 My
 My
 My
-kh
+hW
 ca
 aj
 ca
