@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script will deploy our modular icon assets so iconforge can use them in spritesheet generation
-# This includes modular_zzplurt/icons, greyscale json configs, and event assets
+# This includes modular_zzplurt/icons and greyscale json configs
 
 mkdir -p \
     $1/modular_zzplurt/icons \
