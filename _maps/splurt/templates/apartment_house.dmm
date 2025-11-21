@@ -626,7 +626,7 @@
 /area/misc/hilbertshotel)
 "rw" = (
 /obj/machinery/biogenerator,
-/turf/closed/indestructible/hotelwall,
+/turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "rL" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
@@ -683,8 +683,8 @@
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
 "td" = (
-/obj/machinery/seed_extractor,
-/turf/closed/indestructible/hotelwall,
+/obj/machinery/smartfridge,
+/turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "tP" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -940,10 +940,6 @@
 	},
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
-/area/misc/hilbertshotel)
-"Cb" = (
-/obj/machinery/smartfridge,
-/turf/closed/indestructible/hotelwall,
 /area/misc/hilbertshotel)
 "CE" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -1509,6 +1505,8 @@
 /obj/item/reagent_containers/cup/jerrycan/robustharvest,
 /obj/item/reagent_containers/cup/jerrycan/robustharvest,
 /obj/item/reagent_containers/cup/jerrycan/ammonia,
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "OF" = (
@@ -1945,7 +1943,7 @@ pO
 Hf
 Rx
 aR
-Rx
+rw
 Pa
 "}
 (3,1,1) = {"
@@ -1977,7 +1975,7 @@ qd
 tT
 tT
 cD
-td
+Pa
 "}
 (4,1,1) = {"
 Pa
@@ -2008,7 +2006,7 @@ Iv
 tT
 tT
 OE
-Cb
+Pa
 "}
 (5,1,1) = {"
 Pa
@@ -2039,7 +2037,7 @@ KL
 tT
 tT
 Kr
-rw
+Pa
 "}
 (6,1,1) = {"
 Pa
@@ -2069,7 +2067,7 @@ pO
 Iv
 Rx
 tT
-Rx
+td
 Pa
 "}
 (7,1,1) = {"
