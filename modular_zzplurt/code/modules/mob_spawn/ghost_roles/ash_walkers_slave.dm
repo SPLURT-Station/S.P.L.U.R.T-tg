@@ -30,7 +30,7 @@
 		new_spawn.put_in_hands(new /obj/item/stock_parts/power_store/cell/infinite/abductor(new_spawn))
 
 	new_spawn.grant_language(/datum/language/draconic, source = LANGUAGE_SPAWNER)
-	//new_spawn.grant_language(/datum/language/ashtongue, source = LANGUAGE_SPAWNER) // bubber got rid of ashtongue but will probably be reverted
+	new_spawn.grant_language(/datum/language/ashtongue, source = LANGUAGE_SPAWNER)
 	new_spawn.remove_language(/datum/language/common)
 
 	new_spawn.mind.add_antag_datum(/datum/antagonist/ashwalker, team)
