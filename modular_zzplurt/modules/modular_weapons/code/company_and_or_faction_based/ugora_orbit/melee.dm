@@ -129,13 +129,18 @@ Just one more pull and maybe I can get her
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	armour_penetration = 15 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 15 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy
+	force = 18 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy, also I don't see a reason a proper sword needs do less damage than a replika like the shamshir, or less damage than a fukken knife .-.
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 18
-	exposed_wound_bonus = -20 //See the tanto for why we are having it in the negative instead
+	wound_bonus = 10 //Low, because we increases in damages
+	exposed_wound_bonus = -30 //See the tanto for why we are having it in the negative instead
+
+	attack_speed = 12 //Slower to swing, we have more damage per hit!
 
 	var/bonus_force = 0
 	var/damage = 0
+//What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
+	var/degree_of_tolerance = 4
+	var/maximum_damage_bonus = 30
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
@@ -149,17 +154,16 @@ Just one more pull and maybe I can get her
 		return ..()
 	var/mob/living/living_target = target
 	damage = (living_target.getBruteLoss() + living_target.getFireLoss())
-	bonus_force = force + clamp(damage/4, 0, 35)
+	bonus_force = force + clamp(damage/degree_of_tolerance, 0, maximum_damage_bonus)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
 
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
 //So, have it the way I had in mind
 
-/*
-/obj/item/melee/oscula
+/obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
-	desc = "A long dull blade fielded by the Ugora regal guardian. These 'sword' are not sharp due to prohibition agaisnt armament while in vicinity of the empress."
-	desc_controls = "This sword attack faster but weaker while unwielded. Use in hand to wield for more damage"
+	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' are technically more like a blunt weapon due to lack of sharp edges, that said, it is still extremely lightweight to swing and hot to touch."
+	desc_controls = "This sword inflicts bluespace scarring, occult target afflicted by this cannot jaunt or teleport!"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword.dmi'
 	icon_state = "secsword0"
 	inhand_icon_state = "secsword0"
@@ -167,18 +171,21 @@ Just one more pull and maybe I can get her
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
 	block_chance = 40
 	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 8 hit to down. We have too low of a base damage to be an issue
-	force = 12
+	force = 10 //low base damage, high ramp up. You use this for support.
 	damtype = BURN
 	wound_bonus = 10
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	speed = 4
+	attack_speed = 5
 
-	/* In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
+	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
+	maximum_damage_bonus = 40
+/*
+ In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
-	/// | 12:4, 24:8, 36:12, 48:16     													       |===|
+	/// | 12:5, 24:10, 36:15, 48:20     													   |===|
 	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
 	/// | Tickrate can be misleading, as standard melee tick is practically equal to a second. |===|
 		As we can see, the energy sword always win
@@ -190,7 +197,7 @@ Just one more pull and maybe I can get her
 		The sword has a lower overall damage and does not deal brute wound (no bleed out) on the fast mode
 		Yes, this sword is one of the more complicated one in term of balance and it may feel oppressive
 		Due to how many feature it has and the system put in place. And I intend to address all of it one at a time.
-	*/
+*/
 
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
@@ -198,15 +205,29 @@ Just one more pull and maybe I can get her
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
-/obj/item/melee/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(attack_type == (PROJECTILE_ATTACK || LEAP_ATTACK || OVERWHELMING_ATTACK))
-		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword. Or a road roller, if one happened to hit you.
-	return ..()
+	var/recharge_timer = 0
+	var/charges = 1
 
-Let's pretend this entire section doesn't exist for now while I work on a replacement. We can reactivate it when we're ready. To whom it may concern, yes, it does compile.
-*/
+/obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
+	. = ..()
 
-/obj/item/knife
+	GetComponent(
+		/datum/component/anti_magic, \
+		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
+		inventory_flags = ITEM_SLOT_HANDS, \
+		charges = 1, \
+		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
+	)
+	if(!QDELING(src))
+		//borrowed from /obj/item/gun/energy/recharge/dropped, as explained there,
+		//Put it on a delay because moving item from slot to hand. This is because people may do a quickpull out and swap for damage, that is something I am vehemently against.
+		//It won't stop it, but it doesn't need to, it only needs to make it harder. Think: Pull MCR Lancer out and do instant 45 damage.
+		// calls dropped().
+		addtimer(CALLBACK(src, PROC_REF(recharge)), 30 SECONDS)
+
+/obj/item/melee/reverbing_blade/oscula/recharge()
+	if(charges = 0)
+		charges = 1
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
@@ -222,8 +243,8 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
 	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
-	armour_penetration = 40 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 13 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+	armour_penetration = 45 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
+	attack_speed = 14 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
 	. = ..()
@@ -238,18 +259,14 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	var/mob/living/living_target = target
 	var/ritual_worthy = FALSE
 
-	if(living_target.stat == DEAD) // We are using the code from the leito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
+	if(living_target.stat == DEAD) // We are using the code from the Iaito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
 		return ..()
-
-	if(HAS_TRAIT(living_target, TRAIT_INCAPACITATED))
-		ritual_worthy = TRUE
 
 	if(check_behind(user, living_target))
 		ritual_worthy = TRUE
 
 	if(ritual_worthy)
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
-
 	return ..()
 
 /datum/storage/security_belt
@@ -299,29 +316,32 @@ Let's pretend this entire section doesn't exist for now while I work on a replac
 	inhand_icon_state = "jitte"
 	desc = "A hard plastic-metal jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
 	desc_controls = "Left click to stun, right click to harm."
-	stamina_damage = 23 //It still is technically a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
+	stamina_damage = 25 //It still is a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
 	cooldown = 1.4 SECONDS //Faster than a baton but still slow
 	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
-	target.set_confusion_if_lower(3 SECONDS)
-	target.set_staggered_if_lower(3 SECONDS) //A short 3 second window meant to allow for follow up
-
+	target.set_confusion_if_lower(2 SECONDS)
+	target.set_staggered_if_lower(2 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 
 /obj/item/melee/baton/jitte/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return ..()
 
 	var/mob/living/living_target = target
-	var/ritual_worthy = FALSE
+	var/you_suck = FALSE
 
-	if(HAS_TRAIT(living_target, TRAIT_INCAPACITATED))
-		ritual_worthy = TRUE
+	if(living_target.get_timed_status_effect_duration(/datum/status_effect/staggered))
+		you_suck= TRUE
 
 	if(check_behind(user, living_target))
-		ritual_worthy = TRUE
+		you_suck = TRUE
 
-	if(ritual_worthy)
-		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
+	if(living_target.get_timed_status_effect_duration(/datum/status_effect/staggered))
+		you_suck = TRUE
+
+	if(you_suck)
+		living_target.drop_all_held_items()
+		living_target.visible_message(span_danger("[user] disarms [living_target]!"), span_userdanger("[user] disarmed you!"))
 
 	return ..()
