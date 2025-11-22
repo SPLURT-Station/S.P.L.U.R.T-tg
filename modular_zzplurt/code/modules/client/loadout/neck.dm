@@ -33,3 +33,7 @@
 // 	name = "Normalizer Collar"
 // 	path = /obj/item/clothing/neck/syntech/collar
 // 	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION
+
+/datum/loadout_item/neck/determinations_cloak
+	name = "determinations cloak"
+	item_path = /obj/item/clothing/suit/hooded/cloak/determinations_cloak
