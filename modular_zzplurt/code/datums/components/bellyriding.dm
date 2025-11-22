@@ -93,7 +93,6 @@
 	current_victim = victim
 	current_victim.can_buckle_to = FALSE
 	RegisterSignal(current_victim, COMSIG_QDELETING, PROC_REF(unbuckle_victim))
-	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(unbuckle_through_unbuckle)) // wow great fucking naming idiot
 	update_visuals()
 
 #undef UNBUCKLE_UNDO_EVERYTHING
@@ -119,11 +118,6 @@
 
 	unbuckle_victim()
 
-/datum/component/bellyriding/proc/unbuckle_through_unbuckle()
-	SIGNAL_HANDLER
-
-	unbuckle_victim(skip_unbuckle = TRUE)
-
 #define BELLYRIDING_SOURCE "bellyriding source. i mean no one can check these anyways no? i could write anything here. avali are cool. go play them."
 /datum/component/bellyriding/proc/unbuckle_victim(skip_unbuckle = FALSE)
 	if(isnull(current_victim))
@@ -137,7 +131,6 @@
 	parent.max_buckled_mobs -= 1
 	parent.remove_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 	last_interaction = null
-	UnregisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE)
 
 	stored_action.Remove(parent)
 
@@ -264,6 +257,12 @@
 
 	do_the_violate:
 	ASYNC last_interaction.act(parent, current_victim)
+
+/mob/living/carbon/human/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
+	var/datum/component/bellyriding/comp = GetComponent(/datum/component/bellyriding) // yeah. this does suck.
+	if(comp?.current_victim == buckled_mob) // would be better if unbuckle_mob had a pre_unbuckle signal.
+		comp.unbuckle_victim(skip_unbuckle = TRUE) // we make do with the tools we have.
+	return ..()
 
 
 /datum/movespeed_modifier/bellyriding_nontaur
