@@ -205,10 +205,9 @@
 	if(!parent.has_genital(REQUIRE_GENITAL_EXPOSED, ORGAN_SLOT_PENIS))
 		return // why do we bother
 
-	var/datum/interaction/no_orifice_interaction = SSinteractions.interactions["bellyriding dick frot"] // who made these indexed by name istG
+	var/datum/interaction/no_orifice_interaction = SSinteractions.interactions[/datum/interaction/lewd/bellyriding/frot::name] // who made these indexed by name istG
 	if(!no_orifice_interaction.allow_act(parent, current_victim))
-		no_orifice_interaction = SSinteractions.interactions["bellyriding dick rub against groin"]
-
+		no_orifice_interaction = SSinteractions.interactions[/datum/interaction/lewd/bellyriding/groin_rub::name]
 
 	if(isnull(last_interaction) || !last_interaction.allow_act(parent, current_victim))
 		// swap to fallback
@@ -216,11 +215,15 @@
 		goto do_the_violate
 
 	if(last_interaction == no_orifice_interaction)
-		if(prob(20))
+		if(prob(80))
 			goto do_the_violate // actually let's tease them a bit more
 
+
 		// roll which hole do we violate
-		for(var/datum/interaction/candidate_type in shuffle(subtypesof(/datum/interaction/lewd/bellyriding)))
+		var/list/possible_interactions = list(/datum/interaction/lewd/bellyriding/anus, /datum/interaction/lewd/bellyriding/vagina)
+		shuffle_inplace(possible_interactions)
+
+		for(var/datum/interaction/candidate_type as anything in possible_interactions)
 			var/datum/interaction/candidate = SSinteractions.interactions[candidate_type::name]
 			if(candidate.allow_act(parent, current_victim))
 				last_interaction = candidate
@@ -228,7 +231,6 @@
 
 		// assume we rolled something
 		goto do_the_violate
-
 
 	else if(prob(0.5))
 		// small chance for dick to slip out (give a chance for other holes to shine)
