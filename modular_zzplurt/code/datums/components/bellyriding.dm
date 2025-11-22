@@ -93,7 +93,7 @@
 	current_victim = victim
 	current_victim.can_buckle_to = FALSE
 	RegisterSignal(current_victim, COMSIG_QDELETING, PROC_REF(unbuckle_victim))
-	RegisterSignal(current_victim, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(unbuckle_through_unbuckle)) // wow great fucking naming idiot
+	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(unbuckle_through_unbuckle)) // wow great fucking naming idiot
 	update_visuals()
 
 #undef UNBUCKLE_UNDO_EVERYTHING
@@ -137,10 +137,11 @@
 	parent.max_buckled_mobs -= 1
 	parent.remove_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 	last_interaction = null
+	UnregisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE)
 
 	stored_action.Remove(parent)
 
-	UnregisterSignal(current_victim, list(COMSIG_QDELETING, COMSIG_MOVABLE_UNBUCKLE))
+	UnregisterSignal(current_victim, COMSIG_QDELETING)
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(BELLYRIDING_SOURCE, TRUE)
 	current_victim.transform = null
