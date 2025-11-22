@@ -278,7 +278,7 @@
 /datum/action/innate/toggle_bellyriding_heehee_pp/Activate()
 	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
 	comp.enable_interactions = FALSE
-	active = FALSE6
+	active = FALSE
 
 	to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
 	to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
