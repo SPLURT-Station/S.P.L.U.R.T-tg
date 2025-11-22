@@ -277,16 +277,19 @@
 
 /datum/action/innate/toggle_bellyriding_heehee_pp/Activate()
 	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
+	comp.enable_interactions = TRUE
+	active = TRUE
+	build_all_button_icons(UPDATE_BUTTON_BACKGROUND) // why yes this IS necessary
+
+	to_chat(comp.current_victim, span_notice("[owner] repositions you, your rear pressing against [owner.p_their()] eager cock.. Oh no."))
+	to_chat(owner, span_notice("You reposition [comp.current_victim] to rest against your eager cock."))
+
+/datum/action/innate/toggle_bellyriding_heehee_pp/Deactivate()
+	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
 	comp.enable_interactions = FALSE
 	active = FALSE
+	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
 
 	to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
 	to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
 
-/datum/action/innate/toggle_bellyriding_heehee_pp/Deactivate()
-	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
-	comp.enable_interactions = TRUE
-	active = TRUE
-
-	to_chat(comp.current_victim, span_notice("[owner] repositions you, your rear pressing against [owner.p_their()] eager cock.. Oh no."))
-	to_chat(owner, span_notice("You reposition [comp.current_victim] to rest against your eager cock."))
