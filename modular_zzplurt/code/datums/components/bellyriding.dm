@@ -236,11 +236,11 @@
 		// small chance for dick to slip out (give a chance for other holes to shine)
 		var/obj/item/organ/genital/penis/penis = parent.get_organ_slot(ORGAN_SLOT_PENIS)
 		parent.visible_message(
-			span_lewd("[parent]'s [penis.genital_type] cock slips out of [current_victim]'s orifice!"),
-			span_lewd("Your [penis.genital_type] cock slips out of [current_victim]'s hole!"), // assume the ppl using this item wont know what an orifice is
+			span_love("[parent]'s [penis.genital_type] cock slips out of [current_victim]'s orifice!"),
+			span_love("Your [penis.genital_type] cock slips out of [current_victim]'s hole!"), // assume the ppl using this item wont know what an orifice is
 			ignored_mobs = list(current_victim)
 		)
-		to_chat(current_victim, "[parent]'s [penis.genital_type] cock slips out of your hole!")
+		to_chat(current_victim, span_love("[parent]'s [penis.genital_type] cock slips out of your hole!"))
 		playsound(current_victim, 'sound/effects/emotes/kiss.ogg', 50, TRUE, -6)
 		last_interaction = null
 		return

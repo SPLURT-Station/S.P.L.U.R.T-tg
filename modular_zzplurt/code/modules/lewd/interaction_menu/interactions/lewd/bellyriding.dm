@@ -142,7 +142,7 @@
 	user_messages = list(
 		span_lewd("Your cock forces itself into %TARGET%'s pussy."),
 		span_lewd("You forcibly spread %TARGET%'s folds apart with your shaft."),
-		span_lewd("%TARGET%'s anus forcibly stretches to accomodate your dick."),
+		span_lewd("%TARGET%'s pussy stretches to accomodate your dick."),
 		span_lewd("Your shaft pleasures itself at %TARGET%'s expense.")
 	)
 	target_messages = list(
