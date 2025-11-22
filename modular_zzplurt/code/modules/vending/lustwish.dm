@@ -27,6 +27,8 @@
 		/obj/item/disk/nifsoft_uploader/shapeshifter = STOCK_NIFSOFT,
 		*/
 
+		/obj/item/clothing/suit/bellyriding_harness = 2,
+
 		// New software
 		/obj/item/disk/nifsoft_uploader/dorms/nif_disrobe_disk = STOCK_NIFSOFT,
 		/obj/item/disk/nifsoft_uploader/nif_hide_backpack_disk = STOCK_NIFSOFT,

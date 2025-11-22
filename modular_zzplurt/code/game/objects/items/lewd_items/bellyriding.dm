@@ -12,15 +12,18 @@
 	worn_icon_taur_paw = 'modular_zzplurt/icons/mob/clothing/suit/misc_paw.dmi'
 	worn_icon_taur_snake = null
 	worn_icon_state = "bellyriding_harness"
+	supports_variations_flags = CLOTHING_NO_VARIATION
 
 	slot_flags = ITEM_SLOT_OCLOTHING
 
 /obj/item/clothing/suit/bellyriding_harness/equipped(mob/user, slot, initial)
 	. = ..()
-	if(ishuman(user) && slot == ITEM_SLOT_OCLOTHING)
-		user.AddComponent(/datum/component/bellyriding, src)
+	if(ishuman(loc) && slot == ITEM_SLOT_OCLOTHING)
+		loc.AddComponent(/datum/component/bellyriding, src)
+		strip_delay = 7 SECONDS
 	else
-		qdel(user.GetComponent(/datum/component/bellyriding)) // qdel accepts null and this is easier than wondering if dropped() actually works
+		qdel(loc.GetComponent(/datum/component/bellyriding)) // qdel accepts null and this is easier than wondering if dropped() actually works
+		strip_delay = initial(strip_delay)
 
 /obj/item/clothing/suit/bellyriding_harness/can_mob_unequip(mob/user)
 	var/mob/living/carbon/human/wearer = loc

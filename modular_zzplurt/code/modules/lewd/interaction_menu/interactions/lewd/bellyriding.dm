@@ -19,24 +19,24 @@
 	user_arousal = 2
 
 	message = list(
-		"\x08's cock grinds against %TARGET%'s groin.",
-		"\x08's shaft rubs against %TARGET%'s groin.",
-		"\x08's dick rubs across %TARGET%'s body.",
-		"\x08's tip pokes against %TARGET%'s groin."
+		"'s cock grinds against %TARGET%'s groin.",
+		"'s shaft rubs against %TARGET%'s groin.",
+		"'s dick rubs across %TARGET%'s body.",
+		"'s tip pokes against %TARGET%'s groin."
 	)
 	user_messages = list(
-		"Your cock grinds against %TARGET%'s groin.",
-		"You feel your shaft rub against %TARGET%'s groin.",
-		"You feel your dick rub across %TARGET%'s body.",
-		"Your tip pokes against %TARGET%'s groin.",
-		"%TARGET%'s body grinds against your cock from inertia."
+		span_lewd("Your cock grinds against %TARGET%'s groin."),
+		span_lewd("You feel your shaft rub against %TARGET%'s groin."),
+		span_lewd("You feel your dick rub across %TARGET%'s body."),
+		span_lewd("Your tip pokes against %TARGET%'s groin."),
+		span_lewd("%TARGET%'s body grinds against your cock from inertia.")
 	)
 	target_messages = list(
-		"%USER%'s cock grinds against your groin.",
-		"%USER%'s shaft shoves itself between your legs.",
-		"%USER%'s dick rubs against your body.",
-		"%USER%'s tip pokes at your groin.",
-		"Your body grinds against %USER%'s shaft from inertia."
+		span_lewd("%USER%'s cock grinds against your groin."),
+		span_lewd("%USER%'s shaft shoves itself between your legs."),
+		span_lewd("%USER%'s dick rubs against your body."),
+		span_lewd("%USER%'s tip pokes at your groin."),
+		span_lewd("Your body grinds against %USER%'s shaft from inertia.")
 	)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = null)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = null)
@@ -54,24 +54,24 @@
 	user_arousal = 2
 
 	message = list(
-		"\x08's cock grinds against %TARGET%'s own.",
-		"\x08's shaft forcibly frots with %TARGET%'s.",
-		"\x08's dick rubs across %TARGET%'s shaft.",
-		"\x08's tip grinds against %TARGET%'s shaft."
+		"'s cock grinds against %TARGET%'s own.",
+		"'s shaft forcibly frots with %TARGET%'s.",
+		"'s dick rubs across %TARGET%'s shaft.",
+		"'s tip grinds against %TARGET%'s shaft."
 	)
 	user_messages = list(
-		"Your cock grinds against %TARGET%'s own.",
-		"You feel your shaft frot with %TARGET%'s.",
-		"You feel your dick rub across %TARGET%'s body.",
-		"Your tip forces itself onto %TARGET%'s cock.",
-		"%TARGET%'s cock grinds against your own."
+		span_lewd("Your cock grinds against %TARGET%'s own."),
+		span_lewd("You feel your shaft frot with %TARGET%'s."),
+		span_lewd("You feel your dick rub across %TARGET%'s body."),
+		span_lewd("Your tip forces itself onto %TARGET%'s cock."),
+		span_lewd("%TARGET%'s cock grinds against your own.")
 	)
 	target_messages = list(
-		"%USER%'s cock grinds against your groin.",
-		"%USER%'s shaft massages itself with your own.",
-		"%USER%'s dick rubs against your own.",
-		"%USER%'s tip forces itself against your shaft.",
-		"Your cock grinds against %USER%'s shaft from inertia."
+		span_lewd("%USER%'s cock grinds against your groin."),
+		span_lewd("%USER%'s shaft massages itself with your own."),
+		span_lewd("%USER%'s dick rubs against your own."),
+		span_lewd("%USER%'s tip forces itself against your shaft."),
+		span_lewd("Your cock grinds against %USER%'s shaft from inertia.")
 	)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = null)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = null)
@@ -95,22 +95,22 @@
 	user_pain = 0
 
 	message = list(
-		"\x08's cock jams itself into %TARGET%'s anus.",
+		"'s cock jams itself into %TARGET%'s anus.",
 		"forcibly spreads %TARGET%'s anus with their shaft.",
 		"abuses %TARGET%'s hole with their shaft.",
-		"\x08's shaft pleasures itself at %TARGET%'s expense."
+		"'s shaft pleasures itself at %TARGET%'s expense."
 	)
 	user_messages = list(
-		"Your cock jams itself into %TARGET%'s anus.",
-		"You forcibly spread %TARGET%'s anus with your shaft.",
-		"%TARGET%'s anus forcibly stretches to accomodate your shaft.",
-		"Your shaft pleasures itself at %TARGET%'s expense."
+		span_lewd("Your cock jams itself into %TARGET%'s anus."),
+		span_lewd("You forcibly spread %TARGET%'s anus with your shaft."),
+		span_lewd("%TARGET%'s anus forcibly stretches to accomodate your shaft."),
+		span_lewd("Your shaft pleasures itself at %TARGET%'s expense.")
 	)
 	target_messages = list(
-		"%USER%'s cock jams itself into your anus.",
-		"Your hole is forcibly spread by %TARGET%'s shaft.",
-		"Your anus forcibly stretches to accomodate your shaft.",
-		"%USER%'s shaft pleasures itself at your hole's expense."
+		span_lewd("%USER%'s cock jams itself into your anus."),
+		span_lewd("Your hole is forcibly spread by %TARGET%'s shaft."),
+		span_lewd("Your anus forcibly stretches to accomodate your shaft."),
+		span_lewd("%USER%'s shaft pleasures itself at your hole's expense.")
 	)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = null)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_ANUS)
@@ -134,22 +134,22 @@
 	user_pain = 0
 
 	message = list(
-		"\x08's cock forces itself inside %TARGET%'s walls.",
+		"'s cock forces itself inside %TARGET%'s walls.",
 		"forcibly spreads %TARGET%'s folds open with their shaft.",
 		"abuses %TARGET%'s pussy with their shaft.",
-		"\x08's shaft pleasures itself at %TARGET%'s expense."
+		"'s shaft pleasures itself at %TARGET%'s expense."
 	)
 	user_messages = list(
-		"Your cock forces itself into %TARGET%'s pussy.",
-		"You forcibly spread %TARGET%'s folds apart with your shaft.",
-		"%TARGET%'s anus forcibly stretches to accomodate your dick.",
-		"Your shaft pleasures itself at %TARGET%'s expense."
+		span_lewd("Your cock forces itself into %TARGET%'s pussy."),
+		span_lewd("You forcibly spread %TARGET%'s folds apart with your shaft."),
+		span_lewd("%TARGET%'s anus forcibly stretches to accomodate your dick."),
+		span_lewd("Your shaft pleasures itself at %TARGET%'s expense.")
 	)
 	target_messages = list(
-		"%USER%'s cock forces itself into your pussy.",
-		"Your vagina parts open to accomodate %TARGET%'s shaft.",
-		"Your pussy stretches as %USER%'s shaft slides into it.",
-		"%USER%'s shaft pleasures itself at your pussy's expense."
+		span_lewd("%USER%'s cock forces itself into your pussy."),
+		span_lewd("Your vagina parts open to accomodate %TARGET%'s shaft."),
+		span_lewd("Your pussy stretches as %USER%'s shaft slides into it."),
+		span_lewd("%USER%'s shaft pleasures itself at your pussy's expense.")
 	)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = null)
 	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_VAGINA)

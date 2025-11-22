@@ -72,7 +72,7 @@
 	var/observer_message = span_warning("[parent] begin fastening [victim] to [parent.p_their()] harness!")
 
 	user.visible_message(observer_message, torturer_message, ignored_mobs = list(victim))
-	to_chat(user, victim_message)
+	to_chat(current_victim, victim_message)
 
 	if(!do_after(user, 3 SECONDS, victim) || !can_buckle(victim, user) || !parent.buckle_mob(victim, TRUE, TRUE))
 		UNBUCKLE_UNDO_EVERYTHING
@@ -99,7 +99,7 @@
 	var/observer_message = span_warning("[parent] starts unstrapping [current_victim] from [parent.p_their()] harness..")
 
 	user.visible_message(observer_message, torturer_message, ignored_mobs = list(current_victim))
-	to_chat(user, victim_message)
+	to_chat(current_victim, victim_message)
 
 	if(!do_after(user, 3 SECONDS, current_victim))
 		return
@@ -137,6 +137,9 @@
 
 
 /datum/component/bellyriding/proc/update_visuals()
+	if(isnull(current_victim))
+		return
+
 	var/mob/living/carbon/human/parent = src.parent
 
 	var/datum/sprite_accessory/taur/taur_accessory
@@ -225,7 +228,7 @@
 			span_lewd("Your [penis.genital_type] cock slips out of [current_victim]'s hole!"), // assume the ppl using this item wont know what an orifice is
 			ignored_mobs = list(current_victim)
 		)
-		current_victim.show_message("[parent]'s [penis.genital_type] cock slips out of your hole!")
+		to_chat(current_victim, "[parent]'s [penis.genital_type] cock slips out of your hole!")
 		playsound(current_victim, 'sound/effects/emotes/kiss.ogg', 50, TRUE, -6)
 		last_interaction = null
 		return
