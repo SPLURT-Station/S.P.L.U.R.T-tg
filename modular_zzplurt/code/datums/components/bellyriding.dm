@@ -51,7 +51,9 @@
 
 #define UNBUCKLE_UNDO_EVERYTHING parent.can_buckle = old_can_buckle; parent.buckle_requires_restraints = old_buckle_requires_restraints; parent.max_buckled_mobs -= 1;
 /datum/component/bellyriding/proc/try_buckle_victim(mob/living/carbon/human/victim, mob/user)
-	var/atom/movable/parent = src.parent
+	set waitfor = FALSE
+
+	var/mob/living/carbon/human/parent = src.parent
 
 	// ok lets do some stupids here.. we're relying on native buckling behaviour
 	// but if we dont do some tweaking it'll fuck over fireman carry/any other buckles
@@ -77,6 +79,9 @@
 	if(!do_after(user, 3 SECONDS, victim) || !can_buckle(victim, user) || !parent.buckle_mob(victim, TRUE, TRUE))
 		UNBUCKLE_UNDO_EVERYTHING
 		return
+
+	if(!parent.dna.species.mutant_bodyparts[FEATURE_TAUR])
+		parent.add_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 
 	current_victim = victim
 	current_victim.can_buckle_to = FALSE
@@ -111,11 +116,12 @@
 	if(isnull(current_victim))
 		return
 
-	var/atom/movable/parent = src.parent
+	var/mob/living/carbon/human/parent = src.parent
 	parent.unbuckle_mob(current_victim, TRUE)
 	parent.can_buckle = old_can_buckle
 	parent.buckle_requires_restraints = old_buckle_requires_restraints
 	parent.max_buckled_mobs -= 1
+	parent.remove_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 	last_interaction = null
 
 	UnregisterSignal(current_victim, COMSIG_QDELETING)
@@ -130,8 +136,12 @@
 	var/atom/movable/parent = src.parent
 	if(!istype(victim) || DOING_INTERACTION_WITH_TARGET(user, parent))
 		return FALSE
+
 	if(current_victim)
 		to_chat(user, span_warning("There's someone already strapped to your belly!"))
+		return FALSE
+	if(!victim.handcuffed || !victim.legcuffed)
+		to_chat(user, span_warning("[victim] needs to be both handcuffed and legcuffed!"))
 		return FALSE
 	return parent.is_buckle_possible(victim, TRUE, TRUE)
 
@@ -237,3 +247,5 @@
 	ASYNC last_interaction.act(parent, current_victim)
 
 
+/datum/movespeed_modifier/bellyriding_nontaur
+	multiplicative_slowdown = 0.8 // completely arbitrary
