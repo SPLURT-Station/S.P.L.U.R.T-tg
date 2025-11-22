@@ -5,6 +5,10 @@
 	var/datum/interaction/last_interaction = null
 	/// How many steps must the parent take for the next interaction to occur? Decrements every step.
 	var/steps_until_interaction = 4
+	/// Is our ability to do interactions enabled?
+	var/enable_interactions = TRUE
+	/// Our tied ability.
+	var/datum/action/innate/toggle_bellyriding_heehee_pp/stored_action = new
 
 	// For restoring old state of the parent. Egh.
 	var/old_can_buckle
@@ -24,6 +28,7 @@
 
 /datum/component/bellyriding/Destroy(force)
 	unbuckle_victim()
+	QDEL_NULL(stored_action)
 	return ..()
 
 
@@ -80,12 +85,15 @@
 		UNBUCKLE_UNDO_EVERYTHING
 		return
 
+	// actually buckling now
+	stored_action.Grant(parent)
 	if(!parent.dna.species.mutant_bodyparts[FEATURE_TAUR])
 		parent.add_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 
 	current_victim = victim
 	current_victim.can_buckle_to = FALSE
 	RegisterSignal(current_victim, COMSIG_QDELETING, PROC_REF(unbuckle_victim))
+	RegisterSignal(current_victim, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(unbuckle_through_unbuckle)) // wow great fucking naming idiot
 	update_visuals()
 
 #undef UNBUCKLE_UNDO_EVERYTHING
@@ -109,22 +117,30 @@
 	if(!do_after(user, 3 SECONDS, current_victim))
 		return
 
-	unbuckle_victim(user)
+	unbuckle_victim()
+
+/datum/component/bellyriding/proc/unbuckle_through_unbuckle()
+	SIGNAL_HANDLER
+
+	unbuckle_victim(skip_unbuckle = TRUE)
 
 #define BELLYRIDING_SOURCE "bellyriding source. i mean no one can check these anyways no? i could write anything here. avali are cool. go play them."
-/datum/component/bellyriding/proc/unbuckle_victim()
+/datum/component/bellyriding/proc/unbuckle_victim(skip_unbuckle = FALSE)
 	if(isnull(current_victim))
 		return
 
 	var/mob/living/carbon/human/parent = src.parent
-	parent.unbuckle_mob(current_victim, TRUE)
+	if(!skip_unbuckle)
+		parent.unbuckle_mob(current_victim, TRUE)
 	parent.can_buckle = old_can_buckle
 	parent.buckle_requires_restraints = old_buckle_requires_restraints
 	parent.max_buckled_mobs -= 1
 	parent.remove_movespeed_modifier(/datum/movespeed_modifier/bellyriding_nontaur)
 	last_interaction = null
 
-	UnregisterSignal(current_victim, COMSIG_QDELETING)
+	stored_action.Remove(parent)
+
+	UnregisterSignal(current_victim, list(COMSIG_QDELETING, COMSIG_MOVABLE_UNBUCKLE))
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(BELLYRIDING_SOURCE, TRUE)
 	current_victim.transform = null
@@ -202,7 +218,7 @@
 
 /datum/component/bellyriding/proc/heehoo_pp()
 	var/mob/living/carbon/human/parent = src.parent
-	if(!parent.has_genital(REQUIRE_GENITAL_EXPOSED, ORGAN_SLOT_PENIS))
+	if(!parent.has_genital(REQUIRE_GENITAL_EXPOSED, ORGAN_SLOT_PENIS) || !enable_interactions)
 		return // why do we bother
 
 	var/datum/interaction/no_orifice_interaction = SSinteractions.interactions[/datum/interaction/lewd/bellyriding/frot::name] // who made these indexed by name istG
@@ -251,3 +267,26 @@
 
 /datum/movespeed_modifier/bellyriding_nontaur
 	multiplicative_slowdown = 0.8 // completely arbitrary
+
+/datum/action/innate/toggle_bellyriding_heehee_pp
+	name = "Toggle Bellyriding Interactions"
+	desc = "Toggle whether to actually perform bellyriding interactions on your victim or not."
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon_state = "pitchfork"
+	active = TRUE
+
+/datum/action/innate/toggle_bellyriding_heehee_pp/Activate()
+	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
+	comp.enable_interactions = FALSE
+	active = FALSE6
+
+	to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
+	to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
+
+/datum/action/innate/toggle_bellyriding_heehee_pp/Deactivate()
+	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
+	comp.enable_interactions = TRUE
+	active = TRUE
+
+	to_chat(comp.current_victim, span_notice("[owner] repositions you, your rear pressing against [owner.p_their()] eager cock.. Oh no."))
+	to_chat(owner, span_notice("You reposition [comp.current_victim] to rest against your eager cock."))
