@@ -138,7 +138,7 @@
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(BELLYRIDING_SOURCE, TRUE)
 	current_victim.transform = null
-	current_victim.Stun(2 SECONDS, TRUE)
+	current_victim.Knockdown(0.1 SECONDS, TRUE)
 	current_victim = null
 
 
