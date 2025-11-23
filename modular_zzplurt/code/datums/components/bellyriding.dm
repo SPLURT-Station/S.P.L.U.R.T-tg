@@ -138,6 +138,8 @@
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(BELLYRIDING_SOURCE, TRUE)
 	current_victim.transform = null
+	current_victim.dna.current_body_size = 1 // cache var, breaks if we dont reset it
+	current_victim.dna.update_body_size() // apply it AFTER transform = null, because yeah
 	current_victim.Knockdown(0.1 SECONDS, TRUE)
 	current_victim = null
 
@@ -174,23 +176,25 @@
 		current_victim.setDir(taur_accessory ? REVERSE_DIR(parent.dir) : parent.dir)
 
 	// reset any potential stupids
-	var/matrix/final_transform = matrix()
+	current_victim.transform = null
+	current_victim.dna.current_body_size = 1 // cache var, breaks if we dont reset it
+	current_victim.dna.update_body_size()
 
 	var/x_offset = parent.pixel_x + parent.pixel_w
-	var/y_offset = parent.pixel_y + parent.pixel_z
+	var/y_offset = parent.pixel_y + parent.pixel_z + parent.transform.f
 	var/layer = parent.layer + 0.001 //arbitrary
 	if(taur_accessory)
 		layer = parent.layer - 0.001
-		final_transform = final_transform.Scale(0.8)
+		current_victim.transform = current_victim.transform.Scale(0.8)
 		switch(parent.dir)
 			if(EAST)
 				x_offset -= 2
 				y_offset -= 10
-				final_transform.Turn(80)
+				current_victim.transform = current_victim.transform.Turn(80)
 			if(WEST)
 				x_offset += 2
 				y_offset -= 10
-				final_transform.Turn(-80)
+				current_victim.transform = current_victim.transform.Turn(-80)
 
 		if(parent.body_position == LYING_DOWN)
 			y_offset += (taur_accessory.laydown_offset * 0.5)
@@ -204,7 +208,6 @@
 			if(NORTH)
 				layer = parent.layer - 0.001 // arbitrary
 
-	current_victim.transform = final_transform
 	current_victim.add_offsets(BELLYRIDING_SOURCE, x_add = x_offset, y_add = y_offset, animate = FALSE)
 	current_victim.layer = layer
 
