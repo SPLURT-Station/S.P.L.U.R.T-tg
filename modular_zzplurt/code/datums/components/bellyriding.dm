@@ -120,10 +120,13 @@
 
 #define BELLYRIDING_SOURCE "bellyriding source. i mean no one can check these anyways no? i could write anything here. avali are cool. go play them."
 /datum/component/bellyriding/proc/unbuckle_victim(skip_unbuckle = FALSE)
+	var/mob/living/carbon/human/parent = src.parent
+	var/mob/living/carbon/human/current_victim = src.current_victim
 	if(isnull(current_victim))
 		return
 
-	var/mob/living/carbon/human/parent = src.parent
+	src.current_victim = null
+
 	if(!skip_unbuckle)
 		parent.unbuckle_mob(current_victim, TRUE)
 	parent.can_buckle = old_can_buckle
@@ -141,7 +144,6 @@
 	current_victim.dna.current_body_size = 1 // cache var, breaks if we dont reset it
 	current_victim.dna.update_body_size() // apply it AFTER transform = null, because yeah
 	current_victim.Knockdown(0.1 SECONDS, TRUE)
-	current_victim = null
 
 
 /datum/component/bellyriding/proc/can_buckle(mob/living/carbon/human/victim, mob/user)

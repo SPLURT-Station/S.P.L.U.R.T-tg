@@ -21,7 +21,10 @@
 		//Doing messages
 		if(COMPARE_SIZES(user, target) >= 2) //if the initiator is twice the size of the micro
 			now_pushing = 0
-			user.forceMove(target.loc)
+			// what the actual fuck sandpoot why was this a forcemove
+			target.density = FALSE
+			step(user, get_dir(user, target))
+			target.density = TRUE
 
 			//Smaller person being stepped on
 			if(iscarbon(src))
