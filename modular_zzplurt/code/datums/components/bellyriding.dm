@@ -60,7 +60,7 @@
 
 	var/mob/living/carbon/human/parent = src.parent
 
-	// ok lets do some stupids here.. we're relying on native buckling behaviour
+	// ok let's do some stupids here.. we're relying on native buckling behaviour
 	// but if we dont do some tweaking it'll fuck over fireman carry/any other buckles
 	old_can_buckle = parent.can_buckle
 	old_buckle_requires_restraints = parent.buckle_requires_restraints
