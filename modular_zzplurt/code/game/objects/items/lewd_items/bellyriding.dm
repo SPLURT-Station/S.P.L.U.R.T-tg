@@ -16,6 +16,13 @@
 
 	slot_flags = ITEM_SLOT_OCLOTHING
 
+/obj/item/clothing/suit/bellyriding_harness/mob_can_equip(mob/living/user, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
+	if(isteshari(user) || user.mob_size < 1) // fuck you
+		if(!disable_warning)
+			to_chat(user, span_warning("This harness is far too big for you to wear!"))
+		return FALSE
+	return ..()
+
 /obj/item/clothing/suit/bellyriding_harness/equipped(mob/user, slot, initial)
 	. = ..()
 	if(ishuman(loc) && slot == ITEM_SLOT_OCLOTHING)

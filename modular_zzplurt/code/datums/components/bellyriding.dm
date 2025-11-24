@@ -147,16 +147,23 @@
 
 
 /datum/component/bellyriding/proc/can_buckle(mob/living/carbon/human/victim, mob/user)
-	var/atom/movable/parent = src.parent
+	var/mob/living/carbon/human/parent = src.parent
 	if(!istype(victim) || DOING_INTERACTION_WITH_TARGET(user, parent))
 		return FALSE
 
+	// victim checks
 	if(current_victim)
 		to_chat(user, span_warning("There's someone already strapped to your belly!"))
 		return FALSE
 	if(!victim.handcuffed || !victim.legcuffed)
 		to_chat(user, span_warning("[victim] needs to be both handcuffed and legcuffed!"))
 		return FALSE
+
+	// user checks
+	if(victim.mob_size > parent.mob_size)
+		to_chat(user, span_warning("[victim] is bigger than you, how would that even work?"))
+		return FALSE
+
 	return parent.is_buckle_possible(victim, TRUE, TRUE)
 
 
@@ -183,32 +190,48 @@
 	current_victim.dna.update_body_size()
 
 	var/x_offset = parent.pixel_x + parent.pixel_w
-	var/y_offset = parent.pixel_y + parent.pixel_z + parent.transform.f
+	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f // cancel the vertical transform applied by update_body_size()
+
 	var/layer = parent.layer + 0.001 //arbitrary
-	if(taur_accessory)
+	if(taur_accessory) // torturer is taur
+		var/taur_x_offset
+		var/taur_y_offset
+		if(isteshari(current_victim))
+			// 200 size	- pixel_x = -10,  pixel_y = -8
+			// regular	- pixel_x = -2,   pixel_y = -10
+			taur_x_offset = 2 + (parent.dna.current_body_size - 1) * 8
+			taur_y_offset = 10 + (parent.dna.current_body_size - 1) * -2
+		else
+			// 200 size	- pixel_x = 14, pixel_y = -9
+			// regular	- pixel_x = 4, pixel_y = -12
+			taur_x_offset = 4 + (parent.dna.current_body_size - 1) * 10
+			taur_y_offset = 12 + (parent.dna.current_body_size - 1) * -3
+
 		layer = parent.layer - 0.001
 		current_victim.transform = current_victim.transform.Scale(0.8)
 		switch(parent.dir)
 			if(EAST)
-				x_offset -= 2
-				y_offset -= 10
+				x_offset -= taur_x_offset
+				y_offset -= taur_y_offset
 				current_victim.transform = current_victim.transform.Turn(80)
 			if(WEST)
-				x_offset += 2
-				y_offset -= 10
+				x_offset += taur_x_offset
+				y_offset -= taur_y_offset
 				current_victim.transform = current_victim.transform.Turn(-80)
 
-		if(parent.body_position == LYING_DOWN)
-			y_offset += (taur_accessory.laydown_offset * 0.5)
-	else
-		y_offset += 4 // arbitrary
+	else // torturer is biped
+		// 200 size on 100 victim: pixel_x = -13, pixel_y = 18
+		// regular 			 	   pixel_x = -6,  pixel_y = 4
+		var/biped_x_offset = 7 * parent.dna.current_body_size - 1
+		y_offset += 14 * parent.dna.current_body_size - 10
+
 		switch(parent.dir)
 			if(EAST)
-				x_offset += 6
+				x_offset += biped_x_offset
 			if(WEST)
-				x_offset -= 6
+				x_offset -= biped_x_offset
 			if(NORTH)
-				layer = parent.layer - 0.001 // arbitrary
+				layer = parent.layer - 0.001
 
 	current_victim.add_offsets(BELLYRIDING_SOURCE, x_add = x_offset, y_add = y_offset, animate = FALSE)
 	current_victim.layer = layer
@@ -265,7 +288,7 @@
 
 /mob/living/carbon/human/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
 	var/datum/component/bellyriding/comp = GetComponent(/datum/component/bellyriding) // yeah. this does suck.
-	if(comp?.current_victim == buckled_mob) // would be better if unbuckle_mob had a pre_unbuckle signal.
+	if(force && comp?.current_victim == buckled_mob) // would be better if unbuckle_mob had a pre_unbuckle signal.
 		comp.unbuckle_victim(skip_unbuckle = TRUE) // we make do with the tools we have.
 	return ..()
 
