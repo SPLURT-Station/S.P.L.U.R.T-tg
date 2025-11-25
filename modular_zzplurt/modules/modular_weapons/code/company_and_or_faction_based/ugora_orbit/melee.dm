@@ -211,7 +211,7 @@ Just one more pull and maybe I can get her
 /obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
 	. = ..()
 
-	GetComponent(
+	AddComponent(
 		/datum/component/anti_magic, \
 		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
 		inventory_flags = ITEM_SLOT_HANDS, \
@@ -224,6 +224,8 @@ Just one more pull and maybe I can get her
 		//It won't stop it, but it doesn't need to, it only needs to make it harder. Think: Pull MCR Lancer out and do instant 45 damage.
 		// calls dropped().
 		addtimer(CALLBACK(src, PROC_REF(recharge)), 30 SECONDS)
+
+/datum/
 
 /obj/item/melee/reverbing_blade/oscula/recharge()
 	if(charges = 0)
