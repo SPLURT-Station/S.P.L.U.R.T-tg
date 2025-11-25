@@ -205,7 +205,7 @@ Just one more pull and maybe I can get her
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
-	var/recharge_timer = 30 SECONDS
+	var/recharge_timer = 0 SECONDS
 	var/charges = 1
 
 /obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
