@@ -205,7 +205,7 @@ Just one more pull and maybe I can get her
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
-	var/recharge_timer = 0
+	var/recharge_timer = 30 SECONDS
 	var/charges = 1
 
 /obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
@@ -225,11 +225,13 @@ Just one more pull and maybe I can get her
 		// calls dropped().
 		addtimer(CALLBACK(src, PROC_REF(recharge)), 30 SECONDS)
 
-/datum/
+/datum/component/anti_magic/drain_charge()
+	addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer)
 
-/obj/item/melee/reverbing_blade/oscula/recharge()
-	if(charges = 0)
-		charges = 1
+/proc/reset_charges()
+	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
+	if(our_component) //to check for nulls
+	our_component.charges = Initial(charges)
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
