@@ -216,6 +216,7 @@ Just one more pull and maybe I can get her
 		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
 		inventory_flags = ITEM_SLOT_HANDS, \
 		charges = 1, \
+		addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer)
 		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
 	)
 	if(!QDELING(src))
@@ -225,10 +226,7 @@ Just one more pull and maybe I can get her
 		// calls dropped().
 		addtimer(CALLBACK(src, PROC_REF(recharge)), 30 SECONDS)
 
-/datum/component/anti_magic/drain_charge()
-	addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer)
-
-/proc/reset_charges()
+/obj/item/melee/reverbing_blade/oscula/proc/reset_charges()
 	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
 	if(our_component) //to check for nulls
 	our_component.charges = Initial(charges)
