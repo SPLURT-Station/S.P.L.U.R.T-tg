@@ -15,7 +15,7 @@
 	drinker.clothing_burst(TRUE)
 
 /datum/reagent/consumable/ethanol/lean
-	name = "Lean"
+	name = "Lean (Brainrot)"
 	description = "The choice drink of space-pop stars, composed of soda, cough syrup and candies."
 	color =  "#9109ba"
 	boozepwr = 0

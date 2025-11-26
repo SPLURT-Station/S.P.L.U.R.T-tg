@@ -3,7 +3,7 @@
 /datum/loadout_item/neck/heart_choker
 	name = "Heart Collar"
 	item_path = /obj/item/clothing/neck/lace_collar
-	donator_only = TRUE
+	//donator_only = TRUE //Splurt Edit
 
 /datum/loadout_item/neck/ringbell
 	name = "Ringing Bell Collar"
@@ -21,13 +21,13 @@
 	name = "Security Cape"
 	item_path = /obj/item/clothing/neck/security_cape
 	restricted_roles = list(ALL_JOBS_SEC)
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/neck/security_cape/armplate
 	name = "Security Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
 	restricted_roles = list(ALL_JOBS_SEC)
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/neck/pauldron
 	name = "Lieutenant Commander's Pauldron"
@@ -56,7 +56,7 @@
 /datum/loadout_item/neck/scarf/pride
 	name = "Pride Scarf"
 	item_path = /obj/item/clothing/neck/scarf/pride
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/neck/holobadge/hos
 	name = "Head of Security's Holobadge"

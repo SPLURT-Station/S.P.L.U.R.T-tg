@@ -32,3 +32,24 @@
 /datum/greyscale_config/boatcloak/worn
 	name = "Boatcloak (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
+
+//Donor item for girko
+/obj/item/clothing/suit/hooded/cloak/determinations_cloak
+	name = "Determinations cloak"
+	desc = "A lovingly crafted and modified cloak which has a stitching in it reading 'Made with love by L.Y.D.I.A', A modification of the zul-e cloak specifically adapted and tailored for Determination however wearable by anybody who wishes to appreciate it."
+	icon_state = "determinations_cloak"
+	icon = 'modular_zzplurt/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
+	hoodtype = /obj/item/clothing/head/hooded/cloakhood/determinations_cloakcap
+	body_parts_covered = CHEST|GROIN|ARMS
+	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_NECK
+	supports_variations_flags = NONE
+
+/obj/item/clothing/head/hooded/cloakhood/determinations_cloakcap
+	name = "Determinations Cloak Hood"
+	desc = "A beret fitting to the cloak attached"
+	icon_state = "determinations_cloakcap"
+	icon = 'modular_zzplurt/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
+	flags_inv = null
+	supports_variations_flags = NONE

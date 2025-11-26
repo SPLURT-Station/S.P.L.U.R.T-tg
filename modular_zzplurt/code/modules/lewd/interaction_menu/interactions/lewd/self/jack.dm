@@ -7,9 +7,9 @@
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	additional_details = list(INTERACTION_FILLS_CONTAINERS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums hard on their hand",
-		"shoots their load onto their fingers",
-		"ejaculates onto their palm"
+		"%CUMMING% cums hard on their hand",
+		"%CUMMING% shoots their load onto their fingers",
+		"%CUMMING% ejaculates onto their palm"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
 		"You cum hard on your hand",

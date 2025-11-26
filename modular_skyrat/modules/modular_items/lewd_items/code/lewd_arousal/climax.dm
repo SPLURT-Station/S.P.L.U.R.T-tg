@@ -193,7 +193,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 
@@ -300,6 +300,8 @@
 			apply_status_effect(/datum/status_effect/climax_cooldown)
 			if(self_orgasm)
 				add_mood_event("orgasm", /datum/mood_event/climaxself)
+			if(climax_interaction && !manual)
+				climax_interaction.post_climax(src, partner, interaction_position)
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
@@ -407,7 +409,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 

@@ -7,7 +7,7 @@
 /datum/loadout_item/gloves/lace_gloves
 	name = "Lace Gloves"
 	item_path = /obj/item/clothing/gloves/evening/lace
-	donator_only = TRUE
+	//donator_only = TRUE //Splurt Edit
 
 /datum/loadout_item/gloves/rubber_gloves
 	name = "Long Rubber Gloves"
@@ -27,7 +27,7 @@
 	name = "Security Gloves"
 	item_path = /obj/item/clothing/gloves/color/black/security
 	restricted_roles = list(ALL_JOBS_SEC)
-	can_be_reskinned = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/gloves/combat/peacekeeper/armadyne
 	name = "Armadyne Combat Gloves"

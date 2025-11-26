@@ -147,6 +147,9 @@
 	var/girth = 9
 	var/sheath = SHEATH_NONE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/penis
+	var/knotted = FALSE
+	var/override_string_knot = "knot"
+	var/override_string_tie = "tie"
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
@@ -267,6 +270,9 @@
 		sheath = DNA.features["penis_sheath"]
 	if(DNA.features["penis_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	knotted = snake.knotted
+	override_string_knot = snake.override_string_knot
+	override_string_tie = snake.override_string_tie
 
 /datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_PENIS]
@@ -584,25 +590,12 @@
 		to_chat(usr, span_warning("You can't toggle arousal right now..."))
 		return
 
-	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/genital in organs)
-		if(!genital.aroused == AROUSAL_CANT)
-			genital_list += genital
-	if(!genital_list.len) //There is nothing to expose
-		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to change arousal", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_arous_trans = list(
-			"Not aroused" = AROUSAL_NONE,
-			"Partly aroused" = AROUSAL_PARTIAL,
-			"Very aroused" = AROUSAL_FULL,
-		)
-		var/picked_arousal = input(src, "Choose arousal", "Toggle Arousal") as null|anything in gen_arous_trans
-		if(picked_arousal && picked_organ && (picked_organ in organs))
-			picked_organ.aroused = gen_arous_trans[picked_arousal]
-			picked_organ.update_sprite_suffix()
-			update_body()
-			SEND_SIGNAL(src, COMSIG_HUMAN_TOGGLE_AROUSAL)
+	var/arousal_target = tgui_input_number(src, "[AROUSAL_NONE]= No arousal, <[AROUSAL_LOW] Low/partial Arousal, [AROUSAL_LOW] - [AROUSAL_HIGH] Medium/full Arousal, >[AROUSAL_HIGH] Strong/full Arousal", "Set Arousal Amount", arousal, AROUSAL_LIMIT, AROUSAL_MINIMUM, 0)
+	if (!isnull(arousal_target))
+		var/datum/component/change_arousal_on_life/to_del = GetComponent(/datum/component/change_arousal_on_life/)
+		if (!isnull(to_del))
+			qdel(to_del)
+		AddComponent(/datum/component/change_arousal_on_life)
+		arousal_goal = arousal_target
+		SEND_SIGNAL(src, COMSIG_HUMAN_TOGGLE_AROUSAL)
 	return
