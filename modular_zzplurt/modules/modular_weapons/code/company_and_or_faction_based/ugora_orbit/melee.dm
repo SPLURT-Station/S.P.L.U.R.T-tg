@@ -206,7 +206,7 @@ Just one more pull and maybe I can get her
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
 	var/recharge_timer = 0 SECONDS
-	var/charges = 1
+	var/anti_magic_ready = 1
 
 /obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
 	. = ..()
@@ -214,8 +214,8 @@ Just one more pull and maybe I can get her
 	AddComponent(
 		/datum/component/anti_magic, \
 		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
-		inventory_flags = ITEM_SLOT_HANDS, \
-		charges = 1, \
+		active_slots = ITEM_SLOT_HANDS, \
+		charges = anti_magic_ready, \
 		addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer)
 		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
 	)
