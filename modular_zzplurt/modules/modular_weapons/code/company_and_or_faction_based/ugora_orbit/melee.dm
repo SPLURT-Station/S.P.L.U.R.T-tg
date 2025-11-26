@@ -156,7 +156,7 @@ Just one more pull and maybe I can get her
 		return ..()
 	var/mob/living/living_target = target
 	damage = (living_target.getBruteLoss() + living_target.getFireLoss())
-	bonus_force = force + clamp(damage/degree_of_tolerance, 0, maximum_damage_bonus)
+	bonus_force = clamp(damage/degree_of_tolerance, 0, maximum_damage_bonus)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
 
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
