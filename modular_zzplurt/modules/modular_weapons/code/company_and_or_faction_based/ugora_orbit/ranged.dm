@@ -22,14 +22,14 @@ With help of an aussie catgirl
 	shaded_charge = FALSE
 	charge_sections = 1
 
-	icon_state = "papel"
-	inhand_icon_state = "papel"
-	base_icon_state = "papel"
+	icon_state = "thisfuckingbow"
+	inhand_icon_state = "yato"
+	base_icon_state = "thisfuckingbow"
 
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_righthand.dmi'
 	worn_icon = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/guns_worn.dmi'
-	worn_icon_state = "papel"
+	worn_icon_state = "yato"
 	ammo_type = list(/obj/item/ammo_casing/energy/hardlight_bow)
 	/// An ID for our drop discharge timer.
 	var/drop_discharge_timerid

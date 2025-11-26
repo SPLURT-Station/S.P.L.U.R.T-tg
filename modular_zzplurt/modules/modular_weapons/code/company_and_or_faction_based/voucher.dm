@@ -27,7 +27,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 /obj/item/melee_voucher
 	name = "security utility belt voucher"
 	desc = "A card with rudimentary identification on it, this one redeems security belts. Use it on a peacekeeping equipment vendor."
-	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/projectile.dmi'
+	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/voucher.dmi'
 	icon_state = "melee_voucher"
 	w_class = WEIGHT_CLASS_SMALL
 

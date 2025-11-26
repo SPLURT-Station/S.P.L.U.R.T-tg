@@ -131,7 +131,7 @@ Just one more pull and maybe I can get her
 	armour_penetration = 18 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
 	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy, also I don't see a reason a proper sword needs do less damage than a replika like the shamshir, or less damage than a fukken knife .-.
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 12 //Low, because we increases in damages
+	wound_bonus = 10 //Low, because we increases in damages
 	exposed_wound_bonus = -30 //See the tanto for why we are having it in the negative instead
 
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
