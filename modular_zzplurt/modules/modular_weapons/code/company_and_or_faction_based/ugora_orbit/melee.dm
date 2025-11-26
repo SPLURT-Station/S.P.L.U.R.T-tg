@@ -128,13 +128,15 @@ Just one more pull and maybe I can get her
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
-	armour_penetration = 15 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 18 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy, also I don't see a reason a proper sword needs do less damage than a replika like the shamshir, or less damage than a fukken knife .-.
+	armour_penetration = 18 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
+	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy, also I don't see a reason a proper sword needs do less damage than a replika like the shamshir, or less damage than a fukken knife .-.
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 10 //Low, because we increases in damages
+	wound_bonus = 12 //Low, because we increases in damages
 	exposed_wound_bonus = -30 //See the tanto for why we are having it in the negative instead
 
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
+
+	damtype = BURN
 
 	var/bonus_force = 0
 	var/damage = 0
@@ -159,7 +161,7 @@ Just one more pull and maybe I can get her
 
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
 //So, have it the way I had in mind
-
+/*
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
 	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' are technically more like a blunt weapon due to lack of sharp edges, that said, it is still extremely lightweight to swing and hot to touch."
@@ -172,7 +174,7 @@ Just one more pull and maybe I can get her
 	block_chance = 40
 	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 8 hit to down. We have too low of a base damage to be an issue
 	force = 10 //low base damage, high ramp up. You use this for support.
-	damtype = BURN
+
 	wound_bonus = 10
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
@@ -231,6 +233,8 @@ Just one more pull and maybe I can get her
 	if(our_component) //to check for nulls
 	our_component.charges = Initial(charges)
 
+*/
+
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
 	desc = "A long thin blade commonly used by Ugoran warrior caste to finish off vulnerable opponent and in rarer case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
@@ -247,6 +251,8 @@ Just one more pull and maybe I can get her
 	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 45 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
 	attack_speed = 14 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+
+	damtype = BURN
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
 	. = ..()
