@@ -148,7 +148,7 @@ Just one more pull and maybe I can get her
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
-		final_block_chance = 63 //Don't try it!
+		final_block_chance += 33 //Don't try it!
 	return ..()
 
 /obj/item/melee/reverbing_blade/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)

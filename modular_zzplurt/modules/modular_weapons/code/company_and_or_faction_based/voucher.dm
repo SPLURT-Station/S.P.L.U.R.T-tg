@@ -30,7 +30,43 @@ Yog Knights, Ugora Orbit Knights of Yog.
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/voucher.dmi'
 	icon_state = "melee_voucher"
 	w_class = WEIGHT_CLASS_SMALL
+	//Should we allow multiple usage? It could be handy for putting entire loadout into one with decrementing charge
+	var/amount = 1
 
+//Below are just the pod beacon but with the pod code stripped down. Because we can't use the vendor for redemption due to a bug
+
+/obj/item/melee_voucher/interact(mob/user)
+	. = ..()
+	if(!can_use_voucher(user))
+		return
+
+	open_options_menu(user)
+
+/obj/item/melee_voucher/proc/generate_display_names()
+	return list()
+
+/obj/item/melee_voucher/proc/can_use_voucher(mob/living/user)
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return TRUE
+
+	playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
+	return FALSE
+
+
+/obj/item/melee_voucher/proc/open_options_menu(mob/living/user)
+	var/list/display_names = generate_display_names()
+	if(!length(display_names))
+		return
+	var/choice = tgui_input_list(user, "What kind of armament are you looking for?", "Select an Item", display_names)
+	if(isnull(choice) || isnull(display_names[choice]))
+		return
+	if(!can_use_voucher(user))
+		return
+
+	consume_use(display_names[choice], user)
+
+/*
+So this doesn't actually work, yet. and I'll uncomment this when it does.
 
 //Code to redeem new items at the mining vendor using the suit voucher
 //More items can be added in the lists and in the if statement.
@@ -52,4 +88,4 @@ Yog Knights, Ugora Orbit Knights of Yog.
 
 	SSblackbox.record_feedback("tally", "melee_voucher_redeemed", 1, selection)
 	qdel(voucher)
-
+*/
