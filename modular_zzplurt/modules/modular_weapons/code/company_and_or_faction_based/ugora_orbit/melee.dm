@@ -128,11 +128,10 @@ Just one more pull and maybe I can get her
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
-	armour_penetration = 18 //This is mostly to reduce block chance against opponent with weapon or shield. Nothing else. Our damage is way too low to be an issue
-	force = 17 //Our damage is somewhat inconsistent due to the increases from the loss of health on enemy, also I don't see a reason a proper sword needs do less damage than a replika like the shamshir, or less damage than a fukken knife .-.
+	force = 15
 	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 10 //Low, because we increases in damages
-	exposed_wound_bonus = -30 //See the tanto for why we are having it in the negative instead
+	wound_bonus = 5 //Low, because we increases in damages
+	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
 
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
 
@@ -141,7 +140,7 @@ Just one more pull and maybe I can get her
 	var/bonus_force = 0
 	var/damage = 0
 //What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
-	var/degree_of_tolerance = 4
+	var/degree_of_tolerance = 5
 	var/maximum_damage_bonus = 30
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -182,7 +181,7 @@ Just one more pull and maybe I can get her
 	attack_speed = 5
 
 	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 40
+	maximum_damage_bonus = 45
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate

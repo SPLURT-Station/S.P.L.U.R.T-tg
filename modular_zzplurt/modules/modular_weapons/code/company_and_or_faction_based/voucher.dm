@@ -31,6 +31,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 	icon_state = "melee_voucher"
 	w_class = WEIGHT_CLASS_SMALL
 	//Should we allow multiple usage? It could be handy for putting entire loadout into one with decrementing charge
+/*
 	var/amount = 1
 
 //Below are just the pod beacon but with the pod code stripped down. Because we can't use the vendor for redemption due to a bug
@@ -65,7 +66,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 		return
 
 	consume_use(display_names[choice], user)
-
+*/
 /*
 So this doesn't actually work, yet. and I'll uncomment this when it does.
 
