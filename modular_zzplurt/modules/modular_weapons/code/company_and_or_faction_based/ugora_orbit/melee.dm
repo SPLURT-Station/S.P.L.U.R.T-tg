@@ -345,9 +345,6 @@ Just one more pull and maybe I can get her
 	if(check_behind(user, living_target))
 		you_suck = TRUE
 
-	if(living_target.get_timed_status_effect_duration(/datum/status_effect/staggered))
-		you_suck = TRUE
-
 	if(you_suck)
 		living_target.drop_all_held_items()
 		living_target.visible_message(span_danger("[user] disarms [living_target]!"), span_userdanger("[user] disarmed you!"))
