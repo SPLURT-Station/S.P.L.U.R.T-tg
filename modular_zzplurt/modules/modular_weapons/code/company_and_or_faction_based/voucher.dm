@@ -41,6 +41,7 @@ Yog Knights, Ugora Orbit Knights of Yog.
 		return
 
 	open_options_menu(user)
+	spawn_option(choice_path, user)
 
 /obj/item/melee_voucher/proc/generate_display_names()
 	return list()
