@@ -348,10 +348,8 @@ GLOBAL_LIST_INIT(vore_preference_entries_by_key, init_vore_preference_entries_by
 /datum/vore_pref/toggle/digestion_qdel
 	savefile_key = "qdel_allowed"
 
-// SPLURT MODULAR EDIT START - CHOMPStation Drain mode preference
 /datum/vore_pref/toggle/drain
 	savefile_key = "drain_allowed"
-// SPLURT MODULAR EDIT END
 
 /datum/vore_pref/toggle/absorb
 	savefile_key = "absorb_allowed"

@@ -6,9 +6,7 @@
 	var/datum/component/vore/owner
 	var/datum/digest_mode/digest_mode
 	var/noise_cooldown = 0
-	// SPLURT MODULAR EDIT START - CHOMPStation Drain/Heal modes
 	var/list/message_timers = list() // Per-prey message cooldowns for digest modes
-	// SPLURT MODULAR EDIT END
 
 	// Settings
 	var/can_taste = TRUE
@@ -33,13 +31,11 @@
 	var/insert_sound = "Gulp"
 	var/release_sound = "Splatter"
 
-	// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 	// Auto-transfer settings
 	var/autotransfer_enabled = FALSE
 	var/obj/vore_belly/autotransfer_target = null
 	var/autotransfer_delay = 60 SECONDS // How long before transfer
 	var/autotransfer_timer = 0 // Current timer for each prey
-	// SPLURT MODULAR EDIT END
 
 /obj/vore_belly/Initialize(mapload, datum/component/vore/new_owner)
 	escape_time = DEFAULT_ESCAPE_TIME // expected a constant expression
@@ -69,9 +65,7 @@
 /obj/vore_belly/process(seconds_per_tick)
 	digest_mode?.handle_belly(src, seconds_per_tick)
 	prey_loop()
-	// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 	handle_autotransfer(seconds_per_tick)
-	// SPLURT MODULAR EDIT END
 
 /// Called from /datum/component/vore/ui_data to display belly settings
 /obj/vore_belly/ui_data(mob/user)
@@ -121,13 +115,11 @@
 	data["insert_sound"] = insert_sound
 	data["release_sound"] = release_sound
 
-	// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 	// Auto-transfer settings
 	data["autotransfer_enabled"] = autotransfer_enabled
 	data["autotransfer_target"] = autotransfer_target ? REF(autotransfer_target) : null
 	data["autotransfer_target_name"] = autotransfer_target ? autotransfer_target.name : null
 	data["autotransfer_delay"] = autotransfer_delay / 10 // Convert to seconds for display
-	// SPLURT MODULAR EDIT END
 
 	// Messages
 	data["messages"] = list(
@@ -137,12 +129,10 @@
 		"absorb_messages_prey" = absorb_messages_prey || GLOB.absorb_messages_prey,
 		"unabsorb_messages_owner" = unabsorb_messages_owner || GLOB.unabsorb_messages_owner,
 		"unabsorb_messages_prey" = unabsorb_messages_prey || GLOB.unabsorb_messages_prey,
-		// SPLURT MODULAR EDIT START - CHOMPStation Drain/Heal messages
 		"drain_messages_owner" = drain_messages_owner || GLOB.drain_messages_owner,
 		"drain_messages_prey" = drain_messages_prey || GLOB.drain_messages_prey,
 		"heal_messages_owner" = heal_messages_owner || GLOB.heal_messages_owner,
 		"heal_messages_prey" = heal_messages_prey || GLOB.heal_messages_prey,
-		// SPLURT MODULAR EDIT END
 		"struggle_messages_outside" = struggle_messages_outside || GLOB.struggle_messages_outside,
 		"struggle_messages_inside" = struggle_messages_inside || GLOB.struggle_messages_inside,
 		"absorbed_struggle_messages_outside" = absorbed_struggle_messages_outside || GLOB.absorbed_struggle_messages_outside,
@@ -231,7 +221,6 @@
 			var/new_sound = tgui_input_list(usr, "Pick an release sound", "Release Sound", sounds_to_pick_from, release_sound)
 			if(new_sound)
 				release_sound = new_sound
-		// SPLURT MODULAR EDIT START - CHOMPStation Auto-transfer
 		// Auto-transfer settings
 		if("autotransfer_enabled")
 			autotransfer_enabled = !autotransfer_enabled
@@ -253,7 +242,6 @@
 			if(new_delay)
 				autotransfer_delay = new_delay * 10 // Convert to deciseconds
 				autotransfer_timer = 0 // Reset timer
-		// SPLURT MODULAR EDIT END
 		// Messages
 		if("digest_messages_pred")
 			set_messages("digest_messages_pred", value)
@@ -410,10 +398,8 @@
 		// Unabsorb if they leave by any method
 		REMOVE_TRAIT(M, TRAIT_RESTRAINED, TRAIT_SOURCE_VORE)
 		REMOVE_TRAIT(M, TRAIT_STASIS, TRAIT_SOURCE_VORE)
-		// SPLURT MODULAR EDIT START - CHOMPStation Drain/Heal modes
 		// Clean up message timer to prevent memory leak
 		message_timers -= REF(M)
-		// SPLURT MODULAR EDIT END
 		// Absorb control handles deleting itself with binding to COMSIG_MOVABLE_MOVED
 		if(!istype(M.loc, /obj/vore_belly))
 			M.stop_sound_channel(CHANNEL_PREYLOOP)
@@ -583,4 +569,57 @@
 		if(V.recolorable)
 			V.color = overlay_color
 
-#include "belly_autotransfer.dm"
+/// Handle automatic transfer of prey between bellies
+/// Note: Transfers prey one at a time to prevent spam and allow gradual movement
+/// Timer is belly-wide, not per-prey, meaning all prey transfer on the same schedule
+/obj/vore_belly/proc/handle_autotransfer(seconds_per_tick)
+	if(!autotransfer_enabled || !autotransfer_target)
+		return
+
+	// Make sure target belly still exists and is ours
+	if(!istype(autotransfer_target) || autotransfer_target.owner != owner)
+		autotransfer_enabled = FALSE
+		autotransfer_target = null
+		return
+
+	// Don't transfer to ourselves
+	if(autotransfer_target == src)
+		return
+
+	// Increment timer
+	autotransfer_timer += seconds_per_tick
+
+	// Check if it's time to transfer
+	if(autotransfer_timer >= autotransfer_delay)
+		autotransfer_timer = 0
+
+		// Transfer first prey in belly (one at a time to prevent spam)
+		if(LAZYLEN(contents) > 0)
+			var/atom/movable/prey = contents[1]
+
+			// Don't transfer absorbed prey
+			if(ismob(prey))
+				var/mob/living/L = prey
+				if(HAS_TRAIT_FROM(L, TRAIT_RESTRAINED, TRAIT_SOURCE_VORE))
+					return // Skip this transfer cycle if first prey is absorbed
+
+			// Do the transfer
+			var/mob/living/living_parent = owner.parent
+			prey.forceMove(autotransfer_target)
+
+			// Messages
+			if(ismob(prey))
+				to_chat(living_parent, span_notice("You feel [prey] slide from your [name] into your [autotransfer_target.name]."))
+				to_chat(prey, span_notice("You slide from [living_parent]'s [name] into their [autotransfer_target.name]!"))
+
+			// Play transfer sound
+			if(fancy_sounds && release_sound)
+				owner.play_vore_sound(release_sound, "vore_sounds_release_fancy", VORE_SOUND_VOLUME)
+			if(autotransfer_target.fancy_sounds && autotransfer_target.insert_sound)
+				autotransfer_target.owner.play_vore_sound(autotransfer_target.insert_sound, "vore_sounds_insert_fancy", VORE_SOUND_VOLUME)
+
+			// Show fullscreen for new belly
+			if(ismob(prey))
+				var/mob/M = prey
+				M.clear_fullscreen("vore", FALSE)
+				autotransfer_target.show_fullscreen(M)
