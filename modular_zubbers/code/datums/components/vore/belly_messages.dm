@@ -136,7 +136,7 @@
 		return format_message(pick(unabsorb_messages_prey), prey)
 	return format_message(pick(GLOB.unabsorb_messages_prey), prey)
 
-#include "../../../../../modular_zzplurt/code/datums/components/vore/belly_messages_chompstation.dm"
+#include "belly_messages_chompstation.dm"
 
 /obj/vore_belly/proc/get_struggle_messages_outside(mob/prey)
 	if(LAZYLEN(struggle_messages_outside))

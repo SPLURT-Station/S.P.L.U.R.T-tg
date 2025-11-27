@@ -583,4 +583,4 @@
 		if(V.recolorable)
 			V.color = overlay_color
 
-#include "../../../../../modular_zzplurt/code/datums/components/vore/belly_autotransfer.dm"
+#include "belly_autotransfer.dm"

@@ -300,7 +300,7 @@ GLOBAL_LIST_INIT(unabsorb_messages_prey, list(
 	"You are released from being part of %pred's %belly."
 ))
 
-#include "../../../../../modular_zzplurt/code/datums/components/vore/_defines_chompstation.dm"
+#include "_defines_chompstation.dm"
 
 GLOBAL_LIST_INIT(struggle_messages_outside, list(
 	"%pred's %belly wobbles with a squirming meal.",

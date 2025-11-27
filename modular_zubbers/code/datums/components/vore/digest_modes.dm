@@ -196,4 +196,4 @@ GLOBAL_DATUM_INIT(vore_cryopod, /obj/machinery/cryopod/quiet/vore, new /obj/mach
 			living_parent.adjust_nutrition(-ABSORB_NUTRITION_BARRIER)
 			vore_belly.unabsorb(L)
 
-#include "../../../../../modular_zzplurt/code/datums/components/vore/digest_modes_chompstation.dm"
+#include "digest_modes_chompstation.dm"
