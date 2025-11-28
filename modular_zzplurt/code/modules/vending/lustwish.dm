@@ -15,6 +15,12 @@
 				/obj/item/reagent_containers/cup/bottle/belly_enlarger = 6,
 				/obj/item/reagent_containers/cup/bottle/butt_enlarger = 6
 			)
+		),
+		list(
+			"name" = "Restraints",
+			"products" = list(
+				/obj/item/clothing/suit/bellyriding_harness = 2,
+			)
 		)
 	)
 
@@ -26,8 +32,6 @@
 		/obj/item/disk/nifsoft_uploader/dorms/hypnosis = STOCK_NIFSOFT,
 		/obj/item/disk/nifsoft_uploader/shapeshifter = STOCK_NIFSOFT,
 		*/
-
-		/obj/item/clothing/suit/bellyriding_harness = 2,
 
 		// New software
 		/obj/item/disk/nifsoft_uploader/dorms/nif_disrobe_disk = STOCK_NIFSOFT,
