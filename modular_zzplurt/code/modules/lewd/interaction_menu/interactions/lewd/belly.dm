@@ -67,8 +67,11 @@
 		"%USER%'s cheek rubs softly against your stomach",
 		"The warmth of %USER%'s face presses against your navel"
 	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/thudswoosh.ogg'
+	)
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 2

@@ -202,8 +202,13 @@
 		"%USER%'s tits smother your face",
 		"Your vision is filled with %USER%'s cleavage"
 	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 3

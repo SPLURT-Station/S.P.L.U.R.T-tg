@@ -103,8 +103,13 @@
 		"%USER%'s underarm smothers your face",
 		"Your nose fills with the scent of %USER%'s pit"
 	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 3
