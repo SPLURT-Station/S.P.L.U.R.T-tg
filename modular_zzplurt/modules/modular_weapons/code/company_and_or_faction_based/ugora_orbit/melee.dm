@@ -178,7 +178,7 @@ Just one more pull and maybe I can get her
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	attack_speed = 5
+	attack_speed = 4
 
 	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
 	maximum_damage_bonus = 45
