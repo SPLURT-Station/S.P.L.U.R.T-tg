@@ -129,8 +129,8 @@ Just one more pull and maybe I can get her
 
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	force = 15
-	throwforce = 22 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 5 //Low, because we increases in damages
+	throwforce = 23 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
+	wound_bonus = 5 //Low, because we increases in damages which will gradually increases the bonus too!
 	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
 
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
@@ -140,7 +140,7 @@ Just one more pull and maybe I can get her
 	var/bonus_force = 0
 	var/damage = 0
 //What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
-	var/degree_of_tolerance = 5
+	var/degree_of_tolerance = 4
 	var/maximum_damage_bonus = 30
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -158,9 +158,9 @@ Just one more pull and maybe I can get her
 	bonus_force = clamp(damage/degree_of_tolerance, 0, maximum_damage_bonus)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
 
-//You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it
+//You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it? We said we won't nerf heretic
 //So, have it the way I had in mind
-/*
+
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
 	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' are technically more like a blunt weapon due to lack of sharp edges, that said, it is still extremely lightweight to swing and hot to touch."
@@ -217,22 +217,24 @@ Just one more pull and maybe I can get her
 		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
 		active_slots = ITEM_SLOT_HANDS, \
 		charges = anti_magic_ready, \
-		addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer)
-		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
+		addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer), \
+		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)) \
 	)
 	if(!QDELING(src))
 		//borrowed from /obj/item/gun/energy/recharge/dropped, as explained there,
 		//Put it on a delay because moving item from slot to hand. This is because people may do a quickpull out and swap for damage, that is something I am vehemently against.
 		//It won't stop it, but it doesn't need to, it only needs to make it harder. Think: Pull MCR Lancer out and do instant 45 damage.
 		// calls dropped().
-		addtimer(CALLBACK(src, PROC_REF(recharge)), 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
 
 /obj/item/melee/reverbing_blade/oscula/proc/reset_charges()
 	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
 	if(our_component) //to check for nulls
-	our_component.charges = Initial(charges)
+	our_component.charges = initial(anti_magic_ready)
 
-*/
+/obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
+	user.set_staggered_if_lower(5 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
+	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
