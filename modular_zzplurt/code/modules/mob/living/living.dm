@@ -34,17 +34,18 @@
 		if(1.21 to INFINITY)
 			mob_size = MOB_SIZE_LARGE
 
-// Add health penalty for sizes below 0.8
-    if(ishuman(src))
-        var/mob/living/carbon/human/H = src
-        if(size < 0.8)
-            var/health_penalty = (0.8 - size) * 150
-            H.maxHealth = initial(H.maxHealth) - health_penalty
-            H.health = min(H.health, H.maxHealth)
-            H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
-        else
-            H.maxHealth = initial(H.maxHealth)
-            H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
+	// Add health and speed penalty for sizes below 0.8
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(size < 0.8)
+			var/health_penalty = (0.8 - size) * 150
+			H.maxHealth = max(1, initial(H.maxHealth) - health_penalty)
+			H.health = min(H.health, H.maxHealth)
+			H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
+		else
+			H.maxHealth = initial(H.maxHealth)
+			H.health = min(H.health, H.maxHealth)
+			H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
 
 /datum/movespeed_modifier/small_size
     multiplicative_slowdown = 0.5
