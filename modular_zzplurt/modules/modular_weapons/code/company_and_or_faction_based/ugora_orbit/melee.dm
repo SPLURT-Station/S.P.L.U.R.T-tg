@@ -181,7 +181,7 @@ Just one more pull and maybe I can get her
 	attack_speed = 4
 
 	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 45
+	maximum_damage_bonus = 40
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
@@ -209,6 +209,13 @@ Just one more pull and maybe I can get her
 	var/recharge_timer = 0 SECONDS
 	var/anti_magic_ready = 1
 
+/obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
+		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
+		final_block_chance += 33 //Don't try it!
+	return ..()
+
 /obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
 	. = ..()
 
@@ -229,7 +236,6 @@ Just one more pull and maybe I can get her
 
 /obj/item/melee/reverbing_blade/oscula/proc/reset_charges()
 	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
-	if(our_component) //to check for nulls
 	our_component.charges = initial(anti_magic_ready)
 
 /obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
