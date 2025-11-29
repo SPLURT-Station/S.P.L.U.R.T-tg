@@ -64,6 +64,7 @@ export const knotting_pref: FeatureToggle = {
 export const stomp_on_pref: FeatureToggle = {
   name: 'Stomping',
   category: 'ERP',
-  description: 'Allows your character to get stomped.',
+  description:
+    'Allows your character to get stomped on. (Characters below 50% size have this enabled by default)',
   component: CheckboxInput,
 };
