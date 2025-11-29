@@ -34,6 +34,13 @@
 		if(1.21 to INFINITY)
 			mob_size = MOB_SIZE_LARGE
 
+// Add health penalty for sizes below 0.8
+	if(ishuman(src) && size < 0.8)
+		var/mob/living/carbon/human/H = src
+		var/health_penalty = (0.8 - size) * 100
+		H.maxHealth = initial(H.maxHealth) - health_penalty
+		H.health = min(H.health, H.maxHealth)
+
 /mob/living/fully_heal(heal_flags)
 	set_thirst(THIRST_LEVEL_QUENCHED + 50)
 	. = ..()
