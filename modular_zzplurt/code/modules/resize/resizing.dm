@@ -41,6 +41,11 @@
 //Stepping on disarm intent -- TO DO, OPTIMIZE ALL OF THIS SHIT
 /mob/living/proc/handle_micro_bump_other(mob/living/target)
 	ASSERT(isliving(target))
+
+	// if the target has the preference off, stop the interaction.
+	if(target.client.prefs?.read_preference(/datum/preference/toggle/erp/stomping) == FALSE)
+		return FALSE
+
 	if(ishuman(src))
 		var/mob/living/carbon/human/user = src
 
