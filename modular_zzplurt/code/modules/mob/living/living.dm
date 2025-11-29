@@ -41,14 +41,15 @@
 			var/health_penalty = (0.8 - size) * 150
 			H.maxHealth = max(1, initial(H.maxHealth) - health_penalty)
 			H.health = min(H.health, H.maxHealth)
-			H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
+			if(!H.has_movespeed_modifier(/datum/movespeed_modifier/small_size))
+				H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
 		else
 			H.maxHealth = initial(H.maxHealth)
 			H.health = min(H.health, H.maxHealth)
 			H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
 
 /datum/movespeed_modifier/small_size
-    multiplicative_slowdown = 0.5
+	multiplicative_slowdown = 0.5
 
 /mob/living/fully_heal(heal_flags)
 	set_thirst(THIRST_LEVEL_QUENCHED + 50)
