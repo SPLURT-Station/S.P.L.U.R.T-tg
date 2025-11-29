@@ -152,10 +152,10 @@
 	name = "Glitchy Protogen Dildo"
 	desc = "A dildo of a glitchy protogen, It's lights appear to flicker once in awhile."
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
-	icon_state = "glitchy_protogen"
-	base_icon_state = "glitchy_protogen"
+	icon_state = "glitchy_protogen_dildo"
+	base_icon_state = "glitchy_protogen_dildo"
 	inhand_icon_state = null
-	worn_icon_state = "glitchy_protogen"
+	worn_icon_state = "glitchy_protogen_dildo"
 	change_sprite = FALSE
 
 /obj/item/clothing/sextoy/dildo/glitchy_protogen/Initialize(mapload)
