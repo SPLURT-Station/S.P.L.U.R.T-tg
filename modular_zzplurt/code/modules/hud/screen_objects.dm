@@ -11,6 +11,9 @@
 		icon_state = resolve_intent_name(owner.combat_mode)
 
 /atom/movable/screen/intent_toggle/Click(location, control, params)
+	var/mob/living/owner = hud?.mymob
+	if(!owner.client.prefs?.read_preference(/datum/preference/toggle/intents))
+		return
 	var/list/modifiers = params2list(params)
 	var/_x = text2num(modifiers["icon-x"])
 	var/_y = text2num(modifiers["icon-y"])

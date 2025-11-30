@@ -18,18 +18,32 @@
 	set_intent = INTENT_HELP
 
 /datum/keybinding/human/set_intent/disarm
-	name = "set_intent_disarm"
-	full_name = "Set intent to Disarm"
-	hotkey_keys = list("2")
-	keybind_signal = COMSIG_KB_HUMAN_SET_INTENT_DISARM_DOWN
-	set_intent = INTENT_DISARM
+    name = "set_intent_disarm"
+    full_name = "Set intent to Disarm"
+    hotkey_keys = list("2")
+    keybind_signal = COMSIG_KB_HUMAN_SET_INTENT_DISARM_DOWN
+    set_intent = INTENT_DISARM
+
+/datum/keybinding/human/set_intent/disarm/can_use(client/user)
+    if(!..())
+        return FALSE
+    if(!user || user.prefs?.read_preference(/datum/preference/toggle/intents) == FALSE)
+        return FALSE
+    return TRUE
 
 /datum/keybinding/human/set_intent/grab
-	name = "set_intent_grab"
-	full_name = "Set intent to Grab"
-	hotkey_keys = list("3")
-	keybind_signal = COMSIG_KB_HUMAN_SET_INTENT_GRAB_DOWN
-	set_intent = INTENT_GRAB
+    name = "set_intent_grab"
+    full_name = "Set intent to Grab"
+    hotkey_keys = list("1")
+    keybind_signal = COMSIG_KB_HUMAN_SET_INTENT_GRAB_DOWN
+    set_intent = INTENT_GRAB
+
+/datum/keybinding/human/set_intent/grab/can_use(client/user)
+    if(!..())
+        return FALSE
+    if(!user || user.prefs?.read_preference(/datum/preference/toggle/intents) == FALSE)
+        return FALSE
+    return TRUE
 
 /datum/keybinding/human/set_intent/harm
 	name = "set_intent_harm"

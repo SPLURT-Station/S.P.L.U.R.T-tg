@@ -1,4 +1,5 @@
 /mob/living/carbon/human/proc/set_combat_focus(new_mode, silent = TRUE)
+	var/intent_toggle = client?.prefs?.read_preference(/datum/preference/toggle/intents)
 	if(combat_focus == new_mode)
 		return
 
@@ -8,13 +9,15 @@
 
 	var/focus_sound = client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)
 	if(combat_focus)
-		face_mouse = !!client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode)
+		if(intent_toggle)
+			face_mouse = !!client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode)
 		set_combat_indicator(TRUE)
-		if(focus_sound)
+		if(focus_sound && intent_toggle)
 			SEND_SOUND(src, sound('sound/misc/ui_togglecombat.ogg', volume = 25)) //Sound from interbay!
 	else
-		face_mouse = FALSE
+		if(intent_toggle)
+			face_mouse = FALSE
 		set_combat_indicator(FALSE)
-		if(focus_sound)
+		if(focus_sound && intent_toggle)
 			SEND_SOUND(src, sound('sound/misc/ui_toggleoffcombat.ogg', volume = 25)) //Slightly modified version of the above
 

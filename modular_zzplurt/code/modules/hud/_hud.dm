@@ -1,8 +1,11 @@
+
 /datum/hud
 	var/atom/movable/screen/focus_toggle
 
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	. = ..()
+	if(!owner.client.prefs?.read_preference(/datum/preference/toggle/intents))
+		return
 	var/index = static_inventory.Find(action_intent)
 	static_inventory[index] = null
 	qdel(action_intent)
