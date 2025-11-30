@@ -1,3 +1,6 @@
+/datum/species/synthetic
+	mutantbladder = null
+
 /datum/species/synthetic/New()
 	var/list/extra_inherent_traits = list(
 		TRAIT_NOTHIRST

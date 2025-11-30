@@ -74,3 +74,10 @@
 /datum/reagent/space_cleaner/sterilizine/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
 	REMOVE_TRAIT(affected_mob, TRAIT_INFERTILE, "[src.type]")
+
+
+/datum/reagent/ammonia/urine
+	name = "Urine"
+	description = "Exactly what you think. Should be useful."
+	color = "#c0d121"
+	taste_description = "piss"
