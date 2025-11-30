@@ -25,6 +25,15 @@
 	user_arousal = 2
 	target_arousal = 2
 
+/datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		var/datum/reagents/reagents = new /datum/reagents(bladder.piss_amount, NONE)
+		reagents.add_reagent(bladder.pissin_reagent, bladder.piss_amount, reagtemp = bladder.piss_temperature)
+		reagents.expose(target, TOUCH)
+		qdel(reagents)
+
 /datum/interaction/lewd/unholy/piss_mouth
 	name = "Piss Mouth"
 	description = "Piss inside their mouth."
@@ -54,3 +63,12 @@
 	target_pleasure = 0
 	user_arousal = 3
 	target_arousal = 3
+
+/datum/interaction/lewd/unholy/piss_mouth/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		var/datum/reagents/reagents = new /datum/reagents(bladder.piss_amount, NONE)
+		reagents.add_reagent(bladder.pissin_reagent, bladder.piss_amount, reagtemp = bladder.piss_temperature)
+		reagents.expose(target, INGEST)
+		qdel(reagents)

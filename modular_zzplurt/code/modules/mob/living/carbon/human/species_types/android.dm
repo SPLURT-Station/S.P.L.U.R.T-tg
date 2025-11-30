@@ -1,3 +1,6 @@
+/datum/species/android
+	mutantbladder = null
+
 /datum/species/android/New()
 	var/list/extra_inherent_traits = list(
 		TRAIT_NOTHIRST
