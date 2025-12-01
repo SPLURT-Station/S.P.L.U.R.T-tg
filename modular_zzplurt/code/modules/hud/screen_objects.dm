@@ -2,7 +2,7 @@
 /atom/movable/screen/intent_toggle
 	name = "intent"
 	icon_state = "help"
-	screen_loc = ui_combat_toggle
+	screen_loc = "EAST-4:22,SOUTH:5"
 
 /atom/movable/screen/intent_toggle/update_icon_state()
 	. = ..()
