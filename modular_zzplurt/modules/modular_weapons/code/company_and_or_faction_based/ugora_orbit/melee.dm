@@ -116,8 +116,8 @@ Just one more pull and maybe I can get her
 
 //The Synthetik Reverbing Blade, I prestiged raider 6 time and did all challenge :)
 /obj/item/melee/reverbing_blade
-	name = "resonance sword"
-	desc = "A long dull blade used by the Yog Guerilla. Made from modified kinetic crusher part"
+	name = "resonance blade"
+	desc = "A long dull blade manufactured by Industrial District. Made from modified kinetic crusher part"
 	desc_controls = "This sword is more effective the more injured your target is"
 
 	icon_state = "secsword0"
@@ -163,7 +163,7 @@ Just one more pull and maybe I can get her
 
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
-	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' are technically more like a blunt weapon due to lack of sharp edges, that said, it is still extremely lightweight to swing and hot to touch."
+	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' lack sharp edges, that said, it is still extremely lightweight to swing and can burn target hit by it."
 	desc_controls = "This sword inflicts bluespace scarring, occult target afflicted by this cannot jaunt or teleport!"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword.dmi'
 	icon_state = "secsword0"
@@ -201,12 +201,11 @@ Just one more pull and maybe I can get her
 */
 
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_BACK
 
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
-	var/recharge_timer = 0 SECONDS
 	var/anti_magic_ready = 1
 
 /obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -222,10 +221,9 @@ Just one more pull and maybe I can get her
 	AddComponent(
 		/datum/component/anti_magic, \
 		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
-		active_slots = ITEM_SLOT_HANDS, \
+		inventory_flags = ITEM_SLOT_HANDS, \
 		charges = anti_magic_ready, \
-		addtimer(CALLBACK(src, PROC_REF(reset_charges)), recharge_timer), \
-		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)) \
+		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
 	)
 	if(!QDELING(src))
 		//borrowed from /obj/item/gun/energy/recharge/dropped, as explained there,
@@ -241,6 +239,7 @@ Just one more pull and maybe I can get her
 /obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
 	user.set_staggered_if_lower(5 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
+	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
