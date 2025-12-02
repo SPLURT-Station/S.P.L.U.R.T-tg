@@ -1,8 +1,2803 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/open/space/basic,
-/area/space)
+"ad" = (
+/obj/machinery/power/shuttle_engine/heater{
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "7,24";
+	name = "hull";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ag" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/comfy{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/royalblue,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ax" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,11";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"be" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"bv" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = -16;
+	pixel_y = -15
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"bZ" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "4,5";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ca" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "14,6"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ce" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "9,24";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ck" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "9,24"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"cm" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,11"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"cs" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny/forcefield{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/cargo{
+	icon_state = "floor_box";
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"cy" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "1,0";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"cS" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,14";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"df" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/end,
+/obj/structure/marker_beacon/cerulean{
+	pixel_y = -7
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/misc/dirt/station,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"dx" = (
+/obj/structure/lattice{
+	alpha = 0;
+	color = "#FFFFFF"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "0,8";
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ey" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "14,4";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "14,3";
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "13,3";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "12,3";
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/structure/marker_beacon/jade{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "13,4"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"eC" = (
+/obj/machinery/door/airlock/corporate{
+	name = "Bridge Airlock"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/iron/shuttle/cargo{
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"eN" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "7,24";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"fg" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"fH" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "5,6"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"fN" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "1,7";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "0,7";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"fT" = (
+/obj/structure/marker_beacon/jade{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"fW" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,16"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ga" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,7"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"gi" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "0,6";
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"gz" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "8,62";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"hm" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "4,7"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"hx" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "7,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"hJ" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,12"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"hT" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,14";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ix" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "4,4";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "4,3";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"iX" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "1,18"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"jd" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/machinery/door/airlock/bathroom{
+	color = "#e9dfec";
+	name = "Restroom"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"jf" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "3,3";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "2,3";
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "2,4";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "3,4"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ji" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"jj" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "12,7"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ka" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	name = "television screen";
+	pixel_x = 0
+	},
+/obj/structure/table_frame{
+	pixel_x = 0;
+	pixel_y = 24;
+	anchored = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ks" = (
+/obj/structure/fluff/metalpole{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,11"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"kI" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "15,7"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "16,7";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"li" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/wagon.dmi';
+	icon_state = "0,0";
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"lF" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/structure/table/reinforced/plastitaniumglass{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/obj/machinery/microwave/frontier_printed{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/plate/small{
+	pixel_y = -12;
+	pixel_x = -2
+	},
+/obj/item/plate/small{
+	pixel_y = -10;
+	pixel_x = -2
+	},
+/obj/item/plate/small{
+	pixel_y = -8;
+	pixel_x = -2
+	},
+/obj/item/radio/entertainment/speakers/physical{
+	pixel_x = 26;
+	pixel_y = 16
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/white/smooth_corner,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"lW" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end,
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = -10;
+	pixel_y = -12
+	},
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = 11;
+	pixel_y = -12
+	},
+/obj/effect/overlay/water,
+/obj/effect/overlay/water/top,
+/turf/open/floor/iron/diagonal,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"mz" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,11"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"mE" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "12,6";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"mL" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "8,24"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"nl" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ok" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	light_color = "#f1f1f1"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ou" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"pp" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "10,23";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,9"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"pL" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "7,23"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"pX" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "6,22";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"qJ" = (
+/obj/structure/fluff/metalpole/end/right{
+	dir = 4;
+	pixel_y = 32;
+	pixel_x = -32
+	},
+/obj/structure/fluff/metalpole/anchor{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "6,9";
+	dir = 1;
+	pixel_x = 32;
+	pixel_y = 32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "floormed"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"qM" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "11,1";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "11,0";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"qN" = (
+/obj/structure/fluff/metalpole{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,8"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"qO" = (
+/obj/machinery/door/airlock/titanium,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/cargo{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"rX" = (
+/obj/machinery/power/shuttle_engine/heater{
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "9,24";
+	name = "hull";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"sn" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,14"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"sx" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "6,23";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,9"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"tJ" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "2,5";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"tT" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/wagon.dmi';
+	icon_state = "12,0";
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_y = 4
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"uz" = (
+/obj/machinery/shower/directional/south{
+	reagent_capacity = 60000;
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = 11;
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 1
+	},
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = -10;
+	pixel_y = 11
+	},
+/obj/effect/overlay/water,
+/obj/effect/overlay/water/top,
+/turf/open/floor/iron/diagonal,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"uJ" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "13,5"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"uP" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/paper_bin/carbon{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/stamp/granted{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/structure/marker_beacon/cerulean{
+	light_power = 2
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/item/pen/fourcolor{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"vf" = (
+/obj/structure/fluff/metalpole/anchor{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 4;
+	pixel_y = 32;
+	pixel_x = -32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,12"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"vq" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "7,24"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"vS" = (
+/obj/effect/turf_decal/trimline/white/filled/corner,
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_x = 31;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"vU" = (
+/obj/structure/fluff/metalpole/end/right{
+	dir = 4;
+	pixel_y = 32;
+	pixel_x = 15
+	},
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "0,9";
+	dir = 1;
+	pixel_x = -32;
+	pixel_y = 32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "floormed"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"vW" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "12,4";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"wa" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"wJ" = (
+/obj/machinery/modular_computer/preset/civilian{
+	desc = "Used to designate a precise transit location for the FSC 'Serenity II'.";
+	light_color = "#FA8282";
+	name = "FSC 'Serenity II' Navigation Computer";
+	icon_state = "computer";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/computer.dmi';
+	pixel_x = -16
+	},
+/obj/machinery/modular_computer/preset/civilian{
+	desc = "Used to control the FSC 'Serenity II'.";
+	light_color = "#7DE1E1";
+	name = "FSC 'Serenity II' Console";
+	icon_state = "computer_right";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/computer.dmi';
+	pixel_x = 16
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "8,23"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"wT" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "9,23"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"wV" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "3,5"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"xb" = (
+/obj/structure/dresser,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"xM" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/wagon.dmi';
+	icon_state = "0,0";
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"xV" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "8,52";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"yK" = (
+/obj/effect/turf_decal/siding/wideplating_new/light/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1;
+	name = "co-pilot seat"
+	},
+/turf/open/floor/carpet/black,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"yU" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/obj/structure/table/wood/fancy/blue,
+/obj/item/serviette{
+	pixel_x = 0;
+	pixel_y = 6
+	},
+/obj/item/kitchen/fork{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,9";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"yV" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/cargo{
+	icon_state = "floor_box";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ze" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "15,9"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "16,8";
+	pixel_x = -32;
+	pixel_y = 0;
+	dir = 2
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"zu" = (
+/obj/effect/turf_decal/siding/white/end{
+	dir = 1
+	},
+/obj/structure/sink/directional/west,
+/obj/structure/mirror/directional/east,
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -24;
+	pixel_y = -1
+	},
+/obj/machinery/light/floor{
+	pixel_x = 0;
+	pixel_y = -16
+	},
+/turf/open/floor/plastic,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"zW" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "10,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"At" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "9,1"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"AF" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "0,5";
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"AG" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/machinery/button/door/directional/west{
+	name = "Shutters Control";
+	pixel_x = -9;
+	pixel_y = -23;
+	id = "lux_kitchen_shutters_d"
+	},
+/obj/structure/table/reinforced/plastitaniumglass{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/obj/item/kitchen/fork{
+	pixel_x = 10;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cup/glass{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/cup/glass{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/machinery/space_heater/wall_mounted/directional/east{
+	pixel_x = 6;
+	pixel_y = -31;
+	cell = /obj/item/stock_parts/power_store/cell/high
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"AP" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/obj/machinery/door/airlock/freezer{
+	color = "#e9dfec";
+	name = "Bathroom"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Bu" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "diagonalWall";
+	dir = 8;
+	pixel_y = 0
+	},
+/obj/structure/lattice{
+	alpha = 0;
+	color = "#FFFFFF"
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"BF" = (
+/obj/structure/marker_beacon/jade{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "7,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Cv" = (
+/obj/machinery/light/floor{
+	pixel_x = 0;
+	pixel_y = -16
+	},
+/obj/effect/turf_decal/siding/white/end{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Dm" = (
+/obj/machinery/airalarm/directional/west{
+	pixel_x = -28;
+	pixel_y = -5
+	},
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/atmospherics/components/tank/air/layer4,
+/obj/structure/marker_beacon/cerulean{
+	light_power = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"DI" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "5,0";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "5,1";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"DP" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/comfy{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/royalblue,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"DX" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "10,24";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,13";
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"EZ" = (
+/obj/effect/turf_decal/siding/wood/end,
+/obj/structure/table/wood/fancy/blue,
+/obj/item/modular_computer/laptop/preset/civilian/closed{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/structure/marker_beacon/cerulean{
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "5,9";
+	dir = 2
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Fa" = (
+/obj/machinery/door/airlock/titanium,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/cargo{
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"FM" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/wagon.dmi';
+	icon_state = "12,0";
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_y = -4
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"FX" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "15,16";
+	dir = 2
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Gp" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "battering ram";
+	desc = "A car needs a bumper to protect it from collisions on the road. Now, this is the bumper for shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "1,9";
+	dir = 1;
+	pixel_x = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"GJ" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/machinery/light/floor{
+	brightness = 4.5
+	},
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -11;
+	pixel_y = -23
+	},
+/obj/item/serviette_pack{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Hy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/machinery/button/door/directional/west{
+	name = "Shutters Control";
+	pixel_x = -24;
+	pixel_y = -7;
+	id = "lux_bedroom_shutters_d"
+	},
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -23;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/white/smooth_corner,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Iw" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"II" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -25;
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/shuttle/exploration/airlock,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"IR" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "6,24";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,13"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"JF" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "14,5";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"JG" = (
+/obj/machinery/atmospherics/components/binary/pump/on/general/hidden/layer2{
+	alpha = 0
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "11,6"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"JU" = (
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 8;
+	pixel_y = 32;
+	pixel_x = 32
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,9"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Kv" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "thruster";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "3,9";
+	dir = 8
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Lt" = (
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 1;
+	alpha = 0
+	},
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "11,2";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Lz" = (
+/obj/structure/lattice{
+	alpha = 0;
+	color = "#FFFFFF"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "6,8";
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"LU" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,13";
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Mw" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/structure/bed/double/pod{
+	dir = 4;
+	pixel_x = 16;
+	pixel_y = 17
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"MA" = (
+/obj/effect/turf_decal/siding/white/end,
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/plastic,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"MC" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/sink/kitchen/directional/west{
+	pixel_x = 16;
+	pixel_y = 3
+	},
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"MI" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "11,0";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"NL" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,7"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"NY" = (
+/obj/machinery/modular_computer/preset/civilian{
+	desc = "A stationary computer. This one comes preloaded with command programs.";
+	name = "command console";
+	icon_state = "computer_left";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/computer.dmi';
+	pixel_x = -16
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/window/evac{
+	icon_state = "8,23"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"On" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "5,2";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Po" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "thruster";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "3,9";
+	dir = 4
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Pr" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Pu" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "4,6";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"PE" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "1,0"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"PY" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "5,8"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"QT" = (
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"SB" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "1,8";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "0,8";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"SK" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "battering ram";
+	desc = "A car needs a bumper to protect it from collisions on the road. Now, this is the bumper for shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/mining_large.dmi';
+	icon_state = "5,9";
+	dir = 1;
+	pixel_x = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Tm" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "9,1";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"TZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/bedsheet/wiz/double{
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = 18
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Uf" = (
+/obj/effect/turf_decal/siding/wideplating_new/light/end{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1;
+	name = "pilot seat"
+	},
+/turf/open/floor/carpet/black,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Ui" = (
+/obj/structure/fluff/fake_vent,
+/obj/structure/marker_beacon/cerulean,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"UX" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "diagonalWall";
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/lattice{
+	alpha = 0;
+	color = "#FFFFFF"
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Vf" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "1,6";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "1,5";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"VB" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "15,6"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "15,5";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"VE" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"VG" = (
+/obj/structure/decorative/fluff{
+	anchored = 1;
+	icon = 'icons/turf/decals.dmi';
+	icon_state = "siding_plain_corner";
+	dir = 1;
+	color = "#b9b3b3"
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "8,62";
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Xc" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "11,11";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Xg" = (
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "10,22";
+	dir = 2
+	},
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Xx" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/evac{
+	icon_state = "2,6"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"XB" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/iron/shuttle/evac{
+	icon_state = "6,13";
+	dir = 1
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"XL" = (
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = -31;
+	pixel_y = 0
+	},
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -27;
+	pixel_y = 34
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 10
+	},
+/obj/machinery/space_heater/wall_mounted/directional/south{
+	cell = /obj/item/stock_parts/power_store/cell/high;
+	pixel_x = 39;
+	pixel_y = -30
+	},
+/obj/item/towel{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/showroomfloor,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Yi" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	pixel_x = 16;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/general/hidden/layer4{
+	alpha = 0
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/radio/intercom/command/directional/west{
+	pixel_x = -32
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Yn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood/tile,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Yz" = (
+/turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
+	icon_state = "11,0"
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"Zu" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/obj/structure/curtain/bounty/start_closed,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ZH" = (
+/obj/structure/lattice,
+/obj/structure/decorative{
+	anchored = 1;
+	density = 1;
+	name = "shuttle hull";
+	desc = "A light-weight titanium wall used in shuttles.";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/evac_shuttle.dmi';
+	icon_state = "12,5";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/fakespace,
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
+"ZT" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/machinery/smartfridge/food,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/misc/hilbertshotel{
+	parallax_movedir = 4
+	})
 
 (1,1,1) = {"
-a
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(2,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(3,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(4,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(5,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(6,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(7,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(8,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+FM
+yV
+li
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(9,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+Bu
+BF
+sn
+mz
+MI
+Ui
+PE
+ze
+kI
+VB
+QT
+QT
+QT
+QT
+"}
+(10,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+Bu
+hJ
+cm
+PY
+xV
+lF
+AG
+vq
+Fa
+ce
+FX
+ji
+ca
+JF
+QT
+QT
+QT
+"}
+(11,1,1) = {"
+QT
+QT
+dx
+gi
+AF
+fT
+DX
+pp
+Xg
+zW
+ZT
+MC
+Zu
+VE
+Hy
+Mw
+xb
+Tm
+uJ
+ey
+QT
+QT
+"}
+(12,1,1) = {"
+QT
+Gp
+vU
+Po
+JU
+qN
+rX
+wT
+Dm
+wa
+hJ
+cm
+fW
+ka
+bv
+TZ
+jj
+mE
+ZH
+vW
+QT
+QT
+"}
+(13,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+mL
+NY
+yK
+Yi
+II
+eC
+Yn
+Iw
+ag
+DP
+ga
+JG
+Lt
+qM
+QT
+QT
+"}
+(14,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+mL
+wJ
+Uf
+vS
+nl
+hx
+df
+Pr
+yU
+EZ
+NL
+fH
+On
+DI
+QT
+QT
+"}
+(15,1,1) = {"
+QT
+SK
+qJ
+Kv
+vf
+ks
+ad
+pL
+uP
+ou
+Xc
+VG
+cS
+GJ
+ok
+ok
+hm
+Pu
+bZ
+ix
+QT
+QT
+"}
+(16,1,1) = {"
+QT
+QT
+Lz
+iX
+iX
+be
+IR
+sx
+pX
+zW
+Cv
+XL
+AP
+XB
+jd
+zu
+MA
+At
+wV
+jf
+QT
+QT
+"}
+(17,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+UX
+hJ
+cm
+PY
+gz
+uz
+lW
+ck
+qO
+eN
+fg
+fg
+Xx
+tJ
+QT
+QT
+QT
+"}
+(18,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+UX
+LU
+ax
+hT
+cy
+Ui
+Yz
+SB
+fN
+Vf
+QT
+QT
+QT
+QT
+"}
+(19,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+xM
+cs
+tT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(20,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(21,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(22,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(23,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(24,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(25,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+"}
+(26,1,1) = {"
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
+QT
 "}
