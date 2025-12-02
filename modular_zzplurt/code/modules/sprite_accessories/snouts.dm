@@ -194,6 +194,11 @@ Snouts
 	name = "Rodent Thick (Splurt)"
 	icon_state = "rodentthick"
 
+/datum/sprite_accessory/snouts/splurt/cryptid
+	name = "Cryptid skull"
+	icon_state = "cryptid"
+	organ_type = /obj/item/organ/snout/top_adj
+
 /*
 Synthliz
 */

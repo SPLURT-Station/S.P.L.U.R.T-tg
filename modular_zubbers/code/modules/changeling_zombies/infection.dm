@@ -13,6 +13,9 @@ GLOBAL_VAR_INIT(changeling_zombies_detected,FALSE)
 	if(!host.dna)
 		return FALSE
 
+	if(HAS_TRAIT(host, TRAIT_DNR))
+		return FALSE
+
 	var/datum/species/host_species = host.dna.species
 
 	if(host_species.no_equip_flags & ITEM_SLOT_OCLOTHING)
@@ -215,7 +218,8 @@ GLOBAL_VAR_INIT(changeling_zombies_detected,FALSE)
 			TRAIT_TUMOR_SUPPRESSED,
 			TRAIT_RDS_SUPPRESSED,
 			TRAIT_EASYDISMEMBER,
-			TRAIT_HARD_SOLES
+			TRAIT_HARD_SOLES,
+			TRAIT_FAKEDEATH,
 		),
 		TRAIT_CHANGELING_ZOMBIE
 	)

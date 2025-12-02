@@ -81,6 +81,20 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
 	)
 
+/datum/design/borg_obedience
+	name = "Cyborg Obedience Module"
+	id = "obediencemodule"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/obediencemodule
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 4 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
+	)
+
 //so we have our own category
 /datum/design/borg_upgrade_surgical_processor_sci
 	name = "Research Surgical Processor"
@@ -160,4 +174,26 @@
 	build_path = /obj/item/borg/upgrade/pinpointer/vent
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/module/protean/servo
+	name = "Protean Servo Module"
+	id = "mod_protean_servo"
+	build_type = MECHFAB
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/mod/module/protean_servo
+
+/datum/design/module/hat_stabilizer
+	name = "Hat Stabilizer Module"
+	id = "mod_hat_stabilizer"
+	build_type = MECHFAB
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/mod/module/hat_stabilizer
+	category = list(
+		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_GENERAL
 	)

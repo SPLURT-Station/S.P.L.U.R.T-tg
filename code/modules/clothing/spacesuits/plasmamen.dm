@@ -78,7 +78,7 @@
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | STACKABLE_HELMET_EXEMPT | PLASMAMAN_PREVENT_IGNITION | HEADINTERNALS
 	icon_state = "plasmaman-helm"
 	inhand_icon_state = "plasmaman-helm"
-	strip_delay = 80
+	strip_delay = 8 SECONDS
 	flash_protect = FLASH_PROTECTION_WELDER
 	tint = 2
 	armor_type = /datum/armor/space_plasmaman
@@ -123,8 +123,8 @@
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/clothing/head/helmet/space/plasmaman/click_alt(mob/user)
-	if(user.can_perform_action(src))
-		adjust_visor(user)
+	adjust_visor(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/head/helmet/space/plasmaman/ui_action_click(mob/user, action)
 	if(istype(action, /datum/action/item_action/toggle_welding_screen))

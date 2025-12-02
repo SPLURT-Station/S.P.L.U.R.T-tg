@@ -324,7 +324,10 @@
 	uniform = /obj/item/clothing/under/rank/captain/skyrat/utility/syndicate
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	back = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/sabre
+	backpack_contents = list(
+		/obj/item/storage/lockbox/medal/bubber/synd = 1,
+		)
+	belt = /obj/item/storage/belt/sheath/sabre
 	head = /obj/item/clothing/head/hats/hos/cap/syndicate
 	id = /obj/item/card/id/advanced/gold/generic
 	id_trim = /datum/id_trim/syndicom/skyrat/ds2/stationadmiral

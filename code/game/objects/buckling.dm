@@ -329,13 +329,13 @@
 /// Feedback displayed to nearby players after a mob is buckled to src.
 /atom/movable/proc/buckle_feedback(mob/living/being_buckled, mob/buckler)
 	if(being_buckled == buckler)
-		buckler.visible_message(
+		being_buckled.visible_message(
 			span_notice("[buckler] buckles [buckler.p_them()]self to [src]."),
 			span_notice("You buckle yourself to [src]."),
 			span_hear("You hear metal clanking."),
 		)
 	else
-		buckler.visible_message(
+		being_buckled.visible_message(
 			span_warning("[buckler] buckles [being_buckled] to [src]!"),
 			span_warning("[buckler] buckles you to [src]!"),
 			span_hear("You hear metal clanking."),
@@ -351,7 +351,7 @@
  * user - The mob unbuckling buckled_mob
  */
 /atom/movable/proc/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
-	if(!(buckled_mob in buckled_mobs) || !user.CanReach(buckled_mob))
+	if(!(buckled_mob in buckled_mobs) || !buckled_mob.IsReachableBy(user))
 		return
 	var/mob/living/M = unbuckle_mob(buckled_mob)
 	if(M)
@@ -365,13 +365,13 @@
 /// Feedback displayed to nearby players after a mob is unbuckled from src.
 /atom/movable/proc/unbuckle_feedback(mob/living/unbuckled_mob, mob/unbuckler)
 	if(unbuckled_mob == unbuckler)
-		unbuckler.visible_message(
+		unbuckled_mob.visible_message(
 			span_notice("[unbuckler] unbuckles [unbuckler.p_them()]self from [src]."),
 			span_notice("You unbuckle yourself from [src]."),
 			span_hear("You hear metal clanking."),
 		)
 	else
-		unbuckler.visible_message(
+		unbuckled_mob.visible_message(
 			span_notice("[unbuckler] unbuckles [unbuckled_mob] from [src]."),
 			span_notice("[unbuckler] unbuckles you from [src]."),
 			span_hear("You hear metal clanking."),

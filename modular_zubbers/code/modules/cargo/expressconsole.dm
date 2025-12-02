@@ -22,7 +22,6 @@
 	COMPANY_NAME_DEFOREST_MEDICAL,
 	COMPANY_NAME_NRI_SURPLUS,
 	COMPANY_NAME_BLACKSTEEL_FOUNDATION,
-	COMPANY_NAME_NAKAMURA_ENGINEERING_MODSUITS
 	)
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
@@ -40,8 +39,8 @@
 			"packs" = list()
 		)
 
-	for(var/armament_category as anything in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
-		for(var/subcategory as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
+	for(var/armament_category in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
+		for(var/subcategory in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
 			if(armament_category in allowed_categories)
 				for(var/datum/armament_entry/armament_entry as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY][subcategory])
 					meme_pack_data["Company Imports"]["packs"] += list(list(

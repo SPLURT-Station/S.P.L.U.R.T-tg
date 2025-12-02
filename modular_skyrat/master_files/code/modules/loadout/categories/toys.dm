@@ -6,7 +6,6 @@
 
 /datum/loadout_item/toys
 	abstract_type = /datum/loadout_item/toys
-	can_be_named = TRUE
 
 /datum/loadout_item/toys/shark
 	name = "Shark Plushie"
@@ -27,10 +26,6 @@
 /datum/loadout_item/toys/bubble
 	name = "Bubblegum Plushie"
 	item_path = /obj/item/toy/plush/bubbleplush
-
-/datum/loadout_item/toys/goat
-	name = "Strange Goat Plushie"
-	item_path = /obj/item/toy/plush/goatplushie
 
 /datum/loadout_item/toys/sechound
 	name = "Sechound Plushie"

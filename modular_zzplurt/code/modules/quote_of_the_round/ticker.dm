@@ -74,6 +74,10 @@
 		"Quote of the round",
 		quote_of_the_round_data["quote_presentation"] + (quote_of_the_round_data["quote_text"] ? "\n\n[quote_of_the_round_data["quote_text"]]\n[quote_of_the_round_data["quote_attribution"]]" : "")
 	)
+	embed.fields += new /datum/tgs_chat_embed/field(
+		"Next round map",
+		"```\n[SSmap_vote.next_map_config.map_name]\n```"
+	)
 
 	// Embed Image
 	var/image_url = CONFIG_GET(string/roundend_image_url)
@@ -91,7 +95,7 @@
 	embed.footer = new("Round #[GLOB.round_id] ([SSgamemode.storyteller.name])")
 	embed.timestamp = time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")
 
-	var/datum/tgs_message_content/message = new("# Round #[GLOB.round_id] ([SSgamemode.storyteller.name]) just ended. [CONFIG_GET(string/roundend_ping_role) ? "<@[CONFIG_GET(string/roundend_ping_role)]>" : ""]")
+	var/datum/tgs_message_content/message = new("# Round #[GLOB.round_id] ([SSgamemode.storyteller.name]) just ended. [CONFIG_GET(string/roundend_ping_role) ? "<@&[CONFIG_GET(string/roundend_ping_role)]>" : ""]")
 	message.embed = embed
 	for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
 		send2chat(message, channel_tag)

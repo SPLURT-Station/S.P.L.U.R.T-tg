@@ -18,7 +18,7 @@
 	update_worn_ears_extra()
 	update_worn_socks()
 
-/mob/living/carbon/human/update_worn_underwear(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_underwear()
 	remove_overlay(UNDERWEAR_LAYER)
 
 	if(client && hud_used)
@@ -29,10 +29,7 @@
 		var/obj/item/clothing/underwear/briefs/undies = w_underwear
 		update_hud_underwear(undies)
 
-		if(update_obscured)
-			update_obscured_slots(undies.flags_inv)
-
-		if(underwear_hidden())
+		if(underwear_visibility & UNDERWEAR_HIDE_UNDIES)
 			return
 
 		var/target_overlay = undies.icon_state
@@ -87,7 +84,7 @@
 
 	update_body_parts()
 
-/mob/living/carbon/human/update_worn_shirt(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_shirt()
 	remove_overlay(SHIRT_LAYER)
 
 	if(client && hud_used)
@@ -98,11 +95,9 @@
 		var/obj/item/clothing/underwear/shirt/undershirt = w_shirt
 		update_hud_shirt(undershirt)
 
-		if(update_obscured)
-			update_obscured_slots(undershirt.flags_inv)
-
-		if(undershirt_hidden())
+		if(underwear_visibility & UNDERWEAR_HIDE_SHIRT)
 			return
+
 		var/target_overlay = undershirt.icon_state
 		var/mutable_appearance/shirt_overlay
 		var/icon_file = 'modular_zzplurt/icons/mob/clothing/underwear.dmi'
@@ -155,7 +150,7 @@
 
 	update_body_parts()
 
-/mob/living/carbon/human/update_worn_bra(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_bra()
 	remove_overlay(BRA_LAYER)
 
 	if(client && hud_used)
@@ -166,10 +161,7 @@
 		var/obj/item/clothing/underwear/shirt/bra/bra = w_bra
 		update_hud_bra(bra)
 
-		if(update_obscured)
-			update_obscured_slots(bra.flags_inv)
-
-		if(bra_hidden())
+		if(underwear_visibility & UNDERWEAR_HIDE_BRA)
 			return
 
 		var/target_overlay = bra.icon_state
@@ -224,7 +216,7 @@
 
 	update_body_parts()
 
-/mob/living/carbon/human/update_worn_wrists(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_wrists()
 	remove_overlay(WRISTS_LAYER)
 
 	if(client && hud_used)
@@ -234,12 +226,6 @@
 	if(wrists)
 		var/obj/item/worn_item = wrists
 		update_hud_wrists(worn_item)
-
-		if(update_obscured)
-			update_obscured_slots(worn_item.flags_inv)
-
-		if(wrists_hidden())
-			return
 
 		var/icon_file = 'modular_zzplurt/icons/mob/clothing/wrists.dmi'
 
@@ -257,7 +243,7 @@
 		overlays_standing[WRISTS_LAYER] = wrists_overlay
 	apply_overlay(WRISTS_LAYER)
 
-/mob/living/carbon/human/update_worn_ears_extra(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_ears_extra()
 	remove_overlay(EARS_EXTRA_LAYER)
 
 	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
@@ -272,11 +258,7 @@
 		var/obj/item/worn_item = ears_extra
 		update_hud_ears_extra(worn_item)
 
-		if(update_obscured)
-			update_obscured_slots(worn_item.flags_inv)
-
-		var/obscured_slots = check_obscured_slots()
-		if(obscured_slots & ITEM_SLOT_EARS_RIGHT)
+		if(obscured_slots & HIDEEARS)
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
@@ -299,7 +281,7 @@
 		overlays_standing[EARS_EXTRA_LAYER] = ears_overlay
 	apply_overlay(EARS_EXTRA_LAYER)
 
-/mob/living/carbon/human/update_worn_socks(update_obscured = TRUE)
+/mob/living/carbon/human/update_worn_socks()
 	remove_overlay(SOCKS_LAYER)
 
 	if(num_legs < 2)
@@ -313,10 +295,7 @@
 		var/obj/item/clothing/underwear/socks/worn_item = w_socks
 		update_hud_socks(worn_item)
 
-		if(update_obscured)
-			update_obscured_slots(worn_item.flags_inv)
-
-		if(socks_hidden())
+		if(underwear_visibility & UNDERWEAR_HIDE_SOCKS)
 			return
 
 		var/target_overlay = worn_item.icon_state
@@ -466,6 +445,70 @@
 
 	// Update the body parts to ensure everything renders correctly
 	update_body_parts()
+
+/mob/living/carbon/human/update_body(is_creating)
+	update_nails()
+	. = ..()
+
+/mob/living/carbon/human/update_underwear()
+		//Underwear, Undershirts, & Socks
+
+	var/dummy_test = istype(src, /mob/living/carbon/human/dummy) && (usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED || usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED_AROUSED) //hacky af but it works
+	var/list/obj/item/clothing/underwear/worn_underwear = list()
+
+	if(!HAS_TRAIT(src, TRAIT_NO_UNDERWEAR) && !dummy_test)
+		if(underwear && underwear != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+			var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
+			if(underwear_accessory && !w_underwear)
+				var/obj/item/clothing/underwear/briefs/briefs_obj = new underwear_accessory.briefs_obj(src)
+				equip_to_slot_or_del(briefs_obj, ITEM_SLOT_UNDERWEAR)
+				worn_underwear += briefs_obj
+
+		if(bra && bra != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+			var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
+			if(bra_accessory && !w_bra)
+				var/obj/item/clothing/underwear/shirt/bra/bra_obj = new bra_accessory.bra_obj(src)
+				equip_to_slot_or_del(bra_obj, ITEM_SLOT_BRA)
+				worn_underwear += bra_obj
+
+		if(undershirt && !undershirt != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+			var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
+			if(undershirt_accessory && !w_shirt)
+				var/obj/item/clothing/underwear/shirt/shirt_obj = new undershirt_accessory.shirt_obj(src)
+				equip_to_slot_or_del(shirt_obj, ITEM_SLOT_SHIRT)
+				worn_underwear += shirt_obj
+
+		if(socks && num_legs >= 2 && !(dna.features["taur"] && dna.features["taur"] != "None") && !socks != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+			var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
+			if(socks_accessory && !w_socks)
+				var/obj/item/clothing/underwear/socks/socks_obj = new socks_accessory.socks_obj(src)
+				equip_to_slot_or_del(socks_obj, ITEM_SLOT_SOCKS)
+				worn_underwear += socks_obj
+
+		//Make sure character creation knows it's an inventory object
+		if(istype(src, /mob/living/carbon/human/dummy))
+			for(var/obj/item/clothing/underwear/underwear_obj in worn_underwear)
+				if(QDELETED(underwear_obj))
+					continue
+				underwear_obj.item_flags |= IN_INVENTORY
+
+/mob/living/carbon/human/proc/update_nails()
+	if(!nail_style)
+		return
+
+	remove_overlay(BODY_LAYER)
+
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+
+	var/list/standing = list()
+
+	var/mutable_appearance/nail_overlay = mutable_appearance('modular_zzplurt/icons/mobs/nails.dmi', "nails", -BODY_LAYER)
+	nail_overlay.color = nail_color
+	standing += nail_overlay
+	if(standing.len)
+		overlays_standing[BODY_LAYER] = standing
+	apply_overlay(BODY_LAYER)
 
 #undef RESOLVE_ICON_STATE
 

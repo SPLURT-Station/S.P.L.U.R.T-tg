@@ -21,6 +21,164 @@
 	icon_state = "jacket_transparent"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/suit/toji
+	name = "loose sweater"
+	desc = "A loose fitting sweater that gently clings to your frame, like a playful cloud."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "loose_sweater"
+	post_init_icon_state = "loose_sweater"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|ARMS
+	greyscale_colors = "#FFFFFF"
+	greyscale_config = /datum/greyscale_config/loose_sweater
+	greyscale_config_worn = /datum/greyscale_config/loose_sweater/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/datum/greyscale_config/loose_sweater
+	name = "Loose Sweater"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/loose_sweater.json'
+
+/datum/greyscale_config/loose_sweater/worn
+	name = "Loose Sweater (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
+/obj/item/clothing/suit/large_jersey
+	name = "loose jersey"
+	desc = "A loose, airy jersey that exposes your arms, welcome to the gunshow."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "loose_jersey"
+	post_init_icon_state = "loose_jersey"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN
+	greyscale_colors = "#FFFFFF"
+	greyscale_config = /datum/greyscale_config/loose_jersey
+	greyscale_config_worn = /datum/greyscale_config/loose_jersey/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/datum/greyscale_config/loose_jersey
+	name = "Loose Jersey"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/loose_jersey.json'
+
+/datum/greyscale_config/loose_jersey/worn
+	name = "Loose Jersey (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
+/obj/item/clothing/suit/hooded/oversized_hoodie
+	name = "oversized hoodie"
+	desc = "A cozy oversized hoodie."
+	icon_state = "oversized_hoodie"
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	hoodtype = /obj/item/clothing/head/hooded/oversized_hood
+	cold_protection = CHEST|GROIN|ARMS
+	body_parts_covered = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/head/hooded/oversized_hood
+	name = "oversized hood"
+	desc = "An oversized hood that keeps you warm."
+	icon_state = "hood_large"
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	flags_inv = HIDEHAIR
+
+/obj/item/clothing/suit/urban/shoulder_sweater
+	name = "off shoulder sweater"
+	desc = "A baggy sweater that hangs comfortably off your shoulders, probably won't keep your shoulders too warm however."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "shoulder_sweater"
+	post_init_icon_state = "shoulder_sweater"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|ARMS
+	greyscale_colors = "#FFFFFF"
+	greyscale_config = /datum/greyscale_config/shoulder_sweater
+	greyscale_config_worn = /datum/greyscale_config/shoulder_sweater/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/urban/offshoulder_jacket
+	name = "off shoulder jacket"
+	desc = "A cropped jacket that perpetually sits off one of your shoulders."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "off_shoulder"
+	post_init_icon_state = "off_shoulder"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|ARMS
+	greyscale_colors = "#35373e"
+	greyscale_config = /datum/greyscale_config/off_shoulder_jacket
+	greyscale_config_worn = /datum/greyscale_config/off_shoulder_jacket/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/urban/cropped_jacket
+	name = "cropped fur trimmed jacket"
+	desc = "A cropped jacket with a comfortable fur trim on the collar of it."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "cropped_jacket"
+	post_init_icon_state = "cropped_jacket"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|ARMS
+	greyscale_colors = "#35373e#b89e8d"
+	greyscale_config = /datum/greyscale_config/urban_jacket
+	greyscale_config_worn = /datum/greyscale_config/urban_jacket/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/urban/puffer
+	name = "urban puffer vest"
+	desc = "You're pretty fly, for a space guy."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "puffer_vest"
+	post_init_icon_state = "puffer_vest"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN
+	greyscale_colors = "#a52f29"
+	greyscale_config = /datum/greyscale_config/urban_puffer
+	greyscale_config_worn = /datum/greyscale_config/urban_puffer/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/datum/greyscale_config/urban_puffer
+	name = "Urban Puffer Vest"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_puffer.json'
+
+/datum/greyscale_config/urban_puffer/worn
+	name = "Urban Puffer Vest (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/shoulder_sweater
+	name = "Off Shoulder Sweater"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_off_sweater.json'
+
+/datum/greyscale_config/shoulder_sweater/worn
+	name = "Off Shoulder Sweater (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/off_shoulder_jacket
+	name = "Off Shoulder Jacket"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_shoulder_jacket.json'
+
+/datum/greyscale_config/off_shoulder_jacket/worn
+	name = "Off Shoulder Jacket (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
+/datum/greyscale_config/urban_jacket
+	name = "Cropped Urban Jacket"
+	icon_file = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/urban_crop_jacket.json'
+
+/datum/greyscale_config/urban_jacket/worn
+	name = "Cropped Urban Jacket (Worn)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+
 //DS9
 /obj/item/clothing/suit/storage/trek/ds9
 	name = "Padded Overcoat"

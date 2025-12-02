@@ -7,38 +7,38 @@
 	cum_target = list(CLIMAX_POSITION_USER = null, CLIMAX_POSITION_TARGET = null)
 	cum_message_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"cums all over %TARGET%'s cock.",
-			"shoots their load onto %TARGET%'s shaft.",
-			"covers %TARGET%'s penis with their cum."
+			"%CUMMING% cums all over %CAME_IN%'s cock.",
+			"%CUMMING% shoots their load onto %CAME_IN%'s shaft.",
+			"%CUMMING% covers %CAME_IN%'s penis with their cum."
 		),
 		CLIMAX_POSITION_TARGET = list(
-			"cums all over %USER%'s cock.",
-			"shoots their load onto %USER%'s shaft.",
-			"covers %USER%'s penis with their cum."
+			"%CUMMING% cums all over %CAME_IN%'s cock.",
+			"%CUMMING% shoots their load onto %CAME_IN%'s shaft.",
+			"%CUMMING% covers %CAME_IN%'s penis with their cum."
 		)
 	)
 	cum_self_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"you cum all over %TARGET%'s cock.",
-			"you shoot your load onto %TARGET%'s shaft.",
-			"you cover %TARGET%'s penis with your cum."
+			"you cum all over %CAME_IN%'s cock.",
+			"you shoot your load onto %CAME_IN%'s shaft.",
+			"you cover %CAME_IN%'s penis with your cum."
 		),
 		CLIMAX_POSITION_TARGET = list(
-			"you cum all over %USER%'s cock.",
-			"you shoot your load onto %USER%'s shaft.",
-			"you cover %USER%'s penis with your cum."
+			"you cum all over %CAME_IN%'s cock.",
+			"you shoot your load onto %CAME_IN%'s shaft.",
+			"you cover %CAME_IN%'s penis with your cum."
 		)
 	)
 	cum_partner_text_overrides = list(
 		CLIMAX_POSITION_USER = list(
-			"%USER% cums all over your cock.",
-			"%USER% shoots their load onto your shaft.",
-			"%USER% covers your penis with their cum."
+			"%CUMMING% cums all over your cock.",
+			"%CUMMING% shoots their load onto your shaft.",
+			"%CUMMING% covers your penis with their cum."
 		),
 		CLIMAX_POSITION_TARGET = list(
-			"%TARGET% cums all over your cock.",
-			"%TARGET% shoots their load onto your shaft.",
-			"%TARGET% covers your penis with their cum."
+			"%CUMMING% cums all over your cock.",
+			"%CUMMING% shoots their load onto your shaft.",
+			"%CUMMING% covers your penis with their cum."
 		)
 	)
 	message = list(

@@ -128,6 +128,30 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
+/datum/design/inhaler
+	name = "Inhaler"
+	desc = "A small device capable of administering short bursts of aerosolized chemicals. Requires a canister to function."
+	id = "inhaler"
+	build_path = /obj/item/inhaler/medical
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 0.1)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/inhaler_canister
+	name = "Inhaler Canister"
+	desc = "A small canister filled with aerosolized reagents for use in a inhaler."
+	id = "inhaler_canister"
+	build_path = /obj/item/reagent_containers/inhaler_canister
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.2)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
 /datum/design/bluespacebodybag
 	name = "Bluespace Body Bag"
 	desc = "A bluespace body bag, powered by experimental bluespace technology. It can hold loads of bodies and the largest of creatures."
@@ -1014,6 +1038,23 @@
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
 	)
 	build_path = /obj/item/organ/ears/cybernetic/whisper
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/cybernetic_ears_volume
+	name = "Volume-adjusting Cybernetic Ears"
+	desc = "A pair of volume-adjusting cybernetic ears"
+	id = "cybernetic_ears_volume"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+			/datum/material/iron = SMALL_MATERIAL_AMOUNT*5,
+			/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
+			/datum/material/silver = SMALL_MATERIAL_AMOUNT*5,
+	)
+	build_path = /obj/item/organ/ears/cybernetic/volume
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)

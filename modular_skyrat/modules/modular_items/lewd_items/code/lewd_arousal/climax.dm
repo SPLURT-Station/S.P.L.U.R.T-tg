@@ -127,7 +127,7 @@
 					span_userlove("You shoot string after string of hot cum, hitting the floor!"))
 				testicles?.reagents.remove_all(testicles.cumshot_size)
 
-			else if(penis_climax_choice == CLIMAX_OPEN_CONTAINER || ((!climax_interaction.cum_target[interaction_position] || !partner) && climax_interaction.fluid_transfer_objects.Find(REF(src)))) // SPLURT EDIT - Interactions - Added support for fluid transfer objects
+			else if(penis_climax_choice == CLIMAX_OPEN_CONTAINER || ((!climax_interaction?.cum_target[interaction_position] || !partner) && climax_interaction?.fluid_transfer_objects.Find(REF(src)))) // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 				target_choice = climax_interaction?.fluid_transfer_objects.Find(REF(src)) ? climax_interaction.fluid_transfer_objects[REF(src)].name : tgui_input_list(src, "Choose a container to cum into.", "Choose target!", interactable_inrange_open_containers) //SPLURT EDIT CHANGE - Interactions
 				if(!target_choice)
 					create_cum_decal = TRUE
@@ -193,7 +193,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 
@@ -300,6 +300,8 @@
 			apply_status_effect(/datum/status_effect/climax_cooldown)
 			if(self_orgasm)
 				add_mood_event("orgasm", /datum/mood_event/climaxself)
+			if(climax_interaction && !manual)
+				climax_interaction.post_climax(src, partner, interaction_position)
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
@@ -346,17 +348,17 @@
 				create_cum_decal = TRUE
 				visible_message(span_userlove("[src] twitches and moans as [p_they()] squirt on the floor!"), \
 					span_userlove("You twitch and moan as you squirt on the floor!"))
-			else if(vagina_climax_choice == CLIMAX_OPEN_CONTAINER || ((!climax_interaction.cum_target[interaction_position] || !partner) && climax_interaction.fluid_transfer_objects.Find(REF(src)))) // SPLURT EDIT - Interactions - Added support for fluid transfer objects
+			else if(vagina_climax_choice == CLIMAX_OPEN_CONTAINER || ((!climax_interaction?.cum_target[interaction_position] || !partner) && climax_interaction?.fluid_transfer_objects.Find(REF(src)))) // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 				target_choice = climax_interaction?.fluid_transfer_objects.Find(REF(src)) ? climax_interaction.fluid_transfer_objects[REF(src)].name : tgui_input_list(src, "Choose a container to squirt into.", "Choose target!", interactable_inrange_open_containers) // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 				if(!target_choice)
 					create_cum_decal = TRUE
 					visible_message(span_userlove("[src] squirts onto the floor!"), \
 						span_userlove("You squirt onto the floor!"))
-					vagina.reagents.remove_all(vagina.reagents.total_volume)
+					vagina?.reagents.remove_all(vagina?.reagents.total_volume)
 				else
 					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice] || climax_interaction.fluid_transfer_objects[REF(src)] // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 					if(target_open_container.is_refillable() && target_open_container.is_drainable())
-						var/squirt_volume = vagina.reagents.total_volume
+						var/squirt_volume = vagina?.reagents.total_volume
 						var/total_volume_w_squirt = squirt_volume + target_open_container.reagents.total_volume
 						conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 						if(target_open_container.reagents.holder_full())
@@ -364,7 +366,7 @@
 							visible_message(span_userlove("[src] tries to squirt into the [target_open_container], but it's already full, spilling onto the floor!"), \
 								span_userlove("You try to squirt into the [target_open_container], but it's already full, so it all hits the floor instead!"))
 						else
-							vagina.reagents.trans_to(target_open_container, vagina.reagents.total_volume, transferred_by = src)
+							vagina?.reagents.trans_to(target_open_container, vagina?.reagents.total_volume, transferred_by = src)
 							if(total_volume_w_squirt > target_open_container.volume)
 								add_cum_splatter_floor(get_turf(target_open_container), female = TRUE)
 								visible_message(span_userlove("[src] squirts into the [target_open_container], it's so full that it overflows!"), \
@@ -376,12 +378,12 @@
 						create_cum_decal = TRUE
 						visible_message(span_userlove("[src] squirts onto the floor!"), \
 							span_userlove("You squirt onto the floor!"))
-						vagina.reagents.remove_all(vagina.reagents.total_volume)
+						vagina?.reagents.remove_all(vagina?.reagents.total_volume)
 			else if(vagina_climax_choice == CLIMAX_PORTAL)
 				to_chat(src, "You squirt through the portal, hitting whatever is on the other side!")
 				portal.relayed_body.visible_message("[portal.relayed_body] squirts onto the floor!")
 				add_cum_splatter_floor(get_turf(portal.relayed_body), female = TRUE)
-				vagina.reagents.remove_all(vagina.reagents.total_volume)
+				vagina?.reagents.remove_all(vagina?.reagents.total_volume)
 			else
 				target_choice = climax_interaction && !manual ? partner.name : tgui_input_list(src, "Choose who to squirt on.", "Choose target!", interactable_inrange_mobs)
 				if(!target_choice)
@@ -407,7 +409,7 @@
 					if(target_mob.has_penis(REQUIRE_GENITAL_EXPOSED))
 						target_buttons += ORGAN_SLOT_PENIS
 						var/obj/item/organ/genital/penis/other_penis = target_mob.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis?.sheath != null && other_penis?.sheath != "None") // SPLURT EDIT - Fix runtime on sim genitals
 							target_buttons += "sheath"
 					target_buttons += "On [target_mob_them]"
 
@@ -453,8 +455,8 @@
 			if(!(climax_interaction?.interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER))
 				if(create_cum_decal)
 					if(HAS_TRAIT(src, TRAIT_MESSY))
-						var/datum/reagents/R = new(vagina.internal_fluid_maximum)
-						vagina.reagents.trans_to(R, vagina.reagents.total_volume)
+						var/datum/reagents/R = new(vagina?.internal_fluid_maximum)
+						vagina?.reagents.trans_to(R, vagina?.reagents.total_volume)
 						if(partner && partner != src)
 							var/turf/T = get_turf(partner)
 							T.add_liquid_from_reagents(R, FALSE, 1, get_turf(src), partner)
@@ -463,23 +465,23 @@
 							T.add_liquid_from_reagents(R, FALSE, 1)
 						qdel(R)
 					else
-						vagina.reagents.remove_all(vagina.reagents.total_volume)
-						add_cum_splatter_floor(get_turf(src), female = TRUE, cum_reagent = vagina.internal_fluid_datum)
+						vagina?.reagents.remove_all(vagina?.reagents.total_volume)
+						add_cum_splatter_floor(get_turf(src), female = TRUE, cum_reagent = vagina?.internal_fluid_datum)
 				else if(partner || interactable_inrange_mobs[target_choice])
 					var/mob/living/target_mob = partner || interactable_inrange_mobs[target_choice]
 
-					var/datum/reagents/R = new(vagina.internal_fluid_maximum)
+					var/datum/reagents/R = new(vagina?.internal_fluid_maximum)
 					//Check if the target has custom genital fluids enabled
 					if(!(target_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/custom_genital_fluids) || nonhuman_bypass_partner))
-						R.add_reagent(initial(vagina.internal_fluid_datum), vagina.reagents.total_volume)
-						vagina.reagents.remove_all(vagina.reagents.total_volume)
+						R.add_reagent(initial(vagina?.internal_fluid_datum), vagina?.reagents.total_volume)
+						vagina?.reagents.remove_all(vagina?.reagents.total_volume)
 					else
-						vagina.reagents.trans_to(R, vagina.reagents.total_volume)
+						vagina?.reagents.trans_to(R, vagina?.reagents.total_volume)
 
 					R.trans_to(target_mob, R.total_volume, transferred_by = src, methods = INGEST)
 					qdel(R)
 				else
-					vagina.reagents.remove_all(vagina.reagents.total_volume)
+					vagina?.reagents.remove_all(vagina?.reagents.total_volume)
 		//SPLURT EDIT CHANGE END
 
 	apply_status_effect(/datum/status_effect/climax)

@@ -1,6 +1,6 @@
 // the SMES
 // stores power
-// SKYRAT EDIT COMMENT: Modularized Power change in modular_nova\master_files\code\modules\power\smes.dm
+// SKYRAT EDIT COMMENT: Modularized Power change in modular_skyrat\master_files\code\modules\power\smes.dm
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
@@ -69,6 +69,12 @@
 		return
 	terminal.master = src
 	update_appearance(UPDATE_OVERLAYS)
+
+/obj/machinery/power/smes/on_construction(mob/user)
+	var/obj/structure/cable/C = locate() in loc
+	if(!QDELETED(C))
+		cable_layer = C.cable_layer
+		connect_to_network()
 
 /obj/machinery/power/smes/disconnect_terminal()
 	if(terminal)
@@ -145,6 +151,7 @@
 /obj/machinery/power/smes/proc/total_charge()
 	PROTECTED_PROC(TRUE)
 	SHOULD_NOT_OVERRIDE(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
 	for(var/obj/item/stock_parts/power_store/power_cell in component_parts)
 		. += power_cell.charge()
@@ -233,7 +240,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		//select cable layer
-		var/terminal_cable_layer
+		var/terminal_cable_layer = installing_cable.target_layer
 		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			var/choice = tgui_input_list(user, "Select Power Input Cable Layer", "Select Cable Layer", GLOB.cable_name_to_layer)
 			if(isnull(choice) \
@@ -390,7 +397,7 @@
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
 /obj/machinery/power/smes/proc/restore()
-	if(machine_stat & BROKEN)
+	if(!is_operational)
 		return
 
 	if(!outputting)

@@ -74,14 +74,14 @@
 #define TRAIT_CONCUBUS			"concubus"
 /// Trait for quirk: Modular Limbs
 #define TRAIT_MODULAR_LIMBS		"modular_limbs"
-/// Trait for quirk: Vacuum Resistance
-#define TRAIT_VACUUM_RESIST		"vacuum_resist"
 /// Trait for quirk: Overweight
 #define TRAIT_OVERWEIGHT		"overweight"
 /// Trait for quirk: Trashcan
 #define TRAIT_TRASHCAN			"trashcan"
 /// Trait for quirk: Quick Step
 #define TRAIT_SPEEDY_STEP		"speedy_step"
+/// Trait applied when the pressure resistance of the vacuum resistance quirk wears off
+#define TRAIT_VACUUM_RESISTANCE_FATIGUE "vacuum_resist_fatigue"
 
 ///
 // Element traits

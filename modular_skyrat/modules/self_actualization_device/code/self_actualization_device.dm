@@ -220,6 +220,7 @@
 	if((taur_mode & STYLE_TAUR_SNAKE) && (patient.shoes))
 		patient.dropItemToGround(patient.shoes, TRUE)
 	// SPLURT ADDITION END - Fix of naga with shoes
+	patient.wash(CLEAN_SCRUB)
 	if(patient.dna.real_name != original_name)
 		log_game("[key_name(patient)] has used the Self-Actualization Device at [loc_name(src)], changed the name of their character. \
 		Original Name: [original_name], New Name: [patient.dna.real_name].")
@@ -228,7 +229,9 @@
 
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 	say("Procedure complete! Enjoy your life being a new you!")
-
+	if(isethereal(patient.dna.species))
+		var/datum/species/ethereal/ethereal = patient.dna.species
+		ethereal.refresh_light_color(patient)
 	open_machine()
 	SSquirks.OverrideQuirks(patient, patient.client)
 

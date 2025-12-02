@@ -4,6 +4,7 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 	ROLE_FUGITIVE = /datum/antagonist/fugitive,
 	ROLE_LONE_OPERATIVE = /datum/antagonist/nukeop/lone,
 	ROLE_SENTIENCE = /datum/antagonist/sentient_creature,
+	ROLE_INFECTED_SYNTHETIC = /datum/antagonist/infected_ipc //splurt antag thingy
 ))
 
 /datum/preference_middleware/antags
@@ -149,11 +150,12 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 	for (var/datum/dynamic_ruleset/ruleset as anything in subtypesof(/datum/dynamic_ruleset))
 		var/datum/antagonist/antagonist_type = initial(ruleset.preview_antag_datum)
 		var/antag_flag = initial(ruleset.pref_flag)
-		if (isnull(antagonist_type) || isnull(antag_flag))
+		if(isnull(antagonist_type) || isnull(antag_flag))
 			continue
 
-		// antag_flag is guaranteed to be unique by unit tests.
-		antagonists[initial(ruleset.pref_flag)] = antagonist_type
+		// antag_flag is guaranteed to be unique for all non-RULESET_VARIATION rulesets
+		// the ||= covers specifically those rulesets - prefer the first one over variations
+		antagonists[initial(ruleset.pref_flag)] ||= antagonist_type
 
 	var/list/generated_icons = list()
 

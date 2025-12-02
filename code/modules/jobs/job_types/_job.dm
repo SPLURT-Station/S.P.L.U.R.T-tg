@@ -44,10 +44,10 @@
 	/// If you have the use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
 	var/minimal_player_age = 0
 
-	var/outfit = null
+	var/datum/outfit/outfit = null
 
 	/// The job's outfit that will be assigned for plasmamen.
-	var/plasmaman_outfit = null
+	var/datum/outfit/plasmaman/plasmaman_outfit = null
 
 	/// Minutes of experience-time required to play in this job. The type is determined by [exp_required_type] and [exp_required_type_department] depending on configs.
 	var/exp_requirements = 0
@@ -221,7 +221,7 @@
 	if(equipping.paycheck_department)
 		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 		//BUBBERSTATION CHANGE START: EXTRA DOSH FOR ROUND STARTERS
-		// bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		// bank_account.payday(STARTING_PAYCHECKS, free = TRUE)
 		bank_account.payday(STARTING_PAYCHECKS * (!player_client?.mob?.mind?.late_joiner ? 3 : 1 ), TRUE) //Triple the dosh for shift starters.
 		//BUBBERSTATION CHANGE END
 		account_id = bank_account.account_id
@@ -391,6 +391,12 @@
 				back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
 			if(GMESSENGER)
 				back = /obj/item/storage/backpack/messenger //Grey messenger bag
+			if(FBACKPACK)
+				back = /obj/item/storage/backpack/industrial/frontier_colonist
+			if(FSATCHEL)
+				back = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
+			if(FMESSENGER)
+				back = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 			if(DSATCHEL)
 				back = satchel //Department satchel
 			if(DMESSENGER)
@@ -450,7 +456,7 @@
 			card.registered_account = account
 			account.bank_cards += card
 
-		equipped.sec_hud_set_ID()
+		equipped.update_ID_card()
 
 	var/obj/item/modular_computer/pda/pda = equipped.get_item_by_slot(pda_slot)
 
@@ -556,8 +562,7 @@
 		// This is unfortunately necessary because of snowflake AI init code. To be refactored.
 		spawn_instance = new spawn_type(get_turf(spawn_point), null, player_client.mob)
 	else
-		spawn_instance = new spawn_type(player_client.mob.loc)
-		spawn_point.JoinPlayerHere(spawn_instance, TRUE)
+		spawn_instance = spawn_point.JoinPlayerHere(spawn_type, TRUE)
 	spawn_instance.apply_prefs_job(player_client, src)
 	if(!player_client)
 		qdel(spawn_instance)
@@ -691,3 +696,19 @@
 /// Called when a mob that has this job is admin respawned
 /datum/job/proc/on_respawn(mob/new_character)
 	SSjob.equip_rank(new_character, new_character.mind.assigned_role, new_character.client)
+
+/// This proc may be called when someone of this job is made into a traitor to create custom objectives related to the job.
+/datum/job/proc/generate_traitor_objective()
+	return null
+
+/// Returns a large (due to cropping) icon of this job's sechud icon state.
+/datum/job/proc/get_lobby_icon() as /icon
+	var/datum/outfit/job_outfit = outfit
+	if(!job_outfit || !job_outfit::id_trim)
+		CRASH("[src.type] has no job outfit but isn't overwriting get_lobby_icon().")
+	var/datum/id_trim/job_trim = job_outfit::id_trim
+	var/icon_state = job_trim::sechud_icon_state
+	if(!icon_state || icon_state == SECHUD_UNKNOWN)
+		CRASH("[src.type] has no job icon state.")
+
+	return icon('icons/mob/huds/hud.dmi', icon_state)

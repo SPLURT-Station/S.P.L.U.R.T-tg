@@ -22,7 +22,7 @@
 	// Simple sanity check to prevent a user doing this too often
 	var/cached_one_time_token = SSdiscord.reverify_cache[usr.ckey]
 	if(cached_one_time_token && cached_one_time_token != "")
-		message = "You already generated your one time token, it is [cached_one_time_token]. If you need a new one, you will have to wait until the round ends, or switch to another server; try verifying yourself on Discord by copying this command: <span class='code user-select'>[prefix]verify [cached_one_time_token]</span> and pasting it into the verification channel."
+		message = "You already generated your one time token, it is [cached_one_time_token]. If you need a new one, you will have to wait until the round ends. Try verifying yourself on Discord by copying the code and using it in a verification ticket." //SPLURT EDIT - New verification cog
 
 
 	else
@@ -30,12 +30,12 @@
 		var/datum/discord_link_record/existing_link = SSdiscord.find_discord_link_by_ckey(usr?.ckey, only_valid = TRUE)
 		//Do not create a new entry if they already have a linked account
 		if(existing_link?.discord_id)
-			message = "You already have a linked account with discord ID ([existing_link.discord_id]) linked on [existing_link.timestamp]. If you desire to change your account please contact staff."
+			message = "You already have a linked account with discord ID ([existing_link.discord_id]) linked on [existing_link.timestamp]. If you desire to change your account use the <span class='code user-select'>[prefix]deverify</span> command in discord."
 		else
 			// Will generate one if an expired one doesn't exist already, otherwise will grab existing token
 			var/one_time_token = SSdiscord.get_or_generate_one_time_token_for_ckey(ckey)
 			SSdiscord.reverify_cache[usr.ckey] = one_time_token
-			message = "Your one time token is: [one_time_token]. Assuming you have the required living minutes in game, you can now verify yourself on Discord by using the command: <span class='code user-select'>[prefix]verify [one_time_token]</span>"
+			message = "Your one time token is: [one_time_token]. Assuming you have the required living minutes in game, you can now verify yourself on Discord by creating a verification ticket.</span>"
 		//SPLURT EDIT END
 
 	//Now give them a browse window so they can't miss whatever we told them

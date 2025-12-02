@@ -10,7 +10,7 @@
 	medical_record_text = "Patient is highly allergic to to sodium, and should not come into contact with it under any circumstances."
 	mob_trait = TRAIT_SALT_SENSITIVE
 	hardcore_value = 1
-	icon = FA_ICON_BIOHAZARD
+	icon = FA_ICON_BOX_TISSUE
 
 /datum/quirk/sodium_sensetivity/add(client/client_source)
 	// Register reagent interactions

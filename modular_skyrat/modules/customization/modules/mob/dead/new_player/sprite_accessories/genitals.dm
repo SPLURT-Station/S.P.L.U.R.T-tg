@@ -92,8 +92,10 @@
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 	var/can_have_sheath = TRUE
+	var/knotted = FALSE
+	var/override_string_knot = "knot"
+	var/override_string_tie = "tie"
 
 /datum/sprite_accessory/genital/penis/get_special_icon(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
@@ -166,7 +168,6 @@
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
-	genetic = TRUE
 	var/has_size = TRUE
 
 /datum/sprite_accessory/genital/testicles/get_special_icon(mob/living/carbon/human/target_mob)
@@ -210,7 +211,6 @@
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
 	relevent_layers = list(BODY_FRONT_LAYER)
-	genetic = TRUE
 	var/alt_aroused = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
@@ -241,10 +241,39 @@
 	name = "Spade"
 	alt_aroused = FALSE
 
+/datum/sprite_accessory/genital/vagina/feline
+	icon_state = "human"
+	name = "Feline"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/equine
+	icon_state = "human"
+	name = "Equine"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/cervine
+	icon_state = "human"
+	name = "Cervine"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/sergal
+	icon_state = "human"
+	name = "Sergal"
+	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/hemi
+	icon_state = "human"
+	name = "Hemi"
+	alt_aroused = FALSE
+
 /datum/sprite_accessory/genital/vagina/furred
 	icon_state = "furred"
 	name = "Furred"
 	alt_aroused = FALSE
+
+/datum/sprite_accessory/genital/vagina/puffy
+	icon_state = "human"
+	name = "Puffy"
 
 /datum/sprite_accessory/genital/vagina/gaping
 	icon_state = "gaping"
@@ -258,7 +287,6 @@
 	organ_type = /obj/item/organ/genital/womb
 	associated_organ_slot = ORGAN_SLOT_WOMB
 	key = ORGAN_SLOT_WOMB
-	genetic = TRUE
 
 /datum/sprite_accessory/genital/womb/none
 	icon_state = "none"
@@ -275,7 +303,6 @@
 	organ_type = /obj/item/organ/genital/anus
 	associated_organ_slot = ORGAN_SLOT_ANUS
 	key = ORGAN_SLOT_ANUS
-	genetic = TRUE
 
 /datum/sprite_accessory/genital/anus/none
 	icon_state = "none"
@@ -298,7 +325,6 @@
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	has_skintone_shading = TRUE
 	genital_location = CHEST
-	genetic = TRUE
 
 /datum/sprite_accessory/genital/breasts/none
 	icon_state = "none"

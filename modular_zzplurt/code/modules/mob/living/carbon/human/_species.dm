@@ -32,3 +32,7 @@
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 
 	return FALSE //Unsupported slot
+
+//Species types
+/mob/living/carbon/human/species/arachnid
+	race = /datum/species/arachnid

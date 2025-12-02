@@ -74,6 +74,7 @@
 	name = "Skyscraper Apartment"
 	mappath = "_maps/splurt/templates/apartment_skyscraper.dmm"
 	category = GHC_APARTMENT
+	landing_coords = list(17, 3)
 
 /datum/map_template/ghost_cafe_rooms/apartment_mountainside
 	name = "Mountainside Apartment"
@@ -150,6 +151,11 @@
 /datum/map_template/ghost_cafe_rooms/apartment_fortuneteller
 	name = "Arcane Library"
 	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
+	category = GHC_MISC
+
+/datum/map_template/ghost_cafe_rooms/apartment_abandoned_shuttle
+	name = "Abandoned Shuttle"
+	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
 	category = GHC_MISC
 
 #undef GHC_MISC

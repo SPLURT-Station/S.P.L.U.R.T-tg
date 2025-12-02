@@ -34,10 +34,6 @@
 	///List of all Races that can be chosen, decided by its Initialize.
 	var/list/selectable_races = list()
 
-/obj/structure/mirror/Initialize(mapload)
-	. = ..()
-	update_choices()
-
 /obj/structure/mirror/Destroy()
 	mirror_options = null
 	selectable_races = null
@@ -58,6 +54,10 @@
 		update_signals = list(COMSIG_ATOM_BREAK), \
 		check_reflect_signals = list(SIGNAL_ADDTRAIT(TRAIT_NO_MIRROR_REFLECTION), SIGNAL_REMOVETRAIT(TRAIT_NO_MIRROR_REFLECTION)), \
 	)
+	if(mapload)
+		find_and_hang_on_wall()
+	update_choices()
+	register_context()
 
 /obj/structure/mirror/proc/can_reflect(atom/movable/target)
 	///I'm doing it this way too, because the signal is sent before the broken variable is set to TRUE.
@@ -68,11 +68,6 @@
 	return TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror, 28)
-
-/obj/structure/mirror/Initialize(mapload)
-	. = ..()
-	find_and_hang_on_wall()
-	register_context()
 
 /obj/structure/mirror/broken
 	icon_state = "mirror_broke"
@@ -199,15 +194,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 		var/new_s_tone = tgui_input_list(race_changer, "Choose your skin tone", "Race change", GLOB.skin_tones)
 		if(new_s_tone)
 			race_changer.skin_tone = new_s_tone
-			race_changer.dna.update_ui_block(DNA_SKIN_TONE_BLOCK)
+			race_changer.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
 	else if(HAS_TRAIT(race_changer, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(race_changer, TRAIT_FIXED_MUTANT_COLORS))
-		var/new_mutantcolor = tgui_color_picker(race_changer, "Choose your skin color:", "Race change", race_changer.dna.features["mcolor"]) // BUBBERSTATION EDIT: TGUI COLOR PICKER
+		var/new_mutantcolor = tgui_color_picker(race_changer, "Choose your skin color:", "Race change", race_changer.dna.features[FEATURE_MUTANT_COLOR]) // BUBBER EDIT - TGUI COLOR PICKER
 		if(new_mutantcolor)
 			var/list/mutant_hsv = rgb2hsv(new_mutantcolor)
 
 			if(mutant_hsv[3] >= 50) // mutantcolors must be bright
-				race_changer.dna.features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
-				race_changer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+				race_changer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutantcolor)
+				race_changer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 			else
 				to_chat(race_changer, span_notice("Invalid color. Your color is not bright enough."))
 				return TRUE
@@ -241,7 +236,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	if(chosen_physique && chosen_physique != "Wizards Don't Need Gender")
 		sexy.physique = (chosen_physique == "Warlock Physique") ? MALE : FEMALE
 
-	sexy.dna.update_ui_block(DNA_GENDER_BLOCK)
+	sexy.dna.update_ui_block(/datum/dna_block/identity/gender)
 	sexy.update_body(is_creating = TRUE) // or else physique won't change properly
 	sexy.update_mutations_overlay() //(hulk male/female)
 	sexy.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
@@ -251,8 +246,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	if(isnull(new_eye_color))
 		return TRUE
 	user.set_eye_color(sanitize_hexcolor(new_eye_color))
-	user.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
-	user.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
+	user.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 	user.update_body()
 	to_chat(user, span_notice("You gaze at your new eyes with your new eyes. Perfect!"))
 
@@ -278,7 +272,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 
 /obj/structure/mirror/attacked_by(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(broken || !.) // breaking a mirror truly gets you bad luck!
+	if(broken || . <= 0) // breaking a mirror truly gets you bad luck!
 		return
 	to_chat(user, span_warning("A chill runs down your spine as [src] shatters..."))
 	user.AddComponent(/datum/component/omen, incidents_left = 7)
@@ -383,12 +377,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 
 	if(new_hair_color)
 		user.set_haircolor(sanitize_hexcolor(new_hair_color))
-		user.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
+		user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 	if(user.physique == MALE)
 		var/new_face_color = tgui_color_picker(user, "Choose your facial hair color", "Hair Color", user.facial_hair_color) // BUBBERSTATION EDIT: TGUI COLOR PICKER
 		if(new_face_color)
 			user.set_facial_haircolor(sanitize_hexcolor(new_face_color))
-			user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
+			user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 
 /obj/structure/mirror/magic/attack_hand(mob/living/carbon/human/user)
 	. = ..()

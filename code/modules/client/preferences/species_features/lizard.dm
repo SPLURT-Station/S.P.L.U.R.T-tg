@@ -56,7 +56,7 @@
 	return final_icon
 
 /datum/preference/choiced/lizard_body_markings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["lizard_markings"] = value
+	target.dna.features[FEATURE_LIZARD_MARKINGS] = value
 
 /datum/preference/choiced/lizard_frills
 	savefile_key = "feature_lizard_frills"
@@ -64,7 +64,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Frills"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/frills
+	relevant_organ = /obj/item/organ/frills
 
 /datum/preference/choiced/lizard_frills/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.frills_list)
@@ -73,7 +73,7 @@
 	return generate_lizard_side_shot(SSaccessories.frills_list[value], "frills")
 
 /datum/preference/choiced/lizard_frills/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["frills"] = value
+	target.dna.features[FEATURE_FRILLS] = value
 
 /datum/preference/choiced/lizard_horns
 	savefile_key = "feature_lizard_horns"
@@ -81,7 +81,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Horns"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/horns
+	relevant_organ = /obj/item/organ/horns
 
 /datum/preference/choiced/lizard_horns/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.horns_list)
@@ -90,7 +90,7 @@
 	return generate_lizard_side_shot(SSaccessories.horns_list[value], "horns")
 
 /datum/preference/choiced/lizard_horns/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["horns"] = value
+	target.dna.features[FEATURE_HORNS] = value
 
 /datum/preference/choiced/lizard_legs
 	savefile_key = "feature_lizard_legs"
@@ -101,7 +101,7 @@
 	return list(NORMAL_LEGS, DIGITIGRADE_LEGS)
 
 /datum/preference/choiced/lizard_legs/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["legs"] = value
+	target.dna.features[FEATURE_LEGS] = value
 	// Hack to update the dummy in the preference menu
 	// (Because digi legs are ONLY handled on species change)
 	if(!isdummy(target) || target.dna.species.digitigrade_customization == DIGITIGRADE_NEVER)
@@ -137,7 +137,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Snout"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/snout
+	relevant_organ = /obj/item/organ/snout
 
 /datum/preference/choiced/lizard_snout/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.snouts_list)
@@ -146,31 +146,31 @@
 	return generate_lizard_side_shot(SSaccessories.snouts_list[value], "snout", include_snout = FALSE)
 
 /datum/preference/choiced/lizard_snout/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["snout"] = value
+	target.dna.features[FEATURE_SNOUT] = value
 
 /datum/preference/choiced/lizard_spines
 	savefile_key = "feature_lizard_spines"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_external_organ = /obj/item/organ/spines
+	relevant_organ = /obj/item/organ/spines
 
 /datum/preference/choiced/lizard_spines/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.spines_list)
 
 /datum/preference/choiced/lizard_spines/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["spines"] = value
+	target.dna.features[FEATURE_SPINES] = value
 
 /datum/preference/choiced/lizard_tail
 	savefile_key = "feature_lizard_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_external_organ = /obj/item/organ/tail/lizard
+	relevant_organ = /obj/item/organ/tail/lizard
 
 /datum/preference/choiced/lizard_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_lizard)
 
 /datum/preference/choiced/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_lizard"] = value
+	target.dna.features[FEATURE_TAIL_LIZARD] = value
 
 /datum/preference/choiced/lizard_tail/create_default_value()
 	return /datum/sprite_accessory/tails/lizard/smooth::name

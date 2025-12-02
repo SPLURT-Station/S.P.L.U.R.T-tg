@@ -154,6 +154,18 @@
 	gender = FEMALE
 	squeak_override = list('sound/misc/soggy.ogg'=1)
 
+/obj/item/toy/plush/cescrewsplush/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click to take a look under her skirt.")
+
+/obj/item/toy/plush/cescrewsplush/click_alt(mob/user)
+	user.visible_message(span_notice("[user] turns [src], revealing the hole underneath."), span_notice("You turn [src], revealing a tight, lubed hole."))
+	playsound(user, 'sound/effects/blob/blobattack.ogg', 50, TRUE)
+	var/obj/item/toy/plush/fleshlight/screws/toy = new(null)
+	qdel(src)
+	user.put_in_hands(toy)
+	return TRUE
+
 /obj/item/toy/plush/internshiba
 	name = "Intern Shiba Plush" //Plush for Kazumi Hasegawa/sprited by Amorbis
 	desc = "An adorable shiba inu plushie of a well-known intern mutt."
@@ -317,3 +329,84 @@
 	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
 	icon_state = "tian_plush"
 	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/baa.ogg' = 1)
+
+/obj/item/toy/plush/goatplushie
+	name = "strange goat plushie"
+	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
+	icon_state = "goat"
+	desc = "Despite its cuddly appearance and plush nature, it will beat you up all the same. Goats never change."
+	squeak_override = list('sound/items/weapons/punch1.ogg'=1)
+	/// Whether or not this goat is currently taking in a monsterous doink
+	var/going_hard = FALSE
+	/// Whether or not this goat has been flattened like a funny pancake
+	var/splat = FALSE
+
+/obj/item/toy/plush/goatplushie/Initialize(mapload)
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_TURF_INDUSTRIAL_LIFT_ENTER = PROC_REF(splat),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/toy/plush/goatplushie/attackby(obj/item/cigarette/rollie/fat_dart, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(fat_dart))
+		return ..()
+	if(splat)
+		to_chat(user, span_notice("[src] doesn't seem to be able to go hard right now."))
+		return
+	if(going_hard)
+		to_chat(user, span_notice("[src] is already going too hard!"))
+		return
+	if(!fat_dart.lit)
+		to_chat(user, span_notice("You'll have to light that first!"))
+		return
+	to_chat(user, span_notice("You put [fat_dart] into [src]'s mouth."))
+	qdel(fat_dart)
+	going_hard = TRUE
+	update_icon(UPDATE_OVERLAYS)
+
+/obj/item/toy/plush/goatplushie/proc/splat(datum/source)
+	SIGNAL_HANDLER
+	if(splat)
+		return
+	if(going_hard)
+		going_hard = FALSE
+		update_icon(UPDATE_OVERLAYS)
+	icon_state = "goat_splat"
+	playsound(src, SFX_DESECRATION, 50, TRUE)
+	visible_message(span_danger("[src] gets absolutely flattened!"))
+	splat = TRUE
+
+/obj/item/toy/plush/goatplushie/examine()
+	. = ..()
+	if(splat)
+		. += span_notice("[src] might need medical attention.")
+	if(going_hard)
+		. += span_notice("[src] is going so hard, feel free to take a picture.")
+
+/obj/item/toy/plush/goatplushie/update_overlays()
+	. = ..()
+	if(going_hard)
+		. += "goat_dart"
+
+/obj/item/toy/plush/sunny_plush
+	name = "weighty moostoat plushie"
+	desc = "A soft, weighted plushie of a moostoat. Very comfortable to hug and have lying on you. It smells of fresh milk."
+	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
+	icon_state = "sunny_plush"
+	squeak_override = list(
+		'modular_skyrat/modules/emotes/sound/voice/moo.ogg' = 1,
+		'sound/mobs/non-humanoids/stoat/stoat_sounds.ogg' = 1,
+	)
+
+//Plushie for and by Lazhannya
+//Original Design by Cepha
+/obj/item/toy/plush/amber_shadekin_plush
+	name = "Squishy Shadekin Plush"
+	desc = "A plushie featuring the likeness of a certain self declared mad genius shadekin. It smells faintly of cinnamon."
+	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
+	icon_state = "amberalert"
+	attack_verb_continuous = list("mars at", "bites", "chomps", "paws at", "fwoomps", "marmars")
+	attack_verb_simple = list("mar", "bite", "chomp", "paw", "fwoomp", "marmar")
+	gender = FEMALE
+	squeak_override = list('modular_zubbers/sound/emotes/sound_voice_mar.ogg' = 1)

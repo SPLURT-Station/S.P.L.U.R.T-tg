@@ -74,6 +74,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,	//SKYRAT EDIT ADDITION - adds surgery gowns to belts
 		/obj/item/hypospray/mkii, //SKYRAT EDIT ADDITION - HYPOSPRAYS
 		/obj/item/storage/hypospraykit/, //SKYRAT EDIT ADDITION - HYPOSPRAYS
@@ -107,7 +108,6 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/stock_parts/power_store/cell/microfusion, //SKYRAT EDIT ADDITION
 	))
 
 ///Webbing security belt
@@ -341,7 +341,7 @@
 /datum/storage/unfathomable_curio/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(list(
-		/obj/item/ammo_box/strilka310/lionhunter,
+		/obj/item/ammo_box/speedloader/strilka310/lionhunter,
 		/obj/item/heretic_labyrinth_handbook,
 		/obj/item/bodypart, // Bodyparts are often used in rituals.
 		/obj/item/clothing/neck/eldritch_amulet,

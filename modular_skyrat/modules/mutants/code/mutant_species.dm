@@ -4,7 +4,7 @@
 	name = "High-Functioning mutant"
 	id = SPECIES_MUTANT
 	meat = /obj/item/food/meat/slab/human/mutant/zombie
-	eyes_icon = 'modular_skyrat/modules/mutants/icons/mutant_eyes.dmi'
+	//eyes_icon = 'modular_skyrat/modules/mutants/icons/mutant_eyes.dmi' //SPLURT EDIT - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
 	inherent_traits = list(
 		TRAIT_NOBLOOD,
 		TRAIT_NODISMEMBER,

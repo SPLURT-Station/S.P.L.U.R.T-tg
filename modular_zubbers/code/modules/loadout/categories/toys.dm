@@ -1,3 +1,5 @@
+//Title Capitalization for names please!!!
+
 /datum/loadout_item/toys/moffplush_lovers
 	name = "Lovers Moth Plushie"
 	item_path = /obj/item/toy/plush/moth/lovers
@@ -91,6 +93,10 @@
 	name = "Intern Ghoul Plushie"
 	item_path = /obj/item/toy/plush/ghoul
 
+/datum/loadout_item/toys/goat
+	name = "Strange Goat Plushie"
+	item_path = /obj/item/toy/plush/goatplushie
+
 /datum/loadout_item/toys/mold_kobold
 	name = "Hemophage Awareness Kobold"
 	item_path = /obj/item/toy/plush/mold_kobold
@@ -102,3 +108,11 @@
 /datum/loadout_item/toys/lazy_synth
 	name = "Lazy Synth Plush"
 	item_path = /obj/item/toy/plush/lazy_synth
+
+/datum/loadout_item/toys/sunny_plush
+	name = "Weighty Moostoat Plushie"
+	item_path = /obj/item/toy/plush/sunny_plush
+
+/datum/loadout_item/toys/amber_shadekin_plush
+	name = "Squishy Shadekin Plush"
+	item_path = /obj/item/toy/plush/amber_shadekin_plush

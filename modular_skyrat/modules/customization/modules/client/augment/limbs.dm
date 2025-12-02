@@ -3,6 +3,12 @@
 	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	///Hardcoded styles that can be chosen from and apply to limb, if it's true
 	var/uses_robotic_styles = TRUE
+	// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
+	///Should we draw these greyscale?
+	var/uses_greyscale = FALSE
+	///Used for legs - if it has a digitigrade sprite variant, set to TRUE.
+	var/supports_digitigrade = FALSE
+	// SPLURT EDIT END
 
 /datum/augment_item/limb/apply(mob/living/carbon/human/augmented, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
@@ -11,17 +17,31 @@
 		var/body_zone = initial(new_limb.body_zone)
 		var/obj/item/bodypart/old_limb = augmented.get_bodypart(body_zone)
 
-		old_limb.limb_id = initial(new_limb.limb_id)
-		old_limb.base_limb_id = initial(new_limb.limb_id)
+		// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
+		if(old_limb.limb_id != BODYPART_ID_DIGITIGRADE || supports_digitigrade == FALSE) //Retain digitigrade status
+			old_limb.limb_id = initial(new_limb.limb_id)
+			old_limb.base_limb_id = initial(new_limb.limb_id)
+		// SPLURT EDIT END
 		old_limb.is_dimorphic = initial(new_limb.is_dimorphic)
+		// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
+		if(istype(old_limb, /obj/item/bodypart/head))
+			var/obj/item/bodypart/head/old_head = old_limb
+			var/obj/item/bodypart/head/new_head = new_limb
+			old_head.eyes_icon = new_head.eyes_icon
+		// SPLURT EDIT END
 
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			old_limb.set_icon_static(chosen_style)
 			old_limb.current_style = prefs.augment_limb_styles[slot]
 		else
-			old_limb.set_icon_static(initial(new_limb.icon))
-		old_limb.should_draw_greyscale = FALSE
+		// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
+			if(!uses_greyscale)
+				old_limb.set_icon_static(initial(new_limb.icon))
+			else
+				old_limb.set_icon_greyscale(UNLINT(initial(new_limb.icon_greyscale))) // stupid var_protected memes
+		old_limb.should_draw_greyscale = uses_greyscale
+		// SPLURT EDIT END
 
 		return body_zone
 	else
@@ -31,6 +51,12 @@
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			new_limb.set_icon_static(chosen_style)
 			new_limb.current_style = prefs.augment_limb_styles[slot]
+		// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
+		if(supports_digitigrade == TRUE && old_limb.limb_id == BODYPART_ID_DIGITIGRADE)
+			new_limb.limb_id = BODYPART_ID_DIGITIGRADE
+			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
+			new_limb.bodyshape = old_limb.bodyshape
+		// SPLURT EDIT END
 		new_limb.replace_limb(augmented, special = TRUE)
 		qdel(old_limb)
 

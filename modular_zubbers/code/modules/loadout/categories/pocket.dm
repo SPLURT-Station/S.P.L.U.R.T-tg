@@ -1,3 +1,5 @@
+//Title Capitalization for names please!!!
+
 /*
 *	BOOZE
 */
@@ -127,3 +129,9 @@
 /datum/loadout_item/pocket_items/lunchbox_amongus
 	name = "Suspicious Red Lunchbox"
 	item_path = /obj/item/storage/lunchbox/amongus
+
+/// Lustwish stuff
+
+/datum/loadout_item/pocket_items/lustwish_theme
+	name = "Lustwish MOD Plating"
+	item_path = /obj/item/mod/construction/plating/lustwish

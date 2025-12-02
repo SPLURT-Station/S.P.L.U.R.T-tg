@@ -6,7 +6,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Hairstyle"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/pod_hair
+	relevant_organ = /obj/item/organ/pod_hair
 
 /datum/preference/choiced/pod_hair/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.pod_hair_list)
@@ -30,5 +30,5 @@
 	return pick(assoc_to_keys_features(SSaccessories.pod_hair_list))
 
 /datum/preference/choiced/pod_hair/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["pod_hair"] = value
-*/ // SKYRAT EDIT END
+	target.dna.features[FEATURE_POD_HAIR] = value
+*/

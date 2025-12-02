@@ -37,6 +37,10 @@
 /mob/living/proc/get_eye_protection()
 	return 0
 
+///A easy to use proc to apply both organ damage and temporary deafness at once, so you don't have to get the ears everytime.
+/mob/living/proc/sound_damage(damage, deafen)
+	return
+
 //this returns the mob's protection against ear damage (0:no protection; 1: some ear protection; 2: has no ears)
 /mob/living/proc/get_ear_protection()
 	var/turf/current_turf = get_turf(src)
@@ -195,10 +199,7 @@
 		return
 	. = combat_mode
 	combat_mode = new_mode
-	// BUBBER EDIT START
-	if(client)
-		SEND_SIGNAL(src, COMSIG_LIVING_COMBAT_MODE_TOGGLE, new_mode)
-	// BUBBER EDIT END
+	SEND_SIGNAL(src, COMSIG_COMBAT_MODE_TOGGLED)
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
 	//SPLURT EDIT START - Combat mode and intents
@@ -583,6 +584,9 @@
 		return FALSE
 	if(!(flags & SHOCK_ILLUSION))
 		adjustFireLoss(shock_damage)
+		if(getFireLoss() > 100)
+			add_shared_particles(/particles/smoke/burning)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, remove_shared_particles), /particles/smoke/burning), 10 SECONDS)
 	else
 		adjustStaminaLoss(shock_damage)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
@@ -830,3 +834,15 @@
 		return SUCCESSFUL_BLOCK
 
 	return FAILED_BLOCK
+
+/mob/living/proc/hypnosis_vulnerable()
+	if(HAS_MIND_TRAIT(src, TRAIT_UNCONVERTABLE))
+		return FALSE
+	if(has_status_effect(/datum/status_effect/hallucination) || has_status_effect(/datum/status_effect/drugginess))
+		return TRUE
+	if(IsSleeping() || IsUnconscious())
+		return TRUE
+	if(HAS_TRAIT(src, TRAIT_DUMB))
+		return TRUE
+	if(mob_mood && mob_mood.sanity < SANITY_UNSTABLE)
+		return TRUE

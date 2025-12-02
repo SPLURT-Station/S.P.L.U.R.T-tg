@@ -5,7 +5,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Antennae"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/antennae
+	relevant_organ = /obj/item/organ/antennae
 
 /datum/preference/choiced/moth_antennae/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.moth_antennae_list)
@@ -28,7 +28,7 @@
 	return icon_with_antennae
 
 /datum/preference/choiced/moth_antennae/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["moth_antennae"] = value
+	target.dna.features[FEATURE_MOTH_ANTENNAE] = value
 
 /datum/preference/choiced/moth_markings
 	savefile_key = "feature_moth_markings"
@@ -78,7 +78,7 @@
 	return icon_with_markings
 
 /datum/preference/choiced/moth_markings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["moth_markings"] = value
+	target.dna.features[FEATURE_MOTH_MARKINGS] = value
 
 /datum/preference/choiced/moth_wings
 	savefile_key = "feature_moth_wings"
@@ -86,7 +86,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Moth wings"
 	should_generate_icons = TRUE
-	relevant_external_organ = /obj/item/organ/wings/moth
+	relevant_organ = /obj/item/organ/wings/moth
 
 /datum/preference/choiced/moth_wings/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.moth_wings_list)
@@ -96,6 +96,5 @@
 	return uni_icon(moth_wings.icon, "m_moth_wings_[moth_wings.icon_state]_BEHIND")
 
 /datum/preference/choiced/moth_wings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["moth_wings"] = value
-
+	target.dna.features[FEATURE_MOTH_WINGS] = value
 */
