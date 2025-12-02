@@ -46,7 +46,7 @@
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
-	uniform =  /obj/item/clothing/under/rank/centcom/intern
+	uniform =  /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
 	suit = /obj/item/clothing/suit/armor/vest
 	suit_store = /obj/item/melee/baton/telescopic
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -73,21 +73,20 @@
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer/PopulateContents()
 	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant(src)
-	new /obj/item/clothing/under/rank/centcom/officer(src)
-	new /obj/item/clothing/under/rank/centcom/officer_skirt(src)
-	new /obj/item/clothing/under/rank/centcom/official(src)
-	new /obj/item/clothing/under/rank/centcom/official/turtleneck(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen/nt_consultant(src)
+	new /obj/item/clothing/under/rank/nanotrasen/nt_officer(src)
+	new /obj/item/clothing/under/rank/nanotrasen/officer_skirt(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official(src)
 	new /obj/item/clothing/head/nanotrasen_consultant/beret(src)
-	new /obj/item/clothing/under/rank/centcom/intern(src)
+	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
 	new /obj/item/clothing/head/hats/intern(src)
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
 	req_access = list()
 	req_one_access = list(ACCESS_CENT_GENERAL)
-	icon_state = "cc"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon_state = "ntt"
+	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer/PopulateContents()
 	..()
@@ -95,5 +94,4 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/storage/photo_album/personal(src)
-	new /obj/item/bedsheet/centcom(src)
 	new /obj/item/storage/bag/garment/nanotrasen_crew_trainer(src)

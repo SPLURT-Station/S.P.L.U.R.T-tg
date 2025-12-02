@@ -139,12 +139,14 @@
 	new /obj/item/clothing/under/rank/centcom/intern(src)
 	new /obj/item/clothing/head/hats/intern(src)
 
+//Splurt Edit Start// changed the locker icon as the NT Rep is not CC but NT like the name suggests.
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
 	req_access = list()
 	req_one_access = list(ACCESS_CENT_GENERAL)
-	icon_state = "cc"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon_state = "nt"
+	icon = 'modular_zzplurt/icons/obj/closet.dmi'
+//Splurt Edit End
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
 	..()
