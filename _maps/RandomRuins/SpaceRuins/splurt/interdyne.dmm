@@ -617,10 +617,6 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/interdyne)
-"hI" = (
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/interdyne)
 "hS" = (
 /obj/machinery/smartfridge/chemistry,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -867,13 +863,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/interdyne)
-"lu" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood/large,
-/area/ruin/space/has_grav/interdyne)
 "lD" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
@@ -946,6 +935,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
+"ni" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/large,
+/area/ruin/space/has_grav/interdyne)
 "nk" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -973,6 +969,10 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/interdyne)
+"nw" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/interdyne)
 "nE" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -1159,6 +1159,12 @@
 /obj/item/storage/box/beakers,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/interdyne)
+"pT" = (
+/obj/structure/flora/rock/icy/style_random,
+/turf/open/misc/asteroid/airless{
+	icon_state = "asteroid8"
+	},
+/area/ruin/space)
 "pV" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/effect/turf_decal/trimline/blue/line{
@@ -1875,12 +1881,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
-"yZ" = (
-/obj/structure/flora/rock/icy/style_random,
-/turf/open/misc/asteroid/airless{
-	icon_state = "asteroid8"
-	},
-/area/ruin/space)
 "zc" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
@@ -2234,6 +2234,13 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/interdyne)
+"Cv" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/large,
+/area/ruin/space/has_grav/interdyne)
 "Cw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
@@ -2577,10 +2584,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
-"Gj" = (
-/obj/machinery/light/floor,
-/turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav/interdyne)
 "Gp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
@@ -2620,7 +2623,7 @@
 /area/ruin/space/has_grav/interdyne)
 "GJ" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "GK" = (
 /obj/effect/turf_decal/siding/wideplating_new/corner{
 	dir = 4
@@ -2651,13 +2654,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/herringbone,
-/area/ruin/space/has_grav/interdyne)
-"GX" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood/large,
 /area/ruin/space/has_grav/interdyne)
 "Hc" = (
 /obj/machinery/power/smes/engineering{
@@ -2862,10 +2858,6 @@
 	chamber_id = "interdyne_atmos"
 	},
 /turf/open/floor/engine/air,
-/area/ruin/space/has_grav/interdyne)
-"Jz" = (
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "JD" = (
 /obj/item/quickdeploy/barricade,
@@ -3109,6 +3101,10 @@
 /obj/machinery/light/floor/broken,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
+"MF" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/interdyne)
 "MI" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
@@ -3335,6 +3331,10 @@
 /obj/item/shard/plastitanium,
 /obj/effect/decal/cleanable/glass/plastitanium,
 /turf/open/floor/iron/white,
+/area/ruin/space/has_grav/interdyne)
+"OP" = (
+/obj/machinery/light/floor,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/interdyne)
 "Pc" = (
 /obj/effect/turf_decal/siding/wood{
@@ -4271,7 +4271,7 @@ GJ
 GJ
 GJ
 GJ
-Gj
+OP
 JE
 JE
 JE
@@ -4371,7 +4371,7 @@ nn
 nn
 jp
 Lb
-lu
+Cv
 TR
 nn
 zA
@@ -4485,7 +4485,7 @@ GJ
 GJ
 GJ
 Os
-yZ
+pT
 Os
 JE
 nn
@@ -4596,7 +4596,7 @@ kS
 cK
 Mq
 Hs
-GX
+ni
 jZ
 vW
 jD
@@ -4725,12 +4725,12 @@ rv
 ZP
 nn
 vB
-Jz
+MF
 DP
 DP
 DP
 wE
-hI
+nw
 kw
 dv
 nn
@@ -4903,7 +4903,7 @@ zz
 UD
 nn
 kw
-hI
+nw
 En
 nn
 JE
