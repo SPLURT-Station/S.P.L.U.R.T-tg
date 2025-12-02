@@ -2868,7 +2868,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/obj/machinery/room_controller/directional/east,
 /turf/open/indestructible/dark,
 /area/misc/hilbertshotel)
 "qz" = (
@@ -3738,6 +3737,13 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5;
 	color = "#634f33"
+	},
+/obj/item/reagent_containers/hypospray/medipen/prospacillin{
+	pixel_x = -14;
+	pixel_y = -3;
+	base_icon_state = "twitch";
+	icon = 'modular_skyrat/modules/deforest_medical_items/icons/injectors.dmi';
+	icon_state = "twitch"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
@@ -5704,11 +5710,19 @@
 	pixel_x = 0;
 	pixel_y = 70;
 	anchored = 1;
-	desc = "Severed lizard tail on a stick. Currently being cooked."
+	desc = "Delicious looking chunks of meat on a stick. Currently being cooked.";
+	name = "meat-kebab"
 	},
 /obj/item/food/mothic_salad{
 	pixel_x = -2;
 	pixel_y = 8
+	},
+/obj/item/reagent_containers/hypospray/medipen/prospacillin{
+	pixel_x = 3;
+	pixel_y = 11;
+	base_icon_state = "twitch";
+	icon = 'modular_skyrat/modules/deforest_medical_items/icons/injectors.dmi';
+	icon_state = "twitch"
 	},
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
@@ -6086,6 +6100,10 @@
 	color = "#634f33";
 	dir = 4
 	},
+/obj/item/clothing/gloves/ring/reagent_clothing/rutt{
+	pixel_x = 6;
+	pixel_y = -6
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "black";
 	desc = null;
@@ -6401,7 +6419,7 @@
 /turf/open/floor/iron/dark/corner,
 /area/misc/hilbertshotel)
 "LN" = (
-/obj/item/clothing/suit/hooded/cloak/zuliecloak{
+/obj/item/clothing/suit/hooded/cloak/determinations_cloak{
 	pixel_x = -4;
 	pixel_y = 3
 	},
@@ -6894,14 +6912,16 @@
 	color = "#59595a"
 	},
 /obj/structure/fluff/fake_vent,
-/obj/structure/decorative{
-	icon = 'icons/obj/pipes_n_cables/layer_cable.dmi';
-	icon_state = "l1-4-8";
-	anchored = 1;
-	name = "cable";
-	color = "#222222";
-	pixel_x = 0;
-	pixel_y = 6
+/obj/machinery/room_controller{
+	pixel_y = 11
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/reagent_containers/hypospray/medipen/prospacillin{
+	pixel_x = -3;
+	pixel_y = -3;
+	base_icon_state = "twitch";
+	icon = 'modular_skyrat/modules/deforest_medical_items/icons/injectors.dmi';
+	icon_state = "twitch"
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "podfloor"
