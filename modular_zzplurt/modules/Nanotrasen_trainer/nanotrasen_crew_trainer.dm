@@ -84,11 +84,15 @@
 /obj/effect/landmark/start/nanotrasen_crew_trainer
 	name = "Nanotrasen Crew Trainer"
 	icon_state = "Nanotrasen Crew Trainer"
+<<<<<<< Updated upstream
 	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 
 /obj/effect/landmark/start/nanotrasen_consultant
 	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 	jobspawn_override = TRUE
+=======
+	icon = 'modular_zzplurt/icons/mob/landmarks.dmi'
+>>>>>>> Stashed changes
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
