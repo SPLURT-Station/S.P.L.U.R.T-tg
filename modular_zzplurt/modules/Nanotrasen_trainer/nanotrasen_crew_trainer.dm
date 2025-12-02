@@ -2,7 +2,7 @@
 	title = JOB_NT_TRN
 	rpg_title = "Guild Adviser"
 	description = "Placeholder (YOU ARE NOT COMMAND)"
-	department_head = list(JOB_CENTCOM)
+	department_head = list(JOB_NT_REP)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -47,7 +47,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
-	suit = /obj/item/clothing/suit/armor/vest
+	suit = /obj/item/clothing/suit/armor/vest/alt
 	suit_store = /obj/item/melee/baton/telescopic
 	shoes = /obj/item/clothing/shoes/jackboots
 
@@ -80,6 +80,15 @@
 	new /obj/item/clothing/head/nanotrasen_consultant/beret(src)
 	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
 	new /obj/item/clothing/head/hats/intern(src)
+
+/obj/effect/landmark/start/nanotrasen_crew_trainer
+	name = "Nanotrasen Crew Trainer"
+	icon_state = "Nanotrasen Crew Trainer"
+	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
+
+/obj/effect/landmark/start/nanotrasen_consultant
+	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
+	jobspawn_override = TRUE
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"

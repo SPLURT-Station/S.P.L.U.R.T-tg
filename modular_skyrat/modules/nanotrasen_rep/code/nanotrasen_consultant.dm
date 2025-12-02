@@ -105,11 +105,12 @@
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /obj/item/modular_computer/pda/nanotrasen_consultant
-	name = "nanotrasen consultant's PDA"
+	name = "nanotrasen PDA" // Splurt Edit
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_consultant"
 	inserted_disk = /obj/item/computer_disk/command/captain
-	inserted_item = /obj/item/pen/fountain/green
-	greyscale_colors = "#017941#0060b8"
+	inserted_item = /obj/item/pen/fountain/nanotrasen // Splurt Edit
+	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
+	greyscale_colors = "#227291#0060b8#3F96CC" // Splurt Edit
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
