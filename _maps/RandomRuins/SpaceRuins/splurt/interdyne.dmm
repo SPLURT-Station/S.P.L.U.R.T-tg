@@ -39,7 +39,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 6
 	},
 /turf/open/floor/iron/white,
@@ -112,7 +112,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 6
 	},
 /turf/open/floor/iron/white,
@@ -334,7 +334,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 10
 	},
 /turf/open/floor/iron/white,
@@ -483,7 +483,7 @@
 	dir = 4
 	},
 /obj/structure/sign/poster/contraband/waffle_corp_rifles/directional/west,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "gO" = (
@@ -522,10 +522,6 @@
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/interdyne)
 "gV" = (
-/obj/item/ammo_box/a357{
-	start_empty = 1;
-	icon_state = "357-0"
-	},
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
@@ -631,7 +627,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "hY" = (
@@ -647,7 +643,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -658,7 +654,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/interdyne)
 "iN" = (
@@ -684,7 +680,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "iZ" = (
@@ -872,14 +868,14 @@
 "lE" = (
 /obj/structure/fluff/paper/stack,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 8
 	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "ma" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 8
 	},
 /turf/open/floor/iron/white,
@@ -955,7 +951,7 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/interdyne)
 "nn" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/interdyne)
 "np" = (
 /obj/machinery/shower/directional/east,
@@ -982,7 +978,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "nQ" = (
@@ -1007,7 +1003,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/interdyne)
 "oa" = (
@@ -1104,7 +1100,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 9
 	},
 /turf/open/floor/iron/white,
@@ -1115,7 +1111,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/interdyne)
 "pt" = (
@@ -1419,7 +1415,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
 "tY" = (
@@ -1763,7 +1759,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /mob/living/basic/zombie_interdyne/patient,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
@@ -1861,15 +1857,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white,
-/area/ruin/space/has_grav/interdyne)
-"yR" = (
-/obj/item/ammo_box/a357{
-	start_empty = 1;
-	icon_state = "357-0"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2317,7 +2304,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/surgery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
 "Dh" = (
@@ -2372,7 +2359,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /obj/structure/falsewall/plastitanium,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/interdyne)
@@ -2431,7 +2418,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "En" = (
-/obj/effect/mapping_helpers/dead_body_placer,
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/interdyne)
@@ -2478,7 +2464,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/interdyne)
 "Ff" = (
@@ -2706,10 +2692,6 @@
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
-"Hy" = (
-/obj/effect/mapping_helpers/dead_body_placer,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/interdyne)
 "Hz" = (
 /obj/item/ammo_casing/c357/spent,
 /turf/open/floor/carpet/red,
@@ -2920,7 +2902,7 @@
 	dir = 4
 	},
 /obj/structure/fluff/paper/stack,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "KO" = (
@@ -3158,7 +3140,7 @@
 	},
 /obj/item/crowbar/hammer,
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "Nc" = (
@@ -3252,7 +3234,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/trail,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "NV" = (
@@ -3470,7 +3452,7 @@
 /area/ruin/space/has_grav/interdyne)
 "QW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/interdyne)
 "Rl" = (
 /obj/machinery/chem_master,
@@ -3654,7 +3636,7 @@
 /area/ruin/space/has_grav/interdyne)
 "Ub" = (
 /obj/structure/cable,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/interdyne)
 "Ud" = (
 /obj/structure/table/reinforced/titaniumglass,
@@ -3819,7 +3801,7 @@
 	dir = 1
 	},
 /obj/structure/sign/departments/med/directional/south,
-/obj/effect/decal/cleanable/blood/trail{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 8
 	},
 /turf/open/floor/iron/white,
@@ -4688,7 +4670,7 @@ xr
 eN
 nn
 pu
-Hy
+kw
 kw
 nn
 JE
@@ -4946,8 +4928,8 @@ QG
 IF
 nn
 pu
-Hy
-Hy
+kw
+kw
 nn
 JE
 GJ
@@ -5102,7 +5084,7 @@ ky
 ar
 LY
 je
-yR
+ar
 Ly
 LY
 ar
