@@ -6,7 +6,7 @@
 	var/obj/effect/dummy/lighting_obj/moblight/mob_scarred
 
 /datum/status_effect/bluespace_scarred/on_apply()
-	mob_flare = owner.mob_light(3, 15, LIGHT_COLOR_FLARE)
+	mob_scarred = owner.mob_light(3, 15, LIGHT_COLOR_FLARE)
 	ADD_TRAIT(owner, TRAIT_NO_TELEPORT, id)
 	owner.add_filter("designated_target", 3, list("type" = "outline", "color" = COLOR_BLUE, "size" = 1))
 	return TRUE
