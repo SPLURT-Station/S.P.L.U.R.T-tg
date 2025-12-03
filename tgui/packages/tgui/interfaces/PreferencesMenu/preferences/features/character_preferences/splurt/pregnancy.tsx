@@ -41,6 +41,12 @@ export const pregnancy_belly_inflation: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const pregnancy_nausea: FeatureToggle = {
+  name: 'Pregnancy: Nausea',
+  description: 'When toggled, pregnancy will make your character nauseous.',
+  component: CheckboxInput,
+};
+
 export const pregnancy_insemination_vagina: FeatureToggle = {
   name: 'Pregnancy: Vaginal insemination',
   description:

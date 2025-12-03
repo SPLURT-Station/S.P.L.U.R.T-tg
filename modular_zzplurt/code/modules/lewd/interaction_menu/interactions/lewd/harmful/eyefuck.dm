@@ -4,19 +4,19 @@
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums deep into %TARGET%'s eye",
-		"shoots their load into %TARGET%'s eye socket",
-		"fills %TARGET%'s eye with their cum"
+		"%CUMMING% cums deep into %CAME_IN%'s eye",
+		"%CUMMING% shoots their load into %CAME_IN%'s eye socket",
+		"%CUMMING% fills %CAME_IN%'s eye with their cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"You cum deep into %TARGET%'s eye",
-		"You shoot your load into %TARGET%'s eye socket",
-		"You fill %TARGET%'s eye with your cum"
+		"You cum deep into %CAME_IN%'s eye",
+		"You shoot your load into %CAME_IN%'s eye socket",
+		"You fill %CAME_IN%'s eye with your cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"%USER% cums deep into your eye",
-		"%USER% shoots their load into your eye socket",
-		"%USER% fills your eye with their cum"
+		"%CUMMING% cums deep into your eye",
+		"%CUMMING% shoots their load into your eye socket",
+		"%CUMMING% fills your eye with their cum"
 	))
 	message = list(
 		"pounds into %TARGET%'s eye.",
@@ -52,19 +52,19 @@
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"cums deep into %TARGET%'s empty eye socket",
-		"shoots their load into %TARGET%'s skull",
-		"fills %TARGET%'s eye socket with their cum"
+		"%CUMMING% cums deep into %CAME_IN%'s empty eye socket",
+		"%CUMMING% shoots their load into %CAME_IN%'s skull",
+		"%CUMMING% fills %CAME_IN%'s eye socket with their cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"You cum deep into %TARGET%'s empty eye socket",
-		"You shoot your load into %TARGET%'s skull",
-		"You fill %TARGET%'s eye socket with your cum"
+		"You cum deep into %CAME_IN%'s empty eye socket",
+		"You shoot your load into %CAME_IN%'s skull",
+		"You fill %CAME_IN%'s eye socket with your cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
-		"%USER% cums deep into your empty eye socket",
-		"%USER% shoots their load into your skull",
-		"%USER% fills your eye socket with their cum"
+		"%CUMMING% cums deep into your empty eye socket",
+		"%CUMMING% shoots their load into your skull",
+		"%CUMMING% fills your eye socket with their cum"
 	))
 	message = list(
 		"pounds into %TARGET%'s eyesocket.",
