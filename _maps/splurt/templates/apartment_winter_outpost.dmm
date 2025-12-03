@@ -350,13 +350,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/computer_disk{
-	pixel_x = 5;
-	pixel_y = -2;
-	desc = "Removable disk used to store data. This one appears to store a pirated movie on it.";
-	icon_state = "datadisk5";
-	layer = 3.01
-	},
 /obj/item/modular_computer/laptop/preset{
 	pixel_y = 10
 	},
@@ -370,6 +363,12 @@
 	pixel_y = -4;
 	desc = "Removable disk used to store data. This one appears to store a pirated movie on it.";
 	icon_state = "datadisk3"
+	},
+/obj/item/computer_disk{
+	pixel_x = 5;
+	pixel_y = -2;
+	desc = "Removable disk used to store data. This one appears to store a pirated movie on it.";
+	icon_state = "datadisk5"
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
@@ -625,13 +624,8 @@
 /turf/open/floor/plating,
 /area/misc/hilbertshotel)
 "oi" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle{
-	dir = 1
-	},
-/obj/structure/fluff/tram_rail{
-	pixel_y = 32
-	},
-/turf/open/floor/plating,
+/obj/structure/fluff/tram_rail,
+/turf/open/floor/fakepit,
 /area/misc/hilbertshotel)
 "oj" = (
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -962,17 +956,6 @@
 /area/misc/hilbertshotel)
 "wJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/decorative{
-	icon = 'icons/obj/bed.dmi';
-	icon_state = "bed";
-	name = "sofa";
-	desc = "An extended sofa. Handy for sleeping on.";
-	pixel_y = 22;
-	anchored = 1;
-	layer = 3.01;
-	pixel_x = 2;
-	color = "#5a5762"
-	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /obj/effect/turf_decal/siding/purple,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1684,26 +1667,6 @@
 	pixel_x = 4;
 	pixel_y = -1
 	},
-/obj/structure/decorative{
-	icon = 'icons/obj/pipes_n_cables/structures.dmi';
-	icon_state = "cablerelay-on";
-	name = "Wiring";
-	desc = "Watch out!";
-	pixel_y = 0;
-	anchored = 1;
-	pixel_x = -7;
-	layer = 2.7
-	},
-/obj/structure/decorative{
-	icon = 'icons/obj/pipes_n_cables/structures.dmi';
-	icon_state = "cablerelay-on";
-	name = "Wiring";
-	desc = "Watch out!";
-	pixel_y = 0;
-	anchored = 1;
-	pixel_x = 8;
-	layer = 2.7
-	},
 /turf/open/floor/glass/reinforced,
 /area/misc/hilbertshotel)
 "OH" = (
@@ -1886,8 +1849,7 @@
 	desc = "A thing that does things.";
 	pixel_y = 8;
 	anchored = 1;
-	density = 1;
-	layer = 2.91
+	density = 1
 	},
 /obj/structure/marker_beacon/indigo,
 /turf/open/floor/iron/dark/herringbone,
@@ -2747,8 +2709,8 @@ oD
 Bf
 oD
 oD
-oD
 oi
+zL
 mA
 oJ
 Lq
@@ -2777,8 +2739,8 @@ oD
 oD
 oD
 oD
-oD
 oi
+zL
 Eo
 Ct
 fk
@@ -2807,8 +2769,8 @@ oD
 oD
 oD
 oD
-oD
 oi
+zL
 ok
 ED
 eu
