@@ -66,9 +66,6 @@
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
 /obj/structure/table/wood,
 /obj/item/clipboard{
 	pixel_y = 3;
@@ -77,6 +74,9 @@
 /obj/item/folder/yellow{
 	pixel_y = 1;
 	pixel_x = -2
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
