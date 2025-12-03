@@ -170,6 +170,11 @@
 	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
 	category = GHC_BEACH
 	landing_coords = list(15, 2)
+  
+/datum/map_template/ghost_cafe_rooms/apartment_abandoned_shuttle
+	name = "Abandoned Shuttle"
+	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
+	category = GHC_MISC
 
 #undef GHC_MISC
 #undef GHC_APARTMENT

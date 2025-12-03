@@ -88,6 +88,13 @@
 	savefile_key = "pregnancy_belly_inflation"
 	default_value = TRUE
 
+/// If enabled, pregnancy makes you nauseous
+/datum/preference/toggle/pregnancy/nausea
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "pregnancy_nausea"
+	default_value = FALSE
+
 /// If enabled, the vagina is a valid organ for insemination
 /datum/preference/toggle/pregnancy/vaginal_insemination
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
