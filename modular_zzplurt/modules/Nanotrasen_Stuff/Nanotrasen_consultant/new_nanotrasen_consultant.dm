@@ -21,10 +21,9 @@
 
 	departments_list = list(
 		/datum/job_department/iaa,
-		/datum/job_department/command,
 	)
 
-	outfit = /datum/outfit/job/nanotrasen_consultant_new
+	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
 
 	paycheck = PAYCHECK_COMMAND

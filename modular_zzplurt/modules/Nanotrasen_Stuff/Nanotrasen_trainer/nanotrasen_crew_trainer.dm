@@ -8,7 +8,7 @@
 	spawn_positions = 2
 	supervisors = "Nanotrasen Consultant"
 	minimal_player_age = 14
-	exp_requirements = 600
+	exp_requirements = 300
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
@@ -26,7 +26,7 @@
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_CIV
 
-	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
+	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_TRAINER
 	bounty_types = CIV_JOB_BASIC
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
@@ -45,7 +45,7 @@
 
 	belt = /obj/item/modular_computer/pda/nanotrasen_trainer
 	glasses = /obj/item/clothing/glasses/sunglasses
-	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
+	ears = /obj/item/radio/headset/nanotrasen
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	suit_store = /obj/item/melee/baton/telescopic
