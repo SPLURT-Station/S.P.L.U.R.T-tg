@@ -8,11 +8,13 @@
 /datum/status_effect/bluespace_scarred/on_apply()
 	mob_scarred = owner.mob_light(3, 15, LIGHT_COLOR_FLARE)
 	ADD_TRAIT(owner, TRAIT_NO_TELEPORT, id)
-	owner.add_filter("designated_target", 3, list("type" = "outline", "color" = COLOR_BLUE, "size" = 1))
+	owner.add_filter("bluespace_scarred", 3, list("type" = "outline", "color" = COLOR_BLUE, "size" = 1))
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/bluespace_scarred
 	name = "Bluespace Scarring"
-	desc = "IT SAW ME IT SAW ME IT SAW ME IT SAW ME"
-	icon = 'icons/hud/screen_alert.dmi'
-	icon_state = "default"
+	desc = "Teleportation is blocked"
+	icon = 'modular_zzplurt/modules/status_effect'
+	icon_state = "scarred_blue"
+
+//Aussie Catgirl told me this is a good idea so I did it.

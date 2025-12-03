@@ -241,6 +241,13 @@ Just one more pull and maybe I can get her
 	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
 	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
 
+/obj/item/melee/reverbing_blade/oscula/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	if(!isliving(target))
+		return
+	var/mob/living/bluespace_scarred = target
+	bluespace_scarred.apply_status_effect(/datum/status_effect/bluespace_scarred)
+
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
 	desc = "A long thin blade commonly used by Ugoran warrior caste to finish off vulnerable opponent and in rarer case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
