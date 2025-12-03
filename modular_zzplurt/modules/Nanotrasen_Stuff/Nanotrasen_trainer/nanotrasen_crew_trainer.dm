@@ -14,7 +14,7 @@
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CREW_TRAINER"
 
-	department_for_prefs = /datum/job_department/captain
+	department_for_prefs = /datum/job_department/iaa
 
 	departments_list = list(
 		/datum/job_department/iaa,
@@ -60,9 +60,9 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	implants = list(/obj/item/implant/mindshield)
-	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom
+	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin
 
-	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/centcom)
+	chameleon_extras = list()
 
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
@@ -96,10 +96,6 @@
 	name = "Nanotrasen Crew Trainer"
 	icon_state = "Nanotrasen Crew Trainer"
 	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
-
-/obj/effect/landmark/start/nanotrasen_consultant
-	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
-	jobspawn_override = TRUE
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"

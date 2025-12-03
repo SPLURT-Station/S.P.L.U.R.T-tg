@@ -25,3 +25,7 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/headsets.dmi'
 	icon_state = "nano_headset_alt"
 	keyslot = new /obj/item/encryptionkey/headset_iaa/head
+
+/obj/item/radio/headset/heads/nanotrasen/alt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection)

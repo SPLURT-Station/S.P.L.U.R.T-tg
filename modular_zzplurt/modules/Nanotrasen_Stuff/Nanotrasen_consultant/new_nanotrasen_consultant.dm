@@ -1,11 +1,58 @@
-/obj/structure/closet/secure_closet/nanotrasen_consultant_new
+/datum/job/nanotrasen_consultant
+	title = JOB_NT_REP
+	rpg_title = "Guild Adviser"
+	description = "Represent Nanotrasen on the station, argue with the HoS about why he can't just field execute people for petty theft, get drunk in your office."
+	department_head = list(JOB_CENTCOM)
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
+	head_announce = list(RADIO_CHANNEL_IAA)
+	faction = FACTION_STATION
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "Nanotrasen High Command"
+	req_admin_notify = 1
+	minimal_player_age = 14
+	exp_requirements = 600
+	exp_required_type = EXP_TYPE_CREW
+	exp_required_type_department = EXP_TYPE_INTERNAL
+	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "NANOTRASEN_CONSULTANT"
+
+	department_for_prefs = /datum/job_department/iaa
+
+	departments_list = list(
+		/datum/job_department/iaa,
+		/datum/job_department/command,
+	)
+
+	outfit = /datum/outfit/job/nanotrasen_consultant_new
+	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
+
+	paycheck = PAYCHECK_COMMAND
+	paycheck_department = ACCOUNT_CMD
+
+	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CONSULTANT
+	bounty_types = CIV_JOB_SEC
+
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
+
+	mail_goodies = list(
+		/obj/item/cigarette/cigar/havana = 20,
+		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
+		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
+	)
+
+	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+
+	voice_of_god_power = 1.4 //Command staff has authority
+
+/obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
 	req_access = list()
 	req_one_access = list(ACCESS_CENT_GENERAL, ACCESS_COMMAND)
 	icon_state = "nt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 
-/obj/structure/closet/secure_closet/nanotrasen_consultant_new/PopulateContents()
+/obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
 	..()
 	new /obj/item/storage/backpack/satchel/leather(src)
 	new /obj/item/clothing/neck/petcollar(src)
@@ -14,14 +61,14 @@
 	new /obj/item/computer_disk/command/captain(src)
 	new /obj/item/radio/headset/heads/nanotrasen(src)
 	new /obj/item/storage/photo_album/ntc(src)
-	new /obj/item/bedsheet/centcom(src)
-	new /obj/item/storage/bag/garment/nanotrasen_consultant_new(src)
+	new /obj/item/bedsheet/nanotrasen(src)
+	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
 
-/obj/item/storage/bag/garment/nanotrasen_consultant_new
+/obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Consultant."
 
-/obj/item/storage/bag/garment/nanotrasen_consultant_new/PopulateContents()
+/obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -37,10 +84,21 @@
 	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
 	new /obj/item/clothing/head/hats/nanotrasenhat(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap(src)
+	new /obj/item/clothing/head/hats/warden/drill/nanotrasen/nt(src)
 	new /obj/item/clothing/suit/armor/nanotrasen_formal(src)
 	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen(src)
 	new /obj/item/clothing/suit/armor/vest/nt_officerfake(src)
+
+/obj/effect/landmark/start/nanotrasen_consultant
+	name = "Nanotrasen Consultant"
+	icon_state = "Nanotrasen Consultant"
+	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
+
+/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant
+	name = "medal of diplomacy"
+	desc = "A golden medal awarded exclusively to those promoted to the rank of Nanotrasen Consultant. It signifies the diplomatic abilities of said individual and their sheer dedication to Nanotrasen."
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/storage/photo_album/ntc
 	name = "photo album (Nanotrasen Consultant)"
@@ -58,27 +116,29 @@
 /mob/living/basic/pet/dog/corgi/lisa
 	icon = 'modular_zzplurt/icons/mob/pets.dmi'
 
-/datum/loadout_item/accessory/medal/nt_pin/executive
-	name = "Neckpin - Nanotrasen Executive"
-	item_path = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
-	restricted_roles = list(JOB_NT_REP, JOB_NT_TRN, JOB_BLUESHIELD)
-
 /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 	name = "\improper Nanotrasen Executive neckpin"
 	icon_state = "/obj/item/clothing/accessory/bubber/acc_medal/neckpin"
 	post_init_icon_state = "ntpin"
 	greyscale_colors = "#FFD351#E09100"
 
-/obj/item/modular_computer/pda/nanotrasen_consultant_new
+/obj/item/modular_computer/pda/nanotrasen_consultant
 	name = "nanotrasen executive PDA"
-	icon_state = "/obj/item/modular_computer/pda/nanotrasen_consultant_new"
+	icon_state = "/obj/item/modular_computer/pda/nanotrasen_consultant"
 	inserted_disk = /obj/item/computer_disk/command/captain
 	inserted_item = /obj/item/pen/fountain/nanotrasen
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
-	greyscale_colors = "#227291#B4B9C6#B4B9C6"
+	greyscale_colors = "#227291#DAE0F0#B4B9C6"
 
-/datum/outfit/job/nanotrasen_consultant_new
-	name = "Nanotrasen Consultant - NEW"
+/datum/outfit/plasmaman/nanotrasen_consultant
+	name = "Nanotrasen Consultant Plasmaman"
+
+	uniform = /obj/item/clothing/under/plasmaman/centcom_official
+	gloves = /obj/item/clothing/gloves/captain //Too iconic to be replaced with a plasma version
+	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
+
+/datum/outfit/job/nanotrasen_consultant
+	name = "Nanotrasen Consultant"
 	jobtype = /datum/job/nanotrasen_consultant
 
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant

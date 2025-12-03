@@ -53,6 +53,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"ы" = RADIO_CHANNEL_SECURITY,
 	"г" = RADIO_CHANNEL_SUPPLY,
 	"м" = RADIO_CHANNEL_SERVICE,
+	"и" = RADIO_CHANNEL_IAA,
 
 	// Faction
 	"е" = RADIO_CHANNEL_SYNDICATE,
