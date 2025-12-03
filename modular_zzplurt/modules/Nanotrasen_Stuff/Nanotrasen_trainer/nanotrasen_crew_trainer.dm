@@ -6,7 +6,7 @@
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "Nanotrasen Consultant"
+	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
 	exp_requirements = 300
 	exp_required_type = EXP_TYPE_CREW
@@ -26,7 +26,7 @@
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_CIV
 
-	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_TRAINER
+	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CREW_TRAINER
 	bounty_types = CIV_JOB_BASIC
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)

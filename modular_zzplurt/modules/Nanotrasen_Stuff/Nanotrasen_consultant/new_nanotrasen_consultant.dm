@@ -3,7 +3,6 @@
 	rpg_title = "Guild Adviser"
 	description = "Represent Nanotrasen on the station, argue with the HoS about why he can't just field execute people for petty theft, get drunk in your office."
 	department_head = list(JOB_CENTCOM)
-	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
 	total_positions = 1
@@ -41,7 +40,7 @@
 	)
 
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
-
+	allow_bureaucratic_error = FALSE
 	voice_of_god_power = 1.4 //Command staff has authority
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
