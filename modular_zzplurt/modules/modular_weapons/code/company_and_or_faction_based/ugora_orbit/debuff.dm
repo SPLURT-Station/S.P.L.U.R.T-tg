@@ -14,7 +14,7 @@
 /atom/movable/screen/alert/status_effect/bluespace_scarred
 	name = "Bluespace Scarring"
 	desc = "Teleportation is blocked"
-	icon = 'modular_zzplurt/modules/status_effect'
+	icon = 'modular_zzplurt/modules/status_effect.dmi'
 	icon_state = "scarred_blue"
 
 //Aussie Catgirl told me this is a good idea so I did it.

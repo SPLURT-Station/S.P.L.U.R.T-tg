@@ -181,23 +181,23 @@ Just one more pull and maybe I can get her
 	attack_speed = 4
 
 	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 35
+	maximum_damage_bonus = 35 //Maximum of 45 damage aswell.
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
-	/// | 12:5, 24:10, 36:15, 48:20     													   |===|
+	/// | 10:4, 23:8, 40:12, 63:16     													   	   |===|
 	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
-	/// | Tickrate can be misleading, as standard melee tick is practically equal to a second. |===|
+	/// | It is incredibly unlikely the sword will single handedly win any combat scenario.    |===|
 		As we can see, the energy sword always win
 
 		There is a significantly lower tickrate, so each cyclic rate(Melee Damage Per Strafe) is significantly higher.
 		If you're only getting hit in every time you walk by them, then energy sword would outdamage
-		This means the energy sword has the upperhand because 3 hit is almost certainly going to slow you down to crawl
+		This means the energy sword (and similar weapons) has the upperhand because 3 hit is almost certainly going to slow you down to crawl
 
-		The sword has a lower overall damage and does not deal brute wound (no bleed out) on the fast mode
+		The sword has a lower overall damage and does not deal brute wound (no bleed out)
 		Yes, this sword is one of the more complicated one in term of balance and it may feel oppressive
-		Due to how many feature it has and the system put in place. And I intend to address all of it one at a time.
+		Due to how many feature it has and the system put in place. But it is the best thing we can come up with to keep the game exciting
 */
 
 	w_class = WEIGHT_CLASS_HUGE
@@ -230,7 +230,7 @@ Just one more pull and maybe I can get her
 		//Put it on a delay because moving item from slot to hand. This is because people may do a quickpull out and swap for damage, that is something I am vehemently against.
 		//It won't stop it, but it doesn't need to, it only needs to make it harder. Think: Pull MCR Lancer out and do instant 45 damage.
 		// calls dropped().
-		addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_charges)), 40 SECONDS)
 
 /obj/item/melee/reverbing_blade/oscula/proc/reset_charges()
 	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
@@ -239,10 +239,9 @@ Just one more pull and maybe I can get her
 /obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
 	user.set_staggered_if_lower(15 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
-	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 40 SECONDS)
 
-/obj/item/melee/reverbing_blade/oscula/on_hit(atom/target, blocked, pierce_hit)
-	. = ..()
+/obj/item/melee/reverbing_blade/oscula/afterattack(atom/target, blocked, pierce_hit)
 	if(!isliving(target))
 		return
 	var/mob/living/bluespace_scarred = target
