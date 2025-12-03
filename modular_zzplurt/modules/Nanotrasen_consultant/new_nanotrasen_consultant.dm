@@ -55,3 +55,6 @@
 	icon_state = "pen-fountain-nt"
 	colour = "#11516e"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
+
+/mob/living/basic/pet/dog/corgi/lisa
+	icon = 'modular_zzplurt/icons/mob/pets.dmi'

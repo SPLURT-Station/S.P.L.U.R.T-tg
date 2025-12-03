@@ -225,7 +225,7 @@ trait_name = "Station"
 # Deltastation NTR Office
 [templates.deltastation_ntrep_office]
 map_files = ["deltastation_ntrep_office.dmm"]
-directory = "_maps/bubber/automapper/templates/Deltastation/"
+directory = "_maps/splurt/automapper/templates/"
 required_map = "DeltaStation2.dmm"
 coordinates = [123, 143, 1]
 trait_name = "Station"
@@ -314,7 +314,7 @@ trait_name = "Station"
 # IceBoxStation NTR Office
 [templates.iceboxstation_ntrep_office]
 map_files = ["iceboxstation_ntrep_office.dmm"]
-directory = "_maps/bubber/automapper/templates/IceBoxStation/"
+directory = "_maps/splurt/automapper/templates/"
 required_map = "IceBoxStation.dmm"
 coordinates = [87, 128, 3]
 trait_name = "Station"
@@ -429,7 +429,7 @@ trait_name = "Station"
 # Metastation NTR Office
 [templates.metastation_ntrep_office]
 map_files = ["metastation_ntrep_office.dmm"]
-directory = "_maps/bubber/automapper/templates/MetaStation/"
+directory = "_maps/splurt/automapper/templates/"
 required_map = "MetaStation.dmm"
 coordinates = [57, 119, 1]
 trait_name = "Station"
@@ -535,7 +535,7 @@ trait_name = "Station"
 # Nebulastation NTR Office
 [templates.nebulastation_ntrep_office]
 map_files = ["nebulastation_ntrep_office.dmm"]
-directory = "_maps/bubber/automapper/templates/NebulaStation/"
+directory = "_maps/splurt/automapper/templates/"
 required_map = "NebulaStation.dmm"
 coordinates = [110, 116, 2]
 trait_name = "Station"
@@ -600,7 +600,7 @@ trait_name = "Station"
 # Tramstation NTR Office
 [templates.tramstation_ntrep_office]
 map_files = ["tramstation_ntrep_office.dmm"]
-directory = "_maps/bubber/automapper/templates/tramstation/"
+directory = "_maps/splurt/automapper/templates/"
 required_map = "tramstation.dmm"
 coordinates = [34, 135, 2]
 trait_name = "Station"
@@ -740,12 +740,28 @@ required_map = "BoxStation.dmm"
 coordinates = [48, 130, 1]
 trait_name = "Station"
 
+# Boxstation NTR Office
+[templates.boxstation_ntrep_office]
+map_files = ["boxstation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "BoxStation.dmm"
+coordinates = [87, 128, 1]
+trait_name = "Station"
+
 # Kilostation Infinidorm
 [templates.kilostation_infinidorm]
 map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "KiloStation.dmm"
 coordinates = [162, 93, 1]
+trait_name = "Station"
+
+# Kilostation NTR Office
+[templates.kilostation_ntrep_office]
+map_files = ["kilostation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "KiloStation.dmm"
+coordinates = [95, 154, 1]
 trait_name = "Station"
 
 # Limastation Infinidorm (archived station)
