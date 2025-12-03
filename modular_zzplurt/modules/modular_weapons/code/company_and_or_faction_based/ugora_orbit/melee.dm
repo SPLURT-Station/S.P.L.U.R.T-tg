@@ -145,7 +145,7 @@ Just one more pull and maybe I can get her
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
-		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+		final_block_chance -= 33 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
 		final_block_chance += 33 //Don't try it!
 	return ..()
@@ -181,7 +181,7 @@ Just one more pull and maybe I can get her
 	attack_speed = 4
 
 	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 40
+	maximum_damage_bonus = 35
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
@@ -210,7 +210,7 @@ Just one more pull and maybe I can get her
 
 /obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
-		final_block_chance = 0 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+		final_block_chance -= 40 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
 		final_block_chance += 33 //Don't try it!
 	return ..()
@@ -237,7 +237,7 @@ Just one more pull and maybe I can get her
 	our_component.charges = initial(anti_magic_ready)
 
 /obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
-	user.set_staggered_if_lower(5 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
+	user.set_staggered_if_lower(15 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
 	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 30 SECONDS)
 

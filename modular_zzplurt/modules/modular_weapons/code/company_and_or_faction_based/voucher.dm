@@ -26,47 +26,39 @@ Yog Knights, Ugora Orbit Knights of Yog.
 
 /obj/item/melee_voucher
 	name = "security utility belt voucher"
-	desc = "A card with rudimentary identification on it, this one redeems security belts. Use it on a peacekeeping equipment vendor."
+	desc = "A card with basic identification marking on it, this one redeems security belts. Use in hand."
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/voucher.dmi'
 	icon_state = "melee_voucher"
 	w_class = WEIGHT_CLASS_SMALL
 	//Should we allow multiple usage? It could be handy for putting entire loadout into one with decrementing charge
-/*
 	var/amount = 1
+
+/obj/item/melee_voucher/attack_self(mob/living/user)
+	var/list/melee_spawnable = list(
+		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "secdaisho"), info = "A set of sword and baton with a dual sheath belt harness. This replaces your standard security belt",
+		"Security Belt + Dagger (Recommended)" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"), info  = "Your standard security belt, always reliable. Comes with a knife",
+	)
+	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
+	if(!pick)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	var/to_spawn = pick(melee_spawnable)
+	var/drop_location = drop_location()
+	switch(melee_spawnable)
+		if("Security Daisho")
+			new /obj/item/storage/belt/secdaisho/full(drop_location)
+		if("Security Belt + Tanto")
+			new /obj/item/storage/belt/security/full(drop_location)
+	new to_spawn(loc)
+
+/obj/item/melee_voucher/proc/check_menu(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated)
+		return FALSE
+	return TRUE
 
 //Below are just the pod beacon but with the pod code stripped down. Because we can't use the vendor for redemption due to a bug
 
-/obj/item/melee_voucher/interact(mob/user)
-	. = ..()
-	if(!can_use_voucher(user))
-		return
-
-	open_options_menu(user)
-	spawn_option(choice_path, user)
-
-/obj/item/melee_voucher/proc/generate_display_names()
-	return list()
-
-/obj/item/melee_voucher/proc/can_use_voucher(mob/living/user)
-	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-		return TRUE
-
-	playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
-	return FALSE
-
-
-/obj/item/melee_voucher/proc/open_options_menu(mob/living/user)
-	var/list/display_names = generate_display_names()
-	if(!length(display_names))
-		return
-	var/choice = tgui_input_list(user, "What kind of armament are you looking for?", "Select an Item", display_names)
-	if(isnull(choice) || isnull(display_names[choice]))
-		return
-	if(!can_use_voucher(user))
-		return
-
-	consume_use(display_names[choice], user)
-*/
 /*
 So this doesn't actually work, yet. and I'll uncomment this when it does.
 
