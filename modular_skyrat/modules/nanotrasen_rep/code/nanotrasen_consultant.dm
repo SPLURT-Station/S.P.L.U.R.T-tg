@@ -6,22 +6,22 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen High Command"
+	supervisors = "Nanotrasen High Command" // SPLURT EDIT
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_INTERNAL
+	exp_required_type_department = EXP_TYPE_INTERNAL // SPLURT EDIT
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CONSULTANT"
 
 	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
-		/datum/job_department/iaa,
-		/datum/job_department/command, // Splurt Edit
+		/datum/job_department/iaa, // SPLURT EDIT
+		/datum/job_department/command,
 	)
 
-	outfit = /datum/outfit/job/nanotrasen_consultant_new
+	outfit = /datum/outfit/job/nanotrasen_consultant_new // SPLURT EDIT
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
 
 	paycheck = PAYCHECK_COMMAND
@@ -48,13 +48,13 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
 	gloves = /obj/item/clothing/gloves/combat
-	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
-	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
+	uniform =  /obj/item/clothing/under/rank/nanotrasen_consultant
+	suit = /obj/item/clothing/suit/armor/vest/nanotrasen_consultant
 	suit_store = /obj/item/gun/energy/e_gun
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/nanotrasen_consultant
 	backpack_contents = list(
-		/obj/item/melee/baton/telescopic/silver = 1,
+		/obj/item/melee/baton/telescopic = 1,
 		)
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
@@ -65,7 +65,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	implants = list(/obj/item/implant/mindshield)
-	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
+	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom
 
 	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/centcom)
 
@@ -106,12 +106,11 @@
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /obj/item/modular_computer/pda/nanotrasen_consultant
-	name = "nanotrasen PDA" // Splurt Edit
+	name = "nanotrasen consultant's PDA"
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_consultant"
 	inserted_disk = /obj/item/computer_disk/command/captain
-	inserted_item = /obj/item/pen/fountain/nanotrasen // Splurt Edit
-	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
-	greyscale_colors = "#227291#0060b8#3F96CC" // Splurt Edit
+	inserted_item = /obj/item/pen/fountain/green
+	greyscale_colors = "#017941#0060b8"
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
@@ -141,14 +140,12 @@
 	new /obj/item/clothing/under/rank/centcom/intern(src)
 	new /obj/item/clothing/head/hats/intern(src)
 
-//Splurt Edit Start// changed the locker icon as the NT Rep is not CC but NT like the name suggests.
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
 	req_access = list()
 	req_one_access = list(ACCESS_CENT_GENERAL)
-	icon_state = "nt"
-	icon = 'modular_zzplurt/icons/obj/closet.dmi'
-//Splurt Edit End
+	icon_state = "cc"
+	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
 	..()
