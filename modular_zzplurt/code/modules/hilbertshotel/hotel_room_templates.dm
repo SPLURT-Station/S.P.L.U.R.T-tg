@@ -156,7 +156,20 @@
 /datum/map_template/ghost_cafe_rooms/apartment_shuttle_serenity2
 	name = "Serenity II Shuttle"
 	mappath = "_maps/splurt/templates/apartment_shuttle_serenity2.dmm"
-	category = GHC_MISC
+	category = GHC_STATION
+	landing_coords = list(8, 8)
+
+/datum/map_template/ghost_cafe_rooms/apartment_winter_outpost
+	name = "Observation Outpost"
+	mappath = "_maps/splurt/templates/apartment_winter_outpost.dmm"
+	category = GHC_WINTER
+	landing_coords = list(11, 2)
+
+/datum/map_template/ghost_cafe_rooms/apartment_dusk_oasis
+	name = "Dusked Oasis"
+	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
+	category = GHC_BEACH
+	landing_coords = list(15, 2)
 
 #undef GHC_MISC
 #undef GHC_APARTMENT
