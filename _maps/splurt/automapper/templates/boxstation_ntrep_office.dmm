@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -8,6 +7,10 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
+/obj/structure/safe/floor,
+/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
+/obj/item/clothing/accessory/medal/silver/bureaucracy,
+/obj/item/clothing/accessory/medal/gold/ordom,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
@@ -230,7 +233,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
-/obj/structure/closet/secure_closet/nanotrasen_consultant,
 /obj/item/storage/briefcase/central_command,
 /obj/item/camera_film,
 /obj/item/camera_film,
@@ -243,6 +245,7 @@
 	},
 /obj/item/storage/belt/sheath/sabre/cargo,
 /obj/structure/sign/clock/directional/north,
+/obj/structure/closet/secure_closet/nanotrasen_consultant_new,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
@@ -357,6 +360,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
+/obj/machinery/holopad,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "T" = (

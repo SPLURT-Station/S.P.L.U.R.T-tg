@@ -716,6 +716,30 @@ required_map = "biodome.dmm"
 coordinates = [55, 135, 2]
 trait_name = "Station"
 
+# Biodome NTR Office
+[templates.biodome_ntrep_office]
+map_files = ["biodome_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "biodome.dmm"
+coordinates = [157, 114, 2]
+trait_name = "Station"
+
+# Biodome Former Blueshield Room
+[templates.biodome_former_blueshield_room]
+map_files = ["biodome_former_blueshield_room.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "biodome.dmm"
+coordinates = [156, 114, 1]
+trait_name = "Station"
+
+# Biodome Blueshield Office
+[templates.biodome_blueshield_office]
+map_files = ["biodome_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "biodome.dmm"
+coordinates = [164, 113, 2]
+trait_name = "Station"
+
 # Metastation Infinidorm
 [templates.metastation_infinidorm]
 map_files = ["infinidorm.dmm"]

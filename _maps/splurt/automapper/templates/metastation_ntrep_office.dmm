@@ -37,6 +37,10 @@
 /area/station/command/heads_quarters/nt_rep)
 "e" = (
 /obj/machinery/status_display/evac/directional/east,
+/obj/structure/safe/floor,
+/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
+/obj/item/clothing/accessory/medal/silver/bureaucracy,
+/obj/item/clothing/accessory/medal/gold/ordom,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "f" = (
@@ -222,7 +226,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "C" = (
-/obj/structure/closet/secure_closet/nanotrasen_consultant,
 /obj/item/storage/briefcase/central_command,
 /obj/structure/noticeboard/directional/north{
 	name = "Nanotrasen Consultant's Notice Board"
@@ -239,6 +242,7 @@
 	},
 /obj/item/storage/belt/sheath/sabre/cargo,
 /obj/item/sign/flag/nanotrasen,
+/obj/structure/closet/secure_closet/nanotrasen_consultant_new,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "E" = (

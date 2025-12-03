@@ -35,7 +35,9 @@
 		if(JOB_BLUESHIELD)
 			return new /obj/item/modular_computer/pda/blueshield
 		if(JOB_NT_REP)
-			return new /obj/item/modular_computer/pda/nanotrasen_consultant
+			return new /obj/item/modular_computer/pda/nanotrasen_consultant_new // SPLURT EDIT
+		if(JOB_NT_TRN)
+			return new /obj/item/modular_computer/pda/nanotrasen_trainer // SPLURT ADDITION
 		if(JOB_WARDEN) // SEC
 			return new /obj/item/modular_computer/pda/warden
 		if(JOB_DETECTIVE)

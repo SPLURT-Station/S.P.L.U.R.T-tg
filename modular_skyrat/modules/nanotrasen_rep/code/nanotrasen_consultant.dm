@@ -6,21 +6,22 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Central Command"
+	supervisors = "Nanotrasen High Command"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_COMMAND
+	exp_required_type_department = EXP_TYPE_INTERNAL
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CONSULTANT"
 
 	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
-		/datum/job_department/command,
+		/datum/job_department/iaa,
+		/datum/job_department/command, // Splurt Edit
 	)
 
-	outfit = /datum/outfit/job/nanotrasen_consultant
+	outfit = /datum/outfit/job/nanotrasen_consultant_new
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
 
 	paycheck = PAYCHECK_COMMAND
@@ -47,13 +48,13 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
 	gloves = /obj/item/clothing/gloves/combat
-	uniform =  /obj/item/clothing/under/rank/nanotrasen_consultant
-	suit = /obj/item/clothing/suit/armor/vest/nanotrasen_consultant
+	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
+	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
 	suit_store = /obj/item/gun/energy/e_gun
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/nanotrasen_consultant
 	backpack_contents = list(
-		/obj/item/melee/baton/telescopic = 1,
+		/obj/item/melee/baton/telescopic/silver = 1,
 		)
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
@@ -64,7 +65,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	implants = list(/obj/item/implant/mindshield)
-	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom
+	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 
 	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/centcom)
 

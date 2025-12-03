@@ -17,17 +17,17 @@
 	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
-		/datum/job_department/command,
+		/datum/job_department/iaa,
 	)
 
 	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
 
-	paycheck = PAYCHECK_COMMAND
-	paycheck_department = ACCOUNT_CMD
+	paycheck = PAYCHECK_CREW
+	paycheck_department = ACCOUNT_CIV
 
-	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CONSULTANT
-	bounty_types = CIV_JOB_SEC
+	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
+	bounty_types = CIV_JOB_BASIC
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
 
@@ -43,13 +43,14 @@
 	name = "Nanotrasen Crew Trainer"
 	jobtype = /datum/job/nanotrasen_crew_trainer
 
-	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
+	belt = /obj/item/modular_computer/pda/nanotrasen_trainer
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
 	suit = /obj/item/clothing/suit/armor/vest/alt
 	suit_store = /obj/item/melee/baton/telescopic
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	gloves = /obj/item/clothing/gloves/color/black
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 
@@ -69,17 +70,27 @@
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainers's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen crew trainer."
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Crew Trainer."
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer/PopulateContents()
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen/nt_consultant(src)
-	new /obj/item/clothing/under/rank/nanotrasen/nt_officer(src)
-	new /obj/item/clothing/under/rank/nanotrasen/officer_skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen/official(src)
-	new /obj/item/clothing/head/nanotrasen_consultant/beret(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
+	new /obj/item/clothing/gloves/color/black(src)
 	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
-	new /obj/item/clothing/head/hats/intern(src)
+	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
+	new /obj/item/clothing/suit/armor/vest/alt(src)
+	new /obj/item/clothing/suit/armor/vest/alt(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen(src)
+	new /obj/item/clothing/head/hats/intern/nanotrasen(src)
+	new /obj/item/clothing/head/hats/nanotrasen_cap/lowrank(src)
+	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
 
 /obj/effect/landmark/start/nanotrasen_crew_trainer
 	name = "Nanotrasen Crew Trainer"
@@ -104,3 +115,8 @@
 	new /obj/item/pet_carrier(src)
 	new /obj/item/storage/photo_album/personal(src)
 	new /obj/item/storage/bag/garment/nanotrasen_crew_trainer(src)
+
+/obj/item/modular_computer/pda/nanotrasen_trainer
+	name = "nanotrasen PDA"
+	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
+	greyscale_colors = "#227291#B4B9C6"

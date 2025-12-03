@@ -26,7 +26,7 @@
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/centcom/official/turtleneck
+/obj/item/clothing/under/rank/nanotrasen/official/turtleneck
 	name = "\improper Nanotrasen official's turtleneck"
 	desc = "A formal suit, with an added comfortable and warm turtleneck worn by Nanotrasen's paper pushers, a generic uniform usually used by Representatives. The silver belt buckle denotes their rank with ease."
 	icon_state = "nt_official_turtleneck"// Sprites by Ebin-Halcyon

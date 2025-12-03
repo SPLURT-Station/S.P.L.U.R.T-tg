@@ -34,8 +34,8 @@
 	inhand_icon_state = "b_suit"
 
 /obj/item/clothing/suit/armor/nanotrasen_greatcoat
-	name = "Nanotrasen greatcoat"
-	desc = "A luxurious, grand greatcoat with silver markings, a exotic suit worn by usually consultants of Nanotrasen, it's woven with excellent fabrics to display rank."
+	name = "Nanotrasen officer's greatcoat"
+	desc = "A luxurious, grand greatcoat with silver markings, a exotic suit worn by usually executives of Nanotrasen, it's woven with excellent fabrics to display rank."
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_greatcoat"
@@ -50,6 +50,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_coat"
 	inhand_icon_state = "b_suit"
+	armor_type = /datum/armor/armor_centcom_formal
 
 /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen
 	name = "Nanotrasen carapace"
