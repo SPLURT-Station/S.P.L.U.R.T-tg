@@ -184,8 +184,6 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
 	messenger = /obj/item/storage/backpack/messenger/blueshield
 
-	box = /obj/item/storage/box/survival/nano_exec
-
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 
