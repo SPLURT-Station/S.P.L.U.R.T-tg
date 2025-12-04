@@ -29,7 +29,7 @@
 	department_color = COLOR_CENTCOM_BLUE
 	subdepartment_color = COLOR_COMMAND_BLUE
 	department_state = "departmenthead"
-	sechud_icon_state = SECHUD_CENTCOM
+	sechud_icon_state = SECHUD_NT_CONSULTANT
 	extra_wildcard_access = list()
 	minimal_access = list(
 		ACCESS_CENT_GENERAL,
@@ -65,7 +65,7 @@
 	trim_state = "trim_centcom"
 	department_color = COLOR_CENTCOM_BLUE
 	subdepartment_color = COLOR_COMMAND_BLUE
-	sechud_icon_state = SECHUD_NT_CONSULTANT
+	sechud_icon_state = SECHUD_NT_CREWTRAINER
 	minimal_access = list(
 		ACCESS_CENT_GENERAL,
 		ACCESS_EVA,
