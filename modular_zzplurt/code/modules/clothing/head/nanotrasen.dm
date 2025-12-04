@@ -70,7 +70,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/mask.dmi'
 	worn_icon_state = "gas_nanotrasen"
 	icon_state = "gas_nanotrasen"
-	inhand_icon_state = "gas_nanotrasen"
+	inhand_icon_state = "gas_captain"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION
