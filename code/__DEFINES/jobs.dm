@@ -133,7 +133,6 @@
 // SKYRAT EDIT ADDITION START
 #define JOB_BLUESHIELD "Blueshield"
 #define JOB_NT_REP "Nanotrasen Consultant"
-#define JOB_NT_TRN "Nanotrasen Crew Trainer"
 // Nanotrasen Naval Command jobs
 #define JOB_NAVAL_ENSIGN "Ensign"
 #define JOB_NAVAL_LIEUTENANT "Lieutenant"
@@ -148,6 +147,7 @@
 #define JOB_TERRAGOV "TerraGov"
 #define JOB_TERRAGOV_LIASON "TerraGov Liason"
 // SKYRAT EDIT ADDITION END
+#define JOB_NT_TRN "Nanotrasen Crew Trainer" //Splurt Addition
 
 //Lost crew
 #define JOB_LOSTCREW_ENGINEER "Visiting Engineer"
