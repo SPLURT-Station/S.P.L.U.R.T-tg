@@ -34,16 +34,14 @@ Kayian Janissary.
 	var/amount = 1
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
-	var/list/melee_spawnable = list()
 	var/list/radial_display = list()
-	for(var/datum/spawnitem/melee_voucher = list(/datum/voucher_set/yog_knights/daisho, /datum/voucher_set/yog_knights/daisho))
+	for(var/datum/voucher_set/melee_voucher = list(/datum/voucher_set/yog_knights/daisho, /datum/voucher_set/yog_knights/daisho),)
 		melee_spawnable[initial(melee_voucher.name)] = to_spawn
 		var/datum/radial_menu_choice/option = new
 		option.image = image(icon = initial(melee_voucher.icon_state), icon_state = initial(melee_voucher.icon_state))
-		option.info = "[initial(melee_voucher.name)] - [span_boldnotice(initial(melee_voucher.desc))]"
-		radial_display[initial(all_clans.name)] = option
-
-	var/list/melee_spawnable = /datum/spawnitem/melee_voucher
+		option.info = "[initial(melee_voucher.name)] - [span_boldnotice(initial(melee_voucher.description))]"
+		radial_display[initial(melee_voucher.name)] = option
+	var/list/melee_spawnable = melee_voucher
 	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
