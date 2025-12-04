@@ -8,6 +8,7 @@
 	worn_icon_state = "none"
 	// No overlay, because they're invisible!
 
+/* Added upstream
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less jackboots"
 	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
@@ -15,6 +16,7 @@
 	icon_state = "jackboots-toeless"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/shoes.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
+*/
 
 /obj/item/clothing/shoes/jackboots/tall
 	name = "tall jackboots"
@@ -28,6 +30,7 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_zzplurt/sound/effects/footstep/highheel1.ogg' = 1,'modular_zzplurt/sound/effects/footstep/highheel2.ogg' = 1), 20)
 
+/* Added upstream
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"
 	desc = "A pair of toe-less work boots designed for use in industrial settings. Modified for species whose toes have claws."
@@ -35,6 +38,7 @@
 	icon_state = "workboots-toeless"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/shoes.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
+*/
 
 /* They exist nonmodularly and adding them causes issues with the loadout.
 /obj/item/clothing/shoes/highheels

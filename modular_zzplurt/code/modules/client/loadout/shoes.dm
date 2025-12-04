@@ -3,6 +3,7 @@
 	name = "Invisifiber Footwraps"
 	item_path= /obj/item/clothing/shoes/invisiboots
 
+/* Added upstream
 /datum/loadout_item/shoes/workboots/toeless
 	name = "Toeless Work Boots"
 	item_path = /obj/item/clothing/shoes/workboots/toeless
@@ -10,6 +11,7 @@
 /datum/loadout_item/shoes/jackboots/toeless
 	name = "Toeless Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/toeless
+*/
 
 /datum/loadout_item/shoes/jackboots/tall
 	name = "Tall Jackboots"
