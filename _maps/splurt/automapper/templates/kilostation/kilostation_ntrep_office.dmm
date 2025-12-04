@@ -23,6 +23,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "e" = (
@@ -50,10 +51,10 @@
 "g" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/effect/turf_decal/siding/wood{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /turf/open/floor/wood/large,
@@ -78,6 +79,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "j" = (
@@ -100,6 +102,8 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "m" = (
@@ -111,9 +115,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -128,7 +129,6 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "q" = (
-/obj/machinery/holopad,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -143,6 +143,17 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/wood/corner,
+/obj/machinery/holopad,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"t" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "u" = (
@@ -175,7 +186,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -219,17 +229,6 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "G" = (
-/obj/item/storage/briefcase/central_command,
-/obj/item/camera_film,
-/obj/item/camera_film,
-/obj/item/camera,
-/obj/item/tape,
-/obj/item/tape,
-/obj/item/taperecorder,
-/obj/item/hand_labeler{
-	pixel_y = 2
-	},
-/obj/item/storage/belt/sheath/sabre/cargo,
 /obj/structure/sign/calendar/directional/south,
 /obj/machinery/keycard_auth/wall_mounted/directional/east,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
@@ -262,6 +261,7 @@
 	name = "Privacy Shutters"
 	},
 /obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
@@ -377,6 +377,7 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "V" = (
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "W" = (
@@ -424,6 +425,7 @@
 	dir = 8;
 	name = "Privacy Shutters"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 
@@ -478,7 +480,7 @@ g
 m
 r
 l
-v
+t
 O
 e
 "}

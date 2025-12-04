@@ -1,13 +1,12 @@
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
-	rpg_title = "Guild Adviser"
-	description = "Represent Nanotrasen on the station, argue with the HoS about why he can't just field execute people for petty theft, get drunk in your office."
-	department_head = list(JOB_CENTCOM)
+	description = "Represent Nanotrasen on the station, argue with the HoS about \
+		why he can't just field execute people for petty theft, get drunk in your office."
+	department_head = list("Nanotrasen High Command")
 	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen High Command"
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 600
@@ -16,37 +15,48 @@
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CONSULTANT"
 
-	department_for_prefs = /datum/job_department/iaa
-
-	departments_list = list(
-		/datum/job_department/iaa,
-	)
-
 	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
+
+	department_for_prefs = /datum/job_department/captain
+	departments_list = list(
+		/datum/job_department/command,
+	)
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
 
+	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
+	liver_traits = list(TRAIT_ROYAL_METABOLISM)
+
 	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CONSULTANT
 	bounty_types = CIV_JOB_SEC
-
-	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
 
 	mail_goodies = list(
 		/obj/item/cigarette/cigar/havana = 20,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
 		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
 	)
-
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
+	rpg_title = "Guild Advisor"
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
-	allow_bureaucratic_error = FALSE
+
+	human_authority = JOB_AUTHORITY_HUMANS_ONLY
+
 	voice_of_god_power = 1.4 //Command staff has authority
+
+/datum/job/nanotrasen_consultant/get_captaincy_announcement(mob/living/captain)
+	return "Due to severe staffing shortages, Nanotrasen Executive [captain.real_name] will act as Acting Captain until a real suitor arrives!"
+
+/obj/effect/landmark/start/nanotrasen_consultant
+	name = "Nanotrasen Consultant"
+	icon_state = "Nanotrasen Consultant"
+	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
-	req_access = list()
-	req_one_access = list(ACCESS_CENT_GENERAL, ACCESS_COMMAND)
+	req_access = list(ACCESS_CENT_GENERAL, ACCESS_COMMAND)
+	req_one_access = list()
 	icon_state = "nt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 
@@ -61,6 +71,17 @@
 	new /obj/item/storage/photo_album/ntc(src)
 	new /obj/item/bedsheet/nanotrasen(src)
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
+	new /obj/item/flashlight/seclite(src)
+	new /obj/item/storage/briefcase/central_command(src)
+	new /obj/item/camera_film(src)
+	new /obj/item/camera_film(src)
+	new /obj/item/camera(src)
+	new /obj/item/tape(src)
+	new /obj/item/tape(src)
+	new /obj/item/taperecorder(src)
+	new /obj/item/hand_labeler(src)
+	new /obj/item/storage/belt/sheath/sabre/cargo(src)
+	new /obj/item/assembly/flash/handheld(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
@@ -70,6 +91,7 @@
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/glasses/hud/administrative/sunglasses(src)
 	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/gloves/captain/nanotrasen(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander(src)
@@ -79,6 +101,7 @@
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen(src)
+	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
 	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
 	new /obj/item/clothing/head/hats/nanotrasenhat(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap(src)
@@ -87,11 +110,6 @@
 	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen(src)
 	new /obj/item/clothing/suit/armor/vest/nt_officerfake(src)
-
-/obj/effect/landmark/start/nanotrasen_consultant
-	name = "Nanotrasen Consultant"
-	icon_state = "Nanotrasen Consultant"
-	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 
 /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant
 	name = "medal of diplomacy"
@@ -128,6 +146,27 @@
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#227291#DAE0F0#B4B9C6"
 
+/obj/item/clothing/neck/large_scarf/nanotrasen
+	name = "corporate striped scarf"
+	desc = "Ready to rule."
+	icon_state = "/obj/item/clothing/neck/large_scarf/nanotrasen"
+	greyscale_colors = "#227291#DAE0F0"
+	armor_type = /datum/armor/large_scarf_syndie
+
+/obj/item/storage/box/survival/nano_exec
+	name = "emergency executive survival box"
+	desc = "A box with the essentials of ensuring your own long-term survival. This one is labelled to contain a double tank."
+	illustration = "extendedtank"
+	mask_type = /obj/item/clothing/mask/gas/atmos/nanotrasen
+	internal_type = /obj/item/tank/internals/emergency_oxygen/double
+	medipen_type =  /obj/item/reagent_containers/hypospray/medipen/atropine
+
+/obj/item/storage/box/survival/nano_exec/PopulateContents()
+	. = ..()
+	new /obj/item/crowbar/red(src)
+	new /obj/item/food/mre_course/side/bread(src)
+	new /obj/item/reagent_containers/cup/glass/waterbottle(src)
+
 /datum/outfit/plasmaman/nanotrasen_consultant
 	name = "Nanotrasen Consultant Plasmaman"
 
@@ -140,7 +179,7 @@
 	jobtype = /datum/job/nanotrasen_consultant
 
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/administrative/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
@@ -158,6 +197,8 @@
 	satchel = /obj/item/storage/backpack/satchel/blueshield
 	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
 	messenger = /obj/item/storage/backpack/messenger/blueshield
+
+	box = /obj/item/storage/box/survival/nano_exec
 
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen

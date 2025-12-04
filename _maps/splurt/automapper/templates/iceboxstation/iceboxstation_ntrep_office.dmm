@@ -3,21 +3,10 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
-/obj/item/storage/briefcase/central_command,
 /obj/structure/noticeboard/directional/north{
 	name = "Nanotrasen Consultant's Notice Board"
 	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
-/obj/item/camera_film,
-/obj/item/camera_film,
-/obj/item/camera,
-/obj/item/tape,
-/obj/item/tape,
-/obj/item/taperecorder,
-/obj/item/hand_labeler{
-	pixel_y = 2
-	},
-/obj/item/storage/belt/sheath/sabre/cargo,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -67,7 +56,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
@@ -81,10 +72,6 @@
 "i" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
-/area/station/command/heads_quarters/nt_rep)
-"j" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "k" = (
 /obj/effect/turf_decal/siding/wood{
@@ -167,15 +154,13 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
+/obj/machinery/holopad,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "s" = (
 /obj/machinery/vending/boozeomat,
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/effect/turf_decal/siding/wood,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "u" = (
@@ -220,6 +205,7 @@
 	dir = 4;
 	name = "Privacy Shutters"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
@@ -307,6 +293,7 @@
 	name = "Privacy Shutters"
 	},
 /obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "K" = (
@@ -314,6 +301,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "L" = (
@@ -337,6 +325,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "P" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -423,7 +412,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "X" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -506,7 +494,7 @@ a
 S
 K
 P
-j
+P
 X
 B
 a

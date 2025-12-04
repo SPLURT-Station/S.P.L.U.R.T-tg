@@ -19,18 +19,7 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
-/obj/item/storage/briefcase/central_command,
-/obj/item/camera_film,
-/obj/item/camera_film,
-/obj/item/camera,
 /obj/structure/sign/clock/directional/north,
-/obj/item/tape,
-/obj/item/tape,
-/obj/item/taperecorder,
-/obj/item/hand_labeler{
-	pixel_y = 2
-	},
-/obj/item/storage/belt/sheath/sabre/cargo,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -46,11 +35,15 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "f" = (
-/obj/machinery/holopad,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/holopad,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
@@ -109,9 +102,6 @@
 "m" = (
 /obj/structure/sign/calendar/directional/south,
 /obj/machinery/light/warm/directional/south,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /obj/item/storage/lunchbox/nanotrasen,
@@ -158,7 +148,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
@@ -208,7 +197,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "v" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
 /turf/open/floor/wood/large,
@@ -301,7 +289,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -341,6 +328,11 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
+"H" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
 "I" = (
 /obj/machinery/modular_computer/preset/command{
 	dir = 8
@@ -348,10 +340,10 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "K" = (
@@ -372,7 +364,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "L" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
@@ -544,8 +535,8 @@ a
 d
 o
 K
-x
-g
+J
+H
 h
 C
 a
@@ -570,7 +561,7 @@ a
 Z
 I
 B
-J
+x
 v
 z
 W

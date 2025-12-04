@@ -748,12 +748,28 @@ required_map = "MetaStation.dmm"
 coordinates = [53, 128, 1]
 trait_name = "Station"
 
+# Metastation Blueshield Office
+[templates.metastation_blueshield_office]
+map_files = ["metastation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [89, 135, 1]
+trait_name = "Station"
+
 # Deltastation Infinidorm
 [templates.deltastation_infinidorm]
 map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "DeltaStation2.dmm"
 coordinates = [134, 188, 1]
+trait_name = "Station"
+
+# Deltastation Blueshield Office
+[templates.deltastation_blueshield_office]
+map_files = ["deltastation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [171, 75, 1]
 trait_name = "Station"
 
 # Boxstation Infinidorm
@@ -788,6 +804,14 @@ required_map = "KiloStation.dmm"
 coordinates = [95, 154, 1]
 trait_name = "Station"
 
+# Kilostation Blueshield Office
+[templates.kilostation_blueshield_office]
+map_files = ["kilostation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [125, 103, 1]
+trait_name = "Station"
+
 # Limastation Infinidorm (archived station)
 [templates.limastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -818,6 +842,14 @@ map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "tramstation.dmm"
 coordinates = [50, 116, 2]
+trait_name = "Station"
+
+# Tramstation Blueshield Office
+[templates.tramstation_blueshield_office]
+map_files = ["tramstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [86, 130, 2]
 trait_name = "Station"
 
 # Wawastation Infinidorm

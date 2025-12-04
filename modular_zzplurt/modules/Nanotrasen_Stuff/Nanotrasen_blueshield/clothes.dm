@@ -1,4 +1,5 @@
 /obj/item/storage/bag/garment/blueshield/PopulateContents()
+	. = ..()
 	new /obj/item/clothing/under/rank/security/nanotrasen/hr(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/helmet/swat/nanotrasen/hr(src)

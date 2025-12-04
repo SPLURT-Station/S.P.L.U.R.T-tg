@@ -1,43 +1,45 @@
 /datum/job/nanotrasen_crew_trainer
 	title = JOB_NT_TRN
-	rpg_title = "Guild Adviser"
-	description = "Placeholder (YOU ARE NOT COMMAND)"
+	description = "Train and educate crew on how to do their job, be the guide they need."
 	department_head = list(JOB_NT_REP)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
-	exp_requirements = 300
+	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CREW_TRAINER"
 
-	department_for_prefs = /datum/job_department/iaa
-
-	departments_list = list(
-		/datum/job_department/iaa,
-	)
-
-	outfit = /datum/outfit/job/nanotrasen_consultant
+	outfit = /datum/outfit/job/nanotrasen_crew_trainer
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
+
+	department_for_prefs = /datum/job_department/assistant
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_CIV
 
-	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CREW_TRAINER
-	bounty_types = CIV_JOB_BASIC
+	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
-	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
+	display_order = JOB_DISPLAY_ORDER_NANOTRASEN_CREW_TRAINER
+
+	family_heirlooms = list(/obj/item/banner/command/mundane)
 
 	mail_goodies = list(
-		/obj/item/cigarette/cigar/havana = 20,
-		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
-		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
+		/obj/item/storage/fancy/cigarettes = 1,
+		/obj/item/pen/fountain = 1,
 	)
+	rpg_title = "Guild Mentor"
+	allow_bureaucratic_error = FALSE
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED
 
-	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+/obj/effect/landmark/start/nanotrasen_crew_trainer
+	name = "Nanotrasen Crew Trainer"
+	icon_state = "Nanotrasen Crew Trainer"
+	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 
 /datum/outfit/job/nanotrasen_crew_trainer
 	name = "Nanotrasen Crew Trainer"
@@ -46,27 +48,26 @@
 	belt = /obj/item/modular_computer/pda/nanotrasen_trainer
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/nanotrasen
+	gloves = /obj/item/clothing/gloves/color/black
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
 	suit = /obj/item/clothing/suit/armor/vest/alt
-	suit_store = /obj/item/melee/baton/telescopic
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	gloves = /obj/item/clothing/gloves/color/black
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic/bronze = 1,
+		)
 
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 
-	backpack = /obj/item/storage/backpack
-	satchel = /obj/item/storage/backpack/satchel
-	duffelbag = /obj/item/storage/backpack/duffelbag
-	messenger = /obj/item/storage/backpack/messenger
+	backpack = /obj/item/storage/backpack/blueshield
+	satchel = /obj/item/storage/backpack/satchel/blueshield
+	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
+	messenger = /obj/item/storage/backpack/messenger/blueshield
 
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin
 
-	chameleon_extras = list()
-
 	id = /obj/item/card/id/advanced
-	id_trim = /datum/id_trim/job/nanotrasen_consultant
-
+	id_trim = /datum/id_trim/job/nanotrasen_crew_trainer
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainers's garment bag"
@@ -74,7 +75,11 @@
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer/PopulateContents()
 	new /obj/item/clothing/shoes/sneakers/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/gloves/color/black(src)
+	new /obj/item/clothing/gloves/color/black(src)
+	new /obj/item/clothing/glasses/hud/administrative(src)
+	new /obj/item/clothing/glasses/hud/administrative(src)
 	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
 	new /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official(src)
@@ -87,15 +92,16 @@
 	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
+	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
+	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen(src)
 	new /obj/item/clothing/head/hats/intern/nanotrasen(src)
+	new /obj/item/clothing/head/hats/intern/nanotrasen(src)
+	new /obj/item/clothing/head/hats/nanotrasen_cap/lowrank(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap/lowrank(src)
 	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
-
-/obj/effect/landmark/start/nanotrasen_crew_trainer
-	name = "Nanotrasen Crew Trainer"
-	icon_state = "Nanotrasen Crew Trainer"
-	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
+	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
@@ -107,10 +113,11 @@
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer/PopulateContents()
 	..()
 	new /obj/item/storage/backpack/satchel/leather(src)
-	new /obj/item/clothing/neck/petcollar(src)
-	new /obj/item/pet_carrier(src)
+	new /obj/item/storage/backpack/satchel/leather(src)
 	new /obj/item/storage/photo_album/personal(src)
 	new /obj/item/storage/bag/garment/nanotrasen_crew_trainer(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/assembly/flash/handheld(src)
 
 /obj/item/modular_computer/pda/nanotrasen_trainer
 	name = "nanotrasen PDA"
