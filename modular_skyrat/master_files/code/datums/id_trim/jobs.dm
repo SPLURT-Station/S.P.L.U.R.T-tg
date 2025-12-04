@@ -62,6 +62,7 @@
 	minimal_wildcard_access = list()
 	template_access = list(ACCESS_CAPTAIN)
 
+/* // SPLURT REMOVAL
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
 	trim_state = "trim_centcom"
@@ -77,6 +78,7 @@
 				)
 	minimal_wildcard_access = list()
 	template_access = list(ACCESS_CAPTAIN)
+*/
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"

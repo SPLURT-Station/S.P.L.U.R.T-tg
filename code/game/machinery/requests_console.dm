@@ -260,6 +260,8 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 						target_channels += RADIO_CHANNEL_SERVICE
 					if("Command")
 						target_channels += RADIO_CHANNEL_COMMAND
+					if("Affairs") // SPLURT ADDITION
+						target_channels += RADIO_CHANNEL_IAA
 					if("Cargo")
 						target_channels += RADIO_CHANNEL_SUPPLY
 					if("Mining")
