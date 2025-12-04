@@ -203,15 +203,15 @@
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
 	//SPLURT EDIT START - Combat mode and intents
-	/*
-	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // BUBBER EDIT
-	if(silent || !client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode))
-		return
-	if(combat_mode)
-		SEND_SOUND(src, sound('sound/misc/ui_togglecombat.ogg', volume = 25)) //Sound from interbay!
-	else
-		SEND_SOUND(src, sound('sound/misc/ui_toggleoffcombat.ogg', volume = 25)) //Slightly modified version of the above
-	*/
+	if(!client?.prefs?.read_preference(/datum/preference/toggle/intents))
+		face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // BUBBER EDIT
+		if(silent || !client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode))
+			return
+		if(combat_mode)
+			SEND_SOUND(src, sound('sound/misc/ui_togglecombat.ogg', volume = 25)) //Sound from interbay!
+		else
+			SEND_SOUND(src, sound('sound/misc/ui_toggleoffcombat.ogg', volume = 25)) //Slightly modified version of the above
+
 	//SPLURT EDIT END
 
 /mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
