@@ -23,7 +23,7 @@ Kayian Janissary.
 	set_items = list(
 		/obj/item/storage/belt/security/full,
 	)
-
+// When a fix from upstream get merged we can simply use the proper voucher
 /obj/item/melee_voucher
 	name = "security utility belt voucher"
 	desc = "A card with basic identification marking on it, this one redeems security belts. Use in hand."
@@ -35,9 +35,15 @@ Kayian Janissary.
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
 	var/list/melee_spawnables = list(
-			"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/belts.dmi', icon_state = "security"),
-			"Security Dual Sheath Belt" = image(icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', icon_state = "blackdaisho"),)
+		"Security Daisho" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
+		"Security Belt + Tanto" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"),
+	)
 	var/pick = show_radial_menu(user, src, melee_spawnables, radius = 36, require_near = TRUE, tooltips = TRUE)
+	if(!pick)
+		return
+	var/drop_location = drop_location()
+	var/to_spawn = pick(melee_spawnables)
+	new to_spawn(loc)
 	switch(melee_spawnables)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
@@ -45,9 +51,6 @@ Kayian Janissary.
 		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
-	var/drop_location = drop_location()
-	var/to_spawn = pick(melee_spawnables)
-	new to_spawn(loc)
 	if(!amount)
 		return ITEM_INTERACT_BLOCKING
 	amount -= 1
@@ -64,6 +67,7 @@ Kayian Janissary.
 
 /*
 So this doesn't actually work, yet. and I'll uncomment this when it does.
+Because we currently do not have the fix merged!
 
 //Code to redeem new items at the mining vendor using the suit voucher
 //More items can be added in the lists and in the if statement.
