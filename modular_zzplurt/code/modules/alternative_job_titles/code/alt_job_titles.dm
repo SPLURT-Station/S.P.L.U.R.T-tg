@@ -453,5 +453,6 @@
 
 /datum/job/nanotrasen_crew_trainer
 	alt_titles = list(
+		"Nanotrasen Crew Trainer",
 		"Nanotrasen Intern",
 	)
