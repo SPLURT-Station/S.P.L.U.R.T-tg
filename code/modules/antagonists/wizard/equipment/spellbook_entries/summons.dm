@@ -3,7 +3,7 @@
 #define MINIMUM_THREAT_FOR_RITUALS 98
 
 /* SPLURT EDIT START - makes ghosts not buyable lazy style
- /datum/spellbook_entry/summon/ghosts
+/datum/spellbook_entry/summon/ghosts
 	name = "Summon Ghosts"
 	desc = "Spook the crew out by making them see dead people. \
 		Be warned, ghosts are capricious and occasionally vindicative, \

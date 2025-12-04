@@ -11,6 +11,32 @@ GLOBAL_LIST_INIT(brap_noises, list(
 			'modular_zzplurt/sound/voice/farts/fart9.ogg',
 			))
 
+			// Unholy better sound list
+GLOBAL_LIST_INIT(assbrap_noises, list(
+			'modular_zzplurt/sound/interactions/assbrap1.ogg',
+			'modular_zzplurt/sound/interactions/assbrap2.ogg',
+			'modular_zzplurt/sound/interactions/assbrap3.ogg'
+			)) // Fart sound
+
+GLOBAL_LIST_INIT(asscrap_noises, list(
+			'modular_zzplurt/sound/interactions/asscrap1.ogg',
+			'modular_zzplurt/sound/interactions/asscrap2.ogg',
+			'modular_zzplurt/sound/interactions/asscrap3.ogg'
+			)) // Shit sound
+
+GLOBAL_LIST_INIT(assswallow_noises, list(
+			'modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'
+			)) // Swallow sound
+
+GLOBAL_LIST_INIT(waterpiss_noises, list(
+			'modular_zzplurt/sound/interactions/watering1.ogg',
+			'modular_zzplurt/sound/interactions/watering2.ogg',
+			'modular_zzplurt/sound/interactions/watering3.ogg'
+			)) // Piss sound
+
+			// Unholy better sound list end
+
 GLOBAL_LIST_INIT(skirt_peekable, typecacheof(list(
 			// Everyone's jumpskirts
 			/obj/item/clothing/under/color/jumpskirt,

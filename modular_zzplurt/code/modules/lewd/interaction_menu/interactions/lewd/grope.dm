@@ -18,8 +18,11 @@
 		"%USER%'s fingers squeeze your butt cheeks",
 		"The warmth of %USER%'s palm presses against your rear"
 	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions//thudswoosh.ogg'
+	)
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 3
