@@ -9,4 +9,3 @@
 	new /obj/item/clothing/head/hats/warden/drill/nanotrasen/nt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
-	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)

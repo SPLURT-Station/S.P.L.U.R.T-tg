@@ -153,20 +153,6 @@
 	greyscale_colors = "#227291#DAE0F0"
 	armor_type = /datum/armor/large_scarf_syndie
 
-/obj/item/storage/box/survival/nano_exec
-	name = "emergency executive survival box"
-	desc = "A box with the essentials of ensuring your own long-term survival. This one is labelled to contain a double tank."
-	illustration = "extendedtank"
-	mask_type = /obj/item/clothing/mask/gas/atmos/nanotrasen
-	internal_type = /obj/item/tank/internals/emergency_oxygen/double
-	medipen_type =  /obj/item/reagent_containers/hypospray/medipen/atropine
-
-/obj/item/storage/box/survival/nano_exec/PopulateContents()
-	. = ..()
-	new /obj/item/crowbar/red(src)
-	new /obj/item/food/mre_course/side/bread(src)
-	new /obj/item/reagent_containers/cup/glass/waterbottle(src)
-
 /datum/outfit/plasmaman/nanotrasen_consultant
 	name = "Nanotrasen Consultant Plasmaman"
 
