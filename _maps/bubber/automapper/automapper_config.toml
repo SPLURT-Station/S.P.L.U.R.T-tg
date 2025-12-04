@@ -127,7 +127,7 @@ trait_name = "Station"
 # Catwalk NTR Office
 [templates.catwalk_ntrep_office]
 map_files = ["catwalk_ntrep.dmm"]
-directory = "_maps/bubber/automapper/templates/CatwalkStation/"
+directory = "_maps/splurt/automapper/templates/CatwalkStation/"
 required_map = "CatwalkStation_2023.dmm"
 coordinates = [142, 126, 1]
 trait_name = "Station"
@@ -457,6 +457,14 @@ map_files = ["lavaland_persistence.dmm"]
 directory = "_maps/bubber/automapper/templates/lavaland/"
 required_map = "moonstation.dmm"
 coordinates = [8, 179, 1]
+trait_name = "Station"
+
+# Moonstation NTR Office
+[templates.moonstation_ntrep_office]
+map_files = ["moonstation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [101, 154, 3]
 trait_name = "Station"
 
 # NEBULASTATION MAP EDITS
@@ -884,6 +892,14 @@ required_map = "Blueshift.dmm"
 coordinates = [172, 89, 1]
 trait_name = "Station"
 
+# Blueshift NTR Office
+[templates.blueshift_ntr_office]
+map_files = ["blueshift_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [88, 160, 2]
+trait_name = "Station"
+
 # VoidRaptor Infinidorm
 [templates.voidraptor_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -893,8 +909,8 @@ coordinates = [79, 145, 1]
 trait_name = "Station"
 
 # VoidRaptor NTR Office
-[templates.voidraptor_ntr_office]
-map_files = ["voidraptor_ntr_office.dmm"]
+[templates.voidraptor_ntrep_office]
+map_files = ["voidraptor_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
