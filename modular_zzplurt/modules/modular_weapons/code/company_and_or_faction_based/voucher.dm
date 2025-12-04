@@ -3,7 +3,7 @@
 /*
 We like the Knights in AR, but using that name doesn't feel right.
 So let's come up with our own name, thematic to what we've been doing
-Yog Knights, Ugora Orbit Knights of Yog.
+Kayian Janissary.
 */
 
 /datum/voucher_set/yog_knights/daisho
@@ -16,8 +16,8 @@ Yog Knights, Ugora Orbit Knights of Yog.
 	)
 
 /datum/voucher_set/yog_knight/tanto_belt
-	name = "Standard Belt with Knife"
-	description = "Your standard trustworthy belt, always reliable. Comes with a knife"
+	name = "Standard Belt with Dagger"
+	description = "Your standard trustworthy belt, always reliable. Comes with a dagger"
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "security"
 	set_items = list(
@@ -35,8 +35,8 @@ Yog Knights, Ugora Orbit Knights of Yog.
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
 	var/list/melee_spawnable = list(
-		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "secdaisho"), info = "A set of sword and baton with a dual sheath belt harness. This replaces your standard security belt",
-		"Security Belt + Dagger (Recommended)" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"), info  = "Your standard security belt, always reliable. Comes with a knife",
+		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "secdaisho"), info = "A set of sword and baton with a dual sheath belt harness. This replaces your standard baton with a Jitte, which can knock weapon out of a staggered target. Otherwise it cannot knockdown suspect",
+		"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"), info = "Your standard trustworthy belt, always reliable. Comes with a dagger",
 	)
 	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
 	if(!pick)
@@ -44,11 +44,14 @@ Yog Knights, Ugora Orbit Knights of Yog.
 	var/to_spawn = pick(melee_spawnable)
 	var/drop_location = drop_location()
 	switch(melee_spawnable)
-		if("Security Daisho")
+		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
-		if("Security Belt + Tanto")
+		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
 	new to_spawn(loc)
+	if(!amount)
+		return ITEM_INTERACT_BLOCKING
+	amount -= 1
 
 /obj/item/melee_voucher/proc/check_menu(mob/living/user)
 	if(!istype(user))
@@ -56,8 +59,6 @@ Yog Knights, Ugora Orbit Knights of Yog.
 	if(user.incapacitated)
 		return FALSE
 	return TRUE
-
-//Below are just the pod beacon but with the pod code stripped down. Because we can't use the vendor for redemption due to a bug
 
 /*
 So this doesn't actually work, yet. and I'll uncomment this when it does.
