@@ -34,25 +34,26 @@ Kayian Janissary.
 	var/amount = 1
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
-    var/list/melee_spawnables = list(
+	var/list/melee_spawnables = list(
 			"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/belts.dmi', icon_state = "security"),
 			"Security Dual Sheath Belt" = image(icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', icon_state = "blackdaisho"),)
-	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
-	switch(melee_spawnable)
+	var/pick = show_radial_menu(user, src, melee_spawnables, radius = 36, require_near = TRUE, tooltips = TRUE)
+	switch(melee_spawnables)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of devotion, mastery of your sword is paramount to the brutal arithmetic of combat. It is slow to swing but effective at finishing off wounded enemy, your baton does not knock down, but will knock item out of a staggered target."))
 		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
-	if(!pick)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	var/drop_location = drop_location()
-	var/to_spawn = pick(melee_spawnable)
+	var/to_spawn = pick(melee_spawnables)
 	new to_spawn(loc)
 	if(!amount)
 		return ITEM_INTERACT_BLOCKING
 	amount -= 1
+	if(!amount)
+		qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/melee_voucher/proc/check_menu(mob/living/user)
 	if(!istype(user))
