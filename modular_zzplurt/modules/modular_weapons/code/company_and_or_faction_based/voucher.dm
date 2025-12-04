@@ -35,7 +35,7 @@ Kayian Janissary.
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
 	var/list/melee_spawnables = list(
-		"Security Daisho" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
+		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
 		"Security Belt + Tanto" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"),
 	)
 	var/pick = show_radial_menu(user, src, melee_spawnables, radius = 36, require_near = TRUE, tooltips = TRUE)
@@ -43,7 +43,6 @@ Kayian Janissary.
 		return
 	var/drop_location = drop_location()
 	var/to_spawn = pick(melee_spawnables)
-	new to_spawn(loc)
 	switch(melee_spawnables)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
@@ -51,12 +50,14 @@ Kayian Janissary.
 		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
+	new to_spawn(loc)
 	if(!amount)
 		return ITEM_INTERACT_BLOCKING
 	amount -= 1
 	if(!amount)
 		qdel(src)
 	return ITEM_INTERACT_SUCCESS
+
 
 /obj/item/melee_voucher/proc/check_menu(mob/living/user)
 	if(!istype(user))
