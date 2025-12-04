@@ -58,14 +58,6 @@ Kayian Janissary.
 		qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
-
-/obj/item/melee_voucher/proc/check_menu(mob/living/user)
-	if(!istype(user))
-		return FALSE
-	if(user.incapacitated)
-		return FALSE
-	return TRUE
-
 /*
 So this doesn't actually work, yet. and I'll uncomment this when it does.
 Because we currently do not have the fix merged!
