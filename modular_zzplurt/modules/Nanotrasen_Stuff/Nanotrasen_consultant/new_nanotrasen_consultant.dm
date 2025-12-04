@@ -91,7 +91,7 @@
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/glasses/hud/administrative/sunglasses(src)
+	new /obj/item/clothing/glasses/hud/civilian/sunglasses(src)
 	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/gloves/captain/nanotrasen(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander(src)
@@ -179,7 +179,7 @@
 	jobtype = /datum/job/nanotrasen_consultant
 
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
-	glasses = /obj/item/clothing/glasses/hud/administrative/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
