@@ -123,6 +123,8 @@ Just one more pull and maybe I can get her
 	icon_state = "secsword0"
 	inhand_icon_state = "secsword0"
 
+	icon_angle = -45
+
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword32.dmi'
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
@@ -140,7 +142,7 @@ Just one more pull and maybe I can get her
 	var/bonus_force = 0
 	var/damage = 0
 //What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
-	var/degree_of_tolerance = 4
+	var/degree_of_tolerance = 5
 	var/maximum_damage_bonus = 30
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -180,7 +182,7 @@ Just one more pull and maybe I can get her
 	inhand_y_dimension = 64
 	attack_speed = 4
 
-	degree_of_tolerance = 3 //a ramp up weapon, let's have fun with it
+	degree_of_tolerance = 4 //a ramp up weapon, let's have fun with it
 	maximum_damage_bonus = 35 //Maximum of 45 damage aswell.
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
@@ -189,7 +191,7 @@ Just one more pull and maybe I can get her
 	/// | 10:4, 23:8, 40:12, 63:16     													   	   |===|
 	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
 	/// | It is incredibly unlikely the sword will single handedly win any combat scenario.    |===|
-		As we can see, the energy sword always win
+		As we can see, the energy sword will win within practically 5 seconds of combat if the blade wielder is not hitting every hit.
 
 		There is a significantly lower tickrate, so each cyclic rate(Melee Damage Per Strafe) is significantly higher.
 		If you're only getting hit in every time you walk by them, then energy sword would outdamage

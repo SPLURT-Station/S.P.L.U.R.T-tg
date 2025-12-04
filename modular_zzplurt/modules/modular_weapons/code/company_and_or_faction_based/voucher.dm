@@ -34,10 +34,16 @@ Kayian Janissary.
 	var/amount = 1
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
-	var/list/melee_spawnable = list(
-		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "secdaisho"), info = "A set of sword and baton with a dual sheath belt harness. This replaces your standard baton with a Jitte, which can knock weapon out of a staggered target. Otherwise it cannot knockdown suspect",
-		"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"), info = "Your standard trustworthy belt, always reliable. Comes with a dagger",
-	)
+	var/list/melee_spawnable = list()
+	var/list/radial_display = list()
+	for(var/datum/spawnitem/melee_voucher = list(/datum/voucher_set/yog_knights/daisho, /datum/voucher_set/yog_knights/daisho))
+		melee_spawnable[initial(melee_voucher.name)] = to_spawn
+		var/datum/radial_menu_choice/option = new
+		option.image = image(icon = initial(melee_voucher.icon_state), icon_state = initial(melee_voucher.icon_state))
+		option.info = "[initial(melee_voucher.name)] - [span_boldnotice(initial(melee_voucher.desc))]"
+		radial_display[initial(all_clans.name)] = option
+
+	var/list/melee_spawnable = /datum/spawnitem/melee_voucher
 	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -46,8 +52,10 @@ Kayian Janissary.
 	switch(melee_spawnable)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
+			to_chat(user, span_warning("You have chosen the path of devotion, mastery of your sword is paramount to the brutal arithmetic of combat. It is slow to swing but effective at finishing off wounded enemy, your baton does not knock down, but will knock item out of a staggered target."))
 		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
+			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
 	new to_spawn(loc)
 	if(!amount)
 		return ITEM_INTERACT_BLOCKING
