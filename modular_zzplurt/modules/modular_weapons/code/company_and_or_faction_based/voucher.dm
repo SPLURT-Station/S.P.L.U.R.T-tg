@@ -34,19 +34,10 @@ Kayian Janissary.
 	var/amount = 1
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
-	var/list/radial_display = list()
-	for(var/datum/voucher_set/melee_voucher = list(/datum/voucher_set/yog_knights/daisho, /datum/voucher_set/yog_knights/daisho),)
-		melee_spawnable[initial(melee_voucher.name)] = to_spawn
-		var/datum/radial_menu_choice/option = new
-		option.image = image(icon = initial(melee_voucher.icon_state), icon_state = initial(melee_voucher.icon_state))
-		option.info = "[initial(melee_voucher.name)] - [span_boldnotice(initial(melee_voucher.description))]"
-		radial_display[initial(melee_voucher.name)] = option
-	var/list/melee_spawnable = melee_voucher
+    var/list/melee_spawnables = list(
+			"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/belts.dmi', icon_state = "security"),
+			"Security Dual Sheath Belt" = image(icon = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', icon_state = "blackdaisho"),)
 	var/pick = show_radial_menu(user, src, melee_spawnable, radius = 36, require_near = TRUE, tooltips = TRUE)
-	if(!pick)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	var/to_spawn = pick(melee_spawnable)
-	var/drop_location = drop_location()
 	switch(melee_spawnable)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
@@ -54,6 +45,10 @@ Kayian Janissary.
 		if("Security Belt + Dagger, Recommended")
 			new /obj/item/storage/belt/security/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
+	if(!pick)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	var/drop_location = drop_location()
+	var/to_spawn = pick(melee_spawnable)
 	new to_spawn(loc)
 	if(!amount)
 		return ITEM_INTERACT_BLOCKING
