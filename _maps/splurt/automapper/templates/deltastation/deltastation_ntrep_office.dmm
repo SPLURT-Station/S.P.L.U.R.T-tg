@@ -87,10 +87,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/preopen{
-	id = "nt_rep_priv";
-	name = "Privacy Shutter"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "nt_rep_priv";
 	name = "Privacy Shutters";
@@ -394,10 +390,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch"
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /turf/open/floor/iron/dark/smooth_large,
