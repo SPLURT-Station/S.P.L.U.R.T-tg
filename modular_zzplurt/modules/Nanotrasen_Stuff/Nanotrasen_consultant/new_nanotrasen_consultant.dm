@@ -184,7 +184,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
 	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = /obj/item/gun/energy/e_gun/asterion
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/hats/nanotrasen_cap
 	backpack_contents = list(
@@ -203,7 +203,7 @@
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 
-	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/nanotrasen)
+	chameleon_extras = list(/obj/item/gun/energy/e_gun/asterion, /obj/item/stamp/nanotrasen)
 
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
