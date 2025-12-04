@@ -153,6 +153,11 @@
 	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
 	category = GHC_MISC
 
+/datum/map_template/ghost_cafe_rooms/apartment_abandoned_shuttle
+	name = "Abandoned Shuttle"
+	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
+	category = GHC_MISC
+
 #undef GHC_MISC
 #undef GHC_APARTMENT
 #undef GHC_BEACH
