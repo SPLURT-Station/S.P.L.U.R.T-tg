@@ -451,9 +451,7 @@
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
-/datum/job/nanotrasen_consultant
+/datum/job/nanotrasen_crew_trainer
 	alt_titles = list(
 		"Nanotrasen Intern",
 	)
-		LAZYADD(alt_titles, extra_titles)
-	. = ..()
