@@ -9,9 +9,9 @@
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
 /obj/machinery/door/airlock/command{
-	name = "Captain's Quarters and Consultant's Office"
+	name = "Captain's Quarters and Internal Affairs's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "d" = (
