@@ -94,13 +94,13 @@
 	embed_type = /datum/embedding/bullet/c9x17mm_ihdf
 
 /datum/embedding/bullet/c9x17mm_ihdf
-	embed_chance = 0
+	embed_chance = 7
 	fall_chance = 4
-	jostle_chance = 3
-	pain_mult = 4
+	jostle_chance = 2
+	pain_mult = 3
 	pain_stam_pct = 0.3
 	ignore_throwspeed_threshold = TRUE
-	jostle_pain_mult = 5
+	jostle_pain_mult = 4
 	rip_time = 1 SECONDS
 
 /obj/projectile/bullet/c9x17mm/rubber
