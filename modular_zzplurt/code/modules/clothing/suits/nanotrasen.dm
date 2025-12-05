@@ -5,7 +5,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_formal"
 	inhand_icon_state = "b_suit"
-	armor_type = /datum/armor/armor_centcom_formal
+	armor_type = /datum/armor/vest_capcarapace
 
 /obj/item/clothing/suit/armor/nanotrasen_formal/Initialize(mapload)
 	. = ..()
@@ -18,7 +18,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "coatnanotrasen"
 	inhand_icon_state = "b_suit"
-	armor_type = /datum/armor/wintercoat_centcom
+	armor_type = /datum/armor/wintercoat_captain
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/nanotrasen
 
 /obj/item/clothing/suit/hooded/wintercoat/nanotrasen/Initialize(mapload)
@@ -41,7 +41,7 @@
 	icon_state = "nanotrasen_greatcoat"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	armor_type = /datum/armor/armor_centcom_formal
+	armor_type = /datum/armor/vest_capcarapace
 
 /obj/item/clothing/suit/armor/vest/nt_officerfake
 	name = "Nanotrasen officer's coat"
@@ -50,7 +50,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_coat"
 	inhand_icon_state = "b_suit"
-	armor_type = /datum/armor/armor_centcom_formal
+	armor_type = /datum/armor/vest_capcarapace
 
 /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen
 	name = "Nanotrasen carapace"
@@ -59,3 +59,4 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_vest"
 	inhand_icon_state = "b_suit"
+	armor_type = /datum/armor/vest_capcarapace

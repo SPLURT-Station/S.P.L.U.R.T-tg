@@ -14,7 +14,7 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
-	armor_type = /datum/armor/beret_centcom_formal
+	armor_type = /datum/armor/hats_caphat
 	strip_delay = 10 SECONDS
 
 /obj/item/clothing/head/hats/nanotrasen_cap
@@ -25,7 +25,7 @@
 	desc = "A luxurious peaked cap, worn by only Nanotrasen's finest officers. Inside the lining of the cap, lies two faint initials."
 	inhand_icon_state = "that"
 	flags_inv = 0
-	armor_type = /datum/armor/hats_centcom_cap
+	armor_type = /datum/armor/hats_caphat
 	strip_delay = 8 SECONDS
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON //SKYRAT EDIT lets anthros wear the hat
 
@@ -44,7 +44,7 @@
 	icon_state = "nanotrasen"
 	inhand_icon_state = "that"
 	flags_inv = 0
-	armor_type = /datum/armor/hats_centhat
+	armor_type = /datum/armor/hats_caphat
 	strip_delay = 8 SECONDS
 
 /obj/item/clothing/head/hats/intern/nanotrasen

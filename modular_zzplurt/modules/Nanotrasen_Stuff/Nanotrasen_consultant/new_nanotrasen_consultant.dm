@@ -80,7 +80,6 @@
 	new /obj/item/tape(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/hand_labeler(src)
-	new /obj/item/storage/belt/sheath/sabre/cargo(src)
 	new /obj/item/assembly/flash/handheld(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
