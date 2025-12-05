@@ -17,19 +17,19 @@
 	ammo_type = /obj/item/ammo_casing/c9x17mm/ap
 
 /obj/item/ammo_box/magazine/mps5/hp
-	name = "\improper MP-S5 magazine (9x19mm HP)"
+	name = "\improper MP-S5 magazine (9x17mm HP)"
 	icon_state = "smg9x17mmHP"
 	base_icon_state = "smg9x17mmHP"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/hp
 
 /obj/item/ammo_box/magazine/mps5/ihdf
-	name = "\improper MP-S5 magazine (9x19mm Intelligent Dispersal Foam)"
+	name = "\improper MP-S5 magazine (9x17mm Intelligent Dispersal Foam)"
 	icon_state = "smg9x17mmDF"
 	base_icon_state = "smg9x17mmDF"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/ihdf
 
 /obj/item/ammo_box/magazine/mps5/rubber
-	name = "\improper MP-S5 magazine (9x19mm Rubber)"
+	name = "\improper MP-S5 magazine (9x17mm Rubber)"
 	icon_state = "smg9x17mmR"
 	base_icon_state = "smg9x17mmR"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/rubber
@@ -67,8 +67,8 @@
 
 /obj/projectile/bullet/c9x17mm
 	name = "9x17mm bullet"
-	damage = 18
-	wound_bonus = -6
+	damage = 16
+	wound_bonus = -5
 	exposed_wound_bonus = 5
 	embed_falloff_tile = -3
 
@@ -81,7 +81,7 @@
 
 /obj/projectile/bullet/c9x17mm/hp
 	name = "9x17mm fragmenting bullet"
-	damage = 28
+	damage = 26
 	weak_against_armour = TRUE
 
 /obj/projectile/bullet/c9x17mm/ihdf
