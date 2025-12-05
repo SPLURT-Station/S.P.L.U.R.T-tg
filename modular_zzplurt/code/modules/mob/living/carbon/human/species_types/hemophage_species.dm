@@ -30,6 +30,11 @@
 	REMOVE_TRAIT(human_target, TRAIT_CHAPEL_WEAKNESS, SPECIES_HEMOPHAGE)
 	REMOVE_TRAIT(human_target, TRAIT_HOLYWATER_WEAKNESS, SPECIES_HEMOPHAGE)
 
+
+// Disabled due to community feedback
+/*
+// Replace Hemophage bite with Bloodfledge variant
 /datum/component/organ_corruption/tongue
 	// Replace with new bite type
 	tongue_action_type = /datum/action/cooldown/bloodfledge/bite/corrupted_tongue
+*/

@@ -57,21 +57,20 @@
 	// Add quirk language
 	quirk_mob.grant_language(/datum/language/vampiric, ALL, LANGUAGE_QUIRK)
 
-	/**
-	 * Hemophage check
-	 *
-	 * Check if the quirk holder is a hemophage.
-	 * Ignore remaining features if they are
-	 */
-	if(ishemophage(quirk_mob))
-		return
-
 	// Add quirk traits
 	quirk_mob.add_traits(BLOODFLEDGE_TRAITS, TRAIT_BLOODFLEDGE)
 
-	//Add a memory and inform them of their blood type
+	// Add a memory and inform them of their blood type
 	quirk_mob.mind.add_memory(/datum/memory/key/quirk_bloodfledge, blood_type = quirk_mob.dna.blood_type)
 	to_chat(quirk_mob, "You remember that your blood type is [quirk_mob.dna.blood_type]")
+
+	/**
+	 * Hemophage Filter
+	 * Anything past this point should NOT be used by Hemophage hybrids
+	 */
+	if(ishemophage(quirk_mob))
+		// Ignore proceeding code
+		return
 
 	// Register blood consumption interaction
 	RegisterSignal(quirk_holder, COMSIG_REAGENT_ADD_BLOOD, PROC_REF(on_consume_blood))
@@ -100,6 +99,13 @@
 	// Teach how to make the Hemorrhagic Sanguinizer
 	quirk_mob.mind?.teach_crafting_recipe(/datum/crafting_recipe/emag_bloodfledge)
 
+	// Redundant Hemophage check
+	// Placed here to preserve ability icon ordering
+	if(!ishemophage(quirk_mob))
+		// Define and grant ability Bite
+		var/datum/action/cooldown/bloodfledge/bite/act_bite = new
+		act_bite.Grant(quirk_mob)
+
 	// Check for non-organic mob
 	// Robotic and other mobs have technical issues with adjusting damage
 	if(!(quirk_mob.mob_biotypes & MOB_ORGANIC))
@@ -112,17 +118,19 @@
 		var/datum/action/cooldown/bloodfledge/revive/act_revive = new
 		act_revive.Grant(quirk_mob)
 
+	// Define and grant ability Analyze
+	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = new
+	act_analyze.Grant(quirk_mob)
+
 	/**
-	 * Hemophage check
-	 *
-	 * Check if the quirk holder is a hemophage.
-	 * Ignore remaining features if they are
+	 * Hemophage Filter
+	 * Anything past this point should NOT be used by Hemophage hybrids
 	 */
 	if(ishemophage(quirk_mob))
-		// Warn user
-		to_chat(quirk_mob, span_warning("Because you already possess the tumor's corruption, some redundant bloodfledge abilities remain dormant. Your bite ability will manifest once the tumor's corruption takes hold."))
+		// Warn user about feature overlap
+		to_chat(quirk_mob, span_warning("As a Hemophage already in possession of " + quirk_mob.p_their() + " tumor, you've neglected to learn some redundant bloodfledge abilities."))
 
-		// Disable nutrition mode
+		// Disable nutrition mode - use blood volume mode
 		use_nutrition = FALSE
 
 		// Ignore remaining features
@@ -136,14 +144,6 @@
 		// Force preference for bloody food
 		target_tongue.disliked_foodtypes &= ~BLOODY
 		target_tongue.liked_foodtypes |= BLOODY
-
-	// Define and grant ability Bite
-	var/datum/action/cooldown/bloodfledge/bite/act_bite = new
-	act_bite.Grant(quirk_mob)
-
-	// Define and grant ability Analyze
-	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = new
-	act_analyze.Grant(quirk_mob)
 
 // Processing is currently only used for coffin healing
 /datum/quirk/item_quirk/bloodfledge/process(seconds_per_tick)
@@ -255,32 +255,31 @@
 	// Unregister examine text
 	UnregisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE)
 
+	// Remove quirk traits
+	quirk_mob.remove_traits(BLOODFLEDGE_TRAITS, TRAIT_BLOODFLEDGE)
+	//REMOVE_TRAIT(quirk_mob, TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
+
+	// Remove Analyze ability action datum
+	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
+	act_analyze?.Remove(quirk_mob)
+
 	/**
-	 * Hemophage check
-	 *
-	 * Check if the quirk holder is a hemophage.
-	 * Ignore remaining features if they are
+	 * Hemophage Filter
+	 * Anything past this point should NOT be used by Hemophage hybrids
 	 */
 	if(ishemophage(quirk_mob))
 		return
 
-	// Remove quirk traits
-	quirk_mob.remove_traits(BLOODFLEDGE_TRAITS, TRAIT_BLOODFLEDGE)
-	//REMOVE_TRAIT(quirk_mob, TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
+	// Remove bite ability action datum
+	var/datum/action/cooldown/bloodfledge/bite/act_bite = locate() in quirk_mob.actions
+	act_bite?.Remove(quirk_mob)
 
 	// Check if species should still be vampiric
 	if(!(quirk_mob.dna?.species?.inherent_biotypes & MOB_VAMPIRIC))
 		// Remove vampiric biotype
 		quirk_mob.mob_biotypes -= MOB_VAMPIRIC
 
-	// Remove quirk ability action datums
-	var/datum/action/cooldown/bloodfledge/bite/act_bite = locate() in quirk_mob.actions
-	act_bite?.Remove(quirk_mob)
-
-	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
-	act_analyze?.Remove(quirk_mob)
-
-	// Remove profane penalties
+	// Remove quirk-issued profane penalties
 	REMOVE_TRAIT(quirk_holder, TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE)
 	REMOVE_TRAIT(quirk_holder, TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE)
 
