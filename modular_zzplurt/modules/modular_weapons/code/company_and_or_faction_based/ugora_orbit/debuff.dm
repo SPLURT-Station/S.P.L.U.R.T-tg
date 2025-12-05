@@ -1,6 +1,6 @@
 /datum/status_effect/bluespace_scarred
 	id = "bluespace_scarred"
-	duration = 1.4 SECONDS
+	duration = 2 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/bluespace_scarred
 	status_type = STATUS_EFFECT_REFRESH
 	var/obj/effect/dummy/lighting_obj/moblight/mob_scarred
@@ -18,7 +18,7 @@
 
 /atom/movable/screen/alert/status_effect/bluespace_scarred
 	name = "Bluespace Scarring"
-	desc = "Teleportation is blocked! This will end shortly"
+	desc = "Your teleportation is blocked! This effect will end soon"
 	icon = 'modular_zzplurt/modules/status_effect.dmi'
 	icon_state = "scarred_blue"
 
