@@ -15,10 +15,10 @@
 /area/ruin/space/has_grav/interdyne)
 "at" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/iron/smooth,
+/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "aB" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -834,21 +834,6 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/large,
-/area/ruin/space/has_grav/interdyne)
-"kX" = (
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/blue/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "ls" = (
 /obj/structure/sign/poster/official/moth_hardhat/directional/west,
@@ -1881,7 +1866,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/mix_output{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine/air,
 /area/ruin/space/has_grav/interdyne)
 "zm" = (
@@ -2046,6 +2030,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
@@ -2377,9 +2364,7 @@
 /area/ruin/space/has_grav/interdyne)
 "DM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/blood/trail{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "DP" = (
@@ -2463,8 +2448,8 @@
 "EU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/interdyne)
 "Ff" = (
@@ -2603,7 +2588,6 @@
 /area/ruin/space/has_grav/interdyne)
 "GH" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /mob/living/basic/zombie_interdyne/doctor,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
@@ -2636,7 +2620,7 @@
 /area/ruin/space/has_grav/interdyne)
 "GW" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/iron/herringbone,
@@ -2931,6 +2915,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/interdyne)
 "Lb" = (
@@ -3048,7 +3033,7 @@
 /area/ruin/space/has_grav/interdyne)
 "Mh" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/interdyne)
 "Mk" = (
@@ -3085,6 +3070,9 @@
 /area/ruin/space/has_grav/interdyne)
 "MF" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "MI" = (
@@ -3356,7 +3344,7 @@
 "PY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/interdyne)
 "Qa" = (
@@ -4795,7 +4783,7 @@ nn
 Dc
 GH
 DP
-wV
+at
 hx
 nn
 hD
@@ -4827,7 +4815,7 @@ rK
 mS
 Wg
 ZY
-at
+Wg
 pt
 rK
 nn
@@ -4838,7 +4826,7 @@ nn
 eB
 Ho
 aB
-kX
+Ho
 Vu
 nn
 kw
@@ -5012,10 +5000,10 @@ nn
 nn
 nn
 nn
-nn
-nn
-nn
-nn
+QW
+QW
+QW
+QW
 nn
 JE
 GJ
@@ -5058,7 +5046,7 @@ ww
 KZ
 eh
 Jw
-nn
+QW
 JE
 JE
 GJ
