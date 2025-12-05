@@ -42,8 +42,9 @@ Kayian Janissary.
 	if(!pick)
 		return
 	var/drop_location = drop_location()
+	new pick(melee_spawnables)
 	var/to_spawn = pick(melee_spawnables)
-	switch(melee_spawnables)
+	switch(pick)
 		if("Security Dual Sheath Belt")
 			new /obj/item/storage/belt/secdaisho/full(drop_location)
 			to_chat(user, span_warning("You have chosen the path of devotion, mastery of your sword is paramount to the brutal arithmetic of combat. It is slow to swing but effective at finishing off wounded enemy, your baton does not knock down, but will knock item out of a staggered target."))
