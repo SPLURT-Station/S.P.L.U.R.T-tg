@@ -27,16 +27,16 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
-/datum/design/m9x17mm_mag_idhf
+/datum/design/m9x17mm_mag_ihdf
 	name = "9x17mm Intelligent Dispersal Foam MP-S5 Magazine (Non-Lethal)"
 	desc = "A standard magazine for the MP-S5 VIG, made to hold 30 bullets of 9x17mm, this one is full of advanced bullets full of \
 	foam-capped bullets that expand the foam on impact, making the impact padded, however hitting them like a beanbag, knocking the air out of them."
-	id = "m9x17mm_mag_idhf"
+	id = "m9x17mm_mag_ihdf"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 12,
 	)
-	build_path = /obj/item/ammo_box/magazine/mps5/idhf
+	build_path = /obj/item/ammo_box/magazine/mps5/ihdf
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)
