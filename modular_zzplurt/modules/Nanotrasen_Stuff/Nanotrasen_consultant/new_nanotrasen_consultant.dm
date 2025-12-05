@@ -109,6 +109,7 @@
 	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen(src)
 	new /obj/item/clothing/suit/armor/vest/nt_officerfake(src)
+	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant
 	name = "medal of diplomacy"

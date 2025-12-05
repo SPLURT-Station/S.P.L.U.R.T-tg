@@ -102,6 +102,8 @@
 	new /obj/item/clothing/head/hats/nanotrasen_cap/lowrank(src)
 	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
 	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
+	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
+	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
