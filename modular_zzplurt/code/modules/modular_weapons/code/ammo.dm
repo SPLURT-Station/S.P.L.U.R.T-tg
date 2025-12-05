@@ -1,3 +1,4 @@
+// MP-S5 VIG MAGAZINES
 /obj/item/ammo_box/magazine/mps5
 	name = "\improper MP-S5 magazine (9x17mm)"
 	desc = "A 9x17mm magazine for the MP-S5 VIG, contains 30 bullets."
@@ -34,6 +35,7 @@
 	base_icon_state = "smg9x17mmR"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/rubber
 
+// MP-S5 VIG CASINGS
 /obj/item/ammo_casing/c9x17mm
 	name = "9x17mm bullet casing"
 	desc = "A 9x17mm bullet casing."
@@ -65,6 +67,7 @@
 	projectile_type = /obj/projectile/bullet/c9x17mm/rubber
 	harmful = FALSE
 
+// MP-S5 VIG PROJECTILES
 /obj/projectile/bullet/c9x17mm
 	name = "9x17mm bullet"
 	damage = 16
@@ -103,8 +106,8 @@
 /obj/projectile/bullet/c9x17mm/rubber
 	name = "9x17mm rubber bullet"
 	icon_state = "pellet"
-	damage = 13
-	stamina = 27
+	damage = 7
+	stamina = 16
 	ricochets_max = 3
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 150
