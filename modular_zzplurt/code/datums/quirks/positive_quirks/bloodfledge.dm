@@ -13,37 +13,13 @@
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
 /// List of traits inherent to bloodfledges
-#define BLOODFLEDGE_TRAITS list(TRAIT_NO_MIRROR_REFLECTION, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
-
-// This is has more potential uses, and is probably faster than the old proc. //SPLURT REVIVAL - this was removed from nonmodular apparently???
-/proc/get_safe_blood(bloodtype)
-	. = list()
-	if(!bloodtype)
-		return
-
-	var/static/list/bloodtypes_safe = list(
-		"A-" = list("A-", "O-"),
-		"A+" = list("A-", "A+", "O-", "O+"),
-		"B-" = list("B-", "O-"),
-		"B+" = list("B-", "B+", "O-", "O+"),
-		"AB-" = list("A-", "B-", "O-", "AB-"),
-		"AB+" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+"),
-		"O-" = list("O-"),
-		"O+" = list("O-", "O+"),
-		"L" = list("L"),
-		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
-	)
-
-	var/safe = bloodtypes_safe[bloodtype]
-	if(safe)
-		. = safe
-
-
-/datum/quirk/item_quirk/bloodfledge
+#define BLOODFLEDGE_TRAITS list(TRAIT_NO_MIRROR_REFLECTION, TRAIT_DRINKS_BLOOD, TRAIT_NOTHIRST)
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 300
+
+/datum/quirk/item_quirk/bloodfledge
 	name = "Bloodfledge"
-	desc = "You are apprentice sanguine sorcerer endowed with vampiric power beyond that of a common hemophage. While not truly undead, many of the same conditions still apply."
+	desc = "You are apprentice sanguine sorcerer endowed with vampiric power similar to a hemophage. While not truly undead, many of the same conditions still apply."
 	value = 4
 	gain_text = span_notice("A sanguine blessing flows through your body, granting it new strength.")
 	lose_text = span_notice("The sanguine blessing fades away...")
@@ -51,30 +27,8 @@
 	mob_trait = TRAIT_BLOODFLEDGE
 	hardcore_value = -2
 	icon = FA_ICON_CHAMPAGNE_GLASSES
-	/// Does the quirk holder still breathe? If so, don't lower their blood levels to critical level.
-	var/demi_mortal = TRUE
-
-//Create a memory of the bloodfledge's blood type, for easy access
-/datum/memory/key/quirk_bloodfledge
-	var/blood_type
-
-/datum/memory/key/quirk_bloodfledge/New(
-	datum/mind/memorizer_mind,
-	atom/protagonist,
-	atom/deuteragonist,
-	atom/antagonist,
-	blood_type,
-)
-	src.blood_type = blood_type
-	return ..()
-
-/datum/memory/key/quirk_bloodfledge/get_names()
-	return list("[protagonist_name] becomes aware of their blood type, [blood_type].")
-
-/datum/memory/key/quirk_bloodfledge/get_starts()
-	return list(
-		"Their cursed blood, singing to them. [blood_type]",
-	)
+	/// Toggle between using blood volume or nutrition. Blood volume is used for hemophages.
+	var/use_nutrition = TRUE
 
 /datum/quirk/item_quirk/bloodfledge/add(client/client_source)
 	// Define quirk mob
@@ -155,7 +109,7 @@
 		to_chat(quirk_mob, span_warning("Because you already possess the tumor's corruption, some redundant bloodfledge abilities remain dormant. Your bite ability will manifest once the tumor's corruption takes hold."))
 
 		// Disable nutrition mode
-		demi_mortal = FALSE
+		use_nutrition = FALSE
 
 		// Ignore remaining features
 		return
@@ -174,7 +128,7 @@
 	act_bite.Grant(quirk_mob)
 
 	// Define and grant ability Analyze
-	var/datum/action/cooldown/spell/pointed/bloodfledge_analyze/act_analyze = new
+	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = new
 	act_analyze.Grant(quirk_mob)
 
 // Processing is currently only used for coffin healing
@@ -207,9 +161,9 @@
 	var/has_enough_blood = TRUE
 
 	// Check if using nutrition mode
-	if(demi_mortal)
+	if(use_nutrition)
 		// Nutrition level must be above STARVING
-		if(quirk_mob.blood_volume <= BLOOD_VOLUME_RISKY)
+		if(quirk_mob.nutrition <= NUTRITION_LEVEL_STARVING)
 			// Set variable
 			has_enough_blood = FALSE
 
@@ -260,7 +214,14 @@
 
 	// Remove a resource as compensation for healing
 	// Amount is equal to healing done
-	quirk_mob.blood_volume -= health_restored
+
+	// Check if using nutrition mode
+	if(use_nutrition)
+		quirk_mob.adjust_nutrition(health_restored*-1)
+
+	// Using blood volume mode
+	else
+		quirk_mob.blood_volume -= (health_restored*-1)
 
 
 /datum/quirk/item_quirk/bloodfledge/remove()
@@ -302,7 +263,7 @@
 	var/datum/action/cooldown/bloodfledge/bite/act_bite = locate() in quirk_mob.actions
 	act_bite?.Remove(quirk_mob)
 
-	var/datum/action/cooldown/spell/pointed/bloodfledge_analyze/act_analyze = locate() in quirk_mob.actions
+	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
 	act_analyze?.Remove(quirk_mob)
 
 	// Remove profane penalties
@@ -409,14 +370,14 @@
 	var/examine_hunger_secret
 
 	// Check hunger levels
-	switch(quirk_mob.blood_volume)
+	switch(quirk_mob.nutrition)
 		// Hungry
-		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
+		if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
 			examine_hunger_secret = "[holder_they] [holder_are] blood starved!"
 			examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
 
 		// Starving
-		if(0 to BLOOD_VOLUME_RISKY)
+		if(0 to NUTRITION_LEVEL_STARVING)
 			examine_hunger_secret = "[holder_they] [holder_are] in dire need of blood!"
 			examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied hunger!"
 
@@ -487,7 +448,6 @@
  * * Causes instant death if the target is unconscious
  * * Warns normally if the target is conscious
 */
-
 /datum/quirk/item_quirk/bloodfledge/proc/on_staked(atom/target, forced)
 	SIGNAL_HANDLER
 
@@ -511,9 +471,10 @@
 	target.balloon_alert(target, "you have been staked!")
 
 /**
- * Mood events for drinking different kinds of blood as a bloodfledge
+ * Blood nourishment for Bloodfledges
  * * Checks if the blood was synthesized or from an invalid mob
  * * Checks if the owner tried to drink their own blood
+ * * Converts any valid blood into Notriment
 */
 /datum/quirk/item_quirk/bloodfledge/proc/on_consume_blood(mob/living/target, datum/reagent/blood/handled_reagent, amount, data)
 	SIGNAL_HANDLER
@@ -565,7 +526,13 @@
 		// End here
 		return
 
+	// Check for valid reagent
+	if(ispath(handled_reagent))
+		// Remove reagent
+		quirk_holder.reagents.remove_reagent(handled_reagent, amount)
 
+	// Add Notriment
+	quirk_holder.reagents.add_reagent(/datum/reagent/consumable/notriment, amount)
 
 //
 // Bloodfledge actions
@@ -582,7 +549,7 @@
 	buttontooltipstyle = "cult"
 
 	/// Toggle between using blood volume or nutrition. Blood volume is used for hemophages.
-	var/demi_mortal = TRUE
+	var/use_nutrition = TRUE
 
 /datum/action/cooldown/bloodfledge/Grant()
 	. = ..()
@@ -590,7 +557,7 @@
 	// Check if user is a hemophage
 	if(ishemophage(owner))
 		// Disable nutrition mode
-		demi_mortal = FALSE
+		use_nutrition = FALSE
 
 /**
  * Check if Bloodfledge power is allowed to be used
@@ -657,7 +624,7 @@
 	. = ..()
 
 	// Check if using nutrition mode
-	if(demi_mortal)
+	if(use_nutrition)
 		// Create reagent holder
 		blood_bank = new(BLOODFLEDGE_BANK_CAPACITY)
 
@@ -698,19 +665,38 @@
 		to_chat(action_owner, span_warning("You can't bite things with your mouth covered!"))
 		owner.balloon_alert(owner, "mouth covered!")
 		return FALSE
-	// Limit maximum blood volume
-	if(action_owner.blood_volume >= BLOOD_VOLUME_MAXIMUM)
-		// Warn the user, then return
-		to_chat(action_owner, span_warning("Your body contains too much blood to drain any more."))
-		owner.balloon_alert(owner, "too full!")
-		return
 
-	// Limit maximum potential blood volume
-	if(action_owner.blood_volume + BLOODFLEDGE_DRAIN_AMT >= BLOOD_VOLUME_MAXIMUM)
-		// Warn the user, then return
-		to_chat(action_owner, span_warning("You body would become overwhelmed by draining any more blood."))
-		owner.balloon_alert(owner, "too full!")
-		return
+	// Using nutrition mode
+	if(use_nutrition)
+		// Limit maximum nutrition
+		if(action_owner.nutrition >= NUTRITION_LEVEL_FAT)
+			// Warn the user, then return
+			to_chat(action_owner, span_warning("You are too full to drain any more."))
+			owner.balloon_alert(owner, "too full!")
+			return
+
+		// Limit maximum potential nutrition
+		if(action_owner.nutrition + BLOODFLEDGE_DRAIN_AMT >= NUTRITION_LEVEL_FAT)
+			// Warn the user, then return
+			to_chat(action_owner, span_warning("You would become too full by draining any more blood."))
+			owner.balloon_alert(owner, "too full!")
+			return
+
+	// Using blood volume mode
+	else
+		// Limit maximum blood volume
+		if(action_owner.blood_volume >= BLOOD_VOLUME_MAXIMUM)
+			// Warn the user, then return
+			to_chat(action_owner, span_warning("Your body contains too much blood to drain any more."))
+			owner.balloon_alert(owner, "too full!")
+			return
+
+		// Limit maximum potential blood volume
+		if(action_owner.blood_volume + BLOODFLEDGE_DRAIN_AMT >= BLOOD_VOLUME_MAXIMUM)
+			// Warn the user, then return
+			to_chat(action_owner, span_warning("You body would become overwhelmed by draining any more blood."))
+			owner.balloon_alert(owner, "too full!")
+			return
 
 	// Define pulled target
 	var/pull_target = action_owner.pulling
@@ -1072,6 +1058,7 @@
 
 		// Return
 		return
+
 	else
 		/// Is this valid nourishing blood? Does not grant nutrition if FALSE.
 		var/blood_valid = TRUE
@@ -1082,10 +1069,8 @@
 		/// Name of exotic blood substitute determined by species
 		var/blood_name = "blood"
 
-		// Get blood type datum from target's DNA
+		// Define blood types for owner and target
 		var/datum/blood_type/target_blood = bite_target.dna?.blood_type
-
-		// Get blood type datum from owner's DNA
 		var/datum/blood_type/owner_blood = action_owner.dna?.blood_type
 
 		// Check if target has blood type
@@ -1101,43 +1086,60 @@
 			// Set blood name from datum
 			blood_name = target_blood.name
 
-			// Check blood type specific effects
-			if(target_blood.reagent_type == /datum/reagent/fuel/oil)
-				// Mark blood as invalid
-				blood_valid = FALSE
-				// Cause negative mood
-				action_owner.add_mood_event(QMOOD_BFLED_DRANK_SYNTH, /datum/mood_event/bloodfledge/drankblood/synth)
+			/*
+			 * Check blood type specific effects
+			 *
+			 * Set blood_valid FALSE if this is exotic non-blood
+			 *
+			 * Set blood_transfer TRUE if the reagent should be added directly to the owner
+			 * This is to apply penalties for exotic dangerous bloods
+			 *
+			 * Add a mood event if exotic blood types do not match
+			 *
+			*/
+			switch(target_blood.reagent_type)
+				// Synthetic blood
+				if(/datum/reagent/fuel/oil)
+					blood_valid = FALSE
+					if(!blood_type_match)
+						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SYNTH, /datum/mood_event/bloodfledge/drankblood/synth)
 
-			else if(target_blood.reagent_type == /datum/reagent/toxin/slimejelly)
-				blood_valid = FALSE
-				blood_transfer = TRUE
-				if(!blood_type_match)
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SLIME, /datum/mood_event/bloodfledge/drankblood/slime)
+				// Slime blood
+				if(/datum/reagent/toxin/slimejelly)
+					blood_valid = FALSE
+					blood_transfer = TRUE
+					if(!blood_type_match)
+						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SLIME, /datum/mood_event/bloodfledge/drankblood/slime)
 
-			else if(target_blood.reagent_type == /datum/reagent/water)
-				blood_valid = FALSE
-				action_owner.add_mood_event(QMOOD_BFLED_DRANK_POD, /datum/mood_event/bloodfledge/drankblood/podperson)
+				// Podperson blood
+				if(/datum/reagent/water)
+					blood_valid = FALSE
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_POD, /datum/mood_event/bloodfledge/drankblood/podperson)
 
-			else if(target_blood.reagent_type == /datum/reagent/lube)
-				blood_valid = FALSE
-				if(!blood_type_match)
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SNAIL, /datum/mood_event/bloodfledge/drankblood/snail)
+				// Snail blood
+				if(/datum/reagent/lube)
+					blood_valid = FALSE
+					if(!blood_type_match)
+						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SNAIL, /datum/mood_event/bloodfledge/drankblood/snail)
 
-			else if(target_blood.reagent_type == /datum/reagent/copper)
-				blood_valid = FALSE
-				if(!blood_type_match)
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_SKREL, /datum/mood_event/bloodfledge/drankblood/skrell)
+				// Skrell blood
+				if(/datum/reagent/copper)
+					blood_valid = FALSE
+					if(!blood_type_match)
+						action_owner.add_mood_event(QMOOD_BFLED_DRANK_SKREL, /datum/mood_event/bloodfledge/drankblood/skrell)
 
-			else if(target_blood.reagent_type == /datum/reagent/toxin/acid)
-				blood_valid = FALSE
-				blood_transfer = TRUE
-				if(!blood_type_match)
-					action_owner.add_mood_event(QMOOD_BFLED_DRANK_XENO, /datum/mood_event/bloodfledge/drankblood/xeno)
+				// Xenomorph Hybrid blood
+				if(/datum/reagent/toxin/acid)
+					blood_valid = FALSE
+					blood_transfer = TRUE
+					if(!blood_type_match)
+						action_owner.add_mood_event(QMOOD_BFLED_DRANK_XENO, /datum/mood_event/bloodfledge/drankblood/xeno)
 
-			else if(target_blood.reagent_type == /datum/reagent/colorful_reagent)
-				blood_valid = FALSE
-				blood_transfer = TRUE
-				action_owner.add_mood_event(QMOOD_BFLED_DRANK_ETHER, /datum/mood_event/bloodfledge/drankblood/ethereal)
+				// Ethereal Blood
+				if(/datum/reagent/colorful_reagent)
+					blood_valid = FALSE
+					blood_transfer = TRUE
+					action_owner.add_mood_event(QMOOD_BFLED_DRANK_ETHER, /datum/mood_event/bloodfledge/drankblood/ethereal)
 
 		// Check if bite target has any blood
 		// Checked later since some species have NOBLOOD and exotic blood type
@@ -1170,7 +1172,7 @@
 		// Check if action owner received valid blood
 		if(blood_valid)
 			// Using nutrition mode
-			if(demi_mortal)
+			if(use_nutrition)
 				// Add blood reagent to reagent holder
 				blood_bank.add_reagent(/datum/reagent/blood/, drained_blood, bite_target.get_blood_data())
 
@@ -1294,14 +1296,19 @@
 	var/mob/living/carbon/human/action_owner = owner
 
 	// Condition: Insufficient nutrition
-	if(demi_mortal)
-		if(action_owner.blood_volume <= BLOOD_VOLUME_OKAY)
+	if(use_nutrition)
+		if(action_owner.nutrition <= NUTRITION_LEVEL_VERY_HUNGRY)
 			revive_failed += "\n- You're too blood-starved!"
 
 	// Condition: Insufficient blood volume
 	else
 		if(action_owner.blood_volume > BLOOD_VOLUME_SURVIVE)
 			revive_failed += "\n- You don't have enough blood volume left!"
+
+	// Condition: Can be revived
+	// This is used by revive(), and must be checked here to prevent false feedback
+	if(!action_owner.can_be_revived())
+		revive_failed += "\n- Your body is too weak to sustain life!"
 
 	// Condition: Damage limit, brute
 	if(action_owner.getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE)
@@ -1342,12 +1349,25 @@
 		return
 
 	// Alert nearby players that we are about to revive
+
+	// Play revival imminent sound
 	playsound(action_owner, 'sound/effects/singlebeat.ogg', 30, 1, -2)
-	action_owner.visible_message(span_notice("[action_owner]'s body begins to twitch and radiate an ominous aura"), span_warning("You begin gathering the strength to revive."))
+
+	// Display local chat message
+	action_owner.visible_message(span_notice("[action_owner]'s body begins to twitch and radiate an ominous aura."), span_warning("You begin gathering the strength to revive."))
+
+	// Attempt to revive after a timer
 	if(!do_after(action_owner,BLOODFLEDGE_REVIVE_DELAY,action_owner,list(IGNORE_USER_LOC_CHANGE, IGNORE_TARGET_LOC_CHANGE,IGNORE_SLOWDOWNS)))
+		// Alert user in chat and return
+		to_chat(action_owner, span_warning("Something has interrupted your revival!"))
 		return FALSE
-	if(!can_use(owner) || action_owner.getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE || action_owner.getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE)
+
+	// Check if ability is still permitted
+	if(!can_use(owner))
+		// Alert user in chat and return
+		to_chat(action_owner, span_warning("Your powers have failed to activate!"))
 		return FALSE
+
 	// Remove oxygen damage
 	action_owner.adjustOxyLoss(-100, FALSE)
 
@@ -1414,9 +1434,9 @@
 	playsound(action_owner, 'sound/effects/pope_entry.ogg', 30, 1, -2)
 
 	// Nutrition mode
-	if(demi_mortal)
+	if(use_nutrition)
 		// Set nutrition to starving
-		action_owner.blood_volume = min(action_owner.blood_volume, BLOOD_VOLUME_RISKY)
+		action_owner.set_nutrition(NUTRITION_LEVEL_STARVING)
 
 	// Blood volume mode
 	else
@@ -1429,42 +1449,104 @@
 	// Start cooldown
 	StartCooldown()
 
-//Action: Analyze
-/datum/action/cooldown/spell/pointed/bloodfledge_analyze
-	name = "Fledgling Analyze"
-	desc = "Examine the scent of another to learn their blood."
+
+// Action: Base for pointed spells
+/datum/action/cooldown/spell/pointed/bloodfledge
+	name = "Broken Bloodfledge Pointed Spell"
+	desc = "You shouldn't be seeing this!"
 	background_icon = 'modular_zubbers/icons/mob/actions/bloodsucker.dmi'
 	background_icon_state = "vamp_power_off"
 	button_icon = 'modular_zubbers/icons/mob/actions/bloodsucker.dmi'
-	button_icon_state = "power_mez"
+	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
+
+	// Don't require words
 	spell_requirements = SPELL_CASTABLE_WITHOUT_INVOCATION
-	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
+
+	// Check if awake
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 
-/datum/action/cooldown/spell/pointed/bloodfledge_analyze/InterceptClickOn(mob/living/clicker, params, atom/target)
+// Action: Analyze
+/datum/action/cooldown/spell/pointed/bloodfledge/analyze
+	name = "Fledgling Analyze"
+	desc = "Peer through the other-world to gain insight on another individual's blood."
+	button_icon_state = "power_mez"
+	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
+
+/datum/action/cooldown/spell/pointed/bloodfledge/analyze/InterceptClickOn(mob/living/clicker, params, atom/target)
 	. = ..()
+
+	// Define owner and target
 	var/mob/living/carbon/human/human_target = target
 	var/mob/living/carbon/human/human_caster = clicker
+
+	// Check if owner and target are valid
 	if(!ishuman(human_target) || !human_caster || human_target == human_caster)
 		return FALSE
+
+	// Define target pronouns
 	var/t_their = human_target.p_Their()
+
+	// Define default response
 	var/output = "[t_their] blood smells unremarkable and incompatible with ours."
+
+	// Define blood types and volume
 	var/t_bloodtype = human_target.dna.blood_type
 	var/c_bloodtype = human_caster.dna.blood_type
 	var/t_blood_volume = human_target.blood_volume
+
+	// Check if blood type matches
 	if(t_bloodtype == c_bloodtype)
 		output = "[t_their] blood smells delicious. A perfect match!"
+
+	// Blood type does not match
+	// Check if blood type is in "safe" list
 	else if(t_bloodtype in get_safe_blood(c_bloodtype))
 		output = "[t_their] blood smells sweet and enticing."
+
+	// Check target blood volume
 	switch(t_blood_volume)
+		// High volume
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_MAXIMUM)
 			output += "\n[t_their] veins run rich with blood, ripe for the taking."
+
+		// Low volume
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 			output += "\n[t_their] heart is beating faster, [t_their] blood supply running low."
+
+		// Almost no volume
 		if(0 to BLOOD_VOLUME_BAD)
 			output += "\n[t_their] heartbeat thrashes wildly, desperately trying to offset [t_their] drained blood supply."
+
+	// Alert user of results
 	to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n" + output)))
+
+//
+// Bloodfledge memory
+//
+
+//Create a memory of the bloodfledge's blood type, for easy access
+/datum/memory/key/quirk_bloodfledge
+	var/blood_type
+
+/datum/memory/key/quirk_bloodfledge/New(
+	datum/mind/memorizer_mind,
+	atom/protagonist,
+	atom/deuteragonist,
+	atom/antagonist,
+	blood_type,
+)
+	src.blood_type = blood_type
+	return ..()
+
+/datum/memory/key/quirk_bloodfledge/get_names()
+	return list("[protagonist_name] becomes aware of their blood type, [blood_type].")
+
+/datum/memory/key/quirk_bloodfledge/get_starts()
+	return list(
+		"Their cursed blood, singing to them. [blood_type]",
+	)
+
 //
 // Bloodfledge mood events
 //
@@ -1548,6 +1630,39 @@
 /datum/mood_event/bloodfledge/drankblood/blood_fake
 	description = "I drink artifical blood. I should know better."
 
+//
+// Safe Blood Check
+//
+
+// This is has more potential uses, and is probably faster than the old proc. //SPLURT REVIVAL - this was removed from nonmodular apparently???
+/proc/get_safe_blood(bloodtype)
+	. = list()
+
+	// Check if blood type exists
+	if(!bloodtype)
+		return
+
+	// List of donor-compatible blood types
+	var/static/list/bloodtypes_safe = list(
+		"A-" = list("A-", "O-"),
+		"A+" = list("A-", "A+", "O-", "O+"),
+		"B-" = list("B-", "O-"),
+		"B+" = list("B-", "B+", "O-", "O+"),
+		"AB-" = list("A-", "B-", "O-", "AB-"),
+		"AB+" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+"),
+		"O-" = list("O-"),
+		"O+" = list("O-", "O+"),
+		"L" = list("L"),
+		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
+	)
+
+	// Define if blood type is safe
+	var/safe = bloodtypes_safe[bloodtype]
+
+	// Return safe status if true
+	if(safe)
+		. = safe
+
 #undef BLOODFLEDGE_DRAIN_AMT
 #undef BLOODFLEDGE_DRAIN_TIME
 #undef BLOODFLEDGE_COOLDOWN_BITE
@@ -1556,4 +1671,3 @@
 #undef BLOODFLEDGE_HEAL_AMT
 #undef BLOODFLEDGE_TRAITS
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
-#undef TRAIT_NO_BLOOD_REGEN
