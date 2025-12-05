@@ -15,7 +15,21 @@
 /// List of traits inherent to bloodfledges
 #define BLOODFLEDGE_TRAITS list(TRAIT_NO_MIRROR_REFLECTION, TRAIT_DRINKS_BLOOD, TRAIT_NOTHIRST)
 /// Delay between activating revive and actually getting up
-#define BLOODFLEDGE_REVIVE_DELAY 300
+#define BLOODFLEDGE_REVIVE_DELAY 200
+
+// Special testing-only overrides
+#ifdef TESTING
+#undef BLOODFLEDGE_DRAIN_TIME
+#undef BLOODFLEDGE_COOLDOWN_BITE
+#undef BLOODFLEDGE_COOLDOWN_REVIVE
+#undef BLOODFLEDGE_COOLDOWN_ANALYZE
+#undef BLOODFLEDGE_REVIVE_DELAY
+#define BLOODFLEDGE_DRAIN_TIME 10
+#define BLOODFLEDGE_COOLDOWN_BITE 10
+#define BLOODFLEDGE_COOLDOWN_REVIVE 10
+#define BLOODFLEDGE_COOLDOWN_ANALYZE 10
+#define BLOODFLEDGE_REVIVE_DELAY 10
+#endif
 
 /datum/quirk/item_quirk/bloodfledge
 	name = "Bloodfledge"
@@ -568,39 +582,52 @@
  * * No stake embedded
  * * Not just a brain
 */
-/datum/action/cooldown/bloodfledge/proc/can_use(mob/living/carbon/action_owner)
+/mob/living/carbon/proc/can_use_bloodfledge_power()
 	// Check for deleted owner
-	if(QDELETED(owner))
+	if(QDELETED(src))
 		return FALSE
 
 	// Check for holiness
-	if(owner.can_block_magic(MAGIC_RESISTANCE_HOLY))
+	if(src.can_block_magic(MAGIC_RESISTANCE_HOLY))
 		// Warn user and return
-		to_chat(owner, span_warning("A holy force prevents you from using your powers!"))
-		owner.balloon_alert(owner, "holy interference!")
+		to_chat(src, span_warning("A holy force prevents you from using your powers!"))
+		src.balloon_alert(src, "holy interference!")
 		return FALSE
 
 	// Check for garlic
-	if(action_owner.has_reagent(/datum/reagent/consumable/garlic, 5))
+	if(src.has_reagent(/datum/reagent/consumable/garlic, 5))
 		// Warn user and return
-		to_chat(owner, span_warning("The Allium Sativum in your system is stifling your powers!"))
-		owner.balloon_alert(owner, "garlic interference!")
+		to_chat(src, span_warning("The Allium Sativum in your system is stifling your powers!"))
+		src.balloon_alert(src, "garlic interference!")
 		return FALSE
 
 	// Check for stake
-	if(action_owner.am_staked())
-		to_chat(owner, span_warning("Your powers are useless while you have a stake in your chest!"))
-		owner.balloon_alert(owner, "staked!")
+	if(src.am_staked())
+		to_chat(src, span_warning("Your powers are useless while you have a stake in your chest!"))
+		src.balloon_alert(src, "staked!")
 		return FALSE
 
 	// Check if just a brain
-	if(isbrain(owner))
-		to_chat(owner, span_warning("You think extra hard about how you can't do this right now!"))
-		owner.balloon_alert(owner, "just a brain!")
+	if(isbrain(src))
+		to_chat(src, span_warning("You think extra hard about how you can't do this right now!"))
+		src.balloon_alert(src, "just a brain!")
 		return FALSE
 
 	// Action can be used
 	return TRUE
+
+/datum/action/cooldown/bloodfledge/proc/can_use(mob/living/carbon/action_owner)
+	// Check if action owner exists
+	if(!istype(action_owner))
+		return FALSE
+
+	// Check bloodfledge ability conditions
+	if(action_owner.can_use_bloodfledge_power())
+		return TRUE
+
+	// Ability not allowed
+	else
+		return FALSE
 
 // Action: Bite
 /datum/action/cooldown/bloodfledge/bite
@@ -1166,8 +1193,8 @@
 
 		// Alert the bite target and local user of success
 		// Yes, this is AFTER the message for non-valid blood
-		to_chat(bite_target, span_danger("[action_owner] has taken some of your [blood_name]!"))
-		to_chat(action_owner, span_notice("You've drained some of [bite_target]'s [blood_name]!"))
+		to_chat(bite_target, span_danger(span_warning("[action_owner] has taken some of your [blood_name] blood!")))
+		to_chat(action_owner, span_notice(span_good("You've drained some of [bite_target]'s [blood_name] blood!")))
 
 		// Check if action owner received valid blood
 		if(blood_valid)
@@ -1302,7 +1329,7 @@
 
 	// Condition: Insufficient blood volume
 	else
-		if(action_owner.blood_volume > BLOOD_VOLUME_SURVIVE)
+		if(action_owner.blood_volume < BLOOD_VOLUME_SURVIVE)
 			revive_failed += "\n- You don't have enough blood volume left!"
 
 	// Condition: Can be revived
@@ -1440,8 +1467,9 @@
 
 	// Blood volume mode
 	else
-		// Set dangerously low blood
-		action_owner.blood_volume = min(action_owner.blood_volume, BLOOD_VOLUME_SURVIVE)
+		// Set blood volume to half of previous value or RISKY level
+		// Setting this too low causes instant death for hemophages
+		action_owner.blood_volume = min(action_owner.blood_volume * 0.5, BLOOD_VOLUME_RISKY)
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
@@ -1461,7 +1489,7 @@
 	buttontooltipstyle = "cult"
 
 	// Don't require words
-	spell_requirements = SPELL_CASTABLE_WITHOUT_INVOCATION
+	spell_requirements = SPELL_CASTABLE_WITHOUT_INVOCATION | SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_MIND
 
 	// Check if awake
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
@@ -1473,6 +1501,28 @@
 	button_icon_state = "power_mez"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
 
+/datum/action/cooldown/spell/pointed/bloodfledge/can_cast_spell(feedback = TRUE)
+	. = ..()
+
+	// Check parent function
+	if (!.)
+		return
+
+	// Define action owner carbon mob
+	var/mob/living/carbon/action_owner = owner
+
+	// Check if action owner exists
+	if(!istype(action_owner))
+		return FALSE
+
+	// Check bloodfledge ability conditions
+	if(!action_owner.can_use_bloodfledge_power())
+		return FALSE
+
+	// Assume ability can be used
+	return .
+
+// Intercept click
 /datum/action/cooldown/spell/pointed/bloodfledge/analyze/InterceptClickOn(mob/living/clicker, params, atom/target)
 	. = ..()
 
@@ -1482,13 +1532,22 @@
 
 	// Check if owner and target are valid
 	if(!ishuman(human_target) || !human_caster || human_target == human_caster)
+		// Alert user in chat and return
+		to_chat(clicker, span_warning("That isn't a valid analyze target!"))
+		return FALSE
+
+	// Check for holiness
+	if(human_target.can_block_magic(MAGIC_RESISTANCE_HOLY))
+		// Warn user and return
+		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n"\
+			+ "A strange power is protecting [human_target]!\nYou cannot determine anything without a closer inspection.")))
 		return FALSE
 
 	// Define target pronouns
 	var/t_their = human_target.p_Their()
 
 	// Define default response
-	var/output = "[t_their] blood smells unremarkable and incompatible with ours."
+	var/output = "[t_their] blood seems unremarkable."
 
 	// Define blood types and volume
 	var/t_bloodtype = human_target.dna.blood_type
@@ -1497,12 +1556,12 @@
 
 	// Check if blood type matches
 	if(t_bloodtype == c_bloodtype)
-		output = "[t_their] blood smells delicious. A perfect match!"
+		output = "[t_their] blood has an ideal aura. A perfect match!"
 
 	// Blood type does not match
 	// Check if blood type is in "safe" list
 	else if(t_bloodtype in get_safe_blood(c_bloodtype))
-		output = "[t_their] blood smells sweet and enticing."
+		output = "[t_their] blood emits an enticing aura."
 
 	// Check target blood volume
 	switch(t_blood_volume)

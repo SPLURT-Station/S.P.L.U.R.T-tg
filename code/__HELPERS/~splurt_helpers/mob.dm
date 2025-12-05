@@ -72,3 +72,7 @@
 	// Check for Plasmaman
 	else if(isplasmaman(src))
 		return "Plasma"
+
+	// Fallback for no valid exotic blood
+	else
+		return "Blood"
