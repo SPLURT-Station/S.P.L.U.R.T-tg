@@ -4,7 +4,7 @@
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballisticmags.dmi'
 	icon_state = "smg9x17mm"
 	base_icon_state = "smg9x17mm"
-	ammo_type = /obj/item/ammo_casing/security
+	ammo_type = /obj/item/ammo_casing/c9x17mm
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	multiple_sprite_use_base = TRUE
 	caliber = CALIBER_9X17MM
