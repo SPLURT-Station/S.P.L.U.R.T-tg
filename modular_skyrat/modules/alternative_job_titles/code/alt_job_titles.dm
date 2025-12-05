@@ -357,12 +357,7 @@
 		"Nanotrasen Advisor",
 		"Nanotrasen Diplomat",
 		"Nanotrasen Representative",
-		"Nanotrasen Liason",
-		"Central Command Consultant",
-		"Central Command Advisor",
-		"Central Command Diplomat",
-		"Central Command Representative",
-		"Central Command Liason",
+		"Nanotrasen Liason", // SPLURT REMOVAL OF CENTCOM RENAMES
 		"Corporate Liason",
 		"Corporate Consultant",
 	)

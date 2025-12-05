@@ -23,6 +23,10 @@
 		"stamp-persistence" = 'icons/stamp_icons/large_stamp-persistence.png',
 		//BUBBERSTATION ADDITION: END - Bubberstation Stamp Icons
 
+		//SPLURT ADDITION: START - Splurt Stamp Icons
+		"stamp-nanotrasen" = 'icons/stamp_icons/large_stamp-nanotrasen.png',
+		//SPLURT ADDITION: END - Splurt Stamp Icons
+
 		"stamp-clown" = 'icons/stamp_icons/large_stamp-clown.png',
 		"stamp-deny" = 'icons/stamp_icons/large_stamp-deny.png',
 		"stamp-ok" = 'icons/stamp_icons/large_stamp-ok.png',

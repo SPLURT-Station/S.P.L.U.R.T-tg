@@ -34,7 +34,9 @@
 	honorifics += list("Sheriff", "Commander")
 	return ..()
 
+/* SPLURT REMOVAL
 /datum/id_trim/job/nanotrasen_consultant
 	job = /datum/job/nanotrasen_consultant
 	honorifics = list("Representative", "Consultant", "Rep.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
+*/
