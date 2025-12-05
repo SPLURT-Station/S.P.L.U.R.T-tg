@@ -35,14 +35,13 @@ Kayian Janissary.
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
 	var/list/melee_spawnables = list(
-		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
-		"Security Belt + Tanto" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"),
+		/obj/item/storage/belt/secdaisho/full = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
+		/obj/item/storage/belt/security/full = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"),
 	)
 	var/pick = show_radial_menu(user, src, melee_spawnables, radius = 36, require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return
 	var/drop_location = drop_location()
-	new pick(melee_spawnables)
 	var/to_spawn = pick(melee_spawnables)
 	switch(pick)
 		if("Security Dual Sheath Belt")
