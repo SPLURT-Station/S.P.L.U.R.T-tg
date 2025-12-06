@@ -50,8 +50,6 @@ Kayian Janissary.
 			new /obj/item/storage/belt/security/full(loc)
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
 	new to_spawn(loc)
-	if(!amount)
-		return ITEM_INTERACT_BLOCKING
 	amount -= 1
 	if(!amount)
 		qdel(src)
