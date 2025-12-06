@@ -13,7 +13,7 @@
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
 /// List of traits inherent to bloodfledges
-#define BLOODFLEDGE_TRAITS list(TRAIT_NO_MIRROR_REFLECTION, TRAIT_DRINKS_BLOOD, TRAIT_NOTHIRST)
+#define BLOODFLEDGE_TRAITS list(TRAIT_NOTHIRST, TRAIT_NOHUNGER, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 200
 
@@ -41,8 +41,8 @@
 	mob_trait = TRAIT_BLOODFLEDGE
 	hardcore_value = -2
 	icon = FA_ICON_CHAMPAGNE_GLASSES
-	/// Toggle between using blood volume or nutrition. Blood volume is used for hemophages.
-	var/use_nutrition = TRUE
+	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
+	var/use_nutrition = FALSE
 
 /datum/quirk/item_quirk/bloodfledge/add(client/client_source)
 	// Define quirk mob
@@ -514,8 +514,8 @@
 		// Add mood penalty
 		quirk_holder.add_mood_event(QMOOD_BFLED_DRANK_BLOOD_FAKE, /datum/mood_event/bloodfledge/drankblood/blood_fake)
 
-		// End here
-		return
+		// End here - Disabled
+		//return
 
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
@@ -537,6 +537,11 @@
 		quirk_holder.add_mood_event(QMOOD_BFLED_DRANK_BLOOD_SELF, /datum/mood_event/bloodfledge/drankblood/blood_self)
 
 		// End here
+		return
+
+	// Check if using nutrition mode
+	// Ignore reagent handling if not
+	if(!use_nutrition)
 		return
 
 	// Check for valid reagent
@@ -561,8 +566,8 @@
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
 
-	/// Toggle between using blood volume or nutrition. Blood volume is used for hemophages.
-	var/use_nutrition = TRUE
+	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
+	var/use_nutrition = FALSE
 
 /datum/action/cooldown/bloodfledge/Grant()
 	. = ..()
@@ -1448,7 +1453,7 @@
 	//action_owner.revive()
 
 	// Alert the user in chat of success
-	action_owner.visible_message(span_notice("An ominous energy radiates from the [action_owner.loc]..."), span_warning("You've expended all remaining blood to bring your body back to life!"))
+	action_owner.visible_message(span_notice("An ominous energy radiates from the [action_owner.loc]..."), span_warning("You've expended most of your blood to bring your body back to life!"))
 
 	// Warn user about revive policy
 	to_chat(action_owner, span_userdanger("[CONFIG_GET(string/blackoutpolicy)]"))
@@ -1466,16 +1471,15 @@
 
 	// Blood volume mode
 	else
-		// Set blood volume to half of previous value or RISKY level
+		// Set blood volume to RISKY level
 		// Setting this too low causes instant death for hemophages
-		action_owner.blood_volume = min(action_owner.blood_volume * 0.5, BLOOD_VOLUME_RISKY)
+		action_owner.blood_volume = BLOOD_VOLUME_RISKY
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
 
 	// Start cooldown
 	StartCooldown()
-
 
 // Action: Base for pointed spells
 /datum/action/cooldown/spell/pointed/bloodfledge
@@ -1487,7 +1491,7 @@
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
 
-	// Don't require words
+	// Don't require words, blocked by anti-magic, requires having a mind
 	spell_requirements = SPELL_CASTABLE_WITHOUT_INVOCATION | SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_MIND
 
 	// Check if awake
@@ -1499,6 +1503,8 @@
 	desc = "Peer through the other-world to gain insight on another individual's blood."
 	button_icon_state = "power_mez"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
+	// Reduce cast range
+	cast_range = 2
 
 /datum/action/cooldown/spell/pointed/bloodfledge/can_cast_spell(feedback = TRUE)
 	. = ..()
