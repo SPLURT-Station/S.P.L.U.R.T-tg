@@ -102,6 +102,9 @@
 	color = "#713333";
 	dir = 8
 	},
+/obj/structure/window/spawner/directional/west{
+	pixel_x = -3
+	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "bH" = (
@@ -217,6 +220,15 @@
 	},
 /turf/closed/wall/mineral/stone,
 /area/misc/hilbertshotel)
+"dx" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 6
+	},
+/obj/structure/window/spawner/directional/east{
+	pixel_x = 3
+	},
+/turf/open/floor/carpet/black,
+/area/misc/hilbertshotel)
 "dy" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
@@ -275,10 +287,17 @@
 	pixel_x = 3;
 	pixel_y = 20
 	},
-/obj/item/plate/small,
+/obj/item/plate/small{
+	pixel_x = 0;
+	pixel_y = 2
+	},
 /obj/structure/marker_beacon/burgundy{
 	pixel_x = 0;
 	pixel_y = 16
+	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = 0;
+	pixel_y = 2
 	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
@@ -495,10 +514,15 @@
 /area/misc/hilbertshotel)
 "fY" = (
 /obj/item/paper{
-	default_raw_text = "no secret room for you here bozo"
+	default_raw_text = "no secret room for you here bozo";
+	pixel_x = -6;
+	pixel_y = 0
 	},
 /obj/structure/noticeboard/directional/west{
 	pixel_y = 5
+	},
+/obj/item/book/bible/booze{
+	pixel_x = 6
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
@@ -536,6 +560,7 @@
 	pixel_x = 4;
 	pixel_y = 5
 	},
+/obj/structure/marker_beacon/cerulean,
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
 "gV" = (
@@ -985,23 +1010,29 @@
 	},
 /obj/structure/table/wood/fancy/black,
 /obj/structure/decorative/shelf/alcohol_assortment{
-	pixel_y = 29
+	pixel_y = 29;
+	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_x = -8;
-	pixel_y = 18
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_x = 3;
-	pixel_y = 18
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/cup/glass/bottle/cognac{
-	pixel_x = -6;
-	pixel_y = 7
+	pixel_x = -7;
+	pixel_y = 6
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = -16;
 	pixel_y = 7
+	},
+/obj/machinery/biogenerator/foodricator{
+	biomass = 5000;
+	pixel_y = 28;
+	pixel_x = 0
 	},
 /turf/open/floor/vault/rock,
 /area/misc/hilbertshotel)
@@ -1028,6 +1059,12 @@
 	color = "#FFFFFF";
 	pixel_x = 32;
 	pixel_y = 0
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/misc/hilbertshotel)
+"kL" = (
+/obj/structure/mineral_door/wood{
+	name = "Guest Bedroom"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
@@ -1509,8 +1546,8 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 4
 	},
-/obj/item/toy/crayon/blue{
-	pixel_x = -5;
+/obj/item/toy/crayon/orange{
+	pixel_x = -4;
 	pixel_y = 1
 	},
 /turf/open/floor/stone,
@@ -1570,6 +1607,10 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/wine = 15);
 	pixel_x = 7;
 	pixel_y = 11
+	},
+/obj/item/food/roast_dinner{
+	pixel_x = 0;
+	pixel_y = -12
 	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
@@ -2465,6 +2506,15 @@
 	pixel_y = -28;
 	pixel_x = -16
 	},
+/obj/item/slime_cookie/black{
+	icon_state = "poison_flask_static";
+	desc = "A glass bottle containing a panacea that supposedly can cure everything. <br><br>There's a tag from Space China on it. <br><br>This potion costed 1 electrum coin.";
+	icon = 'icons/obj/antags/eldritch.dmi';
+	name = "the panacea";
+	taste = "eternal bliss";
+	pixel_x = 5;
+	pixel_y = 9
+	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "vR" = (
@@ -2592,7 +2642,7 @@
 	dir = 4;
 	icon = 'icons/effects/96x96.dmi';
 	icon_state = "apoc";
-	color = "#52B4E9";
+	color = "#e9c152";
 	name = "decorative pattern"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -2906,6 +2956,15 @@
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
+"zY" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/item/toy/plush/artificer_kobold{
+	pixel_y = -3
+	},
+/turf/open/floor/carpet/black,
+/area/misc/hilbertshotel)
 "Ab" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/turf_decal/tile/neutral{
@@ -2953,6 +3012,12 @@
 /obj/effect/light_emitter/interlink{
 	light_color = "#e8d0b0";
 	color = "#e8d0b0"
+	},
+/obj/structure/sink/directional/south{
+	name = "grape soda tap";
+	desc = "Tap-tap-tap-tap.";
+	color = "#8c6e5e";
+	dispensedreagent = /datum/reagent/consumable/doctor_delight
 	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
@@ -3047,14 +3112,8 @@
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
 "Bk" = (
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -4
-	},
 /obj/structure/window/spawner/directional/north,
 /obj/structure/flora/bush/jungle/c/style_3,
-/obj/structure/window/spawner/directional/east{
-	pixel_x = 4
-	},
 /turf/open/water/jungle/biodome,
 /area/misc/hilbertshotel)
 "Bn" = (
@@ -3412,18 +3471,25 @@
 "EK" = (
 /obj/structure/table/wood/fancy,
 /obj/item/serviette/colonial,
-/obj/item/plate/small,
+/obj/item/plate/small{
+	pixel_x = 0;
+	pixel_y = 2
+	},
 /obj/item/serviette/colonial{
 	pixel_x = -3;
 	pixel_y = 20
 	},
 /obj/item/plate/small{
-	pixel_x = -3;
+	pixel_x = -2;
 	pixel_y = 20
 	},
 /obj/structure/marker_beacon/burgundy{
 	pixel_x = 0;
 	pixel_y = 16
+	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = 0;
+	pixel_y = 2
 	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
@@ -3913,6 +3979,9 @@
 	pixel_y = -8;
 	name = "obviously off-grid wooden chair"
 	},
+/obj/structure/window/spawner/directional/west{
+	pixel_x = -3
+	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "IP" = (
@@ -3946,7 +4015,7 @@
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "IX" = (
-/obj/structure/marker_beacon/teal,
+/obj/structure/marker_beacon/bronze,
 /obj/effect/turf_decal/tile/neutral{
 	color = "#59595a";
 	alpha = 255;
@@ -4353,19 +4422,12 @@
 	alpha = 255;
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#777777";
-	dir = 4
+/obj/effect/turf_decal/siding/wideplating_new/end{
+	dir = 2;
+	color = "#777777"
 	},
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#777777";
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 8
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 2
 	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
@@ -4462,6 +4524,26 @@
 	},
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
+"LW" = (
+/obj/structure/table/wood/fancy,
+/obj/item/serviette/colonial{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/plate/small{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = -2;
+	pixel_y = -12
+	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/turf/open/floor/carpet,
+/area/misc/hilbertshotel)
 "Me" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/end{
 	dir = 4
@@ -4472,14 +4554,8 @@
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
 "Mg" = (
-/obj/structure/window/spawner/directional/east{
-	pixel_x = 4
-	},
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/bush/jungle/c/style_2,
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -4
-	},
 /obj/structure/flora/bush/reed,
 /obj/structure/marker_beacon/jade{
 	pixel_x = 0;
@@ -5230,10 +5306,6 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
-/obj/item/toy/plush/artificer_kobold{
-	pixel_x = 16;
-	pixel_y = -3
-	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
 "QN" = (
@@ -5676,6 +5748,12 @@
 	},
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
+"TX" = (
+/obj/structure/mineral_door/wood{
+	name = "Master Bedroom"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/misc/hilbertshotel)
 "Ue" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
@@ -6081,6 +6159,14 @@
 	pixel_x = 0;
 	pixel_y = 8
 	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/food/roast_slice_lizzy{
+	pixel_x = 3;
+	pixel_y = -12
+	},
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "Xk" = (
@@ -6181,13 +6267,20 @@
 	},
 /obj/structure/decorative/shelf/alcohol{
 	pixel_x = 0;
-	pixel_y = 29
+	pixel_y = 29;
+	icon_state = "empty_shelf_1"
+	},
+/obj/machinery/chem_dispenser/frontier_appliance{
+	pixel_y = 27
 	},
 /turf/open/floor/vault/rock,
 /area/misc/hilbertshotel)
 "XQ" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
+	},
+/obj/structure/window/spawner/directional/east{
+	pixel_x = 3
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
@@ -6730,7 +6823,7 @@ cs
 RE
 ea
 XQ
-xO
+dx
 sh
 Xc
 hW
@@ -6816,7 +6909,7 @@ BU
 po
 FX
 Vh
-Xh
+LW
 EK
 Gt
 JJ
@@ -7045,11 +7138,11 @@ cs
 cs
 cs
 cs
-zn
+TX
 cs
 cs
 cs
-zn
+kL
 cs
 cs
 cs
@@ -7106,7 +7199,7 @@ Sn
 jb
 zw
 il
-FT
+zY
 Tp
 PQ
 jd
