@@ -35,20 +35,19 @@ Kayian Janissary.
 
 /obj/item/melee_voucher/attack_self(mob/living/user)
 	var/list/melee_spawnables = list(
-		/obj/item/storage/belt/secdaisho/full = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
-		/obj/item/storage/belt/security/full = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "security"),
+		"Security Dual Sheath Belt" = image(icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi', icon_state = "blackdaisho"),
+		"Security Belt + Dagger, Recommended" = image(icon = 'icons/obj/clothing/belts.dmi', icon_state = "security"),
 	)
 	var/pick = show_radial_menu(user, src, melee_spawnables, radius = 36, require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return
-	var/to_spawn = pick(melee_spawnables)
 	switch(pick)
 		if("Security Dual Sheath Belt")
-			new /obj/item/storage/belt/secdaisho/full(drop_location())
 			to_chat(user, span_warning("You have chosen the path of devotion, mastery of your sword is paramount to the brutal arithmetic of combat. It is slow to swing but effective at finishing off wounded enemy, your baton does not knock down, but will knock item out of a staggered target."))
+			new /obj/item/storage/belt/secdaisho/full(drop_location())
 		if("Security Belt + Dagger, Recommended")
-			new /obj/item/storage/belt/security/full(drop_location())
 			to_chat(user, span_warning("You have chosen the path of faith, you put trust in those around you and value the status quo above challenging it, your standard belt kit is there alongside a weak dagger that works best when striking from behind, or against an opponent that is on the floor."))
+			new /obj/item/storage/belt/security/full(drop_location())
 	amount -= 1
 	if(!amount)
 		qdel(src)
