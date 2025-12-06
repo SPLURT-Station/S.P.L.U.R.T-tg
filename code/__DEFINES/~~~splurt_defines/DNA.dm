@@ -31,6 +31,7 @@
 #define ORGAN_SLOT_EXTERNAL_MANDIBLES "mandibles"
 #define ORGAN_SLOT_EXTERNAL_SPINNERET "spinneret"
 #define ORGAN_SLOT_EXTERNAL_SPIDER_LEGS "spider_legs"
+#define ORGAN_SLOT_BLADDER "bladder"
 
 #define BUTT_MIN_SIZE 0
 #define BUTT_MAX_SIZE 8

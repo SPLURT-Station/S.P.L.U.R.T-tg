@@ -1,3 +1,6 @@
+/datum/species/android
+	mutantbladder = /obj/item/organ/bladder/cybernetic
+
 /datum/species/android/New()
 	var/list/extra_inherent_traits = list(
 		TRAIT_NOTHIRST

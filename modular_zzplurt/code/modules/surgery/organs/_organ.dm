@@ -1,0 +1,7 @@
+/mob/living/carbon/regenerate_organs(remove_hazardous = FALSE)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(!bladder)
+		bladder = new()
+		bladder.Insert(src)
+		bladder.set_organ_damage(0)
