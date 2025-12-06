@@ -18,12 +18,17 @@
 		"You feel %USER%'s warm urine splash on you",
 		"%USER% marks you as their territory"
 	)
+	sound_possible = list()
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 2
 	target_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_over/New()
+	sound_possible = GLOB.waterpiss_noises
+	return ..()
 
 /datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
 	. = ..()
@@ -57,12 +62,17 @@
 		"You're forced to swallow %USER%'s urine",
 		"%USER% uses your mouth as their urinal"
 	)
+	sound_possible = list()
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 3
 	target_arousal = 3
+
+/datum/interaction/lewd/unholy/piss_mouth/New()
+	sound_possible = GLOB.waterpiss_noises // GLOB.waterpiss_noises: expected a constant expression
+	return ..()
 
 /datum/interaction/lewd/unholy/piss_mouth/act(mob/living/user, mob/living/target)
 	. = ..()
@@ -72,3 +82,8 @@
 		reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
 		reagents.expose(target, INGEST)
 		qdel(reagents)
+
+/datum/interaction/lewd/unholy/piss_mouth/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
