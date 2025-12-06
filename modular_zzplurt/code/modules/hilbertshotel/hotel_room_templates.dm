@@ -143,6 +143,13 @@
 	ckeywhitelist = list("drarielpro")
 	category = GHC_SPECIAL
 
+/datum/map_template/ghost_cafe_rooms/ss14_thing
+	name = "Deter's Lair"
+	mappath = "_maps/splurt/templates/apartment_donator_ss14.dmm"
+	ckeywhitelist = list("girko", "moldb")
+	category = GHC_SPECIAL
+	landing_coords = list(13, 12)
+
 /datum/map_template/ghost_cafe_rooms/apartment_dragonslair
 	name = "Dragon Cave Lair"
 	mappath = "_maps/splurt/templates/apartment_dragonslair.dmm"
@@ -151,6 +158,11 @@
 /datum/map_template/ghost_cafe_rooms/apartment_fortuneteller
 	name = "Arcane Library"
 	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
+	category = GHC_MISC
+
+/datum/map_template/ghost_cafe_rooms/apartment_abandoned_shuttle
+	name = "Abandoned Shuttle"
+	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
 	category = GHC_MISC
 
 #undef GHC_MISC
