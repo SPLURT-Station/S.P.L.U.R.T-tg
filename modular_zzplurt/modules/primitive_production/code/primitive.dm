@@ -1,0 +1,8 @@
+/datum/status_effect/primitive_skill/tick(seconds_between_ticks)
+	for(var/obj/structure/simple_farm/farm in view(3, owner))
+		farm.increase_level(stored_level)
+	if(stored_level >= SKILL_LEVEL_LEGENDARY)
+		for(var/obj/structure/simple_farm/farm in view(1, owner))
+			if(COOLDOWN_FINISHED(farm, harvest_cooldown))
+				farm.create_harvest()
+				farm.update_appearance()
