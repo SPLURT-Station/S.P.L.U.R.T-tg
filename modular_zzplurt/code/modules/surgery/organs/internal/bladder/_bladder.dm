@@ -8,131 +8,133 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_BLADDER
 
-	///the reagent we piss
-	var/datum/reagent/pissin_reagent = /datum/reagent/ammonia/urine
-	///the amount of liquid we create per piss
-	var/piss_amount = 10
-	///max amount of piss we can stoer
-	var/max_piss_storage = 300
-	///amount of piss we generate per process
-	var/per_process_piss = 1
-	///current amount of stored piss
+	/// The reagent we piss.
+	var/datum/reagent/pissed_reagent = /datum/reagent/ammonia/urine
+	/// How much piss are we currently storing?
 	var/stored_piss = 0
-	///per usage piss base is 20 pisses per full tank
-	var/per_piss_usage = 15
-	///the temperature the piss comes out as
+	/// Max amount of piss we can store.
+	var/max_piss_storage = 300
+	/// The amount of liquid we eject per piss.
+	var/piss_dosage = 15 // 300 / 15 == 20 piss emotes
+	/// What's the temperature of our piss?
 	var/piss_temperature = 340
-	///last notification of having a full bladder
+	/// How long (roughly) does it take us to fill up on piss through life ticks alone (i.e no overdrinking)?
+	var/time_before_full = 1.5 HOURS
+	/// Last notification of having a full bladder.
 	COOLDOWN_DECLARE(piss_notification)
-	///how many processes required to generate piss
-	var/required_process = 25
-	///the current process count
-	var/processes = 0
 
-
-
-/obj/item/organ/bladder/Insert(mob/living/carbon/receiver, special = FALSE, movement_flags)
+/obj/item/organ/bladder/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	START_PROCESSING(SSobj, src)
+	var/added_piss = max_piss_storage * (seconds_per_tick / time_before_full)
+	if(organ_flags & ORGAN_FAILING)
+		added_piss *= 20 // 22-ish minutes before needing to piss, if napkin math checks out
+	add_piss(added_piss)
 
-/obj/item/organ/bladder/Remove(mob/living/carbon/organ_owner, special)
-	. = ..()
-	STOP_PROCESSING(SSobj, src)
-
-/obj/item/organ/bladder/proc/consume_act(datum/reagents/consumed_reagents, amount)
+/obj/item/organ/bladder/proc/add_piss(amount)
 	stored_piss = min(stored_piss + amount, max_piss_storage)
+	if(!COOLDOWN_FINISHED(src, piss_notification) || owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
+		return
 
-	if(COOLDOWN_FINISHED(src, piss_notification) && stored_piss == max_piss_storage && owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) != "No")
+	if(stored_piss >= max_piss_storage)
+		to_chat(owner, span_boldwarning("Your bladder is about to burst!"))
+	else if(stored_piss >= max_piss_storage * 0.75)
+		to_chat(owner, span_warning("You could <b>really</b> use a trip to the bathroom."))
+	else if(stored_piss >= max_piss_storage * 0.5)
 		to_chat(owner, span_warning("Your bladder is feeling full."))
-		COOLDOWN_START(src, piss_notification, 5 MINUTES)
-
-
-
-/obj/item/organ/bladder/process(seconds_per_tick, times_fired)
-	. = ..()
-	if(processes < required_process)
-		processes++
-		return
-	processes = 0
-	stored_piss = min(stored_piss + per_process_piss, max_piss_storage)
-
-/obj/item/organ/bladder/proc/urinate()
-	if(stored_piss < per_piss_usage)
-		to_chat(owner, span_notice("Try as you might you fail to piss."))
+	else
 		return
 
-	var/valid_toilet = FALSE
-	var/valid_urinal = FALSE
-	var/turf/open/owner_turf = get_turf(owner)
-	for(var/atom/movable/listed_atom in owner_turf)
-		if(istype(listed_atom, /obj/structure/toilet))
-			valid_toilet = TRUE
-			break
-		if(istype(listed_atom, /obj/structure/urinal))
-			valid_urinal = TRUE
-			break
+	COOLDOWN_START(src, piss_notification, 5 MINUTES)
+
+/obj/item/organ/bladder/proc/urinate(forced = FALSE)
+	if(forced && owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
+		return
+	if(stored_piss < piss_dosage * 2/3)
+		if(!forced)
+			to_chat(owner, span_notice("Try as you might you fail to piss."))
+		return
 
 	var/list/ignored_mobs = list()
-	for(var/mob/anything in GLOB.player_list)
-		if(!anything.client)
+	for(var/client/client)
+		if(client.mob == owner)
 			continue
-		if(!anything.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
+		if(client.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) != "No")
 			continue
-		ignored_mobs |= anything
+		ignored_mobs += client.mob
 
-	var/obj/item/reagent_containers/held_container
-	if(owner.held_items[owner.active_hand_index] != null)
-		var/obj/item/listed_item = owner.held_items[owner.active_hand_index]
-		if(istype(listed_item, /obj/item/reagent_containers))
-			held_container = listed_item
+	var/turf/open/owner_turf = get_turf(owner)
+	var/obj/item/reagent_containers/held_container = owner.get_active_held_item()
+	var/obj/structure/toilet/valid_toilet = locate(/obj/structure/toilet) in owner_turf
+	var/obj/structure/urinal/valid_urinal = locate(/obj/structure/urinal) in owner_turf
 
-	if(held_container)
-		if(attempt_piss_into(held_container))
+	var/remaining_piss = min(stored_piss, piss_dosage)
+
+	if(owner_turf.liquids?.height >= LIQUID_WAIST_LEVEL_HEIGHT)
+		owner.visible_message(span_notice("[owner] pisses into [istype(owner_turf, /turf/open/floor/iron/pool) ? "the pool" : "the surrounding water"].")) // wouldnt make sense in a pool of f.e tomato juice but shut up
+		owner_turf.add_liquid(pissed_reagent, remaining_piss, FALSE, piss_temperature)
+		return
+
+	if(istype(held_container))
+		var/space_left = held_container.reagents.maximum_volume - held_container.reagents.total_volume
+		if(space_left < 1) // rounding memes
+			goto bathroom_checks
+
+		remaining_piss = round(remaining_piss - held_container.reagents.add_reagent(pissed_reagent, remaining_piss, reagtemp = piss_temperature), CHEMICAL_QUANTISATION_LEVEL)
+		if(remaining_piss < 0)
+			owner.visible_message(span_notice("[owner] pisses into [held_container], without spilling a drop."), ignored_mobs = ignored_mobs)
+			return
+		else if(remaining_piss == 0)
+			owner.visible_message(span_warning("[owner] pisses into [held_container], filling it to the brim."))
+		else
+			owner.visible_message(span_warning("[owner] pisses into [held_container].. but it overflows!"))
+			if(valid_toilet || valid_urinal)
+				owner.visible_message(span_warning("The excess urine drips over and into [valid_toilet || valid_urinal]. Whew."))
+			else
+				owner.visible_message(span_warning("The excess urine spills over onto the floor."))
+				goto floor_piss
 			return
 
+	bathroom_checks:
 	if(valid_toilet)
 		owner.visible_message(span_notice("[owner] pisses into the toilet."), ignored_mobs = ignored_mobs)
 		return
-
 	if(valid_urinal)
 		owner.visible_message(span_notice("[owner] carefully pisses into the urinal not spilling a drop."), ignored_mobs = ignored_mobs)
 		return
 
 	owner.visible_message(span_warning("[owner] pisses all over the floor!"), ignored_mobs = ignored_mobs)
-	stored_piss -= per_piss_usage
+	floor_piss: // below the msg bcuz earlier container check
 
+	owner_turf.add_liquid(pissed_reagent, remaining_piss, FALSE, piss_temperature)
 
-	var/obj/machinery/camera/located_camera
-	for(var/obj/machinery/camera/camera in view(7, owner))
-		if(camera.can_use() && get_dist(owner, camera) <= camera.view_range)
-			located_camera = camera
-			break
-	if(located_camera)
-		var/datum/record/crew/record = find_record(owner.name)
-		if(record)
-			var/datum/crime/new_crime = new(name = "Public Urination", details = "This person has been caught on video camera pissing in \the [owner_turf.loc]", author = "Automated Criminal Detection Service")
-			record.crimes += new_crime
-			record.wanted_status = WANTED_ARREST
-
-	var/obj/effect/decal/cleanable/piss_stain/stain = locate() in owner_turf
-	if(!(stain in owner_turf.contents) && !owner_turf.liquids)
-		new /obj/effect/decal/cleanable/piss_stain(owner_turf)
+	var/datum/record/crew/record = find_record(owner.name)
+	if(!record)
 		return
 
-	qdel(stain)
-	owner_turf.add_liquid(pissin_reagent, piss_amount, FALSE, piss_temperature)
+	for(var/obj/machinery/camera/camera in view(7, owner))
+		if(!camera.can_use() || get_dist(owner, camera) > camera.view_range)
+			continue
 
-
-/obj/item/organ/bladder/proc/attempt_piss_into(obj/item/reagent_containers/piss_holder)
-	var/space_left = piss_holder.volume - piss_holder.reagents.total_volume
-	if(!space_left && stored_piss < per_piss_usage)
-		return FALSE
-	piss_holder.reagents.add_reagent(pissin_reagent, piss_amount, reagtemp = piss_temperature)
-	return TRUE
+		var/datum/crime/new_crime = new(name = "Public Urination", details = "This person has been caught on video camera pissing in \the [owner_turf.loc]", author = "Automated Criminal Detection Service")
+		record.crimes += new_crime
+		record.wanted_status = WANTED_ARREST
+		break
 
 
 /obj/item/organ/bladder/clown
 	name = "clown bladder"
 	desc = "How does this even work?"
 
-	pissin_reagent = /datum/reagent/lube
+	pissed_reagent = /datum/reagent/lube
+
+/obj/item/organ/bladder/cybernetic
+	name = "cybernetic bladder"
+	desc = "This is where your oil comes from!" // not really
+	icon_state = "bladder-c"
+
+/obj/item/organ/bladder/cybernetic/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(prob(40 / severity))
+		urinate()

@@ -1,5 +1,5 @@
 /datum/species/android
-	mutantbladder = null
+	mutantbladder = /obj/item/organ/bladder/cybernetic
 
 /datum/species/android/New()
 	var/list/extra_inherent_traits = list(

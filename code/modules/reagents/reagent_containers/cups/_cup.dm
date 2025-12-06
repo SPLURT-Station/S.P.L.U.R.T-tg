@@ -91,11 +91,6 @@
 	SEND_SIGNAL(src, COMSIG_GLASS_DRANK, target_mob, user)
 	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // SKYRAT EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
-	// SPLURT EDIT START
-	var/obj/item/organ/bladder/contained_bladder = target_mob.get_organ_slot(ORGAN_SLOT_BLADDER)
-	if(contained_bladder)
-		contained_bladder.consume_act(reagents, gulp_size * 0.2)
-	// SPLURT EDIT END
 	reagents.trans_to(target_mob, gulp_size, transferred_by = user, methods = reagent_consumption_method)
 	checkLiked(fraction, target_mob)
 	playsound(target_mob.loc, consumption_sound, rand(10,50), TRUE)

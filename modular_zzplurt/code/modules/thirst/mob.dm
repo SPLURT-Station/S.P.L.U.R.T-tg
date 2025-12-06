@@ -6,6 +6,10 @@
 	if(HAS_TRAIT(src, TRAIT_NOTHIRST))
 		return
 	water_level = clamp(water_level + change, 0, max)
+	if(change < 0 || water_level > THIRST_LEVEL_VERY_QUENCHED) // processed water, or excess
+		var/obj/item/organ/bladder/bladder = get_organ_slot(ORGAN_SLOT_BLADDER)
+		bladder?.add_piss(abs(change) * 2) // arbitrary number, adjust if stupid
+
 	if (!in_thirst_update)  // check update
 		in_thirst_update = TRUE
 		hud_used?.thirst?.update_appearance()
