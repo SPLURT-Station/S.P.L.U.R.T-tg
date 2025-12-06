@@ -224,7 +224,7 @@ Just one more pull and maybe I can get her
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
-	desc = "A long thin blade commonly used by Ugoran warrior caste to finish off vulnerable opponent and in rarer case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
+	desc = "A long thin blade commonly used by Kayian Janissary to finish off vulnerable opponent and in rarer case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
 	icon_state = "tanto"
 	inhand_icon_state = "tantohand"
@@ -236,7 +236,7 @@ Just one more pull and maybe I can get her
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
 	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
-	armour_penetration = 45 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
+	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
 	attack_speed = 14 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
 
 	damtype = BURN
