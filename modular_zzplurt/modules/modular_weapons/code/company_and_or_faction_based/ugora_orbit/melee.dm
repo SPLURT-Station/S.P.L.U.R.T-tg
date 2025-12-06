@@ -173,8 +173,8 @@ Just one more pull and maybe I can get her
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
 	block_chance = 40
-	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 8 hit to down. We have too low of a base damage to be an issue
-	force = 10 //low base damage, high ramp up. You use this for support.
+	armour_penetration = 20 //Yes we actually tested this. Even in best case scenario it still takes 6 hit to down. We have too low of a base damage to be an issue
+	force = 12 //low base damage, high ramp up. You use this for support.
 
 	wound_bonus = 10
 	exposed_wound_bonus = -40
@@ -183,12 +183,13 @@ Just one more pull and maybe I can get her
 	attack_speed = 4
 
 	degree_of_tolerance = 4 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 35 //Maximum of 45 damage aswell.
+	maximum_damage_bonus = 35 //Maximum of 47 damage aswell.
+
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
-	/// | 10:4, 23:8, 40:12, 63:16     													   	   |===|
+	/// | 12:4, 25:8, 43:12, 77:16     													   	   |===|
 	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
 	/// | It is incredibly unlikely the sword will single handedly win any combat scenario.    |===|
 		As we can see, the energy sword will win within practically 5 seconds of combat if the blade wielder is not hitting every hit.
@@ -208,40 +209,12 @@ Just one more pull and maybe I can get her
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
 	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
 
-	var/anti_magic_ready = 1
-
 /obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
 		final_block_chance -= 40 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
 		final_block_chance += 33 //Don't try it!
 	return ..()
-
-/obj/item/melee/reverbing_blade/oscula/Initialize(mapload)
-	. = ..()
-
-	AddComponent(
-		/datum/component/anti_magic, \
-		antimagic_flags = MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY, \
-		inventory_flags = ITEM_SLOT_HANDS, \
-		charges = anti_magic_ready, \
-		block_magic = CALLBACK(src, PROC_REF(drain_antimagic)), \
-	)
-	if(!QDELING(src))
-		//borrowed from /obj/item/gun/energy/recharge/dropped, as explained there,
-		//Put it on a delay because moving item from slot to hand. This is because people may do a quickpull out and swap for damage, that is something I am vehemently against.
-		//It won't stop it, but it doesn't need to, it only needs to make it harder. Think: Pull MCR Lancer out and do instant 45 damage.
-		// calls dropped().
-		addtimer(CALLBACK(src, PROC_REF(reset_charges)), 40 SECONDS)
-
-/obj/item/melee/reverbing_blade/oscula/proc/reset_charges()
-	var/datum/component/anti_magic/our_component = GetComponent(/datum/component/anti_magic)
-	our_component.charges = initial(anti_magic_ready)
-
-/obj/item/melee/reverbing_blade/oscula/proc/drain_antimagic(mob/living/user)
-	user.set_staggered_if_lower(15 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
-	to_chat(user, span_warning("[src] blocked a special attack! staggering you in the process"))
-	addtimer(CALLBACK(src, PROC_REF(reset_charges)), 40 SECONDS)
 
 /obj/item/melee/reverbing_blade/oscula/afterattack(atom/target, blocked, pierce_hit)
 	if(!isliving(target))
