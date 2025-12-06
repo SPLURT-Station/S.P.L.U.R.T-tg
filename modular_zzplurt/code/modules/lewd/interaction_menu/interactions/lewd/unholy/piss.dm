@@ -39,6 +39,7 @@
 		reagents.expose(target, TOUCH)
 		qdel(reagents)
 
+
 /datum/interaction/lewd/unholy/piss_mouth
 	name = "Piss Mouth"
 	description = "Piss inside their mouth."
@@ -71,7 +72,7 @@
 	target_arousal = 3
 
 /datum/interaction/lewd/unholy/piss_mouth/New()
-	sound_possible = GLOB.waterpiss_noises // GLOB.waterpiss_noises: expected a constant expression
+	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_mouth/act(mob/living/user, mob/living/target)
@@ -87,3 +88,157 @@
 	. = ..()
 	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
 			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
+
+
+/datum/interaction/lewd/unholy/piss_slit
+	name = "Piss in slit"
+	description = "Piss in their slit."
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
+	target_required_parts = list(ORGAN_SLOT_SLIT = REQUIRE_GENITAL_EXPOSED)
+	message = list(
+		"relieves themselves inside %TARGET%'s slit.",
+		"marks %TARGET%'s slit as their territory.",
+		"releases their bladder inside %TARGET%.",
+		"pisses all over %TARGET%'s slit."
+	)
+	user_messages = list(
+		"You feel relief as you release into %TARGET%.",
+		"You empty your bladder into %TARGET%'s slit.",
+		"You mark %TARGET%'s slit with your urine."
+	)
+	target_messages = list(
+		"%USER% pisses inside your slit.",
+		"You feel %USER%'s warm urine fill your slit.",
+		"%USER% marks your slit as their territory."
+	)
+	sound_possible = list()
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 2
+	target_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_slit/New()
+	sound_possible = GLOB.waterpiss_noises
+	return ..()
+
+/datum/interaction/lewd/unholy/piss_slit/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
+
+
+/datum/interaction/lewd/unholy/piss_ass
+	name = "Piss in ass"
+	description = "Piss in their ass."
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
+	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_EXPOSED)
+	message = list(
+		"relieves themselves inside %TARGET%'s anus.",
+		"marks %TARGET%'s bowels as their territory.",
+		"releases their bladder inside %TARGET%'s anus'.",
+		"pisses all over %TARGET%'s anus."
+	)
+	user_messages = list(
+		"You feel relief as you release into %TARGET%'s bowels'.",
+		"You empty your bladder into %TARGET%'s anus.",
+		"You mark %TARGET%'s insides with your urine."
+	)
+	target_messages = list(
+		"%USER% pisses inside your anus.",
+		"You feel %USER%'s warm urine fill your bowels.",
+		"%USER% marks your anus as their territory."
+	)
+	sound_possible = list()
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 2
+	target_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_ass/New()
+	sound_possible = GLOB.waterpiss_noises
+	return ..()
+
+/datum/interaction/lewd/unholy/piss_ass/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
+
+
+/datum/interaction/lewd/unholy/piss_ear
+	name = "Piss in ear"
+	description = "Piss in their ear."
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
+	target_required_parts = list(ORGAN_SLOT_EARS = REQUIRE_GENITAL_ANY)
+	message = list(
+		"relieves themselves inside %TARGET%'s ear.",
+		"marks %TARGET%'s ear as their territory.",
+		"releases their bladder inside %TARGET%'s ear.",
+		"pisses all over %TARGET%'s ear."
+	)
+	user_messages = list(
+		"You feel relief as you release into %TARGET%'s ear'.",
+		"You empty your bladder into %TARGET%'s ear.",
+		"You mark %TARGET%'s head and ear with your urine."
+	)
+	target_messages = list(
+		"%USER% pisses inside your ear.",
+		"You feel %USER%'s warm urine fill your ear and head.",
+		"%USER% marks your ear as their territory."
+	)
+	sound_possible = list()
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 2
+	target_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_ear/New()
+	sound_possible = GLOB.waterpiss_noises
+	return ..()
+
+/datum/interaction/lewd/unholy/piss_ear/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
+
+
+/datum/interaction/lewd/unholy/piss_urethra
+	name = "Piss in urethra"
+	description = "Piss in their urethra."
+	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
+	message = list(
+		"relieves themselves inside %TARGET%'s urethra.",
+		"marks %TARGET%'s urethra as their territory.",
+		"releases their bladder inside %TARGET%'s urethra.",
+		"pisses all over %TARGET%'s urethra."
+	)
+	user_messages = list(
+		"You feel relief as you release into %TARGET%'s urethra'.",
+		"You empty your bladder into %TARGET%'s urethra.",
+		"You mark %TARGET%'s urethra with your urine."
+	)
+	target_messages = list(
+		"%USER% pisses inside your urethra.",
+		"You feel %USER%'s warm urine fill your urethra.",
+		"%USER% marks your urethra as their territory."
+	)
+	sound_possible = list()
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 2
+	target_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_urethra/New()
+	sound_possible = GLOB.waterpiss_noises
+	return ..()
+

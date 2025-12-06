@@ -69,6 +69,7 @@
 
 	var/remaining_piss = min(stored_piss, piss_dosage)
 
+	conditional_pref_sound(owner, pick(GLOB.waterpiss_noises), 80, TRUE, pref_to_check = /datum/preference/choiced/erp_status_unholy)
 	if(owner_turf.liquids?.height >= LIQUID_WAIST_LEVEL_HEIGHT)
 		owner.visible_message(span_notice("[owner] pisses into [istype(owner_turf, /turf/open/floor/iron/pool) ? "the pool" : "the surrounding water"].")) // wouldnt make sense in a pool of f.e tomato juice but shut up
 		owner_turf.add_liquid(pissed_reagent, remaining_piss, FALSE, piss_temperature)
