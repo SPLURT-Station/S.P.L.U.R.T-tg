@@ -1543,25 +1543,25 @@
 	// Assume ability can be used
 	return .
 
-// Intercept click
-/datum/action/cooldown/spell/pointed/bloodfledge/analyze/InterceptClickOn(mob/living/clicker, params, atom/target)
+// Activate ability
+/datum/action/cooldown/spell/pointed/bloodfledge/analyze/cast(atom/cast_on)
 	. = ..()
 
 	// Define owner and target
-	var/mob/living/carbon/human/human_target = target
-	var/mob/living/carbon/human/human_caster = clicker
+	var/mob/living/carbon/human/human_target = cast_on
+	var/mob/living/carbon/human/human_caster = owner
 
 	// Check if owner and target are valid
 	if(!ishuman(human_target) || !human_caster || human_target == human_caster)
 		// Alert user in chat and return
-		to_chat(clicker, span_warning("That isn't a valid analyze target!"))
+		to_chat(owner, span_warning("That isn't a valid analyze target!"))
 		return FALSE
 
 	// Check for holiness
 	if(human_target.can_block_magic(MAGIC_RESISTANCE_HOLY))
 		// Warn user and return
 		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n"\
-			+ "A strange power is protecting [human_target]!\nYou cannot determine anything without a closer inspection.")))
+			+ "A strange power is protecting [human_target]!\nYou cannot determine anything about " + human_target.p_Them() + "!")))
 		return FALSE
 
 	// Define target pronouns
