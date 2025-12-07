@@ -679,8 +679,8 @@
 /datum/action/cooldown/bloodfledge/bite/Grant()
 	. = ..()
 
-		// Create reagent holder
-		blood_bank = new(BLOODFLEDGE_BANK_CAPACITY)
+	// Create reagent holder
+	blood_bank = new(BLOODFLEDGE_BANK_CAPACITY)
 
 	// Check for voracious
 	if(HAS_TRAIT(owner, TRAIT_VORACIOUS))
@@ -1225,14 +1225,14 @@
 
 		// Check if action owner received valid blood
 		if(blood_valid)
-				// Add blood reagent to reagent holder
-				blood_bank.add_reagent(/datum/reagent/blood/, drained_blood, bite_target.get_blood_data())
+			// Add blood reagent to reagent holder
+			blood_bank.add_reagent(/datum/reagent/blood/, drained_blood, bite_target.get_blood_data())
 
-				// Transfer reagent to action owner
-				blood_bank.trans_to(action_owner, drained_blood, methods = INGEST)
+			// Transfer reagent to action owner
+			blood_bank.trans_to(action_owner, drained_blood, methods = INGEST)
 
-				// Remove all reagents
-				blood_bank.remove_all()
+			// Remove all reagents
+			blood_bank.remove_all()
 
 		// Check if blood transfer should occur
 		else if(blood_transfer)
@@ -1567,25 +1567,25 @@
 	// Define target pronouns
 	var/t_their = human_target.p_Their()
 
-	// Define default response
-	var/output = "[t_their] blood seems unremarkable."
-
 	// Define blood types and volume
-	var/t_bloodtype = human_target.dna.blood_type
-	var/c_bloodtype = human_caster.dna.blood_type
-	var/t_blood_volume = human_target.blood_volume
+	var/datum/blood_type/target_bloodtype = human_target.get_bloodtype()
+	var/datum/blood_type/caster_bloodtype = human_caster.get_bloodtype()
+	var/target_blood_volume = human_target.blood_volume
+
+	// Define default response
+	var/output = "[t_their] [target_bloodtype] blood is incompatible with yours."
 
 	// Check if blood type matches
-	if(t_bloodtype == c_bloodtype)
-		output = "[t_their] blood has an ideal aura. A perfect match!"
+	if(target_bloodtype == caster_bloodtype)
+		output = "[t_their] [target_bloodtype] blood is a perfect match with yours!"
 
 	// Blood type does not match
-	// Check if blood type is in "safe" list
-	else if(t_bloodtype in get_safe_blood(c_bloodtype))
-		output = "[t_their] blood emits an enticing aura."
+	// Check if blood type is compatible
+	else if(target_bloodtype.type_key() in human_caster.get_bloodtype().compatible_types)
+		output = "[t_their] [target_bloodtype] blood is safe for you to consume."
 
 	// Check target blood volume
-	switch(t_blood_volume)
+	switch(target_blood_volume)
 		// High volume
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_MAXIMUM)
 			output += "\n[t_their] veins run rich with blood, ripe for the taking."
@@ -1709,39 +1709,6 @@
 // Drinking fake blood (no DNA)
 /datum/mood_event/bloodfledge/drankblood/blood_fake
 	description = "I drink artifical blood. I should know better."
-
-//
-// Safe Blood Check
-//
-
-// This is has more potential uses, and is probably faster than the old proc. //SPLURT REVIVAL - this was removed from nonmodular apparently???
-/proc/get_safe_blood(bloodtype)
-	. = list()
-
-	// Check if blood type exists
-	if(!bloodtype)
-		return
-
-	// List of donor-compatible blood types
-	var/static/list/bloodtypes_safe = list(
-		"A-" = list("A-", "O-"),
-		"A+" = list("A-", "A+", "O-", "O+"),
-		"B-" = list("B-", "O-"),
-		"B+" = list("B-", "B+", "O-", "O+"),
-		"AB-" = list("A-", "B-", "O-", "AB-"),
-		"AB+" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+"),
-		"O-" = list("O-"),
-		"O+" = list("O-", "O+"),
-		"L" = list("L"),
-		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
-	)
-
-	// Define if blood type is safe
-	var/safe = bloodtypes_safe[bloodtype]
-
-	// Return safe status if true
-	if(safe)
-		. = safe
 
 /**
  * Craving Effect
