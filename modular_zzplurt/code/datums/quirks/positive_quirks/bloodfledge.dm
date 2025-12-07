@@ -13,9 +13,21 @@
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
 /// List of traits inherent to bloodfledges
-#define BLOODFLEDGE_TRAITS list(TRAIT_NOTHIRST, TRAIT_NOHUNGER, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
+#define BLOODFLEDGE_TRAITS list(TRAIT_NOTHIRST, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 200
+/// Time before trait holder begins craving blood
+#define BLOODFLEDGE_CRAVE_TIME 15 MINUTES
+/// Time before craving when first getting quirk
+#define BLOODFLEDGE_CRAVE_TIME_START BLOODFLEDGE_CRAVE_TIME
+
+/// Messages used when the holder begins craving blood
+#define BLOODFLEDGE_CRAVE_MESSAGES pick(\
+	"You feel the edges of your mind fraying, a dark hunger nudging them inward...",\
+	"Distant memories of salt and iron press at the tip of your tongue...",\
+	"A crimson memory washes over your mind, mapping a single, simple need...",\
+	"The control you held slips in small increments; the scent of blood is a clear, steady pull...",\
+	)
 
 // Special testing-only overrides
 #ifdef TESTING
@@ -24,11 +36,13 @@
 #undef BLOODFLEDGE_COOLDOWN_REVIVE
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
 #undef BLOODFLEDGE_REVIVE_DELAY
+#undef BLOODFLEDGE_CRAVE_TIME_START
 #define BLOODFLEDGE_DRAIN_TIME 10
 #define BLOODFLEDGE_COOLDOWN_BITE 10
 #define BLOODFLEDGE_COOLDOWN_REVIVE 10
 #define BLOODFLEDGE_COOLDOWN_ANALYZE 10
 #define BLOODFLEDGE_REVIVE_DELAY 10
+#define BLOODFLEDGE_CRAVE_TIME_START 1 MINUTES
 #endif
 
 /datum/quirk/item_quirk/bloodfledge
@@ -41,8 +55,13 @@
 	mob_trait = TRAIT_BLOODFLEDGE
 	hardcore_value = -2
 	icon = FA_ICON_CHAMPAGNE_GLASSES
+
 	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
 	var/use_nutrition = FALSE
+	/// Is the holder currently craving blood?
+	var/is_craving = FALSE
+	// Timer for cravings
+	var/timer_crave
 
 /datum/quirk/item_quirk/bloodfledge/add(client/client_source)
 	// Define quirk mob
@@ -89,6 +108,9 @@
 	// Add profane penalties
 	quirk_holder.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/chapel_weakness)
 	quirk_holder.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/holywater_weakness)
+
+	// Set timer
+	timer_crave = addtimer(CALLBACK(src, PROC_REF(crave)), BLOODFLEDGE_CRAVE_TIME_START, TIMER_STOPPABLE)
 
 /datum/quirk/item_quirk/bloodfledge/post_add()
 	. = ..()
@@ -539,8 +561,11 @@
 		// End here
 		return
 
+	// Remove craving
+	uncrave()
+
 	// Check if using nutrition mode
-	// Ignore reagent handling if not
+	// Ignore proceeding code if not
 	if(!use_nutrition)
 		return
 
@@ -654,8 +679,6 @@
 /datum/action/cooldown/bloodfledge/bite/Grant()
 	. = ..()
 
-	// Check if using nutrition mode
-	if(use_nutrition)
 		// Create reagent holder
 		blood_bank = new(BLOODFLEDGE_BANK_CAPACITY)
 
@@ -1202,8 +1225,6 @@
 
 		// Check if action owner received valid blood
 		if(blood_valid)
-			// Using nutrition mode
-			if(use_nutrition)
 				// Add blood reagent to reagent holder
 				blood_bank.add_reagent(/datum/reagent/blood/, drained_blood, bite_target.get_blood_data())
 
@@ -1213,22 +1234,17 @@
 				// Remove all reagents
 				blood_bank.remove_all()
 
-			// Using blood volume mode
-			else
-				// Transfer blood directly
-				bite_target.transfer_blood_to(action_owner, drained_blood, TRUE)
-
 		// Check if blood transfer should occur
 		else if(blood_transfer)
 			// Check if action holder's blood volume limit was exceeded
 			if(action_owner.blood_volume >= BLOOD_VOLUME_MAXIMUM)
 				// Warn user
-				to_chat(action_owner, span_warning("You body cannot integrate any more [blood_name]. The remainder will be lost."))
+				to_chat(action_owner, span_warning("You body cannot integrate any more [blood_name] blood. The remainder will be lost."))
 
 			// Blood volume limit was not exceeded
 			else
 				// Alert user
-				to_chat(action_owner, span_notice("You body integrates the [blood_name] directly, instead of processing it into nutrition."))
+				to_chat(action_owner, span_notice("You body integrates the [blood_name] blood directly, instead of processing it normally."))
 
 			// Transfer blood directly
 			bite_target.transfer_blood_to(action_owner, drained_blood, TRUE)
@@ -1727,6 +1743,62 @@
 	if(safe)
 		. = safe
 
+/**
+ * Craving Effect
+ * Based on Dumb For Cum quirk
+ */
+
+/// Proc for add Bloodfledge craving effects
+/datum/quirk/item_quirk/bloodfledge/proc/crave()
+	// Check if conscious
+	if(quirk_holder.stat == CONSCIOUS)
+		// Alert user in chat
+		to_chat(quirk_holder, span_warning("[BLOODFLEDGE_CRAVE_MESSAGES]"))
+
+	// Set craving variable
+	is_craving = TRUE
+
+	// Add dumb trait
+	// This makes bite interactions act less cautiously
+	ADD_TRAIT(quirk_holder, TRAIT_DUMB, TRAIT_BLOODFLEDGE)
+
+	// Add negative mood effect
+	quirk_holder.add_mood_event(QMOOD_BFLED_CRAVE, /datum/mood_event/bloodfledge/blood_craving)
+
+/// Proc to remove Bloodfledge craving effects
+/datum/quirk/item_quirk/bloodfledge/proc/uncrave()
+	// Check if craving
+	if(!is_craving)
+		// Do nothing
+		return
+
+	// Set craving variable
+	is_craving = FALSE
+
+	// Remove dumb trait
+	REMOVE_TRAIT(quirk_holder, TRAIT_DUMB, TRAIT_BLOODFLEDGE)
+
+	// Add positive mood event
+	quirk_holder.add_mood_event(QMOOD_BFLED_CRAVE, /datum/mood_event/bloodfledge/blood_satisfied)
+
+	// Remove timer
+	deltimer(timer_crave)
+	timer_crave = null
+
+	// Add new timer
+	timer_crave = addtimer(CALLBACK(src, PROC_REF(crave)), BLOODFLEDGE_CRAVE_TIME, TIMER_STOPPABLE)
+
+// Mood penalty for craving
+/datum/mood_event/bloodfledge/blood_craving
+	description = span_warning("The sanguine thirst calls to me. I need blood!")
+	mood_change = -5 // Half of D4C
+
+// Mood bonus for satisfying the craving
+/datum/mood_event/bloodfledge/blood_satisfied
+	description = span_nicegreen("My sanguine urges have been sated for now.")
+	mood_change = 4 // Half of D4C
+	timeout = 2 MINUTES
+
 #undef BLOODFLEDGE_DRAIN_AMT
 #undef BLOODFLEDGE_DRAIN_TIME
 #undef BLOODFLEDGE_COOLDOWN_BITE
@@ -1735,3 +1807,5 @@
 #undef BLOODFLEDGE_HEAL_AMT
 #undef BLOODFLEDGE_TRAITS
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
+#undef BLOODFLEDGE_CRAVE_TIME
+#undef BLOODFLEDGE_CRAVE_TIME_START
