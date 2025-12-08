@@ -455,4 +455,11 @@
 	alt_titles = list(
 		"Nanotrasen Crew Trainer",
 		"Nanotrasen Intern",
+		"NT Guidance Officer
+		"Engineering Trainer
+		"Medical Trainer
+		"Science Trainer
+		"Cargo Trainer
+		"Security Trainer
+		"Service Trainer
 	)
