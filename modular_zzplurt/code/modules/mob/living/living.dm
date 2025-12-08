@@ -27,9 +27,9 @@
 	switch(size)
 		if(0 to 0.49)
 			mob_size = MOB_SIZE_TINY
-		if(0.5 to 0.8)
+		if(0.5 to 0.79)
 			mob_size = MOB_SIZE_SMALL
-		if(0.81 to 1.2)
+		if(0.8 to 1.2)
 			mob_size = MOB_SIZE_HUMAN
 		if(1.21 to INFINITY)
 			mob_size = MOB_SIZE_LARGE
