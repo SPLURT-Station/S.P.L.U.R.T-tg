@@ -20,6 +20,8 @@
 #define BLOODFLEDGE_CRAVE_TIME 15 MINUTES
 /// Time before craving when first getting quirk
 #define BLOODFLEDGE_CRAVE_TIME_START BLOODFLEDGE_CRAVE_TIME
+/// Amount of nanites to be transferred when biting a target
+#define BLOODFLEDGE_NANITE_TRANSFER_AMOUNT 5 // Similar to nanite sting
 
 /// Messages used when the holder begins craving blood
 #define BLOODFLEDGE_CRAVE_MESSAGES pick(\
@@ -1306,8 +1308,45 @@
 			// Cause mood event
 			action_owner.add_mood_event(QMOOD_BFLED_DRANK_CURSE, mood_type)
 
+		// Try to transfer target's nanites
+		transfer_nanites(action_owner, bite_target)
+
 		// Start cooldown
 		StartCooldown()
+
+/// Proc for Bloodfledge copying target's nanites
+/datum/action/cooldown/bloodfledge/bite/proc/transfer_nanites(mob/living/carbon/action_owner, var/mob/living/carbon/human/bite_target)
+	// Check if both mobs exist
+	if(!(istype(action_owner) && istype(bite_target)))
+		return
+
+	// Check if owner can have nanites
+	if(!CAN_HAVE_NANITES(action_owner))
+		return
+
+	// Check if bite target has nanites
+	if(!SEND_SIGNAL(bite_target, COMSIG_HAS_NANITES))
+		return
+
+	// Check if action owner already had nanites
+	// Please don't replace their settings if they do
+	if(SEND_SIGNAL(action_owner, COMSIG_HAS_NANITES))
+		return
+
+	// Define bite target's nanites
+	var/datum/component/nanites/target_nanites = bite_target.GetComponent(/datum/component/nanites)
+
+	// Inject nanites into owner using matching cloud ID
+	action_owner.AddComponent(/datum/component/nanites, BLOODFLEDGE_NANITE_TRANSFER_AMOUNT, target_nanites.cloud_id)
+
+	// Debug output
+	#ifdef TESTING
+	to_chat(action_owner, span_boldwarning("GAINED [BLOODFLEDGE_NANITE_TRANSFER_AMOUNT] NANITES WITH CLOUD ID: [target_nanites.cloud_id]"))
+	#endif
+
+	// Log nanite transfer
+	action_owner.investigate_log("inherited the nanites of [key_name(bite_target)] with cloud ID [target_nanites.cloud_id] by using supernatural methods at [AREACOORD(bite_target)].", INVESTIGATE_NANITES)
+	log_combat(action_owner,bite_target, "inherited nanites from", null, "using the Bloodfledge quirk Bite action.")
 
 // Action: Revive
 /datum/action/cooldown/bloodfledge/revive
