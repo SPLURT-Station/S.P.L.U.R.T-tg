@@ -58,7 +58,7 @@
 	for(var/client/client)
 		if(client.mob == owner)
 			continue
-		if(client.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) != "No")
+		if(client.prefs?.read_preference(/datum/preference/choiced/erp_status_unholy) != "No")
 			continue
 		ignored_mobs += client.mob
 
