@@ -57,7 +57,9 @@
 	pixel_y = 8
 	},
 /obj/machinery/newscaster/directional/west,
-/turf/open/floor/iron/freezer,
+/obj/machinery/wall_healer/directional/north,
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/turf/open/floor/iron/white,
 /area/misc/hilbertshotel)
 "bs" = (
 /obj/structure/flora/rock/pile/style_random,
@@ -119,7 +121,7 @@
 /obj/structure/minecart_rail{
 	dir = 9
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "dN" = (
 /turf/closed/indestructible/hotelwall{
@@ -178,8 +180,8 @@
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/cup/maunamug{
-	pixel_x = 14;
-	pixel_y = 7
+	pixel_x = 9;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/kitchen/small,
 /area/misc/hilbertshotel)
@@ -210,7 +212,11 @@
 	pixel_y = -32
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/iron/freezer,
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
 /area/misc/hilbertshotel)
 "fJ" = (
 /obj/structure/stone_tile/surrounding_tile/cracked{
@@ -232,6 +238,9 @@
 /obj/item/clothing/head/costume/garland/rainbowbunch{
 	name = "Flower Crown";
 	desc = "A flower crown made out of the flowers of the rainbow bunch plant. A more thorough inspection reveals several protruding strands of golden blond hair trapped inbetween the stalks."
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
 	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
@@ -279,7 +288,7 @@
 /area/misc/hilbertshotel)
 "hb" = (
 /obj/item/pickaxe,
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "hQ" = (
 /obj/item/storage/basket{
@@ -330,6 +339,9 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /obj/item/kirbyplants/random,
 /obj/structure/sign/calendar/directional/south,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "jH" = (
@@ -339,12 +351,17 @@
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/item/lighter,
 /obj/machinery/light/directional/north,
+/obj/structure/noticeboard/directional/north{
+	icon_state = "fish_mount";
+	pixel_y = 29;
+	color = "#999999"
+	},
 /obj/structure/decorative{
 	icon = 'icons/obj/weapons/guns/energy.dmi';
 	icon_state = "kineticgun";
 	anchored = 1;
 	name = "Decorative PKA";
-	pixel_y = 25;
+	pixel_y = 30;
 	desc = "Looking down the barrel (like the smart person that you are.) you can see it has been filled with concrete.";
 	pixel_x = -1
 	},
@@ -402,17 +419,12 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/item/food/chocolatebar,
+/obj/item/knife/kitchen,
 /turf/open/floor/iron/kitchen/small,
 /area/misc/hilbertshotel)
 "kX" = (
-/obj/structure/stone_tile/block{
-	dir = 8
-	},
-/obj/structure/stone_tile/block/cracked{
-	dir = 4
-	},
-/obj/structure/fireplace,
-/turf/open/floor/fakebasalt,
+/obj/item/flashlight/lantern/on,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "le" = (
 /obj/effect/turf_decal/siding/wood{
@@ -481,7 +493,7 @@
 /area/misc/hilbertshotel)
 "oS" = (
 /obj/structure/minecart_rail,
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "pc" = (
 /obj/item/seeds/ambrosia,
@@ -585,6 +597,22 @@
 /area/misc/hilbertshotel)
 "rI" = (
 /obj/structure/table/wood/fancy/red,
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 15;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 15;
+	pixel_x = 9
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = -15;
+	pixel_y = 6
+	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
 "rR" = (
@@ -683,7 +711,8 @@
 	name = "Bathroom"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/iron/freezer,
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/turf/open/floor/iron/white,
 /area/misc/hilbertshotel)
 "tB" = (
 /obj/machinery/oven/range,
@@ -746,10 +775,18 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 15;
+	pixel_x = -4
+	},
 /obj/item/reagent_containers/cup/glass/bottle/lizardwine{
 	pixel_y = 12;
 	name = "bottle of Ashwalker wine";
 	desc = "An alcoholic beverage from Space Lavaland, made by infusing lizard tails in ethanol. Inexplicably popular among command staff."
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 4;
+	pixel_x = -4
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)
@@ -757,7 +794,8 @@
 /turf/open/lava/fake,
 /area/misc/hilbertshotel)
 "uO" = (
-/turf/open/floor/iron/freezer,
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/turf/open/floor/iron/white,
 /area/misc/hilbertshotel)
 "uP" = (
 /obj/effect/turf_decal/siding/wood{
@@ -823,6 +861,9 @@
 /obj/structure/sign/painting/library{
 	pixel_y = 32
 	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "wU" = (
@@ -858,6 +899,15 @@
 /area/misc/hilbertshotel)
 "ym" = (
 /turf/open/floor/carpet/red,
+/area/misc/hilbertshotel)
+"yB" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "zf" = (
 /obj/structure/stone_tile/block{
@@ -917,6 +967,9 @@
 	pixel_x = -5
 	},
 /obj/structure/table/wood/fancy,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "Av" = (
@@ -999,7 +1052,9 @@
 	dir = 8;
 	pixel_x = 5
 	},
-/turf/open/floor/iron/freezer,
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/light/corner,
+/turf/open/floor/iron/white,
 /area/misc/hilbertshotel)
 "CX" = (
 /obj/structure/table/survival_pod,
@@ -1044,7 +1099,7 @@
 /obj/structure/minecart_rail{
 	dir = 6
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "ET" = (
 /obj/machinery/smartfridge/survival_pod{
@@ -1120,7 +1175,7 @@
 /obj/structure/minecart_rail{
 	dir = 8
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "GU" = (
 /turf/open/floor/wood,
@@ -1191,7 +1246,7 @@
 /obj/structure/minecart_rail{
 	dir = 10
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Jq" = (
 /obj/structure/stone_tile/block{
@@ -1310,6 +1365,9 @@
 /obj/item/bedsheet/hos/double{
 	name = "lava-red bedsheet"
 	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "Ni" = (
@@ -1348,7 +1406,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
 	},
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/white/small,
 /area/misc/hilbertshotel)
 "NH" = (
 /obj/structure/stone_tile/block/cracked,
@@ -1460,7 +1518,7 @@
 /obj/structure/minecart_rail{
 	dir = 5
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Ra" = (
 /obj/structure/stone_tile/slab/cracked,
@@ -1517,6 +1575,9 @@
 "TE" = (
 /obj/machinery/light/directional/north,
 /obj/structure/fish_mount/bar/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "TN" = (
@@ -1532,12 +1593,12 @@
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "Ue" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/lava/fake,
+/obj/structure/flora/rock/pile/style_random,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Uh" = (
-/obj/structure/tubes,
-/turf/open/floor/pod/dark,
+/obj/structure/flora/tree/dead,
+/turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
 "Uy" = (
 /obj/structure/closet/cabinet,
@@ -1558,7 +1619,7 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/miningcar,
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Va" = (
 /obj/structure/spacevine/xen{
@@ -1616,7 +1677,7 @@
 /area/misc/hilbertshotel)
 "Ws" = (
 /obj/structure/flora/rock/style_random,
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Wz" = (
 /turf/open/floor/fakebasalt,
@@ -1655,11 +1716,11 @@
 /turf/open/floor/iron/sepia,
 /area/misc/hilbertshotel)
 "Yf" = (
-/obj/structure/fireplace,
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Yx" = (
 /obj/machinery/light/small/directional/south,
+/obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet/royalblack,
 /area/misc/hilbertshotel)
 "YA" = (
@@ -1705,7 +1766,7 @@
 /obj/structure/minecart_rail{
 	dir = 4
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/holofloor/asteroid,
 /area/misc/hilbertshotel)
 "Zt" = (
 /obj/effect/turf_decal/siding/wood,
@@ -1779,7 +1840,7 @@ Wz
 Wz
 Wz
 Wz
-Wz
+Uh
 Wz
 kA
 Fo
@@ -1806,7 +1867,7 @@ Wz
 Wz
 ow
 Wz
-Wz
+Uh
 Wz
 MJ
 Wz
@@ -1882,7 +1943,7 @@ Wz
 Wz
 qA
 CX
-Uh
+vq
 du
 hW
 dN
@@ -1904,7 +1965,7 @@ hQ
 fh
 Wz
 Wz
-Wz
+Uh
 ka
 Wz
 My
@@ -1969,7 +2030,7 @@ lv
 sT
 YA
 Wz
-Wz
+Uh
 Wz
 cV
 Og
@@ -2274,7 +2335,7 @@ bn
 uO
 sT
 fL
-TX
+yB
 jd
 sT
 DC
@@ -2334,7 +2395,7 @@ zp
 sT
 sT
 Nw
-Yf
+sT
 wz
 Ad
 Ne
@@ -2401,9 +2462,9 @@ tK
 Av
 PB
 xB
-kX
+Av
 mV
-Ra
+tK
 Gh
 Ra
 uX
@@ -2470,7 +2531,7 @@ Wz
 Wz
 Wz
 ow
-Wz
+Yf
 Zk
 kD
 kD
@@ -2485,13 +2546,13 @@ kD
 kD
 kD
 kD
-Wz
+Uh
 Wz
 Wz
 uK
 uK
 uK
-Ue
+uK
 uK
 uK
 uK
@@ -2501,7 +2562,7 @@ Wz
 Wz
 Nk
 kD
-Wz
+Yf
 Zk
 kD
 Ws
@@ -2522,17 +2583,17 @@ bs
 uK
 uK
 uK
-uK
-uK
-uK
-uK
-uK
-Ue
-uK
-uK
-kD
-kD
 Wz
+uK
+uK
+uK
+uK
+uK
+uK
+uK
+kD
+kD
+Ue
 dC
 oS
 EP
@@ -2552,10 +2613,10 @@ Wz
 tw
 uK
 uK
-uK
-uK
-uK
-Ue
+Wz
+Wz
+Wz
+Wz
 uK
 uK
 uK
@@ -2563,9 +2624,9 @@ uK
 uK
 kD
 Ws
-Wz
-Wz
-lP
+Yf
+Yf
+Yf
 Zk
 kD
 "}
@@ -2584,19 +2645,19 @@ Wz
 uK
 uK
 uK
-uK
-uK
-uK
-uK
-uK
-uK
-uK
-uK
-kD
-kD
-kD
-kD
 Wz
+Wz
+uK
+uK
+uK
+uK
+uK
+uK
+kD
+kD
+kD
+kD
+Ue
 Zk
 kD
 "}
@@ -2609,14 +2670,14 @@ IA
 IA
 fS
 kD
-kD
+Va
 er
 Wz
 uK
-Ue
 uK
 uK
-Ue
+uK
+uK
 uK
 uK
 uK
@@ -2627,7 +2688,7 @@ kD
 Ws
 kD
 kD
-Wz
+Yf
 Zk
 kD
 "}
@@ -2640,10 +2701,10 @@ cl
 CN
 IA
 kD
-kD
 Va
 Va
 Va
+Va
 uK
 uK
 uK
@@ -2654,11 +2715,11 @@ uK
 uK
 Va
 Va
-lP
-Wz
-Wz
-Wz
-Wz
+Yf
+Yf
+Yf
+kX
+Yf
 Zk
 kD
 "}
@@ -2685,8 +2746,8 @@ Va
 Va
 Va
 Ws
-Wz
-Wz
+Yf
+Ue
 QS
 oS
 oS
@@ -2714,9 +2775,9 @@ kD
 kD
 kD
 kD
-Wz
+Ue
 hb
-Wz
+Yf
 Ws
 GC
 kD
@@ -2749,7 +2810,7 @@ kD
 kD
 kD
 kD
-kD
+sT
 kD
 kD
 kD
