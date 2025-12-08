@@ -143,7 +143,7 @@
 		act_revive.Grant(quirk_mob)
 
 	// Define and grant ability Analyze
-	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = new
+	var/datum/action/cooldown/bloodfledge/analyze/act_analyze = new
 	act_analyze.Grant(quirk_mob)
 
 	/**
@@ -284,7 +284,7 @@
 	//REMOVE_TRAIT(quirk_mob, TRAIT_NOTHIRST, ROUNDSTART_TRAIT)
 
 	// Remove Analyze ability action datum
-	var/datum/action/cooldown/spell/pointed/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
+	var/datum/action/cooldown/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
 	act_analyze?.Remove(quirk_mob)
 
 	/**
@@ -592,6 +592,7 @@
 	button_icon = 'modular_zubbers/icons/mob/actions/bloodsucker.dmi'
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
+	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED | AB_CHECK_PHASED
 
 	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
 	var/use_nutrition = FALSE
@@ -666,7 +667,6 @@
 	desc = "Sink your fangs into the person you are grabbing, and attempt to drink their blood."
 	button_icon_state = "power_feed"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_BITE
-	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED | AB_CHECK_LYING | AB_CHECK_PHASED
 
 	/// How long it takes to bite a target
 	var/time_interact = BLOODFLEDGE_DRAIN_TIME
@@ -1355,6 +1355,9 @@
 	button_icon_state = "power_strength"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_REVIVE
 
+	// Override flags
+	check_flags = AB_CHECK_PHASED
+
 /datum/action/cooldown/bloodfledge/revive/Activate()
 	// Check if powers are allowed
 	if(!can_use(owner))
@@ -1536,55 +1539,47 @@
 	// Start cooldown
 	StartCooldown()
 
-// Action: Base for pointed spells
-/datum/action/cooldown/spell/pointed/bloodfledge
-	name = "Broken Bloodfledge Pointed Spell"
-	desc = "You shouldn't be seeing this!"
-	background_icon = 'modular_zubbers/icons/mob/actions/bloodsucker.dmi'
-	background_icon_state = "vamp_power_off"
-	button_icon = 'modular_zubbers/icons/mob/actions/bloodsucker.dmi'
-	button_icon_state = "power_feed"
-	buttontooltipstyle = "cult"
-
-	// Don't require words, blocked by anti-magic, requires having a mind
-	spell_requirements = SPELL_CASTABLE_WITHOUT_INVOCATION | SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_MIND
-
-	// Check if awake
-	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
-
 // Action: Analyze
-/datum/action/cooldown/spell/pointed/bloodfledge/analyze
+/datum/action/cooldown/bloodfledge/analyze
 	name = "Fledgling Analyze"
 	desc = "Peer through the other-world to gain insight on another individual's blood."
 	button_icon_state = "power_mez"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
-	// Reduce cast range
-	cast_range = 2
+	click_to_activate = TRUE
 
-/datum/action/cooldown/spell/pointed/bloodfledge/can_cast_spell(feedback = TRUE)
+// Set button activation
+/datum/action/cooldown/bloodfledge/analyze/set_click_ability(mob/on_who)
 	. = ..()
 
 	// Check parent function
 	if (!.)
 		return
 
-	// Define action owner carbon mob
-	var/mob/living/carbon/action_owner = owner
+	// Alert user in chat
+	to_chat(on_who, span_notice("Your mind reaches into the other-world, preparing to sense more about others."))
 
-	// Check if action owner exists
-	if(!istype(action_owner))
-		return FALSE
+	// Put code for updating icon here
 
-	// Check bloodfledge ability conditions
-	if(!action_owner.can_use_bloodfledge_power())
-		return FALSE
+// Unset button activation
+/datum/action/cooldown/bloodfledge/analyze/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
+	. = ..()
 
-	// Assume ability can be used
-	return .
+	// Check parent function
+	if (!.)
+		return
+
+	// Check if cooldown should be refunded
+	if(refund_cooldown)
+		// Alert user in chat
+		to_chat(on_who, span_notice("You decide not to sense anything about blood for now."))
+
+	// Put code for updating icon here
 
 // Activate ability
-/datum/action/cooldown/spell/pointed/bloodfledge/analyze/cast(atom/cast_on)
-	. = ..()
+/datum/action/cooldown/bloodfledge/analyze/Activate(atom/cast_on)
+	// Check if powers are allowed
+	if(!can_use(owner))
+		return FALSE
 
 	// Define owner and target
 	var/mob/living/carbon/human/human_target = cast_on
@@ -1598,10 +1593,13 @@
 
 	// Check for holiness
 	if(human_target.can_block_magic(MAGIC_RESISTANCE_HOLY))
+		// Start cooldown with half duration
+		StartCooldown(cooldown_time / 2)
+
 		// Warn user and return
-		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n"\
-			+ "A strange power is protecting [human_target]!\nYou cannot determine anything about " + human_target.p_Them() + "!")))
-		return FALSE
+		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of " + span_yellow_flashy("[human_target]") + "...\n"\
+			+ "A strange power is protecting " + span_yellow_flashy("[human_target]") + "!\nYou cannot determine anything about " + human_target.p_them() + "!")))
+		return TRUE
 
 	// Define target pronouns
 	var/t_their = human_target.p_Their()
@@ -1639,6 +1637,10 @@
 
 	// Alert user of results
 	to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n" + output)))
+
+	// Start cooldown and return
+	StartCooldown()
+	return TRUE
 
 //
 // Bloodfledge memory
