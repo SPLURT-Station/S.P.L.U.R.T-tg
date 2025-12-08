@@ -13,11 +13,11 @@
 /datum/status_effect/primitive_skill/proc/on_step()
 	SIGNAL_HANDLER
 
-	if(stored_level < SKILL_LEVEL_MASTER)
+	if(stored_level < SKILL_LEVEL_LEGENDARY)
 		return
 
-	var/range = stored_level == SKILL_LEVEL_MASTER ? 0 : 1
-	for(var/obj/structure/simple_farm/farm in view(range, owner))
+	for(var/obj/structure/simple_farm/farm in view(1, owner))
 		if(COOLDOWN_FINISHED(farm, harvest_cooldown))
-			farm.create_harvest()
+			COOLDOWN_START(farm, harvest_timer, farm.harvest_cooldown)
+			farm.create_harvest() // this doesnt adjust exp by itself.. buut we're legendary anyways who cares
 			farm.update_appearance()
