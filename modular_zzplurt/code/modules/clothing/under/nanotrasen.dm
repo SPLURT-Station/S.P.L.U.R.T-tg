@@ -33,21 +33,21 @@
 
 /obj/item/clothing/under/rank/nanotrasen/nanotrasen_intern
 	name = "\improper Nanotrasen intern's jumpsuit"
-	desc = "It's a jumpsuit worn by those interning for NanoTrasen. The top is styled after a polo shirt for easy identification."
+	desc = "It's a jumpsuit worn by those interning for Nanotrasen. The top is styled after a polo shirt for easy identification."
 	icon_state = "nt_intern"
 	inhand_icon_state = "b_suit"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/nanotrasen/tactical
 	name = "\improper Nanotrasen turtleneck suit"
-	desc = "A casual, yet refined blue turtleneck, used by NanoTrasen Officers. It has a fragrance of aloe."
+	desc = "A casual, yet refined blue turtleneck, used by Nanotrasen Officers. It has a fragrance of aloe."
 	icon_state = "nt_officer"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/nanotrasen/tactical/skirt
-	name = "\improper NanoTrasen turtleneck skirt"
-	desc = "A skirt version of the NanoTrasen turtleneck, rarer and more sought after than the original."
+	name = "\improper Nanotrasen turtleneck skirt"
+	desc = "A skirt version of the Nanotrasen turtleneck, rarer and more sought after than the original."
 	icon_state = "nt_officer_skirt"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
