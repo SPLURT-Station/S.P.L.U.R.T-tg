@@ -25,30 +25,41 @@
 
 /mob/living/proc/adjust_mobsize(size)
 	switch(size)
-		if(0 to 0.4)
+		if(0 to 0.49)
 			mob_size = MOB_SIZE_TINY
-		if(0.41 to 0.8)
+		if(0.5 to 0.8)
 			mob_size = MOB_SIZE_SMALL
 		if(0.81 to 1.2)
 			mob_size = MOB_SIZE_HUMAN
 		if(1.21 to INFINITY)
 			mob_size = MOB_SIZE_LARGE
 
-	// Add health and speed penalty for sizes below 0.8
+	// Add health and speed penalty based on mob_size category
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(size < 0.8)
-			var/health_penalty = (0.8 - size) * 150
-			H.maxHealth = max(1, initial(H.maxHealth) - health_penalty)
-			H.health = min(H.health, H.maxHealth)
-			if(!H.has_movespeed_modifier(/datum/movespeed_modifier/small_size))
+
+		// Remove existing modifiers first
+		H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
+		H.remove_movespeed_modifier(/datum/movespeed_modifier/tiny_size)
+
+		// Apply penalties based on size category
+		switch(mob_size)
+			if(MOB_SIZE_TINY)
+				H.maxHealth = max(1, initial(H.maxHealth) - 60) // 60 less at 0.49 and below
+				H.health = min(H.health, H.maxHealth)
+				H.add_movespeed_modifier(/datum/movespeed_modifier/tiny_size)
+			if(MOB_SIZE_SMALL)
+				H.maxHealth = max(1, initial(H.maxHealth) - 30) // 30 less at 0.5 to 0.79
+				H.health = min(H.health, H.maxHealth)
 				H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
-		else
-			H.maxHealth = initial(H.maxHealth)
-			H.health = min(H.health, H.maxHealth)
-			H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
+			else
+				H.maxHealth = initial(H.maxHealth)
+				H.health = min(H.health, H.maxHealth)
 
 /datum/movespeed_modifier/small_size
+	multiplicative_slowdown = 0.25
+
+/datum/movespeed_modifier/tiny_size
 	multiplicative_slowdown = 0.5
 
 /mob/living/fully_heal(heal_flags)
