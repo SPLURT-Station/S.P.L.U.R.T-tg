@@ -763,6 +763,9 @@
 	/// Does action owner dumb has the dumb trait? Changes the result of some failure interactions.
 	var/action_owner_dumb = HAS_TRAIT(action_owner, TRAIT_DUMB)
 
+	/// Is the action owner evil? Changes some interactions.
+	var/action_owner_evil = HAS_TRAIT(action_owner, TRAIT_EVIL)
+
 	// Face the target
 	action_owner.face_atom(pull_target)
 
@@ -937,6 +940,18 @@
 		// Warn the user and target, then return
 		to_chat(bite_target, span_warning("[action_owner] tries to bite your [target_zone_name], but stops before touching you!"))
 		to_chat(action_owner, span_warning("[bite_target] is blessed! You stop just in time to avoid catching fire."))
+return
+
+	// Check for SSD player
+	if(HAS_TRAIT(bite_target, TRAIT_MIND_TEMPORARILY_GONE))
+		// Check if evil
+		if(action_owner_evil)
+			// Alert user in chat
+			to_chat(action_owner, span_warning("You you feel no remorse for feeding on [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder."))
+
+		else
+			// Warn the user and return
+			to_chat(action_owner, span_warning("You can't bring yourself to bite [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder."))
 		return
 
 	// Check for garlic in the bloodstream
@@ -981,6 +996,11 @@
 		if(action_owner_dumb)
 			// Warn the user, but allow
 			to_chat(action_owner, span_warning("You pay no attention to [bite_target]'s blood volume, and bite [bite_target.p_their()] [target_zone_name] without hesitation."))
+
+		// Check for an evil user
+		else if(action_owner_evil)
+			// Warn the user, but allow
+			to_chat(action_owner, span_warning("You sense that [bite_target] is running low on blood, but bite into [bite_target.p_their()] [target_zone_name] regardless."))
 
 		// Check for aggressive grab
 		else if(action_owner.grab_state < GRAB_AGGRESSIVE)
@@ -1288,6 +1308,8 @@
 			// Warn the user
 			to_chat(action_owner, span_warning("You've depleted [bite_target]'s [blood_name] supply!"))
 
+			// Check if not evil
+			if(!action_owner_evil)
 			// Cause negative mood
 			action_owner.add_mood_event(QMOOD_BFLED_DRANK_KILL, /datum/mood_event/bloodfledge/drankblood/killed)
 
