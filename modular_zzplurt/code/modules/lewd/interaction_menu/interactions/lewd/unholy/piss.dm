@@ -131,7 +131,6 @@
 	name = "Piss in slit"
 	description = "Piss in their slit."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
-	target_required_parts = list(ORGAN_SLOT_SLIT = REQUIRE_GENITAL_EXPOSED)
 	message = list(
 		"relieves themselves inside %TARGET%'s slit.",
 		"marks %TARGET%'s slit as their territory.",
