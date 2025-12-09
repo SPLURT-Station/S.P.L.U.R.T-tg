@@ -20,7 +20,7 @@
 	var/piss_temperature = 340
 	/// How long (roughly) does it take us to fill up on piss through life ticks alone (i.e no overdrinking)?
 	var/time_before_full = 1.5 HOURS
-	/// Last notification of having a full bladder.
+	/// Delay the next notification for having a full bladder.
 	COOLDOWN_DECLARE(piss_notification)
 
 /obj/item/organ/bladder/on_life(seconds_per_tick, times_fired)
@@ -31,20 +31,21 @@
 	add_piss(added_piss)
 
 /obj/item/organ/bladder/proc/add_piss(amount)
+	var/old_piss = stored_piss
 	stored_piss = min(stored_piss + amount, max_piss_storage)
-	if(!COOLDOWN_FINISHED(src, piss_notification) || owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
+	if(owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
 		return
 
-	if(stored_piss >= max_piss_storage)
+	if(stored_piss >= max_piss_storage && (old_piss < max_piss_storage || COOLDOWN_FINISHED(src, piss_notification)))
 		to_chat(owner, span_boldwarning("Your bladder is about to burst!"))
-	else if(stored_piss >= max_piss_storage * 0.75)
+		COOLDOWN_START(src, piss_notification, 1 MINUTES)
+	else if(stored_piss >= max_piss_storage * 0.75 && (old_piss < max_piss_storage * 0.75 || COOLDOWN_FINISHED(src, piss_notification)))
 		to_chat(owner, span_warning("You could <b>really</b> use a trip to the bathroom."))
-	else if(stored_piss >= max_piss_storage * 0.5)
+		COOLDOWN_START(src, piss_notification, 3 MINUTES)
+	else if(stored_piss >= max_piss_storage * 0.5 && (old_piss < max_piss_storage * 0.75 || COOLDOWN_FINISHED(src, piss_notification)))
 		to_chat(owner, span_warning("Your bladder is feeling full."))
-	else
-		return
+		COOLDOWN_START(src, piss_notification, 5 MINUTES)
 
-	COOLDOWN_START(src, piss_notification, 5 MINUTES)
 
 /obj/item/organ/bladder/proc/urinate(forced = FALSE)
 	if(forced && owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
@@ -134,9 +135,9 @@
 	desc = "This is where your oil comes from!" // not really
 	icon_state = "bladder-c"
 
-/obj/item/organ/bladder/cybernetic/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	if(prob(40 / severity))
-		urinate()
+// /obj/item/organ/bladder/cybernetic/emp_act(severity)
+// 	. = ..()
+// 	if(. & EMP_PROTECT_SELF)
+// 		return
+// 	if(prob(40 / severity))
+// 		urinate()
