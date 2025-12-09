@@ -27,17 +27,54 @@
 	target_arousal = 2
 
 /datum/interaction/lewd/unholy/piss_over/New()
-	sound_possible = GLOB.waterpiss_noises
+	sound_possible = GLOB.waterpiss_noise
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
-	if(bladder && ishuman(target))
-		var/datum/reagents/reagents = new /datum/reagents(bladder.piss_dosage, NONE)
-		reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
-		reagents.expose(target, TOUCH)
-		qdel(reagents)
+	if(bladder)
+		var/turf/target_turf = get_turf(target)
+		if(isnull(target_turf))
+			return // piss off
+		if(target_turf.liquids?.reagent_list[/datum/reagent/ammonia/urine] < 15)
+			target_turf.add_liquid(bladder.pissed_reagent, bladder.piss_dosage, FALSE, bladder.piss_temperature)
+
+
+/datum/interaction/lewd/unholy/piss_self
+	name = "Piss over self"
+	description = "Piss all over yourself."
+	usage = INTERACTION_SELF
+	message = list(
+		"relieves themselves all over themselves.",
+		"releases onto themselves.",
+		"paints themselves with their own urine.",
+		"pisses all over themselves."
+	)
+	user_messages = list(
+		"You feel relief as you release onto yourself.",
+		"You empty your bladder on your own body.",
+		"You mark your chest with your urine."
+	)
+	sound_possible = list()
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	user_arousal = 2
+
+/datum/interaction/lewd/unholy/piss_over/New()
+	sound_possible = GLOB.waterpiss_nois
+	return ..()
+
+/datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder)
+		var/turf/target_turf = get_turf(user)
+		if(isnull(target_turf))
+			return // piss off
+		if(target_turf.liquids?.reagent_list[/datum/reagent/ammonia/urine] < 15)
+			target_turf.add_liquid(bladder.pissed_reagent, bladder.piss_dosage, FALSE, bladder.piss_temperature)
 
 
 /datum/interaction/lewd/unholy/piss_mouth
@@ -174,7 +211,6 @@
 	name = "Piss in ear"
 	description = "Piss in their ear."
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_BOTTOMLESS)
-	target_required_parts = list(ORGAN_SLOT_EARS = REQUIRE_GENITAL_ANY)
 	message = list(
 		"relieves themselves inside %TARGET%'s ear.",
 		"marks %TARGET%'s ear as their territory.",
