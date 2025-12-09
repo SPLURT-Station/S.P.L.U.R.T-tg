@@ -1,4 +1,5 @@
-/* Moved to \modular_zzplurt\code\modules\modular_items\lewd_items\code\lewd_arousal\arousal.dm
+// Originaly \modular_zubbers\code\modules\modular_items\lewd_items\code\lewd_arousal\arousal.dm
+
 ///Adjusts the parent human's arousal value based off the value assigned to `arous.`
 /mob/living/proc/adjust_arousal(arous = 0) // SPLURT EDIT - INTERACTIONS - Is now a property of the base living mob
 	if(stat >= DEAD || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || (!ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src)))) // SPLURT EDIT - INTERACTIONS - Simple mobs should also be able to handle pain
@@ -21,7 +22,11 @@
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
 
-	arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT)
+	var/user_min_arousal = src.additional_minimum_arousal
+	if(!user_min_arousal > 0)
+		user_min_arousal = AROUSAL_MINIMUM
+
+	arousal = clamp(arousal + arous, user_min_arousal, AROUSAL_LIMIT)
 
 	if(!has_status_effect(/datum/status_effect/aroused) && arousal)
 		apply_status_effect(/datum/status_effect/aroused)
@@ -63,4 +68,12 @@
 		if (arousal > AROUSAL_NONE && src.dna.features["low_arousal"])
 			. += span_purple(src.dna.features["low_arousal"])
 			return
-*/
+
+/// Adjusts the parent human's minimum arousal value based off the value assigned to `arous.` Returns the `overflow` that exceeds the cap
+/mob/living/proc/adjust_minimum_arousal(arous)
+	var/overflow = 0
+	if((src.additional_minimum_arousal + arous) > AROUSAL_HIGH)
+		overflow = (src.additional_minimum_arousal + arous) - AROUSAL_HIGH
+	src.additional_minimum_arousal = clamp(src.additional_minimum_arousal + arous, AROUSAL_MINIMUM, AROUSAL_HIGH)
+	src.adjust_arousal(arous)
+	return overflow
