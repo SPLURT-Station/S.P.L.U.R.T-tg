@@ -69,6 +69,18 @@
 	/// Amount of healing applied during coffin use
 	var/heal_amount = BLOODFLEDGE_HEAL_AMT
 
+// Check if this quirk is valid for the species
+/datum/quirk/item_quirk/bloodfledge/is_species_appropriate(datum/species/mob_species)
+	// Define species traits
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+
+	// Check for no blood
+	if(TRAIT_NOBLOOD in species_traits)
+		return FALSE
+
+	// Return default
+	return ..()
+
 /datum/quirk/item_quirk/bloodfledge/add(client/client_source)
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
