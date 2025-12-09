@@ -91,6 +91,8 @@ export const PREF_TYPE_MAP = {
   belch_noises: { component: PrefBinary, name: 'Belch Noises' },
   digestion_allowed: { component: PrefBinary, name: 'Take Digestion Damage' },
   qdel_allowed: { component: PrefBinary, name: 'Deleted After Digestion' },
+  // SPLURT MODULAR EDIT - CHOMPStation Drain mode preference
+  drain_allowed: { component: PrefBinary, name: 'Drain Allowed' },
   absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },
   fullscreen_overlays_allowed: {
     component: PrefBinary,
