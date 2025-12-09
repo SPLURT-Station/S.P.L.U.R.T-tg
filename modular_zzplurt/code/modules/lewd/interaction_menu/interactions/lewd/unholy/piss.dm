@@ -62,11 +62,11 @@
 	user_pleasure = 0
 	user_arousal = 2
 
-/datum/interaction/lewd/unholy/piss_over/New()
+/datum/interaction/lewd/unholy/piss_self/New()
 	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
-/datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
+/datum/interaction/lewd/unholy/piss_self/act(mob/living/user, mob/living/target)
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
 	if(bladder)
