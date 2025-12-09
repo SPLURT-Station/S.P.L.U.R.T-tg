@@ -12,12 +12,14 @@
 #define BLOODFLEDGE_BANK_CAPACITY (BLOODFLEDGE_DRAIN_AMT * 2)
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
+/// How much to multiply healing by while weakened by desperation (craving)
+#define BLOODFLEDGE_HEAL_PENALTY_DESPERATE 0.5
 /// List of traits inherent to bloodfledges
 #define BLOODFLEDGE_TRAITS list(TRAIT_NOTHIRST, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 200
 /// Time before trait holder begins craving blood
-#define BLOODFLEDGE_CRAVE_TIME 15 MINUTES
+#define BLOODFLEDGE_CRAVE_TIME 20 MINUTES
 /// Time before craving when first getting quirk
 #define BLOODFLEDGE_CRAVE_TIME_START BLOODFLEDGE_CRAVE_TIME
 /// Amount of nanites to be transferred when biting a target
@@ -64,6 +66,8 @@
 	var/is_craving = FALSE
 	// Timer for cravings
 	var/timer_crave
+	/// Amount of healing applied during coffin use
+	var/heal_amount = BLOODFLEDGE_HEAL_AMT
 
 /datum/quirk/item_quirk/bloodfledge/add(client/client_source)
 	// Define quirk mob
@@ -228,10 +232,10 @@
 	var/need_mob_update = FALSE
 
 	// Queue healing compatible damage types
-	need_mob_update += quirk_holder.adjustBruteLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjustFireLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjustToxLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
-	need_mob_update += quirk_holder.adjustOxyLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC)
+	need_mob_update += quirk_holder.adjustBruteLoss(heal_amount, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjustFireLoss(heal_amount, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjustToxLoss(heal_amount, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
+	need_mob_update += quirk_holder.adjustOxyLoss(heal_amount, updating_health = FALSE, required_biotype = MOB_ORGANIC)
 
 	// Check if healing will be applied
 	if(need_mob_update)
@@ -307,6 +311,10 @@
 	REMOVE_TRAIT(quirk_holder, TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE)
 	REMOVE_TRAIT(quirk_holder, TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE)
 
+	// Remove cravings
+	uncrave()
+	deltimer(timer_crave)
+
 /datum/quirk/item_quirk/bloodfledge/add_unique(client/client_source)
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
@@ -374,8 +382,9 @@
 
 /**
  * Special examine text for Bloodfledges
- * * Displays hunger level notices
- * * Indicates that the holder has a revive ability
+ * * Displays hunger or blood volume level notices
+ * * Indicates that the holder has a usable revive ability
+ * * Indicates if the holder is currently craving blood
 */
 /datum/quirk/item_quirk/bloodfledge/proc/quirk_examine_bloodfledge(atom/examine_target, mob/living/carbon/human/examiner, list/examine_list)
 	SIGNAL_HANDLER
@@ -398,38 +407,86 @@
 	var/holder_are = quirk_holder.p_are()
 
 	// Check if dead
-	if(quirk_holder.stat >= DEAD)
-		// Add potential revival text
-		examine_list += span_info("[holder_their] body radiates an unnatural energy, as though [quirk_holder.p_they()] could spring to life at any moment...")
+	if((quirk_holder.stat >= DEAD))
+		// Check if revival is possible
+		// This is not a comprehensive check of conditions
+		if(quirk_holder.can_be_revived())
+			// Add potential revival text
+			examine_list += span_info("[holder_their] body radiates an unnatural energy, as though [quirk_holder.p_they()] could spring to life at any moment...")
 
 	// Define hunger texts
 	var/examine_hunger_public
 	var/examine_hunger_secret
 
-	// Check hunger levels
-	switch(quirk_mob.nutrition)
-		// Hungry
-		if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-			examine_hunger_secret = "[holder_they] [holder_are] blood starved!"
-			examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
+	// Check if using nutrition mode
+	if(use_nutrition)
+		// Check hunger levels
+		switch(quirk_mob.nutrition)
+			// Hungry
+			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
+				examine_hunger_secret = "[holder_they] [holder_are] blood starved!"
+				examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
 
-		// Starving
-		if(0 to NUTRITION_LEVEL_STARVING)
-			examine_hunger_secret = "[holder_they] [holder_are] in dire need of blood!"
-			examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied hunger!"
+			// Starving
+			if(0 to NUTRITION_LEVEL_STARVING)
+				examine_hunger_secret = "[holder_they] [holder_are] in dire need of blood!"
+				examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied hunger!"
 
-		// Invalid hunger
-		else
-			// Return with no message
-			return
+			// Invalid hunger
+			else
+				// Return with no message
+				return
+
+	// Using blood volume mode
+	else
+		// Check blood value levels (based on blood.dm)
+		switch(quirk_mob.blood_volume)
+			// Lethal dosage of blood
+			if(BLOOD_VOLUME_EXCESS to INFINITY)
+				examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] committed a fatal sin of gluttony!"
+
+			// Too much
+			if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
+				examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] taken more than [quirk_holder.p_their()] share of blood!"
+
+			// Not enough, but safe
+			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+				examine_hunger_secret = "[holder_their] aura is weaker than normal."
+
+			// Not enough, becoming dangerous
+			if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
+				examine_hunger_secret = "[holder_their] bloodthirst is obvious even at a glance!"
+				examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
+
+			// Dangerously low
+			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
+				examine_hunger_secret = "[holder_they] [holder_are] desperately blood starved!"
+				examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied desperation."
+
+			// Critcally low, near death
+			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+				examine_hunger_secret = "[holder_they] [holder_are] soon to be reclaimed by the sanguine curse!"
+
+			// Instant death
+			if(-INFINITY to BLOOD_VOLUME_SURVIVE)
+				examine_hunger_secret = "[holder_they] [holder_are] a desperate fool."
+
+			// Invalid blood value
+			else
+				// Return with no message
+				return
 
 	// Check if examiner shares the quirk
 	if(isbloodfledge(examiner))
 		// Add detection text
 		examine_list += span_info("[holder_their] hunger makes it easy to identify [quirk_holder.p_them()] as a fellow sanguine!")
 
+		// Check if currently craving/desperate
+		if(is_craving)
+			examine_list += span_info("[holder_they] radiate an aura of bloodthirsty desperation.")
+
 		// Add hunger text
-		examine_list += span_warning(examine_hunger_secret)
+		examine_list += span_cult(examine_hunger_secret)
 
 	// Check if public hunger text exists
 	else
@@ -760,8 +817,8 @@
 	// Define bite target
 	var/mob/living/carbon/human/bite_target
 
-	/// Does action owner dumb has the dumb trait? Changes the result of some failure interactions.
-	var/action_owner_dumb = HAS_TRAIT(action_owner, TRAIT_DUMB)
+	/// Does action owner dumb has the dumb trait, or is currently craving? Changes the result of some failure interactions.
+	var/action_owner_dumb = (HAS_TRAIT(action_owner, TRAIT_DUMB) || HAS_TRAIT(action_owner, TRAIT_BLOODFLEDGE_DESPERATE))
 
 	/// Is the action owner evil? Changes some interactions.
 	var/action_owner_evil = HAS_TRAIT(action_owner, TRAIT_EVIL)
@@ -940,7 +997,7 @@
 		// Warn the user and target, then return
 		to_chat(bite_target, span_warning("[action_owner] tries to bite your [target_zone_name], but stops before touching you!"))
 		to_chat(action_owner, span_warning("[bite_target] is blessed! You stop just in time to avoid catching fire."))
-return
+		return
 
 	// Check for SSD player
 	if(HAS_TRAIT(bite_target, TRAIT_MIND_TEMPORARILY_GONE))
@@ -952,7 +1009,7 @@ return
 		else
 			// Warn the user and return
 			to_chat(action_owner, span_warning("You can't bring yourself to bite [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder."))
-		return
+			return
 
 	// Check for garlic in the bloodstream
 	if(bite_target.has_reagent(/datum/reagent/consumable/garlic, 5))
@@ -1242,7 +1299,7 @@ return
 
 		// Alert the bite target and local user of success
 		// Yes, this is AFTER the message for non-valid blood
-		to_chat(bite_target, span_danger(span_warning("[action_owner] has taken some of your [blood_name] blood!")))
+		to_chat(bite_target, span_danger(span_warning("[action_owner] has taken some of your blood!")))
 		to_chat(action_owner, span_notice(span_good("You've drained some of [bite_target]'s [blood_name] blood!")))
 
 		// Check if action owner received valid blood
@@ -1295,7 +1352,7 @@ return
 		// Check if bite target is dead or undead
 		if((bite_target.stat >= DEAD) || (bite_target.mob_biotypes & MOB_UNDEAD))
 			// Warn the user
-			to_chat(action_owner, span_warning("The rotten [blood_name] tasted foul."))
+			to_chat(action_owner, span_warning("The rotten [blood_name] blood tasted foul."))
 
 			// Add disgust
 			action_owner.adjust_disgust(10)
@@ -1310,8 +1367,8 @@ return
 
 			// Check if not evil
 			if(!action_owner_evil)
-			// Cause negative mood
-			action_owner.add_mood_event(QMOOD_BFLED_DRANK_KILL, /datum/mood_event/bloodfledge/drankblood/killed)
+				// Cause negative mood
+				action_owner.add_mood_event(QMOOD_BFLED_DRANK_KILL, /datum/mood_event/bloodfledge/drankblood/killed)
 
 		// Check if bite target has cursed blood
 		if(HAS_TRAIT(bite_target, TRAIT_CURSED_BLOOD))
@@ -1619,7 +1676,7 @@ return
 		StartCooldown(cooldown_time / 2)
 
 		// Warn user and return
-		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of " + span_yellow_flashy("[human_target]") + "...\n"\
+		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of " + span_yellow_flashy("[human_target]") + "...\n\n"\
 			+ "A strange power is protecting " + span_yellow_flashy("[human_target]") + "!\nYou cannot determine anything about " + human_target.p_them() + "!")))
 		return TRUE
 
@@ -1643,22 +1700,51 @@ return
 	else if(target_bloodtype.type_key() in human_caster.get_bloodtype().compatible_types)
 		output = "[t_their] [target_bloodtype] blood is safe for you to consume."
 
+	// Check if examiner shares the quirk
+	if(isbloodfledge(human_target))
+		// Add detection text
+		output += "\n[human_target.p_Theyre()] a fellow sanguine sorcerer! You probably shouldn't feed from [human_target.p_them()]."
+
 	// Check target blood volume
 	switch(target_blood_volume)
+		// Lethal dosage of blood
+		if(BLOOD_VOLUME_EXCESS to INFINITY)
+			output += "\n[t_their] body is a swollen balloon of rich blood begging to be siphoned!"
+
+		// Too much
+		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
+			output += "\n[t_their] body is overrun with excessive blood! You would be doing [human_target.p_them()] a favor!"
+
+		// Very high volume
+		if(BLOOD_VOLUME_SLIME_SPLIT to BLOOD_VOLUME_MAXIMUM)
+			output += "\n[t_their] body sloshes with excess blood, calling out your name."
+
 		// High volume
-		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_MAXIMUM)
+		if(BLOOD_VOLUME_SAFE to BLOOD_VOLUME_SLIME_SPLIT)
 			output += "\n[t_their] veins run rich with blood, ripe for the taking."
 
-		// Low volume
-		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-			output += "\n[t_their] heart is beating faster, [t_their] blood supply running low."
+		// Not enough, but safe
+		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+			output += "\n[t_their] blood runs thinner than normal. Be careful with [human_target.p_them()]."
 
-		// Almost no volume
-		if(0 to BLOOD_VOLUME_BAD)
-			output += "\n[t_their] heartbeat thrashes wildly, desperately trying to offset [t_their] drained blood supply."
+		// Not enough, becoming dangerous
+		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
+			output += "\n[t_their] heart struggles against a thiner blood supply!"
+
+		// Dangerously low
+		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
+			output += "\n[t_their] heart is beating faster against a dangerously low blood supply."
+
+		// Critcally low, near death
+		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+			output += "\n[t_their] heartbeat thrashes wildly, desperately trying to offset a critical blood shortage."
+
+		// Instant death
+		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
+			output += "\n[t_their] body is a shriveled sack of dry flesh."
 
 	// Alert user of results
-	to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n" + output)))
+	to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n\n" + output)))
 
 	// Start cooldown and return
 	StartCooldown()
@@ -1788,12 +1874,15 @@ return
 	// Set craving variable
 	is_craving = TRUE
 
-	// Add dumb trait
+	// Add desperate trait
 	// This makes bite interactions act less cautiously
-	ADD_TRAIT(quirk_holder, TRAIT_DUMB, TRAIT_BLOODFLEDGE)
+	ADD_TRAIT(quirk_holder, TRAIT_BLOODFLEDGE_DESPERATE, TRAIT_BLOODFLEDGE)
 
 	// Add negative mood effect
 	quirk_holder.add_mood_event(QMOOD_BFLED_CRAVE, /datum/mood_event/bloodfledge/blood_craving)
+
+	// Reduce healing amount
+	heal_amount *= BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 
 /// Proc to remove Bloodfledge craving effects
 /datum/quirk/item_quirk/bloodfledge/proc/uncrave()
@@ -1805,11 +1894,14 @@ return
 	// Set craving variable
 	is_craving = FALSE
 
-	// Remove dumb trait
-	REMOVE_TRAIT(quirk_holder, TRAIT_DUMB, TRAIT_BLOODFLEDGE)
+	// Remove desperate trait
+	REMOVE_TRAIT(quirk_holder, TRAIT_BLOODFLEDGE_DESPERATE, TRAIT_BLOODFLEDGE)
 
 	// Add positive mood event
 	quirk_holder.add_mood_event(QMOOD_BFLED_CRAVE, /datum/mood_event/bloodfledge/blood_satisfied)
+
+	// Reset heal amount
+	heal_amount /= BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 
 	// Remove timer
 	deltimer(timer_crave)
@@ -1821,12 +1913,12 @@ return
 // Mood penalty for craving
 /datum/mood_event/bloodfledge/blood_craving
 	description = span_warning("The sanguine thirst calls to me. I need blood!")
-	mood_change = -5 // Half of D4C
+	mood_change = -4 // Half of D4C
 
 // Mood bonus for satisfying the craving
 /datum/mood_event/bloodfledge/blood_satisfied
 	description = span_nicegreen("My sanguine urges have been sated for now.")
-	mood_change = 4 // Half of D4C
+	mood_change = 2 // Half of D4C
 	timeout = 2 MINUTES
 
 #undef BLOODFLEDGE_DRAIN_AMT
@@ -1835,6 +1927,7 @@ return
 #undef BLOODFLEDGE_COOLDOWN_REVIVE
 #undef BLOODFLEDGE_BANK_CAPACITY
 #undef BLOODFLEDGE_HEAL_AMT
+#undef BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 #undef BLOODFLEDGE_TRAITS
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
 #undef BLOODFLEDGE_CRAVE_TIME
