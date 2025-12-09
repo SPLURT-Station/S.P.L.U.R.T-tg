@@ -41,7 +41,12 @@
 
 		// Store base health before size modifiers
 		if(!H.mob_size_base_health)
-			H.mob_size_base_health = H.maxHealth
+			// Calculate base health without tough quirk if present
+			var/current_max = H.maxHealth
+			if(HAS_TRAIT(H, TRAIT_TOUGH))
+				H.mob_size_base_health = current_max * 0.909
+			else
+				H.mob_size_base_health = current_max
 
 		var/base_health = H.mob_size_base_health
 
@@ -62,6 +67,11 @@
 			else
 				H.maxHealth = base_health
 				H.health = min(H.health, H.maxHealth)
+
+		// The above overrides quirks because ???, hatred. but this fixes it.
+		if(HAS_TRAIT(H, TRAIT_TOUGH))
+			H.maxHealth *= 1.1
+			H.health = H.maxHealth
 
 /datum/movespeed_modifier/small_size
 	multiplicative_slowdown = 0.25
