@@ -28,8 +28,13 @@
 	target_arousal = 2
 
 /datum/interaction/lewd/unholy/faceshit/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.asscrap_noises // GLOB.asscrap_noises: expected a constant expression
 	. = ..()
+
+/datum/interaction/lewd/unholy/faceshit/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
 
 /datum/interaction/lewd/unholy/crotchshit
 	name = "Crotch Shit"
@@ -60,7 +65,7 @@
 	target_arousal = 2
 
 /datum/interaction/lewd/unholy/crotchshit/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.asscrap_noises // GLOB.asscrap_noises: expected a constant expression
 	. = ..()
 
 /datum/interaction/lewd/unholy/shitfuck
@@ -104,7 +109,7 @@
 	target_arousal = 6
 
 /datum/interaction/lewd/unholy/shitfuck/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.asscrap_noises // GLOB.asscrap_noises: expected a constant expression
 	. = ..()
 
 /datum/interaction/lewd/unholy/shitfuck/post_interaction(mob/living/user, mob/living/target)
@@ -146,5 +151,11 @@
 	target_arousal = 5
 
 /datum/interaction/lewd/unholy/suck_shit/New()
-	sound_possible = GLOB.brap_noises // GLOB.brap_noises: expected a constant expression
+	sound_possible = GLOB.asscrap_noises // GLOB.asscrap_noises: expected a constant expression
+	sound_possible = GLOB.assswallow_noises // interaction with the mouth
 	. = ..()
+
+/datum/interaction/lewd/unholy/suck_shit/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
+			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth

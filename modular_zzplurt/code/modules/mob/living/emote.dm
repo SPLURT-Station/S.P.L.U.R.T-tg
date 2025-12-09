@@ -119,7 +119,15 @@
 	var/mob/living/carbon/human/H = user
 	if(!istype(H))
 		return
-	if(H.gender == FEMALE)
+
+	var/timbre
+	if(H.gender == FEMALE || H.gender == MALE)
+		timbre = H.gender
+	else
+		// Nonbinary uses physique instead
+		timbre = H.physique
+
+	if(timbre == FEMALE)
 		if(H.arousal >= 50)
 			sound = pick('modular_zzplurt/sound/voice/moan_fsex (8).ogg','modular_zzplurt/sound/voice/moan_fsex (9).ogg','modular_zzplurt/sound/voice/moan_fsex (10).ogg','modular_zzplurt/sound/voice/moan_fsex (11).ogg','modular_zzplurt/sound/voice/moan_fsex (12).ogg','modular_zzplurt/sound/voice/moan_fsex (13).ogg','modular_zzplurt/sound/voice/moan_fsex (14).ogg','modular_zzplurt/sound/voice/moan_fsex (15).ogg')
 		else
@@ -1282,7 +1290,18 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/pain/get_sound(mob/living/user)
-	if(user.gender == MALE)
+	var/timbre
+	if(user.gender == FEMALE || user.gender == MALE)
+		timbre = user.gender
+	else
+		var/mob/living/carbon/human/H = user
+		if(istype(H))
+			// Nonbinary try to use physique instead
+			timbre = H.physique
+		else
+			timbre = user.gender
+
+	if(timbre == MALE)
 		return pick('modular_zzplurt/sound/voice/human_male_pain_1.ogg', 'modular_zzplurt/sound/voice/human_male_pain_2.ogg', 'modular_zzplurt/sound/voice/human_male_pain_3.ogg', 'modular_zzplurt/sound/voice/human_male_pain_rare.ogg', 'modular_zzplurt/sound/voice/human_male_scream_1.ogg', 'modular_zzplurt/sound/voice/human_male_scream_2.ogg', 'modular_zzplurt/sound/voice/human_male_scream_3.ogg', 'modular_zzplurt/sound/voice/human_male_scream_4.ogg')
 	return pick('modular_zzplurt/sound/voice/human_female_pain_1.ogg', 'modular_zzplurt/sound/voice/human_female_pain_2.ogg', 'modular_zzplurt/sound/voice/human_female_pain_3.ogg', 'modular_zzplurt/sound/voice/human_female_scream_2.ogg', 'modular_zzplurt/sound/voice/human_female_scream_3.ogg', 'modular_zzplurt/sound/voice/human_female_scream_4.ogg')
 

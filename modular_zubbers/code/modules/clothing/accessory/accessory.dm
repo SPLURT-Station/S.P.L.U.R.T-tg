@@ -165,7 +165,7 @@ Potential future ideas:
 
 /obj/item/clothing/accessory/bubber/acc_medal
 	name = "circle medal"
-	desc = "You shouldn't have this, make a bug report!"
+	desc = "A circular medal, perfect for pinning onto your uniform or suit. Alt-Click to reskin!" //SPLURT EDIT - why the fuck did they have the "you shouldnt have this" text on it man
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/bubber/acc_medal"
 	post_init_icon_state = "medal_alt"

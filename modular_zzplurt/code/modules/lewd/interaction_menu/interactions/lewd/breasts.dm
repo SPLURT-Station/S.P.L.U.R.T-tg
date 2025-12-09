@@ -202,8 +202,13 @@
 		"%USER%'s tits smother your face",
 		"Your vision is filled with %USER%'s cleavage"
 	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
 	sound_range = 1
-	sound_use = FALSE
+	sound_use = TRUE
 	user_pleasure = 0
 	target_pleasure = 0
 	user_arousal = 3
@@ -225,19 +230,19 @@
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
 	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
 	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"cums all over %USER%'s breasts",
-		"shoots their load onto %USER%'s tits",
-		"covers %USER%'s chest in cum"
+		"%CUMMING% cums all over %CAME_IN%'s breasts",
+		"%CUMMING% shoots their load onto %CAME_IN%'s tits",
+		"%CUMMING% covers %CAME_IN%'s chest in cum"
 	))
 	cum_self_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"%TARGET% cums all over your breasts",
-		"%TARGET% shoots their load onto your tits",
-		"%TARGET% covers your chest in cum"
+		"%CUMMING% cums all over your breasts",
+		"%CUMMING% shoots their load onto your tits",
+		"%CUMMING% covers your chest in cum"
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_TARGET = list(
-		"You cum all over %USER%'s breasts",
-		"You shoot your load onto %USER%'s tits",
-		"You cover %USER%'s chest in cum"
+		"You cum all over %CAME_IN%'s breasts",
+		"You shoot your load onto %CAME_IN%'s tits",
+		"You cover %CAME_IN%'s chest in cum"
 	))
 	message = list(
 		"wraps their breasts around %TARGET%'s cock",
