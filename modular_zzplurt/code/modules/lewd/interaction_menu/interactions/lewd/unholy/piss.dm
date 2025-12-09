@@ -27,7 +27,7 @@
 	target_arousal = 2
 
 /datum/interaction/lewd/unholy/piss_over/New()
-	sound_possible = GLOB.waterpiss_noise
+	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
@@ -63,7 +63,7 @@
 	user_arousal = 2
 
 /datum/interaction/lewd/unholy/piss_over/New()
-	sound_possible = GLOB.waterpiss_nois
+	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
