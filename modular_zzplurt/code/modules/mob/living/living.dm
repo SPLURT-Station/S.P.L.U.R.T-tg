@@ -1,5 +1,6 @@
 /mob/living
 	var/size_multiplier = RESIZE_NORMAL
+	var/mob_size_base_health
 
 /// Returns false on failure
 /mob/living/proc/update_size(new_size, cur_size)
@@ -38,6 +39,12 @@
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 
+		// Store base health before size modifiers
+		if(!H.mob_size_base_health)
+			H.mob_size_base_health = H.maxHealth
+
+		var/base_health = H.mob_size_base_health
+
 		// Remove existing modifiers first
 		H.remove_movespeed_modifier(/datum/movespeed_modifier/small_size)
 		H.remove_movespeed_modifier(/datum/movespeed_modifier/tiny_size)
@@ -45,15 +52,15 @@
 		// Apply penalties based on size category
 		switch(mob_size)
 			if(MOB_SIZE_TINY)
-				H.maxHealth = max(1, initial(H.maxHealth) - 60) // 60 less at 0.49 and below
+				H.maxHealth = max(1, base_health - 60) // 60 less at 0.49 and below
 				H.health = min(H.health, H.maxHealth)
 				H.add_movespeed_modifier(/datum/movespeed_modifier/tiny_size)
 			if(MOB_SIZE_SMALL)
-				H.maxHealth = max(1, initial(H.maxHealth) - 30) // 30 less at 0.5 to 0.79
+				H.maxHealth = max(1, base_health - 30) // 30 less at 0.5 to 0.79
 				H.health = min(H.health, H.maxHealth)
 				H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
 			else
-				H.maxHealth = initial(H.maxHealth)
+				H.maxHealth = base_health
 				H.health = min(H.health, H.maxHealth)
 
 /datum/movespeed_modifier/small_size

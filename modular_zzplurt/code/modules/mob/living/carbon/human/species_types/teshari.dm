@@ -6,6 +6,7 @@
 	sonar_ping.Grant(new_teshari)
 
 	new_teshari.setMaxHealth(50)
+	new_teshari.mob_size_base_health = 50 //jank but whatever
 	new_teshari.physiology.hunger_mod *= 2
 	new_teshari.add_movespeed_modifier(/datum/movespeed_modifier/teshari)
 
