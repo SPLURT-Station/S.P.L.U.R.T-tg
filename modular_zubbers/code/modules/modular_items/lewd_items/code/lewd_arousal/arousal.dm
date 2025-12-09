@@ -1,4 +1,3 @@
-/* Moved to \modular_zzplurt\code\modules\modular_items\lewd_items\code\lewd_arousal\arousal.dm
 ///Adjusts the parent human's arousal value based off the value assigned to `arous.`
 /mob/living/proc/adjust_arousal(arous = 0) // SPLURT EDIT - INTERACTIONS - Is now a property of the base living mob
 	if(stat >= DEAD || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || (!ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src)))) // SPLURT EDIT - INTERACTIONS - Simple mobs should also be able to handle pain
@@ -21,7 +20,7 @@
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
 
-	arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT)
+	//arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - reworked in modular
 
 	if(!has_status_effect(/datum/status_effect/aroused) && arousal)
 		apply_status_effect(/datum/status_effect/aroused)
@@ -63,4 +62,3 @@
 		if (arousal > AROUSAL_NONE && src.dna.features["low_arousal"])
 			. += span_purple(src.dna.features["low_arousal"])
 			return
-*/
