@@ -61,7 +61,7 @@
 				H.health = min(H.health, H.maxHealth)
 				H.add_movespeed_modifier(/datum/movespeed_modifier/tiny_size)
 			if(MOB_SIZE_SMALL)
-				H.maxHealth = max(1, base_health - 30) // 30 less at 0.5 to 0.79
+				H.maxHealth = max(1, base_health - 35) // 35 less at 0.5 to 0.79
 				H.health = min(H.health, H.maxHealth)
 				H.add_movespeed_modifier(/datum/movespeed_modifier/small_size)
 			else
