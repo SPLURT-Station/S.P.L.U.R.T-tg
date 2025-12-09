@@ -160,7 +160,7 @@
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_slit/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	return ..() && user?.dna?.features?["penis_sheath"] == SHEATH_SLIT
+	return ..() && target?.dna?.features?["penis_sheath"] == SHEATH_SLIT
 
 /datum/interaction/lewd/unholy/piss_slit/act(mob/living/user, mob/living/target)
 	. = ..()
