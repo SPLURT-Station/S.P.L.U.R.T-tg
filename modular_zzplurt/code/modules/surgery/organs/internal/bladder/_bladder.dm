@@ -38,7 +38,7 @@
 
 	if((stored_piss >= max_piss_storage) && ((old_piss < max_piss_storage) || COOLDOWN_FINISHED(src, piss_notification)))
 		to_chat(owner, span_boldwarning("Your bladder is about to burst!"))
-		COOLDOWN_START(src, piss_notification, 1 MINUTES)
+		COOLDOWN_START(src, piss_notification, 3 MINUTES)
 	else if((stored_piss >= max_piss_storage * 0.75) && ((old_piss < max_piss_storage * 0.75) || COOLDOWN_FINISHED(src, piss_notification)))
 		to_chat(owner, span_warning("You could <b>really</b> use a trip to the bathroom."))
 		COOLDOWN_START(src, piss_notification, 3 MINUTES)
