@@ -48,7 +48,7 @@
 
 
 /obj/item/organ/bladder/proc/urinate(forced = FALSE)
-	if(owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
+	if(owner.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
 		if(!forced)
 			to_chat(owner, span_notice("You must enable the unholy verbs preference to piss."))
 		return
