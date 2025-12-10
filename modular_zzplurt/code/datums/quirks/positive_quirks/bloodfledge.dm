@@ -91,8 +91,14 @@
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
-	// Register examine text
-	RegisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE, PROC_REF(quirk_examine_bloodfledge))
+	// Define if antagonists are enabled
+	var/storyteller_antags = (SSgamemode?.storyteller?.storyteller_type & STORYTELLER_TYPE_ANTAGS)
+
+	// Check if antagonists are disabled for this round
+	if(!storyteller_antags)
+		// Register examine text
+		// Could be used to reveal imposter crew
+		RegisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE, PROC_REF(quirk_examine_bloodfledge))
 
 	// Register wooden stake interaction
 	RegisterSignal(quirk_holder, COMSIG_MOB_STAKED, PROC_REF(on_staked))
@@ -114,6 +120,14 @@
 	if(ishemophage(quirk_mob))
 		// Ignore proceeding code
 		return
+
+	// Check if antagonists are disabled for this round
+	if(!storyteller_antags)
+		// Alert user
+		to_chat(quirk_mob, span_nicegreen("Things are peaceful here. Your sanguine powers will be more effective than normal!"))
+
+		// Double healing rate
+		heal_amount *= 2
 
 	// Register blood consumption interaction
 	RegisterSignal(quirk_holder, COMSIG_REAGENT_ADD_BLOOD, PROC_REF(on_consume_blood))
