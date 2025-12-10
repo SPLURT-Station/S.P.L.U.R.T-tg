@@ -5,7 +5,7 @@
 /mob/proc/adjust_thirst(change, max = THIRST_LEVEL_THRESHOLD)
 	if(change < 0 || water_level > THIRST_LEVEL_VERY_QUENCHED) // processed water, or excess
 		var/obj/item/organ/bladder/bladder = get_organ_slot(ORGAN_SLOT_BLADDER)
-		bladder?.add_piss(abs(change)) // arbitrary number, adjust if stupid
+		bladder?.add_piss(abs(change) / 3) // arbitrary number, adjust if stupid
 
 	if(HAS_TRAIT(src, TRAIT_NOTHIRST))
 		return

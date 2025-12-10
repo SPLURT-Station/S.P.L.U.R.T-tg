@@ -21,7 +21,7 @@
 	/// How long (roughly) does it take us to fill up on piss through life ticks alone (i.e no overdrinking)?
 	var/time_before_full = 1.5 HOURS
 	/// Delay the next notification for having a full bladder.
-	COOLDOWN_DECLARE(piss_notification)
+	// COOLDOWN_DECLARE(piss_notification)
 
 /obj/item/organ/bladder/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -31,26 +31,27 @@
 	add_piss(added_piss)
 
 /obj/item/organ/bladder/proc/add_piss(amount)
-	var/old_piss = stored_piss
-	stored_piss = min(stored_piss + amount, max_piss_storage)
 	if(owner.client?.prefs.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
 		return
 
-	if((stored_piss >= max_piss_storage) && ((old_piss < max_piss_storage) || COOLDOWN_FINISHED(src, piss_notification)))
-		to_chat(owner, span_boldwarning("Your bladder is about to burst!"))
-		COOLDOWN_START(src, piss_notification, 3 MINUTES)
-	else if((stored_piss >= max_piss_storage * 0.75) && ((old_piss < max_piss_storage * 0.75) || COOLDOWN_FINISHED(src, piss_notification)))
-		to_chat(owner, span_warning("You could <b>really</b> use a trip to the bathroom."))
-		COOLDOWN_START(src, piss_notification, 3 MINUTES)
-	else if((stored_piss >= max_piss_storage * 0.5) && ((old_piss < max_piss_storage * 0.5) || COOLDOWN_FINISHED(src, piss_notification)))
-		to_chat(owner, span_warning("Your bladder is feeling full."))
-		COOLDOWN_START(src, piss_notification, 5 MINUTES)
+	// var/old_piss = stored_piss
+	stored_piss = min(stored_piss + amount, max_piss_storage)
+
+	// if((stored_piss >= max_piss_storage) && ((old_piss < max_piss_storage) || COOLDOWN_FINISHED(src, piss_notification)))
+	// 	to_chat(owner, span_boldwarning("Your bladder is about to burst!"))
+	// 	COOLDOWN_START(src, piss_notification, 3 MINUTES)
+	// else if((stored_piss >= max_piss_storage * 0.75) && ((old_piss < max_piss_storage * 0.75) || COOLDOWN_FINISHED(src, piss_notification)))
+	// 	to_chat(owner, span_warning("You could <b>really</b> use a trip to the bathroom."))
+	// 	COOLDOWN_START(src, piss_notification, 3 MINUTES)
+	// else if((stored_piss >= max_piss_storage * 0.5) && ((old_piss < max_piss_storage * 0.5) || COOLDOWN_FINISHED(src, piss_notification)))
+	// 	to_chat(owner, span_warning("Your bladder is feeling full."))
+	// 	COOLDOWN_START(src, piss_notification, 5 MINUTES)
 
 
 /obj/item/organ/bladder/proc/urinate(forced = FALSE)
 	if(owner.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_unholy) == "No")
 		if(!forced)
-			to_chat(owner, span_notice("You must enable the unholy verbs preference to piss."))
+			to_chat(owner, span_notice("You must enable the unholy verbs preference to piss.")) // we cant have nice things
 		return
 	if(stored_piss < piss_dosage * 2/3)
 		if(!forced)
