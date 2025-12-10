@@ -20,8 +20,6 @@
 #define BLOODFLEDGE_REVIVE_DELAY 200
 /// Minimum amount of blood required for revivals
 #define BLOODFLEDGE_REVIVE_MINIMUM_VOLUME BLOOD_VOLUME_OKAY
-/// Amount of nutrition the target is left with after reviving
-#define BLOODFLEDGE_REVIVE_AFTER_NUTRITION NUTRITION_LEVEL_STARVING
 /// Amount of blood volume the target is left with after reviving
 #define BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME BLOOD_VOLUME_RISKY
 /// Blood volume threshold at which trait owner enters desperate mode
@@ -70,8 +68,6 @@
 	hardcore_value = -2
 	icon = FA_ICON_CHAMPAGNE_GLASSES
 
-	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
-	var/use_nutrition = FALSE
 	/// Is the holder currently desperate for blood?
 	var/is_desperate = FALSE
 	/// Amount of healing applied during coffin use
@@ -192,9 +188,6 @@
 		// Warn user about feature overlap
 		to_chat(quirk_mob, span_warning("As a Hemophage already in possession of " + quirk_mob.p_their() + " tumor, you've neglected to learn some redundant bloodfledge abilities."))
 
-		// Disable nutrition mode - use blood volume mode
-		use_nutrition = FALSE
-
 		// Ignore remaining features
 		return
 
@@ -233,25 +226,8 @@
 		STOP_PROCESSING(SSquirks, src)
 		return
 
-	/// Define if nutrition or blood volume is sufficient. Will stop healing if FALSE.
-	var/has_enough_blood = TRUE
-
-	// Check if using nutrition mode
-	if(use_nutrition)
-		// Nutrition level must be above STARVING
-		if(quirk_mob.nutrition <= NUTRITION_LEVEL_STARVING)
-			// Set variable
-			has_enough_blood = FALSE
-
-	// Using blood volume mode
-	else
-		// Blood level must be above desperation threshold
-		if(quirk_mob.blood_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
-			// Set variable
-			has_enough_blood = FALSE
-
-	// Check if nutrition or blood volume is high enough
-	if(!has_enough_blood)
+	// Check if blood volume is high enough
+	if(quirk_mob.blood_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
 		// Warn user
 		to_chat(quirk_mob, span_warning("[quirk_coffin] requires blood to operate, which you are currently lacking. Your connection to the other-world fades once again."))
 
@@ -290,14 +266,7 @@
 
 	// Remove a resource as compensation for healing
 	// Amount is equal to healing done
-
-	// Check if using nutrition mode
-	if(use_nutrition)
-		quirk_mob.adjust_nutrition(health_restored*-1)
-
-	// Using blood volume mode
-	else
-		quirk_mob.blood_volume -= (health_restored*-1)
+	quirk_mob.blood_volume -= (health_restored*-1)
 
 
 /datum/quirk/item_quirk/bloodfledge/remove()
@@ -451,63 +420,42 @@
 	var/examine_hunger_public
 	var/examine_hunger_secret
 
-	// Check if using nutrition mode
-	if(use_nutrition)
-		// Check hunger levels
-		switch(quirk_mob.nutrition)
-			// Hungry
-			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-				examine_hunger_secret = "[holder_they] [holder_are] blood starved!"
-				examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
+	// Check blood value levels (based on blood.dm)
+	switch(quirk_mob.blood_volume)
+		// Lethal dosage of blood
+		if(BLOOD_VOLUME_EXCESS to INFINITY)
+			examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] committed a fatal sin of gluttony!"
 
-			// Starving
-			if(0 to NUTRITION_LEVEL_STARVING)
-				examine_hunger_secret = "[holder_they] [holder_are] in dire need of blood!"
-				examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied hunger!"
+		// Too much
+		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
+			examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] taken more than [quirk_holder.p_their()] share of blood!"
 
-			// Invalid hunger
-			else
-				// Return with no message
-				return
+		// Not enough, but safe
+		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+			examine_hunger_secret = "[holder_their] aura is weaker than normal."
 
-	// Using blood volume mode
-	else
-		// Check blood value levels (based on blood.dm)
-		switch(quirk_mob.blood_volume)
-			// Lethal dosage of blood
-			if(BLOOD_VOLUME_EXCESS to INFINITY)
-				examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] committed a fatal sin of gluttony!"
+		// Not enough, becoming dangerous
+		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
+			examine_hunger_secret = "[holder_their] bloodthirst is obvious even at a glance!"
+			examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
 
-			// Too much
-			if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
-				examine_hunger_secret = "[holder_they] [quirk_holder.p_have()] taken more than [quirk_holder.p_their()] share of blood!"
+		// Dangerously low
+		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
+			examine_hunger_secret = "[holder_they] [holder_are] desperately blood starved!"
+			examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied desperation."
 
-			// Not enough, but safe
-			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-				examine_hunger_secret = "[holder_their] aura is weaker than normal."
+		// Critcally low, near death
+		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+			examine_hunger_secret = "[holder_they] [holder_are] soon to be reclaimed by the sanguine curse!"
 
-			// Not enough, becoming dangerous
-			if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
-				examine_hunger_secret = "[holder_their] bloodthirst is obvious even at a glance!"
-				examine_hunger_public = "[holder_they] seem[quirk_holder.p_s()] on edge from something."
+		// Instant death
+		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
+			examine_hunger_secret = "[holder_they] [holder_are] a desperate fool."
 
-			// Dangerously low
-			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
-				examine_hunger_secret = "[holder_they] [holder_are] desperately blood starved!"
-				examine_hunger_public = "[holder_they] [holder_are] radiating an aura of frenzied desperation."
-
-			// Critcally low, near death
-			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-				examine_hunger_secret = "[holder_they] [holder_are] soon to be reclaimed by the sanguine curse!"
-
-			// Instant death
-			if(-INFINITY to BLOOD_VOLUME_SURVIVE)
-				examine_hunger_secret = "[holder_they] [holder_are] a desperate fool."
-
-			// Invalid blood value
-			else
-				// Return with no message
-				return
+		// Invalid blood value
+		else
+			// Return with no message
+			return
 
 	// Check if examiner shares the quirk
 	if(isbloodfledge(examiner))
@@ -657,19 +605,6 @@
 	// Remove desperation
 	remove_desperate()
 
-	// Check if using nutrition mode
-	// Ignore proceeding code if not
-	if(!use_nutrition)
-		return
-
-	// Check for valid reagent
-	if(ispath(handled_reagent))
-		// Remove reagent
-		quirk_holder.reagents.remove_reagent(handled_reagent, amount)
-
-	// Add Notriment
-	quirk_holder.reagents.add_reagent(/datum/reagent/consumable/notriment, amount)
-
 /**
  * Blood update signal handler for Bloodfledges
  * * Checks if blood volume has hit certain thresholds
@@ -724,17 +659,6 @@
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED | AB_CHECK_PHASED
-
-	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
-	var/use_nutrition = FALSE
-
-/datum/action/cooldown/bloodfledge/Grant()
-	. = ..()
-
-	// Check if user is a hemophage
-	if(ishemophage(owner))
-		// Disable nutrition mode
-		use_nutrition = FALSE
 
 /**
  * Check if Bloodfledge power is allowed to be used
@@ -853,37 +777,19 @@
 		owner.balloon_alert(owner, "mouth covered!")
 		return FALSE
 
-	// Using nutrition mode
-	if(use_nutrition)
-		// Limit maximum nutrition
-		if(action_owner.nutrition >= NUTRITION_LEVEL_FAT)
-			// Warn the user, then return
-			to_chat(action_owner, span_warning("You are too full to drain any more."))
-			owner.balloon_alert(owner, "too full!")
-			return
+	// Limit maximum blood volume
+	if(action_owner.blood_volume >= BLOOD_VOLUME_MAXIMUM)
+		// Warn the user, then return
+		to_chat(action_owner, span_warning("Your body contains too much blood to drain any more."))
+		owner.balloon_alert(owner, "too full!")
+		return
 
-		// Limit maximum potential nutrition
-		if(action_owner.nutrition + BLOODFLEDGE_DRAIN_AMT >= NUTRITION_LEVEL_FAT)
-			// Warn the user, then return
-			to_chat(action_owner, span_warning("You would become too full by draining any more blood."))
-			owner.balloon_alert(owner, "too full!")
-			return
-
-	// Using blood volume mode
-	else
-		// Limit maximum blood volume
-		if(action_owner.blood_volume >= BLOOD_VOLUME_MAXIMUM)
-			// Warn the user, then return
-			to_chat(action_owner, span_warning("Your body contains too much blood to drain any more."))
-			owner.balloon_alert(owner, "too full!")
-			return
-
-		// Limit maximum potential blood volume
-		if(action_owner.blood_volume + BLOODFLEDGE_DRAIN_AMT >= BLOOD_VOLUME_MAXIMUM)
-			// Warn the user, then return
-			to_chat(action_owner, span_warning("You body would become overwhelmed by draining any more blood."))
-			owner.balloon_alert(owner, "too full!")
-			return
+	// Limit maximum potential blood volume
+	if(action_owner.blood_volume + BLOODFLEDGE_DRAIN_AMT >= BLOOD_VOLUME_MAXIMUM)
+		// Warn the user, then return
+		to_chat(action_owner, span_warning("You body would become overwhelmed by draining any more blood."))
+		owner.balloon_alert(owner, "too full!")
+		return
 
 	// Define pulled target
 	var/pull_target = action_owner.pulling
@@ -1537,15 +1443,9 @@
 	// Define mob
 	var/mob/living/carbon/human/action_owner = owner
 
-	// Condition: Insufficient nutrition
-	if(use_nutrition)
-		if(action_owner.nutrition <= NUTRITION_LEVEL_VERY_HUNGRY)
-			revive_failed += "\n- You're too blood-starved!"
-
 	// Condition: Insufficient blood volume
-	else
-		if(action_owner.blood_volume < BLOODFLEDGE_REVIVE_MINIMUM_VOLUME)
-			revive_failed += "\n- You don't have enough blood volume left!"
+	if(action_owner.blood_volume < BLOODFLEDGE_REVIVE_MINIMUM_VOLUME)
+		revive_failed += "\n- You don't have enough blood left!"
 
 	// Condition: Can be revived
 	// This is used by revive(), and must be checked here to prevent false feedback
@@ -1675,16 +1575,9 @@
 	// Play a haunted sound effect
 	playsound(action_owner, 'sound/effects/pope_entry.ogg', 30, 1, -2)
 
-	// Nutrition mode
-	if(use_nutrition)
-		// Set nutrition to starving
-		action_owner.set_nutrition(BLOODFLEDGE_REVIVE_AFTER_NUTRITION)
-
-	// Blood volume mode
-	else
-		// Set blood volume to RISKY level
-		// Setting this too low causes instant death for hemophages
-		action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
+	// Set blood volume to RISKY level
+	// Setting this too low causes instant death for hemophages
+	action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
@@ -2003,7 +1896,6 @@
 #undef BLOODFLEDGE_TRAITS
 #undef BLOODFLEDGE_REVIVE_DELAY
 #undef BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
-#undef BLOODFLEDGE_REVIVE_AFTER_NUTRITION
 #undef BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_START
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_END
