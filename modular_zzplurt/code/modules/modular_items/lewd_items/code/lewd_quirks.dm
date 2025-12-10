@@ -44,7 +44,7 @@
 		human_owner.set_jitter_if_lower(jitter_time)
 
 	to_chat(human_owner, span_purple(lust_message))
-	if(!in_company)
+	if(!in_company())
 		to_chat(human_owner, span_purple("You find yourself groping your genitals, seeking any kind of relief"))
 		human_owner.adjust_pleasure(5)
 
