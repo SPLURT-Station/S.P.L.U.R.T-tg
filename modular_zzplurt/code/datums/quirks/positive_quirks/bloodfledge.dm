@@ -12,21 +12,31 @@
 #define BLOODFLEDGE_BANK_CAPACITY (BLOODFLEDGE_DRAIN_AMT * 2)
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
-/// How much to multiply healing by while weakened by desperation (craving)
+/// How much to multiply healing by while weakened by desperation
 #define BLOODFLEDGE_HEAL_PENALTY_DESPERATE 0.5
 /// List of traits inherent to bloodfledges
 #define BLOODFLEDGE_TRAITS list(TRAIT_NOTHIRST, TRAIT_DRINKS_BLOOD, TRAIT_NO_BLOOD_REGEN)
 /// Delay between activating revive and actually getting up
 #define BLOODFLEDGE_REVIVE_DELAY 200
-/// Time before trait holder begins craving blood
-#define BLOODFLEDGE_CRAVE_TIME 20 MINUTES
-/// Time before craving when first getting quirk
-#define BLOODFLEDGE_CRAVE_TIME_START BLOODFLEDGE_CRAVE_TIME
+/// Minimum amount of blood required for revivals
+#define BLOODFLEDGE_REVIVE_MINIMUM_VOLUME BLOOD_VOLUME_OKAY
+/// Amount of nutrition the target is left with after reviving
+#define BLOODFLEDGE_REVIVE_AFTER_NUTRITION NUTRITION_LEVEL_STARVING
+/// Amount of blood volume the target is left with after reviving
+#define BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME BLOOD_VOLUME_RISKY
+/// Blood volume threshold at which trait owner enters desperate mode
+#define BLOODFLEDGE_DESPERATE_THRESHOLD_START BLOOD_VOLUME_SAFE
+/// Blood volume threshold at which desperation is cleared
+#define BLOODFLEDGE_DESPERATE_THRESHOLD_END BLOOD_VOLUME_SAFE
 /// Amount of nanites to be transferred when biting a target
 #define BLOODFLEDGE_NANITE_TRANSFER_AMOUNT 5 // Similar to nanite sting
+/// Amount of blood lost per blood process
+#define BLOODFLEDGE_BLOODLOSS_AMOUNT 0.75 // Higher than hemophage - but uses RNG
+/// Percentage chance of losing blood to upkeep fees
+#define BLOODFLEDGE_BLOODLOSS_CHANCE 25
 
-/// Messages used when the holder begins craving blood
-#define BLOODFLEDGE_CRAVE_MESSAGES pick(\
+/// Messages used when the holder runs low on blood
+#define BLOODFLEDGE_DESPERATE_MESSAGES pick(\
 	"You feel the edges of your mind fraying, a dark hunger nudging them inward...",\
 	"Distant memories of salt and iron press at the tip of your tongue...",\
 	"A crimson memory washes over your mind, mapping a single, simple need...",\
@@ -40,13 +50,11 @@
 #undef BLOODFLEDGE_COOLDOWN_REVIVE
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
 #undef BLOODFLEDGE_REVIVE_DELAY
-#undef BLOODFLEDGE_CRAVE_TIME_START
 #define BLOODFLEDGE_DRAIN_TIME 10
 #define BLOODFLEDGE_COOLDOWN_BITE 10
 #define BLOODFLEDGE_COOLDOWN_REVIVE 10
 #define BLOODFLEDGE_COOLDOWN_ANALYZE 10
 #define BLOODFLEDGE_REVIVE_DELAY 10
-#define BLOODFLEDGE_CRAVE_TIME_START 1 MINUTES
 #endif
 
 /datum/quirk/item_quirk/bloodfledge
@@ -62,10 +70,8 @@
 
 	/// Toggle between using blood volume or nutrition. Hemophages always use blood volume.
 	var/use_nutrition = FALSE
-	/// Is the holder currently craving blood?
-	var/is_craving = FALSE
-	// Timer for cravings
-	var/timer_crave
+	/// Is the holder currently desperate for blood?
+	var/is_desperate = FALSE
 	/// Amount of healing applied during coffin use
 	var/heal_amount = BLOODFLEDGE_HEAL_AMT
 
@@ -115,6 +121,9 @@
 	// Register coffin interaction
 	RegisterSignal(quirk_holder, COMSIG_ENTER_COFFIN, PROC_REF(on_enter_coffin))
 
+	// Register changes to blood
+	RegisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(on_handle_blood))
+
 	// Set skin tone, if possible
 	if(HAS_TRAIT(quirk_mob, TRAIT_USES_SKINTONES) && !(quirk_mob.skin_tone != initial(quirk_mob.skin_tone)))
 		quirk_mob.skin_tone = "albino"
@@ -126,9 +135,6 @@
 	// Add profane penalties
 	quirk_holder.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/chapel_weakness)
 	quirk_holder.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/holywater_weakness)
-
-	// Set timer
-	timer_crave = addtimer(CALLBACK(src, PROC_REF(crave)), BLOODFLEDGE_CRAVE_TIME_START, TIMER_STOPPABLE)
 
 /datum/quirk/item_quirk/bloodfledge/post_add()
 	. = ..()
@@ -223,8 +229,8 @@
 
 	// Using blood volume mode
 	else
-		// Blood level must be above SURVIVE
-		if(quirk_mob.blood_volume <= BLOOD_VOLUME_SURVIVE)
+		// Blood level must be above desperation threshold
+		if(quirk_mob.blood_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
 			// Set variable
 			has_enough_blood = FALSE
 
@@ -323,9 +329,8 @@
 	REMOVE_TRAIT(quirk_holder, TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE)
 	REMOVE_TRAIT(quirk_holder, TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE)
 
-	// Remove cravings
-	uncrave()
-	deltimer(timer_crave)
+	// Remove desperation
+	remove_desperate()
 
 /datum/quirk/item_quirk/bloodfledge/add_unique(client/client_source)
 	// Define quirk mob
@@ -396,7 +401,7 @@
  * Special examine text for Bloodfledges
  * * Displays hunger or blood volume level notices
  * * Indicates that the holder has a usable revive ability
- * * Indicates if the holder is currently craving blood
+ * * Indicates if the holder is currently desperate for blood
 */
 /datum/quirk/item_quirk/bloodfledge/proc/quirk_examine_bloodfledge(atom/examine_target, mob/living/carbon/human/examiner, list/examine_list)
 	SIGNAL_HANDLER
@@ -493,12 +498,13 @@
 		// Add detection text
 		examine_list += span_info("[holder_their] hunger makes it easy to identify [quirk_holder.p_them()] as a fellow sanguine!")
 
-		// Check if currently craving/desperate
-		if(is_craving)
-			examine_list += span_info("[holder_they] radiate an aura of bloodthirsty desperation.")
-
 		// Add hunger text
 		examine_list += span_cult(examine_hunger_secret)
+
+		// Check if currently desperate
+		if(is_desperate)
+			// Add desperation text
+			examine_list += span_warning("[holder_they] radiate[quirk_holder.p_s()] an aura of bloodthirsty desperation.")
 
 	// Check if public hunger text exists
 	else
@@ -632,8 +638,8 @@
 		// End here
 		return
 
-	// Remove craving
-	uncrave()
+	// Remove desperation
+	remove_desperate()
 
 	// Check if using nutrition mode
 	// Ignore proceeding code if not
@@ -647,6 +653,55 @@
 
 	// Add Notriment
 	quirk_holder.reagents.add_reagent(/datum/reagent/consumable/notriment, amount)
+
+/**
+ * Blood update signal handler for Bloodfledges
+ * * Checks if blood volume has hit certain thresholds
+ * * Sets desperate to enabled or disabled based on threshold
+*/
+/datum/quirk/item_quirk/bloodfledge/proc/on_handle_blood(mob/living/target, datum/reagent/blood/handled_reagent, amount, data)
+	SIGNAL_HANDLER
+
+	// Check if currently conscious
+	// Desperation is less important if so
+	if(target.stat != CONSCIOUS)
+		return
+
+	/*
+	// Define quirk mob
+	var/mob/living/carbon/human/quirk_mob = target
+
+	// Check if quirk mob exists
+	if(!istype(quirk_mob))
+		return
+	*/
+
+	// Define current blood volume
+	var/target_volume = target.blood_volume
+
+	// Check probability to lose blood
+	if(prob(BLOODFLEDGE_BLOODLOSS_CHANCE))
+		// Check if blood volume is high enough
+		if(target_volume > BLOODFLEDGE_DESPERATE_THRESHOLD_START)
+			// Reduce blood volume by upkeep cost amount
+			target.blood_volume -= BLOODFLEDGE_BLOODLOSS_AMOUNT
+
+			// Reset variable
+			target_volume = target.blood_volume
+
+	// Check if not already desperate
+	if(!is_desperate)
+		// Check if blood volume is below threshold
+		if(target_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
+			// Start effect
+			set_desperate()
+
+	// Target is already desperate
+	else
+		// Check if blood volume is above threshold
+		if(target_volume >= BLOODFLEDGE_DESPERATE_THRESHOLD_END)
+			// End effect
+			remove_desperate()
 
 //
 // Bloodfledge actions
@@ -829,7 +884,7 @@
 	// Define bite target
 	var/mob/living/carbon/human/bite_target
 
-	/// Does action owner dumb has the dumb trait, or is currently craving? Changes the result of some failure interactions.
+	/// Does action owner dumb has the dumb trait, or is currently desperate? Changes the result of some failure interactions.
 	var/action_owner_dumb = (HAS_TRAIT(action_owner, TRAIT_DUMB) || HAS_TRAIT(action_owner, TRAIT_BLOODFLEDGE_DESPERATE))
 
 	/// Is the action owner evil? Changes some interactions.
@@ -1482,7 +1537,7 @@
 
 	// Condition: Insufficient blood volume
 	else
-		if(action_owner.blood_volume < BLOOD_VOLUME_SURVIVE)
+		if(action_owner.blood_volume < BLOODFLEDGE_REVIVE_MINIMUM_VOLUME)
 			revive_failed += "\n- You don't have enough blood volume left!"
 
 	// Condition: Can be revived
@@ -1616,13 +1671,13 @@
 	// Nutrition mode
 	if(use_nutrition)
 		// Set nutrition to starving
-		action_owner.set_nutrition(NUTRITION_LEVEL_STARVING)
+		action_owner.set_nutrition(BLOODFLEDGE_REVIVE_AFTER_NUTRITION)
 
 	// Blood volume mode
 	else
 		// Set blood volume to RISKY level
 		// Setting this too low causes instant death for hemophages
-		action_owner.blood_volume = BLOOD_VOLUME_RISKY
+		action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
@@ -1872,19 +1927,19 @@
 	description = "I drink artifical blood. I should know better."
 
 /**
- * Craving Effect
- * Based on Dumb For Cum quirk
+ * Desperation Effect
+ * Triggered by having low blood volume
  */
 
-/// Proc for add Bloodfledge craving effects
-/datum/quirk/item_quirk/bloodfledge/proc/crave()
+/// Proc for add Bloodfledge desperation effects
+/datum/quirk/item_quirk/bloodfledge/proc/set_desperate()
 	// Check if conscious
 	if(quirk_holder.stat == CONSCIOUS)
 		// Alert user in chat
-		to_chat(quirk_holder, span_warning("[BLOODFLEDGE_CRAVE_MESSAGES]"))
+		to_chat(quirk_holder, span_warning("[BLOODFLEDGE_DESPERATE_MESSAGES]"))
 
-	// Set craving variable
-	is_craving = TRUE
+	// Set desperation variable
+	is_desperate = TRUE
 
 	// Add desperate trait
 	// This makes bite interactions act less cautiously
@@ -1896,15 +1951,15 @@
 	// Reduce healing amount
 	heal_amount *= BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 
-/// Proc to remove Bloodfledge craving effects
-/datum/quirk/item_quirk/bloodfledge/proc/uncrave()
-	// Check if craving
-	if(!is_craving)
+/// Proc to remove Bloodfledge desperation effects
+/datum/quirk/item_quirk/bloodfledge/proc/remove_desperate()
+	// Check if desperate
+	if(!is_desperate)
 		// Do nothing
 		return
 
-	// Set craving variable
-	is_craving = FALSE
+	// Set desperate variable
+	is_desperate = FALSE
 
 	// Remove desperate trait
 	REMOVE_TRAIT(quirk_holder, TRAIT_BLOODFLEDGE_DESPERATE, TRAIT_BLOODFLEDGE)
@@ -1915,19 +1970,12 @@
 	// Reset heal amount
 	heal_amount /= BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 
-	// Remove timer
-	deltimer(timer_crave)
-	timer_crave = null
-
-	// Add new timer
-	timer_crave = addtimer(CALLBACK(src, PROC_REF(crave)), BLOODFLEDGE_CRAVE_TIME, TIMER_STOPPABLE)
-
-// Mood penalty for craving
+// Mood penalty for desperation
 /datum/mood_event/bloodfledge/blood_craving
 	description = span_warning("The sanguine thirst calls to me. I need blood!")
 	mood_change = -4 // Half of D4C
 
-// Mood bonus for satisfying the craving
+// Mood bonus for satisfying the desperation
 /datum/mood_event/bloodfledge/blood_satisfied
 	description = span_nicegreen("My sanguine urges have been sated for now.")
 	mood_change = 2 // Half of D4C
@@ -1937,10 +1985,17 @@
 #undef BLOODFLEDGE_DRAIN_TIME
 #undef BLOODFLEDGE_COOLDOWN_BITE
 #undef BLOODFLEDGE_COOLDOWN_REVIVE
+#undef BLOODFLEDGE_COOLDOWN_ANALYZE
 #undef BLOODFLEDGE_BANK_CAPACITY
 #undef BLOODFLEDGE_HEAL_AMT
 #undef BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 #undef BLOODFLEDGE_TRAITS
-#undef BLOODFLEDGE_COOLDOWN_ANALYZE
-#undef BLOODFLEDGE_CRAVE_TIME
-#undef BLOODFLEDGE_CRAVE_TIME_START
+#undef BLOODFLEDGE_REVIVE_DELAY
+#undef BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
+#undef BLOODFLEDGE_REVIVE_AFTER_NUTRITION
+#undef BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
+#undef BLOODFLEDGE_DESPERATE_THRESHOLD_START
+#undef BLOODFLEDGE_DESPERATE_THRESHOLD_END
+#undef BLOODFLEDGE_NANITE_TRANSFER_AMOUNT
+#undef BLOODFLEDGE_BLOODLOSS_AMOUNT
+#undef BLOODFLEDGE_BLOODLOSS_CHANCE
