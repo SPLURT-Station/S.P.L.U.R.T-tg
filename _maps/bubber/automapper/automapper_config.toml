@@ -851,3 +851,11 @@ directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
 trait_name = "Station"
+
+# Iceboxstation, adds command vendor
+[templates.iceboxstation_commandvendor]
+map_files = ["commandvendor.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "IceBoxStation.dmm"
+coordinates = [107, 127, 3]
+trait_name = "Station"
