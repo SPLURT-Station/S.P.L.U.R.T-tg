@@ -98,9 +98,9 @@
 	else
 		stress = clamp(stress + 1, 0, 300)
 
-	//human_owner.adjust_arousal(10) SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - commented out the arousal to show off the new minimum arousal mechanic
-	if(human_owner.pleasure < 80)
-		human_owner.adjust_pleasure(5)
+	//human_owner.adjust_arousal(10) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - commented out the arousal to show off the new minimum arousal mechanic
+	/*if(human_owner.pleasure < 80) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - requested change from suggester, commented out pleasure to allow users time to RP a bit before the mechanical auto orgasm (assuming they have that pref on)
+		human_owner.adjust_pleasure(5)*/
 
 	//Anything beyond this obeys a cooldown system because we don't want to spam it
 	if(!COOLDOWN_FINISHED(src, desire_cooldown))
