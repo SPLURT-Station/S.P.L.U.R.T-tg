@@ -1757,8 +1757,7 @@
 		StartCooldown(cooldown_time / 2)
 
 		// Warn user and return
-		to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of " + span_yellow_flashy("[human_target]") + "...\n\n"\
-			+ "A strange power is protecting " + span_yellow_flashy("[human_target]") + "!\nYou cannot determine anything about " + human_target.p_them() + "!")))
+		to_chat(human_caster, fieldset_block(span_yellow_flashy("Analysis Results"), "A strange power is protecting " + span_yellow_flashy("[human_target]") + "!\nYou cannot determine anything about " + human_target.p_them() + "!", "boxed_message red_box"))
 		return TRUE
 
 	// Define target pronouns
@@ -1770,11 +1769,11 @@
 	var/target_blood_volume = human_target.blood_volume
 
 	// Define default response
-	var/output = "[t_their] [target_bloodtype] blood is incompatible with yours."
+	var/output = "[t_their] [target_bloodtype] blood is " + span_boldwarning("incompatible") + " with yours."
 
 	// Check if blood type matches
 	if(target_bloodtype == caster_bloodtype)
-		output = "[t_their] [target_bloodtype] blood is a perfect match with yours!"
+		output = "[t_their] [target_bloodtype] blood is a " + span_nicegreen("perfect match") + " with yours!"
 
 	// Blood type does not match
 	// Check if blood type is compatible
@@ -1784,21 +1783,21 @@
 	// Check if examiner shares the quirk
 	if(isbloodfledge(human_target))
 		// Add detection text
-		output += "\n[human_target.p_Theyre()] a fellow sanguine sorcerer! You probably shouldn't feed from [human_target.p_them()]."
+		output += "\n" + span_warning("[human_target.p_Theyre()] a fellow sanguine sorcerer! You probably shouldn't feed from [human_target.p_them()].")
 
 	// Check target blood volume
 	switch(target_blood_volume)
 		// Lethal dosage of blood
 		if(BLOOD_VOLUME_EXCESS to INFINITY)
-			output += "\n[t_their] body is a swollen balloon of rich blood begging to be siphoned!"
+			output += span_boldnicegreen("\n[t_their] body is a swollen balloon of rich blood begging to be siphoned!")
 
 		// Too much
 		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
-			output += "\n[t_their] body is overrun with excessive blood! You would be doing [human_target.p_them()] a favor!"
+			output += span_boldnicegreen("\n[t_their] body is overrun with excessive blood! You would be doing [human_target.p_them()] a favor!")
 
 		// Very high volume
 		if(BLOOD_VOLUME_SLIME_SPLIT to BLOOD_VOLUME_MAXIMUM)
-			output += "\n[t_their] body sloshes with excess blood, calling out your name."
+			output += span_nicegreen("\n[t_their] body sloshes with excess blood, calling out your name.")
 
 		// High volume
 		if(BLOOD_VOLUME_SAFE to BLOOD_VOLUME_SLIME_SPLIT)
@@ -1806,26 +1805,26 @@
 
 		// Not enough, but safe
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			output += "\n[t_their] blood runs thinner than normal. Be careful with [human_target.p_them()]."
+			output += span_warning("\n[t_their] blood runs thinner than normal. Be careful with [human_target.p_them()].")
 
 		// Not enough, becoming dangerous
 		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
-			output += "\n[t_their] heart struggles against a thiner blood supply!"
+			output += span_warning("\n[t_their] heart struggles against a thiner blood supply!")
 
 		// Dangerously low
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
-			output += "\n[t_their] heart is beating faster against a dangerously low blood supply."
+			output += span_boldwarning("\n[t_their] heart is beating faster against a dangerously low blood supply.")
 
 		// Critcally low, near death
 		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			output += "\n[t_their] heartbeat thrashes wildly, desperately trying to offset a critical blood shortage."
+			output += span_boldwarning("\n[t_their] heartbeat thrashes wildly, desperately trying to offset a critical blood shortage.")
 
 		// Instant death
 		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
-			output += "\n[t_their] body is a shriveled sack of dry flesh."
+			output += span_boldwarning("\n[t_their] body is a shriveled sack of dry flesh.")
 
 	// Alert user of results
-	to_chat(human_caster, custom_boxed_message("red_box",span_cult("Analyzing the blood of [human_target]...\n\n" + output)))
+	to_chat(human_caster, fieldset_block("Analysis Results", output, "boxed_message red_box"))
 
 	// Start cooldown and return
 	StartCooldown()
