@@ -27,13 +27,15 @@
 /// Blood volume threshold at which trait owner enters desperate mode
 #define BLOODFLEDGE_DESPERATE_THRESHOLD_START BLOOD_VOLUME_SAFE
 /// Blood volume threshold at which desperation is cleared
-#define BLOODFLEDGE_DESPERATE_THRESHOLD_END BLOOD_VOLUME_SAFE
+#define BLOODFLEDGE_DESPERATE_THRESHOLD_END BLOOD_VOLUME_NORMAL
 /// Amount of nanites to be transferred when biting a target
 #define BLOODFLEDGE_NANITE_TRANSFER_AMOUNT 5 // Similar to nanite sting
 /// Amount of blood lost per blood process
 #define BLOODFLEDGE_BLOODLOSS_AMOUNT 0.75 // Higher than hemophage - but uses RNG
 /// Percentage chance of losing blood to upkeep fees
 #define BLOODFLEDGE_BLOODLOSS_CHANCE 25
+/// Minimum amount of blood required to process blood loss
+#define BLOODFLEDGE_BLOODLOSS_LIMIT BLOODFLEDGE_DESPERATE_THRESHOLD_START
 
 /// Messages used when the holder runs low on blood
 #define BLOODFLEDGE_DESPERATE_MESSAGES pick(\
@@ -681,22 +683,13 @@
 	if(target.stat != CONSCIOUS)
 		return
 
-	/*
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = target
-
-	// Check if quirk mob exists
-	if(!istype(quirk_mob))
-		return
-	*/
-
 	// Define current blood volume
 	var/target_volume = target.blood_volume
 
 	// Check probability to lose blood
 	if(prob(BLOODFLEDGE_BLOODLOSS_CHANCE))
 		// Check if blood volume is high enough
-		if(target_volume > BLOODFLEDGE_DESPERATE_THRESHOLD_START)
+		if(target_volume > BLOODFLEDGE_BLOODLOSS_LIMIT)
 			// Reduce blood volume by upkeep cost amount
 			target.blood_volume -= BLOODFLEDGE_BLOODLOSS_AMOUNT
 
@@ -1946,6 +1939,11 @@
 
 /// Proc for add Bloodfledge desperation effects
 /datum/quirk/item_quirk/bloodfledge/proc/set_desperate()
+	// Check if already desperate
+	if(is_desperate)
+		// Do nothing
+		return
+
 	// Check if conscious
 	if(quirk_holder.stat == CONSCIOUS)
 		// Alert user in chat
@@ -2012,3 +2010,4 @@
 #undef BLOODFLEDGE_NANITE_TRANSFER_AMOUNT
 #undef BLOODFLEDGE_BLOODLOSS_AMOUNT
 #undef BLOODFLEDGE_BLOODLOSS_CHANCE
+#undef BLOODFLEDGE_BLOODLOSS_LIMIT
