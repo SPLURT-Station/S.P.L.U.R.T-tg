@@ -53,3 +53,13 @@
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN|ARMS
+
+/obj/item/clothing/under/costume/playbunny/nanotrasen
+	name = "Nanotrasen bunnysuit"
+	desc = "A modified Nanotrasen version of a bunny outfit, using Lunarian technology to condense countless amounts of rabbits into a material that is extremely comfortable and light to wear."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/costume.dmi'
+	icon_state = "playbunny_nanotrasen"
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/costume.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/costume_digi.dmi'
+	body_parts_covered = CHEST|GROIN|LEGS
+	alt_covers_chest = TRUE
