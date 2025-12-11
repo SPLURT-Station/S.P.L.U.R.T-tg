@@ -30,6 +30,8 @@
 	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
+// no checks for a full bladder because this is splurt
+
 /datum/interaction/lewd/unholy/piss_over/act(mob/living/user, mob/living/target)
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
@@ -37,6 +39,7 @@
 		var/turf/target_turf = get_turf(target)
 		if(isnull(target_turf))
 			return // piss off
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 		if(target_turf.liquids?.reagent_list[/datum/reagent/ammonia/urine] < 15)
 			target_turf.add_liquid(bladder.pissed_reagent, bladder.piss_dosage, FALSE, bladder.piss_temperature)
 
@@ -73,6 +76,7 @@
 		var/turf/target_turf = get_turf(user)
 		if(isnull(target_turf))
 			return // piss off
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 		if(target_turf.liquids?.reagent_list[/datum/reagent/ammonia/urine] < 15)
 			target_turf.add_liquid(bladder.pissed_reagent, bladder.piss_dosage, FALSE, bladder.piss_temperature)
 
@@ -120,6 +124,7 @@
 		reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
 		reagents.expose(target, INGEST)
 		qdel(reagents)
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 
 /datum/interaction/lewd/unholy/piss_mouth/post_interaction(mob/living/user, mob/living/target)
 	. = ..()
@@ -166,6 +171,7 @@
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
 	if(bladder && ishuman(target))
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
 
 
@@ -206,6 +212,7 @@
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
 	if(bladder && ishuman(target))
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
 
 
@@ -245,6 +252,7 @@
 	. = ..()
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
 	if(bladder && ishuman(target))
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
 		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
 
 
@@ -280,3 +288,9 @@
 	sound_possible = GLOB.waterpiss_noises
 	return ..()
 
+/datum/interaction/lewd/unholy/piss_urethra/act(mob/living/user, mob/living/target)
+	. = ..()
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder && ishuman(target))
+		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
+		target.reagents.add_reagent(bladder.pissed_reagent, bladder.piss_dosage, reagtemp = bladder.piss_temperature)
