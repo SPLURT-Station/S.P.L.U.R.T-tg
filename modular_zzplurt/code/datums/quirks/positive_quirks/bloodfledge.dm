@@ -59,7 +59,7 @@
 
 /datum/quirk/item_quirk/bloodfledge
 	name = "Bloodfledge"
-	desc = "You are apprentice sanguine sorcerer endowed with vampiric power similar to a hemophage. While not truly undead, many of the same conditions still apply."
+	desc = "You are apprentice sanguine sorcerer endowed with vampiric power similar to a Hemophage. While not truly undead, many of the same conditions still apply."
 	value = 4
 	gain_text = span_notice("A sanguine blessing flows through your body, granting it new strength.")
 	lose_text = span_notice("The sanguine blessing fades away...")
@@ -208,7 +208,7 @@
 	// Check if the current area is a coffin
 	if(!istype(quirk_coffin, /obj/structure/closet/crate/coffin))
 		// Warn user
-		to_chat(quirk_holder, span_warning("Your connection to the other-world is broken upon leaving the coffin!"))
+		to_chat(quirk_holder, span_warning("Your connection to the Geometer is broken upon leaving the coffin!"))
 
 		// Stop processing and return
 		STOP_PROCESSING(SSquirks, src)
@@ -229,7 +229,7 @@
 	// Check if blood volume is high enough
 	if(quirk_mob.blood_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
 		// Warn user
-		to_chat(quirk_mob, span_warning("[quirk_coffin] requires blood to operate, which you are currently lacking. Your connection to the other-world fades once again."))
+		to_chat(quirk_mob, span_warning("[quirk_coffin] requires blood to operate, which you are currently lacking. Your connection to the Geometer fades once again."))
 
 		// Stop processing and return
 		STOP_PROCESSING(SSquirks, src)
@@ -1575,9 +1575,16 @@
 	// Play a haunted sound effect
 	playsound(action_owner, 'sound/effects/pope_entry.ogg', 30, 1, -2)
 
-	// Set blood volume to RISKY level
-	// Setting this too low causes instant death for hemophages
-	action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
+	// Check if hemophage
+	if(ishemophage(action_owner)
+		// Set blood volume level
+		// Value increased to prevent instant death for hemophages
+		action_owner.blood_volume = BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
+
+	// Non-hemophage
+	else
+		// Set blood volume level
+		action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
@@ -1588,7 +1595,7 @@
 // Action: Analyze
 /datum/action/cooldown/bloodfledge/analyze
 	name = "Fledgling Analyze"
-	desc = "Peer through the other-world to gain insight on another individual's blood."
+	desc = "Peer through the Geometer's eyes to gain insight on another individual's blood."
 	button_icon_state = "power_mez"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_ANALYZE
 	click_to_activate = TRUE
@@ -1602,7 +1609,7 @@
 		return
 
 	// Alert user in chat
-	to_chat(on_who, span_notice("Your mind reaches into the other-world, preparing to sense more about others."))
+	to_chat(on_who, span_notice("Your mind reaches into the higher planes, preparing to sense more about others."))
 
 	// Put code for updating icon here
 
