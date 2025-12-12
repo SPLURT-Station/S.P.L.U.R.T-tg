@@ -113,7 +113,10 @@
 	target_arousal = 3
 
 /datum/interaction/lewd/unholy/piss_mouth/New()
-	sound_possible = GLOB.waterpiss_noises
+	sound_possible = GLOB.waterpiss_noises.Copy() + list(
+		'modular_zzplurt/sound/interactions/crapjob.ogg',
+		'modular_zzplurt/sound/interactions/crapjob1.ogg'
+	)
 	return ..()
 
 /datum/interaction/lewd/unholy/piss_mouth/act(mob/living/user, mob/living/target)
@@ -125,12 +128,6 @@
 		reagents.expose(target, INGEST)
 		qdel(reagents)
 		bladder.stored_piss = max(0, bladder.stored_piss - bladder.piss_dosage)
-
-/datum/interaction/lewd/unholy/piss_mouth/post_interaction(mob/living/user, mob/living/target)
-	. = ..()
-	conditional_pref_sound(user, pick('modular_zzplurt/sound/interactions/crapjob.ogg',
-			'modular_zzplurt/sound/interactions/crapjob1.ogg'), 80, TRUE, falloff_distance = sound_range, pref_to_check = /datum/preference/toggle/erp/sounds) // interaction with the mouth
-
 
 /datum/interaction/lewd/unholy/piss_slit
 	name = "Piss in slit"
