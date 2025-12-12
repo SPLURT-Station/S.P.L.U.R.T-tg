@@ -1488,7 +1488,7 @@
 		StartCooldown()
 
 /// Proc for Bloodfledge copying target's nanites
-/datum/action/cooldown/bloodfledge/bite/proc/transfer_nanites(mob/living/carbon/action_owner, var/mob/living/carbon/human/bite_target)
+/datum/action/cooldown/bloodfledge/bite/proc/transfer_nanites(mob/living/carbon/action_owner, mob/living/carbon/human/bite_target)
 	// Check if both mobs exist
 	if(!(istype(action_owner) && istype(bite_target)))
 		return
