@@ -167,6 +167,11 @@
 /datum/quirk/item_quirk/bloodfledge/post_add()
 	. = ..()
 
+	// Debug output
+	#ifdef TESTING
+	to_chat(quirk_holder, span_boldwarning("TESTING: You are currently using Bloodfledge in <b>TESTING MODE</b>. Functionality may differ."))
+	#endif
+
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
@@ -580,11 +585,6 @@
 	// Define blood DNA
 	var/blood_DNA = data["blood_DNA"]
 
-	// Debug output
-	#ifdef TESTING
-	to_chat(quirk_holder, span_boldwarning("INGESTED DNA IS: [blood_DNA]"))
-	#endif
-
 	// Check for valid DNA
 	if(!blood_DNA)
 		// Warn user
@@ -593,11 +593,13 @@
 		// Add mood penalty
 		quirk_holder.add_mood_event(QMOOD_BFLED_DRANK_BLOOD_FAKE, /datum/mood_event/bloodfledge/drankblood/blood_fake)
 
-		// End here - Disabled
-		//return
+		// End here
+		return
 
-	// Add new blood DNA to list
-	add_dna(blood_DNA)
+	// Debug output
+	#ifdef TESTING
+	to_chat(quirk_holder, span_boldwarning("TESTING: Ingested DNA is: [blood_DNA]"))
+	#endif
 
 	// Define quirk mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
@@ -607,7 +609,7 @@
 
 	// Debug output
 	#ifdef TESTING
-	to_chat(quirk_holder, span_boldwarning("YOUR DNA IS: [quirk_mob_dna]"))
+	to_chat(quirk_holder, span_boldwarning("TESTING: Your DNA is: [quirk_mob_dna]"))
 	#endif
 
 	// Check for own blood
@@ -620,6 +622,9 @@
 
 		// End here
 		return
+
+	// Add new blood DNA to list
+	add_dna(blood_DNA)
 
 	// Remove desperation
 	remove_desperate()
@@ -683,7 +688,7 @@
 
 	// Debug output
 	#ifdef TESTING
-	to_chat(quirk_holder, span_boldwarning("DEBUG: You have consumed [length(bitten_targets)] unique DNA."))
+	to_chat(quirk_holder, span_boldwarning("TESTING: You have consumed [length(bitten_targets)] unique DNA."))
 	#endif
 
 	// Check DNA count for unique bonuses
@@ -787,52 +792,43 @@
  * * No stake embedded
  * * Not just a brain
 */
-/mob/living/carbon/proc/can_use_bloodfledge_power()
-	// Check for deleted owner
-	if(QDELETED(src))
-		return FALSE
-
-	// Check for holiness
-	if(src.can_block_magic(MAGIC_RESISTANCE_HOLY))
-		// Warn user and return
-		to_chat(src, span_warning("A holy force prevents you from using your powers!"))
-		src.balloon_alert(src, "holy interference!")
-		return FALSE
-
-	// Check for garlic
-	if(src.has_reagent(/datum/reagent/consumable/garlic, 5))
-		// Warn user and return
-		to_chat(src, span_warning("The Allium Sativum in your system is stifling your powers!"))
-		src.balloon_alert(src, "garlic interference!")
-		return FALSE
-
-	// Check for stake
-	if(src.am_staked())
-		to_chat(src, span_warning("Your powers are useless while you have a stake in your chest!"))
-		src.balloon_alert(src, "staked!")
-		return FALSE
-
-	// Check if just a brain
-	if(isbrain(src))
-		to_chat(src, span_warning("You think extra hard about how you can't do this right now!"))
-		src.balloon_alert(src, "just a brain!")
-		return FALSE
-
-	// Action can be used
-	return TRUE
-
 /datum/action/cooldown/bloodfledge/proc/can_use(mob/living/carbon/action_owner)
+	// Check for deleted owner
+	if(QDELETED(owner))
+		return FALSE
+
 	// Check if action owner exists
 	if(!istype(action_owner))
 		return FALSE
 
-	// Check bloodfledge ability conditions
-	if(action_owner.can_use_bloodfledge_power())
-		return TRUE
-
-	// Ability not allowed
-	else
+	// Check for holiness
+	if(owner.can_block_magic(MAGIC_RESISTANCE_HOLY))
+		// Warn user and return
+		to_chat(owner, span_warning("A holy force prevents you from using your powers!"))
+		owner.balloon_alert(owner, "holy interference!")
 		return FALSE
+
+	// Check for garlic
+	if(action_owner.has_reagent(/datum/reagent/consumable/garlic, 5))
+		// Warn user and return
+		to_chat(owner, span_warning("The Allium Sativum in your system is stifling your powers!"))
+		owner.balloon_alert(owner, "garlic interference!")
+		return FALSE
+
+	// Check for stake
+	if(action_owner.am_staked())
+		to_chat(owner, span_warning("Your powers are useless while you have a stake in your chest!"))
+		owner.balloon_alert(owner, "staked!")
+		return FALSE
+
+	// Check if just a brain
+	if(isbrain(owner))
+		to_chat(owner, span_warning("You think extra hard about how you can't do this right now!"))
+		owner.balloon_alert(owner, "just a brain!")
+		return FALSE
+
+	// Action can be used
+	return TRUE
 
 // Action: Bite
 /datum/action/cooldown/bloodfledge/bite
@@ -1097,7 +1093,7 @@
 		to_chat(action_owner, span_warning("[bite_target] is blessed! You stop just in time to avoid catching fire."))
 		return
 
-	// Check for SSD player
+	// Check for mind-gone player
 	if(HAS_TRAIT(bite_target, TRAIT_MIND_TEMPORARILY_GONE))
 		// Check if evil
 		if(action_owner_evil)
@@ -1518,7 +1514,7 @@
 
 	// Debug output
 	#ifdef TESTING
-	to_chat(action_owner, span_boldwarning("GAINED [BLOODFLEDGE_NANITE_TRANSFER_AMOUNT] NANITES WITH CLOUD ID: [target_nanites.cloud_id]"))
+	to_chat(action_owner, span_boldwarning("TESTING: Gained [BLOODFLEDGE_NANITE_TRANSFER_AMOUNT] nanites with cloud ID: [target_nanites.cloud_id]"))
 	#endif
 
 	// Log nanite transfer
