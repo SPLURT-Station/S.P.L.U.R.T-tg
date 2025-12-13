@@ -41,6 +41,7 @@
 		"moans, their head tilted slightly."
 	)
 
+/* SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - reworked in modular
 /**
  * If we are not satisfied, this will be ran through
  */
@@ -71,6 +72,7 @@
 		lust_message = "You feel your neck tightening, straining..."
 	to_chat(human_owner, span_purple(lust_message))
 	return TRUE
+*/
 
 /**
  * If we have climaxed, return true
@@ -96,9 +98,9 @@
 	else
 		stress = clamp(stress + 1, 0, 300)
 
-	human_owner.adjust_arousal(10)
-	if(human_owner.pleasure < 80)
-		human_owner.adjust_pleasure(5)
+	//human_owner.adjust_arousal(10) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - commented out the arousal to show off the new minimum arousal mechanic
+	/*if(human_owner.pleasure < 80) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - requested change from suggester, commented out pleasure to allow users time to RP a bit before the mechanical auto orgasm (assuming they have that pref on)
+		human_owner.adjust_pleasure(5)*/
 
 	//Anything beyond this obeys a cooldown system because we don't want to spam it
 	if(!COOLDOWN_FINISHED(src, desire_cooldown))
@@ -113,20 +115,20 @@
 	if(!in_company())
 		//since you aren't within company, you won't be satisfied
 		satisfaction = clamp(satisfaction - 1, 0, 1000)
-		to_chat(human_owner, span_purple("You feel so alone without someone..."))
+		to_chat(human_owner, span_purple("You feel so alone, but you could just... Satisfy yourself...")) // SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "You feel so alone without someone..."
 		return
 
 	switch(satisfaction)
 		if(0 to 100)
-			to_chat(human_owner, span_purple("You can't STAND it, you need a partner NOW!"))
+			to_chat(human_owner, span_purple("You can feel yourself growing restless, carnal needs starting to well up inside you.")) //SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "You can't STAND it, you need a partner NOW!"
 		if(101 to 150)
-			to_chat(human_owner, span_purple("You'd hit that. Yeah. That's at least a six."))
+			to_chat(human_owner, span_purple("Your body has returned to normal, as far as you can tell...")) //SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "You'd hit that. Yeah. That's at least a six."
 		if(151 to 200)
-			to_chat(human_owner, span_purple("Your clothes are feeling tight."))
+			to_chat(human_owner, span_purple("The nice, warm sensation barely lingers within you.")) // SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "Your clothes are feeling tight."
 		if(201 to 250)
-			to_chat(human_owner, span_purple("Desire fogs your decisions."))
+			to_chat(human_owner, span_purple("The pleasantly warm feeling in your body is fading, but it's still present.")) // SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "Desire fogs your decisions."
 		if(251 to 1000)
-			to_chat(human_owner, span_purple("Jeez, it's hot in here.."))
+			to_chat(human_owner, span_purple("Your body feels pleasantly warm and slightly tingly. It's a good feeling.")) // SPLURT EDIT CHANGE - Hexacrocin OD Bounty - message, was "Jeez, it's hot in here.."
 
 /**
  * If we have another human in view, return true
@@ -165,6 +167,7 @@
 /datum/brain_trauma/very_special/bimbo/on_lose()
 	. = ..()
 	owner.clear_mood_event("bimbo")
+	owner.adjust_minimum_arousal(-added_arousal) // SPLURT EDIT ADDITION - Hexacrocin OD Bounty - additional_minimum_arousal
 	if(HAS_TRAIT_FROM(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM))
 		REMOVE_TRAIT(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM)
 	UnregisterSignal(owner, COMSIG_MOB_SAY)
