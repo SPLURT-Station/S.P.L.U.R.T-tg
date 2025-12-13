@@ -17,3 +17,17 @@
 2025-12-10:
   ChromeFoxxity:
   - bugfix: Fixes Interdyne Ruin Card Sprites.
+2025-12-13:
+  JustMeTheIInd:
+  - rscadd: 3 maps
+  Mindstormsman:
+  - balance: Effects from Hexacrocin OD now increase in strength as it progresses
+      rather than hitting all at once when certain thresholds were reached (i.e. 120
+      stress gives you 10 seconds of blurred vision rather than 20)
+  - rscdel: Removed Oxyloss and Hallucinations from Hexacrocin OD
+  - bugfix: Hexacrocin OD messages maintain consistent levels of urgency as they progress
+  - code_imp: Added `adjust_minimum_arousal` proc
+  Nuk5513:
+  - rscadd: Xenohybrids have rediscovered their xenomorph roots, and now can, once
+      more, create resin structures.
+  - bugfix: Determination's Lair now provides fish variety in the void beach.
