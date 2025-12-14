@@ -127,6 +127,10 @@
 	quirk_mob.mind.add_memory(/datum/memory/key/quirk_bloodfledge, blood_type = quirk_mob.dna.blood_type)
 	to_chat(quirk_mob, "You remember that your blood type is [quirk_mob.dna.blood_type]")
 
+	// Add profane penalties
+	quirk_holder.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/chapel_weakness)
+	quirk_holder.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/holywater_weakness)
+
 	/**
 	 * Hemophage Filter
 	 * Anything past this point should NOT be used by Hemophage hybrids
@@ -159,10 +163,6 @@
 
 	// Add vampiric biotype
 	quirk_mob.mob_biotypes |= MOB_VAMPIRIC
-
-	// Add profane penalties
-	quirk_holder.AddElementTrait(TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/chapel_weakness)
-	quirk_holder.AddElementTrait(TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE, /datum/element/holywater_weakness)
 
 /datum/quirk/item_quirk/bloodfledge/post_add()
 	. = ..()
@@ -315,6 +315,10 @@
 	var/datum/action/cooldown/bloodfledge/analyze/act_analyze = locate() in quirk_mob.actions
 	act_analyze?.Remove(quirk_mob)
 
+	// Remove quirk-issued profane penalties
+	REMOVE_TRAIT(quirk_holder, TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE)
+	REMOVE_TRAIT(quirk_holder, TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE)
+
 	/**
 	 * Hemophage Filter
 	 * Anything past this point should NOT be used by Hemophage hybrids
@@ -330,10 +334,6 @@
 	if(!(quirk_mob.dna?.species?.inherent_biotypes & MOB_VAMPIRIC))
 		// Remove vampiric biotype
 		quirk_mob.mob_biotypes -= MOB_VAMPIRIC
-
-	// Remove quirk-issued profane penalties
-	REMOVE_TRAIT(quirk_holder, TRAIT_CHAPEL_WEAKNESS, TRAIT_BLOODFLEDGE)
-	REMOVE_TRAIT(quirk_holder, TRAIT_HOLYWATER_WEAKNESS, TRAIT_BLOODFLEDGE)
 
 	// Remove desperation
 	remove_desperate()
