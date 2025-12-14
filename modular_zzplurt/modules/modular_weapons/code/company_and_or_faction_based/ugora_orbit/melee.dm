@@ -30,13 +30,28 @@ Speaking of which, daisho are also fun :3
 	w_class = WEIGHT_CLASS_BULKY
 	interaction_flags_click = NEED_DEXTERITY
 
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Blue" = list(
+			RESKIN_ICON = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi',
+			RESKIN_ICON_STATE = "secdaisho",
+			RESKIN_WORN_ICON = 'modular_zzplurt/master_files/icons/mob/clothing/job/belt.dmi',
+			RESKIN_WORN_ICON_STATE = "secdaisho"
+		),
+		"Black" = list(
+			RESKIN_ICON = 'modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi',
+			RESKIN_ICON_STATE = "blackdaisho",
+			RESKIN_WORN_ICON = 'modular_zzplurt/master_files/icons/mob/clothing/job/belt.dmi',
+			RESKIN_WORN_ICON_STATE = "blackdaisho"
+		)
+	)
+
 /obj/item/storage/belt/secdaisho/Initialize(mapload)
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.max_slots = 2
 	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY + WEIGHT_CLASS_NORMAL
 	atom_storage.set_holdable(list(
-// Uncomment when available		/obj/item/melee/oscula,
 		/obj/item/melee/reverbing_blade,
 		/obj/item/melee/baton/jitte,
 		))
@@ -188,7 +203,7 @@ He may be right afterall.
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
 	/// | Refer to below for linear graph. Damage:TickRate
 	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
-	/// | 12:4, 25:8, 43:12, 77:16     													   	   |===|
+	/// | 13:4, 29:8, 47:12, 71:16     													   	   |===|
 	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
 	/// | It is incredibly unlikely the sword will single handedly win any combat scenario.    |===|
 		As we can see, the energy sword will win within practically 5 seconds of combat if the blade wielder is not hitting every hit.
@@ -203,10 +218,10 @@ He may be right afterall.
 */
 
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 
-	attack_verb_continuous = list("attacks", "pokes", "jabs", "bludgeons", "hits", "bashes") //The sword is dull, not sharp
-	attack_verb_simple = list("attack", "poke", "jab", "smack", "hit", "bludgeon")
+	attack_verb_continuous = list("attacks", "pokes", "jabs", "sears", "hits", "burns")
+	attack_verb_simple = list("attack", "poke", "jab", "burn", "hit", "sear")
 
 /obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
