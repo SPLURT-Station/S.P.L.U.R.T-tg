@@ -51,10 +51,8 @@ I couldn't careless if I'm right or wrong, I care that I didn't sit down and let
 Some of us are bloody fucking awful innit? but that's the thing, people are disagreeable
 And somewhere, somehow. you do need to try to do something you want to see. This project was always made for you, my dearest reader!
 
-Is it really an issue if AGPL. from doppler # 303 If paxil pings me not to use this then it can be altered. Or you know, if he DM me. It's not like he won't
-Not everything is gonna be the same anyway. People have different vision
-As of writing this I still have not been able to pull exu alter yet
-Just one more pull and maybe I can get her
+Paxil is aware of my stupid idea and said that all security naturally converge to paxil sec
+He may be right afterall.
 */
 /obj/item/storage/belt/secdaisho/examine(mob/user)
 	. = ..()
@@ -138,6 +136,7 @@ Just one more pull and maybe I can get her
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
 
 	damtype = BURN
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 
 	var/bonus_force = 0
 	var/damage = 0
@@ -174,16 +173,16 @@ Just one more pull and maybe I can get her
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
 	block_chance = 40
 	armour_penetration = 20 //Yes we actually tested this. Even in best case scenario it still takes 6 hit to down. We have too low of a base damage to be an issue
-	force = 12 //low base damage, high ramp up. You use this for support.
+	force = 13 //low base damage, high ramp up. You use this for support.
 
-	wound_bonus = 10
+	wound_bonus = 5
 	exposed_wound_bonus = -40
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	attack_speed = 4
 
 	degree_of_tolerance = 4 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 35 //Maximum of 47 damage aswell.
+	maximum_damage_bonus = 20 //Maximum of 33 damage overall. Since we are using this ontop of applying scarring
 
 /*
  In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
