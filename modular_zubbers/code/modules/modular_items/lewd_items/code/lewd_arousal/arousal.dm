@@ -20,7 +20,7 @@
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
 
-	arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT)
+	//arousal = clamp(arousal + arous, AROUSAL_MINIMUM, AROUSAL_LIMIT) //SPLURT EDIT REMOVAL - Hexacrocin OD Bounty - reworked in modular
 
 	if(!has_status_effect(/datum/status_effect/aroused) && arousal)
 		apply_status_effect(/datum/status_effect/aroused)

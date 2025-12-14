@@ -160,6 +160,24 @@
 	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
 	category = GHC_MISC
 
+/datum/map_template/ghost_cafe_rooms/apartment_house
+	name = "A Lone House"
+	mappath = "_maps/splurt/templates/apartment_house.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(13, 2)
+
+/datum/map_template/ghost_cafe_rooms/apartment_house_night
+	name = "A Lone House At Night"
+	mappath = "_maps/splurt/templates/apartment_house_night.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(13, 2)
+
+/datum/map_template/ghost_cafe_rooms/apartment_house_lavaland
+	name = "A Lone House On Lavaland"
+	mappath = "_maps/splurt/templates/apartment_house_lava.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(13, 2)
+
 /datum/map_template/ghost_cafe_rooms/apartment_abandoned_shuttle
 	name = "Abandoned Shuttle"
 	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
