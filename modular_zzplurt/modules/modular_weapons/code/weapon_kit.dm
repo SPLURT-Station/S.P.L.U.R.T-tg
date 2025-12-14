@@ -11,10 +11,3 @@
 	)
 	time = 10 SECONDS
 	category = CAT_WEAPON_MELEE
-
-/datum/crafting_recipe/oscillating_sword/New()
-	..()
-	blacklist += subtype
-
-
-
