@@ -1,3 +1,13 @@
+/datum/species
+	///Replaces default bladder with a different organ
+	var/obj/item/organ/bladder/mutantbladder = /obj/item/organ/bladder
+
+/datum/species/get_mutant_organ_type_for_slot(slot)
+	if(slot == ORGAN_SLOT_BLADDER)
+		return mutantbladder
+	return ..()
+
+
 /datum/species/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	//if we're not trying to equip it to an extra slot
 	if(!(slot & ITEM_SLOT_EXTRA))
