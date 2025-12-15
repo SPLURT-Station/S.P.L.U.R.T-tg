@@ -10,9 +10,9 @@
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_INTERNAL
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
+	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_INTERNAL
+	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "NANOTRASEN_CONSULTANT"
 
 	outfit = /datum/outfit/job/nanotrasen_consultant

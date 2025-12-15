@@ -7,22 +7,21 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen High Command" // SPLURT EDIT
+	supervisors = "Central Command"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_INTERNAL // SPLURT EDIT
+	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CONSULTANT"
 
 	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
-		/datum/job_department/iaa, // SPLURT EDIT
 		/datum/job_department/command,
 	)
 
-	outfit = /datum/outfit/job/nanotrasen_consultant_new // SPLURT EDIT
+	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
 
 	paycheck = PAYCHECK_COMMAND
