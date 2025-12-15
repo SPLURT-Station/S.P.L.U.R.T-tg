@@ -139,13 +139,18 @@
 	post_init_icon_state = "ntpin"
 	greyscale_colors = "#FFD351#E09100"
 
-/obj/item/modular_computer/pda/nanotrasen_consultant
+/obj/item/modular_computer/pda/heads/nanotrasen_consultant
 	name = "nanotrasen executive PDA"
-	icon_state = "/obj/item/modular_computer/pda/nanotrasen_consultant"
-	inserted_disk = /obj/item/computer_disk/command/captain
-	inserted_item = /obj/item/pen/fountain/nanotrasen
+	icon_state = "/obj/item/modular_computer/pda/heads/nanotrasen_consultant"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#42B5A6#DAE0F0#B4B9C6"
+	inserted_disk = /obj/item/computer_disk/command/captain
+	inserted_item = /obj/item/pen/fountain/nanotrasen
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/job_management,
+	)
 
 /obj/item/clothing/neck/large_scarf/nanotrasen
 	name = "corporate striped scarf"
@@ -165,7 +170,7 @@
 	name = "Nanotrasen Consultant"
 	jobtype = /datum/job/nanotrasen_consultant
 
-	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
+	belt = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
 	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen
 	gloves = /obj/item/clothing/gloves/combat

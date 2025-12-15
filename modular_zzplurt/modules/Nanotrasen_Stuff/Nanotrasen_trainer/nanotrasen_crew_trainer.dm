@@ -127,3 +127,13 @@
 	name = "nanotrasen PDA"
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
 	greyscale_colors = "#42B5A6#B4B9C6"
+	inserted_item = /obj/item/pen/fountain
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/records/medical,
+	)
+
+/obj/item/modular_computer/pda/nanotrasen_trainer/Initialize(mapload)
+	. = ..()
+	for(var/datum/computer_file/program/messenger/messenger_app in stored_files)
+		messenger_app.spam_mode = TRUE
