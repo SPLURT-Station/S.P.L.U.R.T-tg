@@ -3,16 +3,20 @@
 /obj/structure/table/wood,
 /obj/item/clipboard{
 	pixel_y = 3;
-	pixel_x = 2
+	pixel_x = 6
 	},
 /obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
+	pixel_y = 2;
+	pixel_x = 6
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/machinery/status_display/evac/directional/west,
+/obj/item/table_clock{
+	pixel_y = 16;
+	pixel_x = -9
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
@@ -322,12 +326,11 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "L" = (
-/obj/structure/table/wood,
-/obj/item/table_clock,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "M" = (
