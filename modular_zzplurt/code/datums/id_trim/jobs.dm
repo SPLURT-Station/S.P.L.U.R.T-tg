@@ -37,6 +37,7 @@
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_COMMAND,
 		ACCESS_KEYCARD_AUTH,
+		ACCESS_CHANGE_IDS,
 		ACCESS_EVA,
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_MINERAL_STOREROOM,
@@ -65,14 +66,19 @@
 	assignment = JOB_NT_TRN
 	trim_state = "trim_centcom"
 	department_color = COLOR_CENTCOM_BLUE
-	subdepartment_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_TEAL
 	sechud_icon_state = SECHUD_NT_CREWTRAINER
 	minimal_access = list(
 		ACCESS_CENT_GENERAL,
 		ACCESS_EVA,
 		ACCESS_GATEWAY,
 		ACCESS_MAINT_TUNNELS,
+		ACCESS_MINERAL_STOREROOM,
 		ACCESS_WEAPONS,
+		ACCESS_SERVICE, // Need extra service access since most new players are usually service/assistant.
+		ACCESS_KITCHEN,
+		ACCESS_HYDROPONICS,
+		ACCESS_BAR,
 		)
 	extra_access = list()
 	template_access = list(
