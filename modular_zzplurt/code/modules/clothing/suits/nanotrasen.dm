@@ -3,6 +3,7 @@
 	desc = "A stylish coat given to Nanotrasen Officers. Perfect for sending representatives to suicide missions with style!"
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_formal"
 	inhand_icon_state = "b_suit"
 	armor_type = /datum/armor/vest_capcarapace

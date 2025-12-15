@@ -1,6 +1,7 @@
 /obj/item/clothing/under/rank/nanotrasen
 	icon = 'modular_zzplurt/icons/obj/clothing/under/nanotrasen.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/nanotrasen.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/nanotrasen_digi.dmi'
 	abstract_type = /obj/item/clothing/under/rank/nanotrasen
 
 /obj/item/clothing/under/rank/nanotrasen/commander
