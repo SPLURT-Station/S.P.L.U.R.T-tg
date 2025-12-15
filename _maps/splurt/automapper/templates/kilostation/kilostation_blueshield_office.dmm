@@ -149,6 +149,9 @@
 	req_access = list("captain")
 	},
 /obj/machinery/newscaster/directional/west,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/toggleable/riot,
+/obj/item/shield/riot/flash,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "A" = (
@@ -187,6 +190,8 @@
 	},
 /obj/structure/closet/secure_closet/blueshield,
 /obj/machinery/camera/autoname/directional/west,
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "E" = (
@@ -271,14 +276,18 @@
 	dir = 8
 	},
 /obj/machinery/light_switch/directional/east,
-/obj/machinery/recharger{
-	pixel_y = 3;
-	pixel_x = -5
-	},
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/recharger{
 	pixel_y = 3;
+	pixel_x = -6
+	},
+/obj/item/flashlight/lamp/green{
+	pixel_y = 14;
 	pixel_x = 5
+	},
+/obj/item/phone{
+	pixel_x = 8;
+	pixel_y = -1
 	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)

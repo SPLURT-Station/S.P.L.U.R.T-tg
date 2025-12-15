@@ -89,19 +89,20 @@
 /obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/glasses/hud/civilian/sunglasses(src)
 	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/gloves/captain/nanotrasen(src)
+	new /obj/item/clothing/neck/mantle/ntcmantle(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander/skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen/official(src)
-	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen(src)
+	new /obj/item/clothing/under/rank/nanotrasen/commander/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical/gold(src)
+	new /obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen/gold(src)
 	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
-	new /obj/item/clothing/head/beret/nanotrasen_formal(src)
+	new /obj/item/clothing/head/beret/nanotrasen_formal/gold(src)
 	new /obj/item/clothing/head/hats/nanotrasenhat(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap(src)
 	new /obj/item/clothing/head/hats/warden/drill/nanotrasen/nt(src)
@@ -144,13 +145,13 @@
 	inserted_disk = /obj/item/computer_disk/command/captain
 	inserted_item = /obj/item/pen/fountain/nanotrasen
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
-	greyscale_colors = "#227291#DAE0F0#B4B9C6"
+	greyscale_colors = "#42B5A6#DAE0F0#B4B9C6"
 
 /obj/item/clothing/neck/large_scarf/nanotrasen
 	name = "corporate striped scarf"
 	desc = "Ready to rule."
 	icon_state = "/obj/item/clothing/neck/large_scarf/nanotrasen"
-	greyscale_colors = "#227291#DAE0F0"
+	greyscale_colors = "#42B5A6#DAE0F0"
 	armor_type = /datum/armor/large_scarf_syndie
 
 /datum/outfit/plasmaman/nanotrasen_consultant

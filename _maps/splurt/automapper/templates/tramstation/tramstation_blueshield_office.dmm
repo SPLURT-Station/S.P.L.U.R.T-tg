@@ -183,7 +183,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Blueshield's Office"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "y" = (
@@ -245,8 +247,10 @@
 /obj/machinery/light/red/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/status_display/ai/directional/north,
-/obj/machinery/camera/autoname/directional/north,
 /obj/effect/landmark/start/blueshield,
+/obj/machinery/camera/directional/north{
+	c_tag = "Blueshield's Office - Armory"
+	},
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "E" = (
@@ -424,6 +428,9 @@
 	req_access = list("captain")
 	},
 /obj/machinery/airalarm/directional/north,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/toggleable/riot,
+/obj/item/shield/riot/flash,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 

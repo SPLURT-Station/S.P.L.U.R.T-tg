@@ -844,6 +844,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [50, 141, 3]
 trait_name = "Station"
 
+# Iceboxstation Blueshield Office
+[templates.iceboxstation_blueshield_office]
+map_files = ["iceboxstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [125, 103, 2]
+trait_name = "Station"
+
 # Tramstation Infinidorm
 [templates.tramstation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -860,6 +868,14 @@ required_map = "tramstation.dmm"
 coordinates = [86, 130, 2]
 trait_name = "Station"
 
+# Tramstation SecBar Maints
+[templates.tramstation_secbar_maints]
+map_files = ["tramstation_secbar_maints.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [81, 130, 2]
+trait_name = "Station"
+
 # Wawastation Infinidorm
 [templates.wawastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -874,6 +890,14 @@ map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "NebulaStation.dmm"
 coordinates = [130, 135, 2]
+trait_name = "Station"
+
+# Nebulastation Blueshield Office
+[templates.nebulastation_blueshield_office]
+map_files = ["nebulastation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [117, 113, 2]
 trait_name = "Station"
 
 # Birdshotstation Infinidorm

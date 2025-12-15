@@ -120,8 +120,10 @@
 	new /obj/item/storage/bag/garment/nanotrasen_crew_trainer(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/clipboard(src)
+	new /obj/item/clipboard(src)
 
 /obj/item/modular_computer/pda/nanotrasen_trainer
 	name = "nanotrasen PDA"
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
-	greyscale_colors = "#227291#B4B9C6"
+	greyscale_colors = "#42B5A6#B4B9C6"

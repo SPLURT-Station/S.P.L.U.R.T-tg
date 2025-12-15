@@ -5,20 +5,25 @@
 	abstract_type = /obj/item/clothing/under/rank/nanotrasen
 
 /obj/item/clothing/under/rank/nanotrasen/commander
-	name = "\improper Nanotrasen Officer's suit"
+	name = "\improper Nanotrasen officer's suit"
 	desc = "An elegant uniform worn by Nanotrasen's finest, comfortable trousers and silver marking denoting the rank of \"Officer\"."
 	icon_state = "nanotrasen"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/nanotrasen/commander/skirt
-	name = "\improper Nanotrasen Officer's suitskirt"
+	name = "\improper Nanotrasen officer's suitskirt"
 	desc = "An elegant uniform worn by Nanotrasen's finest, comfortable skirt and silver marking denoting the rank of \"Officer\"."
 	icon_state = "nanotrasen_skirt"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN|ARMS
+
+/obj/item/clothing/under/rank/nanotrasen/commander/turtleneck
+	name = "\improper Nanotrasen officer's turtleneck"
+	desc = "An elegant suit, with an added comfortable and warm turtleneck worn by Nanotrasen's best, a gilded uniform usually used by Officers. The gold belt buckle, wrists and shoulders denotes their rank with ease."
+	icon_state = "nanotrasen_turtleneck"// Sprites by Ebin-Halcyon
 
 /obj/item/clothing/under/rank/nanotrasen/official
 	name = "\improper Nanotrasen official's suit"
@@ -41,14 +46,30 @@
 
 /obj/item/clothing/under/rank/nanotrasen/tactical
 	name = "\improper Nanotrasen turtleneck suit"
-	desc = "A casual, yet refined blue turtleneck, used by Nanotrasen Officers. It has a fragrance of aloe."
-	icon_state = "nt_officer"
+	desc = "A casual, yet refined cyan turtleneck, used by Nanotrasen's Combative Officers. It has a fragrance of cider."
+	icon_state = "nt_officer_s"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/nanotrasen/tactical/skirt
 	name = "\improper Nanotrasen turtleneck skirt"
-	desc = "A skirt version of the Nanotrasen turtleneck, rarer and more sought after than the original."
+	desc = "A casual, yet refined cyan turtleneck with an added skirt, used by Nanotrasen's Combative Officers. It has a fragrance of cider."
+	icon_state = "nt_officer_skirt_s"
+	inhand_icon_state = "b_suit"
+	alt_covers_chest = TRUE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN|ARMS
+
+/obj/item/clothing/under/rank/nanotrasen/tactical/gold
+	name = "\improper Nanotrasen officer's turtleneck suit"
+	desc = "A casual, yet refined cyan turtleneck, used by Nanotrasen's Combative Officers. This one has golden insignia. It has a fragrance of cider."
+	icon_state = "nt_officer"
+	inhand_icon_state = "b_suit"
+	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt
+	name = "\improper Nanotrasen officer's turtleneck skirt"
+	desc = "A casual, yet refined cyan turtleneck with an added skirt, used by Nanotrasen's Combative Officers. This one has golden insignia. It has a fragrance of cider."
 	icon_state = "nt_officer_skirt"
 	inhand_icon_state = "b_suit"
 	alt_covers_chest = TRUE

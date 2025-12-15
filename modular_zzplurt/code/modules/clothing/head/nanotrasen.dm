@@ -1,8 +1,12 @@
 /obj/item/clothing/head/hooded/winterhood/nanotrasen
 	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "hood_nanotrasen_s"
+	armor_type = /datum/armor/winterhood_security
+
+/obj/item/clothing/head/hooded/winterhood/nanotrasen/gold
 	icon_state = "hood_nanotrasen"
-	armor_type = /datum/armor/winterhood_centcom
+	armor_type = /datum/armor/winterhood_captain
 
 /obj/item/clothing/head/beret/nanotrasen_formal
 	name = "\improper Nanotrasen formal beret"
@@ -14,8 +18,14 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
-	armor_type = /datum/armor/hats_caphat
+	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 10 SECONDS
+
+/obj/item/clothing/head/beret/nanotrasen_formal/gold
+	name = "\improper Nanotrasen officer's beret"
+	desc = "Sometimes, a compromise between fashion and defense needs to be made. Thanks to Nanotrasen's most recent nano-fabric durability enhancements, this time, it's not the case."
+	icon_state = "nanotrasen_officer_beret"
+	armor_type = /datum/armor/hats_caphat
 
 /obj/item/clothing/head/hats/nanotrasen_cap
 	name = "\improper Nanotrasen officer cap"
@@ -35,6 +45,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
 	icon_state = "nanotrasen_cap_2"
 	desc = "A peaked cap, worn by Nanotrasen officials. Inside the lining of the cap, lies two faint initials."
+	armor_type = /datum/armor/cosmetic_sec
 
 /obj/item/clothing/head/hats/nanotrasenhat
 	name = "\improper Nanotrasen hat"
