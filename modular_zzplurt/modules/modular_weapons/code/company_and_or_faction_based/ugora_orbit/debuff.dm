@@ -1,6 +1,6 @@
 /datum/status_effect/bluespace_scarred
 	id = "bluespace_scarred"
-	duration = 4 SECONDS
+	duration = 3 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/bluespace_scarred
 	status_type = STATUS_EFFECT_REFRESH
 	var/obj/effect/dummy/lighting_obj/moblight/mob_scarred

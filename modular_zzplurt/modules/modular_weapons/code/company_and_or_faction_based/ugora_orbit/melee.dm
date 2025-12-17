@@ -1,14 +1,14 @@
 /datum/supply_pack/security/armory/secdaisho
-	name = "Reverbing Sword Crate"
-	desc = "A three pack of the Ugora Orbit branded two handed sword and the sheath for them."
-	cost = CARGO_CRATE_VALUE * 30
+	name = "Resonance Sword Crate"
+	desc = "A three pack of the Ugora Orbit branded reverbing blade and the sheath for them. Incase you somehow lost it"
+	cost = CARGO_CRATE_VALUE * 250
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
 	crate_name = "sword and jitte"
 
 /datum/supply_pack/security/sectanto
 	name = "Tanto Crate"
 	desc = "A three pack of the Ugora Orbit branded tanto. Thin sharp blade meant for last resort."
-	cost = CARGO_CRATE_VALUE * 10
+	cost = CARGO_CRATE_VALUE * 40
 	contains = list(/obj/item/knife/oscu_tanto = 3)
 	crate_name = "security knife"
 
@@ -29,6 +29,7 @@ Speaking of which, daisho are also fun :3
 	worn_icon_state = "secdaisho"
 	w_class = WEIGHT_CLASS_BULKY
 	interaction_flags_click = NEED_DEXTERITY
+	content_overlays = TRUE
 
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -95,7 +96,7 @@ He may be right afterall.
 		update_appearance()
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
-
+/*
 /obj/item/storage/belt/secdaisho/update_icon_state()
 	var/has_sword = FALSE
 	var/has_baton = FALSE
@@ -120,6 +121,8 @@ He may be right afterall.
 		worn_icon_state += next_appendage
 	return ..()
 
+*/
+
 //How fucking rich must kris be if he has an indoor kabuki?
 // It's a gift from the holiday clan
 
@@ -127,7 +130,7 @@ He may be right afterall.
 //The Synthetik Reverbing Blade, I prestiged raider 6 time and did all challenge :)
 /obj/item/melee/reverbing_blade
 	name = "resonance blade"
-	desc = "A long dull blade manufactured by Industrial District. Made from modified kinetic crusher part"
+	desc = "Older generation reverbing blade. A long dull blade manufactured by Industrial District. Made with modified kinetic crusher part, slow to swing but hits pretty well."
 	desc_controls = "This sword is more effective the more injured your target is"
 
 	icon_state = "secsword0"
@@ -155,6 +158,9 @@ He may be right afterall.
 //What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
 	var/degree_of_tolerance = 5
 	var/maximum_damage_bonus = 30
+
+/obj/item/melee/reverbing_blade/get_belt_overlay()
+	return mutable_appearance('modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', "sword")
 
 /obj/item/melee/reverbing_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
@@ -246,9 +252,9 @@ He may be right afterall.
 	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
-	exposed_wound_bonus = 25 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	exposed_wound_bonus = 28 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 14 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+	attack_speed = 15 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
 
 	damtype = BURN
 
@@ -326,9 +332,13 @@ He may be right afterall.
 	cooldown = 1.4 SECONDS //Faster than a baton but still slow
 	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
+/obj/item/melee/baton/jitte/get_belt_overlay()
+	return mutable_appearance('modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', "baton")
+
+
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
-	target.set_confusion_if_lower(2 SECONDS)
-	target.set_staggered_if_lower(2 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
+	target.set_confusion_if_lower(2.4 SECONDS)
+	target.set_staggered_if_lower(2.4 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 
 /obj/item/melee/baton/jitte/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))

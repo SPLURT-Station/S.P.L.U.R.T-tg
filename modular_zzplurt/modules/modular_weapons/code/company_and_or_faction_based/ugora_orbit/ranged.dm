@@ -8,9 +8,9 @@ With help of an aussie catgirl
 */
 
 /datum/supply_pack/security/armory/sechardbow
-	name = "Ugora Orbit Hardlight Bow"
+	name = "Hardlight Energy Bow"
 	desc = "A three pack of hardlight energy bow, manually charged with by pulling back the string, virtually limitless ammunition."
-	cost = CARGO_CRATE_VALUE * 25
+	cost = CARGO_CRATE_VALUE * 40
 	contains = list(/obj/item/gun/energy/laser/energy_bow = 3)
 	crate_name = "hardlight energy bow"
 
