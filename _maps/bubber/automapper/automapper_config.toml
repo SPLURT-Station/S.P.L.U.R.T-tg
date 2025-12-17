@@ -556,6 +556,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [64, 108, 1]
 trait_name = "Station"
 
+# Nebulastation Blueshield Office
+[templates.nebulastation_blueshield_office]
+map_files = ["nebulastation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [99, 155, 2]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Armory
 [templates.tramstation_armory]
@@ -890,14 +898,6 @@ map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "NebulaStation.dmm"
 coordinates = [130, 135, 2]
-trait_name = "Station"
-
-# Nebulastation Blueshield Office
-[templates.nebulastation_blueshield_office]
-map_files = ["nebulastation_blueshield_office.dmm"]
-directory = "_maps/splurt/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [99, 155, 3]
 trait_name = "Station"
 
 # Birdshotstation Infinidorm
