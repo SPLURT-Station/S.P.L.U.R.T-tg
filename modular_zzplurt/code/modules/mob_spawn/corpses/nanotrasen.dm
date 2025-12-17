@@ -26,16 +26,6 @@
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/rank
 
-/datum/outfit/nanotrasenoperative/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
-	return ..()
-
 /datum/id_trim/centcom/corpse/private_security/lr
 	assignment = JOB_CENTCOM_PRIVATE_SECURITY_OPERATIVE
 	subdepartment_color = COLOR_SECURITY_RED
