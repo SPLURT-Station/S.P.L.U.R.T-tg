@@ -238,7 +238,7 @@
 	attachment_slot = NONE
 
 /obj/item/clothing/gloves/tackler/combat/nitrile
-	name = "nitrile gloves"
+	name = "apex gloves"
 	desc = "Premium quality combative sterile gloves, heavily reinforced to give the user an edge in close combat tackles, though they are more taxing to use than normal gripper gloves. As well as the benefit of being sterile gloves to swiftly assist with medical assistance."
 	icon = 'modular_zzplurt/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/gloves.dmi'
