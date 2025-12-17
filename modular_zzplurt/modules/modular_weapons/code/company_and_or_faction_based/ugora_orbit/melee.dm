@@ -107,9 +107,6 @@ He may be right afterall.
 		if(istype(thing, /obj/item/melee/reverbing_blade))
 			has_sword = TRUE
 
-	icon_state = initial(icon_state)
-	worn_icon_state = initial(worn_icon_state)
-
 	var/next_appendage
 	if(has_sword && has_baton)
 		next_appendage = "-full"
