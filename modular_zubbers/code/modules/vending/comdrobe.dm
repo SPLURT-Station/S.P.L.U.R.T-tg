@@ -241,7 +241,7 @@
 		/obj/item/clothing/suit/jacket/tailcoat/quartermaster = 1,
 		/obj/item/clothing/neck/tie/bunnytie/cargo = 1,
 	)
- //Splurt Edit Start, shit vendor code, can't modularize it
+	//Splurt Edit Start, shit vendor code, can't modularize it
 /obj/machinery/vending/access/command/build_access_list(list/access_lists)
 	access_lists["[ACCESS_CENT_GENERAL]"] = list( // NTC Rep stuff
 		/obj/item/clothing/under/rank/nanotrasen/commander = 1,
