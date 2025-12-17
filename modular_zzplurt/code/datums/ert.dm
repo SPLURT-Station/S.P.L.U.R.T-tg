@@ -7,7 +7,7 @@
 	opendoors = FALSE
 	rename_team = "Squad of Private Security"
 	mission = "Assist the station."
-	polldesc = "an Nanotrasen Private Security Team"
+	polldesc = "a Nanotrasen Private Security Team"
 	random_names = FALSE
 
 /datum/antagonist/ert/private_security
