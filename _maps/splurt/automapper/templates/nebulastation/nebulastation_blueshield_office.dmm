@@ -4,7 +4,7 @@
 /area/station/command/heads_quarters/blueshield)
 "b" = (
 /turf/template_noop,
-/area/template_noop)
+/area/space)
 "c" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -42,6 +42,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "j" = (
+/obj/structure/hedge,
 /obj/structure/sign/directions/engineering/directional/south{
 	pixel_y = -40
 	},
@@ -52,8 +53,17 @@
 /obj/structure/sign/directions/evac/directional/south{
 	dir = 8
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
+"k" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L4"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "l" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/paper_bin{
@@ -240,6 +250,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"J" = (
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "K" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -315,6 +328,16 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
+"S" = (
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
+"T" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "U" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/recharger{
@@ -332,6 +355,12 @@
 /obj/structure/noticeboard/directional/south,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
+"X" = (
+/obj/effect/turf_decal/plaque{
+	icon_state = "L2"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "Z" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -416,8 +445,8 @@ i
 a
 "}
 (8,1,1) = {"
-b
-b
+T
+T
 B
 s
 e
@@ -426,8 +455,8 @@ N
 a
 "}
 (9,1,1) = {"
-b
-b
+J
+T
 a
 a
 a
@@ -436,8 +465,8 @@ a
 a
 "}
 (10,1,1) = {"
-b
-b
+S
+T
 a
 u
 t
@@ -446,8 +475,8 @@ R
 a
 "}
 (11,1,1) = {"
-b
-b
+X
+T
 a
 K
 L
@@ -456,7 +485,7 @@ P
 a
 "}
 (12,1,1) = {"
-b
+k
 j
 a
 a
