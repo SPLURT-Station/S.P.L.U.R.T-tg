@@ -33,18 +33,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
-"f" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L4"
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
-"g" = (
-/obj/effect/turf_decal/plaque{
-	icon_state = "L2"
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "i" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -54,7 +42,6 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "j" = (
-/obj/structure/hedge,
 /obj/structure/sign/directions/engineering/directional/south{
 	pixel_y = -40
 	},
@@ -65,11 +52,8 @@
 /obj/structure/sign/directions/evac/directional/south{
 	dir = 8
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
+/turf/template_noop,
+/area/template_noop)
 "l" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/paper_bin{
@@ -256,9 +240,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"I" = (
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "K" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -334,16 +315,6 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
-"S" = (
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
-"T" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "U" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/recharger{
@@ -445,8 +416,8 @@ i
 a
 "}
 (8,1,1) = {"
-T
-T
+b
+b
 B
 s
 e
@@ -455,8 +426,8 @@ N
 a
 "}
 (9,1,1) = {"
-I
-T
+b
+b
 a
 a
 a
@@ -465,8 +436,8 @@ a
 a
 "}
 (10,1,1) = {"
-S
-T
+b
+b
 a
 u
 t
@@ -475,8 +446,8 @@ R
 a
 "}
 (11,1,1) = {"
-g
-T
+b
+b
 a
 K
 L
@@ -485,7 +456,7 @@ P
 a
 "}
 (12,1,1) = {"
-f
+b
 j
 a
 a
