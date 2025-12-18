@@ -157,7 +157,7 @@ He may be right afterall.
 	var/damage = 0
 //What is degree of tolerance? essentially how much damage we want to divide the actual damage dealt!
 	var/degree_of_tolerance = 5
-	var/maximum_damage_bonus = 30
+	var/maximum_damage_bonus = 20
 
 /obj/item/melee/reverbing_blade/get_belt_overlay()
 	return mutable_appearance('modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', "sword")
