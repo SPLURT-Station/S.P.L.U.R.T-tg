@@ -180,6 +180,7 @@ He may be right afterall.
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it? We said we won't nerf heretic
 //So, have it the way I had in mind
 
+//We keep this a subtype of the reverbing blade for later
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
 	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' lack sharp edges, that said, it is still extremely lightweight to swing and can burn target hit by it."
@@ -199,28 +200,10 @@ He may be right afterall.
 	inhand_y_dimension = 64
 	attack_speed = 4
 
-	degree_of_tolerance = 4 //a ramp up weapon, let's have fun with it
-	maximum_damage_bonus = 20 //Maximum of 33 damage overall. Since we are using this ontop of applying scarring
+	degree_of_tolerance = 0 //No need!
+	maximum_damage_bonus = 0 //No need!
 
-/*
- In regards to concern on the fact that there is a difference of 4 ticks between this and any standard melee cooldown
-	/// | Refer to below for linear graph. Damage:TickRate
-	/// | [1]    [2]  [3]    [4]     	This is assuming you are hitting in strafe			   |===|
-	/// | 13:4, 29:8, 47:12, 71:16     													   	   |===|
-	/// | 30:8, 60:16, 90:24, 120:32 														   |===|
-	/// | It is incredibly unlikely the sword will single handedly win any combat scenario.    |===|
-		As we can see, the energy sword will win within practically 5 seconds of combat if the blade wielder is not hitting every hit.
-
-		There is a significantly lower tickrate, so each cyclic rate(Melee Damage Per Strafe) is significantly higher.
-		If you're only getting hit in every time you walk by them, then energy sword would outdamage
-		This means the energy sword (and similar weapons) has the upperhand because 3 hit is almost certainly going to slow you down to crawl
-
-		The sword has a lower overall damage and does not deal brute wound (no bleed out)
-		Yes, this sword is one of the more complicated one in term of balance and it may feel oppressive
-		Due to how many feature it has and the system put in place. But it is the best thing we can come up with to keep the game exciting
-*/
-
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "sears", "hits", "burns")
@@ -328,16 +311,16 @@ He may be right afterall.
 	inhand_icon_state = "jitte"
 	desc = "A hard plastic-metal jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
 	desc_controls = "Left click to stun, right click to harm."
-	stamina_damage = 25 //It still is a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
-	cooldown = 1.4 SECONDS //Faster than a baton but still slow
+	stamina_damage = 30 //It still is a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
+	cooldown = 1 SECONDS //Faster than a baton but still slow
 	knockdown_time = 0 SECONDS //This does not knockdown. Doesn't need to.
 
 /obj/item/melee/baton/jitte/get_belt_overlay()
 	return mutable_appearance('modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', "baton")
 
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
-	target.set_confusion_if_lower(2.4 SECONDS)
-	target.set_staggered_if_lower(2.4 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
+	target.set_confusion_if_lower(3 SECONDS)
+	target.set_staggered_if_lower(3 SECONDS) //A short 3 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
 
 /obj/item/melee/baton/jitte/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
