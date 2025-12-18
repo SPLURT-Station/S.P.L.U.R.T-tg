@@ -4,6 +4,11 @@
 	pixel_x = 0;
 	pixel_y = 7
 	},
+/obj/item/toy/toy_xeno{
+	pixel_x = 21;
+	pixel_y = -4;
+	name = "rana"
+	},
 /turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
 "aj" = (
@@ -32,7 +37,6 @@
 	pixel_x = 4;
 	pixel_y = 14
 	},
-/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
 "bg" = (
@@ -100,6 +104,11 @@
 /obj/item/clothing/mask/facehugger/toy{
 	pixel_x = 10;
 	pixel_y = 12
+	},
+/obj/item/toy/toy_xeno{
+	pixel_x = -7;
+	pixel_y = 6;
+	name = "moff-ra"
 	},
 /turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
@@ -193,7 +202,6 @@
 	dir = 8;
 	color = "#4a4951"
 	},
-/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
 "hS" = (
@@ -289,6 +297,11 @@
 	desc = "A large mottled egg.";
 	pixel_x = 0;
 	pixel_y = 9
+	},
+/obj/item/toy/toy_xeno{
+	pixel_x = 18;
+	pixel_y = 2;
+	name = "witchwing"
 	},
 /turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
@@ -557,7 +570,8 @@
 	},
 /obj/structure/closet/crate/wooden/storage_barrel{
 	pixel_x = -1;
-	pixel_y = 0
+	pixel_y = 0;
+	anchored = 1
 	},
 /obj/effect/decal/cleanable/cobweb{
 	color = "#5d5a66";
@@ -597,24 +611,6 @@
 	pixel_x = -5;
 	pixel_y = -2;
 	name = "saracen"
-	},
-/turf/open/floor/fakebasalt,
-/area/misc/hilbertshotel)
-"sY" = (
-/obj/structure/alien/weeds,
-/obj/effect/mob_spawn/corpse/human/skeleton,
-/obj/item/toy/toy_dagger{
-	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off xenos! Or, you know, mine stuff.";
-	icon = 'icons/obj/weapons/guns/energy.dmi';
-	icon_state = "plasmacutter";
-	name = "plasmacutter";
-	pixel_x = -18;
-	pixel_y = -13;
-	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
-	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
-	inhand_icon_state = "plasmacutter";
-	icon_angle = 0;
-	worn_icon_state = "gun"
 	},
 /turf/open/floor/fakebasalt,
 /area/misc/hilbertshotel)
@@ -851,6 +847,11 @@
 	pixel_y = 0;
 	color = "#4a4951"
 	},
+/obj/item/pillow{
+	pixel_x = 0;
+	pixel_y = -6;
+	color = "#5d5a66"
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
 "By" = (
@@ -885,15 +886,12 @@
 	pixel_x = -31;
 	pixel_y = -32
 	},
-/turf/open/floor/iron/shuttle/exploration/blanktile,
-/area/misc/hilbertshotel)
-"DB" = (
-/obj/structure/alien/weeds,
-/obj/item/mining_scanner{
-	pixel_x = 8;
-	pixel_y = 11
+/obj/item/pillow{
+	pixel_x = -12;
+	pixel_y = -8;
+	color = "#5d5a66"
 	},
-/turf/open/floor/fakebasalt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
 "EB" = (
 /obj/structure/alien/resin,
@@ -1204,7 +1202,6 @@
 	pixel_y = 0;
 	color = "#4a4951"
 	},
-/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
 "MQ" = (
@@ -1232,6 +1229,11 @@
 	dir = 9;
 	pixel_y = 0;
 	color = "#4a4951"
+	},
+/obj/item/pillow{
+	pixel_x = 11;
+	pixel_y = -9;
+	color = "#5d5a66"
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
@@ -1312,7 +1314,8 @@
 	},
 /obj/structure/closet/crate/wooden/storage_barrel{
 	pixel_x = -9;
-	pixel_y = 0
+	pixel_y = 0;
+	anchored = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/misc/hilbertshotel)
@@ -1776,8 +1779,8 @@ my
 oI
 EX
 OD
-sY
-DB
+Vj
+Vj
 Kw
 Vj
 tY

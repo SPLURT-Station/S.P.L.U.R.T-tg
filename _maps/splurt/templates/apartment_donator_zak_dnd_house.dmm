@@ -521,8 +521,9 @@
 /obj/structure/noticeboard/directional/west{
 	pixel_y = 5
 	},
-/obj/item/book/bible/booze{
-	pixel_x = 6
+/obj/item/toy/plush/tunafish{
+	squeak_override = list('sound/announcer/alarm/clownops.ogg' = 1);
+	name = "fish of foreboding"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
@@ -3014,7 +3015,7 @@
 	color = "#e8d0b0"
 	},
 /obj/structure/sink/directional/south{
-	name = "grape soda tap";
+	name = "doctor's delight tap";
 	desc = "Tap-tap-tap-tap.";
 	color = "#8c6e5e";
 	dispensedreagent = /datum/reagent/consumable/doctor_delight
@@ -5513,6 +5514,19 @@
 	pixel_y = 16;
 	color = "#FFFFFF";
 	alpha = 0
+	},
+/obj/item/toy/plush/snakeplushie{
+	pixel_x = 8;
+	pixel_y = 13;
+	name = "vyper plushie";
+	desc = "STOP BREAKING IN!!!!!!!!!!!!";
+	squeak_override = list('config/reboot_themes/scrunglartiy.ogg' = 1)
+	},
+/obj/item/key{
+	pixel_x = 9;
+	pixel_y = 5;
+	name = "house keys";
+	desc = "Hide your house keys better lil' bro. Shoving them under the welcome mat won't cut it."
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)

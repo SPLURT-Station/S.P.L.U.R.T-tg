@@ -2498,6 +2498,12 @@
 /obj/structure/fans/tiny/invisible{
 	density = 1
 	},
+/obj/item/toy/plush/tunafish{
+	squeak_override = list('sound/announcer/alarm/clownops.ogg' = 1);
+	name = "fish of foreboding";
+	pixel_x = -1;
+	pixel_y = -10
+	},
 /turf/open/misc/dirt/jungle/dark,
 /area/misc/hilbertshotel)
 "Rv" = (

@@ -76,6 +76,12 @@
 	category = GHC_APARTMENT
 	landing_coords = list(17, 3)
 
+/datum/map_template/ghost_cafe_rooms/apartment_dusk_oasis
+	name = "Dusked Oasis"
+	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
+	category = GHC_BEACH
+	landing_coords = list(15, 2)
+
 /datum/map_template/ghost_cafe_rooms/apartment_mountainside
 	name = "Mountainside Apartment"
 	mappath = "_maps/splurt/templates/apartment_mountainside.dmm"
@@ -171,12 +177,6 @@
 	mappath = "_maps/splurt/templates/apartment_winter_outpost.dmm"
 	category = GHC_WINTER
 	landing_coords = list(11, 2)
-
-/datum/map_template/ghost_cafe_rooms/apartment_dusk_oasis
-	name = "Dusked Oasis"
-	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
-	category = GHC_BEACH
-	landing_coords = list(15, 2)
 
 /datum/map_template/ghost_cafe_rooms/apartment_xenonest
 	name = "Xenomorph-Infested Mines"
