@@ -1312,3 +1312,20 @@
 	message_mime = "silently explains they blew up Malaysia!"
 	emote_type = EMOTE_AUDIBLE
 	sound = 'modular_zzplurt/sound/voice/malaysia.ogg'
+
+/datum/emote/living/carbon/human/piss
+	key = "piss"
+
+/datum/emote/living/carbon/human/piss/can_run_emote(mob/user, status_check = TRUE, intentional, params)
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	if(bladder)
+		return ..()
+	return FALSE
+
+/datum/emote/living/carbon/human/piss/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(!user.get_organ_slot(ORGAN_SLOT_BLADDER) || !ishuman(user))
+		to_chat(user, "<span class='warning'>You don't have a bladder!</span>")
+		return
+	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
+	bladder.urinate()

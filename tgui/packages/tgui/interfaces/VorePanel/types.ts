@@ -12,6 +12,10 @@ export enum DigestMode {
   Digest = 'Digest',
   Absorb = 'Absorb',
   Unabsorbed = 'Unabsorb',
+  // SPLURT MODULAR EDIT START - Add Drain/Heal digest modes
+  Drain = 'Drain',
+  Heal = 'Heal',
+  // SPLURT MODULAR EDIT END
 }
 
 export type Belly = {
@@ -78,6 +82,13 @@ export const digestModeToPreyMode = {
   [DigestMode.Digest]: { text: 'being digested.', color: 'bad' },
   [DigestMode.Absorb]: { text: 'being absorbed.', color: 'purple' },
   [DigestMode.Unabsorbed]: { text: 'being reformed.', color: 'good' },
+  // SPLURT MODULAR EDIT START - Add Drain/Heal digest mode text
+  [DigestMode.Drain]: {
+    text: 'having their nutrition drained.',
+    color: 'warning',
+  },
+  [DigestMode.Heal]: { text: 'being healed.', color: 'good' },
+  // SPLURT MODULAR EDIT END
 };
 
 export const bellyKeyToText = {
@@ -87,6 +98,12 @@ export const bellyKeyToText = {
   absorb_messages_prey: 'Absorb Messages (Prey)',
   unabsorb_messages_owner: 'Unabsorb Messages (Owner)',
   unabsorb_messages_prey: 'Unabsorb Messages (Prey)',
+  // SPLURT MODULAR EDIT START - Add Drain/Heal message labels
+  drain_messages_owner: 'Drain Messages (Owner)',
+  drain_messages_prey: 'Drain Messages (Prey)',
+  heal_messages_owner: 'Heal Messages (Owner)',
+  heal_messages_prey: 'Heal Messages (Prey)',
+  // SPLURT MODULAR EDIT END
   struggle_messages_outside: 'Struggle Messages (Outside)',
   struggle_messages_inside: 'Struggle Messages (Inside)',
   absorbed_struggle_messages_outside: 'Absorbed Struggle Messages (Outside)',

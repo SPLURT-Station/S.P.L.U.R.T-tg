@@ -1513,6 +1513,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	mut_organs += mutantliver
 	mut_organs += mutantstomach
 	mut_organs += mutantappendix
+	mut_organs += mutantbladder // SPLURT EDIT - BLADDERS
 	list_clear_nulls(mut_organs)
 	return mut_organs
 

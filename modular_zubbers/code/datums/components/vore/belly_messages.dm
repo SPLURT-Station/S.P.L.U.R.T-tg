@@ -66,6 +66,16 @@
 			unabsorb_messages_owner = sanitized_list
 		if("unabsorb_messages_prey", "uamp")
 			unabsorb_messages_prey = sanitized_list
+		if("drain_messages_owner", "drmo")
+			drain_messages_owner = sanitized_list
+		// SPLURT MODULAR EDIT START - CHOMPStation Drain/Heal messages
+		if("drain_messages_prey", "drmp")
+			drain_messages_prey = sanitized_list
+		if("heal_messages_owner", "hmo")
+			heal_messages_owner = sanitized_list
+		if("heal_messages_prey", "hmp")
+			heal_messages_prey = sanitized_list
+		// SPLURT MODULAR EDIT END
 		if("struggle_messages_outside", "smo")
 			struggle_messages_outside = sanitized_list
 		if("struggle_messages_inside", "smi")
@@ -119,11 +129,6 @@
 	if(LAZYLEN(unabsorb_messages_prey))
 		return format_message(pick(unabsorb_messages_prey), prey)
 	return format_message(pick(GLOB.unabsorb_messages_prey), prey)
-
-/obj/vore_belly/proc/get_struggle_messages_outside(mob/prey)
-	if(LAZYLEN(struggle_messages_outside))
-		return format_message(pick(struggle_messages_outside), prey)
-	return format_message(pick(GLOB.struggle_messages_outside), prey)
 
 /obj/vore_belly/proc/get_struggle_messages_inside(mob/prey)
 	if(LAZYLEN(struggle_messages_inside))
