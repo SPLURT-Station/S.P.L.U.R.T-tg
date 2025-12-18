@@ -335,7 +335,6 @@ He may be right afterall.
 /obj/item/melee/baton/jitte/get_belt_overlay()
 	return mutable_appearance('modular_zzplurt/master_files/icons/obj/clothing/job/belts.dmi', "baton")
 
-
 /obj/item/melee/baton/jitte/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	target.set_confusion_if_lower(2.4 SECONDS)
 	target.set_staggered_if_lower(2.4 SECONDS) //A short 2 second window meant to allow for follow up, it's short enough you can legitimately miss it. but long enough its actually possible to follow up
