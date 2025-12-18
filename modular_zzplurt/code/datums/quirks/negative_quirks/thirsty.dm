@@ -7,6 +7,7 @@
 	medical_record_text = "Patient's body is half as effective at retaining liquids, necessitating drinking twice as many liquids per day than usual for their species."
 	mob_trait = TRAIT_THIRSTY
 	hardcore_value = 1
+	species_blacklist = list(SPECIES_SYNTH, SPECIES_PROTEAN) //Splurt Edit
 	icon = FA_ICON_GLASS_WATER
 	mail_goodies = list (
 		/obj/item/reagent_containers/cup/glass/waterbottle = 1

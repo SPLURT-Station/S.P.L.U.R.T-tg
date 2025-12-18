@@ -286,8 +286,15 @@
 			seed = new type
 			balloon_alert_to_viewers("something special drops!")
 		else
+			// SPLURT EDIT START - fixes botany genes
+			/*
 			seed = new planted_seed.type(null)
-			seed.genes = planted_seed.genes.Copy() // SPLURT EDIT - fixes botany genes
+			*/
+			if(istype(seed, /obj/item/seeds/random))
+				seed = new planted_seed.type
+			else
+				seed = planted_seed.Copy()
+			// SPLURT EDIT END
 
 		//we're ASHIE GAMING, we do not concern ourselves with such puny concepts as purity
 		seed.endurance = 100
