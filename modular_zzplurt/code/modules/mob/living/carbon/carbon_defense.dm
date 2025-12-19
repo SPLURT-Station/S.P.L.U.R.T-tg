@@ -60,7 +60,7 @@
 		target.add_mood_event(QMOOD_JIGGLY_ASS, /datum/mood_event/butt_slapped)
 
 		// Reduce target stamina (???)
-		target.adjustStaminaLoss(ASS_JIGGLE_STAMLOSS)
+		target.adjust_stamina_loss(ASS_JIGGLE_STAMLOSS)
 
 		// Display message
 		visible_message(
@@ -78,7 +78,7 @@
 	// Run original
 	. = ..()
 
-/mob/living/carbon/adjustOxyLoss(amount, updating_health = TRUE, forced, required_biotype, required_respiration_type)
+/mob/living/carbon/adjust_oxy_loss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL, required_respiration_type = ALL)
 	. = ..()
 
 	// Check parent return

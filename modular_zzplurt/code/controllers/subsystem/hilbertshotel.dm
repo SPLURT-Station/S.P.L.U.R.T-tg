@@ -178,7 +178,7 @@ SUBSYSTEM_DEF(hilbertshotel)
 					continue
 				if(istype(A, /obj/effect))
 					continue
-				if(length(A.GetComponents(/datum/component/wall_mounted)))
+				if(length(A.GetComponents(/datum/component/atom_mounted)))
 					continue
 				QDEL_LIST(A.contents)
 				qdel(A)
@@ -403,7 +403,7 @@ SUBSYSTEM_DEF(hilbertshotel)
 					var/obj/machinery/room_controller/controller = movable_atom
 					controller.bluespace_box?.in_hotel_room = FALSE
 					controller.bluespace_box?.creation_area = null
-				if(length(movable_atom.GetComponents(/datum/component/wall_mounted)))
+				if(length(movable_atom.GetComponents(/datum/component/atom_mounted)))
 					continue
 
 				turfContents += movable_atom
