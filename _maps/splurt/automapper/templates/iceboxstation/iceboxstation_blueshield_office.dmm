@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/wall/r_wall,
-/area/space)
+/area/template_noop)
 "c" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -11,7 +11,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "f" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -23,12 +23,12 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/small,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "i" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/dark,
-/area/space)
+/area/template_noop)
 "j" = (
 /obj/structure/closet/secure_closet/tac{
 	req_access = list("captain")
@@ -40,13 +40,13 @@
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
 /turf/open/floor/iron/dark/small,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "m" = (
 /obj/structure/closet/secure_closet/blueshield,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark/small,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "n" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -71,12 +71,12 @@
 	pixel_x = -1
 	},
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "o" = (
 /obj/machinery/computer/crew,
 /obj/machinery/newscaster/directional/east,
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "q" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/status_display/ai/directional/west,
@@ -87,7 +87,7 @@
 /obj/structure/cable,
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/dark/diagonal,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "r" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -99,13 +99,16 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
+"u" = (
+/turf/closed/wall/r_wall,
+/area/station/command/heads_quarters/blueshield)
 "y" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/spawner/random/vending/snackvend,
 /obj/structure/sign/departments/court/directional/west,
 /turf/open/floor/iron/dark,
-/area/space)
+/area/template_noop)
 "B" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
@@ -116,7 +119,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "C" = (
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
@@ -139,7 +142,7 @@
 	pixel_x = -4
 	},
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "D" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/siding/wood/end{
@@ -149,12 +152,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "E" = (
 /obj/machinery/modular_computer/preset/command,
 /obj/structure/cable,
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "F" = (
 /obj/structure/chair/comfy/black{
 	dir = 1
@@ -162,7 +165,7 @@
 /obj/effect/landmark/start/blueshield,
 /obj/structure/cable,
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "H" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -176,7 +179,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/chair/comfy/brown,
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "I" = (
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
@@ -187,7 +190,7 @@
 	},
 /obj/structure/grandfatherclock,
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "J" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -196,7 +199,7 @@
 /obj/item/storage/toolbox/ammobox/wt550m9,
 /obj/structure/sign/poster/official/enlist/directional/west,
 /turf/open/floor/iron/dark/small,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "K" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -205,18 +208,18 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "O" = (
 /obj/machinery/computer/security,
 /obj/item/sign/flag/nanotrasen{
 	pixel_y = 18
 	},
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "R" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "S" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/recharger{
@@ -241,7 +244,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "U" = (
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
@@ -253,7 +256,7 @@
 /obj/structure/cable,
 /obj/effect/landmark/navigate_destination/autoname,
 /turf/open/floor/iron/dark/smooth_large,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "V" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -263,7 +266,7 @@
 /obj/structure/cable,
 /obj/effect/landmark/start/blueshield,
 /turf/open/floor/iron/dark/diagonal,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "W" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -273,7 +276,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "Y" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -285,46 +288,46 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 "Z" = (
 /obj/machinery/holopad,
 /turf/open/floor/carpet/blue,
-/area/space)
+/area/station/command/heads_quarters/blueshield)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
+u
+u
+u
+u
+u
 a
 "}
 (2,1,1) = {"
-a
+u
 j
 q
 J
-a
+u
 y
 "}
 (3,1,1) = {"
-a
+u
 m
 V
 f
-a
+u
 i
 "}
 (4,1,1) = {"
-a
-a
+u
+u
 B
-a
-a
-a
+u
+u
+u
 "}
 (5,1,1) = {"
-a
+u
 D
 Y
 H
@@ -356,10 +359,10 @@ I
 K
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
+u
+u
+u
+u
+u
+u
 "}
