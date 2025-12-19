@@ -12,6 +12,8 @@
 #define BLOODFLEDGE_BANK_CAPACITY (BLOODFLEDGE_DRAIN_AMT * 2)
 /// How much damage is healed in a coffin
 #define BLOODFLEDGE_HEAL_AMT -2
+/// Amount to increase healing speed per unique blood DNA
+#define BLOODFLEDGE_HEAL_AMT_BONUS -0.05
 /// How much to multiply healing by while weakened by desperation
 #define BLOODFLEDGE_HEAL_PENALTY_DESPERATE 0.5
 /// List of traits inherent to bloodfledges
@@ -28,18 +30,12 @@
 #define BLOODFLEDGE_DESPERATE_THRESHOLD_END BLOOD_VOLUME_NORMAL
 /// Amount of nanites to be transferred when biting a target
 #define BLOODFLEDGE_NANITE_TRANSFER_AMOUNT 5 // Similar to nanite sting
-/// Amount of blood lost per blood process
-#define BLOODFLEDGE_BLOODLOSS_AMOUNT 0.75 // Higher than hemophage - but uses RNG
-/// Percentage chance of losing blood to upkeep fees
-#define BLOODFLEDGE_BLOODLOSS_CHANCE 25
 /// Minimum amount of blood required to process blood loss
 #define BLOODFLEDGE_BLOODLOSS_LIMIT BLOODFLEDGE_DESPERATE_THRESHOLD_START
-/// Number of unique blood DNA for first bonus
-#define BLOODFLEDGE_DNA_BONUS_1 3
-/// Number of unique DNA for second bonus
-#define BLOODFLEDGE_DNA_BONUS_2 6
-/// Number of unique DNA for third bonus
-#define BLOODFLEDGE_DNA_BONUS_3 9
+/// Amount to reduce blood loss by per unique blood DNA
+#define BLOODFLEDGE_BLOODLOSS_REDUCTION 0.01
+/// Intensity multiplier applied to normal Blood Deficiency rate
+#define BLOODFLEDGE_BLOODLOSS_RATE_MOD 0.5
 
 /// Messages used when the holder runs low on blood
 #define BLOODFLEDGE_DESPERATE_MESSAGES pick(\
@@ -86,8 +82,8 @@
 	var/heal_amount = BLOODFLEDGE_HEAL_AMT
 	/// List of unique DNA strings that have been successfully fed from
 	var/list/bitten_targets
-	/// Amount of blood lost per process
-	var/bloodloss_amount = BLOODFLEDGE_BLOODLOSS_AMOUNT
+	/// Amount of blood lost per process before changes
+	var/bloodloss_amount = BLOOD_DEFICIENCY_MODIFIER
 
 // Check if this quirk is valid for the species
 /datum/quirk/item_quirk/bloodfledge/is_species_appropriate(datum/species/mob_species)
@@ -139,14 +135,6 @@
 		// Ignore proceeding code
 		return
 
-	// Check if antagonists are disabled for this round
-	if(!storyteller_antags)
-		// Alert user
-		to_chat(quirk_mob, span_nicegreen("Things are peaceful here. Your sanguine powers will be more effective than normal!"))
-
-		// Double healing rate
-		heal_amount *= 1.5
-
 	// Register blood consumption interaction
 	RegisterSignal(quirk_holder, COMSIG_REAGENT_ADD_BLOOD, PROC_REF(on_consume_blood))
 
@@ -163,6 +151,9 @@
 
 	// Add vampiric biotype
 	quirk_mob.mob_biotypes |= MOB_VAMPIRIC
+
+	// Set starting bloodloss amount
+	bloodloss_amount = (quirk_mob.dna?.species?.blood_deficiency_drain_rate * BLOODFLEDGE_BLOODLOSS_RATE_MOD)
 
 /datum/quirk/item_quirk/bloodfledge/post_add()
 	. = ..()
@@ -304,8 +295,12 @@
 	// Remove quirk language
 	quirk_mob.remove_language(/datum/language/vampiric, ALL, LANGUAGE_QUIRK)
 
-	// Unregister examine text
+	// Unregister quirk signals
 	UnregisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE)
+	UnregisterSignal(quirk_holder, COMSIG_MOB_STAKED)
+	UnregisterSignal(quirk_holder, COMSIG_REAGENT_ADD_BLOOD)
+	UnregisterSignal(quirk_holder, COMSIG_ENTER_COFFIN)
+	UnregisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD)
 
 	// Remove quirk traits
 	quirk_mob.remove_traits(BLOODFLEDGE_TRAITS, TRAIT_BLOODFLEDGE)
@@ -634,26 +629,35 @@
  * * Checks if blood volume has hit certain thresholds
  * * Sets desperate to enabled or disabled based on threshold
 */
-/datum/quirk/item_quirk/bloodfledge/proc/on_handle_blood(mob/living/target, datum/reagent/blood/handled_reagent, amount, data)
+/datum/quirk/item_quirk/bloodfledge/proc/on_handle_blood(datum/source, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
+
+	// Check if bloodloss is low enough
+	if(!bloodloss_amount)
+		// Alert user
+		to_chat(quirk_holder, span_boldnicegreen("The Geomancer recognizes you as a devoted follower. The blood tithe is no longer required!"))
+
+		// Stop handling blood
+		UnregisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD)  // May conflict with Blood Deficiency
+
+		// Ignore remaining proc
+		return
 
 	// Check if currently conscious
 	// Desperation is less important if so
-	if(target.stat != CONSCIOUS)
+	if(quirk_holder.stat != CONSCIOUS)
 		return
 
 	// Define current blood volume
-	var/target_volume = target.blood_volume
+	var/target_volume = quirk_holder.blood_volume
 
-	// Check probability to lose blood
-	if(prob(BLOODFLEDGE_BLOODLOSS_CHANCE))
-		// Check if blood volume is high enough
-		if(target_volume > BLOODFLEDGE_BLOODLOSS_LIMIT)
-			// Reduce blood volume by upkeep cost amount
-			target.blood_volume -= BLOODFLEDGE_BLOODLOSS_AMOUNT
+	// Check if blood volume is high enough
+	if(target_volume > BLOODFLEDGE_BLOODLOSS_LIMIT)
+		// Reduce blood volume by upkeep cost amount
+		quirk_holder.blood_volume = max(BLOODFLEDGE_BLOODLOSS_LIMIT, quirk_holder.blood_volume - bloodloss_amount * seconds_per_tick)
 
-			// Reset variable
-			target_volume = target.blood_volume
+		// Reset variable
+		target_volume = quirk_holder.blood_volume
 
 	// Check if not already desperate
 	if(!is_desperate)
@@ -691,82 +695,17 @@
 	to_chat(quirk_holder, span_boldwarning("TESTING: You have consumed [length(bitten_targets)] unique DNA."))
 	#endif
 
-	// Check DNA count for unique bonuses
-	switch(length(bitten_targets))
-		// Bonus 1: Reduced blood loss
-		if(BLOODFLEDGE_DNA_BONUS_1)
-			// Alert user
-			to_chat(quirk_holder, span_cult("Your dutiful services to the Geomancer have been noticed! Your blood tithe has been greatly reduced."))
+	// Reduce blood loss per unique DNA, down to 0
+	bloodloss_amount = max(0, (bloodloss_amount - BLOODFLEDGE_BLOODLOSS_REDUCTION))
 
-			// Reduce blood loss rate
-			bloodloss_amount *= 0.5
+	// Slightly increase healing speed per unique DNA
+	// Capped at a 50% bonus after ten unique targets
+	heal_amount = max((BLOODFLEDGE_HEAL_AMT*1.5), (heal_amount + BLOODFLEDGE_HEAL_AMT_BONUS))
 
-		// Bonus 2: Increased healing rate
-		if(BLOODFLEDGE_DNA_BONUS_2)
-			// Alert user
-			to_chat(quirk_holder, span_cult("The Geomancer rewards loyalty to the old blood. Your healing rate has increased!"))
-
-			// Increase healing rate
-			heal_amount += 0.5
-
-		// Bonus 3: Become a true Bloodsucker
-		// Non-antag storyteller alternative: Cheaper revives
-		if(BLOODFLEDGE_DNA_BONUS_3)
-			// Check if holder can become a Bloodsucker
-			if(can_become_bloodsucker())
-				// Alert user
-				to_chat(quirk_holder, span_cult("No evil deed will go unrewarded. The old blood has consumed your body!"))
-
-				// Assign antagonist role
-				var/datum/antagonist/bloodsucker/antag_datum = quirk_holder.mind?.add_antag_datum(/datum/antagonist/bloodsucker)
-				antag_datum.AdjustUnspentRank(1) // Weaker than normal
-
-			// Holder cannot become a bloodsucker
-			// Give an alternative bonus
-			else
-				// Alert user
-				to_chat(quirk_holder, span_cult("The Geomancer recognizes you as a devoted follower. Your powers have improved to their limits!"))
-
-				// Increase healing again
-				heal_amount += 0.5
-
-				// Reduce loss amount again
-				bloodloss_amount *= 0.1
-
-/// Proc to check if quirk holder can become a Bloodsucker in this round
-/datum/quirk/item_quirk/bloodfledge/proc/can_become_bloodsucker()
-	// Check if antags are disabled
-	if(!(SSgamemode?.storyteller?.storyteller_type & STORYTELLER_TYPE_ANTAGS))
-		return FALSE
-
-	// Check if currently off the station
-	if(!is_station_level(quirk_holder.z))
-		return FALSE
-
-	// Define quirk holder client
-	var/client/quirk_holder_client = GET_CLIENT(quirk_holder)
-
-	// Check if client exists
-	if(!istype(quirk_holder_client))
-		return FALSE
-
-	// Define quirk holder species
-	var/selected_species = quirk_holder_client.prefs?.read_preference(/datum/preference/choiced/species)
-
-	// Check if species is prohibited
-	if(selected_species in BLOODSUCKER_RESTRICTED_SPECIES)
-		return FALSE
-
-	// Check if mind is valid for this role
-	if(!quirk_holder.mind?.valid_bloodsucker_candidate())
-		return FALSE
-
-	// Check if holder is already a different antagonist
-	if(length(quirk_holder.mind?.antag_datums) > 0)
-		return FALSE
-
-	// Quirk holder is valid
-	return TRUE
+	// Debug output
+	#ifdef TESTING
+	to_chat(quirk_holder, span_boldwarning("TESTING: Bloodfledge bonuses\nCurrent bloodloss: [bloodloss_amount].\nCurrent heal speed: [heal_amount]."))
+	#endif
 
 //
 // Bloodfledge actions
@@ -1093,17 +1032,34 @@
 		to_chat(action_owner, span_warning("[bite_target] is blessed! You stop just in time to avoid catching fire."))
 		return
 
-	// Check for mind-gone player
-	if(HAS_TRAIT(bite_target, TRAIT_MIND_TEMPORARILY_GONE))
-		// Check if evil
+	// Check for SSD player using indicator
+	// If so, warn the user and return
+	if(bite_target.ssd_indicator)
+		// Check if evil for unique message
 		if(action_owner_evil)
-			// Alert user in chat
-			to_chat(action_owner, span_warning("You you feel no remorse for feeding on [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder."))
+			to_chat(action_owner, span_warning("Feeding from [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder is beneath you. Find a victim more worthy of your embrace."))
 
+		// Non-evil holder
 		else
-			// Warn the user and return
 			to_chat(action_owner, span_warning("You can't bring yourself to bite [bite_target] while [bite_target.p_theyre()] suffering from Space Sleep Disorder."))
-			return
+
+		// Abort action
+		return
+
+	// Check for mind-gone player
+	// If so, warn the user and return
+	// This should only occur when inhabiting a "temporary body" (ex. bitrunning)
+	if(HAS_TRAIT(bite_target, TRAIT_MIND_TEMPORARILY_GONE))
+		// Check if evil for unique message
+		if(action_owner_evil)
+			to_chat(action_owner, span_warning("[bite_target] is currently unworthy of serving your thirst! Try again later."))
+
+		// Non-evil holder
+		else
+			to_chat(action_owner, span_warning("Something feels off about [bite_target]. You decide not to bite [bite_target.p_them()] right now."))
+
+		// Abort action
+		return
 
 	// Check for garlic in the bloodstream
 	if(bite_target.has_reagent(/datum/reagent/consumable/garlic, 5))
@@ -2013,6 +1969,7 @@
 #undef BLOODFLEDGE_COOLDOWN_ANALYZE
 #undef BLOODFLEDGE_BANK_CAPACITY
 #undef BLOODFLEDGE_HEAL_AMT
+#undef BLOODFLEDGE_HEAL_AMT_BONUS
 #undef BLOODFLEDGE_HEAL_PENALTY_DESPERATE
 #undef BLOODFLEDGE_TRAITS
 #undef BLOODFLEDGE_REVIVE_DELAY
@@ -2021,9 +1978,6 @@
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_START
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_END
 #undef BLOODFLEDGE_NANITE_TRANSFER_AMOUNT
-#undef BLOODFLEDGE_BLOODLOSS_AMOUNT
-#undef BLOODFLEDGE_BLOODLOSS_CHANCE
 #undef BLOODFLEDGE_BLOODLOSS_LIMIT
-#undef BLOODFLEDGE_DNA_BONUS_1
-#undef BLOODFLEDGE_DNA_BONUS_2
-#undef BLOODFLEDGE_DNA_BONUS_3
+#undef BLOODFLEDGE_BLOODLOSS_REDUCTION
+#undef BLOODFLEDGE_BLOODLOSS_RATE_MOD
