@@ -11,3 +11,10 @@
  * Used by signals for whenever a mob has changed sizes.
 */
 #define COMSIG_MOB_RESIZED "mob_resized"
+
+/*
+ * # COMSIG_HUMAN_PERFORM_CLIMAX
+ * From /datum/status_effect/climax
+ * Used by signals for when a mob has climaxed.
+*/
+#define COMSIG_HUMAN_PERFORM_CLIMAX "human_perform_climax"

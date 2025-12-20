@@ -25,6 +25,8 @@
 		affected_mob.adjust_pleasure(AROUSAL_REMOVAL_AMOUNT * (affected_mob.dna.features["lust_tolerance"] || 1)) // SPLURT EDIT - Lust tolerance
 	else
 		affected_mob.adjust_pleasure(AROUSAL_REMOVAL_AMOUNT)
+	// SPLURT EDIT: Send signal for completing climax
+	SEND_SIGNAL(affected_mob, COMSIG_HUMAN_PERFORM_CLIMAX)
 	// SPLURT EDIT END
 
 // Likely ready to be deprecated code that could be removed, due to nymphomaniac not existing anymore.

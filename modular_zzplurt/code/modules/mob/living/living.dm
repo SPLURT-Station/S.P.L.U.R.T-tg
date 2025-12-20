@@ -60,3 +60,77 @@
 	set desc = "Switch sharp/fuzzy scaling for current mob."
 	fuzzy = !fuzzy
 	regenerate_icons()
+
+/**
+ * Proc for getting a mob's arousal status as examine message.
+ * Checks hormone producing genitals and ERP pref to generate message.
+ *
+ * This is under /mob/living to allow easier access by status effects.
+ */
+/mob/living/proc/get_arousal_text()
+	// Define temporary list of hormone phrases
+	var/list/hormone_types = list()
+
+	// Define default position preference
+	var/pos_pref = "to satisfy [p_their()] needs."
+
+	// Check for male hormonal organ
+	if(get_organ_slot(ORGAN_SLOT_TESTICLES))
+		hormone_types += "in rut"
+
+	// Check for female hormonal organ
+	if(get_organ_slot(ORGAN_SLOT_WOMB))
+		hormone_types += "in estrous"
+
+	// Check for synthetic
+	if(mob_biotypes & MOB_ROBOTIC)
+		hormone_types += "simulating hormones"
+
+	// Check if client exists
+	if(!client)
+		return
+
+	// Check if prefs exist
+	if(!client.prefs)
+		return
+
+	// Check ERP preference
+	var/erp_status_pref = client?.prefs?.read_preference(/datum/preference/choiced/erp_status)
+
+	// Set message based on selection
+	switch(erp_status_pref)
+		// Disabled
+		if("No")
+			pos_pref = "to handle it by [p_themselves()]."
+
+		// Dominant
+		if("Top - Dom", "Verse-Top - Dom", "Verse - Dom", "Verse-Bottom - Dom", "Bottom - Dom")
+			pos_pref = "to take charge of someone."
+
+		// Switch
+		if("Top - Switch", "Verse-Top - Switch", "Verse-Bottom - Switch", "Bottom - Switch")
+			pos_pref = "to be intimate with someone."
+
+		// Submissive
+		if("Top - Sub", "Verse-Top - Sub", "Verse - Sub", "Verse-Bottom - Sub", "Bottom - Sub")
+			pos_pref = "someone to take charge of [p_them()]."
+
+		// Indecisive
+		if("Verse - Switch")
+			pos_pref = "something from someone?"
+
+		// LOOC
+		if("Ask (L)OOC")
+			pos_pref = "something that needs clarification."
+
+		// OOC
+		if("Check OOC Notes")
+			pos_pref = "something specific."
+
+	// Build English list
+	var/examine_text = span_purple("[p_Theyre()] currently "\
+	+ english_list(hormone_types, nothing_text = "experiencing high hormonal levels")\
+	+ " and wants " + pos_pref)
+
+	// Return text
+	return examine_text

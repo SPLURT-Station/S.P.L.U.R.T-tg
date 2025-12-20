@@ -55,3 +55,5 @@
 #define QUIRK_EXAMINE_PERSONALSPACE	"quirk_examine_personalspace"
 /// Examine text status effect for Hallowed
 #define QUIRK_EXAMINE_HALLOWED		"quirk_examine_hallowed"
+/// Examine text status effect for Hypersexual
+#define QUIRK_EXAMINE_HYPERSEXUAL	"quirk_examine_hypersexual"
