@@ -58,7 +58,7 @@
 
 /datum/quirk/hypersexual/remove()
 	// Remove mood event
-	quirk_holder.clear_mood_event(QMOOD_DUMB_CUM)
+	quirk_holder.clear_mood_event(QMOOD_HYPERSEXUAL)
 
 	// Remove timer
 	deltimer(timer_rouse)
@@ -103,7 +103,7 @@
 	is_roused = TRUE
 
 	// Add negative mood effect
-	quirk_holder.add_mood_event(QMOOD_DUMB_CUM, /datum/mood_event/rouse_need)
+	quirk_holder.add_mood_event(QMOOD_HYPERSEXUAL, /datum/mood_event/hypersexual/rouse_need)
 
 /// Proc to remove roused status from holder
 /datum/quirk/hypersexual/proc/unarouse()
@@ -111,7 +111,7 @@
 	is_roused = FALSE
 
 	// Add positive mood event
-	quirk_holder.add_mood_event(QMOOD_DUMB_CUM, /datum/mood_event/rouse_satisfied)
+	quirk_holder.add_mood_event(QMOOD_HYPERSEXUAL, /datum/mood_event/hypersexual/rouse_satisfied)
 
 	// Remove timer
 	deltimer(timer_rouse)
@@ -123,13 +123,17 @@
 	// Add new timer
 	timer_rouse = addtimer(CALLBACK(src, PROC_REF(arouse)), HYPERSX_ROUSE_TIME, TIMER_STOPPABLE)
 
+/// Base mood event for this quirk
+/datum/mood_event/hypersexual/
+	description = "I'm so overcome with desire that I broke the game."
+
 /// Negative mood for experiencing desire
-/datum/mood_event/rouse_need
+/datum/mood_event/hypersexual/rouse_need
 	description = "Hedonistic desires claw at my mind."
 	mood_change = -6
 
 /// Positive mood for satisfying desire
-/datum/mood_event/rouse_satisfied
+/datum/mood_event/hypersexual/rouse_satisfied
 	description = "I've found release from my sensual desires!"
 	mood_change = 4
 	timeout = 2 MINUTES
