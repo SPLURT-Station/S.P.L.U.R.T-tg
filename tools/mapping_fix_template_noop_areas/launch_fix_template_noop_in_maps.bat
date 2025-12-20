@@ -8,4 +8,6 @@ python "%PY_SCRIPT%" "_maps\RandomRuins\SpaceRuins"
 REM BUBBER EDIT: Below are our custom spaceruins. See: tools\maplint\source\lint.py for specific maps to skip
 python "%PY_SCRIPT%" "_maps\RandomRuins\SpaceRuins\skyrat"
 python "%PY_SCRIPT%" "_maps\RandomRuins\SpaceRuins\bubberstation"
+REM SPLURT EDIT: Below are our custom spaceruins. See: tools\maplint\source\lint.py for specific maps to skip
+python "%PY_SCRIPT%" "_maps\RandomRuins\SpaceRuins\splurt"
 endlocal
