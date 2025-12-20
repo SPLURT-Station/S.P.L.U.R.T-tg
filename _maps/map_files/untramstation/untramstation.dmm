@@ -11650,7 +11650,6 @@
 	},
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /turf/open/floor/iron/dark,
-/turf/open/openspace,
 /area/station/hallway/primary/tram/left)
 "cPx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -16909,7 +16908,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "eDV" = (
 /obj/structure/closet/secure_closet/freezer/cream_pie,
@@ -28685,16 +28683,6 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/station/asteroid)
-"iOy" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/trimline/neutral/filled/warning,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/incident_display/tram/directional/south,
-/turf/open/floor/iron,
-/area/station/hallway/primary/tram/center)
 "iOC" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -40988,17 +40976,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/science/xenobiology)
-"mBo" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 4
-	},
-/obj/machinery/incident_display/tram/directional/north{
-	name = "darwin award counter";
-	desc = "A display that indicates how many dents that'll need fixed after the shift is over."
-	},
-/turf/open/floor/iron,
-/area/station/maintenance/port/central)
 "mBq" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/crew_quarters/dorms)
@@ -51034,7 +51011,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/incident_display/tram/directional/north,
+/obj/machinery/incident_display/disease/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "qbp" = (
@@ -52047,6 +52024,7 @@
 /obj/item/stack/medical/mesh,
 /obj/item/radio/intercom/directional/east,
 /obj/machinery/light/cold/directional/north,
+/obj/machinery/incident_display/disease/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "qti" = (
@@ -62578,7 +62556,6 @@
 	c_tag = "Civilian - Recreational Area North-West"
 	},
 /obj/item/toy/plush/lizard_plushie/space/green,
-/obj/machinery/incident_display/tram/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "tRo" = (
@@ -72602,7 +72579,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/turf/open/openspace,
 /area/station/hallway/primary/tram/left)
 "xei" = (
 /obj/machinery/atmospherics/components/binary/pump/on,
@@ -75471,7 +75447,6 @@
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/iron/dark,
-/turf/open/openspace,
 /area/station/hallway/primary/tram/left)
 "yfU" = (
 /obj/item/kirbyplants/random,
@@ -95801,7 +95776,7 @@ abM
 pZW
 pZW
 pZW
-mBo
+uss
 uss
 xir
 uwf
@@ -174201,7 +174176,7 @@ seN
 ulq
 ykP
 lej
-iOy
+fxs
 wyd
 qtc
 kin
