@@ -23,7 +23,7 @@
 /// Minimum amount of blood required for revivals
 #define BLOODFLEDGE_REVIVE_MINIMUM_VOLUME BLOOD_VOLUME_OKAY
 /// Amount of blood volume the target is left with after reviving
-#define BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME BLOOD_VOLUME_RISKY
+#define BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
 /// Blood volume threshold at which trait owner enters desperate mode
 #define BLOODFLEDGE_DESPERATE_THRESHOLD_START BLOOD_VOLUME_SAFE
 /// Blood volume threshold at which desperation is cleared
@@ -36,6 +36,10 @@
 #define BLOODFLEDGE_BLOODLOSS_REDUCTION 0.01
 /// Intensity multiplier applied to normal Blood Deficiency rate
 #define BLOODFLEDGE_BLOODLOSS_RATE_MOD 0.5
+/// Number of unique blood DNA for first bonus
+#define BLOODFLEDGE_DNA_BONUS_1 3
+/// Number of unique DNA for second bonus
+#define BLOODFLEDGE_DNA_BONUS_2 6
 
 /// Messages used when the holder runs low on blood
 #define BLOODFLEDGE_DESPERATE_MESSAGES pick(\
@@ -54,7 +58,6 @@
 #undef BLOODFLEDGE_REVIVE_DELAY
 #undef BLOODFLEDGE_DNA_BONUS_1
 #undef BLOODFLEDGE_DNA_BONUS_2
-#undef BLOODFLEDGE_DNA_BONUS_3
 #define BLOODFLEDGE_DRAIN_TIME 10
 #define BLOODFLEDGE_COOLDOWN_BITE 10
 #define BLOODFLEDGE_COOLDOWN_REVIVE 10
@@ -62,7 +65,6 @@
 #define BLOODFLEDGE_REVIVE_DELAY 10
 #define BLOODFLEDGE_DNA_BONUS_1 1
 #define BLOODFLEDGE_DNA_BONUS_2 2
-#define BLOODFLEDGE_DNA_BONUS_3 3
 #endif
 
 /datum/quirk/item_quirk/bloodfledge
@@ -187,6 +189,10 @@
 		// Define and grant ability Revive
 		var/datum/action/cooldown/bloodfledge/revive/act_revive = new
 		act_revive.Grant(quirk_mob)
+
+		// Temporarily disable the ability
+		// This is re-enabled by progression system
+		act_revive.disable()
 
 	// Define and grant ability Analyze
 	var/datum/action/cooldown/bloodfledge/analyze/act_analyze = new
@@ -690,9 +696,12 @@
 	// Add new DNA to list
 	LAZYADD(bitten_targets, blood_DNA)
 
+	// Define number of unique targets
+	var/bitten_count = length(bitten_targets)
+
 	// Debug output
 	#ifdef TESTING
-	to_chat(quirk_holder, span_boldwarning("TESTING: You have consumed [length(bitten_targets)] unique DNA."))
+	to_chat(quirk_holder, span_boldwarning("TESTING: You have consumed [bitten_count] unique DNA."))
 	#endif
 
 	// Reduce blood loss per unique DNA, down to 0
@@ -706,6 +715,26 @@
 	#ifdef TESTING
 	to_chat(quirk_holder, span_boldwarning("TESTING: Bloodfledge bonuses\nCurrent bloodloss: [bloodloss_amount].\nCurrent heal speed: [heal_amount]."))
 	#endif
+
+	// Check DNA count for unique bonuses
+	switch(bitten_count)
+		// Bonus 1: Enable revive ability
+		if(BLOODFLEDGE_DNA_BONUS_1)
+			// Alert user
+			to_chat(quirk_holder, span_boldnicegreen("Your connection to the Geomancer grows stronger. Self-revival is now possible."))
+
+			// Enable self-revive ability
+			var/datum/action/cooldown/bloodfledge/revive/act_revive = locate() in quirk_holder.actions
+			act_revive?.enable()
+
+		// Bonus 2: Remove coffin requirement for revives
+		if(BLOODFLEDGE_DNA_BONUS_2)
+			// Alert user
+			to_chat(quirk_holder, span_boldnicegreen("You become aware of the station's leylines. A closed coffin is no longer required to self-revive!"))
+
+			// Remove coffin requirement from self-revive
+			var/datum/action/cooldown/bloodfledge/revive/act_revive = locate() in quirk_holder.actions
+			act_revive?.require_coffin = FALSE
 
 //
 // Bloodfledge actions
@@ -1487,6 +1516,9 @@
 	// Override flags
 	check_flags = AB_CHECK_PHASED
 
+	/// Should this ability require being in a closed coffin?
+	var/require_coffin = TRUE
+
 /datum/action/cooldown/bloodfledge/revive/Activate()
 	// Check if powers are allowed
 	if(!can_use(owner))
@@ -1503,12 +1535,9 @@
 	/// Define failure messages. Will not revive if any failure message is set.
 	var/revive_failed
 
-	// Disabled check
-	/*
 	// Condition: Mob isn't in a closed coffin
-	if(!istype(owner.loc, /obj/structure/closet/crate/coffin))
+	if(require_coffin && (!istype(owner.loc, /obj/structure/closet/crate/coffin)))
 		revive_failed += "\n- You need to be in a closed coffin!"
-	*/
 
 	// Define mob
 	var/mob/living/carbon/human/action_owner = owner
@@ -1649,12 +1678,12 @@
 	if(ishemophage(action_owner))
 		// Set blood volume level
 		// Value increased to prevent instant death for hemophages
-		action_owner.blood_volume = BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
+		action_owner.blood_volume = min(action_owner.blood_volume, BLOODFLEDGE_REVIVE_MINIMUM_VOLUME)
 
 	// Non-hemophage
 	else
 		// Set blood volume level
-		action_owner.blood_volume = BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
+		action_owner.blood_volume = min(action_owner.blood_volume, BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME)
 
 	// Apply dizzy effect
 	action_owner.adjust_dizzy_up_to(20 SECONDS, 60 SECONDS)
@@ -1981,3 +2010,5 @@
 #undef BLOODFLEDGE_BLOODLOSS_LIMIT
 #undef BLOODFLEDGE_BLOODLOSS_REDUCTION
 #undef BLOODFLEDGE_BLOODLOSS_RATE_MOD
+#undef BLOODFLEDGE_DNA_BONUS_1
+#undef BLOODFLEDGE_DNA_BONUS_2
