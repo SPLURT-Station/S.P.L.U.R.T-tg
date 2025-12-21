@@ -621,6 +621,63 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
+# UNTRAMSTATION MAP EDITS
+# Untramstation Armory
+[templates.untramstation_armory]
+map_files = ["untramstation_armory.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [69, 162, 2]
+trait_name = "Station"
+
+# Untramstation Arrivals
+[templates.untramstation_arrivals]
+map_files = ["untramstation_arrivals.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [8, 96, 2]
+trait_name = "Station"
+
+# Untramstation Barber
+[templates.untramstation_barber]
+map_files = ["untramstation_barber.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [133, 125, 1]
+trait_name = "Station"
+
+# Untramstation Book of Kindred
+[templates.untramstation_book_of_kindred]
+map_files = ["book_of_kindred_display.dmm"]
+directory = "_maps/bubber/automapper/templates/generic/"
+required_map = "untramstation.dmm"
+coordinates = [49, 103, 2]
+trait_name = "Station"
+
+# Untramstation Cryo
+[templates.untramstation_cryo]
+map_files = ["untramstation_cryo.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [68, 102, 2]
+trait_name = "Station"
+
+# Untramstation Medbay
+[templates.untramstation_medbay]
+map_files = ["untramstation_medbay.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [118, 101, 2]
+trait_name = "Station"
+
+# Untramstation Supermatter Chamber
+[templates.untramstation_supermatter]
+map_files = ["untramstation_supermatter.dmm"]
+directory = "_maps/bubber/automapper/templates/untramstation/"
+required_map = "untramstation.dmm"
+coordinates = [118, 75, 1]
+trait_name = "Station"
+
 # VOIDRAPTOR MAP EDITS
 # VoidRaptor Book of Kindred
 [templates.voidraptor_book_of_kindred]
@@ -785,6 +842,14 @@ trait_name = "Station"
 map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "tramstation.dmm"
+coordinates = [50, 116, 2]
+trait_name = "Station"
+
+# Untramstation Infinidorm
+[templates.untramstation_infinidorm]
+map_files = ["infinidorm.dmm"]
+directory = "_maps/splurt/automapper/templates/"
+required_map = "untramstation.dmm"
 coordinates = [50, 116, 2]
 trait_name = "Station"
 
