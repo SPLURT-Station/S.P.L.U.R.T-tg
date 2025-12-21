@@ -33,11 +33,11 @@
 		if(1)
 			H.say(message)
 		if(80 to 100)
-			H.adjustOrganLoss(ORGAN_SLOT_LIVER, 1)
-			H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1) // it's cough syrup what'd you expect?
+			H.adjust_organ_loss(ORGAN_SLOT_LIVER, 1)
+			H.adjust_organ_loss(ORGAN_SLOT_BRAIN, 1) // it's cough syrup what'd you expect?
 		if(100 to INFINITY)
-			H.adjustOrganLoss(ORGAN_SLOT_LIVER, 2)
-			H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
+			H.adjust_organ_loss(ORGAN_SLOT_LIVER, 2)
+			H.adjust_organ_loss(ORGAN_SLOT_BRAIN, 2)
 			if(!H.undergoing_cardiac_arrest() && H.can_heartattack() && prob(1))
 				H.set_heartattack(TRUE)
 				if(H.stat == CONSCIOUS)
@@ -122,25 +122,25 @@
 	. = ..()
 	if(drinker.mind && HAS_TRAIT(drinker, TRAIT_ROYAL_METABOLISM))
 		drinker.heal_bodypart_damage(2,2,2)
-		drinker.adjustBruteLoss(-5,0)
-		drinker.adjustOxyLoss(-5,0)
-		drinker.adjustFireLoss(-5,0)
-		drinker.adjustToxLoss(-5,0,TRUE) //Heals Toxin Lovers
+		drinker.adjust_brute_loss(-5, updating_health = FALSE)
+		drinker.adjust_oxy_loss(-5, updating_health = FALSE)
+		drinker.adjust_fire_loss(-5, updating_health = FALSE)
+		drinker.adjust_tox_loss(-5, updating_health = FALSE, forced = TRUE) //Heals Toxin Lovers
 		//drinker.adjustRadLoss(-25)
 		. = 1
 	else
 		//Commander and Chief Effects, no need to be captain to receive the effect
 		drinker.heal_bodypart_damage(2,2,2)
-		drinker.adjustBruteLoss(-3.5,0)
-		drinker.adjustOxyLoss(-3.5,0)
-		drinker.adjustFireLoss(-3.5,0)
-		drinker.adjustToxLoss(-3.5,0,TRUE) //Heals Toxin Lovers
+		drinker.adjust_brute_loss(-3.5, updating_health = FALSE)
+		drinker.adjust_oxy_loss(-3.5, updating_health = FALSE)
+		drinker.adjust_fire_loss(-3.5, updating_health = FALSE)
+		drinker.adjust_tox_loss(-3.5, updating_health = FALSE, forced = TRUE) //Heals Toxin Lovers
 		//drinker.adjustRadLoss(-25)
 
 	//Stimulant Effects
 	drinker.AdjustAllImmobility(-60, FALSE)
 	drinker.AdjustUnconscious(-60, FALSE)
-	drinker.adjustStaminaLoss(-20*REAGENTS_EFFECT_MULTIPLIER, FALSE)
+	drinker.adjust_stamina_loss(-20*REAGENTS_EFFECT_MULTIPLIER, updating_stamina = FALSE)
 
 /datum/reagent/consumable/ethanol/skullfucker_deluxe
 	name = "Skullfucker Deluxe"
@@ -191,12 +191,12 @@
 
 /datum/reagent/consumable/ethanol/ionstorm/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
-	drinker.adjustBruteLoss(-0.5,0)
-	drinker.adjustFireLoss(-0.5,0)
+	drinker.adjust_brute_loss(-0.5, updating_health = FALSE)
+	drinker.adjust_fire_loss(-0.5, updating_health = FALSE)
 	if (drinker.reagents.has_reagent(/datum/reagent/medicine/epinephrine))
-		drinker.adjustToxLoss(0.25)
+		drinker.adjust_tox_loss(0.25)
 	else
-		drinker.adjustOxyLoss(0.25)
+		drinker.adjust_oxy_loss(0.25)
 
 /datum/reagent/consumable/ethanol/twinkjuice
 	name = "Twink Juice"
@@ -254,8 +254,8 @@
 
 /datum/reagent/consumable/ethanol/midnight_sky/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
-	drinker.adjustBruteLoss(-0.5)
-	drinker.adjustFireLoss(-0.5)
+	drinker.adjust_brute_loss(-0.5)
+	drinker.adjust_fire_loss(-0.5)
 	. = TRUE
 
 /datum/reagent/consumable/ethanol/midnight_joy
@@ -289,12 +289,12 @@
 		heal_points = 20 //heal more if we're in softcrit
 	var/need_mob_update
 	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
-	need_mob_update = affected_mob.adjustBruteLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjustFireLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjustToxLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjustOxyLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = affected_mob.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	// heal stamina loss on first metabolization, but only to a max of 20
-	need_mob_update += affected_mob.adjustStaminaLoss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
 		affected_mob.updatehealth()
 	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
@@ -321,12 +321,12 @@
 		heal_points = 20 //heal more if we're in softcrit
 	var/need_mob_update
 	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
-	need_mob_update = affected_mob.adjustBruteLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjustFireLoss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjustToxLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjustOxyLoss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = affected_mob.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	// heal stamina loss on first metabolization, but only to a max of 20
-	need_mob_update += affected_mob.adjustStaminaLoss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
 		affected_mob.updatehealth()
 	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))

@@ -3,7 +3,7 @@
 	// Check for resistance quirk
 	if(HAS_TRAIT(victim, TRAIT_ASHRESISTANCE))
 		// Do stamina damage instead
-		victim.adjustStaminaLoss(4)
+		victim.adjust_stamina_loss(4)
 
 		// No other effects
 		return
