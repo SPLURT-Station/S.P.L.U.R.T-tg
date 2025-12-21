@@ -219,7 +219,7 @@
 	if(!istype(user))
 		return
 	if(prob((user.dna.features["sexual_potency"] * 5) + 15))
-		target.adjustOxyLoss(2)
+		target.adjust_oxy_loss(2)
 		target.adjust_arousal(5)
 		user.adjust_arousal(8)
 
