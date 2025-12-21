@@ -292,7 +292,7 @@
 	icon_state = "secstripper"
 	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	armor_type = /datum/armor/none
+	armor_type = /datum/armor/clothing_under
 	body_parts_covered = CHEST|GROIN
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
