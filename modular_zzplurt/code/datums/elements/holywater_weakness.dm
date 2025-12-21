@@ -66,6 +66,6 @@
 		return
 
 	// Cause burn damage based on amount
-	affected_mob.adjustFireLoss(damage)
+	affected_mob.adjust_fire_loss(damage)
 
 #undef HWWEAK_SPLASH_DAMAGE_CAP

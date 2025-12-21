@@ -55,12 +55,12 @@
 	if(transformed)
 		var/integrity = current.get_integrity()
 		energy = min(energy + 0.3, 100)
-		if (H.getBruteLoss() > 0 || H.getFireLoss() > 0)
-			H.adjustBruteLoss(-0.5, forced = TRUE)
-			H.adjustFireLoss(-0.5, forced = TRUE)
-		else if (H.getOxyLoss() > 0 || H.getToxLoss() > 0)
-			H.adjustToxLoss(-0.3, forced = TRUE)
-			H.adjustOxyLoss(-0.5, forced = TRUE) //oxyloss heals by itself, doesn't need a nerfed heal
+		if (H.get_brute_loss() > 0 || H.get_fire_loss() > 0)
+			H.adjust_brute_loss(-0.5, forced = TRUE)
+			H.adjust_fire_loss(-0.5, forced = TRUE)
+		else if (H.get_oxy_loss() > 0 || H.get_tox_loss() > 0)
+			H.adjust_tox_loss(-0.3, forced = TRUE)
+			H.adjust_oxy_loss(-0.5, forced = TRUE) //oxyloss heals by itself, doesn't need a nerfed heal
 		/*else if (H.getCloneLoss() > 0)
 			H.adjustCloneLoss(-0.3, forced = TRUE)*/
 		else if (current && integrity < current.max_integrity) //health == maxHealth is true since we checked all damages above

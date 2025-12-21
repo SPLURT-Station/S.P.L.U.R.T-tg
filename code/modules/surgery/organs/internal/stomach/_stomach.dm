@@ -335,7 +335,7 @@
 	if (isliving(nomnom)) // NO VORE ALLOWED
 		return 0
 	// Yeah maybe don't, if something edible ended up here it should either handle itself or not be digested
-	if (IsEdible(nomnom))
+	if (IS_EDIBLE(nomnom))
 		return 0
 	if (HAS_TRAIT(owner, TRAIT_STRONG_STOMACH))
 		return 10
@@ -524,7 +524,7 @@
 /obj/item/organ/stomach/cybernetic/tier2/stomach_acid_power(atom/movable/nomnom)
 	if (isliving(nomnom))
 		return 0
-	if (IsEdible(nomnom))
+	if (IS_EDIBLE(nomnom))
 		return 0
 	return 20
 
@@ -540,7 +540,7 @@
 /obj/item/organ/stomach/cybernetic/tier3/stomach_acid_power(atom/movable/nomnom)
 	if (isliving(nomnom))
 		return 0
-	if (IsEdible(nomnom))
+	if (IS_EDIBLE(nomnom))
 		return 0
 	return 35
 
