@@ -181,7 +181,7 @@
 /obj/item/clothing/under/goner/fake
 	name = "trencher uniform replica"
 	desc = "A 90% replica of No Man's Land-type uniform. Obviously won't protect you from the blastwave."
-	armor_type = /datum/armor/none
+	armor_type = /datum/armor/clothing_under
 	uses_advanced_reskins = TRUE // Since polychromic no longer available at least allow us to reskin it after GWTB armies colors.
 	unique_reskin = list(
 		"Default (Purple)" = list(
