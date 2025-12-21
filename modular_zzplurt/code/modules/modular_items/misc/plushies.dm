@@ -75,7 +75,7 @@ GLOBAL_DATUM_INIT(saliith_plushie, /obj/item/toy/plush/lizard_plushie/saliith, n
 			turf_target.Beam(user, icon_state="lightning[rand(1,12)]", time = 5)
 			user.electrocution_animation(40)
 			playsound(get_turf(user), 'sound/effects/magic/lightningbolt.ogg', 50, 1)
-			user.adjustFireLoss(120)
+			user.adjust_fire_loss(120)
 			return
 
 	to_chat(user, span_notice("[p_they()] give[p_s()] you a hesitant gaze, but accepts the gesture anyhow."))
