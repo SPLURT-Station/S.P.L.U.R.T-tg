@@ -1289,6 +1289,15 @@
 			// Apply minor damage
 			bite_bodypart.receive_damage(brute = rand(4,8), sharpness = SHARP_POINTY)
 
+		// Add negative mood event for failure
+		// Ignored if the holder is a sadist
+		if(!HAS_TRAIT(bite_target, TRAIT_SADISM)
+			// Uses different flavor text for evil holder
+			if(action_owner_evil)
+				action_owner.add_mood_event(QMOOD_BFLED_BITE_INTERRUPT, /datum/mood_event/bloodfledge/drankblood/bite_failed/evil)
+			else
+				action_owner.add_mood_event(QMOOD_BFLED_BITE_INTERRUPT, /datum/mood_event/bloodfledge/drankblood/bite_failed)
+
 		// Start cooldown early
 		// This is to prevent bite interrupt spam
 		StartCooldown()
@@ -1951,6 +1960,14 @@
 // Drinking fake blood (no DNA)
 /datum/mood_event/bloodfledge/drankblood/blood_fake
 	description = "I drink artifical blood. I should know better."
+
+/// Bite was interrupted
+/datum/mood_event/bloodfledge/drankblood/bite_failed
+	description = "I lost control while feeding and hurt my target."
+
+/// Bite was interrupted, evil edition
+/datum/mood_event/bloodfledge/drankblood/bite_failed/evil
+	description = "I lost precious blood from my victim's incompetence."
 
 /**
  * Desperation Effect
