@@ -24,6 +24,14 @@
 #define BLOODFLEDGE_REVIVE_MINIMUM_VOLUME BLOOD_VOLUME_OKAY
 /// Amount of blood volume the target is left with after reviving
 #define BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
+/// Default description for revive ability
+#define BLOODFLEDGE_REVIVE_DESC_BASE /datum/action/cooldown/bloodfledge/revive::desc
+/// First description addendum for revive ability
+#define BLOODFLEDGE_REVIVE_DESC_1 "<br><br>Must first be unlocked by obtaining [BLOODFLEDGE_DNA_BONUS_1] unique blood samples!"
+/// Second description addendum for revive ability
+#define BLOODFLEDGE_REVIVE_DESC_2 "<br><br>Currently requires a closed coffin. Upgraded at [BLOODFLEDGE_DNA_BONUS_2] unique blood samples."
+/// Third description addendum for revive ability
+#define BLOODFLEDGE_REVIVE_DESC_3 "<br><br>Fully upgraded!"
 /// Blood volume threshold at which trait owner enters desperate mode
 #define BLOODFLEDGE_DESPERATE_THRESHOLD_START BLOOD_VOLUME_SAFE
 /// Blood volume threshold at which desperation is cleared
@@ -193,6 +201,12 @@
 		// Temporarily disable the ability
 		// This is re-enabled by progression system
 		act_revive.disable()
+
+		// Add first description addendum
+		act_revive.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_1
+
+		// Update button description
+		act_revive.build_all_button_icons(UPDATE_BUTTON_NAME)
 
 	// Define and grant ability Analyze
 	var/datum/action/cooldown/bloodfledge/analyze/act_analyze = new
@@ -727,6 +741,12 @@
 			var/datum/action/cooldown/bloodfledge/revive/act_revive = locate() in quirk_holder.actions
 			act_revive?.enable()
 
+			// Set second description addendum
+			act_revive.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_2
+
+			// Update button description
+			act_revive.build_all_button_icons(UPDATE_BUTTON_NAME)
+
 		// Bonus 2: Remove coffin requirement for revives
 		if(BLOODFLEDGE_DNA_BONUS_2)
 			// Alert user
@@ -736,6 +756,11 @@
 			var/datum/action/cooldown/bloodfledge/revive/act_revive = locate() in quirk_holder.actions
 			act_revive?.require_coffin = FALSE
 
+			// Set third description addendum
+			act_revive.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_3
+
+			// Update button description
+			act_revive.build_all_button_icons(UPDATE_BUTTON_NAME)
 //
 // Bloodfledge actions
 //
@@ -1509,7 +1534,7 @@
 // Action: Revive
 /datum/action/cooldown/bloodfledge/revive
 	name = "Fledgling Revive"
-	desc = "Expend all of your remaining energy to escape death."
+	desc = "Sacrifice a large volume of blood to escape death."
 	button_icon_state = "power_strength"
 	cooldown_time = BLOODFLEDGE_COOLDOWN_REVIVE
 
@@ -2000,6 +2025,10 @@
 #undef BLOODFLEDGE_REVIVE_DELAY
 #undef BLOODFLEDGE_REVIVE_MINIMUM_VOLUME
 #undef BLOODFLEDGE_REVIVE_AFTER_BLOOD_VOLUME
+#undef BLOODFLEDGE_REVIVE_DESC_BASE
+#undef BLOODFLEDGE_REVIVE_DESC_1
+#undef BLOODFLEDGE_REVIVE_DESC_2
+#undef BLOODFLEDGE_REVIVE_DESC_3
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_START
 #undef BLOODFLEDGE_DESPERATE_THRESHOLD_END
 #undef BLOODFLEDGE_NANITE_TRANSFER_AMOUNT
