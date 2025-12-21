@@ -1291,7 +1291,7 @@
 
 		// Add negative mood event for failure
 		// Ignored if the holder is a sadist
-		if(!HAS_TRAIT(bite_target, TRAIT_SADISM)
+		if(!HAS_TRAIT(bite_target, TRAIT_SADISM))
 			// Uses different flavor text for evil holder
 			if(action_owner_evil)
 				action_owner.add_mood_event(QMOOD_BFLED_BITE_INTERRUPT, /datum/mood_event/bloodfledge/drankblood/bite_failed/evil)
