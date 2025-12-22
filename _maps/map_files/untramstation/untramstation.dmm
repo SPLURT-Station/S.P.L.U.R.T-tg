@@ -2421,6 +2421,27 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
+"ajE" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/corner{
+	dir = 1;
+	pixel_y = -4
+	},
+/obj/structure/railing/corner{
+	dir = 8;
+	pixel_y = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/chair/sofa/bench/tram/solo{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/camera/directional/west{
+	c_tag = "East Walkway 2"
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/station/hallway/primary/tram/right)
 "ajF" = (
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
@@ -4649,6 +4670,9 @@
 	},
 /obj/structure/railing/corner/end/flip{
 	dir = 4
+	},
+/obj/structure/closet/firecloset/wall{
+	pixel_x = -28
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 8
@@ -14743,9 +14767,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "dMZ" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -20251,9 +20272,6 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "fIG" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -21236,10 +21254,10 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "gay" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
 	},
-/turf/open/floor/catwalk_floor,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/primary/tram/right)
 "gaH" = (
 /turf/open/floor/catwalk_floor,
@@ -22984,11 +23002,25 @@
 /turf/open/floor/iron/dark,
 /area/station/service/janitor)
 "gEC" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/corner{
+	dir = 4;
+	pixel_y = -4
 	},
-/turf/open/floor/catwalk_floor,
-/area/station/hallway/primary/tram/center)
+/obj/structure/railing/corner{
+	pixel_y = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/chair/sofa/bench/tram/solo{
+	dir = 8
+	},
+/obj/machinery/camera/directional/east{
+	c_tag = "West Walkway 1"
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/station/hallway/primary/tram/left)
 "gEK" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access"
@@ -24265,6 +24297,9 @@
 	},
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_x = 28
 	},
 /turf/open/floor/iron/dark/corner{
 	dir = 4
@@ -35725,9 +35760,6 @@
 /turf/open/misc/asteroid/airless,
 /area/station/asteroid)
 "kJz" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -38351,11 +38383,11 @@
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/storage)
 "lwN" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
 	},
-/turf/open/floor/catwalk_floor,
-/area/station/hallway/primary/tram/center)
+/turf/open/floor/iron/dark/textured_large,
+/area/station/hallway/primary/tram/left)
 "lwV" = (
 /obj/machinery/camera/emp_proof{
 	dir = 9;
@@ -39441,9 +39473,6 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "lNP" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
-	},
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/primary/tram/left)
 "lNQ" = (
@@ -40828,13 +40857,23 @@
 /turf/closed/wall,
 /area/station/security/medical)
 "mkg" = (
-/obj/structure/fans/tiny/forcefield{
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/corner{
+	dir = 4;
+	pixel_y = -4
+	},
+/obj/structure/railing/corner{
+	pixel_y = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/chair/sofa/bench/tram/solo{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/camera/directional/east{
+	c_tag = "East Walkway 1"
 	},
-/turf/open/floor/catwalk_floor,
+/turf/open/floor/catwalk_floor/iron,
 /area/station/hallway/primary/tram/center)
 "mkl" = (
 /obj/item/stack/package_wrap,
@@ -42931,8 +42970,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/tram/mid)
 "mWR" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/primary/tram/center)
@@ -44293,6 +44332,10 @@
 "nsJ" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 10
+	},
+/obj/machinery/camera{
+	dir = 10;
+	c_tag = "Hallway - Starboard Tram Platform South-West"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/right)
@@ -47933,6 +47976,9 @@
 /obj/structure/railing/corner/end{
 	dir = 8
 	},
+/obj/structure/closet/emcloset/wall{
+	pixel_x = 28
+	},
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/primary/tram/right)
 "oGj" = (
@@ -48535,6 +48581,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/structure/closet/firecloset/wall{
+	pixel_x = -28
+	},
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -52228,9 +52277,6 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
 "qcz" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
@@ -53151,6 +53197,10 @@
 "qsb" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 6
+	},
+/obj/machinery/camera{
+	dir = 6;
+	c_tag = "Hallway - Port Tram Platform South-East"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/left)
@@ -58197,9 +58247,7 @@
 /turf/open/floor/grass,
 /area/station/asteroid)
 "rWQ" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
+/obj/machinery/atmos_shield_gen/active,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/primary/tram/right)
 "rWT" = (
@@ -61704,6 +61752,9 @@
 /obj/structure/cable,
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 4
+	},
+/obj/machinery/camera/directional/west{
+	c_tag = "West Walkway 2"
 	},
 /turf/open/floor/catwalk_floor/iron,
 /area/station/hallway/primary/tram/center)
@@ -68839,10 +68890,6 @@
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
 "vlb" = (
-/obj/machinery/camera{
-	dir = 6;
-	c_tag = "Hallway - Port Tram Platform South-East"
-	},
 /obj/machinery/firealarm/directional/east,
 /obj/structure/railing{
 	dir = 1
@@ -69486,10 +69533,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/construction/engineering)
 "vvd" = (
-/obj/machinery/camera{
-	dir = 10;
-	c_tag = "Hallway - Starboard Tram Platform South-West"
-	},
 /obj/machinery/firealarm/directional/west,
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -71200,9 +71243,6 @@
 /turf/open/floor/plating/airless,
 /area/station/solars/port/asteriod)
 "vZp" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -75694,9 +75734,7 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "xBS" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
+/obj/machinery/atmos_shield_gen/active,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/primary/tram/center)
 "xBU" = (
@@ -75849,9 +75887,7 @@
 	},
 /area/station/service/chapel)
 "xFj" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 8
-	},
+/obj/machinery/atmos_shield_gen/active,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/primary/tram/left)
 "xFl" = (
@@ -165272,7 +165308,7 @@ xFj
 lNP
 dMZ
 lNP
-xFj
+lwN
 oai
 iSp
 aEP
@@ -167326,7 +167362,7 @@ vFt
 sSb
 nvU
 xOd
-nGS
+gEC
 swV
 dMy
 agb
@@ -171694,10 +171730,10 @@ oti
 wYw
 frh
 xBS
-gEC
+tHj
 fIG
 kJz
-xBS
+mWR
 lIQ
 nwV
 ghg
@@ -178889,10 +178925,10 @@ izU
 vYA
 wYw
 frh
-mWR
-lwN
+xBS
+tHj
 qcz
-mkg
+kJz
 mWR
 lIQ
 nwV
@@ -180947,7 +180983,7 @@ afE
 afJ
 xjo
 smv
-oFF
+mkg
 fSc
 bnm
 agb
@@ -183260,7 +183296,7 @@ afG
 afN
 vNV
 nON
-weL
+ajE
 wON
 gyM
 agd
@@ -185315,10 +185351,10 @@ lVe
 rxO
 swZ
 rWQ
-gay
+gaH
 vZp
+gaH
 gay
-rWQ
 qfF
 jCI
 aEv
