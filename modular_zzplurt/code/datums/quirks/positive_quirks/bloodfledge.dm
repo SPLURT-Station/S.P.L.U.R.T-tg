@@ -1,7 +1,7 @@
 /// Amount of blood taken from a target on bite
 #define BLOODFLEDGE_DRAIN_AMT 50
 /// Base amount of time to bite a target before adjustments
-#define BLOODFLEDGE_DRAIN_TIME 50
+#define BLOODFLEDGE_DRAIN_TIME 30 // Three seconds
 /// Cooldown for the bite ability
 #define BLOODFLEDGE_COOLDOWN_BITE 60 // Six seconds
 /// Cooldown for the revive ability
@@ -396,17 +396,15 @@
 	id_vampire.update_label()
 
 	// Check for bank account
-	if(!quirk_mob.account_id)
-		return
+	if(quirk_mob.account_id)
+		// Define bank account
+		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[quirk_mob.account_id]"]
 
-	// Define bank account
-	var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[quirk_mob.account_id]"]
+		// Add to cards list
+		account.bank_cards += src
 
-	// Add to cards list
-	account.bank_cards += src
-
-	// Assign account
-	id_vampire.registered_account = account
+		// Assign account
+		id_vampire.registered_account = account
 
 	// Give ID card
 	give_item_to_holder(id_vampire,
@@ -586,7 +584,6 @@
  * Blood nourishment for Bloodfledges
  * * Checks if the blood was synthesized or from an invalid mob
  * * Checks if the owner tried to drink their own blood
- * * Converts any valid blood into Notriment
 */
 /datum/quirk/item_quirk/bloodfledge/proc/on_consume_blood(mob/living/target, datum/reagent/blood/handled_reagent, amount, data)
 	SIGNAL_HANDLER
@@ -641,8 +638,8 @@
 	// Add new blood DNA to list
 	add_dna(blood_DNA)
 
-	// Remove desperation
-	remove_desperate()
+	// Recheck if desperation should apply
+	recheck_desperate()
 
 /**
  * Blood update signal handler for Bloodfledges
@@ -679,17 +676,22 @@
 		// Reset variable
 		target_volume = quirk_holder.blood_volume
 
+	// Handle changes to the desperation state
+	recheck_desperate()
+
+/// Proc for assigning or unassigning the desperation state
+/datum/quirk/item_quirk/bloodfledge/proc/recheck_desperate()
 	// Check if not already desperate
 	if(!is_desperate)
 		// Check if blood volume is below threshold
-		if(target_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
+		if(quirk_holder.blood_volume <= BLOODFLEDGE_DESPERATE_THRESHOLD_START)
 			// Start effect
 			set_desperate()
 
 	// Target is already desperate
 	else
 		// Check if blood volume is above threshold
-		if(target_volume >= BLOODFLEDGE_DESPERATE_THRESHOLD_END)
+		if(quirk_holder.blood_volume >= BLOODFLEDGE_DESPERATE_THRESHOLD_END)
 			// End effect
 			remove_desperate()
 
@@ -1632,10 +1634,12 @@
 	action_owner.visible_message(span_notice("[action_owner]'s body begins to twitch and radiate an ominous aura."), span_warning("You begin gathering the strength to revive."))
 
 	// Attempt to revive after a timer
-	if(!do_after(action_owner,BLOODFLEDGE_REVIVE_DELAY,action_owner,list(IGNORE_USER_LOC_CHANGE, IGNORE_TARGET_LOC_CHANGE,IGNORE_SLOWDOWNS)))
+	if(!do_after(action_owner, BLOODFLEDGE_REVIVE_DELAY, action_owner, list(IGNORE_USER_LOC_CHANGE, IGNORE_TARGET_LOC_CHANGE, IGNORE_SLOWDOWNS, IGNORE_INCAPACITATED)))
 		// Alert user in chat and return
 		to_chat(action_owner, span_warning("Something has interrupted your revival!"))
 		return FALSE
+
+	// Recheck if ability should be usable
 	if(!can_use(owner) || action_owner.get_brute_loss() >= MAX_REVIVE_BRUTE_DAMAGE || action_owner.get_fire_loss() >= MAX_REVIVE_FIRE_DAMAGE)
 		return FALSE
 
