@@ -53,7 +53,7 @@
 	if((mob_belly?.genital_size >= (belly_max_size - 2)) && (exposed_mob.w_uniform || exposed_mob.wear_suit))
 		if(prob(damage_chance))
 			to_chat(exposed_mob, span_danger("Your belly strains against your clothes!"))
-			exposed_mob.adjustOxyLoss(5)
+			exposed_mob.adjust_oxy_loss(5)
 			exposed_mob.apply_damage(1, BRUTE, exposed_mob.get_bodypart(BODY_ZONE_CHEST))
 
 /**
