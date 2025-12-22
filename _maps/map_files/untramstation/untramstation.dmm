@@ -6725,6 +6725,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/chair/office{
+	dir = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "bio" = (
@@ -42360,10 +42363,10 @@
 /area/station/command/bridge)
 "mJp" = (
 /obj/machinery/status_display/ai/directional/north,
-/obj/item/storage/lunchbox/nanotrasen,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/machinery/modular_computer/preset/civilian,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "mJw" = (
@@ -46061,6 +46064,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/item/storage/lunchbox/nanotrasen,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "nVL" = (
@@ -68222,9 +68226,6 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "vbk" = (
-/obj/structure/chair/office{
-	dir = 1
-	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "vbt" = (
@@ -70470,7 +70471,6 @@
 /area/station/cargo/miningdock)
 "vKR" = (
 /obj/machinery/firealarm/directional/north,
-/obj/machinery/modular_computer/preset/civilian,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
