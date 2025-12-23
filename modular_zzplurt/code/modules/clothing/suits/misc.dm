@@ -317,3 +317,19 @@
 
 /obj/item/clothing/suit/storage/fluff/modernfedcoat/sec
 	icon_state = "fedmodernsec"
+
+/obj/item/clothing/suit/toggle/moffuchis
+	name = "moffuchi's pizzaria employee jacket"
+	desc = "A deep blue and white puffy jacket; made from synthetic fabric. Inspired by old Eastern European designs, has the employee's nametag on it along with Moffuchi's Pizzaria branding."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "moffuchis_jacket"
+	inhand_icon_state = null
+	blood_overlay_type = "coat"
+	armor_type = /datum/armor/toggle_chef
+	body_parts_covered = CHEST|GROIN|ARMS
+	allowed = list(
+		/obj/item/kitchen,
+		/obj/item/knife/kitchen,
+		/obj/item/storage/bag/tray,
+	)
