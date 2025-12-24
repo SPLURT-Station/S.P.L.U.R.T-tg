@@ -8,6 +8,14 @@
 	var/toggled = FALSE
 	var/obj/effect/dummy/lighting_obj/moblight/glow_light
 
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/fluffy_coat
+
+/obj/item/clothing/head/hooded/winterhood/fluffy_coat
+	name = "\proper Hooded Santa Hat"
+	desc = "A santa hat seemingly attached to the coat."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/costume/santa/gags"
+
 /obj/item/clothing/suit/hooded/wintercoat/fluffy_coat/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	context[SCREENTIP_CONTEXT_ALT_RMB] = "Toggle glow"
