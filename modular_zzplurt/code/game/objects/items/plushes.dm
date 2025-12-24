@@ -182,3 +182,11 @@
 	attack_verb_continuous = list("corrupt", "scoff at", "drain", "tempt", "judge")
 	squeak_override = list('modular_zzplurt/sound/voice/male_sigh.ogg' = 1)
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
+
+/obj/item/toy/plush/red_mut
+	name = "\improper Marketable Mutt Plushie"
+	desc = "This plushie looks like someone who's been on station... How the heck did this thing even get made?"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "redmut"
+	gender = MALE
+	squeak_override = list('modular_zzplurt/sound/voice/bork.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark1.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
