@@ -13,13 +13,9 @@
 /obj/item/clothing/head/hooded/winterhood/fluffy_coat
 	name = "\proper Hooded Santa Hat"
 	desc = "A santa hat seemingly attached to the coat."
-	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/costume/santa/gags"
-	post_init_icon_state = "santa_hat"
-	greyscale_config = /datum/greyscale_config/santa_hat
-	greyscale_config_worn = /datum/greyscale_config/santa_hat/worn
-	greyscale_colors = "#cc0000#f8f8f8"
-	flags_1 = IS_PLAYER_COLORABLE_1
+	icon = 'icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'icons/mob/clothing/head/costume.dmi'
+	icon_state = "santahatnorm"
 	flags_inv = null
 	hair_mask = null
 
