@@ -76,6 +76,12 @@
 	category = GHC_APARTMENT
 	landing_coords = list(17, 3)
 
+/datum/map_template/ghost_cafe_rooms/apartment_occult_lair
+	name = "Occult Hideout"
+	mappath = "_maps/splurt/templates/apartment_occult_lair.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(14, 15)
+
 /datum/map_template/ghost_cafe_rooms/apartment_dusk_oasis
 	name = "Dusked Oasis"
 	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
