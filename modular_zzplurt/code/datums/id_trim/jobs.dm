@@ -14,6 +14,7 @@
 		ACCESS_MORGUE,
 		ACCESS_SCIENCE,
 		ACCESS_SERVICE,
+		ACCESS_PARAMEDIC,
 		)
 
 	extra_access = list(

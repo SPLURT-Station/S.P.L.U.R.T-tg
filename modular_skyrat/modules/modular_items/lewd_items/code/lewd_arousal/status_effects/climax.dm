@@ -17,7 +17,7 @@
 	var/mob/living/carbon/human/affected_mob = owner
 
 	owner?.reagents?.add_reagent(/datum/reagent/drug/aphrodisiac/dopamine, 0.5) // SPLURT EDIT - fix a runtime on basic mobs
-	// owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_EXTERNAL) // SPLURT EDIT - Removed stamina loss on climax by external stimulation.
+	//owner?.adjust_stamina_loss(STAMINA_REMOVAL_AMOUNT_EXTERNAL) // SPLURT EDIT - Removed stamina loss on climax by external stimulation.
 	var/datum/component/to_del = affected_mob.GetComponent(/datum/component/change_arousal_on_life)
 	qdel(to_del)
 	affected_mob.adjust_arousal(AROUSAL_REMOVAL_AMOUNT)
@@ -42,7 +42,7 @@
 	var/mob/living/carbon/human/affected_mob = owner
 
 	owner.reagents.add_reagent(/datum/reagent/drug/aphrodisiac/dopamine, 0.3)
-	// owner.adjustStaminaLoss(STAMINA_REMOVAL_AMOUNT_SELF) // SPLURT EDIT - Removed stamina loss on climax by self stimulation.
+	// owner?.adjust_stamina_loss(STAMINA_REMOVAL_AMOUNT_SELF) // SPLURT EDIT - Removed stamina loss on climax by self stimulation.
 	var/datum/component/to_del = affected_mob.GetComponent(/datum/component/change_arousal_on_life)
 	qdel(to_del) //apparently deprecated effect, still adding this line just to be safe
 	affected_mob.adjust_arousal(AROUSAL_REMOVAL_AMOUNT)

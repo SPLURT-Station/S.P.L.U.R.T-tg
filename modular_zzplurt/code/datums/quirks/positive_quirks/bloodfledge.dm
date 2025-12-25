@@ -236,10 +236,10 @@
 	var/need_mob_update = FALSE
 
 	// Queue healing compatible damage types
-	need_mob_update += quirk_holder.adjustBruteLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjustFireLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjustToxLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
-	need_mob_update += quirk_holder.adjustOxyLoss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC)
+	need_mob_update += quirk_holder.adjust_brute_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjust_fire_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjust_tox_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
+	need_mob_update += quirk_holder.adjust_oxy_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC)
 
 	// Check if healing will be applied
 	if(need_mob_update)
@@ -1304,11 +1304,11 @@
 			revive_failed += "\n- You don't have enough blood volume left!"
 
 	// Condition: Damage limit, brute
-	if(action_owner.getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE)
+	if(action_owner.get_brute_loss() >= MAX_REVIVE_BRUTE_DAMAGE)
 		revive_failed += "\n- Your body is too battered!"
 
 	// Condition: Damage limit, burn
-	if(action_owner.getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE)
+	if(action_owner.get_fire_loss() >= MAX_REVIVE_FIRE_DAMAGE)
 		revive_failed += "\n- Your body is too badly burned!"
 
 	// Condition: Suicide
@@ -1346,10 +1346,10 @@
 	action_owner.visible_message(span_notice("[action_owner]'s body begins to twitch and radiate an ominous aura"), span_warning("You begin gathering the strength to revive."))
 	if(!do_after(action_owner,BLOODFLEDGE_REVIVE_DELAY,action_owner,list(IGNORE_USER_LOC_CHANGE, IGNORE_TARGET_LOC_CHANGE,IGNORE_SLOWDOWNS)))
 		return FALSE
-	if(!can_use(owner) || action_owner.getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE || action_owner.getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE)
+	if(!can_use(owner) || action_owner.get_brute_loss() >= MAX_REVIVE_BRUTE_DAMAGE || action_owner.get_fire_loss() >= MAX_REVIVE_FIRE_DAMAGE)
 		return FALSE
 	// Remove oxygen damage
-	action_owner.adjustOxyLoss(-100, FALSE)
+	action_owner.adjust_oxy_loss(-100, updating_health = FALSE)
 
 	// Heal and revive the action owner
 	action_owner.heal_and_revive()
@@ -1362,10 +1362,10 @@
 		// Based on defib.dm
 
 		// Define damage values
-		var/damage_brute = action_owner.getBruteLoss()
-		var/damage_burn = action_owner.getFireLoss()
-		var/damage_tox = action_owner.getToxLoss()
-		var/damage_oxy = action_owner.getOxyLoss()
+		var/damage_brute = action_owner.get_brute_loss()
+		var/damage_burn = action_owner.get_fire_loss()
+		var/damage_tox = action_owner.get_tox_loss()
+		var/damage_oxy = action_owner.get_oxy_loss()
 		var/damage_brain = action_owner.get_organ_loss(ORGAN_SLOT_BRAIN)
 
 		// Define total damage
@@ -1376,11 +1376,11 @@
 		var/health_half_crit = action_owner.health - ((HEALTH_THRESHOLD_CRIT + HEALTH_THRESHOLD_DEAD) * 0.5)
 
 		// Adjust damage types
-		action_owner.adjustOxyLoss(health_half_crit * (damage_oxy / damage_total), updating_health = FALSE)
-		action_owner.adjustToxLoss(health_half_crit * (damage_tox / damage_total), updating_health = FALSE)
-		action_owner.adjustFireLoss(health_half_crit * (damage_burn / damage_total), updating_health = FALSE)
-		action_owner.adjustBruteLoss(health_half_crit * (damage_brute / damage_total), updating_health = FALSE)
-		action_owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, health_half_crit * (damage_brain / damage_total))
+		action_owner.adjust_oxy_loss(health_half_crit * (damage_oxy / damage_total), updating_health = FALSE)
+		action_owner.adjust_tox_loss(health_half_crit * (damage_tox / damage_total), updating_health = FALSE)
+		action_owner.adjust_fire_loss(health_half_crit * (damage_burn / damage_total), updating_health = FALSE)
+		action_owner.adjust_brute_loss(health_half_crit * (damage_brute / damage_total), updating_health = FALSE)
+		action_owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, health_half_crit * (damage_brain / damage_total))
 
 		// Update health
 		action_owner.updatehealth()

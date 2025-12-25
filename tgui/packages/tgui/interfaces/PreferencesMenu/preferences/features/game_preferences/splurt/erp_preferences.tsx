@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const butt_enlargement_pref: FeatureToggle = {
   name: 'Butt enlargement',
@@ -58,5 +58,13 @@ export const knotting_pref: FeatureToggle = {
   name: 'Knotting',
   category: 'ERP',
   description: 'Allow interactions to knot.',
+  component: CheckboxInput,
+};
+
+export const stomp_on_pref: FeatureToggle = {
+  name: 'Stomping',
+  category: 'ERP',
+  description:
+    'Allows your character to get stomped on. (Characters below 50% size have this enabled by default)',
   component: CheckboxInput,
 };

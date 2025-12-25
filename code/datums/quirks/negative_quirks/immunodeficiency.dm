@@ -4,6 +4,7 @@
 	icon = FA_ICON_MASK_FACE
 	value = -10
 	mob_trait = TRAIT_IMMUNODEFICIENCY
+	species_blacklist = list(SPECIES_SYNTH, SPECIES_ABDUCTOR, SPECIES_HEMOPHAGE, SPECIES_PROTEAN) //Splurt Edit
 	gain_text = span_danger("Just the thought of illness makes you feverish.")
 	lose_text = span_notice("Your immune system miraculously reasserts itself.")
 	medical_record_text = "Patient is afflicted with chronic immunodeficiency."
