@@ -1,32 +1,32 @@
-/// Ниже этого значения силы привода быть не может.
-/// Даже при 1 урона он провибрирует с этой силой.
+/// The minimum strength the device can operate at.
+/// Even with 1 damage, it will vibrate at this strength.
 #define PLUG13_MASOCHISM_STRENGTH_MIN  PLUG13_STRENGTH_LOW
 
-/// Выше этого значения силы привода быть не может.
-/// При `PLUG13_MASOCHISM_STRENGTH_DAMAGE` и выше, будет именно эта сила.
+/// The maximum strength the device can operate at.
+/// At `PLUG13_MASOCHISM_STRENGTH_DAMAGE` and above, this strength will be used.
 #define PLUG13_MASOCHISM_STRENGTH_MAX  PLUG13_STRENGTH_MAX
 
-/// Сколько урона должен получить игрок для ощущения
-/// работы привода максимальной силы.
+/// How much damage the player must receive to feel
+/// the device operating at maximum strength.
 #define PLUG13_MASOCHISM_STRENGTH_DAMAGE 60
 
-/// Ниже этого значения длительности привода быть не может.
-/// Даже при 1 урона он будет работать именно столько.
+/// The minimum duration the device can operate for.
+/// Even with 1 damage, it will operate for this long.
 #define PLUG13_MASOCHISM_DURATION_MIN  PLUG13_DURATION_TINY
 
-/// Выше этого значения длительности привода быть не может.
-/// При `PLUG13_MASOCHISM_DURATION_DAMAGE` и выше, будет эта длительность.
+/// The maximum duration the device can operate for.
+/// At `PLUG13_MASOCHISM_DURATION_DAMAGE` and above, this duration will be used.
 #define PLUG13_MASOCHISM_DURATION_MAX  PLUG13_DURATION_EXTRALONG
 
-/// Сколько урона должен получить игрок для ощущения
-/// работы привода максимальной длительности.
+/// How much damage the player must receive to feel
+/// the device operating at maximum duration.
 #define PLUG13_MASOCHISM_DURATION_DAMAGE 100
 
-// При стандартном PLUG13_STRENGTH_MAX = 100%
-// и стандартном PLUG13_DURATION_EXTRALONG = 5 секунд
-// -  30 урона провибрируют на 50% в течение 1.5 сек
-// -  60 урона провибрируют на 100% в течение 3 сек
-// - 100 урона провибрируют на 100% в течение 5 сек
+// With standard PLUG13_STRENGTH_MAX = 100%
+// and standard PLUG13_DURATION_EXTRALONG = 5 seconds
+// -  30 damage will vibrate at 50% for 1.5 sec
+// -  60 damage will vibrate at 100% for 3 sec
+// - 100 damage will vibrate at 100% for 5 sec
 
 #define PLUG13_MASOCHISM_BRUTE_MOD    1
 #define PLUG13_MASOCHISM_BURN_MOD     1
