@@ -171,11 +171,13 @@
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "kQ" = (
-/obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /obj/machinery/digital_clock/directional/south,
+/mob/living/basic/drone/snowflake/bardrone{
+	ghost_controllable = 1
+	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/nt_rep)
 "lb" = (
@@ -234,18 +236,6 @@
 	},
 /obj/machinery/duct,
 /turf/open/floor/iron/cafeteria,
-/area/station/command/heads_quarters/nt_rep)
-"ny" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/duct,
-/mob/living/basic/drone/snowflake/bardrone{
-	ghost_controllable = 1
-	},
-/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/nt_rep)
 "nY" = (
 /obj/item/radio/intercom/directional/north,
@@ -1061,7 +1051,7 @@ KM
 FS
 rB
 MR
-ny
+Ne
 Il
 zN
 FO
