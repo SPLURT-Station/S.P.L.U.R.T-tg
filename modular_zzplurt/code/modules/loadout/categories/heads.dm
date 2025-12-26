@@ -1,5 +1,5 @@
-/datum/loadout_item/head/tactical_maid_headband //Donor thing for splurt
+/datum/loadout_item/head/tactical_maid_headband/donor //Donor thing for splurt
 	name = "Tactical Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maid_headband/syndicate
-	donator_only = TRUE
+	donator_only = FALSE
 	ckeywhitelist = list("fabricatorgeneral")
