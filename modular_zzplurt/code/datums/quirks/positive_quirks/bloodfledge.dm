@@ -56,6 +56,10 @@
 	"A crimson memory washes over your mind, mapping a single, simple need...",\
 	"The control you held slips in small increments; the scent of blood is a clear, steady pull...",\
 	)
+/// Warning message for non-organic holders
+#define BLOODFLEDGE_WARNING_NONORGANIC "As a non-organic lifeform, your structure is only able to support limited sanguine abilities! Regeneration and revival are not possible."
+/// Warning message for Hemophages
+#define BLOODFLEDGE_WARNING_HEMOPHAGE "As a Hemophage already in possession of your tumor, you've neglected to learn some redundant bloodfledge abilities."
 
 // Special testing-only overrides
 #ifdef TESTING
@@ -148,8 +152,10 @@
 	// Register blood consumption interaction
 	RegisterSignal(quirk_holder, COMSIG_REAGENT_ADD_BLOOD, PROC_REF(on_consume_blood))
 
-	// Register coffin interaction
-	RegisterSignal(quirk_holder, COMSIG_ENTER_COFFIN, PROC_REF(on_enter_coffin))
+	// Check for organic biotype
+	if(quirk_mob.mob_biotypes & MOB_ORGANIC)
+		// Register coffin interaction
+		RegisterSignal(quirk_holder, COMSIG_ENTER_COFFIN, PROC_REF(on_enter_coffin))
 
 	// Register changes to blood
 	RegisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(on_handle_blood))
@@ -190,7 +196,7 @@
 	// Robotic and other mobs have technical issues with adjusting damage
 	if(!(quirk_mob.mob_biotypes & MOB_ORGANIC))
 		// Warn user
-		to_chat(quirk_mob, span_warning("As a non-organic lifeform, your structure is only able to support limited sanguine abilities! Regeneration and revival are not possible."))
+		to_chat(quirk_mob, span_boldwarning(BLOODFLEDGE_WARNING_NONORGANIC))
 
 	// User is organic
 	else
@@ -218,7 +224,7 @@
 	 */
 	if(ishemophage(quirk_mob))
 		// Warn user about feature overlap
-		to_chat(quirk_mob, span_warning("As a Hemophage already in possession of " + quirk_mob.p_their() + " tumor, you've neglected to learn some redundant bloodfledge abilities."))
+		to_chat(quirk_mob, span_boldwarning(BLOODFLEDGE_WARNING_HEMOPHAGE))
 
 		// Ignore remaining features
 		return
@@ -274,10 +280,10 @@
 	var/need_mob_update = FALSE
 
 	// Queue healing compatible damage types
-	need_mob_update += quirk_holder.adjust_brute_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjust_fire_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	need_mob_update += quirk_holder.adjust_tox_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
-	need_mob_update += quirk_holder.adjust_oxy_loss(BLOODFLEDGE_HEAL_AMT, updating_health = FALSE, required_biotype = MOB_ORGANIC)
+	need_mob_update += quirk_holder.adjust_brute_loss(heal_amount, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjust_fire_loss(heal_amount, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	need_mob_update += quirk_holder.adjust_tox_loss(heal_amount, updating_health = FALSE, required_biotype = MOB_ORGANIC, forced = TRUE)
+	need_mob_update += quirk_holder.adjust_oxy_loss(heal_amount, updating_health = FALSE, required_biotype = MOB_ORGANIC)
 
 	// Check if healing will be applied
 	if(need_mob_update)
@@ -638,6 +644,11 @@
 	// Add new blood DNA to list
 	add_dna(blood_DNA)
 
+	// Hemophage filter
+	if(ishemophage(quirk_mob))
+		// Ignore proceeding code
+		return
+
 	// Recheck if desperation should apply
 	recheck_desperate()
 
@@ -696,9 +707,8 @@
 			remove_desperate()
 
 /**
- * Proc for adding new DNA to the remembered list
- * When DNA count is high enough, grant special bonuses
- * Some features depend on the existence of antagonists
+ * Proc for adding new DNA to the remembered list.
+ * When DNA count is high enough, grant special bonuses.
  */
 /datum/quirk/item_quirk/bloodfledge/proc/add_dna(blood_DNA)
 	// Ignore this while testing
@@ -723,6 +733,17 @@
 	// Reduce blood loss per unique DNA, down to 0
 	bloodloss_amount = max(0, (bloodloss_amount - BLOODFLEDGE_BLOODLOSS_REDUCTION))
 
+	// Proceeding code is reliant on having revive and healing functions
+	// Non-organic holders do not have this functions, and can be skipped
+	if(!(quirk_holder.mob_biotypes & MOB_ORGANIC))
+		// Debug output
+		#ifdef TESTING
+		to_chat(quirk_holder, span_boldwarning("TESTING: You are non-organic, and cannot benefit from most progression mechanics.\nCurrent bloodloss: [bloodloss_amount]."))
+		#endif
+
+		// End early
+		return
+
 	// Slightly increase healing speed per unique DNA
 	// Capped at a 50% bonus after ten unique targets
 	heal_amount = max((BLOODFLEDGE_HEAL_AMT*1.5), (heal_amount + BLOODFLEDGE_HEAL_AMT_BONUS))
@@ -744,10 +765,10 @@
 			act_revive?.enable()
 
 			// Set second description addendum
-			act_revive.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_2
+			act_revive?.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_2
 
 			// Update button description
-			act_revive.build_all_button_icons(UPDATE_BUTTON_NAME)
+			act_revive?.build_all_button_icons(UPDATE_BUTTON_NAME)
 
 		// Bonus 2: Remove coffin requirement for revives
 		if(BLOODFLEDGE_DNA_BONUS_2)
@@ -759,10 +780,10 @@
 			act_revive?.require_coffin = FALSE
 
 			// Set third description addendum
-			act_revive.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_3
+			act_revive?.desc = BLOODFLEDGE_REVIVE_DESC_BASE + BLOODFLEDGE_REVIVE_DESC_3
 
 			// Update button description
-			act_revive.build_all_button_icons(UPDATE_BUTTON_NAME)
+			act_revive?.build_all_button_icons(UPDATE_BUTTON_NAME)
 //
 // Bloodfledge actions
 //
@@ -1794,22 +1815,22 @@
 	var/datum/blood_type/caster_bloodtype = human_caster.get_bloodtype()
 	var/target_blood_volume = human_target.blood_volume
 
-	// Define default response
-	var/output = "[t_their] [target_bloodtype] blood is " + span_boldwarning("incompatible") + " with yours."
+	// Define default non-bloodtype response
+	var/output = "[t_their] [target_bloodtype] blood may or may not be compatible with your body."
 
-	// Check if blood type matches
-	if(target_bloodtype == caster_bloodtype)
-		output = "[t_their] [target_bloodtype] blood is a " + span_nicegreen("perfect match") + " with yours!"
+	// Ensure caster actually has a blood type
+	if(!isnull(caster_bloodtype))
+		// Define default has-bloodtype response
+		output = "[t_their] [target_bloodtype] blood is " + span_boldwarning("incompatible") + " with yours."
 
-	// Blood type does not match
-	// Check if blood type is compatible
-	else if(target_bloodtype.type_key() in human_caster.get_bloodtype().compatible_types)
-		output = "[t_their] [target_bloodtype] blood is safe for you to consume."
+		// Check if blood type matches
+		if(target_bloodtype == caster_bloodtype)
+			output = "[t_their] [target_bloodtype] blood is a " + span_nicegreen("perfect match") + " with yours!"
 
-	// Check if examiner shares the quirk
-	if(isbloodfledge(human_target))
-		// Add detection text
-		output += "\n" + span_warning("[human_target.p_Theyre()] a fellow sanguine sorcerer! You probably shouldn't feed from [human_target.p_them()].")
+		// Blood type does not match
+		// Check if blood type is compatible
+		else if(target_bloodtype.type_key() in human_caster.get_bloodtype().compatible_types)
+			output = "[t_their] [target_bloodtype] blood is safe for you to consume."
 
 	// Check target blood volume
 	switch(target_blood_volume)
@@ -1848,6 +1869,11 @@
 		// Instant death
 		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
 			output += span_boldwarning("\n[t_their] body is a shriveled sack of dry flesh.")
+
+	// Check if examiner shares the quirk
+	if(isbloodfledge(human_target))
+		// Add detection text
+		output += "\n" + span_warning("[human_target.p_Theyre()] a fellow sanguine sorcerer! You probably shouldn't feed from [human_target.p_them()].")
 
 	// Alert user of results
 	to_chat(human_caster, fieldset_block("Analysis Results", output, "boxed_message red_box"))
@@ -1956,3 +1982,6 @@
 #undef BLOODFLEDGE_BLOODLOSS_RATE_MOD
 #undef BLOODFLEDGE_DNA_BONUS_1
 #undef BLOODFLEDGE_DNA_BONUS_2
+#undef BLOODFLEDGE_DESPERATE_MESSAGES
+#undef BLOODFLEDGE_WARNING_NONORGANIC
+#undef BLOODFLEDGE_WARNING_HEMOPHAGE
