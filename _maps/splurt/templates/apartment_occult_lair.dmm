@@ -33,6 +33,9 @@
 	alpha = 100;
 	name = "snow"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
 	base_icon_state = "0,34";
@@ -91,6 +94,9 @@
 	icon_state = "light_snow";
 	alpha = 100;
 	name = "snow"
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
 	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
@@ -159,18 +165,6 @@
 	pixel_y = -7
 	},
 /turf/open/floor/plating,
-/area/misc/hilbertshotel)
-"bD" = (
-/obj/structure/decorative{
-	icon_state = "siding_wood_end";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 8;
-	anchored = 1;
-	name = "wall binding"
-	},
-/turf/closed/wall/ice,
 /area/misc/hilbertshotel)
 "bI" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
@@ -454,6 +448,9 @@
 	alpha = 100;
 	name = "snow"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
 	base_icon_state = "0,34";
@@ -530,6 +527,9 @@
 	icon_state = "light_snow";
 	alpha = 100;
 	name = "snow"
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
 	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
@@ -700,6 +700,9 @@
 	alpha = 100;
 	name = "snow"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
 	base_icon_state = "0,34";
@@ -731,27 +734,6 @@
 	base_icon_state = "0,34";
 	icon_state = "7,15"
 	},
-/area/misc/hilbertshotel)
-"hY" = (
-/obj/structure/decorative{
-	icon_state = "siding_wood";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 4;
-	anchored = 1;
-	name = "wall binding"
-	},
-/obj/structure/decorative{
-	icon_state = "siding_wood";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 8;
-	anchored = 1;
-	name = "wall binding"
-	},
-/turf/closed/wall/ice,
 /area/misc/hilbertshotel)
 "ii" = (
 /obj/effect/abstract/marker{
@@ -815,7 +797,7 @@
 	name = "decorative pattern";
 	alpha = 150
 	},
-/turf/closed/wall/ice,
+/turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "iB" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -1127,6 +1109,9 @@
 	alpha = 100;
 	name = "snow"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
 	base_icon_state = "0,34";
@@ -1322,7 +1307,8 @@
 	},
 /obj/item/reagent_containers/cup/glass/bottle/amaretto{
 	pixel_x = -5;
-	pixel_y = 16
+	pixel_y = 16;
+	name = "Moldbini Amaretto"
 	},
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
@@ -1843,6 +1829,9 @@
 	alpha = 100;
 	name = "snow"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
 	base_icon_state = "0,34";
@@ -1973,6 +1962,9 @@
 	icon_state = "light_snow";
 	alpha = 100;
 	name = "snow"
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
 	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
@@ -2215,7 +2207,7 @@
 	pixel_x = -1;
 	pixel_y = 9;
 	name = "chekhov's gun";
-	desc = "A very compact magical twin-barreled pistol that's been demilitarized and dismantled ever since the end of the Second Wizard War. It hasn't shot a single bullet in eons.";
+	desc = "A very compact magical twin-barreled pistol that's been demilitarized and dismantled ever since the end of the Second Wizard War. It hasn't shot a single bullet in eons. Always ends up with unexpected results.";
 	pin = /obj/item/firing_pin/magic;
 	can_misfire = 1;
 	misfire_probability = 99;
@@ -2265,11 +2257,6 @@
 	},
 /area/misc/hilbertshotel)
 "za" = (
-/obj/structure/chair/stool/bar/directional/north{
-	pixel_x = -15;
-	pixel_y = 6;
-	color = "#77410D"
-	},
 /obj/structure/chair/comfy/brown{
 	dir = 1;
 	pixel_x = 1
@@ -2289,7 +2276,18 @@
 	},
 /obj/item/instrument/guitar{
 	pixel_x = 0;
-	pixel_y = -32
+	pixel_y = -32;
+	name = "dess' named guitar"
+	},
+/obj/structure/decorative{
+	icon = 'icons/obj/chairs.dmi';
+	icon_state = "bar";
+	pixel_y = 6;
+	dir = 1;
+	anchored = 1;
+	name = "chair";
+	color = "#77410D";
+	pixel_x = -15
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
@@ -3189,6 +3187,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/machinery/light/floor{
+	color = "#9cffe8";
+	alpha = 0
+	},
 /turf/open/floor/carpet/green,
 /area/misc/hilbertshotel)
 "Hx" = (
@@ -3206,11 +3208,6 @@
 	},
 /area/misc/hilbertshotel)
 "HH" = (
-/obj/structure/railing{
-	dir = 8;
-	color = "#5d341f";
-	pixel_y = 0
-	},
 /obj/structure/railing{
 	dir = 1;
 	color = "#5d341f";
@@ -3291,18 +3288,6 @@
 	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
-"Iz" = (
-/obj/structure/decorative{
-	icon_state = "siding_wood_end";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 1;
-	anchored = 1;
-	name = "wall binding"
-	},
-/turf/closed/wall/ice,
-/area/misc/hilbertshotel)
 "IE" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	alpha = 255;
@@ -3321,7 +3306,8 @@
 /obj/effect/decal/cleanable/ash{
 	pixel_x = -14;
 	pixel_y = 14;
-	name = "salt"
+	name = "salt";
+	desc = "Prevents the bad spirits from crossing here."
 	},
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
@@ -3676,7 +3662,8 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/toy/plush/skyrat/deer{
 	pixel_x = 5;
-	pixel_y = 5
+	pixel_y = 5;
+	desc = "An adorable stuffed toy that resembles Norka."
 	},
 /obj/item/toy/tennis/purple{
 	pixel_x = 0;
@@ -3769,6 +3756,9 @@
 	icon_state = "light_snow";
 	alpha = 100;
 	name = "snow"
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
 	},
 /turf/open/indestructible/tram{
 	icon = 'modular_zzplurt/icons/obj/skyscraper/background.dmi';
@@ -4017,16 +4007,11 @@
 /turf/open/floor/wood/tile,
 /area/misc/hilbertshotel)
 "NN" = (
-/obj/structure/decorative{
-	icon_state = "siding_wood_end";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 2;
-	anchored = 1;
-	name = "wall binding"
+/obj/machinery/light/floor{
+	color = "#9cffe8";
+	alpha = 0
 	},
-/turf/closed/wall/ice,
+/turf/open/floor/carpet/green,
 /area/misc/hilbertshotel)
 "Oa" = (
 /turf/closed/indestructible/stone,
@@ -4677,27 +4662,6 @@
 	icon_state = "podfloor"
 	},
 /area/misc/hilbertshotel)
-"VN" = (
-/obj/structure/decorative{
-	icon_state = "siding_wood";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 10;
-	anchored = 1;
-	name = "wall binding"
-	},
-/obj/structure/decorative{
-	icon_state = "siding_wood_corner";
-	icon = 'modular_zubbers/icons/turf/decals/decals.dmi';
-	base_icon_state = "elevatorshaft";
-	color = "#36373a";
-	dir = 4;
-	anchored = 1;
-	name = "wall binding"
-	},
-/turf/closed/wall/ice,
-/area/misc/hilbertshotel)
 "VW" = (
 /obj/structure/decorative{
 	icon_state = "siding_wood";
@@ -4853,7 +4817,7 @@
 	anchored = 1;
 	name = "wall binding"
 	},
-/turf/closed/wall/ice,
+/turf/closed/indestructible/steel,
 /area/misc/hilbertshotel)
 "Xx" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5271,7 +5235,7 @@ hl
 np
 Mg
 tj
-bD
+WO
 es
 es
 es
@@ -5294,9 +5258,9 @@ YZ
 (10,1,1) = {"
 YZ
 YZ
-Iz
-hY
-NN
+FT
+UY
+ng
 GZ
 BK
 Xs
@@ -5308,8 +5272,8 @@ QT
 Xs
 FV
 jS
-Iz
-VN
+FT
+zA
 YZ
 YZ
 YZ
@@ -5381,7 +5345,7 @@ YZ
 OF
 jb
 AZ
-fj
+NN
 fj
 sa
 oj
