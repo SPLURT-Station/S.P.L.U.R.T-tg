@@ -1,6 +1,6 @@
 /datum/loadout_item/gloves/tactical_maid/donor //Donor thing for splurt
 	name = "Tactical Maid Gloves"
-	item_path = /obj/item/clothing/gloves/tactical_maid
+	item_path = /obj/item/clothing/gloves/tactical_maid/donor
 	donator_only = FALSE
 	ckeywhitelist = list("fabricatorgeneral")
 
