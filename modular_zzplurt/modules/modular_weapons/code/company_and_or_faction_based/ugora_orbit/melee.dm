@@ -273,21 +273,19 @@ He may be right afterall.
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
 	worn_icon_state = "knife"
-	force = 10 //This is more effective when the target is laying down, or facing away. We don't use stagger however.
-	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
-	throwforce = 20 //Long Slim Throwing Knives
-	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
-	exposed_wound_bonus = 28 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
-	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 15 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+	force = 15
+	w_class = WEIGHT_CLASS_NORMAL //Make sense, no?
+	throwforce = 10
+	wound_bonus = 10
+	exposed_wound_bonus = 10
+	armour_penetration = 20 //Have you ever been hit by a mace in a suit of armour?
+	attack_speed = 11 //This is so that you aren't constantly being spammed by it
 
 	damtype = BURN
 
 /obj/item/melee/sec_truncheon/examine_more(mob/user)
 	. = ..()
-	. += span_info("This knife deals more damage when attacking from behind, hitting a target laying down or if they are incapacitated. Such as from succesful baton hit. \
-		Mastery of this blade is imperative to any close quarter combatant.")
-
+	. += span_info("This weapon can be used to knock someone down from behind, staggered or while they're lit up by flare shot")
 
 /obj/item/melee/sec_truncheon/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
@@ -302,11 +300,16 @@ He may be right afterall.
 	if(living_target.get_timed_status_effect_duration(/datum/status_effect/staggered))
 		jacked = TRUE
 
+	if(living_target.get_timed_status_effect_duration(/datum/status_effect/designated_target))
+		jacked = TRUE
+
 	if(check_behind(user, living_target))
 		jacked = TRUE
 
 	if(jacked)
-		living_target.Knockdown(5 SECONDS)
+		living_target.Knockdown(2 SECONDS)
+		living_target.visible_message(span_danger("[user] knocked down [living_target]!"), span_userdanger("[user] knocked you down with [src]!"))
+		target.set_staggered_if_lower(0 SECONDS) //Clears your staggers
 	return ..()
 
 /datum/storage/security_belt
