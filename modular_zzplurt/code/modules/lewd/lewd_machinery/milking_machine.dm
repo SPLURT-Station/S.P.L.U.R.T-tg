@@ -1,0 +1,11 @@
+/obj/structure/chair/milking_machine/increase_current_mob_arousal(seconds_per_tick)
+	. = ..()
+	switch(current_mode)
+		if("off")
+			return
+		if("low")
+			current_mob.plug13_genital_emote(current_selected_organ, 1 * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT)
+		if("medium")
+			current_mob.plug13_genital_emote(current_selected_organ, 2 * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT)
+		if("hard")
+			current_mob.plug13_genital_emote(current_selected_organ, 3 * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT)

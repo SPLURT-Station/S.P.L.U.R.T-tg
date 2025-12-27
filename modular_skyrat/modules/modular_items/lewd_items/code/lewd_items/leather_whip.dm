@@ -196,6 +196,7 @@
 					target.apply_status_effect(/datum/status_effect/subspace)
 				target.Paralyze(1)//don't touch it. It's domination tool, it should have ability to put someone on kneels. I already inserted check for PREF YOU CAN'T ABUSE THIS ITEM
 				target.adjust_pain(5)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 5, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 100)
 			else
 				message = (user == target) ? pick("knocks [target.p_them()]self down with [src]",
@@ -208,6 +209,7 @@
 					target.apply_status_effect(/datum/status_effect/subspace)
 				target.Paralyze(1)
 				target.adjust_pain(3)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 3, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 60)
 
 		if(BODY_ZONE_HEAD)
@@ -219,6 +221,7 @@
 				target.try_lewd_autoemote(pick("gasp", "choke", "moan"))
 			carbon_target?.adjust_arousal(3)
 			target.adjust_pain(5)
+			target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 5, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 			conditional_pref_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 80)
 
 		if(BODY_ZONE_PRECISE_GROIN)
@@ -239,6 +242,7 @@
 				target.apply_status_effect(/datum/status_effect/spanked)
 				if(HAS_TRAIT(target, TRAIT_MASOCHISM) || HAS_TRAIT(target, TRAIT_BIMBO))
 					target.add_mood_event("pervert spanked", /datum/mood_event/perv_spanked)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 5, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 60)
 
 			else
@@ -256,6 +260,7 @@
 				target.apply_status_effect(/datum/status_effect/spanked)
 				if(HAS_TRAIT(target, TRAIT_MASOCHISM) || HAS_TRAIT(target, TRAIT_BIMBO))
 					target.add_mood_event("pervert spanked", /datum/mood_event/perv_spanked)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 8, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 100)
 		else
 			if(current_whip_type == "hard")
@@ -268,6 +273,7 @@
 					target.apply_status_effect(/datum/status_effect/subspace)
 				target.do_jitter_animation()
 				target.adjust_pain(7)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 7, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 100)
 
 			else
@@ -283,6 +289,7 @@
 				target.do_jitter_animation()
 				target.adjust_pain(4)
 				carbon_target?.adjust_arousal(5)
+				target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 4, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Leather Whip
 				conditional_pref_sound(loc, 'sound/items/weapons/whip.ogg', 60)
 
 	user.visible_message(span_purple("[user] [message]!"))

@@ -163,6 +163,7 @@
 
 			target.adjust_arousal(DEFAULT_AROUSAL_INCREASE)
 			target.adjust_pleasure(DEFAULT_PLEASURE_INCREASE)
+			target.client?.plug13.send_emote(PLUG13_EMOTE_GROIN, DEFAULT_AROUSAL_INCREASE * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Vibrator
 			if(prob(50))
 				target.try_lewd_autoemote(pick("twitch_s", "moan", "blush"))
 
@@ -182,6 +183,7 @@
 
 			target.adjust_arousal(DEFAULT_AROUSAL_INCREASE)
 			target.adjust_pleasure(DEFAULT_PLEASURE_INCREASE * 0.5)
+			target.client?.plug13.send_emote(PLUG13_EMOTE_CHEST, DEFAULT_AROUSAL_INCREASE * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Vibrator
 			if(prob(30))
 				target.try_lewd_autoemote(pick("twitch_s", "moan"))
 		else
