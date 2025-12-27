@@ -17,5 +17,21 @@
 			// Set new reagent type
 			reagent_id = /datum/reagent/blood
 
-			// Alert user
+			// Clear old reagents
+			reagents.clear_reagents()
+
+			// Add new reagent
+			reagents.add_reagent(reagent_id, reagent_capacity)
+
+			// Create balloon alert
 			balloon_alert(user, "shower sanguinized!")
+
+			// Alert in chat with reduced range
+			user.visible_message(\
+				span_notice("[user] swipes [user.p_their()] [emag_card] against the [src] controls."),\
+				span_notice("You tap the [emag_card] against the [src] controls."),\
+				vision_distance = COMBAT_MESSAGE_RANGE
+			)
+
+			// Log interaction
+			user.log_message("has sanguinized a shower.", LOG_ATTACK)
