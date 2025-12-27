@@ -120,8 +120,8 @@
 	icon_state = "vending_restock"
 	loot = list(
 		/obj/effect/spawner/random/engineering/vending_restock/common = 935,
-		/obj/effect/spawner/random/engineering/vending_restock/rare = 60,
-		/obj/effect/spawner/random/engineering/vending_restock/oddity = 5,
+		/obj/effect/spawner/random/engineering/vending_restock/rare = 65, // SPLURT EDIT - Original 60, moving the 5 from oddity to rare
+		//obj/effect/spawner/random/engineering/vending_restock/oddity = 5, //SPLURT EDIT - Oddity Vendors Too OP
 	)
 
 /obj/effect/spawner/random/engineering/vending_restock/wardrobe
