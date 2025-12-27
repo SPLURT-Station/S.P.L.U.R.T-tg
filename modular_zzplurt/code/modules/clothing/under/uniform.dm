@@ -883,3 +883,8 @@
 /datum/greyscale_config/jeans_high/worn/digi
 	name = "High Waist Jeans (Worn, Digi)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
+
+//Donor thing fabricator
+/obj/item/clothing/under/misc/maid/tactical/donor
+	name = "Tactical maid outfit"
+	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit modified to fit certain shadekins."
