@@ -85,6 +85,9 @@
 /* /// Trait applied when the pressure resistance of the vacuum resistance quirk wears off (Reverted for now due to rules preventing this from being abused)
 #define TRAIT_VACUUM_RESISTANCE_FATIGUE "vacuum_resist_fatigue"
 */
+/// Trait for quirk: Hypersexual
+#define TRAIT_HYPERSEXUAL		"hypersexual"
+
 ///
 // Element traits
 ///
