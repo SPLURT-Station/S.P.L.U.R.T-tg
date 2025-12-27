@@ -191,7 +191,7 @@ He may be right afterall.
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
 	block_chance = 40
-	armour_penetration = 20 //Yes we actually tested this. Even in best case scenario it still takes 6 hit to down. We have too low of a base damage to be an issue
+	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 10 hit to down. We have too low of a base damage to be an issue
 	force = 13 //low base damage, high ramp up. You use this for support.
 
 	wound_bonus = 5
