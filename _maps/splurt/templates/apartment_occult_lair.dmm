@@ -427,6 +427,13 @@
 	icon_state = "7,16"
 	},
 /area/misc/hilbertshotel)
+"eH" = (
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness";
+	opacity = 0
+	},
+/area/misc/hilbertshotel)
 "eJ" = (
 /obj/effect/abstract/marker{
 	icon = 'icons/effects/glow_weather.dmi';
@@ -914,11 +921,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/light{
 	color = "#1a6b48";
 	dir = 10
-	},
-/obj/structure/marker_beacon/jade{
-	alpha = 155;
-	color = "#FFFFFF";
-	pixel_y = -11
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -1505,7 +1507,6 @@
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "qn" = (
-/obj/machinery/room_controller/directional/east,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
@@ -1518,6 +1519,7 @@
 	pixel_y = 19;
 	color = "#9cffe8"
 	},
+/obj/machinery/room_controller/directional/east,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "qz" = (
@@ -2455,6 +2457,10 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 1
 	},
+/obj/item/toy/plush/unicorn{
+	pixel_x = 4;
+	pixel_y = 15
+	},
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "Ay" = (
@@ -3166,7 +3172,8 @@
 	},
 /turf/open/mirage{
 	dir = 8;
-	target_turf_y = 17
+	target_turf_y = 17;
+	range = 9
 	},
 /area/misc/hilbertshotel)
 "Hn" = (
@@ -3790,12 +3797,6 @@
 	color = "#1a6b48";
 	dir = 6
 	},
-/obj/structure/marker_beacon/jade{
-	alpha = 155;
-	color = "#FFFFFF";
-	pixel_y = -11;
-	pixel_x = -1
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
@@ -4173,6 +4174,13 @@
 	icon_state = "3,5"
 	},
 /area/misc/hilbertshotel)
+"Pt" = (
+/turf/open/mirage{
+	dir = 8;
+	target_turf_y = 17;
+	range = 7
+	},
+/area/misc/hilbertshotel)
 "PM" = (
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
@@ -4303,12 +4311,24 @@
 	name = "long way down"
 	},
 /area/misc/hilbertshotel)
+"Sj" = (
+/turf/open/mirage{
+	dir = 8;
+	target_turf_y = 17;
+	range = 6
+	},
+/area/misc/hilbertshotel)
 "Su" = (
 /obj/effect/turf_decal/siding/wideplating_new/light{
 	color = "#1a6b48";
 	dir = 2
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/structure/marker_beacon/jade{
+	alpha = 155;
+	color = "#FFFFFF";
+	pixel_y = -11
+	},
 /turf/open/floor/carpet/neon/simple/green,
 /area/misc/hilbertshotel)
 "SH" = (
@@ -4546,7 +4566,9 @@
 /turf/open/floor/carpet/neon/simple/green,
 /area/misc/hilbertshotel)
 "UP" = (
-/turf/closed/wall/mineral/wood,
+/turf/closed/wall/mineral/wood{
+	opacity = 0
+	},
 /area/misc/hilbertshotel)
 "UY" = (
 /obj/structure/decorative{
@@ -5193,8 +5215,8 @@ Dj
 ln
 rs
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5221,8 +5243,8 @@ IP
 eZ
 hD
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5249,8 +5271,8 @@ fR
 ob
 Ez
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5277,8 +5299,8 @@ zA
 YZ
 YZ
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5305,8 +5327,8 @@ pc
 ng
 YZ
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5333,8 +5355,8 @@ TF
 wf
 YZ
 YZ
-YZ
-YZ
+TM
+TM
 TM
 TM
 YZ
@@ -5361,8 +5383,8 @@ aM
 Jd
 YZ
 YZ
-YZ
-YZ
+Sj
+TM
 TM
 TM
 YZ
@@ -5389,8 +5411,8 @@ FO
 ng
 YZ
 YZ
-YZ
-YZ
+eH
+Pt
 TM
 TM
 YZ
@@ -5417,7 +5439,7 @@ gf
 YZ
 YZ
 YZ
-YZ
+eH
 UP
 TM
 TM
@@ -5445,7 +5467,7 @@ gf
 YZ
 YZ
 FO
-UP
+Oa
 UP
 Hl
 Hl
