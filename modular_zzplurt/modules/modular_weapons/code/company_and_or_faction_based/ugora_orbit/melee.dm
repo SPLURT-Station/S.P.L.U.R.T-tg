@@ -173,7 +173,7 @@ He may be right afterall.
 	if(!isliving(target))
 		return ..()
 	var/mob/living/living_target = target
-	damage = (living_target.getBruteLoss() + living_target.getFireLoss())
+	damage = (living_target.get_brute_loss() + living_target.get_fire_loss())
 	bonus_force = clamp(damage/degree_of_tolerance, 0, maximum_damage_bonus)
 	MODIFY_ATTACK_FORCE(attack_modifiers, bonus_force)
 
@@ -248,6 +248,48 @@ He may be right afterall.
 
 
 /obj/item/knife/oscu_tanto/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/living_target = target
+	var/ritual_worthy = FALSE
+
+	if(living_target.stat == DEAD) // We are using the code from the Iaito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
+		return ..()
+
+	if(check_behind(user, living_target))
+		ritual_worthy = TRUE
+
+	if(ritual_worthy)
+		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
+	return ..()
+
+/obj/item/melee/sec_truncheon
+	name = "\improper blackjack"
+	desc = "A short, easily concealed club weapons consisting of a dense weight attached to the end of a short shaft"
+	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
+	icon_state = "tanto"
+	inhand_icon_state = "tantohand"
+	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
+	worn_icon_state = "knife"
+	force = 10 //This is more effective when the target is laying down, or facing away. We don't use stagger however.
+	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
+	throwforce = 20 //Long Slim Throwing Knives
+	wound_bonus = 0 //We want to avoid this being too effective at wounding if its intended damage is not met
+	exposed_wound_bonus = 28 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
+	attack_speed = 15 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
+
+	damtype = BURN
+
+/obj/item/melee/sec_truncheon/examine_more(mob/user)
+	. = ..()
+	. += span_info("This knife deals more damage when attacking from behind, hitting a target laying down or if they are incapacitated. Such as from succesful baton hit. \
+		Mastery of this blade is imperative to any close quarter combatant.")
+
+
+/obj/item/melee/sec_truncheon/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return ..()
 
