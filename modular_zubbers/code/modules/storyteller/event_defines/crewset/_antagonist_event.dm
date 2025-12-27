@@ -16,6 +16,10 @@
 		JOB_RESEARCH_DIRECTOR,
 		JOB_QUARTERMASTER,
 		JOB_NT_REP,
+		// Splurt Edit Start Makes it so Human AI and the New role can't roll antag
+		JOB_NT_TRN,
+		JOB_HUMAN_AI,
+		// Splurt Edit End
 
 		// Seccies
 		JOB_DETECTIVE,

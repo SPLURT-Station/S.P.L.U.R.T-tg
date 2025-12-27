@@ -33,6 +33,7 @@ GLOBAL_DATUM_INIT(blueshield_crewmonitor, /datum/crewmonitor/blueshield, new)
 		JOB_NT_REP = 230,
 		JOB_BLUESHIELD = 231,
 		JOB_BRIDGE_ASSISTANT = 232,
+		JOB_NT_TRN = 233,
 	)
 
 /datum/crewmonitor/blueshield/ui_interact(mob/user, datum/tgui/ui)
