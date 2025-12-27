@@ -2,7 +2,7 @@
 /atom/movable/screen/intent_toggle
 	name = "intent"
 	icon_state = "help"
-	screen_loc = ui_combat_toggle
+	screen_loc = "EAST-4:22,SOUTH:5"
 
 /atom/movable/screen/intent_toggle/update_icon_state()
 	. = ..()
@@ -11,6 +11,9 @@
 		icon_state = resolve_intent_name(owner.combat_mode)
 
 /atom/movable/screen/intent_toggle/Click(location, control, params)
+	var/mob/living/owner = hud?.mymob
+	if(!owner.client.prefs?.read_preference(/datum/preference/toggle/intents))
+		return
 	var/list/modifiers = params2list(params)
 	var/_x = text2num(modifiers["icon-x"])
 	var/_y = text2num(modifiers["icon-y"])

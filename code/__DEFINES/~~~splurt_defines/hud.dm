@@ -6,7 +6,7 @@
 #undef ui_navigate_menu
 #undef ui_human_floor_changer
 
-#define ui_combat_toggle "EAST-4:22,SOUTH:5"
+#define ui_combat_toggle "EAST-3:24,SOUTH:5"
 #define ui_crafting "EAST-5:22,SOUTH:5"
 #define ui_building "EAST-5:22,SOUTH:21"
 #define ui_language_menu "EAST-5:6,SOUTH:21"
