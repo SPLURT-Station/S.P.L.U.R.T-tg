@@ -265,8 +265,8 @@ He may be right afterall.
 	return ..()
 
 /obj/item/melee/sec_truncheon
-	name = "\improper blackjack"
-	desc = "A short, easily concealed club weapons consisting of a dense weight attached to the end of a short shaft"
+	name = "\improper blackjack" //Thief is a pretty cool game.
+	desc = "A short, easily concealed club weapons consisting of a dense weight attached to the end of a short shaft" //copied from wikipedia, feel free to put cooler one if you got it in mind, mhm?
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
 	icon_state = "tanto"
 	inhand_icon_state = "tantohand"
@@ -294,16 +294,19 @@ He may be right afterall.
 		return ..()
 
 	var/mob/living/living_target = target
-	var/ritual_worthy = FALSE
+	var/jacked = FALSE
 
-	if(living_target.stat == DEAD) // We are using the code from the Iaito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
+	if(living_target.stat == DEAD) // We are using the code from the Iaito here, it shouldn't do anything if you're dead.
 		return ..()
 
-	if(check_behind(user, living_target))
-		ritual_worthy = TRUE
+	if(living_target.get_timed_status_effect_duration(/datum/status_effect/staggered))
+		jacked = TRUE
 
-	if(ritual_worthy)
-		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 3) ///This makes it do 30 damage, still a lot but its situational enough; see other weapon that do 30 damage
+	if(check_behind(user, living_target))
+		jacked = TRUE
+
+	if(jacked)
+		living_target.Knockdown(5 SECONDS)
 	return ..()
 
 /datum/storage/security_belt
@@ -351,7 +354,7 @@ He may be right afterall.
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte_righthand.dmi'
 	icon_state = "jitte"
 	inhand_icon_state = "jitte"
-	desc = "A hard plastic-metal jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
+	desc = "A hard plastic-metal composite jitte to be used in combination with your sword. Not as effective at knocking down target. But can knock weapon out of target hands if they are staggered or facing away"
 	desc_controls = "Left click to stun, right click to harm."
 	stamina_damage = 30 //It still is a baton, just a worse one. Possible to stamina crit, hard to do so otherwise
 	cooldown = 1 SECONDS //Faster than a baton but still slow
