@@ -10,7 +10,7 @@ With help of an aussie catgirl
 /datum/supply_pack/security/armory/sechardbow
 	name = "Hardlight Energy Bow"
 	desc = "A three pack of hardlight energy bow, manually charged with by pulling back the string, virtually limitless ammunition."
-	cost = CARGO_CRATE_VALUE * 40
+	cost = CARGO_CRATE_VALUE * 30
 	contains = list(/obj/item/gun/energy/laser/energy_bow = 3)
 	crate_name = "hardlight energy bow"
 
@@ -59,7 +59,7 @@ With help of an aussie catgirl
 		charge_amount = STANDARD_CELL_CHARGE, \
 		cooldown_time = 1.8 SECONDS, \
 		charge_sound = 'sound/items/weapons/gun/bow/bow_draw.ogg', \
-		charge_sound_cooldown_time = 0.1 SECONDS, \
+		charge_sound_cooldown_time = 0.2 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 	discharge()

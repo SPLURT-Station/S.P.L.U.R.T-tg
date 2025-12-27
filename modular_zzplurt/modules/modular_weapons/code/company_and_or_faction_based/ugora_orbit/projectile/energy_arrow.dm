@@ -16,9 +16,9 @@
 	wound_bonus = 5
 
 /datum/embedding/energy_arrow
-	embed_chance = 25
+	embed_chance = 30
 	fall_chance = 35
-	jostle_chance = 50
+	jostle_chance = 60
 	ignore_throwspeed_threshold = TRUE
 	pain_stam_pct = 1
 	pain_mult = 2

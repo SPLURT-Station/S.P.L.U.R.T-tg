@@ -1,16 +1,16 @@
 /datum/supply_pack/security/armory/secdaisho
 	name = "Resonance Sword Crate"
 	desc = "A three pack of the Ugora Orbit branded reverbing blade and the sheath for them. Incase you somehow lost it"
-	cost = CARGO_CRATE_VALUE * 250
+	cost = CARGO_CRATE_VALUE * 65
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
 	crate_name = "sword and jitte"
 
-/datum/supply_pack/security/sectanto
-	name = "Tanto Crate"
-	desc = "A three pack of the Ugora Orbit branded tanto. Thin sharp blade meant for last resort."
+/datum/supply_pack/security/sec_truncheon
+	name = "Blackjack Crate"
+	desc = "A three pack great value for when you really need to get your point across against a thief."
 	cost = CARGO_CRATE_VALUE * 40
-	contains = list(/obj/item/knife/oscu_tanto = 3)
-	crate_name = "security knife"
+	contains = list(/obj/item/melee/sec_truncheon = 3)
+	crate_name = "disciplinary weapon"
 
 /*===
 Daisho (large and small)
