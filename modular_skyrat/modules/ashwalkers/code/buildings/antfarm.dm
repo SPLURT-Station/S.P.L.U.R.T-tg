@@ -3,7 +3,7 @@
 	desc = "Though it may look natural, this was not made by ants."
 	icon = 'modular_skyrat/modules/ashwalkers/icons/structures.dmi'
 	icon_state = "anthill"
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
 	/// If the farm is occupied by ants
 	var/has_ants = FALSE
@@ -37,7 +37,7 @@
 			src_turf.balloon_alert_to_viewers("must be on farmable surface")
 			return INITIALIZE_HINT_QDEL
 
-		for(var/obj/structure/antfarm/found_farm in range(2, get_turf(src)))
+		for(var/obj/structure/antfarm/found_farm in range(1, get_turf(src)))
 			if(found_farm == src)
 				continue
 
