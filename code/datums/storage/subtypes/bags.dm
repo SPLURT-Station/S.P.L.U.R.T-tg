@@ -178,6 +178,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/reagent_containers/syringe,
+		/obj/item/food/bait,
 	))
 
 ///Xeno bag
