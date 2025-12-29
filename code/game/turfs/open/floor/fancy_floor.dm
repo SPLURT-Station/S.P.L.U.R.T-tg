@@ -160,7 +160,7 @@
 /turf/open/floor/grass/Initialize(mapload)
 	. = ..()
 	spawniconchange()
-	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass, 2, worm_chance = 50, \
+	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass, 4, worm_chance = 50, \
 		action_text = "uproot", action_text_third_person = "uproots")
 
 /turf/open/floor/grass/airless
