@@ -30,7 +30,7 @@
 		/datum/crafting_bench_recipe/horse_shoes,
 		/datum/crafting_bench_recipe/ring,
 		/datum/crafting_bench_recipe/collar,
-		/datum/crafting_bench_recipe/handcuffs,
+		// /datum/crafting_bench_recipe/handcuffs, // SPLURT REMOVAL - Maybe cuffs that keep you permanently asleep aren't fun.
 		/datum/crafting_bench_recipe/borer_cage,
 		/datum/crafting_bench_recipe/pavise,
 		/datum/crafting_bench_recipe/buckler,
