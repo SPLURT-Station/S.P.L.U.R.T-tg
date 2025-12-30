@@ -3,6 +3,7 @@
     ---------------------------------------
     ~ Overridden: /obj/structure/antfarm ore_list
     ~ Overridden: /obj/structure/antfarm/Initialize() range check
+	~ Overridden: /obj/structure/antfarm density
 
     + Added: Botanogenetic Plant Shears goody pack (/datum/supply_pack/goody/b_shears)
     + Added: Floral Somatoray goody pack (/datum/supply_pack/goody/somatoray)
@@ -42,6 +43,7 @@
 
 // Override ore list
 /obj/structure/antfarm
+	density = FALSE
     ore_list = list(
         /obj/item/stack/ore/iron = 20,
         /obj/item/stack/ore/glass/basalt = 20,
