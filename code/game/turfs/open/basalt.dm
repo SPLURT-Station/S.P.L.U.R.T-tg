@@ -8,7 +8,7 @@
 
 /turf/open/misc/basalt/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass/basalt, 4)
+	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass/basalt, 4) //SPLURT EDIT something something darkside
 	if(prob(15))
 		icon_state = "basalt[rand(0, 12)]"
 		switch(icon_state)
