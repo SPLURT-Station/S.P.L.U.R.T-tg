@@ -25,6 +25,9 @@
 //sex
 #define ORGAN_SLOT_BUTT "butt"
 #define ORGAN_SLOT_BELLY "belly"
+
+#define FEATURE_BUTT "butt"
+#define FEATURE_BELLY "belly"
 //arachnid organ slots
 
 ///arachnid organ slots
