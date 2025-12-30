@@ -66,6 +66,10 @@
 										'modular_skyrat/modules/modular_items/lewd_items/sounds/final_f2.ogg',
 										'modular_skyrat/modules/modular_items/lewd_items/sounds/final_f3.ogg'), 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 
+	// SPLURT EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_MOB_POST_CLIMAX, partner, interaction_position, manual)
+	// SPLURT EDIT ADDITION END
+
 	var/self_orgasm = FALSE
 	var/self_their = p_their()
 
