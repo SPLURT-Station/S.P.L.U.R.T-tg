@@ -129,6 +129,6 @@
 	if(!ishuman(target))
 		return
 	if(prob((target.dna.features["sexual_potency"] * 10) + 15))
-		user.adjustOxyLoss(3)
+		user.adjust_oxy_loss(3)
 		target.adjust_arousal(10)
 		target.adjust_pleasure(10, user, interaction = src, position = CLIMAX_POSITION_TARGET)

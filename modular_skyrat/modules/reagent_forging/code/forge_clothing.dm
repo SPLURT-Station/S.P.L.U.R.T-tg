@@ -160,6 +160,8 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_NECK)
 
+
+/* SPLURT REMOVAL START - Maybe cuffs that keep you permanently asleep aren't fun.
 /obj/item/restraints/handcuffs/reagent_clothing
 	name = "reagent handcuffs"
 	desc = "A pair of handcuffs that are ready to keep someone captive."
@@ -169,3 +171,4 @@
 /obj/item/restraints/handcuffs/reagent_clothing/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_HANDCUFFED)
+SPLURT REMOVAL END */

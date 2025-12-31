@@ -43,7 +43,7 @@
 		/obj/item/clothing/head/helmet/space,
 		/obj/item/clothing/suit/space,
 		/obj/item/reagent_containers/hypospray/cmo,
-		/obj/item/tank/jetpack/oxygen/captain,
+		/obj/item/tank/jetpack/captain,
 		/obj/item/clothing/accessory/medal/gold/captain,
 		/obj/item/clothing/suit/armor,
 		/obj/item/documents,
@@ -248,10 +248,10 @@
 		data["occupant"]["health"] = mob_occupant.health
 		data["occupant"]["maxHealth"] = mob_occupant.maxHealth
 		data["occupant"]["minHealth"] = HEALTH_THRESHOLD_DEAD
-		data["occupant"]["bruteLoss"] = mob_occupant.getBruteLoss()
-		data["occupant"]["oxyLoss"] = mob_occupant.getOxyLoss()
-		data["occupant"]["toxLoss"] = mob_occupant.getToxLoss()
-		data["occupant"]["fireLoss"] = mob_occupant.getFireLoss()
+		data["occupant"]["bruteLoss"] = mob_occupant.get_brute_loss()
+		data["occupant"]["oxyLoss"] = mob_occupant.get_oxy_loss()
+		data["occupant"]["toxLoss"] = mob_occupant.get_tox_loss()
+		data["occupant"]["fireLoss"] = mob_occupant.get_fire_loss()
 		// data["occupant"]["cloneLoss"] = mob_occupant.getCloneLoss()
 		data["occupant"]["brainLoss"] = mob_occupant.get_organ_loss(ORGAN_SLOT_BRAIN)
 		data["occupant"]["is_robotic_organism"] = HAS_TRAIT(mob_occupant, TRAIT_ROBOTIC_DNA_ORGANS)
@@ -364,8 +364,8 @@
 			if((HAS_TRAIT(this_carbon, TRAIT_GODMODE)) || !check_vore_preference(this_carbon, /datum/vore_pref/toggle/digestion))
 				items_preserved += this_carbon
 			else
-				this_carbon.adjustBruteLoss(2)
-				this_carbon.adjustFireLoss(3)
+				this_carbon.adjust_brute_loss(2)
+				this_carbon.adjust_fire_loss(3)
 		if(contents && length(touchable_items) > 0)
 			var/atom/target = pick(touchable_items)
 			if(iscarbon(target)) // Handle the target being a mob

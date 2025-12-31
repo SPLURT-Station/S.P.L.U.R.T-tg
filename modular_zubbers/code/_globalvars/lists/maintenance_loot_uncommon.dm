@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/vending_refill/wardrobe/atmos_wardrobe = 1,
 		/obj/item/vending_refill/wardrobe/bar_wardrobe = 1,
 		/obj/item/vending_refill/wardrobe/cargo_wardrobe = 1,
-		/obj/item/vending_refill/wardrobe/cent_wardrobe = 1,
+		//obj/item/vending_refill/wardrobe/cent_wardrobe = 1, //SPLURT EDIT - No Centcom Wardrobe
 		/obj/item/vending_refill/wardrobe/chap_wardrobe = 1,
 		/obj/item/vending_refill/wardrobe/chef_wardrobe = 1,
 		/obj/item/vending_refill/wardrobe/chem_wardrobe = 1,
@@ -323,6 +323,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/grenade/chem_grenade/glitter/blue = 100,
 		/obj/item/grenade/chem_grenade/metalfoam = 100,
 		/obj/item/grenade/chem_grenade/smart_metal_foam = 75,
+		/obj/item/grenade/chem_grenade/wehnade = 75,
 		/obj/item/grenade/chem_grenade/teargas = 25,
 		/obj/item/grenade/firecracker = 25,
 		/obj/item/grenade/flashbang = 10,

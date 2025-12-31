@@ -8,6 +8,7 @@
 	lose_text = span_notice("Maybe cybernetics aren't so bad. You now feel okay with augmentations and prosthetics.")
 	medical_record_text = "This patient has disclosed an extreme hatred for unnatural bodyparts and augmentations."
 	hardcore_value = 3
+	species_blacklist = list(SPECIES_SYNTH, SPECIES_PROTEAN) //Splurt Edit, They are made out of synthetic organs and material, this makes zero sense to have as a synth, It's like trying to order a hamburger at a pizza restaurant.
 	mail_goodies = list(/obj/item/paper/pamphlet/cybernetics)
 	var/cybernetics_level = 0
 

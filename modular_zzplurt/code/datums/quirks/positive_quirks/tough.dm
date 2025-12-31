@@ -11,11 +11,11 @@
 
 /datum/quirk/tough/add(client/client_source)
 	quirk_holder.maxHealth *= 1.1
+	quirk_holder.health = quirk_holder.maxHealth
 
 /datum/quirk/tough/remove()
 	if(!quirk_holder)
 		return
 	quirk_holder.maxHealth *= 0.909 //close enough
-
-
+	quirk_holder.health = quirk_holder.maxHealth
 

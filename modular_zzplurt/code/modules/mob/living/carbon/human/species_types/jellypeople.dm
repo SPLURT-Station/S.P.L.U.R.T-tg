@@ -65,11 +65,13 @@
 				playsound(owner, 'modular_zzplurt/sound/effects/changed_transfur.ogg', 50)
 				puddle_effect.color = sanitize_hexcolor(mutcolor)
 				puddle_effect.transform = H.transform
+
+				// Save original mobility flags BEFORE stunning
+				original_mobility_flags = H.mobility_flags
 				H.Stun(in_transformation_duration, ignore_canstun = TRUE)
 
 				ADD_TRAIT(H, TRAIT_PARALYSIS_L_ARM, SLIMEPUDDLE_TRAIT)
 				ADD_TRAIT(H, TRAIT_PARALYSIS_R_ARM, SLIMEPUDDLE_TRAIT)
-				original_mobility_flags = H.mobility_flags
 				H.mobility_flags &= ~MOBILITY_PICKUP
 				H.mobility_flags &= ~MOBILITY_USE
 				H.mobility_flags &= ~MOBILITY_REST
