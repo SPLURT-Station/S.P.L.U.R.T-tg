@@ -40,3 +40,8 @@
 	name = "Maid Arms (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/hands.dmi'
 	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/maid_arms.json'
+
+//Donor thing for fabricator
+/obj/item/clothing/gloves/tactical_maid/donor
+	name = "tactical maid sleeves"
+	desc = "'Tactical' cleaning gloves modified to fit certain shadekins."
