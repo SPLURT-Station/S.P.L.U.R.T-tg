@@ -18,3 +18,19 @@
  * Used by signals for when a mob has climaxed.
 */
 #define COMSIG_HUMAN_PERFORM_CLIMAX "human_perform_climax"
+
+/*
+ * # COMSIG_MOB_CUM_IN
+ * From /mob/living
+ * Used by signals for whenever a mob came into sombody
+*/
+/// From /mob/living/climax(): (mob/source, mob/living/partner)
+#define COMSIG_MOB_CUM_IN "mob_cum_in"
+
+/*
+ * # COMSIG_MOB_CUM_ON
+ * From /mob/living
+ * Used by signals for whenever a mob came onto somebody
+*/
+/// From /mob/living/climax(): (mob/source, mob/living/partner)
+#define COMSIG_MOB_CUM_ON "mob_cum_on"

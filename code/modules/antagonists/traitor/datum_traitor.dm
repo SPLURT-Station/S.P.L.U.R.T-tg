@@ -192,6 +192,52 @@
 		kill_objective.find_target()
 		return kill_objective
 
+	// SPLURT EDIT ADD - Lewd objectives
+	if(prob(100) && !owner.current.client?.prefs.read_preference(/datum/preference/choiced/erp_status) == "No")
+
+		// all of these are mutually exclusive
+		if(prob(20))
+			var/datum/objective/lewd/organ/castrate/castrate = new()
+			castrate.owner = owner
+			castrate.find_target()
+			return castrate
+		else if(prob(20))
+			var/datum/objective/lewd/organ/change_size/change_size = new()
+			change_size.owner = owner
+			change_size.find_target()
+			return change_size
+		else if(prob(20))
+			var/datum/objective/lewd/sex_change/sex_change = new()
+			sex_change.owner = owner
+			sex_change.find_target()
+			return sex_change
+
+		// can I just say for a second how fucking STUPID
+		// TG objectives are? They are SO FUCKING BAD
+		// Crazy how they never bothered to rewrite this
+		// guess they were too busy removing virology from the codebase
+		if(prob(20))
+			var/datum/objective/lewd/steal_cum/steal_cum = new()
+			steal_cum.owner = owner
+			steal_cum.find_target()
+			return steal_cum
+		if(prob(20))
+			var/datum/objective/lewd/feed_cum/feed_cum = new()
+			feed_cum.owner = owner
+			feed_cum.find_target()
+			return feed_cum
+		if(prob(20))
+			var/datum/objective/lewd/make_climax/make_climax = new()
+			make_climax.owner = owner
+			make_climax.find_target()
+			return make_climax
+
+		var/datum/objective/lewd/climax_in_or_on/climax_in_or_on = new()
+		climax_in_or_on.set_owner(owner)
+		climax_in_or_on.find_target()
+		return climax_in_or_on
+	// SPLURT EDIT END
+
 	var/datum/objective/steal/steal_objective = new()
 	steal_objective.owner = owner
 	steal_objective.find_target()

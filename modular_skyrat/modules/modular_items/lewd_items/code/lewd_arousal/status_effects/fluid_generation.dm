@@ -34,6 +34,10 @@
 	if(affected_human.arousal > AROUSAL_LOW)
 		var/regen = (affected_human.arousal / AROUSAL_MULTIPLIER) * (vagina.reagents.maximum_volume / VAGINA_MULTIPLIER) * BASE_MULTIPLIER
 		vagina.reagents.add_reagent(vagina.internal_fluid_datum, regen)
+		// SPLURT EDIT ADD
+		var/datum/reagent/femcum = vagina.reagents.has_reagent(vagina.internal_fluid_datum)
+		femcum.data["DNA"] = affected_human.dna
+		// SPLURT EDIT END
 	else
 		vagina.reagents.remove_reagent(vagina.internal_fluid_datum, VAGINA_FLUID_REMOVAL_AMOUNT)
 
@@ -53,6 +57,11 @@
 
 	var/regen = (50 / AROUSAL_MULTIPLIER) * (testes.reagents.maximum_volume / TESTES_MULTIPLIER) * BASE_MULTIPLIER // this is really quite stupid, the bare number is replacing the arousal value previously there
 	testes.reagents.add_reagent(testes.internal_fluid_datum, regen)
+
+	// SPLURT EDIT ADD
+	var/datum/reagent/cum = testes.reagents.has_reagent(testes.internal_fluid_datum)
+	cum.data["DNA"] = affected_human.dna
+	// SPLURT EDIT END
 
 //
 // BREASTS
@@ -79,6 +88,10 @@
 			regen = free_space // so we aren't draining nutrition for milk that isn't actually being generated
 		owner.adjust_nutrition(-regen / NUTRITION_COST_MULTIPLIER)
 		breasts.reagents.add_reagent(breasts.internal_fluid_datum, regen)
+		// SPLURT EDIT ADD
+		var/datum/reagent/breast_milk = breasts.reagents.has_reagent(breasts.internal_fluid_datum)
+		breast_milk.data["DNA"] = affected_human.dna
+		// SPLURT EDIT END
 
 #undef AROUSAL_MULTIPLIER
 #undef TESTES_MULTIPLIER
