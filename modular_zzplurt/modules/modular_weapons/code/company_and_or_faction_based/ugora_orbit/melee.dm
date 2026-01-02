@@ -1,14 +1,14 @@
 /datum/supply_pack/security/armory/secdaisho
 	name = "Resonance Sword Crate"
 	desc = "A three pack of the Ugora Orbit branded reverbing blade and the sheath for them. Incase you somehow lost it"
-	cost = CARGO_CRATE_VALUE * 65
+	cost = CARGO_CRATE_VALUE * 45
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
 	crate_name = "sword and jitte"
 
 /datum/supply_pack/security/sec_truncheon
 	name = "Blackjack Crate"
 	desc = "A three pack great value for when you really need to get your point across against a thief."
-	cost = CARGO_CRATE_VALUE * 40
+	cost = CARGO_CRATE_VALUE * 20
 	contains = list(/obj/item/melee/sec_truncheon = 3)
 	crate_name = "disciplinary weapon"
 
@@ -183,7 +183,7 @@ He may be right afterall.
 //We keep this a subtype of the reverbing blade for later
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
-	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' lack sharp edges, that said, it is still extremely lightweight to swing and can burn target hit by it."
+	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' lack sharp edges, that said, it is still extremely lightweight to swing and can burn target hit by it, and is easier to block incoming attack with."
 	desc_controls = "This sword inflicts bluespace scarring, occult target afflicted by this cannot jaunt or teleport!"
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword.dmi'
 	icon_state = "secsword0"
@@ -246,7 +246,6 @@ He may be right afterall.
 	. += span_info("This knife deals more damage when attacking from behind, hitting a target laying down or if they are incapacitated. Such as from succesful baton hit. \
 		Mastery of this blade is imperative to any close quarter combatant.")
 
-
 /obj/item/knife/oscu_tanto/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return ..()
@@ -256,6 +255,9 @@ He may be right afterall.
 
 	if(living_target.stat == DEAD) // We are using the code from the Iaito here and following what Anne suggested aswell, it'd be best to make it not do extra damage against dead body due to dismemberment
 		return ..()
+
+	if(HAS_TRAIT(living_target, TRAIT_INCAPACITATED))
+		ritual_worthy = TRUE
 
 	if(check_behind(user, living_target))
 		ritual_worthy = TRUE
@@ -273,7 +275,7 @@ He may be right afterall.
 	icon_state = "blackjack"
 	inhand_icon_state = "jitte"
 	worn_icon_state = "knife"
-	force = 15
+	force = 17
 	w_class = WEIGHT_CLASS_NORMAL //Make sense, no?
 	throwforce = 10
 	wound_bonus = 15
@@ -304,7 +306,7 @@ He may be right afterall.
 		jacked = TRUE
 
 	if(jacked)
-		living_target.Knockdown(2 SECONDS)
+		living_target.Knockdown(2.3 SECONDS)
 		living_target.visible_message(span_danger("[user] knocked down [living_target]!"), span_userdanger("[user] knocked you down with [src]!"))
 		living_target.remove_status_effect(/datum/status_effect/staggered) //Clears your staggers
 	return ..()
