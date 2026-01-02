@@ -190,7 +190,7 @@ He may be right afterall.
 	inhand_icon_state = "secsword0"
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
-	block_chance = 40
+	block_chance = 50
 	armour_penetration = 25 //Yes we actually tested this. Even in best case scenario it still takes 10 hit to down. We have too low of a base damage to be an issue
 	force = 13 //low base damage, high ramp up. You use this for support.
 
@@ -211,7 +211,7 @@ He may be right afterall.
 
 /obj/item/melee/reverbing_blade/oscula/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == (PROJECTILE_ATTACK || OVERWHELMING_ATTACK))
-		final_block_chance -= 40 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
+		final_block_chance -= 30 //Don't bring a sword to a gunfight, Or a road roller, if one happened to hit you.
 	if(attack_type == UNARMED_ATTACK || LEAP_ATTACK)//You underestimate my power!
 		final_block_chance += 33 //Don't try it!
 	return ..()
@@ -276,12 +276,9 @@ He may be right afterall.
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL //Make sense, no?
 	throwforce = 10
-	wound_bonus = 10
+	wound_bonus = 15
 	exposed_wound_bonus = 10
 	armour_penetration = 20 //Have you ever been hit by a mace in a suit of armour?
-	attack_speed = 11 //This is so that you aren't constantly being spammed by it
-
-	damtype = BURN
 
 /obj/item/melee/sec_truncheon/examine_more(mob/user)
 	. = ..()
@@ -333,7 +330,7 @@ He may be right afterall.
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/knife/oscu_tanto,
+		/obj/item/melee/sec_truncheon,
 	))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -341,7 +338,7 @@ He may be right afterall.
 	new /obj/item/restraints/handcuffs(src)
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/knife/oscu_tanto(src)
+	new /obj/item/melee/sec_truncheon(src)
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
 
