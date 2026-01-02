@@ -686,7 +686,7 @@
 		/datum/reagent/consumable/tonic,
 		/datum/reagent/water,
 	)
-
+	// upgrade_reagents = null // SPLURT REMOVAL. Fixes Bug where upgrade_reagents being null instead of empty list causes upgrades to not apply
 	/// The default list of emagged reagents dispensable by the soda dispenser
 	var/static/list/drink_emagged_reagents = list(
 		/datum/reagent/consumable/ethanol/thirteenloko,
