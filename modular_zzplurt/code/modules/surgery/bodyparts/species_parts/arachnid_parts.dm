@@ -56,4 +56,4 @@
 	brute_modifier = 1.1
 	should_draw_greyscale = FALSE
 
-	head_flags = HEAD-HAIR | HEAD_LIPS | HEAD_DEBRAIN
+	head_flags = HEAD_HAIR | HEAD_LIPS | HEAD_DEBRAIN
