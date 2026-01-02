@@ -57,7 +57,7 @@ With help of an aussie catgirl
 		/datum/component/crank_recharge, \
 		charging_cell = get_cell(), \
 		charge_amount = STANDARD_CELL_CHARGE, \
-		cooldown_time = 1.8 SECONDS, \
+		cooldown_time = 1.6 SECONDS, \
 		charge_sound = 'sound/items/weapons/gun/bow/bow_draw.ogg', \
 		charge_sound_cooldown_time = 0.2 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \

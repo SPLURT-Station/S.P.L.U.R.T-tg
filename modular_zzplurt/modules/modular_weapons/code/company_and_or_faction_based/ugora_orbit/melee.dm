@@ -267,11 +267,11 @@ He may be right afterall.
 /obj/item/melee/sec_truncheon
 	name = "\improper blackjack" //Thief is a pretty cool game.
 	desc = "A short, easily concealed club weapons consisting of a dense weight attached to the end of a short shaft" //copied from wikipedia, feel free to put cooler one if you got it in mind, mhm?
-	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
-	icon_state = "tanto"
-	inhand_icon_state = "tantohand"
-	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
-	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
+	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte.dmi'
+	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte_righthand.dmi'
+	icon_state = "blackjack"
+	inhand_icon_state = "jitte"
 	worn_icon_state = "knife"
 	force = 15
 	w_class = WEIGHT_CLASS_NORMAL //Make sense, no?

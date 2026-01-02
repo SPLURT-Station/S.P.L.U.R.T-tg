@@ -1,19 +1,20 @@
 /obj/item/ammo_casing/energy/hardlight_bow
+	desc = "IF YOU CAN READ THIS PLEASE CONTACT KALI ON DISCORD"
 	projectile_type = /obj/projectile/energy_arrow
 	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE)
 
 /obj/projectile/energy_arrow
 	name = "energy arrow"
-	desc = "Does it even matter? whos gonna read this shit"
+	desc = "IF YOU CAN READ THIS PLEASE CONTACT KALI ON DISCORD"
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/projectile.dmi'
 	icon_state = "arrow_energy"
-	damage = 30
-	armour_penetration = 20 //So that it is more likely to embed.
+	damage = 35
+	armour_penetration = 20 //So that it is less likely to be blocked.
 	speed = 1.6
-	range = 14
-	shrapnel_type = null
+	range = 12
+
 	embed_type = /datum/embedding/energy_arrow
-	wound_bonus = 5
+	wound_bonus = 15
 
 /datum/embedding/energy_arrow
 	embed_chance = 30
