@@ -14,6 +14,8 @@ PROCESSING_SUBSYSTEM_DEF(station)
 	var/list/antag_protected_roles = list()
 	///A list of trait roles that should never be able to roll antag
 	var/list/antag_restricted_roles = list()
+	///Dictionary of singletons
+	var/list/announcers = list() // SPLURT EDIT ADD
 
 	/// Assosciative list of station goal type -> goal instance
 	var/list/datum/station_goal/goals_by_type = list()
@@ -26,7 +28,14 @@ PROCESSING_SUBSYSTEM_DEF(station)
 	//display_lobby_traits() SKYRAT EDIT REMOVAL
 	#endif
 
-	announcer = new announcer() //Initialize the station's announcer datum
+	// SPLURT EDIT ADD
+	//Initialize the station's announcer datums as singletons
+	for(var/announcer_type in subtypesof(/datum/centcom_announcer/))
+		var/datum/centcom_announcer/announce = new announcer_type()
+		announcers[announcer_type] = announce
+
+	announcer = announcers[announcer] // Fetch me
+	// SPLURT EDIT END
 	SSparallax.post_station_setup() //Apply station effects that parallax might have
 
 	return SS_INIT_SUCCESS

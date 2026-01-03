@@ -71,7 +71,7 @@
 		return
 
 	if(!report_sound)
-		report_sound = SSstation.announcer.get_rand_report_sound()
+		report_sound = ANNOUNCER_COMMAND_REPORT // SPLURT EDIT
 
 	if(announce_contents)
 		priority_announce(command_report_content, command_report_title, report_sound, sender_override = command_name, has_important_message = TRUE)
