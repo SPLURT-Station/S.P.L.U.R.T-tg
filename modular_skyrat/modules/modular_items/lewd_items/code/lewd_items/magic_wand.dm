@@ -93,6 +93,7 @@
 
 	current_user.adjust_arousal(adjustment_amount * seconds_per_tick)
 	current_user.adjust_pleasure(adjustment_amount * seconds_per_tick)
+	current_user.plug13_genital_emote(current_user.get_organ_slot(current_equipped_slot), adjustment_amount * PLUG13_STRENGTH_DEFAULT, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Magic Wand
 
 /obj/item/clothing/sextoy/magic_wand/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -157,6 +158,7 @@
 						"leans the vibrator against [target]'s [organ_to_use]")
 				carbon_target.adjust_arousal(vibration_mode == MAGIC_WAND_MODE_LOW ? 4 : (vibration_mode == MAGIC_WAND_MODE_HIGH ? 8 : 5))
 				carbon_target.adjust_pleasure(vibration_mode == MAGIC_WAND_MODE_LOW ? 2 : (vibration_mode == MAGIC_WAND_MODE_HIGH ? 10 : 5))
+				carbon_target.plug13_genital_emote(carbon_target.get_organ_slot(current_equipped_slot), MAGIC_WAND_MODE_LOW ? 4 : (MAGIC_WAND_MODE_HIGH ? 8 : 5), PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Magic Wand
 			else
 				message = (user == target) ? pick("massages their synthetic genitals with the [src]",
 						"[first_adjective] teases their synthetic genitals with [src]") \
@@ -179,6 +181,7 @@
 						"uses [src] to tease [target]'s [breasts ? "boobs" : ORGAN_SLOT_NIPPLES]")
 				carbon_target.adjust_arousal((vibration_mode == MAGIC_WAND_MODE_LOW ? 3 : (vibration_mode == MAGIC_WAND_MODE_HIGH ? 7 : 4)))
 				carbon_target.adjust_pleasure((vibration_mode == MAGIC_WAND_MODE_LOW ? 1 : (vibration_mode == MAGIC_WAND_MODE_HIGH ? 9 : 4)))
+				carbon_target.plug13_genital_emote(carbon_target.get_organ_slot(current_equipped_slot), MAGIC_WAND_MODE_LOW ? 3 : (MAGIC_WAND_MODE_HIGH ? 7 : 4), PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Magic Wand
 			else
 				message = (user == target) ? pick("massages their touch sensors with the [src]",
 						"[first_adjective] teases their touch sensors with [src]") \

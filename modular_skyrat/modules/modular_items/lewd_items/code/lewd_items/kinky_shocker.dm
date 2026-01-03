@@ -231,4 +231,5 @@
 	target.do_jitter_animation()
 	target.adjust_stamina_loss(3)
 	target.adjust_pain(9)
+	target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 9, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Kinky Shocker
 	target.adjust_stutter(30 SECONDS)
