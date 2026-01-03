@@ -304,8 +304,25 @@ SUBSYSTEM_DEF(ticker)
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
-	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
+	// SPLURT EDIT CHANGE - announcer preferences
+	var/no_preferred_override = FALSE
+	for(var/datum/station_trait/trait in SSstation.station_traits)
+		// have to do this here again because of fucking bullshit
+		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth)
+		)
+			no_preferred_override = TRUE
+			break
+
+	for(var/mob/target in GLOB.player_list)
+		var/datum/centcom_announcer/preferred_announcer = GLOB.announcer_type_keys[target.client?.prefs.read_preference(/datum/preference/choiced/announcer)]
+		if(preferred_announcer && !no_preferred_override)
+			preferred_announcer = SSstation.announcers[preferred_announcer]
+		else
+			preferred_announcer = SSstation.announcer
+
+		SEND_SOUND(target, sound(preferred_announcer.get_rand_welcome_sound()))
+	// SPLURT EDIT CHANGE END
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 

@@ -50,6 +50,7 @@
 
 	var/list/announcement_strings = list()
 
+	/* SPLURT EDIT REMOVAL BEGIN
 	if(!sound)
 		sound = SSstation.announcer.get_rand_alert_sound()
 	else if(SSstation.announcer.event_sounds[sound])
@@ -58,6 +59,8 @@
 	else if(GLOB.announcer_keys.Find(sound))
 		sound = SSstation.announcer.get_rand_alert_sound()
 	// SPLURT EDIT ADDITION END
+
+	SPLURT EDIT REMOVAL END */
 
 	var/header
 	switch(type)
@@ -103,7 +106,7 @@
 		priority_announce(
 			text = "A report has been downloaded and printed out at all communications consoles.",
 			title = "Incoming Classified Message",
-			sound = SSstation.announcer.get_rand_report_sound(),
+			sound = ANNOUNCER_COMMAND_REPORT, // SPLURT EDIT
 			has_important_message = TRUE,
 		)
 
@@ -208,22 +211,57 @@
 		if(target.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements))
 			SEND_SOUND(target, sound(sound_to_play))
 	*/
-	if(!sound_override)
-		sound_override = SSstation.announcer.get_rand_alert_sound()
-	else if(SSstation.announcer.event_sounds[sound_override])
-		var/list/announcer_key = SSstation.announcer.event_sounds[sound_override]
-		sound_override = pick(announcer_key)
+	// SPLUT EDIT CHANGE - announcer preferences
+	// I'm 100% sure this is very shitty but it works thanks
 
-	if(!isnull(sound_override))
-		sound_override = sound(sound_override)
+	var/no_preferred_override = FALSE
+	for(var/datum/station_trait/trait in SSstation.station_traits)
+		// there is a trait we don't want
+		// they didnt bother making these subtypes so its gotta be stupid like this
+		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth)
+		)
+			no_preferred_override = TRUE
+			break
 
-	var/sound_to_play = !isnull(sound_override) ? sound_override : 'sound/announcer/notice/notice2.ogg'
-	alert_sound_to_playing(sound_to_play, players = players)
-
+	var/static/list/quiet_areas = typecacheof(typesof(/area/station/maintenance) + typesof(/area/space) + typesof(/area/station/commons/dorms))
 	for(var/mob/target in players)
-		if(isnewplayer(target) || !target.can_hear())
+		// no redundant checks please
+		if(isnewplayer(target) || !target.can_hear() || isnull(target.client))
 			continue
 
+		// ugly line but it do do dit
+		var/datum/centcom_announcer/preferred_announcer = GLOB.announcer_type_keys[target.client?.prefs.read_preference(/datum/preference/choiced/announcer)]
+		if(preferred_announcer && !no_preferred_override)
+			preferred_announcer = SSstation.announcers[preferred_announcer]
+		else
+			preferred_announcer = SSstation.announcer
+
+		if(!sound_override)
+			sound_override = preferred_announcer.get_rand_alert_sound()
+		else if(preferred_announcer.event_sounds[sound_override])
+			var/list/announcer_key = preferred_announcer.event_sounds[sound_override]
+			sound_override = pick(announcer_key)
+		else if(sound_override == ANNOUNCER_COMMAND_REPORT)
+			sound_override = preferred_announcer.get_rand_report_sound()
+		else if(sound_override == ANNOUNCER_RANDOM_WELCOME)
+			sound_override = preferred_announcer.get_rand_welcome_sound()
+		// couldnt find ANYTHING fallback please FALLBACK!!!
+		else if(GLOB.announcer_keys.Find(sound_override) || sound_override == ANNOUNCER_RANDOM_ALERT)
+			sound_override = preferred_announcer.get_rand_alert_sound()
+
+		if(!isnull(sound_override))
+			sound_override = sound(sound_override)
+
+		var/sound_to_play = !isnull(sound_override) ? sound_override : 'sound/announcer/notice/notice2.ogg'
+
+		if(target.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements))
+			var/area/A = get_area(target)
+			if(is_type_in_typecache(A, quiet_areas)) //These areas don't hear it as loudly
+				target.playsound_local(get_turf(target), sound_to_play, 30, FALSE)
+			else
+				target.playsound_local(get_turf(target), sound_to_play, 70, FALSE)
+
+	// SPLUT EDIT CHANGE END
 		to_chat(target, announcement)
 	// SKYRAT EDIT CHANGE END - CUSTOM ANNOUNCEMENTS
 
