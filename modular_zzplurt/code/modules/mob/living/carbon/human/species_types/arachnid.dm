@@ -31,7 +31,6 @@
 //i hate this place
 /datum/species/arachnid/get_default_mutant_bodyparts()
 	return list(
-		"hair" = list("Plain", TRUE),
 		"mandibles" = list("Plain", TRUE),
 		"spinneret" = list("Plain", TRUE),
 		"arachnid_legs" = list("Plain", TRUE),
