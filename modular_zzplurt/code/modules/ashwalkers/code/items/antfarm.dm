@@ -34,11 +34,11 @@
 			return INITIALIZE_HINT_QDEL
 
 		// Modified range
-		for(var/obj/structure/antfarm/found_farm in range(1, get_turf(src)))
+		for(var/obj/structure/antfarm/found_farm in range(0, get_turf(src)))
 			if(found_farm == src)
 				continue
 
-			src_turf.balloon_alert_to_viewers("too close to another farm")
+			src_turf.balloon_alert_to_viewers("Cannot build on top of another farm")
 			return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSobj, src)
