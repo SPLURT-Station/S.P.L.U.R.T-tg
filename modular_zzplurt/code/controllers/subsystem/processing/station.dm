@@ -3,7 +3,7 @@
 
 /datum/controller/subsystem/processing/station/proc/set_announcer(datum/centcom_announcer/new_announcer)
 	QDEL_NULL(announcer)
-	announcer = new new_announcer()
+	announcer = announcers[new_announcer]
 
 ADMIN_VERB(set_announcer, R_FUN, "Set announcer", "Sets the station announcer to a new type", ADMIN_CATEGORY_FUN)
 	var/list/announcer_choices = subtypesof(/datum/centcom_announcer)
