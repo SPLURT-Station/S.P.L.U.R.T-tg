@@ -70,6 +70,7 @@ const BASEICONS = {
   'Customs Agent': 'shield-heart',
   'Engineering Guard': 'shield-heart',
   'Nanotrasen Consultant': 'clipboard-check',
+  'Nanotrasen Crew Trainer': 'hat-cowboy', //Splurt Edit
   Orderly: 'shield-heart',
   'Science Guard': 'shield-heart',
   'Security Medic': 'heart-pulse',
