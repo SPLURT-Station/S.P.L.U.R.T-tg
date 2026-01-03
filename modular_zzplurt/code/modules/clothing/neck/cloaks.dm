@@ -42,6 +42,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/cloakhood/determinations_cloakcap
 	body_parts_covered = CHEST|GROIN|ARMS
+	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_NECK
 	supports_variations_flags = NONE
 
@@ -51,5 +52,6 @@
 	icon_state = "determinations_cloakcap"
 	icon = 'modular_zzplurt/icons/obj/clothing/neck.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
+	resistance_flags = FIRE_PROOF
 	flags_inv = null
 	supports_variations_flags = NONE
