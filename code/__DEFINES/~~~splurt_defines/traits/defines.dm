@@ -26,6 +26,8 @@
 #define QMOOD_BFLED_DRANK_SKREL	"bloodfledge_drank_skrell"
 #define QMOOD_BFLED_DRANK_BLOOD_SELF	"bloodfledge_drank_own_blood"
 #define QMOOD_BFLED_DRANK_BLOOD_FAKE	"bloodfledge_drank_fake_blood"
+#define QMOOD_BFLED_CRAVE		"bloodfledge_crave_blood"
+#define QMOOD_BFLED_BITE_INTERRUPT		"bloodfledge_bite_interrupted"
 
 // Trait types
 #define DUMB_CUM_TRAIT		"dumb4cum"

@@ -50,6 +50,16 @@
 	// Alert user
 	balloon_alert(user, "sanguinizer upgraded!")
 
+	// Alert in chat with reduced range
+	user.visible_message(\
+		span_notice("[user] taps the [emag_card] against the [src]."),\
+		span_notice("You tap the [emag_card] against the [src], causing it to unlock <b>sequencer mode</b>."),\
+		vision_distance = COMBAT_MESSAGE_RANGE
+	)
+
+	// Log interaction
+	log_combat(user, src, "has upgraded")
+
 // Examine text
 /obj/item/card/emag/bloodfledge/examine(mob/user)
 	. = ..()
