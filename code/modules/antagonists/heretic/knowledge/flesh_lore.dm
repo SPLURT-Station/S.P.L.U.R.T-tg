@@ -103,7 +103,7 @@
 	make_ghoul(source, target)
 
 /// The max amount of health a ghoul has.
-#define GHOUL_MAX_HEALTH 25
+#define GHOUL_MAX_HEALTH 30 // Back to 100HP baby
 
 /// Makes [victim] into a ghoul.
 /datum/heretic_knowledge/limited_amount/starting/base_flesh/proc/make_ghoul(mob/living/user, mob/living/carbon/human/victim)
@@ -186,7 +186,7 @@
 	return TRUE
 
 /// The max amount of health a voiceless dead has.
-#define MUTE_MAX_HEALTH 50
+#define MUTE_MAX_HEALTH 50 
 
 /// Makes [victim] into a ghoul.
 /datum/heretic_knowledge/limited_amount/flesh_ghoul/proc/make_ghoul(mob/living/user, mob/living/carbon/human/victim)

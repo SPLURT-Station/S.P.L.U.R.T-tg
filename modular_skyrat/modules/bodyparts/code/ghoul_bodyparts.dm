@@ -1,5 +1,5 @@
-#define GHOUL_BRUTE_MODIFIER 2
-#define GHOUL_BURN_MODIFIER 2
+#define GHOUL_BRUTE_MODIFIER 1.8 // SPLURT change: reduced from 2 to 1.8 to balance revert to 100 max HP
+#define GHOUL_BURN_MODIFIER 1.8 // SPLURT change: reduced from 2 to 1.8 to balance revert to 100 max HP
 
 // Ghouls!
 /obj/item/bodypart/head/mutant/ghoul
