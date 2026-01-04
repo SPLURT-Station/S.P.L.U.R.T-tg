@@ -1,0 +1,15 @@
+diff --git a/bot_commands.py b/bot_commands.py
+index abcdef1..1234567 100644
+--- a/bot_commands.py
++++ b/bot_commands.py
+@@ -23,7 +23,8 @@ def process_command(user_input):
+     # Trim whitespace and convert to lowercase for consistent command handling
+-    command = user_input.strip().lower()
++    command = user_input.strip().lower()  # Handle extra spaces and case insensitivity
+ 
+     if command == 'help':
+         return show_help()
+     elif command in ['exit', 'quit']:
+         return exit_bot()
+     else:
+         return handle_unknown_command(command)
