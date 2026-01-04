@@ -43,7 +43,7 @@
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	coldmod = 1.35 // SPLURT change: Increased to 1.35 from 1.2 to balance other multiplier changes
-	heatmod = 1.45 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us. - SPLURT change: lowered to 1.45 from 2 to balance revert to 100 max HP.
+	heatmod = 1.5 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us. - SPLURT change: lowered to 1.45 from 2 to balance revert to 100 max HP.
 	siemens_coeff = 1.2 // >1.4 crits. - SPLURT change: Lowered to 1.2 from 1.4 to balance revert to 100 max HP
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
