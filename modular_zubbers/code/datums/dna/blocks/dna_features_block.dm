@@ -110,6 +110,14 @@
 /datum/dna_block/feature/mutant/breasts
 	feature_key = FEATURE_BREASTS
 
+// SPLURT EDIT ADD
+/datum/dna_block/feature/mutant/butt
+	feature_key = FEATURE_BUTT
+
+/datum/dna_block/feature/mutant/belly
+	feature_key = FEATURE_BELLY
+// SPLURT EDIT ADD END
+
 /datum/dna_block/feature/mutant/skrell_hair
 	feature_key = FEATURE_SKRELL_HAIR
 
