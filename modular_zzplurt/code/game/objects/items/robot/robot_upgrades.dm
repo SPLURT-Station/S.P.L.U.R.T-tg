@@ -1,7 +1,7 @@
 // Illegal stun baton upgrade for peacekeeper borgs
 /obj/item/borg/upgrade/stunbaton
 	name = "cyborg stun baton module"
-	desc = "An illegal augmentation that equips a peacekeeper cyborg with a rechargeable stun baton, drastically increasing their ability to incapacitate targets."
+	desc = "An augmentation that equips a peacekeeper cyborg with a rechargeable stun baton, drastically increasing their ability to incapacitate targets."
 	icon_state = "module_security"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/peacekeeper)
