@@ -1,0 +1,19 @@
+--- a/command_processor.py
++++ b/command_processor.py
+@@ -1,6 +1,7 @@
+ import re
++import logging
+ 
+ from .command_map import COMMANDS
+ from .exceptions import CommandNotFoundError
+@@ -25,6 +26,9 @@ def process_input(user_input):
+     if not user_input:
+         return
+ 
++    if not user_input.strip():
++        logging.info("Empty input received; ignoring.")
++        return
++
+     # Split the input into parts (command and arguments)
+     parts = re.split(r'\s+', user_input.strip(), 1)
+     command_str = parts[0].lower()
