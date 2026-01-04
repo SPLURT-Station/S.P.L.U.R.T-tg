@@ -1,0 +1,111 @@
+--- a/src/components/UserProfile.js
++++ b/src/components/UserProfile.js
+@@ -14,7 +14,8 @@
+     const [email, setEmail] = useState('');
+     const [bio, setBio] = useState('');
+     const [username, setUsername] = useState('');
+-    const [error, setError] = useState('');
++    const [errors, setErrors] = useState({});
++    const [isSubmitting, setIsSubmitting] = useState(false);
+ 
+     useEffect(() => {
+         const fetchUserData = async () => {
+@@ -32,25 +33,40 @@
+             });
+     }, []);
+ 
+-    const handleSubmit = (e) => {
+-        e.preventDefault();
+-        try {
++    const validateForm = () => {
++        const newErrors = {};
++        if (!username.trim()) {
++            newErrors.username = 'Username is required';
++        }
++        if (!email.includes('@')) {
++            newErrors.email = 'Valid email is required';
++        }
++        setErrors(newErrors);
++        return Object.keys(newErrors).length === 0;
++    };
++
++    const handleSubmit = async (e) => {
++        e.preventDefault();
++        setIsSubmitting(true);
++        if (!validateForm()) {
+             await axios.put(`/api/users/${id}`, { username, email, bio });
+-            setError('');
+-            toast.success('Profile updated successfully!');
++            setErrors({});
++            toast.success('Profile updated successfully!');
+         } catch (error) {
+-            setError(error.response.data.message);
++            const errorMessage = error.response ? error.response.data.message : 'An error occurred';
++            if (error.response && error.response.status === 400) {
++                setErrors(error.response.data.errors || {});
++            } else {
++                toast.error(errorMessage);
++            }
+         }
++        setIsSubmitting(false);
+     };
+ 
+     return (
+         <div className="container mt-5">
+             <h2 className="mb-4">Edit Profile</h2>
+             <form onSubmit={handleSubmit}>
+                 <div className="mb-3">
+                     <label className="form-label">Username</label>
+                     <input
+                         type="text"
+                         className="form-control"
+                         value={username}
+                         onChange={(e) => setUsername(e.target.value)}
+-                        required
++                        isValid={!errors.username}
++                        feedback={errors.username || ''}
+                     />
+                 </div>
+                 <div className="mb-3">
+                     <label className="form-label">Email</label>
+                     <input
+                         type="email"
+                         className="form-control"
+                         value={email}
+                         onChange={(e) => setEmail(e.target.value)}
+-                        required
++                        isValid={!errors.email}
++                        feedback={errors.email || ''}
+                     />
+                 </div>
+                 <div className="mb-3">
+                     <label className="form-label">Bio</label>
+                     <textarea
+                         className="form-control"
+                         rows="3"
+                         value={bio}
+                         onChange={(e) => setBio(e.target.value)}
+                     ></textarea>
+                 </div>
+-                {error && (
++                {Object.values(errors).map((err, index) => (
+                     <div key={index} className="alert alert-danger mb-3">
+-                        {error}
++                        {err}
+                     </div>
+                 ))}
+                 <button
+                     type="submit"
+                     className="btn btn-primary"
+-                    disabled={!username || !email}
++                    disabled={isSubmitting || Object.keys(errors).length > 0}
+                 >
+-                    Update Profile
++                    {isSubmitting ? 'Updating...' : 'Update Profile'}
+                 </button>
+             </form>
+         </div>
+     );
+ }
+ 
+ export default UserProfile;
