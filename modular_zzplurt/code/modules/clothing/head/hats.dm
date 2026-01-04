@@ -109,7 +109,7 @@
 	icon_state = "moffuchissoft"
 	soft_type = "moffuchis"
 	dog_fashion = null
-  
+
 //donor thing for fabricator
 /obj/item/clothing/head/costume/maid_headband/syndicate/donor
 	name = "tactical maid headband"
