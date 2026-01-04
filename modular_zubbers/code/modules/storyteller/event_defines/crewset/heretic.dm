@@ -4,7 +4,7 @@
 
 	antag_flag = ROLE_HERETIC
 	antag_datum = /datum/antagonist/heretic
-	weight = 0 //SPLURT EDIT - No Heretic
+	weight = 0 //SPLURT EDIT - No Heretic (upstream weight = 5)
 	min_players = 30
 
 	maximum_antags_global = 2
