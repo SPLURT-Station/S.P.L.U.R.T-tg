@@ -1,0 +1,13 @@
+diff --git a/functions.py b/functions.py
+--- a/functions.py
++++ b/functions.py
+@@ -10,7 +10,8 @@
+     return processed_data
+ 
+ def process_data(data):
+-    if not data:
++    if not isinstance(data, list) or len(data) == 0:
++        return []
+     result = []
+     for item in data:
+         # Handle each item processing
