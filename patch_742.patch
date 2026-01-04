@@ -1,0 +1,26 @@
+diff --git a/src/components/IssueTracker.js b/src/components/IssueTracker.js
+index abcdef1..ghijklm 100644
+--- a/src/components/IssueTracker.js
++++ b/src/components/IssueTracker.js
+@@ -23,7 +23,8 @@ const IssueTracker = ({ issues }) => {
+       <div className="issue-item">
+         <h3>{issue.title}</h3>
+-        <p>Status: {issue.status}</p>
++        <p>Status: {issue.status ? issue.status : 'Open'}</p>
++        <p>Reporter: {issue.reporter}</p>
+         <p>Description: {issue.description}</p>
+       </div>
+     ))}
+diff --git a/src/reducers/issueReducer.js b/src/reducers/issueReducer.js
+index 1234567..89abcde 100644
+--- a/src/reducers/issueReducer.js
++++ b/src/reducers/issueReducer.js
+@@ -15,7 +15,7 @@ const issueReducer = (state = initialState, action) => {
+     case ADD_ISSUE:
+       return [
+         ...state,
+-        { id: Date.now(), title: action.payload.title, description: action.payload.description }
++        { id: Date.now(), title: action.payload.title, description: action.payload.description, status: 'Open', reporter: action.payload.reporter }
+       ];
+     case UPDATE_ISSUE:
+       return state.map(issue => {
