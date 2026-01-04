@@ -1,0 +1,20 @@
+--- a/S.P.L.U.R.T-tg/src/main/java/com/splurt/station/core/Processor.java
++++ b/S.P.L.U.R.T-tg/src/main/java/com/splurt/station/core/Processor.java
+@@ -15,7 +15,8 @@ public class Processor {
+      * @param input the data to process
+      * @return processed result
+      */
+-    public String process(String input) {
++    public synchronized String process(String input) {
++        // Ensure thread safety by synchronizing method access
+         if (input == null || input.isEmpty()) {
+             throw new IllegalArgumentException("Input cannot be null or empty");
+         }
+@@ -27,6 +28,7 @@ public class Processor {
+         result = performComplexCalculations(input);
+         return result;
+     }
++
+     private String performValidation(String input) {
+         // Implementation details
+         return input;
