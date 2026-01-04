@@ -1,0 +1,11 @@
+--- a/S.P.L.U.R.T-tg/commands/execute.py
++++ b/S.P.L.U.R.T-tg/commands/execute.py
+@@ -12,7 +12,7 @@
+ import logging
+ 
+ from aiogram import types
+-from aiogram.types import ParseMode
++from aiogram.types.parse_mode import HTML as ParseMode
+ from aiogram.utils.markdown import escape_markdown
+ 
+ from ..config import Config
