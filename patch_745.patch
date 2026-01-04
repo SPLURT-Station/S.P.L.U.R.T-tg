@@ -1,0 +1,20 @@
+--- a/src/main.py
++++ b/src/main.py
+@@ -15,7 +15,8 @@ def main():
+     # Initialize bot
+     updater = Updater(token=TELEGRAM_TOKEN)
+     dispatcher = updater.dispatcher
+-
++    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
++                        level=logging.INFO)
+ 
+     # Register handlers
+     start_handler = CommandHandler('start', start_callback)
+@@ -24,6 +25,7 @@ def main():
+     help_handler = CommandHandler('help', help_callback)
+     message_handler = MessageHandler(Filters.text & (~Filters.command), handle_message)
+     dispatcher.add_handler(start_handler)
++    dispatcher.add_handler(help_handler)
+     dispatcher.add_handler(message_handler)
+ 
+     # Start the bot
