@@ -39,7 +39,6 @@
 /datum/reagent/water/holywater/proc/drain_antimagic(mob/living/user)
 	SIGNAL_HANDLER
 
-	user.visible_message("[user]'s veins pulse with a bright yellow, as they repel the spell!", "Your veins pulse with a bright yellow, repelling the spell!")
 	user.reagents.remove_reagent(/datum/reagent/water/holywater, user.reagents.get_reagent_amount(/datum/reagent/water/holywater) / 3) // remove a third of the mob's holy water
 
 
