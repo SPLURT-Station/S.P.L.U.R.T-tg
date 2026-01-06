@@ -8,7 +8,9 @@
 /proc/arachnid_name()
 	return "[pick(GLOB.arachnid_first)] [pick(GLOB.arachnid_last)]"
 
-/proc/resolve_intent_name(intent)
+/proc/resolve_intent_name(user)
+	var/shift = user.interaction_shift_pressed
+	var/intent = user.combat_mode
 	switch(intent)
 		if(INTENT_HELP)
 			return "help"

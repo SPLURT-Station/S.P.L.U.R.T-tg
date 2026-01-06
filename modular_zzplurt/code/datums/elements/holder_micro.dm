@@ -54,7 +54,7 @@
 	return
 
 /datum/element/mob_holder/micro/proc/mob_try_pickup_micro(mob/living/carbon/source, mob/living/carbon/user)
-	if(!(resolve_intent_name(user.combat_mode) == "grab"))
+	if(!(resolve_intent_name(user) == "grab"))
 		return FALSE
 	if(!ishuman(user) || !user.Adjacent(source) || user.incapacitated)
 		return FALSE
@@ -173,7 +173,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/mob/living/carbon/human/M = held_mob
 	if(istype(M))
-		switch(resolve_intent_name(user.combat_mode))
+		switch(resolve_intent_name(user))
 			if("harm") //TO:DO, rework all of these interactions to be a lot more in depth
 				visible_message(span_danger("[user] slams their fist down on [M]!"))
 				playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)

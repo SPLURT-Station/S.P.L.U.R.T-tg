@@ -8,7 +8,7 @@
 	. = ..()
 	var/mob/living/owner = hud?.mymob
 	if(owner)
-		icon_state = resolve_intent_name(owner.combat_mode)
+		icon_state = resolve_intent_name(owner)
 
 /atom/movable/screen/intent_toggle/Click(location, control, params)
 	var/mob/living/owner = hud?.mymob

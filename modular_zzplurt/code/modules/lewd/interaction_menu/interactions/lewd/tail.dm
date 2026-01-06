@@ -31,7 +31,7 @@
 	user_pain = 0
 
 	// Select appropriate message text based on user's current intent
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("help")
 			message = islist(help_text) ? pick(help_text) : help_text
 		if("grab", "disarm")
@@ -266,7 +266,7 @@
 	target_arousal = 6
 	if(target.getOxyLoss() > 40) // Prevent damage stacking - converts to pure RP when target already suffocating
 		oxy_damage = 0
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("harm")
 			oxy_damage = rand(3, 6)
 			message = list(

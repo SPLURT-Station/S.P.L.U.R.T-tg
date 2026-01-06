@@ -90,7 +90,7 @@
 		return
 
 	// Handle different intents
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("harm")
 			message = list(
 				"aggressively gropes %TARGET%'s breast.",
@@ -145,7 +145,7 @@
 			qdel(R)
 
 	// Handle arousal effects based on intent
-	var/intent = resolve_intent_name(user.combat_mode)
+	var/intent = resolve_intent_name(user)
 	if(intent != "harm" && prob(5 + target.arousal))
 		var/list/arousal_messages
 		switch(intent)

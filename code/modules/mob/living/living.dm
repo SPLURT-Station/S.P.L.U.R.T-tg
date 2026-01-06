@@ -223,7 +223,7 @@
 
 	//SPLURT EDIT ADDITION BEGIN - FEATURE_NAME - (sizecode)
 	//handle micro bumping on help intent
-	if(resolve_intent_name(combat_mode) == "help")
+	if(resolve_intent_name(src) == "help")
 		if(handle_micro_bump_helping(M))
 			return TRUE
 	//SPLURT EDIT ADDITION END
