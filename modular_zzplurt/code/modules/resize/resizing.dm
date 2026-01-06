@@ -62,6 +62,7 @@
 		if(COMPARE_SIZES(user, target) >= 2)
 			log_combat(user, target, "stepped on", addition="[resolve_intent_name(user.combat_mode)] trample")
 			if((user.mobility_flags & MOBILITY_MOVE) && !user.buckled)
+				var/shift = user.interaction_shift_pressed
 				switch(resolve_intent_name(user.combat_mode))
 					if("disarm")
 						now_pushing = 0
@@ -75,8 +76,48 @@
 							else
 								target.visible_message(span_danger("[src] carefully steps on [target]!"), span_danger("[src] steps onto you with force!"))
 							return TRUE
+					if("help")
+						if(shift)
+							now_pushing = 0
+							user.forceMove(target.loc)
+							user.sizediffStamLoss(target)
+							user.add_movespeed_modifier(/datum/movespeed_modifier/stomp, TRUE) //Full stop
+							addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, remove_movespeed_modifier), MOVESPEED_ID_STOMP, TRUE), 3) //0.3 seconds
+							if(iscarbon(user))
+								if(istype(user) && user.dna.features["taur"] == "Naga" || user.dna.features["taur"] == "Tentacle")
+									target.visible_message(span_danger("[src] carefully rolls their tail over [target]!"), span_danger("[src]'s huge tail rolls over you!"))
+								else
+									target.visible_message(span_danger("[src] carefully steps on [target]!"), span_danger("[src] steps onto you with force!"))
+								return TRUE
 
 					if("harm")
+						if(shift)
+							now_pushing = 0
+							user.forceMove(target.loc)
+							user.sizediffStamLoss(target)
+							user.sizediffStun(target)
+							user.add_movespeed_modifier(/datum/movespeed_modifier/stomp, TRUE)
+							addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, remove_movespeed_modifier), MOVESPEED_ID_STOMP, TRUE), 7)//About 3/4th a second
+							if(iscarbon(user))
+								var/feetCover = (user.wear_suit && (user.wear_suit.body_parts_covered & FEET)) || (user.w_uniform && (user.w_uniform.body_parts_covered & FEET) || (user.shoes && (user.shoes.body_parts_covered & FEET)))
+								if(feetCover)
+									if(user?.dna?.features["taur"] == "Naga" || user?.dna?.features["taur"] == "Tentacle")
+										target.visible_message(span_danger("[src] pins [target] under their tail!"), span_danger("[src] pins you beneath their tail!"))
+									else
+										target.visible_message(span_danger("[src] pins [target] helplessly underfoot!"), span_danger("[src] pins you underfoot!"))
+									return TRUE
+								else
+									if(user?.dna?.features["taur"] == "Naga" || user?.dna?.features["taur"] == "Tentacle")
+										target.visible_message(span_danger("[user] snatches up [target] underneath their tail!"), span_userdanger("[src]'s tail winds around you and snatches you in its coils!"))
+										//target.mob_pickup_micro_feet(user)
+										SEND_SIGNAL(target, COMSIG_MICRO_PICKUP_FEET, user)
+									else
+										target.visible_message(span_danger("[user] stomps down on [target], curling their toes and picking them up!"), span_userdanger("[user]'s toes pin you down and curl around you, picking you up!"))
+
+									SEND_SIGNAL(target, COMSIG_MICRO_PICKUP_FEET, user)
+									return TRUE
+
+							return FALSE
 						now_pushing = 0
 						user.forceMove(target.loc)
 						user.sizediffStamLoss(target)

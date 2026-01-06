@@ -22,28 +22,27 @@
 
 /datum/interaction/lewd/nipsuck/act(mob/living/user, mob/living/target)
 	var/list/original_messages = message.Copy()
-
+	var/shift = user.interaction_shift_pressed
+	var/disable_text = list("playfully nibbles %TARGET%'s nipple.","teasingly sucks %TARGET%'s nipple.","gently bites %TARGET%'s nipple.")
+	var/grab_text = list("sucks %TARGET%'s nipple intently.","feasts on %TARGET%'s nipple.","glomps %TARGET%'s nipple.")
 	// Handle different intents
 	switch(resolve_intent_name(user.combat_mode))
 		if("harm")
-			message = list(
-				"bites %TARGET%'s nipple.",
-				"aggressively sucks %TARGET%'s nipple."
-			)
-			target_pleasure = 4 // Aggressive sucking has higher rewards
-			target_arousal = 5
+			if(shift)
+				message = grab_text
+				target_pleasure = 4 // Intent sucking has higher rewards
+				target_arousal = 5
+			else
+				message = list("bites %TARGET%'s nipple.","aggressively sucks %TARGET%'s nipple.")
+				target_pleasure = 4 // Aggressive sucking has higher rewards
+				target_arousal = 5
+		if("help")
+			if(shift)
+				message = disable_text
 		if("disarm")
-			message = list(
-				"playfully nibbles %TARGET%'s nipple.",
-				"teasingly sucks %TARGET%'s nipple.",
-				"gently bites %TARGET%'s nipple."
-			)
+			message = disable_text
 		if("grab")
-			message = list(
-				"sucks %TARGET%'s nipple intently.",
-				"feasts on %TARGET%'s nipple.",
-				"glomps %TARGET%'s nipple."
-			)
+			message = grab_text
 			target_pleasure = 4 // Intent sucking has higher rewards
 			target_arousal = 5
 	. = ..()
