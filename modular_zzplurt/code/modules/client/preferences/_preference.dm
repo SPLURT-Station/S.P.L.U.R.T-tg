@@ -9,6 +9,6 @@
 
 /datum/preference/toggle/intents
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	default_value = FALSE
+	default_value = TRUE
 	savefile_key = "intents"
 	savefile_identifier = PREFERENCE_PLAYER
