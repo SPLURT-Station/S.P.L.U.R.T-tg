@@ -61,7 +61,7 @@
 /datum/keybinding/human/interaction_shift/can_use(client/user)
 	if(!..())
 		return FALSE
-	if(!user || user.prefs?.read_preference(/datum/preference/toggle/intents) == FALSE)
+	if(!user || user.prefs?.read_preference(/datum/preference/toggle/intents) == TRUE)
 		return FALSE
 	return TRUE
 
