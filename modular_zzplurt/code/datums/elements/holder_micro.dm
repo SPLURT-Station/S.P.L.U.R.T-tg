@@ -54,9 +54,9 @@
 	return
 
 /datum/element/mob_holder/micro/proc/mob_try_pickup_micro(mob/living/carbon/source, mob/living/carbon/user)
-	if(!(resolve_intent_name(user) == "grab"))
-		return FALSE
 	if(!ishuman(user) || !user.Adjacent(source) || user.incapacitated)
+		return FALSE
+	if(!(resolve_intent_name(user) == "grab"))
 		return FALSE
 	if(source == user)
 		to_chat(user, span_warning("You can't pick yourself up."))

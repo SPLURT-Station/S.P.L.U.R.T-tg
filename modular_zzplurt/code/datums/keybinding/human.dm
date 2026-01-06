@@ -67,7 +67,8 @@
 
 /mob/living/carbon/human/Initialize()
 	. = ..()
-	RegisterSignal(src, COMSIG_KB_HUMAN_INTERACTION_SHIFT, PROC_REF(kb_interaction_shift))
+	RegisterSignal(src, COMSIG_KB_HUMAN_INTERACTION_SHIFT, PROC_REF(kb_interaction_shift_down))
+	RegisterSignal(src, DEACTIVATE_KEYBIND(COMSIG_KB_HUMAN_INTERACTION_SHIFT), PROC_REF(kb_interaction_shift_up))
 
 /mob/living
 	var/tmp/interaction_shift_pressed = FALSE
@@ -76,6 +77,16 @@
 	SIGNAL_HANDLER
 	interaction_shift_pressed = !!down
 	return TRUE
+
+/mob/living/carbon/human/proc/kb_interaction_shift_down(datum/source, turf/target)
+	SIGNAL_HANDLER
+	interaction_shift_pressed = TRUE
+	return COMSIG_KB_ACTIVATED
+
+/mob/living/carbon/human/proc/kb_interaction_shift_up(datum/source, turf/target)
+	SIGNAL_HANDLER
+	interaction_shift_pressed = FALSE
+	return NONE
 
 /datum/keybinding/living/disable_combat_mode/can_use(client/user)
 	return ..() && !ishuman(user.mob)
