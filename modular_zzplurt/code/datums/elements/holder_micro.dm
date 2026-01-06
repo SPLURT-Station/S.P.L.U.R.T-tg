@@ -54,9 +54,7 @@
 	return
 
 /datum/element/mob_holder/micro/proc/mob_try_pickup_micro(mob/living/carbon/source, mob/living/carbon/user)
-	var/intent = resolve_intent_name(user.combat_mode)
-	var/shift = user.interaction_shift_pressed
-	if(!(intent == "grab" || (intent == "harm" && shift)))
+	if(!(resolve_intent_name(user.combat_mode) == "grab"))
 		return FALSE
 	if(!ishuman(user) || !user.Adjacent(source) || user.incapacitated)
 		return FALSE
@@ -174,23 +172,12 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/mob/living/carbon/human/M = held_mob
-	var/shift = user.interaction_shift_pressed
 	if(istype(M))
 		switch(resolve_intent_name(user.combat_mode))
 			if("harm") //TO:DO, rework all of these interactions to be a lot more in depth
-				if(shift)
-					visible_message(span_danger("[user] squeezes their fist around [M]!"))
-					playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, 1)
-					M.adjustOxyLoss(5)
-				else
-					visible_message(span_danger("[user] slams their fist down on [M]!"))
-					playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)
-					M.adjustBruteLoss(5)
-			if("help")
-				if(shift)
-					visible_message(span_danger("[user] pins [M] down with a finger!"))
-					playsound(loc, 'sound/effects/bodyfall/bodyfall1.ogg', 50, 1)
-					M.adjustStaminaLoss(10)
+				visible_message(span_danger("[user] slams their fist down on [M]!"))
+				playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)
+				M.adjustBruteLoss(5)
 			if("disarm")
 				visible_message(span_danger("[user] pins [M] down with a finger!"))
 				playsound(loc, 'sound/effects/bodyfall/bodyfall1.ogg', 50, 1)

@@ -90,28 +90,31 @@
 		return
 
 	// Handle different intents
-	var/shift = user.interaction_shift_pressed
-	var/grab_text = list("firmly grips %TARGET%'s breasts.","possessively gropes %TARGET%'s breasts.","eagerly kneads %TARGET%'s breasts.","roughly fondles %TARGET%'s breasts.","greedily squeezes %TARGET%'s breasts.")
-	var/disable_text = list("playfully bats at %TARGET%'s breasts.","teasingly gropes %TARGET%'s breasts.","playfully squeezes %TARGET%'s breasts.","mischievously fondles %TARGET%'s breasts.","impishly teases %TARGET%'s nipples.")
 	switch(resolve_intent_name(user.combat_mode))
 		if("harm")
-			if(shift)
-				message = grab_text
-			else
-				message = list(
-					"aggressively gropes %TARGET%'s breast.",
-					"grabs %TARGET%'s breasts.",
-					"tightly squeezes %TARGET%'s breasts.",
-					"slaps at %TARGET%'s breasts.",
-					"gropes %TARGET%'s breasts roughly."
-				)
-		if("help")
-			if(shift)
-				message = disable_text
+			message = list(
+				"aggressively gropes %TARGET%'s breast.",
+				"grabs %TARGET%'s breasts.",
+				"tightly squeezes %TARGET%'s breasts.",
+				"slaps at %TARGET%'s breasts.",
+				"gropes %TARGET%'s breasts roughly."
+			)
 		if("disarm")
-			message = disable_text
+			message = list(
+				"playfully bats at %TARGET%'s breasts.",
+				"teasingly gropes %TARGET%'s breasts.",
+				"playfully squeezes %TARGET%'s breasts.",
+				"mischievously fondles %TARGET%'s breasts.",
+				"impishly teases %TARGET%'s nipples."
+			)
 		if("grab")
-			message = grab_text
+			message = list(
+				"firmly grips %TARGET%'s breasts.",
+				"possessively gropes %TARGET%'s breasts.",
+				"eagerly kneads %TARGET%'s breasts.",
+				"roughly fondles %TARGET%'s breasts.",
+				"greedily squeezes %TARGET%'s breasts."
+			)
 	. = ..()
 	message = original_messages
 

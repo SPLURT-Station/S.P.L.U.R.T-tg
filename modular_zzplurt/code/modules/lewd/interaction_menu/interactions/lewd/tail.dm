@@ -29,16 +29,11 @@
 	user_arousal = 0
 	user_pleasure = 4
 	user_pain = 0
-	var/shift = user.interaction_shift_pressed
+
 	// Select appropriate message text based on user's current intent
 	switch(resolve_intent_name(user.combat_mode))
 		if("help")
-			if(shift)
-				message = islist(grab_text) ? pick(grab_text) : grab_text
-				target_arousal += 3
-				target_pleasure += 2
-			else
-				message = islist(help_text) ? pick(help_text) : help_text
+			message = islist(help_text) ? pick(help_text) : help_text
 		if("grab", "disarm")
 			message = islist(grab_text) ? pick(grab_text) : grab_text
 			target_arousal += 3
