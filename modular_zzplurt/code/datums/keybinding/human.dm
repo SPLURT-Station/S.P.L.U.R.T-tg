@@ -65,10 +65,15 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/Initialize()
-	. = ..()
+/mob/living/carbon/human/Initialize(mapload)
+	. = ..(mapload)
 	RegisterSignal(src, COMSIG_KB_HUMAN_INTERACTION_SHIFT, PROC_REF(kb_interaction_shift_down))
 	RegisterSignal(src, DEACTIVATE_KEYBIND(COMSIG_KB_HUMAN_INTERACTION_SHIFT), PROC_REF(kb_interaction_shift_up))
+
+/mob/living/carbon/human/Destroy()
+	UnregisterSignal(src, COMSIG_KB_HUMAN_INTERACTION_SHIFT)
+	UnregisterSignal(src, DEACTIVATE_KEYBIND(COMSIG_KB_HUMAN_INTERACTION_SHIFT))
+	return ..()
 
 /mob/living
 	var/tmp/interaction_shift_pressed = FALSE
