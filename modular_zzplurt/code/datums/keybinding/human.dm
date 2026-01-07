@@ -55,6 +55,7 @@
 /datum/keybinding/human/interaction_shift
 	name = "interaction_shift"
 	full_name = "Shift interactions"
+	description = "Hold to modify your intent when using ERP mechanics. Help becomes Disarm, Harm becomes Grab."
 	hotkey_keys = list("Shift")
 	keybind_signal = COMSIG_KB_HUMAN_INTERACTION_SHIFT
 
