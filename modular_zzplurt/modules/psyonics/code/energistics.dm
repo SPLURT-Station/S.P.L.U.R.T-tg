@@ -199,5 +199,5 @@
 	target.apply_status_effect(/datum/status_effect/freon/watcher/psyonic_freeze)
 
 /datum/status_effect/freon/watcher/psyonic_freeze
-	duration = 4 // 4 seconds instead of 8
+	duration = 40 // deciseconds
 	can_melt = TRUE
