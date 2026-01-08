@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define HIJACK_MIN_PLAYERS 30
 
 /// Chance the traitor gets a martyr objective instead of having to escape alive, as long as all the objectives are martyr compatible.
-#define MARTYR_PROB 20
+#define MARTYR_PROB 0 //SPLURT EDIT - No more martyr objectives, from 20 > 0
 
 /// Chance the traitor gets a kill objective. If this prob fails, they will get a steal objective instead.
 #define KILL_PROB 50
