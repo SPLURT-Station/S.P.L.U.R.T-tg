@@ -359,7 +359,7 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 // Progression traitor defines
 
 /// Chance that the traitor could roll hijack if the pop limit is met.
-#define HIJACK_PROB 10
+#define HIJACK_PROB 0 //SPLURT EDIT - No more hijack, from 10 > 0
 /// Hijack is unavailable as a random objective below this player count.
 #define HIJACK_MIN_PLAYERS 30
 
