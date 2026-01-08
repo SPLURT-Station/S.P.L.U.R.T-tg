@@ -371,7 +371,7 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 /// If a kill objective is rolled, chance that it is to destroy the AI.
 #define DESTROY_AI_PROB(denominator) (100 / denominator)
 /// If the destroy AI objective doesn't roll, chance that we'll get a maroon instead. If this prob fails, they will get a generic assassinate objective instead.
-#define MAROON_PROB 30
+#define MAROON_PROB 0 // SPLURT EDIT - No more maroon objectives, from 30 > 0
 /// Probability that any job related objective is picked
 #define JOB_PROB 40
 
