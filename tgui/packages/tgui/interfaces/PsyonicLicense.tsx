@@ -33,11 +33,7 @@ export const PsyonicLicense = (props) => {
             <Icon height="100%" fontSize="50px" name="flushed" color="cyan" />
           </Stack.Item>
           <Stack.Item width="500px">
-            <Section
-              textAlign="center"
-              title="ЛИЦЕНЗИЯ ПОЛЬЗОВАТЕЛЯ ПСИОНИКИ"
-              italic
-            >
+            <Section textAlign="center" title="PSYCASTER LICENCE" italic>
               {'Мы всегда наблюдаем'}
             </Section>
           </Stack.Item>

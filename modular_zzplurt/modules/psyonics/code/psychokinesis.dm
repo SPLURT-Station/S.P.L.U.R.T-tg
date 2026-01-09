@@ -1,13 +1,13 @@
-/// Школа психокинетики
+/// Psychokinesis school
 /// Имеет 6 спеллов.
-/// Psi lighter - создаёт миниатюрный огонёк на кончиках пальцев. Работает как зажигалка.
-/// Psi blade - создаёт в руке пси-клинок. Урон увеличивается в зависимости от уровня.
-/// Psi tool - создаёт в руке универсальный инструмент.
-/// Tinker - чинит integrity чего бы то ни было.
-/// Psyforce - даёт "клешни жизни" для вскрытия дверей
-/// Telekinesis - даёт мутацию телекинеза.
+/// Psy-lighter - spawns a lighter in hand
+/// Psy-blade - creates a psy-blade in hand, damage scales with psyonics power
+/// Psy-tool - spawns omnitool in hand
+/// Tinker - repairs integrity of whatever we touch
+/// Psyforce - grants jaws of life for prying doors open
+/// Telekinesis - grants the telekinesis gene
 
-// Добавляет школу психокинетики
+// Adds in the psychokinesis school
 /mob/living/carbon/human/proc/try_add_psychokinesis_school(tier = 0, additional_school = 0)
 	if(tier >= 0)
 		var/datum/action/new_action = new /datum/action/cooldown/spell/conjure_item/psyonic/psilighter(src.mind || src, tier, additional_school)
@@ -27,9 +27,9 @@
 		var/datum/action/new_action = new /datum/action/cooldown/spell/psyonic/psionic_telekinesis(src.mind || src, tier, additional_school)
 		new_action.Grant(src)
 
-// Спавнит зажигалку в руке. Очень полезно
+// Spawns a lighter, so handy
 /datum/action/cooldown/spell/conjure_item/psyonic/psilighter
-	name = "Psi lighter"
+	name = "Psy-lighter"
 	desc = "Concentrates psyonic energy to create a small flame in your hand."
 	button_icon = 'icons/obj/cigarettes.dmi'
 	button_icon_state = "match_lit"
@@ -38,9 +38,9 @@
 	mana_cost = 5
 	stamina_cost = 0
 
-// Спавнит пси-клинок в руке. Сила зависит от уровня псионика
+// Spawns a psyblade in the caster's hand, damage scales with the psy level
 /datum/action/cooldown/spell/conjure_item/psyonic/psiblade
-	name = "Psi blade"
+	name = "Psy-blade"
 	desc = "Concentrates psyonic energy to create a sharp blade in your hand."
 	button_icon = 'icons/obj/weapons/transforming_energy.dmi'
 	button_icon_state = "blade"
@@ -49,9 +49,9 @@
 	mana_cost = 40
 	stamina_cost = 0
 
-// Спавнит омни инструмент в руке псионика. Аналог абдукторского
+// Spawns an abductor omnitool analogue in the caster's hand
 /datum/action/cooldown/spell/conjure_item/psyonic/psitool
-	name = "Psi tool"
+	name = "Psy-tool"
 	desc = "Concentrates psyonic energy to create a universal tool."
 	button_icon = 'icons/obj/antags/abductor.dmi'
 	button_icon_state = "omnitool"
@@ -74,7 +74,7 @@
 
 // jaws of life analogue
 /datum/action/cooldown/spell/touch/psyonic/psyonic_force
-	name = "Psyonic Force"
+	name = "Prying Psyonic Force"
 	desc = "Concentrates psyonic energy to force a door open."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "knock"
@@ -127,7 +127,7 @@
 			door_to_force.prying_so_hard = FALSE
 			return
 
-// Grants telekinsesis mutation
+// Grants the telekinsesis mutation
 /datum/action/cooldown/spell/psyonic/psionic_telekinesis
 	name = "Telekinesis"
 	desc = "Force yourself to recieve telekinesis mutation."

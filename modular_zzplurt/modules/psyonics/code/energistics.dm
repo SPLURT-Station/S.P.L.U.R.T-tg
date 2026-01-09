@@ -1,10 +1,12 @@
 /// Energistics school. 6 spells
 /// Spark - creates sparks at the chosen location
 /// Discharge - grants mana in exchange for discharging a battery cell/APC
-/// Laser - shoots out a concentrated, though still weak photon beam.
+/// Laser - shoots out a concentrated photon beam (flash, no damage).
 /// Disrupt - creates an EMP blast with extremely small radius.
 /// Elecrocute - grants the shock touch mutation
-/// Freeze - encapsulates the target in ice for a short amount of time.
+/// Freeze - encapsulates the target in an ice block for a short amount of time.
+
+/// IDEA - add in a peacekeeper borg dampener shield spell that would sustain itself in exchange for mana to make the discharge more useful
 
 // Add the energistics school
 /mob/living/carbon/human/proc/try_add_energistics_school(tier = 0, additional_school = 0)

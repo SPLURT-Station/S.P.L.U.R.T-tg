@@ -222,7 +222,7 @@
 
 	to_chat(owner, boxed_message(span_infoplain(text_to_show)))
 
-// Returns a hit about target's job
+// Returns a hint about target's job
 /datum/action/cooldown/spell/touch/psyonic/psyonic_mind_read/proc/get_job_fluff(mob/living/carbon/human/patient)
 	var/datum/mind/mind_to_read = patient.mind
 	var/datum/job/patient_job = mind_to_read.assigned_role
@@ -325,7 +325,7 @@
 	if(!trait_check)
 		patient.Knockdown((cast_power/2) SECONDS)
 
-// Stuns for half a second and forces to drop items from hands
+// Stuns for a short time and forces to drop items from hands
 /datum/action/cooldown/spell/pointed/psyonic/psyonic_spasm
 	name = "Psyonic Spasm"
 	desc = "Activate neurons in the target's mucles, briefly stunning them and forcing to drop everything in their hands. Can be cast over distance. Silent."
@@ -372,7 +372,7 @@
 	cast_on.Stun(0.2 SECONDS * cast_power)
 
 /**
- * Hypnotizes the target with a braintrauma
+ * Hypnotizes target with the braintrauma
  *
  * Conditions:
  * * 30 seconds of preparation

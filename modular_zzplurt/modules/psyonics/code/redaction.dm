@@ -1,14 +1,14 @@
 #define HALFWAYCRITDEATH ((HEALTH_THRESHOLD_CRIT + HEALTH_THRESHOLD_DEAD) * 0.5)
 
-/// Школа лечения
-/// Имеет 5 спеллов в данный момент
-/// Roentgen - обычный мед скан, работающий на дистанции
-/// Меnding - лечит кровь, открытые раны и окси урон. Также удаляет импланты/ксеноморфов из тела при определённых условиях.
-/// Ethanol Synthesis - если интент на харма, то "превращает" упитанность в алкоголь на дистанции. Любой другой - наоборот.
-/// Cleansing - лечит токс урон
-/// Revive - пытается оживить труп
+/// Redaction school, aka healing
+/// Has 5 spells in it at the moment, probably the most underwhelming school among all
+/// Roentgen - normal health analyzer that works on distance
+/// Меnding - Restores blood, tends wounds, heals OXY. Can remove implants/xenomorph larva under certain conditions
+/// Ethanol Synthesis - if on harm intent, converts fat into alcohol inside of target on distance. Any other intent converts the other way.
+/// Cleansing - heals TOX damage
+/// Revive - attempts to revive the target
 
-// Выдать школу лечения
+// Grants the redaction school
 /mob/living/carbon/human/proc/try_add_redaction_school(tier = 0, additional_school = 0)
 	if(tier >= 0)
 		var/datum/action/new_action = new /datum/action/cooldown/spell/pointed/psyonic/psyonic_roentgen(src.mind || src, tier, additional_school)
@@ -26,7 +26,7 @@
 		var/datum/action/new_action = new /datum/action/cooldown/spell/touch/psyonic/psyonic_revival(src.mind || src, tier, additional_school)
 		new_action.Grant(src)
 
-// Мед сканер на расстоянии
+// Long-range health analyzer
 /datum/action/cooldown/spell/pointed/psyonic/psyonic_roentgen
 	name = "Roentgen"
 	desc = "Try to read target's vital energy and determine their state."
@@ -76,8 +76,8 @@
 	light_color = LIGHT_COLOR_LIGHT_CYAN
 	light_on = TRUE
 
-// Восстанавливает кровь, окси урон, открытые травмы. Не лечит другие типы урона. Если вторичка - психокинетика, то вынимает импланты.
-// Если уровень Эпсилон - удаляет лярвы ксеноморфов.
+// Restores blood, OXY damage, traumas/wounds. Doesn't heal any other types of damage. If psychokinesis is chosen as secondary school, it's also able to take implants out.
+// If has Epsilon psyonics level - can remove xenomorph larva
 /datum/action/cooldown/spell/touch/psyonic/psyonic_mending
 	name = "Psyonic Mending"
 	desc = "You can try to restore patients bloodloss, bones, open wounds and partially oxygen level in blood. Does not heal brute, burn, \
@@ -117,7 +117,7 @@
 
 /datum/action/cooldown/spell/touch/psyonic/psyonic_mending/proc/try_heal_all(mob/living/carbon/human/patient)
 	if(patient.blood_volume < BLOOD_VOLUME_NORMAL)
-		patient.blood_volume += ((BLOOD_VOLUME_NORMAL - patient.blood_volume) / 5) * cast_power // Эффективнее когда крови мало
+		patient.blood_volume += ((BLOOD_VOLUME_NORMAL - patient.blood_volume) / 5) * cast_power // More effectife if there's less blood
 
 	if(patient.all_wounds)
 		var/datum/wound/wound2fix = patient.all_wounds[1]
@@ -127,7 +127,7 @@
 	if(patient.get_oxy_loss() >= OXYLOSS_PASSOUT_THRESHOLD-10)
 		patient.adjust_oxy_loss(-cast_power*5, forced = TRUE)
 
-	if(patient.implants && secondary_school == "Psychokinesis" && cast_power >= 2) // Невольно удаляет импланты, если есть
+	if(patient.implants && secondary_school == "Psychokinesis" && cast_power >= 2) // Removes implants if there are any
 		var/obj/item/implant/imp_2_del = pick(patient.implants)
 		var/atom/drop_loc = imp_2_del.drop_location()
 		imp_2_del.removed(patient)
@@ -138,13 +138,13 @@
 									span_danger("You feel implant inside you starts to move and rips itself out! The resulting wound quickly closes itself though."),
 								)
 
-	if(patient.get_organ_slot("parasite_egg") && cast_power >=4) // Удаляем ксеноморфов
+	if(patient.get_organ_slot("parasite_egg") && cast_power >=4) // Removing xenolarva
 		var/obj/item/organ/body_egg/parasite = patient.get_organ_slot("parasite_egg")
 		parasite.owner.vomit(VOMIT_CATEGORY_BLOOD | MOB_VOMIT_KNOCKDOWN | MOB_VOMIT_HARM)
 		parasite.owner.visible_message(
-										span_warning("[patient] twitches, gags and vomits a living creqture with blood! Gross!"),
+										span_warning("[patient] twitches, gags and vomits a living creature with their blood!"),
 										span_bolddanger("Suddenly you feel sharp pain in your chest, then something starts moving up your throat. \
-														Before you can react somethign slips past your lips with a mix of vomit and blood!"),
+														Before you can react something slips past your lips with a mix of vomit and blood!"),
 									  )
 		var/atom/drop_loc = parasite.drop_location()
 		parasite.Remove(parasite.owner)
@@ -165,7 +165,7 @@
 	if(!ishuman(cast_on))
 		return FALSE
 	if(issynthetic(cast_on) )
-		to_chat(owner, span_notice("It's a synth. What am I supposed to convert? Oil?"))
+		to_chat(owner, span_notice("It's a synth, there's nothing to convert."))
 		return FALSE
 	return TRUE
 
@@ -175,7 +175,7 @@
 	drain_mana()
 	return TRUE
 
-/// С каждым тиком конвертируем или жир в алкоголь, или алкоголь в жир
+/// With each tick convert fat into alcohol or alcohol into fat
 /datum/status_effect/psyonic_fat_conversion
 	id = "psyonic_fat_conversion"
 	alert_type = null
@@ -191,16 +191,16 @@
 	var/mob/living/carbon/human/human_owner = owner
 	var/fat = human_owner.nutrition
 	var/drunk = human_owner.get_drunk_amount()
-	if(eth2fat && !drunk) // если нет алкашки, то и конвертировать нечего
+	if(eth2fat && !drunk) // if there's no alcohol then there's nothing to convert
 		return
-	if(eth2fat) // алкашку в жир
+	if(eth2fat) // alcohol to fat
 		human_owner.adjust_drunk_effect(-(drunk/6))
 		human_owner.adjust_nutrition(drunk)
-	if(!eth2fat && fat) // жир в алкашку. За 25 тиков полностью обезжирим человека!
+	if(!eth2fat && fat) // fat to alcohol, 25 ticks to completely de-fat the target
 		human_owner.adjust_drunk_effect(fat/125)
 		human_owner.adjust_nutrition(-(fat/25))
 
-// Лечит токс урон.
+// heals TOX damage
 /datum/action/cooldown/spell/touch/psyonic/psyonic_cleansing
 	name = "Psyonic Cleansing"
 	desc = "Filters patient blood out of toxins and removes accumulated radiation."
@@ -220,10 +220,10 @@
 	if(ishuman(victim))
 		var/mob/living/carbon/human/human_victim = victim
 		if(issynthetic(human_victim) && secondary_school != "Psychokinesis")
-			to_chat(owner, span_notice("I dont know how to work with synths. Why would I even try to? They dont have toxins."))
+			to_chat(owner, span_notice("I don't know how to work with synths."))
 			return FALSE
 		if(human_victim.can_block_magic(antimagic_flags))
-			to_chat(human_victim, span_notice("Psionic nearby tries to cleanse you."))
+			to_chat(human_victim, span_notice("A psyonic nearby tries to cleanse you."))
 		else
 			to_chat(human_victim, span_warning(target_msg))
 		if(!do_after(mendicant, 5 SECONDS, human_victim, IGNORE_SLOWDOWNS, TRUE))
@@ -243,16 +243,16 @@
 		patient.adjust_tox_loss(clamp(-(patient.get_tox_loss()/3)*cast_power, -35, 0), forced = TRUE)
 
 /**
- * Пытается оживить труп
+ * Attempts to revitalize a corpse
  *
- * Логика прока:
- * 1. Смотрит есть ли причина по которой нельзя дефибнуть, пытается её устранить
- * 2. Если не удалось устранить - не оживляет
- * 3. Если удалось устранить причину - проверяет можно ли дефибнуть снова. Если появилась другая - не оживляет. Всё ок - оживляет.
+ * Proc logics:
+ * 1. Checks if there's a reason for which it can't defib, tries to fix it
+ * 2. If wasn't able to fix the reason - can't revitalize
+ * 3. If was able to fix the reason - checks if it's possible to defib again. If another appeared - doesn't defib. If everything is fine - defibs.
  */
 /datum/action/cooldown/spell/touch/psyonic/psyonic_revival
 	name = "Psyonic Revival"
-	desc = "Ability to trick death itself. Call for the bodys soul in the other realm in attempt to restore its vessel condition to an... acceptable levels."
+	desc = "Attempt to trick death itself. Call for the body's soul in the other realm in attempt to restore its vessel's condition to acceptable levels."
 	button_icon = 'modular_zzplurt/modules/psyonics/icons/actions.dmi'
 	button_icon_state = "revive"
 	cooldown_time = 3 SECONDS
@@ -274,7 +274,7 @@
 								get disturbed, or else..."))
 			var/obj/effect/abstract/particle_holder/particle_effect = new(human_victim, /particles/droplets/psyonic)
 			if(!do_after(mendicant, 25 SECONDS, human_victim, IGNORE_SLOWDOWNS, TRUE))
-				accident_harm(owner) // Ауч. Больно бьёт по псионику
+				accident_harm(owner) // hurts the psyonic if moved
 			else
 				try_heal_all(human_victim)
 			if(particle_effect)
@@ -289,12 +289,12 @@
 	else
 		return FALSE
 
-// 25 токса + 50 брута + 1 травма + позор роду псионическому
+// 25 TOX + 50 brute + 1 trauma + shame on you
 /datum/action/cooldown/spell/touch/psyonic/psyonic_revival/proc/accident_harm(mob/living/carbon/human/unlucky_guy)
 	unlucky_guy.apply_damage(25, TOX, BODY_ZONE_CHEST)
 	unlucky_guy.take_bodypart_damage(25, wound_bonus = 100)
 	unlucky_guy.take_bodypart_damage(25, wound_bonus = 100, sharpness = SHARP_EDGED)
-	unlucky_guy.visible_message(span_warning("Something inside of [unlucky_guy]s body cracks!"),
+	unlucky_guy.visible_message(span_warning("Something inside of [unlucky_guy]'s body cracks!"),
 						  span_bolddanger("Your revival energy backfired at you, causing severe injuries!"),
 						  blind_message = span_hear("You hear bones breaking."))
 
@@ -304,9 +304,9 @@
 	var/synth_check = (secondary_school == "Psychokinesis")
 	switch (defib_result)
 		if (DEFIB_FAIL_SUICIDE)
-			fail_reason = "Patient has left this world on their terms. You can not restore them."
+			fail_reason = "Patient has left this world on their own terms. You can not restore them."
 		if (DEFIB_FAIL_NO_HEART)
-			fail_reason = "Patient's heart is missing and you are not Alpha tier to create it out of air."
+			fail_reason = "Patient's heart is missing and you're not able to create it out of air."
 		if (DEFIB_FAIL_FAILING_HEART)
 			var/obj/item/organ/heart/target_heart = patient.get_organ_slot(ORGAN_SLOT_HEART)
 			if(target_heart)
@@ -319,11 +319,11 @@
 			patient.adjust_brute_loss(patient.get_brute_loss()/2)
 			patient.adjust_fire_loss(patient.get_fire_loss()/2)
 			if ((patient.get_brute_loss() >= MAX_REVIVE_BRUTE_DAMAGE) || (patient.get_fire_loss() >= MAX_REVIVE_FIRE_DAMAGE))
-				fail_reason = "Patient's body is too flimsy to support life, but your energy partially healed that. Maybe try again?"
+				fail_reason = "Patient's body is too flimsy to support life, but your energy partially healed that. You can try again..."
 		if (DEFIB_FAIL_HUSK)
 			patient.cure_husk()
 			if(HAS_TRAIT(patient, TRAIT_HUSK))
-				fail_reason = "Patient's body is a mere husk, and you cannot cure them."
+				fail_reason = "Patient's body is a mere husk, and you cannot revive them."
 		if (DEFIB_FAIL_FAILING_BRAIN)
 			var/obj/item/organ/brain/target_brain = patient.get_organ_slot(ORGAN_SLOT_BRAIN)
 			if(target_brain)
