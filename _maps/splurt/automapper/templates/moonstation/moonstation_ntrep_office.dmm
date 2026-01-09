@@ -24,21 +24,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/filingcabinet/medical{
-	pixel_x = -10;
-	icon_state = "employmentcabinet";
-	name = "medical records filing cabinet"
-	},
-/obj/structure/filingcabinet/employment{
-	name = "employment forms filing cabinet"
-	},
-/obj/structure/filingcabinet/security{
-	pixel_x = 10;
-	icon_state = "employmentcabinet";
-	name = "security records filing cabinet"
-	},
 /obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
@@ -72,11 +60,23 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/hedge,
 /obj/machinery/button/door/directional/north{
 	pixel_x = -5;
 	id = "nt_rep_priv";
 	name = "Privacy Shutters Control"
+	},
+/obj/structure/filingcabinet/security{
+	pixel_x = 10;
+	icon_state = "employmentcabinet";
+	name = "security records filing cabinet"
+	},
+/obj/structure/filingcabinet/employment{
+	name = "employment forms filing cabinet"
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = -10;
+	icon_state = "employmentcabinet";
+	name = "medical records filing cabinet"
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -249,7 +249,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/autoname/directional/west,
-/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /obj/structure/sign/flag/nanotrasen/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)

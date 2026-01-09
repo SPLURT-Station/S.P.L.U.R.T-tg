@@ -170,15 +170,15 @@
 	name = "Nanotrasen Consultant"
 	jobtype = /datum/job/nanotrasen_consultant
 
-	belt = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
+	belt = /obj/item/gun/energy/e_gun/asterion
 	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
 	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
-	suit_store = /obj/item/gun/energy/e_gun/asterion
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/hats/nanotrasen_cap
+	r_pocket = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic/silver = 1,
 		)
