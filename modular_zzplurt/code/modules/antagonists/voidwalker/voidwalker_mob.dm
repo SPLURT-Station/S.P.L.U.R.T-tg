@@ -12,8 +12,8 @@
 	melee_damage_lower = 16 // SPLURT change, increased to 16 from 12
 	melee_damage_upper = 22 // SPLURT change, increased to 22 from 15
 
-	var/kidnap_time = 5 SECONDS // SPLURT change, decreased to 5 seconds from 6 seconds
+	kidnap_time = 5 SECONDS // SPLURT change, decreased to 5 seconds from 6 seconds
 
-/mob/living/basic/voidwalker/proc/try_convert_wall(turf/closed/wall/our_wall)
+/mob/living/basic/voidwalker/try_convert_wall(turf/closed/wall/our_wall)
 
 	COOLDOWN_START(src, wall_conversion, 30 SECONDS) // SPLURT change, let there be walls (reduced to 30 seconds from 60 seconds)

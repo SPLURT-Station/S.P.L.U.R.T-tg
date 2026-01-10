@@ -10,9 +10,9 @@
 
 	obj_damage = 38 // SPLURT change, decreased to 38 from 50
 
-	var/hotspot_temperature = 750 // SPLURT change, decreased to 750 from 1000
+	hotspot_temperature = 750 // SPLURT change, decreased to 750 from 1000
 	/// Gas volume passively exposed to our temperature
-	var/hotspot_volume = 50 // SPLURT change, decreased to 50 from 100
+	hotspot_volume = 50 // SPLURT change, decreased to 50 from 100
 
 	/// Water damage we take on any exposure
-	var/water_damage = 25 // SPLURT change, increased to 25 from 20
+	water_damage = 25 // SPLURT change, increased to 25 from 20
