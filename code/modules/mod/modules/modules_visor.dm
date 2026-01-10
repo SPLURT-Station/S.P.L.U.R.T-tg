@@ -43,7 +43,7 @@
 //Security Visor - Gives you a security HUD.
 /obj/item/mod/module/visor/sechud
 	name = "MOD security visor module"
-	desc = "A heads-up display installed into the visor of the suit. This module is a heavily-retrofitted targeting system, \
+	desc = "A heads-up display installed into the visor of the suit. This moit dule is a heavily-retrofitted targeting system, \
 		plugged into various criminal databases to be able to view arrest records, command simple security-oriented robots, \
 		and generally know who to shoot. They say these also let you see behind you."
 	icon_state = "sechud_visor"
@@ -57,6 +57,7 @@
 		through walls, regardless of lighting conditions. They say these also let you see behind you."
 	icon_state = "meson_visor"
 	visor_traits = list(TRAIT_MESON_VISION, TRAIT_MADNESS_IMMUNE)
+	complexity = 0 //SPLURT EDIT ADDITION - Shouldn't cost complexity, primarily for miners which already are tight on complexity.
 
 //Thermal Visor - Gives you thermal vision.
 /obj/item/mod/module/visor/thermal

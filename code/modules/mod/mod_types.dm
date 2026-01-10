@@ -134,6 +134,7 @@
 		/obj/item/mod/module/drill,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/mouthhole,
+		/obj/item/mod/module/visor/meson, // SPLURT EDIT ADDITION - Meson Visor for miner modsuits
 	)
 	default_pins = list(
 		/obj/item/mod/module/gps,

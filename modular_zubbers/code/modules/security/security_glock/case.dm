@@ -5,6 +5,7 @@
 	new /obj/item/gun/ballistic/automatic/pistol/sec_glock(src)
 	new /obj/item/ammo_box/magazine/security(src)
 	new /obj/item/ammo_box/magazine/security(src)
+	new /obj/item/ammo_box/magazine/security/rubber(src) //SPLURT EDIT ADDITION - Rubber mags for murphy
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/hos_glock
 	name = "\improper 'Murphy' Service Pistol case"
@@ -13,3 +14,4 @@
 	new /obj/item/gun/ballistic/automatic/pistol/sec_glock(src)
 	new /obj/item/ammo_box/magazine/security(src)
 	new /obj/item/ammo_box/magazine/security(src)
+	new /obj/item/ammo_box/magazine/security/rubber(src) //SPLURT EDIT ADDITION - Rubber mags for murphy

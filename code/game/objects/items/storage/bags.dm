@@ -249,6 +249,7 @@
 	worn_icon_state = "plantbag"
 	resistance_flags = FLAMMABLE
 	storage_type = /datum/storage/bag/plants
+	w_class = WEIGHT_CLASS_NORMAL // SPLURT EDIT ADDITION - Fits in bags
 
 /obj/item/storage/bag/plants/portaseeder
 	name = "portable seed extractor"
