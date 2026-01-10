@@ -1,5 +1,5 @@
-#define SKRELL_BRUTE_MODIFIER 1.70
-#define SKRELL_BURN_MODIFIER 0.60
+#define SKRELL_BRUTE_MODIFIER 1.55 // SPLURT change: reduced from 2 to 1.55 to balance revert to 100 max HP
+#define SKRELL_BURN_MODIFIER 0.70 // SPLURT change: increased from 0.6 to 0.7 to balance revert to 100 max HP
 
 // Skrell!
 /obj/item/bodypart/head/mutant/skrell

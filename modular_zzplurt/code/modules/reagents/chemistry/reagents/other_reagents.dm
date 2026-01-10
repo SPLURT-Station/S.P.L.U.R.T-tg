@@ -27,14 +27,20 @@
 // Reagent metabolize: Holy Water
 /datum/reagent/water/holywater/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
-
 	SEND_SIGNAL(affected_mob, COMSIG_REAGENT_METABOLIZE_HOLYWATER)
+	affected_mob.AddComponent(/datum/component/anti_magic, antimagic_flags = MAGIC_RESISTANCE_HOLY, block_magic = CALLBACK(src, PROC_REF(drain_antimagic)))
 
 // Reagent end metabolize: Holy Water
 /datum/reagent/water/holywater/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-
 	SEND_SIGNAL(affected_mob, COMSIG_REAGENT_METABOLIZE_END_HOLYWATER)
+	qdel(affected_mob.GetComponent(/datum/component/anti_magic))
+
+/datum/reagent/water/holywater/proc/drain_antimagic(mob/living/user)
+	SIGNAL_HANDLER
+
+	user.reagents.remove_reagent(/datum/reagent/water/holywater, user.reagents.get_reagent_amount(/datum/reagent/water/holywater) / 3) // remove a third of the mob's holy water
+
 
 // Reagent process: Holy Water
 /datum/reagent/water/holywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)

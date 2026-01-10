@@ -1,4 +1,4 @@
-#define GHOUL_BRUTE_MODIFIER 2
+#define GHOUL_BRUTE_MODIFIER 2 
 #define GHOUL_BURN_MODIFIER 2
 
 // Ghouls!
