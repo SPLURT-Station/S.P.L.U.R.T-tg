@@ -42,12 +42,14 @@
 
 		affected_mob.update_worn_undersuit()
 
+		//SPLURT ADDITION START
 		breasts_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi', "none")
 		var/taur_mode = affected_human.get_taur_mode()
 		if(taur_mode & STYLE_TAUR_ALL)
 			breasts_overlay.pixel_w = 16 // align with taur variant shift in build_worn_icon
 		else
 			breasts_overlay.pixel_w = 0
+		//SPLURT ADDITION END
 
 		//Breasts overlay for catsuit
 		if(affected_breasts && affected_breasts.genital_size >= 6)
