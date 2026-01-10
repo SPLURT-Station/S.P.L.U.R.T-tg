@@ -13,15 +13,6 @@
 	var/murphy_eject_sound = 'sound/items/weapons/throwhard.ogg'
 	var/was_ejected = 0
 
-//SPLURT EDIT ADDITION - Rubber mags for murphy
-/obj/item/ammo_box/magazine/security/rubber
-	name = "pistol magazine (9mm Murphy Rubber)"
-	desc = "A 9mm handgun magazine, suitable for the Nanotrasen Service Pistol. It comes with rubber rounds for non-lethal takedowns."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/magazine.dmi'
-	icon_state = "9x19p"
-	ammo_type = /obj/item/ammo_casing/security/rubber
-//SPLURT EDIT ADDITION END
-
 /obj/item/ammo_box/magazine/security/rocket
 	name = "pistol magazine (9mm Murphy Rocket Eject)"
 	desc = parent_type::desc + "With a small charge inside that sparks on ejection, this one has less room for ammo and a lethal velocity to it's ejections."

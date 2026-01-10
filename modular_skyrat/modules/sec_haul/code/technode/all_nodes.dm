@@ -30,7 +30,6 @@
 	design_ids += "ammoworkbench_disk_lethal"
 	design_ids += "ammo_workbench"
 	design_ids += "m9mm_sec"
-	design_ids += "m9mm_sec_rubber" //SPLURT EDIT ADDITION - Rubber bullets for murphy
 
 /datum/techweb_node/sec_equip/New()
 	. = ..()
