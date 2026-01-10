@@ -6,7 +6,7 @@
 
 	health = 180 // SPLURT change, decreased to 180 from 200
 	maxHealth = 180 // SPLURT change, decreased to 180 from 200
-	damage_coeff = list(BRUTE = 2.2, BURN = 0.2, TOX = 0, STAMINA = 1, OXY = 0) // SPLURT change, they're the sun, why wouldn't they be near-immune to burn? + weakness to brute for balance
+	damage_coeff = list(BRUTE = 2, BURN = 0.25, TOX = 0, STAMINA = 1, OXY = 0) // SPLURT change, they're the sun, why wouldn't they be near-immune to burn? + weakness to brute for balance
 
 	obj_damage = 38 // SPLURT change, decreased to 38 from 50
 

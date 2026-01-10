@@ -5,7 +5,7 @@
 
 	maxHealth = 135 // SPLURT change, decreased to 135 from 150 so the seccies aren't playing whackamole
 	health = 135 // SPLURT change, balanced to 135 from 150 so the seccies aren't playing whackamole
-	damage_coeff = list(BRUTE = 1.2, BURN = 0.6, TOX = 0, STAMINA = 1, OXY = 0)
+	damage_coeff = list(BRUTE = 1.3, BURN = 0.6, TOX = 0, STAMINA = 1, OXY = 0)
 
 	obj_damage = 20 // SPLURT change, increased to 20 from 15
 
