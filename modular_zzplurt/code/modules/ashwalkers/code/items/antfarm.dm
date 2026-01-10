@@ -23,10 +23,7 @@
 
 // Override the nearby‑farm check logic inside Initialize()
 /obj/structure/antfarm/Initialize(mapload)
-	. = ..()
-	if(. == INITIALIZE_HINT_QDEL)
-		return INITIALIZE_HINT_QDEL
-
+	. = ..(INITIALIZE_HINT_LATELOAD)
 	if(!mapload)
 		var/turf/src_turf = get_turf(src)
 		if(!src_turf.GetComponent(/datum/component/simple_farm))
@@ -34,7 +31,7 @@
 			return INITIALIZE_HINT_QDEL
 
 		// Modified range
-		for(var/obj/structure/antfarm/found_farm in range(0, get_turf(src)))
+		for(var/obj/structure/antfarm/found_farm in range(1, get_turf(src)))
 			if(found_farm == src)
 				continue
 
