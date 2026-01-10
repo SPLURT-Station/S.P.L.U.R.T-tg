@@ -5,7 +5,7 @@
 	cast_range = 10 // SPLURT change, increased to 10 from 7
 
 	/// how long we need to stare at someone to unsettle them (woooooh)
-	tare_time = 5 SECONDS // SPLURT change, decreased to 5 seconds from 6 seconds
+	stare_time = 5 SECONDS // SPLURT change, decreased to 5 seconds from 6 seconds
 	/// how long we stun someone on successful cast
 	stun_time = 2.5 SECONDS // SPLURT change, increased to 2.5 seconds from 2 seconds
 	/// stamina damage we doooo
