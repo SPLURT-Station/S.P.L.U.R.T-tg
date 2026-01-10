@@ -183,6 +183,7 @@
 		/obj/item/melee/baton/telescopic/silver = 1,
 		)
 
+	pda_slot = ITEM_SLOT_RPOCKET
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 
 	backpack = /obj/item/storage/backpack/blueshield
