@@ -2,7 +2,7 @@
 /mob/living/basic/voidwalker/sunwalker
 
 	melee_damage_lower = 20 // SPLURT change, decreased to 20 from 25
-	melee_damage_upper = 30 // SPLURT change, increased to 30 from 25
+	melee_damage_upper = 32 // SPLURT change, increased to 30 from 25
 
 	health = 180 // SPLURT change, decreased to 180 from 200
 	maxHealth = 180 // SPLURT change, decreased to 180 from 200

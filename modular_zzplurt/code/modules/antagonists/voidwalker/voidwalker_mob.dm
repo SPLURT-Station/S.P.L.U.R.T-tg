@@ -9,8 +9,8 @@
 
 	obj_damage = 20 // SPLURT change, increased to 20 from 15
 
-	melee_damage_lower = 16 // SPLURT change, increased to 16 from 12
-	melee_damage_upper = 22 // SPLURT change, increased to 22 from 15
+	melee_damage_lower = 17 // SPLURT change, increased to 16 from 12
+	melee_damage_upper = 23 // SPLURT change, increased to 22 from 15
 
 	kidnap_time = 5 SECONDS // SPLURT change, decreased to 5 seconds from 6 seconds
 
