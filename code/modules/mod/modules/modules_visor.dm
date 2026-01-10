@@ -57,7 +57,6 @@
 		through walls, regardless of lighting conditions. They say these also let you see behind you."
 	icon_state = "meson_visor"
 	visor_traits = list(TRAIT_MESON_VISION, TRAIT_MADNESS_IMMUNE)
-	complexity = 0 //SPLURT EDIT ADDITION - Shouldn't cost complexity, primarily for miners which already are tight on complexity.
 
 //Thermal Visor - Gives you thermal vision.
 /obj/item/mod/module/visor/thermal
