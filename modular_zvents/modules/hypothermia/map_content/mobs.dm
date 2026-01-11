@@ -195,7 +195,7 @@
 	color = COLOR_RED
 	maxHealth = 250
 	name = "Evolved [name]"
-	AddComponent(/datum/component/regenerator, regeneration_delay = 6 SECONDS, brute_per_second = 5)
+	AddComponent(/datum/component/regenerator, regeneration_delay = 8 SECONDS, brute_per_second = 3)
 	AddComponent(/datum/component/seethrough_mob)
 	lighting_cutoff_red = 22
 	lighting_cutoff_green = 5
@@ -504,7 +504,7 @@
 
 /mob/living/basic/corrupted_mutant_boss/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/regenerator, regeneration_delay = 0, brute_per_second = MUTANT_BOSS_PASSIVE_HEAL)
+	AddComponent(/datum/component/regenerator, regeneration_delay = 10, brute_per_second = MUTANT_BOSS_PASSIVE_HEAL)
 	if(length(innate_actions))
 		grant_actions_by_list(innate_actions)
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE, TRAIT_LAVA_IMMUNE,TRAIT_ASHSTORM_IMMUNE, TRAIT_NO_FLOATING_ANIM), MEGAFAUNA_TRAIT)
@@ -561,8 +561,8 @@
 
 /mob/living/basic/corrupted_mutant_boss/real
 	drop = list(/obj/item/keycard/important/hypothermia/ship_control_key, /obj/item/storage/belt/utility/chief/full)
-	maxHealth = 1800
-	health = 1800
+	maxHealth = 1500
+	health = 1500
 
 
 /mob/living/basic/corrupted_mutant_boss/real/death()

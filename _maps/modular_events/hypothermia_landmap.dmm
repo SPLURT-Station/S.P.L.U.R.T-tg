@@ -200,12 +200,6 @@
 /obj/effect/landmark/start/botanist,
 /turf/open/floor/iron/dark/textured_large,
 /area/hypothermia/outdoor/crashland)
-"aT" = (
-/obj/structure/sneak_pod/rock/enterence{
-	dir = 1
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "aU" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/ladder,
@@ -395,13 +389,6 @@
 /obj/effect/mob_spawn/corpse/human/h1132/bezdelnik,
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/progres/research)
-"bF" = (
-/obj/item/fireaxe{
-	pixel_x = 3;
-	pixel_y = 11
-	},
-/turf/open/floor/pod/dark,
-/area/hypothermia/indoor/caven)
 "bG" = (
 /obj/structure/table_frame,
 /turf/open/floor/plating,
@@ -412,10 +399,6 @@
 	},
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/outpost/zvezda/security)
-"bJ" = (
-/obj/item/storage/belt/utility,
-/turf/open/floor/catwalk_floor,
-/area/hypothermia/indoor/caven)
 "bK" = (
 /obj/machinery/door/manual_airlock,
 /obj/structure/cable,
@@ -630,7 +613,6 @@
 /obj/effect/spawner/random/food_or_drink/snack,
 /obj/effect/spawner/random/food_or_drink/snack,
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor)
 "cw" = (
@@ -808,11 +790,13 @@
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/zvezda/medical_lobby)
 "cX" = (
-/obj/structure/sneak_pod/rock/enterence{
-	dir = 4
+/obj/effect/mapping_helpers/crafter_recipe{
+	ingredients = list(/obj/item/stack/cable_coil/five=10, /obj/item/stack/sheet/iron=5, /obj/item/stack/sheet/glass=5, /obj/item/electronics/apc=1);
+	name = "Crafter over prop(windturbine)";
+	target_crafter_type = /obj/structure/prop/smelter
 	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/hypothermia/outdoor/outpost)
 "cY" = (
 /obj/structure/prop/stalagmite/style_random,
 /turf/open/misc/dirt/icy_planet,
@@ -842,11 +826,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/smooth,
 /area/hypothermia/indoor/outpost/arctic_quarters1)
-"dd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "de" = (
 /obj/effect/mob_spawn/corpse/human/h1132/bezdelnik,
 /obj/effect/decal/cleanable/blood/old,
@@ -981,7 +960,6 @@
 /obj/structure/closet/crate/large,
 /obj/structure/lattice/catwalk,
 /obj/item/stack/cable_coil/thirty,
-/obj/item/stack/sheet/iron/ten,
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/outpost)
 "dD" = (
@@ -1417,12 +1395,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/hypothermia/indoor/outpost/tcoms)
-"fl" = (
-/obj/structure/sneak_pod/iced/enterence{
-	dir = 4
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "fm" = (
 /obj/effect/mapping_helpers/trigger_helper/tool_act/wrench{
 	trigger_key = "zv_weathers_server";
@@ -1544,10 +1516,6 @@
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/iron/white,
 /area/hypothermia/indoor/outpost/progres/experement)
-"fI" = (
-/obj/structure/sneak_pod/rock/enterence,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "fJ" = (
 /obj/effect/decal/cleanable/blood/trail{
 	dir = 8
@@ -1720,10 +1688,6 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
 /turf/open/floor/iron/dark/textured,
 /area/hypothermia/indoor/outpost/zvezda/heavy_armory)
-"gw" = (
-/obj/structure/sneak_pod/iced,
-/turf/closed/indestructible/rock/snow/ice/ore,
-/area/hypothermia/indoor/caven)
 "gx" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/pod/dark,
@@ -2076,10 +2040,6 @@
 	},
 /turf/open/floor/asphalt,
 /area/hypothermia/outdoor/outpost)
-"hR" = (
-/obj/structure/bonfire,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "hS" = (
 /turf/closed/indestructible/reinforced,
 /area/hypothermia/outdoor/outpost)
@@ -2405,10 +2365,6 @@
 /obj/structure/chair/stool/directional/south,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/zvezda)
-"iY" = (
-/obj/item/storage/medkit/tactical/premium,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "iZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -2526,10 +2482,6 @@
 /obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/carpet/red,
 /area/hypothermia/indoor/outpost/zvezda)
-"jB" = (
-/obj/structure/sneak_pod/iced,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "jC" = (
 /obj/item/shard,
 /obj/effect/decal/cleanable/glass,
@@ -2699,10 +2651,6 @@
 	},
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/crashland)
-"kj" = (
-/obj/machinery/portable_atmospherics/canister/water_vapor,
-/turf/open/floor/pod/dark,
-/area/hypothermia/indoor/caven)
 "kk" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/turf_decal/trimline/blue/warning{
@@ -3450,8 +3398,7 @@
 "mZ" = (
 /obj/structure/sign/warning{
 	sign_change_name = "Progress reinforced storage";
-	is_editable = 0;
-	name = "Progress reinforced storage"
+	is_editable = 0
 	},
 /turf/closed/indestructible/rock/snow/ice/ore,
 /area/hypothermia/indoor/caven)
@@ -3714,12 +3661,6 @@
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/plating,
 /area/hypothermia/indoor/outpost/arctic_quarters)
-"nV" = (
-/obj/structure/sneak_pod/iced/enterence{
-	dir = 1
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "nW" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/reagent_containers/cup/bottle/formaldehyde{
@@ -4297,12 +4238,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/white,
 /area/hypothermia/indoor/caven/vosxod)
-"pS" = (
-/obj/structure/sneak_pod/rock/enterence{
-	dir = 4
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "pT" = (
 /obj/effect/gibspawner/human,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -4315,10 +4250,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/outdoor/crashland)
-"pW" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "pX" = (
 /obj/effect/mob_spawn/corpse/human/h1132/sci,
 /obj/item/stack/sheet/iron,
@@ -4612,12 +4543,6 @@
 "ra" = (
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/zvezda/engineering)
-"rb" = (
-/obj/structure/sneak_pod/iced/enterence{
-	dir = 8
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "rc" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/plating,
@@ -4631,31 +4556,6 @@
 /obj/machinery/light/small/broken/directional/north,
 /turf/open/floor/plating,
 /area/hypothermia/indoor/outpost/zvezda/rnd)
-"re" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/flashlight/seclite,
-/obj/item/clothing/suit/hooded/wintercoat{
-	pixel_x = 3;
-	pixel_y = 12
-	},
-/obj/item/clothing/suit/hooded/wintercoat{
-	pixel_x = 13;
-	pixel_y = 12
-	},
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310{
-	pixel_x = -10
-	},
-/obj/item/ammo_box/speedloader/strilka310{
-	pixel_x = 11
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "rf" = (
 /obj/item/stack/sheet/iron,
 /turf/open/floor/plating,
@@ -5166,7 +5066,6 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/large,
-/obj/item/gun/ballistic/rifle/boltaction,
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/outpost)
 "ta" = (
@@ -5550,7 +5449,6 @@
 	pixel_x = -7;
 	pixel_y = 6
 	},
-/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor)
 "uA" = (
@@ -5709,21 +5607,10 @@
 	},
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/zvezda/engineering)
-"vc" = (
-/obj/item/stack/sheet/iron/ten,
-/turf/open/misc/sandy_dirt,
-/area/hypothermia/outdoor/crashland)
 "vd" = (
 /obj/effect/spawner/random/medical/minor_healing,
 /turf/open/floor/plating,
 /area/hypothermia/indoor/outpost/progres/research)
-"ve" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/prop/stalagmite/style_random,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "vf" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -6308,14 +6195,6 @@
 	},
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/outpost/zvezda/security)
-"xs" = (
-/obj/structure/closet/crate/large,
-/obj/item/clothing/suit/hooded/wintercoat/eva{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/turf/open/floor/pod/light,
-/area/hypothermia/indoor)
 "xt" = (
 /obj/structure/table,
 /obj/item/healthanalyzer{
@@ -6368,24 +6247,9 @@
 /obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/zvezda/engineering)
-"xD" = (
-/obj/item/clothing/shoes/winterboots/ice_boots{
-	pixel_y = 16;
-	pixel_x = 11
-	},
-/obj/item/clothing/shoes/winterboots/ice_boots{
-	pixel_y = 1;
-	pixel_x = -4
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "xE" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/item/bodypart/arm/left,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
-"xF" = (
-/obj/structure/sneak_pod/rock,
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/indoor/caven)
 "xG" = (
@@ -6780,10 +6644,6 @@
 /obj/effect/decal/cleanable/blood/trail,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/progres/research)
-"zb" = (
-/obj/structure/fireaxecabinet/directional/north,
-/turf/open/floor/iron/dark,
-/area/hypothermia/indoor/outpost/tcoms)
 "zc" = (
 /obj/effect/mob_spawn/corpse/human/h1132/sci,
 /obj/effect/decal/cleanable/blood/old,
@@ -7115,10 +6975,6 @@
 /obj/effect/spawner/random/medical/surgery_tool,
 /turf/open/floor/engine,
 /area/hypothermia/indoor/outpost/zvezda/rnd)
-"Am" = (
-/obj/structure/sneak_pod/iced/enterence,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "An" = (
 /obj/machinery/computer/operating,
 /turf/open/floor/engine,
@@ -7313,13 +7169,6 @@
 /obj/structure/lattice,
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/crashland)
-"AW" = (
-/obj/machinery/door/poddoor/story,
-/obj/effect/mapping_helpers/listener_helper/open_door{
-	listener_key = "zv_ship_first_part_1door_2"
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "Bb" = (
 /obj/effect/gibspawner/human/bodypartless,
 /turf/open/misc/dirt/icy_planet,
@@ -7378,16 +7227,6 @@
 /obj/effect/landmark/start/research_director,
 /turf/open/floor/iron/dark/textured_large,
 /area/hypothermia/outdoor/crashland)
-"Bo" = (
-/obj/item/lighter{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/storage/medkit/frontier/stocked{
-	pixel_x = -6
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "Bq" = (
 /obj/structure/cable,
 /turf/open/floor/iron/kitchen,
@@ -7673,13 +7512,9 @@
 /turf/open/misc/sandy_dirt,
 /area/hypothermia/outdoor/crashland)
 "Cp" = (
-/obj/item/fireaxe{
-	pixel_x = 2;
-	pixel_y = 15
-	},
-/obj/item/flashlight/seclite{
-	dir = 1;
-	light_on = 1
+/obj/item/forging/reagent_weapon/axe{
+	force = 35;
+	name = "russian battle axe"
 	},
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/indoor/caven)
@@ -7889,11 +7724,6 @@
 "De" = (
 /turf/closed/indestructible/rock,
 /area/hypothermia/indoor/caven)
-"Df" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/stack/sheet/iron/ten,
-/turf/open/misc/sandy_dirt,
-/area/hypothermia/outdoor/crashland)
 "Dg" = (
 /obj/machinery/processor,
 /obj/structure/table,
@@ -8306,25 +8136,6 @@
 /obj/structure/sign/warning/electric_shock/directional/south,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/hypothermia/indoor/outpost/zvezda/engineering)
-"EE" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/ammo_box/magazine/m9mm{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/ammo_box/magazine/m9mm{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/gun/ballistic/rifle/boltaction{
-	pixel_y = 8
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "EF" = (
 /obj/structure/fence/interlink,
 /turf/open/misc/dirt/icy_planet,
@@ -8424,10 +8235,14 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
 /obj/effect/turf_decal/siding/purple{
 	dir = 5
 	},
-/obj/item/ammo_box/n762,
 /turf/open/floor/iron/white,
 /area/hypothermia/indoor/outpost/progres/research)
 "EP" = (
@@ -8553,31 +8368,6 @@
 	},
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/outpost/zvezda/security)
-"Fq" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/flashlight/seclite,
-/obj/item/clothing/suit/hooded/wintercoat{
-	pixel_x = 3;
-	pixel_y = 12
-	},
-/obj/item/clothing/suit/hooded/wintercoat{
-	pixel_x = 13;
-	pixel_y = 12
-	},
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310{
-	pixel_x = -10
-	},
-/obj/item/ammo_box/speedloader/strilka310{
-	pixel_x = 11
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "Fs" = (
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -8641,10 +8431,6 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/progres/research)
-"FF" = (
-/obj/structure/sneak_pod/iced/enterence/directional,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "FH" = (
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
@@ -8897,12 +8683,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/hypothermia/indoor/outpost/tcoms)
-"GM" = (
-/obj/structure/lattice/catwalk,
-/obj/item/ammo_casing/shotgun/buckshot,
-/obj/item/ammo_casing/shotgun/buckshot,
-/turf/open/chasm/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "GN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -9136,25 +8916,6 @@
 /obj/item/crowbar/large,
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/outdoor/outpost)
-"HM" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/ammo_box/magazine/m9mm{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/ammo_box/magazine/m9mm{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/gun/ballistic/rifle/boltaction{
-	pixel_y = 8
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "HO" = (
 /obj/structure/fence/interlink{
 	dir = 8
@@ -9170,10 +8931,6 @@
 /obj/machinery/light/small/broken/directional/west,
 /turf/open/floor/iron/white,
 /area/hypothermia/indoor/caven/vosxod)
-"HQ" = (
-/obj/item/stack/sheet/iron/ten,
-/turf/open/misc/icy_planet/snow,
-/area/hypothermia/outdoor/crashland)
 "HR" = (
 /obj/structure/lattice/catwalk,
 /obj/item/ammo_box/magazine/c35sol_pistol,
@@ -9230,10 +8987,6 @@
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/zvezda/medical_lobby)
-"HZ" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/pod/dark,
-/area/hypothermia/indoor/caven)
 "Ia" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/shard,
@@ -9390,13 +9143,6 @@
 /obj/structure/chair/stool/directional/west,
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/caven)
-"IH" = (
-/obj/structure/lattice/catwalk,
-/obj/item/ammo_box/advanced/s12gauge/buckshot{
-	pixel_x = -4
-	},
-/turf/open/chasm/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "II" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hypothermia/heater,
@@ -9604,12 +9350,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/hypothermia/outdoor/crashland)
-"Jq" = (
-/obj/structure/marker_beacon/burgundy{
-	name = "landing marker"
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "Jr" = (
 /obj/structure/prop/ship_wreck,
 /turf/open/floor/plating,
@@ -10163,17 +9903,6 @@
 /obj/effect/turf_decal/box/white/corners,
 /turf/open/floor/iron/dark/textured_large,
 /area/hypothermia/outdoor/crashland)
-"Lh" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/ammo_box/advanced/s12gauge/buckshot{
-	pixel_x = -12
-	},
-/obj/item/ammo_box/advanced/s12gauge/buckshot{
-	pixel_x = -2
-	},
-/turf/open/floor/pod/light,
-/area/hypothermia/indoor/outpost/arctic_quarters2)
 "Lj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -10335,10 +10064,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/arctic_quarters2)
-"LL" = (
-/obj/structure/sneak_pod/rock,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "LM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -10555,22 +10280,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/chasm/icy_planet,
 /area/hypothermia/indoor/caven/nest)
-"MC" = (
-/obj/item/lighter{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/storage/medkit/frontier/stocked{
-	pixel_x = -6
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
-"ME" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "MF" = (
 /obj/structure/fence{
 	dir = 2;
@@ -10613,12 +10322,6 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/hypothermia/indoor/outpost/zvezda/restroom)
-"MO" = (
-/obj/structure/sneak_pod/rock/enterence{
-	dir = 8
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "MP" = (
 /obj/machinery/sleeper,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -10812,12 +10515,6 @@
 	},
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/outpost/zvezda/security)
-"Nw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/gun/ballistic/shotgun/automatic/dual_tube,
-/turf/open/floor/pod/light,
-/area/hypothermia/indoor/outpost/arctic_quarters2)
 "Nx" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -11042,10 +10739,9 @@
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/indoor/caven)
 "Ok" = (
-/obj/structure/lattice/catwalk,
-/obj/item/ammo_box/advanced/s12gauge/buckshot,
-/turf/open/chasm/icy_planet,
-/area/hypothermia/indoor/caven/nest)
+/obj/structure/rack,
+/turf/open/floor/iron/smooth,
+/area/hypothermia/indoor)
 "Ol" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11230,6 +10926,8 @@
 "OS" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/bot,
+/obj/item/machete,
+/obj/item/machete,
 /obj/item/melee/tomahawk,
 /obj/item/melee/tomahawk,
 /obj/item/melee/tomahawk,
@@ -11631,12 +11329,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/hypothermia/indoor/caven)
-"Qv" = (
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 1
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "Qw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/sheet/iron,
@@ -11749,11 +11441,6 @@
 /obj/structure/cable,
 /turf/open/floor/pod/light,
 /area/hypothermia/indoor/outpost/zvezda/security)
-"QX" = (
-/obj/structure/sneak_pod/iced,
-/obj/structure/sneak_pod/iced,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "QY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/closet/crate/large,
@@ -11890,17 +11577,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/zvezda/medical_lobby)
-"Ry" = (
-/obj/item/clothing/shoes/winterboots/ice_boots{
-	pixel_y = 16;
-	pixel_x = 11
-	},
-/obj/item/clothing/shoes/winterboots/ice_boots{
-	pixel_y = 1;
-	pixel_x = -4
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "Rz" = (
 /turf/open/floor/iron/smooth,
 /area/hypothermia/indoor/outpost/progres/experement)
@@ -12134,12 +11810,6 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/hypothermia/indoor/outpost/arctic_quarters)
-"St" = (
-/obj/structure/sneak_pod/rock/enterence{
-	dir = 8
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "Sv" = (
 /obj/structure/barricade/sandbags,
 /turf/open/floor/pod/dark,
@@ -12159,10 +11829,6 @@
 "Sz" = (
 /obj/structure/closet/toolcloset,
 /obj/effect/turf_decal/box,
-/obj/item/clothing/suit/hooded/wintercoat/eva{
-	pixel_x = 1;
-	pixel_y = 9
-	},
 /turf/open/floor/iron/smooth,
 /area/hypothermia/indoor/caven)
 "SA" = (
@@ -12194,10 +11860,7 @@
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/progres/research)
 "SG" = (
-/obj/item/clothing/suit/hooded/wintercoat/eva{
-	pixel_x = 8;
-	pixel_y = 7
-	},
+/obj/item/storage/medkit/regular,
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/indoor/caven)
 "SH" = (
@@ -12335,7 +11998,7 @@
 	pixel_y = 0
 	},
 /obj/effect/mapping_helpers/listener_helper/announce{
-	listener_key = "zv_start_everything";
+	listener_key = "zv_weathers_bcs_announce";
 	EDITOR_announcer = "System";
 	EDITOR_message = "Senior Researcher Siliznev speaking. By the time you are listening to this, both I and this place are most likely already dead. I don't know who you are or why you've come here. But this facility was placed under artificial quarantine, and its defense systems are configured to attack any outsiders. Complex H-58317G perished along with all its personnel. And I will not allow anyone to leave it. I stole the keycard for access to the 'Buran' shuttle and convinced the chief engineer to scatter its critical components throughout the complex and the caves. Without them, you won't take off. The mutants have escaped from the laboratories; they are adapted to the cold and waiting in the darkness. We tried to defend ourselves with turrets and barricades, but they broke through 'Progress'. This is a trap. Do not leave — or die trying.";
 	EDITOR_title = "Message";
@@ -13021,16 +12684,6 @@
 /obj/effect/gibspawner/human,
 /turf/open/floor/pod/dark,
 /area/hypothermia/indoor/outpost/zvezda)
-"VJ" = (
-/obj/machinery/computer,
-/obj/structure/lattice/catwalk,
-/obj/effect/mapping_helpers/trigger_helper/hand_punch{
-	trigger_key = "zv_ship_first_part_1door_2";
-	EDITOR_TARGET = /obj/machinery/computer;
-	delay = 30
-	},
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "VL" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/asphalt,
@@ -13430,15 +13083,9 @@
 /obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/white/small,
 /area/hypothermia/indoor/outpost/progres/research)
-"Xr" = (
-/obj/structure/lattice,
-/obj/item/gun/ballistic/shotgun/automatic/dual_tube,
-/turf/open/chasm/icy_planet,
-/area/hypothermia/indoor/caven/nest)
 "Xs" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/electrical,
-/obj/structure/fireaxecabinet/directional/north,
 /turf/open/floor/iron/colony,
 /area/hypothermia/indoor/outpost/zvezda/engineering)
 "Xt" = (
@@ -13521,10 +13168,6 @@
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron/dark/textured_large,
 /area/hypothermia/outdoor/crashland)
-"XG" = (
-/obj/structure/bonfire,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "XI" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
@@ -13564,10 +13207,6 @@
 	},
 /obj/structure/closet/crate/large,
 /obj/item/mining_scanner,
-/obj/item/stack/sheet/iron/ten,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
-/obj/item/ammo_box/speedloader/strilka310,
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/outpost)
 "XQ" = (
@@ -13767,10 +13406,6 @@
 /obj/machinery/light/small/red/directional/south,
 /obj/structure/rack,
 /obj/item/clothing/gloves/color/grey/protects_cold,
-/obj/item/clothing/suit/hooded/wintercoat/eva{
-	pixel_x = 1;
-	pixel_y = 9
-	},
 /turf/open/floor/iron/smooth,
 /area/hypothermia/indoor)
 "YC" = (
@@ -13821,17 +13456,6 @@
 /obj/structure/cable,
 /turf/open/misc/dirt/icy_planet,
 /area/hypothermia/indoor/caven/deep)
-"YJ" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/pod/dark,
-/area/hypothermia/indoor/caven)
-"YM" = (
-/obj/effect/decal/cleanable/blood/trail_holder,
-/obj/structure/sneak_pod/iced,
-/turf/open/misc/dirt/icy_planet,
-/area/hypothermia/indoor/caven)
 "YN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/stasissleeper{
@@ -13953,7 +13577,6 @@
 "Zm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/closet/crate/large,
-/obj/item/stack/sheet/iron/ten,
 /turf/open/misc/icy_planet/snow,
 /area/hypothermia/outdoor/outpost)
 "Zn" = (
@@ -15772,7 +15395,7 @@ xb
 xb
 xb
 xb
-Ok
+xb
 VN
 VN
 VN
@@ -16029,9 +15652,9 @@ xb
 xb
 xb
 xb
-GM
-Xr
-MB
+xb
+VN
+xb
 xb
 xb
 xb
@@ -16286,9 +15909,9 @@ xb
 xb
 xb
 xb
-IH
-MB
-MB
+xb
+xb
+xb
 xb
 xb
 xb
@@ -25247,10 +24870,10 @@ Uy
 lp
 lp
 lp
-St
+Uy
+Uy
 lp
-lp
-St
+Uy
 lp
 lp
 Uy
@@ -25504,10 +25127,10 @@ Uy
 lp
 lp
 lp
-LL
-LL
+Uy
+Uy
 lp
-LL
+Uy
 lp
 lp
 Uy
@@ -25761,10 +25384,10 @@ Uy
 lp
 lp
 lp
-LL
+Uy
 lp
 lp
-LL
+Uy
 lp
 lp
 Uy
@@ -26018,10 +25641,10 @@ Uy
 lp
 lp
 lp
-LL
+Uy
 lp
 lp
-LL
+Uy
 lp
 lp
 Uy
@@ -26275,10 +25898,10 @@ Uy
 lp
 lp
 lp
-LL
+Uy
 lp
-LL
-LL
+Uy
+Uy
 lp
 lp
 Uy
@@ -26532,10 +26155,10 @@ Uy
 lp
 lp
 lp
-LL
-LL
-LL
-LL
+Uy
+Uy
+Uy
+Uy
 lp
 lp
 lp
@@ -26789,10 +26412,10 @@ Uy
 lp
 lp
 lp
-LL
-LL
+Uy
+Uy
 lp
-LL
+Uy
 lp
 lp
 lp
@@ -27046,10 +26669,10 @@ Uy
 lp
 lp
 lp
-LL
-LL
+Uy
+Uy
 lp
-cX
+Uy
 lp
 lp
 lp
@@ -27302,8 +26925,8 @@ xb
 Uy
 lp
 lp
-lp
-cX
+Uy
+Uy
 lp
 lp
 Uy
@@ -29104,11 +28727,11 @@ lp
 Uy
 Uy
 lp
-Bo
 Uy
 Uy
 Uy
 Uy
+cs
 Uy
 Uy
 lp
@@ -29361,11 +28984,11 @@ lp
 Uy
 lp
 lp
-xD
 Uy
 Uy
 Uy
-hR
+Uy
+Uy
 Uy
 Uy
 lp
@@ -29618,8 +29241,8 @@ lp
 lp
 lp
 lp
-re
-Jq
+Uy
+Uy
 lp
 Uy
 Uy
@@ -29874,8 +29497,8 @@ Uy
 Uy
 Uy
 lp
-lp
-EE
+Uy
+Uy
 Uy
 lp
 Uy
@@ -30133,7 +29756,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+lp
 lp
 Uy
 Uy
@@ -32446,7 +32069,7 @@ lp
 Uy
 Uy
 lp
-St
+Uy
 lp
 lp
 Uy
@@ -32703,7 +32326,7 @@ lp
 lp
 lp
 lp
-LL
+Uy
 lp
 lp
 Uy
@@ -32960,7 +32583,7 @@ lp
 lp
 lp
 lp
-LL
+Uy
 lp
 lp
 Uy
@@ -33216,9 +32839,9 @@ Uy
 lp
 lp
 lp
-LL
-LL
-LL
+Uy
+Uy
+Uy
 lp
 lp
 Uy
@@ -33474,8 +33097,8 @@ Uy
 lp
 lp
 lp
-LL
-LL
+Uy
+Uy
 lp
 lp
 lp
@@ -33731,9 +33354,9 @@ Uy
 Uy
 lp
 lp
-LL
-LL
-LL
+Uy
+Uy
+Uy
 lp
 lp
 lp
@@ -33989,9 +33612,9 @@ Uy
 Uy
 lp
 lp
-cX
-lp
-lp
+Uy
+Uy
+Uy
 lp
 lp
 lp
@@ -34247,7 +33870,7 @@ Uy
 lp
 lp
 Uy
-lp
+Uy
 lp
 lp
 lp
@@ -48336,7 +47959,7 @@ De
 De
 De
 De
-De
+ke
 ke
 ke
 ke
@@ -48592,8 +48215,8 @@ sc
 De
 De
 De
-De
-De
+ke
+ke
 ke
 ke
 ke
@@ -48848,13 +48471,13 @@ sc
 sc
 De
 De
-De
-De
-De
 ke
 ke
-De
-MO
+ke
+ke
+ke
+ke
+ke
 De
 De
 De
@@ -49106,14 +48729,14 @@ sc
 De
 De
 ke
+ke
+ke
 De
 De
-De
-De
-De
-xF
-xF
-aT
+ke
+ke
+ke
+ke
 ke
 ER
 TU
@@ -49366,11 +48989,11 @@ ke
 ke
 De
 De
-xF
-xF
-xF
-De
-De
+ke
+ke
+ke
+ke
+ke
 ke
 ER
 ke
@@ -49622,10 +49245,10 @@ De
 ke
 ke
 De
-xF
-xF
-De
-De
+ke
+ke
+ke
+ke
 De
 De
 De
@@ -49635,8 +49258,8 @@ ke
 ke
 De
 ke
-De
-MO
+ke
+ke
 De
 De
 De
@@ -49878,9 +49501,9 @@ De
 De
 ke
 ke
-fI
-xF
-De
+ke
+ke
+ke
 De
 De
 De
@@ -49893,8 +49516,8 @@ De
 De
 De
 De
-xF
-xF
+ER
+ER
 De
 De
 De
@@ -50135,8 +49758,8 @@ De
 De
 ke
 ke
-De
-De
+ke
+ke
 De
 De
 De
@@ -50150,9 +49773,9 @@ ke
 De
 De
 De
-xF
-xF
-aT
+ke
+ke
+ke
 ke
 ER
 ke
@@ -50404,12 +50027,12 @@ ke
 ke
 ke
 ke
-fI
-xF
-xF
-xF
-xF
-De
+ER
+ke
+ke
+ke
+ke
+ke
 ke
 ER
 TU
@@ -50655,11 +50278,11 @@ ke
 ke
 ER
 TU
-De
-De
-De
-De
-De
+ke
+ke
+ke
+ke
+ke
 ke
 De
 De
@@ -50914,9 +50537,9 @@ ER
 ER
 TU
 TU
-De
-De
-De
+ke
+ke
+ke
 ke
 De
 De
@@ -51173,7 +50796,7 @@ De
 De
 ke
 ke
-De
+ke
 De
 De
 De
@@ -52216,7 +51839,7 @@ De
 De
 ke
 AI
-ke
+De
 De
 De
 De
@@ -52471,8 +52094,8 @@ ke
 De
 De
 De
-MO
-De
+ke
+AI
 AI
 AI
 AI
@@ -52727,9 +52350,9 @@ ke
 ke
 De
 De
-De
-De
-De
+ke
+ke
+ke
 ke
 ke
 ke
@@ -52984,8 +52607,8 @@ ke
 ke
 ke
 De
-De
-De
+ke
+ke
 De
 De
 De
@@ -53240,9 +52863,9 @@ De
 De
 ke
 ke
-fI
-De
-De
+ke
+ke
+ke
 De
 De
 De
@@ -53497,9 +53120,9 @@ De
 De
 De
 ke
-De
-De
-De
+ke
+ke
+ke
 De
 De
 De
@@ -53755,8 +53378,8 @@ De
 De
 De
 De
-De
-De
+ke
+ke
 De
 De
 De
@@ -54013,7 +53636,7 @@ De
 De
 De
 De
-De
+ke
 De
 De
 ke
@@ -55021,7 +54644,7 @@ gu
 iy
 ke
 ke
-Qv
+iy
 ke
 ke
 ke
@@ -56323,8 +55946,8 @@ De
 De
 De
 De
-MO
-De
+ke
+ke
 De
 De
 De
@@ -56580,8 +56203,8 @@ De
 De
 De
 De
-xF
-De
+ke
+ke
 De
 De
 De
@@ -56837,8 +56460,8 @@ De
 De
 De
 De
-xF
-xF
+ke
+ke
 De
 De
 De
@@ -57094,8 +56717,8 @@ De
 De
 De
 De
-De
-xF
+ke
+ke
 De
 De
 De
@@ -57351,10 +56974,10 @@ De
 De
 De
 De
+ke
+ke
 De
-xF
-De
-De
+ke
 ke
 ke
 ke
@@ -57609,8 +57232,8 @@ De
 De
 De
 De
-pS
-De
+ke
+ke
 Gn
 Gn
 Gn
@@ -59145,10 +58768,10 @@ sc
 sc
 sc
 sc
-LU
-TU
+De
+De
 ke
-iy
+ke
 ke
 ke
 ke
@@ -59402,10 +59025,10 @@ sc
 sc
 sc
 sc
-LU
-ke
-TU
-ke
+De
+De
+De
+De
 ke
 ke
 ke
@@ -59659,11 +59282,11 @@ sc
 sc
 sc
 sc
-LU
-TU
-uv
-uv
-ke
+De
+De
+De
+De
+De
 ke
 ke
 Gn
@@ -59916,11 +59539,11 @@ sc
 sc
 sc
 sc
-LU
-TU
-iy
-ke
-ke
+De
+De
+De
+De
+De
 ke
 ke
 ke
@@ -60176,8 +59799,8 @@ sc
 De
 De
 De
-ke
-ke
+De
+De
 ke
 ke
 ke
@@ -60434,8 +60057,8 @@ De
 De
 De
 De
-ke
-ke
+De
+De
 ke
 ke
 ke
@@ -60692,7 +60315,7 @@ De
 De
 De
 De
-ke
+De
 ke
 ke
 ke
@@ -76326,7 +75949,7 @@ Ri
 Ri
 eq
 qK
-Nw
+sk
 JG
 Un
 fT
@@ -76583,7 +76206,7 @@ Ri
 Ri
 eq
 kP
-Lh
+sk
 Ww
 sk
 iw
@@ -104345,7 +103968,7 @@ xM
 xM
 ke
 xM
-Sk
+ke
 xM
 xM
 xM
@@ -104602,7 +104225,7 @@ xM
 xM
 xM
 xM
-Sk
+ke
 xM
 xM
 Hl
@@ -105373,7 +104996,7 @@ oH
 xM
 ke
 xM
-jB
+ke
 xM
 Hl
 Hl
@@ -105617,7 +105240,7 @@ Fw
 bX
 bX
 SS
-PQ
+Ok
 ue
 YB
 SS
@@ -105628,9 +105251,9 @@ SS
 Hl
 Hl
 xM
-rb
+ke
 xM
-jB
+ke
 xM
 Hl
 Hl
@@ -105874,7 +105497,7 @@ Fw
 du
 bX
 SS
-PQ
+Ok
 ue
 PQ
 SS
@@ -105885,9 +105508,9 @@ SS
 bX
 bX
 xM
-jB
-jB
-jB
+ke
+ke
+ke
 xM
 Hl
 Hl
@@ -106142,8 +105765,8 @@ AA
 an
 bX
 xM
-jB
-jB
+ke
+ke
 xM
 xM
 xM
@@ -106400,8 +106023,8 @@ bX
 xM
 xM
 xM
-jB
-jB
+ke
+ke
 xM
 xM
 Sk
@@ -106657,9 +106280,9 @@ xM
 xM
 xM
 xM
-jB
-jB
-nV
+ke
+ke
+ke
 ke
 Sk
 xM
@@ -106915,7 +106538,7 @@ xM
 xM
 xM
 xM
-jB
+ke
 xM
 xM
 xM
@@ -110718,8 +110341,8 @@ jK
 hZ
 hZ
 hZ
-xM
-xM
+hZ
+hZ
 hZ
 hZ
 jK
@@ -110975,9 +110598,9 @@ jK
 jK
 jK
 jK
-jx
-RL
-RL
+jK
+jK
+jK
 jK
 jK
 jK
@@ -111232,8 +110855,8 @@ jK
 jK
 jK
 jK
-jx
-RL
+jK
+jK
 jK
 jK
 jK
@@ -111489,7 +111112,7 @@ hZ
 jK
 jK
 jK
-jx
+jK
 jK
 jK
 jK
@@ -111746,7 +111369,7 @@ jK
 jK
 jK
 jK
-jx
+jK
 jK
 jK
 jK
@@ -111782,7 +111405,7 @@ Hl
 Hl
 Hl
 rR
-rR
+cX
 JI
 Rc
 Qo
@@ -112003,7 +111626,7 @@ jK
 jK
 jK
 jK
-jx
+jK
 HD
 RL
 jK
@@ -112080,7 +111703,7 @@ xM
 xM
 xM
 xM
-jB
+ke
 xM
 xM
 xM
@@ -112260,8 +111883,8 @@ jK
 hZ
 hZ
 hZ
-xM
-xM
+hZ
+hZ
 RL
 RL
 jK
@@ -112336,9 +111959,9 @@ xM
 xM
 xM
 xM
-jB
-jB
-jB
+ke
+ke
+ke
 xM
 xM
 xM
@@ -112594,10 +112217,10 @@ xM
 ke
 xM
 xM
-jB
+ke
 xM
 xM
-jB
+ke
 xM
 xM
 xM
@@ -112851,10 +112474,10 @@ ke
 ke
 ke
 xM
-jB
+ke
 xM
-jB
-jB
+ke
+ke
 xM
 xM
 xM
@@ -113032,7 +112655,7 @@ hZ
 hZ
 hZ
 hZ
-xM
+hZ
 hZ
 hZ
 jK
@@ -113107,12 +112730,12 @@ xM
 xM
 xM
 ke
-Am
-jB
+ke
+ke
 xM
 xM
-jB
-nV
+ke
+ke
 ke
 ke
 xM
@@ -113211,7 +112834,7 @@ Hl
 Qh
 SS
 tC
-xs
+is
 ck
 is
 is
@@ -113289,7 +112912,7 @@ jK
 jK
 jK
 jK
-jx
+jK
 jK
 jK
 jK
@@ -113365,10 +112988,10 @@ xM
 xM
 xM
 xM
-jB
-jB
-jB
-jB
+ke
+ER
+ke
+ke
 xM
 ke
 ke
@@ -113546,8 +113169,8 @@ jK
 jK
 jK
 jK
-jx
-RL
+jK
+jK
 jK
 jK
 jK
@@ -113624,8 +113247,8 @@ ke
 xM
 xM
 xM
-xM
-fl
+ke
+ke
 xM
 xM
 ke
@@ -113803,8 +113426,8 @@ hZ
 jK
 jK
 jK
-jx
-RL
+jK
+jK
 jK
 jK
 jK
@@ -113878,10 +113501,10 @@ xM
 ke
 xM
 ke
-Am
-jB
-YM
-nV
+ke
+ke
+uv
+ke
 uv
 ke
 xM
@@ -113902,7 +113525,7 @@ xM
 xM
 xM
 xM
-al
+ke
 xM
 xM
 "}
@@ -114060,7 +113683,7 @@ hZ
 jK
 jK
 jK
-jx
+RL
 RL
 RL
 HD
@@ -114137,7 +113760,7 @@ xM
 ke
 xM
 xM
-fl
+ER
 xM
 ke
 ke
@@ -114154,12 +113777,12 @@ al
 al
 al
 al
-al
 xM
 xM
+xM
 al
-al
-al
+ke
+ke
 xM
 xM
 "}
@@ -114315,9 +113938,9 @@ xM
 hZ
 jK
 jK
-jK
-jK
-xM
+RL
+RL
+RL
 hZ
 hZ
 hZ
@@ -114395,7 +114018,7 @@ ke
 xM
 ke
 ke
-ke
+xM
 ke
 xM
 xM
@@ -114412,11 +114035,11 @@ ke
 ke
 ke
 al
-er
 ke
 ke
 ke
-cY
+ke
+ke
 xM
 xM
 "}
@@ -114572,9 +114195,9 @@ hZ
 jK
 jK
 jK
-jK
+HD
 hZ
-xM
+hZ
 hZ
 hZ
 hZ
@@ -114651,8 +114274,8 @@ xM
 ke
 ke
 xM
-rb
-xM
+ke
+ke
 ke
 ke
 ke
@@ -114668,11 +114291,11 @@ KX
 ke
 ke
 ke
-ij
 ke
 ke
-XG
-MC
+ke
+ke
+ke
 ke
 xM
 xM
@@ -114907,8 +114530,8 @@ xM
 xM
 ke
 ke
-Am
-jB
+ke
+ke
 xM
 ke
 ke
@@ -114923,13 +114546,13 @@ ke
 AI
 KX
 ke
-al
-al
-al
-ve
 ke
-ME
-Ry
+ke
+ke
+ke
+ke
+ke
+ke
 ke
 xM
 xM
@@ -115164,8 +114787,8 @@ xM
 xM
 xM
 xM
-jB
-jB
+ke
+ke
 xM
 ke
 ke
@@ -115180,14 +114803,14 @@ ke
 AI
 KX
 ke
-al
-HZ
+ke
 li
 li
 li
 li
-Fq
-er
+li
+ke
+ke
 xM
 xM
 "}
@@ -115437,13 +115060,13 @@ ke
 AI
 KX
 ke
-al
-kj
+ke
+li
 li
 hi
-bF
 li
-HM
+li
+ke
 ke
 xM
 xM
@@ -115694,14 +115317,14 @@ UW
 AI
 KX
 ke
-al
-kj
+ke
 li
 li
-YJ
-YJ
+li
+li
+li
 al
-al
+ke
 xM
 xM
 "}
@@ -115951,13 +115574,13 @@ ke
 Oh
 al
 ke
-al
-al
-al
-al
-er
+ke
+ke
 ke
 al
+ke
+ke
+xM
 xM
 xM
 xM
@@ -116211,10 +115834,10 @@ al
 al
 xM
 xM
-al
-ke
-ke
-ke
+xM
+xM
+xM
+xM
 xM
 xM
 xM
@@ -116469,9 +116092,9 @@ xM
 xM
 xM
 xM
-AI
-AI
-AI
+xM
+xM
+xM
 xM
 xM
 xM
@@ -116726,9 +116349,9 @@ xM
 xM
 xM
 xM
-VJ
-ke
-ke
+xM
+xM
+xM
 xM
 xM
 xM
@@ -116983,9 +116606,9 @@ xM
 xM
 xM
 xM
-ke
-ke
-ke
+xM
+xM
+xM
 xM
 xM
 xM
@@ -117240,9 +116863,9 @@ xM
 xM
 xM
 xM
-AW
-AW
-AW
+xM
+xM
+xM
 xM
 xM
 xM
@@ -117496,11 +117119,11 @@ ke
 ke
 ke
 ke
-Oh
-AI
-AI
-AI
-Oh
+ke
+ke
+ke
+xM
+xM
 xM
 xM
 "}
@@ -119147,7 +118770,7 @@ Hl
 Hl
 Hl
 Sq
-zb
+Xw
 Xw
 Xw
 Xw
@@ -128623,7 +128246,7 @@ ke
 ke
 ke
 ke
-pW
+ke
 AI
 AI
 AI
@@ -128880,10 +128503,10 @@ ke
 xM
 xM
 ke
-pW
-pW
 ke
-dd
+ke
+ke
+ke
 ke
 ke
 ke
@@ -129138,9 +128761,9 @@ xM
 xM
 xM
 ke
-pW
-XG
-pW
+ke
+ke
+ke
 Oh
 AI
 Oh
@@ -129168,7 +128791,7 @@ tA
 tA
 tA
 Yy
-HQ
+Yy
 Yy
 Yy
 Yy
@@ -129395,9 +129018,9 @@ ke
 xM
 xM
 xM
-pW
-pW
-pW
+ke
+ke
+ke
 AI
 ND
 AI
@@ -129652,8 +129275,8 @@ ke
 ke
 xM
 xM
-pW
-pW
+ke
+ke
 eI
 Oh
 AI
@@ -130427,10 +130050,10 @@ xM
 xM
 xM
 ke
-FW
-Ei
-FW
-FW
+ke
+ke
+ke
+ke
 ke
 xM
 xM
@@ -130684,10 +130307,10 @@ xM
 xM
 ke
 ke
-FW
-Fu
-bJ
-FW
+ke
+ke
+ke
+ke
 ke
 ke
 ke
@@ -130941,10 +130564,10 @@ ke
 ke
 ke
 ke
-FW
-FW
-FW
-FW
+xM
+xM
+xM
+ke
 ke
 ke
 ke
@@ -131976,7 +131599,7 @@ ke
 ke
 xM
 xM
-rb
+ke
 xM
 xM
 xM
@@ -132217,23 +131840,23 @@ jy
 WB
 xM
 xM
-rb
-xM
-xM
-xM
-ke
-ke
-ke
-ke
-ke
-ke
-ke
-ke
 ke
 ke
 xM
 xM
-jB
+ke
+ke
+ke
+ke
+ke
+ke
+ke
+ke
+ke
+ke
+xM
+xM
+ke
 xM
 xM
 xM
@@ -132474,8 +132097,8 @@ WB
 WB
 xM
 xM
-jB
-xM
+ke
+ke
 xM
 xM
 ke
@@ -132490,7 +132113,7 @@ xM
 xM
 xM
 xM
-jB
+ke
 xM
 xM
 xM
@@ -132731,8 +132354,8 @@ rR
 rR
 xM
 xM
-jB
-xM
+ke
+ke
 xM
 xM
 xM
@@ -132747,8 +132370,8 @@ xM
 xM
 xM
 xM
-jB
-jB
+ke
+ke
 xM
 xM
 xM
@@ -132988,8 +132611,8 @@ rR
 rR
 xM
 xM
-jB
-xM
+ke
+ke
 xM
 xM
 xM
@@ -133004,10 +132627,10 @@ ke
 ke
 xM
 xM
-jB
-jB
-jB
-xM
+ke
+ke
+ke
+ke
 ke
 ke
 xM
@@ -133034,7 +132657,7 @@ yn
 jp
 ht
 ZA
-vc
+gf
 gf
 gf
 gf
@@ -133245,8 +132868,8 @@ rR
 rR
 xM
 xM
-fl
-xM
+ke
+ke
 xM
 xM
 xM
@@ -133263,8 +132886,8 @@ ke
 xM
 xM
 xM
-fl
-xM
+ke
+ke
 ke
 ke
 xM
@@ -134282,8 +133905,8 @@ xM
 xM
 xM
 ke
-Am
-jB
+ke
+ke
 xM
 ke
 ke
@@ -134540,8 +134163,8 @@ xM
 ke
 AI
 xM
-jB
-nV
+ke
+ke
 ke
 ke
 ke
@@ -135432,7 +135055,7 @@ Yy
 Yy
 Yy
 Yy
-HQ
+Yy
 Yy
 Yy
 Yy
@@ -136982,7 +136605,7 @@ ZD
 Ct
 zJ
 qx
-Df
+qx
 gf
 KQ
 Hn
@@ -137261,7 +136884,7 @@ ym
 ml
 qx
 qx
-Df
+qx
 qx
 gf
 gf
@@ -140079,7 +139702,7 @@ Yy
 MY
 wE
 qx
-Df
+qx
 qx
 qx
 gf
@@ -140283,9 +139906,9 @@ xM
 ke
 ke
 ke
-FF
-QX
-jB
+ke
+ke
+ke
 xM
 xM
 nz
@@ -140541,8 +140164,8 @@ xM
 ke
 xM
 xM
-gw
-jB
+xM
+ke
 xM
 xM
 nz
@@ -140797,9 +140420,9 @@ ze
 xM
 ke
 xM
-jB
-QX
-jB
+ke
+ke
+ke
 xM
 xM
 nz
@@ -140831,7 +140454,7 @@ Yy
 Yy
 Yy
 Yy
-HQ
+Yy
 Yy
 Yy
 Yy
@@ -141054,7 +140677,7 @@ ze
 xM
 ke
 xM
-jB
+ke
 xM
 xM
 xM
@@ -141311,9 +140934,9 @@ ze
 xM
 ke
 xM
-jB
-jB
-jB
+ke
+ke
+ke
 xM
 xM
 nz
@@ -141570,7 +141193,7 @@ ke
 xM
 xM
 xM
-jB
+ke
 xM
 xM
 nz
@@ -141825,9 +141448,9 @@ ze
 xM
 ke
 xM
-jB
-jB
-jB
+ke
+ke
+ke
 xM
 xM
 nz
@@ -142082,7 +141705,7 @@ xM
 xM
 ke
 xM
-jB
+ke
 xM
 xM
 xM
@@ -142339,9 +141962,9 @@ xM
 ke
 ke
 xM
-jB
-jB
-jB
+ke
+ke
+ke
 xM
 xM
 nz
@@ -142586,8 +142209,8 @@ xM
 xM
 xM
 xM
-rb
-xM
+AI
+ke
 xM
 ke
 ke
@@ -142598,7 +142221,7 @@ xM
 xM
 xM
 xM
-jB
+ke
 xM
 xM
 nz
@@ -142841,9 +142464,9 @@ xM
 xM
 xM
 xM
-jB
-jB
-jB
+ke
+AI
+AI
 xM
 xM
 ke
@@ -142852,10 +142475,10 @@ xM
 xM
 xM
 xM
-jB
-jB
-jB
-jB
+ke
+ke
+ke
+ke
 xM
 xM
 nz
@@ -143096,21 +142719,21 @@ ke
 xM
 xM
 xM
-jB
-jB
-jB
-jB
+ke
+ke
+ke
+ke
 xM
 xM
 ke
 ke
 xM
-jB
-jB
-jB
-jB
-jB
-jB
+ke
+ke
+ke
+ke
+ke
+ke
 xM
 xM
 xM
@@ -143352,17 +142975,17 @@ ke
 xM
 xM
 xM
-jB
-jB
-xM
-jB
-jB
+ke
+ke
+AI
+ke
+ke
 xM
 xM
 ke
 xM
 xM
-jB
+ke
 xM
 xM
 xM
@@ -143606,20 +143229,20 @@ xM
 xM
 ke
 ke
-FF
-jB
-jB
-jB
-xM
-xM
-jB
-jB
+ke
+ke
+ke
+ke
+ke
+AI
+ke
+ke
 xM
 ke
 ke
 xM
-xM
-jB
+ke
+ke
 xM
 ke
 ke
@@ -143863,20 +143486,20 @@ xM
 xM
 ke
 ke
-xM
-jB
-jB
-xM
-xM
-xM
-jB
-jB
-nV
+ke
+ke
+AI
+AI
+AI
+ke
+ke
+ke
+ke
 ke
 xM
 xM
-xM
-jB
+ke
+ke
 xM
 ke
 ke
@@ -144120,26 +143743,26 @@ xM
 xM
 xM
 ke
-xM
-xM
-jB
-xM
-jB
-jB
-jB
-jB
+ke
+ke
+ke
+ke
+ke
+ke
+ke
+ke
 xM
 ke
 xM
-xM
-xM
-jB
-nV
+ke
+ke
+ke
+ke
 ke
 ke
 Zx
 ke
-iY
+ke
 ke
 xM
 xM
