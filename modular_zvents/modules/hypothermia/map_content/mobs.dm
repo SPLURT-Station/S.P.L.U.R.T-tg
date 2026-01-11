@@ -195,6 +195,7 @@
 	color = COLOR_RED
 	maxHealth = 250
 	name = "Evolved [name]"
+	AddElement(/datum/element/dextrous)
 	AddComponent(/datum/component/regenerator, regeneration_delay = 8 SECONDS, brute_per_second = 3)
 	AddComponent(/datum/component/seethrough_mob)
 	lighting_cutoff_red = 22

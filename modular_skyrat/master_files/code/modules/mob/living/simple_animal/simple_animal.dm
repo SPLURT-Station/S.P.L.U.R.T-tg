@@ -35,3 +35,4 @@
 	if(string_to_send)
 		to_chat(src, string_to_send)
 	log_game("[key_name(src)] took control of [name].")
+	return TRUE
