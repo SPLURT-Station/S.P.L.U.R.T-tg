@@ -547,55 +547,55 @@
 
 /obj/structure/prop/general/trashblue
 	name = "Blue Trash"
-desc = "A blue trash container."
+	desc = "A blue trash container."
 	icon_state = "trashblue"
 
 /obj/structure/prop/general/shockbig
 	name = "Shock Big"
-desc = "A large shock device."
+	desc = "A large shock device."
 	icon_state = "shockbig"
 
 /obj/structure/prop/general/shocktiny
 	name = "Shock Tiny"
-desc = "A small shock device."
+	desc = "A small shock device."
 	icon_state = "shocktiny"
 
 /obj/structure/prop/general/barrel_wy
 	name = "Barrel WY"
-desc = "A barrel from WY corporation."
+	desc = "A barrel from WY corporation."
 	icon_state = "barrel_wy"
 
 /obj/structure/prop/general/barrel_tan
 	name = "Barrel Tan"
-desc = "A tan-colored barrel."
+	desc = "A tan-colored barrel."
 	icon_state = "barrel_tan"
 
 /obj/structure/prop/general/barrel_purewhite
 	name = "Barrel Pure White"
-desc = "A pure white barrel."
+	desc = "A pure white barrel."
 	icon_state = "barrel_purewhite"
 
 /obj/structure/prop/general/red_pipe_s
 	name = "Red Pipe S"
-desc = "A small red pipe."
+	desc = "A small red pipe."
 	icon_state = "red_pipe_s"
 
 /obj/structure/prop/general/red_pipe_c
 	name = "Red Pipe C"
-desc = "A curved red pipe."
+	desc = "A curved red pipe."
 	icon_state = "red_pipe_c"
 
 /obj/structure/prop/general/red_pipe_j1
 	name = "Red Pipe J1"
-desc = "A jointed red pipe variant."
+	desc = "A jointed red pipe variant."
 	icon_state = "red_pipe_j1"
 
 /obj/structure/prop/general/red_pipe_y
 	name = "Red Pipe Y"
-desc = "A Y-shaped red pipe."
+	desc = "A Y-shaped red pipe."
 	icon_state = "red_pipe_y"
 
 /obj/structure/prop/general/red_pipe_b
 	name = "Red Pipe B"
-desc = "A basic red pipe."
+	desc = "A basic red pipe."
 	icon_state = "red_pipe_b"
