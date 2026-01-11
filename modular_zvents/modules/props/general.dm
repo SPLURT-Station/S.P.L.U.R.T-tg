@@ -255,27 +255,27 @@
 	desc = "A sign indicating a hospital."
 	icon_state = "hospital"
 
-/obj/structure/prop/general/0-1
+/obj/structure/prop/general/marker_0_1
 	name = "Marker 0-1"
 	desc = "A small distance marker."
 	icon_state = "0-1"
 
-/obj/structure/prop/general/1-2
+/obj/structure/prop/general/marker_1_2
 	name = "Marker 1-2"
 	desc = "Another distance marker."
 	icon_state = "1-2"
 
-/obj/structure/prop/general/1-4
+/obj/structure/prop/general/marker_1_4
 	name = "Marker 1-4"
 	desc = "A third distance marker."
 	icon_state = "1-4"
 
-/obj/structure/prop/general/1-2-4
+/obj/structure/prop/general/marker_1_2_4
 	name = "Marker 1-2-4"
 	desc = "A combined distance marker."
 	icon_state = "1-2-4"
 
-/obj/structure/prop/general/1-2-4-8
+/obj/structure/prop/general/marker_1_2_4_8
 	name = "Marker 1-2-4-8"
 	desc = "A more detailed distance marker."
 	icon_state = "1-2-4-8"
