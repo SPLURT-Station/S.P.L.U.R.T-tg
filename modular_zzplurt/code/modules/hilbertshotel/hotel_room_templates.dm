@@ -190,6 +190,12 @@
 	category = GHC_STATION
 	landing_coords = list(3, 10)
 
+/datum/map_template/ghost_cafe_rooms/apartment_modern_gym
+	name = "Modern Gym"
+	mappath = "_maps/splurt/templates/apartment_modern_gym.dmm"
+	category = GHC_STATION
+	landing_coords = list(16, 8)
+
 /datum/map_template/ghost_cafe_rooms/apartment_house
 	name = "A Lone House"
 	mappath = "_maps/splurt/templates/apartment_house.dmm"
