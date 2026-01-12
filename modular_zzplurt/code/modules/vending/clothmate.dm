@@ -2,6 +2,12 @@
 /obj/machinery/vending/clothing
 	zzplurt_product_categories = list(
 		list(
+			"name" = "Shoes",
+			"products" = list(
+				/obj/item/clothing/shoes/invisiboots = 10,
+			)
+		),
+		list(
 			"name" = "Special",
 			"products" = list(
 				/obj/item/clothing/head/helmet/goner/fake = 20,

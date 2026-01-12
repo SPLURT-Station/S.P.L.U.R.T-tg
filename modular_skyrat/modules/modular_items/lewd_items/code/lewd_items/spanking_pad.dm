@@ -95,4 +95,5 @@
 		target.add_mood_event("pervert spanked", /datum/mood_event/perv_spanked)
 	carbon_target?.adjust_arousal(2)
 	target.adjust_pain(4)
+	target.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, 4, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Spanking Pad
 	target.apply_status_effect(/datum/status_effect/spanked)

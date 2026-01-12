@@ -100,3 +100,8 @@
 	icon_state = "widehat_red"
 	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+
+//donor thing for fabricator
+/obj/item/clothing/head/costume/maid_headband/syndicate/donor
+	name = "tactical maid headband"
+	desc = "Tacticute modified to fit certain shadekins."

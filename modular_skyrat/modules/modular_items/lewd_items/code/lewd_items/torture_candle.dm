@@ -182,6 +182,7 @@
 				to_chat(user, span_danger("Looks like [attacked]'s groin is covered!"))
 				return
 			attacked.adjust_pain(PAIN_DEFAULT)
+			attacked.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, PAIN_DEFAULT, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Torture Candle
 
 		if(BODY_ZONE_CHEST)
 			var/obj/item/organ/genital/breasts = attacked.get_organ_slot(ORGAN_SLOT_BREASTS)
@@ -193,6 +194,7 @@
 						"tilts the candle. Right in the moment when wax drips on [attacked]'s [breasts_or_nipples], [attacked.p_they()] shivers",
 						"tilts the candle. Just when hot drops of wax fell on [attacked]'s [breasts_or_nipples], [attacked.p_they()] quietly moans in pleasure")
 				attacked.adjust_pain(PAIN_DEFAULT * 0.66)
+				attacked.client?.plug13.send_emote(PLUG13_EMOTE_MASOCHISM, PAIN_DEFAULT * 0.66, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Torture Candle
 
 			else
 				to_chat(user, span_danger("Looks like [attacked]'s chest is covered!"))

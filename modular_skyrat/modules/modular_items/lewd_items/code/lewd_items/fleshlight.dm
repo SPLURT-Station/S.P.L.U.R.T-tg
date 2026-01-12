@@ -82,6 +82,7 @@
 		target.try_lewd_autoemote(pick("twitch_s", "moan", "blush"))
 	target.adjust_arousal(6)
 	target.adjust_pleasure(9)
+	target.plug13_genital_emote(penis, PLUG13_STRENGTH_HIGH, PLUG13_DURATION_SHORT)
 	user.visible_message(span_purple("[user] [message]!"))
 	conditional_pref_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
@@ -136,6 +137,7 @@
 		target.try_lewd_autoemote(pick("twitch_s", "moan", "blush"))
 	target.adjust_arousal(6)
 	target.adjust_pleasure(9)
+	target.plug13_genital_emote(penis, PLUG13_STRENGTH_HIGH, PLUG13_DURATION_SHORT) // SPLURT EDIT - Plug13 - Fleshlight
 	user.visible_message(span_purple("[user] [message]!"))
 	conditional_pref_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
 						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',

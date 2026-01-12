@@ -47,7 +47,7 @@
 
 	// if the target has the preference off, stop the interaction.
 	if(get_size(target) > RESIZE_TINY)
-		if(target.client.prefs?.read_preference(/datum/preference/toggle/erp/stomping) == FALSE)
+		if(target.client?.prefs?.read_preference(/datum/preference/toggle/erp/stomping) == FALSE)
 			return FALSE
 
 	if(ishuman(src))
