@@ -51,4 +51,4 @@
 /datum/round_event_control/cortical_borer
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_TARGETED, TAG_SPOOKY)
-	min_players = 20
+	min_players = 40

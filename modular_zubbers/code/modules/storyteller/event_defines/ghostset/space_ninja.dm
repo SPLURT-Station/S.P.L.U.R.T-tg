@@ -6,7 +6,7 @@
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT)
 	earliest_start = 20 MINUTES
-	min_players = 20
+	min_players = 40
 	category = EVENT_CATEGORY_INVASION
 	description = "A space ninja infiltrates the station."
 
