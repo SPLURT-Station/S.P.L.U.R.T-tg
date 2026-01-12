@@ -10,5 +10,5 @@
 /datum/config_entry/flag/enable_dogborg_sleepers
 
 /datum/config_entry/number/sex_table_multiplier
-	default = 50
+	default = 1
 	min_val = 0

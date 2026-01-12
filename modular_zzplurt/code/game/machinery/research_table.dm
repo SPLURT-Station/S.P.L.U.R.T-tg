@@ -142,17 +142,17 @@
 	// I don't stack these on purpose for "balancing"
 	// study the physiological effects of sex or something
 	if(buckled_mob.has_quirk(TRAIT_RESTORATIVE_METABOLISM) || buckled_mob.has_quirk(TRAIT_BODY_MORPHER) || buckled_mob.has_quirk(TRAIT_UNDEAD))
-		points_awarded += 10 * rand(0,5)
+		points_awarded += rand(1,5)
 
 	// study the psychological effects of sex or something
 	// uncomment this as soon as you merge the other PR pretty please
 	if(buckled_mob.has_quirk(TRAIT_HYPERSEXUAL))
-		points_awarded += 10 * rand(0,5)
+		points_awarded += rand(1,5)
 
 	// if you are pregnant i guess its interesting to see whats up?
 	var/datum/status_effect/pregnancy/prego = buckled_mob.has_status_effect(/datum/status_effect/pregnancy)
 	if(prego)
-		points_awarded += (prego.pregnancy_stage * 10) * rand(0,5)
+		points_awarded += prego.pregnancy_stage + rand(0,5)
 
 	for(var/obj/item/organ/genital/genital in buckled_mob.organs)
 		if(istype(genital, /obj/item/organ/genital/testicles))
@@ -191,7 +191,7 @@
 		say(pick_weight(quotes))
 
 		// thank you.
-		if(points_awarded >= 2000) // idk this value probably needs tweaking
+		if(points_awarded >= 100) // idk this value probably needs tweaking
 			// you did an AWESOME job and therefore you get a nice sound effect played
 			var/list/awesome_sounds = list(
 				'modular_zzplurt/sound/machines/research_table/EpicGameEncouragementPhrases_Awesome_02.ogg',
