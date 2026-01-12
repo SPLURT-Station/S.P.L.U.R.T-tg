@@ -2709,7 +2709,8 @@
 	icon = 'icons/turf/decals.dmi';
 	base_icon_state = "elevatorshaft";
 	color = "#36373a";
-	dir = 8
+	dir = 8;
+	anchored = 1
 	},
 /obj/structure/decorative{
 	icon_state = "siding_plain_corner";
@@ -2717,7 +2718,8 @@
 	icon = 'icons/turf/decals.dmi';
 	base_icon_state = "elevatorshaft";
 	color = "#36373a";
-	dir = 2
+	dir = 2;
+	anchored = 1
 	},
 /obj/structure/decorative{
 	icon_state = "siding_plain";
@@ -4170,18 +4172,6 @@
 	pixel_x = 7;
 	pixel_y = 3;
 	color = "#b88d97"
-	},
-/obj/structure/decorative{
-	anchored = 1;
-	name = "comfy pillow pile";
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi';
-	icon_state = "pillowpile_large_pink_overlay";
-	dir = 2;
-	uses_integrity = 0;
-	desc = "A large pile of pillows. Jump on it!";
-	color = "#b88d97";
-	pixel_x = 0;
-	pixel_y = 19
 	},
 /obj/item/condom_pack{
 	pixel_x = -11;
@@ -8806,7 +8796,8 @@
 	dir = 10
 	},
 /obj/structure/medieval/bed_2x2{
-	dir = 8
+	dir = 8;
+	anchored = 1
 	},
 /turf/open/floor/carpet/black,
 /area/misc/hilbertshotel)

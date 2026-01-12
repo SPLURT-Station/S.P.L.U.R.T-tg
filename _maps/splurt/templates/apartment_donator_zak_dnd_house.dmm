@@ -1012,7 +1012,8 @@
 /obj/structure/table/wood/fancy/black,
 /obj/structure/decorative/shelf/alcohol_assortment{
 	pixel_y = 29;
-	icon_state = "empty_shelf_1"
+	icon_state = "empty_shelf_1";
+	anchored = 1
 	},
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_x = -8;
@@ -1258,7 +1259,9 @@
 /turf/open/floor/grass,
 /area/misc/hilbertshotel)
 "lJ" = (
-/obj/structure/medieval/stone_arch,
+/obj/structure/medieval/stone_arch{
+	anchored = 1
+	},
 /obj/structure/decorative{
 	icon_state = "tile_half";
 	pixel_y = 31;
@@ -1772,7 +1775,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/structure/medieval/stone_arch,
+/obj/structure/medieval/stone_arch{
+	anchored = 1
+	},
 /obj/effect/turf_decal/shuttle/exploration/echidna,
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/hilbertshotel)
@@ -2519,7 +2524,9 @@
 /turf/open/floor/stone,
 /area/misc/hilbertshotel)
 "vR" = (
-/obj/structure/medieval/bed_1x2,
+/obj/structure/medieval/bed_1x2{
+	anchored = 1
+	},
 /obj/structure/marker_beacon/jade{
 	pixel_x = 0;
 	pixel_y = 16;
@@ -2840,7 +2847,8 @@
 /obj/structure/flora/scrap{
 	pixel_x = -6;
 	pixel_y = 15;
-	density = 0
+	density = 0;
+	anchored = 1
 	},
 /obj/structure/noticeboard/directional/north,
 /obj/structure/decorative{
@@ -3184,7 +3192,8 @@
 	},
 /obj/item/storage/test_tube_rack{
 	pixel_x = 8;
-	pixel_y = 5
+	pixel_y = 5;
+	anchored = 1
 	},
 /obj/structure/decorative{
 	anchored = 1;
@@ -4815,7 +4824,8 @@
 	},
 /obj/structure/chem_separator{
 	pixel_x = 1;
-	pixel_y = 11
+	pixel_y = 11;
+	anchored = 1
 	},
 /obj/item/reagent_containers/cup/beaker{
 	pixel_x = 7;
@@ -5508,7 +5518,9 @@
 	},
 /area/misc/hilbertshotel)
 "Sn" = (
-/obj/structure/medieval/bed_2x2,
+/obj/structure/medieval/bed_2x2{
+	anchored = 1
+	},
 /obj/structure/marker_beacon/olive{
 	pixel_x = 16;
 	pixel_y = 16;
@@ -5699,7 +5711,9 @@
 /turf/open/floor/vault/rock,
 /area/misc/hilbertshotel)
 "Tp" = (
-/obj/structure/medieval/bed_1x2,
+/obj/structure/medieval/bed_1x2{
+	anchored = 1
+	},
 /obj/structure/marker_beacon/jade{
 	pixel_x = 0;
 	pixel_y = 16;
@@ -6282,7 +6296,8 @@
 /obj/structure/decorative/shelf/alcohol{
 	pixel_x = 0;
 	pixel_y = 29;
-	icon_state = "empty_shelf_1"
+	icon_state = "empty_shelf_1";
+	anchored = 1
 	},
 /obj/machinery/chem_dispenser/frontier_appliance{
 	pixel_y = 27
@@ -6347,7 +6362,8 @@
 	},
 /obj/structure/bedsheetbin/empty{
 	pixel_x = -6;
-	pixel_y = 0
+	pixel_y = 0;
+	anchored = 1
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 9

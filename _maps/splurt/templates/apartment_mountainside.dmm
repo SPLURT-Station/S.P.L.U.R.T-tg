@@ -15,7 +15,9 @@
 /turf/open/floor/iron/freezer,
 /area/misc/hilbertshotel)
 "ad" = (
-/obj/structure/medieval/stone_arch,
+/obj/structure/medieval/stone_arch{
+	anchored = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/hilbertshotel)
 "an" = (
@@ -7841,7 +7843,8 @@
 /area/misc/hilbertshotel)
 "Tq" = (
 /obj/structure/medieval/bed_2x2{
-	dir = 8
+	dir = 8;
+	anchored = 1
 	},
 /obj/item/fancy_pillow{
 	icon_state = "pillow_pink_square";
