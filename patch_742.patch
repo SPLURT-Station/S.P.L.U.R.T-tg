@@ -1,0 +1,17 @@
+--- a/src/main/java/com/splurt/station/SomeClass.java
++++ b/src/main/java/com/splurt/station/SomeClass.java
+@@ -123,7 +123,7 @@
+         // Existing code that needs refactoring or fixing
+         if (condition) {
+-            doSomething();
++            handleCondition();
+             return;
+         }
+     }
+@@ -130,6 +130,8 @@
+     private void doSomething() {
+         // Implementation details
+     }
++
++    private void handleCondition() { /* Handle condition logic */ }
+ }
