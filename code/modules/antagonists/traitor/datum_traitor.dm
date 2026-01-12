@@ -193,7 +193,7 @@
 		return kill_objective
 
 	// SPLURT EDIT ADD - Lewd objectives
-	if(prob(100) && !owner.current.client?.prefs.read_preference(/datum/preference/choiced/erp_status) == "No")
+	if(prob(LEWD_PROB) && !owner.current.client?.prefs.read_preference(/datum/preference/choiced/erp_status) == "No")
 
 		// all of these are mutually exclusive
 		if(prob(20))
