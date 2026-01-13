@@ -145,8 +145,8 @@ He may be right afterall.
 	block_chance = 33 //a 1 in 3 chance to block attack is ok.
 	force = 15
 	throwforce = 23 //Someone brought up that you could use it with TK but you already can fuckin TK a spear (which is also far easier to get en mass) so I dont see this as a problem
-	wound_bonus = 5 //Low, because we increases in damages which will gradually increases the bonus too!
-	exposed_wound_bonus = -40 //See the tanto for why we are having it in the negative instead
+	wound_bonus = 10 //Low, because we increases in damages which will gradually increases the bonus too!
+	exposed_wound_bonus = 15
 
 	attack_speed = 12 //Slower to swing, we have more damage per hit!
 
@@ -224,21 +224,21 @@ He may be right afterall.
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
-	desc = "A long thin blade commonly used by Kayian Janissary to finish off vulnerable opponent and in most case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
+	desc = "An electrified blade commonly used by the kayian janissary force for disciplinary actionn and peacekeeping."
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
 	icon_state = "tanto"
 	inhand_icon_state = "tantohand"
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
 	worn_icon_state = "knife"
-	force = 10 //This is more effective when the target is laying down, or facing away. We don't use stagger however.
+	force = 15
 	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
-	wound_bonus = 10 //We want to avoid this being too effective at wounding if its intended damage is not met
-	exposed_wound_bonus = 30 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
-	armour_penetration = 35 // You should be able to use it fairly often and effectively against most threat. A succesful backstab is rewarding
-	attack_speed = 15 //This is so that you aren't constantly being spammed with high damage in the worst case scenario, otherwise act to punish players who miss
-	var/bonus_mod = 3.5
+	wound_bonus = 10
+	exposed_wound_bonus = 10 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	armour_penetration = 25
+	attack_speed = 11 //The main purpose of this weapon is to let you get some powerful alpha strike in, some target will be stunbaton resistant, so we should keep that in mind.
+	var/bonus_mod = 1
 
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	damtype = BURN
@@ -268,9 +268,24 @@ He may be right afterall.
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, bonus_mod) ///This makes it do 35 damage, still a lot but its situational enough; see other weapon that do 30 damage
 	return ..()
 
-/obj/item/knife/oscu_tanto/surplus
-
 /obj/item/knife/oscu_tanto/uplink
+	name = "\improper illicitor"
+	desc = "A long thin blade commonly used by Kayian Janissary to finish off vulnerable opponent and in most case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
+	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
+	icon_state = "tanto"
+	inhand_icon_state = "tantohand"
+	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
+	worn_icon_state = "knife"
+	force = 10
+	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
+	throwforce = 20 //Long Slim Throwing Knives
+	wound_bonus = 5
+	exposed_wound_bonus = 15 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
+	armour_penetration = 40
+	attack_speed = 14 //We shouldn't let the player spam a high damage attack
+	bonus_mod = 4
+
 
 /obj/item/melee/sec_truncheon
 	name = "\improper blackjack" //Thief is a pretty cool game.
