@@ -54,3 +54,60 @@
 2026-01-12:
   toastewoofs:
   - balance: disabled vortex anomalies from rolling
+2026-01-13:
+  LeDrascol:
+  - rscadd: Bloodfledges are required to actually drink blood again
+  - rscadd: Bloodfledges can now inherit nanites from their victims
+  - rscadd: Bloodfledges now gain small bonuses for each unique bite target
+  - rscadd: Bloodfledges can now unlock and upgrade their revive ability
+  - rscadd: Bloodfledges now get a mood penalty for hurting their targets
+  - rscadd: Added secret Sanguinizer interaction to showers
+  - rscdel: Reverted bite action changes from Hemophage
+  - rscdel: Reverted chapel and holy water weakness from Hemophage
+  - rscdel: Reverted changes to Hemophage traits
+  - balance: Bloodfledges are immune to normal thirst again
+  - balance: Bloodfledges now slowly lose blood over time (down to safe threshold)
+  - balance: Bloodfledges now become desperate at low blood levels
+  - balance: Bloodfledges are less careful when desperate and ignore some risks
+  - balance: Bloodfledges heal more slowly while desperate
+  - balance: Bloodfledge revival is now slightly faster
+  - balance: Bloodfledge revive must now be unlocked through progression
+  - balance: Bloodfledge revive now requires being in a coffin (until upgraded)
+  - balance: Bloodfledge ability costs re-adjusted
+  - balance: Bloodfledge Analyze can now detect mutual quirk users
+  - balance: Bloodfledge-Hemophages now revive with higher blood volume
+  - balance: Bloodfledge bite ability is now slightly faster
+  - qol: Bloodfledge inspect text is now hidden during antag rounds
+  - qol: Evil Bloodfledges are now less cautious with their targets
+  - qol: Bloodfledge Analyze now displays the target's blood type
+  - qol: Bloodfledge Analyze now properly identifies holy targets
+  - qol: Improved Bloodfledge Anaylze message box styling and colors
+  - bugfix: Fixed Hemo-Bloodfledges being unable to Analyze
+  - bugfix: Fixed Hemo-Bloodfledges not remembering their blood type
+  - bugfix: Fixed Hemo-Bloodfledges not properly acquiring traits
+  - bugfix: Fixed Bloodfledge Analyze not checking ability requirements
+  - bugfix: Fixed Bloodfledge Analyze working on blessed targets
+  - bugfix: Fixed Bloodfledge being selectable by bloodless races
+  - bugfix: Bloodfledges can become alcoholics, junkies, and smokers again
+  SapphoQueer:
+  - bugfix: Antfarms now can ACTUALLY be placed with a 1 tile gap.
+  - balance: The dragonslayer can now be work on the back and within berserker armor
+      suit storage
+  - balance: the 25% block chance on the dragonslayer is back
+  UvvU:
+  - bugfix: fixed rampart kits allowing you to cover yourself with more armor then
+      you should
+  - bugfix: Neverboner now respects consent
+  - bugfix: fixed latex suits for taurs
+  toastewoofs:
+  - rscadd: toaste PR
+  - rscadd: sunwalker now has a 1 in 100 chance to replace a normal voidwalker on
+      midround event trigger
+  - balance: buffed unsettle spell cooldown, range, stare time, and stun time
+  - balance: increased sunwalker charge cooldown
+  - balance: buffed voidwalker charge damage
+  - balance: adjusted sunwalker and voidwalker damage coefficients
+  - balance: nerfed sunwalker's aura
+  - balance: made sunwalker take more damage from water
+  - balance: reduced sunwalker and voidwalker health
+  - balance: adjusted sunwalker and voidwalker melee damage bounds
