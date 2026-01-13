@@ -228,6 +228,9 @@
 						visible_message(span_userlove("[src] shoots their sticky load onto [target_mob]!"), \
 							span_userlove("You shoot string after string of hot cum onto [target_mob]!"))
 						conditional_pref_sound(get_turf(src), 'modular_zzplurt/sound/interactions/endout.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds) //SPLURT EDIT CHANGE - Interactions
+						// SPLURT EDIT ADDITION
+						SEND_SIGNAL(src, COMSIG_MOB_CUM_ON, target_mob)
+						// SPLURT EDIT ADDITION END
 					else
 						visible_message(
 							span_userlove("[src] hilts [self_their] cock into [target_mob]'s [climax_into_choice], shooting cum into [target_mob_them]!"),
@@ -255,6 +258,8 @@
 									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
 							if(genital_pass && prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
 								target_mob.apply_status_effect(/datum/status_effect/pregnancy, target_mob, src)
+
+						SEND_SIGNAL(src, COMSIG_MOB_CUM_IN, target_mob)
 						//SPLURT EDIT ADDITION END
 
 			//SPLURT EDIT CHANGE BEGIN - Interactions
@@ -442,6 +447,9 @@
 						visible_message(span_userlove("[src] squirts all over [target_mob]!"), \
 							span_userlove("You squirt all over [target_mob]!"))
 						conditional_pref_sound(get_turf(src), 'modular_zzplurt/sound/interactions/endout.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds) //SPLURT EDIT CHANGE - Interactions
+						// SPLURT EDIT ADDITION
+						SEND_SIGNAL(src, COMSIG_MOB_CUM_ON, target_mob)
+						// SPLURT EDIT ADDITION END
 					else
 						visible_message(span_userlove("[src] squirts into [target_mob]'s [climax_into_choice]!"), \
 							span_userlove("You squirt into [target_mob]'s [climax_into_choice]!"))
@@ -452,6 +460,10 @@
 						if(interactable)
 							interactable.climax_inflate_genital(src, "vagina", climax_into_choice)
 						//SPLURT EDIT ADDITION END
+
+						// SPLURT EDIT ADDITION
+						SEND_SIGNAL(src, COMSIG_MOB_CUM_IN, target_mob)
+						// SPLURT EDIT ADDITION END
 			if(!(climax_interaction?.interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER))
 				if(create_cum_decal)
 					if(HAS_TRAIT(src, TRAIT_MESSY))

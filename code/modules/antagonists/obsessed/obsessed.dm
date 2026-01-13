@@ -3,6 +3,7 @@
 #define OBSESSED_OBJECTIVE_HUG "hug"
 #define OBSESSED_OBJECTIVE_HEIRLOOM "heirloom"
 #define OBSESSED_OBJECTIVE_JEALOUS "jealous"
+#define OBSESSED_OBJECTIVE_CLIMAX_IN_OR_ON "climax in or on" // SPLURT EDIT ADD
 
 /datum/antagonist/obsessed
 	name = "Obsessed"
@@ -112,6 +113,14 @@
 	if(!is_captain_job(obsessionmind.assigned_role))
 		objectives_left += OBSESSED_OBJECTIVE_JEALOUS
 
+	// SPLURT EDIT ADD
+	// Only add this objective if the guy actually wants this
+	// The antagonist doesnt HAVE to "sexually assault" them
+	// Its just for safety bruh
+	if(findtext(obsessionmind.current.client?.prefs.read_preference(/datum/preference/choiced/erp_status_nc), "Yes"))
+		objectives_left += OBSESSED_OBJECTIVE_CLIMAX_IN_OR_ON
+	// SPLURT EDIT END
+
 	for(var/i in 1 to objectives_to_generate)
 		var/chosen_objective = pick_n_take(objectives_left)
 		switch(chosen_objective)
@@ -141,6 +150,13 @@
 				jealous.owner = owner
 				jealous.target = obsessionmind//will reroll into a coworker on the objective itself
 				objectives += jealous
+			// SPLURT EDIT ADD
+			if(OBSESSED_OBJECTIVE_CLIMAX_IN_OR_ON)
+				var/datum/objective/lewd/climax_in_or_on/climax_in_or_on = new
+				climax_in_or_on.set_owner(owner)
+				climax_in_or_on.set_target(obsessionmind)
+				objectives += climax_in_or_on
+			// SPLURT EDIT END
 
 	objectives += kill//finally add the assassinate last, because you'd have to complete it last to greentext.
 
@@ -306,3 +322,4 @@
 #undef OBSESSED_OBJECTIVE_HUG
 #undef OBSESSED_OBJECTIVE_HEIRLOOM
 #undef OBSESSED_OBJECTIVE_JEALOUS
+#undef OBSESSED_OBJECTIVE_CLIMAX_IN_OR_ON // SPLURT EDIT ADD

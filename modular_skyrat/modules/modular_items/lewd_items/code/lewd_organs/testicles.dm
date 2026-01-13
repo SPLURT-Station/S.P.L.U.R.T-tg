@@ -18,5 +18,10 @@
 	reagents.maximum_volume = internal_fluid_maximum
 	reagents.add_reagent(internal_fluid_datum, internal_fluid_maximum) // should make you start with full balls? (cum is stored in the balls in ss13)
 
+	// SPLURT EDIT ADD
+	var/datum/reagent/cum = reagents.has_reagent(internal_fluid_datum)
+	cum.data["DNA"] = owner.dna
+	// SPLURT EDIT END
+
 /obj/item/organ/genital/testicles/proc/calculate_cumshot()
 	cumshot_size = (reagents.total_volume * cumshot_size_mod) * cumshot_size_mult
