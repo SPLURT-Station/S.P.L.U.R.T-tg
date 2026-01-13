@@ -1,5 +1,5 @@
 /obj/item/claymore/dragonslayer
-	slot_flags = ITEM_SLOT_SUITSTORE //Can only be worn in suit storage (specifically on gatsu armor)
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE //Can be worn on back, or in suit storage with berserker armor
 	w_class = WEIGHT_CLASS_BULKY //Allows it to fit in suit storage slot on berserker armor
 	worn_icon_state = "claymore" //Use regular claymore sprite when worn
 	block_chance = 25 //Restore original skyrat behavior by way of override
