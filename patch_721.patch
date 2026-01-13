@@ -1,0 +1,41 @@
+diff --git a/spurt.py b/spurt.py
+index abcdef1..ghijklm 100644
+--- a/spurt.py
++++ b/spurt.py
+@@ -53,7 +53,7 @@ class Spurt:
+         return self
+ 
+     def __setattr__(self, name, value):
+-        self.__dict__[name] = value
++        super().__setattr__(name, value)
+ 
+     def process(self):
+         for handler in self.handlers:
+
+diff --git a/spurt_test.go b/spurt_test.go
+index 1234567..89abcde 100644
+--- a/spurt_test.go
++++ b/spurt_test.go
+@@ -9,7 +9,7 @@ func TestSpurt(t *testing.T) {
+         t.Errorf("Expected %v, got %v", expected[i], actual[i])
+     }
+ 
+-    for i := 0; i < 10; i++ {
++    for i := 0; i <= 10; i++ {
+         if spurt.data[i] != expectedData[i] {
+             t.Errorf("Data mismatch at index %d: expected %v, got %v", i, expectedData[i], spurt.data[i])
+         }
+
+diff --git a/spurt_test.py b/spurt_test.py
+index 7654321..fedcba9 100644
+--- a/spurt_test.py
++++ b/spurt_test.py
+@@ -20,7 +20,7 @@ class TestSpurt(unittest.TestCase):
+         self.assertEqual(spurt.data[2], 2)
+ 
+     def test_process(self):
+-        spurt = Spurt([1, 2])
++        spurt = Spurt([1, 2, 3])
+         spurt.process()
+         self.assertEqual(spurt.handlers, [self.handler1, self.handler2])
+         self.assertEqual(spurt.data, [1, 2])
