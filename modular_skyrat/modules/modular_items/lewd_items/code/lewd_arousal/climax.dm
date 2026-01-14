@@ -30,6 +30,10 @@
 		return
 	if(refractory_period > REALTIMEOFDAY)
 		return
+	// MKUltra cum lock hard block: do not proceed to climax when locked.
+	if(global.mkultra_cum_locks && mkultra_cum_locks[src])
+		visible_message(span_purple("[src] strains, but can't finish."), span_purple("You can't climax—you're locked by your owner."))
+		return FALSE
 	refractory_period = REALTIMEOFDAY + 30 SECONDS
 	if(has_status_effect(/datum/status_effect/climax_cooldown) || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || nonhuman_bypass_self))
 		return

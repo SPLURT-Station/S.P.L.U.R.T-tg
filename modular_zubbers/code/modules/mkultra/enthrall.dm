@@ -42,6 +42,8 @@
 	var/mental_capacity
 	/// Distance multipliers
 	var/distance_multiplier = list(2,1.5,1,0.8,0.6,0.5,0.4,0.3,0.2)
+	/// Toggle distance mood/withdrawal effects.
+	var/distance_mood_enabled = TRUE
 
 	var/withdrawl_active = FALSE
 	/// Counts how long withdrawl is going on for
@@ -66,6 +68,15 @@
 	var/custom_span
 	/// Set on on_apply. Will only be true if both individuals involved have opted in.
 	var/lewd = FALSE
+<<<<<<< Updated upstream
+=======
+//SPLURT ADDITION START
+	/// Set to TRUE to bypass mindshield resistance.
+	var/ignore_mindshield = FALSE
+	/// TRUE once we've registered speech filtering for dom-name substitution at phase 3+.
+	var/dom_name_filter_set = FALSE
+//SPLURT ADDITION END
+>>>>>>> Stashed changes
 
 /datum/status_effect/chem/enthrall/on_apply()
 	var/mob/living/carbon/enthrall_victim = owner
@@ -77,6 +88,7 @@
 				enthrall_gender = neopet_chip.enthrall_gender
 				enthrall_mob = get_mob_by_key(enthrall_ckey)
 				lewd = TRUE
+		ignore_mindshield = TRUE // Pet chip enthrallment always bypasses mindshields.
 		if(isnull(enthrall_mob))
 			stack_trace("A thrall has an MKUltra skillchip activated but the skillchip has no enthrall mob linked. This should never happen!")
 			owner.remove_status_effect(src)
@@ -108,6 +120,21 @@
 
 /datum/status_effect/chem/enthrall/tick(seconds_between_ticks)
 	var/mob/living/carbon/enthrall_victim = owner
+	var/distance_effects_enabled = distance_mood_enabled
+	if(enthrall_mob && phase >= FULLY_ENTHRALLED && !dom_name_filter_set)
+		RegisterSignal(owner, COMSIG_MOB_SAY, .proc/owner_name_filter)
+		dom_name_filter_set = TRUE
+	else if(dom_name_filter_set && (!enthrall_mob || phase < FULLY_ENTHRALLED))
+		UnregisterSignal(owner, COMSIG_MOB_SAY, .proc/owner_name_filter)
+		dom_name_filter_set = FALSE
+	if(!distance_effects_enabled && withdrawl_active)
+		REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
+		enthrall_victim.clear_mood_event("EnthMissing1")
+		enthrall_victim.clear_mood_event("EnthMissing2")
+		enthrall_victim.clear_mood_event("EnthMissing3")
+		enthrall_victim.clear_mood_event("EnthMissing4")
+		withdrawl_active = FALSE
+		withdrawl_progress = 0
 
 	//chem calculations
 	if(!owner.reagents.has_reagent(/datum/reagent/mkultra) && !HAS_TRAIT(enthrall_victim, TRAIT_PET_SKILLCHIP))
@@ -226,34 +253,38 @@
 
 	//distance calculations
 	distance_apart = get_dist(enthrall_mob, owner)
-	switch(distance_apart)
-		if(0 to 8)//If the enchanter is within range, increase enthrall_tally, remove withdrawl_active subproc and undo withdrawl_active effects.
-			if(phase <= PARTIALLY_ENTHRALLED)
-				// Collars speed up the enthralment process.
-				if(enthrall_victim.wear_neck?.kink_collar == TRUE)
-					enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1] * 1.5, 0.1)
-				else
-					enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1], 0.1)
-			if(withdrawl_progress > 0)
-				withdrawl_progress -= 2
-			//calming effects
-			enthrall_victim.set_hallucinations(0)
-			enthrall_victim.set_stutter(0)
-			enthrall_victim.set_jitter(0)
-			if(owner.get_organ_loss(ORGAN_SLOT_BRAIN) >= 20)
-				owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, -0.2)
-			if(withdrawl_active == TRUE)
-				REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
-				enthrall_victim.clear_mood_event("EnthMissing1")
-				enthrall_victim.clear_mood_event("EnthMissing2")
-				enthrall_victim.clear_mood_event("EnthMissing3")
-				enthrall_victim.clear_mood_event("EnthMissing4")
-				withdrawl_active = FALSE
-		if(9 to INFINITY)//If they're not nearby, enable withdrawl effects.
-			withdrawl_active = TRUE
+	if(distance_effects_enabled)
+		switch(distance_apart)
+			if(0 to 8)//If the enchanter is within range, increase enthrall_tally, remove withdrawl_active subproc and undo withdrawl_active effects.
+				if(phase <= PARTIALLY_ENTHRALLED)
+					// Collars speed up the enthralment process.
+					if(enthrall_victim.wear_neck?.kink_collar == TRUE)
+						enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1] * 1.5, 0.1)
+					else
+						enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1], 0.1)
+				if(withdrawl_progress > 0)
+					withdrawl_progress -= 2
+				//calming effects
+				enthrall_victim.set_hallucinations(0)
+				enthrall_victim.set_stutter(0)
+				enthrall_victim.set_jitter(0)
+				if(owner.get_organ_loss(ORGAN_SLOT_BRAIN) >= 20)
+					owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, -0.2)
+				if(withdrawl_active == TRUE)
+					REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
+					enthrall_victim.clear_mood_event("EnthMissing1")
+					enthrall_victim.clear_mood_event("EnthMissing2")
+					enthrall_victim.clear_mood_event("EnthMissing3")
+					enthrall_victim.clear_mood_event("EnthMissing4")
+					withdrawl_active = FALSE
+			if(9 to INFINITY)//If they're not nearby, enable withdrawl effects.
+				withdrawl_active = TRUE
+	else
+		withdrawl_active = FALSE
+		withdrawl_progress = 0
 
 	//withdrawl_active subproc:
-	if(withdrawl_active == TRUE)//Your minions are really REALLY needy.
+	if(withdrawl_active == TRUE && distance_effects_enabled)//Your minions are really REALLY needy.
 		switch(withdrawl_progress)//denial
 			if(4) // 00:20 - To reduce spam
 				to_chat(owner, span_userdanger("You are unable to complete [(lewd?"your [enthrall_gender]":"[enthrall_mob]")]'s orders without their presence, and any commands and objectives given to you prior are not in effect until you are back with them."))
@@ -436,6 +467,8 @@
 	enthrall_victim.clear_mood_event("EnthMissing4")
 	UnregisterSignal(enthrall_victim, COMSIG_LIVING_RESIST)
 	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
+	if(dom_name_filter_set)
+		UnregisterSignal(owner, COMSIG_MOB_SAY, .proc/owner_name_filter)
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
 	to_chat(owner, span_userdanger("You're now free of [enthrall_mob]'s influence, and fully independent!'"))
 	UnregisterSignal(owner, COMSIG_GLOB_LIVING_SAY_SPECIAL)
@@ -453,50 +486,105 @@
 		if(findtext(raw_message, cached_trigger))//if trigger1 is the message
 			trigger_cached = 5 //Stops triggerparties and as a result, stops servercrashes.
 
-			//Speak (Forces player to talk)
-			if(LOWER_TEXT(custom_triggers[trigger][1]) == "speak")//trigger2
-				var/saytext = "Your mouth moves on it's own before you can even catch it."
-				addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, enthralled_mob, span_hear(saytext)), 5)
-				addtimer(CALLBACK(enthralled_mob, /atom/movable/proc/say, "[custom_triggers[trigger][2]]"), 5)
-
-
-			//Echo (repeats message!) allows customisation, but won't display var calls! Defaults to hypnophrase.
-			else if(LOWER_TEXT(custom_triggers[trigger][1]) == "echo")//trigger2
-				addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, enthralled_mob, span_velvet("[custom_triggers[trigger][2]]")), 5)
-				//(to_chat(owner, "<span class='hypnophrase'><i>[custom_triggers[trigger][2]]</i></span>"))//trigger3
-
-			//Shocking truth!
-			else if(LOWER_TEXT(custom_triggers[trigger]) == "shock")
-				if(lewd && ishuman(enthralled_mob))
-					var/mob/living/carbon/human/human_mob = enthralled_mob
-					human_mob.adjust_arousal(5)
-				enthralled_mob.adjust_jitter(10 SECONDS)
-				enthralled_mob.adjust_stutter(5 SECONDS)
-				enthralled_mob.StaminaKnockdown(60)
-				enthralled_mob.Stun(60)
-				to_chat(owner, span_warning("Your muscles seize up, then start spasming wildy!"))
-
-			//kneel (knockdown)
-			else if(LOWER_TEXT(custom_triggers[trigger]) == "kneel")//as close to kneeling as you can get, I suppose.
-				to_chat(owner, span_hear("You drop to the ground unsurreptitiously."))
-				enthralled_mob.toggle_resting()
-
-			//strip (some) clothes
-			else if(LOWER_TEXT(custom_triggers[trigger]) == "strip")//This wasn't meant to just be a lewd thing oops.
-				var/mob/living/carbon/human/human_mob = owner
-				var/items = human_mob.get_contents()
-				for(var/obj/item/storage_item in items)
-					if(storage_item == human_mob.w_uniform || storage_item == human_mob.wear_suit)
-						human_mob.dropItemToGround(storage_item, TRUE)
-				to_chat(owner, span_hear("You feel compelled to strip your clothes."))
-
-			//trance
-			else if(LOWER_TEXT(custom_triggers[trigger]) == "trance")//Maaaybe too strong. Weakened it, only lasts 50 ticks.
-				var/mob/living/carbon/human/human_mob = owner
-				human_mob.apply_status_effect(/datum/status_effect/trance, 200, TRUE)
-				trance_time = 50
+			var/list/actions = islist(custom_triggers[trigger]) ? custom_triggers[trigger] : null
+			if(!actions?.len)
+				continue
+			var/total_delay = 0
+			for(var/list/action_entry in actions)
+				var/action_type = lowertext(action_entry["type"])
+				var/action_data = action_entry["data"]
+				var/delay = max(0, action_entry["delay"] || 0)
+				addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_run_custom_trigger_action, enthralled_mob, enthrall_mob, src, action_type, action_data, lewd), total_delay)
+				total_delay += delay
 
 	return
+
+/datum/status_effect/chem/enthrall/proc/owner_name_filter(datum/source, list/speech_args)
+	SIGNAL_HANDLER
+	if(!dom_name_filter_set)
+		return
+	if(phase < FULLY_ENTHRALLED || !enthrall_mob)
+		UnregisterSignal(owner, COMSIG_MOB_SAY, .proc/owner_name_filter)
+		dom_name_filter_set = FALSE
+		return
+	var/message = speech_args[SPEECH_MESSAGE]
+	if(!istext(message) || !length(message))
+		return
+	var/master_name = enthrall_mob?.real_name || enthrall_mob?.name || ""
+	var/owner_label = enthrall_gender || master_name || "your owner"
+	if(!length(master_name))
+		return
+	var/list/tokens = list()
+	tokens += master_name
+	var/fn = first_name(master_name)
+	if(length(fn))
+		tokens += fn
+	var/list/parts = splittext(master_name, " ")
+	if(parts?.len)
+		var/last = parts[parts.len]
+		if(length(last) && last != fn)
+			tokens += last
+	if(enthrall_mob?.name && enthrall_mob.name != master_name)
+		tokens += enthrall_mob.name
+	var/modified = message
+	var/label_lower = lowertext(owner_label)
+	var/label_title = capitalize(owner_label)
+	var/label_upper = uppertext(owner_label)
+	var/list/seen = list()
+	for(var/token in tokens)
+		if(!length(token))
+			continue
+		var/t_lower = lowertext(token)
+		var/list/variants = list(
+			list("needle" = token, "repl" = label_title),
+			list("needle" = t_lower, "repl" = label_lower),
+			list("needle" = uppertext(t_lower), "repl" = label_upper),
+		)
+		for(var/entry in variants)
+			var/needle = entry["needle"]
+			if(!length(needle) || seen[needle])
+				continue
+			seen[needle] = TRUE
+			var/regex/r = regex("\\b[REGEX_QUOTE(needle)]\\b", "g")
+			modified = replacetextEx(modified, r, entry["repl"])
+	if(modified != message)
+		speech_args[SPEECH_MESSAGE] = modified
+
+/proc/mkultra_run_custom_trigger_action(mob/living/carbon/human/enthralled_mob, mob/living/enthrall_mob, datum/status_effect/chem/enthrall/enthrall_chem, action_type, action_data, lewd)
+	if(QDELETED(enthralled_mob) || QDELETED(enthrall_mob) || QDELETED(enthrall_chem))
+		return
+	switch(action_type)
+		if("speak")
+			var/saytext = "Your mouth moves on it's own before you can even catch it."
+			to_chat(enthralled_mob, span_hear(saytext))
+			if(action_data)
+				enthralled_mob.say("[action_data]")
+		if("echo")
+			if(action_data)
+				to_chat(enthralled_mob, span_velvet("[action_data]"))
+		if("shock")
+			if(lewd && ishuman(enthralled_mob))
+				var/mob/living/carbon/human/human_mob = enthralled_mob
+				human_mob.adjust_arousal(5)
+			enthralled_mob.adjust_jitter(10 SECONDS)
+			enthralled_mob.adjust_stutter(5 SECONDS)
+			enthralled_mob.StaminaKnockdown(60)
+			enthralled_mob.Stun(60)
+			to_chat(enthralled_mob, span_warning("Your muscles seize up, then start spasming wildy!"))
+		if("kneel")
+			to_chat(enthralled_mob, span_hear("You drop to the ground unsurreptitiously."))
+			enthralled_mob.toggle_resting()
+		if("strip")
+			var/mob/living/carbon/human/human_mob = enthralled_mob
+			var/items = human_mob.get_contents()
+			for(var/obj/item/storage_item in items)
+				if(storage_item == human_mob.w_uniform || storage_item == human_mob.wear_suit)
+					human_mob.dropItemToGround(storage_item, TRUE)
+			to_chat(enthralled_mob, span_hear("You feel compelled to strip your clothes."))
+		if("trance")
+			var/mob/living/carbon/human/human_mob = enthralled_mob
+			human_mob.apply_status_effect(/datum/status_effect/trance, 200, TRUE)
+			enthrall_chem.trance_time = 50
 
 /datum/status_effect/chem/enthrall/proc/owner_resist()
 	var/mob/living/carbon/enthrall_victim = owner

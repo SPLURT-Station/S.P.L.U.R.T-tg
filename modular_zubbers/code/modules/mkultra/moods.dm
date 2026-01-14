@@ -42,6 +42,13 @@
 /datum/mood_event/enthrallmissing4/add_effects(message)
 	description = "<span class='warning'>[message]</span>\n"
 
+/datum/mood_event/enthrall_sissy
+	mood_change = -30
+	timeout = 2 MINUTES
+
+/datum/mood_event/enthrall_sissy/add_effects(message)
+	description = "<span class='warning'>[message]</span>\n"
+
 /datum/mood_event/InLove
 	mood_change = 10
 

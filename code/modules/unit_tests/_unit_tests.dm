@@ -340,6 +340,7 @@
 #include "~skyrat\opposing_force.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
+#include "~splurt\mkultra_commands.dm"
 #include "~splurt\underwear_items.dm"
 // SPLURT EDIT END
 // END_INCLUDE
