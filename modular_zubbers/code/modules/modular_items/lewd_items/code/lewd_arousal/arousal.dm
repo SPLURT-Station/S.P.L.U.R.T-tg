@@ -24,12 +24,14 @@
 			var/mob/living/carbon/human/target = src
 			for(var/obj/item/organ/genital/target_genital in target.organs)
 				if(!target_genital.aroused == AROUSAL_CANT)
-					var/display_arousal = arousal_status
-					if(HAS_TRAIT(target, TRAIT_PERMA_HARD)) //SPLURT EDIT, ORIGINAL: target_genital.aroused = arousal_status
+				//SPLURT ADDITION START
+					var/display_arousal = arousal_status //SPLURT EDIT - ORIGINAL: target_genital.aroused = arousal_status
+					if(HAS_TRAIT(target, TRAIT_PERMA_HARD))
 						display_arousal = AROUSAL_FULL
-					else if(HAS_TRAIT(target, TRAIT_PERMA_SOFT)) //SPLURT EDIT, ORIGINAL: target_genital.aroused = arousal_status
+					else if(HAS_TRAIT(target, TRAIT_PERMA_SOFT))
 						display_arousal = AROUSAL_NONE
-					target_genital.aroused = display_arousal //SPLURT EDIT, ORIGINAL: target_genital.aroused = arousal_status
+					target_genital.aroused = display_arousal
+				//SPLURT ADDITION END
 					target_genital.update_sprite_suffix()
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
