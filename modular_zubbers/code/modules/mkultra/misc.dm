@@ -48,38 +48,18 @@
 			return
 
 	to_chat(dna_holder, span_notice("You press the programming button on [src]."))
-	var/list/title_options = list("Master", "Mistress", "Custom...", "Cancel Imprinting")
-	var/selected_title = tgui_input_list(dna_holder, "What title would you like to use with your thrall?", "DNA Imprint: [dna_holder.real_name]", title_options)
-	if(selected_title == "Cancel Imprinting" || !selected_title)
-		return
-
-	if(selected_title == "Custom...")
-		var/custom_title = tgui_input_text(dna_holder, "Enter the title your thrall will call you.", "Custom Title", dna_holder.real_name, 24)
-		custom_title = trim(custom_title)
-		if(!length(custom_title))
-			to_chat(dna_holder, span_warning("Invalid title; imprinting cancelled."))
-			return
-
-		// Strip basic punctuation to keep chat output clean.
-		custom_title = replacetext(custom_title, "<", "")
-		custom_title = replacetext(custom_title, ">", "")
-		custom_title = replacetext(custom_title, "\[", "")
-		custom_title = replacetext(custom_title, "\]", "")
-		custom_title = replacetext(custom_title, "\\", "")
-		custom_title = trim(custom_title)
-		if(!length(custom_title))
-			to_chat(dna_holder, span_warning("Invalid title; imprinting cancelled."))
-			return
-		enthrall_gender = custom_title
-	else
+	var/selected_title = tgui_alert(dna_holder, "What title would you like to use with your thrall?", "DNA Imprint: [dna_holder.real_name]", list("Master", "Mistress", "Cancel Imprinting"))
+	if(selected_title == "Master" || selected_title == "Mistress")
 		enthrall_gender = selected_title
+		enthrall_ref = WEAKREF(dna_holder)
+		enthrall_ckey = dna_holder.ckey
+		enthrall_name = dna_holder.real_name
+		status = DNA_READY
+		to_chat(dna_holder, span_purple("[src] imprinted with DNA identifier: [enthrall_gender] [enthrall_name]."))
+		visible_message(span_notice("The light on [src] remains steadily lit!"))
 
-	enthrall_ref = WEAKREF(dna_holder)
-	enthrall_ckey = dna_holder.ckey
-	enthrall_name = dna_holder.real_name
-	status = DNA_READY
-	to_chat(dna_holder, span_purple("[src] imprinted with DNA identifier: [enthrall_gender] [enthrall_name]."))
-	visible_message(span_notice("The light on [src] remains steadily lit!"))
+	else
+		return
 
 /obj/item/skillchip/mkiiultra/examine(mob/user)
 	. = ..()

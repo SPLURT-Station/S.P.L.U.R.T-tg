@@ -29,6 +29,29 @@ var/global/datum/mkultra_signal_handler/mkultra_signal_handler = new
 var/global/mkultra_debug_enabled = TRUE
 // Toggle to disable command cooldowns during testing.
 var/global/mkultra_disable_cooldowns = TRUE
+
+// Modular command handlers called from velvetspeech().
+var/global/list/mkultra_modular_command_handlers = list(
+	/proc/process_mkultra_command_cum,
+	/proc/process_mkultra_command_emote,
+	/proc/process_mkultra_command_follow,
+	/proc/process_mkultra_command_set_master_title,
+	/proc/process_mkultra_command_strip_slot,
+	/proc/process_mkultra_command_lust_up,
+	/proc/process_mkultra_command_lust_down,
+	/proc/process_mkultra_command_selfcall,
+	/proc/process_mkultra_command_selfcall_off,
+	/proc/process_mkultra_command_wear,
+	/proc/process_mkultra_command_cum_lock,
+	/proc/process_mkultra_command_arousal_lock,
+	/proc/process_mkultra_command_worship,
+	/proc/process_mkultra_command_heat,
+	/proc/process_mkultra_command_well_trained_toggle,
+	/proc/process_mkultra_command_piss_self,
+	/proc/process_mkultra_command_sissy,
+	/proc/process_mkultra_command_pet_tether,
+	/proc/process_mkultra_command_debug_phase,
+)
 // Slot keyword lookup for targeted stripping.
 /proc/mkultra_add_cooldown(datum/status_effect/chem/enthrall/enthrall_chem, amount)
 	if(!enthrall_chem)
@@ -121,12 +144,12 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	"suit storage" = ITEM_SLOT_SUITSTORE,
 )
 
-// Handlers are registered via the global list in modular_zubbers/mkultra/vocal_cords.dm.
+// Handlers are registered via the global list in modular_zzplurt/code/modules/mkultra/modular_commands.dm.
 
 /proc/mkultra_debug(message)
 	if(!mkultra_debug_enabled)
 		return
-	world.log << "["MKULTRA"] [message]"
+	world.log << "MKULTRA: [message]"
 
 
 
@@ -459,6 +482,44 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		handled = TRUE
 
 	return handled
+
+// Allow dom to set a custom title the pet uses for them.
+/proc/process_mkultra_command_set_master_title(message, mob/living/user, list/listeners, power_multiplier)
+	var/lowered = lowertext(message)
+	var/phrase = "call me "
+	var/idx = findtext(lowered, phrase)
+	if(!idx)
+		phrase = "address me as "
+		idx = findtext(lowered, phrase)
+	if(!idx)
+		return FALSE
+	var/new_title = trim(copytext(message, idx + length(phrase)))
+	if(!length(new_title))
+		return FALSE
+	new_title = replacetext(new_title, "<", "")
+	new_title = replacetext(new_title, ">", "")
+	new_title = replacetext(new_title, "\[", "")
+	new_title = replacetext(new_title, "\]", "")
+	new_title = trim(new_title)
+	if(!length(new_title))
+		return FALSE
+	mkultra_debug("set master title to '[new_title]' by [user]")
+
+	for(var/enthrall_victim in listeners)
+		if(!ishuman(enthrall_victim))
+			continue
+		var/mob/living/carbon/human/humanoid = enthrall_victim
+		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
+		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
+			continue
+		enthrall_chem.enthrall_gender = new_title
+		to_chat(humanoid, "<span class='notice'>You will refer to your owner as '[new_title]'.</span>")
+		to_chat(user, "<span class='notice'><i>[humanoid] will call you '[new_title]'.</i></span>")
+	return TRUE
 
 /proc/mkultra_start_follow(mob/living/carbon/human/humanoid, mob/living/master, datum/status_effect/chem/enthrall/enthrall_chem)
 	if(QDELETED(humanoid) || QDELETED(master))
@@ -1019,6 +1080,8 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			continue
 		var/mob/living/carbon/human/humanoid = enthrall_victim
 		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
 		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
 			mkultra_debug("pet tether skip [humanoid]: enthrall gate fail (master_match=[enthrall_chem?.enthrall_mob == user])")
 			continue

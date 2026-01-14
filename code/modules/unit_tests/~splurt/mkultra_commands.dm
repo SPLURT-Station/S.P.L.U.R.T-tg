@@ -7,6 +7,13 @@
 #define MKU_FULLY_ENTHRALLED 3
 #endif
 
+/// Pet chip should be our Mk.2 variant.
+/datum/unit_test/mkultra_pet_chip_mk2_name
+	focus = TRUE
+/datum/unit_test/mkultra_pet_chip_mk2_name/Run()
+	var/obj/item/skillchip/mkiiultra/mk2/chip = new
+	TEST_ASSERT(findtext(chip.name, "Mk.2"), "MKUltra pet chip should be the Mk.2 variant")
+
 // Simple enthrall stubs so we can exercise MKUltra helpers without wiring the full chem flow.
 /datum/status_effect/chem/enthrall/unit_test
 	/// Capture the master provided via apply_status_effect for test helpers.

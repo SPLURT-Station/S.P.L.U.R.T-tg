@@ -3,40 +3,6 @@
 //////////////////////////////////////
 
 //Heavily modified voice of god code
-<<<<<<< Updated upstream
-=======
-//SPLURT ADDITION START
-// Modular command handlers are registered here to avoid touching the base switch table below.
-// Share cooldown toggle with modular commands.
-/proc/mkultra_base_add_cooldown(datum/status_effect/chem/enthrall/enthrall_chem, amount)
-	if(!enthrall_chem)
-		return
-	if(mkultra_disable_cooldowns)
-		return
-	enthrall_chem.cooldown += amount
-
-var/global/list/mkultra_modular_command_handlers = list(
-	/proc/process_mkultra_command_cum,
-	/proc/process_mkultra_command_emote,
-	/proc/process_mkultra_command_follow,
-	/proc/process_mkultra_command_strip_slot,
-	/proc/process_mkultra_command_lust_up,
-	/proc/process_mkultra_command_lust_down,
-	/proc/process_mkultra_command_selfcall,
-	/proc/process_mkultra_command_selfcall_off,
-	/proc/process_mkultra_command_wear,
-	/proc/process_mkultra_command_cum_lock,
-	/proc/process_mkultra_command_arousal_lock,
-	/proc/process_mkultra_command_worship,
-	/proc/process_mkultra_command_heat,
-	/proc/process_mkultra_command_well_trained_toggle,
-	/proc/process_mkultra_command_piss_self,
-	/proc/process_mkultra_command_sissy,
-	/proc/process_mkultra_command_pet_tether,
-	/proc/process_mkultra_command_debug_phase,
-)
-//SPLURT ADDITION END
->>>>>>> Stashed changes
 /obj/item/organ/vocal_cords/velvet
 	name = "Velvet chords"
 	desc = "The voice spoken from these just make you want to drift off, sleep and obey."
@@ -591,7 +557,8 @@ var/global/list/mkultra_modular_command_handlers = list(
 				to_chat(user, "<b>[carbon_mob]</b> whispers, \"<i>[speaktrigger] are my triggers.</i>\"")//So they don't trigger themselves!
 				addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, carbon_mob, "<span class='notice'>You whisper your triggers to [(enthrall_chem.lewd?"Your [enthrall_chem.enthrall_gender]":"[enthrall_chem.enthrall_mob]")].</span>"), 5)
 
-	//CUSTOM TRIGGER
+
+	//CUSTOM TRIGGERS
 	else if((findtext(message, custom_words)))
 		for(var/enthrall_victim in listeners)
 			var/mob/living/carbon/human/humanoid = enthrall_victim
@@ -600,50 +567,35 @@ var/global/list/mkultra_modular_command_handlers = list(
 				if (get_dist(user, humanoid) > 1)//Requires user to be next to their pet.
 					to_chat(user, "<span class='warning'>You need to be next to your pet to give them a new trigger!</b></span>")
 					continue
-				if(enthrall_chem.mental_capacity < 5)
-					to_chat(user, "<span class='warning'>Your pet looks at you with a vacant blase expression, you don't think you can program anything else into them</b></span>")
+				if(!enthrall_chem.lewd)
+					to_chat(user, "<span class='warning'>[humanoid] seems incapable of being implanted with triggers.</b></span>")
 					continue
-				user.emote("me", EMOTE_VISIBLE, "puts their hands upon [humanoid.name]'s head and looks deep into their eyes, whispering something to them.'")
-				user.SetStun(1000)//So you can't run away!
-				humanoid.SetStun(1000)
-				var/trigger = stripped_input(user, "Add a trigger phrase to give your pet.", MAX_MESSAGE_LEN)
-				trigger = lowertext(trigger)
-				if(!LAZYLEN(trigger))
-					to_chat(user, "<span class='warning'>You can't give your pet a blank trigger.</b></span>")
+				else
+					user.emote("me", EMOTE_VISIBLE, "puts their hands upon [humanoid.name]'s head and looks deep into their eyes, whispering something to them.")
+					user.SetStun(1000)//Hands are handy, so you have to stay still
+					humanoid.SetStun(1000)
+					if (enthrall_chem.mental_capacity >= 5)
+						var/trigger = html_decode(stripped_input(user, "Enter the trigger phrase", MAX_MESSAGE_LEN))
+						var/custom_words_words_list = list("Speak", "Echo", "Shock", "Kneel", "Strip", "Trance", "Cancel")
+						var/trigger2 = input(user, "Pick an effect", "Effects") in custom_words_words_list
+						trigger2 = LOWER_TEXT(trigger2)
+						if ((findtext(trigger2, custom_words_words)))
+							if (trigger2 == "speak" || trigger2 == "echo")
+								var/trigger3 = html_decode(stripped_input(user, "Enter the phrase spoken. Abusing this to self antag is bannable.", MAX_MESSAGE_LEN))
+								enthrall_chem.custom_triggers[trigger] = list(trigger2, trigger3)
+								if(findtext(trigger3, "admin"))
+									message_admins("FERMICHEM: [user] maybe be trying to abuse MKUltra by implanting by [humanoid] with [trigger], triggering [trigger2], to send [trigger3].")
+							else
+								enthrall_chem.custom_triggers[trigger] = trigger2
+							enthrall_chem.mental_capacity -= 5
+							addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>[(enthrall_chem.lewd?"your [enthrall_chem.enthrall_gender]":"[enthrall_chem.enthrall_mob]")] whispers you a new trigger.</span>"), 5)
+							to_chat(user, "<span class='notice'><i>You sucessfully set the trigger word [trigger] in [humanoid]</i></span>")
+						else
+							to_chat(user, "<span class='warning'>Your pet looks at you confused, it seems they don't understand that effect!</b></span>")
+					else
+						to_chat(user, "<span class='warning'>Your pet looks at you with a vacant blase expression, you don't think you can program anything else into them</b></span>")
 					user.SetStun(0)
 					humanoid.SetStun(0)
-					continue
-				var/list/actions = islist(enthrall_chem.custom_triggers[trigger]) ? enthrall_chem.custom_triggers[trigger] : list()
-				var/action_type = lowertext(input(user, "Pick an action for '[trigger]' (or 'cancel' to clear it)", "Trigger action") in list("Speak", "Echo", "Shock", "Kneel", "Strip", "Trance", "Cancel"))
-				if(action_type == "cancel")
-					enthrall_chem.custom_triggers -= trigger
-					to_chat(user, "<span class='notice'><i>You clear the trigger '[trigger]' from [humanoid].</i></span>")
-					addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>[(enthrall_chem.lewd?"your [enthrall_chem.enthrall_gender]":"[enthrall_chem.enthrall_mob]")] whispers you feel some conditioning fade.</span>"), 5)
-					user.SetStun(0)
-					humanoid.SetStun(0)
-					continue
-				if(actions.len >= 5)
-					to_chat(user, "<span class='warning'>Your pet's mind is full, they can't take more than five actions per trigger.</b></span>")
-					user.SetStun(0)
-					humanoid.SetStun(0)
-					continue
-				if(!findtext(action_type, custom_words_words))
-					to_chat(user, "<span class='warning'>Your pet looks at you confused, it seems they don't understand that effect!</b></span>")
-					user.SetStun(0)
-					humanoid.SetStun(0)
-					continue
-				var/action_data = null
-				if(action_type == "speak" || action_type == "echo")
-					action_data = stripped_input(user, "What should they say?", MAX_MESSAGE_LEN)
-				var/delay = input(user, "Delay after the previous action? (deciseconds)", "Action delay", 0) as num
-				delay = max(0, delay)
-				actions += list(list("type" = action_type, "data" = action_data, "delay" = delay))
-				enthrall_chem.custom_triggers[trigger] = actions
-				enthrall_chem.mental_capacity -= 5
-				addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>[(enthrall_chem.lewd?"your [enthrall_chem.enthrall_gender]":"[enthrall_chem.enthrall_mob]")] whispers you a new trigger.</span>"), 5)
-				to_chat(user, "<span class='notice'><i>You add an action to trigger '[trigger]' in [humanoid]. ([actions.len]/5)</i></span>")
-				user.SetStun(0)
-				humanoid.SetStun(0)
 
 	//CUSTOM ECHO
 	else if((findtext(message, custom_echo)))
