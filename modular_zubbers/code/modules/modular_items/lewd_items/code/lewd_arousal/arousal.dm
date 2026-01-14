@@ -35,6 +35,7 @@
 					target_genital.update_sprite_suffix()
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
+	//SPLURT ADDITION START
 	else if(istype(src, /mob/living/carbon/human))
 		// Always enforce permanent arousal display traits even if the arousal flag didn't change.
 		var/mob/living/carbon/human/target = src
@@ -49,6 +50,7 @@
 					target_genital.aroused = display_arousal
 					target_genital.update_sprite_suffix()
 		target.update_body()
+	//SPLURT ADDITION END
 
 	arousal = clamp(arousal + arous, additional_minimum_arousal || AROUSAL_MINIMUM, AROUSAL_LIMIT) //SPLURT EDIT - Hexacrocin OD Bounty
 	if(!has_status_effect(/datum/status_effect/aroused) && arousal)
