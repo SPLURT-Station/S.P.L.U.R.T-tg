@@ -246,7 +246,6 @@ export const DmTestTarget = new Juke.Target({
     };
     await DreamDaemon(
       options,
-      '-invisible',
       '-close',
       '-trusted',
       '-verbose',
@@ -294,7 +293,6 @@ export const AutowikiTarget = new Juke.Target({
     };
     await DreamDaemon(
       options,
-      '-invisible',
       '-close',
       '-trusted',
       '-verbose',
