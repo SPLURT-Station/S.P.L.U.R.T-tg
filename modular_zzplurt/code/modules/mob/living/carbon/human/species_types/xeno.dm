@@ -55,7 +55,7 @@
 			if(tgui_alert(owner, alert, "Confirm Reconstitution", list("Yes", "No")) != "Yes")
 				return FALSE
 
-			to_chat(owner, span_notice("You begin preparing to reconstitute your form. This will take [DisplayTimeText(time)]. The reconstitution will automatically trigger when ready."))
+			to_chat(owner, span_notice("You begin preparing to reconstitute your form. This will take [DisplayTimeText(time)]. You will not be able to move during this time. The reconstitution will automatically trigger when ready."))
 
 			if(is_dead)
 				RegisterSignal(owner, COMSIG_LIVING_REVIVE, PROC_REF(on_revive))
@@ -130,8 +130,6 @@
 		ethereal.refresh_light_color(owner)
 
 	SSquirks.OverrideQuirks(owner, owner.client)
-
-
 
 #undef ACTION_STATE_STANDBY
 #undef ACTION_STATE_PREPARING
