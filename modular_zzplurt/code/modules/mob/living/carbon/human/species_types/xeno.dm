@@ -102,14 +102,15 @@
 	owner.updateappearance()
 	owner.wash(CLEAN_SCRUB)
 
+	// Drop items and create viscera for the transformation
+	for(var/obj/item/wielded in owner)
+		owner.dropItemToGround(wielded, force = TRUE, silent = TRUE)
+
+	new /obj/effect/gibspawner/human(get_turf(owner), owner)
+
 	if(is_dead)
 		to_chat(owner, span_notice("Your new body awakens, bursting free from your old skin."))
 		owner.revive(HEAL_ALL)
-
-		for(var/obj/item/wielded in owner)
-			owner.dropItemToGround(wielded, force = TRUE, silent = TRUE)
-
-		new /obj/effect/gibspawner/human(get_turf(owner), owner)
 		owner.visible_message(span_danger("<p><font size=4>The lifeless husk of [owner] bursts open, revealing a new, intact copy in the pool of viscera.</font></p>"))
 		owner.visible_message("The former corpse staggers to its feet, all its former wounds having vanished...")
 
@@ -117,8 +118,8 @@
 		COOLDOWN_START(src, revive_cd, 5 MINUTES)
 		is_dead = FALSE
 	else
-		to_chat(owner, span_notice("Your form shifts and reconstitutes, matching your ideal self."))
-		owner.visible_message(span_notice("[owner]'s form briefly shimmers and shifts."))
+		to_chat(owner, span_notice("Your body shifts and tears, reconstituting into your ideal form."))
+		owner.visible_message(span_danger("[owner]'s form violently shifts, bursting free from [owner.p_their()] old skin in a shower of viscera!"))
 		COOLDOWN_START(src, revive_cd, 30 SECONDS)
 
 	action_state = ACTION_STATE_STANDBY
