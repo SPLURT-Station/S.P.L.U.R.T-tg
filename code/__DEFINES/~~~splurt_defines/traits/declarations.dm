@@ -15,7 +15,6 @@
 #define TRAIT_CHOKE_SLUT		"choke_slut"
 /// Trait for quirk: Bloodsucker Fledgling
 #define TRAIT_BLOODFLEDGE		"bloodfledge"
-#define TRAIT_NO_BLOOD_REGEN "no_blood_regen"
 /// UNUSED - Legacy trait for quirk: Incubus
 #define TRAIT_INCUBUS			"incubus"
 /// UNUSED - Legacy trait for quirk: Succubus
@@ -85,6 +84,17 @@
 /* /// Trait applied when the pressure resistance of the vacuum resistance quirk wears off (Reverted for now due to rules preventing this from being abused)
 #define TRAIT_VACUUM_RESISTANCE_FATIGUE "vacuum_resist_fatigue"
 */
+/// Trait for quirk: Hypersexual
+#define TRAIT_HYPERSEXUAL		"hypersexual"
+
+///
+// Mob Traits
+///
+/// Stops blood from regenerating naturally
+#define TRAIT_NO_BLOOD_REGEN 		"no_blood_regen"
+/// Caused by bloodfledge craving effect
+#define TRAIT_BLOODFLEDGE_DESPERATE "bloodfledge_desperate"
+
 ///
 // Element traits
 ///
