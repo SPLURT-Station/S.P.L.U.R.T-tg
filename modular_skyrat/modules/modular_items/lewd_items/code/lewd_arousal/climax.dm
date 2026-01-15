@@ -32,7 +32,7 @@
 		return
 	//SPLURT ADDITION START
 	// MKUltra cum lock hard block: do not proceed to climax when locked.
-	if(global.mkultra_cum_locks && mkultra_cum_locks[src])
+	if(GLOB.mkultra_cum_locks && GLOB.mkultra_cum_locks[src])
 		visible_message(span_purple("[src] strains, but can't finish."), span_purple("You can't climax—you're locked by your owner."))
 		return FALSE
 	//SPLURT ADDITION END

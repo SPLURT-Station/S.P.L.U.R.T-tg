@@ -341,7 +341,7 @@
 
 			//SPLURT ADDITION START
 			if(genital.slot == ORGAN_SLOT_PENIS)
-				var/lock_mode = mkultra_arousal_locks[user]
+				var/lock_mode = GLOB.mkultra_arousal_locks[user]
 				if(lock_mode == "hard" || lock_mode == "limp")
 					return FALSE
 			//SPLURT ADDITION END

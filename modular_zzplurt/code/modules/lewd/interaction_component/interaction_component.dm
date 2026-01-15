@@ -177,7 +177,7 @@
 	// Genital data - Only if user is human
 	var/list/genital_list = list()
 	if(ishuman(user))
-		var/lock_mode = mkultra_arousal_locks[human_user]
+		var/lock_mode = GLOB.mkultra_arousal_locks[human_user]
 		var/penis_arousal_locked = (lock_mode == "hard" || lock_mode == "limp")
 		for(var/obj/item/organ/genital/genital in human_user.organs)
 			if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)

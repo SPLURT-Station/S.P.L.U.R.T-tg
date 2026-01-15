@@ -42,7 +42,7 @@ GLOBAL_VAR_INIT(mkultra_disable_cooldowns, FALSE)
 GLOBAL_LIST_INIT(mkultra_modular_command_handlers, list(
 	/proc/process_mkultra_command_cum,
 	/proc/process_mkultra_command_emote,
-	// Handlers now bound via mkultra_command_docs -> mkultra_modular_command_specs.
+	// Handlers now bound via GLOB.mkultra_command_docs -> GLOB.mkultra_modular_command_specs.
 ))
 
 // Human-readable docs and shared message text for modular commands.
@@ -298,20 +298,20 @@ GLOBAL_LIST_INIT(mkultra_command_order, list(
 	"slot_lock",
 ))
 
-// Command specs are built from mkultra_command_docs + ordering.
+// Command specs are built from GLOB.mkultra_command_docs + ordering.
 GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 
 /proc/mkultra_build_command_specs()
-	mkultra_modular_command_specs = list()
-	for(var/cmd_name in mkultra_command_order)
-		var/list/doc = mkultra_command_docs[cmd_name]
+	GLOB.mkultra_modular_command_specs = list()
+	for(var/cmd_name in GLOB.mkultra_command_order)
+		var/list/doc = GLOB.mkultra_command_docs[cmd_name]
 		if(!islist(doc))
 			continue
 		var/patterns = doc["patterns"]
 		var/handler = doc["handler"]
 		if(!patterns || !handler)
 			continue
-		mkultra_modular_command_specs[cmd_name] = list(
+		GLOB.mkultra_modular_command_specs[cmd_name] = list(
 			"name" = cmd_name,
 			"patterns" = patterns,
 			"handler" = handler,
@@ -326,7 +326,7 @@ GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 /proc/mkultra_cmd_doc(cmd_name)
 	if(!istext(cmd_name))
 		return null
-	return mkultra_command_docs[cmd_name]
+	return GLOB.mkultra_command_docs[cmd_name]
 
 /proc/mkultra_cmd_patterns(cmd_name)
 	var/list/doc = mkultra_cmd_doc(cmd_name)
@@ -379,11 +379,11 @@ GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 
 	message = "[message]"
 
-	if(!mkultra_modular_command_specs || !mkultra_modular_command_specs.len)
+	if(!GLOB.mkultra_modular_command_specs || !GLOB.mkultra_modular_command_specs.len)
 		mkultra_build_command_specs()
 
-	for(var/cmd_name in mkultra_command_order)
-		var/list/spec = mkultra_modular_command_specs[cmd_name]
+	for(var/cmd_name in GLOB.mkultra_command_order)
+		var/list/spec = GLOB.mkultra_modular_command_specs[cmd_name]
 		if(!islist(spec))
 			continue
 
@@ -502,7 +502,7 @@ GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 /proc/mkultra_add_cooldown(datum/status_effect/chem/enthrall/enthrall_chem, amount)
 	if(!enthrall_chem)
 		return
-	if(mkultra_disable_cooldowns)
+	if(GLOB.mkultra_disable_cooldowns)
 		return
 	enthrall_chem.cooldown += amount
 
@@ -552,7 +552,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 // Handlers are registered via the global list in modular_zzplurt/code/modules/mkultra/modular_commands.dm.
 
 /proc/mkultra_debug(message)
-	if(!mkultra_debug_enabled)
+	if(!GLOB.mkultra_debug_enabled)
 		return
 	world.log << "MKULTRA: [message]"
 
@@ -584,7 +584,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_not_lewd), 5)
 			mkultra_debug("cum skip [humanoid]: not lewd opt-in")
 			continue
-		if(mkultra_cum_locks[humanoid])
+		if(GLOB.mkultra_cum_locks[humanoid])
 			mkultra_debug("cum blocked on [humanoid]: cum lock active")
 			var/msg_lock_pet = mkultra_cmd_text("cum", "locked_pet") || "<span class='warning'>You strain, but your climax is locked away.</span>"
 			var/msg_lock_master = mkultra_cmd_text("cum", "locked_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] fights the urge, but your cum lock holds.</i></span>"
@@ -863,7 +863,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 			mkultra_debug("selfcall off skip [humanoid]: enthraller mismatch (has=[enthrall_chem.enthrall_mob] wanted=[user])")
 			continue
 
-		if(humanoid in mkultra_selfcall_states)
+		if(humanoid in GLOB.mkultra_selfcall_states)
 			mkultra_clear_selfcall(humanoid)
 			mkultra_add_cooldown(enthrall_chem, 2)
 			var/msg_pet = mkultra_cmd_text("selfcall_off", "pet") || "<span class='notice'>Your self-reference restrictions dissolve.</span>"
@@ -1014,23 +1014,23 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 		return
 
 	mkultra_stop_follow(humanoid)
-	mkultra_follow_states[humanoid] = list(
+	GLOB.mkultra_follow_states[humanoid] = list(
 		"master" = WEAKREF(master),
 		"enthrall_chem" = WEAKREF(enthrall_chem),
 	)
 	mkultra_debug("follow start: [humanoid] now following [master]")
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_LIVING_RESIST, TYPE_PROC_REF(/datum/mkultra_signal_handler, follow_on_resist))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, follow_on_delete))
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_LIVING_RESIST, TYPE_PROC_REF(/datum/mkultra_signal_handler, follow_on_resist))
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, follow_on_delete))
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_follow_tick, humanoid), 1 SECONDS)
 
 /proc/mkultra_stop_follow(mob/living/carbon/human/humanoid, reason = null, mob/living/master)
-	var/list/state = mkultra_follow_states[humanoid]
+	var/list/state = GLOB.mkultra_follow_states[humanoid]
 	if(!state)
 		return FALSE
 
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_LIVING_RESIST, COMSIG_QDELETING))
+	GLOB.mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_LIVING_RESIST, COMSIG_QDELETING))
 	GLOB.move_manager.stop_looping(humanoid)
-	mkultra_follow_states -= humanoid
+	GLOB.mkultra_follow_states -= humanoid
 	if(reason)
 		mkultra_debug("follow stop: [humanoid] reason='[reason]' master=[master]")
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, reason), 2)
@@ -1048,7 +1048,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	mkultra_stop_follow(source)
 
 /proc/mkultra_follow_tick(mob/living/carbon/human/humanoid)
-	var/list/state = mkultra_follow_states[humanoid]
+	var/list/state = GLOB.mkultra_follow_states[humanoid]
 	if(!state)
 		return
 
@@ -1080,19 +1080,19 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 /proc/mkultra_apply_selfcall(mob/living/carbon/human/humanoid, list/name_list)
 	// Clear existing bindings first.
 	mkultra_clear_selfcall(humanoid)
-	mkultra_selfcall_states[humanoid] = list(
+	GLOB.mkultra_selfcall_states[humanoid] = list(
 		"names" = name_list.Copy(),
 		"idx" = 1,
 	)
 	mkultra_debug("selfcall set on [humanoid]: [name_list.Join(", ")]")
-	mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_say))
-	mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_delete))
+	GLOB.mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_say))
+	GLOB.mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_delete))
 
 /proc/mkultra_clear_selfcall(mob/living/carbon/human/humanoid)
-	if(!(humanoid in mkultra_selfcall_states))
+	if(!(humanoid in GLOB.mkultra_selfcall_states))
 		return
-	mkultra_selfcall_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
-	mkultra_selfcall_states -= humanoid
+	GLOB.mkultra_selfcall_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
+	GLOB.mkultra_selfcall_states -= humanoid
 	mkultra_debug("selfcall cleared on [humanoid]")
 
 /datum/mkultra_signal_handler/proc/selfcall_on_delete(datum/source)
@@ -1102,7 +1102,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 /datum/mkultra_signal_handler/proc/selfcall_on_say(datum/source, list/speech_args)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/humanoid = source
-	var/list/state = mkultra_selfcall_states[humanoid]
+	var/list/state = GLOB.mkultra_selfcall_states[humanoid]
 	if(!state)
 		return
 	var/list/name_list = state["names"]
@@ -1158,19 +1158,19 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 
 /proc/mkultra_apply_master_title(mob/living/carbon/human/humanoid, mob/living/master, title)
 	mkultra_clear_master_title(humanoid)
-	mkultra_master_title_states[humanoid] = list(
+	GLOB.mkultra_master_title_states[humanoid] = list(
 		"master" = WEAKREF(master),
 		"title" = title,
 	)
-	mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_say))
-	mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_delete))
+	GLOB.mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_say))
+	GLOB.mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_delete))
 	mkultra_debug("master title set on [humanoid]: '[title]' for [master]")
 
 /proc/mkultra_clear_master_title(mob/living/carbon/human/humanoid)
-	if(!(humanoid in mkultra_master_title_states))
+	if(!(humanoid in GLOB.mkultra_master_title_states))
 		return
-	mkultra_master_title_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
-	mkultra_master_title_states -= humanoid
+	GLOB.mkultra_master_title_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
+	GLOB.mkultra_master_title_states -= humanoid
 	mkultra_debug("master title cleared on [humanoid]")
 
 /datum/mkultra_signal_handler/proc/master_title_on_delete(datum/source)
@@ -1180,7 +1180,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 /datum/mkultra_signal_handler/proc/master_title_on_say(datum/source, list/speech_args)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/humanoid = source
-	var/list/state = mkultra_master_title_states[humanoid]
+	var/list/state = GLOB.mkultra_master_title_states[humanoid]
 	if(!state)
 		return
 
@@ -1260,13 +1260,13 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 
 /proc/mkultra_resolve_strip_slot(slot_text)
 	var/lowered = LOWER_TEXT(slot_text)
-	if(lowered in mkultra_strip_slot_lookup)
-		return mkultra_strip_slot_lookup[lowered]
+	if(lowered in GLOB.mkultra_strip_slot_lookup)
+		return GLOB.mkultra_strip_slot_lookup[lowered]
 
 	// Fallback: search for a keyword contained in the phrase.
-	for(var/key in mkultra_strip_slot_lookup)
+	for(var/key in GLOB.mkultra_strip_slot_lookup)
 		if(findtext(lowered, key))
-			return mkultra_strip_slot_lookup[key]
+			return GLOB.mkultra_strip_slot_lookup[key]
 	return null
 
 /proc/mkultra_slot_name(slot_id)
@@ -1355,31 +1355,31 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	// Clear any previous lock so we don't double-register signals.
 	mkultra_unlock_slot_item(I, silent = TRUE)
 	ADD_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
-	var/list/locked = mkultra_slot_locks[humanoid]
+	var/list/locked = GLOB.mkultra_slot_locks[humanoid]
 	if(!islist(locked))
 		locked = list()
-		mkultra_slot_locks[humanoid] = locked
-		mkultra_slot_lock_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_owner_delete))
+		GLOB.mkultra_slot_locks[humanoid] = locked
+		GLOB.mkultra_slot_lock_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_owner_delete))
 	locked[I] = slot_label
-	mkultra_slot_lock_items[I] = humanoid
-	mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_unequip))
-	mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_delete))
+	GLOB.mkultra_slot_lock_items[I] = humanoid
+	GLOB.mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_unequip))
+	GLOB.mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_delete))
 	return TRUE
 
 /proc/mkultra_unlock_slot_item(obj/item/I, silent = FALSE)
 	if(!I)
 		return FALSE
-	var/mob/living/carbon/human/humanoid = mkultra_slot_lock_items[I]
+	var/mob/living/carbon/human/humanoid = GLOB.mkultra_slot_lock_items[I]
 	if(humanoid)
-		var/list/locked = mkultra_slot_locks[humanoid]
+		var/list/locked = GLOB.mkultra_slot_locks[humanoid]
 		if(islist(locked))
 			locked -= I
 			if(!locked.len)
-				mkultra_slot_locks -= humanoid
-				mkultra_slot_lock_signal_handler.UnregisterSignal(humanoid, COMSIG_QDELETING)
-	mkultra_slot_lock_items -= I
+				GLOB.mkultra_slot_locks -= humanoid
+				GLOB.mkultra_slot_lock_signal_handler.UnregisterSignal(humanoid, COMSIG_QDELETING)
+	GLOB.mkultra_slot_lock_items -= I
 	REMOVE_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
-	mkultra_slot_lock_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
+	GLOB.mkultra_slot_lock_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
 	return TRUE
 
 /proc/process_mkultra_command_wear(message, mob/living/user, list/listeners, power_multiplier)
@@ -1777,7 +1777,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 				mkultra_unlock_slot_item(slot_item)
 			else
 				// Fallback: clear any stale locks on this mob.
-				var/list/locked = mkultra_slot_locks[humanoid]
+				var/list/locked = GLOB.mkultra_slot_locks[humanoid]
 				if(islist(locked))
 					for(var/obj/item/I in locked)
 						mkultra_unlock_slot_item(I)
@@ -1837,22 +1837,22 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 
 /proc/mkultra_set_cum_lock(mob/living/carbon/human/humanoid, apply)
 	if(apply)
-		mkultra_cum_locks[humanoid] = TRUE
+		GLOB.mkultra_cum_locks[humanoid] = TRUE
 	else
-		mkultra_cum_locks -= humanoid
+		GLOB.mkultra_cum_locks -= humanoid
 
 /proc/mkultra_set_arousal_lock(mob/living/carbon/human/humanoid, mode)
-	mkultra_arousal_locks[humanoid] = mode
-	if(!(humanoid in mkultra_arousal_saved_states))
+	GLOB.mkultra_arousal_locks[humanoid] = mode
+	if(!(humanoid in GLOB.mkultra_arousal_saved_states))
 		var/obj/item/organ/genital/penis/prior = humanoid.get_organ_slot(ORGAN_SLOT_PENIS)
-		mkultra_arousal_saved_states[humanoid] = list(
+		GLOB.mkultra_arousal_saved_states[humanoid] = list(
 			"arousal" = humanoid.arousal,
 			"status" = humanoid.arousal_status,
 			"penis" = prior?.aroused,
 			"removed_toggle_arousal" = (humanoid.verbs && (humanoid.verbs.Find(/mob/living/carbon/human/verb/toggle_arousal))),
 			"removed_toggle_genitals" = (humanoid.verbs && (humanoid.verbs.Find(/mob/living/carbon/human/verb/toggle_genitals))),
 		)
-	var/saved_penis_state = mkultra_arousal_saved_states[humanoid]?["penis"]
+	var/saved_penis_state = GLOB.mkultra_arousal_saved_states[humanoid]?["penis"]
 	mkultra_debug("arousal lock state capture [humanoid] mode=[mode] saved_arousal=[humanoid.arousal] saved_status=[humanoid.arousal_status] saved_penis=[saved_penis_state]")
 	// Block manual toggles while the lock is active.
 	if(humanoid.verbs)
@@ -1860,37 +1860,37 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 			humanoid.verbs -= /mob/living/carbon/human/verb/toggle_arousal
 		if(humanoid.verbs.Find(/mob/living/carbon/human/verb/toggle_genitals))
 			humanoid.verbs -= /mob/living/carbon/human/verb/toggle_genitals
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_HUMAN_ADJUST_AROUSAL, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_adjust), TRUE)
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_delete), TRUE)
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_HUMAN_PERFORM_CLIMAX, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_climax), TRUE)
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_HUMAN_ADJUST_AROUSAL, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_adjust), TRUE)
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_delete), TRUE)
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_HUMAN_PERFORM_CLIMAX, TYPE_PROC_REF(/datum/mkultra_signal_handler, arousal_lock_on_climax), TRUE)
 	mkultra_debug("arousal lock set [humanoid] -> [mode]")
 	mkultra_apply_arousal_lock_now(humanoid)
 
 /proc/mkultra_clear_arousal_lock(mob/living/carbon/human/humanoid)
-	if(!(humanoid in mkultra_arousal_locks))
+	if(!(humanoid in GLOB.mkultra_arousal_locks))
 		return
-	mkultra_arousal_locks -= humanoid
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_HUMAN_ADJUST_AROUSAL, COMSIG_QDELETING, COMSIG_HUMAN_PERFORM_CLIMAX))
+	GLOB.mkultra_arousal_locks -= humanoid
+	GLOB.mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_HUMAN_ADJUST_AROUSAL, COMSIG_QDELETING, COMSIG_HUMAN_PERFORM_CLIMAX))
 	mkultra_debug("arousal lock clear [humanoid]")
 	mkultra_apply_arousal_lock_now(humanoid, clear_only = TRUE)
-	var/list/saved = mkultra_arousal_saved_states[humanoid]
+	var/list/saved = GLOB.mkultra_arousal_saved_states[humanoid]
 	if(saved)
 		if(saved["removed_toggle_arousal"] && humanoid.verbs && !humanoid.verbs.Find(/mob/living/carbon/human/verb/toggle_arousal))
 			humanoid.verbs += /mob/living/carbon/human/verb/toggle_arousal
 		if(saved["removed_toggle_genitals"] && humanoid.verbs && !humanoid.verbs.Find(/mob/living/carbon/human/verb/toggle_genitals))
 			humanoid.verbs += /mob/living/carbon/human/verb/toggle_genitals
-	mkultra_arousal_saved_states -= humanoid
+	GLOB.mkultra_arousal_saved_states -= humanoid
 
 /proc/mkultra_apply_arousal_lock_now(mob/living/carbon/human/humanoid, clear_only = FALSE)
-	if(mkultra_arousal_applying[humanoid])
+	if(GLOB.mkultra_arousal_applying[humanoid])
 		return
-	mkultra_arousal_applying[humanoid] = TRUE
+	GLOB.mkultra_arousal_applying[humanoid] = TRUE
 
-	var/mode = mkultra_arousal_locks[humanoid]
+	var/mode = GLOB.mkultra_arousal_locks[humanoid]
 	if(clear_only)
 		mode = null
 	if(!mode && !clear_only)
-		mkultra_arousal_applying -= humanoid
+		GLOB.mkultra_arousal_applying -= humanoid
 		return
 	mkultra_debug("arousal_apply start [humanoid] mode=[mode] clear_only=[clear_only] arousal=[humanoid.arousal] status=[humanoid.arousal_status]")
 	var/list/genitals = list()
@@ -1903,7 +1903,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 		genitals |= penis
 
 	if(clear_only)
-		var/list/saved = mkultra_arousal_saved_states[humanoid]
+		var/list/saved = GLOB.mkultra_arousal_saved_states[humanoid]
 		var/saved_penis = saved?["penis"]
 		if(!isnull(saved_penis))
 			penis.aroused = saved_penis
@@ -1914,10 +1914,10 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	else
 		for(var/obj/item/organ/genital/G in genitals)
 			var/key2 = "genital_aroused_[G.type]"
-			if(!(humanoid in mkultra_arousal_saved_states))
-				mkultra_arousal_saved_states[humanoid] = list()
-			if(isnull(mkultra_arousal_saved_states[humanoid][key2]))
-				mkultra_arousal_saved_states[humanoid][key2] = G.aroused
+			if(!(humanoid in GLOB.mkultra_arousal_saved_states))
+				GLOB.mkultra_arousal_saved_states[humanoid] = list()
+			if(isnull(GLOB.mkultra_arousal_saved_states[humanoid][key2]))
+				GLOB.mkultra_arousal_saved_states[humanoid][key2] = G.aroused
 		if(mode == "hard")
 			penis.aroused = AROUSAL_FULL
 			for(var/obj/item/organ/genital/G in genitals)
@@ -1934,7 +1934,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	humanoid.update_body()
 	SEND_SIGNAL(humanoid, COMSIG_HUMAN_TOGGLE_AROUSAL)
 	mkultra_debug("arousal_apply end [humanoid] mode=[mode] clear_only=[clear_only] arousal=[humanoid.arousal] status=[humanoid.arousal_status] penis_aroused=[penis?.aroused]")
-	mkultra_arousal_applying -= humanoid
+	GLOB.mkultra_arousal_applying -= humanoid
 
 /datum/mkultra_signal_handler/proc/arousal_lock_on_adjust(datum/source)
 	SIGNAL_HANDLER
@@ -1960,7 +1960,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 
 /datum/mkultra_signal_handler/proc/slot_lock_on_owner_delete(mob/living/carbon/human/source)
 	SIGNAL_HANDLER
-	var/list/locked = mkultra_slot_locks[source]
+	var/list/locked = GLOB.mkultra_slot_locks[source]
 	if(!islist(locked))
 		return
 	for(var/obj/item/I in locked)
@@ -1968,13 +1968,13 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 
 /proc/mkultra_start_worship(mob/living/carbon/human/humanoid, mob/living/master, body_part)
 	mkultra_stop_worship(humanoid)
-	mkultra_worship_states[humanoid] = list("master" = WEAKREF(master), "part" = body_part)
+	GLOB.mkultra_worship_states[humanoid] = list("master" = WEAKREF(master), "part" = body_part)
 	mkultra_worship_tick(humanoid)
 
 /proc/mkultra_stop_worship(mob/living/carbon/human/humanoid)
-	if(!(humanoid in mkultra_worship_states))
+	if(!(humanoid in GLOB.mkultra_worship_states))
 		return
-	mkultra_worship_states -= humanoid
+	GLOB.mkultra_worship_states -= humanoid
 
 /proc/mkultra_clear_all_commands(mob/living/carbon/human/humanoid)
 	if(!humanoid)
@@ -1988,7 +1988,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	mkultra_set_heat(humanoid, FALSE)
 	mkultra_set_well_trained(humanoid, FALSE)
 	mkultra_clear_sissy(humanoid)
-	var/list/locked = mkultra_slot_locks[humanoid]
+	var/list/locked = GLOB.mkultra_slot_locks[humanoid]
 	if(islist(locked))
 		for(var/obj/item/I in locked.Copy())
 			mkultra_unlock_slot_item(I, silent = TRUE)
@@ -2007,7 +2007,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	return changed
 
 /proc/mkultra_worship_tick(mob/living/carbon/human/humanoid)
-	var/list/state = mkultra_worship_states[humanoid]
+	var/list/state = GLOB.mkultra_worship_states[humanoid]
 	if(!state)
 		return
 	var/datum/weakref/master_ref = state["master"]
@@ -2034,38 +2034,38 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	if(apply)
 		if(!humanoid.has_quirk(/datum/quirk/hypersexual))
 			humanoid.add_quirk(/datum/quirk/hypersexual, announce = FALSE)
-			mkultra_heat_states[humanoid] = TRUE
+			GLOB.mkultra_heat_states[humanoid] = TRUE
 	else
 		if(humanoid.has_quirk(/datum/quirk/hypersexual))
 			humanoid.remove_quirk(/datum/quirk/hypersexual)
-		mkultra_heat_states -= humanoid
+		GLOB.mkultra_heat_states -= humanoid
 
 /proc/mkultra_set_well_trained(mob/living/carbon/human/humanoid, apply)
 	if(apply)
 		if(!humanoid.has_quirk(/datum/quirk/well_trained))
 			humanoid.add_quirk(/datum/quirk/well_trained, announce = FALSE)
-			mkultra_well_trained_states[humanoid] = TRUE
+			GLOB.mkultra_well_trained_states[humanoid] = TRUE
 	else
 		if(humanoid.has_quirk(/datum/quirk/well_trained))
 			humanoid.remove_quirk(/datum/quirk/well_trained)
-		mkultra_well_trained_states -= humanoid
+		GLOB.mkultra_well_trained_states -= humanoid
 
 /proc/mkultra_start_sissy(mob/living/carbon/human/humanoid, mob/living/master)
 	var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
 	mkultra_debug("sissy start [humanoid] by [master] (phase=[enthrall_chem?.phase] lewd=[enthrall_chem?.lewd])")
 	mkultra_clear_sissy(humanoid)
-	mkultra_sissy_states[humanoid] = list("master" = WEAKREF(master))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_delete), TRUE)
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_EQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_UNEQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
+	GLOB.mkultra_sissy_states[humanoid] = list("master" = WEAKREF(master))
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_delete), TRUE)
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_EQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
+	GLOB.mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_UNEQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
 	mkultra_sissy_tick(humanoid)
 
 /proc/mkultra_clear_sissy(mob/living/carbon/human/humanoid)
-	if(!(humanoid in mkultra_sissy_states))
+	if(!(humanoid in GLOB.mkultra_sissy_states))
 		return
 	mkultra_debug("sissy clear [humanoid]")
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_QDELETING, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
-	mkultra_sissy_states -= humanoid
+	GLOB.mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_QDELETING, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
+	GLOB.mkultra_sissy_states -= humanoid
 	humanoid.clear_mood_event("enthrallsissy")
 
 /datum/mkultra_signal_handler/proc/sissy_on_delete(datum/source)
@@ -2078,7 +2078,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	mkultra_sissy_tick(humanoid)
 
 /proc/mkultra_sissy_tick(mob/living/carbon/human/humanoid)
-	var/list/state = mkultra_sissy_states[humanoid]
+	var/list/state = GLOB.mkultra_sissy_states[humanoid]
 	if(!state)
 		return
 	var/datum/weakref/master_ref = state["master"]
