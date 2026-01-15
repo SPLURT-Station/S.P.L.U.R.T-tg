@@ -43,8 +43,8 @@
 	if(prob(15) && iscarbon(target))
 		target:bleed(2)
 	if(prob(25))
-		target.adjustOrganLoss(ORGAN_SLOT_EYES, rand(3,7))
-		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(3,7))
+		target.adjust_organ_loss(ORGAN_SLOT_EYES, rand(3,7))
+		target.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(3,7))
 
 /datum/interaction/lewd/extreme/eyesocketfuck
 	name = "Eyesocketfuck"
@@ -91,4 +91,4 @@
 	if(prob(15) && iscarbon(target))
 		target:bleed(2)
 	if(prob(25))
-		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(3,7))
+		target.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(3,7))

@@ -439,10 +439,10 @@
 		return
 
 	if(prob(5))
-		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
+		if(top == btm.knotted_parts["mouth"] && btm.get_oxy_loss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 				to_chat(btm, span_warning("I struggle to breath with [top]'s [knot] in my mouth!"))
-				btm.adjustOxyLoss(2)
+				btm.adjust_oxy_loss(2)
 
 /// Handles aditional pleasure, ect, caused by the btm moving
 /datum/interaction/lewd/proc/knot_movement_btm(mob/living/top, mob/living/btm)
@@ -502,10 +502,10 @@
 		return
 
 	if(prob(5))
-		if(top == btm.knotted_parts["mouth"] && btm.getOxyLoss() < 80) // if the current top knotted them orally
+		if(top == btm.knotted_parts["mouth"] && btm.get_oxy_loss() < 80) // if the current top knotted them orally
 			if(btm.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 				to_chat(btm, span_warning("I can't catch my breath with [top]'s [knot] in my mouth!"))
-				btm.adjustOxyLoss(3)
+				btm.adjust_oxy_loss(3)
 
 /datum/interaction/lewd/proc/knot_remove(mob/living/top, mob/living/btm, forceful_removal = FALSE, notify = TRUE)
 	if(isliving(btm) && !QDELETED(btm) && isliving(top) && !QDELETED(top))
@@ -826,7 +826,7 @@
 	if(!owner.knotted_parts["mouth"])
 		return
 	if(owner.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-		owner.adjustOxyLoss(2)
+		owner.adjust_oxy_loss(2)
 
 /atom/movable/screen/alert/status_effect/knotted/Click() // Silently remove all ties
 	..()

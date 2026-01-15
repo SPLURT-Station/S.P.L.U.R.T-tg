@@ -230,8 +230,8 @@
 	to_chat(owner, span_cult("[CURSEDBLOOD_DREAM_PHRASES_HALLUCINATE]"))
 
 	// Add damage to queue
-	owner.adjustFireLoss(CURSEDBLOOD_DREAM_DAMAGE_BURN, updating_health = FALSE)
-	owner.adjustToxLoss(CURSEDBLOOD_DREAM_DAMAGE_TOX, updating_health = FALSE, forced = TRUE)
+	owner.adjust_fire_loss(CURSEDBLOOD_DREAM_DAMAGE_BURN, updating_health = FALSE)
+	owner.adjust_tox_loss(CURSEDBLOOD_DREAM_DAMAGE_TOX, updating_health = FALSE, forced = TRUE)
 
 	// Update health
 	owner.updatehealth()

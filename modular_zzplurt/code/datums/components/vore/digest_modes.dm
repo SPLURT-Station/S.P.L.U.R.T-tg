@@ -46,8 +46,8 @@
 			continue
 
 		// Cache damage values to avoid multiple function calls
-		var/brute = L.getBruteLoss()
-		var/burn = L.getFireLoss()
+		var/brute = L.get_brute_loss()
+		var/burn = L.get_fire_loss()
 		var/has_damage = (brute > 0 || burn > 0)
 
 		// Only heal if pred has nutrition to spare and prey has damage
@@ -58,12 +58,12 @@
 
 			// Heal brute damage
 			if(brute > 0)
-				L.adjustBruteLoss(-heal_amount)
+				L.adjust_brute_loss(-heal_amount)
 				actual_healing += heal_amount
 
 			// Heal burn damage
 			if(burn > 0)
-				L.adjustFireLoss(-heal_amount)
+				L.adjust_fire_loss(-heal_amount)
 				actual_healing += heal_amount
 
 			// Cost nutrition from pred based on actual healing done

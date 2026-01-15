@@ -32,10 +32,10 @@
 		M.emote(pick("giggle","grin"))
 	M.apply_status_effect(/datum/status_effect/throat_soothed)
 	// healing
-	M.adjustBruteLoss(-1.2, 0)
-	M.adjustFireLoss(-1.2, 0)
-	M.adjustToxLoss(-1.2, 0, TRUE)
-	M.adjustOxyLoss(-1.2, 0)
+	M.adjust_brute_loss(-1.2, updating_health = FALSE)
+	M.adjust_fire_loss(-1.2, updating_health = FALSE)
+	M.adjust_tox_loss(-1.2, updating_health = FALSE, forced = TRUE)
+	M.adjust_oxy_loss(-1.2, updating_health = FALSE)
 	//checks for mindbreaker
 	if(holder.has_reagent(/datum/reagent/toxin/mindbreaker))
 		holder.remove_reagent(/datum/reagent/toxin/mindbreaker, 5)

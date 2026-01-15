@@ -26,17 +26,17 @@
 	if(stress >= 180)
 		blur_time = 15 SECONDS
 		jitter_time = 15 SECONDS
-		human_owner.adjustStaminaLoss(5)
+		human_owner.adjust_stamina_loss(5)
 		lust_message = "Your sexual impulses rise even further as you feel your throbbing genitals leaking and/or growing fully hard..."
 	if(stress >= 240)
 		blur_time = 20 SECONDS
 		jitter_time = 20 SECONDS
-		human_owner.adjustStaminaLoss(10)
+		human_owner.adjust_stamina_loss(10)
 		lust_message = "It's almost impossible to focus your mind on anything other than sex as your carnal needs continue to grow even stronger!"
 	if(stress >= 300)
 		blur_time = 30 SECONDS
 		jitter_time = 30 SECONDS
-		human_owner.adjustStaminaLoss(15)
+		human_owner.adjust_stamina_loss(15)
 		lust_message = "You feel so desperately aroused that the almost painful aching, throbbing heat overwhelming your body has taken on a life of it's own. You NEED release!"
 	if(blur_time)
 		human_owner.set_eye_blur_if_lower(blur_time)

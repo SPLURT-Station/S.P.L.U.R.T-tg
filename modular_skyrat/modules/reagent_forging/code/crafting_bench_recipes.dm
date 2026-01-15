@@ -76,6 +76,7 @@
 	resulting_item = /obj/item/clothing/neck/collar/reagent_clothing
 	required_good_hits = 6
 
+/* SPLURT REMOVAL START - Maybe cuffs that keep you permanently asleep aren't fun.
 /datum/crafting_bench_recipe/handcuffs
 	recipe_name = "handcuffs"
 	recipe_requirements = list(
@@ -83,6 +84,7 @@
 	)
 	resulting_item = /obj/item/restraints/handcuffs/reagent_clothing
 	required_good_hits = 10
+SPLURT REMOVAL END */
 
 /datum/crafting_bench_recipe/borer_cage
 	recipe_name = "cortical borer cage"

@@ -5,14 +5,7 @@
 	var/datum/action/cooldown/sonar_ping/sonar_ping = new(new_teshari)
 	sonar_ping.Grant(new_teshari)
 
-	new_teshari.setMaxHealth(50)
 	new_teshari.physiology.hunger_mod *= 2
-	new_teshari.add_movespeed_modifier(/datum/movespeed_modifier/teshari)
-
-
-/datum/movespeed_modifier/teshari
-	multiplicative_slowdown = -0.2
-
 
 /datum/action/cooldown/sonar_ping
 	name = "Listen In"

@@ -113,6 +113,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"bR" = (
+/obj/structure/closet/crate/secure/gear{
+	name = "Delivery - Lopland Security";
+	req_access = list("brig")
+	},
+/obj/item/knife/combat,
+/obj/item/clothing/under/syndicate/skyrat/enclave/real,
+/obj/item/reagent_containers/hypospray/medipen/stimpack,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "bU" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 4
@@ -407,9 +417,6 @@
 "fZ" = (
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"gb" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/mining)
 "gc" = (
 /obj/machinery/oven/range,
 /turf/open/floor/iron/kitchen,
@@ -427,6 +434,11 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/cargodise_freighter/trauma)
+"gk" = (
+/obj/structure/rack/gunrack,
+/obj/item/gun/ballistic/automatic/lanca,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "gm" = (
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron/dark/smooth_corner,
@@ -517,7 +529,7 @@
 	},
 /obj/machinery/suit_storage_unit{
 	mask_type = /obj/item/clothing/mask/gas/explorer;
-	storage_type = /obj/item/tank/jetpack/oxygen/harness;
+	storage_type = /obj/item/tank/jetpack/harness;
 	suit_type = /obj/item/mod/control/pre_equipped/traitor_elite
 	},
 /turf/open/floor/iron/dark,
@@ -618,9 +630,6 @@
 /obj/effect/mob_spawn/ghost_role/human/lostcargoqm,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"jr" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/hydroponics)
 "jC" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/button/door/directional/north{
@@ -707,6 +716,9 @@
 /obj/effect/turf_decal/tile/green/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"kX" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/bridge)
 "la" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
@@ -714,9 +726,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"lf" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "lg" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
@@ -749,6 +758,9 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"lH" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "lJ" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -773,6 +785,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"mb" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/utility)
 "mf" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/item/kirbyplants/random,
@@ -830,9 +845,6 @@
 /obj/effect/spawner/random/food_or_drink/booze,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"nc" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/hydroponics)
 "ne" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
@@ -922,18 +934,6 @@
 /obj/effect/spawner/random/entertainment/money_medium,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"oJ" = (
-/obj/structure/closet/crate/science{
-	req_access = list("science");
-	name = "Delivery - Nanotrasen Science Division"
-	},
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "oK" = (
 /obj/machinery/door/airlock/glass{
 	name = "Crew Quarters"
@@ -959,6 +959,11 @@
 /mob/living/simple_animal/hostile/looter,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"pe" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/space/nearstation)
 "pf" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 4
@@ -987,9 +992,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"pS" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "pW" = (
 /obj/machinery/ammo_workbench/unlocked,
 /turf/open/floor/mineral/plastitanium/red,
@@ -1133,6 +1135,9 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
+"sJ" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "sU" = (
 /mob/living/simple_animal/hostile/vox/melee,
 /turf/open/floor/iron/dark,
@@ -1244,6 +1249,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"uq" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/trauma)
 "uu" = (
 /obj/machinery/portable_atmospherics/pump,
 /turf/open/floor/iron/smooth,
@@ -1256,6 +1264,9 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"vh" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "vx" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/engineering/material,
@@ -1269,9 +1280,6 @@
 /obj/item/stack/sheet/mineral/uranium/five,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
-"vy" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "vH" = (
 /turf/closed/mineral/random/high_chance,
 /area/ruin/space/unpowered)
@@ -1281,12 +1289,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"vK" = (
-/obj/machinery/computer/order_console/mining{
-	forced_express = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/mining)
 "vL" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
@@ -1312,11 +1314,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/cargodise_freighter/trauma)
-"wb" = (
-/obj/structure/rack/gunrack,
-/obj/item/gun/ballistic/automatic/lanca,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
+"vO" = (
+/obj/machinery/vending/medical/syndicate/cybersun,
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/cargodise_freighter/trauma)
 "wd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1444,6 +1448,10 @@
 "xF" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
+"xR" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "xX" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
@@ -1488,6 +1496,12 @@
 /obj/effect/spawner/random/food_or_drink/seed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
+"yo" = (
+/obj/machinery/computer/order_console/mining{
+	forced_express = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/mining)
 "yv" = (
 /obj/machinery/vending/engivend,
 /turf/open/floor/plating,
@@ -1583,6 +1597,9 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Aa" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "Ac" = (
 /mob/living/simple_animal/hostile/vox/melee,
 /turf/open/floor/iron/dark,
@@ -1619,6 +1636,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"Ap" = (
+/obj/structure/closet/crate/secure/weapon{
+	name = "Delivery - Interdyne Mining Co";
+	req_access = list("syndicate")
+	},
+/obj/effect/spawner/random/contraband/armory,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/pickaxe/drill/jackhammer,
+/obj/item/storage/box/minertracker,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Ar" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
@@ -1643,9 +1673,6 @@
 /obj/structure/closet/freighterammo,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"AG" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/utility)
 "AN" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
@@ -1718,9 +1745,6 @@
 /obj/machinery/griddle,
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"Ca" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "Cg" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Loading Bay"
@@ -1739,6 +1763,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
+"Ck" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "Cz" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
@@ -1830,10 +1860,6 @@
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"Ef" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "Eo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1955,6 +1981,9 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"Gg" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "Gh" = (
 /turf/template_noop,
 /area/template_noop)
@@ -1985,9 +2014,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"Gv" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/utility)
 "GD" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
@@ -2073,6 +2099,9 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"Hv" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/mining)
 "HC" = (
 /obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 1
@@ -2106,9 +2135,6 @@
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"If" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/bridge)
 "Ii" = (
 /obj/structure/closet/crate/secure/gear{
 	name = "Delivery - Central Command Frontier Division";
@@ -2140,22 +2166,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"IE" = (
-/obj/structure/closet/crate/secure/weapon{
-	name = "Delivery - Interdyne Mining Co";
-	req_access = list("syndicate")
-	},
-/obj/effect/spawner/random/contraband/armory,
-/obj/item/tank/internals/oxygen/red,
-/obj/item/tank/internals/oxygen/red,
-/obj/item/tank/internals/oxygen/red,
-/obj/item/pickaxe/drill/jackhammer,
-/obj/item/storage/box/minertracker,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
-"IK" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/trauma)
 "IP" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/kitchen,
@@ -2188,9 +2198,6 @@
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"Jp" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/bridge)
 "Js" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
@@ -2203,16 +2210,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"Jt" = (
-/obj/structure/closet/crate/secure/gear{
-	name = "Delivery - Lopland Security";
-	req_access = list("brig")
-	},
-/obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/skyrat/enclave/real,
-/obj/item/reagent_containers/hypospray/medipen/stimpack,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Jx" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Mining EVA"
@@ -2259,11 +2256,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"JQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/template_noop)
 "Kb" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2303,9 +2295,6 @@
 "KB" = (
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/cargodise_freighter/hydroponics)
-"KC" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/trauma)
 "KR" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -2375,6 +2364,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"LG" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "LH" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
@@ -2411,17 +2403,14 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"Mq" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "Mu" = (
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
-"MC" = (
+"ME" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
+/area/ruin/space/has_grav/cargodise_freighter/hydroponics)
 "MG" = (
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
@@ -2447,12 +2436,6 @@
 /obj/structure/sink/kitchen/directional/west,
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"Nh" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "Ni" = (
 /obj/structure/table,
 /obj/machinery/processor,
@@ -2462,6 +2445,9 @@
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"Nm" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Nr" = (
 /obj/structure/cable,
 /obj/structure/closet/emcloset/wall{
@@ -2498,12 +2484,8 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
-"NG" = (
-/obj/machinery/vending/medical/syndicate/cybersun,
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
+"NE" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/trauma)
 "NH" = (
 /obj/structure/chair/sofa/corp/left{
@@ -2517,6 +2499,9 @@
 /obj/item/mod/control/pre_equipped/standard,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
+"NV" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "NZ" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge"
@@ -2612,6 +2597,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Pr" = (
+/obj/structure/rack/gunrack,
+/obj/item/gun/ballistic/rifle/boltaction,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Pt" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
@@ -2711,9 +2701,18 @@
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"Ru" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
+"RD" = (
+/obj/structure/closet/crate/science{
+	req_access = list("science");
+	name = "Delivery - Nanotrasen Science Division"
+	},
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/item/raw_anomaly_core/random,
+/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/exotic/tool,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Sc" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/fifty,
@@ -2798,6 +2797,9 @@
 "Tf" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"Tg" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/utility)
 "Tm" = (
 /obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2861,6 +2863,9 @@
 /obj/structure/mirror/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"UB" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "UD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/structure/reagent_dispensers/watertank/high,
@@ -3097,9 +3102,6 @@
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
-"Xq" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Xz" = (
 /obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 4
@@ -3154,6 +3156,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"Yr" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/cargodise_freighter/hydroponics)
 "Yz" = (
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/cargodise_freighter/trauma)
@@ -3166,11 +3171,6 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
-"YE" = (
-/obj/structure/rack/gunrack,
-/obj/item/gun/ballistic/rifle/boltaction,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
 "YM" = (
 /obj/structure/dresser,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -3212,9 +3212,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"YZ" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/space/has_grav/cargodise_freighter/quarters)
 "Ze" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Freighter Boss's Quarters"
@@ -3238,6 +3235,9 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"Zk" = (
+/turf/closed/wall/r_wall/plastitanium/syndicate,
+/area/ruin/space/has_grav/cargodise_freighter/bridge)
 "Zq" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
@@ -3382,7 +3382,7 @@ Gh
 Gh
 Gh
 Gh
-JQ
+pe
 Gh
 Gh
 Gh
@@ -3394,7 +3394,7 @@ Gh
 Gh
 Gh
 Gh
-JQ
+pe
 Gh
 Gh
 Gh
@@ -3423,7 +3423,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+xR
 Gh
 Gh
 KS
@@ -3435,7 +3435,7 @@ KS
 UH
 Gh
 Gh
-Ef
+xR
 Gh
 Gh
 Gh
@@ -3464,7 +3464,7 @@ Gh
 Gh
 Gh
 Gh
-Ef
+xR
 Gh
 Gh
 AN
@@ -3476,7 +3476,7 @@ AN
 AN
 Gh
 Gh
-Ef
+xR
 Gh
 Gh
 Gh
@@ -3505,19 +3505,19 @@ Gh
 nU
 OT
 Gh
-Ef
+xR
 Gh
-Gv
-AG
-AG
-AG
-AG
-AG
-AG
-AG
-Gv
+Tg
+mb
+mb
+mb
+mb
+mb
+mb
+mb
+Tg
 Gh
-Ef
+xR
 Gh
 KS
 UH
@@ -3547,17 +3547,17 @@ xF
 xF
 KY
 Sg
-Gv
-AG
-AG
+Tg
+mb
+mb
 Fy
 uu
 nL
 yv
 fV
-AG
-KC
-IK
+mb
+NE
+uq
 Sg
 TA
 AN
@@ -3583,13 +3583,13 @@ Gh
 Gh
 Gh
 Gh
-nc
-jr
-jr
-jr
+ME
+Yr
+Yr
+Yr
 Er
-AG
-AG
+mb
+mb
 dJ
 oY
 aN
@@ -3597,13 +3597,13 @@ zU
 is
 hM
 Et
-KC
-KC
+NE
+NE
 GD
-KC
-KC
-KC
-IK
+NE
+NE
+NE
+uq
 Gh
 Gh
 Gh
@@ -3624,13 +3624,13 @@ Gh
 Gh
 Gh
 Gh
-jr
-jr
+Yr
+Yr
 Lm
 ek
 UD
 kt
-AG
+mb
 pm
 dp
 SZ
@@ -3638,13 +3638,13 @@ VL
 Ai
 is
 Mu
-KC
+NE
 Ar
 QU
 vM
 eA
-KC
-KC
+NE
+NE
 Gh
 Gh
 Gh
@@ -3665,13 +3665,13 @@ Gh
 Gh
 Gh
 Gh
-jr
+Yr
 Af
 CL
 bj
 ql
 Af
-AG
+mb
 bu
 Uq
 LF
@@ -3679,13 +3679,13 @@ GL
 vx
 is
 BE
-KC
+NE
 ar
 TF
 Yz
 Yz
-NG
-KC
+vO
+NE
 Gh
 Gh
 Gh
@@ -3706,13 +3706,13 @@ Gh
 Gh
 Gh
 Gh
-jr
+Yr
 rt
 KB
 Af
 ge
 Af
-AG
+mb
 nz
 Am
 Nt
@@ -3720,13 +3720,13 @@ dS
 Be
 is
 dC
-KC
+NE
 jR
 WS
 Yz
 Yz
 gf
-KC
+NE
 Gh
 Gh
 Gh
@@ -3747,13 +3747,13 @@ Gh
 Gh
 Gh
 Gh
-jr
+Yr
 Af
 KB
 lV
 Yi
 rB
-AG
+mb
 SP
 ok
 SP
@@ -3761,13 +3761,13 @@ Bl
 wQ
 ti
 Nr
-KC
+NE
 Dn
 ct
 ez
 dR
 aT
-KC
+NE
 Gh
 Gh
 Gh
@@ -3784,35 +3784,35 @@ Gh
 (13,1,1) = {"
 Gh
 Gh
-JQ
-Ef
-Ef
-Ef
-jr
-jr
+pe
+xR
+xR
+xR
+Yr
+Yr
 OF
-jr
+Yr
 mi
-AG
-AG
-AG
-AG
-AG
+mb
+mb
+mb
+mb
+mb
 qE
-AG
-AG
-AG
-KC
-KC
+mb
+mb
+mb
+NE
+NE
 Hj
-KC
-KC
-KC
-KC
-Ef
-Ef
-Ef
-JQ
+NE
+NE
+NE
+NE
+xR
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -3952,31 +3952,31 @@ Gh
 Gh
 Gh
 Gh
-vy
-vy
-vy
-vy
-vy
-vy
+Gg
+Gg
+Gg
+Gg
+Gg
+Gg
 bD
-vy
+Gg
 Fb
 PW
 tV
 gm
 gM
-Xq
+lH
 XZ
 Ns
 XZ
-Xq
-Xq
-Xq
-Xq
-Ef
-Ef
-Ef
-JQ
+lH
+lH
+lH
+lH
+xR
+xR
+xR
+pe
 Gh
 Gh
 vH
@@ -4000,20 +4000,20 @@ JN
 hJ
 HC
 Wi
-vy
-vy
+Gg
+Gg
 LH
 Wc
 Ee
-Xq
-Xq
+lH
+lH
 sy
 tS
 kg
 Cz
 kg
 nC
-Xq
+lH
 Gh
 Gh
 Gh
@@ -4034,19 +4034,19 @@ Gh
 Gh
 Gh
 Gh
-vy
+Gg
 tW
 Ey
 WQ
-vy
+Gg
 Zq
 wd
 YY
-vy
+Gg
 UL
 tV
 UN
-Xq
+lH
 rb
 xX
 xX
@@ -4054,10 +4054,10 @@ xX
 nw
 xX
 VR
-Xq
-Ef
-Ef
-JQ
+lH
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -4072,22 +4072,22 @@ Gh
 Gh
 Gh
 Gh
-JQ
-Ef
-Ef
-vy
-vy
-vy
-vy
-vy
+pe
+xR
+xR
+Gg
+Gg
+Gg
+Gg
+Gg
 Jd
 wd
 iT
-vy
+Gg
 UL
 tV
 so
-Xq
+lH
 CC
 yl
 xX
@@ -4116,25 +4116,25 @@ Gh
 Gh
 Gh
 Gh
-vy
+Gg
 zY
 Ey
 Fu
-vy
+Gg
 Jz
 wd
 kM
-vy
+Gg
 QA
 tV
 dc
-Xq
+lH
 HO
 xX
 Ac
-oJ
+RD
 xX
-IE
+Ap
 Wl
 nu
 Gh
@@ -4165,11 +4165,11 @@ Dr
 Pt
 wd
 mw
-vy
+Gg
 PH
 tV
 UN
-Xq
+lH
 dm
 xX
 xX
@@ -4198,23 +4198,23 @@ Gh
 Gh
 Gh
 Gh
-vy
-vy
-vy
-vy
-vy
+Gg
+Gg
+Gg
+Gg
+Gg
 IV
 sU
 mw
-vy
+Gg
 dQ
 tV
 Ew
-Xq
+lH
 YB
 xX
 Ki
-Jt
+bR
 xX
 Xl
 Wl
@@ -4239,11 +4239,11 @@ Gh
 vH
 vH
 vH
-vy
+Gg
 Pa
 Ur
 zK
-vy
+Gg
 Pe
 eU
 Tm
@@ -4280,11 +4280,11 @@ Gh
 vH
 vH
 vH
-vy
-vy
+Gg
+Gg
 Gr
-vy
-vy
+Gg
+Gg
 Js
 th
 wX
@@ -4300,10 +4300,10 @@ Wq
 xX
 xX
 iE
-Xq
-Ef
-Ef
-JQ
+lH
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -4321,7 +4321,7 @@ vH
 vH
 Gh
 Gh
-vy
+Gg
 el
 Bt
 Bb
@@ -4341,7 +4341,7 @@ cO
 jP
 SN
 wT
-Xq
+lH
 Gh
 Gh
 Gh
@@ -4361,8 +4361,8 @@ Gh
 vH
 vH
 Gh
-pS
-vy
+Aa
+Gg
 Xz
 wq
 jo
@@ -4370,23 +4370,23 @@ dZ
 vL
 CH
 rY
-vy
+Gg
 zF
 tV
 jC
-gb
-gb
+Hv
+Hv
 Jx
-gb
-gb
-gb
-gb
-gb
-gb
-Ef
-Ef
-Ef
-JQ
+Hv
+Hv
+Hv
+Hv
+Hv
+Hv
+xR
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -4402,20 +4402,20 @@ Gh
 vH
 vH
 Gh
-vy
-vy
+Gg
+Gg
 ZN
-vy
-vy
-vy
+Gg
+Gg
+Gg
 lX
 YV
 OS
-vy
+Gg
 lx
 tV
 UN
-gb
+Hv
 sc
 Sd
 pp
@@ -4423,7 +4423,7 @@ cd
 Au
 oV
 tY
-gb
+Hv
 vH
 vH
 Gh
@@ -4443,28 +4443,28 @@ Gh
 vH
 vH
 vH
-vy
+Gg
 Ox
 ty
 aJ
 qd
-vy
+Gg
 Oy
 Ll
 NH
-vy
+Gg
 EG
 tV
 UN
-gb
+Hv
 aZ
 TC
 nP
-vK
+yo
 TC
 TC
 iA
-gb
+Hv
 vH
 vH
 vH
@@ -4484,7 +4484,7 @@ Gh
 vH
 vH
 vH
-vy
+Gg
 yW
 ty
 Da
@@ -4493,11 +4493,11 @@ Df
 Da
 Ip
 xt
-vy
+Gg
 pv
 tV
 UN
-gb
+Hv
 Om
 Oe
 yD
@@ -4505,7 +4505,7 @@ zj
 TC
 TC
 JD
-gb
+Hv
 vH
 vH
 vH
@@ -4525,7 +4525,7 @@ Gh
 vH
 vH
 vH
-vy
+Gg
 By
 ty
 Da
@@ -4534,11 +4534,11 @@ Df
 Da
 al
 iX
-vy
+Gg
 EC
 tV
 qS
-gb
+Hv
 ci
 TC
 yD
@@ -4546,7 +4546,7 @@ XF
 DG
 TC
 nV
-gb
+Hv
 vH
 vH
 vH
@@ -4566,20 +4566,20 @@ Gh
 Gh
 vH
 vH
-vy
+Gg
 Ni
 ty
 Ww
 WB
-vy
-vy
-vy
-vy
-vy
+Gg
+Gg
+Gg
+Gg
+Gg
 UL
 tV
 UN
-gb
+Hv
 ci
 TC
 Qk
@@ -4587,7 +4587,7 @@ iz
 bU
 FP
 ZZ
-gb
+Hv
 vH
 vH
 vH
@@ -4607,7 +4607,7 @@ Gh
 Gh
 vH
 vH
-vy
+Gg
 gc
 FT
 FT
@@ -4616,19 +4616,19 @@ JC
 Da
 Da
 IP
-vy
+Gg
 UL
 tV
 UN
-gb
+Hv
 yy
 gT
 qN
-gb
+Hv
 US
-gb
-gb
-gb
+Hv
+Hv
+Hv
 vH
 vH
 vH
@@ -4648,24 +4648,24 @@ Gh
 Gh
 Gh
 vH
-vy
+Gg
 BZ
 MZ
 BW
 DQ
-vy
+Gg
 hD
 VD
-vy
-vy
+Gg
+Gg
 lt
 Wc
 HP
-gb
-gb
+Hv
+Hv
 eC
 HJ
-gb
+Hv
 Wk
 Wk
 ex
@@ -4686,35 +4686,35 @@ Gh
 (35,1,1) = {"
 Gh
 Gh
-JQ
-Ef
-Ef
-vy
-vy
-vy
-vy
-vy
-vy
-vy
-vy
-vy
+pe
+xR
+xR
+Gg
+Gg
+Gg
+Gg
+Gg
+Gg
+Gg
+Gg
+Gg
 oa
 OC
 tV
 KR
 Zj
-gb
-gb
+Hv
+Hv
 yT
-gb
+Hv
 EI
-Mq
-Mq
-Mq
-Ef
-Ef
-Ef
-JQ
+UB
+UB
+UB
+xR
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -4854,27 +4854,27 @@ Gh
 Gh
 Gh
 Gh
-Ru
-Ru
-Ru
-Ru
-Ru
+vh
+vh
+vh
+vh
+vh
 Jy
-Ru
-Ru
+vh
+vh
 xy
 PW
 tV
 gm
 YT
-YZ
-YZ
+NV
+NV
 oK
-YZ
-YZ
-Mq
-Mq
-Mq
+NV
+NV
+UB
+UB
+UB
 Gh
 Gh
 Gh
@@ -4896,24 +4896,24 @@ Gh
 Gh
 Gh
 Gh
-Ru
-Ru
+vh
+vh
 Ln
 MS
 Gn
 Sc
-Ru
-Ru
+vh
+vh
 lt
 Wc
 HP
-YZ
-YZ
+NV
+NV
 mv
 Gs
 dK
-YZ
-Ca
+NV
+LG
 Gh
 Gh
 Gh
@@ -4937,23 +4937,23 @@ Gh
 Gh
 Gh
 Gh
-MC
-Ru
+Nm
+vh
 do
 Eo
 Eo
 jl
 Qn
-Ru
+vh
 UL
 tV
 UN
-YZ
+NV
 qj
 jb
 Gs
 sW
-YZ
+NV
 Gh
 Gh
 Gh
@@ -4979,23 +4979,23 @@ Gh
 Gh
 Gh
 Gh
-Ru
+vh
 NQ
 Eo
 dT
 mL
 xZ
-Ru
+vh
 UL
 tV
 UN
-YZ
+NV
 qj
 jb
 Gs
 Mo
-YZ
-lf
+NV
+sJ
 Gh
 Gh
 Gh
@@ -5020,23 +5020,23 @@ Gh
 Gh
 Gh
 Gh
-Ru
-Ru
+vh
+vh
 EL
-Ru
-Ru
-Ru
-Ru
+vh
+vh
+vh
+vh
 lx
 tV
 qS
-YZ
+NV
 wl
 jb
 Gs
 Ws
-YZ
-YZ
+NV
+NV
 Gh
 Gh
 Gh
@@ -5061,24 +5061,24 @@ Gh
 vH
 vH
 Gh
-MC
-Ru
+Nm
+vh
 je
-wb
+gk
 AA
-YE
-Ru
+Pr
+vh
 la
 tV
 UN
-YZ
+NV
 wl
 jb
 Gs
 XT
 UJ
-YZ
-lf
+NV
+sJ
 Gh
 Gh
 Gh
@@ -5103,26 +5103,26 @@ vH
 vH
 Gh
 Gh
-Ru
+vh
 je
 Ja
 gq
 fr
-Ru
+vh
 UL
 tV
 UN
-YZ
+NV
 et
 Aj
 mq
 Sx
 FW
-Nh
-YZ
-Ef
-Ef
-JQ
+Ck
+NV
+xR
+xR
+pe
 Gh
 Gh
 Gh
@@ -5144,16 +5144,16 @@ vH
 vH
 Gh
 Gh
-Ru
-Ru
+vh
+vh
 pW
 fS
 nv
-Ru
+vh
 pf
 Qw
 yg
-YZ
+NV
 tL
 Nk
 Hk
@@ -5185,17 +5185,17 @@ vH
 vH
 Gh
 Gh
-MC
-Ru
-Ru
-Ru
-If
-If
+Nm
+vh
+vh
+vh
+kX
+kX
 NZ
 ux
 ei
-If
-If
+kX
+kX
 qR
 mY
 Ay
@@ -5230,13 +5230,13 @@ Gh
 Gh
 Gh
 Gh
-If
+kX
 rH
 nD
 Do
 tN
 aK
-If
+kX
 kn
 qG
 St
@@ -5270,22 +5270,22 @@ vH
 Gh
 Gh
 Gh
-If
-If
+kX
+kX
 hQ
 nD
 XV
 tN
 oz
-If
-If
-If
-If
+kX
+kX
+kX
+kX
 Ze
-If
-If
-Ef
-JQ
+kX
+kX
+xR
+pe
 Gh
 Gh
 Gh
@@ -5309,22 +5309,22 @@ vH
 Gh
 Gh
 Gh
-JQ
-Ef
-If
+pe
+xR
+kX
 wx
 xE
 nD
 nD
 Zg
 wB
-If
+kX
 TM
 Wp
 Oa
 fO
-If
-Jp
+kX
+Zk
 Gh
 Gh
 Gh
@@ -5359,12 +5359,12 @@ Im
 hK
 Hi
 qK
-If
+kX
 hg
 vb
 Ba
 gA
-If
+kX
 Gh
 Gh
 Gh
@@ -5405,7 +5405,7 @@ Qv
 Kb
 EP
 EP
-If
+kX
 Gh
 Gh
 Gh
@@ -5441,12 +5441,12 @@ PU
 XI
 mC
 Jm
-If
+kX
 YM
 Bs
 tH
 xC
-If
+kX
 vH
 vH
 Gh
@@ -5472,22 +5472,22 @@ Gh
 Gh
 Gh
 Gh
-JQ
-Ef
-Ef
-If
+pe
+xR
+xR
+kX
 ao
 hT
 WT
 zn
 nD
 am
-If
+kX
 jp
 yM
-If
-If
-If
+kX
+kX
+kX
 vH
 vH
 Gh
@@ -5516,18 +5516,18 @@ Gh
 Gh
 Gh
 Gh
-If
-If
+kX
+kX
 xh
 WT
 SU
 WT
 QY
-If
-If
+kX
+kX
 ux
-If
-Jp
+kX
+Zk
 Gh
 vH
 vH
@@ -5557,17 +5557,17 @@ Gh
 Gh
 Gh
 Gh
-Jp
-If
+Zk
+kX
 ef
 WT
 SU
 WT
 mf
-If
-Jp
+kX
+Zk
 Gh
-Ef
+xR
 Gh
 Gh
 vH
@@ -5599,16 +5599,16 @@ Gh
 Gh
 Gh
 Gh
-If
+kX
 Wt
 WT
 Oj
 WT
 dy
-If
+kX
 Gh
 Gh
-Ef
+xR
 vH
 vH
 vH
@@ -5640,16 +5640,16 @@ Gh
 Gh
 Gh
 Gh
-If
+kX
 Fm
 lp
 Up
 bM
 uo
-If
+kX
 vH
 Gh
-JQ
+pe
 Gh
 Gh
 Gh
@@ -5681,13 +5681,13 @@ Gh
 Gh
 Gh
 Gh
-Jp
+Zk
 ux
 ux
 ux
 ux
 ux
-Jp
+Zk
 vH
 Gh
 Gh

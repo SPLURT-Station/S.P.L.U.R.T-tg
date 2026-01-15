@@ -264,7 +264,7 @@
 	var/oxy_damage = 3
 	target_pleasure = 0
 	target_arousal = 6
-	if(target.getOxyLoss() > 40) // Prevent damage stacking - converts to pure RP when target already suffocating
+	if(target.get_oxy_loss() > 40) // Prevent damage stacking - converts to pure RP when target already suffocating
 		oxy_damage = 0
 	switch(resolve_intent_name(user.combat_mode))
 		if("harm")

@@ -1239,6 +1239,14 @@
 	cooldown = 0.67 SECONDS
 	sound_volume = 25
 
+/datum/emote/living/shiss
+	key = "shiss"
+	key_third_person = "hisses"
+	message = "hisses!"
+	sound = 'modular_zzplurt/sound/voice/snake_hiss.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
 /datum/emote/living/hiss
 	key = "hiss"
 	key_third_person = "hisses"
@@ -1312,6 +1320,102 @@
 	message_mime = "silently explains they blew up Malaysia!"
 	emote_type = EMOTE_AUDIBLE
 	sound = 'modular_zzplurt/sound/voice/malaysia.ogg'
+
+/datum/emote/living/wchoo
+	key = "wachoo"
+	key_third_person = "sneezes!"
+	message = "sneezes!"
+	sound = 'modular_zzplurt/sound/voice/wawa_achoo.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wchatter
+	key = "wachat"
+	key_third_person = "waa's"
+	message = "waa's!"
+	sound = 'modular_zzplurt/sound/voice/wawa_chatter.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wchillin
+	key = "wachillin"
+	key_third_person = "waa's happily!"
+	message = "waa's happily!"
+	sound = 'modular_zzplurt/sound/voice/wawa_chillin.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wdepression
+	key = "wasad"
+	key_third_person = "waa's sadly."
+	message = "waa's sadly.."
+	sound = 'modular_zzplurt/sound/voice/wawa_depression.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wdespair
+	key = "wadespair"
+	key_third_person = "waa's sadly."
+	message = "waa's sadly.."
+	sound = 'modular_zzplurt/sound/voice/wawa_despair.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wexclaim
+	key = "waexclaim"
+	key_third_person = "waa's curiously."
+	message = "waa's!"
+	sound = 'modular_zzplurt/sound/voice/wawa_exclaim.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wprotest
+	key = "waprotest"
+	key_third_person = "waa's in protest!"
+	message = "waa's in protest!"
+	sound = 'modular_zzplurt/sound/voice/wawa_protest.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wmock
+	key = "wamock"
+	key_third_person = "mocks in waa's"
+	message = "mocks in waa's!"
+	sound = 'modular_zzplurt/sound/voice/wawa_mock.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wquestion
+	key = "waquestion"
+	key_third_person = "curiously waa's"
+	message = "curiously waa's."
+	sound = 'modular_zzplurt/sound/voice/wawa_question.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wstate
+	key = "wastate"
+	key_third_person = "waa's!"
+	message = "waa's!"
+	sound = 'modular_zzplurt/sound/voice/wawa_statement.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wend
+	key = "waend"
+	key_third_person = "lets out their final waa!"
+	message = "lets out their final waa!"
+	sound = 'modular_zzplurt/sound/voice/wawa_the_end.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
+
+/datum/emote/living/wyawn
+	key = "wayawn"
+	key_third_person = "waa'awns!"
+	message = "waa'awns!"
+	sound = 'modular_zzplurt/sound/voice/wawa_yawn.ogg'
+	emote_type = EMOTE_AUDIBLE
+	sound_volume = 30
 
 /datum/emote/living/carbon/human/piss
 	key = "piss"

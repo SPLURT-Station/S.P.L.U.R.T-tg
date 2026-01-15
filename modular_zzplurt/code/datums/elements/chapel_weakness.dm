@@ -157,7 +157,7 @@
 		owner.adjust_disgust(CHAPELWEAK_AMT_DISGUST)
 
 		// Inflict stamina damage
-		owner.adjustStaminaLoss(CHAPELWEAK_AMT_STAMLOSS)
+		owner.adjust_stamina_loss(CHAPELWEAK_AMT_STAMLOSS)
 
 	// Chance to spontaneously combust
 	if(prob(CHAPELWEAK_CHANCE_IGNITE))

@@ -31,6 +31,7 @@
 	density = TRUE
 	active_power_usage = 240 KILO WATTS
 	idle_power_usage = 24 KILO WATTS
+	ignore_size = TRUE
 	/// Is someone being processed inside of the machine?
 	var/processing = FALSE
 	/// How long does the machine take to work?
@@ -220,6 +221,7 @@
 	if((taur_mode & STYLE_TAUR_SNAKE) && (patient.shoes))
 		patient.dropItemToGround(patient.shoes, TRUE)
 	// SPLURT ADDITION END - Fix of naga with shoes
+	patient.updateappearance()
 	patient.wash(CLEAN_SCRUB)
 	if(patient.dna.real_name != original_name)
 		log_game("[key_name(patient)] has used the Self-Actualization Device at [loc_name(src)], changed the name of their character. \

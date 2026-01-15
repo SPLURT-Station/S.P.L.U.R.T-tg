@@ -42,9 +42,9 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
-	coldmod = 1.2
-	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
-	siemens_coeff = 1.4 // Not more because some shocks will outright crit you, which is very unfun
+	coldmod = 1.35 // SPLURT change: Increased to 1.35 from 1.2 to balance other multiplier changes
+	heatmod = 1.5 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us. - SPLURT change: lowered to 1.45 from 2 to balance revert to 100 max HP.
+	siemens_coeff = 1.2 // >1.4 crits. - SPLURT change: Lowered to 1.2 from 1.4 to balance revert to 100 max HP
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -73,7 +73,7 @@
 	. = ..()
 
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
-		human.adjustFireLoss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
+		human.adjust_fire_loss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
 		human.adjust_bodytemperature(13) //We're overheating!!
 		if(prob(10))
 			to_chat(human, span_warning("Alert: Critical damage taken, all systems failing."))
@@ -83,7 +83,7 @@
 	if(!lungs || (lungs.organ_flags & ORGAN_FAILING))
 		// No lungs or failing lungs present, apply overheating
 		human.adjust_bodytemperature(50)
-		human.adjustFireLoss(1)
+		human.adjust_fire_loss(1)
 		if(prob(10))
 			to_chat(human, span_warning("Alert: Cooling system is non-functional or missing, OVERHEATING is imminent."))
 			do_sparks(3, TRUE, human)

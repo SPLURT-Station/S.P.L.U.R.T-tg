@@ -188,13 +188,13 @@
 					if(belly.genital_size < 4)
 						belly.set_size(4)
 						to_chat(owner, span_warning("Your [belly] balloons in size as your egg grows."))
-		else if(owner.getStaminaLoss() < 50)
-			owner.adjustStaminaLoss(2.5 * seconds_between_ticks)
+		else if(owner.get_stamina_loss() < 50)
+			owner.adjust_stamina_loss(2.5 * seconds_between_ticks)
 
 	if(pregnancy_stage >= 5)
 		if(previous_stage < 5)
 			owner.add_mood_event("preggers", /datum/mood_event/pregnant_labor)
-			owner.adjustStaminaLoss(rand(50, 100))
+			owner.adjust_stamina_loss(rand(50, 100))
 			owner.emote("scream")
 			to_chat(owner, span_userdanger("Your water broke! You need to lay down and squeeze the egg out!"))
 		else
@@ -207,7 +207,7 @@
 				//constant nausea
 				if(pregnancy_flags & PREGNANCY_FLAG_NAUSEA)
 					owner.adjust_disgust(3 * seconds_between_ticks)
-				if((owner.getStaminaLoss() < 100) && SPT_PROB(5, seconds_between_ticks))
+				if((owner.get_stamina_loss() < 100) && SPT_PROB(5, seconds_between_ticks))
 					owner.emote("scream")
 					to_chat(owner, "You REALLY need to give birth!")
 			else

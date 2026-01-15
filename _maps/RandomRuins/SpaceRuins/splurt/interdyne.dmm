@@ -55,6 +55,14 @@
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/herringbone,
 /area/ruin/space/has_grav/interdyne)
+"aR" = (
+/obj/machinery/button/door{
+	id = "interdyne_vault";
+	name = "secret button";
+	pixel_y = 25
+	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/area/ruin/space/has_grav/interdyne)
 "ba" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -120,7 +128,8 @@
 "bQ" = (
 /obj/machinery/button/door{
 	id = "interdyne_vault";
-	name = "secret button"
+	name = "secret button";
+	pixel_y = 25
 	},
 /obj/structure/dresser,
 /turf/open/floor/carpet/royalblack,
@@ -4573,7 +4582,7 @@ jD
 kP
 nn
 nn
-nn
+aR
 nn
 JE
 JE
