@@ -99,6 +99,7 @@
 
 	RegisterSignal(owner, COMSIG_LIVING_RESIST, .proc/owner_resist) //Do resistance calc if resist is pressed#
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/owner_hear)
+	RegisterSignal(owner, COMSIG_OOC_ESCAPE, PROC_REF(ooc_escape))
 	mental_capacity = 500 - enthrall_victim.get_organ_loss(ORGAN_SLOT_BRAIN)//It's their brain!
 	var/message = "[(lewd ? "I am a good pet for [enthrall_gender]." : "[enthrall_mob] is a really inspirational person!")]"
 	enthrall_victim.add_mood_event("enthrall", /datum/mood_event/enthrall, message)
@@ -108,6 +109,18 @@
 
 /datum/status_effect/chem/enthrall/tick(seconds_between_ticks)
 	var/mob/living/carbon/enthrall_victim = owner
+	var/distance_mood_on = TRUE
+	if("distance_mood_enabled" in src.vars)
+		distance_mood_on = distance_mood_enabled
+	if(!distance_mood_on)
+		if(withdrawl_active || withdrawl_progress)
+			REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
+		enthrall_victim.clear_mood_event("EnthMissing1")
+		enthrall_victim.clear_mood_event("EnthMissing2")
+		enthrall_victim.clear_mood_event("EnthMissing3")
+		enthrall_victim.clear_mood_event("EnthMissing4")
+		withdrawl_active = FALSE
+		withdrawl_progress = 0
 
 	//chem calculations
 	if(!owner.reagents.has_reagent(/datum/reagent/mkultra) && !HAS_TRAIT(enthrall_victim, TRAIT_PET_SKILLCHIP))
@@ -226,34 +239,35 @@
 
 	//distance calculations
 	distance_apart = get_dist(enthrall_mob, owner)
-	switch(distance_apart)
-		if(0 to 8)//If the enchanter is within range, increase enthrall_tally, remove withdrawl_active subproc and undo withdrawl_active effects.
-			if(phase <= PARTIALLY_ENTHRALLED)
-				// Collars speed up the enthralment process.
-				if(enthrall_victim.wear_neck?.kink_collar == TRUE)
-					enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1] * 1.5, 0.1)
-				else
-					enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1], 0.1)
-			if(withdrawl_progress > 0)
-				withdrawl_progress -= 2
-			//calming effects
-			enthrall_victim.set_hallucinations(0)
-			enthrall_victim.set_stutter(0)
-			enthrall_victim.set_jitter(0)
-			if(owner.get_organ_loss(ORGAN_SLOT_BRAIN) >= 20)
-				owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, -0.2)
-			if(withdrawl_active == TRUE)
-				REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
-				enthrall_victim.clear_mood_event("EnthMissing1")
-				enthrall_victim.clear_mood_event("EnthMissing2")
-				enthrall_victim.clear_mood_event("EnthMissing3")
-				enthrall_victim.clear_mood_event("EnthMissing4")
-				withdrawl_active = FALSE
-		if(9 to INFINITY)//If they're not nearby, enable withdrawl effects.
-			withdrawl_active = TRUE
+	if(distance_mood_on)
+		switch(distance_apart)
+			if(0 to 8)//If the enchanter is within range, increase enthrall_tally, remove withdrawl_active subproc and undo withdrawl_active effects.
+				if(phase <= PARTIALLY_ENTHRALLED)
+					// Collars speed up the enthralment process.
+					if(enthrall_victim.wear_neck?.kink_collar == TRUE)
+						enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1] * 1.5, 0.1)
+					else
+						enthrall_tally += round(distance_multiplier[get_dist(enthrall_mob, owner) + 1], 0.1)
+				if(withdrawl_progress > 0)
+					withdrawl_progress -= 2
+				//calming effects
+				enthrall_victim.set_hallucinations(0)
+				enthrall_victim.set_stutter(0)
+				enthrall_victim.set_jitter(0)
+				if(owner.get_organ_loss(ORGAN_SLOT_BRAIN) >= 20)
+					owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, -0.2)
+				if(withdrawl_active == TRUE)
+					REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
+					enthrall_victim.clear_mood_event("EnthMissing1")
+					enthrall_victim.clear_mood_event("EnthMissing2")
+					enthrall_victim.clear_mood_event("EnthMissing3")
+					enthrall_victim.clear_mood_event("EnthMissing4")
+					withdrawl_active = FALSE
+			if(9 to INFINITY)//If they're not nearby, enable withdrawl effects.
+				withdrawl_active = TRUE
 
 	//withdrawl_active subproc:
-	if(withdrawl_active == TRUE)//Your minions are really REALLY needy.
+	if(distance_mood_on && withdrawl_active == TRUE)//Your minions are really REALLY needy.
 		switch(withdrawl_progress)//denial
 			if(4) // 00:20 - To reduce spam
 				to_chat(owner, span_userdanger("You are unable to complete [(lewd?"your [enthrall_gender]":"[enthrall_mob]")]'s orders without their presence, and any commands and objectives given to you prior are not in effect until you are back with them."))
@@ -436,10 +450,20 @@
 	enthrall_victim.clear_mood_event("EnthMissing4")
 	UnregisterSignal(enthrall_victim, COMSIG_LIVING_RESIST)
 	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
+	UnregisterSignal(enthrall_victim, COMSIG_OOC_ESCAPE)
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "MKUltra")
 	to_chat(owner, span_userdanger("You're now free of [enthrall_mob]'s influence, and fully independent!'"))
 	UnregisterSignal(owner, COMSIG_GLOB_LIVING_SAY_SPECIAL)
 	return ..()
+
+/datum/status_effect/chem/enthrall/proc/ooc_escape(datum/source)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/humanoid = owner
+	if(istype(humanoid))
+		mkultra_clear_all_commands(humanoid)
+		mkultra_deactivate_pet_chips(humanoid)
+		if(humanoid.has_status_effect(/datum/status_effect/chem/enthrall))
+			humanoid.remove_status_effect(/datum/status_effect/chem/enthrall)
 
 /datum/status_effect/chem/enthrall/proc/owner_hear(datum/source, list/hearing_args)
 	if(lewd == FALSE)

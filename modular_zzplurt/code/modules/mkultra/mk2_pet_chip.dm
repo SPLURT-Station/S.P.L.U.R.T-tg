@@ -29,13 +29,28 @@
 	var/datum/weakref/enthrall_ref
 	var/status = DNA_BLANK
 
+/obj/item/skillchip/mk2pet/proc/maybe_warn(mob/user)
+	if(warning_given)
+		return TRUE
+	if(!user || !user.client)
+		return TRUE
+	var/choice = tgui_alert(user, "This item is strictly intended as an ERP item. It should not be used for any mechanical gain, especially for antagonist purposes. Failure to respect this will result in administrative action being taken. Do you wish to continue using this item?", "A word of warning.", list("Yes", "No"))
+	if(choice != "Yes")
+		return FALSE
+	warning_given = TRUE
+	return TRUE
+
 /obj/item/skillchip/mk2pet/attack_hand(mob/user, modifiers)
-	if(!warning_given)
-		var/choice = tgui_alert(user, "This item is strictly intended as an ERP item. It should not be used for any mechanical gain, especially for antagonist purposes. Failure to respect this will result in administrative action being taken. Do you wish to continue using this item?", "A word of warning.", list("Yes", "No"))
-		if(choice != "Yes")
-			return TRUE
-		warning_given = TRUE
+	if(!maybe_warn(user))
+		return TRUE
 	return ..()
+
+/obj/item/skillchip/mk2pet/equipped(mob/user, slot, initial = FALSE)
+	. = ..()
+	if(!(slot & ITEM_SLOT_HANDS))
+		return
+	if(!maybe_warn(user))
+		user.dropItemToGround(src, force = TRUE)
 
 /obj/item/skillchip/mk2pet/attack_self(mob/user, modifiers)
 	. = ..()
@@ -178,18 +193,16 @@
 	distance_mood_enabled = FALSE
 
 /datum/status_effect/chem/enthrall/pet_chip/mk2/tick(seconds_between_ticks)
+	phase = FULLY_ENTHRALLED
 	if(!distance_mood_enabled)
 		// Disable distance-based withdrawal/mood effects for Mk.2 when tether mood is off.
 		withdrawl_active = FALSE
 		withdrawl_progress = 0
 		distance_apart = 0
-	phase = FULLY_ENTHRALLED
-	withdrawl_active = FALSE
-	withdrawl_progress = 0
 	. = ..()
 	phase = FULLY_ENTHRALLED
-	withdrawl_active = FALSE
 	if(!distance_mood_enabled)
+		withdrawl_active = FALSE
 		withdrawl_progress = 0
 		distance_apart = 0
 

@@ -1383,18 +1383,22 @@
 
 /obj/item/proc/canStrip(mob/stripper, mob/owner)
 	SHOULD_BE_PURE(TRUE)
+	//SPLURT ADDITION START
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "mkultra_slot_lock"))
 		return stripper && owner && stripper != owner && !(item_flags & ABSTRACT)
+	//SPLURT ADDITION END
 	return !HAS_TRAIT(src, TRAIT_NODROP) && !(item_flags & ABSTRACT)
 
 /obj/item/proc/doStrip(mob/stripper, mob/owner)
 	//SKYRAT EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
+	//SPLURT ADDITION START
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "mkultra_slot_lock"))
 		if(!stripper || !owner || stripper == owner)
 			return FALSE
 		if (!owner.dropItemToGround(src, force = TRUE))
 			return FALSE
 	else if (!owner.dropItemToGround(src))
+	//SPLURT ADDITION END
 		return FALSE
 	if (HAS_TRAIT(stripper, TRAIT_STICKY_FINGERS))
 		stripper.put_in_hands(src)

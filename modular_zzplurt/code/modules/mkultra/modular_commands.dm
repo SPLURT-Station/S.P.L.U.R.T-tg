@@ -1,6 +1,3 @@
-//SPLURT ADDITION START
-// Modular MKUltra command extensions live here to avoid patching upstream command tables.
-
 // Active follow states keyed by enthralled mob -> state data.
 var/global/list/mkultra_follow_states = list()
 // Self-call states keyed by enthralled mob -> allowed/self name list.
@@ -37,9 +34,9 @@ var/global/datum/mkultra_signal_handler/mkultra_master_title_signal_handler = ne
 // Separate handler for slot-lock signals to avoid overriding other delete hooks.
 var/global/datum/mkultra_signal_handler/mkultra_slot_lock_signal_handler = new
 // Toggleable debug logging.
-var/global/mkultra_debug_enabled = TRUE
+var/global/mkultra_debug_enabled = FALSE
 // Toggle to disable command cooldowns during testing.
-var/global/mkultra_disable_cooldowns = TRUE
+var/global/mkultra_disable_cooldowns = FALSE
 
 // Modular command handlers called from velvetspeech().
 var/global/list/mkultra_modular_command_handlers = list(
@@ -54,7 +51,10 @@ var/global/list/mkultra_command_docs = list(
 	"cum_lock" = list(
 		"summary" = "Toggle climax denial ('can't cum' / 'can cum').",
 		"usage" = "Say: can't cum / no cumming / deny climax OR can cum / allow cum.",
-		"patterns" = list(regex("can't cum|cannot cum|no cumming|do not cum|stop cumming|deny climax"), regex("can cum|you may cum|allow cum|release cum")),
+		"patterns" = list(
+			regex("can(?:'|’)?t\\s+cum|cannot\\s+cum|no\\s+cumming|do\\s+not\\s+cum|stop\\s+cumming|deny\\s+climax"),
+			regex("can\\s+cum|you\\s+may\\s+cum|allow\\s+cum|release\\s+cum")
+		),
 		"handler" = /proc/process_mkultra_command_cum_lock,
 		"texts" = list(
 			"lock_pet" = "<span class='warning'>Your release is forbidden until granted.</span>",
@@ -311,11 +311,6 @@ var/global/list/mkultra_modular_command_specs = list()
 		var/handler = doc["handler"]
 		if(!patterns || !handler)
 			continue
-		if(mkultra_debug_enabled)
-			var/pcount = 1
-			if(islist(patterns))
-				pcount = length(patterns)
-			world.log << "SPLURT DEBUG: building spec [cmd_name] patterns_count=[pcount] handler=[handler]"
 		mkultra_modular_command_specs[cmd_name] = list(
 			"name" = cmd_name,
 			"patterns" = patterns,
@@ -386,15 +381,6 @@ var/global/list/mkultra_modular_command_specs = list()
 
     if(!mkultra_modular_command_specs || !mkultra_modular_command_specs.len)
         mkultra_build_command_specs()
-        if(mkultra_debug_enabled)
-            world.log << "SPLURT DEBUG: rebuilt modular specs (len=[mkultra_modular_command_specs.len])"
-            if(user)
-                to_chat(user, span_warning("SPLURT DEBUG: rebuilt modular specs (len=[mkultra_modular_command_specs.len])"))
-
-    if(mkultra_debug_enabled)
-        world.log << "SPLURT DEBUG: modular dispatcher start msg='[message]' listeners=[listeners?.len] specs=[mkultra_modular_command_specs.len]"
-        if(user)
-            to_chat(user, span_notice("SPLURT DEBUG: modular dispatcher start; listeners=[listeners?.len] specs=[mkultra_modular_command_specs.len] msg='[message]'"))
 
     for(var/cmd_name in mkultra_command_order)
         var/list/spec = mkultra_modular_command_specs[cmd_name]
@@ -403,14 +389,7 @@ var/global/list/mkultra_modular_command_specs = list()
 
         var/handler = spec["handler"]
         if(!handler)
-            if(mkultra_debug_enabled)
-                world.log << "SPLURT DEBUG: spec [cmd_name] missing handler"
             continue
-
-        if(mkultra_debug_enabled)
-            world.log << "SPLURT DEBUG: modular dispatch [cmd_name]"
-            if(user)
-                to_chat(user, span_notice("SPLURT DEBUG: modular dispatch [cmd_name]"))
 
         var/result = call(handler)(message, user, listeners, power_multiplier)
 
@@ -419,16 +398,6 @@ var/global/list/mkultra_modular_command_specs = list()
             if(cmd_name == "cum_lock")
                 message = mkultra_strip_cum_reference(message)
             // break  // ← uncomment if only one command should ever run
-
-        if(mkultra_debug_enabled)
-            world.log << "SPLURT DEBUG: modular handler [cmd_name] result=[result]"
-            if(user)
-                to_chat(user, span_notice("SPLURT DEBUG: modular handler [cmd_name] result=[result]"))
-
-    if(!handled && mkultra_debug_enabled)
-        world.log << "SPLURT DEBUG: modular handlers found no matches for msg='[message]'"
-        if(user)
-            to_chat(user, span_warning("SPLURT DEBUG: modular handlers found no matches for msg='[message]'"))
 
     return handled
 
@@ -502,20 +471,14 @@ var/global/list/mkultra_modular_command_specs = list()
 	for(var/p in pats)
 		if(islist(p))
 			if(mkultra_command_matches(message, lowered, p))
-				if(mkultra_debug_enabled)
-					world.log << "SPLURT DEBUG: pattern nest match msg='[message]' pat=[p]"
 				return TRUE
 			else
 				continue
 		if(istype(p, /regex))
 			if(findtext(lowered, p))
-				if(mkultra_debug_enabled)
-					world.log << "SPLURT DEBUG: regex match msg='[message]' pat=[p]"
 				return TRUE
 		else if(istext(p))
 			if(findtext(lowered, lowertext("[p]")))
-				if(mkultra_debug_enabled)
-					world.log << "SPLURT DEBUG: text match msg='[message]' pat='[p]'"
 				return TRUE
 	return FALSE
 
@@ -523,20 +486,14 @@ var/global/list/mkultra_modular_command_specs = list()
 /proc/mkultra_command_match_index(message, lowered, patterns)
 	if(!islist(patterns))
 		var/hit = mkultra_command_matches(message, lowered, patterns)
-		if(mkultra_debug_enabled)
-			world.log << "SPLURT DEBUG: match_index single patterns hit=[hit] patterns=[patterns]"
 		return hit ? 1 : 0
 	var/idx = 1
 	for(var/p in patterns)
 		if(islist(p))
 			if(mkultra_command_matches(message, lowered, p))
-				if(mkultra_debug_enabled)
-					world.log << "SPLURT DEBUG: match_index nested idx=[idx] hit=TRUE patterns=[p]"
 				return idx
 		else
 			if(mkultra_command_matches(message, lowered, list(p)))
-				if(mkultra_debug_enabled)
-					world.log << "SPLURT DEBUG: match_index idx=[idx] hit=TRUE pattern=[p]"
 				return idx
 		idx++
 	return FALSE
@@ -1168,11 +1125,9 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	// Pronoun replacements.
 	var/clean_before = clean
 	clean = replacetext(clean, regex("\\bI have\\b", "gi"), "[main_name] has")
-	clean = replacetext(clean, regex("\\bI've\\b", "gi"), "[main_name] has")
-	clean = replacetext(clean, regex("\\bIve\\b", "gi"), "[main_name] has")
+	clean = replacetext(clean, regex("\\bI(?:'|’)?ve\\b", "gi"), "[main_name] has")
 	clean = replacetext(clean, regex("\\bI am\\b", "gi"), "[main_name] is")
-	clean = replacetext(clean, regex("\\bI'm\\b", "gi"), "[main_name] is")
-	clean = replacetext(clean, regex("\\bIm\\b", "gi"), "[main_name] is")
+	clean = replacetext(clean, regex("\\bI(?:'|’)?m\\b", "gi"), "[main_name] is")
 	clean = replacetext(clean, regex("\\bI\\b", "gi"), main_name)
 	clean = replacetext(clean, regex("\\bmyself\\b", "gi"), main_name)
 	clean = replacetext(clean, regex("\\bme\\b", "gi"), main_name)
@@ -1882,10 +1837,8 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/mkultra_set_cum_lock(mob/living/carbon/human/humanoid, apply)
 	if(apply)
-		ADD_TRAIT(humanoid, TRAIT_NEVERBONER, "mkultra_cum_lock")
 		mkultra_cum_locks[humanoid] = TRUE
 	else
-		REMOVE_TRAIT(humanoid, TRAIT_NEVERBONER, "mkultra_cum_lock")
 		mkultra_cum_locks -= humanoid
 
 /proc/mkultra_set_arousal_lock(mob/living/carbon/human/humanoid, mode)
@@ -2023,6 +1976,36 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		return
 	mkultra_worship_states -= humanoid
 
+/proc/mkultra_clear_all_commands(mob/living/carbon/human/humanoid)
+	if(!humanoid)
+		return
+	mkultra_stop_follow(humanoid)
+	mkultra_clear_selfcall(humanoid)
+	mkultra_clear_master_title(humanoid)
+	mkultra_set_cum_lock(humanoid, FALSE)
+	mkultra_clear_arousal_lock(humanoid)
+	mkultra_stop_worship(humanoid)
+	mkultra_set_heat(humanoid, FALSE)
+	mkultra_set_well_trained(humanoid, FALSE)
+	mkultra_clear_sissy(humanoid)
+	var/list/locked = mkultra_slot_locks[humanoid]
+	if(islist(locked))
+		for(var/obj/item/I in locked.Copy())
+			mkultra_unlock_slot_item(I, silent = TRUE)
+
+/proc/mkultra_deactivate_pet_chips(mob/living/carbon/human/humanoid)
+	if(!humanoid)
+		return FALSE
+	var/obj/item/organ/brain/brain = humanoid.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!brain || !islist(brain.skillchips))
+		return FALSE
+	var/changed = FALSE
+	for(var/obj/item/skillchip/chip in brain.skillchips)
+		if(istype(chip, /obj/item/skillchip/mk2pet) || istype(chip, /obj/item/skillchip/mkiiultra))
+			chip.try_deactivate_skillchip(TRUE, TRUE, humanoid)
+			changed = TRUE
+	return changed
+
 /proc/mkultra_worship_tick(mob/living/carbon/human/humanoid)
 	var/list/state = mkultra_worship_states[humanoid]
 	if(!state)
@@ -2075,9 +2058,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_delete), TRUE)
 	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_EQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
 	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_UNEQUIPPED_ITEM, TYPE_PROC_REF(/datum/mkultra_signal_handler, sissy_on_outfit_change), TRUE)
-	mkultra_apply_arousal_lock_now(humanoid, clear_only = TRUE)
-	mkultra_set_arousal_lock(humanoid, "limp")
-	mkultra_set_well_trained(humanoid, TRUE)
 	mkultra_sissy_tick(humanoid)
 
 /proc/mkultra_clear_sissy(mob/living/carbon/human/humanoid)
@@ -2086,10 +2066,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	mkultra_debug("sissy clear [humanoid]")
 	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_QDELETING, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
 	mkultra_sissy_states -= humanoid
-	REMOVE_TRAIT(humanoid, TRAIT_NEVERBONER, "mkultra_cum_lock")
-	mkultra_clear_arousal_lock(humanoid)
-	mkultra_apply_arousal_lock_now(humanoid, clear_only = TRUE)
-	mkultra_set_well_trained(humanoid, FALSE)
 	humanoid.clear_mood_event("enthrallsissy")
 
 /datum/mkultra_signal_handler/proc/sissy_on_delete(datum/source)
@@ -2157,9 +2133,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		return 0 //no cooldown
 
 	var/log_message = message
-	if(mkultra_debug_enabled)
-		world.log << "SPLURT DEBUG: mkultra_base start msg='[message]' speaker=[user]"
-		to_chat(user, span_notice("SPLURT DEBUG: mkultra_base start msg='[message]'"))
 
 	//FIND THRALLS
 	message = LOWER_TEXT(message)
@@ -2182,9 +2155,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 				if(istype(enthrall_chem, /datum/status_effect/chem/enthrall/pet_chip/mk2))
 					mk2_listeners += enthrall_listener
 
-	if(mkultra_debug_enabled)
-		world.log << "SPLURT DEBUG: listeners total=[listeners.len] mk2=[mk2_listeners.len]"
-		to_chat(user, span_notice("SPLURT DEBUG: listeners total=[listeners.len] mk2=[mk2_listeners.len]"))
 
 	if(!listeners.len)
 		return 0
@@ -2197,9 +2167,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	if(mk2_listeners.len)
 		// Run modular handlers first so Mk.2-specific commands fire, and short-circuit base handlers if they do.
 		if(mkultra_handle_modular_commands(message, user, mk2_listeners, power_multiplier))
-			if(mkultra_debug_enabled)
-				world.log << "SPLURT DEBUG: modular commands handled msg for mk2 (skipping base commands)"
-				to_chat(user, span_notice("SPLURT DEBUG: modular commands handled msg for mk2 (skipping base commands)"))
 			return 0
 
 	// Prevent "can't cum"/"can cum" from being treated as a cum command later in the base flow.
