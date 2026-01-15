@@ -11,7 +11,7 @@
 /datum/unit_test/mkultra_pet_chip_mk2_name
 	focus = TRUE
 /datum/unit_test/mkultra_pet_chip_mk2_name/Run()
-	var/obj/item/skillchip/mkiiultra/mk2/chip = new
+	var/obj/item/skillchip/mk2pet/chip = new
 	TEST_ASSERT(findtext(chip.name, "Mk.2"), "MKUltra pet chip should be the Mk.2 variant")
 
 // Simple enthrall stubs so we can exercise MKUltra helpers without wiring the full chem flow.
@@ -40,6 +40,20 @@
 		return ..()
 
 /datum/status_effect/chem/enthrall/pet_chip/unit_test/on_apply()
+		return TRUE
+
+/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test
+/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test/New(mob/living/carbon/human/owner, mob/living/master)
+		enthrall_mob = master
+		enthrall_ckey = master?.ckey || "unit-test"
+		enthrall_gender = "master"
+		phase = MKU_FULLY_ENTHRALLED
+		lewd = TRUE
+		distance_mood_enabled = FALSE
+		cooldown = 0
+		return ..()
+
+/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test/on_apply()
 		return TRUE
 
 /datum/unit_test/mkultra_cum_lock
@@ -159,6 +173,37 @@
 	var/removed = mkultra_strip_all(humanoid)
 	TEST_ASSERT(removed >= 2, "Strip-all should remove worn clothing")
 	TEST_ASSERT(!humanoid.get_item_by_slot(ITEM_SLOT_ICLOTHING) && !humanoid.get_item_by_slot(ITEM_SLOT_FEET), "Strip-all should leave slots empty")
+
+/// Mk.2 enthralls should route modular commands; base enthralls should ignore them.
+/datum/unit_test/mkultra_modular_dispatch_mk2
+	focus = TRUE
+/datum/unit_test/mkultra_modular_dispatch_mk2/Run()
+	var/mob/living/carbon/human/master = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/pet = allocate(/mob/living/carbon/human/consistent)
+	// Ensure both are in range for get_hearers_in_view.
+	master.forceMove(locate(1, 1, 1))
+	pet.forceMove(locate(1, 2, 1))
+	pet.apply_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test, master)
+	var/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test/effect = pet.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2/unit_test)
+	TEST_ASSERT(effect, "Mk.2 unit test effect should be applied")
+	var/result = mkultra_handle_base_commands("mkdebug phase 1", master)
+	TEST_ASSERT_EQUAL(effect.phase, 1, "Mk.2 enthrall should be handled by modular commands")
+	TEST_ASSERT_EQUAL(result, 0, "Modular handling should short-circuit base commands")
+
+/datum/unit_test/mkultra_modular_dispatch_mk1
+	focus = TRUE
+/datum/unit_test/mkultra_modular_dispatch_mk1/Run()
+	var/mob/living/carbon/human/master = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/pet = allocate(/mob/living/carbon/human/consistent)
+	master.forceMove(locate(1, 1, 1))
+	pet.forceMove(locate(1, 2, 1))
+	pet.apply_status_effect(/datum/status_effect/chem/enthrall/unit_test, master)
+	var/datum/status_effect/chem/enthrall/unit_test/effect = pet.has_status_effect(/datum/status_effect/chem/enthrall/unit_test)
+	TEST_ASSERT(effect, "Mk.1 unit test effect should be applied")
+	var/old_phase = effect.phase
+	var/result = mkultra_handle_base_commands("mkdebug phase 1", master)
+	TEST_ASSERT_EQUAL(effect.phase, old_phase, "Non-Mk.2 enthralls should ignore modular-only commands")
+	TEST_ASSERT_EQUAL(result, 0, "Base handler should still return even when nothing processed")
 
 /// Piss-self command forces bladder urination when enthralled and enough urine is stored.
 /datum/unit_test/mkultra_piss_self_command
