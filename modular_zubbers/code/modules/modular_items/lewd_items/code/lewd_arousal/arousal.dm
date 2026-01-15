@@ -93,3 +93,8 @@
 		if (arousal > AROUSAL_NONE && src.dna.features["low_arousal"])
 			. += span_purple(src.dna.features["low_arousal"])
 			return
+
+// SPLURT ADDITION START
+#undef TRAIT_PERMA_HARD
+#undef TRAIT_PERMA_SOFT
+// SPLURT ADDITION END
