@@ -31,6 +31,11 @@ var/global/list/mkultra_well_trained_states = list()
 var/global/list/mkultra_sissy_states = list()
 // Signal sink used for global mkultra helpers.
 var/global/datum/mkultra_signal_handler/mkultra_signal_handler = new
+// Separate handlers to avoid signal override collisions for speech/selfcall features.
+var/global/datum/mkultra_signal_handler/mkultra_selfcall_signal_handler = new
+var/global/datum/mkultra_signal_handler/mkultra_master_title_signal_handler = new
+// Separate handler for slot-lock signals to avoid overriding other delete hooks.
+var/global/datum/mkultra_signal_handler/mkultra_slot_lock_signal_handler = new
 // Toggleable debug logging.
 var/global/mkultra_debug_enabled = TRUE
 // Toggle to disable command cooldowns during testing.
@@ -244,8 +249,8 @@ var/global/list/mkultra_command_docs = list(
 	),
 	"pet_tether" = list(
 		"summary" = "Toggle distance mood/withdrawal effects for pets.",
-		"usage" = "Say: tether mood on/off or distance mood on/off.",
-		"patterns" = list(regex("tether mood|distance mood|homesick")),
+		"usage" = "Say: pet tether on/off, tether mood on/off, or distance mood on/off.",
+		"patterns" = list(regex("pet tether|tether mood|distance mood|homesick")),
 		"handler" = /proc/process_mkultra_command_pet_tether,
 		"texts" = list(
 			"master" = "<span class='notice'><i>You {state} distance yearning on {target}.</i></span>",
@@ -361,6 +366,13 @@ var/global/list/mkultra_modular_command_specs = list()
 		out += patterns
 	return out
 
+// Strip explicit cum tokens so other handlers don't misinterpret "can't cum" as "cum".
+/proc/mkultra_strip_cum_reference(message)
+	if(!istext(message))
+		return message
+	var/clean = replacetext(message, regex("\\bcum(?:ming)?\\b", "ig"), "")
+	return trim(clean)
+
 
 
 // Fan-out helper used by velvetspeech to run all modular handlers.
@@ -404,6 +416,8 @@ var/global/list/mkultra_modular_command_specs = list()
 
         if(result)
             handled = TRUE
+            if(cmd_name == "cum_lock")
+                message = mkultra_strip_cum_reference(message)
             // break  // ← uncomment if only one command should ever run
 
         if(mkultra_debug_enabled)
@@ -1114,13 +1128,13 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		"idx" = 1,
 	)
 	mkultra_debug("selfcall set on [humanoid]: [name_list.Join(", ")]")
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_say))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_delete))
+	mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_say))
+	mkultra_selfcall_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, selfcall_on_delete))
 
 /proc/mkultra_clear_selfcall(mob/living/carbon/human/humanoid)
 	if(!(humanoid in mkultra_selfcall_states))
 		return
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
+	mkultra_selfcall_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
 	mkultra_selfcall_states -= humanoid
 	mkultra_debug("selfcall cleared on [humanoid]")
 
@@ -1152,13 +1166,19 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	var/matched = FALSE
 
 	// Pronoun replacements.
-	var/regex/pronouns = regex("\\b(I|I'm|Im|I am|me|my|mine|myself)\\b", "gi")
-	if(pronouns.Find(clean))
-		clean = replacetext(clean, regex("\\b(I|I'm|Im|I am)\\b", "gi"), "[main_name] is")
-		clean = replacetext(clean, regex("\\bmyself\\b", "gi"), main_name)
-		clean = replacetext(clean, regex("\\bme\\b", "gi"), main_name)
-		clean = replacetext(clean, regex("\\bmy\\b", "gi"), "[main_name]'s")
-		clean = replacetext(clean, regex("\\bmine\\b", "gi"), "[main_name]'s")
+	var/clean_before = clean
+	clean = replacetext(clean, regex("\\bI have\\b", "gi"), "[main_name] has")
+	clean = replacetext(clean, regex("\\bI've\\b", "gi"), "[main_name] has")
+	clean = replacetext(clean, regex("\\bIve\\b", "gi"), "[main_name] has")
+	clean = replacetext(clean, regex("\\bI am\\b", "gi"), "[main_name] is")
+	clean = replacetext(clean, regex("\\bI'm\\b", "gi"), "[main_name] is")
+	clean = replacetext(clean, regex("\\bIm\\b", "gi"), "[main_name] is")
+	clean = replacetext(clean, regex("\\bI\\b", "gi"), main_name)
+	clean = replacetext(clean, regex("\\bmyself\\b", "gi"), main_name)
+	clean = replacetext(clean, regex("\\bme\\b", "gi"), main_name)
+	clean = replacetext(clean, regex("\\bmy\\b", "gi"), "[main_name]'s")
+	clean = replacetext(clean, regex("\\bmine\\b", "gi"), "[main_name]'s")
+	if(clean != clean_before)
 		matched = TRUE
 
 	// Name replacements: full, first, last.
@@ -1187,14 +1207,14 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		"master" = WEAKREF(master),
 		"title" = title,
 	)
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_say))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_delete))
+	mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_say))
+	mkultra_master_title_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_delete))
 	mkultra_debug("master title set on [humanoid]: '[title]' for [master]")
 
 /proc/mkultra_clear_master_title(mob/living/carbon/human/humanoid)
 	if(!(humanoid in mkultra_master_title_states))
 		return
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
+	mkultra_master_title_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
 	mkultra_master_title_states -= humanoid
 	mkultra_debug("master title cleared on [humanoid]")
 
@@ -1383,12 +1403,12 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	var/list/locked = mkultra_slot_locks[humanoid]
 	if(!islist(locked))
 		locked = list()
-	mkultra_slot_locks[humanoid] = locked
+		mkultra_slot_locks[humanoid] = locked
+		mkultra_slot_lock_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_owner_delete))
 	locked[I] = slot_label
 	mkultra_slot_lock_items[I] = humanoid
-	mkultra_signal_handler.RegisterSignal(I, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_unequip))
-	mkultra_signal_handler.RegisterSignal(I, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_delete))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_owner_delete))
+	mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_unequip))
+	mkultra_slot_lock_signal_handler.RegisterSignal(I, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_delete))
 	return TRUE
 
 /proc/mkultra_unlock_slot_item(obj/item/I, silent = FALSE)
@@ -1401,10 +1421,10 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			locked -= I
 			if(!locked.len)
 				mkultra_slot_locks -= humanoid
-				mkultra_signal_handler.UnregisterSignal(humanoid, COMSIG_QDELETING)
+				mkultra_slot_lock_signal_handler.UnregisterSignal(humanoid, COMSIG_QDELETING)
 	mkultra_slot_lock_items -= I
 	REMOVE_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
-	mkultra_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
+	mkultra_slot_lock_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
 	return TRUE
 
 /proc/process_mkultra_command_wear(message, mob/living/user, list/listeners, power_multiplier)
@@ -1708,15 +1728,19 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_pet_tether(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/tether_words = regex("tether mood|distance mood|homesick")
-	if(!findtext(message, tether_words))
+	var/lowered = lowertext(message)
+	var/static/regex/tether_words = regex("\\b(tether mood|distance mood|homesick|pet tether)\\b", "i")
+	if(!findtext(lowered, tether_words))
 		return FALSE
 
-	var/enable = findtext(lowertext(message), "on") || findtext(lowertext(message), "enable")
-	var/disable = findtext(lowertext(message), "off") || findtext(lowertext(message), "disable")
-	if(!enable && !disable)
-		return FALSE
-	mkultra_debug("pet tether matched by [user] -> [listeners.len] listeners (enable=[enable] disable=[disable])")
+	var/static/regex/enable_words = regex("\\b(on|enable|start)\\b", "i")
+	var/static/regex/disable_words = regex("\\b(off|disable|stop)\\b", "i")
+	var/enable = findtext(lowered, enable_words)
+	var/disable = findtext(lowered, disable_words)
+	var/explicit = enable || disable
+	if(enable && disable)
+		explicit = FALSE
+	mkultra_debug("pet tether matched by [user] -> [listeners.len] listeners (enable=[enable] disable=[disable] explicit=[explicit])")
 
 	for(var/enthrall_victim in listeners)
 		if(!ishuman(enthrall_victim))
@@ -1729,7 +1753,15 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
 			mkultra_debug("pet tether skip [humanoid]: enthrall gate fail (master_match=[enthrall_chem?.enthrall_mob == user])")
 			continue
-		enthrall_chem.distance_mood_enabled = enable && !disable ? TRUE : FALSE
+		var/new_state = explicit ? (enable && !disable) : !enthrall_chem.distance_mood_enabled
+		enthrall_chem.distance_mood_enabled = new_state
+		if(!new_state)
+			if("withdrawl_active" in enthrall_chem.vars)
+				enthrall_chem.withdrawl_active = FALSE
+			if("withdrawl_progress" in enthrall_chem.vars)
+				enthrall_chem.withdrawl_progress = 0
+			if("distance_apart" in enthrall_chem.vars)
+				enthrall_chem.distance_apart = 0
 		mkultra_debug("pet tether set [humanoid] distance_mood=[enthrall_chem.distance_mood_enabled] by [user]")
 		var/state_label = enthrall_chem.distance_mood_enabled ? "enable" : "disable"
 		var/msg_master = mkultra_cmd_text("pet_tether", "master", list("state" = state_label, "target" = humanoid)) || "<span class='notice'><i>You [state_label] distance yearning on [humanoid].</i></span>"
@@ -1740,14 +1772,16 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_slot_lock(message, mob/living/user, list/listeners, power_multiplier)
 	var/lowered = lowertext(message)
-	var/is_lock = findtext(lowered, "lock ")
-	var/is_unlock = findtext(lowered, "unlock ")
-	if(!is_lock && !is_unlock)
+	var/lock_idx = findtext(lowered, regex("\\block\\b", "i"))
+	var/unlock_idx = findtext(lowered, regex("\\bunlock\\b", "i"))
+	if(!lock_idx && !unlock_idx)
 		return FALSE
 
 	// Choose the first matching keyword position to slice slot text.
-	var/keyword_idx = is_lock || is_unlock
-	var/keyword = is_lock ? "lock " : "unlock "
+	var/keyword_idx = (unlock_idx && (!lock_idx || unlock_idx <= lock_idx)) ? unlock_idx : lock_idx
+	var/keyword = (unlock_idx && (!lock_idx || unlock_idx <= lock_idx)) ? "unlock " : "lock "
+	var/is_unlock = (keyword == "unlock ")
+	var/is_lock = !is_unlock
 	var/slot_text = trim(copytext(message, keyword_idx + length(keyword)))
 	if(!length(slot_text))
 		return FALSE
@@ -2099,7 +2133,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		var/chat_prompt = pick(
 			"Your [bad_item] isn't what [owner_name] wants you in.",
 			"You shouldn't be in [bad_item]; [owner_name] wants you cute.",
-			"[owner_name] would frown at that [bad_item]â€”change it.",
+			"[owner_name] would frown at that [bad_item]”change it.",
 			"That [bad_item] isn't girly enough for [owner_name].",
 		)
 		to_chat(humanoid, "<span class='love'><i>[chat_prompt]</i></span>")
@@ -2161,11 +2195,17 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 	//SPLURT ADDITION: Only run modular handlers for Mk.2 enthralls; exclude them from the base command flow.
 	if(mk2_listeners.len)
-		// Run modular handlers first so Mk.2-specific commands fire, but keep Mk.2 in the list so base commands also apply.
+		// Run modular handlers first so Mk.2-specific commands fire, and short-circuit base handlers if they do.
 		if(mkultra_handle_modular_commands(message, user, mk2_listeners, power_multiplier))
 			if(mkultra_debug_enabled)
-				world.log << "SPLURT DEBUG: modular commands handled msg for mk2 (base commands will still run)"
-				to_chat(user, span_notice("SPLURT DEBUG: modular commands handled msg for mk2 (base still runs)"))
+				world.log << "SPLURT DEBUG: modular commands handled msg for mk2 (skipping base commands)"
+				to_chat(user, span_notice("SPLURT DEBUG: modular commands handled msg for mk2 (skipping base commands)"))
+			return 0
+
+	// Prevent "can't cum"/"can cum" from being treated as a cum command later in the base flow.
+	var/list/cum_lock_patterns = mkultra_cmd_patterns("cum_lock")
+	if(mkultra_command_matches(message, message, cum_lock_patterns))
+		message = mkultra_strip_cum_reference(message)
 
 	if(!listeners.len)
 		return 0
