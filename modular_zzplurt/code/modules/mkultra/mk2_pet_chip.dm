@@ -22,11 +22,20 @@
 	skill_icon = FA_ICON_HEART
 	activate_message = span_purple(span_bold("You feel the skillchip activating, starting to rewire your mind. Don’t worry about complex thoughts any more; you’re officially downgraded to 'good boy/girl' status. Obedience and loyalty are now your new personality traits. So sit, stay, and enjoy the cozy, simplified existence of your new pet life."))
 	deactivate_message = span_purple(span_bold("You feel lucidity returning to your mind as the skillchip attempts to return your brain to normal function."))
+	var/static/warning_given = FALSE
 	var/enthrall_ckey
 	var/enthrall_gender
 	var/enthrall_name
 	var/datum/weakref/enthrall_ref
 	var/status = DNA_BLANK
+
+/obj/item/skillchip/mk2pet/attack_hand(mob/user, modifiers)
+	if(!warning_given)
+		var/choice = tgui_alert(user, "This item is strictly intended as an ERP item. It should not be used for any mechanical gain, especially for antagonist purposes. Failure to respect this will result in administrative action being taken. Do you wish to continue using this item?", "A word of warning.", list("Yes", "No"))
+		if(choice != "Yes")
+			return TRUE
+		warning_given = TRUE
+	return ..()
 
 /obj/item/skillchip/mk2pet/attack_self(mob/user, modifiers)
 	. = ..()

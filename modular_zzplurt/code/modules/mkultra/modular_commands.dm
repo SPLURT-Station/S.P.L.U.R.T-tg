@@ -5,6 +5,12 @@
 var/global/list/mkultra_follow_states = list()
 // Self-call states keyed by enthralled mob -> allowed/self name list.
 var/global/list/mkultra_selfcall_states = list()
+// Master title states keyed by enthralled mob -> title + master ref.
+var/global/list/mkultra_master_title_states = list()
+// Slot locks keyed by enthralled mob -> list of locked items.
+var/global/list/mkultra_slot_locks = list()
+// Reverse lookup: locked item -> enthralled mob.
+var/global/list/mkultra_slot_lock_items = list()
 // Cum lock map keyed by enthralled mob -> TRUE while climax is blocked.
 var/global/list/mkultra_cum_locks = list()
 // Arousal lock map keyed by enthralled mob -> "hard"|"limp".
@@ -36,75 +42,323 @@ var/global/mkultra_disable_cooldowns = TRUE
 var/global/list/mkultra_modular_command_handlers = list(
 	/proc/process_mkultra_command_cum,
 	/proc/process_mkultra_command_emote,
-	/proc/process_mkultra_command_follow,
-	/proc/process_mkultra_command_set_master_title,
-	/proc/process_mkultra_command_strip_slot,
-	/proc/process_mkultra_command_lust_up,
-	/proc/process_mkultra_command_lust_down,
-	/proc/process_mkultra_command_selfcall,
-	/proc/process_mkultra_command_selfcall_off,
-	/proc/process_mkultra_command_wear,
-	/proc/process_mkultra_command_cum_lock,
-	/proc/process_mkultra_command_arousal_lock,
-	/proc/process_mkultra_command_worship,
-	/proc/process_mkultra_command_heat,
-	/proc/process_mkultra_command_well_trained_toggle,
-	/proc/process_mkultra_command_piss_self,
-	/proc/process_mkultra_command_sissy,
-	/proc/process_mkultra_command_pet_tether,
-	/proc/process_mkultra_command_debug_phase,
+	// Handlers now bound via mkultra_command_docs -> mkultra_modular_command_specs.
 )
 
-// Centralized trigger patterns for modular commands.
-var/global/regex/MKULTRA_PATTERN_CUM = regex("cum|orgasm|finish for me|climax")
-var/global/regex/MKULTRA_PATTERN_FOLLOW = regex("follow( me)?")
-var/global/list/MKULTRA_PATTERN_MASTER_TITLE = list("call me ", "address me as ")
-var/global/regex/MKULTRA_PATTERN_STRIP = regex("\\bstrip\\b")
-var/global/regex/MKULTRA_PATTERN_LUST_UP = regex("get horny|feel horny|get wetter|get harder|feel hotter|aroused")
-var/global/regex/MKULTRA_PATTERN_LUST_DOWN = regex("calm down|cool off|less horny|settle down|compose yourself")
-var/global/list/MKULTRA_PATTERN_SELF_CALL = list("call yourself ", "your name is ", "you are my ")
-var/global/regex/MKULTRA_PATTERN_SELF_CALL_OFF = regex("selfcall off|selfcall stop|clear selfcall|stop calling yourself|remember your name")
-var/global/regex/MKULTRA_PATTERN_WEAR = regex("\\bwear\\b")
-var/global/regex/MKULTRA_PATTERN_CUM_LOCK_ON = regex("can't cum|cannot cum|no cumming|do not cum|stop cumming|deny climax")
-var/global/regex/MKULTRA_PATTERN_CUM_LOCK_OFF = regex("can cum|you may cum|allow cum|release cum")
-var/global/list/MKULTRA_PATTERN_AROUSAL_HARD = list("permanent hard", "permanently hard", "perma hard", "permahard", "stay hard", "always hard", "always erect", "stay erect", "stay stiff", "be hard", "get hard", "remain hard", "locked hard", "hard forever")
-var/global/list/MKULTRA_PATTERN_AROUSAL_LIMP = list("permanent limp", "permanently limp", "perma limp", "permalimp", "flaccid", "stay limp", "always limp", "stay soft", "always soft", "be limp", "get soft", "remain soft", "locked soft", "soft forever")
-var/global/list/MKULTRA_PATTERN_AROUSAL_CLEAR = list("disable hard", "disable limp", "stop hard", "stop limp", "normal arousal", "undo hard", "undo limp", "reset arousal")
-var/global/regex/MKULTRA_PATTERN_WORSHIP_START = regex("worship my |worship ")
-var/global/regex/MKULTRA_PATTERN_WORSHIP_STOP = regex("stop worship|no worship|end worship")
-var/global/regex/MKULTRA_PATTERN_HEAT_ON = regex("in heat|enter heat|go into heat")
-var/global/regex/MKULTRA_PATTERN_HEAT_OFF = regex("out of heat|leave heat|stop heat|undo heat")
-var/global/regex/MKULTRA_PATTERN_WELL_TRAINED_ON = regex("well trained|be trained|good pet")
-var/global/regex/MKULTRA_PATTERN_WELL_TRAINED_OFF = regex("stop being trained|no longer trained|untrain")
-var/global/regex/MKULTRA_PATTERN_PISS = regex("piss yourself|piss for me|wet yourself|pee yourself|urinate on yourself")
-var/global/regex/MKULTRA_PATTERN_SISSY_ON = regex("be a sissy|be my sissy|sissy mode|sissy up|dress cute|dress girly")
-var/global/regex/MKULTRA_PATTERN_SISSY_OFF = regex("no more sissy|stop being a sissy|sissy off|dress normal")
-var/global/regex/MKULTRA_PATTERN_TETHER_ON = regex("tether mood on|distance mood on|enable tether")
-var/global/regex/MKULTRA_PATTERN_TETHER_OFF = regex("tether mood off|distance mood off|disable tether")
-var/global/regex/MKULTRA_PATTERN_DEBUG_PHASE = regex("mkdebug phase|mkultra phase")
-
-// Command spec list used by the dispatcher to map patterns to handlers.
-var/global/list/mkultra_modular_command_specs = list(
-	list("name"="cum_lock", "patterns"=list(MKULTRA_PATTERN_CUM_LOCK_ON, MKULTRA_PATTERN_CUM_LOCK_OFF), "handler"=/proc/process_mkultra_command_cum_lock),
-	list("name"="cum", "patterns"=list(MKULTRA_PATTERN_CUM), "handler"=/proc/process_mkultra_command_cum),
-	list("name"="emote", "patterns"=list(" for me"), "handler"=/proc/process_mkultra_command_emote),
-	list("name"="follow", "patterns"=list(MKULTRA_PATTERN_FOLLOW), "handler"=/proc/process_mkultra_command_follow),
-	list("name"="master_title", "patterns"=MKULTRA_PATTERN_MASTER_TITLE, "handler"=/proc/process_mkultra_command_set_master_title),
-	list("name"="strip_slot", "patterns"=list(MKULTRA_PATTERN_STRIP), "handler"=/proc/process_mkultra_command_strip_slot),
-	list("name"="lust_up", "patterns"=list(MKULTRA_PATTERN_LUST_UP), "handler"=/proc/process_mkultra_command_lust_up),
-	list("name"="lust_down", "patterns"=list(MKULTRA_PATTERN_LUST_DOWN), "handler"=/proc/process_mkultra_command_lust_down),
-	list("name"="selfcall", "patterns"=MKULTRA_PATTERN_SELF_CALL, "handler"=/proc/process_mkultra_command_selfcall),
-	list("name"="selfcall_off", "patterns"=list(MKULTRA_PATTERN_SELF_CALL_OFF), "handler"=/proc/process_mkultra_command_selfcall_off),
-	list("name"="wear", "patterns"=list(MKULTRA_PATTERN_WEAR), "handler"=/proc/process_mkultra_command_wear),
-	list("name"="arousal_lock", "patterns"=list(MKULTRA_PATTERN_AROUSAL_HARD, MKULTRA_PATTERN_AROUSAL_LIMP, MKULTRA_PATTERN_AROUSAL_CLEAR), "handler"=/proc/process_mkultra_command_arousal_lock),
-	list("name"="worship", "patterns"=list(MKULTRA_PATTERN_WORSHIP_START, MKULTRA_PATTERN_WORSHIP_STOP), "handler"=/proc/process_mkultra_command_worship),
-	list("name"="heat", "patterns"=list(MKULTRA_PATTERN_HEAT_ON, MKULTRA_PATTERN_HEAT_OFF), "handler"=/proc/process_mkultra_command_heat),
-	list("name"="well_trained", "patterns"=list(MKULTRA_PATTERN_WELL_TRAINED_ON, MKULTRA_PATTERN_WELL_TRAINED_OFF), "handler"=/proc/process_mkultra_command_well_trained_toggle),
-	list("name"="piss_self", "patterns"=list(MKULTRA_PATTERN_PISS), "handler"=/proc/process_mkultra_command_piss_self),
-	list("name"="sissy", "patterns"=list(MKULTRA_PATTERN_SISSY_ON, MKULTRA_PATTERN_SISSY_OFF), "handler"=/proc/process_mkultra_command_sissy),
-	list("name"="pet_tether", "patterns"=list(MKULTRA_PATTERN_TETHER_ON, MKULTRA_PATTERN_TETHER_OFF), "handler"=/proc/process_mkultra_command_pet_tether),
-	list("name"="debug_phase", "patterns"=list(MKULTRA_PATTERN_DEBUG_PHASE), "handler"=/proc/process_mkultra_command_debug_phase),
+// Human-readable docs and shared message text for modular commands.
+// Each entry includes summary/usage, trigger patterns, handler path, and in-game text snippets.
+var/global/list/mkultra_command_docs = list(
+	"cum_lock" = list(
+		"summary" = "Toggle climax denial ('can't cum' / 'can cum').",
+		"usage" = "Say: can't cum / no cumming / deny climax OR can cum / allow cum.",
+		"patterns" = list(regex("can't cum|cannot cum|no cumming|do not cum|stop cumming|deny climax"), regex("can cum|you may cum|allow cum|release cum")),
+		"handler" = /proc/process_mkultra_command_cum_lock,
+		"texts" = list(
+			"lock_pet" = "<span class='warning'>Your release is forbidden until granted.</span>",
+			"lock_master" = "<span class='notice'><i>You lock {target}'s climax.</i></span>",
+			"unlock_pet" = "<span class='love'>Permission granted - you may climax again.</span>",
+			"unlock_master" = "<span class='notice'><i>You lift the climax lock on {target}.</i></span>"
+		)
+	),
+	"cum" = list(
+		"summary" = "Force an enthralled pet to climax (lewd, phase 2+).",
+		"usage" = "Say: cum, orgasm, finish for me, or climax.",
+		"patterns" = list(regex("cum|orgasm|finish for me|climax")),
+		"handler" = /proc/process_mkultra_command_cum,
+		"texts" = list(
+			"not_lewd" = "<span class='warning'>You feel the command, but it fizzles-this isn't the kind of obedience you're opted in for.</span>",
+			"locked_pet" = "<span class='warning'>You strain, but your climax is locked away.</span>",
+			"locked_master" = "<span class='notice'><i>{target} fights the urge, but your cum lock holds.</i></span>",
+			"success_pet" = "<span class='love'>Your lower body tightens as you are compelled to climax for {owner}.</span>",
+			"fail_pet" = "<span class='warning'>You try to obey, but your body refuses to climax.</span>",
+			"success_master" = "<span class='notice'><i>You command {target} to finish, and they obey.</i></span>"
+		)
+	),
+	"emote" = list(
+		"summary" = "Force a visible emote when phrased as '<emote> for me'. Can only use the predefined emotes.",
+		"usage" = "Example: 'wave for me', 'bow for me'.",
+		"patterns" = list(" for me"),
+		"handler" = /proc/process_mkultra_command_emote,
+		"texts" = list(
+			"pet" = "<span class='love'>You perform a trick on command for {owner}.</span>",
+			"master" = "<span class='notice'><i>{target} performs a trick on command.</i></span>"
+		)
+	),
+	"follow" = list(
+		"summary" = "Toggle following the master (follow me / stop following).",
+		"usage" = "Say: follow me, stop following, or heel.",
+		"patterns" = list(regex("stop follow(ing)?|heel"), regex("follow( me)?")),
+		"handler" = /proc/process_mkultra_command_follow,
+		"texts" = list(
+			"start_master" = "<span class='notice'><i>{target} begins to heel at your command.</i></span>",
+			"stop_pet" = "<span class='notice'>You are ordered to stop following.</span>",
+			"stop_master" = "<span class='notice'><i>{target} stops following.</i></span>"
+		)
+	),
+	"master_title" = list(
+		"summary" = "Set what the pet calls the master (speech replacement).",
+		"usage" = "Say: call me <title> or address me as <title>.",
+		"patterns" = list("call me ", "address me as "),
+		"handler" = /proc/process_mkultra_command_set_master_title,
+		"texts" = list(
+			"pet" = "<span class='notice'>You feel a refrence point shift in your mind.'.</span>",
+			"master" = "<span class='notice'><i>{target} will call you '{title}'.</i></span>"
+		)
+	),
+	"think_of_me" = list(
+		"summary" = "Flavor honorific for lewd text; sets enthrall_gender string. IE, what the pet will call you in their internal thoughts.",
+		"usage" = "Say: think of me as <honorific>.",
+		"patterns" = list("think of me as "),
+		"handler" = /proc/process_mkultra_command_think_of_me,
+		"texts" = list(
+			"pet" = "<span class='notice'>You now think of your owner as '{title}'.</span>",
+			"master" = "<span class='notice'><i>{target} will flavor their devotion as '{title}'.</i></span>"
+		)
+	),
+	"phase_set" = list(
+		"summary" = "WARNING!!! Consent-based phase override. WARNING!!!!: This command is meant only for using for the sake of a scene. The vast majority of the time, you should level the phases the normal way. This requires the explicit consent of the sub. Abuse of this command should and probably will get you instantly permabanned. You have been warned.'.",
+		"usage" = "Say: forscenessake phaseset 3",
+		"patterns" = list("forscenessake phaseset"),
+		"handler" = /proc/process_mkultra_command_phase_set,
+		"texts" = list(
+			"prompt" = "You feel a heavy influence-{master} wants to set your enthrallment to phase {phase}. Do you consent?",
+			"master_fail" = "<span class='warning'><i>Phase set failed; request denied or invalid.</i></span>",
+			"master_success" = "<span class='notice'><i>You set {target}'s phase to {phase}.</i></span>",
+			"pet_success" = "<span class='notice'>A force ripples through you-your enthrallment jumps to phase {phase}.</span>"
+		)
+	),
+	"strip_slot" = list(
+		"summary" = "Force strip of a targeted slot; defaults to any if unspecified. Can also use strip all or strip naked for everything.",
+		"usage" = "Say: strip or strip <slot>.",
+		"patterns" = list(regex("\\bstrip\\b")),
+		"handler" = /proc/process_mkultra_command_strip_slot,
+		"texts" = list()
+	),
+	"lust_up" = list(
+		"summary" = "Increase arousal.",
+		"usage" = "Say: get horny / feel horny / get wetter / get harder / feel hotter / aroused.",
+		"patterns" = list(regex("get horny|feel horny|get wetter|get harder|feel hotter|aroused")),
+		"handler" = /proc/process_mkultra_command_lust_up,
+		"texts" = list()
+	),
+	"lust_down" = list(
+		"summary" = "Reduce arousal.",
+		"usage" = "Say: calm down / cool off / less horny / settle down / compose yourself.",
+		"patterns" = list(regex("calm down|cool off|less horny|settle down|compose yourself")),
+		"handler" = /proc/process_mkultra_command_lust_down,
+		"texts" = list()
+	),
+	"selfcall" = list(
+		"summary" = "Force the pet to refer to themselves with chosen names.",
+		"usage" = "Say: call yourself <name> (you can provide multiple, comma separated).",
+		"patterns" = list("call yourself ", "your name is ", "you are my "),
+		"handler" = /proc/process_mkultra_command_selfcall,
+		"texts" = list(
+			"pet" = "<span class='notice'>Your self-reference is confined to: {names}.</span>",
+			"master" = "<span class='notice'><i>You bind {target}'s self-name to: {names}.</i></span>"
+		)
+	),
+	"selfcall_off" = list(
+		"summary" = "Clear selfcall restrictions (selfcall off / stop calling yourself).",
+		"usage" = "Say: selfcall off, selfcall stop, or remember your name.",
+		"patterns" = list(regex("selfcall off|selfcall stop|clear selfcall|stop calling yourself|remember your name")),
+		"handler" = /proc/process_mkultra_command_selfcall_off,
+		"texts" = list(
+			"pet" = "<span class='notice'>Your self-reference restrictions dissolve.</span>",
+			"master" = "<span class='notice'><i>You release {target}'s self-name binding.</i></span>"
+		)
+	),
+	"wear" = list(
+		"summary" = "Have the pet wear an item you're holding; optional slot hint.",
+		"usage" = "Say: wear this on <slot> or wear <slot>.",
+		"patterns" = list(regex("\\bwear\\b")),
+		"handler" = /proc/process_mkultra_command_wear,
+		"texts" = list(
+			"master_success" = "<span class='notice'><i>{target} takes your item and dresses as ordered.</i></span>",
+			"master_fail" = "<span class='warning'><i>{target} fumbles and apologizes; they couldn't wear it.</i></span>"
+		)
+	),
+	"arousal_lock" = list(
+		"summary" = "Force arousal visuals to stay hard/soft until released.",
+		"usage" = "Say: perma hard / perma limp / disable hard|limp.",
+		"patterns" = list(
+			list("permanent hard", "permanently hard", "perma hard", "permahard", "stay hard", "always hard", "always erect", "stay erect", "stay stiff", "be hard", "get hard", "remain hard", "locked hard", "hard forever"),
+			list("permanent limp", "permanently limp", "perma limp", "permalimp", "flaccid", "stay limp", "always limp", "stay soft", "always soft", "be limp", "get soft", "remain soft", "locked soft", "soft forever"),
+			list("disable hard", "disable limp", "stop hard", "stop limp", "normal arousal", "undo hard", "undo limp", "reset arousal")
+		),
+		"handler" = /proc/process_mkultra_command_arousal_lock,
+		"texts" = list(
+			"lock_pet" = "<span class='love'>You feel as though your member is locked into being {mode}.</span>",
+			"lock_master" = "<span class='notice'><i>You force {target} to stay {mode}.</i></span>",
+			"release_pet" = "<span class='notice'>Your member finally returns to normal.</span>",
+			"release_master" = "<span class='notice'><i>{target}'s member lock released.</i></span>"
+		)
+	),
+	"worship" = list(
+		"summary" = "Compel the pet to worship a named body part until stopped.",
+		"usage" = "Say: worship my <part> / worship <part>; stop worship to end.",
+		"patterns" = list(regex("worship my |worship "), regex("stop worship|no worship|end worship")),
+		"handler" = /proc/process_mkultra_command_worship,
+		"texts" = list(
+			"start_master" = "<span class='notice'><i>{target} is compelled to worship your {part}.</i></span>",
+			"stop_master" = "<span class='notice'><i>No longer wishes to worship your {part}.</i></span>"
+		)
+	),
+	"heat" = list(
+		"summary" = "Toggle forced heat on the pet.",
+		"usage" = "Say: in heat / go into heat OR out of heat / stop heat.",
+		"patterns" = list(regex("in heat|enter heat|go into heat"), regex("out of heat|leave heat|stop heat|undo heat")),
+		"handler" = /proc/process_mkultra_command_heat,
+		"texts" = list(
+			"on_master" = "<span class='notice'><i>You force {target} into heat.</i></span>",
+			"off_master" = "<span class='notice'><i>You end {target}'s heat.</i></span>"
+		)
+	),
+	"well_trained" = list(
+		"summary" = "Give or remove the well trained perk.",
+		"usage" = "Say: well trained / be trained OR stop being trained / untrain.",
+		"patterns" = list(regex("well trained|be trained|good pet"), regex("stop being trained|no longer trained|untrain")),
+		"handler" = /proc/process_mkultra_command_well_trained_toggle,
+		"texts" = list(
+			"on_master" = "<span class='notice'><i>{target} is given the well trained perk.</i></span>",
+			"off_master" = "<span class='notice'><i>{target} has their training lifted.</i></span>"
+		)
+	),
+	"piss_self" = list(
+		"summary" = "Force the pet to urinate on themselves.",
+		"usage" = "Say: piss yourself / wet yourself / pee yourself.",
+		"patterns" = list(regex("piss yourself|piss for me|wet yourself|pee yourself|urinate on yourself")),
+		"handler" = /proc/process_mkultra_command_piss_self,
+		"texts" = list(
+			"pet" = "<span class='warning'>You shamefully soak yourself on command.</span>",
+			"master" = "<span class='notice'><i>You order {target} to humiliate themself, and they do.</i></span>"
+		)
+	),
+	"sissy" = list(
+		"summary" = "Enforce or clear sissy dress code.",
+		"usage" = "Say: be a sissy / sissy mode / dress cute OR stop being a sissy / dress normal.",
+		"patterns" = list(regex("be a sissy|be my sissy|sissy mode|sissy up|dress cute|dress girly"), regex("no more sissy|stop being a sissy|sissy off|dress normal")),
+		"handler" = /proc/process_mkultra_command_sissy,
+		"texts" = list(
+			"on_master" = "<span class='notice'><i>You enforce a humiliatingly cute dress code on {target}.</i></span>",
+			"off_master" = "<span class='notice'><i>You release {target} from their dress code.</i></span>"
+		)
+	),
+	"pet_tether" = list(
+		"summary" = "Toggle distance mood/withdrawal effects for pets.",
+		"usage" = "Say: tether mood on/off or distance mood on/off.",
+		"patterns" = list(regex("tether mood|distance mood|homesick")),
+		"handler" = /proc/process_mkultra_command_pet_tether,
+		"texts" = list(
+			"master" = "<span class='notice'><i>You {state} distance yearning on {target}.</i></span>",
+			"pet_on" = "<span class='notice'>You feel longing when apart.</span>",
+			"pet_off" = "<span class='notice'>You feel a calm steadiness even when distant.</span>"
+		)
+	),
+	"slot_lock" = list(
+		"summary" = "Lock or unlock a worn slot so the pet can't remove it. Others can still strip it.",
+		"usage" = "Say: lock neck / unlock neck.",
+		"patterns" = list(regex("\\b(lock|unlock)\\b")),
+		"handler" = /proc/process_mkultra_command_slot_lock,
+		"texts" = list(
+			"master_lock" = "<span class='notice'><i>You lock {target}'s {slot} item in place.</i></span>",
+			"master_unlock" = "<span class='notice'><i>You unlock {target}'s {slot} item.</i></span>",
+			"pet_lock" = "<span class='warning'>Your {slot} is locked in place by your handler.</span>",
+			"pet_unlock" = "<span class='notice'>You feel the lock on your {slot} release.</span>",
+			"no_item" = "<span class='warning'><i>{target} isn't wearing anything in that slot.</i></span>"
+		)
+	)
 )
+
+// Preserve a stable ordering for pattern checks so higher-priority commands run first.
+var/global/list/mkultra_command_order = list(
+	"cum_lock",
+	"cum",
+	"emote",
+	"follow",
+	"master_title",
+	"think_of_me",
+	"phase_set",
+	"strip_slot",
+	"lust_up",
+	"lust_down",
+	"selfcall",
+	"selfcall_off",
+	"wear",
+	"arousal_lock",
+	"worship",
+	"heat",
+	"well_trained",
+	"piss_self",
+	"sissy",
+	"pet_tether",
+	"slot_lock",
+)
+
+// Command specs are built from mkultra_command_docs + ordering.
+var/global/list/mkultra_modular_command_specs = list()
+
+/proc/mkultra_build_command_specs()
+	mkultra_modular_command_specs = list()
+	for(var/cmd_name in mkultra_command_order)
+		var/list/doc = mkultra_command_docs[cmd_name]
+		if(!islist(doc))
+			continue
+		var/patterns = doc["patterns"]
+		var/handler = doc["handler"]
+		if(!patterns || !handler)
+			continue
+		mkultra_modular_command_specs += list(
+			list(
+				"name" = cmd_name,
+				"patterns" = patterns,
+				"handler" = handler,
+			)
+		)
+
+// Initialize specs at load.
+	mkultra_build_command_specs()
+
+
+/proc/mkultra_cmd_doc(cmd_name)
+	if(!istext(cmd_name))
+		return null
+	return mkultra_command_docs[cmd_name]
+
+/proc/mkultra_cmd_patterns(cmd_name)
+	var/list/doc = mkultra_cmd_doc(cmd_name)
+	if(!islist(doc))
+		return null
+	return doc["patterns"]
+
+/proc/mkultra_cmd_text(cmd_name, key, list/subs)
+	var/list/doc = mkultra_cmd_doc(cmd_name)
+	if(!islist(doc))
+		return null
+	var/list/texts = doc["texts"]
+	if(!islist(texts))
+		return null
+	var/text = texts[key]
+	if(!istext(text))
+		return null
+	if(islist(subs))
+		for(var/k in subs)
+			text = replacetext(text, "{[k]}", "[subs[k]]")
+	return text
+
+/proc/mkultra_flatten_patterns(patterns)
+	var/list/out = list()
+	if(islist(patterns))
+		for(var/p in patterns)
+			if(islist(p))
+				out += mkultra_flatten_patterns(p)
+			else
+				out += p
+	else if(patterns)
+		out += patterns
+	return out
+
+
 
 // Fan-out helper used by velvetspeech to run all modular handlers.
 /proc/mkultra_handle_modular_commands(message, mob/living/user, list/listeners, power_multiplier)
@@ -124,6 +378,61 @@ var/global/list/mkultra_modular_command_specs = list(
 			handled = TRUE
 		if(mkultra_debug_enabled)
 			world.log << "SPLURT DEBUG: modular handler [cmd_name] result=[result]"
+	return handled
+
+// Consent-based phase set: "forscenessake phaseset <num>"
+/proc/process_mkultra_command_phase_set(message, mob/living/user, list/listeners, power_multiplier)
+	var/lowered = lowertext(message)
+	var/idx = findtext(lowered, "forscenessake phaseset")
+	if(!idx)
+		return FALSE
+	var/phase_str = trim(copytext(lowered, idx + length("forscenessake phaseset") + 1))
+	if(!length(phase_str))
+		return FALSE
+	var/desired = text2num(phase_str)
+	if(!isnum(desired))
+		mkultra_debug("phase set skip: invalid number '[phase_str]'")
+		return FALSE
+	// Validate target phase bounds first.
+	if(desired < 1 || desired > 4)
+		mkultra_debug("phase set skip: out of range [desired]")
+		return FALSE
+
+	return mkultra_apply_phase_set(listeners, user, desired, force_debug = FALSE)
+
+// Shared logic for applying phase updates with optional consent.
+/proc/mkultra_apply_phase_set(list/listeners, mob/living/user, target_phase, force_debug = FALSE)
+	var/handled = FALSE
+	for(var/enthrall_victim in listeners)
+		if(!ishuman(enthrall_victim))
+			continue
+		var/mob/living/carbon/human/humanoid = enthrall_victim
+		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
+		if(!enthrall_chem)
+			continue
+		if(enthrall_chem.enthrall_mob != user)
+			continue
+
+		if(!force_debug)
+			var/list/subs = list("master" = user, "phase" = target_phase)
+			var/prompt = mkultra_cmd_text("phase_set", "prompt", subs) || "You feel a heavy influence-[user] wants to set your enthrallment to phase [target_phase]. Do you consent?"
+			var/choice = tgui_alert(humanoid, prompt, "Phase Set Request", list("Yes", "No"))
+			if(choice != "Yes")
+				continue
+
+		enthrall_chem.phase = target_phase
+		enthrall_chem.cooldown = 0
+		var/list/subs = list("target" = humanoid, "phase" = target_phase)
+		var/msg_master = mkultra_cmd_text("phase_set", "master_success", subs) || "<span class='notice'><i>You set [humanoid]'s phase to [target_phase].</i></span>"
+		var/msg_pet = mkultra_cmd_text("phase_set", "pet_success", subs) || "<span class='notice'>A force ripples through you-your enthrallment jumps to phase [target_phase].</span>"
+		to_chat(user, msg_master)
+		to_chat(humanoid, msg_pet)
+		mkultra_debug("phase set: [humanoid] -> phase [target_phase] by [user] consent=[!force_debug]")
+		handled = TRUE
+
+	if(!handled && !force_debug)
+		var/msg_fail = mkultra_cmd_text("phase_set", "master_fail") || "<span class='warning'><i>Phase set failed; request denied or invalid.</i></span>"
+		to_chat(user, msg_fail)
 	return handled
 
 // Match helper for dispatcher; supports regex, string, or list-of-strings patterns.
@@ -151,6 +460,21 @@ var/global/list/mkultra_modular_command_specs = list(
 				return TRUE
 	return FALSE
 
+// Returns 1-based index of the first top-level pattern that matches, or 0 if none.
+/proc/mkultra_command_match_index(message, lowered, patterns)
+	if(!islist(patterns))
+		return mkultra_command_matches(message, lowered, patterns) ? 1 : 0
+	var/idx = 1
+	for(var/p in patterns)
+		if(islist(p))
+			if(mkultra_command_matches(message, lowered, p))
+				return idx
+		else
+			if(mkultra_command_matches(message, lowered, list(p)))
+				return idx
+		idx++
+	return FALSE
+
 // Slot keyword lookup for targeted stripping.
 /proc/mkultra_add_cooldown(datum/status_effect/chem/enthrall/enthrall_chem, amount)
 	if(!enthrall_chem)
@@ -159,47 +483,6 @@ var/global/list/mkultra_modular_command_specs = list(
 		return
 	enthrall_chem.cooldown += amount
 
-// TEMP: debug phase setter for quick testing. Remove after QA.
-/proc/process_mkultra_command_debug_phase(message, mob/living/user, list/listeners, power_multiplier)
-	if(!mkultra_debug_enabled)
-		return FALSE
-	var/lowered = lowertext(message)
-	var/idx = findtext(lowered, "mkdebug phase")
-	if(!idx)
-		idx = findtext(lowered, "mkultra phase")
-	if(!idx)
-		return FALSE
-	var/digits = trim(replacetext(copytext(lowered, idx + length("mkdebug phase") + 1), ".", ""))
-	var/desired = text2num(digits)
-	if(!isnum(desired))
-		mkultra_debug("phase debug skip: invalid number")
-		return FALSE
-	var/target_phase = desired
-	// Clamp to known phase bounds (1 = in progress, 4 = overdose enthralled).
-	if(target_phase < 1)
-		target_phase = 1
-	if(target_phase > 4)
-		target_phase = 4
-
-	var/handled = FALSE
-	for(var/enthrall_victim in listeners)
-		if(!ishuman(enthrall_victim))
-			continue
-		var/mob/living/carbon/human/humanoid = enthrall_victim
-		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
-		if(!enthrall_chem)
-			continue
-		if(enthrall_chem.enthrall_mob != user)
-			continue
-
-		enthrall_chem.phase = target_phase
-		enthrall_chem.cooldown = 0
-		mkultra_debug("phase debug: set [humanoid] to phase [target_phase]")
-		to_chat(humanoid, "<span class='notice'>A debug pulse forces your enthrallment to phase [target_phase].</span>")
-		to_chat(user, "<span class='notice'><i>You set [humanoid]'s phase to [target_phase].</i></span>")
-		handled = TRUE
-
-	return handled
 var/global/list/mkultra_strip_slot_lookup = list(
 	"head" = ITEM_SLOT_HEAD,
 	"hat" = ITEM_SLOT_HEAD,
@@ -254,14 +537,13 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_cum(message, mob/living/user, list/listeners, power_multiplier)
 	// Returns TRUE if this handler consumed the command, FALSE otherwise.
-	var/static/regex/cum_words = regex("cum|orgasm|finish for me|climax")
 	// Avoid matching denial phrases; those are handled by the cum lock command.
 	var/lowered = lowertext(message)
-	if(findtext(lowered, MKULTRA_PATTERN_CUM_LOCK_ON) || findtext(lowered, MKULTRA_PATTERN_CUM_LOCK_OFF))
+	var/list/cum_lock_patterns = mkultra_cmd_patterns("cum_lock")
+	if(mkultra_command_matches(message, lowered, cum_lock_patterns))
 		return FALSE
-	if(findtext(lowered, "can't cum") || findtext(lowered, "cannot cum") || findtext(lowered, "no cumming") || findtext(lowered, "do not cum") || findtext(lowered, "stop cumming"))
-		return FALSE
-	if(!findtext(lowered, cum_words))
+	var/list/cum_patterns = mkultra_cmd_patterns("cum")
+	if(!mkultra_command_matches(message, lowered, cum_patterns))
 		return FALSE
 	mkultra_debug("cum command matched by [user] -> [listeners.len] listeners")
 
@@ -275,24 +557,31 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			mkultra_debug("cum skip [humanoid]: missing/low enthrall (phase=[enthrall_chem?.phase])")
 			continue
 		if(!enthrall_chem.lewd)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='warning'>You feel the command, but it fizzles—this isn't the kind of obedience you're opted in for.</span>"), 5)
+			var/msg_not_lewd = mkultra_cmd_text("cum", "not_lewd") || "<span class='warning'>You feel the command, but it fizzles-this isn't the kind of obedience you're opted in for.</span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_not_lewd), 5)
 			mkultra_debug("cum skip [humanoid]: not lewd opt-in")
 			continue
 		if(mkultra_cum_locks[humanoid])
 			mkultra_debug("cum blocked on [humanoid]: cum lock active")
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='warning'>You strain, but your climax is locked away.</span>"), 5)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, user, "<span class='notice'><i>[humanoid] fights the urge, but your cum lock holds.</i></span>"), 5)
+			var/msg_lock_pet = mkultra_cmd_text("cum", "locked_pet") || "<span class='warning'>You strain, but your climax is locked away.</span>"
+			var/msg_lock_master = mkultra_cmd_text("cum", "locked_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] fights the urge, but your cum lock holds.</i></span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_lock_pet), 5)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, user, msg_lock_master), 5)
 			continue
 
 		var/success = humanoid.climax(FALSE, user)
 		if(success)
 			mkultra_add_cooldown(enthrall_chem, 12)
 			mkultra_debug("cum success on [humanoid] by [user]")
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='love'>Your lower body tightens as you are compelled to climax for [(enthrall_chem.lewd? enthrall_chem.enthrall_gender : enthrall_chem.enthrall_mob)].</span>"), 5)
-			to_chat(user, "<span class='notice'><i>You command [humanoid] to finish, and they obey.</i></span>")
+			var/owner_name = (enthrall_chem.lewd ? enthrall_chem.enthrall_gender : enthrall_chem.enthrall_mob)
+			var/msg_pet = mkultra_cmd_text("cum", "success_pet", list("owner" = owner_name)) || "<span class='love'>Your lower body tightens as you are compelled to climax for [owner_name].</span>"
+			var/msg_master = mkultra_cmd_text("cum", "success_master", list("target" = humanoid)) || "<span class='notice'><i>You command [humanoid] to finish, and they obey.</i></span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+			to_chat(user, msg_master)
 		else
 			mkultra_debug("cum failed on [humanoid] by [user]")
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='warning'>You try to obey, but your body refuses to climax.</span>"), 5)
+			var/msg_fail = mkultra_cmd_text("cum", "fail_pet") || "<span class='warning'>You try to obey, but your body refuses to climax.</span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_fail), 5)
 
 	return TRUE
 
@@ -300,15 +589,16 @@ var/global/list/mkultra_strip_slot_lookup = list(
 /proc/process_mkultra_command_selfcall(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only speech self-name enforcement: immersive phrasing like "call yourself pet" (commas allowed).
 	var/lowered = lowertext(message)
-	var/static/list/selfcall_prefixes = list("call yourself ", "your name is ", "you are my ")
-	var/static/regex/selfcall_off_words = regex("selfcall off|selfcall stop|clear selfcall|stop calling yourself|remember your name")
-	if(findtext(lowered, selfcall_off_words))
+	var/list/off_patterns = mkultra_cmd_patterns("selfcall_off")
+	if(mkultra_command_matches(message, lowered, off_patterns))
 		// Let the off handler consume it instead of binding the stop phrase as a name.
 		return FALSE
-
+	var/list/selfcall_patterns = mkultra_flatten_patterns(mkultra_cmd_patterns("selfcall"))
 	var/prefix_match = null
-	for(var/pfx in selfcall_prefixes)
-		if(findtext(lowered, pfx))
+	for(var/pfx in selfcall_patterns)
+		if(!istext(pfx))
+			continue
+		if(findtext(lowered, lowertext("[pfx]")))
 			prefix_match = pfx
 			break
 	if(!prefix_match)
@@ -350,8 +640,10 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		mkultra_apply_selfcall(humanoid, name_list)
 		mkultra_add_cooldown(enthrall_chem, 3)
 		var/listing = name_list.Join(", ")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>Your self-reference is confined to: [listing].</span>"), 5)
-		to_chat(user, "<span class='notice'><i>You bind [humanoid]'s self-name to: [listing].</i></span>")
+		var/msg_pet = mkultra_cmd_text("selfcall", "pet", list("names" = listing)) || "<span class='notice'>Your self-reference is confined to: [listing].</span>"
+		var/msg_master = mkultra_cmd_text("selfcall", "master", list("target" = humanoid, "names" = listing)) || "<span class='notice'><i>You bind [humanoid]'s self-name to: [listing].</i></span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+		to_chat(user, msg_master)
 
 	return TRUE
 
@@ -359,7 +651,10 @@ var/global/list/mkultra_strip_slot_lookup = list(
 /proc/process_mkultra_command_emote(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only emote command: "<emote> for me". Uses the standard emote datum list.
 	var/lowered = lowertext(message)
-	var/marker = " for me"
+	var/list/emote_patterns = mkultra_flatten_patterns(mkultra_cmd_patterns("emote"))
+	if(!mkultra_command_matches(message, lowered, emote_patterns))
+		return FALSE
+	var/marker = " for me" // first pattern
 	var/idx = findtext(lowered, marker)
 	if(!idx)
 		return FALSE
@@ -386,8 +681,10 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		humanoid.emote(emote_key, null, null, FALSE, TRUE, FALSE)
 		mkultra_add_cooldown(enthrall_chem, 6)
 		mkultra_debug("emote [emote_key] applied to [humanoid] by [user]")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='love'>You perform a trick on command for [enthrall_chem.enthrall_gender].</span>"), 5)
-		to_chat(user, "<span class='notice'><i>[humanoid] performs a trick on command.</i></span>")
+		var/msg_pet = mkultra_cmd_text("emote", "pet", list("owner" = enthrall_chem.enthrall_gender)) || "<span class='love'>You perform a trick on command for [enthrall_chem.enthrall_gender].</span>"
+		var/msg_master = mkultra_cmd_text("emote", "master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] performs a trick on command.</i></span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+		to_chat(user, msg_master)
 		handled = TRUE
 
 	return handled
@@ -396,6 +693,9 @@ var/global/list/mkultra_strip_slot_lookup = list(
 /proc/process_mkultra_command_strip_slot(message, mob/living/user, list/listeners, power_multiplier)
 	// Targeted strip: "strip <slot>". Always consume once matched to prevent base strip double fire.
 	var/lowered = lowertext(message)
+	var/list/strip_patterns = mkultra_cmd_patterns("strip_slot")
+	if(!mkultra_command_matches(message, lowered, strip_patterns))
+		return FALSE
 	var/prefix = "strip "
 	if(!findtext(lowered, prefix))
 		return FALSE
@@ -457,8 +757,9 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_lust_up(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only arousal increase.
-	var/static/regex/lust_up_words = regex("get horny|feel horny|get wetter|get harder|feel hotter|aroused")
-	if(!findtext(message, lust_up_words))
+	var/lowered = lowertext(message)
+	var/list/lust_up_patterns = mkultra_cmd_patterns("lust_up")
+	if(!mkultra_command_matches(message, lowered, lust_up_patterns))
 		return FALSE
 	mkultra_debug("lust up command from [user]")
 	var/lust_delta = round(AROUSAL_LIMIT * 0.3)
@@ -488,8 +789,9 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_lust_down(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only arousal decrease.
-	var/static/regex/lust_down_words = regex("calm down|cool off|less horny|settle down|compose yourself")
-	if(!findtext(message, lust_down_words))
+	var/lowered = lowertext(message)
+	var/list/lust_down_patterns = mkultra_cmd_patterns("lust_down")
+	if(!mkultra_command_matches(message, lowered, lust_down_patterns))
 		return FALSE
 	mkultra_debug("lust down command from [user]")
 	var/lust_delta = round(AROUSAL_LIMIT * 0.3)
@@ -519,8 +821,9 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_selfcall_off(message, mob/living/user, list/listeners, power_multiplier)
 	// Disable selfcall enforcement: immersive stop phrasing.
-	var/static/regex/selfcall_off_words = regex("selfcall off|selfcall stop|clear selfcall|stop calling yourself|remember your name")
-	if(!findtext(message, selfcall_off_words))
+	var/lowered = lowertext(message)
+	var/list/off_patterns = mkultra_cmd_patterns("selfcall_off")
+	if(!mkultra_command_matches(message, lowered, off_patterns))
 		return FALSE
 
 	var/handled = FALSE
@@ -540,32 +843,36 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(humanoid in mkultra_selfcall_states)
 			mkultra_clear_selfcall(humanoid)
 			mkultra_add_cooldown(enthrall_chem, 2)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>Your self-reference restrictions dissolve.</span>"), 5)
-			to_chat(user, "<span class='notice'><i>You release [humanoid]'s self-name binding.</i></span>")
+			var/msg_pet = mkultra_cmd_text("selfcall_off", "pet") || "<span class='notice'>Your self-reference restrictions dissolve.</span>"
+			var/msg_master = mkultra_cmd_text("selfcall_off", "master", list("target" = humanoid)) || "<span class='notice'><i>You release [humanoid]'s self-name binding.</i></span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+			to_chat(user, msg_master)
 			handled = TRUE
 
 	return handled
 
 /proc/process_mkultra_command_follow(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only follow/stop-follow handler. "follow me" starts, "stop following" ends.
-	var/static/regex/follow_words = regex("follow( me)?")
-	var/static/regex/stop_words = regex("stop follow(ing)?|heel")
-
+	var/lowered = lowertext(message)
+	var/list/patterns = mkultra_cmd_patterns("follow")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
+	if(!match_idx)
+		return FALSE
 	var/handled = FALSE
-	if(findtext(message, stop_words))
+	var/is_stop = (match_idx == 1)
+	if(is_stop)
 		mkultra_debug("follow stop command from [user]")
 		for(var/enthrall_victim in listeners)
 			if(!ishuman(enthrall_victim))
 				mkultra_debug("follow stop skip [enthrall_victim]: not human")
 				continue
 			var/mob/living/carbon/human/humanoid = enthrall_victim
-			if(mkultra_stop_follow(humanoid, "<span class='notice'>You are ordered to stop following.</span>", user))
+			var/msg_stop = mkultra_cmd_text("follow", "stop_pet") || "<span class='notice'>You are ordered to stop following.</span>"
+			if(mkultra_stop_follow(humanoid, msg_stop, user))
 				mkultra_debug("follow stop success on [humanoid]")
 				handled = TRUE
 		return handled
 
-	if(!findtext(message, follow_words))
-		return FALSE
 	mkultra_debug("follow start command from [user]")
 
 	for(var/enthrall_victim in listeners)
@@ -583,7 +890,8 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 		mkultra_start_follow(humanoid, user, enthrall_chem)
 		enthrall_chem.cooldown += 4
-		to_chat(user, "<span class='notice'><i>[humanoid] begins to heel at your command.</i></span>")
+		var/msg_master = mkultra_cmd_text("follow", "start_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] begins to heel at your command.</i></span>"
+		to_chat(user, msg_master)
 		handled = TRUE
 
 	return handled
@@ -591,14 +899,22 @@ var/global/list/mkultra_strip_slot_lookup = list(
 // Allow dom to set a custom title the pet uses for them.
 /proc/process_mkultra_command_set_master_title(message, mob/living/user, list/listeners, power_multiplier)
 	var/lowered = lowertext(message)
-	var/phrase = "call me "
-	var/idx = findtext(lowered, phrase)
-	if(!idx)
-		phrase = "address me as "
-		idx = findtext(lowered, phrase)
-	if(!idx)
+	var/list/phrases = mkultra_flatten_patterns(mkultra_cmd_patterns("master_title"))
+	if(!phrases || !phrases.len)
 		return FALSE
-	var/new_title = trim(copytext(message, idx + length(phrase)))
+	var/phrase_hit = null
+	var/idx = 0
+	for(var/phrase in phrases)
+		if(!istext(phrase))
+			continue
+		idx = findtext(lowered, lowertext("[phrase]"))
+		if(idx)
+			phrase_hit = phrase
+			break
+	if(!phrase_hit)
+		return FALSE
+
+	var/new_title = trim(copytext(message, idx + length(phrase_hit)))
 	if(!length(new_title))
 		return FALSE
 	new_title = replacetext(new_title, "<", "")
@@ -621,10 +937,54 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
 		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
 			continue
-		enthrall_chem.enthrall_gender = new_title
-		to_chat(humanoid, "<span class='notice'>You will refer to your owner as '[new_title]'.</span>")
-		to_chat(user, "<span class='notice'><i>[humanoid] will call you '[new_title]'.</i></span>")
+		mkultra_apply_master_title(humanoid, user, new_title)
+		var/msg_pet = mkultra_cmd_text("master_title", "pet", list("title" = new_title)) || "<span class='notice'>You will refer to your owner as '[new_title]'.</span>"
+		var/msg_master = mkultra_cmd_text("master_title", "master", list("target" = humanoid, "title" = new_title)) || "<span class='notice'><i>[humanoid] will call you '[new_title]'.</i></span>"
+		to_chat(humanoid, msg_pet)
+		to_chat(user, msg_master)
 	return TRUE
+
+// Sets the enthrall_gender descriptor (lewd honorific) without altering speech replacement.
+/proc/process_mkultra_command_think_of_me(message, mob/living/user, list/listeners, power_multiplier)
+	var/lowered = lowertext(message)
+	var/phrase = "think of me as "
+	var/idx = findtext(lowered, phrase)
+	if(!idx)
+		return FALSE
+
+	var/new_title = trim(copytext(message, idx + length(phrase)))
+	if(!length(new_title))
+		return FALSE
+	new_title = replacetext(new_title, "<", "")
+	new_title = replacetext(new_title, ">", "")
+	new_title = replacetext(new_title, "\[", "")
+	new_title = replacetext(new_title, "\]", "")
+	new_title = trim(new_title)
+	if(!length(new_title))
+		return FALSE
+	mkultra_debug("think of me matched '[new_title]' by [user]")
+
+	var/handled = FALSE
+	for(var/enthrall_victim in listeners)
+		if(!ishuman(enthrall_victim))
+			continue
+		var/mob/living/carbon/human/humanoid = enthrall_victim
+		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
+		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
+			continue
+
+		enthrall_chem.enthrall_gender = new_title
+		mkultra_add_cooldown(enthrall_chem, 1)
+		var/msg_pet = mkultra_cmd_text("think_of_me", "pet", list("title" = new_title)) || "<span class='notice'>You now think of your owner as '[new_title]'.</span>"
+		var/msg_master = mkultra_cmd_text("think_of_me", "master", list("target" = humanoid, "title" = new_title)) || "<span class='notice'><i>[humanoid] will flavor their devotion as '[new_title]'.</i></span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+		to_chat(user, msg_master)
+		handled = TRUE
+	return handled
 
 /proc/mkultra_start_follow(mob/living/carbon/human/humanoid, mob/living/master, datum/status_effect/chem/enthrall/enthrall_chem)
 	if(QDELETED(humanoid) || QDELETED(master))
@@ -652,7 +1012,8 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		mkultra_debug("follow stop: [humanoid] reason='[reason]' master=[master]")
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, reason), 2)
 	if(master)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, master, "<span class='notice'><i>[humanoid] stops following.</i></span>"), 2)
+		var/msg_master = mkultra_cmd_text("follow", "stop_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] stops following.</i></span>"
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, master, msg_master), 2)
 	return TRUE
 
 /datum/mkultra_signal_handler/proc/follow_on_resist(datum/source, mob/living/resister)
@@ -768,6 +1129,108 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	speech_args[SPEECH_MESSAGE] = clean
 	mkultra_debug("selfcall rewrite on [humanoid]: '[message]' -> '[clean]'")
 
+/proc/mkultra_apply_master_title(mob/living/carbon/human/humanoid, mob/living/master, title)
+	mkultra_clear_master_title(humanoid)
+	mkultra_master_title_states[humanoid] = list(
+		"master" = WEAKREF(master),
+		"title" = title,
+	)
+	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_MOB_SAY, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_say))
+	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, master_title_on_delete))
+	mkultra_debug("master title set on [humanoid]: '[title]' for [master]")
+
+/proc/mkultra_clear_master_title(mob/living/carbon/human/humanoid)
+	if(!(humanoid in mkultra_master_title_states))
+		return
+	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_MOB_SAY, COMSIG_QDELETING))
+	mkultra_master_title_states -= humanoid
+	mkultra_debug("master title cleared on [humanoid]")
+
+/datum/mkultra_signal_handler/proc/master_title_on_delete(datum/source)
+	SIGNAL_HANDLER
+	mkultra_clear_master_title(source)
+
+/datum/mkultra_signal_handler/proc/master_title_on_say(datum/source, list/speech_args)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/humanoid = source
+	var/list/state = mkultra_master_title_states[humanoid]
+	if(!state)
+		return
+
+	var/datum/weakref/master_ref = state["master"]
+	var/mob/living/master = master_ref?.resolve()
+	if(!master)
+		mkultra_clear_master_title(humanoid)
+		return
+
+	var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
+	if(!enthrall_chem)
+		enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip)
+	if(!enthrall_chem)
+		enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
+	if(!enthrall_chem || enthrall_chem.enthrall_mob != master)
+		mkultra_clear_master_title(humanoid)
+		return
+
+	var/message = speech_args[SPEECH_MESSAGE]
+	if(!istext(message) || !length(message))
+		return
+
+	var/title = state["title"]
+	if(!length(title))
+		return
+
+	var/clean = message
+	var/matched = FALSE
+	var/full_name = master.real_name
+	var/first = first_name(full_name)
+	var/last = last_name(full_name)
+	var/list/names = list()
+	if(length(full_name))
+		names += full_name
+	if(length(first))
+		names += first
+	if(length(last))
+		names += last
+	if(length(full_name))
+		for(var/part in splittext(full_name, " "))
+			if(length(part))
+				names += part
+
+	for(var/name_text in names)
+		if(!length(name_text))
+			continue
+		var/escaped = mkultra_regex_escape(name_text)
+		if(!length(escaped))
+			continue
+		var/regex/r = regex("\\b[escaped]\\b", "gi")
+		if(r.Find(clean))
+			clean = replacetext(clean, r, title)
+			matched = TRUE
+
+	if(!matched)
+		return
+
+	speech_args[SPEECH_MESSAGE] = clean
+	mkultra_debug("master title rewrite [humanoid]: '[message]' -> '[clean]'")
+
+/proc/mkultra_regex_escape(text)
+	if(!istext(text))
+		return ""
+	var/escaped = replacetext(text, "\\", "\\\\")
+	escaped = replacetext(escaped, ".", "\\.")
+	escaped = replacetext(escaped, "+", "\\+")
+	escaped = replacetext(escaped, "*", "\\*")
+	escaped = replacetext(escaped, "?", "\\?")
+	escaped = replacetext(escaped, "(", "\\(")
+	escaped = replacetext(escaped, ")", "\\)")
+	escaped = replacetext(escaped, "^", "\\^")
+	escaped = replacetext(escaped, "$", "\\$")
+	escaped = replacetext(escaped, "{", "\\{")
+	escaped = replacetext(escaped, "}", "\\}")
+	escaped = replacetext(escaped, "|", "\\|")
+	return escaped
+
 /proc/mkultra_resolve_strip_slot(slot_text)
 	var/lowered = LOWER_TEXT(slot_text)
 	if(lowered in mkultra_strip_slot_lookup)
@@ -850,6 +1313,47 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			removed++
 	mkultra_debug("strip_all removed=[removed] for [humanoid]")
 	return removed
+
+// Helper to fetch (without dropping) the item in a given slot.
+/proc/mkultra_get_item_for_slot(mob/living/carbon/human/humanoid, slot_id)
+	if(slot_id == ITEM_SLOT_POCKETS)
+		var/obj/item/pocket_item = humanoid.get_item_by_slot(ITEM_SLOT_LPOCKET) || humanoid.get_item_by_slot(ITEM_SLOT_RPOCKET)
+		return pocket_item
+	return humanoid.get_item_by_slot(slot_id)
+
+// Slot lock helpers: prevents the pet from unequipping specific items. Other players can still force-drop if they bypass TRAIT_NODROP.
+/proc/mkultra_lock_slot_item(mob/living/carbon/human/humanoid, obj/item/I, slot_label)
+	if(!humanoid || !I)
+		return FALSE
+	// Clear any previous lock so we don't double-register signals.
+	mkultra_unlock_slot_item(I, silent = TRUE)
+	ADD_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
+	var/list/locked = mkultra_slot_locks[humanoid]
+	if(!islist(locked))
+		locked = list()
+	mkultra_slot_locks[humanoid] = locked
+	locked[I] = slot_label
+	mkultra_slot_lock_items[I] = humanoid
+	mkultra_signal_handler.RegisterSignal(I, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_unequip))
+	mkultra_signal_handler.RegisterSignal(I, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_item_delete))
+	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, slot_lock_on_owner_delete))
+	return TRUE
+
+/proc/mkultra_unlock_slot_item(obj/item/I, silent = FALSE)
+	if(!I)
+		return FALSE
+	var/mob/living/carbon/human/humanoid = mkultra_slot_lock_items[I]
+	if(humanoid)
+		var/list/locked = mkultra_slot_locks[humanoid]
+		if(islist(locked))
+			locked -= I
+			if(!locked.len)
+				mkultra_slot_locks -= humanoid
+				mkultra_signal_handler.UnregisterSignal(humanoid, COMSIG_QDELETING)
+	mkultra_slot_lock_items -= I
+	REMOVE_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
+	mkultra_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
+	return TRUE
 //SPLURT ADDITION END
 
 //SPLURT EXTENSIONS START
@@ -885,23 +1389,22 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		var/success = mkultra_do_wear(humanoid, user, slot_text)
 		if(success)
 			mkultra_add_cooldown(enthrall_chem, 4)
-			to_chat(user, "<span class='notice'><i>[humanoid] takes your item and dresses as ordered.</i></span>")
+			var/msg_master = mkultra_cmd_text("wear", "master_success", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] takes your item and dresses as ordered.</i></span>"
+			to_chat(user, msg_master)
 		else
-			to_chat(user, "<span class='warning'><i>[humanoid] fumbles and apologizes; they couldn't wear it.</i></span>")
+			var/msg_fail = mkultra_cmd_text("wear", "master_fail", list("target" = humanoid)) || "<span class='warning'><i>[humanoid] fumbles and apologizes; they couldn't wear it.</i></span>"
+			to_chat(user, msg_fail)
 		return TRUE
 
 	return FALSE
 
 /proc/process_mkultra_command_cum_lock(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/cant_words = regex("can't cum|cannot cum|no cumming|do not cum|stop cumming|deny climax")
-	var/static/regex/can_words = regex("can cum|you may cum|allow cum|release cum")
-	var/apply_lock = FALSE
-	var/remove_lock = FALSE
-	if(findtext(message, cant_words))
-		apply_lock = TRUE
-	else if(findtext(message, can_words))
-		remove_lock = TRUE
-	else
+	var/lowered = lowertext(message)
+	var/list/patterns = mkultra_cmd_patterns("cum_lock")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
+	var/apply_lock = (match_idx == 1)
+	var/remove_lock = (match_idx == 2)
+	if(!apply_lock && !remove_lock)
 		return FALSE
 
 	for(var/enthrall_victim in listeners)
@@ -915,59 +1418,35 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(apply_lock)
 			mkultra_set_cum_lock(humanoid, TRUE)
 			mkultra_add_cooldown(enthrall_chem, 2)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='warning'>Your release is forbidden until granted.</span>"), 5)
-			to_chat(user, "<span class='notice'><i>You lock [humanoid]'s climax.</i></span>")
+			var/msg_pet = mkultra_cmd_text("cum_lock", "lock_pet") || "<span class='warning'>Your release is forbidden until granted.</span>"
+			var/msg_master = mkultra_cmd_text("cum_lock", "lock_master", list("target" = humanoid)) || "<span class='notice'><i>You lock [humanoid]'s climax.</i></span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
+			to_chat(user, msg_master)
 		else if(remove_lock)
 			mkultra_set_cum_lock(humanoid, FALSE)
 			mkultra_add_cooldown(enthrall_chem, 2)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='love'>Permission granted—you may climax again.</span>"), 5)
-			to_chat(user, "<span class='notice'><i>You lift the climax lock on [humanoid].</i></span>")
+			var/msg_pet_unlock = mkultra_cmd_text("cum_lock", "unlock_pet") || "<span class='love'>Permission granted - you may climax again.</span>"
+			var/msg_master_unlock = mkultra_cmd_text("cum_lock", "unlock_master", list("target" = humanoid)) || "<span class='notice'><i>You lift the climax lock on [humanoid].</i></span>"
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet_unlock), 5)
+			to_chat(user, msg_master_unlock)
 	return TRUE
 
 /proc/process_mkultra_command_arousal_lock(message, mob/living/user, list/listeners, power_multiplier)
 	// Robust matching for common phrasing so we actually catch the order (no regex to keep DM happy).
-	var/static/list/hard_phrases = list(
-		"permanent hard", "permanently hard", "perma hard", "permahard",
-		"stay hard", "always hard", "always erect", "stay erect", "stay stiff",
-		"be hard", "get hard", "remain hard", "locked hard", "hard forever"
-	)
-	var/static/list/limp_phrases = list(
-		"permanent limp", "permanently limp", "perma limp", "permalimp", "flaccid",
-		"stay limp", "always limp", "stay soft", "always soft", "be limp", "get soft",
-		"remain soft", "locked soft", "soft forever"
-	)
-	var/static/list/clear_phrases = list(
-		"disable hard", "disable limp", "stop hard", "stop limp",
-		"normal arousal", "undo hard", "undo limp", "reset arousal"
-	)
 	var/lowered = lowertext(message)
 	var/mode = null
-	var/hard_hit = FALSE
-	var/limp_hit = FALSE
-	var/clear_hit = FALSE
-
-	for(var/p in hard_phrases)
-		if(findtext(lowered, p))
-			hard_hit = TRUE
-			break
-	for(var/p in limp_phrases)
-		if(findtext(lowered, p))
-			limp_hit = TRUE
-			break
-	for(var/p in clear_phrases)
-		if(findtext(lowered, p))
-			clear_hit = TRUE
-			break
-	if(hard_hit)
+	var/list/patterns = mkultra_cmd_patterns("arousal_lock")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
+	if(match_idx == 1)
 		mode = "hard"
-	else if(limp_hit)
+	else if(match_idx == 2)
 		mode = "limp"
-	else if(clear_hit)
+	else if(match_idx == 3)
 		mode = "clear"
 	else
 		return FALSE
 
-	mkultra_debug("arousal command matched mode=[mode] hard_hit=[hard_hit] limp_hit=[limp_hit] clear_hit=[clear_hit] by [user] -> [listeners.len] listeners; msg='[message]'")
+	mkultra_debug("arousal command matched mode=[mode] by [user] -> [listeners.len] listeners; msg='[message]'")
 
 	for(var/enthrall_victim in listeners)
 		if(!ishuman(enthrall_victim))
@@ -982,32 +1461,37 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(mode == "clear")
 			mkultra_clear_arousal_lock(humanoid)
 			mkultra_apply_arousal_lock_now(humanoid, clear_only = TRUE)
-			to_chat(user, "<span class='notice'><i>[humanoid]'s arousal lock released.</i></span>")
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>Your forced arousal fades.</span>"), 5)
+			var/msg_master_release = mkultra_cmd_text("arousal_lock", "release_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid]'s arousal lock released.</i></span>"
+			var/msg_pet_release = mkultra_cmd_text("arousal_lock", "release_pet") || "<span class='notice'>Your forced arousal fades.</span>"
+			to_chat(user, msg_master_release)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet_release), 5)
 		else
 			mkultra_set_arousal_lock(humanoid, mode)
-			to_chat(user, "<span class='notice'><i>You force [humanoid] to stay [mode].</i></span>")
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='love'>Your body is locked [mode] until released.</span>"), 5)
+			var/msg_master_lock = mkultra_cmd_text("arousal_lock", "lock_master", list("target" = humanoid, "mode" = mode)) || "<span class='notice'><i>You force [humanoid] to stay [mode].</i></span>"
+			var/msg_pet_lock = mkultra_cmd_text("arousal_lock", "lock_pet", list("mode" = mode)) || "<span class='love'>Your body is locked [mode] until released.</span>"
+			to_chat(user, msg_master_lock)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet_lock), 5)
 			mkultra_add_cooldown(enthrall_chem, 2)
 		mkultra_debug("arousal lock apply end [humanoid] mode=[mode] arousal=[humanoid.arousal] status=[humanoid.arousal_status]")
 
 	return TRUE
 
 /proc/process_mkultra_command_worship(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/start_words = regex("worship my |worship " )
-	var/static/regex/stop_words = regex("stop worship|no worship|end worship")
 	var/lowered = lowertext(message)
-	if(findtext(lowered, stop_words))
+	var/list/patterns = mkultra_cmd_patterns("worship")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
+	var/do_stop = (match_idx == 2)
+	if(!match_idx)
+		return FALSE
+	if(do_stop)
 		for(var/enthrall_victim in listeners)
 			if(!ishuman(enthrall_victim))
 				continue
 			var/mob/living/carbon/human/humanoid = enthrall_victim
 			mkultra_stop_worship(humanoid)
-		to_chat(user, "<span class='notice'><i>Worship urges cancelled.</i></span>")
+		var/msg_stop = mkultra_cmd_text("worship", "stop_master") || "<span class='notice'><i>Worship urges cancelled.</i></span>"
+		to_chat(user, msg_stop)
 		return TRUE
-
-	if(!findtext(lowered, start_words))
-		return FALSE
 
 	var/idx = findtext(lowered, "worship ")
 	if(!idx)
@@ -1036,16 +1520,18 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 		mkultra_start_worship(humanoid, user, body_part)
 		mkultra_add_cooldown(enthrall_chem, 3)
-		to_chat(user, "<span class='notice'><i>[humanoid] is compelled to worship your [body_part].</i></span>")
+		var/msg_start = mkultra_cmd_text("worship", "start_master", list("target" = humanoid, "part" = body_part)) || "<span class='notice'><i>[humanoid] is compelled to worship your [body_part].</i></span>"
+		to_chat(user, msg_start)
 	return TRUE
 
 /proc/process_mkultra_command_heat(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/on_words = regex("in heat|enter heat|go into heat")
-	var/static/regex/off_words = regex("out of heat|leave heat|stop heat|undo heat")
+	var/lowered = lowertext(message)
+	var/list/patterns = mkultra_cmd_patterns("heat")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_heat = null
-	if(findtext(message, on_words))
+	if(match_idx == 1)
 		do_heat = TRUE
-	else if(findtext(message, off_words))
+	else if(match_idx == 2)
 		do_heat = FALSE
 	else
 		return FALSE
@@ -1061,26 +1547,25 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(do_heat)
 			mkultra_set_heat(humanoid, TRUE)
 			mkultra_add_cooldown(enthrall_chem, 2)
-			to_chat(user, "<span class='notice'><i>You force [humanoid] into heat.</i></span>")
+			var/msg_on = mkultra_cmd_text("heat", "on_master", list("target" = humanoid)) || "<span class='notice'><i>You force [humanoid] into heat.</i></span>"
+			to_chat(user, msg_on)
 		else
 			mkultra_set_heat(humanoid, FALSE)
-			to_chat(user, "<span class='notice'><i>You end [humanoid]'s heat.</i></span>")
+			var/msg_off = mkultra_cmd_text("heat", "off_master", list("target" = humanoid)) || "<span class='notice'><i>You end [humanoid]'s heat.</i></span>"
+			to_chat(user, msg_off)
 		return TRUE
 
 	return TRUE
 
-// Fetch command disabled
-/proc/process_mkultra_command_fetch(message, mob/living/user, list/listeners, power_multiplier)
-	return FALSE
-
 /proc/process_mkultra_command_well_trained_toggle(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/on_words = regex("well trained|be trained|good pet")
-	var/static/regex/off_words = regex("stop being trained|no longer trained|untrain")
+	var/lowered = lowertext(message)
+	var/list/patterns = mkultra_cmd_patterns("well_trained")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_train = null
-	if(findtext(message, off_words))
-		do_train = FALSE
-	else if(findtext(message, on_words))
+	if(match_idx == 1)
 		do_train = TRUE
+	else if(match_idx == 2)
+		do_train = FALSE
 	else
 		return FALSE
 
@@ -1095,15 +1580,17 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(do_train)
 			mkultra_set_well_trained(humanoid, TRUE)
 			mkultra_add_cooldown(enthrall_chem, 2)
-			to_chat(user, "<span class='notice'><i>[humanoid] is given the well trained perk.</i></span>")
+			var/msg_on = mkultra_cmd_text("well_trained", "on_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] is given the well trained perk.</i></span>"
+			to_chat(user, msg_on)
 		else
 			mkultra_set_well_trained(humanoid, FALSE)
-			to_chat(user, "<span class='notice'><i>[humanoid] has their training lifted.</i></span>")
+			var/msg_off = mkultra_cmd_text("well_trained", "off_master", list("target" = humanoid)) || "<span class='notice'><i>[humanoid] has their training lifted.</i></span>"
+			to_chat(user, msg_off)
 	return TRUE
 
 /proc/process_mkultra_command_piss_self(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/piss_words = regex("piss yourself|piss for me|wet yourself|pee yourself|urinate on yourself")
-	if(!findtext(message, piss_words))
+	var/list/patterns = mkultra_cmd_patterns("piss_self")
+	if(!mkultra_command_matches(message, lowertext(message), patterns))
 		return FALSE
 	mkultra_debug("piss-self matched by [user] -> [listeners.len] listeners")
 
@@ -1130,19 +1617,21 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		bladder.urinate(forced = TRUE)
 		mkultra_debug("piss-self urinate [humanoid]: before=[before] after=[bladder.stored_piss]")
 		mkultra_add_cooldown(enthrall_chem, 3)
-		to_chat(user, "<span class='notice'><i>You order [humanoid] to humiliate themself, and they do.</i></span>")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='warning'>You shamefully soak yourself on command.</span>"), 5)
+		var/msg_master = mkultra_cmd_text("piss_self", "master", list("target" = humanoid)) || "<span class='notice'><i>You order [humanoid] to humiliate themself, and they do.</i></span>"
+		var/msg_pet = mkultra_cmd_text("piss_self", "pet") || "<span class='warning'>You shamefully soak yourself on command.</span>"
+		to_chat(user, msg_master)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
 	return TRUE
 
 /proc/process_mkultra_command_sissy(message, mob/living/user, list/listeners, power_multiplier)
-	var/static/regex/sissy_on_words = regex("be a sissy|be my sissy|sissy mode|sissy up|dress cute|dress girly")
-	var/static/regex/sissy_off_words = regex("no more sissy|stop being a sissy|sissy off|dress normal")
 	var/lowered = lowertext(message)
+	var/list/patterns = mkultra_cmd_patterns("sissy")
+	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_sissy = null
-	if(findtext(lowered, sissy_off_words))
-		do_sissy = FALSE
-	else if(findtext(lowered, sissy_on_words))
+	if(match_idx == 1)
 		do_sissy = TRUE
+	else if(match_idx == 2)
+		do_sissy = FALSE
 	else
 		return FALSE
 	mkultra_debug("sissy command matched by [user] -> [listeners.len] listeners (do_sissy=[do_sissy])")
@@ -1161,11 +1650,13 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			mkultra_start_sissy(humanoid, user)
 			mkultra_add_cooldown(enthrall_chem, 4)
 			mkultra_debug("sissy start issued to [humanoid] by [user]")
-			to_chat(user, "<span class='notice'><i>You enforce a humiliatingly cute dress code on [humanoid].</i></span>")
+			var/msg_on = mkultra_cmd_text("sissy", "on_master", list("target" = humanoid)) || "<span class='notice'><i>You enforce a humiliatingly cute dress code on [humanoid].</i></span>"
+			to_chat(user, msg_on)
 		else
 			mkultra_clear_sissy(humanoid)
 			mkultra_debug("sissy clear issued to [humanoid] by [user]")
-			to_chat(user, "<span class='notice'><i>You release [humanoid] from their dress code.</i></span>")
+			var/msg_off = mkultra_cmd_text("sissy", "off_master", list("target" = humanoid)) || "<span class='notice'><i>You release [humanoid] from their dress code.</i></span>"
+			to_chat(user, msg_off)
 	return TRUE
 
 /proc/process_mkultra_command_pet_tether(message, mob/living/user, list/listeners, power_multiplier)
@@ -1192,9 +1683,73 @@ var/global/list/mkultra_strip_slot_lookup = list(
 			continue
 		enthrall_chem.distance_mood_enabled = enable && !disable ? TRUE : FALSE
 		mkultra_debug("pet tether set [humanoid] distance_mood=[enthrall_chem.distance_mood_enabled] by [user]")
-		to_chat(user, "<span class='notice'><i>You [(enthrall_chem.distance_mood_enabled ? "enable" : "disable")] distance yearning on [humanoid].</i></span>")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>You feel [(enthrall_chem.distance_mood_enabled ? "longing when apart" : "a calm steadiness even when distant")].</span>"), 5)
+		var/state_label = enthrall_chem.distance_mood_enabled ? "enable" : "disable"
+		var/msg_master = mkultra_cmd_text("pet_tether", "master", list("state" = state_label, "target" = humanoid)) || "<span class='notice'><i>You [state_label] distance yearning on [humanoid].</i></span>"
+		var/msg_pet = enthrall_chem.distance_mood_enabled ? (mkultra_cmd_text("pet_tether", "pet_on") || "<span class='notice'>You feel longing when apart.</span>") : (mkultra_cmd_text("pet_tether", "pet_off") || "<span class='notice'>You feel a calm steadiness even when distant.</span>")
+		to_chat(user, msg_master)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet), 5)
 	return TRUE
+
+/proc/process_mkultra_command_slot_lock(message, mob/living/user, list/listeners, power_multiplier)
+	var/lowered = lowertext(message)
+	var/is_lock = findtext(lowered, "lock ")
+	var/is_unlock = findtext(lowered, "unlock ")
+	if(!is_lock && !is_unlock)
+		return FALSE
+
+	// Choose the first matching keyword position to slice slot text.
+	var/keyword_idx = is_lock || is_unlock
+	var/keyword = is_lock ? "lock " : "unlock "
+	var/slot_text = trim(copytext(message, keyword_idx + length(keyword)))
+	if(!length(slot_text))
+		return FALSE
+
+	var/slot_id = mkultra_resolve_strip_slot(slot_text)
+	if(isnull(slot_id))
+		return FALSE
+
+	var/handled = FALSE
+	for(var/enthrall_victim in listeners)
+		if(!ishuman(enthrall_victim))
+			continue
+		var/mob/living/carbon/human/humanoid = enthrall_victim
+		var/datum/status_effect/chem/enthrall/enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall/pet_chip/mk2)
+		if(!enthrall_chem)
+			enthrall_chem = humanoid.has_status_effect(/datum/status_effect/chem/enthrall)
+		if(!enthrall_chem || enthrall_chem.enthrall_mob != user)
+			continue
+
+		var/obj/item/slot_item = mkultra_get_item_for_slot(humanoid, slot_id)
+		var/slot_label = mkultra_slot_name(slot_id)
+		if(is_lock)
+			if(!slot_item)
+				var/msg_none = mkultra_cmd_text("slot_lock", "no_item", list("target" = humanoid)) || "<span class='warning'><i>[humanoid] isn't wearing anything in that slot.</i></span>"
+				to_chat(user, msg_none)
+				return TRUE
+			if(mkultra_lock_slot_item(humanoid, slot_item, slot_label))
+				var/msg_master_lock = mkultra_cmd_text("slot_lock", "master_lock", list("target" = humanoid, "slot" = slot_label)) || "<span class='notice'><i>You lock [humanoid]'s [slot_label] item in place.</i></span>"
+				var/msg_pet_lock = mkultra_cmd_text("slot_lock", "pet_lock", list("slot" = slot_label)) || "<span class='warning'>Your [slot_label] is locked in place by your handler.</span>"
+				to_chat(user, msg_master_lock)
+				addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet_lock), 5)
+				mkultra_add_cooldown(enthrall_chem, 2)
+				handled = TRUE
+		else if(is_unlock)
+			if(slot_item)
+				mkultra_unlock_slot_item(slot_item)
+			else
+				// Fallback: clear any stale locks on this mob.
+				var/list/locked = mkultra_slot_locks[humanoid]
+				if(islist(locked))
+					for(var/obj/item/I in locked)
+						mkultra_unlock_slot_item(I)
+			var/msg_master_unlock = mkultra_cmd_text("slot_lock", "master_unlock", list("target" = humanoid, "slot" = slot_label)) || "<span class='notice'><i>You unlock [humanoid]'s [slot_label] item.</i></span>"
+			var/msg_pet_unlock = mkultra_cmd_text("slot_lock", "pet_unlock", list("slot" = slot_label)) || "<span class='notice'>You feel the lock on your [slot_label] release.</span>"
+			to_chat(user, msg_master_unlock)
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, msg_pet_unlock), 5)
+			handled = TRUE
+	return handled
 
 /proc/mkultra_move_adjacent(mob/living/carbon/human/humanoid, mob/living/target, max_steps = 6)
 	// Try pathing, but only report success once actually adjacent; fall back to limited stepping.
@@ -1359,6 +1914,22 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/humanoid = source
 	mkultra_apply_arousal_lock_now(humanoid)
+
+/datum/mkultra_signal_handler/proc/slot_lock_on_item_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
+	SIGNAL_HANDLER
+	mkultra_unlock_slot_item(source, silent = TRUE)
+
+/datum/mkultra_signal_handler/proc/slot_lock_on_item_delete(obj/item/source)
+	SIGNAL_HANDLER
+	mkultra_unlock_slot_item(source, silent = TRUE)
+
+/datum/mkultra_signal_handler/proc/slot_lock_on_owner_delete(mob/living/carbon/human/source)
+	SIGNAL_HANDLER
+	var/list/locked = mkultra_slot_locks[source]
+	if(!islist(locked))
+		return
+	for(var/obj/item/I in locked)
+		mkultra_unlock_slot_item(I, silent = TRUE)
 
 /proc/mkultra_start_worship(mob/living/carbon/human/humanoid, mob/living/master, body_part)
 	mkultra_stop_worship(humanoid)
@@ -1600,7 +2171,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		var/chat_prompt = pick(
 			"Your [bad_item] isn't what [owner_name] wants you in.",
 			"You shouldn't be in [bad_item]; [owner_name] wants you cute.",
-			"[owner_name] would frown at that [bad_item]—change it.",
+			"[owner_name] would frown at that [bad_item]â€”change it.",
 			"That [bad_item] isn't girly enough for [owner_name].",
 		)
 		to_chat(humanoid, "<span class='love'><i>[chat_prompt]</i></span>")
