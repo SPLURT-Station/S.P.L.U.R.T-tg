@@ -25,8 +25,6 @@ var/global/list/mkultra_arousal_applying = list()
 var/global/list/mkultra_worship_states = list()
 // Heat state keyed by enthralled mob -> TRUE when hypersexual quirk added.
 var/global/list/mkultra_heat_states = list()
-// Fetch state keyed by enthralled mob -> list(master ref, timer id).
-var/global/list/mkultra_fetch_states = list()
 // Temporary well trained toggle keyed by enthralled mob.
 var/global/list/mkultra_well_trained_states = list()
 // Sissy enforcement keyed by enthralled mob -> state data.
@@ -308,16 +306,21 @@ var/global/list/mkultra_modular_command_specs = list()
 		var/handler = doc["handler"]
 		if(!patterns || !handler)
 			continue
-		mkultra_modular_command_specs += list(
-			list(
-				"name" = cmd_name,
-				"patterns" = patterns,
-				"handler" = handler,
-			)
+		if(mkultra_debug_enabled)
+			var/pcount = 1
+			if(islist(patterns))
+				pcount = length(patterns)
+			world.log << "SPLURT DEBUG: building spec [cmd_name] patterns_count=[pcount] handler=[handler]"
+		mkultra_modular_command_specs[cmd_name] = list(
+			"name" = cmd_name,
+			"patterns" = patterns,
+			"handler" = handler,
 		)
 
 // Initialize specs at load.
-	mkultra_build_command_specs()
+/world/New()
+	..()
+	call(/proc/mkultra_build_command_specs)()
 
 
 /proc/mkultra_cmd_doc(cmd_name)
@@ -362,23 +365,59 @@ var/global/list/mkultra_modular_command_specs = list()
 
 // Fan-out helper used by velvetspeech to run all modular handlers.
 /proc/mkultra_handle_modular_commands(message, mob/living/user, list/listeners, power_multiplier)
-	var/handled = FALSE
-	var/lowered = lowertext(message)
-	for(var/spec in mkultra_modular_command_specs)
-		var/list/patterns = spec["patterns"]
-		var/should_run = mkultra_command_matches(message, lowered, patterns)
-		if(!should_run)
-			continue
-		var/cmd_name = spec["name"]
-		var/handler = spec["handler"]
-		if(mkultra_debug_enabled)
-			world.log << "SPLURT DEBUG: modular match [cmd_name] via patterns=[patterns.len]"
-		var/result = call(handler)(message, user, listeners, power_multiplier)
-		if(result)
-			handled = TRUE
-		if(mkultra_debug_enabled)
-			world.log << "SPLURT DEBUG: modular handler [cmd_name] result=[result]"
-	return handled
+    var/handled = FALSE
+
+    if(isnull(message))
+        return FALSE
+
+    message = "[message]"
+
+    if(!mkultra_modular_command_specs || !mkultra_modular_command_specs.len)
+        mkultra_build_command_specs()
+        if(mkultra_debug_enabled)
+            world.log << "SPLURT DEBUG: rebuilt modular specs (len=[mkultra_modular_command_specs.len])"
+            if(user)
+                to_chat(user, span_warning("SPLURT DEBUG: rebuilt modular specs (len=[mkultra_modular_command_specs.len])"))
+
+    if(mkultra_debug_enabled)
+        world.log << "SPLURT DEBUG: modular dispatcher start msg='[message]' listeners=[listeners?.len] specs=[mkultra_modular_command_specs.len]"
+        if(user)
+            to_chat(user, span_notice("SPLURT DEBUG: modular dispatcher start; listeners=[listeners?.len] specs=[mkultra_modular_command_specs.len] msg='[message]'"))
+
+    for(var/cmd_name in mkultra_command_order)
+        var/list/spec = mkultra_modular_command_specs[cmd_name]
+        if(!islist(spec))
+            continue
+
+        var/handler = spec["handler"]
+        if(!handler)
+            if(mkultra_debug_enabled)
+                world.log << "SPLURT DEBUG: spec [cmd_name] missing handler"
+            continue
+
+        if(mkultra_debug_enabled)
+            world.log << "SPLURT DEBUG: modular dispatch [cmd_name]"
+            if(user)
+                to_chat(user, span_notice("SPLURT DEBUG: modular dispatch [cmd_name]"))
+
+        var/result = call(handler)(message, user, listeners, power_multiplier)
+
+        if(result)
+            handled = TRUE
+            // break  // ← uncomment if only one command should ever run
+
+        if(mkultra_debug_enabled)
+            world.log << "SPLURT DEBUG: modular handler [cmd_name] result=[result]"
+            if(user)
+                to_chat(user, span_notice("SPLURT DEBUG: modular handler [cmd_name] result=[result]"))
+
+    if(!handled && mkultra_debug_enabled)
+        world.log << "SPLURT DEBUG: modular handlers found no matches for msg='[message]'"
+        if(user)
+            to_chat(user, span_warning("SPLURT DEBUG: modular handlers found no matches for msg='[message]'"))
+
+    return handled
+
 
 // Consent-based phase set: "forscenessake phaseset <num>"
 /proc/process_mkultra_command_phase_set(message, mob/living/user, list/listeners, power_multiplier)
@@ -449,28 +488,41 @@ var/global/list/mkultra_modular_command_specs = list()
 	for(var/p in pats)
 		if(islist(p))
 			if(mkultra_command_matches(message, lowered, p))
+				if(mkultra_debug_enabled)
+					world.log << "SPLURT DEBUG: pattern nest match msg='[message]' pat=[p]"
 				return TRUE
 			else
 				continue
 		if(istype(p, /regex))
-			if(findtext(message, p))
+			if(findtext(lowered, p))
+				if(mkultra_debug_enabled)
+					world.log << "SPLURT DEBUG: regex match msg='[message]' pat=[p]"
 				return TRUE
 		else if(istext(p))
 			if(findtext(lowered, lowertext("[p]")))
+				if(mkultra_debug_enabled)
+					world.log << "SPLURT DEBUG: text match msg='[message]' pat='[p]'"
 				return TRUE
 	return FALSE
 
 // Returns 1-based index of the first top-level pattern that matches, or 0 if none.
 /proc/mkultra_command_match_index(message, lowered, patterns)
 	if(!islist(patterns))
-		return mkultra_command_matches(message, lowered, patterns) ? 1 : 0
+		var/hit = mkultra_command_matches(message, lowered, patterns)
+		if(mkultra_debug_enabled)
+			world.log << "SPLURT DEBUG: match_index single patterns hit=[hit] patterns=[patterns]"
+		return hit ? 1 : 0
 	var/idx = 1
 	for(var/p in patterns)
 		if(islist(p))
 			if(mkultra_command_matches(message, lowered, p))
+				if(mkultra_debug_enabled)
+					world.log << "SPLURT DEBUG: match_index nested idx=[idx] hit=TRUE patterns=[p]"
 				return idx
 		else
 			if(mkultra_command_matches(message, lowered, list(p)))
+				if(mkultra_debug_enabled)
+					world.log << "SPLURT DEBUG: match_index idx=[idx] hit=TRUE pattern=[p]"
 				return idx
 		idx++
 	return FALSE
@@ -1314,7 +1366,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	mkultra_debug("strip_all removed=[removed] for [humanoid]")
 	return removed
 
-// Helper to fetch (without dropping) the item in a given slot.
+// Helper to retrieve (without dropping) the item in a given slot.
 /proc/mkultra_get_item_for_slot(mob/living/carbon/human/humanoid, slot_id)
 	if(slot_id == ITEM_SLOT_POCKETS)
 		var/obj/item/pocket_item = humanoid.get_item_by_slot(ITEM_SLOT_LPOCKET) || humanoid.get_item_by_slot(ITEM_SLOT_RPOCKET)
@@ -1354,10 +1406,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	REMOVE_TRAIT(I, TRAIT_NODROP, "mkultra_slot_lock")
 	mkultra_signal_handler.UnregisterSignal(I, list(COMSIG_ITEM_POST_UNEQUIP, COMSIG_QDELETING))
 	return TRUE
-//SPLURT ADDITION END
-
-//SPLURT EXTENSIONS START
-
 
 /proc/process_mkultra_command_wear(message, mob/living/user, list/listeners, power_multiplier)
 	var/lowered = lowertext(message)
@@ -1974,126 +2022,6 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		if(humanoid.has_quirk(/datum/quirk/hypersexual))
 			humanoid.remove_quirk(/datum/quirk/hypersexual)
 		mkultra_heat_states -= humanoid
-
-/proc/mkultra_start_fetch(mob/living/carbon/human/humanoid, mob/living/master)
-	mkultra_stop_fetch(humanoid)
-	var/prev_intent = humanoid.move_intent
-	if(prev_intent != MOVE_INTENT_RUN)
-		humanoid.toggle_move_intent()
-	mkultra_fetch_states[humanoid] = list("master" = WEAKREF(master), "prev_intent" = prev_intent, "listened" = list())
-	mkultra_signal_handler.RegisterSignal(master, COMSIG_MOB_THROW, TYPE_PROC_REF(/datum/mkultra_signal_handler, fetch_on_throw))
-	mkultra_signal_handler.RegisterSignal(humanoid, COMSIG_QDELETING, TYPE_PROC_REF(/datum/mkultra_signal_handler, fetch_on_delete))
-	var/timer_id = addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_stop_fetch, humanoid), 30 SECONDS, TIMER_STOPPABLE)
-	mkultra_fetch_states[humanoid]["timer"] = timer_id
-
-/proc/mkultra_stop_fetch(mob/living/carbon/human/humanoid)
-	var/list/datum/weakref/state = mkultra_fetch_states[humanoid]
-	if(state)
-		var/datum/weakref/master_ref = state["master"]
-		var/mob/living/master = master_ref?.resolve()
-		if(master)
-			mkultra_signal_handler.UnregisterSignal(master, COMSIG_MOB_THROW)
-		if(state["listened"])
-			for(var/datum/weakref/W in state["listened"])
-				var/atom/movable/listened = W?.resolve()
-				if(listened)
-					mkultra_signal_handler.UnregisterSignal(listened, COMSIG_MOVABLE_THROW_LANDED)
-		if(state["timer"])
-			deltimer(state["timer"])
-		if(!QDELETED(humanoid) && (state["prev_intent"] || state["prev_intent"] == 0) && humanoid.move_intent != state["prev_intent"])
-			humanoid.toggle_move_intent()
-	mkultra_signal_handler.UnregisterSignal(humanoid, list(COMSIG_QDELETING))
-	mkultra_fetch_states -= humanoid
-
-/datum/mkultra_signal_handler/proc/fetch_on_delete(datum/source)
-	SIGNAL_HANDLER
-	mkultra_stop_fetch(source)
-
-/datum/mkultra_signal_handler/proc/fetch_on_throw(mob/living/carbon/thrower, atom/target)
-	SIGNAL_HANDLER
-	mkultra_debug("fetch_on_throw from [thrower] toward [target]")
-	for(var/mob/living/carbon/human/humanoid in mkultra_fetch_states)
-		var/list/datum/weakref/state = mkultra_fetch_states[humanoid]
-		if(state?["master"]?.resolve() != thrower)
-			continue
-		var/obj/item/thrown = thrower.get_active_held_item()
-		if(!isitem(thrown))
-			continue
-		RegisterSignal(thrown, COMSIG_MOVABLE_THROW_LANDED, TYPE_PROC_REF(/datum/mkultra_signal_handler, fetch_on_land))
-		state["listened"] += WEAKREF(thrown)
-
-/datum/mkultra_signal_handler/proc/fetch_on_land(obj/item/thrown, datum/thrownthing/throwingdatum)
-	SIGNAL_HANDLER
-	mkultra_debug("fetch_on_land for [thrown]")
-	UnregisterSignal(thrown, COMSIG_MOVABLE_THROW_LANDED)
-	for(var/mob/living/carbon/human/humanoid in mkultra_fetch_states)
-		var/list/datum/weakref/state = mkultra_fetch_states[humanoid]
-		if(state)
-			state["listened"] -= WEAKREF(thrown)
-	var/mob/living/carbon/thrower = throwingdatum?.get_thrower()
-	for(var/mob/living/carbon/human/humanoid in mkultra_fetch_states)
-		var/list/datum/weakref/state = mkultra_fetch_states[humanoid]
-		if(state?["master"]?.resolve() != thrower)
-			continue
-		if(!isturf(thrown.loc))
-			continue
-		mkultra_fetch_go(humanoid, thrown, thrower)
-
-/proc/mkultra_fetch_go(mob/living/carbon/human/humanoid, obj/item/target, mob/living/carbon/human/master)
-	if(QDELETED(target) || QDELETED(humanoid) || QDELETED(master))
-		return
-	mkultra_debug("fetch_go start [humanoid] -> [target] for [master]")
-	var/turf/target_turf = get_turf(target)
-	if(!target_turf)
-		mkultra_stop_fetch(humanoid)
-		return
-
-	// Move onto the item's turf (not just adjacent) so pickup succeeds.
-	if(humanoid.loc != target_turf)
-		mkultra_debug("fetch move toward turf [target_turf] for [humanoid]")
-		GLOB.move_manager.move_to(humanoid, target_turf, 0, 12)
-		for(var/i in 1 to 12)
-			if(humanoid.loc == target_turf)
-				break
-			step_to(humanoid, target_turf)
-	if(humanoid.loc != target_turf)
-		mkultra_debug("fetch failed to reach target turf [target_turf] for [humanoid]")
-		mkultra_stop_fetch(humanoid)
-		return
-
-	// Free a hand if needed.
-	if(humanoid.get_active_held_item() && humanoid.get_inactive_held_item())
-		mkultra_debug("fetch dropping active hand to free space for [target] on [humanoid]")
-		humanoid.dropItemToGround(humanoid.get_active_held_item())
-	if(humanoid.get_active_held_item() && humanoid.get_inactive_held_item())
-		mkultra_debug("fetch dropping inactive hand to free space for [target] on [humanoid]")
-		humanoid.dropItemToGround(humanoid.get_inactive_held_item())
-
-	var/picked = FALSE
-	if(humanoid.put_in_active_hand(target))
-		picked = TRUE
-	else if(humanoid.put_in_inactive_hand(target))
-		picked = TRUE
-	else if(isturf(target.loc))
-		mkultra_debug("fetch fallback attack_hand pickup for [target] on [humanoid]")
-		target.attack_hand(humanoid)
-		picked = (target in humanoid)
-	if(!picked)
-		mkultra_debug("fetch failed to pick up [target] for [humanoid]")
-		mkultra_stop_fetch(humanoid)
-		return
-	mkultra_debug("fetch picked up [target] for [humanoid]")
-
-	if(!mkultra_move_adjacent(humanoid, master, 12))
-		mkultra_debug("fetch failed to return to [master] with [target] for [humanoid]")
-		mkultra_stop_fetch(humanoid)
-		return
-	if(!master.get_active_held_item())
-		master.put_in_active_hand(target)
-	else if(!master.get_inactive_held_item())
-		master.put_in_inactive_hand(target)
-	else
-		target.forceMove(get_turf(master))
 
 /proc/mkultra_set_well_trained(mob/living/carbon/human/humanoid, apply)
 	if(apply)
