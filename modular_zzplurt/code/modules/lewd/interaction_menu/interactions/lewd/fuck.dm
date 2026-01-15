@@ -12,8 +12,16 @@
 		"goes balls deep into %TARGET%'s pussy over and over again."
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ1.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
@@ -35,9 +43,11 @@
 		"goes balls deep into %TARGET%'s ass over and over again."
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/bang1.ogg',
-		'modular_zzplurt/sound/interactions/bang2.ogg',
-		'modular_zzplurt/sound/interactions/bang3.ogg'
+		'modular_zzplurt/sound/interactions/DryFlopQuick1.ogg',
+		'modular_zzplurt/sound/interactions/DryFlopQuick2.ogg',
+		'modular_zzplurt/sound/interactions/DryFlopQuick3.ogg',
+		'modular_zzplurt/sound/interactions/DryFlopQuick4.ogg',
+		'modular_zzplurt/sound/interactions/DryFlopQuick5.ogg'
 	)
 	sound_use = TRUE
 	user_pleasure = 8
@@ -60,9 +70,13 @@
 		"grabs %TARGET%'s breasts together and presses their cock between them."
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/bang1.ogg',
-		'modular_zzplurt/sound/interactions/bang2.ogg',
-		'modular_zzplurt/sound/interactions/bang3.ogg'
+		'modular_zzplurt/sound/interactions/DryFlop1.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop2.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop3.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop4.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop5.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop6.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop7.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
