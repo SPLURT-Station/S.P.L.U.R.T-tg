@@ -1,53 +1,53 @@
 // Active follow states keyed by enthralled mob -> state data.
-var/global/list/mkultra_follow_states = list()
+GLOBAL_LIST_EMPTY(mkultra_follow_states)
 // Self-call states keyed by enthralled mob -> allowed/self name list.
-var/global/list/mkultra_selfcall_states = list()
+GLOBAL_LIST_EMPTY(mkultra_selfcall_states)
 // Master title states keyed by enthralled mob -> title + master ref.
-var/global/list/mkultra_master_title_states = list()
+GLOBAL_LIST_EMPTY(mkultra_master_title_states)
 // Slot locks keyed by enthralled mob -> list of locked items.
-var/global/list/mkultra_slot_locks = list()
+GLOBAL_LIST_EMPTY(mkultra_slot_locks)
 // Reverse lookup: locked item -> enthralled mob.
-var/global/list/mkultra_slot_lock_items = list()
+GLOBAL_LIST_EMPTY(mkultra_slot_lock_items)
 // Cum lock map keyed by enthralled mob -> TRUE while climax is blocked.
-var/global/list/mkultra_cum_locks = list()
+GLOBAL_LIST_EMPTY(mkultra_cum_locks)
 // Arousal lock map keyed by enthralled mob -> "hard"|"limp".
-var/global/list/mkultra_arousal_locks = list()
+GLOBAL_LIST_EMPTY(mkultra_arousal_locks)
 // Cached arousal state keyed by enthralled mob -> list(arousal/status/penis_aroused) for restoration.
-var/global/list/mkultra_arousal_saved_states = list()
+GLOBAL_LIST_EMPTY(mkultra_arousal_saved_states)
 // Track whether we temporarily removed arousal/genital toggle verbs so we can restore them.
-var/global/list/mkultra_toggle_verbs_removed = list()
+GLOBAL_LIST_EMPTY(mkultra_toggle_verbs_removed)
 // Re-entrancy guard for arousal lock application keyed by humanoid.
-var/global/list/mkultra_arousal_applying = list()
+GLOBAL_LIST_EMPTY(mkultra_arousal_applying)
 // Worship state keyed by enthralled mob -> list(master ref, part string).
-var/global/list/mkultra_worship_states = list()
+GLOBAL_LIST_EMPTY(mkultra_worship_states)
 // Heat state keyed by enthralled mob -> TRUE when hypersexual quirk added.
-var/global/list/mkultra_heat_states = list()
+GLOBAL_LIST_EMPTY(mkultra_heat_states)
 // Temporary well trained toggle keyed by enthralled mob.
-var/global/list/mkultra_well_trained_states = list()
+GLOBAL_LIST_EMPTY(mkultra_well_trained_states)
 // Sissy enforcement keyed by enthralled mob -> state data.
-var/global/list/mkultra_sissy_states = list()
+GLOBAL_LIST_EMPTY(mkultra_sissy_states)
 // Signal sink used for global mkultra helpers.
-var/global/datum/mkultra_signal_handler/mkultra_signal_handler = new
+GLOBAL_DATUM_INIT(mkultra_signal_handler, /datum/mkultra_signal_handler, new)
 // Separate handlers to avoid signal override collisions for speech/selfcall features.
-var/global/datum/mkultra_signal_handler/mkultra_selfcall_signal_handler = new
-var/global/datum/mkultra_signal_handler/mkultra_master_title_signal_handler = new
+GLOBAL_DATUM_INIT(mkultra_selfcall_signal_handler, /datum/mkultra_signal_handler, new)
+GLOBAL_DATUM_INIT(mkultra_master_title_signal_handler, /datum/mkultra_signal_handler, new)
 // Separate handler for slot-lock signals to avoid overriding other delete hooks.
-var/global/datum/mkultra_signal_handler/mkultra_slot_lock_signal_handler = new
+GLOBAL_DATUM_INIT(mkultra_slot_lock_signal_handler, /datum/mkultra_signal_handler, new)
 // Toggleable debug logging.
-var/global/mkultra_debug_enabled = FALSE
+GLOBAL_VAR_INIT(mkultra_debug_enabled, FALSE)
 // Toggle to disable command cooldowns during testing.
-var/global/mkultra_disable_cooldowns = FALSE
+GLOBAL_VAR_INIT(mkultra_disable_cooldowns, FALSE)
 
 // Modular command handlers called from velvetspeech().
-var/global/list/mkultra_modular_command_handlers = list(
+GLOBAL_LIST_INIT(mkultra_modular_command_handlers, list(
 	/proc/process_mkultra_command_cum,
 	/proc/process_mkultra_command_emote,
 	// Handlers now bound via mkultra_command_docs -> mkultra_modular_command_specs.
-)
+))
 
 // Human-readable docs and shared message text for modular commands.
 // Each entry includes summary/usage, trigger patterns, handler path, and in-game text snippets.
-var/global/list/mkultra_command_docs = list(
+GLOBAL_LIST_INIT(mkultra_command_docs, list(
 	"cum_lock" = list(
 		"summary" = "Toggle climax denial ('can't cum' / 'can cum').",
 		"usage" = "Say: can't cum / no cumming / deny climax OR can cum / allow cum.",
@@ -271,10 +271,10 @@ var/global/list/mkultra_command_docs = list(
 			"no_item" = "<span class='warning'><i>{target} isn't wearing anything in that slot.</i></span>"
 		)
 	)
-)
+))
 
 // Preserve a stable ordering for pattern checks so higher-priority commands run first.
-var/global/list/mkultra_command_order = list(
+GLOBAL_LIST_INIT(mkultra_command_order, list(
 	"cum_lock",
 	"cum",
 	"emote",
@@ -296,10 +296,10 @@ var/global/list/mkultra_command_order = list(
 	"sissy",
 	"pet_tether",
 	"slot_lock",
-)
+))
 
 // Command specs are built from mkultra_command_docs + ordering.
-var/global/list/mkultra_modular_command_specs = list()
+GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 
 /proc/mkultra_build_command_specs()
 	mkultra_modular_command_specs = list()
@@ -372,39 +372,39 @@ var/global/list/mkultra_modular_command_specs = list()
 
 // Fan-out helper used by velvetspeech to run all modular handlers.
 /proc/mkultra_handle_modular_commands(message, mob/living/user, list/listeners, power_multiplier)
-    var/handled = FALSE
+	var/handled = FALSE
 
-    if(isnull(message))
-        return FALSE
+	if(isnull(message))
+		return FALSE
 
-    message = "[message]"
+	message = "[message]"
 
-    if(!mkultra_modular_command_specs || !mkultra_modular_command_specs.len)
-        mkultra_build_command_specs()
+	if(!mkultra_modular_command_specs || !mkultra_modular_command_specs.len)
+		mkultra_build_command_specs()
 
-    for(var/cmd_name in mkultra_command_order)
-        var/list/spec = mkultra_modular_command_specs[cmd_name]
-        if(!islist(spec))
-            continue
+	for(var/cmd_name in mkultra_command_order)
+		var/list/spec = mkultra_modular_command_specs[cmd_name]
+		if(!islist(spec))
+			continue
 
-        var/handler = spec["handler"]
-        if(!handler)
-            continue
+		var/handler = spec["handler"]
+		if(!handler)
+			continue
 
-        var/result = call(handler)(message, user, listeners, power_multiplier)
+		var/result = call(handler)(message, user, listeners, power_multiplier)
 
-        if(result)
-            handled = TRUE
-            if(cmd_name == "cum_lock")
-                message = mkultra_strip_cum_reference(message)
-            // break  // ← uncomment if only one command should ever run
+		if(result)
+			handled = TRUE
+			if(cmd_name == "cum_lock")
+				message = mkultra_strip_cum_reference(message)
+			// break  // uncomment if only one command should ever run
 
-    return handled
+	return handled
 
 
 // Consent-based phase set: "forscenessake phaseset <num>"
 /proc/process_mkultra_command_phase_set(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/idx = findtext(lowered, "forscenessake phaseset")
 	if(!idx)
 		return FALSE
@@ -478,7 +478,7 @@ var/global/list/mkultra_modular_command_specs = list()
 			if(findtext(lowered, p))
 				return TRUE
 		else if(istext(p))
-			if(findtext(lowered, lowertext("[p]")))
+			if(findtext(lowered, LOWER_TEXT("[p]")))
 				return TRUE
 	return FALSE
 
@@ -506,7 +506,7 @@ var/global/list/mkultra_modular_command_specs = list()
 		return
 	enthrall_chem.cooldown += amount
 
-var/global/list/mkultra_strip_slot_lookup = list(
+GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	"head" = ITEM_SLOT_HEAD,
 	"hat" = ITEM_SLOT_HEAD,
 	"helmet" = ITEM_SLOT_HEAD,
@@ -547,7 +547,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	"right pocket" = ITEM_SLOT_RPOCKET,
 	"storage" = ITEM_SLOT_SUITSTORE,
 	"suit storage" = ITEM_SLOT_SUITSTORE,
-)
+))
 
 // Handlers are registered via the global list in modular_zzplurt/code/modules/mkultra/modular_commands.dm.
 
@@ -561,7 +561,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 /proc/process_mkultra_command_cum(message, mob/living/user, list/listeners, power_multiplier)
 	// Returns TRUE if this handler consumed the command, FALSE otherwise.
 	// Avoid matching denial phrases; those are handled by the cum lock command.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/cum_lock_patterns = mkultra_cmd_patterns("cum_lock")
 	if(mkultra_command_matches(message, lowered, cum_lock_patterns))
 		return FALSE
@@ -611,7 +611,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_selfcall(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only speech self-name enforcement: immersive phrasing like "call yourself pet" (commas allowed).
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/off_patterns = mkultra_cmd_patterns("selfcall_off")
 	if(mkultra_command_matches(message, lowered, off_patterns))
 		// Let the off handler consume it instead of binding the stop phrase as a name.
@@ -621,7 +621,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	for(var/pfx in selfcall_patterns)
 		if(!istext(pfx))
 			continue
-		if(findtext(lowered, lowertext("[pfx]")))
+		if(findtext(lowered, LOWER_TEXT("[pfx]")))
 			prefix_match = pfx
 			break
 	if(!prefix_match)
@@ -673,7 +673,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_emote(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only emote command: "<emote> for me". Uses the standard emote datum list.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/emote_patterns = mkultra_flatten_patterns(mkultra_cmd_patterns("emote"))
 	if(!mkultra_command_matches(message, lowered, emote_patterns))
 		return FALSE
@@ -715,7 +715,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_strip_slot(message, mob/living/user, list/listeners, power_multiplier)
 	// Targeted strip: "strip <slot>". Always consume once matched to prevent base strip double fire.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/strip_patterns = mkultra_cmd_patterns("strip_slot")
 	if(!mkultra_command_matches(message, lowered, strip_patterns))
 		return FALSE
@@ -734,7 +734,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	while(length(slot_text) && findtext(".!,?", copytext(slot_text, -1)))
 		slot_text = copytext(slot_text, 1, length(slot_text))
 	slot_text = trim(slot_text)
-	var/slot_lower = lowertext(slot_text)
+	var/slot_lower = LOWER_TEXT(slot_text)
 	if(slot_lower in list("all", "everything", "naked", "nude", "bare"))
 		strip_all = TRUE
 
@@ -780,7 +780,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_lust_up(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only arousal increase.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/lust_up_patterns = mkultra_cmd_patterns("lust_up")
 	if(!mkultra_command_matches(message, lowered, lust_up_patterns))
 		return FALSE
@@ -812,7 +812,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_lust_down(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only arousal decrease.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/lust_down_patterns = mkultra_cmd_patterns("lust_down")
 	if(!mkultra_command_matches(message, lowered, lust_down_patterns))
 		return FALSE
@@ -844,7 +844,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_selfcall_off(message, mob/living/user, list/listeners, power_multiplier)
 	// Disable selfcall enforcement: immersive stop phrasing.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/off_patterns = mkultra_cmd_patterns("selfcall_off")
 	if(!mkultra_command_matches(message, lowered, off_patterns))
 		return FALSE
@@ -876,7 +876,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_follow(message, mob/living/user, list/listeners, power_multiplier)
 	// Lewd-only follow/stop-follow handler. "follow me" starts, "stop following" ends.
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("follow")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	if(!match_idx)
@@ -921,7 +921,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 // Allow dom to set a custom title the pet uses for them.
 /proc/process_mkultra_command_set_master_title(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/phrases = mkultra_flatten_patterns(mkultra_cmd_patterns("master_title"))
 	if(!phrases || !phrases.len)
 		return FALSE
@@ -930,7 +930,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	for(var/phrase in phrases)
 		if(!istext(phrase))
 			continue
-		idx = findtext(lowered, lowertext("[phrase]"))
+		idx = findtext(lowered, LOWER_TEXT("[phrase]"))
 		if(idx)
 			phrase_hit = phrase
 			break
@@ -969,7 +969,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 // Sets the enthrall_gender descriptor (lewd honorific) without altering speech replacement.
 /proc/process_mkultra_command_think_of_me(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/phrase = "think of me as "
 	var/idx = findtext(lowered, phrase)
 	if(!idx)
@@ -1383,7 +1383,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_wear(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	if(!findtext(lowered, "wear"))
 		return FALSE
 
@@ -1422,7 +1422,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return FALSE
 
 /proc/process_mkultra_command_cum_lock(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("cum_lock")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/apply_lock = (match_idx == 1)
@@ -1456,7 +1456,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_arousal_lock(message, mob/living/user, list/listeners, power_multiplier)
 	// Robust matching for common phrasing so we actually catch the order (no regex to keep DM happy).
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/mode = null
 	var/list/patterns = mkultra_cmd_patterns("arousal_lock")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
@@ -1500,7 +1500,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_worship(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("worship")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_stop = (match_idx == 2)
@@ -1524,7 +1524,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		return TRUE
 	// Strip possessives/articles and trailing punctuation so the displayed text reads naturally.
 	for(var/article in list("my ", "your ", "the "))
-		if(findtext(lowertext(body_part), article) == 1)
+		if(findtext(LOWER_TEXT(body_part), article) == 1)
 			body_part = copytext(body_part, length(article) + 1)
 			break
 	while(length(body_part) && findtext(".!,?", copytext(body_part, -1)))
@@ -1548,7 +1548,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_heat(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("heat")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_heat = null
@@ -1581,7 +1581,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_well_trained_toggle(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("well_trained")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_train = null
@@ -1613,7 +1613,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 
 /proc/process_mkultra_command_piss_self(message, mob/living/user, list/listeners, power_multiplier)
 	var/list/patterns = mkultra_cmd_patterns("piss_self")
-	if(!mkultra_command_matches(message, lowertext(message), patterns))
+	if(!mkultra_command_matches(message, LOWER_TEXT(message), patterns))
 		return FALSE
 	mkultra_debug("piss-self matched by [user] -> [listeners.len] listeners")
 
@@ -1647,7 +1647,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_sissy(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/list/patterns = mkultra_cmd_patterns("sissy")
 	var/match_idx = mkultra_command_match_index(message, lowered, patterns)
 	var/do_sissy = null
@@ -1683,7 +1683,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_pet_tether(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/static/regex/tether_words = regex("\\b(tether mood|distance mood|homesick|pet tether)\\b", "i")
 	if(!findtext(lowered, tether_words))
 		return FALSE
@@ -1726,7 +1726,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	return TRUE
 
 /proc/process_mkultra_command_slot_lock(message, mob/living/user, list/listeners, power_multiplier)
-	var/lowered = lowertext(message)
+	var/lowered = LOWER_TEXT(message)
 	var/lock_idx = findtext(lowered, regex("\\block\\b", "i"))
 	var/unlock_idx = findtext(lowered, regex("\\bunlock\\b", "i"))
 	if(!lock_idx && !unlock_idx)
@@ -2023,7 +2023,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_worship_tick, humanoid), nearby ? 12 SECONDS : 20 SECONDS)
 
 /proc/mkultra_worship_pronoun(body_part)
-	var/lower = lowertext(body_part)
+	var/lower = LOWER_TEXT(body_part)
 	if(findtext(lower, " and "))
 		return "them"
 	if(copytext(lower, -1) == "s" && !findtext(lower, "ss", -1))
@@ -2119,7 +2119,7 @@ var/global/list/mkultra_strip_slot_lookup = list(
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_sissy_tick, humanoid), 20 SECONDS)
 
 /proc/mkultra_is_sissy_friendly(obj/item/clothing/W)
-	var/name_lower = lowertext(W.name)
+	var/name_lower = LOWER_TEXT(W.name)
 	// Feminine cues and kink gear that should be allowed.
 	if(findtext(name_lower, regex("latex|maid|bunny|dress|skirt|panty|panties|bra|corset|lingerie|stocking|thigh|fishnet|heels|leotard|gown|sundress|bloomers|kitten|bimbo|collar|choker|gag|bit|muzzle|hypno|hypnosis|chastity|harness|bondage|deprivation|gimp|flower")))
 		return TRUE
