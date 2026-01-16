@@ -6,11 +6,11 @@
 	crate_name = "sword and jitte"
 
 /datum/supply_pack/security/sec_truncheon
-	name = "Blackjack Crate"
-	desc = "A three pack great value for when you really need to get your point across against a thief."
+	name = "Electric Blade"
+	desc = "A three pack great value of shockingly effective blade. Apply to weak point for maximum effectiveness"
 	cost = CARGO_CRATE_VALUE * 20
 	contains = list(/obj/item/melee/sec_truncheon = 3)
-	crate_name = "disciplinary weapon"
+	crate_name = "disciplinary bladed weapon"
 
 /*===
 Daisho (large and small)
@@ -65,7 +65,7 @@ Speaking of which, daisho are also fun :3
 /*
 I couldn't careless if I'm right or wrong, I care that I didn't sit down and let someone make a godawful PR while all I did was complain
 Some of us are bloody fucking awful innit? but that's the thing, people are disagreeable
-And somewhere, somehow. you do need to try to do something you want to see. This project was always made for you, my dearest reader!
+And somewhere, somehow. you do need to try to do something you want to see. This project was always made for you
 
 Paxil is aware of my stupid idea and said that all security naturally converge to paxil sec
 He may be right afterall.
@@ -180,7 +180,7 @@ He may be right afterall.
 //You said you didn't like astral projecting heretic, and I wasn't sure how to interpret it? We said we won't nerf heretic
 //So, have it the way I had in mind
 
-//We keep this a subtype of the reverbing blade for later
+//We keep this a subtype of the reverbing blade because I had an idea to make an ERT version later
 /obj/item/melee/reverbing_blade/oscula
 	name = "oscillating sword"
 	desc = "A long energy blade fielded by the Ugora regal guardian. These 'swords' lack sharp edges, that said, it is still extremely lightweight to swing and can burn target hit by it, and is easier to block incoming attack with."
@@ -224,7 +224,7 @@ He may be right afterall.
 
 /obj/item/knife/oscu_tanto
 	name = "\improper realta"
-	desc = "An electrified blade commonly used by the kayian janissary force for disciplinary actionn and peacekeeping."
+	desc = "An electrified blade, designed by ugora orbit. These are used in frontier peacekeeping operation and for disciplinary action."
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
 	icon_state = "tanto"
 	inhand_icon_state = "tantohand"
@@ -239,14 +239,14 @@ He may be right afterall.
 	armour_penetration = 25
 	attack_speed = 11 //The main purpose of this weapon is to let you get some powerful alpha strike in, some target will be stunbaton resistant, so we should keep that in mind.
 	var/bonus_mod = 1
+	var/electric_set_timer = 2 SECONDS
 
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	damtype = BURN
 
 /obj/item/knife/oscu_tanto/examine_more(mob/user)
 	. = ..()
-	. += span_info("This knife deals more damage when attacking from behind, hitting a target laying down or if they are incapacitated. Such as from succesful baton hit. \
-		Mastery of this blade is imperative to any close quarter combatant.")
+	. += span_info("This knife is able to shock and knock down target when hitting from behind or while they're vulnerable.")
 
 /obj/item/knife/oscu_tanto/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
@@ -261,11 +261,18 @@ He may be right afterall.
 	if(HAS_TRAIT(living_target, TRAIT_INCAPACITATED))
 		ritual_worthy = TRUE
 
+	if(living_target.get_timed_status_effect_duration(/datum/status_effect/designated_target))
+		ritual_worthy = TRUE
+
 	if(check_behind(user, living_target))
 		ritual_worthy = TRUE
 
 	if(ritual_worthy)
-		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, bonus_mod) ///This makes it do 35 damage, still a lot but its situational enough; see other weapon that do 30 damage
+		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, bonus_mod)
+		living_target.Knockdown(electric_set_timer)
+		living_target.visible_message(span_danger("[user] shocked [living_target]!"), span_userdanger("[user] shocked you down with [src]!"))
+		living_target.electrocute_act(5, caster, 1, SHOCK_NOGLOVES | SHOCK_NOSTUN))//doesn't stun. never let this stun
+
 	return ..()
 
 /obj/item/knife/oscu_tanto/uplink
@@ -274,16 +281,16 @@ He may be right afterall.
 	icon_state = "evilfuckingtanto"
 	inhand_icon_state = "evilfuckingtantohand"
 	force = 10
-	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 20 //Long Slim Throwing Knives
 	wound_bonus = 5
 	exposed_wound_bonus = 15 //Exposed wound bonus work much more effectively with high AP, while regular wound bonus also works in liu of this. The important thing here is that raw wound bonus works regardless of armour and exposed wound bonus works when nothing is obscuring it.
 	armour_penetration = 40
 	attack_speed = 14 //We shouldn't let the player spam a high damage attack
 	bonus_mod = 4
+	electric_set_timer = 0 //It should not fucking combo with itself that would be overpowered as hell
 
-
-/obj/item/melee/sec_truncheon
+/obj/item/melee/sec_truncheon //I am reserving this as a different melee type incase I need to redesign it
 	name = "\improper blackjack" //Thief is a pretty cool game.
 	desc = "A short, easily concealed club weapons consisting of a dense weight attached to the end of a short shaft" //copied from wikipedia, feel free to put cooler one if you got it in mind, mhm?
 	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/jitte.dmi'
@@ -350,6 +357,7 @@ He may be right afterall.
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/melee/sec_truncheon,
+		/obj/item/knife/oscu_tanto,
 	))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -357,7 +365,7 @@ He may be right afterall.
 	new /obj/item/restraints/handcuffs(src)
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/melee/sec_truncheon(src)
+	new /obj/item/knife/oscu_tanto(src)
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
 
