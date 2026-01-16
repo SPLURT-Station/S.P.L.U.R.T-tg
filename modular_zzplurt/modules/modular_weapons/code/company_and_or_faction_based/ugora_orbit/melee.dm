@@ -271,12 +271,8 @@ He may be right afterall.
 /obj/item/knife/oscu_tanto/uplink
 	name = "\improper illicitor"
 	desc = "A long thin blade commonly used by Kayian Janissary to finish off vulnerable opponent and in most case, for assasination. Stabbing a <b> proned </b> target will deal more damage"
-	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto.dmi'
-	icon_state = "tanto"
-	inhand_icon_state = "tantohand"
-	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_lefthand.dmi'
-	righthand_file = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/tanto_righthand.dmi'
-	worn_icon_state = "knife"
+	icon_state = "evilfuckingtanto"
+	inhand_icon_state = "evilfuckingtantohand"
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL //It's not exactly big but it's kind of long.
 	throwforce = 20 //Long Slim Throwing Knives
