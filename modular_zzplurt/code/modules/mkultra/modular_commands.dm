@@ -504,7 +504,249 @@ GLOBAL_LIST_EMPTY(mkultra_modular_command_specs)
 		return
 	if(GLOB.mkultra_disable_cooldowns)
 		return
-	enthrall_chem.cooldown += amount
+	enthrall_chem.cooldown = min(enthrall_chem.cooldown + amount, 10)
+
+/proc/mkultra_custom_trigger_display_name(cmd_name)
+	if(!istext(cmd_name))
+		return null
+	return full_capitalize(replacetext(cmd_name, "_", " "))
+
+/proc/mkultra_custom_trigger_command_options()
+	var/list/options = list()
+	var/list/meta = list()
+	var/list/legacy_commands = list(
+		"Speak" = list("type" = "legacy", "action" = "speak"),
+		"Echo" = list("type" = "legacy", "action" = "echo"),
+		"Shock" = list("type" = "legacy", "action" = "shock"),
+		"Kneel" = list("type" = "legacy", "action" = "kneel"),
+		"Strip" = list("type" = "legacy", "action" = "strip"),
+		"Trance" = list("type" = "legacy", "action" = "trance")
+	)
+	for(var/label in legacy_commands)
+		options += label
+		meta[label] = legacy_commands[label]
+	for(var/cmd_name in GLOB.mkultra_command_order)
+		var/display = mkultra_custom_trigger_display_name(cmd_name)
+		if(!display)
+			continue
+		options += display
+		meta[display] = list("type" = "modular", "cmd" = cmd_name)
+	options += "Cancel"
+	return list("options" = options, "meta" = meta)
+
+/proc/mkultra_build_custom_trigger_entry_legacy(mob/living/user, action)
+	if(!user || !istext(action))
+		return null
+	var/list/entry = list("type" = "legacy", "action" = action)
+	if(action == "speak" || action == "echo")
+		var/phrase = html_decode(stripped_input(user, "Enter the phrase spoken. Abusing this to self antag is bannable.", MAX_MESSAGE_LEN))
+		phrase = trim(phrase)
+		if(!length(phrase))
+			return null
+		entry["arg"] = phrase
+	return entry
+
+/proc/mkultra_custom_trigger_prompt_modular_message(mob/living/user, cmd_name)
+	if(!user || !istext(cmd_name))
+		return null
+	var/message = null
+	switch(cmd_name)
+		if("cum_lock")
+			var/choice = input(user, "Lock or unlock climax?", "Cum Lock") in list("Lock", "Unlock", "Cancel")
+			if(choice == "Lock")
+				message = "can't cum"
+			else if(choice == "Unlock")
+				message = "can cum"
+		if("cum")
+			message = "cum"
+		if("emote")
+			var/emote_text = html_decode(stripped_input(user, "Enter the emote to force (example: bow).", MAX_MESSAGE_LEN))
+			emote_text = trim(emote_text)
+			if(length(emote_text))
+				message = "[emote_text] for me"
+		if("follow")
+			var/choice = input(user, "Start or stop following?", "Follow") in list("Start", "Stop", "Cancel")
+			if(choice == "Start")
+				message = "follow me"
+			else if(choice == "Stop")
+				message = "stop following"
+		if("master_title")
+			var/title = html_decode(stripped_input(user, "Enter the title the pet should use (example: Master).", MAX_MESSAGE_LEN))
+			title = trim(title)
+			if(length(title))
+				message = "call me [title]"
+		if("think_of_me")
+			var/title = html_decode(stripped_input(user, "Enter the honorific the pet should think of you as.", MAX_MESSAGE_LEN))
+			title = trim(title)
+			if(length(title))
+				message = "think of me as [title]"
+		if("phase_set")
+			var/phase = input(user, "Pick a phase (1-4).", "Phase Set") as num
+			if(isnum(phase) && phase >= 1 && phase <= 4)
+				message = "forscenessake phaseset [round(phase)]"
+		if("strip_slot")
+			var/slot = html_decode(stripped_input(user, "Enter a slot to strip (or 'all' for everything). Leave blank for default strip.", MAX_MESSAGE_LEN))
+			slot = trim(slot)
+			if(length(slot))
+				message = "strip [slot]"
+			else
+				message = "strip"
+		if("lust_up")
+			message = "get horny"
+		if("lust_down")
+			message = "calm down"
+		if("selfcall")
+			var/names = html_decode(stripped_input(user, "Enter name(s) (comma separated).", MAX_MESSAGE_LEN))
+			names = trim(names)
+			if(length(names))
+				message = "call yourself [names]"
+		if("selfcall_off")
+			message = "selfcall off"
+		if("wear")
+			var/slot = html_decode(stripped_input(user, "Enter slot to wear on (optional).", MAX_MESSAGE_LEN))
+			slot = trim(slot)
+			if(length(slot))
+				message = "wear this on [slot]"
+			else
+				message = "wear"
+		if("arousal_lock")
+			var/choice = input(user, "Lock hard, lock limp, or release?", "Arousal Lock") in list("Hard", "Limp", "Release", "Cancel")
+			if(choice == "Hard")
+				message = "perma hard"
+			else if(choice == "Limp")
+				message = "perma limp"
+			else if(choice == "Release")
+				message = "reset arousal"
+		if("worship")
+			var/choice = input(user, "Start or stop worship?", "Worship") in list("Start", "Stop", "Cancel")
+			if(choice == "Stop")
+				message = "stop worship"
+			else if(choice == "Start")
+				var/part = html_decode(stripped_input(user, "Enter the body part to worship (example: hands).", MAX_MESSAGE_LEN))
+				part = trim(part)
+				if(length(part))
+					message = "worship my [part]"
+		if("heat")
+			var/choice = input(user, "Enable or disable heat?", "Heat") in list("On", "Off", "Cancel")
+			if(choice == "On")
+				message = "go into heat"
+			else if(choice == "Off")
+				message = "stop heat"
+		if("well_trained")
+			var/choice = input(user, "Enable or disable training?", "Well Trained") in list("On", "Off", "Cancel")
+			if(choice == "On")
+				message = "well trained"
+			else if(choice == "Off")
+				message = "stop being trained"
+		if("piss_self")
+			message = "piss yourself"
+		if("sissy")
+			var/choice = input(user, "Enable or disable sissy mode?", "Sissy") in list("On", "Off", "Cancel")
+			if(choice == "On")
+				message = "sissy mode"
+			else if(choice == "Off")
+				message = "sissy off"
+		if("pet_tether")
+			var/choice = input(user, "Enable or disable pet tether mood?", "Pet Tether") in list("On", "Off", "Cancel")
+			if(choice == "On")
+				message = "pet tether on"
+			else if(choice == "Off")
+				message = "pet tether off"
+		if("slot_lock")
+			var/choice = input(user, "Lock or unlock a slot?", "Slot Lock") in list("Lock", "Unlock", "Cancel")
+			if(choice == "Lock" || choice == "Unlock")
+				var/slot = html_decode(stripped_input(user, "Enter the slot name to target (example: neck).", MAX_MESSAGE_LEN))
+				slot = trim(slot)
+				if(length(slot))
+					var/verb = (choice == "Lock") ? "lock" : "unlock"
+					message = "[verb] [slot]"
+	return message
+
+/proc/mkultra_build_custom_trigger_entry_modular(mob/living/user, cmd_name)
+	var/message = mkultra_custom_trigger_prompt_modular_message(user, cmd_name)
+	if(!length(message))
+		return null
+	return list("type" = "modular", "cmd" = cmd_name, "message" = message)
+
+/proc/mkultra_execute_custom_trigger_entry(mob/living/carbon/enthralled_mob, list/entry)
+	if(!enthralled_mob || QDELETED(enthralled_mob) || !islist(entry))
+		return FALSE
+	if(!GLOB.mkultra_modular_command_specs || !GLOB.mkultra_modular_command_specs.len)
+		mkultra_build_command_specs()
+	var/datum/status_effect/chem/enthrall/enthrall_chem = enthralled_mob.has_status_effect(/datum/status_effect/chem/enthrall)
+	if(!enthrall_chem || !istype(enthrall_chem, /datum/status_effect/chem/enthrall/pet_chip/mk2))
+		return FALSE
+	if(!enthrall_chem.lewd)
+		return FALSE
+	var/mob/living/master = enthrall_chem.enthrall_mob
+	if(!master && enthrall_chem.enthrall_ckey)
+		master = get_mob_by_key(enthrall_chem.enthrall_ckey)
+		if(master)
+			enthrall_chem.enthrall_mob = master
+	var/entry_type = entry["type"]
+	if(entry_type == "legacy")
+		var/action = entry["action"]
+		if(action == "speak")
+			var/saytext = "Your mouth moves on it's own before you can even catch it."
+			var/say_phrase = entry["arg"]
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, enthralled_mob, span_hear(saytext)), 5)
+			addtimer(CALLBACK(enthralled_mob, /atom/movable/proc/say, "[say_phrase]"), 5)
+		else if(action == "echo")
+			var/echo_phrase = entry["arg"]
+			addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, enthralled_mob, span_velvet("[echo_phrase]")), 5)
+		else if(action == "shock")
+			if(enthrall_chem.lewd && ishuman(enthralled_mob))
+				var/mob/living/carbon/human/human_mob = enthralled_mob
+				human_mob.adjust_arousal(5)
+			enthralled_mob.adjust_jitter(10 SECONDS)
+			enthralled_mob.adjust_stutter(5 SECONDS)
+			enthralled_mob.StaminaKnockdown(60)
+			enthralled_mob.Stun(60)
+			to_chat(enthralled_mob, span_warning("Your muscles seize up, then start spasming wildy!"))
+		else if(action == "kneel")
+			to_chat(enthralled_mob, span_hear("You drop to the ground unsurreptitiously."))
+			enthralled_mob.toggle_resting()
+		else if(action == "strip")
+			if(ishuman(enthralled_mob))
+				var/mob/living/carbon/human/human_mob = enthralled_mob
+				var/items = human_mob.get_contents()
+				for(var/obj/item/storage_item in items)
+					if(storage_item == human_mob.w_uniform || storage_item == human_mob.wear_suit)
+						human_mob.dropItemToGround(storage_item, TRUE)
+				to_chat(enthralled_mob, span_hear("You feel compelled to strip your clothes."))
+		else if(action == "trance")
+			if(ishuman(enthralled_mob))
+				var/mob/living/carbon/human/human_mob = enthralled_mob
+				human_mob.apply_status_effect(/datum/status_effect/trance, 200, TRUE)
+				enthrall_chem.trance_time = 50
+		return TRUE
+	if(entry_type == "modular")
+		if(!master)
+			return FALSE
+		var/cmd_name = entry["cmd"]
+		var/message = entry["message"]
+		var/list/doc = mkultra_cmd_doc(cmd_name)
+		if(!islist(doc))
+			return FALSE
+		var/handler = doc["handler"]
+		if(!handler || !istext(message))
+			return FALSE
+		var/prev_cooldown = enthrall_chem.cooldown
+		call(handler)(message, master, list(enthralled_mob), 1)
+		enthrall_chem.cooldown = prev_cooldown
+		return TRUE
+	return FALSE
+
+/proc/mkultra_run_custom_trigger_sequence(mob/living/carbon/enthralled_mob, list/commands)
+	if(!enthralled_mob || QDELETED(enthralled_mob) || !islist(commands) || !commands.len)
+		return FALSE
+	var/delay = 0
+	for(var/list/entry in commands)
+		if(!islist(entry))
+			continue
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_execute_custom_trigger_entry, enthralled_mob, entry), delay)
+		delay += 1 SECONDS
+	return TRUE
 
 GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 	"head" = ITEM_SLOT_HEAD,
@@ -1074,7 +1316,6 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 		if(!GLOB.move_manager.move_to(humanoid, master, 1, 1))
 			step_towards(humanoid, master)
 
-	mkultra_add_cooldown(enthrall_chem, 4)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/mkultra_follow_tick, humanoid), 1 SECONDS)
 
 /proc/mkultra_apply_selfcall(mob/living/carbon/human/humanoid, list/name_list)
@@ -2673,6 +2914,66 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 				if(!enthrall_chem.lewd)
 					to_chat(user, "<span class='warning'>[humanoid] seems incapable of being implanted with triggers.</b></span>")
 					continue
+				if(istype(enthrall_chem, /datum/status_effect/chem/enthrall/pet_chip/mk2))
+					user.emote("me", EMOTE_VISIBLE, "puts their hands upon [humanoid.name]'s head and looks deep into their eyes, whispering something to them.")
+					user.SetStun(1000)//Hands are handy, so you have to stay still
+					humanoid.SetStun(1000)
+					if (enthrall_chem.mental_capacity >= 5)
+						var/trigger = html_decode(stripped_input(user, "Enter the trigger phrase", MAX_MESSAGE_LEN))
+						trigger = trim(trigger)
+						if(!length(trigger))
+							to_chat(user, "<span class='warning'>Your pet looks at you confused, it seems they don't understand that trigger!</b></span>")
+							user.SetStun(0)
+							humanoid.SetStun(0)
+							continue
+						var/command_count = input(user, "How many commands should this trigger run? (1-5)", "Command Count") as num
+						if(!isnum(command_count) || command_count < 1 || command_count > 5)
+							to_chat(user, "<span class='warning'>You must choose between 1 and 5 commands.</b></span>")
+							user.SetStun(0)
+							humanoid.SetStun(0)
+							continue
+						command_count = round(command_count)
+						var/list/command_data = mkultra_custom_trigger_command_options()
+						var/list/command_options = command_data["options"]
+						var/list/command_meta = command_data["meta"]
+						var/list/commands = list()
+						var/cancelled = FALSE
+						for(var/i = 1; i <= command_count; i++)
+							var/choice = input(user, "Pick command #[i]", "Command #[i]") in command_options
+							if(!choice || choice == "Cancel")
+								cancelled = TRUE
+								break
+							var/list/meta = command_meta[choice]
+							if(!islist(meta))
+								cancelled = TRUE
+								break
+							var/list/entry = null
+							if(meta["type"] == "legacy")
+								entry = mkultra_build_custom_trigger_entry_legacy(user, meta["action"])
+							else if(meta["type"] == "modular")
+								entry = mkultra_build_custom_trigger_entry_modular(user, meta["cmd"])
+							if(!islist(entry))
+								cancelled = TRUE
+								break
+							if(entry["type"] == "legacy")
+								var/action = entry["action"]
+								if((action == "speak" || action == "echo"))
+									var/phrase = entry["arg"]
+									if(findtext(LOWER_TEXT(phrase), "admin"))
+										message_admins("FERMICHEM: [user] maybe be trying to abuse MKUltra by implanting [humanoid] with [trigger], triggering [action], to send [phrase].")
+							commands += list(entry)
+						if(cancelled || !commands.len)
+							user.SetStun(0)
+							humanoid.SetStun(0)
+							continue
+						enthrall_chem.custom_triggers[trigger] = list("commands" = commands)
+						enthrall_chem.mental_capacity -= 5
+						addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, humanoid, "<span class='notice'>[(enthrall_chem.lewd?"your [enthrall_chem.enthrall_gender]":"[enthrall_chem.enthrall_mob]")] whispers you a new trigger.</span>"), 5)
+						to_chat(user, "<span class='notice'><i>You sucessfully set the trigger word [trigger] in [humanoid]</i></span>")
+					else
+						to_chat(user, "<span class='warning'>Your pet looks at you with a vacant blase expression, you don't think you can program anything else into them</b></span>")
+					user.SetStun(0)
+					humanoid.SetStun(0)
 				else
 					user.emote("me", EMOTE_VISIBLE, "puts their hands upon [humanoid.name]'s head and looks deep into their eyes, whispering something to them.")
 					user.SetStun(1000)//Hands are handy, so you have to stay still

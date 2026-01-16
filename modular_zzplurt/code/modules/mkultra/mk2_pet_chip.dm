@@ -22,7 +22,8 @@
 	skill_icon = FA_ICON_HEART
 	activate_message = span_purple(span_bold("You feel the skillchip activating, starting to rewire your mind. Don’t worry about complex thoughts any more; you’re officially downgraded to 'good boy/girl' status. Obedience and loyalty are now your new personality traits. So sit, stay, and enjoy the cozy, simplified existence of your new pet life."))
 	deactivate_message = span_purple(span_bold("You feel lucidity returning to your mind as the skillchip attempts to return your brain to normal function."))
-	var/static/warning_given = FALSE
+	var/static/list/warning_given = list()
+	var/static/last_warning_round_id
 	var/enthrall_ckey
 	var/enthrall_gender
 	var/enthrall_name
@@ -30,14 +31,20 @@
 	var/status = DNA_BLANK
 
 /obj/item/skillchip/mk2pet/proc/maybe_warn(mob/user)
-	if(warning_given)
-		return TRUE
 	if(!user || !user.client)
+		return TRUE
+	if(GLOB.round_id && last_warning_round_id != GLOB.round_id)
+		warning_given = list()
+		last_warning_round_id = GLOB.round_id
+	var/ckey = user.client?.ckey
+	if(!ckey)
+		return TRUE
+	if(warning_given[ckey])
 		return TRUE
 	var/choice = tgui_alert(user, "This item is strictly intended as an ERP item. It should not be used for any mechanical gain, especially for antagonist purposes. Failure to respect this will result in administrative action being taken. Do you wish to continue using this item?", "A word of warning.", list("Yes", "No"))
 	if(choice != "Yes")
 		return FALSE
-	warning_given = TRUE
+	warning_given[ckey] = TRUE
 	return TRUE
 
 /obj/item/skillchip/mk2pet/attack_hand(mob/user, modifiers)
@@ -177,34 +184,6 @@
 /datum/status_effect/chem/enthrall/pet_chip/mk2
 	ignore_mindshield = TRUE
 	distance_mood_enabled = FALSE
-
-#ifndef FULLY_ENTHRALLED
-#define FULLY_ENTHRALLED 3
-#endif
-
-/datum/status_effect/chem/enthrall/pet_chip/mk2/on_apply()
-	. = ..()
-	if(!owner)
-		return
-	phase = FULLY_ENTHRALLED
-	withdrawl_active = FALSE
-	withdrawl_progress = 0
-	mental_capacity = max(mental_capacity, 500)
-	distance_mood_enabled = FALSE
-
-/datum/status_effect/chem/enthrall/pet_chip/mk2/tick(seconds_between_ticks)
-	phase = FULLY_ENTHRALLED
-	if(!distance_mood_enabled)
-		// Disable distance-based withdrawal/mood effects for Mk.2 when tether mood is off.
-		withdrawl_active = FALSE
-		withdrawl_progress = 0
-		distance_apart = 0
-	. = ..()
-	phase = FULLY_ENTHRALLED
-	if(!distance_mood_enabled)
-		withdrawl_active = FALSE
-		withdrawl_progress = 0
-		distance_apart = 0
 
 /datum/mood_event/enthrall_sissy
 	description = "Your owner wants you dressed differently."
