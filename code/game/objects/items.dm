@@ -1391,6 +1391,7 @@
 
 /obj/item/proc/doStrip(mob/stripper, mob/owner)
 	//SKYRAT EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
+	//SPLURT REMOVAL - ORIGINAL: if (!owner.dropItemToGround(src))
 	//SPLURT ADDITION START
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, "mkultra_slot_lock"))
 		if(!stripper || !owner || stripper == owner)
