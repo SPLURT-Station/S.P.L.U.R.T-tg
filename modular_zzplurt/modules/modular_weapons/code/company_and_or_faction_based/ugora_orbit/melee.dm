@@ -323,7 +323,7 @@ He may be right afterall.
 		jacked = TRUE
 
 	if(jacked)
-		living_target.Knockdown(2.3 SECONDS)
+		living_target.Knockdown(2 SECONDS)
 		living_target.visible_message(span_danger("[user] knocked down [living_target]!"), span_userdanger("[user] knocked you down with [src]!"))
 		living_target.remove_status_effect(/datum/status_effect/staggered) //Clears your staggers
 	return ..()
