@@ -177,7 +177,7 @@ ADMIN_VERB(setup_hypothermia_event, R_DEBUG|R_FUN, "setup hypothermia event", "S
 		var/obj/item/bodypart/head = victim.get_bodypart(BODY_ZONE_HEAD)
 		if(head)
 			head.receive_damage(brute = rand(15, 25))
-			victim.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(5, 25))
+			victim.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(5, 25), 100)
 			to_chat(victim, span_userdanger("Your skull SLAMS into metal — blood pours into your eyes!"))
 
 	if(!injured)

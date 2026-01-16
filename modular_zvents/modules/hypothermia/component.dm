@@ -271,8 +271,8 @@
 			if(COOLDOWN_FINISHED(src, unconscious_cooldown) && SPT_PROB(10, seconds_per_tick))
 				COOLDOWN_START(src, unconscious_cooldown, rand(120, 180) SECONDS)
 				L.Unconscious(rand(1 SECONDS, 2 SECONDS))
-				L.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * cold_mod)
-				L.adjust_organ_loss(ORGAN_SLOT_HEART, 0.2 * cold_mod)
+				L.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * cold_mod, 100)
+				L.adjust_organ_loss(ORGAN_SLOT_HEART, 0.2 * cold_mod, 70)
 				L.adjust_oxy_loss(1.5 * cold_mod)
 
 			if(SPT_PROB(10, seconds_per_tick) && COOLDOWN_FINISHED(src, frostbite_cooldown))
@@ -307,9 +307,9 @@
 		if(HYPOTHERMIA_COLDLEVEL_LETHAL)
 			L.adjust_stamina_loss(0.3 * seconds_per_tick * cold_mod)
 
-			L.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.8 * seconds_per_tick * cold_mod)
-			L.adjust_organ_loss(ORGAN_SLOT_HEART, 0.4 * seconds_per_tick * cold_mod)
-			L.adjust_organ_loss(ORGAN_SLOT_LUNGS, 0.9 * seconds_per_tick * cold_mod)
+			L.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.8 * seconds_per_tick * cold_mod, 100)
+			L.adjust_organ_loss(ORGAN_SLOT_HEART, 0.4 * seconds_per_tick * cold_mod, 70)
+			L.adjust_organ_loss(ORGAN_SLOT_LUNGS, 0.9 * seconds_per_tick * cold_mod, 70)
 			L.adjust_oxy_loss(1 * seconds_per_tick * cold_mod)
 
 			if(SPT_PROB(10, seconds_per_tick) && COOLDOWN_FINISHED(src, frostbite_cooldown))
