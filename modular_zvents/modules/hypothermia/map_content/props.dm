@@ -1,6 +1,6 @@
 /obj/structure/prop/ship_wreck
 	name = "Wreck"
-	desc = "The shattered remains of a spacecraft, its hull torn apart by some catastrophic event."
+	desc = "The shattered remains of a spacecraft, it's hull torn apart by a horrendous catastrophic event."
 	icon = 'modular_zvents/icons/structures/props/tgmc/urbanrandomprops.dmi'
 	icon_state = "ship_wreck_nofire"
 	base_icon_state = "ship_wreck_nofire"
@@ -24,8 +24,10 @@
 	_heat_power = heat_power, \
 	_range = 1, \
 	_target_temperature = target_temperature)
-	addtimer(CALLBACK(src, PROC_REF(stop_fire)), burning_time)
+	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(times_running_out))
 
+/obj/structure/prop/ship_wreck/proc/times_running_out()
+	addtimer(CALLBACK(src, PROC_REF(stop_fire)), burning_time)
 
 /obj/structure/prop/ship_wreck/proc/stop_fire()
 	icon_state = "ship_wreck_nofire"

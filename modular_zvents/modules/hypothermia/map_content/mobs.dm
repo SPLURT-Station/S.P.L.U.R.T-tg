@@ -192,6 +192,8 @@
 
 /mob/living/basic/arctic_mutant/take_control(mob/user)
 	. = ..()
+	if(!.)
+		return
 	color = COLOR_RED
 	maxHealth = 250
 	name = "Evolved [name]"
@@ -205,7 +207,6 @@
 	update_sight()
 	transform.Scale(1.3, 1.3)
 	add_movespeed_modifier(/datum/movespeed_modifier/arctic_mutant_player, TRUE)
-	grant_actions_by_list(list(/datum/action/cooldown/mob_cooldown/boss_charge/cheap))
 
 /datum/movespeed_modifier/arctic_mutant_player
 	multiplicative_slowdown = -1
