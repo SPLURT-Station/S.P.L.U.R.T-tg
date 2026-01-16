@@ -3537,6 +3537,7 @@
 	},
 /obj/structure/prop/smelter{
 	name = "Crafter";
+	desc = "You can toss in some materials to make wind turbines!"
 	anchored = 1
 	},
 /obj/structure/marker_beacon/burgundy,
@@ -6918,6 +6919,7 @@
 /obj/item/food/canned,
 /obj/structure/prop/sorter{
 	name = "Emergency dispenser";
+	desc = "You can take out emergency equipment out of here!"
 	anchored = 1
 	},
 /obj/structure/marker_beacon/burgundy,
@@ -9510,6 +9512,7 @@
 	},
 /obj/structure/prop/smelter{
 	name = "Crafter";
+	desc = "You can toss in some materials to make wind turbines!"
 	anchored = 1
 	},
 /obj/structure/marker_beacon/burgundy,
@@ -9641,12 +9644,13 @@
 /area/hypothermia/indoor/outpost/progres/research)
 "Kk" = (
 /obj/effect/mapping_helpers/crafter_recipe{
-	ingredients = list(/obj/item/stack/cable_coil/five=5, /obj/item/stack/rods/shuttle/five=3);
+	ingredients = list(/obj/item/stack/cable_coil/five=5, /obj/item/stack/rods=3);
 	name = "Crafter over prop(flashlight)";
 	target_crafter_type = /obj/structure/prop/smelter
 	},
 /obj/structure/prop/smelter{
 	name = "Crafter";
+	desc = "You can toss in some materials to make flashlights!"
 	anchored = 1
 	},
 /obj/item/flashlight,
@@ -10725,6 +10729,7 @@
 	},
 /obj/structure/prop/smelter{
 	name = "Crafter";
+	desc = "You can toss in some materials to make wind turbines!"
 	anchored = 1
 	},
 /obj/structure/marker_beacon/burgundy,

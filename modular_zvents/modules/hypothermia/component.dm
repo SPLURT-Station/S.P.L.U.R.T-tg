@@ -120,6 +120,7 @@
 	if(target_temperature < lower_cooltreshhold)
 		amount *= 0.5
 	stored_bodytemperature = stored_bodytemperature + (amount * heating_rate)
+	stored_bodytemperature = clamp(stored_bodytemperature, T0C - 100, T0C + 500)
 	return TRUE
 
 /datum/component/hypothermia/proc/adjust_scaled_temp(mob/living/living_mob, amount, ignore_protection = FALSE)
