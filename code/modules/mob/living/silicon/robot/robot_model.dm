@@ -842,6 +842,7 @@
 		/obj/item/borg/cyborghug/peacekeeper,
 		/obj/item/extinguisher,
 		/obj/item/borg/projectile_dampen,
+		/obj/item/restraints/handcuffs/cable/zipties //SPLURT CHANGE - ADDS Zipties to Peacekeeper Model
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/peace/hacked,
