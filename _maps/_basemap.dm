@@ -34,6 +34,9 @@
 		#include "map_files\moonstation\moonstation.dmm"
 		#include "map_files\BoxStation\BoxStation.dmm"
 		// BUBBER EDIT ADDITION END
+		// SPLURT EDIT ADDITION START
+		#include "map_files\untramstation\untramstation.dmm"
+		// SPLURT EDIT ADDITION END
 	#endif
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"
