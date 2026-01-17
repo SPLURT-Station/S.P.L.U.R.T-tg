@@ -45,6 +45,10 @@
 			"name" = RADIO_CHANNEL_COMMAND,
 			"color" = RADIO_COLOR_COMMAND
 		),
+		"[FREQ_IAA]" = list( // SPLURT EDIT
+			"name" = RADIO_CHANNEL_IAA,
+			"color" = RADIO_COLOR_IAA
+		),
 		"[FREQ_ENGINEERING]" = list(
 			"name" = RADIO_CHANNEL_ENGINEERING,
 			"color" = RADIO_COLOR_ENGINEERING
