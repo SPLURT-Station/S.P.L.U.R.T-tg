@@ -270,8 +270,8 @@ He may be right afterall.
 	if(ritual_worthy)
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, bonus_mod)
 		living_target.Knockdown(electric_set_timer)
-		living_target.visible_message(span_danger("[user] shocked [living_target]!"), span_userdanger("[user] shocked you down with [src]!"))
-		living_target.electrocute_act(5, caster, 1, SHOCK_NOGLOVES | SHOCK_NOSTUN))//doesn't stun. never let this stun
+		living_target.visible_message(span_danger("[user] shocked [living_target]!"), span_userdanger("[user] shocked with [src]!"))
+		living_target.electrocute_act(5, user, 1, SHOCK_NOGLOVES | SHOCK_NOSTUN)
 
 	return ..()
 
