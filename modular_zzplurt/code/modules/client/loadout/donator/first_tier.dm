@@ -50,13 +50,18 @@
 	item_path = /obj/item/clothing/suit/chaplainsuit/armor/templar/hospitaller/no_armor
 	donator_tier = DONATOR_TIER_1
 
+/datum/loadout_item/suit/donator/press_vest
+	name = "Press vest"
+	item_path = /obj/item/clothing/suit/armor/vest/press
+	donator_tier = DONATOR_TIER_1
+
 //Head
 /datum/loadout_item/head/donator/crown/fancy
-	name = "magnificent crown"
+	name = "Magnificent crown"
 	item_path = /obj/item/clothing/head/costume/crown/fancy
 	donator_tier = DONATOR_TIER_1
 
-/datum/loadout_item/head/donator/press_helmet
+/datum/loadout_item/head/donator/press_helmet/unarmored
 	name = "Press helmet"
 	item_path = /obj/item/clothing/head/helmet/press
 	donator_tier = DONATOR_TIER_1
