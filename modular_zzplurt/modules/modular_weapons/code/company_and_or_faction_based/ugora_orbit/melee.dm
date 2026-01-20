@@ -1,15 +1,15 @@
 /datum/supply_pack/security/armory/secdaisho
 	name = "Resonance Sword Crate"
 	desc = "A three pack of the Ugora Orbit branded reverbing blade and the sheath for them. Incase you somehow lost it"
-	cost = CARGO_CRATE_VALUE * 45
+	cost = CARGO_CRATE_VALUE * 35
 	contains = list(/obj/item/storage/belt/secdaisho = 3)
 	crate_name = "sword and jitte"
 
-/datum/supply_pack/security/sec_truncheon
+/datum/supply_pack/security/sec_tanto
 	name = "Electric Blade"
 	desc = "A three pack great value of shockingly effective blade. Apply to weak point for maximum effectiveness"
 	cost = CARGO_CRATE_VALUE * 20
-	contains = list(/obj/item/melee/sec_truncheon = 3)
+	contains = list(/obj/item/knife/oscu_tanto = 3)
 	crate_name = "disciplinary bladed weapon"
 
 /*===
