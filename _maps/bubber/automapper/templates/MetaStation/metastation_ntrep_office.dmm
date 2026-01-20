@@ -5,11 +5,16 @@
 	id = "nt_rep_priv";
 	name = "Privacy Shutter"
 	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "nt_rep_priv";
+	name = "Privacy Shutters";
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
 /obj/structure/chair/comfy/beige,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
 /turf/closed/wall/r_wall,
@@ -28,25 +33,23 @@
 /obj/item/table_clock{
 	pixel_y = 5
 	},
-/turf/open/floor/wood,
+/obj/machinery/button/door/directional/west{
+	name = "Privacy Shutters Control";
+	id = "nt_rep_priv";
+	req_access = list("cent_general")
+	},
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
 /obj/structure/table/wood,
 /obj/item/statuebust/hippocratic{
 	pixel_y = 8
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
-/obj/structure/filingcabinet,
-/obj/structure/filingcabinet/medical{
-	pixel_x = -10
-	},
-/obj/structure/filingcabinet/security{
-	pixel_x = 10
-	},
-/obj/effect/turf_decal/siding/dark,
-/turf/open/floor/carpet/green,
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
 /obj/structure/bed/dogbed,
@@ -55,7 +58,7 @@
 	desc = "Prefers to chew on carpet, watch the Consultant, and be regularly patted."
 	},
 /obj/machinery/light/directional/east,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "j" = (
 /obj/structure/sign/poster/official/random/directional/south,
@@ -67,23 +70,23 @@
 /area/station/command/heads_quarters/nt_rep)
 "k" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "l" = (
 /obj/structure/cable,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
 /obj/structure/chair/comfy/beige,
 /obj/machinery/firealarm/directional/west,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "p" = (
-/obj/effect/turf_decal/tile/neutral{
+/obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/hallway/primary/port)
+/area/template_noop)
 "q" = (
 /turf/closed/wall,
 /area/station/command/heads_quarters/nt_rep)
@@ -92,11 +95,11 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "u" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "v" = (
 /obj/machinery/camera/directional/west{
@@ -105,14 +108,11 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
-/obj/effect/turf_decal/tile/neutral{
+/obj/effect/turf_decal/tile/blue{
 	dir = 8
-	},
-/obj/item/banner{
-	inspiration_available = 0
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
@@ -126,20 +126,18 @@
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
 /obj/machinery/firealarm/directional/east,
-/obj/item/bedsheet/centcom/double,
-/obj/structure/bed/double,
 /obj/machinery/light/small/blacklight/directional/east{
 	desc = "A small lighting fixture. Why is this here?"
 	},
-/turf/open/floor/carpet/green,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
 /obj/machinery/holopad,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
-/turf/open/floor/carpet/green,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "B" = (
 /obj/structure/table/wood,
@@ -169,11 +167,7 @@
 "C" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/machinery/light_switch/directional/east,
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
 /turf/template_noop,
@@ -183,18 +177,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "F" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/siding/wood/corner,
-/obj/machinery/status_display/ai/directional/east,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/nt_rep)
-"H" = (
-/obj/machinery/vending/boozeomat,
-/turf/closed/wall/r_wall,
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
 /obj/effect/turf_decal/siding/wood{
@@ -213,20 +202,15 @@
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "L" = (
-/turf/open/floor/carpet/green,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "M" = (
 /obj/machinery/modular_computer/preset/time_clock/directional/south,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
-"N" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/structure/sign/flag/galfed/directional/east,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/nt_rep)
 "O" = (
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/siding/wood{
@@ -235,17 +219,12 @@
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
-/obj/machinery/door/airlock/corporate{
-	name = "NT Consultant's Office"
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
-/turf/open/floor/carpet/green,
-/area/station/command/heads_quarters/nt_rep)
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/turf/open/floor/iron,
+/area/template_noop)
 "Q" = (
 /obj/machinery/door/airlock/corporate{
 	name = "NT Consultant's Office"
@@ -255,21 +234,8 @@
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/unres,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/nt_rep)
-"S" = (
-/obj/structure/chair/plastic,
-/turf/open/floor/carpet/green,
-/area/station/command/heads_quarters/nt_rep)
-"T" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/nt_rep)
 "V" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -286,16 +252,9 @@
 "Y" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
-"Z" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/machinery/photocopier/prebuilt,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/nt_rep)
 
 (1,1,1) = {"
-D
+P
 d
 d
 d
@@ -317,7 +276,7 @@ x
 d
 "}
 (3,1,1) = {"
-p
+w
 a
 g
 k
@@ -328,11 +287,11 @@ j
 d
 "}
 (4,1,1) = {"
-D
+p
 Q
 F
 C
-N
+l
 z
 e
 O
@@ -342,10 +301,10 @@ d
 M
 Y
 Y
-Y
-Y
-H
-Z
+L
+L
+L
+L
 u
 V
 "}
@@ -353,10 +312,10 @@ V
 D
 D
 Y
-S
 L
-P
-T
+L
+L
+L
 E
 d
 "}
@@ -366,7 +325,7 @@ D
 Y
 A
 y
-Y
+L
 h
 i
 d
