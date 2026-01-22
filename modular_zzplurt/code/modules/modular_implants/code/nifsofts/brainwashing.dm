@@ -6,7 +6,7 @@
 // More advanced variant for full brainwashing
 /datum/nifsoft/action_granter/hypnosis/brainwashing
 	name = "Mesmer Eye"
-	program_desc = "Based on illegal abductor technology, the Mesmer Eye NIFSoft allows the user to completely control others actions. Unlike Libidine Eye, victims are unable to resist once given an order. You will be held responsible for your target's actions."
+	program_desc = "Based on illegal abductor technology, the Mesmer Eye NIFSoft allows programming new directives into a target. Victims may still resist being given an order without proper persuasion. ((This is not the intended tool for ERP hypnosis. Use Libidine Eye instead.))"
 
 	// Has a cost
 	active_cost = 0.1
@@ -17,3 +17,18 @@
 
 	// Grants different action
 	action_to_grant = /datum/action/cooldown/hypnotize/brainwash
+
+// Performed when installing the NIF
+/obj/item/disk/nifsoft_uploader/dorms/hypnosis/brainwashing/attempt_software_install(mob/living/carbon/human/target)
+	. = ..()
+
+	// Check parent return
+	if(. == FALSE)
+		// Do nothing
+		return
+
+	// Provide warning text
+	to_chat(target, span_doyourjobidiot("\
+		Do not use the Mesmer Eye to convert other crew members into antagonists.\
+		Neither you nor the target are exempt from normal server standards. Act accordingly."
+	))
