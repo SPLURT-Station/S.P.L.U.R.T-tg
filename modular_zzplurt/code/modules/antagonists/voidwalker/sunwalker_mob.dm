@@ -10,9 +10,26 @@
 
 	obj_damage = 38 // SPLURT change, decreased to 38 from 50
 
-	hotspot_temperature = 750 // SPLURT change, decreased to 750 from 1000
-	/// Gas volume passively exposed to our temperature
-	hotspot_volume = 50 // SPLURT change, decreased to 50 from 100
+	hotspot_volume = 75 // SPLURT change, decreased to 75 from 100
 
 	/// Water damage we take on any exposure
 	water_damage = 25 // SPLURT change, increased to 25 from 20
+
+	/datum/action/cooldown/spell/pointed/unsettle/unsettle
+
+/mob/living/basic/voidwalker/sunwalker/unique_setup()
+	. = ..()
+
+	AddComponent(/datum/component/regenerator, brute_per_second = 2, burn_per_second = 2, outline_colour = regenerate_colour, regen_check = CALLBACK(src, PROC_REF(can_regen)))
+
+/mob/living/basic/voidwalker/sunwalker/examine(mob/user)
+	. = ..()
+
+	if(!iscarbon(user))
+		return
+
+	// MY EYEESSS!!!
+	var/mob/living/carbon/carbon = user
+	if(carbon.get_eye_protection() < 1)
+		var/obj/item/organ/eyes/burning_orbs = locate() in carbon.organs
+		burning_orbs?.apply_organ_damage(20)
