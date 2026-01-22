@@ -300,7 +300,7 @@
 	if(!(parent.obscured_slots & HIDEEYES))
 		overlays += get_emissive_overlays(eye_left, eye_right, parent)
 
-	//var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD) // SPLURT EDIT REMOVAL -  moved up a few lines
+	var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD)
 
 	if(!my_head)
 		return overlays
