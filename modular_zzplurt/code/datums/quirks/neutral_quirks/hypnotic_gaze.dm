@@ -77,7 +77,7 @@
 // Upgraded variant
 /datum/action/cooldown/hypnotize/brainwash
 	name = "Brainwash"
-	desc = "Invade someone's using advanced memetic brainwaves to give them new directives."
+	desc = "Invade someone's mind using advanced memetic brainwaves to give them new directives."
 	cooldown_time = HYPNOEYES_COOLDOWN_BRAINWASH
 
 	// Should this create a brainwashed victim?
