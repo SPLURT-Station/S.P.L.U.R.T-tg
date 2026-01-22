@@ -44,3 +44,6 @@
 
 #define BELLY_MIN_SIZE 0
 #define BELLY_MAX_SIZE 10
+
+/// species
+#define SPECIES_AVALI "avali"

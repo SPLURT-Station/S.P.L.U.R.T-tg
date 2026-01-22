@@ -116,6 +116,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// generic features
 	feature_list[FEATURE_MUSH_CAP] = INIT_ACCESSORY(/datum/sprite_accessory/caps)
 	feature_list[FEATURE_POD_HAIR] = INIT_ACCESSORY(/datum/sprite_accessory/pod_hair)
+	feature_list[FEATURE_AVALI_HAIR] = INIT_ACCESSORY(/datum/sprite_accessory/hair/avali)
 	feature_list[FEATURE_TAIL_FISH] = INIT_ACCESSORY(/datum/sprite_accessory/tails/fish)
 	feature_list[FEATURE_TAIL_MONKEY] = INIT_ACCESSORY(/datum/sprite_accessory/tails/monkey)
 	feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)

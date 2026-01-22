@@ -17,3 +17,7 @@
 #define PENIS_LAYER_OFFSET		0.3
 #define BELLY_LAYER_OFFSET		0.2
 #define BREASTS_LAYER_OFFSET	0.1
+
+
+// Species icon path
+#define BODYPART_ICON_AVALI 'modular_zzplurt/code/modules/avali/sprites/avali_parts_greyscale.dmi'
