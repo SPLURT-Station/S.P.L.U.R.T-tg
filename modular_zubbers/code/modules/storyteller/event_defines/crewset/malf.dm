@@ -6,7 +6,7 @@
 	maximum_antags = 1
 	maximum_antags_global = 1
 
-	min_players = 20
+	min_players = 40
 	roundstart = FALSE
 	alert_observers = TRUE
 
