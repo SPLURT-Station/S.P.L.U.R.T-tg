@@ -28,7 +28,5 @@
 		return
 
 	// Provide warning text
-	to_chat(target, span_doyourjobidiot("\
-		Do not use the Mesmer Eye to convert other crew members into antagonists.\
-		Neither you nor the target are exempt from normal server standards. Act accordingly."
-	))
+	to_chat(target, span_doyourjobidiot("Do not use the Mesmer Eye to convert other crew members into antagonists.\
+		Neither you nor the target are exempt from normal server standards. Act accordingly."))
