@@ -9,15 +9,16 @@
 	TRAIT_MUTANT_COLORS,
 	TRAIT_NO_HUSK,
 	)
-	digitigrade_customization = DIGITIGRADE_NEVER
+	digitigrade_customization = DIGITIGRADE_FORCED
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
 	mutanttongue = /obj/item/organ/tongue/avali
 	coldmod = 1
-	heatmod = 1
-	bodytemp_normal = 160
-	bodytemp_heat_damage_limit = 330
-	bodytemp_cold_damage_limit = 110
+	heatmod = 1.2
+	exotic_bloodtype = BLOOD_TYPE_AVALI
+	bodytemp_normal = 193 // -50C
+	bodytemp_heat_damage_limit = 330 // 57C
+	bodytemp_cold_damage_limit = 120 // -113C
 	species_language_holder = /datum/language_holder/avali
 	mutantears = /obj/item/organ/ears/avali
 	mutantlungs = /obj/item/organ/lungs/adaptive/cold
@@ -30,12 +31,15 @@
 	BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/avali,
 	BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/avali,
 	)
+	mutant_organs = list(
+		/obj/item/organ/avali_hair = "None",
+	)
 	meat = /obj/item/food/meat/slab/chicken/human
 
 
 /obj/item/organ/tongue/avali
-	liked_foodtypes = SEAFOOD | VEGETABLES | NUTS
-	disliked_foodtypes = GROSS | GRAIN
+	liked_foodtypes = MEAT | GORE | VEGETABLES
+	disliked_foodtypes = GROSS | GRAIN | NUTS | DAIRY
 
 /datum/language_holder/avali
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
@@ -81,10 +85,5 @@
 
 /datum/species/avali/get_species_description()
 	return list(
-		"Birb times two",
-	)
-
-/datum/species/avali/get_species_lore()
-	return list(
-		"Birbs",
+		"Resembling something like a cross between a large rabbit, and avian. Avali stand bipedally, with digitigrade pose, usually appearing slightly tilted forward. Their arms are slightly longer than humans, ending in three-fingered hands with small claws. Their heads are elongated and beak-like, with large eyes and a set of four long ears atop their heads. Their bodies are covered in short fur, often in shades of brown, grey, or white. Avali have a pair of large, feathered wings folded against their backs, which they use for gliding rather than powered flight. They are known for their agility and keen senses, their sight is weaker than most species, due to dim light conditions on their homeworld, but are have amazing hearing ability.",
 	)

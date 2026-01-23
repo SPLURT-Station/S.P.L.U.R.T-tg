@@ -70,7 +70,6 @@
 #define FEATURE_MOTH_MARKINGS "moth_markings"
 #define FEATURE_MUSH_CAP "caps"
 #define FEATURE_POD_HAIR "pod_hair"
-#define FEATURE_AVALI_HAIR "avali_hair"
 
 // Other
 #define FEATURE_WINGS "wings"

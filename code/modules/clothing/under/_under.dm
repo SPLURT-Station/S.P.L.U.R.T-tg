@@ -221,6 +221,7 @@
 			update_appearance()
 		*/ // SKYRAT EDIT END
 
+
 /obj/item/clothing/under/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "jumpsuit_worn")
 	return replace_icon_legs(base_icon, legs)
@@ -237,6 +238,12 @@
 	. = ..()
 	if(user.get_item_by_slot(ITEM_SLOT_ICLOTHING) == src)
 		GLOB.suit_sensors_list -= user
+
+/obj/item/clothing/under/equipped(mob/living/user, slot, icon/base_icon, greyscale_colors)
+	. = ..()
+	if(isavali(user))
+		var/icon/legs = icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade_a, greyscale_colors), "jumpsuit_worn")
+		return replace_icon_legs(base_icon, legs)
 
 // Start suit sensor handling
 
