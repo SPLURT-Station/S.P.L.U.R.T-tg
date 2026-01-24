@@ -6,8 +6,8 @@
 			JOB_CHIEF_MEDICAL_OFFICER = 4,
 			JOB_CHIEF_ENGINEER = 5,
 			JOB_QUARTERMASTER = 6,
-			JOB_NT_REP = 7,
-			JOB_HEAD_OF_SECURITY = 8,
+			JOB_HEAD_OF_SECURITY = 7, // SPLURT EDIT
+			//JOB_NT_REP = 8, SPLURT EDIT requested by kate
 			JOB_BLUESHIELD = 9,
 			JOB_BRIDGE_ASSISTANT = 10
 		)
@@ -35,7 +35,9 @@
 		if(JOB_BLUESHIELD)
 			return new /obj/item/modular_computer/pda/blueshield
 		if(JOB_NT_REP)
-			return new /obj/item/modular_computer/pda/nanotrasen_consultant
+			return new /obj/item/modular_computer/pda/heads/nanotrasen_consultant
+		if(JOB_NT_TRN)
+			return new /obj/item/modular_computer/pda/nanotrasen_trainer // SPLURT ADDITION
 		if(JOB_WARDEN) // SEC
 			return new /obj/item/modular_computer/pda/warden
 		if(JOB_DETECTIVE)
