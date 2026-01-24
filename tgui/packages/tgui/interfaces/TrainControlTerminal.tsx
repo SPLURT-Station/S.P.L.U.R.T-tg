@@ -6,6 +6,7 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
+import { formatTime } from 'tgui-core/format';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -42,13 +43,6 @@ export const TrainControlTerminal = (props: any, context: any) => {
 
   const readOnly = read_only || false;
   const safePossibleNext = Array.isArray(possible_next) ? possible_next : [];
-
-  const formatTime = (seconds: number): string => {
-    if (seconds <= 0) return 'Arrived';
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  };
 
   const renderTravelView = () => (
     <Section title="En Route" fill>
@@ -298,7 +292,7 @@ export const TrainControlTerminal = (props: any, context: any) => {
                   </Box>
                 </Stack.Item>
               </Stack>
-              {blocking && (
+              {!!blocking && (
                 <>
                   <Divider />
                   <Box bold color="bad" textAlign="center" fontSize="1.8rem">

@@ -194,7 +194,7 @@
 	. = ..()
 	color = COLOR_RED
 	maxHealth = 250
-	name = "Evolved [initial(name)]"
+	name = "Evolved [name]"
 	AddComponent(/datum/component/regenerator, regeneration_delay = 6 SECONDS, brute_per_second = 5)
 	AddComponent(/datum/component/seethrough_mob)
 	lighting_cutoff_red = 22
@@ -204,7 +204,7 @@
 	update_sight()
 	transform.Scale(1.3, 1.3)
 	add_movespeed_modifier(/datum/movespeed_modifier/arctic_mutant_player, TRUE)
-
+	grant_actions_by_list(list(/datum/action/cooldown/mob_cooldown/boss_charge/cheap))
 
 /datum/movespeed_modifier/arctic_mutant_player
 	multiplicative_slowdown = -1
@@ -485,9 +485,6 @@
 	attack_verb_simple = "smash"
 	attack_sound = 'sound/effects/blob/blobattack.ogg'
 	gold_core_spawnable = FALSE
-	lighting_cutoff_red = 22
-	lighting_cutoff_green = 5
-	lighting_cutoff_blue = 5
 
 	var/playstyle_string = span_infoplain("<b><font size=3 color='red'>We are the Corrupted Mutant Boss!</font> We are extremely powerful with multiple abilities: charge, tentacles, bone shards, and leap. Use them wisely via action buttons. We regenerate health over time but watch our health!</b>")
 	var/projectile_evade_cooldown = 2 SECONDS

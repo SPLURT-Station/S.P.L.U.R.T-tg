@@ -115,26 +115,33 @@
 	var/name = "Train station"
 	var/desc = "A generic train station"
 	var/station_flags = NONE
-
-	var/datum/map_template/template = null
-	var/ambience_sound = null
-	var/map_path
 	var/visible = TRUE
 
-	var/z_level = 0
+	var/required_stations = 0
+
+	var/map_path
+	var/datum/map_template/template = null
 
 	var/list/docking_turfs = list()
-
 	var/list/possible_next = list()
 	// Блокирует ли эта станция движение поезда
 	var/blocking_moving = FALSE
 
+	var/ambience_sounds = null
+	VAR_PRIVATE/datum/looping_sound/global_sound/station_loop_soound = null
 
 /datum/train_station/New()
 	. = ..()
 	template = new /datum/map_template(map_path, "Train station - [name]", TRUE)
 	template.returns_created_atoms = TRUE
 	SSmapping.map_templates[template.name] = template
+
+	if(ambience_sounds)
+		create_ambience()
+
+/datum/train_station/proc/create_ambience()
+	station_loop_soound = new(start_immediately = FALSE)
+	station_loop_soound.create_from_list(ambience_sounds)
 
 /datum/train_station/proc/connect_stations()
 	for(var/i in 1 to length(possible_next))
@@ -146,6 +153,8 @@
 			stack_trace("Invalid possible_next path [path] for station [type]")
 
 /datum/train_station/proc/load_station(datum/callback/load_callback)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
 	if(!template)
 		return FALSE
 	var/start_time = world.realtime
@@ -178,6 +187,8 @@
 
 
 /datum/train_station/proc/create_indestructible_borders(turf/bottom_left)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
 	var/left_x = bottom_left.x - 1
 	var/right_x = bottom_left.x + template.width
 	var/start_y = bottom_left.y
@@ -210,10 +221,14 @@
 /datum/train_station/proc/after_load()
 	if(station_flags & TRAINSTATION_BLOCKING)
 		blocking_moving = TRUE
+	if(station_loop_soound)
+		station_loop_soound.start()
+
 
 /datum/train_station/proc/unload_station(datum/callback/unload_callback)
-	var/obj/effect/landmark/trainstation/crew_spawnpoint/crew_mover = locate() in GLOB.landmarks_list
+	SHOULD_NOT_OVERRIDE(TRUE)
 
+	var/obj/effect/landmark/trainstation/crew_spawnpoint/crew_mover = locate() in GLOB.landmarks_list
 
 	Master.StartLoadingMap()
 	for(var/turf/T in docking_turfs)
@@ -236,7 +251,11 @@
 	if(unload_callback)
 		unload_callback.Invoke()
 	Master.StopLoadingMap()
+	after_unload()
 
+/datum/train_station/proc/after_unload()
+	if(station_loop_soound)
+		station_loop_soound.stop()
 
 
 
@@ -277,3 +296,18 @@
 /datum/train_station/deep_forest
 	name = "Deep forest"
 	map_path = "_maps/modular_events/trainstation/deep_forest.dmm"
+
+/datum/train_station/collapsed_lab
+	name = "Collapsed laboratory"
+	map_path = "_maps/modular_events/trainstation/collapsed_lab.dmm"
+	station_flags = TRAINSTATION_BLOCKING
+	required_stations = 3
+
+
+/datum/train_station/radiosphere
+	name = "The Radiosphere"
+	map_path = "_maps/modular_events/trainstation/radiosphere.dmm"
+	station_flags = TRAINSTATION_BLOCKING
+	required_stations = 3
+
+	ambience_sounds = list('modular_zvents/sounds/radiosphere_loop1.ogg' = 40 SECONDS)
