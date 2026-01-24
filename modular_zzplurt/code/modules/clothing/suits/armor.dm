@@ -124,3 +124,14 @@
 	icon_state = "hat_transparent"
 	worn_icon_state = "none"
 	flags_inv = NONE
+
+//Unarmored version of press vest + helmet for donator loadout
+/obj/item/clothing/suit/armor/vest/press/unarmored
+	name = "press vest"
+	desc = "A blue vest used to distinguish <i>non-combatant</i> \"PRESS\" members, like if anyone cares."
+	armor_type = /datum/armor/none
+
+/obj/item/clothing/head/helmet/press/unarmored
+	name = "press helmet"
+	desc = "A blue helmet used to distinguish <i>non-combatant</i> \"PRESS\" members, like if anyone cares."
+	armor_type = /datum/armor/none

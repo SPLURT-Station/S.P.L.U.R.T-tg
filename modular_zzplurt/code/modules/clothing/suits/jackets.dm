@@ -49,6 +49,18 @@
 	toggle_noun = "buttons"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/suit/jacket/tailcoat/nanotrasen
+	name = "Nanotrasen tailcoat"
+	desc = "An official coat usually worn by bunny themed executives. The inside is lined with comfortable yet tasteful bunny fluff."
+	icon_state = "tailcoat_nanotrasen"
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	post_init_icon_state = null
+	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+
 /obj/item/clothing/suit/jacket/tailcoat/engineer/Initialize(mapload)
 	. = ..()
 	allowed += list(
