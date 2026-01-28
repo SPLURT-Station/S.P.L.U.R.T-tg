@@ -9,3 +9,8 @@
 	desc = "An extremely expensive solution of shrinking serum known as Diminicillin. Effects are permanent upon consumption, and shrinking is slow."
 	cost = 100000
 	contains = list(/obj/item/reagent_containers/cup/bottle/diminicillin)
+
+//Overrides the thermal pistol pack to change the access level to armory
+/datum/supply_pack/goody/thermal_single
+	access_view = ACCESS_ARMORY
+	access = ACCESS_ARMORY
