@@ -13,6 +13,14 @@
 #define COMSIG_MOB_RESIZED "mob_resized"
 
 /*
+ * # COMSIG_MOB_POST_CLIMAX
+ * From /mob/living
+ * Used by signals for whenever a mob has ejaculated
+*/
+/// From /mob/living/climax(): (mob/source, mob/living/partner, interaction_position, manual)
+#define COMSIG_MOB_POST_CLIMAX "mob_post_climax"
+
+/*
  * # COMSIG_HUMAN_PERFORM_CLIMAX
  * From /datum/status_effect/climax
  * Used by signals for when a mob has climaxed.
