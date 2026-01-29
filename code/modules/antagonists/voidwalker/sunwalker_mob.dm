@@ -36,6 +36,7 @@
 	var/water_damage_cutoff = 10
 
 /mob/living/basic/voidwalker/sunwalker/unique_setup()
+	. = ..() // SPLURT change, allowed inheritence of parent unique setup
 	AddComponent(/datum/component/igniter)
 	AddComponent(/datum/component/vision_hurting, damage_per_second = 0.1, message = null, silent = TRUE)
 	AddComponent(/datum/component/space_dive, /obj/effect/dummy/phased_mob/space_dive/sunwalker)
