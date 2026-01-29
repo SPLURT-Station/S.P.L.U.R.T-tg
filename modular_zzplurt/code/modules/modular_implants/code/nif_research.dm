@@ -1,3 +1,5 @@
+// Brainwash NIF removed
+/*
 // Add NIFs to alien surgery node
 /datum/techweb_node/alien_surgery/New()
 	design_ids += list(
@@ -12,6 +14,7 @@
 	id = "nifsoft_hypno_brainwash"
 	build_path = /obj/item/disk/nifsoft_uploader/dorms/hypnosis/brainwashing
 	//departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+*/
 
 // Design for storage concealment NIFSoft
 /datum/design/nifsoft_hud/nifsoft_storage_concealment
