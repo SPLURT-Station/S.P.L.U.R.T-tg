@@ -337,7 +337,18 @@
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/kiss1.ogg',
 		'modular_zzplurt/sound/interactions/kiss2.ogg',
-		'modular_zzplurt/sound/interactions/kiss3.ogg'
+		'modular_zzplurt/sound/interactions/kiss3.ogg',
+		'modular_zzplurt/sound/interactions/kiss4.ogg',
+		'modular_zzplurt/sound/interactions/kiss5.ogg',
+		'modular_zzplurt/sound/interactions/kiss6.ogg',
+		'modular_zzplurt/sound/interactions/kiss7.ogg',
+		'modular_zzplurt/sound/interactions/kiss8.ogg',
+		'modular_zzplurt/sound/interactions/kiss9.ogg',
+		'modular_zzplurt/sound/interactions/kiss10.ogg',
+		'modular_zzplurt/sound/interactions/kiss11.ogg',
+		'modular_zzplurt/sound/interactions/kiss12.ogg',
+		'modular_zzplurt/sound/interactions/kiss13.ogg',
+		'modular_zzplurt/sound/interactions/kiss14.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE

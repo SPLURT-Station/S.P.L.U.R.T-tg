@@ -84,9 +84,11 @@
 	)
 
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/bang1.ogg',
-		'modular_zzplurt/sound/interactions/bang2.ogg',
-		'modular_zzplurt/sound/interactions/bang3.ogg'
+		'modular_zzplurt/sound/interactions/fap1.ogg',
+		'modular_zzplurt/sound/interactions/fap2.ogg',
+		'modular_zzplurt/sound/interactions/fap3.ogg',
+		'modular_zzplurt/sound/interactions/fap4.ogg',
+		'modular_zzplurt/sound/interactions/fap5.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
@@ -181,8 +183,19 @@
 	)
 
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ_fingering.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/fingering01.ogg',
+		'modular_zzplurt/sound/interactions/fingering02.ogg',
+		'modular_zzplurt/sound/interactions/fingering03.ogg',
+		'modular_zzplurt/sound/interactions/fingering04.ogg',
+		'modular_zzplurt/sound/interactions/fingering05.ogg',
+		'modular_zzplurt/sound/interactions/fingering06.ogg',
+		'modular_zzplurt/sound/interactions/fingering07.ogg',
+		'modular_zzplurt/sound/interactions/fingering08.ogg',
+		'modular_zzplurt/sound/interactions/fingering09.ogg',
+		'modular_zzplurt/sound/interactions/fingering10.ogg',
+		'modular_zzplurt/sound/interactions/fingering11.ogg',
+		'modular_zzplurt/sound/interactions/fingering12.ogg',
+		'modular_zzplurt/sound/interactions/fingering13.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
@@ -277,8 +290,19 @@
 	)
 
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ_fingering.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/fingering01.ogg',
+		'modular_zzplurt/sound/interactions/fingering02.ogg',
+		'modular_zzplurt/sound/interactions/fingering03.ogg',
+		'modular_zzplurt/sound/interactions/fingering04.ogg',
+		'modular_zzplurt/sound/interactions/fingering05.ogg',
+		'modular_zzplurt/sound/interactions/fingering06.ogg',
+		'modular_zzplurt/sound/interactions/fingering07.ogg',
+		'modular_zzplurt/sound/interactions/fingering08.ogg',
+		'modular_zzplurt/sound/interactions/fingering09.ogg',
+		'modular_zzplurt/sound/interactions/fingering10.ogg',
+		'modular_zzplurt/sound/interactions/fingering11.ogg',
+		'modular_zzplurt/sound/interactions/fingering12.ogg',
+		'modular_zzplurt/sound/interactions/fingering13.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
@@ -327,8 +351,19 @@
 	)
 
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ_fingering.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/fingering01.ogg',
+		'modular_zzplurt/sound/interactions/fingering02.ogg',
+		'modular_zzplurt/sound/interactions/fingering03.ogg',
+		'modular_zzplurt/sound/interactions/fingering04.ogg',
+		'modular_zzplurt/sound/interactions/fingering05.ogg',
+		'modular_zzplurt/sound/interactions/fingering06.ogg',
+		'modular_zzplurt/sound/interactions/fingering07.ogg',
+		'modular_zzplurt/sound/interactions/fingering08.ogg',
+		'modular_zzplurt/sound/interactions/fingering09.ogg',
+		'modular_zzplurt/sound/interactions/fingering10.ogg',
+		'modular_zzplurt/sound/interactions/fingering11.ogg',
+		'modular_zzplurt/sound/interactions/fingering12.ogg',
+		'modular_zzplurt/sound/interactions/fingering13.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
@@ -423,8 +458,19 @@
 	)
 
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ_fingering.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/fingering01.ogg',
+		'modular_zzplurt/sound/interactions/fingering02.ogg',
+		'modular_zzplurt/sound/interactions/fingering03.ogg',
+		'modular_zzplurt/sound/interactions/fingering04.ogg',
+		'modular_zzplurt/sound/interactions/fingering05.ogg',
+		'modular_zzplurt/sound/interactions/fingering06.ogg',
+		'modular_zzplurt/sound/interactions/fingering07.ogg',
+		'modular_zzplurt/sound/interactions/fingering08.ogg',
+		'modular_zzplurt/sound/interactions/fingering09.ogg',
+		'modular_zzplurt/sound/interactions/fingering10.ogg',
+		'modular_zzplurt/sound/interactions/fingering11.ogg',
+		'modular_zzplurt/sound/interactions/fingering12.ogg',
+		'modular_zzplurt/sound/interactions/fingering13.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
