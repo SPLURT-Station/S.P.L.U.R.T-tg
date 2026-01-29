@@ -1,4 +1,5 @@
 /datum/species/xeno
+	heatmod = 1.5
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/xenohybrid,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/xenohybrid,
