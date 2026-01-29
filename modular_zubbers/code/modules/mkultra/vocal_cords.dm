@@ -1,3 +1,5 @@
+//SPLURT REMOVAL START: Replaced by modular_zzplurt/code/modules/mkultra/vocal_cords.dm to route MK2 commands via modular handler.
+/*
 //////////////////////////////////////
 ///////ENTHRAL VELVET CHORDS//////////
 //////////////////////////////////////
@@ -784,3 +786,6 @@
 	//SSblackbox.record_feedback("tally", "Velvet_voice", 1, log_message) If this is on, it fills the thing up and OOFs the server
 
 	return
+
+*/
+//END SPLURT REMOVAL
