@@ -9,7 +9,7 @@
 	//how tilted the parent is
 	var/how_tilted
 	//the maximum amount of tilt parent can achieve
-	var/maximum_tilt = 45
+	var/maximum_tilt = 180 // SPLURT EDIT - Config change
 	//the maximum amount we/an item can move
 	var/maximum_pixel_shift = 16
 	//If we are shifted
