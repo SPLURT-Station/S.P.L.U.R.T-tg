@@ -124,6 +124,7 @@
 #define ORGAN_SLOT_EXTERNAL_WINGS "wings"
 #define ORGAN_SLOT_EXTERNAL_ANTENNAE "antennae"
 #define ORGAN_SLOT_EXTERNAL_POD_HAIR "pod_hair"
+#define ORGAN_SLOT_EXTERNAL_AVALI_HAIR "avali_hair"
 
 /// Xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"

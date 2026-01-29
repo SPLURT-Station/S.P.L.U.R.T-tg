@@ -829,3 +829,22 @@ export const arachnid_legs_color: Feature<string[]> = {
   name: 'Arachnid Leg Color',
   component: FeatureTriColorInput,
 };
+
+export const avali_crest_feathers_toggle: FeatureToggle = {
+  name: 'Avali Crest Feathers',
+  component: CheckboxInput,
+};
+
+export const avali_feature_crest_feathers: Feature<string> = {
+  name: 'Avali Crest Feathers Selection',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const avali_crest_feathers_color: Feature<string[]> = {
+  name: 'Avali Crest Feathers Color',
+  component: FeatureTriColorInput,
+};
