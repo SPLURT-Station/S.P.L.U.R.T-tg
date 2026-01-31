@@ -8,6 +8,7 @@
 #define QMOOD_JIGGLY_ASS	"mood_jiggly_ass"
 #define QMOOD_BADTOUCH_ATTACKER	"mood_badtouch_attacker"
 #define QMOOD_BADTOUCH_VICTIM	"mood_badtouch_victim"
+#define QMOOD_HYPERSEXUAL	"mood_hypersexual"
 
 // Bloodfledge mood types
 #define QMOOD_BFLED_DRANK_MATCH	"bloodfledge_drank_exotic_match"
@@ -25,6 +26,8 @@
 #define QMOOD_BFLED_DRANK_SKREL	"bloodfledge_drank_skrell"
 #define QMOOD_BFLED_DRANK_BLOOD_SELF	"bloodfledge_drank_own_blood"
 #define QMOOD_BFLED_DRANK_BLOOD_FAKE	"bloodfledge_drank_fake_blood"
+#define QMOOD_BFLED_CRAVE		"bloodfledge_crave_blood"
+#define QMOOD_BFLED_BITE_INTERRUPT		"bloodfledge_bite_interrupted"
 
 // Trait types
 #define DUMB_CUM_TRAIT		"dumb4cum"
@@ -55,3 +58,5 @@
 #define QUIRK_EXAMINE_PERSONALSPACE	"quirk_examine_personalspace"
 /// Examine text status effect for Hallowed
 #define QUIRK_EXAMINE_HALLOWED		"quirk_examine_hallowed"
+/// Examine text status effect for Hypersexual
+#define QUIRK_EXAMINE_HYPERSEXUAL	"quirk_examine_hypersexual"

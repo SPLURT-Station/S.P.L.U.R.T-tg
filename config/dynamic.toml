@@ -124,7 +124,7 @@ ruleset_type_settings.latejoin.execution_cooldown_high = 20
 
 ["High Chaos"]
 name = "High Chaos"
-min_pop = 25
+min_pop = 35
 weight = 10
 advisory_report = "Advisory Level: <b>Midnight Sun</b></center><BR>Your sector's advisory level is Midnight Sun. Credible information passed to us by GDI suggests that the Syndicate is preparing to mount a major concerted offensive on Nanotrasen assets in the Spinward Sector to cripple our foothold there. All stations should remain on high alert and prepared to defend themselves."
 ruleset_type_settings.roundstart.low = 3
@@ -141,21 +141,21 @@ ruleset_type_settings.light_midround.execution_cooldown_high = 20
 ruleset_type_settings.heavy_midround.low = 2
 ruleset_type_settings.heavy_midround.high = 4
 ruleset_type_settings.heavy_midround.half_range_pop_threshold = 25
-ruleset_type_settings.heavy_midround.full_range_pop_threshold = 40
+ruleset_type_settings.heavy_midround.full_range_pop_threshold = 50
 ruleset_type_settings.heavy_midround.time_threshold = 30
-ruleset_type_settings.heavy_midround.execution_cooldown_low = 10
-ruleset_type_settings.heavy_midround.execution_cooldown_high = 20
+ruleset_type_settings.heavy_midround.execution_cooldown_low = 12
+ruleset_type_settings.heavy_midround.execution_cooldown_high = 25
 ruleset_type_settings.latejoin.low = 2
 ruleset_type_settings.latejoin.high = 3
 ruleset_type_settings.latejoin.half_range_pop_threshold = 25
 ruleset_type_settings.latejoin.full_range_pop_threshold = 40
 ruleset_type_settings.latejoin.time_threshold = 5
-ruleset_type_settings.latejoin.execution_cooldown_low = 10
-ruleset_type_settings.latejoin.execution_cooldown_high = 20
+ruleset_type_settings.latejoin.execution_cooldown_low = 11
+ruleset_type_settings.latejoin.execution_cooldown_high = 23
 
 ["Latejoin Traitor"]
 weight = 10
-min_pop = 3
+min_pop = 8
 blacklisted_roles = [
 	"Head of Personnel",
 ]
@@ -164,7 +164,7 @@ repeatable = 1
 minimum_required_age = 0
 
 ["Latejoin Heretic"]
-weight = 3
+weight = 0
 min_pop = 30
 blacklisted_roles = [
 	"Head of Personnel",
@@ -175,7 +175,7 @@ minimum_required_age = 0
 
 ["Latejoin Changeling"]
 weight = 3
-min_pop = 15
+min_pop = 18
 blacklisted_roles = [
 	"Head of Personnel",
 ]
@@ -192,8 +192,8 @@ repeatable = 0
 minimum_required_age = 0
 
 ["Latejoin Bloodsucker"]
-weight = 5
-min_pop = 0
+weight = 6
+min_pop = 8
 blacklisted_roles = [
 	"Captain",
 	"Head of Personnel",
@@ -202,8 +202,8 @@ blacklisted_roles = [
 	"Security Officer",
 	"Detective",
 ]
-repeatable_weight_decrease = 2
-repeatable = 0
+repeatable_weight_decrease = 3
+repeatable = 1
 minimum_required_age = 0
 
 ["Spiders"]
@@ -221,7 +221,7 @@ minimum_required_age = 0
 
 ["Light Pirates"]
 weight = 3
-min_pop = 15
+min_pop = 30
 blacklisted_roles = []
 min_antag_cap = 0
 # max_antag_cap = min_antag_cap
@@ -231,7 +231,7 @@ minimum_required_age = 0
 
 ["Heavy Pirates"]
 weight = 3
-min_pop = 25
+min_pop = 50
 blacklisted_roles = []
 min_antag_cap = 0
 # max_antag_cap = min_antag_cap
@@ -279,10 +279,10 @@ minimum_required_age = 0
 
 ["Blob"]
 weight.1 = 0
-weight.2 = 1
+weight.2 = 3
 weight.3 = 3
 weight.4 = 3
-min_pop = 30
+min_pop = 52
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
@@ -304,13 +304,13 @@ repeatable = 0
 minimum_required_age = 0
 
 ["Nightmare"]
-weight = 5
-min_pop = 15
+weight = 6
+min_pop = 18
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
 repeatable_weight_decrease = 2
-repeatable = 0
+repeatable = 1
 minimum_required_age = 0
 
 ["Space Dragon"]
@@ -328,7 +328,7 @@ minimum_required_age = 0
 
 ["Abductors"]
 weight = 5
-min_pop = 20
+min_pop = 40
 blacklisted_roles = []
 min_antag_cap = 2
 # max_antag_cap = min_antag_cap
@@ -338,10 +338,10 @@ minimum_required_age = 0
 
 ["Space Ninja"]
 weight.1 = 0
-weight.2 = 0
+weight.2 = 1
 weight.3 = 1
 weight.4 = 2
-min_pop = 20
+min_pop = 35
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
@@ -351,7 +351,7 @@ minimum_required_age = 0
 
 ["Revenant"]
 weight = 5
-min_pop = 10
+min_pop = 20
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
@@ -393,8 +393,8 @@ repeatable = 1
 minimum_required_age = 0
 
 ["Voidwalker"]
-weight = 5
-min_pop = 30
+weight = 6
+min_pop = 35
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
@@ -496,7 +496,7 @@ weight.1 = 0
 weight.2 = 1
 weight.3 = 3
 weight.4 = 3
-min_pop = 30
+min_pop = 50
 blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 0
@@ -549,7 +549,7 @@ minimum_required_age = 0
 
 ["Roundstart Traitor"]
 weight = 10
-min_pop = 3
+min_pop = 8
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap.denominator = 24
@@ -562,7 +562,7 @@ weight.1 = 0
 weight.2 = 1
 weight.3 = 3
 weight.4 = 3
-min_pop = 30
+min_pop = 40
 blacklisted_roles = []
 min_antag_cap = 1
 max_antag_cap = 1
@@ -668,11 +668,11 @@ repeatable = 0
 minimum_required_age = 0
 
 ["Roundstart Spies"]
-weight.1 = 0
+weight.1 = 1
 weight.2 = 1
 weight.3 = 3
 weight.4 = 3
-min_pop = 10
+min_pop = 8
 blacklisted_roles = []
 min_antag_cap.denominator = 20
 min_antag_cap.offset = 1
@@ -730,7 +730,7 @@ minimum_required_age = 14
 
 ["Roundstart Bloodsucker"]
 weight = 5
-min_pop = 0
+min_pop = 15
 blacklisted_roles = [
 	"Captain",
 	"Head of Personnel",
@@ -744,5 +744,3 @@ max_antag_cap.denominator = 24
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
-
-

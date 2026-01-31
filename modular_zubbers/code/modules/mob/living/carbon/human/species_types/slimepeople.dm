@@ -303,7 +303,7 @@
  * It lets you pick between a few options for DNA specifics
  */
 /datum/action/innate/alter_form/proc/alter_dna(mob/living/carbon/human/alterer)
-	var/list/key_list = list("Body Size", "Genitals", "Mutant Parts")
+	var/list/key_list = list("Body Size", "Gender", "Genitals", "Mutant Parts")
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		key_list.Remove("Genitals")
 	var/dna_alteration = tgui_input_list(
@@ -345,7 +345,34 @@
 			*/
 			alterer.update_size(new_body_size)
 			//SPLURT EDIT CHANGE END
+		// SPLURT EDIT ADD
+		if("Gender")
+			var/new_gender = tgui_input_list(
+				alterer,
+				"What gender do you want?",
+				"Gender Alteration",
+				list(MALE, FEMALE, PLURAL, NEUTER)
+			)
+			if(!new_gender)
+				return
+			alterer.gender = new_gender
 
+			var/chosen_physique = tgui_input_list(
+				alterer,
+				"What physique to go along with it?",
+				"Bodytype Alteration",
+				list(MALE, FEMALE, "Don't change")
+				)
+
+			if(chosen_physique && chosen_physique != "Don't change")
+				alterer.physique = chosen_physique
+
+			// update this shit
+			alterer.dna.update_ui_block(/datum/dna_block/identity/gender)
+			alterer.update_body(is_creating = TRUE)
+			alterer.update_mutations_overlay()
+			alterer.update_clothing(ITEM_SLOT_ICLOTHING)
+		// SPLURT EDIT ADD END
 		if("Genitals")
 			alter_genitals(alterer)
 		if("Mutant Parts")
@@ -415,6 +442,7 @@
 			// using a var here to save some horizontal space
 			var/color = alterer.dna.mutant_bodyparts[chosen_key]?[MUTANT_INDEX_COLOR_LIST] || selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			new_acc_list[MUTANT_INDEX_COLOR_LIST] = color
+			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list // SPLURT EDIT ADD. This makes morphed parts actually show up when examined
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
 
 			if(robot_organs)
@@ -460,6 +488,12 @@
 		genital_list += list("Penis Girth", "Penis Length", "Penis Sheath", "Penis Taur Mode")
 	if(alterer.get_organ_slot(ORGAN_SLOT_TESTICLES))
 		genital_list += list("Testicles Size")
+	// SPLURT EDIT ADD
+	if(alterer.get_organ_slot(ORGAN_SLOT_BUTT))
+		genital_list += list("Butt Size")
+	if(alterer.get_organ_slot(ORGAN_SLOT_BELLY))
+		genital_list += list("Belly Size")
+	// SPLURT EDIT ADD END
 	if(!length(genital_list))
 		alterer.balloon_alert(alterer, "no genitals!")
 
@@ -490,7 +524,38 @@
 				return
 			alterer.dna.features["breasts_size"] = melons.breasts_cup_to_size(new_size)
 			melons.set_size(alterer.dna.features["breasts_size"])
-
+		// SPLURT EDIT ADD
+		// OK so why do we need to do this?
+		// GITHUB COMMIT HISTORY ALREADY SHOWS YOU THIS???
+		if("Butt Size")
+			var/obj/item/organ/genital/butt/buttocks = alterer.get_organ_slot(ORGAN_SLOT_BUTT)
+			var/new_size = tgui_input_number(
+				alterer,
+				"Choose your character's butt size:",
+				"DNA Alteration",
+				max_value = 8,
+				min_value = 1,
+				default = 1
+			)
+			if(!new_size)
+				return
+			alterer.dna.features["butt_size"] = new_size
+			buttocks.set_size(alterer.dna.features["butt_size"])
+		if("Belly Size")
+			var/obj/item/organ/genital/belly/melons = alterer.get_organ_slot(ORGAN_SLOT_BELLY)
+			var/new_size = tgui_input_number(
+				alterer,
+				"Choose your character's belly size:",
+				"DNA Alteration",
+				max_value = 10,
+				min_value = 1,
+				default = 1
+			)
+			if(!new_size)
+				return
+			alterer.dna.features["belly_size"] = new_size
+			melons.set_size(alterer.dna.features["belly_size"])
+		// SPLURT EDIT ADD END
 		if("Penis Girth")
 			var/obj/item/organ/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
