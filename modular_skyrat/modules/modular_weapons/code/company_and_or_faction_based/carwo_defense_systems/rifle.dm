@@ -130,7 +130,7 @@
 
 	fire_delay = 0.1 SECONDS
 
-	recoil = 1
+	recoil = 1.5
 	spread = 12.5
 	projectile_wound_bonus = -20
 
