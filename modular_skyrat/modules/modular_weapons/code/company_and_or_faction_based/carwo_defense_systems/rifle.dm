@@ -38,6 +38,7 @@
 	actions_types = list()
 
 	spread = 7.5
+	recoil = 1
 	projectile_wound_bonus = -10
 
 /obj/item/gun/ballistic/automatic/sol_rifle/Initialize(mapload)
