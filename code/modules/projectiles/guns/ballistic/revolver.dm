@@ -6,6 +6,7 @@
 	fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
 	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
 	eject_sound = 'sound/items/weapons/gun/revolver/empty.ogg'
+	recoil = 1.5
 	fire_sound_volume = 90
 	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
 	casing_ejector = FALSE
@@ -172,6 +173,7 @@
 	desc = "An old model of revolver that originated in Russia. Able to be suppressed. Uses 7.62x38mmR ammo."
 	icon_state = "nagant"
 	can_suppress = TRUE
+	recoil = 0.5
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev762
 
