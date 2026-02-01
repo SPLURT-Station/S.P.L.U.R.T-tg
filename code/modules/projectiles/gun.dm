@@ -210,7 +210,31 @@
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
 	if(recoil && !tk_firing(user))
-		shake_camera(user, recoil + 1, recoil)
+		var/turf/src_turf = get_turf(src)
+		var/turf/target_turf = get_turf(pbtarget)
+
+		// get recoil vector
+		var/recoil_rand = rand(-5*recoil, 5*recoil)
+		var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
+		rv = rv.Turn(recoil_rand)
+		rv.size = recoil
+
+		// apply punch to camera
+		var/client/client = user.client
+		animate( // initial kick
+			client,
+			time = 0.05 SECONDS,
+			easing = CIRCULAR_EASING | EASE_IN,
+			pixel_x = rv.x * 24,
+			pixel_y = rv.y * 24,
+		)
+		animate( // recovery
+			time = 0.1 SECONDS*recoil,
+			easing = CIRCULAR_EASING | EASE_OUT,
+			pixel_x = 0,
+			pixel_y = 0,
+			ANIMATION_PARALLEL
+		)
 	fire_sounds()
 	if(suppressed || !message)
 		return FALSE
