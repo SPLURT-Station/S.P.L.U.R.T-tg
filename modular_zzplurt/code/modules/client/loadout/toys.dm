@@ -39,3 +39,7 @@
 	name = "Marketable Mutt Plushie"
 	item_path = /obj/item/toy/plush/red_mut
 	ckeywhitelist = null
+
+/datum/loadout_item/toy/figure/willico
+	name = "Willico Hops Action Figure"
+	item_path = /obj/item/toy/figure/willico
