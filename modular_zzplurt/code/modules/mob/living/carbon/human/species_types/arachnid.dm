@@ -36,6 +36,10 @@
 		"arachnid_legs" = list("Plain", TRUE),
 	)
 
+/obj/item/organ/brain/xeno_hybrid/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "arachnid", BUBBLE_ICON_PRIORITY_ORGAN)
+
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
