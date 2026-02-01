@@ -7,6 +7,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction
 	bolt_wording = "bolt"
 	bolt_type = BOLT_TYPE_LOCKING
+	recoil = 2
 	semi_auto = FALSE
 	internal_magazine = TRUE
 	fire_sound = 'sound/items/weapons/gun/rifle/shot_heavy.ogg'
@@ -204,6 +205,7 @@
 	mag_display = FALSE
 	empty_indicator = TRUE
 	bolt_type = BOLT_TYPE_OPEN
+	recoil = 0.75
 	semi_auto = FALSE
 	internal_magazine = TRUE
 	can_modify_ammo = FALSE
@@ -305,6 +307,7 @@
 	can_be_sawn_off = FALSE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	pb_knockback = 3
+	recoil = 2.25
 
 	SET_BASE_PIXEL(-8, 0)
 
@@ -338,6 +341,7 @@
 	worn_icon_state = "gun"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/pipegun/pistol
 	projectile_damage_multiplier = 0.50
+	recoil = 2.5 // makeshift, so more recoil!
 	spread = 15 //kinda inaccurate
 	burst_size = 3 //but it empties the entire magazine when it fires
 	burst_delay = 0.3 // and by empties, I mean it does it all at once
@@ -433,7 +437,7 @@
 	load_sound = 'sound/items/weapons/gun/sniper/mag_insert.ogg'
 	rack_sound = 'sound/items/weapons/gun/sniper/rack.ogg'
 	suppressed_sound = 'sound/items/weapons/gun/general/heavy_shot_suppressed.ogg'
-	recoil = 2
+	recoil = 3
 	accepted_magazine_type = /obj/item/ammo_box/magazine/sniper_rounds
 	internal_magazine = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
