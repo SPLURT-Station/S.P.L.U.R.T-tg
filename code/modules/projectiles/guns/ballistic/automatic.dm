@@ -360,8 +360,8 @@
 	weapon_weight = WEAPON_HEAVY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m38
 	w_class = WEIGHT_CLASS_BULKY
-	recoil = 1.5
 	force = 15 //this thing is kind of oversized, okay?
+	recoil = 0.35 // yeah it is
 	mag_display = TRUE
 	projectile_damage_multiplier = 1.2
 	projectile_speed_multiplier = 1.2

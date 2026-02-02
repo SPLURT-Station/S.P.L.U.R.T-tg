@@ -16,7 +16,7 @@
 	worn_icon = 'modular_zzplurt/icons/obj/weapons/guns/smartrifle.dmi'
 	worn_icon_state = "smartrifle_worn"
 
-	recoil = 0.5 // hey, this thing probably absorbs a lot of that kick for ya
+	recoil = 0.75 // hey, this thing probably absorbs a lot of that kick for ya
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK

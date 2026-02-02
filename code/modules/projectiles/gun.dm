@@ -231,7 +231,14 @@
 		// rv.size = effective_recoil
 		rv.size = recoil
 		if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
-			rv.size = rv.size*1.5
+			rv.size = rv.size*2
+
+		// roll to break arm
+		if(recoil>10)
+			var/recoil_disloc = rand((recoil-10),20)
+			if (recoil_disloc > 15)
+				var/obj/item/bodypart/disloc_target = user.get_active_hand()
+				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
 		// apply punch to camera
 		animate( // initial kick
@@ -248,11 +255,6 @@
 			pixel_y = 0,
 			ANIMATION_PARALLEL
 		)
-		if(recoil>10) // roll to break arm
-			var/recoil_disloc = rand((effective_recoil-10),20)
-			if (recoil_disloc > 15)
-				var/obj/item/bodypart/disloc_target = user.get_active_hand()
-				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
 	fire_sounds()
 	if(suppressed || !message)
