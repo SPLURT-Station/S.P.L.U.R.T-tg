@@ -1417,6 +1417,15 @@
 	emote_type = EMOTE_AUDIBLE
 	sound_volume = 30
 
+/datum/emote/living/suspicion
+	key = "suspicious"
+	key_third_person = "suspicious"
+	message = "is suspicious of something around them.."
+	sound = 'modular_zzplurt/sound/voice/suspiciontheme.ogg
+	emote_type = EMOTE_AUDIBLE
+	soud_volute = 45
+-- detectives are gonna love this.
+
 /datum/emote/living/carbon/human/piss
 	key = "piss"
 
