@@ -217,18 +217,20 @@
 		var/recoil_rand = rand(-5*recoil, 5*recoil)
 		var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
 		rv = rv.Turn(recoil_rand)
-		var/effective_recoil = recoil
 
-		// apply effective recoil modifier from quirks
-		if (HAS_TRAIT(user, TRAIT_GIANT))
-			effective_recoil = effective_recoil*0.75
-		if (HAS_TRAIT(user, TRAIT_TOUGH))
-			effective_recoil = effective_recoil*0.9
-		if (HAS_TRAIT(user, TRAIT_FLIMSY))
-			effective_recoil = effective_recoil*1.2
+		// apply effective recoil modifier from quirks -- idk how performant this is so i'll leave it out for now - dot
+		// var/effective_recoil = recoil
 
-		rv.size = effective_recoil
-		if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from newshooter
+		// if (HAS_TRAIT(user, TRAIT_GIANT))
+		// 	effective_recoil = effective_recoil*0.75
+		// if (HAS_TRAIT(user, TRAIT_TOUGH))
+		// 	effective_recoil = effective_recoil*0.9
+		// if (HAS_TRAIT(user, TRAIT_FLIMSY))
+		// 	effective_recoil = effective_recoil*1.2
+
+		// rv.size = effective_recoil
+		rv.size = recoil
+		if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
 			rv.size = rv.size*1.5
 
 		// apply punch to camera
@@ -250,13 +252,7 @@
 			var/recoil_disloc = rand((effective_recoil-10),20)
 			if (recoil_disloc > 15)
 				var/obj/item/bodypart/disloc_target = user.get_active_hand()
-				if (disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate))
-					user.visible_message(span_danger(
-						"[user.name]'s [disloc_target.name] is jerked out of place by the [src.name]'s recoil!"
-						), \
-					span_userdanger(
-						"A bony crack rings out from your [disloc_target.name] as the [src.name] kicks back!"),
-						ignored_mobs = user)
+				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
 	fire_sounds()
 	if(suppressed || !message)
