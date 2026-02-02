@@ -214,7 +214,7 @@
 		var/turf/target_turf = get_turf(pbtarget)
 
 		// get recoil vector
-		var/recoil_rand = rand(-5*recoil, 5*recoil)
+		var/recoil_rand = rand(-3*recoil, 3*recoil)
 		var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
 		rv = rv.Turn(recoil_rand)
 
@@ -245,8 +245,8 @@
 			user.client,
 			time = 0.05 SECONDS,
 			easing = CIRCULAR_EASING | EASE_IN,
-			pixel_x = rv.x * 24,
-			pixel_y = rv.y * 24,
+			pixel_x = rv.x * 26,
+			pixel_y = rv.y * 26,
 		)
 		animate( // recovery
 			time = 0.1 SECONDS*recoil,

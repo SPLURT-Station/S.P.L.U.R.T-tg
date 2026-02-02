@@ -42,6 +42,7 @@
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
+	recoil = 0.6
 	burst_delay = 2
 	burst_size = 3
 	pin = /obj/item/firing_pin/implant/pindicate
@@ -97,6 +98,7 @@
 	icon_state = "smartgun"
 	inhand_icon_state = "smartgun"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smartgun
+	recoil = 0.6
 	burst_size = 4
 	burst_delay = 1
 	spread = 40
@@ -124,6 +126,7 @@
 	icon_state = "miniuzi"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
+	recoil = 0.6
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	mag_display = TRUE
@@ -150,7 +153,7 @@
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m223
 	can_suppress = FALSE
-	recoil = 0.6
+	recoil = 0.65
 	burst_size = 3
 	burst_delay = 2
 	spread = 5

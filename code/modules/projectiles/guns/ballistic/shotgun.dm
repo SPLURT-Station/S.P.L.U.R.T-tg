@@ -87,7 +87,7 @@
 /obj/item/gun/ballistic/shotgun/automatic/combat/compact
 	name = "compact combat shotgun"
 	desc = "A compact version of the semi automatic combat shotgun. Lower magazine capacity, but more easily carried."
-	recoil = 1.25
+	recoil = 1.5
 	icon_state = "cshotgunc"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/com/compact
 	w_class = WEIGHT_CLASS_BULKY
