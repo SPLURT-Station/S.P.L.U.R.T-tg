@@ -12,6 +12,13 @@
 	savefile_key = "screen_shake_darken"
 	savefile_identifier = PREFERENCE_PLAYER
 
+/// When toggled, will darken the screen on recoil punch
+/datum/preference/toggle/recoil_punch_darken
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	default_value = FALSE
+	savefile_key = "recoil_punch_darken"
+	savefile_identifier = PREFERENCE_PLAYER
+
 /// When toggled, removes some double-click reliant actions.
 /datum/preference/toggle/remove_double_click
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES

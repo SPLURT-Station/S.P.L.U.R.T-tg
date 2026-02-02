@@ -96,7 +96,10 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/addict/smoker, /datum/quirk/concubus),
 
 	// You can't be new if you've trained for a long while.
-	list(/datum/quirk/ballistic_training,/datum/quirk/new_shooter)
+	list(/datum/quirk/ballistic_training,/datum/quirk/new_shooter,/datum/quirk/no_guns),
+
+	// Also, if you're aiming poorly, you probably haven't been shooting that long.
+	list(/datum/quirk/poor_aim,/datum/quirk/ballistic_training)
 	//SPLURT EDIT ADDITION END
 ))
 

@@ -208,16 +208,8 @@
 	else
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
-/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
+/obj/item/gun/proc/recoil_viewpunch(mob/living/user, atom/pbtarget = null)
 	if(recoil && !tk_firing(user) && !(HAS_TRAIT(user, TRAIT_BALLISTIC_TRAINING) && recoil<=5))
-		var/turf/src_turf = get_turf(src)
-		var/turf/target_turf = get_turf(pbtarget)
-
-		// get recoil vector
-		var/recoil_rand = rand(-3*recoil, 3*recoil)
-		var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
-		rv = rv.Turn(recoil_rand)
-
 		// apply effective recoil modifier from quirks -- idk how performant this is so i'll leave it out for now - dot
 		// var/effective_recoil = recoil
 
@@ -229,9 +221,6 @@
 		// 	effective_recoil = effective_recoil*1.2
 
 		// rv.size = effective_recoil
-		rv.size = recoil
-		if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
-			rv.size = rv.size*2
 
 		// roll to break arm
 		if(recoil>10)
@@ -240,22 +229,56 @@
 				var/obj/item/bodypart/disloc_target = user.get_active_hand()
 				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
-		// apply punch to camera
-		animate( // initial kick
-			user.client,
-			time = 0.05 SECONDS,
-			easing = CIRCULAR_EASING | EASE_IN,
-			pixel_x = rv.x * 26,
-			pixel_y = rv.y * 26,
-		)
-		animate( // recovery
-			time = 0.1 SECONDS*recoil,
-			easing = CIRCULAR_EASING | EASE_OUT,
-			pixel_x = 0,
-			pixel_y = 0,
-			ANIMATION_PARALLEL
-		)
 
+		if (user.client.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken)) // apply dim to screen
+			var/rtype = /atom/movable/screen/fullscreen/flash/black
+			var/atom/movable/screen/fullscreen/rflash = user.overlay_fullscreen("flash", rtype)
+
+			var/rf_alpha = recoil*255/3.5
+			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
+				rf_alpha = rf_alpha*2
+
+			if(rf_alpha>255) // clamp, just to make sure
+				rf_alpha = 255
+			rflash.alpha = rf_alpha
+			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "flash", 0.2 SECONDS*recoil, TIMER_OVERRIDE), 0.2 SECONDS*recoil)
+			animate( // recovery
+				rflash,
+				time = 0.2 SECONDS*recoil,
+				easing = LINEAR_EASING,
+				alpha = 0,
+				ANIMATION_PARALLEL
+			)
+		else // apply punch to camera
+			// get recoil vector
+			var/turf/src_turf = get_turf(src)
+			var/turf/target_turf = get_turf(pbtarget)
+
+			var/recoil_rand = rand(-3*recoil, 3*recoil)
+			var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
+			rv = rv.Turn(recoil_rand)
+			rv.size = recoil*0.9
+
+			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
+				rv.size = rv.size*2
+
+			animate( // initial kick
+				user.client,
+				time = 0.05 SECONDS,
+				easing = CIRCULAR_EASING | EASE_IN,
+				pixel_x = rv.x * ICON_SIZE_ALL,
+				pixel_y = rv.y * ICON_SIZE_ALL
+			)
+			animate( // recovery
+				time = 0.1 SECONDS*recoil,
+				easing = CIRCULAR_EASING | EASE_OUT,
+				pixel_x = 0,
+				pixel_y = 0,
+				ANIMATION_PARALLEL
+			)
+
+/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
+	recoil_viewpunch(user, pbtarget)
 	fire_sounds()
 	if(suppressed || !message)
 		return FALSE
