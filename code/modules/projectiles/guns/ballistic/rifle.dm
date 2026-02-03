@@ -437,7 +437,7 @@
 	load_sound = 'sound/items/weapons/gun/sniper/mag_insert.ogg'
 	rack_sound = 'sound/items/weapons/gun/sniper/rack.ogg'
 	suppressed_sound = 'sound/items/weapons/gun/general/heavy_shot_suppressed.ogg'
-	recoil = 3
+	recoil = 5
 	accepted_magazine_type = /obj/item/ammo_box/magazine/sniper_rounds
 	internal_magazine = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
