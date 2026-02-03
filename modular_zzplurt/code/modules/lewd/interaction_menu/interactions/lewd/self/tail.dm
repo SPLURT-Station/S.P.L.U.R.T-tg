@@ -52,8 +52,18 @@
 		"forcefully drives their tail into themselves, as if deliberately causing themselves pain.",
 		"roughly spreads their own pussy with their tail, acting sharply and without mercy."
 	)
-	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
-						'modular_zzplurt/sound/interactions/champ2.ogg')
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list("%CUMMING% covers their own tail with juices."))
 
 /datum/interaction/lewd/tail/vagina_rub/self
@@ -78,8 +88,18 @@
 		"sharply slaps their own pussy with their tail using merciless force, as if trying to knock out their own strength.",
 		"actively stretches their own folds with their tail, making themselves think about tearing their own body."
 	)
-	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
-						'modular_zzplurt/sound/interactions/champ2.ogg')
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
 	cum_message_text_overrides = list(CLIMAX_POSITION_USER = list("%CUMMING% covers their own tail with juices."))
 
 /datum/interaction/lewd/tail/ass/self
