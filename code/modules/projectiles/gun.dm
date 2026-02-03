@@ -222,14 +222,15 @@
 			effective_recoil = effective_recoil*0.9
 		if (user.has_quirk(/datum/quirk/frail))
 			effective_recoil = effective_recoil*1.2
-		if (user.has_quirk(/datum/quirk/micro))
-			effective_recoil = effective_recoil*1.2
 		if (user.has_quirk(/datum/quirk/featherweight))
 			effective_recoil = effective_recoil*1.2
-		if (user.has_quirk(/datum/quirk/micro/smaller))
-			effective_recoil = effective_recoil*1.2
+
 		if (user.has_quirk(/datum/quirk/micro/smallest))
 			effective_recoil = effective_recoil*1.4
+		else if (user.has_quirk(/datum/quirk/micro/smaller))
+			effective_recoil = effective_recoil*1.2
+		else if (user.has_quirk(/datum/quirk/micro))
+			effective_recoil = effective_recoil*1.2
 
 		var/has_quirk_newshoot = user.has_quirk(/datum/quirk/new_shooter)
 
