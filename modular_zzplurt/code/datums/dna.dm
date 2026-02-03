@@ -6,7 +6,7 @@
 	. = ..()
 	update_size(get_size(src), old_size)
 
-/datum/dna/copy_dna(datum/dna/new_dna)
+/datum/dna/copy_dna(datum/dna/new_dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
 	. = ..()
 	if(holder)
 		holder.adjust_mobsize(get_size(holder))
