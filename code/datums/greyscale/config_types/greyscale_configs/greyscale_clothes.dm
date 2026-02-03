@@ -683,6 +683,10 @@ SKYRAT EDIT END */
 	icon_file = 'icons/mob/clothing/digi_template.dmi'
 	json_config = 'code/datums/greyscale/json_configs/digitigrade.json'
 
+/datum/greyscale_config/digitigrade_a
+	name = "Digitigrade Clothes for avali"
+	icon_file = 'modular_zzplurt/code/modules/avali/sprites/digi_template.dmi'
+	json_config = 'code/datums/greyscale/json_configs/digitigrade.json'
 
 //
 // SUIT + HEAD
