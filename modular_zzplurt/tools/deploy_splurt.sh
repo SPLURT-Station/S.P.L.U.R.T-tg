@@ -5,7 +5,9 @@
 
 mkdir -p \
     $1/modular_zzplurt/icons \
-    $1/modular_zzplurt/code/datums/greyscale/json_configs
+    $1/modular_zzplurt/code/datums/greyscale/json_configs \
+    $1/modular_zzplurt/events
 
 cp -r modular_zzplurt/icons/* $1/modular_zzplurt/icons/
 cp -r modular_zzplurt/code/datums/greyscale/json_configs/* $1/modular_zzplurt/code/datums/greyscale/json_configs/
+cp -r modular_zzplurt/events/* $1/modular_zzplurt/events/
