@@ -214,6 +214,8 @@
 		var/effective_recoil = recoil
 
 		// i hope there's a better way to do this - orcawa
+		if (user.has_quirk(/datum/quirk/ballistic_training))
+			effective_recoil = effective_recoil*0.75
 		if (user.has_quirk(/datum/quirk/oversized))
 			effective_recoil = effective_recoil*0.8
 		if (user.has_quirk(/datum/quirk/tough))
