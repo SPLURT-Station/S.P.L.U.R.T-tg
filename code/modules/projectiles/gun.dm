@@ -209,12 +209,12 @@
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/proc/recoil_viewpunch(mob/living/user, atom/pbtarget = null)
-	if(recoil && !tk_firing(user) && !(user.has_quirk(/datum/quirk/ballistic_training) && recoil<=5))
+	if(recoil && !tk_firing(user) && !(HASTRAIT(user, TRAIT_BALLISTIC_TRAINING) && recoil<=5))
 		// apply effective recoil modifier from quirks
 		var/effective_recoil = recoil
 
 		// i hope there's a better way to do this - orcawa
-		if (user.has_quirk(/datum/quirk/ballistic_training))
+		if (HASTRAIT(user, TRAIT_BALLISTIC_TRAINING))
 			effective_recoil = effective_recoil*0.75
 		if (user.has_quirk(/datum/quirk/oversized))
 			effective_recoil = effective_recoil*0.8
