@@ -8,15 +8,21 @@
 /proc/arachnid_name()
 	return "[pick(GLOB.arachnid_first)] [pick(GLOB.arachnid_last)]"
 
-/proc/resolve_intent_name(intent)
+/proc/resolve_intent_name(mob/living/user)
+	var/shift = user.interaction_shift_pressed
+	var/intent = user.combat_mode
 	switch(intent)
 		if(INTENT_HELP)
+			if(shift)
+				return "disarm"
 			return "help"
 		if(INTENT_DISARM)
 			return "disarm"
 		if(INTENT_GRAB)
 			return "grab"
 		if(INTENT_HARM)
+			if(shift)
+				return "grab"
 			return "harm"
 
 /mob/living/proc/is_body_part_exposed(body_part, list/items)

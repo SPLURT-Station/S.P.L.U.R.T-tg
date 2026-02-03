@@ -253,14 +253,15 @@
 		attributes += "are sexually exhausted for the time being"
 
 	// Intent
-	switch(target.combat_mode)
-		if(INTENT_HELP)
+	var/intent_name = resolve_intent_name(target)
+	switch(intent_name)
+		if("help")
 			attributes += "are acting gentle"
-		if(INTENT_DISARM)
+		if("disarm")
 			attributes += "are acting playful"
-		if(INTENT_GRAB)
+		if("grab")
 			attributes += "are acting rough"
-		if(INTENT_HARM)
+		if("harm")
 			attributes += "are fighting anyone who comes near"
 
 	// Clothing state
