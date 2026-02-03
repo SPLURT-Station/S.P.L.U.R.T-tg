@@ -1,4 +1,10 @@
 /obj/machinery/vending/games
 	zzplurt_product_categories = list(
-		/obj/item/toy/figure/willico = 3,
+		list(
+			"name" = "Toys",
+			"icon" = "hat-wizard",
+			"products" = list(
+				/obj/item/toy/figure/willico = 3,
+			),
+		)
 	)
