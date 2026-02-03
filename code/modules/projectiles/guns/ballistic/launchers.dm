@@ -5,7 +5,7 @@
 	name = "grenade launcher"
 	desc = "A break-operated grenade launcher."
 	icon_state = "dshotgun_sawn"
-	recoil = 0.75
+	recoil = 0.2
 	inhand_icon_state = "gun"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/grenadelauncher
 	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
@@ -60,7 +60,7 @@
 	icon_state = "gyropistol"
 	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m75
-	recoil = 0.25
+	recoil = 0.3
 	burst_size = 1
 	fire_delay = 0 SECONDS
 	actions_types = list()

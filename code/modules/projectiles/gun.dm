@@ -231,8 +231,7 @@
 
 
 		if (user.client.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken)) // apply dim to screen
-			var/rtype = /atom/movable/screen/fullscreen/flash/black
-			var/atom/movable/screen/fullscreen/rflash = user.overlay_fullscreen("flash", rtype)
+			var/atom/movable/screen/fullscreen/rflash = user.overlay_fullscreen("recoildim", /atom/movable/screen/fullscreen/recoildim)
 
 			var/rf_alpha = recoil*255/3.5
 			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
@@ -241,15 +240,17 @@
 			if(rf_alpha>255) // clamp, just to make sure
 				rf_alpha = 255
 			rflash.alpha = rf_alpha
-			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "flash", 0.2 SECONDS*recoil, TIMER_OVERRIDE), 0.2 SECONDS*recoil)
+
+			var/recoil_time = (0.2 SECONDS*recoil)+0.2 SECONDS
+			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "recoildim", recoil_time, TIMER_OVERRIDE), recoil_time)
 			animate( // recovery
 				rflash,
-				time = 0.2 SECONDS*recoil,
+				time = recoil_time,
 				easing = LINEAR_EASING,
-				alpha = 0,
-				ANIMATION_PARALLEL
+				alpha = 0
 			)
 		else // apply punch to camera
+			var/client/uc = user.client
 			// get recoil vector
 			var/turf/src_turf = get_turf(src)
 			var/turf/target_turf = get_turf(pbtarget)
@@ -262,19 +263,18 @@
 			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
 				rv.size = rv.size*2
 
-			animate( // initial kick
-				user.client,
+			animate( // kick
+				uc,
 				time = 0.05 SECONDS,
 				easing = CIRCULAR_EASING | EASE_IN,
-				pixel_x = rv.x * ICON_SIZE_ALL,
-				pixel_y = rv.y * ICON_SIZE_ALL
+				pixel_x = rv.x*ICON_SIZE_ALL,
+				pixel_y = rv.y*ICON_SIZE_ALL
 			)
 			animate( // recovery
 				time = 0.1 SECONDS*recoil,
 				easing = CIRCULAR_EASING | EASE_OUT,
 				pixel_x = 0,
-				pixel_y = 0,
-				ANIMATION_PARALLEL
+				pixel_y = 0
 			)
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
