@@ -210,38 +210,51 @@
 
 /obj/item/gun/proc/recoil_viewpunch(mob/living/user, atom/pbtarget = null)
 	if(recoil && !tk_firing(user) && !(HAS_TRAIT(user, TRAIT_BALLISTIC_TRAINING) && recoil<=5))
-		// apply effective recoil modifier from quirks -- idk how performant this is so i'll leave it out for now - dot
-		// var/effective_recoil = recoil
+		// apply effective recoil modifier from quirks
+		var/effective_recoil = recoil
 
-		// if (HAS_TRAIT(user, TRAIT_GIANT))
-		// 	effective_recoil = effective_recoil*0.75
-		// if (HAS_TRAIT(user, TRAIT_TOUGH))
-		// 	effective_recoil = effective_recoil*0.9
-		// if (HAS_TRAIT(user, TRAIT_FLIMSY))
-		// 	effective_recoil = effective_recoil*1.2
+		// i hope there's a better way to do this - orcawa
+		if (user.has_quirk(/datum/quirk/oversized))
+			effective_recoil = effective_recoil*0.8
+		if (user.has_quirk(/datum/quirk/tough))
+			effective_recoil = effective_recoil*0.9
+		if (user.has_quirk(/datum/quirk/frail))
+			effective_recoil = effective_recoil*1.2
+		if (user.has_quirk(/datum/quirk/micro))
+			effective_recoil = effective_recoil*1.2
+		if (user.has_quirk(/datum/quirk/featherweight))
+			effective_recoil = effective_recoil*1.2
+		if (user.has_quirk(/datum/quirk/micro/smaller))
+			effective_recoil = effective_recoil*1.2
+		if (user.has_quirk(/datum/quirk/micro/smallest))
+			effective_recoil = effective_recoil*1.4
 
-		// rv.size = effective_recoil
+		var/has_quirk_newshoot = user.has_quirk(/datum/quirk/new_shooter)
 
 		// roll to break arm
 		if(recoil>10)
 			var/recoil_disloc = rand((recoil-10),20)
+			if (user.has_quirk(/datum/quirk/frail) || user.has_quirk(/datum/quirk/micro))
+				recoil_disloc = recoil_disloc + 3
+			if (user.has_quirk(/datum/quirk/tough) || user.has_quirk(/datum/quirk/oversized))
+				recoil_disloc = recoil_disloc - 3
 			if (recoil_disloc > 15)
 				var/obj/item/bodypart/disloc_target = user.get_active_hand()
 				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
-
-		if (user.client.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken) || HAS_TRAIT(user, TRAIT_USER_SCOPED)) // apply dim to screen
+		// apply dim to screen
+		if (user.client.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken) || HAS_TRAIT(user, TRAIT_USER_SCOPED))
 			var/atom/movable/screen/fullscreen/rflash = user.overlay_fullscreen("recoildim", /atom/movable/screen/fullscreen/recoildim)
 
-			var/rf_alpha = recoil*255/3.5
-			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
+			var/rf_alpha = effective_recoil*255/3.5
+			if(has_quirk_newshoot)  // add flinch from new shooter
 				rf_alpha = rf_alpha*2
 
 			if(rf_alpha>255) // clamp, just to make sure
 				rf_alpha = 255
 			rflash.alpha = rf_alpha
 
-			var/recoil_time = (0.2 SECONDS*recoil)+0.2 SECONDS
+			var/recoil_time = (0.2 SECONDS*effective_recoil)+0.2 SECONDS
 			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "recoildim", recoil_time, TIMER_OVERRIDE), recoil_time)
 			animate( // recovery
 				rflash,
@@ -249,36 +262,38 @@
 				easing = LINEAR_EASING,
 				alpha = 0
 			)
-		else // apply punch to camera
-			var/client/uc = user.client
-			// get recoil vector
-			var/turf/src_turf = get_turf(src)
-			var/turf/target_turf = get_turf(pbtarget)
+			return
 
-			var/recoil_rand = rand(-3*recoil, 3*recoil)
-			var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
-			rv = rv.Turn(recoil_rand)
-			rv.size = recoil*0.9
+		// apply punch to camera
+		var/client/uc = user.client
+		// get recoil vector
+		var/turf/src_turf = get_turf(src)
+		var/turf/target_turf = get_turf(pbtarget)
 
-			if(HAS_TRAIT(user, TRAIT_NEW_SHOOTER))  // add flinch from new shooter
-				rv.size = rv.size*2
+		var/recoil_rand = rand(-3*recoil, 3*recoil)
+		var/vector/rv = vector(src_turf.x - target_turf.x, src_turf.y - target_turf.y) // recoil vector
+		rv = rv.Turn(recoil_rand)
+		rv.size = effective_recoil*0.9
 
-			animate( // kick
-				uc,
-				time = 0.05 SECONDS,
-				easing = CIRCULAR_EASING | EASE_IN,
-				pixel_x = rv.x*ICON_SIZE_ALL,
-				pixel_y = rv.y*ICON_SIZE_ALL
-			)
-			animate( // recovery
-				time = 0.1 SECONDS*recoil,
-				easing = CIRCULAR_EASING | EASE_OUT,
-				pixel_x = 0,
-				pixel_y = 0
-			)
+		if(has_quirk_newshoot)  // add flinch from new shooter
+			rv.size = rv.size*2
+
+		animate( // kick
+			uc,
+			time = 0.05 SECONDS,
+			easing = CIRCULAR_EASING | EASE_IN,
+			pixel_x = rv.x*ICON_SIZE_ALL,
+			pixel_y = rv.y*ICON_SIZE_ALL
+		)
+		animate( // recovery
+			time = 0.1 SECONDS*effective_recoil,
+			easing = CIRCULAR_EASING | EASE_OUT,
+			pixel_x = 0,
+			pixel_y = 0
+		)
+		return
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
-	recoil_viewpunch(user, pbtarget)
 	fire_sounds()
 	if(suppressed || !message)
 		return FALSE
@@ -323,6 +338,8 @@
 
 	if(chambered?.integrity_damage)
 		take_damage(chambered.integrity_damage, sound_effect = FALSE)
+
+	recoil_viewpunch(user, pbtarget)
 	return TRUE
 
 /obj/item/gun/atom_destruction(damage_flag)
