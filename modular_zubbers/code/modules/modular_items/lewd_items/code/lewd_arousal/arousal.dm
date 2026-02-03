@@ -1,3 +1,12 @@
+//SPLURT ADDITION START: modular perma-arousal traits for display overrides
+#ifndef TRAIT_PERMA_HARD
+#define TRAIT_PERMA_HARD "perma_hard"
+#endif
+#ifndef TRAIT_PERMA_SOFT
+#define TRAIT_PERMA_SOFT "perma_soft"
+#endif
+//SPLURT ADDITION END
+
 ///Adjusts the parent human's arousal value based off the value assigned to `arous.`
 /mob/living/proc/adjust_arousal(arous = 0) // SPLURT EDIT - INTERACTIONS - Is now a property of the base living mob
 	if(stat >= DEAD || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || (!ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src)))) // SPLURT EDIT - INTERACTIONS - Simple mobs should also be able to handle pain
@@ -15,10 +24,33 @@
 			var/mob/living/carbon/human/target = src
 			for(var/obj/item/organ/genital/target_genital in target.organs)
 				if(!target_genital.aroused == AROUSAL_CANT)
-					target_genital.aroused = arousal_status
+				//SPLURT ADDITION START
+					var/display_arousal = arousal_status //SPLURT EDIT - ORIGINAL: target_genital.aroused = arousal_status
+					if(HAS_TRAIT(target, TRAIT_PERMA_HARD))
+						display_arousal = AROUSAL_FULL
+					else if(HAS_TRAIT(target, TRAIT_PERMA_SOFT))
+						display_arousal = AROUSAL_NONE
+					target_genital.aroused = display_arousal
+				//SPLURT ADDITION END
 					target_genital.update_sprite_suffix()
 			target.update_body()
 			SEND_SIGNAL(src, COMSIG_HUMAN_ADJUST_AROUSAL)
+	//SPLURT ADDITION START
+	else if(istype(src, /mob/living/carbon/human))
+		// Always enforce permanent arousal display traits even if the arousal flag didn't change.
+		var/mob/living/carbon/human/target = src
+		for(var/obj/item/organ/genital/target_genital in target.organs)
+			if(!target_genital.aroused == AROUSAL_CANT)
+				var/display_arousal = target_genital.aroused
+				if(HAS_TRAIT(target, TRAIT_PERMA_HARD)) //SPLURT ADDITION START
+					display_arousal = AROUSAL_FULL
+				else if(HAS_TRAIT(target, TRAIT_PERMA_SOFT))
+					display_arousal = AROUSAL_NONE //SPLURT ADDITION END
+				if(display_arousal != target_genital.aroused)
+					target_genital.aroused = display_arousal
+					target_genital.update_sprite_suffix()
+		target.update_body()
+	//SPLURT ADDITION END
 
 	arousal = clamp(arousal + arous, additional_minimum_arousal || AROUSAL_MINIMUM, AROUSAL_LIMIT) //SPLURT EDIT - Hexacrocin OD Bounty
 	if(!has_status_effect(/datum/status_effect/aroused) && arousal)
@@ -61,3 +93,8 @@
 		if (arousal > AROUSAL_NONE && src.dna.features["low_arousal"])
 			. += span_purple(src.dna.features["low_arousal"])
 			return
+
+// SPLURT ADDITION START
+#undef TRAIT_PERMA_HARD
+#undef TRAIT_PERMA_SOFT
+// SPLURT ADDITION END
