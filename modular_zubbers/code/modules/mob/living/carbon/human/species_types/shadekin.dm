@@ -1,7 +1,6 @@
 /datum/species/shadekin
 	name = "Shadekin"
 	id = SPECIES_SHADEKIN
-	//eyes_icon = 'modular_zubbers/icons/mob/human/human_face.dmi' //SPLURT EDIT - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
 	mutanttongue = /obj/item/organ/tongue/shadekin
 	mutantears = /obj/item/organ/ears/shadekin
 	mutantbrain = /obj/item/organ/brain/shadekin

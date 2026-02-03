@@ -3,7 +3,7 @@
 	name = "Trencher Outfits"
 	desc = "Contains five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Corporate-made."
 	cost = CARGO_CRATE_VALUE * 5.2
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 					/obj/item/clothing/mask/gas/goner,
 					/obj/item/clothing/mask/gas/goner,
@@ -37,7 +37,7 @@
 	name = "Red Trencher Outfits"
 	desc = "Contains an outfit surplus of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by pesky Reds."
 	cost = CARGO_CRATE_VALUE * 5
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 					/obj/item/clothing/mask/gas/goner,
 					/obj/item/clothing/mask/gas/goner,
@@ -71,7 +71,7 @@
 	name = "Green Trencher Outfits"
 	desc = "Contains an outfit surplus of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by stupid Greens."
 	cost = CARGO_CRATE_VALUE * 4.7
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 					/obj/item/clothing/mask/gas/goner,
 					/obj/item/clothing/mask/gas/goner,
@@ -105,7 +105,7 @@
 	name = "Blue Trencher Outfits"
 	desc = "Contains an outfit surplus of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by dirty Blues."
 	cost = CARGO_CRATE_VALUE * 5
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 					/obj/item/clothing/mask/gas/goner,
 					/obj/item/clothing/mask/gas/goner,
@@ -139,7 +139,7 @@
 	name = "Yellow Trencher Outfits"
 	desc = "Contains an outfit surplus of five trench uniforms, coats, gas masks, jackboots, four helmets and one officer cap. Made by damn Yellows."
 	cost = CARGO_CRATE_VALUE * 5
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 					/obj/item/clothing/mask/gas/goner,
 					/obj/item/clothing/mask/gas/goner,
