@@ -1,4 +1,4 @@
-/datum/techweb_node/biotech/New()
+/datum/techweb_node/bio_scan/New()
 	var/list/extra_designs = list(
 		"sex_research"
 	)
