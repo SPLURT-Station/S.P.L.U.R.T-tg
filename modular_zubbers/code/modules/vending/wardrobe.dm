@@ -41,7 +41,7 @@
 		/obj/item/clothing/neck/tie/bunnytie/chemist = 2,
 		/obj/item/clothing/suit/toggle/jacket/zubber/bomber/science/chem = 2,
 		/obj/item/clothing/suit/toggle/labcoat/chemist/doctor_tailcoat = 2,
-		/obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist = 2, //SPLURT EDIT, ORIGINAL: /obj/item/clothing/suit/toggle/labcoat/chemist/pharmacist
 		/obj/item/clothing/under/rank/medical/chemist/bunnysuit = 2,
 		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal = 2,
 		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal/skirt = 2,
@@ -96,6 +96,7 @@
 				/obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat = 2,
 				/obj/item/clothing/under/rank/rnd/roboticist/skyrat/sleek = 2,
 				/obj/item/clothing/under/rank/rnd/scientist/roboticist_bunnysuit = 2,
+				/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist = 3,
 				/obj/item/storage/backpack/duffelbag/science/robo = 2,
 				/obj/item/storage/backpack/messenger/science/robo = 2,
 				/obj/item/storage/backpack/satchel/science/robo = 2,
@@ -152,6 +153,7 @@
 	/obj/item/clothing/neck/tie/bunnytie/geneticist = 2,
 	/obj/item/clothing/suit/toggle/labcoat/genetics/doctor_tailcoat = 2,
 	/obj/item/clothing/under/rank/rnd/geneticist/bunnysuit = 2,
+	/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist = 3,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe

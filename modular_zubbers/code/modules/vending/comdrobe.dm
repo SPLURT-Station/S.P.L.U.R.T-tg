@@ -143,7 +143,7 @@
 		/obj/item/clothing/neck/cloak/rd = 1,
 		/obj/item/clothing/neck/mantle/rdmantle = 1,
 		/obj/item/clothing/suit/toggle/labcoat = 1,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/rd = 1,
+		/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd = 1, //SPLURT EDIT, ORIGINAL: /obj/item/clothing/suit/toggle/labcoat/skyrat/rd
 		/obj/item/clothing/suit/toggle/labcoat/research_director = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/science/rd = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,

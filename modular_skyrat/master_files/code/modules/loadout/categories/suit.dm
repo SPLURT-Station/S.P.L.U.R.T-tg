@@ -110,14 +110,34 @@
 	name = "Virologist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/virologist
 
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy
+
 /datum/loadout_item/suit/labcoat_regular
 	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular
+
 
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist
+	restricted_roles = list(JOB_MEDICAL_DOCTOR,JOB_CHEMIST,JOB_CHIEF_MEDICAL_OFFICER)
 
+/datum/loadout_item/suit/labcoat_RD
+	name = "Research Director's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
+
+/datum/loadout_item/suit/labcoat_geneticist
+	name = "Geneticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist
+	restricted_roles = list(JOB_GENETICIST)
+
+/datum/loadout_item/suit/labcoat_roboticist
+	name = "Roboticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist
+	restricted_roles = list(JOB_ROBOTICIST)
 /*
 *	PONCHOS
 */
