@@ -12,10 +12,21 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/labcoat.dmi'
 	icon_state = null //Keeps this from showing up under the chameleon hat
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/rd
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy
+	name = "Greyscale Fancy Labcoat"
+	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears."
+	icon_state = "fancy_labcoat"
+	greyscale_config = /datum/greyscale_config/fancy_labcoat
+	greyscale_config_worn = /datum/greyscale_config/fancy_labcoat/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/fancy_labcoat/worn/teshari
+	greyscale_colors = "#EEEEEE#4A77A1"
+	gets_cropped_on_taurs = FALSE
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
-	icon_state = "labcoat_rd_w"
+	greyscale_colors = "#B347A1#EEEEEE"
 	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|ARMS|LEGS
 	armor_type = /datum/armor/skyrat_rd
@@ -26,22 +37,16 @@
 	fire = 80
 	acid = 70
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/regular
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular
 	name = "researcher's labcoat"
 	desc = "A Nanotrasen standard labcoat for researchers in the scientific field."
-	icon_state = "labcoat_regular"
+	greyscale_colors = "#EEEEEE#B347A1"
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist
 	name = "pharmacist's labcoat"
 	desc = "A standard labcoat for chemistry which protects the wearer from acid spills."
-	icon_state = "labcoat_pharm"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/labcoat.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/labcoat.dmi'
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
+	greyscale_colors = "#EEEEEE#E6935C"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/skyrat/highvis
@@ -54,6 +59,12 @@
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist
+	name = "geneticist's labcoat"
+	desc = "A standard labcoat for geneticist."
+	greyscale_colors = "#EEEEEE#7497C0"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/hospitalgown //Intended to keep patients modest while still allowing for surgeries
 	name = "hospital gown"
@@ -69,9 +80,11 @@
 	armor_type = /datum/armor/none
 	equip_delay_other = 8
 
-/obj/item/clothing/suit/toggle/labcoat/roboticist
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
-	greyscale_colors = "#2D2D33#88242D#88242D#88242D" //Overwrite the TG Roboticist labcoat to Black and Red (not the Interdyne labcoat though)
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist
+	name = "roboticist's labcoat"
+	desc = "A standard labcoat for roboticist."
+	greyscale_colors = "#2F2E31#A52F29"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/medical //Renamed version of the Genetics labcoat for more generic medical purposes; just a subtype of /labcoat/ for the TG files
 	name = "medical labcoat"
@@ -107,3 +120,7 @@
 	allowed += list(
 		/obj/item/handheld_soulcatcher,
 	)
+
+/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/chemistry
