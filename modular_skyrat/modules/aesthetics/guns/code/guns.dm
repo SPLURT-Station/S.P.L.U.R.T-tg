@@ -34,11 +34,13 @@
 	inhand_icon_state = "shotgun_combat"
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
+	recoil = 1.25
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/gun/ballistic/shotgun/automatic/combat/compact
 	name = "\improper Peacekeeper compact combat shotgun"
 	desc = "A tactical variant of the peacekeeper combat shotgun used by NT Raiding Parties and Space Marines. It has a gyroscopic stabilizer on it, letting you fire one handed."
+	recoil = 1.5
 	weapon_weight = WEAPON_MEDIUM
 
 /obj/item/gun/grenadelauncher

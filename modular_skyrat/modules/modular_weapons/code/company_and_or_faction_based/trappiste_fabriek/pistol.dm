@@ -10,6 +10,7 @@
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
 
 	w_class = WEIGHT_CLASS_NORMAL
+	recoil = 0.75
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol
 	special_mags = TRUE
