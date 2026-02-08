@@ -209,7 +209,7 @@
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/proc/recoil_viewpunch(mob/living/user, atom/pbtarget = null)
-	if(recoil && !tk_firing(user) && !(HAS_TRAIT(user, TRAIT_BALLISTIC_TRAINING) && recoil<=5))
+	if(user.client && recoil && !tk_firing(user) && !(HAS_TRAIT(user, TRAIT_BALLISTIC_TRAINING) && recoil<=5))
 		// apply effective recoil modifier from quirks
 		var/effective_recoil = recoil
 
@@ -265,7 +265,7 @@
 				easing = LINEAR_EASING,
 				alpha = 0
 			)
-			return
+			return TRUE
 
 		// apply punch to camera
 		var/client/uc = user.client
@@ -294,7 +294,8 @@
 			pixel_x = 0,
 			pixel_y = 0
 		)
-		return
+		return TRUE
+	return FALSE
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = TRUE)
 	fire_sounds()
