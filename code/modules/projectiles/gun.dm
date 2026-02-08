@@ -246,7 +246,7 @@
 				disloc_target.force_wound_upwards(/datum/wound/blunt/bone/moderate)
 
 		// apply dim to screen
-		if (user.client.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken) || HAS_TRAIT(user, TRAIT_USER_SCOPED))
+		if (user.client?.prefs.read_preference(/datum/preference/toggle/recoil_punch_darken) || HAS_TRAIT(user, TRAIT_USER_SCOPED))
 			var/atom/movable/screen/fullscreen/rflash = user.overlay_fullscreen("recoildim", /atom/movable/screen/fullscreen/recoildim)
 
 			var/rf_alpha = effective_recoil*255/3.5
