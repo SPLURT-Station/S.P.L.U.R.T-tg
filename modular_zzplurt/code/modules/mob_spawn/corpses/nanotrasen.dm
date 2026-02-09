@@ -3,6 +3,7 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_SERGEANT "Nanotrasen Private Security Sergeant"
 #define JOB_CENTCOM_PRIVATE_SECURITY_COMMANDER "Nanotrasen Private Security Commander"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
+#define JOB_BRIDGE_OFFICER "Bridge Officer"
 
 
 /obj/effect/mob_spawn/corpse/human/privatesecurity
@@ -125,3 +126,25 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	icon_state = "swatcomm"
+
+/obj/effect/mob_spawn/corpse/human/bridgeofficer/shuttle8532
+	name = JOB_BRIDGE_OFFICER
+	outfit = /datum/outfit/nanotrasenbridgeofficer/shuttle8532
+
+/datum/outfit/nanotrasenbridgeofficer/shuttle8532
+	name = "Bridge Officer"
+
+	ears = /obj/item/radio/headset/headset_cent/empty
+	uniform = /obj/item/clothing/under/rank/centcom/official
+	suit = /obj/item/clothing/suit/armor/vest
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	gloves = /obj/item/clothing/gloves/color/black
+	glasses = /obj/item/clothing/glasses/sunglasses
+	id = /obj/item/card/id/advanced/platinum
+	id_trim = /datum/id_trim/centcom/corpse/bridge_officer/bigderelict
+	implants = list(/obj/item/implant/mindshield)
+
+/datum/id_trim/centcom/corpse/bridge_officer/bigderelict
+	assignment = JOB_BRIDGE_OFFICER
+	subdepartment_color = COLOR_CENTCOM_BLUE
+	access = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL)
