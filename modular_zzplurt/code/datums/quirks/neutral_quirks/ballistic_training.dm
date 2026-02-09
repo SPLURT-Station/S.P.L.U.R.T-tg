@@ -6,4 +6,4 @@
 	lose_text = span_warning("You forget your gun training...")
 	medical_record_text = "Patient expresses a keen familiarity with ballistic firearms."
 	mob_trait = TRAIT_BALLISTIC_TRAINING
-	icon = FA_ICON_GUN
+	icon = FA_ICON_PERSON_MILITARY_RIFLE

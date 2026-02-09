@@ -6,4 +6,4 @@
 	lose_text = span_notice("You start to get used to shooting guns.")
 	medical_record_text = "Doesn't know which way to hold a gun, had to correct technique."
 	mob_trait = TRAIT_NEW_SHOOTER
-	icon = FA_ICON_GUN
+	icon = FA_ICON_PERSON_RIFLE

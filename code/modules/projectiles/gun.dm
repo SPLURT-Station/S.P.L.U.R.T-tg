@@ -258,7 +258,7 @@
 			rflash.alpha = rf_alpha
 
 			var/recoil_time = (0.2 SECONDS*effective_recoil)+0.2 SECONDS
-			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "recoildim", recoil_time, TIMER_OVERRIDE), recoil_time)
+			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, clear_fullscreen), "recoildim", recoil_time, TIMER_UNIQUE|TIMER_OVERRIDE), recoil_time)
 			animate( // recovery
 				rflash,
 				time = recoil_time,
