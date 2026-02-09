@@ -26,8 +26,8 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "aE" = (
-/obj/effect/mob_spawn/corpse/human/privatesecurity,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/privatesecurity,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "aF" = (
@@ -1579,6 +1579,11 @@
 /area/ruin/space/has_grav/shuttle8532engineering)
 "nP" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532hall)
 "nQ" = (
@@ -1695,7 +1700,8 @@
 	lethal = 1;
 	name = "Outer Turret Control";
 	system_id = "ship_outer_turrets";
-	req_access = null
+	req_access = null;
+	pixel_y = 3
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
@@ -1847,6 +1853,14 @@
 /obj/item/ammo_casing/c45/spent,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
+"qQ" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/flashlight/glowstick/red{
+	light_on = 1
+	},
+/mob/living/basic/trooper/syndicate/melee/sword/space,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav/shuttle8532hall)
 "qU" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -2168,6 +2182,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/shuttle8532medicalbay)
 "tD" = (
@@ -3018,7 +3036,9 @@
 	dir = 8
 	},
 /obj/structure/rack/shelf,
-/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack,
+/obj/item/tank/jetpack,
+/obj/item/tank/jetpack,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/shuttle8532hall)
 "BJ" = (
@@ -3558,7 +3578,7 @@
 /obj/effect/turf_decal/siding/thinplating_new,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/gun/energy/laser/retro,
+/obj/item/gun/energy/e_gun/asterion,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "GW" = (
@@ -3689,6 +3709,12 @@
 	network = list("shuttle8352");
 	c_tag = "Research Lab - Lobby"
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Ij" = (
@@ -4417,7 +4443,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Pt" = (
-/mob/living/basic/trooper/syndicate/ranged/smg/space,
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "Pv" = (
@@ -4476,6 +4502,8 @@
 /area/ruin/space/has_grav/shuttle8532bridge)
 "Qd" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mob_spawn/corpse/human/roboticist,
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Qm" = (
@@ -7011,7 +7039,7 @@ pe
 Dd
 YM
 iY
-Eq
+qQ
 VG
 Yj
 cz
