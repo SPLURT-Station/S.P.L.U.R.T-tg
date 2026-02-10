@@ -105,14 +105,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532hall)
-"bg" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/obj/machinery/suit_storage_unit/engine,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "bl" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/shuttle8532medicalbay)
@@ -280,7 +272,14 @@
 "cz" = (
 /obj/item/stack/cable_coil/five,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
+"cC" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "cG" = (
 /obj/effect/turf_decal/vg_decals/numbers/eight,
 /obj/structure/cable,
@@ -526,7 +525,7 @@
 "eu" = (
 /obj/effect/spawner/random/maintenance,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
 "ex" = (
 /obj/structure/grille/broken,
 /obj/item/shard,
@@ -939,14 +938,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
-"hX" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/obj/machinery/suit_storage_unit/open,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "ib" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -1317,7 +1308,7 @@
 "lO" = (
 /obj/item/clothing/mask/breath,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
 "lP" = (
 /obj/machinery/firealarm/directional/west,
 /obj/structure/hedge,
@@ -1869,15 +1860,6 @@
 /obj/item/ammo_casing/c45/spent,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"qO" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/structure/closet/crate/secure/engineering/atmos,
-/obj/item/holosign_creator/atmos,
-/obj/item/watertank/atmos,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "qQ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/flashlight/glowstick/red{
@@ -2091,6 +2073,15 @@
 /obj/structure/fans/tiny/forcefield,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/shuttle8532cargohall)
+"sz" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/secure/engineering/atmos,
+/obj/item/holosign_creator/atmos,
+/obj/item/watertank/atmos,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "sA" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
@@ -2624,6 +2615,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/shuttle8532researchbay)
+"xl" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "xw" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Bay"
@@ -2686,13 +2685,6 @@
 /obj/item/ammo_casing/c45/spent,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532hall)
-"yb" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "ye" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
@@ -2776,17 +2768,17 @@
 /obj/item/storage/briefcase/secure,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"yT" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/suit_storage_unit/open,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "yU" = (
 /obj/item/shard,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
+"yW" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "yZ" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
@@ -2818,7 +2810,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
-/obj/structure/closet/crate/solarpanel_small,
+/obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "zx" = (
@@ -3058,6 +3050,10 @@
 /obj/effect/spawner/random/food_or_drink/three_course_meal,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
+"By" = (
+/mob/living/basic/trooper/syndicate/ranged/space,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "BA" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -3106,13 +3102,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532cargohall)
-"BX" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "BY" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
@@ -3356,10 +3345,6 @@
 /obj/machinery/rnd/production/circuit_imprinter/offstation,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532researchbay)
-"Fb" = (
-/mob/living/basic/trooper/syndicate/ranged/space,
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "Fd" = (
 /obj/structure/chair/office/light,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4468,6 +4453,14 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/shuttle8532engineering)
+"OV" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/structure/closet/crate/solarpanel_small,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "Pj" = (
 /obj/effect/turf_decal/vg_decals/numbers/five,
 /obj/structure/cable,
@@ -5011,6 +5004,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/shuttle8532medicalbay)
+"TH" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "TK" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -5090,7 +5090,7 @@
 "Uq" = (
 /obj/item/stack/rods/ten,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
 "Uv" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
@@ -5601,7 +5601,7 @@
 "Yj" = (
 /obj/item/stack/sheet/iron/five,
 /turf/template_noop,
-/area/ruin/space/has_grav)
+/area)
 "Yk" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
@@ -6865,7 +6865,7 @@ da
 ql
 oW
 MC
-yT
+TH
 FC
 Dx
 ar
@@ -6929,7 +6929,7 @@ en
 ql
 vT
 MC
-bg
+zm
 FC
 Dx
 ar
@@ -7185,7 +7185,7 @@ RW
 Po
 vu
 MC
-yb
+cC
 FC
 Dx
 ar
@@ -7250,7 +7250,7 @@ tZ
 fA
 MC
 pf
-Fb
+By
 Dx
 ar
 ar
@@ -7313,7 +7313,7 @@ aO
 tZ
 rH
 MC
-zm
+OV
 FC
 Dx
 ar
@@ -7377,7 +7377,7 @@ bJ
 ar
 JL
 MC
-qO
+sz
 FC
 Dx
 ar
@@ -7441,7 +7441,7 @@ DG
 dx
 jh
 MC
-BX
+yW
 FC
 Dx
 ar
@@ -7697,7 +7697,7 @@ gI
 nf
 My
 MC
-hX
+xl
 FC
 Dx
 ar
@@ -7761,7 +7761,7 @@ ql
 ql
 He
 MC
-yT
+TH
 FC
 Dx
 ar
