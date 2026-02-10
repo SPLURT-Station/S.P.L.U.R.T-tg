@@ -105,6 +105,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532hall)
+"bg" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/suit_storage_unit/engine,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "bl" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/shuttle8532medicalbay)
@@ -931,6 +939,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
+"hX" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "ib" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -1722,7 +1738,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
-/mob/living/basic/trooper/syndicate/ranged/space,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "pr" = (
@@ -1831,8 +1847,8 @@
 /obj/effect/spawner/random/clothing/syndie,
 /obj/effect/spawner/random/clothing/syndie,
 /obj/effect/spawner/random/clothing/syndie,
-/obj/structure/closet/crate/secure/syndicrate,
 /obj/effect/spawner/random/engineering/tool_advanced,
+/obj/structure/closet/crate/secure/syndicate,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532hall)
 "qK" = (
@@ -1853,6 +1869,15 @@
 /obj/item/ammo_casing/c45/spent,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
+"qO" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/secure/engineering/atmos,
+/obj/item/holosign_creator/atmos,
+/obj/item/watertank/atmos,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "qQ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/flashlight/glowstick/red{
@@ -2046,6 +2071,10 @@
 	network = list("shuttle8352");
 	c_tag = "Engineering Storage - Port"
 	},
+/obj/structure/rack/shelf,
+/obj/item/stock_parts/power_store/cell/emproof,
+/obj/item/stock_parts/power_store/cell/emproof,
+/obj/item/stock_parts/power_store/cell/emproof,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "st" = (
@@ -2657,6 +2686,13 @@
 /obj/item/ammo_casing/c45/spent,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/shuttle8532hall)
+"yb" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "ye" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
@@ -2740,6 +2776,13 @@
 /obj/item/storage/briefcase/secure,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
+"yT" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "yU" = (
 /obj/item/shard,
 /turf/template_noop,
@@ -2775,6 +2818,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "zx" = (
@@ -3062,6 +3106,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532cargohall)
+"BX" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "BY" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
@@ -3305,6 +3356,10 @@
 /obj/machinery/rnd/production/circuit_imprinter/offstation,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532researchbay)
+"Fb" = (
+/mob/living/basic/trooper/syndicate/ranged/space,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "Fd" = (
 /obj/structure/chair/office/light,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3340,6 +3395,9 @@
 	network = list("shuttle8352");
 	c_tag = "Engineering Storage - Starboard"
 	},
+/obj/structure/rack/shelf,
+/obj/item/storage/toolbox/electrical,
+/obj/item/clothing/gloves/color/yellow,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "Fs" = (
@@ -4821,8 +4879,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/storage/box/syndie_kit/chameleon,
 /obj/item/wrench/combat,
-/obj/structure/closet/crate/secure/syndicrate,
 /obj/effect/spawner/random/contraband/armory,
+/obj/structure/closet/crate/secure/syndicate,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532hall)
 "Sy" = (
@@ -6807,7 +6865,7 @@ da
 ql
 oW
 MC
-Fs
+yT
 FC
 Dx
 ar
@@ -6871,7 +6929,7 @@ en
 ql
 vT
 MC
-zm
+bg
 FC
 Dx
 ar
@@ -7127,7 +7185,7 @@ RW
 Po
 vu
 MC
-Fs
+yb
 FC
 Dx
 ar
@@ -7192,7 +7250,7 @@ tZ
 fA
 MC
 pf
-FC
+Fb
 Dx
 ar
 ar
@@ -7319,7 +7377,7 @@ bJ
 ar
 JL
 MC
-Fs
+qO
 FC
 Dx
 ar
@@ -7383,7 +7441,7 @@ DG
 dx
 jh
 MC
-Fs
+BX
 FC
 Dx
 ar
@@ -7639,7 +7697,7 @@ gI
 nf
 My
 MC
-zm
+hX
 FC
 Dx
 ar
@@ -7703,7 +7761,7 @@ ql
 ql
 He
 MC
-Fs
+yT
 FC
 Dx
 ar
