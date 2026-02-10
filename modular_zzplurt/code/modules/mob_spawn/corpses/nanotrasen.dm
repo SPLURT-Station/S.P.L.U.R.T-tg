@@ -3,7 +3,7 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_SERGEANT "Nanotrasen Private Security Sergeant"
 #define JOB_CENTCOM_PRIVATE_SECURITY_COMMANDER "Nanotrasen Private Security Commander"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
-#define JOB_BRIDGE_OFFICER "Bridge Officer"
+#define JOB_CENTCOM_LIEUTENANT "CentCom Lieutenant"
 
 
 /obj/effect/mob_spawn/corpse/human/privatesecurity
@@ -128,23 +128,27 @@
 	icon_state = "swatcomm"
 
 /obj/effect/mob_spawn/corpse/human/bridgeofficer/shuttle8532
-	name = JOB_BRIDGE_OFFICER
+	name = JOB_CENTCOM_LIEUTENANT
 	outfit = /datum/outfit/nanotrasenbridgeofficer/shuttle8532
 
 /datum/outfit/nanotrasenbridgeofficer/shuttle8532
-	name = "Bridge Officer"
+	name = "CentCom Lieutenant"
 
-	ears = /obj/item/radio/headset/headset_cent/empty
-	uniform = /obj/item/clothing/under/rank/centcom/official
+	ears = /obj/item/radio/headset/headset_cent/alt/leader/empty
+	uniform = /obj/item/clothing/under/rank/centcom/consultant
 	suit = /obj/item/clothing/suit/armor/vest
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	gloves = /obj/item/clothing/gloves/color/black
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/combat
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/advanced/platinum
-	id_trim = /datum/id_trim/centcom/corpse/bridge_officer/bigderelict
+	id_trim = /datum/id_trim/centcom/corpse/bridge_officer/shuttle8532
 	implants = list(/obj/item/implant/mindshield)
 
-/datum/id_trim/centcom/corpse/bridge_officer/bigderelict
-	assignment = JOB_BRIDGE_OFFICER
+/datum/id_trim/centcom/corpse/bridge_officer/shuttle8532
+	assignment = JOB_CENTCOM_LIEUTENANT
 	subdepartment_color = COLOR_CENTCOM_BLUE
 	access = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL)
+
+/obj/item/radio/headset/headset_cent/alt/leader/empty
+	keyslot = null
+	keyslot2 = null
