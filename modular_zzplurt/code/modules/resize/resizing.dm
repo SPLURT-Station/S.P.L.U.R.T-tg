@@ -69,9 +69,9 @@
 			return TRUE
 
 		if(COMPARE_SIZES(user, target) >= 2)
-			log_combat(user, target, "stepped on", addition="[resolve_intent_name(user.combat_mode)] trample")
+			log_combat(user, target, "stepped on", addition="[resolve_intent_name(user)] trample")
 			if((user.mobility_flags & MOBILITY_MOVE) && !user.buckled)
-				switch(resolve_intent_name(user.combat_mode))
+				switch(resolve_intent_name(user))
 					if("disarm")
 						now_pushing = 0
 						user.forceMove(target.loc)
