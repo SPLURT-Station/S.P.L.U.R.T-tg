@@ -35,9 +35,9 @@ With help of an aussie catgirl
 	var/drop_discharge_timerid
 
 /obj/item/gun/energy/laser/energy_bow/equipped(mob/user, slot, initial)
-    . = ..()
-    if(slot != ITEM_SLOT_HANDS)
-        discharge()
+	. = ..()
+	if(slot != ITEM_SLOT_HANDS)
+		discharge()
 
 /obj/item/gun/energy/laser/energy_bow/examine_more(mob/user)
 	. = ..()
@@ -79,7 +79,7 @@ With help of an aussie catgirl
 		addtimer(CALLBACK(src, PROC_REF(discharge_if_not_held)), 0.1 SECONDS)
 
 /obj/item/gun/energy/laser/energy_bow/proc/discharge_if_not_held()
-	if(!ismob(loc))
+		if(!ismob(loc))
 		discharge()
 		deltimer(drop_discharge_timerid)
 
