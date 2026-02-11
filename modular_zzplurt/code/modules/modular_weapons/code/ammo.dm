@@ -89,7 +89,7 @@
 
 /obj/projectile/bullet/c9x17mm/ihdf
 	name = "9x17mm IHDF bullet"
-	damage = 18
+	damage = 8
 	damage_type = STAMINA
 	embed_type = /datum/embedding/bullet/c9x17mm_ihdf
 
