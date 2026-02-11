@@ -46,7 +46,7 @@ With help of an aussie catgirl
 	. += span_notice("This weapon was primarily used by the knights protecting the Y Ark. \
 		These knights were both a form of military and policing force. \
 		Before you is a weapon developed by a station that no longer exists and wielded by many faceless brave men and women, all of whom made a difference in the history of our galaxy \
-		To this day, the shadow government of Ugora Orbit has yet to be contacted by any forces, Solarian or otherwise, and only through arms trade like these were we able to get insight into their culutres.")
+		To this day, the shadow government of Ugora Orbit has yet to be contacted by any forces, Solarian or otherwise, and only through arms trade like these were we able to get insight into their cultures.")
 
 //Please keep in mind when reading the value below
 //The bow discharge when it is not being held in hand. This is a balance measure. To keep it fair
