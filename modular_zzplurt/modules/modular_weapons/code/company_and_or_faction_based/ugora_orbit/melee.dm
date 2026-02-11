@@ -138,7 +138,7 @@ He may be right afterall.
 
 	icon_angle = -45
 
-	icon = 'modular_zzplurt/modules/modular_weapons/icon/company_and_or_faction_based/ugora_orbit/sword32.dmi'
+	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/sword32.dmi'
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/sword_lefthand32.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/sword_righthand32.dmi'
 
