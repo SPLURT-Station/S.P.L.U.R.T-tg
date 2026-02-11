@@ -78,7 +78,7 @@
 /obj/projectile/bullet/c9x17mm/ap
 	name = "9x17mm armor-piercing bullet"
 	damage = 13
-	armour_penetration = 40
+	armour_penetration = 35
 	embed_type = null
 	shrapnel_type = null
 
