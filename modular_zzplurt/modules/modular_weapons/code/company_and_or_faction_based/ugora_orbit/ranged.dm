@@ -79,7 +79,6 @@ With help of an aussie catgirl
 		addtimer(CALLBACK(src, PROC_REF(discharge_if_not_held)), 0.1 SECONDS)
 
 /obj/item/gun/energy/laser/energy_bow/proc/discharge_if_not_held()
-		if(!ismob(loc))
 		discharge()
 		deltimer(drop_discharge_timerid)
 
