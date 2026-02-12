@@ -135,7 +135,7 @@ He may be right afterall.
 
 	icon_state = "secsword0"
 	inhand_icon_state = "secsword0"
-	icon_state = "claymore"
+	worn_icon_state = "claymore"
 
 	icon_angle = -45
 
@@ -189,7 +189,7 @@ He may be right afterall.
 	icon = 'modular_zzplurt/modules/modular_weapons/icons/obj/company_and_or_faction_based/ugora_orbit/sword.dmi'
 	icon_state = "secsword0"
 	inhand_icon_state = "secsword0"
-	icon_state = "claymore"
+	worn_icon_state = "claymore"
 	lefthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/sword_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/modules/modular_weapons/icons/mob/company_and_or_faction_based/ugora_orbit/sword_righthand.dmi'
 	block_chance = 50
