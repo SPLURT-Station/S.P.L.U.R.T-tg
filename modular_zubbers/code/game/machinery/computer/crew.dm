@@ -36,7 +36,8 @@
 
 		//Centcom on-station
 		JOB_NT_REP = 40,
-		JOB_BLUESHIELD = 41,
+		JOB_NT_TRN = 41, //Splurt Edit
+		JOB_BLUESHIELD = 42,
 
 		//Heads
 		JOB_CAPTAIN = 50,

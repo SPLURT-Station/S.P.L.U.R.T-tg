@@ -76,6 +76,18 @@
 	category = GHC_APARTMENT
 	landing_coords = list(17, 3)
 
+/datum/map_template/ghost_cafe_rooms/apartment_occult_lair
+	name = "Occult Hideout"
+	mappath = "_maps/splurt/templates/apartment_occult_lair.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(14, 15)
+
+/datum/map_template/ghost_cafe_rooms/apartment_dusk_oasis
+	name = "Dusked Oasis"
+	mappath = "_maps/splurt/templates/apartment_dusk_oasis.dmm"
+	category = GHC_BEACH
+	landing_coords = list(15, 2)
+
 /datum/map_template/ghost_cafe_rooms/apartment_mountainside
 	name = "Mountainside Apartment"
 	mappath = "_maps/splurt/templates/apartment_mountainside.dmm"
@@ -159,6 +171,30 @@
 	name = "Arcane Library"
 	mappath = "_maps/splurt/templates/apartment_fortuneteller.dmm"
 	category = GHC_MISC
+
+/datum/map_template/ghost_cafe_rooms/apartment_shuttle_serenity2
+	name = "Serenity II Shuttle"
+	mappath = "_maps/splurt/templates/apartment_shuttle_serenity2.dmm"
+	category = GHC_STATION
+	landing_coords = list(8, 8)
+
+/datum/map_template/ghost_cafe_rooms/apartment_winter_outpost
+	name = "Observation Outpost"
+	mappath = "_maps/splurt/templates/apartment_winter_outpost.dmm"
+	category = GHC_WINTER
+	landing_coords = list(11, 2)
+
+/datum/map_template/ghost_cafe_rooms/apartment_xenonest
+	name = "Xenomorph-Infested Mines"
+	mappath = "_maps/splurt/templates/apartment_xenonest.dmm"
+	category = GHC_STATION
+	landing_coords = list(3, 10)
+
+/datum/map_template/ghost_cafe_rooms/apartment_modern_gym
+	name = "Modern Gym"
+	mappath = "_maps/splurt/templates/apartment_modern_gym.dmm"
+	category = GHC_STATION
+	landing_coords = list(16, 8)
 
 /datum/map_template/ghost_cafe_rooms/apartment_house
 	name = "A Lone House"

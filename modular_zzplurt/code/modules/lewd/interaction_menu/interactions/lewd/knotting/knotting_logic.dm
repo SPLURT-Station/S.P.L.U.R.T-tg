@@ -224,8 +224,9 @@
 	target.knotted_parts[target_slot] = user
 	log_combat(user, target, "Started knot tugging")
 
-	if(user.combat_mode || user.combat_mode == INTENT_GRAB) // if more than playful
-		if(user.combat_mode) // damage if harmful
+	var/user_intent = resolve_intent_name(user)
+	if(user_intent == "grab" || user_intent == "harm") // if more than playful
+		if(user_intent == "harm") // damage if harmful
 			if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 				var/damage = user == target.knotted_parts["mouth"] ? 6 : 18 // base damage value
 				var/body_zone = user == target.knotted_parts["mouth"] ? BODY_ZONE_HEAD : BODY_ZONE_CHEST

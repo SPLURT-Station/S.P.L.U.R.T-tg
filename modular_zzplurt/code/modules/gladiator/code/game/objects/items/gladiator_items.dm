@@ -4,15 +4,15 @@
 	worn_icon_state = "claymore" //Use regular claymore sprite when worn
 	block_chance = 25 //Restore original skyrat behavior by way of override
 
-/obj/item/claymore/dragonslayer/mob_can_equip(mob/living/user, slot, disable_warning, bypass_equip_delay_self, ignore_equipped)
-	. = ..()
-	if(!. || slot != ITEM_SLOT_SUITSTORE)
-		return
-	var/obj/item/clothing/suit/hooded/berserker/gatsu/armor = user.get_item_by_slot(ITEM_SLOT_OCLOTHING)
-	if(!istype(armor))
-		if(!disable_warning)
-			to_chat(user, span_warning("[src] can only be carried by the berserker armor!"))
-		return FALSE
+/obj/item/claymore/dragonslayer/mob_can_equip(mob/living/user, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
+	if(slot == ITEM_SLOT_SUITSTORE)
+		var/obj/item/clothing/suit/hooded/berserker/gatsu/armor = user.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+		if(!istype(armor))
+			if(!disable_warning)
+				to_chat(user, span_warning("[src] can only be carried by the berserker armor!"))
+			return FALSE
+		return TRUE
+	return ..()
 
 /obj/item/clothing/suit/hooded/berserker/gatsu/Initialize(mapload)
 	. = ..()

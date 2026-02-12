@@ -177,14 +177,19 @@
 	// Genital data - Only if user is human
 	var/list/genital_list = list()
 	if(ishuman(user))
+		var/lock_mode = GLOB.mkultra_arousal_locks[human_user]
+		var/penis_arousal_locked = (lock_mode == "hard" || lock_mode == "limp")
 		for(var/obj/item/organ/genital/genital in human_user.organs)
 			if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
+				var/can_arouse = (genital.aroused != AROUSAL_CANT)
+				if(genital.slot == ORGAN_SLOT_PENIS && penis_arousal_locked)
+					can_arouse = FALSE
 				var/list/genital_data = list(
 					"name" = genital.name,
 					"slot" = genital.slot,
 					"visibility" = genital.visibility_preference,
 					"aroused" = genital.aroused,
-					"can_arouse" = (genital.aroused != AROUSAL_CANT),
+					"can_arouse" = can_arouse,
 					"always_accessible" = genital.always_accessible
 				)
 				genital_list += list(genital_data)
@@ -253,14 +258,15 @@
 		attributes += "are sexually exhausted for the time being"
 
 	// Intent
-	switch(target.combat_mode)
-		if(INTENT_HELP)
+	var/intent_name = resolve_intent_name(target)
+	switch(intent_name)
+		if("help")
 			attributes += "are acting gentle"
-		if(INTENT_DISARM)
+		if("disarm")
 			attributes += "are acting playful"
-		if(INTENT_GRAB)
+		if("grab")
 			attributes += "are acting rough"
-		if(INTENT_HARM)
+		if("harm")
 			attributes += "are fighting anyone who comes near"
 
 	// Clothing state
