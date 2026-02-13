@@ -355,8 +355,8 @@
 	name = "Abandoned depo"
 	map_path = "_maps/modular_events/trainstation/abandoned_train_depo.dm.dmm"
 	creator = "Fenysha"
-	possible_nearstations = list(/datum/train_station/infected_laboratory)
-	possible_next = list(/datum/train_station/start_point)
+	possible_nearstations = list(/datum/train_station/near_station/abandoned_depo)
+	possible_next = list(/datum/train_station/infected_laboratory)
 	station_flags = TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
 
 /datum/train_station/infected_laboratory
