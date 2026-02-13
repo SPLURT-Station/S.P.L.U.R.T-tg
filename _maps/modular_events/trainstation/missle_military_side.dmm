@@ -587,28 +587,6 @@
 	},
 /turf/open/misc/asteroid/snow/standard_air,
 /area/trainstation/outdoor/station)
-"et" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569"
-	},
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569";
-	dir = 1
-	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
-/area/trainstation/outdoor/station)
 "eu" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -1134,7 +1112,7 @@
 	anchored = 1;
 	name = "access point"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor,
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "hW" = (
 /obj/effect/mob_spawn/corpse/human/charredskeleton,
@@ -1265,26 +1243,6 @@
 /obj/effect/gibspawner/human,
 /obj/effect/decal/cleanable/blood/innards,
 /turf/open/indestructible/meat,
-/area/trainstation/outdoor/station)
-"iV" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569"
-	},
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569";
-	dir = 1
-	},
-/turf/closed/indestructible/hoteldoor/fakedoor,
 /area/trainstation/outdoor/station)
 "iW" = (
 /obj/effect/mob_spawn/corpse/human/charredskeleton,
@@ -1600,9 +1558,7 @@
 	color = "#d66569";
 	dir = 1
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = s
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "lm" = (
 /obj/structure/decorative{
@@ -1910,9 +1866,7 @@
 	color = "#d66569";
 	dir = 8
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "nb" = (
 /obj/structure/decorative{
@@ -2204,9 +2158,7 @@
 	icon_state = "blob_wall";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "oW" = (
 /obj/item/ammo_casing/c38{
@@ -2554,9 +2506,7 @@
 	color = "#d66569";
 	dir = 1
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "rD" = (
 /obj/structure/prop/general/roadbarrierwood{
@@ -2864,11 +2814,6 @@
 /obj/item/gun/ballistic/automatic/c20r/sc_c20r,
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station)
-"tt" = (
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
-/area/trainstation/outdoor/station)
 "tz" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -2938,7 +2883,8 @@
 	color = "#d66569";
 	dir = 8
 	},
-/turf/closed/indestructible/fakedoor/blast_door,
+/obj/machinery/door/poddoor/story,
+/turf/open/space/basic,
 /area/trainstation/outdoor/station)
 "tJ" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -3088,7 +3034,6 @@
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station)
 "ur" = (
-/turf/closed/indestructible/normal_wall,
 /area/trainstation/outdoor/station)
 "us" = (
 /obj/structure/decorative{
@@ -3268,19 +3213,6 @@
 	},
 /obj/effect/gibspawner/human,
 /turf/open/indestructible/meat,
-/area/trainstation/outdoor/station)
-"vv" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569"
-	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
 /area/trainstation/outdoor/station)
 "vw" = (
 /obj/structure/prop/city/buildingventbig12,
@@ -3616,9 +3548,7 @@
 	icon_state = "blob_floor";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "xn" = (
 /obj/machinery/porta_turret/syndicate{
@@ -4083,9 +4013,7 @@
 	icon_state = "blob_wall";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "AC" = (
 /obj/item/ammo_casing/shotgun/incendiary{
@@ -4809,9 +4737,7 @@
 	anchored = 1;
 	name = "access point"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "EZ" = (
 /obj/effect/decal/cleanable/blood/trail_holder{
@@ -6170,9 +6096,7 @@
 	color = "#d66569";
 	dir = 1
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "NZ" = (
 /obj/item/ammo_casing/c38{
@@ -6867,7 +6791,6 @@
 	icon_state = "blob_floor";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor,
 /area/trainstation/outdoor/station)
 "SX" = (
 /obj/effect/mob_spawn/corpse/human/nanotrasenassaultsoldier,
@@ -7212,9 +7135,7 @@
 	icon_state = "blob_wall";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor{
-	name = "Blocked door"
-	},
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "Wh" = (
 /turf/open/floor/asphalt,
@@ -7698,7 +7619,7 @@
 	icon_state = "blob_wall";
 	color = "#d66569"
 	},
-/turf/closed/indestructible/hoteldoor/fakedoor,
+/turf/closed/indestructible/fakedoor,
 /area/trainstation/outdoor/station)
 "Zu" = (
 /obj/structure/prop/tgmc_console4{
@@ -7928,8 +7849,8 @@ mR
 tT
 mR
 mR
-SW
-SW
+xi
+xi
 nX
 tT
 Rl
@@ -9773,7 +9694,7 @@ NY
 sZ
 jM
 Hx
-vv
+Zj
 ct
 ct
 ct
@@ -9937,7 +9858,7 @@ wj
 ct
 ct
 ct
-vv
+Zj
 Wk
 Pa
 yY
@@ -10277,7 +10198,7 @@ hU
 YL
 gy
 YL
-tt
+yA
 ct
 ct
 ct
@@ -10781,7 +10702,7 @@ xi
 iH
 Wk
 Wk
-et
+li
 ct
 ct
 ct
@@ -10949,7 +10870,7 @@ xi
 Rl
 nz
 Rl
-et
+li
 ct
 ct
 ct
@@ -11256,7 +11177,7 @@ ct
 ct
 ct
 ct
-et
+li
 YL
 dy
 YL
@@ -11288,7 +11209,7 @@ aN
 aN
 ul
 Fp
-vv
+Zj
 ct
 ct
 ct
@@ -11298,7 +11219,7 @@ ct
 ct
 ct
 ct
-et
+li
 MX
 uz
 KT
@@ -11330,7 +11251,7 @@ CP
 QT
 Mn
 wl
-vv
+Zj
 ct
 ct
 ct
@@ -11628,7 +11549,7 @@ Va
 Va
 MH
 Va
-et
+li
 aA
 Va
 aA
@@ -11746,7 +11667,7 @@ Lp
 NM
 rF
 aN
-iV
+li
 ct
 ct
 ct
@@ -11872,7 +11793,7 @@ nd
 Xw
 Qm
 kF
-et
+li
 ct
 ct
 ct
@@ -11926,7 +11847,7 @@ ct
 ct
 ct
 ct
-tt
+yA
 Wk
 Va
 ct
@@ -11952,7 +11873,7 @@ Rl
 Rl
 Rl
 Rl
-et
+li
 tV
 wf
 mc
@@ -11970,7 +11891,7 @@ ct
 ct
 Va
 aN
-tt
+yA
 ct
 ct
 ct
@@ -12343,7 +12264,7 @@ BZ
 Pr
 Wk
 ZE
-et
+li
 ct
 ct
 Gb
@@ -12437,7 +12358,7 @@ Rl
 Va
 ct
 ct
-vv
+Zj
 Xj
 jj
 os
@@ -12476,7 +12397,7 @@ Va
 cY
 YL
 eg
-et
+li
 ct
 ct
 Va
@@ -12775,7 +12696,7 @@ dQ
 aN
 aN
 Wk
-vv
+Zj
 ct
 ct
 ct
@@ -12889,7 +12810,7 @@ aN
 Ac
 Wk
 Wk
-et
+li
 ct
 ct
 ct
