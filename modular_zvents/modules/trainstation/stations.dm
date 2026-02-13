@@ -1,6 +1,6 @@
 /obj/effect/landmark/trainstation
 	icon_state = "tdome_admin"
-	flags_1 = NO_TURF_MOVEMENT
+	flags_1 = NO_TURF_MOVEMENT_1
 
 /obj/effect/landmark/trainstation/Initialize(mapload)
 	. = ..()
@@ -14,12 +14,18 @@
 /obj/effect/landmark/trainstation/station_spawnpoint
 	name = "Station Placer"
 
+/obj/effect/landmark/trainstation/nearstation_spawnpoint
+	name = "Nearstation Placer"
+
+
 /obj/effect/landmark/trainstation/train_spawnpoint
 	name = "Train Placer"
 
 /obj/effect/landmark/trainstation/crew_spawnpoint
 	name = "Crew Placer"
 
+/obj/effect/landmark/trainstation/raider_spawnpoint
+	name = "Raider spawner"
 
 /obj/effect/landmark/trainstation/object_spawner
 	name = "Object spawner"
@@ -116,17 +122,23 @@
 	var/desc = "A generic train station"
 	var/station_flags = NONE
 	var/visible = TRUE
-
 	var/required_stations = 0
+	var/creator = "Fenysha"
 
 	var/map_path
-	var/datum/map_template/template = null
+	VAR_PRIVATE/datum/map_template/template = null
 
-	var/list/docking_turfs = list()
+	var/list/possible_nearstations = list(
+		/datum/train_station/near_station/static_default,
+		/datum/train_station/near_station/static_mountaints,
+	)
 	var/list/possible_next = list()
+
+	VAR_PRIVATE/list/docking_turfs = list()
+	VAR_PRIVATE/datum/train_station/near_station/loaded_nearstation = null
+
 	// Блокирует ли эта станция движение поезда
 	var/blocking_moving = FALSE
-
 	var/ambience_sounds = null
 	VAR_PRIVATE/datum/looping_sound/global_sound/station_loop_soound = null
 
@@ -152,19 +164,45 @@
 		else
 			stack_trace("Invalid possible_next path [path] for station [type]")
 
-/datum/train_station/proc/load_station(datum/callback/load_callback)
+	if(station_flags & TRAINSTATION_NO_NEARSTATION)
+		return
+
+	for(var/i in 1 to length(possible_nearstations))
+		var/path = possible_nearstations[i]
+		var/datum/train_station/st = locate(path) in SStrain_controller.known_stations
+		if(st)
+			possible_nearstations[i] = st
+		else
+			stack_trace("Invalid possible_nearstations path [path] for station [type]")
+
+/datum/train_station/proc/get_spawnpoint()
+	return locate(/obj/effect/landmark/trainstation/station_spawnpoint) in GLOB.landmarks_list
+
+/datum/train_station/proc/get_spawn_offset(turf/spawn_turf)
+	var/offset_x = spawn_turf.x
+	var/offset_y = spawn_turf.y - template.height + 1
+	var/offset_z = spawn_turf.z
+	return list("x" = offset_x, "y" = offset_y, "z" = offset_z)
+
+
+/datum/train_station/proc/load_station(datum/callback/load_callback, silent = FALSE)
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	if(!template)
 		return FALSE
 	var/start_time = world.realtime
-	var/obj/effect/landmark/trainstation/station_spawnpoint/spawnpoint = locate() in GLOB.landmarks_list
-	if(!spawnpoint || !istype(spawnpoint))
+	var/obj/effect/landmark/trainstation/spawnpoint = get_spawnpoint()
+	if(!spawnpoint)
 		stack_trace("Failed to load train station [name], no available spawnpoints!")
 		return FALSE
-	var/offset_x = spawnpoint.x
-	var/offset_y = spawnpoint.y - template.height + 1
-	var/offset_z = spawnpoint.z
+
+	var/list/spawn_offset = get_spawn_offset(get_turf(spawnpoint))
+	if(!islist(spawn_offset) || length(spawn_offset) != 3)
+		stack_trace("Failed to load train station [name], invalid spawn offset!")
+		return FALSE
+	var/offset_x = spawn_offset["x"]
+	var/offset_y = spawn_offset["y"]
+	var/offset_z = spawn_offset["z"]
 
 	var/turf/actual_spawnpoint = locate(offset_x, offset_y, offset_z)
 	if(!actual_spawnpoint)
@@ -179,8 +217,14 @@
 	if(template.width < world.maxx)
 		create_indestructible_borders(actual_spawnpoint)
 
+	if((islist(possible_nearstations) && length(possible_nearstations)) && !(station_flags & TRAINSTATION_NO_NEARSTATION))
+		var/datum/train_station/our_neatstation = pick(possible_nearstations)
+		if(our_neatstation && our_neatstation.load_station(silent = TRUE))
+			loaded_nearstation = our_neatstation
+
 	var/load_in = world.realtime - start_time
-	message_admins("TRAINSTATION: Loaded station [name] in [time2text(load_in, "ss")] seconds!")
+	if(!silent)
+		message_admins("TRAINSTATION: Loaded station [name] in [time2text(load_in, "ss")] seconds!")
 	if(load_callback)
 		load_callback.Invoke()
 	return TRUE
@@ -251,12 +295,44 @@
 	if(unload_callback)
 		unload_callback.Invoke()
 	Master.StopLoadingMap()
+	if(loaded_nearstation)
+		loaded_nearstation.unload_station()
+		loaded_nearstation = null
 	after_unload()
 
 /datum/train_station/proc/after_unload()
 	if(station_loop_soound)
 		station_loop_soound.stop()
 
+
+/datum/train_station/near_station
+	name = "Near station"
+	station_flags = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION
+	possible_nearstations = null
+	visible = FALSE
+
+/datum/train_station/near_station/get_spawnpoint()
+	return locate(/obj/effect/landmark/trainstation/nearstation_spawnpoint) in GLOB.landmarks_list
+
+/datum/train_station/near_station/get_spawn_offset(turf/spawn_turf)
+	return list("x" = spawn_turf.x, "y" = spawn_turf.y, "z" = spawn_turf.z)
+
+/datum/train_station/near_station/static_default
+	name = "Nearstation static - Default"
+	map_path = "_maps/modular_events/trainstation/nearstations/static_default.dmm"
+
+/datum/train_station/near_station/static_mountaints
+	name = "Nearstation static - Default"
+	map_path = "_maps/modular_events/trainstation/nearstations/static_mountains.dmm"
+
+
+/datum/train_station/near_station/moving_default
+	name = "Nearstation - Forest outskirts"
+	map_path = "_maps/modular_events/trainstation/nearstations/moving_default.dmm"
+
+/datum/train_station/near_station/moving_deepforerst
+	name = "Nearstation - Deep forest"
+	map_path = "_maps/modular_events/trainstation/nearstations/moving_deep_forest.dmm"
 
 
 /datum/train_station/train_backstage
@@ -265,49 +341,88 @@
 	station_flags = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION
 	visible = FALSE
 
+	possible_nearstations = list(
+		/datum/train_station/near_station/moving_default,
+		/datum/train_station/near_station/moving_deepforerst
+	)
 
 
-/datum/train_station/start_point
-	name = "Start-point"
-	map_path = "_maps/modular_events/trainstation/startpoint.dmm"
-	possible_next = list(/datum/train_station/military_house)
+/datum/train_station/near_station/abandoned_depo
+	name = "Nearstation - Abandoned depo"
+	map_path = "_maps/modular_events/trainstation/nearstations/static_abandoned_train_depo.dmm"
+
+/datum/train_station/abandoned_depo
+	name = "Abandoned depo"
+	map_path = "_maps/modular_events/trainstation/abandoned_train_depo.dm.dmm"
+	creator = "Fenysha"
+	possible_nearstations = list(/datum/train_station/infected_laboratory)
+	possible_next = list(/datum/train_station/start_point)
 	station_flags = TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
 
-/datum/train_station/military_house
-	name = "Military Side"
-	map_path = "_maps/modular_events/trainstation/military_side.dmm"
+/datum/train_station/infected_laboratory
+	name = "Infected laboratory"
+	map_path = "_maps/modular_events/trainstation/infected_lab.dmm"
+	creator = "Fenysha & v1s1ti"
 	station_flags = TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
 
 
+/datum/train_station/start_point
+	name = "Union Plasa"
+	map_path = "_maps/modular_events/trainstation/startpoint.dmm"
+	creator = "Fenysha"
+	possible_next = list()
+	station_flags = TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
+	required_stations = 8
+
+/datum/train_station/military_house
+	name = "Evacuated Military Side"
+	creator = "Fenysha & TYWONKA"
+	map_path = "_maps/modular_events/trainstation/military_side.dmm"
+	station_flags = TRAINSTATION_BLOCKING
+
+/datum/train_station/missle_military_side
+	name = "Corrupted military Side"
+	creator = "v1s1ti"
+	map_path = "_maps/modular_events/trainstation/missle_military_side.dmm"
+	station_flags = TRAINSTATION_BLOCKING
+	required_stations = 6
+
 /datum/train_station/warehouses
-	name = "Abandoned warehouses"
+	name = "Abandoned warehousess"
+	creator = "Fenysha & TYWONKA"
 	map_path = "_maps/modular_events/trainstation/warehouse.dmm"
 	station_flags = TRAINSTATION_BLOCKING
 
 /datum/train_station/frozen_lake
 	name = "Frozen lake"
+	creator = "Fenysha"
 	map_path = "_maps/modular_events/trainstation/iced_lake.dmm"
 
 /datum/train_station/mines
 	name = "Abandoned mines"
+	creator = "Kierri"
 	map_path = "_maps/modular_events/trainstation/abandoned_mines.dmm"
+	possible_nearstations = list(/datum/train_station/near_station/static_mountaints)
 	station_flags = TRAINSTATION_BLOCKING
 
 /datum/train_station/deep_forest
 	name = "Deep forest"
+	creator = "Fenysha"
 	map_path = "_maps/modular_events/trainstation/deep_forest.dmm"
+	possible_nearstations = list(/datum/train_station/near_station/static_mountaints)
 
 /datum/train_station/collapsed_lab
 	name = "Collapsed laboratory"
+	creator = "Mold & Fenysha"
 	map_path = "_maps/modular_events/trainstation/collapsed_lab.dmm"
 	station_flags = TRAINSTATION_BLOCKING
-	required_stations = 3
-
+	required_stations = 5
 
 /datum/train_station/radiosphere
 	name = "The Radiosphere"
+	creator = "Fenysha & Mold"
 	map_path = "_maps/modular_events/trainstation/radiosphere.dmm"
 	station_flags = TRAINSTATION_BLOCKING
-	required_stations = 3
+	required_stations = 5
 
 	ambience_sounds = list('modular_zvents/sounds/radiosphere_loop1.ogg' = 40 SECONDS)

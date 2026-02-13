@@ -1,7 +1,7 @@
 #define TRAIN_STATION_DMM_DIR(_filename) ("_maps/modular_events/trainstation/" + _filename)
 
 #define ZTRAIT_TRAINSTATION "Trainstation"
-#define NO_TURF_MOVEMENT (1<<32)
+#define NO_TURF_MOVEMENT_1 (1<<32)
 
 #define COMSIG_TRAIN_BEGIN_MOVING "train_begin_moving"
 #define COMSIG_TRAIN_STOP_MOVING "train_stop_moving"
@@ -15,3 +15,4 @@
 #define TRAINSTATION_NO_FORKS (1 << 2)
 #define TRAINSTATION_BLOCKING (1 << 3)
 #define TRAINSTATION_NO_SELECTION (1 << 4)
+#define TRAINSTATION_NO_NEARSTATION (1 << 5)

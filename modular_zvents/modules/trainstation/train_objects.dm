@@ -44,22 +44,22 @@
 /obj/machinery/door/train/train_door/animation_length(animation)
 	switch(animation)
 		if(DOOR_OPENING_ANIMATION)
-			return 1.5 SECONDS
+			return 0.7 SECONDS
 		if(DOOR_CLOSING_ANIMATION)
-			return 1.5 SECONDS
+			return 0.8 SECONDS
 		if(DOOR_DENY_ANIMATION)
 			return 0.1 SECONDS
 
 /obj/machinery/door/train/train_door/animation_segment_delay(animation)
 	switch(animation)
 		if(DOOR_OPENING_PASSABLE)
-			return 1.4 SECONDS
+			return 0.7 SECONDS
 		if(DOOR_OPENING_FINISHED)
-			return 1.5 SECONDS
+			return 0.8 SECONDS
 		if(DOOR_CLOSING_UNPASSABLE)
 			return 0.2 SECONDS
 		if(DOOR_CLOSING_FINISHED)
-			return 1.5 SECONDS
+			return 0.7 SECONDS
 
 /obj/machinery/door/airlock/train_locomotive
 	name = "Train locomotive"
@@ -134,7 +134,7 @@
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
-	flags_1 = NO_TURF_MOVEMENT
+	flags_1 = NO_TURF_MOVEMENT_1
 
 /obj/structure/gangway/Initialize(mapload)
 	. = ..()
