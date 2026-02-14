@@ -64,5 +64,5 @@
 /datum/dynamic_ruleset/midround/pirates
 	repeatable = FALSE
 
-/datum/dynamic_ruleset/midround/from_living/obsesed
+/datum/dynamic_ruleset/midround/from_living/obsessed
 	repeatable = FALSE
