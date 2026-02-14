@@ -66,7 +66,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 12, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2
 	)
-	build_path = /obj/item/ammo_box/magazine/mps5/hp
+	build_path = /obj/item/ammo_box/magazine/mps5/ap
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)
