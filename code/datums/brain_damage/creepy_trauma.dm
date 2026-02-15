@@ -155,16 +155,17 @@
 			possible_targets += possible_target.current
 
 	// SPLURT EDIT START - Give the option to choose who you obsess over (Suggestion #512)
-	var/list/namelist = alist("Random Person" = null)
+	if(length(possible_targets))
+		var/list/namelist = alist("A random person" = null)
 
-	for(var/mob/living/carbon/human/H as anything in possible_targets)
-		namelist[H.real_name] = H
+		for(var/mob/living/carbon/human/H as anything in possible_targets)
+			namelist[H.real_name] = H
 
-	var/choice = tgui_input_list(owner, "You remember being obsessed over someone... Their name was...", "Select Someone", namelist)
+		var/choice = tgui_input_list(owner, "You remember being obsessed over someone... They were...", "Select Someone", namelist)
 
-	if(choice && namelist[choice])
-		chosen_victim = namelist[choice]
-		return chosen_victim
+		if(choice && namelist[choice])
+			chosen_victim = namelist[choice]
+			return chosen_victim
 	// SPLURT EDIT END
 
 	//Do we have any special target?
