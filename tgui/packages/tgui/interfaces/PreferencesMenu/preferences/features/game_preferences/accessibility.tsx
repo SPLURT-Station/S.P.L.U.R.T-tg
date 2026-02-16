@@ -19,6 +19,16 @@ export const screen_shake_darken: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const recoil_punch_darken: FeatureToggle = {
+  name: 'Recoil uses screen dim instead of view punch',
+  category: 'ACCESSIBILITY',
+  description: `
+      When toggled, uses a screen dimming effect in favor of camera
+      view punch for gun recoil.
+    `,
+  component: CheckboxInput,
+};
+
 export const remove_double_click: FeatureToggle = {
   name: 'Remove double click',
   category: 'ACCESSIBILITY',

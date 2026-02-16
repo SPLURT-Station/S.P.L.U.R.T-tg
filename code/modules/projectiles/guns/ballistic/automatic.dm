@@ -5,6 +5,7 @@
 	burst_size = 3
 	burst_delay = 2
 	actions_types = list(/datum/action/item_action/toggle_firemode)
+	recoil = 0.5
 	semi_auto = TRUE
 	fire_sound = 'sound/items/weapons/gun/smg/shot.ogg'
 	fire_sound_volume = 90
@@ -41,6 +42,7 @@
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
+	recoil = 0.6
 	burst_delay = 2
 	burst_size = 3
 	pin = /obj/item/firing_pin/implant/pindicate
@@ -96,6 +98,7 @@
 	icon_state = "smartgun"
 	inhand_icon_state = "smartgun"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smartgun
+	recoil = 0.6
 	burst_size = 4
 	burst_delay = 1
 	spread = 40
@@ -123,6 +126,7 @@
 	icon_state = "miniuzi"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
+	recoil = 0.6
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	mag_display = TRUE
@@ -149,6 +153,7 @@
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m223
 	can_suppress = FALSE
+	recoil = 0.65
 	burst_size = 3
 	burst_delay = 2
 	spread = 5
@@ -230,6 +235,7 @@
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	slot_flags = 0
+	recoil = 0.75
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m223
 	can_suppress = FALSE
 	burst_size = 3
@@ -247,6 +253,7 @@
 	slot_flags = 0
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m7mm
 	weapon_weight = WEAPON_HEAVY
+	recoil = 0.75
 	burst_size = 1
 	actions_types = list()
 	can_suppress = FALSE
@@ -329,6 +336,7 @@
 	inhand_icon_state = "arg"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/recharge
 	empty_indicator = TRUE
+	recoil = 0
 	bolt_type = BOLT_TYPE_OPEN
 	fire_delay = 2 DECISECONDS
 	can_suppress = FALSE
@@ -356,6 +364,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m38
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15 //this thing is kind of oversized, okay?
+	recoil = 0.35 // yeah it is
 	mag_display = TRUE
 	projectile_damage_multiplier = 1.2
 	projectile_speed_multiplier = 1.2

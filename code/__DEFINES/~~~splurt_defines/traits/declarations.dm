@@ -81,6 +81,10 @@
 #define TRAIT_TRASHCAN			"trashcan"
 /// Trait for quirk: Quick Step
 #define TRAIT_SPEEDY_STEP		"speedy_step"
+/// Trait for quirk: Ballistic Training
+#define TRAIT_BALLISTIC_TRAINING		"ballistic_training"
+/// Trait for quirk: New Shooter
+#define TRAIT_NEW_SHOOTER		"new_shooter"
 /* /// Trait applied when the pressure resistance of the vacuum resistance quirk wears off (Reverted for now due to rules preventing this from being abused)
 #define TRAIT_VACUUM_RESISTANCE_FATIGUE "vacuum_resist_fatigue"
 */

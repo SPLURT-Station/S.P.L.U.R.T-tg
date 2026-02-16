@@ -11,5 +11,6 @@
 	fire_sound = 'modular_zubbers/sound/weapons/gun/wt551/shot.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	fire_delay = 3
+	recoil = 0.4 // bit less than the wt-550
 	//18 damage per 0.3 seconds = 60 DPS
 	//Reference: Laser Gun 22 damage per 0.4 seconds = 55DPS

@@ -16,6 +16,7 @@
 	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
 	eject_sound = 'sound/items/weapons/gun/revolver/empty.ogg'
 	fire_sound_volume = 65
+	recoil = 1.5
 	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
 	rack_sound_volume = 0
 	fire_delay = 3

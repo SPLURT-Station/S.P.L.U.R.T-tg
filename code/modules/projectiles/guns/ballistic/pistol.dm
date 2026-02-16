@@ -10,6 +10,7 @@
 	fire_delay = 0 SECONDS
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
+	recoil = 0.5
 	fire_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
 	suppressed_sound = 'sound/items/weapons/gun/pistol/shot_suppressed.ogg'
@@ -118,6 +119,7 @@
 	icon_state = "m1911"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m45
+	recoil = 1
 	can_suppress = FALSE
 	fire_sound = 'sound/items/weapons/gun/pistol/shot_alt.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
@@ -143,6 +145,7 @@
 	name = "\improper Desert Eagle"
 	desc = "A robust .50 AE handgun."
 	icon_state = "deagle"
+	recoil = 2
 	force = 14
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
 	can_suppress = FALSE
@@ -185,6 +188,7 @@
 		This does allow it to fire a very quick 2-round burst. Uses 10mm ammo."
 	icon_state = "reagle"
 	inhand_icon_state = "deagleg"
+	recoil = 1.25
 	burst_size = 2
 	burst_delay = 1
 	projectile_damage_multiplier = 1.25
