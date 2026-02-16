@@ -36,6 +36,9 @@
 #define ORGAN_SLOT_EXTERNAL_SPIDER_LEGS "spider_legs"
 #define ORGAN_SLOT_BLADDER "bladder"
 
+///avali organ slots
+#define ORGAN_SLOT_EXTERNAL_CREST_FEATHERS "avali_hair"
+
 #define BUTT_MIN_SIZE 0
 #define BUTT_MAX_SIZE 8
 
@@ -44,3 +47,6 @@
 
 #define BELLY_MIN_SIZE 0
 #define BELLY_MAX_SIZE 10
+
+/// species
+#define SPECIES_AVALI "avali"
