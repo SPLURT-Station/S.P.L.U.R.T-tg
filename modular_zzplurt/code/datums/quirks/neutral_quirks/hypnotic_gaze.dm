@@ -68,7 +68,6 @@
 	button_icon_state = "hypnotize"
 
 	// Should this create a brainwashed victim?
-	// Currently unused in this codebase
 	var/mode_brainwash = FALSE
 
 	// Terminology used
@@ -78,7 +77,7 @@
 // Upgraded variant
 /datum/action/cooldown/hypnotize/brainwash
 	name = "Brainwash"
-	desc = "Stare deeply into someone's eyes, converting them into a loyal mind slave."
+	desc = "Invade someone's mind using advanced memetic brainwaves to give them new directives."
 	cooldown_time = HYPNOEYES_COOLDOWN_BRAINWASH
 
 	// Should this create a brainwashed victim?
@@ -294,12 +293,23 @@
 		to_chat(action_target, span_notice("[action_owner] stares intensely into your eyes for a moment. You sense nothing out of the ordinary from [action_owner.p_them()]."))
 		return
 
-	// Check if client has denied hypnosis preference
-	if(action_target.client?.prefs.read_preference(/datum/preference/choiced/erp_status_hypno) == "No")
-		// Warn the users, then return
-		to_chat(action_owner, span_warning("You sense that [action_target] is not comfortable with this type of interaction, and decide to respect [action_target.p_their()] preferences."))
-		to_chat(action_target, span_notice("[action_owner] stares into your eyes with a strange conviction, but turns away after a moment."))
-		return
+	// Check if using brainwashing mode
+	if(mode_brainwash)
+		// Then check if target has antagonist turned on
+		if(!action_target.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
+			// Warn the user, then return
+			to_chat(action_owner, span_warning("[grab_target] is too loyal to the station to accept your orders!"))
+			to_chat(action_target, span_notice("[action_owner] stares intensely at you, but stops after a moment."))
+			return
+
+	// Not using brainwash mode
+	else
+		// Check if client has denied hypnosis preference
+		if(action_target.client?.prefs.read_preference(/datum/preference/choiced/erp_status_hypno) == "No")
+			// Warn the users, then return
+			to_chat(action_owner, span_warning("You sense that [action_target] is not comfortable with this type of interaction, and decide to respect [action_target.p_their()] preferences."))
+			to_chat(action_target, span_notice("[action_owner] stares into your eyes with a strange conviction, but turns away after a moment."))
+			return
 
 	// Check for mindshield implant
 	if(HAS_TRAIT(action_target, TRAIT_MINDSHIELD))
@@ -349,7 +359,7 @@
 	if(!findtext(action_target.client?.prefs.read_preference(/datum/preference/choiced/erp_status_nc), "Yes"))
 		// Non-consensual is NOT enabled
 		// Define warning suffix
-		var/warning_target = (mode_brainwash ? "You will become a brainwashed victim, and be required to follow all orders given. [action_owner] accepts all responsibility for antagonistic orders." : "These are only suggestions, and you may disobey cases that strongly violate your character.")
+		var/warning_target = (mode_brainwash ? "You will become a brainwashed victim, and be required to follow all orders given. This does not make you a full antagonist, and you should not act like one." : "These are only suggestions, and you may disobey cases that strongly violate your character.")
 
 		// Prompt target for consent response
 		input_consent = alert(action_target, "Will you fall into a hypnotic stupor? This will allow [action_owner] to issue hypnotic [term_suggest]s. [warning_target]", "Hypnosis", "Yes", "No")
