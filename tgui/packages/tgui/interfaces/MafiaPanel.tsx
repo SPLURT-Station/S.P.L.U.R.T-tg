@@ -123,10 +123,7 @@ export const MafiaPanelData = (props) => {
                           color="transparent"
                           icon="address-book"
                           tooltipPosition="bottom-start"
-                          tooltip={`
-                            This is the list of roles in the game. You can
-                            press the question mark to get a quick blurb
-                            about the role itself.`}
+                          tooltip="This is the list of roles in the game. You can press the question mark to get a quick blurb about the role itself."
                         />
                       </Tabs.Tab>
                       <Tabs.Tab

@@ -154,36 +154,25 @@ const TargetPrintout = (props) => {
         <Stack.Item grow>
           <Section title="Available Targets">
             <Box textColor="red" mb={2}>
-              These are targets you have not yet extracted a GoldenEye key from.
-              They can be extracted by the in-TERROR-gator.
+              These are targets you have not yet extracted a GoldenEye keycard from. Each target represents a potential threat to the mission.
             </Box>
             <LabeledList>
-              {available_targets.map((target) => (
-                <LabeledList.Item
-                  key={target.name}
-                  label={target.name}
-                  color="red"
-                >
+              {available_targets.map((target, index) => (
+                <LabeledList.Item key={index} label={target.name}>
                   {target.job}
                 </LabeledList.Item>
               ))}
             </LabeledList>
           </Section>
         </Stack.Item>
-        <Divider vertical />
         <Stack.Item grow>
           <Section title="Extracted Targets">
             <Box textColor="green" mb={2}>
-              These are targets you have extracted a GoldenEye keycard from.
-              They cannot be extracted again.
+              These are targets that you have already successfully extracted a keycard from.
             </Box>
             <LabeledList>
-              {extracted_targets.map((target) => (
-                <LabeledList.Item
-                  key={target.name}
-                  label={target.name}
-                  color="good"
-                >
+              {extracted_targets.map((target, index) => (
+                <LabeledList.Item key={index} label={target.name}>
                   {target.job}
                 </LabeledList.Item>
               ))}
@@ -194,66 +183,23 @@ const TargetPrintout = (props) => {
     </Section>
   );
 };
-// Utils have goldeneye key list, current heads of staff, extracted heads
-// Common target button, track key button
 
 const KeyPrintout = (props) => {
-  const { act, data } = useBackend<Info>();
+  const { data } = useBackend<Info>();
   const { goldeneye_keys } = data;
   return (
-    <Section>
-      <Box textColor="red" fontSize="20px">
-        GoldenEye Keycards
+    <Section title="GoldenEye Keycards">
+      <Box textColor="blue" mb={1}>
+        Manage and track the keycards you have collected during your mission.
       </Box>
-      <Box mb={1}>
-        A list of GoldenEye keycards currently in existence. Select one to track
-        where it is using your hud.
-      </Box>
-      <Stack vertical fill>
-        <Stack.Item>
-          <Section>
-            <Stack vertical>
-              {goldeneye_keys.map((key) => (
-                <Stack.Item key={key.name}>
-                  <Button
-                    width="100%"
-                    textAlign="center"
-                    color="yellow"
-                    disabled={key.selected}
-                    key={key.name}
-                    icon="key"
-                    content={
-                      key.selected
-                        ? key.name +
-                          ' (' +
-                          key.coord_x +
-                          ', ' +
-                          key.coord_y +
-                          ', ' +
-                          key.coord_z +
-                          ')' +
-                          ' (Tracking)'
-                        : key.name +
-                          ' (' +
-                          key.coord_x +
-                          ', ' +
-                          key.coord_y +
-                          ', ' +
-                          key.coord_z +
-                          ')'
-                    }
-                    onClick={() =>
-                      act('track_key', {
-                        key_ref: key.ref,
-                      })
-                    }
-                  />
-                </Stack.Item>
-              ))}
-            </Stack>
-          </Section>
-        </Stack.Item>
-      </Stack>
+      <LabeledList>
+        {goldeneye_keys.map((key, index) => (
+          <LabeledList.Item key={index} label={key.name}>
+            {`Location: ${key.coord_x}, ${key.coord_y}, ${key.coord_z}`}
+            <Button onClick={() => act('select_keycard', { ref: key.ref })}>Select Keycard</Button>
+          </LabeledList.Item>
+        ))}
+      </LabeledList>
     </Section>
   );
 };

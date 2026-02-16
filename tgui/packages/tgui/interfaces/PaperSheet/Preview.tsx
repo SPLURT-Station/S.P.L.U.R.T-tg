@@ -37,8 +37,8 @@ const fieldRegex: RegExp = /\[((?:_+))\]/gi;
  * raw and field input arrays.
  */
 export class PreviewView extends Component<PreviewViewProps> {
-  // Array containing cache of HTMLInputElements that are enabled.
-  enabledInputFieldCache: Record<string, HTMLInputElement> = {};
+// Cache for enabled input fields to manage state across updates.
+enabledInputFields: Record<string, HTMLInputElement> = {};
 
   // State checking variables. Used to determine whether or not to use cache.
   lastReadOnly: boolean = true;

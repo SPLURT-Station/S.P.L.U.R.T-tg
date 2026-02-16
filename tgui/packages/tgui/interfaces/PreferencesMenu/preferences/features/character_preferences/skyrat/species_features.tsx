@@ -125,8 +125,8 @@ export const allow_mismatched_hair_color_toggle: FeatureToggle = {
 };
 
 export const allow_genitals_toggle: FeatureToggle = {
-  name: 'Allow Genital Parts',
-  description: 'Enables if you want to have genitals on your character.',
+  name: 'Enable Custom Genitals',
+  description: 'Enables custom genital parts for your character.',
   component: CheckboxInput,
 };
 
