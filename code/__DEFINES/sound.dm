@@ -209,6 +209,11 @@
 #define ANNOUNCER_WISDOM_COW "announcer_wisdom_cow"
 #define ANNOUNCER_IMMOVABLE_ROD "announcer_immovable_rod"
 #define ANNOUNCER_SCRAMBLER_ANOMALY "announcer_scrambler_anomaly"
+
+
+#define ANNOUNCER_COMMAND_REPORT "announcer_command_report"
+#define ANNOUNCER_RANDOM_ALERT "announcer_random_alert"
+#define ANNOUNCER_RANDOM_WELCOME "announcer_random_welcome"
 // SPLURT EDIT ADDITION END
 
 /// Global list of all of our announcer keys.

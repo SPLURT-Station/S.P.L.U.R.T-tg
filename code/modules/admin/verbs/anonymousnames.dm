@@ -78,7 +78,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
  * it's in a proc so it can be a non-constant expression.
  */
 /datum/anonymous_theme/proc/announce_to_all_players()
-	priority_announce("A recent bureaucratic error in the Organic Resources Department has resulted in a necessary full recall of all identities and names until further notice.", "Identity Loss", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("A recent bureaucratic error in the Organic Resources Department has resulted in a necessary full recall of all identities and names until further notice.", "Identity Loss", ANNOUNCER_RANDOM_ALERT) // SPLURT EDIT
 
 /**
  * anonymous_all_players: sets all crewmembers on station anonymous.
@@ -106,7 +106,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
  * called when the anonymous theme is removed regardless of extra theming
  */
 /datum/anonymous_theme/proc/restore_all_players()
-	priority_announce("Names and Identities have been restored.", "Identity Restoration", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("Names and Identities have been restored.", "Identity Restoration", ANNOUNCER_RANDOM_ALERT) // SPLURT EDIT
 	for(var/mob/living/player in GLOB.player_list)
 		if(!player.mind || (!ishuman(player) && !issilicon(player)) || player.mind.assigned_role.faction != FACTION_STATION)
 			continue
@@ -151,7 +151,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	name = "Employees"
 
 /datum/anonymous_theme/employees/announce_to_all_players()
-	priority_announce("As punishment for this station's poor productivity when compared to neighbor stations, names and identities will be restricted until further notice.", "Finance Report", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("As punishment for this station's poor productivity when compared to neighbor stations, names and identities will be restricted until further notice.", "Finance Report", ANNOUNCER_RANDOM_ALERT) // SPLURT EDIT
 
 /datum/anonymous_theme/employees/anonymous_name(mob/target)
 	var/is_head_of_staff = target.mind.assigned_role.job_flags & JOB_HEAD_OF_STAFF
@@ -184,7 +184,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	player.put_in_hands(new random_path())
 
 /datum/anonymous_theme/wizards/announce_to_all_players()
-	priority_announce("Your station has been caught by a Wizard Federation Memetic Hazard. You are not y0urself, and yo% a2E 34!NOT4--- Welcome to the Academy, apprentices!", "Memetic Hazard", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("Your station has been caught by a Wizard Federation Memetic Hazard. You are not y0urself, and yo% a2E 34!NOT4--- Welcome to the Academy, apprentices!", "Memetic Hazard", ANNOUNCER_RANDOM_ALERT) // SPLURT EDIT
 
 /datum/anonymous_theme/wizards/anonymous_name(mob/target)
 	var/wizard_name_first = pick(GLOB.wizard_first)
@@ -201,7 +201,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	return "[pick(GLOB.ninja_titles)] [pick(GLOB.ninja_names)]"
 
 /datum/anonymous_theme/spider_clan/announce_to_all_players()
-	priority_announce("Your station has been sold out to the Spider Clan. Your new designations will be applied now.", "New Management", SSstation.announcer.get_rand_alert_sound())
+	priority_announce("Your station has been sold out to the Spider Clan. Your new designations will be applied now.", "New Management", ANNOUNCER_RANDOM_ALERT) // SPLURT EDIT
 
 /datum/anonymous_theme/spider_clan/anonymous_ai_name(is_ai = FALSE)
 	var/posibrain_name = pick(GLOB.posibrain_names)
