@@ -21,3 +21,9 @@
 	use_static = TRUE
 */
 // SPLURT EDIT END: UNDERWEAR UPDATE
+
+/datum/sprite_accessory/undershirt/cropped_turtleneck
+	name = "Cropped Turtleneck"
+	icon = 'modular_zubbers/icons/mob/clothing/underwear.dmi'
+	icon_state = "turtleneck_croptop"
+	use_static = null
