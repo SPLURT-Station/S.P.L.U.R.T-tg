@@ -15,7 +15,8 @@
 /*
 *	SECURITY OFFICER
 */
-
+// BLUESEC REMOVAL - SPLURT EDIT
+/*
 /obj/item/clothing/under/rank/security/skyrat/utility
 	name = "security utility uniform"
 	desc = "A utility uniform worn by Lopland-certified Security officers."
@@ -213,7 +214,7 @@
 			RESKIN_WORN_ICON_STATE = "miniskirt_black"
 		),
 	)
-
+*/
 
 /*
 *	HEAD OF SECURITY
