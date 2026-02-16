@@ -23,9 +23,11 @@
 		"wanks their cock hard"
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/bang1.ogg',
-		'modular_zzplurt/sound/interactions/bang2.ogg',
-		'modular_zzplurt/sound/interactions/bang3.ogg'
+		'modular_zzplurt/sound/interactions/fap1.ogg',
+		'modular_zzplurt/sound/interactions/fap2.ogg',
+		'modular_zzplurt/sound/interactions/fap3.ogg',
+		'modular_zzplurt/sound/interactions/fap4.ogg',
+		'modular_zzplurt/sound/interactions/fap5.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE
