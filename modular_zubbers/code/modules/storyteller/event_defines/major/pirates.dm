@@ -9,7 +9,8 @@
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMMUNAL, TAG_COMBAT)
 	max_occurrences = 1
-	min_players = 35
+	min_players = 25
+	earliest_start = 30 MINUTES //deadchat sink, lets not even consider it early on.
 	category = EVENT_CATEGORY_INVASION
 	description = "The crew will either pay up, or face a pirate assault."
 	admin_setup = list(/datum/event_admin_setup/listed_options/pirates)

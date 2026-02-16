@@ -5,7 +5,7 @@
 	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_CHAOTIC)
 	weight = 2
 	max_occurrences = 2
-	min_players = 45
+	min_players = 35
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns spider eggs, ready to hatch."
 	min_wizard_trigger_potency = 5
