@@ -81,9 +81,6 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "aw" = (
-/obj/machinery/mineral/stacking_machine{
-	id_tag = "tarkon"
-	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
@@ -13711,6 +13708,7 @@
 	id = "tarkonrecycle";
 	dir = 1
 	},
+/obj/machinery/mineral/stacking_machine,
 /turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "VU" = (
