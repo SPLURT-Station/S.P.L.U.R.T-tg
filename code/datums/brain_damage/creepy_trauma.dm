@@ -161,7 +161,7 @@
 		for(var/mob/living/carbon/human/H as anything in possible_targets)
 			namelist[H.real_name] = H
 
-		var/choice = tgui_input_list(owner, "You remember being obsessed over someone... They were...", "Select Someone", namelist)
+		var/choice = tgui_input_list(owner, "You remember being obsessed with someone... It was...", "Select Someone", namelist)
 
 		if(choice && namelist[choice])
 			chosen_victim = namelist[choice]
