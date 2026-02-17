@@ -87,7 +87,8 @@
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "oq" = (
-/obj/effect/landmark/navigate_destination/autoname,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "pc" = (
@@ -293,9 +294,7 @@
 /obj/item/stamp/denied{
 	pixel_x = 8
 	},
-/obj/item/stamp/centcom{
-	pixel_y = 10
-	},
+/obj/item/stamp/head/ntc,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "Ty" = (
@@ -321,6 +320,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
+/obj/effect/landmark/navigate_destination/autoname,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "TQ" = (

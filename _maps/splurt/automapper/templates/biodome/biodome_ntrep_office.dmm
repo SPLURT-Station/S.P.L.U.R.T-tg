@@ -55,7 +55,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
@@ -91,10 +91,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "l" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
@@ -143,11 +141,11 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/camera/autoname/directional/west,
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
@@ -178,11 +176,11 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
-	},
 /obj/structure/sign/calendar/directional/south,
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (

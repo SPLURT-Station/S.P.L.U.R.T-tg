@@ -25,6 +25,7 @@
 
 		//SPLURT ADDITION: START - Splurt Stamp Icons
 		"stamp-nanotrasen" = 'icons/stamp_icons/large_stamp-nanotrasen.png',
+		"stamp-ntc" = 'icons/stamp_icons/large_stamp-ntc.png',
 		//SPLURT ADDITION: END - Splurt Stamp Icons
 
 		"stamp-clown" = 'icons/stamp_icons/large_stamp-clown.png',

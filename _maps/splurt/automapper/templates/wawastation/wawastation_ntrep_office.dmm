@@ -70,6 +70,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
+/obj/effect/landmark/navigate_destination/autoname,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
@@ -206,12 +207,10 @@
 /obj/item/stamp/denied{
 	pixel_x = 8
 	},
-/obj/item/stamp/centcom{
-	pixel_y = 10
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/stamp/head/ntc,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "v" = (
@@ -291,6 +290,11 @@
 "G" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/blacklight/directional/west,
+/turf/open/floor/carpet/green,
+/area/station/command/heads_quarters/nt_rep)
+"H" = (
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
@@ -475,7 +479,7 @@ R
 B
 a
 j
-O
+H
 C
 z
 t

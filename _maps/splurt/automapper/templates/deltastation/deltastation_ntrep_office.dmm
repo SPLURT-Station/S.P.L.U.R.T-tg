@@ -15,10 +15,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "e" = (
@@ -43,7 +41,7 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 2;
 	pixel_x = -4
 	},
@@ -233,11 +231,11 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
-	},
 /obj/structure/table/wood,
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
@@ -302,12 +300,12 @@
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
+	},
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)

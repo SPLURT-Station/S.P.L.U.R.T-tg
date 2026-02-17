@@ -16,10 +16,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ac" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "ad" = (
@@ -104,9 +102,6 @@
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
@@ -118,6 +113,9 @@
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "al" = (
@@ -199,9 +197,15 @@
 /area/station/command/heads_quarters/nt_rep)
 "au" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/random/bureaucracy/folder{
-	spawn_random_offset = 1
+/obj/item/folder/blue{
+	pixel_x = -7;
+	pixel_y = 3
 	},
+/obj/item/folder/yellow{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/folder/nanotrasen,
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/nt_rep)
 "av" = (
@@ -243,11 +247,11 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
-	},
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ay" = (
@@ -393,7 +397,7 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 2;
 	pixel_x = -4
 	},

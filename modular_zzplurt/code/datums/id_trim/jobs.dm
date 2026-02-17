@@ -27,17 +27,19 @@
 	assignment = JOB_NT_REP
 	intern_alt_name = "Junior Nanotrasen Consultant"
 	trim_state = "trim_centcom"
-	department_color = COLOR_CENTCOM_BLUE
-	subdepartment_color = COLOR_COMMAND_BLUE
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_TEAL
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_NT_CONSULTANT
 	extra_wildcard_access = list()
 	minimal_access = list(
+		ACCESS_CENT_CAPTAIN, // ACCESS_CENT_CAPTAIN is for ease of use, so we don't have to rely on Command AND Cent General access to get into their stuff. Is also useless until they get to CentCom.
 		ACCESS_CENT_GENERAL,
+		ACCESS_CENT_LIVING, // Even CC Interns get this.
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_COMMAND,
 		ACCESS_KEYCARD_AUTH,
-		ACCESS_CHANGE_IDS,
+		ACCESS_CHANGE_IDS, // To give the NTCT's access to help who they need.
 		ACCESS_EVA,
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_MINERAL_STOREROOM,
@@ -65,11 +67,12 @@
 /datum/id_trim/job/nanotrasen_crew_trainer
 	assignment = JOB_NT_TRN
 	trim_state = "trim_centcom"
-	department_color = COLOR_CENTCOM_BLUE
+	department_color = COLOR_TEAL
 	subdepartment_color = COLOR_TEAL
 	sechud_icon_state = SECHUD_NT_CREWTRAINER
 	minimal_access = list(
 		ACCESS_CENT_GENERAL,
+		ACCESS_CENT_LIVING, // Even CC Interns get this.
 		ACCESS_EVA,
 		ACCESS_GATEWAY,
 		ACCESS_MAINT_TUNNELS,

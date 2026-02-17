@@ -5,10 +5,6 @@
 	pixel_y = 3;
 	pixel_x = 6
 	},
-/obj/item/folder/yellow{
-	pixel_y = 2;
-	pixel_x = 6
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
@@ -16,6 +12,10 @@
 /obj/item/table_clock{
 	pixel_y = 16;
 	pixel_x = -9
+	},
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -79,7 +79,7 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 2;
 	pixel_x = -4
 	},
@@ -165,10 +165,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
 /obj/machinery/light/directional/south,
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
 /obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_x = -6;
 	pixel_y = -24
@@ -178,6 +174,8 @@
 	pixel_x = 7;
 	pixel_y = -24
 	},
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
@@ -226,12 +224,12 @@
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
+	},
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -357,6 +355,10 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
 	},
+/obj/effect/landmark/navigate_destination/autoname,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
@@ -424,6 +426,7 @@
 	name = "Nanotrasen Internal Affairs Bedroom"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "W" = (

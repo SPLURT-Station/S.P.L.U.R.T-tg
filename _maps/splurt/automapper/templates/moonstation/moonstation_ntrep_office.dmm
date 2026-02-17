@@ -26,7 +26,7 @@
 	},
 /obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
-/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
+/obj/structure/bookcase/random,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
@@ -43,11 +43,6 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
 	},
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "j" = (
@@ -81,10 +76,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "k" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/item/folder/ntc_documents,
+/obj/structure/safe/floor/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "l" = (
@@ -118,7 +111,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 1
 	},
 /obj/item/sign/flag/nanotrasen{
@@ -250,6 +243,7 @@
 	},
 /obj/machinery/camera/autoname/directional/west,
 /obj/structure/sign/flag/nanotrasen/directional/west,
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "F" = (
@@ -268,12 +262,12 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
-	},
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/machinery/light/directional/south,
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
@@ -320,7 +314,11 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/structure/bookcase/random,
+/obj/structure/bed/dogbed/ian{
+	name = "Lisa's bed";
+	desc = "Lisa's bed! Looks comfy."
+	},
+/mob/living/basic/pet/dog/corgi/lisa,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
@@ -411,7 +409,7 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/stamp/nanotrasen{
+/obj/item/stamp/head/ntc{
 	pixel_x = 8
 	},
 /turf/open/floor/carpet/executive,

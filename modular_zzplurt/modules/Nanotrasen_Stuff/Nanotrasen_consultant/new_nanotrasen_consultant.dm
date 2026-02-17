@@ -1,3 +1,11 @@
+GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
+
+/proc/generate_safe_combo()
+	var/list/L = list()
+	for(var/i in 1 to 2) // matches number_of_tumblers
+		L += rand(0, 99)
+	return L
+
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
 	description = "Represent Nanotrasen on the station, argue with the HoS about \
@@ -46,7 +54,7 @@
 	voice_of_god_power = 1.4 //Command staff has authority
 
 /datum/job/nanotrasen_consultant/get_captaincy_announcement(mob/living/captain)
-	return "Due to severe staffing shortages, Nanotrasen Executive [captain.real_name] will act as Acting Captain until a real suitor arrives!"
+	return "Due to severe staffing shortages, Nanotrasen Consultant [captain.real_name] will act as Acting Captain until a real suitor arrives!"
 
 /obj/effect/landmark/start/nanotrasen_consultant
 	name = "Nanotrasen Consultant"
@@ -55,22 +63,25 @@
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
-	req_access = list(ACCESS_CENT_GENERAL, ACCESS_COMMAND)
+	req_access = list(ACCESS_CENT_CAPTAIN)
 	req_one_access = list()
 	icon_state = "nt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
 	..()
-	new /obj/item/storage/backpack/satchel/leather(src)
+	new /obj/item/dog_bone(src)
+	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
+	new /obj/item/computer_disk/command/consultant(src)
+	new /obj/item/radio/headset/heads/nanotrasen(src)
+	new /obj/item/megaphone/command(src)
+	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/clothing/suit/armor/vest(src)
-	new /obj/item/computer_disk/command/captain(src)
-	new /obj/item/radio/headset/heads/nanotrasen(src)
 	new /obj/item/storage/photo_album/ntc(src)
+	new /obj/item/storage/lockbox/medal/ntc(src)
 	new /obj/item/bedsheet/nanotrasen(src)
-	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/briefcase/central_command(src)
 	new /obj/item/camera_film(src)
@@ -80,7 +91,6 @@
 	new /obj/item/tape(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/hand_labeler(src)
-	new /obj/item/assembly/flash/handheld(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
@@ -124,7 +134,7 @@
 
 /obj/item/pen/fountain/nanotrasen
 	name = "nanotrasen fountain pen"
-	desc = "It's an expensive blue fountain pen. The case may be plastic, but that gold is real!"
+	desc = "It's an extremely expensive blue fountain pen. The nib is quite sharp. The case is made by a , but that gold is real!"
 	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
 	icon_state = "pen-fountain-nt"
 	colour = "#0d5374"
@@ -144,7 +154,7 @@
 	icon_state = "/obj/item/modular_computer/pda/heads/nanotrasen_consultant"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#42B5A6#DAE0F0#B4B9C6"
-	inserted_disk = /obj/item/computer_disk/command/captain
+	inserted_disk = /obj/item/computer_disk/command/consultant
 	inserted_item = /obj/item/pen/fountain/nanotrasen
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
@@ -163,7 +173,7 @@
 	name = "Nanotrasen Consultant Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/centcom_official
-	gloves = /obj/item/clothing/gloves/captain //Too iconic to be replaced with a plasma version
+	gloves = /obj/item/clothing/gloves/captain/centcom //Too iconic to be replaced with a plasma version
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /datum/outfit/job/nanotrasen_consultant
@@ -181,6 +191,7 @@
 	r_pocket = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic/silver = 1,
+		/obj/item/folder/biscuit/confidential/ntc_safe_code = 1,
 		)
 
 	pda_slot = ITEM_SLOT_RPOCKET
@@ -194,10 +205,90 @@
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 
-	chameleon_extras = list(/obj/item/gun/energy/e_gun/asterion, /obj/item/stamp/nanotrasen)
+	chameleon_extras = list(/obj/item/gun/energy/e_gun/asterion, /obj/item/stamp/head/ntc)
 
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
 /area/station/command/heads_quarters/nt_rep
 	name = "Nanotrasen Internal Affairs Office"
+
+/obj/item/storage/lockbox/medal/ntc
+	name = "Nanotrasen Consultant medal box"
+	desc = "A locked box used to store medals to be given to those exhibiting excellence in affairs."
+	req_access = list(ACCESS_CENT_CAPTAIN)
+	icon = 'modular_zzplurt/icons/obj/case.dmi'
+	icon_state = "ntcbox+l"
+	icon_locked = "ntcbox+l"
+	icon_closed = "ntcbox"
+
+/obj/item/storage/lockbox/medal/ntc/PopulateContents()
+	for(var/i in 1 to 3)
+		new /obj/item/clothing/accessory/medal/silver/bureaucracy(src)
+	new /obj/item/clothing/accessory/medal/gold/ordom(src)
+	new /obj/item/clothing/accessory/medal/gold/heroism(src)
+	new /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant(src)
+	new /obj/item/clothing/accessory/medal/conduct(src)
+
+/obj/item/computer_disk/command/consultant
+	name = "consultant data disk"
+	desc = "Removable disk used to download essential Consultant tablet apps."
+	icon_state = "datadisk8"
+	starting_programs = list(
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/job_management,
+	)
+
+/obj/item/folder/nanotrasen
+	name = "folder"
+	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
+	icon_state = "folder_nanotrasen"
+
+/obj/item/folder/ntc_documents
+	name = "folder - 'TOP SECRET'"
+	desc = "A folder stamped \"Top Secret - Property of Nanotrasen Corporation. Unauthorized distribution is punishable by death.\""
+	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
+	icon_state = "folder_ntgold"
+
+/obj/item/folder/ntc_documents/Initialize(mapload)
+	. = ..()
+	new /obj/item/documents/nanotrasen_consultant(src)
+	update_appearance()
+
+/obj/item/documents/nanotrasen_consultant
+	desc = "\"Top Secret\" Central Command documents, filled with complex diagrams and lists of names, dates and coordinates, this one has much more specific details and high interest locations marked."
+	icon_state = "docs_verified"
+
+/obj/structure/safe/floor/ntc
+    name = "Nanotrasen-brand floor safe"
+
+/obj/structure/safe/floor/ntc/Initialize(mapload)
+	. = ..()
+
+	tumblers = list()
+	for(var/v in GLOB.ntc_safe_combo)
+		tumblers += v
+	current_tumbler_index = 1
+	dial = 0
+
+	return
+
+/obj/item/folder/biscuit/confidential/ntc_safe_code
+	name = "Nanotrasen safe combination biscuit card"
+	contained_slip = /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code
+
+/obj/item/paper/paperslip/corporate/fluff/ntc_safe_code
+	name = "Nanotrasen-Issued Safe Combination"
+	desc = "A small corporate plastic card with the Consultant's safe combination."
+
+/obj/item/paper/paperslip/corporate/fluff/ntc_safe_code/Initialize(mapload)
+
+	var/ntc_code = jointext(GLOB.ntc_safe_combo, "-")
+
+	default_raw_text = "<b><h1>Welcome to your new position upon one of our state-of-the-art research stations.<h2></b><br><br>You have been issued \
+		this card to defend some important documents.<br><br><b>Do NOT</b> forget this code, and <b>do NOT</b> let it get into enemy hands.<br><br>The \
+		combination is <i>[ntc_code]</i>.<br><br>The safe is located behind your desk next to your chair underneath the floor. Good luck, \
+		Consultant, do not let us down."
+	icon_state = "corppaperslip_words"
+	return ..()

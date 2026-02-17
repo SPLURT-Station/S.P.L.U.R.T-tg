@@ -57,14 +57,14 @@
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
@@ -76,10 +76,8 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
@@ -198,7 +196,7 @@
 "v" = (
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Nanotrasen Consultant's Desk";
-	req_access = list("cent_general")
+	req_access = list("cent_captain")
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/executive,
@@ -217,6 +215,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/structure/grandfatherclock,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
@@ -226,7 +225,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 1
 	},
 /obj/item/sign/flag/nanotrasen,
@@ -366,13 +365,13 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
-	},
 /obj/machinery/status_display/ai/directional/north,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)

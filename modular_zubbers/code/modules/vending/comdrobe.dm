@@ -246,7 +246,6 @@
 		/obj/item/clothing/neck/mantle/ntcmantle = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_formal = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/nanotrasen = 1,
-		/obj/item/clothing/suit/space/officer/nanotrasen = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_greatcoat = 1,
 		/obj/item/clothing/suit/armor/vest/nt_officerfake = 1,
 		/obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen = 1,

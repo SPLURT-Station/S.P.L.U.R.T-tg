@@ -107,9 +107,9 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
-/obj/item/folder/yellow{
-	pixel_y = 1;
-	pixel_x = -2
+/obj/item/folder/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 1
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -148,8 +148,9 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/folder/blue{
-	pixel_y = 1
+/obj/item/folder/nanotrasen{
+	pixel_y = 1;
+	pixel_x = 1
 	},
 /obj/item/sign/flag/nanotrasen{
 	pixel_x = 5
@@ -260,12 +261,12 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
+	},
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -288,10 +289,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
 /obj/machinery/status_display/evac/directional/east,
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/item/folder/ntc_documents,
+/obj/structure/safe/floor/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "S" = (
