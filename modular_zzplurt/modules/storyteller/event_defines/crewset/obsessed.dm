@@ -7,4 +7,5 @@
 	weight = 5
 	min_players = 5
 
-	tags = list(TAG_CREW_ANTAG)
+	category = EVENT_CATEGORY_HEALTH
+	tags = list(TAG_CREW_ANTAG, TAG_LOW)
