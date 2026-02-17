@@ -154,6 +154,20 @@
 				special_pool += possible_target.current
 			possible_targets += possible_target.current
 
+	// SPLURT EDIT START - Give the option to choose who you obsess over (Suggestion #512)
+	if(length(possible_targets))
+		var/list/namelist = alist("A random person" = null)
+
+		for(var/mob/living/carbon/human/H as anything in possible_targets)
+			namelist[H.real_name] = H
+
+		var/choice = tgui_input_list(owner, "You remember being obsessed with someone... It was...", "Select Someone", namelist)
+
+		if(choice && namelist[choice])
+			chosen_victim = namelist[choice]
+			return chosen_victim
+	// SPLURT EDIT END
+
 	//Do we have any special target?
 	if(length(special_pool))
 		chosen_victim = pick(special_pool)
