@@ -1164,7 +1164,7 @@
 		header = "So Bulbous...",
 	)
 
-/datum/dynamic_ruleset/midround/from_living/obsessed
+/datum/dynamic_ruleset/midround/from_living/obsesed
 	name = "Obsession"
 	config_tag = "Midround Obsessed"
 	preview_antag_datum = /datum/antagonist/obsessed
@@ -1179,14 +1179,14 @@
 	)
 	min_pop = 5
 
-/datum/dynamic_ruleset/midround/from_living/obsessed/is_valid_candidate(mob/candidate, client/candidate_client)
+/datum/dynamic_ruleset/midround/from_living/obsesed/is_valid_candidate(mob/candidate, client/candidate_client)
 	return ..() && !!candidate.get_organ_by_type(/obj/item/organ/brain)
 
-/datum/dynamic_ruleset/midround/from_living/obsessed/antag_check(mob/candidate)
+/datum/dynamic_ruleset/midround/from_living/obsesed/antag_check(mob/candidate)
 	// Obsessed is a special case, it can select other antag players
 	return !candidate.mind.has_antag_datum(/datum/antagonist/obsessed)
 
-/datum/dynamic_ruleset/midround/from_living/obsessed/assign_role(datum/mind/candidate)
+/datum/dynamic_ruleset/midround/from_living/obsesed/assign_role(datum/mind/candidate)
 	var/obj/item/organ/brain/brain = candidate.current.get_organ_by_type(__IMPLIED_TYPE__)
 	brain.brain_gain_trauma(/datum/brain_trauma/special/obsessed)
 	notify_ghosts(
