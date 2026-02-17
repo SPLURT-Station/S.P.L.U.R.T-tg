@@ -41,6 +41,6 @@
 	name = "pistol magazine (9mm Murphy, flare)"
 	desc = "A 9mm handgun magazine, suitable for the Nanotrasen Service Pistol. These casings launch a concentrated particle beam towards a target, lighting them up for everyone to see."
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/magazine.dmi'
-	icon_state = "9x19pl"
-	base_icon_state = "9x19pl"
+	icon_state = "9x19pI"
+	base_icon_state = "9x19pI"
 	ammo_type = /obj/item/ammo_casing/security/flare
