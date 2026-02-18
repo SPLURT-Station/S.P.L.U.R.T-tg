@@ -692,7 +692,7 @@
 	dir = 1
 	},
 /obj/effect/mob_spawn/corpse/human/syndicatecommando{
-	outfit_override = list("l_pocket"=/obj/item/ammo_box/speedloader/c357)
+	outfit_override = list("l_pocket"=/obj/item/ammo_box/magazine/m9mm)
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
@@ -1801,8 +1801,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/gun/ballistic/revolver/badass,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/item/gun/ballistic/automatic/pistol/suppressed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "qi" = (
@@ -1836,10 +1836,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/spawner/random/clothing/syndie,
-/obj/effect/spawner/random/clothing/syndie,
-/obj/effect/spawner/random/clothing/syndie,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear,
 /obj/effect/spawner/random/engineering/tool_advanced,
 /obj/structure/closet/crate/secure/syndicate,
+/obj/effect/spawner/random/contraband/grenades/dangerous,
+/obj/effect/spawner/random/contraband/cannabis,
+/obj/effect/spawner/random/contraband/cannabis,
+/obj/effect/spawner/random/contraband/cannabis,
+/obj/effect/spawner/random/contraband/cannabis,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532hall)
 "qK" = (
@@ -4872,8 +4877,14 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/storage/box/syndie_kit/chameleon,
 /obj/item/wrench/combat,
-/obj/effect/spawner/random/contraband/armory,
 /obj/structure/closet/crate/secure/syndicate,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/contraband/plus,
+/obj/effect/spawner/random/contraband/narcotics,
+/obj/effect/spawner/random/contraband/narcotics,
+/obj/effect/spawner/random/contraband/narcotics,
+/obj/effect/spawner/random/contraband/narcotics,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532hall)
 "Sy" = (
