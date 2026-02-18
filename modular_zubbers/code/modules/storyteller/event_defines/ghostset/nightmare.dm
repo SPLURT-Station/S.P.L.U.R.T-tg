@@ -5,7 +5,7 @@
 	tags = list(TAG_COMBAT, TAG_SPOOKY)
 	weight = 4
 	max_occurrences = 2
-	min_players = 25
+	min_players = 20
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a nightmare, aiming to darken the station."
 	min_wizard_trigger_potency = 6
