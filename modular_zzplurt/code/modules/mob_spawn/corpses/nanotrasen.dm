@@ -3,6 +3,7 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_SERGEANT "Nanotrasen Private Security Sergeant"
 #define JOB_CENTCOM_PRIVATE_SECURITY_COMMANDER "Nanotrasen Private Security Commander"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
+#define JOB_NANOTRASEN_LIEUTENANT "Nanotrasen Lieutenant"
 
 
 /obj/effect/mob_spawn/corpse/human/privatesecurity
@@ -125,3 +126,29 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	icon_state = "swatcomm"
+
+/obj/effect/mob_spawn/corpse/human/bridgeofficer/shuttle8532
+	name = JOB_NANOTRASEN_LIEUTENANT
+	outfit = /datum/outfit/nanotrasenbridgeofficer/shuttle8532
+
+/datum/outfit/nanotrasenbridgeofficer/shuttle8532
+	name = "Nanotrasen Lieutenant"
+
+	ears = /obj/item/radio/headset/heads/nanotrasen/empty
+	uniform = /obj/item/clothing/under/rank/nanotrasen/official/turtleneck
+	suit = /obj/item/clothing/suit/armor/vest
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/combat
+	glasses = /obj/item/clothing/glasses/sunglasses
+	id = /obj/item/card/id/advanced/platinum
+	id_trim = /datum/id_trim/centcom/corpse/bridge_officer/shuttle8532
+	implants = list(/obj/item/implant/mindshield)
+
+/datum/id_trim/centcom/corpse/bridge_officer/shuttle8532
+	assignment = JOB_NANOTRASEN_LIEUTENANT
+	subdepartment_color = COLOR_CENTCOM_BLUE
+	access = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL)
+
+/obj/item/radio/headset/heads/nanotrasen/empty
+	keyslot = null
+	keyslot2 = null
