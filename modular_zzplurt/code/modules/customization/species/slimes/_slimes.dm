@@ -171,9 +171,7 @@
 	SIGNAL_HANDLER
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
-	if(gibbed)
-		qdel(src)
-		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+	if(gibbed) // organ spillage is handled for us
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
