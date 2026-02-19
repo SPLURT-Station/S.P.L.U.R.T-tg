@@ -34,11 +34,6 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-/obj/item/organ/eyes/roundstartslime
-	name = "photosensitive eyespots"
-	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
-
 /obj/item/organ/ears/jelly
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
@@ -333,6 +328,8 @@
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 
+/datum/species/jelly/roundstartslime
+	mutanteyes = /obj/item/organ/eyes/jelly
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
 	var/list/to_add = list()
