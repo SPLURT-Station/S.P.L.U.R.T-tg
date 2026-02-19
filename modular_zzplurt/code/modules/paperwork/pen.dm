@@ -33,3 +33,11 @@
 		return
 	to_chat(user, span_notice("You write [writing] on [user == M ? "your" : "[M]'s"] [selected_bodypart.name]."))
 	selected_bodypart.written_text += writing
+
+/obj/item/pen/fountain/centcom
+	name = "centcom fountain pen"
+	desc = "It's a priceless green fountain pen. The nib is quite sharp. The case is made of emerald and gold, extremely regal. "
+	icon = 'modular_zubbers/icons/obj/service/bureaucracy.dmi'
+	icon_state = "pen-fountain-nt"
+	colour = "#18610D"
+	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
