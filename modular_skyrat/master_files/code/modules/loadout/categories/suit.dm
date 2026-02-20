@@ -110,18 +110,21 @@
 	name = "Virologist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/virologist
 
+//SPLURT ADDITION START
 /datum/loadout_item/suit/fancy_labcoat
 	name = "Recolorable Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy
+//SPLURT ADDITION END
 
 /datum/loadout_item/suit/labcoat_regular
 	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular //SPLURT EDIT, ORIGINAL: item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
 
 
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist //SPLURT EDIT, ORIGINAL: item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist
+	//SPLURT ADDITION START
 	restricted_roles = list(JOB_MEDICAL_DOCTOR,JOB_CHEMIST,JOB_CHIEF_MEDICAL_OFFICER)
 
 /datum/loadout_item/suit/labcoat_RD
@@ -138,6 +141,7 @@
 	name = "Roboticist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist
 	restricted_roles = list(JOB_ROBOTICIST)
+//SPLURT ADDITION END
 /*
 *	PONCHOS
 */

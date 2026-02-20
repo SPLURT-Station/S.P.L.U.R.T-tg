@@ -1647,6 +1647,7 @@ TREK
 	name = "Donksoft Turret"
 	json_config = 'modular_skyrat/modules/GAGS/json_configs/turret/turret_toolbox.json'
 
+//SPLURT ADDITION START
 // Fancy Labcoat
 
 /datum/greyscale_config/fancy_labcoat
@@ -1661,3 +1662,4 @@ TREK
 /datum/greyscale_config/fancy_labcoat/worn/teshari
 	name = "Fancy Suit (Worn, Teshari)"
 	json_config = 'modular_skyrat/modules/GAGS/json_configs/fancy_labcoat/fancy_labcoat_tesh_worn.json'
+//SPLURT ADDITION END

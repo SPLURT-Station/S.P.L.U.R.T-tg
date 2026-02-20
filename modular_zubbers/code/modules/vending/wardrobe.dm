@@ -96,7 +96,7 @@
 				/obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat = 2,
 				/obj/item/clothing/under/rank/rnd/roboticist/skyrat/sleek = 2,
 				/obj/item/clothing/under/rank/rnd/scientist/roboticist_bunnysuit = 2,
-				/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist = 3,
+				/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist = 3, //SPLURT ADDITION
 				/obj/item/storage/backpack/duffelbag/science/robo = 2,
 				/obj/item/storage/backpack/messenger/science/robo = 2,
 				/obj/item/storage/backpack/satchel/science/robo = 2,
@@ -153,7 +153,7 @@
 	/obj/item/clothing/neck/tie/bunnytie/geneticist = 2,
 	/obj/item/clothing/suit/toggle/labcoat/genetics/doctor_tailcoat = 2,
 	/obj/item/clothing/under/rank/rnd/geneticist/bunnysuit = 2,
-	/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist = 3,
+	/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist = 3, //SPLURT ADDITION
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe
