@@ -19,6 +19,7 @@
 	greyscale_config = /datum/greyscale_config/fancy_labcoat
 	greyscale_config_worn = /datum/greyscale_config/fancy_labcoat/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/fancy_labcoat/worn/teshari
+	post_init_icon_state = "fancy_labcoat"
 	greyscale_colors = "#EEEEEE#4A77A1"
 	gets_cropped_on_taurs = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
