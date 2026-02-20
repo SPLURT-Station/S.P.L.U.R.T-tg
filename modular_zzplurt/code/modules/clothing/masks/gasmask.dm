@@ -28,18 +28,7 @@
 	worn_icon_muzzled = 'modular_zzplurt/icons/mob/clothing/mask_muzzle.dmi'
 	icon_state = "goner_mask"
 	flags_inv = HIDEEARS | HIDEEYES | HIDEFACE | HIDEHAIR | HIDEFACIALHAIR | HIDESNOUT
-	armor_type = /datum/armor/mask_goner
-
-/datum/armor/mask_goner
-	melee = 10
-	bullet = 10
-	laser = 10
-	energy = 15
-	bomb = 10
-	bio = 100
-	fire = 100
-	acid = 100
-	wound = 15
+	armor_type = /datum/armor/none
 
 /obj/item/clothing/mask/gas/goner/fake
 	name = "trencher gas mask"
