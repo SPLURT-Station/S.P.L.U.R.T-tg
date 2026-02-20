@@ -32,6 +32,9 @@
 	body_parts_covered = CHEST|ARMS|LEGS
 	armor_type = /datum/armor/skyrat_rd
 
+/obj/item/clothing/suit/toggle/labcoat/skyrat/rd
+	parent_type = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd
+
 /datum/armor/skyrat_rd
 	melee = 5
 	bio = 80
