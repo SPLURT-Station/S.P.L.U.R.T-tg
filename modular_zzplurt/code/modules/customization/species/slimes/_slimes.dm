@@ -304,32 +304,57 @@
 	user.remove_status_effect(/datum/status_effect/slime_washing)
 	user.visible_message(span_notice("[user]'s outer membrane returns to normal, no longer cleaning [user.p_their()] surroundings."), span_notice("Your outer membrane returns to normal, filth no longer being cleansed."))
 
+
 /datum/status_effect/slime_washing
 	id = "slime_washing"
 	alert_type = null
 	status_type = STATUS_EFFECT_UNIQUE
 
-/datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
+/datum/status_effect/slime_washing/on_apply()
 	if(!ishuman(owner))
-		return
+		return FALSE
 
-	var/mob/living/carbon/human/slime_person = owner
-	slime_person.wash(CLEAN_WASH) // Wash ourselves and all uncovered clothing
-	if((slime_person.wear_suit?.body_parts_covered | slime_person.w_uniform?.body_parts_covered | slime_person.shoes?.body_parts_covered) & FEET)
-		return
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/slime_washing)
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+	wash_turf()
+	return TRUE
 
-	var/turf/open/open_turf = get_turf(slime_person)
-	if(istype(open_turf))
-		open_turf.wash(CLEAN_WASH)
-		return TRUE
-	if(SPT_PROB(5, seconds_per_tick))
-		slime_person.adjust_nutrition((rand(5,25)))
+/datum/status_effect/slime_washing/on_remove()
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/slime_washing)
+
+/datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
+	wash_turf()
+
+/datum/status_effect/slime_washing/proc/on_moved()
+	SIGNAL_HANDLER
+
+	wash_turf()
+
+/datum/status_effect/slime_washing/proc/wash_turf()
+	var/mob/living/carbon/human/owner = src.owner
+
+	var/washed_count = 0
+	if(owner.wash(CLEAN_WASH)) // Wash ourselves and all uncovered clothing
+		washed_count += 1
+
+	if(!((owner.wear_suit?.body_parts_covered | owner.w_uniform?.body_parts_covered | owner.shoes?.body_parts_covered) & FEET))
+		var/turf/open/open_turf = get_turf(owner)
+		if(istype(open_turf) && open_turf.wash(CLEAN_WASH))
+			washed_count += 1
+
+	for(var/i in 1 to washed_count)
+		owner.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 
+
+/datum/movespeed_modifier/slime_washing
+	multiplicative_slowdown = 2
+
 /datum/species/jelly/roundstartslime
-	mutanteyes = /obj/item/organ/eyes/jelly
+	mutanteyes = /obj/item/organ/eyes/jelly // thanks bubber
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
 	var/list/to_add = list()
