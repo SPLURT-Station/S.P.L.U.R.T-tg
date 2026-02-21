@@ -26,26 +26,43 @@
 	l_hand = /obj/item/shield/riot/tele
 	projectile_deflect_chance = 50
 
+/mob/living/basic/trooper/nanotrasen/ranged/disabler
+	r_hand = /obj/item/gun/energy/disabler
+	casingtype = /obj/item/ammo_casing/energy/disabler
+	projectilesound = 'sound/items/weapons/taser2.ogg'
+
 /mob/living/basic/trooper/nanotrasen/ranged/smg
 	name = "\improper Nanotrasen Private Security Sergeant"
 	desc = "A mid-ranked sergeant of Nanotrasen's Private Security. As much as it may be good to see them, they aren't happy to see you.."
 	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
 
+/mob/living/basic/trooper/nanotrasen/ranged/smg/disabler
+	r_hand = /obj/item/gun/energy/disabler/smg
+	casingtype = /obj/item/ammo_casing/energy/disabler/smg
+	projectilesound = 'sound/items/weapons/taser3.ogg'
+
 /mob/living/basic/trooper/nanotrasen/ranged/commander
 	name = "\improper Nanotrasen Private Security Commander"
 	desc = "A high-ranked Commander of Nanotrasen's Private Security. As much as it may be good to see them, they aren't happy to see you.."
-
 	casingtype = /obj/item/ammo_casing/a223
 	burst_shots = 4
 	ranged_cooldown = 3 SECONDS
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	r_hand = /obj/item/gun/ballistic/automatic/ar
-	corpse = /obj/effect/mob_spawn/corpse/human/nanotrasenassaultsoldier
-	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenassaultsoldier
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/commander
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/commander
 
 /mob/living/basic/trooper/nanotrasen/peaceful
 	desc = "A low-ranked operative of Nanotrasen's Private Security."
+
+/mob/living/basic/trooper/nanotrasen/baton/peaceful
+	desc = "A low-ranked operative of Nanotrasen's Private Security."
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful
+
+/mob/living/basic/trooper/nanotrasen/baton/shielded/peaceful
+	desc = "A low-ranked operative of Nanotrasen's Private Security."
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful
 
 /mob/living/basic/trooper/nanotrasen/ranged/peaceful
 	desc = "A low-ranked operative of Nanotrasen's Private Security."
@@ -56,9 +73,48 @@
 	var/datum/callback/retaliate_callback = CALLBACK(src, PROC_REF(ai_retaliate_behaviour))
 	AddComponent(/datum/component/ai_retaliate_advanced, retaliate_callback)
 
+/mob/living/basic/trooper/nanotrasen/ranged/disabler/peaceful
+	desc = "A low-ranked operative of Nanotrasen's Private Security."
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful
+
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful
 	desc = "A mid-ranked sergeant of Nanotrasen's Private Security."
+
+/mob/living/basic/trooper/nanotrasen/ranged/smg/disabler/peaceful
+	desc = "A mid-ranked sergeant of Nanotrasen's Private Security."
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful
 
 /mob/living/basic/trooper/nanotrasen/ranged/commander/peaceful
 	desc = "A high-ranked Commander of Nanotrasen's Private Security."
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful
+
+/mob/living/basic/trooper/nanotrasen/ranged/commander/peaceful/Initialize(mapload)
+	. = ..()
+	var/datum/callback/retaliate_callback = CALLBACK(src, PROC_REF(ai_retaliate_behaviour))
+	AddComponent(/datum/component/ai_retaliate_advanced, retaliate_callback)
+
+// Mobs specifically meant to be used for CentCom.
+
+/mob/living/basic/trooper/nanotrasen/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/baton/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/baton/shielded/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/ranged/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/ranged/disabler/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/ranged/smg/disabler/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful/centcom
+
+/mob/living/basic/trooper/nanotrasen/ranged/commander/peaceful/centcom
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/peaceful/centcom

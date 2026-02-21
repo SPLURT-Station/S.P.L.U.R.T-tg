@@ -1,6 +1,4 @@
-// CENTCOM OVERRIDE, SEE NEW ID TRIMS IN "modular_zzplurt\modules\CentCom_Stuff\id_trims.dm"
-/*
-/// Trim for basic Centcom cards.
+/// New Trims for CentCom Personnel, to fix accesses and make new jobs.
 /datum/id_trim/centcom
 	access = list(ACCESS_CENT_GENERAL)
 	assignment = JOB_CENTCOM
@@ -14,29 +12,13 @@
 
 /// Trim for Centcom VIPs
 /datum/id_trim/centcom/vip
-	access = list(ACCESS_CENT_GENERAL)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING)
 	assignment = JOB_CENTCOM_VIP
-
-/// Trim for Centcom Custodians.
-/datum/id_trim/centcom/custodian
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE)
-	assignment = JOB_CENTCOM_CUSTODIAN
-	trim_state = "trim_janitor"
-	department_color = COLOR_CENTCOM_BLUE
-	subdepartment_color = COLOR_SERVICE_LIME
-	big_pointer = FALSE
-	honorifics = list("Custodian")
-	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /// Trim for Centcom Thunderdome Overseers.
 /datum/id_trim/centcom/thunderdome_overseer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_THUNDER)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_THUNDER, ACCESS_WEAPONS)
 	assignment = JOB_CENTCOM_THUNDERDOME_OVERSEER
-
-/// Trim for Centcom Officials.
-/datum/id_trim/centcom/official
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
-	assignment = JOB_CENTCOM_OFFICIAL
 
 /// Trim for Centcom Interns.
 /datum/id_trim/centcom/intern
@@ -58,6 +40,17 @@
 
 	access |= SSid_access.get_flag_access_list(ACCESS_FLAG_COMMON)
 
+/// Trim for Centcom Officials.
+/datum/id_trim/centcom/official
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_OFFICER, ACCESS_WEAPONS)
+	assignment = JOB_CENTCOM_OFFICIAL
+
+// If Head Interns get this, at least let Officials get it too, since they're quite literally higher in rank.
+/datum/id_trim/centcom/official/New()
+	. = ..()
+
+	access |= SSid_access.get_flag_access_list(ACCESS_FLAG_COMMON)
+
 /// Trim for Bounty Hunters hired by centcom.
 /datum/id_trim/centcom/bounty_hunter
 	access = list(ACCESS_CENT_GENERAL)
@@ -66,37 +59,58 @@
 
 /// Trim for Centcom Bartenders.
 /datum/id_trim/centcom/bartender
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_BAR)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_BAR, ACCESS_BAR)
 	assignment = JOB_CENTCOM_BARTENDER
+	trim_state = "trim_bartender"
+	subdepartment_color = COLOR_SERVICE_LIME
 	big_pointer = FALSE
 
 /// Trim for Centcom Medical Officers.
 /datum/id_trim/centcom/medical_officer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL, ACCESS_MEDICAL)
 	assignment = JOB_CENTCOM_MEDICAL_DOCTOR
+	trim_state = "trim_medicaldoctor"
+	subdepartment_color = COLOR_MEDICAL_BLUE
+	big_pointer = FALSE
 	honorifics = list("Doctor", "Dr.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/technical_officer
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
+	assignment = "Technical Officer"
+	trim_state = "trim_stationengineer"
+	subdepartment_color = COLOR_ENGINEERING_ORANGE
+	big_pointer = FALSE
+	honorifics = list("Technician", "Tech.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/// Trim for Centcom Medical Officers.
+/datum/id_trim/centcom/supply_officer
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_LOGISTICS, ACCESS_CARGO)
+	assignment = "Supply Officer"
+	trim_state = "trim_cargotechnician"
+	subdepartment_color = COLOR_CARGO_BROWN
+	big_pointer = FALSE
+	honorifics = list("Specialist", "Spec.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /// Trim for Centcom Research Officers.
 /datum/id_trim/centcom/research_officer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_TELEPORTER, ACCESS_CENT_STORAGE)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE)
 	assignment = JOB_CENTCOM_RESEARCH_OFFICER
+	trim_state = "trim_scientist"
+	subdepartment_color = COLOR_SCIENCE_PINK
+	big_pointer = FALSE
+	honorifics = list("Doctor", "Dr.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /// Trim for Centcom Specops Officers. All Centcom and Station Access.
 /datum/id_trim/centcom/specops_officer
 	assignment = JOB_CENTCOM_SPECIAL_OFFICER
-	big_pointer = FALSE
+	honorifics = list("Officer", "Off.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/centcom/specops_officer/New()
-	. = ..()
-
-	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
-
-/// Trim for Centcom (Soviet) Admirals. All Centcom and Station Access.
-/datum/id_trim/centcom/admiral
-	assignment = JOB_CENTCOM_ADMIRAL
-
-/datum/id_trim/centcom/admiral/New()
 	. = ..()
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
@@ -104,7 +118,7 @@
 /// Trim for Centcom Commanders. All Centcom and Station Access.
 /datum/id_trim/centcom/commander
 	assignment = JOB_CENTCOM_COMMANDER
-	honorifics = list("Commander", "CMDR.")
+	honorifics = list("Commander", "Cmdr.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/centcom/commander/New()
@@ -112,7 +126,21 @@
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
-/// Trim for Deathsquad officers. All Centcom and Station Access. No centcom officer's access
+/// Trim for NSRA Inspectors. All Centcom and Station Access. No high centcom access.
+/datum/id_trim/centcom/safetyinspector
+	assignment = "CentCom Safety Inspector"
+	trim_state = "trim_stationengineer"
+	subdepartment_color = COLOR_GREEN
+	sechud_icon_state = SECHUD_ENGINEERING_RESPONSE_OFFICER
+	honorifics = list("Inspector")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/safetyinspector/New()
+	. = ..()
+
+	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
+
+/// Trim for Deathsquad officers. All Centcom and Station Access. No high centcom access.
 /datum/id_trim/centcom/deathsquad
 	assignment = JOB_ERT_DEATHSQUAD
 	trim_state = "trim_deathcommando"
@@ -120,11 +148,10 @@
 	honorifics = list("Commando")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
-
 /datum/id_trim/centcom/deathsquad/New()
 	. = ..()
 
-	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_OFFICER) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
+	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
 
 /// Trim for generic ERT interns. No universal ID card changing access.
 /datum/id_trim/centcom/ert
@@ -236,16 +263,3 @@
 	. = ..()
 
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
-*/
-// These can stay.
-/datum/id_trim/centcom/ert/militia
-	assignment = "Frontier Militia"
-	big_pointer = FALSE
-	honorifics = list("Minuteman")
-	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
-
-/datum/id_trim/centcom/ert/militia/general
-	assignment = "Frontier Militia General"
-	big_pointer = TRUE
-	honorifics = list("Minuteman General", "General")
-	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE

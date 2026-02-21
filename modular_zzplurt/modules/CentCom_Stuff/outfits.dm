@@ -1,13 +1,123 @@
-// CENTCOM OVERRIDE - SPLURT EDIT. NEW LOCATION = "modular_zzplurt\modules\CentCom_Stuff\outfits.dm"
-/*
+// Basic Uniforms / NON-ERT, FROM INTERN TO COMMANDER.
 /datum/outfit/centcom
 	name = "CentCom Base"
+
+	id = /obj/item/card/id/advanced/centcom
+	uniform = /obj/item/clothing/under/rank/centcom/officer
+	box = /obj/item/storage/box/survival/centcom
+	ears = /obj/item/radio/headset/headset_cent
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 /datum/outfit/centcom/post_equip(mob/living/carbon/human/centcom_member, visuals_only = FALSE)
 	if(visuals_only)
 		return
+
 	var/obj/item/implant/mindshield/mindshield = new /obj/item/implant/mindshield(centcom_member)//hmm lets have centcom officials become revs
 	mindshield.implant(centcom_member, null, silent = TRUE)
+
+	centcom_member.faction |= ROLE_DEATHSQUAD // Can't exactly let the NT mobs and whatnot kill CentCom right?
+
+	var/obj/item/card/id/W = centcom_member.wear_id
+	W.registered_name = centcom_member.real_name
+	W.update_label()
+	W.update_icon()
+	return ..()
+
+/datum/outfit/centcom/centcom_intern
+	name = "CentCom Intern"
+
+	id_trim = /datum/id_trim/centcom/intern
+	uniform = /obj/item/clothing/under/rank/centcom/intern
+	back = /obj/item/storage/backpack/satchel
+	belt = /obj/item/melee/baton
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = /obj/item/ammo_box/speedloader/strilka310
+	r_pocket = /obj/item/ammo_box/speedloader/strilka310
+	l_hand = /obj/item/gun/ballistic/rifle/boltaction
+
+/datum/outfit/centcom/centcom_intern/unarmed
+	name = "CentCom Intern (Unarmed)"
+
+	belt = null
+	l_pocket = null
+	r_pocket = null
+	l_hand = null
+
+/datum/outfit/centcom/centcom_intern/leader
+	name = "CentCom Head Intern"
+
+	suit = /obj/item/clothing/suit/armor/vest
+	suit_store = /obj/item/gun/ballistic/rifle/boltaction
+	belt = /obj/item/melee/baton/security/loaded
+	head = /obj/item/clothing/head/hats/intern
+	l_hand = /obj/item/megaphone
+
+/datum/outfit/centcom/centcom_intern/leader/unarmed // i'll be nice and let the leader keep their baton and vest
+	name = "CentCom Head Intern (Unarmed)"
+
+	suit_store = null
+	l_pocket = null
+	r_pocket = null
+
+/datum/outfit/centcom/centcom_official
+	name = "CentCom Official"
+
+	id_trim = /datum/id_trim/centcom/official
+	uniform = /obj/item/clothing/under/rank/centcom/official
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/stamp/centcom = 1,
+	)
+	belt = /obj/item/gun/energy/e_gun/asterion
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = /obj/item/pen
+	r_pocket = /obj/item/modular_computer/pda/heads
+	l_hand = /obj/item/clipboard
+
+/datum/outfit/centcom/spec_ops
+	name = "CentCom Special Ops Officer"
+
+	id_trim = /datum/id_trim/centcom/specops_officer
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	back = /obj/item/storage/backpack/satchel/leather
+	belt = /obj/item/gun/energy/pulse/pistol/m1911
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/thermal/eyepatch
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	head = /obj/item/clothing/head/helmet/space/beret
+	mask = /obj/item/cigarette/cigar/havana
+	shoes = /obj/item/clothing/shoes/combat/swat
+	r_pocket = /obj/item/lighter
+
+/datum/outfit/centcom/commander
+	name = "CentCom Commander"
+
+	id_trim = /datum/id_trim/centcom/commander
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	suit = /obj/item/clothing/suit/armor/centcom_formal
+	suit_store = /obj/item/gun/ballistic/revolver/mateba
+	back = /obj/item/storage/backpack/satchel/leather
+	belt = /obj/item/storage/belt/sheath/sabre
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	head = /obj/item/clothing/head/hats/centcom_cap
+	mask = /obj/item/cigarette/cigar/cohiba
+	shoes = /obj/item/clothing/shoes/combat/swat
+	l_pocket = /obj/item/ammo_box/speedloader/c357
+	r_pocket = /obj/item/lighter
+
+/datum/outfit/centcom/commander/mod
+	name = "CentCom Commander (MODsuit)"
+
+	suit_store = /obj/item/tank/internals/oxygen/yellow
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	back = /obj/item/mod/control/pre_equipped/corporate
+	internals_slot = ITEM_SLOT_SUITSTORE
 
 /datum/outfit/centcom/ert
 	name = "ERT Common"
@@ -29,13 +139,6 @@
 	if(additional_radio)
 		R.keyslot2 = new additional_radio()
 		R.recalculateChannels()
-
-	var/obj/item/card/id/W = H.wear_id
-	if(W)
-		W.registered_name = H.real_name
-		W.update_label()
-		W.update_icon()
-	return ..()
 
 /datum/outfit/centcom/ert/commander
 	name = "ERT Commander"
@@ -153,39 +256,6 @@
 		/obj/item/pipe_dispenser = 1,
 	)
 
-/datum/outfit/centcom/centcom_official
-	name = "CentCom Official"
-
-	id = /obj/item/card/id/advanced/centcom
-	id_trim = /datum/id_trim/centcom/official
-	uniform = /obj/item/clothing/under/rank/centcom/official
-	back = /obj/item/storage/backpack/satchel
-	box = /obj/item/storage/box/survival
-	backpack_contents = list(
-		/obj/item/stamp/centcom = 1,
-	)
-	belt = /obj/item/gun/energy/e_gun
-	ears = /obj/item/radio/headset/headset_cent
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	l_pocket = /obj/item/pen
-	r_pocket = /obj/item/modular_computer/pda/heads
-	l_hand = /obj/item/clipboard
-
-/datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
-	pda.imprint_id(H.real_name, "CentCom Official")
-
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
-	return ..()
-
 /datum/outfit/centcom/ert/commander/inquisitor
 	name = "Inquisition Commander"
 
@@ -294,57 +364,6 @@
 		return
 	ADD_TRAIT(H.mind, TRAIT_NAIVE, INNATE_TRAIT)
 	H.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
-
-/datum/outfit/centcom/centcom_intern
-	name = "CentCom Intern"
-
-	id = /obj/item/card/id/advanced/centcom
-	id_trim = /datum/id_trim/centcom/intern
-	uniform = /obj/item/clothing/under/rank/centcom/intern
-	back = /obj/item/storage/backpack/satchel
-	box = /obj/item/storage/box/survival
-	belt = /obj/item/melee/baton
-	ears = /obj/item/radio/headset/headset_cent
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	l_pocket = /obj/item/ammo_box/speedloader/strilka310
-	r_pocket = /obj/item/ammo_box/speedloader/strilka310
-	l_hand = /obj/item/gun/ballistic/rifle/boltaction
-
-/datum/outfit/centcom/centcom_intern/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
-	return ..()
-
-/datum/outfit/centcom/centcom_intern/unarmed
-	name = "CentCom Intern (Unarmed)"
-
-	belt = null
-	l_pocket = null
-	r_pocket = null
-	l_hand = null
-
-/datum/outfit/centcom/centcom_intern/leader
-	name = "CentCom Head Intern"
-
-	suit = /obj/item/clothing/suit/armor/vest
-	suit_store = /obj/item/gun/ballistic/rifle/boltaction
-	belt = /obj/item/melee/baton/security/loaded
-	head = /obj/item/clothing/head/hats/intern
-	l_hand = /obj/item/megaphone
-
-/datum/outfit/centcom/centcom_intern/leader/unarmed // i'll be nice and let the leader keep their baton and vest
-	name = "CentCom Head Intern (Unarmed)"
-
-	suit_store = null
-	l_pocket = null
-	r_pocket = null
 
 /datum/outfit/centcom/ert/janitor/party
 	name = "ERP Cleaning Service"
@@ -487,169 +506,3 @@
 	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
 	component.attach_hat(beret)
 	squaddie.update_clothing(helmet.slot_flags)
-*/
-// These can stay.
-/datum/outfit/centcom/ert/marine
-	name = "Marine Commander"
-
-	id = /obj/item/card/id/advanced/centcom/ert
-	suit = /obj/item/clothing/suit/armor/vest/marine
-	suit_store = /obj/item/gun/ballistic/automatic/wt550
-	back = /obj/item/shield/riot
-	belt = /obj/item/storage/belt/military/assault/full
-	ears = /obj/item/radio/headset/headset_cent/alt/leader
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
-	l_pocket = /obj/item/knife/combat
-	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
-	uniform = /obj/item/clothing/under/rank/centcom/military
-	mask = /obj/item/clothing/mask/gas/sechailer
-	head = /obj/item/clothing/head/helmet/marine
-	additional_radio = /obj/item/encryptionkey/heads/captain
-
-/datum/outfit/centcom/ert/marine/security
-	name = "Marine Heavy"
-
-	id = /obj/item/card/id/advanced/centcom/ert/security
-	suit = /obj/item/clothing/suit/armor/vest/marine/security
-	ears = /obj/item/radio/headset/headset_cent/alt
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
-	head = /obj/item/clothing/head/helmet/marine/security
-	additional_radio = /obj/item/encryptionkey/heads/hos
-
-/datum/outfit/centcom/ert/marine/medic
-	name = "Marine Medic"
-
-	id = /obj/item/card/id/advanced/centcom/ert/medical
-	suit = /obj/item/clothing/suit/armor/vest/marine/medic
-	suit_store = /obj/item/storage/belt/holster/detective/full/ert
-	back = /obj/item/storage/backpack/ert/medical
-	l_pocket = /obj/item/healthanalyzer
-	head = /obj/item/clothing/head/helmet/marine/medic
-	backpack_contents = list(
-		/obj/item/reagent_containers/hypospray/combat = 1,
-		/obj/item/storage/medkit/regular = 1,
-		/obj/item/storage/medkit/advanced = 1,
-	)
-	belt = /obj/item/storage/belt/medical/paramedic
-	ears = /obj/item/radio/headset/headset_cent/alt
-	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
-	additional_radio = /obj/item/encryptionkey/heads/cmo
-
-	skillchips = list(/obj/item/skillchip/entrails_reader)
-
-/datum/outfit/centcom/ert/marine/engineer
-	name = "Marine Engineer"
-
-	id = /obj/item/card/id/advanced/centcom/ert/engineer
-	suit = /obj/item/clothing/suit/armor/vest/marine/engineer
-	suit_store = /obj/item/gun/ballistic/shotgun/lethal
-	head = /obj/item/clothing/head/helmet/marine/engineer
-	back = /obj/item/deployable_turret_folded
-	uniform = /obj/item/clothing/under/rank/centcom/military/eng
-	belt = /obj/item/storage/belt/utility/full/powertools/rcd
-	ears = /obj/item/radio/headset/headset_cent/alt
-	glasses = /obj/item/clothing/glasses/hud/diagnostic/sunglasses
-	additional_radio = /obj/item/encryptionkey/heads/ce
-
-	skillchips = list(/obj/item/skillchip/job/engineer)
-
-/datum/outfit/centcom/militia
-	name = "Militia Man"
-
-	id = /obj/item/card/id/advanced/centcom/ert/militia
-	belt = /obj/item/storage/belt/holster/energy/smoothbore
-	suit = /obj/item/clothing/suit/armor/militia
-	suit_store = /obj/item/gun/energy/laser/musket
-	head = /obj/item/clothing/head/cowboy/black
-	uniform = /obj/item/clothing/under/rank/centcom/military
-	shoes = /obj/item/clothing/shoes/cowboy
-	gloves = /obj/item/clothing/gloves/combat
-	back = /obj/item/storage/backpack/satchel/leather
-	box = /obj/item/storage/box/survival
-	l_pocket = /obj/item/switchblade
-	r_pocket = /obj/item/reagent_containers/hypospray/medipen/salacid
-	ears = /obj/item/radio/headset
-	backpack_contents = list(
-		/obj/item/storage/medkit/emergency = 1,
-		/obj/item/crowbar = 1,
-		/obj/item/restraints/handcuffs = 1,
-	)
-
-/datum/outfit/centcom/militia/general
-	name = "Militia General"
-
-	id = /obj/item/card/id/advanced/centcom/ert/militia/general
-	belt = /obj/item/gun/energy/disabler/smoothbore/prime
-	head = /obj/item/clothing/head/beret/militia
-	l_hand = /obj/item/megaphone
-	suit_store = /obj/item/gun/energy/laser/musket/prime
-
-/datum/outfit/centcom/ert/medical_commander
-	name = "Chief EMT"
-	id = /obj/item/card/id/advanced/centcom/ert/medical
-	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer
-	l_pocket = /obj/item/healthanalyzer/advanced
-	shoes = /obj/item/clothing/shoes/sneakers/white
-	backpack_contents = list(
-		/obj/item/reagent_containers/hypospray/combat = 1,
-		/obj/item/storage/medkit/regular = 1,
-		/obj/item/storage/medkit/advanced = 1,
-		/obj/item/melee/baton/telescopic = 1,
-		/obj/item/gun/energy/pulse/pistol/loyalpin = 1,
-		/obj/item/stack/medical/poultice = 1, //These stacks contain 15 by default. Great for getting corpses to defib range without surgery.
-	)
-	belt = /obj/item/storage/belt/medical/ert
-	ears = /obj/item/radio/headset/headset_cent/alt
-	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
-	additional_radio = /obj/item/encryptionkey/heads/cmo
-	mask = /obj/item/clothing/mask/surgical
-	back = /obj/item/mod/control/pre_equipped/emergency_medical/corpsman
-	gloves = null
-	suit = null
-	head = null
-	suit_store = /obj/item/tank/internals/oxygen
-
-/datum/outfit/centcom/ert/medical_technician
-	name = "EMT Paramedic"
-	id = /obj/item/card/id/advanced/centcom/ert/medical
-	uniform = /obj/item/clothing/under/rank/medical/scrubs/blue
-	l_pocket = /obj/item/healthanalyzer
-	backpack_contents = list(
-		/obj/item/reagent_containers/hypospray/combat = 1,
-		/obj/item/storage/medkit/regular = 1,
-		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/cup/bottle/formaldehyde = 1,
-		/obj/item/reagent_containers/medigel/sterilizine = 1,
-		/obj/item/bodybag = 2,
-	)
-	mask = /obj/item/clothing/mask/surgical
-	belt = /obj/item/storage/belt/medical/ert
-	glasses = /obj/item/clothing/glasses/hud/health
-	additional_radio = /obj/item/encryptionkey/heads/cmo
-	shoes = /obj/item/clothing/shoes/sneakers/blue
-	back = /obj/item/mod/control/pre_equipped/emergency_medical
-	gloves = null
-	suit = null
-	head = null
-	suit_store = /obj/item/tank/internals/oxygen
-
-/obj/item/mod/control/pre_equipped/emergency_medical
-	theme = /datum/mod_theme/medical
-	starting_frequency = MODLINK_FREQ_CENTCOM
-	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
-	applied_modules = list(
-		/obj/item/mod/module/organizer,
-		/obj/item/mod/module/defibrillator,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/health_analyzer,
-		/obj/item/mod/module/injector,
-		/obj/item/mod/module/surgical_processor/emergency,
-		/obj/item/mod/module/storage/large_capacity,
-	)
-
-/obj/item/mod/control/pre_equipped/emergency_medical/corpsman
-	theme = /datum/mod_theme/medical/corpsman
-
-///Identical to medical MODsuit, but uses the alternate skin by default.
-/datum/mod_theme/medical/corpsman
-	default_skin = "corpsman"
