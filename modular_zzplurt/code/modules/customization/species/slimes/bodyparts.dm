@@ -24,12 +24,16 @@
 
 /obj/item/bodypart/leg/left/digitigrade/jelly/slime/roundstart
 	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	limb_id = "digitigrade_1"
+	base_limb_id = "digitigrade_1"
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 	dmg_overlay_type = null
 	burn_modifier = 0.8
 
 /obj/item/bodypart/leg/right/digitigrade/jelly/slime/roundstart
 	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
+	limb_id = "digitigrade_1"
+	base_limb_id = "digitigrade_1"
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 	dmg_overlay_type = null
 	burn_modifier = 0.8
