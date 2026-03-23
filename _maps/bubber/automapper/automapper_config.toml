@@ -636,6 +636,54 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
+# Tramstation Center Stairs Lower
+[templates.tramstation_stairs_center_lower]
+map_files = ["stairs_center_lower.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [118, 115, 1]
+trait_name = "Station"
+
+# Tramstation East Stairs Lower
+[templates.tramstation_stairs_east_lower]
+map_files = ["stairs_east_lower.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [171, 116, 1]
+trait_name = "Station"
+
+# Tramstation West Stairs Lower
+[templates.tramstation_stairs_west_lower]
+map_files = ["stairs_west_lower.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [65, 116, 1]
+trait_name = "Station"
+
+# Tramstation Center Stairs Upper
+[templates.tramstation_stairs_center_upper]
+map_files = ["stairs_center_upper.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [118, 115, 2]
+trait_name = "Station"
+
+# Tramstation East Stairs Upper
+[templates.tramstation_stairs_east_upper]
+map_files = ["stairs_east_upper.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [171, 116, 2]
+trait_name = "Station"
+
+# Tramstation West Stairs Upper
+[templates.tramstation_stairs_west_upper]
+map_files = ["stairs_west_upper.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [65, 116, 2]
+trait_name = "Station"
+
 # VOIDRAPTOR MAP EDITS
 # VoidRaptor Book of Kindred
 [templates.voidraptor_book_of_kindred]
