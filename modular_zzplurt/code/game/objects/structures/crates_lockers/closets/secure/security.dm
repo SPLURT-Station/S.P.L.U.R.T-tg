@@ -2,4 +2,3 @@
 	..()
 	new /obj/item/armorkit(src)
 	new /obj/item/armorkit/helmet(src)
-	new /obj/item/bodycam_upgrade(src)
