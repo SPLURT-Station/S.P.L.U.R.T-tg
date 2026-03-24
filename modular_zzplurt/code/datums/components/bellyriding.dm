@@ -519,3 +519,8 @@
 	to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
 	to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
 
+/datum/techweb_node/augmentation/New()
+	. = ..()
+	design_ids += list(
+		"borg_upgrade_bellyriding_harness"
+	)
