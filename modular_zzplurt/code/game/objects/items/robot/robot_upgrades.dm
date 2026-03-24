@@ -14,10 +14,7 @@
 /obj/item/borg/upgrade/bellyriding_harness
 	name = "cyborg bellyriding harness module"
 	desc = "An augmentation that equips compatible cyborgs with a bellyriding restraint harness module."
-	icon_state = "module_security"
-	require_model = TRUE
-	model_type = list(/obj/item/robot_model/peacekeeper, /obj/item/robot_model/security)
-	model_flags = BORG_MODEL_SECURITY
+	icon_state = "module_lust"
 	items_to_add = list(/obj/item/borg/bellyriding_harness)
 
 /obj/item/borg/upgrade/bellyriding_harness/Initialize(mapload)
@@ -32,11 +29,10 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 12 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_SECURITY
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
 	)
 
 /datum/techweb_node/augmentation/New()
