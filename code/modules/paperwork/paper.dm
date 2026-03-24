@@ -283,14 +283,30 @@
  * * stamp_icon_state - Icon state for the stamp as part of overlay rendering.
 * * stamp_icon_state - An alternate Icon file can be passed for the stamp as part of overlay rendering if desired
  */
-/obj/item/paper/proc/add_stamp(stamp_class, stamp_x, stamp_y, rotation, stamp_icon_state, stamp_icon = 'icons/obj/service/bureaucracy.dmi')
-	var/new_stamp_datum = new /datum/paper_stamp(stamp_class, stamp_x, stamp_y, rotation)
+
+//SPLURT EDIT START - Added stamp_color and stamp_scale arguments for more dynamic stamps
+/obj/item/paper/proc/add_stamp(stamp_class, stamp_x, stamp_y, rotation, stamp_icon_state, stamp_icon = 'icons/obj/service/bureaucracy.dmi', stamp_color = null, stamp_scale = 1)
+	var/new_stamp_datum = new /datum/paper_stamp(stamp_class, stamp_x, stamp_y, rotation, stamp_color, stamp_scale)
 	LAZYADD(raw_stamp_data, new_stamp_datum);
+
+	if(isnull(stamp_icon_state))
+		return
 
 	if(LAZYLEN(stamp_cache) > MAX_PAPER_STAMPS_OVERLAYS)
 		return
 
-	var/mutable_appearance/stamp_overlay = mutable_appearance(stamp_icon, "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	var/mutable_appearance/stamp_overlay
+	if(isnull(stamp_icon_state))
+		stamp_overlay = mutable_appearance(stamp_icon, appearance_flags = KEEP_APART | RESET_COLOR)
+	else
+		stamp_overlay = mutable_appearance(stamp_icon, "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	if(stamp_color)
+		stamp_overlay.color = stamp_color
+	if(stamp_scale != 1)
+		var/matrix/stamp_transform = matrix()
+		stamp_transform.Scale(stamp_scale, stamp_scale)
+		stamp_overlay.transform = stamp_transform
+//SPLURT EDIT END
 	stamp_overlay.pixel_w = rand(-2, 2)
 	stamp_overlay.pixel_z = rand(-3, 2)
 	add_overlay(stamp_overlay)
@@ -442,7 +458,7 @@
 	if(writing_stats["interaction_mode"] == MODE_STAMPING)
 		if(!user.can_read(src) || user.is_blind())
 			//The paper's stampable window area is assumed approx 300x400
-			add_stamp(writing_stats["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), writing_stats["stamp_icon_state"], stamp_icon = writing_stats["stamp_icon"])
+			add_stamp(writing_stats["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), writing_stats["stamp_icon_state"], stamp_icon = writing_stats["stamp_icon"], stamp_color = writing_stats["stamp_color"], stamp_scale = writing_stats["stamp_scale"]) //SPLURT EDIT - Added stamp_color and stamp_scale arguments for more dynamic stamps
 			user.visible_message(span_notice("[user] blindly stamps [src] with \the [attacking_item]!"))
 			to_chat(user, span_notice("You stamp [src] with \the [attacking_item] the best you can!"))
 			playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
@@ -465,7 +481,7 @@
 	if(!user.can_read(src) || user.is_blind()) // Just leftclick instead
 		return NONE
 
-	add_stamp(writing_stats["stamp_class"], rand(1, 300), rand(1, 400), stamp_icon_state = writing_stats["stamp_icon_state"], stamp_icon = writing_stats["stamp_icon"])
+	add_stamp(writing_stats["stamp_class"], rand(1, 300), rand(1, 400), stamp_icon_state = writing_stats["stamp_icon_state"], stamp_icon = writing_stats["stamp_icon"], stamp_color = writing_stats["stamp_color"], stamp_scale = writing_stats["stamp_scale"]) //SPLURT EDIT - Added stamp_color and stamp_scale arguments for more dynamic stamps
 	user.visible_message(
 		span_notice("[user] quickly stamps [src] with [tool] without looking."),
 		span_notice("You quickly stamp [src] with [tool] without looking."),
@@ -560,7 +576,7 @@
 		add_field_input(field[LIST_PAPER_FIELD_INDEX], input[LIST_PAPER_RAW_TEXT], input[LIST_PAPER_FONT], input[LIST_PAPER_FIELD_COLOR], input[LIST_PAPER_BOLD], field[LIST_PAPER_IS_SIGNATURE])
 
 	for(var/list/stamp as anything in data[LIST_PAPER_RAW_STAMP_INPUT])
-		add_stamp(stamp[LIST_PAPER_CLASS], stamp[LIST_PAPER_STAMP_X], stamp[LIST_PAPER_STAMP_Y], stamp[LIST_PAPER_ROTATION])
+		add_stamp(stamp[LIST_PAPER_CLASS], stamp[LIST_PAPER_STAMP_X], stamp[LIST_PAPER_STAMP_Y], stamp[LIST_PAPER_ROTATION], stamp_icon_state = null, stamp_color = stamp[LIST_PAPER_STAMP_COLOR], stamp_scale = stamp[LIST_PAPER_STAMP_SCALE]) //SPLURT EDIT - Added stamp_color and stamp_scale arguments for more dynamic stamps
 
 	var/new_color = data[LIST_PAPER_COLOR]
 	if(new_color != COLOR_WHITE)
@@ -577,9 +593,12 @@
 		var/obj/item/clipboard/clipboard = loc
 		// This is just so you can still use a stamp if you're holding one. Otherwise, it'll
 		// use the clipboard's pen, if applicable.
-		if(!istype(holding, /obj/item/stamp) && clipboard.pen)
+		//SPLURT EDIT START - Lipstick and paw stamping
+		var/list/holding_details = holding?.get_writing_implement_details()
+		if((holding_details?["interaction_mode"] != MODE_STAMPING) && clipboard.pen)
 			holding = clipboard.pen
 
+		//SPLURT EDIT END
 	data["held_item_details"] = holding?.get_writing_implement_details()
 
 	// If the paper is on an unwritable noticeboard, clear the held item details so it's read-only.
@@ -619,12 +638,14 @@
 			var/stamp_rotation = text2num(params["rotation"])
 			var/stamp_icon_state = stamp_info["stamp_icon_state"]
 			var/stamp_icon = stamp_info["stamp_icon"]
+			var/stamp_color = stamp_info["stamp_color"] //SPLURT ADDITION
+			var/stamp_scale = stamp_info["stamp_scale"] //SPLURT ADDITION
 
 			if (LAZYLEN(raw_stamp_data) >= MAX_PAPER_STAMPS)
 				to_chat(usr, pick("You try to stamp but you miss!", "There is nowhere else you can stamp!"))
 				return TRUE
 
-			add_stamp(stamp_class, stamp_x, stamp_y, stamp_rotation, stamp_icon_state, stamp_icon)
+			add_stamp(stamp_class, stamp_x, stamp_y, stamp_rotation, stamp_icon_state, stamp_icon, stamp_color, stamp_scale) //SPLURT EDIT - Added stamp_color and stamp_scale arguments for more dynamic stamps
 			user.visible_message(span_notice("[user] stamps [src] with \the [holding.name]!"), span_notice("You stamp [src] with \the [holding.name]!"))
 			playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
 
@@ -652,9 +673,12 @@
 				var/obj/item/clipboard/clipboard = loc
 				// This is just so you can still use a stamp if you're holding one. Otherwise, it'll
 				// use the clipboard's pen, if applicable.
-				if(!istype(holding, /obj/item/stamp) && clipboard.pen)
+				//SPLURT EDIT START - Lipstick and paw stamping
+				var/list/holding_details = holding?.get_writing_implement_details()
+				if((holding_details?["interaction_mode"] != MODE_STAMPING) && clipboard.pen)
 					holding = clipboard.pen
 
+				//SPLURT EDIT END
 			// As of the time of writing, can_write outputs a message to the user so we don't have to.
 			if(!user.can_write(holding))
 				return TRUE
@@ -694,9 +718,12 @@
 				var/obj/item/clipboard/clipboard = loc
 				// This is just so you can still use a stamp if you're holding one. Otherwise, it'll
 				// use the clipboard's pen, if applicable.
-				if(!istype(holding, /obj/item/stamp) && clipboard.pen)
+				//SPLURT EDIT START - Lipstick and paw stamping
+				var/list/holding_details = holding?.get_writing_implement_details()
+				if((holding_details?["interaction_mode"] != MODE_STAMPING) && clipboard.pen)
 					holding = clipboard.pen
 
+				//SPLURT EDIT END
 			// As of the time of writing, can_write outputs a message to the user so we don't have to.
 			if(!user.can_write(holding))
 				return TRUE
@@ -802,15 +829,21 @@
 	var/stamp_y = 0
 	/// Rotation of stamp in degrees. 0 to 359.
 	var/rotation = 0
+	/// Optional tint to apply to stamp previews and overlays.
+	var/color = null //SPLURT ADDITION
+	/// Optional scale to apply to stamp previews and overlays.
+	var/scale = 1 //SPLURT ADDITION
 
-/datum/paper_stamp/New(_class, _stamp_x, _stamp_y, _rotation)
+/datum/paper_stamp/New(_class, _stamp_x, _stamp_y, _rotation, _color = null, _scale = 1) //SPLURT EDIT - Added _color and _scale arguments for more dynamic stamps
 	class = _class
 	stamp_x = _stamp_x
 	stamp_y = _stamp_y
 	rotation = _rotation
+	color = _color //SPLURT ADDITION
+	scale = _scale //SPLURT ADDITION
 
 /datum/paper_stamp/proc/make_copy()
-	return new /datum/paper_stamp(class, stamp_x, stamp_y, rotation)
+	return new /datum/paper_stamp(class, stamp_x, stamp_y, rotation, color, scale) //SPLURT EDIT - Added color and scale arguments for more dynamic stamps
 
 /datum/paper_stamp/proc/to_list()
 	return list(
@@ -818,6 +851,8 @@
 		LIST_PAPER_STAMP_X = stamp_x,
 		LIST_PAPER_STAMP_Y = stamp_y,
 		LIST_PAPER_ROTATION = rotation,
+		LIST_PAPER_STAMP_COLOR = color, //SPLURT ADDITION
+		LIST_PAPER_STAMP_SCALE = scale, //SPLURT ADDITION
 	)
 
 /// A reference to some data that replaces a modifiable input field at some given index in paper raw input parsing.

@@ -10,6 +10,7 @@
 	multiple_sprite_use_base = TRUE
 	caliber = CALIBER_9X17MM
 	max_ammo = 30
+	multitype = FALSE
 
 /obj/item/ammo_box/magazine/mps5/ap
 	name = "\improper MP-S5 magazine (9x17mm AP)"
@@ -89,16 +90,16 @@
 
 /obj/projectile/bullet/c9x17mm/ihdf
 	name = "9x17mm IHDF bullet"
-	damage = 8
+	damage = 9
 	damage_type = STAMINA
 	embed_type = /datum/embedding/bullet/c9x17mm_ihdf
 
 /datum/embedding/bullet/c9x17mm_ihdf
-	embed_chance = 7
+	embed_chance = 20
 	fall_chance = 4
 	jostle_chance = 2
 	pain_mult = 3
-	pain_stam_pct = 0.3
+	pain_stam_pct = 1
 	ignore_throwspeed_threshold = TRUE
 	jostle_pain_mult = 4
 	rip_time = 1 SECONDS
@@ -111,7 +112,15 @@
 	ricochets_max = 3
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 150
-	ricochet_decay_damage = 0.4
+	ricochet_decay_damage = 0.9
 	shrapnel_type = null
 	sharpness = NONE
 	embed_type = null
+
+//WT550 4.6x30mm Override
+/obj/projectile/bullet/c46x30mm
+	wound_bonus = 0
+	armour_penetration = 10
+
+/obj/projectile/bullet/c46x30mm/ap
+	armour_penetration = 45

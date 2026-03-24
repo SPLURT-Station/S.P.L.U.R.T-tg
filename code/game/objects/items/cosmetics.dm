@@ -17,6 +17,8 @@
 	var/lipstick_trait
 	/// Can this lipstick spawn randomly
 	var/random_spawn = TRUE
+	/// Current paper stamp mode for open lipstick. "kiss" uses a lip-like mark and "paw" uses a paw mark.
+	var/stamp_mode = "kiss" //SPLURT ADDITION
 
 /obj/item/lipstick/Initialize(mapload)
 	. = ..()
@@ -31,6 +33,7 @@
 /obj/item/lipstick/examine(mob/user)
 	. = ..()
 	. += "Alt-click to change the style."
+	. += "Ctrl-click to toggle paper stamp mode between kiss and paw." //SPLURT ADDITION
 
 /obj/item/lipstick/update_icon_state()
 	icon_state = "[base_icon_state][open ? "_uncap" : null]"
@@ -49,6 +52,66 @@
 	display_radial_menu(user)
 	return CLICK_ACTION_SUCCESS
 
+//SPLURT ADDITION START - Lipstick and paw stamping
+/obj/item/lipstick/item_ctrl_click(mob/user)
+	stamp_mode = (stamp_mode == "kiss") ? "paw" : "kiss"
+	to_chat(user, span_notice("[src] is now set to leave [stamp_mode] stamps on paper."))
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/lipstick/proc/get_paper_stamp_icon_state()
+	if(stamp_mode == "kiss")
+		return "stamp-kiss"
+
+	var/list/source_rgb = rgb2num(lipstick_color)
+	if(!islist(source_rgb) || source_rgb.len < 3)
+		source_rgb = rgb2num(COLOR_RED)
+
+	var/static/list/palette_by_suffix = list(
+		"red" = COLOR_RED,
+		"blue" = COLOR_BLUE,
+		"green" = COLOR_GREEN,
+		"orange" = COLOR_ORANGE,
+	)
+
+	var/stamp_color_suffix = "red"
+	var/best_distance = INFINITY
+	for(var/suffix in palette_by_suffix)
+		var/list/palette_rgb = rgb2num(palette_by_suffix[suffix])
+		if(!islist(palette_rgb) || palette_rgb.len < 3)
+			continue
+		var/dr = source_rgb[1] - palette_rgb[1]
+		var/dg = source_rgb[2] - palette_rgb[2]
+		var/db = source_rgb[3] - palette_rgb[3]
+		var/distance = (dr * dr) + (dg * dg) + (db * db)
+		if(distance < best_distance)
+			best_distance = distance
+			stamp_color_suffix = suffix
+
+	if(stamp_mode == "paw")
+		return "stamp-paw_[stamp_color_suffix]"
+	return "stamp-kiss"
+
+/obj/item/lipstick/get_writing_implement_details()
+	if(!open)
+		return null
+
+	var/stamp_icon_state = get_paper_stamp_icon_state()
+	var/stamp_scale = (stamp_mode == "paw") ? 5 : 0.5
+	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet/simple/paper)
+	var/stamp_icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi'
+	if(stamp_mode == "kiss")
+		stamp_icon = 'modular_zzplurt/icons/effects/kissmark.png'
+		// PNG stamps have a single unnamed state, so overlay code should use null state.
+		stamp_icon_state = null
+	return list(
+		interaction_mode = MODE_STAMPING,
+		stamp_icon_state = stamp_icon_state,
+		stamp_icon = stamp_icon,
+		stamp_color = lipstick_color,
+		stamp_scale = stamp_scale,
+		stamp_class = sheet.icon_class_name(stamp_mode == "kiss" ? "stamp-kiss" : get_paper_stamp_icon_state()),
+	)
+//SPLURT EDIT END
 /obj/item/lipstick/proc/display_radial_menu(mob/living/carbon/human/user)
 	var/style_options = list(
 		UPPER_LIP = icon('icons/hud/radial.dmi', UPPER_LIP),

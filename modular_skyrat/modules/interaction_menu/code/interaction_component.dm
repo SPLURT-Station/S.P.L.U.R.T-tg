@@ -66,8 +66,9 @@
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
-		if(!body_relay || !target.Adjacent(body_relay))
-			return FALSE
+		if(target.loc != self.loc || isturf(target.loc)) //SPLURT ADDITION - Makes sure you can interact with other people in the same container.
+			if(!body_relay || !target.Adjacent(body_relay))
+				return FALSE
 	if(interaction.category == INTERACTION_CAT_HIDE)
 		return FALSE
 	if(self == target && interaction.usage == INTERACTION_OTHER)
