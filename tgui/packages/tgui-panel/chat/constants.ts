@@ -38,15 +38,19 @@ export const MESSAGE_TYPE_EVENTCHAT = 'eventchat';
 export const MESSAGE_TYPE_ADMINLOG = 'adminlog';
 export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
-// BUBBER EDIT ADDITION BEGIN
-export const MESSAGE_TYPE_MENTOR = 'mentor';
-export const MESSAGE_TYPE_LOOC = 'looc';
-export const MESSAGE_TYPE_REMOTE_LOOC = 'rlooc';
-export const MESSAGE_TYPE_SUBTLE = 'subtle';
-// BUBBER EDIT ADDITION END
+
+type MessageType = {
+  type: string;
+  name: string;
+  description: string;
+} & Partial<{
+  selector: string;
+  important: boolean;
+  admin: boolean;
+}>;
 
 // Metadata for each message type
-export const MESSAGE_TYPES = [
+export const MESSAGE_TYPES: MessageType[] = [
   // Always-on types
   {
     type: MESSAGE_TYPE_SYSTEM,
@@ -101,26 +105,6 @@ export const MESSAGE_TYPES = [
     description: 'The bluewall of global OOC messages',
     selector: '.ooc, .adminooc, .adminobserverooc, .oocplain',
   },
-  // BUBBER EDIT ADDITION BEGIN
-  {
-    type: MESSAGE_TYPE_LOOC,
-    name: 'LOOC',
-    description: 'Local OOC messages.',
-    selector: '.looc',
-  },
-  {
-    type: MESSAGE_TYPE_SUBTLE,
-    name: 'Subtle',
-    description: 'Subtle and Subtler actions.',
-    selector: '.subtle, .subtler',
-  },
-  {
-    type: MESSAGE_TYPE_MENTOR,
-    name: 'Mentor Log',
-    description: 'Mentor PMs and other mentor things.',
-    selector: '.mentor, .mentornotice',
-  },
-  // BUBBER EDIT ADDITION END
   {
     type: MESSAGE_TYPE_ADMINPM,
     name: 'Admin PMs',
@@ -178,13 +162,4 @@ export const MESSAGE_TYPES = [
     description: 'DEBUG: SSPlanets subsystem Recover().',
     admin: true,
   },
-  // BUBBER EDIT ADDITION BEGIN
-  {
-    type: MESSAGE_TYPE_REMOTE_LOOC,
-    name: 'Remote LOOC',
-    description: 'Yes, admins can read your LOOC no matter where you are.',
-    selector: '.rlooc',
-    admin: true,
-  },
-  // BUBBER EDIT ADDITION END
 ];

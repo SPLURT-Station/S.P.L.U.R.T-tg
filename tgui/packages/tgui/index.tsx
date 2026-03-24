@@ -6,16 +6,14 @@
 
 // Themes
 import './styles/main.scss';
-import './styles/themes/clockwork.scss'; // SKYRAT EDIT ADDITION
 
 import { perf } from 'common/perf';
 import { setupGlobalEvents } from 'tgui-core/events';
 import { setupHotKeys } from 'tgui-core/hotkeys';
+import { captureExternalLinks } from 'tgui-core/links';
 import { setupHotReloading } from 'tgui-dev-server/link/client';
-
 import { App } from './App';
 import { setGlobalStore } from './backend';
-import { captureExternalLinks } from './links';
 import { render } from './renderer';
 import { configureStore } from './store';
 

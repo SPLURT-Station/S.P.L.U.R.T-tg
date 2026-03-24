@@ -1,13 +1,14 @@
-import { useDispatch, useSelector } from 'tgui/backend';
+// SPLURT EDIT: migrated from Redux to Jotai atoms
+import { useAtom, useAtomValue } from 'jotai';
 
-import { toggleEmotes } from './actions';
-import { selectEmotes } from './selectors';
+import { emotesListAtom, emotesVisibleAtom } from './atoms';
 
 export const useEmotes = () => {
-  const emotes = useSelector(selectEmotes);
-  const dispatch = useDispatch();
+  const [visible, setVisible] = useAtom(emotesVisibleAtom);
+  const list = useAtomValue(emotesListAtom);
   return {
-    ...emotes,
-    toggle: () => dispatch(toggleEmotes()),
+    visible,
+    list,
+    toggle: () => setVisible((v) => !v),
   };
 };
