@@ -305,8 +305,6 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 
 /datum/component/bellyriding/borg/on_mousedropped_onto(datum/_source, mob/living/carbon/human/victim, mob/living/user, params)
-	SIGNAL_HANDLER
-
 	var/mob/living/silicon/robot/parent_borg = parent
 	if(!istype(parent_borg) || user != parent_borg)
 		return
@@ -315,8 +313,6 @@
 	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 
 /datum/component/bellyriding/borg/on_attack_hand(datum/_source, mob/living/user, list/modifiers)
-	SIGNAL_HANDLER
-
 	return try_unbuckle_victim(user)
 
 /datum/component/bellyriding/borg/try_buckle_victim(mob/living/carbon/human/victim, mob/user)
@@ -431,17 +427,56 @@
 	if(!istype(parent))
 		return
 
-	current_victim.setDir(parent.dir)
 	current_victim.transform = null
 	current_victim.dna.current_body_size = 1
 	current_victim.dna.update_body_size()
+	var/list/model_features = parent.model?.model_features
+	var/is_quad_chassis = HAS_TRAIT(parent, TRAIT_R_DOGBORG) || HAS_TRAIT(parent, TRAIT_R_SQUADRUPED)
+	is_quad_chassis ||= (TRAIT_R_DOGBORG in model_features) || (TRAIT_R_SQUADRUPED in model_features)
+	// Some lizard/drake-style chassis are represented as wide without explicit quadruped traits.
+	if(!is_quad_chassis && (TRAIT_R_WIDE in model_features) && !(TRAIT_R_SMALL in model_features))
+		is_quad_chassis = TRUE
 
 	var/x_offset = parent.pixel_x
-	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f + 2
+	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f
 	var/layer = parent.layer + 0.001
 
-	if(parent.dir == NORTH)
+	if(is_quad_chassis)
 		layer = parent.layer - 0.001
+		switch(parent.dir)
+			if(EAST)
+				current_victim.setDir(SOUTH)
+				current_victim.transform = current_victim.transform.Turn(80)
+				x_offset += 5
+				y_offset -= 9
+			if(WEST)
+				current_victim.setDir(SOUTH)
+				current_victim.transform = current_victim.transform.Turn(-80)
+				x_offset -= 5
+				y_offset -= 9
+			if(NORTH)
+				current_victim.setDir(NORTH)
+				current_victim.transform = current_victim.transform.Turn(0)
+			if(SOUTH)
+				current_victim.setDir(NORTH)
+				current_victim.transform = current_victim.transform.Turn(180)
+				y_offset -= 7
+	else
+		current_victim.setDir(parent.dir)
+		if(TRAIT_R_TALL in model_features)
+			y_offset += 2
+		switch(parent.dir)
+			if(EAST)
+				x_offset += 11
+				y_offset -= 1
+			if(WEST)
+				x_offset -= 11
+				y_offset -= 1
+			if(NORTH)
+				y_offset += 6
+				layer = parent.layer - 0.001
+			if(SOUTH)
+				y_offset += 4
 
 	current_victim.add_offsets(borg_offset_source, x_add = x_offset, y_add = y_offset, animate = FALSE)
 	current_victim.layer = layer
