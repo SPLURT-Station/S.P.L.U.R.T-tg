@@ -3,7 +3,6 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/chaplain.dmi'
 	desc = "Protect the weak and defenceless, live by honor and glory, and fight for the welfare of all!"
 	icon_state = "knight_hospitaller"
-	unique_reskin = null
 
 /obj/item/clothing/suit/chaplainsuit/armor/templar/hospitaller/no_armor
 	armor_type = /datum/armor/none
@@ -40,39 +39,10 @@
 	name = "trencher coat replica"
 	desc = "A 90% replica of No Man's Land-type coat. Obviously won't protect you from the blastwave."
 	armor_type = /datum/armor/none
-	uses_advanced_reskins = TRUE // Since polychromic no longer available at least allow us to reskin it after GWTB armies colors.
-	unique_reskin = list(
-		"Default (Purple)" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "goner_suit",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_suit"
-		),
-		"Red" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "goner_suit_r",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_suit_r"
-		),
-		"Green" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "goner_suit_g",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_suit_g"
-		),
-		"Blue" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "goner_suit_b",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_suit_b"
-		),
-		"Yellow" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/suits.dmi',
-			RESKIN_ICON_STATE = "goner_suit_y",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/suit.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_suit_y"
-		)
-	)
+
+/obj/item/clothing/suit/goner/fake/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/goner_suit)
 
 //
 /obj/item/clothing/suit/goner/red
@@ -135,3 +105,26 @@
 	name = "press helmet"
 	desc = "A blue helmet used to distinguish <i>non-combatant</i> \"PRESS\" members, like if anyone cares."
 	armor_type = /datum/armor/none
+
+/datum/atom_skin/goner_suit
+	abstract_type = /datum/atom_skin/goner_suit
+
+/datum/atom_skin/goner_suit/default
+	preview_name = "Default (Purple)"
+	new_icon_state = "goner_suit"
+
+/datum/atom_skin/goner_suit/red
+	preview_name = "Red"
+	new_icon_state = "goner_suit_r"
+
+/datum/atom_skin/goner_suit/green
+	preview_name = "Green"
+	new_icon_state = "goner_suit_g"
+
+/datum/atom_skin/goner_suit/blue
+	preview_name = "Blue"
+	new_icon_state = "goner_suit_b"
+
+/datum/atom_skin/goner_suit/yellow
+	preview_name = "Yellow"
+	new_icon_state = "goner_suit_y"

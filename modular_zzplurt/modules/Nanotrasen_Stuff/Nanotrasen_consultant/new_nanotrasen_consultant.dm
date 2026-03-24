@@ -2,7 +2,7 @@
 	title = JOB_NT_REP
 	description = "Represent Nanotrasen on the station, argue with the HoS about \
 		why he can't just field execute people for petty theft, get drunk in your office."
-	department_head = list("Nanotrasen High Command")
+	supervisors = "Nanotrasen High Command"
 	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
 	total_positions = 1
