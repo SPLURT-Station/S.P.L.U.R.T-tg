@@ -34,7 +34,3 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
 	)
-
-/datum/techweb_node/augmentation/New()
-	. = ..()
-	design_ids += list("borg_upgrade_bellyriding_harness")
