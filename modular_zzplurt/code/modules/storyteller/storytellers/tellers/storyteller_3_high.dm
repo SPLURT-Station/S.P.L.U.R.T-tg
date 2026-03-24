@@ -7,7 +7,7 @@
 	track_data = /datum/storyteller_data/tracks/gamer
 
 	tag_multipliers = list(
-		TAG_COMBAT = 1.5,
+		TAG_COMBAT = 1.4,
 		TAG_DESTRUCTIVE = 0.7,
 		TAG_CHAOTIC = 1.3,
 		TAG_LOW = 1,
@@ -30,7 +30,7 @@
 	storyteller_type = STORYTELLER_TYPE_INTENSE | STORYTELLER_TYPE_OPFOR_ONLY
 
 	tag_multipliers = list(
-		TAG_COMBAT = 1.5,
+		TAG_COMBAT = 1.4,
 		TAG_DESTRUCTIVE = 0.7,
 		TAG_CHAOTIC = 1.3,
 		TAG_LOW = 1,

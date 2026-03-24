@@ -271,6 +271,7 @@
 		"Android",
 		"Robot",
 		"Synthetic",
+		"Servitor",
 	)
 
 /datum/job/detective
@@ -315,6 +316,7 @@
 		"Crew Supervisor",
 		"Employment Officer",
 		"Executive Officer",
+		"Head of Fursonnel",
 	)
 
 /datum/job/head_of_security
@@ -367,7 +369,7 @@
 		"Nanotrasen Advisor",
 		"Nanotrasen Diplomat",
 		"Nanotrasen Representative",
-		"Nanotrasen Liason",
+		"Nanotrasen Liason",// SPLURT REMOVAL OF CENTCOM RENAMES
 		"Command Consultant",
 		"Command Advisor",
 		"Corporate Diplomat",

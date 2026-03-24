@@ -174,6 +174,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_ERT_DEATHSQUAD = 227,
 		JOB_NT_REP = 230, // SKYRAT EDIT ADDITION
 		JOB_BLUESHIELD = 231, // SKYRAT EDIT ADDITION
+		JOB_NT_TRN = 232, // SKYRAT EDIT ADDITION
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,

@@ -675,6 +675,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("drinking glasses box", /obj/item/storage/box/drinkingglasses, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("paper cups box", /obj/item/storage/box/cups, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("cigar case", /obj/item/storage/fancy/cigarettes/cigars, crafting_flags = NONE, category = CAT_CONTAINERS), \
+		new /datum/stack_recipe("cigarette packet", /obj/item/storage/fancy/cigarettes/cigpack_cardboard, 1, crafting_flags = NONE, category = CAT_CONTAINERS), // SPLURT EDIT ADDITION
 		null, \
 
 		new /datum/stack_recipe("lethal ammo box", /obj/item/storage/box/lethalshot, crafting_flags = NONE, category = CAT_CONTAINERS), \

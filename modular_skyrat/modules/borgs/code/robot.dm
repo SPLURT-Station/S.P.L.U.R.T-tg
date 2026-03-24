@@ -56,7 +56,7 @@
 	if(!can_rest())
 		to_chat(src, span_warning("You can't do that!"))
 		return
-	var/choice = tgui_alert(src, "Select resting pose", "", list("Resting", "Sitting", "Belly up"))
+	var/choice = tgui_input_list(src, "Select resting pose", "", list("Resting", "Sitting", "Belly up", "Rest (Drake Only)",)) //Splurt Edit tgui_alert to tgui_input_list
 	switch(choice)
 		if("Resting")
 			robot_rest_style = ROBOT_REST_NORMAL
@@ -64,6 +64,10 @@
 			robot_rest_style = ROBOT_REST_SITTING
 		if("Belly up")
 			robot_rest_style = ROBOT_REST_BELLY_UP
+		//Splurt Edit start, I don't fucking know how to modularize it, I tried and failed
+		if("Rest (Drake Only)")
+			robot_rest_style = ROBOT_REST_SLEEP
+		//Splurt Edit
 	robot_resting = robot_rest_style
 	if (robot_resting)
 		on_lying_down()

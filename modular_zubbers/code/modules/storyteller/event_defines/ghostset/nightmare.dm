@@ -4,7 +4,7 @@
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT, TAG_SPOOKY)
 	weight = 4
-	max_occurrences = 1
+	max_occurrences = 2
 	min_players = 20
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a nightmare, aiming to darken the station."

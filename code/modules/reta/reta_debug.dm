@@ -93,6 +93,8 @@ ADMIN_VERB(reta_manual_trigger, R_ADMIN, "RETA Door Access", "Manually trigger R
 					aas_config_announce(/datum/aas_config_entry/rc_emergency, list("LOCATION" = calling_dept, "CALLER" = caller_info), null, list(RADIO_CHANNEL_SUPPLY), "Cargo")
 				if("Mining")
 					aas_config_announce(/datum/aas_config_entry/rc_emergency, list("LOCATION" = calling_dept, "CALLER" = caller_info), null, list(RADIO_CHANNEL_SUPPLY), "Mining")
+				if("Internal Affairs") // SPLURT ADDITION
+					aas_config_announce(/datum/aas_config_entry/rc_emergency, list("LOCATION" = calling_dept, "CALLER" = caller_info), null, list(RADIO_CHANNEL_IAA), "Internal Affairs")
 
 		// Send confirmation to the calling department about who has been given access
 		var/grantee = english_list(granted_depts)
@@ -114,6 +116,8 @@ ADMIN_VERB(reta_manual_trigger, R_ADMIN, "RETA Door Access", "Manually trigger R
 				target_channels += RADIO_CHANNEL_SUPPLY
 			if("Mining")
 				target_channels += RADIO_CHANNEL_SUPPLY
+			if("Internal Affairs") // SPLURT ADDITION
+				target_channels += RADIO_CHANNEL_IAA
 
 		aas_config_announce(/datum/aas_config_entry/rc_reta_announcement, list("GRANTEE" = grantee, "CALLER" = caller_info), null, target_channels)
 	else

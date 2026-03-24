@@ -33,3 +33,10 @@
 	icon_state = "wataur"
 	list_reagents = list(/datum/reagent/water = 100)
 	volume = 100
+
+/obj/item/reagent_containers/cup/soda_cans/determination
+	name = "Braining"
+	desc = "this can appears to be written in marish. However, it is completely inchoerant even to marrish speakers. It is branded with small initials at the bottom -MM, The chemicals in the can smell so strongly that you can somehow smell them through the can. You have a dreadful feeling that drinking this while wearing clothes will leave you quickly running for a new pair of underwear."
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "determ"
+	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt = 20, /datum/reagent/determination = 5, /datum/reagent/consumable/ethanol/skullfucker_deluxe = 5)

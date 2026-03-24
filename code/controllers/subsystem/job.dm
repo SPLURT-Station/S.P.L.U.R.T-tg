@@ -55,6 +55,7 @@ SUBSYSTEM_DEF(job)
 		JOB_CHIEF_MEDICAL_OFFICER = 5,
 		JOB_HEAD_OF_SECURITY = 6,
 		JOB_QUARTERMASTER = 7,
+		//JOB_NT_REP = 8, SPLURT EDIT requested by kate
 	)
 
 	/// If TRUE, some player has been assigned Captaincy or Acting Captaincy at some point during the shift and has been given the spare ID safe code.

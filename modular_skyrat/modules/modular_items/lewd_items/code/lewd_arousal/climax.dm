@@ -30,6 +30,12 @@
 		return
 	if(refractory_period > REALTIMEOFDAY)
 		return
+	//SPLURT ADDITION START
+	// MKUltra cum lock hard block: do not proceed to climax when locked.
+	if(GLOB.mkultra_cum_locks && GLOB.mkultra_cum_locks[src])
+		visible_message(span_purple("[src] strains, but can't finish."), span_purple("You can't climax—you're locked by your owner."))
+		return FALSE
+	//SPLURT ADDITION END
 	refractory_period = REALTIMEOFDAY + 30 SECONDS
 	if(has_status_effect(/datum/status_effect/climax_cooldown) || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || nonhuman_bypass_self))
 		return
@@ -65,6 +71,10 @@
 			conditional_pref_sound(get_turf(src), pick('modular_skyrat/modules/modular_items/lewd_items/sounds/final_f1.ogg',
 										'modular_skyrat/modules/modular_items/lewd_items/sounds/final_f2.ogg',
 										'modular_skyrat/modules/modular_items/lewd_items/sounds/final_f3.ogg'), 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
+
+	// SPLURT EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_MOB_POST_CLIMAX, partner, interaction_position, manual)
+	// SPLURT EDIT ADDITION END
 
 	var/self_orgasm = FALSE
 	var/self_their = p_their()
