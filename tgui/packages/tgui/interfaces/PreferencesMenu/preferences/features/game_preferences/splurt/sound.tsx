@@ -1,5 +1,5 @@
-import {
-  type FeatureChoiced,
+import type {
+  FeatureChoiced,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 

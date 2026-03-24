@@ -1,4 +1,4 @@
-import { Feature, FeatureChoiced, FeatureColorInput } from '../../base';
+import { type Feature, type FeatureChoiced, FeatureColorInput } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const input_blood_color: Feature<string> = {

@@ -908,7 +908,7 @@ const FunActions = () => {
 
   const narrateStyles = {
     color: colours[narrateColour],
-    'font-size': narrateSize + 'rem',
+    'font-size': `${narrateSize}rem`,
     'font-weight': narrateBold ? 'bold' : '',
     'font-family': narrateFont,
     'font-style': narrateItalic ? 'italic' : '',
