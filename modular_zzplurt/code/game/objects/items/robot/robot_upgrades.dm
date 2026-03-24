@@ -14,6 +14,7 @@
 /obj/item/borg/upgrade/bellyriding_harness
 	name = "cyborg bellyriding harness module"
 	desc = "An augmentation that equips compatible cyborgs with a bellyriding restraint harness module."
+	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
 	icon_state = "module_lust"
 	items_to_add = list(/obj/item/borg/bellyriding_harness)
 
