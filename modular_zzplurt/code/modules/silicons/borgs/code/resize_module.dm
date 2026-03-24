@@ -132,18 +132,6 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
 	)
 
-/datum/techweb_node/augmentation/New()
-	. = ..()
-	// Removes the shrink and expander from the pool of designs the crew can print, used so there's only one option to use for resizing rather than commenting out those lines of code
-	design_ids -= list(
-		"borg_upgrade_expand",
-		"borg_upgrade_shrink"
-	)
-	// Adds the borg_upgrade_resize to the design pool.
-	design_ids += list(
-		"borg_upgrade_resize"
-	)
-
 /datum/techweb_node/old_resize
 	id = TECHWEB_NODE_BORG_OLD_SIZE
 	display_name = "Old Expander Tech"
