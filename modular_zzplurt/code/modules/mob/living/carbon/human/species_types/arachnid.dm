@@ -36,9 +36,9 @@
 		"arachnid_legs" = list("Plain", TRUE),
 	)
 
-/obj/item/organ/brain/xeno_hybrid/Initialize(mapload)
+/obj/item/organ/tongue/arachnid/Initialize(mapload) //speech bubble addition
 	. = ..()
-	AddComponent(/datum/component/bubble_icon_override, "arachnid", BUBBLE_ICON_PRIORITY_ORGAN)
+	AddComponent(/datum/component/bubble_icon_override, "spider", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
