@@ -11,7 +11,8 @@
 		"Consul",
 		"Cap-Slut",
 		"Condom",
-		"Ark Commander"
+		"Ark Commander",
+		"Station Governor"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -23,7 +24,8 @@
 		"Project Manager",
 		"Power Plant Director",
 		"Magos",
-		"Magos Biologis"
+		"Magos Biologis",
+		"Master Architect"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -38,7 +40,9 @@
 		"Personnel Manager",
 		"Staff Administrator",
 		"Records Administrator",
-		"Captain Attachment"
+		"Captain Attachment",
+		"Personnel Co-ordinator",
+		"Administratum Primus"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -52,7 +56,9 @@
 		"Head of Studcurity",
 		"Big Iron",
 		"Commissar",
-		"Head of Red Hawk"
+		"Head of Red Hawk",
+		"Watch Commander",
+		"Arbites"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -62,7 +68,8 @@
 		"Supply Chief",
 		"Cargonia Chief",
 		"Brigadier",
-		"Manager of Shipping Sex"
+		"Manager of Shipping Sex",
+		"Munitorum Primus"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -71,7 +78,8 @@
 	var/list/extra_titles = list(
 		"Science Administrator",
 		"Sex Research Director",
-		"Research Manager"
+		"Research Manager",
+		"Lead Developer"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -83,7 +91,8 @@
 		"Healing Fleshlight Mistress",
 		"Healing Fleshlight Master",
 		"Chief Heal Stud",
-		"Chief Heal Slut"
+		"Chief Heal Slut",
+		"Top Doctor"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -138,7 +147,8 @@
 		"Station Pet",
 		"Pet",
 		"Slavic Activist",
-		"Bear Communist"
+		"Bear Communist",
+		"Registered Company Equipment"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -174,7 +184,10 @@
 		// "Nun",
 		"Keeper of Cum",
 		"Counselor",
-		"Techpriest"
+		"Techpriest",
+		"Abbot",
+		"Sister",
+		"Brother"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -273,7 +286,8 @@
 		"Droid Mechanic",
 		"Borgs Slut",
 		"Robo-Slut",
-		"Techpriest Biologis"
+		"Techpriest Biologis",
+		"Exo-Suit Mechanic"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -364,8 +378,9 @@
 		"Van Dorn Agent",
 		"Forensic Investigator",
 		"Cinder Dick",
-		"Cooperate Auditor",
-		"RHIB Agent"
+		"Corporate Auditor",
+		"RHIB Agent",
+		"Counter-Intelligence Agent"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -381,7 +396,9 @@
 		"Cerberus",
 		"Slutcurity Officer",
 		"Studcurity Officer",
-		"Red Hawk Private"
+		"Red Hawk Private",
+		"Exo-Suit Ensign",
+		"Snekurity Officer"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
