@@ -16,7 +16,7 @@
 	))
 	cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(
 		"%CUMMING% cums all over your armpit",
-		"%CUMMING% shoots your load into your pit",
+		"%CUMMING% shoots their load into your pit",
 		"%CUMMING% covers your underarm in cum"
 	))
 	message = list(
