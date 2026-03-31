@@ -1,13 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/obj/effect/decal/cleanable/greenglow,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "az" = (
 /obj/effect/turf_decal/vg_decals/atmos/nitrogen,
 /turf/open/floor/engine/n2,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "aA" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "aU" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/structure/cable,
@@ -18,19 +22,19 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "aY" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance/three,
 /obj/structure/closet/crate,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "aZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "bh" = (
 /obj/structure/railing{
 	dir = 1
@@ -39,13 +43,13 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "br" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "bV" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -53,7 +57,7 @@
 /obj/structure/filingcabinet,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ce" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -64,12 +68,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "ck" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "da" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -80,14 +84,14 @@
 	},
 /obj/item/stack/tile/catwalk_tile,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "dq" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/structure/chair/sofa/bench{
 	dir = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "dt" = (
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/trimline/brown/line{
@@ -100,52 +104,53 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "dw" = (
 /obj/effect/turf_decal/trimline/brown/corner{
 	dir = 8
 	},
 /obj/effect/turf_decal/caution,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "dy" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/airalarm/directional/south,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "dD" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "dI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "dJ" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "dO" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/table/wood,
-/obj/item/documents{
-	pixel_x = 0;
-	pixel_y = 5
-	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/item/documents{
+	pixel_x = 0;
+	pixel_y = 5;
+	desc = "A pile of unpaid fees and financial warnings from NanoTrasen for operating in close proximity of their ongoing operations. Many ignore that this smaller business was established in this space quadrant first."
+	},
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "dT" = (
 /turf/open/floor/engine/o2,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "dU" = (
 /obj/structure/toilet{
 	dir = 4
@@ -157,7 +162,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "dV" = (
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
@@ -166,7 +171,7 @@
 	color = "#a3bfbc"
 	},
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "dW" = (
 /obj/structure/rack/shelf,
 /obj/item/wrench{
@@ -178,14 +183,14 @@
 	pixel_y = -5
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "dY" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ee" = (
 /obj/item/restraints/handcuffs{
 	pixel_x = -5;
@@ -194,7 +199,7 @@
 /obj/machinery/light/broken/directional/west,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "ef" = (
 /obj/structure/flatpack_cart,
 /obj/effect/turf_decal/bot,
@@ -202,22 +207,22 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 8
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ei" = (
 /obj/structure/filingcabinet,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "em" = (
 /obj/machinery/photocopier/prebuilt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "eC" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/turf_decal/trimline/brown/mid_joiner,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "fa" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -229,32 +234,32 @@
 	dir = 1
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "fd" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "fr" = (
-/obj/machinery/light/directional/north,
+/obj/machinery/suit_storage_unit/industrial/loader,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "fu" = (
 /obj/item/storage/medkit/emergency,
 /obj/structure/rack,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "fv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "fw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "fC" = (
 /obj/effect/spawner/random/structure/steam_vent,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "gd" = (
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
@@ -263,33 +268,33 @@
 	color = "#a3bfbc"
 	},
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "gg" = (
 /obj/structure/cable,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "gk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "gz" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "gF" = (
 /mob/living/basic/mouse,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "gT" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "gW" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -297,19 +302,19 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "gX" = (
 /obj/effect/spawner/random/burgerstation/loot/with_maintenance_loot,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "hk" = (
 /obj/structure/decorative/shelf/crates1,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "hp" = (
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ht" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -319,13 +324,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "hv" = (
 /obj/item/beacon{
 	name = "Mysterious Signal"
 	},
 /turf/open/floor/engine,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "hB" = (
 /obj/machinery/door/airlock/bathroom,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -335,18 +340,19 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "hQ" = (
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "ib" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/broken/directional/west,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "ic" = (
 /obj/effect/turf_decal/vg_decals/atmos/oxygen,
 /turf/open/floor/engine/o2,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "iz" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /obj/structure/cable,
@@ -357,7 +363,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "iI" = (
 /obj/machinery/button/door/directional/west{
 	pixel_x = -24;
@@ -379,7 +385,11 @@
 	desc = "Some sort of old civilian logging console. It appears to have a punch-in app displayed on its dusty monitor."
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"iK" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "iP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -390,14 +400,17 @@
 	},
 /obj/structure/sign/poster/random/directional/south,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "iT" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/brown/line,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"iU" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "iZ" = (
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
@@ -406,14 +419,14 @@
 	color = "#a3bfbc"
 	},
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "ja" = (
 /obj/structure/table{
 	color = "#999999"
 	},
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "jc" = (
 /obj/machinery/camera{
 	dir = 1
@@ -424,13 +437,17 @@
 /obj/item/kirbyplants/random,
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"ji" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "jl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/turf_decal/trimline/brown/mid_joiner,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "jr" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -438,18 +455,18 @@
 	},
 /obj/item/gun/ballistic/revolver/c38,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "js" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "jx" = (
 /obj/structure/drain,
 /obj/structure/cable,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "jL" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
@@ -460,7 +477,7 @@
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "jS" = (
 /obj/structure/sink/directional/west,
 /obj/structure/mirror/directional/east,
@@ -469,44 +486,58 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
+"jU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/light/small/red/dim/directional/north,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "jW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "jZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "kd" = (
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "kh" = (
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "ki" = (
 /turf/open/misc/asteroid,
 /area/space)
+"kq" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "ku" = (
 /obj/structure/decorative/shelf/crates,
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "kA" = (
 /turf/open/floor/engine,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "kB" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "kJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -514,22 +545,22 @@
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "la" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "lf" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "lg" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "lh" = (
 /obj/item/flashlight/flare/candle,
 /turf/closed/mineral/random/asteroid,
@@ -543,25 +574,25 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "lM" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "lY" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "lZ" = (
 /obj/structure/railing/corner{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "mf" = (
 /obj/structure/cable,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "mA" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/trimline/brown/line{
@@ -573,7 +604,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "nl" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/structure/cable,
@@ -581,7 +612,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "nr" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
@@ -591,7 +622,18 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
+"nv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/light/small/red/dim/directional/east,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "nC" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
@@ -600,15 +642,20 @@
 "nV" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "od" = (
-/obj/machinery/light/directional/north,
+/obj/machinery/light/broken/directional/north,
+/obj/effect/spawner/random/trash/soap,
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
+"ok" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "om" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "oo" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -620,16 +667,16 @@
 	},
 /obj/structure/flora/bush/flowers_yw/style_3,
 /turf/open/floor/grass,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ot" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "oG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "oT" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -642,7 +689,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "oZ" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -660,11 +707,16 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"pb" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "pf" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "pi" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/delivery,
@@ -672,12 +724,12 @@
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "ps" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "pB" = (
 /obj/machinery/wall_healer/directional/south,
 /obj/effect/turf_decal/siding/thinplating_new/light,
@@ -685,7 +737,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "pN" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/mop_bucket/janitorialcart,
@@ -693,7 +745,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "pR" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -707,7 +759,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "qa" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/computer/old{
@@ -715,15 +767,15 @@
 	desc = "Some sort of old civilian logging console. It appears to have a punch-in app displayed on its dusty monitor."
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "qk" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "qn" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "qv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -733,18 +785,18 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "qw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "qz" = (
 /obj/machinery/recharge_station,
 /turf/open/floor/circuit/green,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "qF" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -754,12 +806,12 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "qI" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "rc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -770,10 +822,20 @@
 	},
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "rr" = (
 /turf/closed/mineral/random/asteroid,
 /area/space)
+"rC" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "rG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -786,12 +848,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "rW" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/office,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "sc" = (
 /obj/machinery/firealarm/directional/east,
 /mob/living/simple_animal/bot/mulebot,
@@ -799,28 +861,29 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "sg" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "sv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "sy" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/structure/chair/sofa/bench{
 	dir = 1
 	},
-/obj/machinery/light/directional/south,
+/obj/machinery/light/broken/directional/south,
+/obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "sB" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 5
@@ -829,7 +892,7 @@
 /obj/structure/sink/directional/south,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "sQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/line,
@@ -841,7 +904,7 @@
 	},
 /obj/effect/turf_decal/trimline/brown/mid_joiner,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "sU" = (
 /obj/structure/toilet{
 	dir = 4
@@ -854,7 +917,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "te" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -868,7 +931,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "tk" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
@@ -876,7 +939,18 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"to" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/light/small/red/dim/directional/north,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "tv" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 4
@@ -885,30 +959,30 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "tF" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "tK" = (
 /turf/closed/wall,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "tM" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "tN" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "tQ" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/turf_decal/trimline/brown/line{
@@ -919,7 +993,7 @@
 	},
 /obj/effect/turf_decal/trimline/brown/mid_joiner,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "tR" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
@@ -928,19 +1002,22 @@
 	dir = 8
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "tW" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"uf" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "ui" = (
 /obj/effect/turf_decal/trimline/brown/line,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "uq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -948,14 +1025,25 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "us" = (
 /obj/item/analyzer/ranged{
 	pixel_x = -6;
 	pixel_y = 8
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
+"ut" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "uC" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/brown{
@@ -968,11 +1056,11 @@
 	dir = 1
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "uF" = (
 /obj/effect/spawner/random/maintenance/dumpster,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "uH" = (
 /obj/structure/bed/pillow_large,
 /obj/item/toy/plush/lizard_plushie/green{
@@ -991,7 +1079,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "uL" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1001,7 +1089,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "uR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -1010,7 +1098,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "uX" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/structure/cable,
@@ -1021,7 +1109,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "uZ" = (
 /obj/effect/decal/cleanable/garbage,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1031,7 +1119,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "vc" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 6
@@ -1043,7 +1131,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "vo" = (
 /turf/template_noop,
 /area/space)
@@ -1053,23 +1141,23 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "vI" = (
 /obj/structure/railing/corner,
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "wk" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/preopen,
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "wl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "wr" = (
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engineering Foyer"
@@ -1079,7 +1167,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "wI" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 4
@@ -1087,73 +1175,80 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 8
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "wL" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning/corner{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "wR" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
 	},
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"wS" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "wW" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "xc" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "xg" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "xr" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "xw" = (
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "xz" = (
 /obj/structure/table/reinforced,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/left/directional/south,
 /obj/item/documents{
 	pixel_x = 0;
-	pixel_y = 5
+	pixel_y = 5;
+	desc = "A pile of unpaid fees and financial warnings from NanoTrasen for operating in close proximity of their ongoing operations. Many ignore that this smaller business was established in this space quadrant first."
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "xA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"xT" = (
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "yc" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "yk" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -1166,35 +1261,38 @@
 	dir = 4
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "yu" = (
 /obj/machinery/camera,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "yB" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance/three,
 /obj/structure/closet/crate/preopen,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "yE" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /mob/living/basic/cockroach,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "yY" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Bay"
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"zo" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "zs" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "zu" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/decal/cleanable/dirt,
@@ -1202,23 +1300,23 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "zK" = (
 /obj/structure/cable,
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "zN" = (
 /obj/structure/table,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "zR" = (
 /obj/effect/turf_decal/trimline/brown/corner,
 /obj/effect/decal/cleanable/glass,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "zV" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1227,12 +1325,12 @@
 	dir = 1
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "zW" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Ai" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
@@ -1244,7 +1342,7 @@
 	id = "northern_shutter"
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Al" = (
 /obj/structure/rack/shelf,
 /obj/item/pipe_dispenser{
@@ -1256,7 +1354,7 @@
 	pixel_y = -6
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "AF" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
@@ -1268,7 +1366,7 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "AN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/line{
@@ -1277,24 +1375,27 @@
 /obj/effect/turf_decal/trimline/brown/mid_joiner{
 	dir = 8
 	},
-/obj/machinery/light/directional/east,
+/obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"AQ" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "AV" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Bb" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Bf" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -1305,7 +1406,7 @@
 	},
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Bh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1315,19 +1416,20 @@
 	dir = 4
 	},
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "Bt" = (
 /obj/structure/drain,
 /obj/structure/curtain/cloth,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Bu" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/light/directional/north,
+/obj/machinery/light/broken/directional/north,
+/obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "BA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -1343,7 +1445,7 @@
 	},
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "BE" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -1355,7 +1457,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "BX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1366,7 +1468,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Cf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1376,23 +1478,29 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Ci" = (
 /obj/structure/railing/corner{
 	dir = 4
 	},
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Cj" = (
 /obj/structure/fans/tiny/forcefield,
-/obj/machinery/door/poddoor,
+/obj/machinery/door/poddoor{
+	id = "foreclosed_hangar"
+	},
 /turf/open/floor/engine,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Dp" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"Dw" = (
+/obj/structure/drain,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Dx" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1408,7 +1516,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"DC" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/away_general_access,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "DM" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -1419,7 +1532,7 @@
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "DT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/left/directional/south,
@@ -1432,14 +1545,14 @@
 	pixel_y = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Ea" = (
 /obj/item/holosign_creator/atmos{
 	pixel_x = 7;
 	pixel_y = -6
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Ec" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 4
@@ -1448,7 +1561,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Ef" = (
 /obj/effect/turf_decal/trimline/brown/corner{
 	dir = 1
@@ -1457,7 +1570,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Es" = (
 /obj/structure/sink/directional/west,
 /obj/structure/mirror/directional/east,
@@ -1465,12 +1578,15 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Ev" = (
 /obj/structure/dresser,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
+"EG" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "EM" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
@@ -1481,7 +1597,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "EP" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics"
@@ -1489,14 +1605,15 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "ER" = (
+/obj/item/bikehorn/rubberducky,
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "EW" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Fg" = (
 /obj/vehicle/ridden/janicart,
 /obj/machinery/light/small/dim/directional/east,
@@ -1504,7 +1621,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Fz" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1514,27 +1631,38 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "FB" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "FH" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "FR" = (
 /obj/structure/rack,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "FV" = (
 /obj/machinery/door/airlock{
 	id_tag = "Toilet2";
 	name = "Unit 2"
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"FW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/greenglow,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Gl" = (
 /obj/machinery/door/airlock/bathroom,
 /obj/structure/cable,
@@ -1542,20 +1670,20 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Gp" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "GA" = (
 /obj/structure/chair{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "GC" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
@@ -1564,50 +1692,62 @@
 	anchored = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
+"GK" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "GM" = (
 /obj/structure/urinal/directional/north,
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
+"GQ" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "GU" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "GY" = (
 /obj/effect/decal/cleanable/cum,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Ha" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Hd" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Hx" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/effect/turf_decal/caution,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "HG" = (
 /obj/structure/table/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/light/small/dim/directional/east,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "HN" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
@@ -1619,7 +1759,7 @@
 	id = "southern_shutter"
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Ie" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/table,
@@ -1629,7 +1769,7 @@
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "IN" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1646,11 +1786,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"IP" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "IX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Je" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 10
@@ -1659,7 +1802,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Jg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/trimline/brown/filled/warning/corner,
@@ -1667,12 +1810,12 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 4
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Ju" = (
 /obj/item/kirbyplants/random,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Jv" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
@@ -1683,16 +1826,16 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Jw" = (
 /turf/open/floor/engine/n2,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Jx" = (
 /obj/structure/closet/generic{
 	anchored = 1
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "JD" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1711,17 +1854,17 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "JE" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/smooth_corner{
 	dir = 4
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "JG" = (
 /obj/structure/flatpack_cart,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "JH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1730,10 +1873,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "JL" = (
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "JP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1742,11 +1885,11 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "JQ" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "JU" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -1755,7 +1898,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Kc" = (
 /obj/structure/cable,
 /turf/closed/mineral/random/asteroid,
@@ -1767,7 +1910,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "Kp" = (
 /obj/machinery/airalarm/directional/south,
 /obj/structure/chair{
@@ -1775,18 +1918,24 @@
 	},
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "Kt" = (
 /obj/machinery/firealarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
+"KB" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse)
+"KJ" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "KT" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "KZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1797,7 +1946,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "Le" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1807,14 +1956,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Lj" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Lo" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -1822,29 +1971,29 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Lt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Lv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "LC" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron/smooth_corner,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "LH" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "LN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1855,37 +2004,37 @@
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "LO" = (
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "LR" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning/corner{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "LU" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/smooth_corner{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "LV" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "LZ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Mb" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Me" = (
 /obj/structure/bed/maint,
 /obj/item/reagent_containers/cup/glass/bottle/hooch{
@@ -1893,7 +2042,7 @@
 	pixel_y = 0
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Mf" = (
 /obj/structure/chair/greyscale{
 	dir = 4
@@ -1901,19 +2050,15 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Mg" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Mh" = (
-/obj/item/ammo_casing/c38{
-	pixel_x = -8;
-	pixel_y = -9
-	},
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1922,7 +2067,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Mu" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 9
@@ -1932,7 +2077,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Mw" = (
 /obj/machinery/door/airlock{
 	id_tag = "Toilet2";
@@ -1946,7 +2091,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "MV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1957,7 +2102,7 @@
 	},
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "MX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -1968,21 +2113,21 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "Na" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "Nn" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/loading_area{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Nz" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -1994,13 +2139,13 @@
 	pixel_y = -16
 	},
 /turf/open/floor/grass,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "NG" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_corner,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "NL" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -2008,15 +2153,15 @@
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Oc" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "Os" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Ow" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
@@ -2024,11 +2169,11 @@
 /obj/structure/mirror/directional/east,
 /obj/structure/sink/directional/west,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Oy" = (
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "OA" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -2038,12 +2183,12 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "OD" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "OE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2055,11 +2200,14 @@
 /obj/structure/cable,
 /mob/living/basic/chryssalid,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
+"OK" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "OV" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "OY" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance,
@@ -2067,7 +2215,7 @@
 	pixel_y = -6
 	},
 /turf/open/floor/iron/textured_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Pm" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -2082,7 +2230,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Pz" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -2095,21 +2243,21 @@
 	},
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "PC" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "PH" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "PI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/freezer,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "PQ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2119,14 +2267,14 @@
 	dir = 4
 	},
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "PT" = (
 /obj/effect/turf_decal/tile/brown/diagonal_centre,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "PY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/brown{
@@ -2143,7 +2291,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Qd" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -2156,44 +2304,58 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Qn" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Qo" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "Qw" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "QC" = (
 /obj/structure/chair{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
+"QK" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/mob/living/basic/chryssalid,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "QQ" = (
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "QT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Rt" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 5
 	},
 /obj/structure/urinal/directional/north,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
+"RC" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "RN" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/decal/cleanable/dirt,
@@ -2202,18 +2364,18 @@
 	},
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "RT" = (
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "RW" = (
 /obj/structure/flatpack_cart,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Sf" = (
 /turf/closed/wall/r_wall,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Sh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/brown/corner{
@@ -2223,29 +2385,29 @@
 	dir = 8
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Ss" = (
 /obj/structure/decorative/shelf/crates1,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Sx" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "SH" = (
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "SQ" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
 	},
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "ST" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -2255,33 +2417,35 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Tf" = (
 /obj/structure/railing{
 	dir = 1
 	},
-/obj/machinery/button/door/directional/east,
+/obj/machinery/button/door/directional/east{
+	id = "foreclosed_hangar"
+	},
 /obj/effect/turf_decal/box,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Tk" = (
 /obj/structure/drain,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Tp" = (
 /obj/structure/chair/greyscale{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Tw" = (
 /obj/structure/chair/sofa/corp/left,
 /turf/open/floor/wood,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "Ty" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "TC" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
@@ -2292,44 +2456,44 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "TE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "TL" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/flare/candle,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "TS" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/structure/railing{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "TX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "Ug" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Ul" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "UB" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -2348,14 +2512,17 @@
 	dir = 4
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "UG" = (
 /obj/structure/chair/greyscale{
 	dir = 1
 	},
 /obj/machinery/camera,
 /turf/open/floor/iron/smooth_half,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"UP" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Vh" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/medkit/fire{
@@ -2368,11 +2535,11 @@
 	pixel_y = -3
 	},
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Vi" = (
 /obj/machinery/door/airlock/bathroom,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Vj" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -2383,11 +2550,14 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
+"Vv" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "VB" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "VC" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -2397,11 +2567,11 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "VZ" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "Wb" = (
 /obj/structure/table/reinforced,
 /obj/structure/table/reinforced,
@@ -2411,11 +2581,11 @@
 	pixel_y = 7
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Wd" = (
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "WP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -2426,7 +2596,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "WZ" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
@@ -2435,7 +2605,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Xl" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -2446,7 +2616,7 @@
 	dir = 4
 	},
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "XH" = (
 /obj/item/paper/crumpled{
 	pixel_x = -6;
@@ -2454,7 +2624,7 @@
 	default_raw_text = "Dear reader, this space property is unmaintained and has been for some time. Zentonic Storage Solutions LLC, its former owner, takes no responsibility for injury or loss of life for any that may enter its premise. It is heavily advised you do not enter due to the facility's presumable lack of atmospheric systems and power infrastructure. It may also be suffering structural integrity issues due to neglect. You have been warned."
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "XN" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
@@ -2463,7 +2633,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "XP" = (
 /obj/item/food/deadmouse{
 	pixel_x = 5;
@@ -2480,23 +2650,22 @@
 	pixel_y = -7
 	},
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "XR" = (
-/obj/machinery/light/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "XV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "XW" = (
 /obj/effect/turf_decal/bot,
 /mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Ys" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 1
@@ -2504,36 +2673,36 @@
 /obj/structure/mirror/directional/north,
 /obj/structure/sink/directional/south,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "YC" = (
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "YF" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/tank_dispenser,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "YO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Za" = (
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Zh" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Zo" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
 /turf/open/floor/iron/textured,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Zp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2544,34 +2713,34 @@
 	},
 /mob/living/basic/chryssalid,
 /turf/open/floor/catwalk_floor,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Zz" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Bay"
 	},
 /turf/open/floor/iron/smooth_large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "ZE" = (
 /obj/structure/cable,
 /mob/living/basic/mouse,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "ZJ" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 6
 	},
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/white/small,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "ZQ" = (
 /obj/machinery/power/smes,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/smooth,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "ZS" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/large,
-/area/ruin/powered)
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 
 (1,1,1) = {"
 vo
@@ -2721,10 +2890,10 @@ rr
 rr
 rr
 rr
-Sf
-Sf
-Sf
-Sf
+iU
+iU
+iU
+iU
 rr
 rr
 rr
@@ -2749,28 +2918,28 @@ rr
 ki
 rr
 rr
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+AQ
+AQ
+AQ
+AQ
+AQ
+AQ
+AQ
 LC
 Jg
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+iU
+iU
+iU
+iU
+iU
+iU
+iU
 XV
 XV
 XV
 XV
-Sf
-Sf
+iU
+iU
 rr
 rr
 ki
@@ -2783,13 +2952,13 @@ rr
 ki
 ki
 rr
-Sf
+AQ
 Mu
 XN
 jL
 AF
 Je
-tK
+RC
 kd
 om
 Ai
@@ -2804,7 +2973,7 @@ Mf
 Mf
 Mf
 JE
-Sf
+iU
 rr
 rr
 rr
@@ -2817,31 +2986,31 @@ ki
 ki
 rr
 rr
-Sf
+AQ
 SQ
 hQ
-hQ
+iK
 jW
 dq
-tK
+RC
 fv
 LR
-tK
-tK
+uf
+uf
 XV
 XV
-tK
-tK
+uf
+uf
 wL
 yE
 Ec
 Ec
 EW
 kd
-Sf
+iU
 Nz
 oo
-Sf
+iU
 ki
 vo
 "}
@@ -2851,16 +3020,16 @@ ki
 rr
 rr
 rr
-Sf
+AQ
 GC
-hQ
+ok
 Jx
 gg
 dq
-tK
+RC
 FH
 FH
-tK
+uf
 bV
 dY
 dY
@@ -2885,16 +3054,16 @@ ki
 rr
 rr
 rr
-Sf
+AQ
 GC
 Tk
 Jx
 jx
 dq
-tK
+RC
 gz
 qn
-tK
+uf
 Mg
 xc
 ZS
@@ -2919,13 +3088,13 @@ ki
 rr
 rr
 rr
-Sf
+AQ
 nr
-Lt
+iK
 Jx
 ZE
 sy
-tK
+RC
 wR
 qn
 FV
@@ -2933,17 +3102,17 @@ AV
 JU
 LZ
 Ie
-tK
+uf
 lY
 sg
 EW
 yE
 iT
 Ju
-Sf
+iU
 Nz
 oo
-Sf
+iU
 ki
 vo
 "}
@@ -2953,16 +3122,16 @@ ki
 ki
 rr
 rr
-Sf
+AQ
 GC
 hQ
 Jx
 gg
 lg
-tK
+RC
 KT
 yc
-tK
+uf
 jc
 PQ
 Ty
@@ -2974,7 +3143,7 @@ EW
 EW
 iT
 UG
-Sf
+iU
 rr
 rr
 rr
@@ -2987,16 +3156,16 @@ ki
 ki
 rr
 rr
-Sf
+AQ
 GC
 hQ
 Jx
 gg
 ck
-tK
+RC
 KT
 qn
-tK
+uf
 Bu
 PQ
 ZS
@@ -3008,7 +3177,7 @@ WZ
 ls
 EW
 Tp
-Sf
+iU
 rr
 rr
 rr
@@ -3021,28 +3190,28 @@ ki
 rr
 rr
 rr
-Sf
+AQ
 Ys
-Lt
+iK
 dI
 WP
 uX
 Gl
 te
 qn
-tK
+uf
 yk
 BA
 ST
 xA
-tK
+uf
 ef
 sc
 XR
 BX
 uq
 LU
-Sf
+iU
 rr
 rr
 rr
@@ -3055,28 +3224,28 @@ rr
 rr
 rr
 rr
-Sf
+AQ
 sB
 LV
 xr
 Jv
 ZJ
-tK
+RC
 oT
 qI
-tK
-ce
-tK
-tK
-tK
-tK
-tK
-tK
-tK
+zo
+ut
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
 JH
 oG
-tK
-Sf
+uf
+iU
 rr
 rr
 rr
@@ -3089,28 +3258,28 @@ rr
 rr
 rr
 rr
-Sf
-tK
-tK
+AQ
+RC
+RC
 Bt
-tK
-tK
-tK
+RC
+RC
+RC
 oT
 Hd
-tK
+zo
 Bh
-tK
+KJ
 sU
-tK
+KJ
 dU
-tK
+KJ
 qz
-tK
+KJ
 Le
 EW
 pf
-Sf
+iU
 rr
 rr
 rr
@@ -3123,28 +3292,28 @@ rr
 rr
 rr
 rr
-Sf
+AQ
 od
 PI
-ER
+xT
 PI
 ER
-tK
+RC
 pR
 LH
-tK
+zo
 Bh
-tK
+KJ
 Vi
-tK
+KJ
 Vi
-tK
+KJ
 Vi
-tK
+KJ
 BE
 qk
 SH
-Sf
+iU
 rr
 rr
 rr
@@ -3157,28 +3326,28 @@ ki
 rr
 rr
 rr
-Sf
+AQ
 gd
 iZ
 iZ
 iZ
 dV
-tK
+RC
 oT
 ui
-tK
+zo
 Bh
-tK
+KJ
 tM
 xg
 zs
 zs
 wW
-tK
+KJ
 BE
 qk
 Oy
-Sf
+iU
 rr
 rr
 ki
@@ -3200,19 +3369,19 @@ tK
 tK
 iz
 FH
-tK
+zo
 Bh
-tK
+KJ
 GM
 Lt
-Tk
-dI
+Dw
+ji
 pB
-tK
+KJ
 BE
 qk
 zN
-Sf
+iU
 rr
 rr
 ki
@@ -3234,9 +3403,9 @@ la
 tK
 iz
 FH
-tK
+zo
 Bh
-tK
+KJ
 Rt
 Es
 Ow
@@ -3246,7 +3415,7 @@ hB
 Qd
 qk
 yu
-Sf
+iU
 rr
 rr
 ki
@@ -3260,27 +3429,27 @@ ki
 rr
 rr
 Sf
-Bh
-Bh
-Bh
-Bh
+to
+rC
+rC
+rC
 Zp
 ce
 oT
 aU
-ce
+ut
 Bh
-tK
-tK
-tK
-tK
-tK
-tK
-tK
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
 dt
 qk
-Sf
-Sf
+iU
+iU
 rr
 rr
 rr
@@ -3294,7 +3463,7 @@ ki
 rr
 rr
 Sf
-Bh
+rC
 tK
 tK
 tK
@@ -3302,10 +3471,10 @@ tK
 tK
 KT
 qn
-tK
-Bh
+zo
+jU
 Lo
-qw
+GK
 YO
 Fz
 Cf
@@ -3314,7 +3483,7 @@ uL
 BE
 zu
 VB
-Sf
+iU
 rr
 rr
 rr
@@ -3328,7 +3497,7 @@ ki
 rr
 rr
 Sf
-Bh
+rC
 tK
 jr
 ee
@@ -3336,19 +3505,19 @@ Me
 tK
 KT
 qn
-tK
+zo
 Bh
-tK
+KJ
 pN
 RW
 Fg
 Ss
 RN
-tK
+KJ
 EW
 PT
 hp
-Sf
+iU
 rr
 rr
 ki
@@ -3362,7 +3531,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 EM
 Mh
 GY
@@ -3370,19 +3539,19 @@ fd
 tK
 KT
 qn
-tK
+zo
 iP
-tK
-tK
-tK
-tK
-tK
-tK
-tK
-tK
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
+KJ
+zo
 Gp
-tK
-Sf
+zo
+Vv
 rr
 rr
 rr
@@ -3396,7 +3565,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 tK
 tK
@@ -3404,19 +3573,19 @@ tK
 tK
 KT
 qI
-tK
+zo
 LN
 Bh
 Bh
 Bh
-Bh
+nv
 MV
 Bh
 Bh
-Zp
+QK
 Bh
 VZ
-Sf
+Vv
 rr
 rr
 rr
@@ -3430,27 +3599,27 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 ZQ
 ZQ
 ZQ
-tK
+OK
 KT
 qn
-tK
-tK
-tK
+wS
+wS
+wS
 gW
-tK
-tK
-tK
+wS
+wS
+zo
 PH
 Lv
 FR
 Bh
 uF
-Sf
+Vv
 rr
 rr
 rr
@@ -3464,27 +3633,27 @@ rr
 rr
 rr
 Sf
-Bh
+FW
 tK
 DM
 OA
 VC
-tK
+OK
 gz
 qn
-tK
+wS
 Kt
 JL
 OD
 dT
 ic
-tK
-tK
-tK
-tK
+zo
+zo
+zo
+zo
 Xl
-tK
-Sf
+zo
+Vv
 rr
 rr
 ki
@@ -3498,27 +3667,27 @@ rr
 rr
 rr
 Sf
-Bh
+to
 tK
 KZ
 YC
 FB
-tK
+OK
 KT
 qn
-tK
-JL
+wS
+GQ
 Ea
 zK
 dT
 dT
-tK
+zo
 lM
 Ev
-tK
+zo
 Bh
 Wd
-Sf
+Vv
 rr
 rr
 ki
@@ -3546,13 +3715,13 @@ Qw
 Qw
 aA
 tF
-tK
+zo
 uH
 Na
-tK
+zo
 MV
 gX
-Sf
+Vv
 rr
 rr
 rr
@@ -3571,22 +3740,22 @@ tK
 qv
 gk
 js
-tK
+OK
 FH
 ot
-tK
+wS
 JL
 JL
 QT
 JQ
 dy
-tK
+zo
 RT
 JP
 ht
 Bh
-JL
-Sf
+kq
+Vv
 rr
 rr
 rr
@@ -3600,27 +3769,27 @@ nC
 rr
 rr
 Sf
-Bh
+rC
 tK
 pi
 YF
 vq
-tK
+OK
 wI
 tv
-tK
+wS
 dW
 us
 QQ
 Jw
 az
-tK
+zo
 Tw
 sv
-tK
+zo
 Bh
 GA
-Sf
+Vv
 rr
 rr
 rr
@@ -3634,27 +3803,27 @@ nC
 rr
 rr
 Sf
-Bh
+rC
 tK
-tK
-tK
-tK
-tK
+OK
+OK
+OK
+OK
 Zz
 yY
-tK
+wS
 Al
 JL
 gT
 Jw
 Jw
-tK
+zo
 HG
 wl
-tK
+zo
 Bh
 TL
-Sf
+Vv
 rr
 rr
 rr
@@ -3668,7 +3837,7 @@ nC
 rr
 rr
 Sf
-Bh
+rC
 tK
 XW
 zW
@@ -3676,19 +3845,19 @@ jZ
 LO
 LO
 aZ
-tK
-tK
-tK
+wS
+wS
+wS
 Lj
-tK
-tK
-tK
-tK
-tK
-tK
-Bh
+EG
+EG
+EG
+EG
+EG
+zo
+jU
 QC
-Sf
+Vv
 rr
 rr
 rr
@@ -3702,7 +3871,7 @@ nC
 rr
 rr
 Sf
-Bh
+rC
 tK
 XW
 LO
@@ -3712,17 +3881,17 @@ mf
 mf
 LO
 JG
-tK
+UP
 Qn
-tK
+EG
 ei
 ib
 OV
 Qo
-tK
+zo
 Bh
 gF
-Sf
+Vv
 rr
 rr
 rr
@@ -3736,7 +3905,7 @@ nC
 rr
 rr
 Sf
-Bh
+rC
 tK
 fr
 Dp
@@ -3746,17 +3915,17 @@ IX
 LO
 LO
 GU
-tK
-tK
-tK
+UP
+UP
+EG
 Oc
 Ul
 MX
 dO
-tK
+zo
 Bh
 lf
-Sf
+Vv
 rr
 rr
 rr
@@ -3770,7 +3939,7 @@ rr
 rr
 rr
 Sf
-Bh
+to
 tK
 vI
 Bb
@@ -3782,15 +3951,15 @@ Bb
 lZ
 fu
 Vh
-tK
+EG
 em
 OE
 uR
 Kp
-tK
+zo
 Bh
-JL
-Sf
+DC
+Vv
 rr
 rr
 ki
@@ -3804,7 +3973,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 ps
 kA
@@ -3816,15 +3985,15 @@ kA
 bh
 LO
 TE
-tK
-tK
+EG
+EG
 Mw
-tK
-tK
-tK
+EG
+EG
+zo
 Bh
-JL
-Sf
+pb
+Vv
 rr
 rr
 rr
@@ -3838,7 +4007,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 tN
 kA
@@ -3855,10 +4024,10 @@ oZ
 IN
 UB
 Dx
-tK
-Bh
-JL
-Sf
+zo
+jU
+ao
+Vv
 rr
 rr
 ki
@@ -3872,7 +4041,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 ps
 kA
@@ -3889,10 +4058,10 @@ Os
 tQ
 wk
 JD
-tK
+zo
 Bh
 fC
-Sf
+Vv
 rr
 rr
 rr
@@ -3923,10 +4092,10 @@ Os
 sQ
 yB
 JD
-ce
+ut
 Bh
 br
-Sf
+Vv
 rr
 ki
 rr
@@ -3940,7 +4109,7 @@ rr
 rr
 rr
 Sf
-Bh
+rC
 tK
 Nn
 kA
@@ -3957,10 +4126,10 @@ tW
 tQ
 dD
 Pz
-tK
+zo
 PH
 TX
-Sf
+Vv
 rr
 ki
 ki
@@ -3991,10 +4160,10 @@ aY
 tQ
 Ha
 uC
-tK
+zo
 ku
-JL
-Sf
+kq
+Vv
 rr
 rr
 rr
@@ -4007,7 +4176,7 @@ ki
 rr
 rr
 rr
-Sf
+IP
 xw
 fw
 ps
@@ -4025,10 +4194,10 @@ aY
 tQ
 Ha
 fa
-tK
+zo
 hk
-JL
-Sf
+kq
+Vv
 rr
 rr
 rr
@@ -4041,9 +4210,9 @@ ki
 rr
 rr
 rr
-Sf
-JL
-JL
+IP
+KB
+KB
 tN
 kA
 kA
@@ -4059,10 +4228,10 @@ nV
 Sh
 tR
 zV
-tK
+zo
 VZ
-JL
-Sf
+kq
+Vv
 rr
 rr
 ki
@@ -4075,28 +4244,28 @@ ki
 rr
 rr
 rr
-Sf
-Sf
+IP
+IP
 Zh
-Sf
+IP
 Cj
 Cj
 Cj
 Cj
 Cj
 Cj
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+IP
+IP
+IP
+IP
+IP
+IP
+IP
+IP
+Vv
+Vv
+Vv
+Vv
 rr
 ki
 ki
