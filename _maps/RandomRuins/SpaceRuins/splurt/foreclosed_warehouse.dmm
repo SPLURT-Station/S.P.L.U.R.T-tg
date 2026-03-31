@@ -27,7 +27,6 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance/three,
 /obj/structure/closet/crate,
-/obj/machinery/light/floor,
 /turf/open/floor/iron/textured_large,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "aZ" = (
@@ -67,6 +66,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "ck" = (
@@ -323,6 +323,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "hv" = (
@@ -339,8 +340,21 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
+"hI" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "hQ" = (
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
@@ -720,9 +734,9 @@
 "pi" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/delivery,
-/obj/structure/reagent_dispensers/fueltank/large,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/structure/cable,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "ps" = (
@@ -938,6 +952,7 @@
 	cycle_id = "abandoned_warehouse"
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "to" = (
@@ -1088,6 +1103,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "uR" = (
@@ -1138,8 +1154,8 @@
 "vq" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/delivery,
-/obj/structure/reagent_dispensers/watertank,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "vI" = (
@@ -1166,6 +1182,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "wI" = (
@@ -1282,6 +1299,7 @@
 	name = "Cargo Bay"
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "zo" = (
@@ -1390,6 +1408,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"AX" = (
+/obj/machinery/door/firedoor,
+/turf/closed/mineral/random/asteroid,
+/area/space)
 "Bb" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
@@ -1604,6 +1626,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "ER" = (
@@ -1650,6 +1673,7 @@
 	id_tag = "Toilet2";
 	name = "Unit 2"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "FW" = (
@@ -1669,6 +1693,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Gp" = (
@@ -1676,6 +1701,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "GA" = (
@@ -1970,6 +1996,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "Lt" = (
@@ -2549,6 +2576,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "Vv" = (
@@ -2615,6 +2643,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "XH" = (
@@ -2696,6 +2725,7 @@
 "Zh" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/fans/tiny,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "Zo" = (
@@ -2718,6 +2748,7 @@
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Bay"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "ZE" = (
@@ -3234,7 +3265,7 @@ RC
 oT
 qI
 zo
-ut
+hI
 KJ
 KJ
 KJ
@@ -3315,7 +3346,7 @@ qk
 SH
 iU
 rr
-rr
+AX
 rr
 ki
 vo
@@ -4092,7 +4123,7 @@ Os
 sQ
 yB
 JD
-ut
+hI
 Bh
 br
 Vv
