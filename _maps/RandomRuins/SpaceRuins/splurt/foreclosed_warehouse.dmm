@@ -134,6 +134,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "dO" = (
@@ -146,6 +147,7 @@
 	pixel_y = 5;
 	desc = "A pile of unpaid fees and financial warnings from NanoTrasen for operating in close proximity of their ongoing operations. Many ignore that this smaller business was established in this space quadrant first."
 	},
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "dT" = (
@@ -522,6 +524,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/textured,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "kd" = (
@@ -529,7 +532,8 @@
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "kh" = (
 /obj/structure/cable,
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
 "ki" = (
 /turf/open/misc/asteroid,
@@ -737,6 +741,7 @@
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "ps" = (
@@ -758,6 +763,7 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "pR" = (
@@ -980,6 +986,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "tK" = (
@@ -1383,6 +1390,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "AN" = (
@@ -1439,6 +1447,14 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
+"Bp" = (
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/mob/living/basic/cockroach,
+/turf/open/floor/iron/smooth_half,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Bt" = (
 /obj/structure/drain,
 /obj/structure/curtain/cloth,
@@ -1542,6 +1558,7 @@
 "DC" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "DM" = (
@@ -1820,6 +1837,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured,
 /area/ruin/space/has_grav/foreclosed_warehouse)
+"IZ" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/mid_joiner,
+/mob/living/basic/cockroach,
+/turf/open/floor/iron/textured,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Je" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 10
@@ -1927,7 +1956,7 @@
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Kc" = (
 /obj/structure/cable,
-/turf/closed/mineral/random/asteroid,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "Kg" = (
 /obj/effect/turf_decal/stripes/line,
@@ -2443,6 +2472,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Tf" = (
@@ -3670,7 +3700,7 @@ DM
 OA
 VC
 OK
-gz
+Bp
 qn
 wS
 Kt
@@ -4186,7 +4216,7 @@ kA
 Hx
 eC
 Os
-tQ
+IZ
 aY
 tQ
 Ha
