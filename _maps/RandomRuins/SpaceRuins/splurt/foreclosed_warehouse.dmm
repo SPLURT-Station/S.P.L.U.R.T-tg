@@ -72,6 +72,21 @@
 "ck" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/item/kirbyplants/random,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
+"cr" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/item/condom_pack{
+	pixel_x = -3;
+	pixel_y = -8
+	},
+/obj/item/storage/wallet/money,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "da" = (
@@ -282,6 +297,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
+"gq" = (
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/iron/textured,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "gz" = (
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 1
@@ -398,7 +417,7 @@
 	},
 /obj/machinery/computer/old{
 	dir = 4;
-	desc = "Some sort of old civilian logging console. It appears to have a punch-in app displayed on its dusty monitor."
+	desc = "An old, civilian terminal. Its screen is covered in a layer of dust. It seems to have various emails pulled up. Most depict serious legal warnings from Nanotrasen to abandon the operations of this facility or face severe legal reprimanding."
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
@@ -464,6 +483,16 @@
 /obj/effect/turf_decal/trimline/brown/mid_joiner,
 /turf/open/floor/iron/textured,
 /area/ruin/space/has_grav/foreclosed_warehouse)
+"jq" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/item/clothing/suit/hooded/carp_costume/spaceproof,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "jr" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -639,6 +668,17 @@
 	anchored = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/item/toy/plush/toaste_plushy{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/condiment/peanut_butter{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/paper/crumpled{
+	default_raw_text = "this is my puppy. he watches over the outpost now. if you find him, you must take care of him."
+	},
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "nv" = (
@@ -1120,6 +1160,7 @@
 /obj/structure/chair{
 	dir = 8
 	},
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/foreclosed_warehouse/managersoffice)
 "uX" = (
@@ -1165,11 +1206,31 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
+"vE" = (
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/item/clothing/head/utility/hardhat{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "vI" = (
 /obj/structure/railing/corner,
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse)
+"vL" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/item/clothing/head/utility/hardhat,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "wk" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/preopen,
@@ -1229,6 +1290,30 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"xe" = (
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/item/clothing/head/playbunnyears/cargo,
+/obj/item/clothing/neck/tie/bunnytie/cargo{
+	pixel_x = 2;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/jacket/tailcoat/cargo{
+	pixel_x = -2;
+	pixel_y = -3
+	},
+/obj/item/clothing/under/rank/cargo/cargo_bunnysuit{
+	pixel_x = 0;
+	pixel_y = -5
+	},
+/obj/item/paper/carbon{
+	default_raw_text = "If we're leaving shit behind for the company move, let this shitty uniform die with this shithole. Let it be known if you were out of uniform on the work floor, this is your mandatory attire for the next three shifts.";
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "xg" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/siding/thinplating_new/light{
@@ -1380,6 +1465,13 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
+"Ar" = (
+/obj/structure/closet/generic{
+	anchored = 1
+	},
+/obj/effect/spawner/random/clothing/costume,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "AF" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
@@ -1447,14 +1539,17 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
-"Bp" = (
-/obj/effect/turf_decal/trimline/brown/line{
-	dir = 1
+"Bl" = (
+/obj/structure/closet/generic{
+	anchored = 1
 	},
-/obj/machinery/light/directional/north,
-/mob/living/basic/cockroach,
-/turf/open/floor/iron/smooth_half,
-/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+/obj/item/clothing/head/utility/hardhat/welding/orange{
+	pixel_x = 2;
+	pixel_y = -7
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine,
+/turf/open/floor/iron/white/small,
+/area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "Bt" = (
 /obj/structure/drain,
 /obj/structure/curtain/cloth,
@@ -1559,6 +1654,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/away_general_access,
 /obj/effect/mapping_helpers/apc/no_charge,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "DM" = (
@@ -1572,6 +1668,10 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
+"DR" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/iron/smooth_half,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "DT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/left/directional/south,
@@ -1675,6 +1775,7 @@
 "FB" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/electricalroom)
 "FH" = (
@@ -1788,7 +1889,6 @@
 "HG" = (
 /obj/structure/table/wood,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/light/small/dim/directional/east,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "HN" = (
@@ -1813,6 +1913,10 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"IM" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "IN" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1835,18 +1939,6 @@
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "IX" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/textured,
-/area/ruin/space/has_grav/foreclosed_warehouse)
-"IZ" = (
-/obj/effect/turf_decal/trimline/brown/line,
-/obj/effect/turf_decal/trimline/brown/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/brown/mid_joiner{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/brown/mid_joiner,
-/mob/living/basic/cockroach,
 /turf/open/floor/iron/textured,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "Je" = (
@@ -1889,6 +1981,7 @@
 /obj/structure/closet/generic{
 	anchored = 1
 	},
+/obj/effect/spawner/random/clothing/backpack,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/foreclosed_warehouse/lockerroom)
 "JD" = (
@@ -1954,6 +2047,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"JV" = (
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
 "Kc" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -2050,6 +2147,14 @@
 	},
 /turf/open/floor/iron/smooth_half,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"LJ" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "LN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2112,6 +2217,7 @@
 	dir = 1
 	},
 /obj/machinery/photocopier/prebuilt,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Mh" = (
@@ -2124,6 +2230,14 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/foreclosed_warehouse/bowmaintenance)
+"Ml" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "abandoned_cargobay"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Mu" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 9
@@ -2361,6 +2475,14 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"Qi" = (
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/mob/living/basic/cockroach,
+/turf/open/floor/iron/smooth_half,
+/area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
 "Qn" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 8
@@ -2402,6 +2524,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse/atmospherics)
+"Rn" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/mid_joiner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/mid_joiner,
+/mob/living/basic/cockroach,
+/turf/open/floor/iron/textured,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "Rt" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 5
@@ -2423,6 +2557,7 @@
 /area/ruin/space/has_grav/foreclosed_warehouse/maintenancecloset)
 "RT" = (
 /obj/structure/chair/sofa/corp/right,
+/obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/foreclosed_warehouse/sternmaintenance)
 "RW" = (
@@ -2756,6 +2891,9 @@
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/fans/tiny,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "abandoned_cargobay"
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/foreclosed_warehouse)
 "Zo" = (
@@ -3067,7 +3205,7 @@ yE
 Ec
 Ec
 EW
-kd
+DR
 iU
 Nz
 oo
@@ -3082,9 +3220,9 @@ rr
 rr
 rr
 AQ
-GC
+vL
 ok
-Jx
+xe
 gg
 dq
 RC
@@ -3116,7 +3254,7 @@ rr
 rr
 rr
 AQ
-GC
+jq
 Tk
 Jx
 jx
@@ -3152,7 +3290,7 @@ rr
 AQ
 nr
 iK
-Jx
+Ar
 ZE
 sy
 RC
@@ -3165,7 +3303,7 @@ LZ
 Ie
 uf
 lY
-sg
+LJ
 EW
 yE
 iT
@@ -3186,7 +3324,7 @@ rr
 AQ
 GC
 hQ
-Jx
+vE
 gg
 lg
 RC
@@ -3218,9 +3356,9 @@ ki
 rr
 rr
 AQ
-GC
+cr
 hQ
-Jx
+Bl
 gg
 ck
 RC
@@ -3700,7 +3838,7 @@ DM
 OA
 VC
 OK
-Bp
+Qi
 qn
 wS
 Kt
@@ -3805,7 +3943,7 @@ OK
 FH
 ot
 wS
-JL
+JV
 JL
 QT
 JQ
@@ -3903,7 +4041,7 @@ tK
 XW
 zW
 jZ
-LO
+gq
 LO
 aZ
 wS
@@ -4216,7 +4354,7 @@ kA
 Hx
 eC
 Os
-IZ
+Rn
 aY
 tQ
 Ha
@@ -4340,9 +4478,9 @@ rr
 rr
 rr
 rr
-vo
-vo
-vo
+IP
+KB
+IM
 vo
 vo
 vo
@@ -4374,9 +4512,9 @@ rr
 rr
 rr
 rr
-vo
-vo
-vo
+IP
+Ml
+IP
 vo
 vo
 vo
