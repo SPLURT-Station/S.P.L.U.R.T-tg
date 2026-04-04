@@ -66,24 +66,24 @@
 	quality = DRINK_GOOD
 	taste_description = "the sweat of a certain Mauler pilot"
 
-/datum/reagent/consumable/ethanol/isloation_cell
+/datum/reagent/consumable/ethanol/isolation_cell
 	name = "Isolation Cell"
 	description = "Ice cubes in a padded Cell."
 	color = "#b4b4b4"
 	quality = DRINK_FANTASTIC
 	taste_description = "cloth dissolved in sulphuric acid."
 
-/datum/reagent/consumable/ethanol/isloation_cell/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/isolation_cell/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
 	if(!(current_cycle % 10)) //Every 10 cycles
 		drinker.reagents.add_reagent(/datum/reagent/drug/aphrodisiac, 2)
 
-/datum/reagent/consumable/ethanol/isloation_cell/morphine
+/datum/reagent/consumable/ethanol/isolation_cell/morphine
 	name = "Isolation Cell (Morphine)"
 	description = "It has a distinct, sour smell, much like morphine."
 	taste_description = "cloth dissolved in sulphuric acid. Something feels off about it."
 
-/datum/reagent/consumable/ethanol/isloation_cell/morphine/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/isolation_cell/morphine/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
 	if(!(current_cycle % 10)) //Every 10 cycles
 		drinker.reagents.add_reagent_list(list(/datum/reagent/medicine/morphine = 2, /datum/reagent/consumable/ethanol/hippies_delight = 1))

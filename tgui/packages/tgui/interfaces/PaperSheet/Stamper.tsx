@@ -148,6 +148,7 @@ export class PaperSheetStamper extends Component<PaperSheetStamperProps> {
         activeStamp
         opacity={0.5}
         sprite={held_item_details.stamp_class}
+        scale={held_item_details.stamp_scale} //SPLURT ADDITION
         x={this.state.x}
         y={this.state.y}
         rotation={this.state.rotation}

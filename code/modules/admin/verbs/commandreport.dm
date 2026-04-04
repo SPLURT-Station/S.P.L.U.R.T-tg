@@ -148,7 +148,7 @@ ADMIN_VERB(create_command_report, R_ADMIN, "Create Command Report", "Create a co
 	/// The sound we're going to play on report.
 	var/report_sound = played_sound
 	if(played_sound == DEFAULT_ANNOUNCEMENT_SOUND)
-		report_sound = SSstation.announcer.get_rand_report_sound()
+		report_sound = ANNOUNCER_COMMAND_REPORT // SPLURT EDIT
 
 	if(announce_contents)
 		var/chosen_color = announcement_color
