@@ -32,17 +32,27 @@
 
 	// List of tail types that are large enough to smother
 	var/list/large_tails = list(
-		"Snake",
+		"Snake", "Snake (Dual)", "Snake (Stripe)", "Snake (Stripe Alt)", "Snake (Undertail color)",
 		"Leviathan",
 		"Xeno",
 		"Ash Drake",
 		"Drake",
 		"Serpent",
-		"Hmph!",
-		"Null",
-		"Fish",
+		"Tailmaw",
+		"Tailmaw (Wag)",
+		"Tentacle",
+		"Scolipede",
+		"Segmented",
+		"Otusian",
+		"Sergal",
+		"Raptor",
+		"Squirrel",
+		"Horse",
+		"Orca",
 		"Shark",
-		"Aquatic"
+		"Fish",
+		"Aquatic",
+		"Ring Tail (Long)"
 	)
 
 	return tail_type in large_tails
@@ -404,9 +414,8 @@
 	if(!.)
 		return FALSE
 
-	// Check if user has a large enough tail
+	// Check if user has a large enough tail for smothering
 	if(!can_tail_smother(user))
-		to_chat(user, span_warning("Your tail isn't large enough to smother someone!"))
 		return FALSE
 
 	// Check if smothering is enabled in preferences
