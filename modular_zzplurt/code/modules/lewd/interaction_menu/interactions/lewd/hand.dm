@@ -37,7 +37,6 @@
 	message = null
 	var/intent = resolve_intent_name(user)
 	var/is_paw_user = is_species(user, list(SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AKULA, SPECIES_MAMMAL))
-	var/hand_type = is_paw_user ? "paw" : "hand"
 
 	if(!is_paw_user)
 		switch(intent)
@@ -49,14 +48,14 @@
 				user_arousal = 12
 				user_pleasure = 10
 				message = list(
-					"slams their [hand_type]s over %TARGET%'s face, crushing their nose and sealing their mouth.",
-					"presses their [hand_type]s hard against %TARGET%'s mouth and nose, completely smothering them.",
-					"forces %TARGET%'s face deep into their [hand_type]s, cutting off all air.",
-					"grinds their [hand_type]s brutally over %TARGET%'s face, blocking every breath.",
-					"clamps their [hand_type]s tight around %TARGET%'s head, suffocating them completely.",
-					"smashes %TARGET%'s face beneath their powerful [hand_type]s.",
-					"crushes %TARGET%'s airways under the weight of their [hand_type]s.",
-					"seals %TARGET%'s face completely with their unyielding [hand_type]s."
+					"slams their hands over %TARGET%'s face, crushing their nose and sealing their mouth.",
+					"presses their hands hard against %TARGET%'s mouth and nose, completely smothering them.",
+					"forces %TARGET%'s face deep into their hands, cutting off all air.",
+					"grinds their hands brutally over %TARGET%'s face, blocking every breath.",
+					"clamps their hands tight around %TARGET%'s head, suffocating them completely.",
+					"smashes %TARGET%'s face beneath their powerful hands.",
+					"crushes %TARGET%'s airways under the weight of their hands.",
+					"seals %TARGET%'s face completely with their unyielding hands."
 				)
 			if("grab")
 				// Moderate smother
@@ -65,26 +64,26 @@
 				user_arousal = 10
 				user_pleasure = 8
 				message = list(
-					"presses their [hand_type]s firmly over %TARGET%'s nose and mouth.",
-					"covers %TARGET%'s face with their [hand_type]s, restricting their breathing.",
-					"grinds their [hand_type]s over %TARGET%'s face, smothering them steadily.",
-					"pushes %TARGET%'s head deep into their [hand_type]s, blocking most air.",
-					"clamps their [hand_type]s around %TARGET%'s face, making breathing difficult.",
-					"forces %TARGET%'s face under their [hand_type]s, heavy and suffocating.",
-					"presses down with their [hand_type]s, smothering %TARGET% completely.",
-					"wraps their [hand_type]s around %TARGET%'s head, cutting off most air."
+					"presses their hands firmly over %TARGET%'s nose and mouth.",
+					"covers %TARGET%'s face with their hands, restricting their breathing.",
+					"grinds their hands over %TARGET%'s face, smothering them steadily.",
+					"pushes %TARGET%'s head deep into their hands, blocking most air.",
+					"clamps their hands around %TARGET%'s face, making breathing difficult.",
+					"forces %TARGET%'s face under their hands, heavy and suffocating.",
+					"presses down with their hands, smothering %TARGET% completely.",
+					"wraps their hands around %TARGET%'s head, cutting off most air."
 				)
 			else // help
 				// Gentle smother
 				message = list(
-					"gently places their [hand_type]s over %TARGET%'s face.",
-					"carefully covers %TARGET%'s nose and mouth with their [hand_type]s.",
-					"lays their [hand_type]s softly over %TARGET%'s face, warm smother.",
-					"slowly presses their [hand_type]s against %TARGET%'s face.",
-					"guides %TARGET%'s face gently into their [hand_type]s.",
-					"settles their [hand_type]s over %TARGET%'s face, soft and enveloping.",
-					"rests their [hand_type]s down onto %TARGET%'s face tenderly.",
-					"covers %TARGET%'s face with their warm [hand_type]s."
+					"gently places their hands over %TARGET%'s face.",
+					"carefully covers %TARGET%'s nose and mouth with their hands.",
+					"lays their hands softly over %TARGET%'s face, warm smother.",
+					"slowly presses their hands against %TARGET%'s face.",
+					"guides %TARGET%'s face gently into their hands.",
+					"settles their hands over %TARGET%'s face, soft and enveloping.",
+					"rests their hands down onto %TARGET%'s face tenderly.",
+					"covers %TARGET%'s face with their warm hands."
 				)
 	else
 		switch(intent)
@@ -151,8 +150,6 @@
 	. = ..()
 	var/stat_before = target.stat
 	var/oxy_damage = 3
-	var/is_paw_user = is_species(user, list(SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AKULA, SPECIES_MAMMAL))
-	var/hand_type = is_paw_user ? "paws" : "hands"
 
 	// Set oxy damage based on intent
 	switch(resolve_intent_name(user))
