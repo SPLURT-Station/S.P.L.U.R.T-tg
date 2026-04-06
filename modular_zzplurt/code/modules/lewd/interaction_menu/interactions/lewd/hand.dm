@@ -138,11 +138,11 @@
 		if(intent == "harm")
 			target_arousal += 10
 			target_pleasure += 6
-			to_chat(target, span_purple("You can't breathe at all under their [hand_type]s! It's so hot! You need more!"))
+			to_chat(target, span_purple("You can't breathe at all under their hands! It's so hot! You need more!"))
 		else
 			target_arousal += 8
 			target_pleasure += 4
-			to_chat(target, span_purple("You can barely breathe with their [hand_type]s on your face... it's incredible!"))
+			to_chat(target, span_purple("You can barely breathe with their hands on your face... it's incredible!"))
 
 	. = ..()
 
@@ -170,6 +170,6 @@
 	// Check if target just passed out
 	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
 		if(resolve_intent_name(user) == "harm")
-			message = list("%TARGET% passes out completely smothered under %USER%'s [hand_type].")
+			message = list("%TARGET% passes out completely smothered under %USER%'s hand.")
 		else
-			message = list("%TARGET% passes out beneath %USER%'s [hand_type].")
+			message = list("%TARGET% passes out beneath %USER%'s hand.")
