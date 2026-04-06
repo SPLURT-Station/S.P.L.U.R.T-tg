@@ -4,14 +4,13 @@
 /datum/interaction/lewd/hand_smother
 	name = "Hand/Paw Smother"
 	description = "Smother their face with your hands/paws. (Warning: Causes oxygen damage)"
-	interaction_requires = list(INTERACTION_REQUIRE_SELF_HAND)
-	user_required_parts = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH) //so in theory someone without arms could still use this interaction, but this is the only fix I've found.
 	message = null
-	target_arousal = 8
-	target_pleasure = 6
+	target_arousal = 4
+	target_pleasure = 4
 	target_pain = 0
-	user_arousal = 6
-	user_pleasure = 6
+	user_arousal = 4
+	user_pleasure = 4
 	user_pain = 0
 	sound_possible = list(
 		'modular_zzplurt/sound/interactions/squelch1.ogg',
@@ -36,17 +35,17 @@
 /datum/interaction/lewd/hand_smother/act(mob/living/user, mob/living/target)
 	message = null
 	var/intent = resolve_intent_name(user)
-	var/is_paw_user = is_species(user, list(SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AKULA, SPECIES_MAMMAL))
+	var/is_paw_user = isfelinid(user) || ismammal(user) || iscanine(user) || istajaran(user) || isakula(user) // List of species that use paws instead of hands for smothering; can be expanded as needed
 
 	if(!is_paw_user)
 		switch(intent)
 			if("harm")
 				// Deep/Intense smother
 				target_pain = 6
-				target_arousal = 14
-				target_pleasure = 12
-				user_arousal = 12
-				user_pleasure = 10
+				target_arousal = 8
+				target_pleasure = 8
+				user_arousal = 4
+				user_pleasure = 4
 				message = list(
 					"slams their hands over %TARGET%'s face, crushing their nose and sealing their mouth.",
 					"presses their hands hard against %TARGET%'s mouth and nose, completely smothering them.",
@@ -59,10 +58,10 @@
 				)
 			if("grab")
 				// Moderate smother
-				target_arousal = 12
-				target_pleasure = 10
-				user_arousal = 10
-				user_pleasure = 8
+				target_arousal = 6
+				target_pleasure = 6
+				user_arousal = 3
+				user_pleasure = 3
 				message = list(
 					"presses their hands firmly over %TARGET%'s nose and mouth.",
 					"covers %TARGET%'s face with their hands, restricting their breathing.",
@@ -90,10 +89,10 @@
 			if("harm")
 				// Deep/Intense paw smother
 				target_pain = 6
-				target_arousal = 14
-				target_pleasure = 12
-				user_arousal = 12
-				user_pleasure = 10
+				target_arousal = 8
+				target_pleasure = 8
+				user_arousal = 4
+				user_pleasure = 4
 				message = list(
 					"slams their meaty paws over %TARGET%'s face, claws digging in as they crush their nose.",
 					"mashes their heavy paws against %TARGET%'s mouth and nose, fur smothering them completely.",
@@ -138,11 +137,11 @@
 		if(intent == "harm")
 			target_arousal += 10
 			target_pleasure += 6
-			to_chat(target, span_purple("You can't breathe at all under their hands! It's so hot! You need more!"))
+			to_chat(target, span_purple("You can't breathe at all under their hands/paws! It's so hot! You need more!"))
 		else
 			target_arousal += 8
 			target_pleasure += 4
-			to_chat(target, span_purple("You can barely breathe with their hands on your face... it's incredible!"))
+			to_chat(target, span_purple("You can barely breathe with their hands/paws on your face... it's incredible!"))
 
 	. = ..()
 
