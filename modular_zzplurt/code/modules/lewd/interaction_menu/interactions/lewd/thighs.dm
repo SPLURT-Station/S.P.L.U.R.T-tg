@@ -1,5 +1,57 @@
-/datum/interaction/lewd/thighs_penis
+// Mosley asks to keep the old interactions:
+/datum/interaction/lewd/thighspenis //name changed because it's more convenient to change this than the new code.
 	name = "Thigh Smother (Penis)"
+	description = "Smother them with your penis."
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_MOUTH)
+	message = list(
+		"presses their weight down onto %TARGET%'s face, blocking their vision completely.",
+		"forces their cock into %TARGET%'s face as they're stuck locked between their thighs.",
+		"slips their cock into %TARGET%'s helpless mouth, keeping their shaft pressed hard into their face."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/bj10.ogg',
+		'modular_zzplurt/sound/interactions/bj3.ogg',
+		'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+		'modular_zzplurt/sound/interactions/foot_dry3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 4
+	target_pleasure = 0
+	user_arousal = 6
+	target_arousal = 2
+
+/datum/interaction/lewd/thighsvagina //name changed because it's more convenient to change this than the new code.
+	name = "Thigh Smother (Vagina)"
+	description = "Smother them with your pussy."
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	user_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_VAGINA)
+	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_MOUTH)
+	message = list(
+		"presses their weight down onto %TARGET%'s face, blocking their vision completely.",
+		"rides %TARGET%'s face, grinding their wet pussy all over it.",
+		"grinds their pussy into %TARGET%'s face."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/bj10.ogg',
+		'modular_zzplurt/sound/interactions/bj3.ogg',
+		'modular_zzplurt/sound/interactions/foot_wet1.ogg',
+		'modular_zzplurt/sound/interactions/foot_dry3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 4
+	target_pleasure = 0
+	user_arousal = 6
+	target_arousal = 2
+
+// NEW SMOTHERING INTERACTIONS
+/datum/interaction/lewd/thighs_penis
+	name = "Thigh Smothering (Penis)"
 	description = "Smother them with your penis."
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
@@ -36,7 +88,7 @@
 
 /datum/interaction/lewd/thighs_penis/act(mob/living/user, mob/living/target)
 	message = null
-	var/intent = resolve_intent_name(user)
+	var/intent = resolve_intent_name(user) // ALL VALUES TO BE CHANGED TO STAFF DISCRETION.
 
 	switch(intent)
 		if("harm")
@@ -124,7 +176,7 @@
 
 
 /datum/interaction/lewd/thighs_vagina
-	name = "Thigh Smother (Vagina)"
+	name = "Thigh Smothering (Vagina)"
 	description = "Smother them with your pussy."
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)

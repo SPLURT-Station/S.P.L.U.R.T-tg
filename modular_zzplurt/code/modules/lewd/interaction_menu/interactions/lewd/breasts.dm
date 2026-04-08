@@ -179,8 +179,54 @@
 			var/target_message = list(pick(arousal_messages))
 			target.visible_message(span_lewd(replacetext(target_message, "%TARGET%", target)))
 
-/datum/interaction/lewd/breast_smother
+//Mosley asked me to restore this code. (OLD SMOTHER INTERACTION)
+/datum/interaction/lewd/breastsmother
 	name = "Breast Smother"
+	description = "Smother them with your breasts."
+	interaction_requires = list(
+		INTERACTION_REQUIRE_TARGET_MOUTH
+	)
+	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
+	message = list(
+		"presses their breasts against %TARGET%'s face",
+		"smothers %TARGET%'s face with their tits",
+		"forces %TARGET%'s face between their breasts",
+		"pins %TARGET%'s head between their boobs"
+	)
+	user_messages = list(
+		"You feel %TARGET%'s face pressed between your breasts",
+		"You hold %TARGET%'s head against your chest",
+		"You keep %TARGET%'s face buried in your cleavage"
+	)
+	target_messages = list(
+		"Your face is pressed between %USER%'s breasts",
+		"%USER%'s tits smother your face",
+		"Your vision is filled with %USER%'s cleavage"
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 3
+	target_arousal = 3
+
+/datum/interaction/lewd/breastsmother/post_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	if(!istype(user))
+		return
+	if(prob((user.dna.features["sexual_potency"] * 5) + 15))
+		target.adjust_oxy_loss(2)
+		target.adjust_arousal(5)
+		user.adjust_arousal(8)
+
+// NEW SMOTHER INTERACTION
+/datum/interaction/lewd/breast_smother
+	name = "Breast Smothering"
 	description = "Smother them with your breasts. (Warning: Causes oxygen damage)"
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)

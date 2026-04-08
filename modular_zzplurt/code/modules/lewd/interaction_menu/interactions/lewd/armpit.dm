@@ -80,8 +80,45 @@
 	user_arousal = 3
 	target_arousal = 3
 
+// Mosley asked to keep the old interaction. here it is:
 /datum/interaction/lewd/armpit_smother
 	name = "Armpit Smother"
+	description = "Press your armpit against their face."
+	interaction_requires = list(
+		INTERACTION_REQUIRE_TARGET_MOUTH,
+		INTERACTION_REQUIRE_SELF_TOPLESS
+	)
+	message = list(
+		"presses their armpit against %TARGET%'s face",
+		"smothers %TARGET%'s face with their pit",
+		"forces %TARGET%'s face into their underarm",
+		"pins %TARGET%'s head under their arm"
+	)
+	user_messages = list(
+		"You feel %TARGET%'s face pressed into your pit",
+		"You hold %TARGET%'s head against your underarm",
+		"You keep %TARGET%'s face buried in your armpit"
+	)
+	target_messages = list(
+		"Your face is pressed into %USER%'s armpit",
+		"%USER%'s underarm smothers your face",
+		"Your nose fills with the scent of %USER%'s pit"
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 0
+	target_pleasure = 0
+	user_arousal = 3
+	target_arousal = 3
+
+// NEW SMOTHERING INTERACTION WITH OXY DAMAGE.
+/datum/interaction/lewd/armpit_smother_v2
+	name = "Armpit Smothering"
 	description = "Press your armpit against their face. (Warning: Causes oxygen damage)"
 	interaction_requires = list(
 		INTERACTION_REQUIRE_TARGET_MOUTH,
@@ -102,7 +139,7 @@
 	sound_range = 1
 	sound_use = TRUE
 
-/datum/interaction/lewd/armpit_smother/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/lewd/armpit_smother_v2/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -115,7 +152,7 @@
 
 	return TRUE
 
-/datum/interaction/lewd/armpit_smother/act(mob/living/user, mob/living/target)
+/datum/interaction/lewd/armpit_smother_v2/act(mob/living/user, mob/living/target)
 	message = null
 	var/intent = resolve_intent_name(user)
 
@@ -179,7 +216,7 @@
 
 	. = ..()
 
-/datum/interaction/lewd/armpit_smother/post_interaction(mob/living/user, mob/living/target)
+/datum/interaction/lewd/armpit_smother_v2/post_interaction(mob/living/user, mob/living/target)
 	. = ..()
 	var/stat_before = target.stat
 	var/oxy_damage = 3
