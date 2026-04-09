@@ -138,7 +138,7 @@
 	color_src = USE_MATRIXED_COLORS
 	always_color_customizable = TRUE
 	has_skintone_shading = TRUE
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/genital/butt/none
 	icon_state = "none"
