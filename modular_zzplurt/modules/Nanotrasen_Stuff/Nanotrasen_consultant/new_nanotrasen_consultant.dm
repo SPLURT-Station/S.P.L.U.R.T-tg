@@ -294,7 +294,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 	default_raw_text = "<b><h1>Welcome to your new position upon one of our state-of-the-art research stations.<h2></b><br><br>You have been issued \
 		this card to defend some important dossier files.<br><br><b>Do NOT</b> forget this code, and <b>do NOT</b> let it get into enemy hands.<br><br>The \
-		combination is <i>[ntc_code]</i>.<br><br>The safe is located behind your desk next to your chair underneath the floor. Good luck, \
+		combination is <i>[ntc_code]</i>.<br><br>The safe is located behind your desk next to your chair underneath the carpet. Good luck, \
 		Consultant, do not let us down."
 	icon_state = "corppaperslip_words"
 	return ..()
