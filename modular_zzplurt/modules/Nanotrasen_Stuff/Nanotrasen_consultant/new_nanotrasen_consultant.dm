@@ -92,6 +92,8 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/tape(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/hand_labeler(src)
+	new /obj/item/inspector(src)
+	new /obj/item/laser_pointer/blue(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
@@ -118,9 +120,11 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/clothing/head/hats/nanotrasenhat(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap(src)
 	new /obj/item/clothing/head/hats/warden/drill/nanotrasen/nt(src)
-	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen(src)
-	new /obj/item/clothing/suit/armor/vest/nanotrasen_trenchcoat(src)
+	new /obj/item/clothing/suit/armor/nanotrasen_trenchcoat(src)
+	new /obj/item/clothing/suit/armor/nanotrasen_furred_greatcoat(src)
+	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat
+	new /obj/item/clothing/suit/armor/nanotrasen_overcoat(src)
 	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant

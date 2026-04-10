@@ -63,7 +63,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/vest_capcarapace
 
-/obj/item/clothing/suit/armor/vest/nanotrasen_trenchcoat
+/obj/item/clothing/suit/armor/nanotrasen_trenchcoat
 	name = "Nanotrasen officer's winter trenchcoat"
 	desc = "A heavy-looking trenchcoat with real imported fur from the Solarian System along the collar, there's Nanotrasen Executive insignia along the shoulders. An extremely warm, and comforting piece of clothing. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safer than a normal piece of clothing."
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
