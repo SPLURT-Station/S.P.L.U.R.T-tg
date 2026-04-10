@@ -10,7 +10,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/sovereign
 	can_suppress = FALSE
-	fire_sound = 'sound/items/weapons/gun/pistol/shot_alt.ogg'
+	recoil = 0.7
+	fire_delay = 6
+	spread = 7
+	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_heavy.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
@@ -34,16 +37,21 @@
 	return .
 
 /obj/item/gun/ballistic/automatic/pistol/directive
-	name = "\improper NTX-919E \"Directive\" Executive Pistol"
-	desc = "The NTX-919E \"Directive\" is a refined, high-velocity sidearm tailored for \
+	name = "\improper NTX-925E \"Directive\" Executive Pistol"
+	desc = "The NTX-925E \"Directive\" is a refined, high-velocity sidearm tailored for \
 		precision and reliability. Standard-issue for executive officers operating outside secure \
 		installations, it balances manageable recoil with superior penetration and accuracy, making \
-		it ideal for controlled engagements, chambered in 9x19mm."
+		it ideal for controlled engagements, chambered in 9x25mm."
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
 	icon_state = "directive"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/directive
 	can_suppress = FALSE
+	recoil = 0.3
+	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
 
 /obj/item/gun/ballistic/automatic/pistol/directive/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
@@ -73,7 +81,7 @@
 	new /obj/item/ammo_box/magazine/sovereign(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/directive
-	name = "\improper NTX-919E \"Directive\" Executive Pistol case"
+	name = "\improper NTX-925E \"Directive\" Executive Pistol case"
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/directive/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/pistol/directive(src)
