@@ -313,9 +313,8 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 /obj/item/choice_beacon/nanotrasen_consultant/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Sovereign" = /obj/item/storage/toolbox/guncase/skyrat/pistol/sovereign,
-		"Directive" = /obj/item/storage/toolbox/guncase/skyrat/pistol/directive,
-		"Asterion" = /obj/item/gun/energy/e_gun/asterion
+		"NTX-925E \"Directive\" Executive Pistol" = /obj/item/storage/toolbox/guncase/skyrat/pistol/directive,
+		"NT 'Asterion' Personal Defense E-Pistol" = /obj/item/gun/energy/e_gun/asterion
 	)
 
 	return selectable_gun_types

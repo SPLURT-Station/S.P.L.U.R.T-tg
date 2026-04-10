@@ -1,5 +1,5 @@
 //Choice Beacon for blueshield, old.
-
+/* SPLURT REMOVAL
 /obj/item/choice_beacon/blueshield
 	name = "blueshield weapon beacon"
 	desc = "A single use beacon to deliver a weapon of your choice. Please only call this in your office"
@@ -31,7 +31,7 @@
 	)
 
 	return selectable_gun_types
-
+*/
 //Station Central Command Staff
 
 /obj/item/choice_beacon/station_magistrate
