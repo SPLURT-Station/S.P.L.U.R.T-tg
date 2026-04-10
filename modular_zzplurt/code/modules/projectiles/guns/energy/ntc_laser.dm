@@ -7,6 +7,7 @@
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	ammo_x_offset = 2
 	recoil = 0.2
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/energy/e_gun/asterion/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
