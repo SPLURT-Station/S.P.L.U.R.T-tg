@@ -231,3 +231,15 @@
 /datum/loadout_item/uniform/jeans_high
 	name = "High Waisted Jeans"
 	item_path = /obj/item/clothing/under/urban/jeans_high
+
+/datum/loadout_item/uniform/red_kimono
+	name = "Red Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono/red
+
+/datum/loadout_item/uniform/black_kimono
+	name = "Black Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono
+
+/datum/loadout_item/uniform/purple_kimono
+	name = "Purple Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono/purple
