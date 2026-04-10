@@ -4,7 +4,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/effect/landmark/navigate_destination/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -12,7 +11,8 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
 /obj/machinery/light/warm/directional/north,
@@ -78,6 +78,14 @@
 "h" = (
 /obj/structure/safe/floor/ntc,
 /obj/item/folder/ntc_documents,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/disabler/smoothbore/fake_ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
@@ -108,9 +116,13 @@
 "l" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	name = "Privacy Shutters"
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -251,6 +263,7 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
 "C" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
@@ -355,8 +368,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "R" = (
 /obj/machinery/light/warm/directional/north,
@@ -374,16 +387,6 @@
 	pixel_y = 1
 	},
 /turf/open/floor/wood/large,
-/area/station/command/heads_quarters/nt_rep)
-"S" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 8;
-	name = "Privacy Shutters"
-	},
-/turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "T" = (
 /obj/structure/sign/flag/nanotrasen,
@@ -408,12 +411,12 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Z" = (
-/obj/machinery/button/door/directional/west{
-	id = "nt_rep_priv";
-	name = "Privacy Shutters Control";
-	req_access = list("cent_general")
-	},
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = -26;
+	req_access = list("cent_captain")
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 
@@ -421,9 +424,9 @@
 i
 i
 i
-S
-S
-S
+l
+l
+l
 i
 "}
 (2,1,1) = {"

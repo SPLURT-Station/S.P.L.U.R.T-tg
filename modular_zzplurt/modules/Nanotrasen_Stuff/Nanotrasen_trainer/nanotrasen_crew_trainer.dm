@@ -86,10 +86,10 @@
 	new /obj/item/clothing/under/rank/nanotrasen/official(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
@@ -107,8 +107,7 @@
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
-	req_access = list()
-	req_one_access = list(ACCESS_CENT_GENERAL)
+	req_access = list(ACCESS_CENT_GENERAL)
 	icon_state = "ntt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 

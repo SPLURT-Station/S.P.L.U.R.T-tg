@@ -475,6 +475,14 @@ required_map = "moonstation.dmm"
 coordinates = [101, 154, 3]
 trait_name = "Station"
 
+# Moonstation Blueshield Office
+[templates.moonstation_blueshield_office]
+map_files = ["moonstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [85, 148, 3]
+trait_name = "Station"
+
 # NEBULASTATION MAP EDITS
 # Nebulastation Armory
 [templates.nebulastation_armory]
@@ -811,6 +819,14 @@ required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
 trait_name = "Station"
 
+# Boxstation Blueshield Office
+[templates.boxstation_blueshield_office]
+map_files = ["boxstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [85, 143, 1]
+trait_name = "Station"
+
 # Kilostation Infinidorm
 [templates.kilostation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -929,6 +945,14 @@ map_files = ["blueshift_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/blueshift/"
 required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
+trait_name = "Station"
+
+# Blueshift Blueshield Office
+[templates.blueshift_blueshield_office]
+map_files = ["blueshift_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [93, 156, 2]
 trait_name = "Station"
 
 # VoidRaptor Infinidorm

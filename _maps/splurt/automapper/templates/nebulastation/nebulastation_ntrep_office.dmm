@@ -18,6 +18,14 @@
 "ac" = (
 /obj/structure/safe/floor/ntc,
 /obj/item/folder/ntc_documents,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/disabler/smoothbore/fake_ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "ad" = (
@@ -130,10 +138,13 @@
 "am" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 4;
-	name = "Privacy Shutters"
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -154,11 +165,6 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
-/obj/machinery/button/door/directional/west{
-	id = "nt_rep_priv";
-	name = "Privacy Shutters Control";
-	req_access = list("cent_general")
-	},
 /obj/structure/filingcabinet/employment{
 	name = "employment forms filing cabinet"
 	},
@@ -171,6 +177,11 @@
 	pixel_x = 10;
 	icon_state = "employmentcabinet";
 	name = "security records filing cabinet"
+	},
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = -26;
+	req_access = list("cent_general")
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -285,9 +296,6 @@
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
-"aB" = (
-/turf/closed/wall/r_wall,
-/area/station/maintenance/port/aft)
 "aC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood{
@@ -335,18 +343,19 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
 	},
 /obj/effect/landmark/navigate_destination/autoname,
 /obj/effect/mapping_helpers/airlock/unres,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "aI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aJ" = (
@@ -360,8 +369,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "aK" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "aL" = (
 /obj/structure/chair/comfy/brown,
@@ -478,16 +487,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
-"aX" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 1;
-	name = "Privacy Shutters"
-	},
-/turf/open/floor/plating,
-/area/station/command/heads_quarters/nt_rep)
 "aY" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/holopad,
@@ -515,14 +514,14 @@
 /area/station/hallway/primary/central)
 
 (1,1,1) = {"
-aB
-aB
-aB
-aB
+at
+at
+at
+at
 aK
-aB
-aB
-aB
+at
+at
+at
 ai
 ai
 "}
@@ -534,8 +533,8 @@ ab
 al
 aZ
 av
-aB
-aB
+at
+at
 ai
 "}
 (3,1,1) = {"
@@ -547,7 +546,7 @@ ay
 aQ
 aS
 aU
-aB
+at
 ai
 "}
 (4,1,1) = {"
@@ -559,7 +558,7 @@ aG
 aY
 au
 aj
-aB
+at
 ai
 "}
 (5,1,1) = {"
@@ -571,7 +570,7 @@ aI
 aa
 aE
 aJ
-aB
+at
 ai
 "}
 (6,1,1) = {"
@@ -583,40 +582,40 @@ af
 aW
 aw
 ax
-aB
-aB
+at
+at
 "}
 (7,1,1) = {"
 aV
 sK
 sK
-aX
-aX
+am
+am
 aC
 aD
 ae
 aT
-aB
+at
 "}
 (8,1,1) = {"
 ai
 ai
 sK
 sK
-aX
+am
 ad
 as
 an
 at
-aB
+at
 "}
 (9,1,1) = {"
 ai
 ai
 ai
 sK
-aX
-aX
+am
+am
 ar
 aM
 at

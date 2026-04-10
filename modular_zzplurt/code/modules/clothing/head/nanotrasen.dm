@@ -79,6 +79,7 @@
 	desc = "Oooh, silver and blue. Fancy! This should help as you sit in your office, it's flexibility makes it easy to fit it in smaller locations, making it a must-have for survival and space management."
 	icon = 'modular_zzplurt/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/mask.dmi'
+	worn_icon_muzzled = 'modular_zzplurt/icons/mob/clothing/mask_muzzle.dmi'
 	worn_icon_state = "gas_nanotrasen"
 	icon_state = "gas_nanotrasen"
 	inhand_icon_state = "gas_nanotrasen"

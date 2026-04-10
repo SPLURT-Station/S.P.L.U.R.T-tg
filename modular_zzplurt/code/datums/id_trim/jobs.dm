@@ -33,7 +33,8 @@
 	sechud_icon_state = SECHUD_NT_CONSULTANT
 	extra_wildcard_access = list()
 	minimal_access = list(
-		ACCESS_CENT_CAPTAIN, // ACCESS_CENT_CAPTAIN is for ease of use, so we don't have to rely on Command AND Cent General access to get into their stuff. Is also useless until they get to CentCom.
+		ACCESS_CENT_CAPTAIN, // ACCESS_CENT_CAPTAIN is for ease of use, so we don't have to rely on Command AND Cent General access to get into their stuff. Only usable at CC anyway.
+		ACCESS_CENT_OFFICER, // I mean, yeah. They're technically speaking higher than Blueshield.
 		ACCESS_CENT_GENERAL,
 		ACCESS_CENT_LIVING, // Even CC Interns get this.
 		ACCESS_BRIG_ENTRANCE,
@@ -48,15 +49,12 @@
 		ACCESS_LAWYER,
 		ACCESS_SECURITY,
 		ACCESS_RC_ANNOUNCE,
-		ACCESS_TELEPORTER,
-		ACCESS_VAULT,
 		ACCESS_WEAPONS,
 		ACCESS_SERVICE,
 		)
 	extra_access = list()
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_CENT_GENERAL,
 		)
 	job = /datum/job/nanotrasen_consultant
 	big_pointer = TRUE
@@ -85,7 +83,45 @@
 		)
 	extra_access = list()
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_CENT_GENERAL,
 		)
 	job = /datum/job/nanotrasen_crew_trainer
+
+/datum/id_trim/job/blueshield
+	assignment = JOB_BLUESHIELD
+	intern_alt_name = "Junior Blueshield"
+	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_state = "trim_blueshield"
+	department_color = COLOR_CENTCOM_BLUE
+	subdepartment_color = COLOR_COMMAND_BLUE
+	sechud_icon_state = SECHUD_BLUESHIELD
+	extra_wildcard_access = list()
+	minimal_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_HOP,
+		ACCESS_CENT_OFFICER, // Basic access to Blueshield's shit I guess, for now at least.
+		ACCESS_CENT_GENERAL, // ACCESS_CENT_GENERAL is because Blueshield is still staff alongside NTC and NTCT, and this is the way to avoid Captains promoting assistants to NT External Staff.
+		ACCESS_CENT_LIVING, // Even CC Interns get this.
+		ACCESS_BRIG_ENTRANCE,
+		ACCESS_COMMAND,
+		ACCESS_ENGINEERING,
+		ACCESS_MEDICAL,
+		ACCESS_SCIENCE,
+		ACCESS_CARGO,
+		ACCESS_EVA,
+		ACCESS_MAINT_TUNNELS,
+		ACCESS_MINERAL_STOREROOM,
+		ACCESS_COURT,
+		ACCESS_GATEWAY,
+		ACCESS_SECURITY,
+		ACCESS_WEAPONS,
+		ACCESS_BRIG,
+		)
+	extra_access = list()
+	template_access = list(
+		ACCESS_CENT_GENERAL,
+		)
+	job = /datum/job/blueshield
+	pointer_color = COLOR_CENTCOM_BLUE
+	honorifics = list("Guardsman", "Gdsm.")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE

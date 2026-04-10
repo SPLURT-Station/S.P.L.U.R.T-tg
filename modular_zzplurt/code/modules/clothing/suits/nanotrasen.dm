@@ -1,18 +1,3 @@
-/obj/item/clothing/suit/armor/nanotrasen_formal
-	name = "\improper Nanotrasen officer's formal coat"
-	desc = "A stylish coat given to Nanotrasen Officers. Perfect for sending representatives to suicide missions with style!"
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	icon_state = "nanotrasen_formal"
-	inhand_icon_state = "b_suit"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/vest_capcarapace
-
-/obj/item/clothing/suit/armor/nanotrasen_formal/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon)
-
 /obj/item/clothing/suit/hooded/wintercoat/nanotrasen
 	name = "Nanotrasen winter coat"
 	desc = "A stylish, corporate wintercoat in Nanotrasen turquoise. It's crafted with durathread-infused fabric.. Mostly fabric though, making it slightly armored but a straight downgrade from normal vests. It has silver markings, it displays the emblems and insignia of Nanotrasen. It has a small silver Nanotrasen logo for a zipper."
@@ -42,7 +27,7 @@
 
 /obj/item/clothing/suit/armor/nanotrasen_greatcoat
 	name = "Nanotrasen officer's greatcoat"
-	desc = "A large, heavily padded greatcoat in turquoise colors, there's golden epaulettes and aiguillettes on the coat, heavily ceremonial. It's dawned with Nanotrasen emblems and NT Executive insignias. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safe than normal formal pieces, it's topped with a black Sam Browne belt with golden buckles with the Nanotrasen logo engraved in them."
+	desc = "A large, heavily padded greatcoat in teal colors, there's golden epaulettes and aiguillettes on the coat, heavily ceremonial. It's dawned with Nanotrasen emblems and NT Executive insignias. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safe than normal formal pieces, it's topped with a black Sam Browne belt with golden buckles with the Nanotrasen logo engraved in them."
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
@@ -52,14 +37,43 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/vest_capcarapace
 
-/obj/item/clothing/suit/armor/vest/nt_officerfake
-	name = "Nanotrasen officer's coat"
-	desc = "A luxurious coat with synthetic fur along the collar, a exotic suit worn by usually officers of Nanotrasen it's woven with excellent fabrics. This one lacks the special tech of space protection, which hinders it just as a piece of clothing."
+/obj/item/clothing/suit/armor/nanotrasen_overcoat
+	name = "Nanotrasen officer's overcoat"
+	desc = "A large overcoat in teal colors, it's not very decorated. It's barely dawned with Nanotrasen emblems and NT Executive insignias. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safe than normal clothing."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "nanotrasen_overcoat"
+	inhand_icon_state = "b_suit"
+	body_parts_covered = CHEST|GROIN|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/vest_capcarapace
+
+/obj/item/clothing/suit/armor/nanotrasen_furred_greatcoat
+	name = "Nanotrasen officer's furred greatcoat"
+	desc = "A large, heavily padded furred greatcoat in teal colors, you already feel incredibly warm just seeing this thing, based off of old soviet russian designs. It's dawned with Nanotrasen emblems and NT Executive insignias. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safe than normal formal pieces, it's topped with a dark grey belt with a golden buckle with the Nanotrasen logo engraved in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "nanotrasen_furredcoat"
+	inhand_icon_state = "b_suit"
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/vest_capcarapace
+
+/obj/item/clothing/suit/armor/vest/nanotrasen_trenchcoat
+	name = "Nanotrasen officer's winter trenchcoat"
+	desc = "A heavy-looking trenchcoat with real imported fur from the Solarian System along the collar, there's Nanotrasen Executive insignia along the shoulders. An extremely warm, and comforting piece of clothing. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safer than a normal piece of clothing."
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	icon_state = "nanotrasen_coat"
 	inhand_icon_state = "b_suit"
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/vest_capcarapace
 

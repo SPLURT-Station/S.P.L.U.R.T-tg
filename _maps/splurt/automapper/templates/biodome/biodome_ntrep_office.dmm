@@ -9,10 +9,10 @@
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
 /obj/machinery/door/airlock/command{
-	name = "Captain's Quarters and Internal Affairs's Office"
+	name = "Captain's Quarters and Internal Affairs' Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/bridge)
 "d" = (
 /obj/effect/turf_decal/siding/wood{
@@ -28,7 +28,6 @@
 "f" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination/autoname,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -38,7 +37,8 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
 /obj/effect/turf_decal/siding/wood{
@@ -93,12 +93,23 @@
 "l" = (
 /obj/structure/safe/floor/ntc,
 /obj/item/folder/ntc_documents,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/disabler/smoothbore/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
@@ -183,12 +194,16 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
+"v" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
 "w" = (
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
 /turf/open/floor/wood/large,
@@ -249,10 +264,13 @@
 "F" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	name = "Privacy Shutters";
-	dir = 4
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -379,12 +397,12 @@
 	},
 /obj/structure/hedge,
 /obj/machinery/power/apc/auto_name/directional/north,
-/obj/machinery/button/door/directional/east{
-	id = "nt_rep_priv";
-	req_access = list("cent_general");
-	name = "Privacy Shutters Control"
-	},
 /obj/structure/cable,
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = 26;
+	req_access = list("cent_general")
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Y" = (
@@ -475,7 +493,7 @@ l
 S
 o
 n
-x
+v
 x
 x
 u

@@ -38,13 +38,15 @@
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/window/reinforced/fulltile,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bounty-open";
-	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
-	},
 /obj/structure/cable,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
+	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
 "f" = (
@@ -101,13 +103,15 @@
 /area/station/command/heads_quarters/nt_rep)
 "m" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bounty-open";
-	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
-	},
 /obj/structure/cable,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
+	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
@@ -166,16 +170,24 @@
 "w" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/keycard_auth/wall_mounted/directional/south{
-	pixel_x = -6;
-	pixel_y = -24
-	},
-/obj/machinery/button/curtain{
-	id = "consultant";
-	pixel_x = 7;
-	pixel_y = -24
+	pixel_x = -6
 	},
 /obj/structure/safe/floor/ntc,
 /obj/item/folder/ntc_documents,
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = 7;
+	req_access = list("cent_captain");
+	pixel_y = -26
+	},
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/disabler/smoothbore/fake_ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
@@ -271,13 +283,15 @@
 /obj/structure/flora/bush/sunny,
 /obj/structure/flora/bush/flowers_pp,
 /obj/structure/window/reinforced/fulltile,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bounty-open";
-	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
-	},
 /obj/structure/cable,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
+	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
@@ -345,7 +359,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -359,10 +372,12 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
 /obj/structure/cable,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -399,13 +414,15 @@
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
 /obj/structure/window/reinforced/fulltile,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bounty-open";
-	icon_type = "bounty";
-	id = "consultant";
-	name = "curtain"
-	},
 /obj/structure/cable,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
+	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
 "U" = (
@@ -426,7 +443,7 @@
 	name = "Nanotrasen Internal Affairs Bedroom"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "W" = (

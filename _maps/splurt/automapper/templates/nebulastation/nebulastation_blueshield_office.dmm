@@ -88,7 +88,7 @@
 /obj/machinery/button/door/directional/south{
 	name = "Privacy Shutters Control";
 	id = "blueshield_priv";
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -125,6 +125,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "q" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "r" = (
@@ -172,12 +173,12 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "x" = (
 /obj/machinery/light/small/dim/directional/east,
@@ -258,7 +259,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
@@ -369,9 +370,9 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/effect/landmark/navigate_destination/autoname,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 
 (1,1,1) = {"

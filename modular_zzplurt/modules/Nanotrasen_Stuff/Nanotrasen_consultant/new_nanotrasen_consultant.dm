@@ -74,6 +74,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
 	new /obj/item/computer_disk/command/consultant(src)
 	new /obj/item/radio/headset/heads/nanotrasen(src)
+	new /obj/item/radio/headset/heads/nanotrasen/alt(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/clothing/neck/petcollar(src)
@@ -108,6 +109,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/clothing/under/rank/nanotrasen/commander(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/commander/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/commander/turtleneck/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical/gold(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/nanotrasen/gold(src)
@@ -116,10 +118,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/clothing/head/hats/nanotrasenhat(src)
 	new /obj/item/clothing/head/hats/nanotrasen_cap(src)
 	new /obj/item/clothing/head/hats/warden/drill/nanotrasen/nt(src)
-	new /obj/item/clothing/suit/armor/nanotrasen_formal(src)
 	new /obj/item/clothing/suit/armor/nanotrasen_greatcoat(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen(src)
-	new /obj/item/clothing/suit/armor/vest/nt_officerfake(src)
+	new /obj/item/clothing/suit/armor/vest/nanotrasen_trenchcoat(src)
 	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant
@@ -153,7 +154,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "nanotrasen executive PDA"
 	icon_state = "/obj/item/modular_computer/pda/heads/nanotrasen_consultant"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
-	greyscale_colors = "#42B5A6#DAE0F0#B4B9C6"
+	greyscale_colors = "#42B5A6#0C9900#FAFAFA"
 	inserted_disk = /obj/item/computer_disk/command/consultant
 	inserted_item = /obj/item/pen/fountain/nanotrasen
 	starting_programs = list(
@@ -180,7 +181,6 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "Nanotrasen Consultant"
 	jobtype = /datum/job/nanotrasen_consultant
 
-	belt = /obj/item/gun/energy/e_gun/asterion
 	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen
 	gloves = /obj/item/clothing/gloves/combat
@@ -188,19 +188,20 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/hats/nanotrasen_cap
-	r_pocket = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
+	belt = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic/silver = 1,
 		/obj/item/folder/biscuit/confidential/ntc_safe_code = 1,
+		/obj/item/choice_beacon/nanotrasen_consultant = 1,
 		)
 
-	pda_slot = ITEM_SLOT_RPOCKET
+	pda_slot = ITEM_SLOT_BELT
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 
-	backpack = /obj/item/storage/backpack/blueshield
-	satchel = /obj/item/storage/backpack/satchel/blueshield
-	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
-	messenger = /obj/item/storage/backpack/messenger/blueshield
+	backpack = /obj/item/storage/backpack/nanotrasen
+	satchel = /obj/item/storage/backpack/satchel/nanotrasen
+	duffelbag = /obj/item/storage/backpack/duffelbag/nanotrasen
+	messenger = /obj/item/storage/backpack/messenger/nanotrasen
 
 	implants = list(/obj/item/implant/mindshield)
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
@@ -225,10 +226,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 /obj/item/storage/lockbox/medal/ntc/PopulateContents()
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/accessory/medal/silver/bureaucracy(src)
-	new /obj/item/clothing/accessory/medal/gold/ordom(src)
 	new /obj/item/clothing/accessory/medal/gold/heroism(src)
 	new /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant(src)
-	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/gold/ordom(src)
 
 /obj/item/computer_disk/command/consultant
 	name = "consultant data disk"
@@ -257,8 +257,10 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	update_appearance()
 
 /obj/item/documents/nanotrasen_consultant
-	desc = "\"Top Secret\" Central Command documents, filled with complex diagrams and lists of names, dates and coordinates, this one has much more specific details and high interest locations marked."
-	icon_state = "docs_verified"
+	name = "NT Affairs secret dossier files"
+	desc = "\"Top Secret\" Nanotrasen Internal Affairs documents, stamped by a Nanotrasen stamp and signed with a Nanotrasen pen that is still freshly on the set of documents, filled with lists upon lists of names, dates and events, this seems to be documentation on specific NT employees and high command officers, this one has much more specific details and high interest locations marked."
+	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
+	icon_state = "ntc_dossier"
 
 /obj/structure/safe/floor/ntc
     name = "Nanotrasen-brand floor safe"
@@ -287,8 +289,29 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	var/ntc_code = jointext(GLOB.ntc_safe_combo, "-")
 
 	default_raw_text = "<b><h1>Welcome to your new position upon one of our state-of-the-art research stations.<h2></b><br><br>You have been issued \
-		this card to defend some important documents.<br><br><b>Do NOT</b> forget this code, and <b>do NOT</b> let it get into enemy hands.<br><br>The \
+		this card to defend some important dossier files.<br><br><b>Do NOT</b> forget this code, and <b>do NOT</b> let it get into enemy hands.<br><br>The \
 		combination is <i>[ntc_code]</i>.<br><br>The safe is located behind your desk next to your chair underneath the floor. Good luck, \
 		Consultant, do not let us down."
 	icon_state = "corppaperslip_words"
 	return ..()
+
+/obj/item/gun/energy/disabler/smoothbore/fake_ntc
+	name = "\improper M1911-D"
+	desc = "A compact pulse core in a classic handgun frame for Nanotrasen officers. It's not the size of the gun, it's the size of the hole it puts through people.. Wait, why does it have a crank?"
+	icon_state = "m1911"
+
+/obj/item/choice_beacon/nanotrasen_consultant
+	name = "Nanotrasen executive gunset beacon"
+	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
+	icon_state = "self_delivery"
+	company_source = "Nanotrasen Corporation"
+	company_message = span_bold("Understood, Consultant. Supply pod incoming with your request, please stand by and avoid the drop zone.")
+
+/obj/item/choice_beacon/nanotrasen_consultant/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Sovereign" = /obj/item/storage/toolbox/guncase/skyrat/pistol/sovereign,
+		"Directive" = /obj/item/storage/toolbox/guncase/skyrat/pistol/directive,
+		"Asterion" = /obj/item/gun/energy/e_gun/asterion
+	)
+
+	return selectable_gun_types

@@ -6,7 +6,6 @@
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	ammo_x_offset = 2
-	w_class = WEIGHT_CLASS_NORMAL // The only real difference being that it's more compact like the Antique it's supposed to be a variant of.
 
 /obj/item/gun/energy/e_gun/asterion/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
