@@ -90,3 +90,26 @@
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/costume_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/rank/nanotrasen/classic
+	name = "Nanotrasen consultant's suit"
+	desc = "A old teal uniform that used to be worn by Nanotrasen's representative staff, comfortable khakis, which itself is buckled on by a black belt with a golden buckle with the nanotrasen logo etched into it. It's dawned with golden insignia denoting the rank of \"Nanotrasen Consultant\", you already feel nostalgic."
+	icon_state = "nanotrasen_classic"
+
+/obj/item/clothing/under/rank/nanotrasen/classic/skirt
+	name = "Nanotrasen consultant's skirt"
+	desc = "A old teal uniform that used to be worn by Nanotrasen's representative staff, comfortable beige skirt with a golden stripe, which itself is buckled on by a black belt with a golden buckle with the nanotrasen logo etched into it. It's dawned with golden insignia denoting the rank of \"Nanotrasen Consultant\", you already feel nostalgic."
+	icon_state = "nanotrasen_classic_skirt"
+	alt_covers_chest = TRUE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN|ARMS
+
+//Donation reward for Hacker T.Dog
+/obj/item/clothing/under/rank/nanotrasen_consultant/hubert
+	name = "Nanotrasen ensign's uniform"
+	desc = "A teal turtleneck, usually worn by Nanotrasen's paper-pushing Ensign staff, formal khaki pants, which itself is buckled on by a black belt with a golden buckle with the nanotrasen logo etched into it. It's dawned with insignia denoting the rank of \"Ensign\", it has a dark blue formal jacket on decorated with aiguillettes and medals on the chest."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/nanotrasen.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/nanotrasen.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/nanotrasen_digi.dmi'
+	abstract_type = /obj/item/clothing/under/rank/nanotrasen
+	icon_state = "nanotrasen_ensign"

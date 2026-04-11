@@ -87,3 +87,32 @@
 	inhand_icon_state = "b_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/vest_capcarapace
+
+/obj/item/clothing/suit/armor/vest/classic_jacket
+	name = "Nanotrasen consultant's jacket"
+	desc = "An expensive durathread-infused jacket with a golden badge on the chest and the Nanotrasen logo emblazoned on the back. It weighs surprisingly little, despite how heavy it looks, not to mention the genuine fur which makes it only more cozy to wear, you already feel nostalgic just looking at it."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "classic_nanotrasen"
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/vest_capcarapace
+
+/obj/item/clothing/suit/armor/vest/classic_jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+
+//Donation reward for Hacker T.Dog
+/obj/item/clothing/suit/armor/vest/nanotrasen_consultant/hubert
+	name = "Nanotrasen executive's armored vest"
+	desc = "A heavy-looking, yet snug and comfortable heavy-duty webbing vest, however the vest itself doesn't even seem to have any storage.. Are these pouches just for show? At least it's heavily plated to protect you as you sit in your office."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "nanotrasen_webvest"
+	body_parts_covered = CHEST
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/vest_capcarapace

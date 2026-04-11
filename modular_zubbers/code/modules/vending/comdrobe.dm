@@ -238,11 +238,14 @@
 		/obj/item/clothing/under/rank/nanotrasen/commander/turtleneck/skirt = 1,
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold = 1,
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt = 1,
+		/obj/item/clothing/under/rank/nanotrasen/classic = 1,
+		/obj/item/clothing/under/rank/nanotrasen/classic/skirt = 1,
 		/obj/item/clothing/under/costume/playbunny/nanotrasen = 1,
 		/obj/item/clothing/suit/jacket/tailcoat/nanotrasen = 1,
 		/obj/item/clothing/head/beret/nanotrasen_formal/gold = 1,
 		/obj/item/clothing/head/hats/nanotrasen_cap = 1,
 		/obj/item/clothing/head/hats/nanotrasenhat = 1,
+		/obj/item/clothing/head/hats/nanotrasen_cap/classic = 1,
 		/obj/item/clothing/head/hats/warden/drill/nanotrasen/nt = 1,
 		/obj/item/clothing/neck/mantle/ntcmantle = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/nanotrasen/gold = 1,
@@ -250,6 +253,7 @@
 		/obj/item/clothing/suit/armor/nanotrasen_greatcoat = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_furred_greatcoat = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_trenchcoat = 1,
+		/obj/item/clothing/suit/armor/vest/classic_jacket = 1,
 		/obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen = 1,
 )
 //Splurt Edit End

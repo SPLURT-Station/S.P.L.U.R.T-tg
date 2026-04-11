@@ -88,3 +88,16 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION
+
+/obj/item/clothing/head/hats/nanotrasen_cap/classic
+	name = "\improper Nanotrasen consultant's cap"
+	desc = "A black peaked cap with a special teal Nanotrasen logo on the front, worn by only Nanotrasen's representative staff. You honestly don't know why this one was brought back, you don't feel very nostalgic about this one."
+	icon_state = "nanotrasen_cap_classic"
+
+//Donation reward for Hacker T.Dog
+/obj/item/clothing/head/nanotrasen_consultant/hubert
+	name = "Nanotrasen ensign's cap"
+	desc = "A dark blue peaked cap with a golden badge on the front usually worn by Ensign personnel of Nanotrasen, you somehow feel unfit for this.."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "nanotrasen_cap_ensign"

@@ -1060,6 +1060,7 @@
 	body_parts_covered = CHEST|LEGS|ARMS
 	supports_variations_flags = NONE
 
+/* SPLURT REMOVAL
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/head/nanotrasen_consultant/hubert
 	name = "CC ensign's cap"
@@ -1083,6 +1084,7 @@
 	icon = 'modular_skyrat/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "CCofficer"
+*/
 
 // Donation reward for Cherno_00
 /obj/item/clothing/head/costume/ushanka/frosty
