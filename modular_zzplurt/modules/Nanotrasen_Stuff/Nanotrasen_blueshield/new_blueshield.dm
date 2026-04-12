@@ -1,14 +1,12 @@
-/* SPLURT REMOVAL
 /datum/job/blueshield
 	title = JOB_BLUESHIELD
-	rpg_title = "Guild Protectorate"
 	description = "Protect the Heads of Staff and get your hands dirty so they can keep theirs clean."
+	department_head = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list(JOB_NT_REP)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "All Command Staff and Central Command when applicable"
+	supervisors = "the Nanotrasen High Command, Nanotrasen Consultant, Captain, and then all Head of Staff"
 	minimal_player_age = 7
 	exp_requirements = 2400
 	exp_required_type = EXP_TYPE_CREW
@@ -16,20 +14,19 @@
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BLUESHIELD"
 
+	outfit = /datum/outfit/job/blueshield
+	plasmaman_outfit = /datum/outfit/plasmaman/blueshield
+	departments_list = list(
+		/datum/job_department/central,
+	)
+
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
 
-	outfit = /datum/outfit/job/blueshield
-	plasmaman_outfit = /datum/outfit/plasmaman/blueshield
-	display_order = JOB_DISPLAY_ORDER_BLUESHIELD
-	bounty_types = CIV_JOB_SEC
-
-	departments_list = list(
-		/datum/job_department/command,
-	)
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
-	family_heirlooms = list(/obj/item/bedsheet/captain, /obj/item/clothing/head/beret/blueshield)
+	display_order = JOB_DISPLAY_ORDER_BLUESHIELD
+	bounty_types = CIV_JOB_SEC
 
 	mail_goodies = list(
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 10,
@@ -40,7 +37,9 @@
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 	)
 
-	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
+	family_heirlooms = list(/obj/item/bedsheet/captain, /obj/item/clothing/head/beret/blueshield)
+	rpg_title = "Guild Protectorate"
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
 
 /datum/outfit/job/blueshield
 	name = "Blueshield"
@@ -82,4 +81,3 @@
 		/datum/computer_file/program/robocontrol,
 		/datum/computer_file/program/radar/lifeline,
 	)
-*/

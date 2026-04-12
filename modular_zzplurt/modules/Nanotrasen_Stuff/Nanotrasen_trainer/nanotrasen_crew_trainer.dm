@@ -15,8 +15,9 @@
 
 	outfit = /datum/outfit/job/nanotrasen_crew_trainer
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
-
-	department_for_prefs = /datum/job_department/assistant
+	departments_list = list(
+		/datum/job_department/central,
+	)
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_CIV

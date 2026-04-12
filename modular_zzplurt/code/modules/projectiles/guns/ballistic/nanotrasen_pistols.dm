@@ -8,6 +8,7 @@
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
 	icon_state = "sovereign"
 	w_class = WEIGHT_CLASS_NORMAL
+	mag_display = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/sovereign
 	can_suppress = FALSE
 	recoil = 0.7
@@ -45,6 +46,7 @@
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
 	icon_state = "directive"
 	w_class = WEIGHT_CLASS_NORMAL
+	mag_display = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/directive
 	can_suppress = FALSE
 	recoil = 0.3

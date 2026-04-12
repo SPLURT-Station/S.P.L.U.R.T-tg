@@ -425,7 +425,7 @@
 		/datum/job_department/science,
 		/datum/job_department/security,
 		/datum/job_department/service,
-		/datum/job_department/iaa, //SPLURT ADDITION
+		/datum/job_department/central, //SPLURT ADDITION
 	)
 
 	for(var/department_type in department_types)

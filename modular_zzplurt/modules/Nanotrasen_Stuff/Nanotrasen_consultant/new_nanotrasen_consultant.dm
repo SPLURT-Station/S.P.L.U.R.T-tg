@@ -11,10 +11,12 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	description = "Represent Nanotrasen on the station, argue with the HoS about \
 		why he can't just field execute people for petty theft, get drunk in your office."
 	department_head = list("Nanotrasen High Command")
-	head_announce = list(RADIO_CHANNEL_IAA)
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
+	head_announce = list("Internal Affairs")
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	supervisors = "the Nanotrasen High Command"
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 600
@@ -25,9 +27,8 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
-
-	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
+		/datum/job_department/central,
 		/datum/job_department/command,
 	)
 
@@ -41,11 +42,26 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	bounty_types = CIV_JOB_SEC
 
 	mail_goodies = list(
-		/obj/item/cigarette/cigar/havana = 20,
+		/obj/item/coin/silver = 30,
+		/obj/item/reagent_containers/cup/glass/mug/nanotrasen = 30,
+		/obj/item/storage/fancy/cigarettes/cigars/cohiba = 20,
+		/obj/item/soap/nanotrasen = 20,
+		/obj/item/coin/gold = 15,
+		/obj/item/coin/titanium = 15,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
-		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
+		/obj/item/reagent_containers/cup/glass/bottle/rum = 15,
+		/obj/item/reagent_containers/cup/glass/bottle/vodka = 15,
+		/obj/item/coin/plasma = 15,
+		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10,
+		/obj/item/coin/diamond = 10,
+		/obj/item/reagent_containers/cup/glass/bottle/vodka/badminka = 5,
+		/obj/item/reagent_containers/cup/glass/bottle/absinthe/premium = 5,
+		/obj/item/reagent_containers/cup/glass/bottle/rum/aged = 5,
+		/obj/item/sign/flag/syndicate = 5,
+		/obj/item/coin/bananium = 1
 	)
-	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
+
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law,/obj/item/sign/flag/nanotrasen)
 	rpg_title = "Guild Advisor"
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
 

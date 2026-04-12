@@ -363,6 +363,8 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			radio_channel = RADIO_CHANNEL_ENGINEERING
 		if("security")
 			radio_channel = RADIO_CHANNEL_SECURITY
+		if("internal affairs")
+			radio_channel = RADIO_CHANNEL_IAA
 		if("cargobay", "mining")
 			radio_channel = RADIO_CHANNEL_SUPPLY
 
