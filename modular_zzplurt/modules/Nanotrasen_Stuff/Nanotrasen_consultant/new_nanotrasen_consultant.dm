@@ -253,25 +253,11 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
 	icon_state = "folder_nanotrasen"
 
-/obj/item/folder/ntc_documents
-	name = "folder - 'TOP SECRET'"
-	desc = "A folder stamped \"Top Secret - Property of Nanotrasen Corporation. Unauthorized distribution is punishable by death.\""
-	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
-	icon_state = "folder_ntgold"
-
-/obj/item/folder/ntc_documents/Initialize(mapload)
-	. = ..()
-	new /obj/item/documents/nanotrasen_consultant(src)
-	update_appearance()
-
-/obj/item/documents/nanotrasen_consultant
-	name = "NT Affairs secret dossier files"
-	desc = "\"Top Secret\" Nanotrasen Internal Affairs documents, stamped by a Nanotrasen stamp and signed with a Nanotrasen pen that is still freshly on the set of documents, filled with lists upon lists of names, dates and events, this seems to be documentation on specific NT employees and high command officers, this one has much more specific details and high interest locations marked."
-	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
-	icon_state = "ntc_dossier"
-
 /obj/structure/safe/floor/ntc
-    name = "Nanotrasen-brand floor safe"
+	name = "Nanotrasen-brand gold-plated floor safe"
+	desc = "A huge chunk of metal with a dial embedded in it, this time plated in gold.. Or is it just yellow paint? There's some red text on the front of the door, \"ANY NON-NANOTRASEN INTERNAL AFFAIRS TAMPERING WILL BE MET WITH SEVERE PUNISHMENT.\", how threatening. Fine print on the dial reads \"Nanotrasen Corporation - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
+	icon = 'modular_zzplurt/icons/obj/structures.dmi'
+	icon_state = "floorsafe_ntc"
 
 /obj/structure/safe/floor/ntc/Initialize(mapload)
 	. = ..()
@@ -285,11 +271,11 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	return
 
 /obj/item/folder/biscuit/confidential/ntc_safe_code
-	name = "Nanotrasen safe combination biscuit card"
+	name = "Nanotrasen Internal Affairs safe combination biscuit card"
 	contained_slip = /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code
 
 /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code
-	name = "Nanotrasen-Issued Safe Combination"
+	name = "Nanotrasen-Issued Internal Affairs Safe Combination"
 	desc = "A small corporate plastic card with the Consultant's safe combination."
 
 /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code/Initialize(mapload)
