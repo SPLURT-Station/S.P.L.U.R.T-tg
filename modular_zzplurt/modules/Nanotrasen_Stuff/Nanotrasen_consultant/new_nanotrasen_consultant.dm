@@ -303,10 +303,24 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	icon_state = "corppaperslip_words"
 	return ..()
 
-/obj/item/gun/energy/disabler/smoothbore/fake_ntc
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc
 	name = "\improper M1911-D"
 	desc = "A compact pulse core in a classic handgun frame for Nanotrasen officers. It's not the size of the gun, it's the size of the hole it puts through people.. Wait, why does it have a crank?"
-	icon_state = "m1911"
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/smoothbore)
+	spread = 22.5
+
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc/Initialize(mapload)
+	. = ..()
+	AddComponent( \
+		/datum/component/crank_recharge, \
+		charging_cell = get_cell(), \
+		charge_amount = STANDARD_CELL_CHARGE, \
+		cooldown_time = 2 SECONDS, \
+		charge_sound = 'sound/items/weapons/laser_crank.ogg', \
+		charge_sound_cooldown_time = 1.8 SECONDS, \
+		charge_move = IGNORE_USER_LOC_CHANGE, \
+	)
+
 
 /obj/item/choice_beacon/nanotrasen_consultant
 	name = "Nanotrasen executive gunset beacon"
