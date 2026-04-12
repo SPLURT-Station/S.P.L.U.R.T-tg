@@ -624,6 +624,53 @@
 		else
 			icon_state = base_icon_state
 
+/obj/item/storage/fancy/jellybean_bowl
+	name = "jelly bean bowl"
+	desc = "It says \"take three\"."
+	icon = 'modular_zzplurt/icons/obj/food/jellybeans.dmi'
+	icon_state = "bowl_beans"
+	base_icon_state = "bowl_beans"
+	spawn_type = /obj/item/food/jellybean
+	spawn_count = 10
+	contents_tag = "jelly bean"
+	open_status = FANCY_CONTAINER_ALWAYS_OPEN
+	has_open_closed_states = FALSE
+	storage_type = /datum/storage/jellybean_bowl
+
+/obj/item/storage/fancy/jellybean_bowl/update_icon_state()
+	. = ..()
+	switch(contents.len)
+		if(8 to 9)
+			icon_state = "bowl_beans_3"
+		if(4 to 7)
+			icon_state = "bowl_beans_2"
+		if(1 to 3)
+			icon_state = "bowl_beans_1"
+		if(0)
+			icon_state = "bowl_beans_0"
+		else
+			icon_state = "bowl_beans_4"
+
+/obj/item/storage/fancy/jellybean_bowl/examine(mob/user)
+	. = ..()
+	if(!contents.len)
+		. += "Look at what you've done."
+
+/obj/item/storage/fancy/jellybean_pack
+	name = "mystery beans"
+	desc = "A pack full of jelly beans! It says there's a 50/50 chance of finding candy or... something else."
+	icon = 'modular_zzplurt/icons/obj/food/jellybeans.dmi'
+	icon_state = "bean_bag"
+	base_icon_state = "bean_bag"
+	spawn_type = /obj/item/food/jellybean/lewd
+	spawn_count = 27
+	contents_tag = "jelly bean"
+	storage_type = /datum/storage/jellybean_pack
+
+/obj/item/storage/fancy/jellybean_pack/update_icon_state()
+	icon_state = "[base_icon_state][open_status ? "open" : null]"
+	return ..()
+
 /*
  * Coffee condiments display
  */

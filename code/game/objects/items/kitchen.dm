@@ -192,6 +192,22 @@
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
+
+/obj/item/kitchen/rollingpin/unrolling
+	name = "unrolling pin"
+	desc = "For when you accidentally flattened something."
+	icon = 'modular_zzplurt/icons/obj/service/kitchen_splurt.dmi'
+	icon_state = "unrolling_pin"
+
+/obj/item/kitchen/rollingpin/unrolling/suicide_act(mob/living/carbon/user)
+	user.visible_message(span_suicide("[user] begins unflattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	return BRUTELOSS
+
+/obj/item/knife/kitchen/efink
+	name = "E-Fink"
+	desc = "The E-Fink is a product by Mending Solutions Inc. Unfortunately it can only mend sliced meat, fruits and dough back to their original state. Unbutchering is not possible."
+	icon = 'modular_zzplurt/icons/obj/service/kitchen_splurt.dmi'
+	icon_state = "efink"
 /* Trays  moved to /obj/item/storage/bag */
 
 /obj/item/kitchen/spoon

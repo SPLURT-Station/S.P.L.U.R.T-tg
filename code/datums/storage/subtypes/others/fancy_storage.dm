@@ -99,6 +99,24 @@
 	. = ..()
 	set_holdable(/obj/item/food/pickle)
 
+/datum/storage/jellybean_bowl
+	max_slots = 10
+	max_total_storage = WEIGHT_CLASS_SMALL * 10
+	screen_max_columns = 5
+
+/datum/storage/jellybean_bowl/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/food/jellybean)
+
+/datum/storage/jellybean_pack
+	max_slots = 27
+	max_total_storage = WEIGHT_CLASS_SMALL * 27
+	screen_max_columns = 6
+
+/datum/storage/jellybean_pack/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/food/jellybean/lewd)
+
 /// Coffee Condiment Displays
 /datum/storage/coffee_condi_display
 	max_slots = 14

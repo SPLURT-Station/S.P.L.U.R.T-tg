@@ -40,3 +40,17 @@
 	icon_state = "pitcher"
 	volume = 120
 	fill_icon = 'modular_zzplurt/icons/obj/drinks/reagent_fillings.dmi'
+
+/obj/item/reagent_containers/cup/glass/bottle/semen
+	name = "synthetized semen"
+	desc = "A dose of synthetic semen. This could prove useful in dire situations."
+	icon_state = "bottle20"
+	list_reagents = list(/datum/reagent/consumable/cum = 30)
+	possible_transfer_amounts = list(5)
+
+/obj/item/reagent_containers/cup/glass/bottle/female_ejaculate
+	name = "bottle of female ejaculate"
+	desc = "A dose of synthetic reproductive fluid. Historically used for artificial inseminations."
+	icon_state = "bottle20"
+	list_reagents = list(/datum/reagent/consumable/femcum = 30)
+	possible_transfer_amounts = list(5)

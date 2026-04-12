@@ -272,6 +272,11 @@
 	max_integrity = 200
 	rad_insulation = RAD_VERY_LIGHT_INSULATION
 
+/obj/structure/mineral_door/wood/rustic
+	name = "rustic wood door"
+	icon = 'modular_zzplurt/icons/obj/doors/mineral_doors_splurt.dmi'
+	icon_state = "woodrustic"
+
 /obj/structure/mineral_door/wood/pickaxe_door(mob/living/user, obj/item/I)
 	return
 

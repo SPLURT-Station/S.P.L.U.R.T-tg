@@ -613,6 +613,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 	reagent_id = /datum/reagent/consumable/ethanol/beer
 	openable = TRUE
 
+/obj/structure/reagent_dispensers/beerkeg/semen
+	name = "keg of semen"
+	desc = "Dear lord, where did this even come from?"
+	reagent_id = /datum/reagent/consumable/cum
+
+/obj/structure/reagent_dispensers/beerkeg/femcum
+	name = "keg of femcum"
+	desc = "... Let's just say it's a keg of squirt..."
+	reagent_id = /datum/reagent/consumable/femcum
+
 /obj/structure/reagent_dispensers/beerkeg/blob_act(obj/structure/blob/B)
 	explosion(src, heavy_impact_range = 3, light_impact_range = 5, flame_range = 10, flash_range = 7)
 	if(!QDELETED(src))

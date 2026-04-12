@@ -118,6 +118,122 @@
 		return ..()
 	apply_buff(user)
 
+/obj/item/food/jellybean
+	name = "jelly bean"
+	desc = "A rather large-sized, colorful bean full of sugar."
+	icon = 'modular_zzplurt/icons/obj/food/jellybeans.dmi'
+	icon_state = "bean_template"
+	bite_consumption = 4
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/consumable/sugar = 3,
+	)
+	junkiness = 25
+	tastes = list("candy" = 1)
+	foodtypes = JUNKFOOD | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
+	var/static/list/possible_colors = list(
+		"orange" = "#FF7B00",
+		"black" = "#000000",
+		"white" = "#FFFFFF",
+		"yellow" = "#FFFF00",
+		"purple" = "#822BFF",
+		"green" = "#32CD32",
+		"red" = "#FF0000",
+		"blue" = "#0000FF",
+		"capuccino" = "#663300",
+		"plum" = "#00A2FF",
+		"strawck" = "#ff88ff",
+		"metallic" = "#454545",
+		"crocin" = "#FF2BFF",
+		"turd" = "#663300",
+		"jizz" = "#FFFFFF",
+		"margarita" = "#00aa00",
+		"coconut" = "#CBB1CA",
+		"raspberry" = "#7c1f1e",
+		"blackberry" = "#3d1774",
+		"cottonc" = "#D59998",
+		"carmcorn" = "#FBFF23",
+		"creamsoda" = "#b2b2b2",
+		"watermelon" = "#008000",
+		"chocop" = "#663300",
+		"tutti" = "#FFFFFF",
+		"scinnamon" = "#E4005B",
+		"tmallow" = "#b2b2b2",
+	)
+	var/chosen_color
+
+/obj/item/food/jellybean/Initialize(mapload)
+	if(!chosen_color)
+		chosen_color = pick(possible_colors)
+		switch(chosen_color)
+			if("orange")
+				tastes = list("orange" = 1)
+			if("white", "jizz")
+				tastes = list("marshmallow" = 1)
+			if("yellow")
+				tastes = list(pick("lime", "pineapple", "banana") = 1)
+			if("purple")
+				tastes = list("grape" = 1)
+			if("green", "margarita")
+				tastes = list(pick("kiwi", "lemon") = 1)
+			if("red")
+				tastes = list(pick("apple", "cherry") = 1)
+			if("capuccino")
+				tastes = list("capuccino" = 1)
+			if("crocin", "strawck")
+				tastes = list("strawberry" = 1)
+			if("turd", "chocop")
+				tastes = list("chocolate" = 1)
+			if("coconut")
+				tastes = list("coconut" = 1)
+			if("raspberry")
+				tastes = list("raspberry" = 1)
+			if("blackberry")
+				tastes = list("blackberry" = 1)
+			if("cottonc", "plum")
+				tastes = list("cotton candy" = 1)
+			if("carmcorn")
+				tastes = list("corn" = 1)
+			if("creamsoda")
+				tastes = list("cream soda" = 1)
+			if("watermelon")
+				tastes = list("watermelon" = 1)
+			if("tutti")
+				tastes = list("fruits" = 1)
+			if("scinnamon")
+				tastes = list("cinnamon" = 1)
+			if("tmallow")
+				tastes = list("cinnamon" = 1, "marshmallow" = 1)
+	. = ..()
+	icon_state = replacetext(icon_state, "template", chosen_color)
+	color = possible_colors[chosen_color]
+
+/obj/item/food/jellybean/lewd
+	desc = "A rather large-sized, colorful bean full of sugar... or not...?"
+
+/obj/item/food/jellybean/lewd/Initialize(mapload)
+	if(prob(50))
+		chosen_color = pick(possible_colors)
+		food_reagents = list(/datum/reagent/consumable/nutriment = 4)
+		switch(chosen_color)
+			if("white", "jizz", "tutti", "coconut")
+				tastes = list("semen" = 1)
+				food_reagents = list(/datum/reagent/consumable/nutriment = 1, pick(/datum/reagent/consumable/cum, /datum/reagent/consumable/femcum) = 3)
+			if("black", "metallic", "creamsoda", "tmallow")
+				tastes = list("salt" = 1)
+				food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/salt = 3)
+			if("purple", "blackberry")
+				food_reagents = list(/datum/reagent/consumable/ethanol/lean = 4)
+			if("green", "margarita", "watermelon")
+				tastes = list("sweat" = 1)
+				food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/salt = 3)
+			if("red", "raspberry", "scinnamon")
+				food_reagents = list(/datum/reagent/blood = 4)
+			if("crocin", "strawck")
+				food_reagents = list(/datum/reagent/drug/aphrodisiacplus = 4)
+	. = ..()
+
 /obj/item/food/canned/envirochow/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!check_buffability(interacting_with))
 		return NONE
