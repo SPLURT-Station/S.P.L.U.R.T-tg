@@ -53,9 +53,6 @@
 		ACCESS_SERVICE,
 		)
 	extra_access = list()
-	template_access = list(
-		ACCESS_CENT_GENERAL,
-		)
 	job = /datum/job/nanotrasen_consultant
 	big_pointer = TRUE
 	pointer_color = COLOR_CENTCOM_BLUE
@@ -82,9 +79,6 @@
 		ACCESS_BAR,
 		)
 	extra_access = list()
-	template_access = list(
-		ACCESS_CENT_GENERAL,
-		)
 	job = /datum/job/nanotrasen_crew_trainer
 
 /datum/id_trim/job/blueshield
@@ -118,9 +112,6 @@
 		ACCESS_BRIG,
 		)
 	extra_access = list()
-	template_access = list(
-		ACCESS_CENT_GENERAL,
-		)
 	job = /datum/job/blueshield
 	pointer_color = COLOR_CENTCOM_BLUE
 	honorifics = list("Guardsman", "Gdsm.")
