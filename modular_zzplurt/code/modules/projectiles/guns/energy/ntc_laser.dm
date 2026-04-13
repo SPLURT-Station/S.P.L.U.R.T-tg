@@ -10,8 +10,9 @@
 	icon_state = "asterion"
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_righthand.dmi'
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/asterion, /obj/item/ammo_casing/energy/lasergun/asterion)
 	ammo_x_offset = 2
-	recoil = 0.4
+	recoil = 0.3
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/energy/e_gun/asterion/give_manufacturer_examine()
@@ -31,6 +32,12 @@
 		standardized, packaged, and issued on demand."
 
 	return .
+
+/obj/item/ammo_casing/energy/disabler/asterion
+	e_cost = LASER_SHOTS(16, STANDARD_CELL_CHARGE)
+
+/obj/item/ammo_casing/energy/lasergun/asterion
+	e_cost = LASER_SHOTS(12, STANDARD_CELL_CHARGE)
 
 /obj/item/gun/energy/pulse/pistol/m1911
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
