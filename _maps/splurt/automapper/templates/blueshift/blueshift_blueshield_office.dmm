@@ -24,17 +24,15 @@
 	pixel_y = 11
 	},
 /obj/effect/turf_decal/siding/wood,
-/obj/structure/sign/picture_frame/showroom/four{
-	pixel_y = -33
-	},
-/turf/open/floor/wood/large,
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "cI" = (
 /obj/machinery/newscaster/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/dresser,
-/turf/open/floor/carpet/executive,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "df" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
@@ -54,7 +52,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "iI" = (
 /mob/living/basic/pet/dog/bullterrier{
@@ -73,7 +71,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "iT" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -92,7 +90,7 @@
 /obj/structure/chair/wood{
 	dir = 1
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "lI" = (
 /turf/open/floor/carpet/blue,
@@ -112,10 +110,6 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "mV" = (
-/obj/structure/chair/comfy{
-	color = "#596479";
-	dir = 1
-	},
 /obj/effect/landmark/start/blueshield,
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
@@ -124,10 +118,12 @@
 /turf/template_noop,
 /area/template_noop)
 "ow" = (
-/obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/hedge,
-/turf/open/floor/wood/large,
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -33
+	},
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "pG" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
@@ -142,7 +138,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "rO" = (
 /obj/structure/cable,
@@ -154,7 +150,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "sn" = (
 /obj/structure/bed/double,
@@ -163,7 +159,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/carpet/executive,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "sq" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
@@ -171,11 +167,13 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "sM" = (
-/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/hedge,
-/turf/open/floor/wood/large,
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -33
+	},
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "tp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/end{
@@ -190,7 +188,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "vW" = (
 /obj/structure/cable,
@@ -201,7 +199,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/event_spawn,
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "wf" = (
 /obj/structure/table/reinforced/titaniumglass,
@@ -232,7 +230,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "xt" = (
 /obj/structure/sign/poster/official/carwo_grenade/directional/south,
@@ -317,7 +315,7 @@
 /obj/structure/sign/clock/directional/south,
 /obj/structure/bookcase/random,
 /obj/item/radio/intercom/directional/west,
-/turf/open/floor/carpet/executive,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "Fy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -387,7 +385,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "Kh" = (
 /obj/machinery/disposal/bin,
@@ -418,7 +416,7 @@
 /obj/structure/chair/wood{
 	dir = 1
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "NS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -426,7 +424,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "Ph" = (
 /turf/closed/wall,
@@ -452,7 +450,7 @@
 /area/station/command/heads_quarters/blueshield)
 "Sh" = (
 /obj/machinery/duct,
-/turf/open/floor/carpet/executive,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "SA" = (
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -493,11 +491,7 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light/directional/north,
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
-/turf/open/floor/carpet/executive,
-/area/station/command/heads_quarters/blueshield)
-"Ub" = (
-/obj/machinery/duct,
-/turf/closed/wall/r_wall,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "UK" = (
 /obj/machinery/door/airlock/bathroom{
@@ -530,14 +524,14 @@
 "WZ" = (
 /obj/effect/landmark/start/blueshield,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/carpet/executive,
+/turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "Xs" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
 /obj/machinery/light_switch/directional/north,
-/turf/open/floor/wood/large,
+/turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "Yu" = (
 /obj/machinery/door/airlock/corporate{
@@ -594,7 +588,7 @@ Nw
 "}
 (4,1,1) = {"
 oi
-Ub
+Nw
 TK
 Sh
 Ex

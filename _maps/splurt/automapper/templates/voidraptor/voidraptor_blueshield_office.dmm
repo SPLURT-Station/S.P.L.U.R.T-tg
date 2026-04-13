@@ -71,15 +71,15 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "m" = (
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/computer/records/medical/laptop{
 	dir = 8;
 	pixel_x = -2;
-	pixel_y = 4
+	pixel_y = 3
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/structure/table/wood,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "n" = (
@@ -233,14 +233,10 @@
 	dir = 8
 	},
 /obj/machinery/light_switch/directional/north,
-/obj/structure/table/wood/fancy/blue,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/obj/item/flashlight/lamp{
-	pixel_y = 9;
-	pixel_x = -2
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "I" = (

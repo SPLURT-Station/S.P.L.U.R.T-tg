@@ -39,8 +39,8 @@
 "cY" = (
 /obj/structure/bed/double,
 /obj/machinery/light_switch/directional/south,
-/obj/item/bedsheet/nanotrasen/double,
-/turf/open/floor/carpet/royalblue,
+/obj/item/bedsheet/ntc/double,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "du" = (
 /obj/item/radio/intercom/directional/west,
@@ -167,10 +167,11 @@
 "jT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/consultant,
 /obj/machinery/door/airlock/corporate{
-	name = "Nanotrasen Internal Affairs Quarters"
+	name = "Consultant's Quarters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "kl" = (
@@ -337,7 +338,7 @@
 /obj/structure/window/spawner/directional/west,
 /obj/structure/sign/clock/directional/north,
 /obj/structure/dresser,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "tb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -375,7 +376,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/obj/structure/table/wood/fancy/royalblue,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/nt_rep)
 "tw" = (
@@ -452,6 +453,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/nt_rep)
 "uQ" = (
@@ -503,7 +505,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "vW" = (
 /obj/structure/window/spawner/directional/west,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "wj" = (
 /obj/item/reagent_containers/cup/glass/bottle/whiskey{
@@ -533,6 +535,7 @@
 	name = "Consultant's Desk"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/consultant,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "xk" = (
@@ -666,7 +669,7 @@
 "Dq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "DE" = (
 /turf/open/floor/carpet/executive,
@@ -787,6 +790,7 @@
 	name = "Nanotrasen Internal Affairs Lounge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "KM" = (
@@ -807,6 +811,7 @@
 	pixel_y = 5
 	},
 /obj/item/radio/intercom/directional/south,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Mk" = (
@@ -858,6 +863,7 @@
 /obj/machinery/door/airlock/corporate/glass{
 	name = "Nanotrasen Internal Affairs Kitchen"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "NH" = (
@@ -876,6 +882,7 @@
 	name = "Nanotrasen Internal Affairs Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "OF" = (
@@ -907,8 +914,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "RW" = (
 /obj/machinery/status_display/evac/directional/south,
-/obj/structure/secure_safe/directional/west,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "RY" = (
@@ -939,7 +946,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/table/wood/fancy/royalblue,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/nt_rep)
 "Tv" = (
@@ -1000,7 +1007,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "Vf" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/turf/open/floor/carpet/royalblue,
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "Vr" = (
 /obj/structure/chair/sofa/left/brown{

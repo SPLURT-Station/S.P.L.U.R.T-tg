@@ -98,7 +98,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/storage/photo_album/ntc(src)
 	new /obj/item/storage/lockbox/medal/ntc(src)
-	new /obj/item/bedsheet/nanotrasen(src)
+	new /obj/item/bedsheet/ntc(src)
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/briefcase/central_command(src)
 	new /obj/item/camera_film(src)
@@ -263,6 +263,22 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/job_management,
 	)
+
+/obj/item/bedsheet/ntc
+	name = "nanotrasen consultant's bedsheet"
+	desc = "Woven with advanced nanothread for warmth as well as being very decorated, essential for one of Nanotrasen's finest."
+	icon = 'modular_zzplurt/icons/obj/bedsheets.dmi'
+	lefthand_file = 'modular_zzplurt/icons/mob/inhands/misc/bedsheet_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/icons/mob/inhands/misc/bedsheet_righthand.dmi'
+	slot_flags = null // I CAN'T FIX THE MOB SPRITE, HELP.
+	icon_state = "sheetntc"
+	inhand_icon_state = "sheetntc"
+	dream_messages = list("HoS abusing his powers", "reprimanding an assistant", "expensive champagne", "a golden N", "ultimate power", "the nanotrasen consultant")
+
+/obj/item/bedsheet/ntc/double
+	icon_state = "double_sheetntc"
+	worn_icon_state = "sheetntc"
+	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/folder/nanotrasen
 	name = "folder"
