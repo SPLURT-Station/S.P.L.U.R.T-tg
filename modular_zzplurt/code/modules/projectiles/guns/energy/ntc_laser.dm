@@ -1,6 +1,11 @@
 /obj/item/gun/energy/e_gun/asterion
-	name = "\improper NT 'Asterion' Personal Defense E-Pistol"
-	desc = "A unique, and compact energy pistol with a sleek design referencing the more famous Antique laser gun, all you're missing is the hellfire lasers and cool engravings! It's similar frame to the Antique makes it easier to carry. One of the alternate models that was mass-produced, usually administered to Nanotrasen Executives. Proves to be very efficient with two settings: disable and kill."
+	name = "\improper NTX-9 \"Asterion\" Executive Energy Sidearm"
+	desc = "A refined but cost-conscious alternative to the Captain's Antique, the NTX-9 \"Asterion\" is an executive-grade \
+		energy pistol designed for prestige without excess. It features a dual-mode emitter for disable and lethal discharges, \
+		housed in a streamlined frame with subtle gold accents and a polished wooden grip. While lacking the handcrafted complexity of \
+		its inspiration, the Asterion maintains dependable performance and a distinctly authoritative presence. As far as you know though, \
+		it's basically the same as a standard-issue energy gun, aside from the compact frame. It would've been too expensive to afford to \
+		distribute hellfire into each and every mass-produced model of this line of weaponry."
 	icon = 'modular_zzplurt/icons/obj/guns/ntc_gun.dmi'
 	icon_state = "asterion"
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
@@ -11,6 +16,21 @@
 
 /obj/item/gun/energy/e_gun/asterion/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/obj/item/gun/energy/e_gun/asterion/examine(mob/user)
+	. = ..()
+	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
+
+/obj/item/gun/energy/e_gun/asterion/examine_more(mob/user)
+	. = ..()
+
+	. += "The NTX-9 \"Asterion\" was introduced after internal demand grew for a weapon that captured the prestige of the Captain's Antique \
+		without the cost or rarity. Nanotrasen's solution was to replicate the aesthetic and functionality in a more scalable \
+		design, using modern manufacturing instead of artisanal methods. Though some captains quietly mock it as a \"boardroom replica\", \
+		the Asterion has become a common sight among executives, valued not just as a weapon, but as a symbol that authority can be \
+		standardized, packaged, and issued on demand."
+
+	return .
 
 /obj/item/gun/energy/pulse/pistol/m1911
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
