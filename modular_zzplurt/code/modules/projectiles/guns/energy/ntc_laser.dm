@@ -1,5 +1,5 @@
 /obj/item/gun/energy/e_gun/asterion
-	name = "\improper NTX-9 \"Asterion\" Executive Energy Sidearm"
+	name = "\improper NTX-9 \"Asterion\" Executive Energy Pistol"
 	desc = "A refined but cost-conscious alternative to the Captain's Antique, the NTX-9 \"Asterion\" is an executive-grade \
 		energy pistol designed for prestige without excess. It features a dual-mode emitter for disable and lethal discharges, \
 		housed in a streamlined frame with subtle gold accents and a polished wooden grip. While lacking the handcrafted complexity of \
