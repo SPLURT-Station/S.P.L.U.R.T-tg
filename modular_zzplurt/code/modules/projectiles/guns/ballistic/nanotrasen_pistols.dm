@@ -1,42 +1,45 @@
-/obj/item/gun/ballistic/automatic/pistol/directive
-	name = "\improper NTX-925E \"Directive\" Executive Pistol"
-	desc = "The NTX-925E \"Directive\" is a refined, high-velocity sidearm tailored for \
-		precision and reliability. Standard-issue for executive officers operating outside secure \
-		installations, it balances manageable recoil with superior penetration and accuracy, making \
-		it ideal for controlled engagements, chambered in 9x25mm."
+/obj/item/gun/ballistic/automatic/pistol/viceroy
+	name = "\improper NTX-12 \"Viceroy\" Executive Pistol"
+	desc = "A premium sidearm issued exclusively to high-ranking Nanotrasen executives, \
+		the NTX-12 \"Viceroy\" is designed for both personal defense and quiet authority, \
+		the Viceroy combines compact ergonomics with reinforced internal systems capable of \
+		handling its unusually powerful round. Chambered in 9x25mm MK.12. Its angular slide \
+		and dense barrel assembly reflect its purpose: controlled, decisive force in the hands \
+		of those who command it. A polished polymer grip with embedded smart-sensor nodes ensures \
+		user-specific recoil compensation, making it both secure and effortless to wield."
 	icon = 'modular_zzplurt/icons/obj/guns/48x32_nt_guns.dmi'
-	icon_state = "directive"
+	icon_state = "viceroy"
 	w_class = WEIGHT_CLASS_NORMAL
-	accepted_magazine_type = /obj/item/ammo_box/magazine/directive
+	accepted_magazine_type = /obj/item/ammo_box/magazine/viceroy
 	can_suppress = FALSE
-	recoil = 0.3
+	recoil = 0.2
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
 
-/obj/item/gun/ballistic/automatic/pistol/directive/give_manufacturer_examine()
+/obj/item/gun/ballistic/automatic/pistol/viceroy/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
-/obj/item/gun/ballistic/automatic/pistol/directive/examine(mob/user)
+/obj/item/gun/ballistic/automatic/pistol/viceroy/examine(mob/user)
 	. = ..()
 	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
 
-/obj/item/gun/ballistic/automatic/pistol/directive/examine_more(mob/user)
+/obj/item/gun/ballistic/automatic/pistol/viceroy/examine_more(mob/user)
 	. = ..()
 
-	. += "The Directive was introduced as a practical counterpart to heavier executive weapons, \
-		emphasizing efficiency and control. It is commonly favored by officers who prioritize situational \
-		awareness and measured response over brute force. Its modular design allows integration with \
-		corporate-standard smart targeting systems and biometric locks."
+	. += "The NTX-12 \"Viceroy\" was commissioned following a series of high-profile security \
+	breaches targeting Nanotrasen's upper management aboard deep-space installations. Standard-issue \
+	sidearms were deemed insufficient—not due to lack of lethality, but due to a failure in presence. \
+	Executives needed something that was not only effective, but symbolic. And then the Viceroy was created."
 
 	return .
 
-/obj/item/storage/toolbox/guncase/skyrat/pistol/directive
-	name = "\improper NTX-925E \"Directive\" Executive Pistol case"
+/obj/item/storage/toolbox/guncase/skyrat/pistol/viceroy
+	name = "\improper NTX-12 \"Viceroy\" Executive Pistol case"
 
-/obj/item/storage/toolbox/guncase/skyrat/pistol/directive/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol/directive(src)
-	new /obj/item/ammo_box/magazine/directive(src)
-	new /obj/item/ammo_box/magazine/directive(src)
-	new /obj/item/ammo_box/magazine/directive(src)
+/obj/item/storage/toolbox/guncase/skyrat/pistol/viceroy/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pistol/viceroy(src)
+	new /obj/item/ammo_box/magazine/viceroy(src)
+	new /obj/item/ammo_box/magazine/viceroy(src)
+	new /obj/item/ammo_box/magazine/viceroy(src)
