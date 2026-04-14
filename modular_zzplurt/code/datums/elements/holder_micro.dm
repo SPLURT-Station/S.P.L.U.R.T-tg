@@ -176,24 +176,33 @@
 		switch(resolve_intent_name(user))
 			if("harm") //TO:DO, rework all of these interactions to be a lot more in depth
 				user.visible_message(span_danger("[user] slams their fist down on [M]!"),
-								span_danger("You slam your fist down on [M]!")) // Have to use a seperate call for "user" since "M" is invisible to bystanders
-				M.visible_message(span_danger("[user] slams their fist down on [M]!"),
-								span_userdanger("[user] slams their fist down on you!"))
+								span_danger("You slam your fist down on [M]!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] slams their fist down on you!")) // Seems I was wrong, I can do better
 				playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)
 				M.adjust_brute_loss(5)
 			if("disarm")
 
 				user.visible_message(span_danger("[user] pins [M] down with a finger!"),
-								span_danger("You pin [M] down with a finger!"))
-				M.visible_message(span_danger("[user] pins [M] down with a finger!"),
-								span_userdanger("[user] pins you down with a finger!"))
+								span_danger("You pin [M] down with a finger!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] pins you down with a finger!"))
 				playsound(loc, 'sound/effects/bodyfall/bodyfall1.ogg', 50, 1)
 				M.adjust_stamina_loss(10)
 			if("grab")
 				user.visible_message(span_danger("[user] squeezes their fist around [M]!"),
-								span_danger("You squeeze your fist around [M]!"))
-				M.visible_message(span_danger("[user] squeezes their fist around [M]!"),
-								span_userdanger("[user] squeezes their fist around you!"))
+								span_danger("You squeeze your fist around [M]!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] squeezes their fist around you!"))
 				playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, 1)
 				M.adjust_oxy_loss(5)
 			else
