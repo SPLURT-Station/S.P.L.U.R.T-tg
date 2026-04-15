@@ -1,3 +1,25 @@
+/proc/apply_corpse_rank_name(mob/living/carbon/human/H, rank_abbr)
+	if(!H)
+		return
+
+	var/original_name = H.real_name
+
+	// Prevent double-prefixing
+	if(findtext(original_name, rank_abbr) == 1)
+		return
+
+	var/new_name = "[rank_abbr] [original_name]"
+
+	// Update character name
+	H.fully_replace_character_name(original_name, new_name)
+
+	// Sync ID
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = new_name
+		W.update_label()
+		W.update_icon()
+
 /obj/effect/mob_spawn/corpse/human/privatesecurity
 	name = "Nanotrasen Private Security Private"
 	outfit = /datum/outfit/nanotrasenprivate
@@ -16,15 +38,13 @@
 	id_trim = /datum/id_trim/centcom/corpse/private_security/pvt
 	accessory = /obj/item/clothing/accessory/rank/private
 	implants = list(/obj/item/implant/mindshield)
+	accessory = /obj/item/clothing/accessory/rank/private
 
 /datum/outfit/nanotrasenprivate/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	apply_corpse_rank_name(H, "Pvt.")
 
 /datum/outfit/nanotrasenprivate/pre_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -68,15 +88,13 @@
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpl
 	implants = list(/obj/item/implant/mindshield)
+	accessory = /obj/item/clothing/accessory/rank/corporal
 
 /datum/outfit/nanotrasencorporal/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	apply_corpse_rank_name(H, "Cpl.")
 
 /datum/outfit/nanotrasencorporal/pre_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -112,15 +130,13 @@
 	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/centcom/corpse/private_security/sgt
 	implants = list(/obj/item/implant/mindshield)
+	accessory = /obj/item/clothing/accessory/rank/sergeant
 
 /datum/outfit/nanotrasensergeant/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	apply_corpse_rank_name(H, "Sgt.")
 
 /datum/outfit/nanotrasensergeant/pre_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -157,15 +173,23 @@
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpt
 	implants = list(/obj/item/implant/mindshield)
+	accessory = /obj/item/clothing/accessory/rank/officer/captain
 
 /datum/outfit/nanotrasencaptain/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	apply_corpse_rank_name(H, "Cpt.")
+
+/datum/outfit/nanotrasencaptain/pre_equip(mob/living/carbon/human/H)
+	. = ..()
+
+	head = pick(list(
+		/obj/item/clothing/head/beret/sec/ntps/captain,
+		/obj/item/clothing/head/hats/hos/cap/captain
+	))
+
+	return ..()
 
 /datum/id_trim/centcom/corpse/private_security/cpt
 	assignment = JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN
