@@ -294,11 +294,14 @@
 
 	var/has_taser_bulwark = FALSE
 
-	if(istype(H.l_hand, /obj/item/gun/ballistic/automatic/bulwark/taser))
-		has_taser_bulwark = TRUE
+	// Check both hands
+	for(var/obj/item/I in H.get_equipped_items())
+		if(istype(I, /obj/item/gun/ballistic/automatic/bulwark/taser))
+			has_taser_bulwark = TRUE
+			break
 
-	for(var/obj/item/storage/backpack/B in H.contents)
-		for(var/obj/item/gun/energy/e_gun/advtaser/T in B.contents)
+	if(has_taser_bulwark)
+		for(var/obj/item/gun/energy/e_gun/advtaser/T in H.contents)
 			qdel(T)
 
 	return ..()
