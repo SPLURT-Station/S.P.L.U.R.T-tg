@@ -257,7 +257,6 @@
 		/obj/item/gun/energy/e_gun/advtaser = 1,\
 		/obj/item/ammo_box/magazine/c68 = 3,\
 		/obj/item/shield/riot/tele = 1,\
-		/obj/item/suppressor = 1,\
 		/obj/item/melee/baton/telescopic/gold = 1,
 		)
 
@@ -276,6 +275,7 @@
 	l_hand = pick(list(
 		/obj/item/gun/ballistic/automatic/bulwark/loyalpin,
 		/obj/item/gun/ballistic/automatic/bulwark/loyalpin,
+		/obj/item/gun/ballistic/automatic/bulwark/suppressed/loyalpin,
 		/obj/item/gun/ballistic/automatic/bulwark/taser/loyalpin
 	))
 
@@ -458,6 +458,14 @@
 	pin = /obj/item/firing_pin/implant/mindshield
 
 /obj/item/gun/ballistic/automatic/bulwark/loyalpin
+	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/ballistic/automatic/bulwark/suppressed/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/S = new(src)
+	install_suppressor(S)
+
+/obj/item/gun/ballistic/automatic/bulwark/suppressed/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield
 
 /obj/item/gun/ballistic/automatic/bulwark/taser/loyalpin
