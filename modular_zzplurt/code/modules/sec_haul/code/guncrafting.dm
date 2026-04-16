@@ -17,7 +17,7 @@
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/assault_laser
-	name = "Assault Laser Rifle Kit"
+	name = "Assault Laser Rifle"
 	result = /obj/item/gun/energy/laser/assault/security
 	reqs = list(
 		/obj/item/weaponcrafting/gunkit/assault_laser= 1,
