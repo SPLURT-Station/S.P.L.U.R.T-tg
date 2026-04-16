@@ -26,7 +26,7 @@
 
 /obj/item/gun/ballistic/automatic/bulwark/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.22 SECONDS)
+	AddComponent(/datum/component/automatic_fire, 0.25 SECONDS)
 
 /obj/item/gun/ballistic/automatic/bulwark/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
