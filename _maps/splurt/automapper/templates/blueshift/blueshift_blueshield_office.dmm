@@ -107,6 +107,7 @@
 "mJ" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "mV" = (
@@ -164,16 +165,8 @@
 "sq" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/firealarm/directional/east,
-/turf/open/floor/iron/dark/diagonal,
-/area/station/command/heads_quarters/blueshield)
-"sM" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/hedge,
-/obj/structure/sign/picture_frame/showroom/four{
-	pixel_y = -33
-	},
-/turf/open/floor/wood/parquet,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "tp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/end{
@@ -424,6 +417,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "Ph" = (
@@ -439,6 +433,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "RT" = (
@@ -472,6 +467,7 @@
 	name = "Blueshield's Armory"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "Th" = (
@@ -656,7 +652,7 @@ zj
 CQ
 NJ
 hi
-sM
+ow
 "}
 (13,1,1) = {"
 FA
