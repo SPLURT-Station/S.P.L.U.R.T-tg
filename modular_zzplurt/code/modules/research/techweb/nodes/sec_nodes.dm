@@ -9,3 +9,7 @@
 /datum/techweb_node/ballistic/New()
 	design_ids += "wt458_kit"
 	. = ..()
+
+/datum/techweb_node/beam_weapons/New()
+	design_ids += "assault_laser_kit"
+	. = ..()

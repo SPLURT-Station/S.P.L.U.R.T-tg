@@ -99,3 +99,16 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	autolathe_exportable = FALSE
+
+/datum/design/assault_laser_kit
+	name = "Assault Laser Rifle Conversion Kit (Very Lethal)"
+	desc = "Turn your fully automatic gun into a 2 round burst-firing gun."
+	id = "assault_laser_kit"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,  /datum/material/uranium =SHEET_MATERIAL_AMOUNT * 20, /datum/material/titanium =HALF_SHEET_MATERIAL_AMOUNT * 8, /datum/material/gold =HALF_SHEET_MATERIAL_AMOUNT * 5)
+	build_path = /obj/item/weaponcrafting/gunkit/assault_laser
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_KITS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+	autolathe_exportable = FALSE
