@@ -21,7 +21,7 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/ears.dmi'
 	icon_state = "bshield_headset"
 	worn_icon_state = "bshield_headset"
-	keyslot = /obj/item/encryptionkey/blueshield // SPLURT EDIT
+	keyslot = /obj/item/encryptionkey/heads/blueshield
 	keyslot2 = /obj/item/encryptionkey/headset_cent
 
 /obj/item/radio/headset/headset_bs/alt
