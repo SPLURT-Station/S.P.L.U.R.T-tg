@@ -8,8 +8,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
-	description = "Represent Nanotrasen on the station, argue with the HoS about \
-		why he can't just field execute people for petty theft, get drunk in your office."
+	description = "Represent Nanotrasen on the station, inform people about SOP, and Space Law. Command your \
+		Crew Trainers to efficiently train crew, step into security and command issues as seen fit to resolve them. \
+		Be the HR you always wanted to be. Sit in your office and get drunk."
 	department_head = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list("Internal Affairs")
