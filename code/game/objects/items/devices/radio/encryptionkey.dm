@@ -264,7 +264,6 @@
 	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	channels = list(
 		RADIO_CHANNEL_COMMAND = 1,
-		RADIO_CHANNEL_IAA = 1, // Splurt Addition
 		RADIO_CHANNEL_SECURITY = 1,
 		RADIO_CHANNEL_ENGINEERING = 1,
 		RADIO_CHANNEL_SCIENCE = 1,
