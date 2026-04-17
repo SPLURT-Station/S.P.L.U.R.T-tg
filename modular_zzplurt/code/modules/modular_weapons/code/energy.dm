@@ -5,15 +5,18 @@
 		Capable of firing standard energy bolts, alongside some stun electrodes, it prioritizes control over lethality. This particular model is \
 		a downgraded production variant of the original Tactical Energy Gun, assembled with lower-grade components—resulting in notably slow \
 		recharge times and reduced efficiency. While reliable enough for basic use, it struggles to keep pace in prolonged engagements."
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode/blueshield, /obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos)
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/blueshield, /obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos/blueshield)
 	cell_type = /obj/item/stock_parts/power_store/cell/hos_gun
 	charge_delay = 14
 	can_charge = FALSE // This is really one of the only ways it could count as balanced.
 	selfcharge = 1
 
 // Literally such a small change it can sit here.
-/obj/item/ammo_casing/energy/electrode/blueshield
+/obj/item/ammo_casing/energy/electrode/blueshield // Smaller taser capacity. Kinda need a balancing point here.
 	e_cost = LASER_SHOTS(6, STANDARD_CELL_CHARGE)
+
+/obj/item/ammo_casing/energy/laser/hos/blueshield
+	e_cost = LASER_SHOTS(16, STANDARD_CELL_CHARGE * 1.2) // It's not really pistol-sized.
 
 /obj/item/gun/energy/e_gun/stun/blueshield/balanced/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
