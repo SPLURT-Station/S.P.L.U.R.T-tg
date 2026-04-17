@@ -188,6 +188,26 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	icon_living = "centfox"
 	icon_dead = "centfox_dead"
 	faction = list(FACTION_NEUTRAL)
+	unique_pet = TRUE
+	///list of our pet commands we follow
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/move,
+		/datum/pet_command/free,
+		/datum/pet_command/follow/start_active,
+		/datum/pet_command/attack,
+		/datum/pet_command/perform_trick_sequence,
+	)
+
+/mob/living/basic/pet/syndifox/centfox/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	AddElement(/datum/element/cultist_pet)
+	AddElement(/datum/element/wears_collar)
+	AddElement(/datum/element/pet_bonus, "yap")
+	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
+	AddElement(/datum/element/tiny_mob_hunter, MOB_SIZE_SMALL)
+	AddElement(/datum/element/ai_retaliate)
 
 /obj/effect/spawner/random/ntc_pet
 	name = "NT Consultant pet spawner"
