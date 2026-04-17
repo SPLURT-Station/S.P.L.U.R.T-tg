@@ -17,6 +17,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "e" = (
@@ -162,13 +163,10 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/newscaster/directional/south,
+/obj/effect/spawner/random/ntc_pet,
+/obj/structure/bed/dogbed/luxury,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "E" = (

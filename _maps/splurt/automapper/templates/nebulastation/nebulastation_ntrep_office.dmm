@@ -28,6 +28,7 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "bs" = (
@@ -61,7 +62,7 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/item/radio/intercom/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "bE" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -116,7 +117,7 @@
 	},
 /obj/structure/sign/poster/official/enlist/directional/south,
 /obj/machinery/camera/autoname/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "fd" = (
 /obj/structure/cable,
@@ -360,7 +361,7 @@
 	dir = 8;
 	color = "#462f1c"
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "xx" = (
 /obj/effect/turf_decal/siding/wood/end{
@@ -432,7 +433,7 @@
 	req_access = list("cent_general")
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "CS" = (
 /obj/machinery/modular_computer/preset/command{
@@ -561,7 +562,7 @@
 	dir = 4;
 	color = "#462f1c"
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "YG" = (
 /obj/effect/turf_decal/siding/wood{
@@ -569,11 +570,8 @@
 	},
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/machinery/newscaster/directional/west,
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
+/obj/effect/spawner/random/ntc_pet,
+/obj/structure/bed/dogbed/luxury,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Zd" = (
@@ -587,7 +585,7 @@
 	pixel_y = 3
 	},
 /obj/item/folder/nanotrasen,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "ZD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

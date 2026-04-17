@@ -137,11 +137,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
+/obj/effect/spawner/random/ntc_pet,
+/obj/structure/bed/dogbed/luxury,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "s" = (
@@ -258,6 +255,7 @@
 /obj/structure/cable,
 /obj/machinery/holopad,
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (

@@ -93,14 +93,11 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "l" = (
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
+/obj/effect/spawner/random/ntc_pet,
+/obj/structure/bed/dogbed/luxury,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "m" = (
@@ -164,6 +161,7 @@
 	dir = 1
 	},
 /obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "s" = (

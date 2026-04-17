@@ -165,8 +165,36 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	colour = "#0d5374"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
 
+/obj/structure/bed/dogbed/luxury
+	name = "luxury dog bed"
+	desc = "A extremely luxurious imported mahogany wooden dog bed with a very soft comfy-looking cloth pillow. You can even strap your pet in, in case the gravity turns off."
+	icon = 'modular_zzplurt/icons/obj/bed.dmi'
+	icon_state = "luxury_dogbed"
+	anchored = TRUE
+
 /mob/living/basic/pet/dog/corgi/lisa
 	icon = 'modular_zzplurt/icons/mob/pets.dmi'
+
+/mob/living/basic/pet/syndifox/centfox
+	name = "Cent-Fox"
+	real_name = "Cent-Fox"
+	gold_core_spawnable = NO_SPAWN
+	ai_controller = /datum/ai_controller/basic_controller/fox
+	desc = "It's a Nanotrasen Robotics Division (TM) AuriFox robotic model made out of pure gold wearing a microsized Corporate MODsuit and a cute little cap. How fancy! \
+		Don't tell anyone, but this was the result of Nanotrasen wanting the same kinda robotic buddy Syndicate had, so they just copied them, a cheap method."
+	icon = 'modular_zzplurt/icons/mob/pets.dmi'
+	icon_state = "centfox"
+	icon_living = "centfox"
+	icon_dead = "centfox_dead"
+	faction = list(FACTION_NEUTRAL)
+
+/obj/effect/spawner/random/ntc_pet
+	name = "NT Consultant pet spawner"
+	desc = "D'awww!"
+	loot = list(
+		/mob/living/basic/pet/syndifox/centfox = 1,
+		/mob/living/basic/pet/dog/corgi/lisa = 1,
+	)
 
 /obj/item/clothing/accessory/bubber/acc_medal/neckpin/nanotrasen
 	name = "\improper Nanotrasen Executive neckpin"
@@ -303,7 +331,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	return
 
 /obj/item/folder/biscuit/confidential/ntc_safe_code
-	name = "Nanotrasen Internal Affairs safe combination biscuit card"
+	name = "Nanotrasen internal affairs safe combination biscuit card"
 	contained_slip = /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code
 
 /obj/item/paper/paperslip/corporate/fluff/ntc_safe_code

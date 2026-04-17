@@ -12,7 +12,7 @@
 	dir = 1
 	},
 /obj/structure/sign/poster/official/enlist/directional/east,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
 /obj/structure/chair/office{
@@ -60,7 +60,7 @@
 	color = "#462f1c";
 	dir = 1
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
 /obj/structure/table/wood,
@@ -140,6 +140,7 @@
 	},
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "t" = (
@@ -157,7 +158,7 @@
 /obj/effect/spawner/random/bureaucracy/folder{
 	spawn_random_offset = 1
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "v" = (
 /obj/effect/turf_decal/siding/wood{
@@ -174,11 +175,8 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
 	},
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
+/obj/structure/bed/dogbed/luxury,
+/obj/effect/spawner/random/ntc_pet,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
@@ -194,7 +192,7 @@
 	color = "#462f1c"
 	},
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
 /obj/effect/turf_decal/siding/wood{
@@ -308,7 +306,7 @@
 	color = "#462f1c"
 	},
 /obj/item/radio/intercom/directional/north,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
 /obj/effect/turf_decal/siding/wood{
@@ -332,7 +330,7 @@
 	req_access = list("cent_general");
 	pixel_x = 32
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
 /obj/machinery/light/directional/south,

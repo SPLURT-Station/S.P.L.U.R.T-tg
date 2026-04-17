@@ -80,14 +80,11 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "g" = (
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
+/obj/effect/spawner/random/ntc_pet,
+/obj/structure/bed/dogbed/luxury,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
@@ -270,7 +267,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "C" = (
-/obj/machinery/light/warm/dim/directional/west,
 /obj/structure/hedge,
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -301,6 +297,7 @@
 /obj/machinery/vending/boozeomat,
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/light/warm/dim/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
@@ -341,6 +338,7 @@
 	fax_name = "Nanotrasen Consultant's Office";
 	name = "Nanotrasen Consultant's Fax Machine"
 	},
+/obj/machinery/light/warm/dim/directional/north,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -402,6 +400,7 @@
 	pixel_y = 2
 	},
 /obj/structure/sign/calendar/directional/north,
+/obj/machinery/light/warm/dim/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "X" = (
