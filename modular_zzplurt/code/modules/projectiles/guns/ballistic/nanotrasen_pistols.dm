@@ -3,7 +3,7 @@
 	desc = "A premium sidearm issued exclusively to high-ranking Nanotrasen executives, \
 		the NTX-12 \"Viceroy\" is designed for both personal defense and quiet authority, \
 		the Viceroy combines compact ergonomics with reinforced internal systems capable of \
-		handling its unusually powerful round. Chambered in 9x25mm MK.12. Its angular slide \
+		handling its unusually powerful round. Chambered in 9x25mm Mk.12. Its angular slide \
 		and dense barrel assembly reflect its purpose: controlled, decisive force in the hands \
 		of those who command it. A polished polymer grip with embedded smart-sensor nodes ensures \
 		user-specific recoil compensation, making it both secure and effortless to wield."
@@ -12,8 +12,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/viceroy
 	can_suppress = FALSE
-	recoil = 0.2
-	fire_delay = 0.1 // fuck if I know if this changes anything.
+	recoil = 0.25
+	fire_delay = 0.15 // fuck if I know if this changes anything.
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
