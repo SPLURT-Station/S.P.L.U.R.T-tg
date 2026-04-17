@@ -36,7 +36,42 @@
 	base_icon_state = "smg9x17mmR"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/rubber
 
+// M45A5 MAGAZINES
+
+/obj/item/ammo_box/magazine/m45a5
+	name = "\improper M45A5 pistol magazine (.460 Rowland Magnum)"
+	desc = "A magazine for the M45A5 chambered in .460 Rowland, holds ten rounds."
+	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
+	icon_state = "rowlandmodular"
+	base_icon_state = "rowlandmodular"
+	ammo_type = /obj/item/ammo_casing/c460rowland
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	multiple_sprite_use_base = TRUE
+	caliber = CALIBER_460ROWLAND
+	max_ammo = 10
+	multitype = FALSE
+
+/obj/item/ammo_box/magazine/m45a5/ap
+	name = "\improper M45A5 pistol magazine (.460 Rowland Magnum AP)"
+	ammo_type = /obj/item/ammo_casing/c460rowland/ap
+
+// VICEROY MAGAZINES
+
+/obj/item/ammo_box/magazine/viceroy
+	name = "NTX-12 pistol magazine (9x25mm Mk.12)"
+	desc = "A standard 9x25mm Mk.12 magazine for the NTX-12 \"Viceroy\", contains 12 bullets."
+	icon = 'modular_zzplurt/icons/obj/guns/ammo.dmi'
+	icon_state = "viceroy_mag"
+	base_icon_state = "viceroy_mag"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	multiple_sprite_use_base = TRUE
+	caliber = CALIBER_9MM
+	max_ammo = 12
+	multitype = FALSE
+
 // MP-S5 VIG CASINGS
+
 /obj/item/ammo_casing/c9x17mm
 	name = "9x17mm bullet casing"
 	desc = "A 9x17mm bullet casing."
@@ -57,16 +92,36 @@
 	advanced_print_req = TRUE
 
 /obj/item/ammo_casing/c9x17mm/ihdf
-	name = "9x17mm IHDF casing"
+	name = "9x17mm IHDF bullet casing"
 	desc = "A 9x17mm bullet casing. This one fires a bullet of 'Intelligent High-Impact Dispersal Foam', which is best compared to a riot-grade foam dart."
 	projectile_type = /obj/projectile/bullet/c9x17mm/ihdf
 	harmful = FALSE
 
 /obj/item/ammo_casing/c9x17mm/rubber
-	name = "9x17mm rubber casing"
+	name = "9x17mm rubber bullet casing"
 	desc = "A 9x17mm bullet casing. This less than lethal round sure hurts to get shot by, but causes little physical harm."
 	projectile_type = /obj/projectile/bullet/c9x17mm/rubber
 	harmful = FALSE
+
+// M45A5 CASINGS
+
+/obj/item/ammo_casing/c460rowland
+	name = ".460 Rowland Magnum bullet casing"
+	desc = "A .460 Rowland Magnum bullet casing."
+	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
+	icon_state = "sl-casing"
+	projectile_type = /obj/projectile/bullet/c460rowland
+	caliber = CALIBER_460ROWLAND
+	advanced_print_req = TRUE
+
+/obj/item/ammo_casing/c460rowland/ap
+	name = ".460 Rowland Magnum armor-piercing bullet casing"
+	desc = "A .460 Rowland Magnum bullet casing. This one fires an armor-piercing projectile."
+	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
+	icon_state = "sr-casing"
+	projectile_type = /obj/projectile/bullet/c460rowland/ap
+	custom_materials = AMMO_MATS_AP
+	advanced_print_req = TRUE
 
 // MP-S5 VIG PROJECTILES
 /obj/projectile/bullet/c9x17mm
@@ -116,6 +171,27 @@
 	shrapnel_type = null
 	sharpness = NONE
 	embed_type = null
+
+// M45A5 PROJECTILES
+
+/obj/projectile/bullet/c460rowland
+	name = ".460 Rowland Magnum bullet"
+	damage = 35
+	stamina = 15 //knock the winds outta ya
+	wound_bonus = -35
+	bare_wound_bonus = -60
+	stamina_falloff_tile = 0.3
+
+/obj/projectile/bullet/c460rowland/ap
+	name = ".460 Rowland Magnum armor-piercing bullet"
+	damage = 25
+	wound_bonus = -50
+	bare_wound_bonus = -10
+	armour_penetration = 40
+	damage_falloff_tile = 0
+	stamina_falloff_tile = 0
+	embed_type = null
+	shrapnel_type = null
 
 //WT550 4.6x30mm Override
 /obj/projectile/bullet/c46x30mm

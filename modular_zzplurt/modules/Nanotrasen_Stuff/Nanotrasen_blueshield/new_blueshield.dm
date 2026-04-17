@@ -59,8 +59,11 @@
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
 	belt = /obj/item/modular_computer/pda/blueshield
-	suit_store = /obj/item/gun/energy/e_gun/blueshield
+	suit_store = null
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom
+	backpack_contents = list(
+		/obj/item/choice_beacon/blueshield
+		)
 
 	id_trim = /datum/id_trim/job/blueshield
 
