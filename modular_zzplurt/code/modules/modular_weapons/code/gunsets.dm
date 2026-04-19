@@ -11,9 +11,9 @@
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m1911_gold/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/pistol/m1911/gold(src)
-	new /obj/item/ammo_box/c45(src)
-	new /obj/item/ammo_box/c45(src)
-	new /obj/item/ammo_box/c45(src)
+	new /obj/item/ammo_box/magazine/m45(src)
+	new /obj/item/ammo_box/magazine/m45(src)
+	new /obj/item/ammo_box/magazine/m45(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m45a5
 	name = "M45A5 \"Goliath\" Heavy Service Pistol gun case"

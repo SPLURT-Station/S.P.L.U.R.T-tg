@@ -39,7 +39,7 @@
 // M45A5 MAGAZINES
 
 /obj/item/ammo_box/magazine/m45a5
-	name = "\improper M45A5 pistol magazine (.460 Rowland Magnum)"
+	name = "\improper M45A5 pistol magazine (.460 Rowland)"
 	desc = "A magazine for the M45A5 chambered in .460 Rowland, holds ten rounds."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
 	icon_state = "rowlandmodular"
@@ -52,7 +52,7 @@
 	multitype = FALSE
 
 /obj/item/ammo_box/magazine/m45a5/ap
-	name = "\improper M45A5 pistol magazine (.460 Rowland Magnum AP)"
+	name = "\improper M45A5 pistol magazine (.460 Rowland AP)"
 	ammo_type = /obj/item/ammo_casing/c460rowland/ap
 
 // VICEROY MAGAZINES
@@ -106,8 +106,8 @@
 // M45A5 CASINGS
 
 /obj/item/ammo_casing/c460rowland
-	name = ".460 Rowland Magnum bullet casing"
-	desc = "A .460 Rowland Magnum bullet casing."
+	name = ".460 Rowland bullet casing"
+	desc = "A .460 Rowland bullet casing."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
 	icon_state = "sl-casing"
 	projectile_type = /obj/projectile/bullet/c460rowland
@@ -115,8 +115,8 @@
 	advanced_print_req = TRUE
 
 /obj/item/ammo_casing/c460rowland/ap
-	name = ".460 Rowland Magnum armor-piercing bullet casing"
-	desc = "A .460 Rowland Magnum bullet casing. This one fires an armor-piercing projectile."
+	name = ".460 Rowland armor-piercing bullet casing"
+	desc = "A .460 Rowland bullet casing. This one fires an armor-piercing projectile."
 	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/romulus_technology/ammo.dmi'
 	icon_state = "sr-casing"
 	projectile_type = /obj/projectile/bullet/c460rowland/ap
@@ -175,16 +175,16 @@
 // M45A5 PROJECTILES
 
 /obj/projectile/bullet/c460rowland
-	name = ".460 Rowland Magnum bullet"
-	damage = 35
+	name = ".460 Rowland bullet"
+	damage = 40
 	stamina = 15 //knock the winds outta ya
-	wound_bonus = -35
+	wound_bonus = -15
 	stamina_falloff_tile = 0.3
 
 /obj/projectile/bullet/c460rowland/ap
-	name = ".460 Rowland Magnum armor-piercing bullet"
-	damage = 25
-	wound_bonus = -50
+	name = ".460 Rowland armor-piercing bullet"
+	damage = 30
+	wound_bonus = -35
 	armour_penetration = 40
 	damage_falloff_tile = 0
 	stamina_falloff_tile = 0

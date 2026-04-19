@@ -7,7 +7,7 @@
 		recharge times and reduced efficiency. While reliable enough for basic use, it struggles to keep pace in prolonged engagements."
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/blueshield, /obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos/blueshield)
 	cell_type = /obj/item/stock_parts/power_store/cell/hos_gun
-	charge_delay = 14
+	charge_delay = 11
 	can_charge = FALSE // This is really one of the only ways it could count as balanced.
 	selfcharge = 1
 

@@ -2,4 +2,4 @@
 #define CALIBER_9X17MM "9x17mm"
 
 // M45A5 caliber.
-#define CALIBER_460ROWLAND ".460 Rowland Magnum"
+#define CALIBER_460ROWLAND ".460 Rowland"

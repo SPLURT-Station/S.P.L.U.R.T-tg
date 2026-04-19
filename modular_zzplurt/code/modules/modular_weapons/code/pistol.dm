@@ -9,7 +9,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/m45a5
 	name = "M45A5 \"Goliath\" Heavy Service Pistol"
-	desc = "A large-frame, semi-automatic sidearm chambered in .460 Rowland Magnum, the M45A5 \"Goliath\" is built for sheer stopping power. \
+	desc = "A large-frame, semi-automatic sidearm chambered in .460 Rowland, the M45A5 \"Goliath\" is built for sheer stopping power. \
 		Its reinforced construction and high-pressure recoil system give it a profile reminiscent of old Desert Eagle-pattern pistols, delivering \
 		immense force at the cost of heavy recoil and limited practicality. Reliable and brutally effective, it excels at close-range to mid-range \
 		engagements where power matters more than finesse."
@@ -19,7 +19,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m45a5
 	can_suppress = FALSE
 	special_mags = TRUE
-	recoil = 3
+	recoil = 2.5
 	fire_delay = 1 SECONDS
 	force = 15
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_heavy.ogg'
