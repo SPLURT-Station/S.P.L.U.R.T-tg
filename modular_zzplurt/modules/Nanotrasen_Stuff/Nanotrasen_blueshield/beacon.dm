@@ -8,7 +8,7 @@
 /obj/item/choice_beacon/blueshield/generate_display_names()
 	var/static/list/selectable_gun_types = list(
 		"NT-EG \"Defender\" Energy Rifle" = /obj/item/gun/energy/e_gun/stun/blueshield/balanced,
-		"X-02 energy revolver" = /obj/item/gun/energy/e_gun/blueshield,
+		"NT-SR4 \"Aegis\" Energy Revolver" = /obj/item/gun/energy/e_gun/blueshield/balanced,
 		"M45A5 \"Goliath\" Heavy Service Pistol" = /obj/item/storage/toolbox/guncase/skyrat/pistol/m45a5
 	)
 
