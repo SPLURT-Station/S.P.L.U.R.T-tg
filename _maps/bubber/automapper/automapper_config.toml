@@ -556,12 +556,12 @@ required_map = "NebulaStation.dmm"
 coordinates = [91, 133, 2]
 trait_name = "Station"
 
-# Nebulastation NTR Office
-[templates.nebulastation_ntrep_office]
-map_files = ["nebulastation_ntrep_office.dmm"]
+# Nebulastation NTR + Blueshield Office
+[templates.nebulastation_ntrep_blueshield_office]
+map_files = ["nebulastation_ntrep_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
-coordinates = [110, 116, 2]
+coordinates = [110, 113, 2]
 trait_name = "Station"
 
 # Nebulastation Sauna
@@ -570,13 +570,6 @@ map_files = ["nebulastation_sauna.dmm"]
 directory = "_maps/bubber/automapper/templates/NebulaStation/"
 required_map = "NebulaStation.dmm"
 coordinates = [64, 108, 1]
-trait_name = "Station"
-
-[templates.nebulastation_blueshield_office]
-map_files = ["nebulastation_blueshield_office.dmm"]
-directory = "_maps/splurt/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [117, 113, 2]
 trait_name = "Station"
 
 # TRAMSTATION MAP EDITS
