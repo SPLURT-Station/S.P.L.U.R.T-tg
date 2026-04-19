@@ -40,7 +40,7 @@
 	name = "NT-SR4 \"Aegis\" Energy Revolver"
 	desc = "A Nanotrasen-issued energy revolver designed for Blueshield personnel. Uses a rotating capacitor system that slowly self-recharges \
 		between shots, ensuring consistent readiness without external power. Heavier than standard sidearms, with a reinforced frame suitable for \
-		close-quarters use. Cleanly marked and built to corporate standards.
+		close-quarters use. Cleanly marked and built to corporate standards."
 	charge_delay = 6
 
 /obj/item/gun/energy/e_gun/blueshield/balanced/give_manufacturer_examine()
