@@ -40,8 +40,8 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	ears = /obj/item/radio/headset/syndicateciv
-	head = /obj/item/clothing/head/helmet/swat/syndicate
-	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
+	head = /obj/item/clothing/head/beret/sec/syndicate_operative
+	mask = /obj/item/clothing/mask/gas/syndicate
 	back = /obj/item/storage/backpack/satchel/sec/redsec
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/operative

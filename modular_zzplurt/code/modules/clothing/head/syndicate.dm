@@ -30,6 +30,17 @@
 	icon_state = "syndicatesoft"
 	soft_type = "syndicate"
 
+/obj/item/clothing/head/beret/sec/syndicate_operative
+	name = "\improper syndicate operative's beret"
+	desc = "A suspicious black beret with a dark blood red badge on the front in the shape of The Syndicate's logo, how suspiciously tactical."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "syndicate_op_beret"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+
 /obj/item/clothing/head/helmet/swat/syndicate
 	name = "suspicious SWAT helmet"
 	desc = "A suspiciously black robust tactical helmet, it has a blood red stripe over the middle of the helmet with a light red visor."

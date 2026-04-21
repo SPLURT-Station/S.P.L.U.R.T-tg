@@ -556,6 +556,7 @@
 	network = list("vaulttango");
 	c_tag = "Central Hallway - Aft Port"
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "em" = (
@@ -583,25 +584,18 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "eE" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/dark_red/line{
-	dir = 8
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark_red/line{
-	dir = 4
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark_red,
-/obj/effect/turf_decal/trimline/dark_red,
-/obj/structure/cable,
-/obj/machinery/light/floor,
-/mob/living/basic/trooper/splurt/syndicate/ranged/assault,
+/mob/living/basic/viscerator,
 /turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango/hall)
+/area/ruin/space/has_grav/vaulttango)
 "eG" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/vaulttango/control)
@@ -822,10 +816,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango/hall)
 "gU" = (
-/obj/effect/turf_decal/sand,
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/basic/viscerator,
-/turf/open/floor/plating/rust,
+/turf/closed/mineral/random/high_chance,
 /area/ruin/unpowered)
 "ha" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1751,16 +1742,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango)
 "pn" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark_red/filled/end,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /mob/living/basic/viscerator,
-/turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango)
+/turf/template_noop,
+/area/ruin/space/solars/vaulttango/solars)
 "pp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -1883,11 +1869,23 @@
 "pX" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/vaulttango)
+"qe" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/mob/living/basic/trooper/splurt/syndicate/ranged/shotgun/assault,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "qh" = (
-/obj/structure/lattice,
-/mob/living/basic/viscerator,
-/turf/template_noop,
-/area/space/nearstation)
+/obj/effect/turf_decal/delivery/red,
+/obj/structure/filingcabinet,
+/obj/item/folder/syndicate/red,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/vaulttango)
 "qB" = (
 /obj/structure/lattice,
 /obj/structure/sign/flag/syndicate/directional/east,
@@ -2191,6 +2189,9 @@
 /obj/machinery/camera/directional/south{
 	network = list("vaulttango");
 	c_tag = "Central Hallway - Aft Starboard"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
@@ -2921,19 +2922,10 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "Am" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark_red/filled/end{
-	dir = 1
-	},
-/obj/structure/cable,
-/mob/living/basic/viscerator,
+/obj/effect/turf_decal/tile/dark_red/half/contrasted,
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango)
+/area/ruin/space/has_grav/vaulttango/hall)
 "Ar" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -3085,11 +3077,25 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "Bx" = (
-/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red,
+/obj/effect/turf_decal/trimline/dark_red,
 /obj/structure/cable,
-/mob/living/basic/viscerator,
-/turf/template_noop,
-/area/ruin/space/solars/vaulttango/solars)
+/obj/machinery/light/floor,
+/mob/living/basic/trooper/splurt/syndicate/ranged/assault,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "Bz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -3239,6 +3245,11 @@
 /mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
+"CI" = (
+/obj/structure/lattice,
+/mob/living/basic/viscerator,
+/turf/template_noop,
+/area/space/nearstation)
 "CM" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 4
@@ -3456,10 +3467,13 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/teleporter)
 "Ez" = (
-/obj/effect/turf_decal/delivery/red,
-/obj/structure/filingcabinet,
-/obj/item/folder/syndicate/red,
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line,
+/mob/living/basic/viscerator,
+/turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "EG" = (
 /obj/machinery/light_switch/directional/east,
@@ -3877,7 +3891,10 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "IG" = (
-/turf/closed/mineral/random/high_chance,
+/obj/effect/turf_decal/sand,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/viscerator,
+/turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "II" = (
 /obj/effect/turf_decal/trimline/dark_red,
@@ -4231,6 +4248,20 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered)
+"Ml" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/end{
+	dir = 1
+	},
+/obj/structure/cable,
+/mob/living/basic/viscerator,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango)
 "Mv" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 1
@@ -4363,15 +4394,13 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/control)
 "NQ" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/dark_red/filled/line{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/dark_red/filled/end,
 /mob/living/basic/viscerator,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
@@ -4416,14 +4445,16 @@
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "Ol" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
-	dir = 8
+/obj/effect/turf_decal/tile/dark_red/half/contrasted,
+/obj/machinery/porta_turret/syndicate/assaultops/shuttle{
+	pixel_y = -32;
+	dir = 1;
+	system_id = "vaulttango_turrets";
+	mode = 1
 	},
-/obj/effect/turf_decal/trimline/dark_red/filled/line,
-/mob/living/basic/viscerator,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango)
+/area/ruin/space/has_grav/vaulttango/hall)
 "Ox" = (
 /obj/item/stack/ore/iron{
 	pixel_y = -7;
@@ -4572,14 +4603,10 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/portsolar)
 "PN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 5
+/obj/effect/turf_decal/tile/dark_red/half/contrasted,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable,
-/mob/living/basic/trooper/splurt/syndicate/ranged/shotgun/assault,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "PR" = (
@@ -4587,9 +4614,9 @@
 /obj/structure/closet/crate/cargo{
 	anchored = 1
 	},
-/obj/effect/spawner/random/entertainment/money_medium,
-/obj/effect/spawner/random/entertainment/money_medium,
-/obj/effect/spawner/random/entertainment/money_medium,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "PS" = (
@@ -5781,10 +5808,10 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
 aZ
 aZ
 TZ
@@ -5811,7 +5838,7 @@ oQ
 aZ
 aZ
 zg
-gU
+IG
 ni
 Ad
 kN
@@ -5829,12 +5856,12 @@ aZ
 aZ
 aZ
 aZ
-IG
-IG
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
+gU
+gU
 aZ
 aZ
 TZ
@@ -5844,7 +5871,7 @@ kr
 LC
 LC
 LC
-Bx
+pn
 LC
 LC
 LC
@@ -5876,11 +5903,11 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
-IG
+gU
+gU
+gU
 aZ
-IG
+gU
 aZ
 aZ
 aZ
@@ -5925,8 +5952,8 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
+gU
+gU
 aZ
 aZ
 aZ
@@ -5973,9 +6000,9 @@ TZ
 TZ
 aZ
 aZ
-IG
-IG
-IG
+gU
+gU
+gU
 aZ
 aZ
 oQ
@@ -6022,7 +6049,7 @@ TZ
 TZ
 aZ
 aZ
-IG
+gU
 aZ
 aZ
 aZ
@@ -6044,7 +6071,7 @@ LC
 LC
 LC
 LC
-Bx
+pn
 LC
 kr
 mR
@@ -6071,7 +6098,7 @@ TZ
 TZ
 TZ
 aZ
-IG
+gU
 aZ
 aZ
 aZ
@@ -6738,7 +6765,7 @@ qZ
 YX
 sX
 sX
-Ri
+Ol
 Vf
 Vf
 wH
@@ -6787,7 +6814,7 @@ VB
 CU
 YX
 sX
-Ri
+PN
 Vf
 Rs
 Pk
@@ -7022,7 +7049,7 @@ JB
 oS
 oK
 uY
-Ez
+qh
 Uf
 JM
 IF
@@ -7068,11 +7095,11 @@ pX
 pX
 wG
 XN
-Am
+Ml
 Cy
 tl
 tl
-pn
+NQ
 of
 Dy
 pX
@@ -7263,13 +7290,13 @@ pX
 pX
 pX
 mr
-Ol
+Ez
 lI
 tl
 oh
 tl
 TU
-NQ
+eE
 iO
 pX
 TZ
@@ -7571,7 +7598,7 @@ VB
 uO
 pt
 sX
-Ri
+Am
 Vf
 uI
 ys
@@ -7620,7 +7647,7 @@ Il
 pt
 sX
 sX
-Ri
+Ol
 Vf
 Vf
 wH
@@ -7658,7 +7685,7 @@ hJ
 Dn
 lL
 IY
-eE
+Bx
 IY
 AU
 La
@@ -7666,7 +7693,7 @@ hJ
 mI
 sX
 sX
-PN
+qe
 sX
 ID
 tZ
@@ -7922,7 +7949,7 @@ TZ
 TZ
 aZ
 aZ
-IG
+gU
 aZ
 aZ
 TZ
@@ -7931,8 +7958,8 @@ TZ
 TZ
 oQ
 aZ
-IG
-IG
+gU
+gU
 aZ
 aZ
 TZ
@@ -7971,16 +7998,16 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
+gU
+gU
 aZ
 TZ
 "}
 (50,1,1) = {"
 TZ
 oQ
-IG
-IG
+gU
+gU
 oQ
 oQ
 TZ
@@ -8061,7 +8088,7 @@ TZ
 TZ
 TZ
 aZ
-IG
+gU
 aZ
 aZ
 oQ
@@ -8083,8 +8110,8 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
+gU
+gU
 aZ
 aZ
 aZ
@@ -8109,8 +8136,8 @@ TZ
 TZ
 TZ
 aZ
-IG
-IG
+gU
+gU
 CO
 oQ
 TZ
@@ -8131,9 +8158,9 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
-IG
+gU
+gU
+gU
 aZ
 aZ
 aZ
@@ -8158,7 +8185,7 @@ mR
 TZ
 TZ
 aZ
-IG
+gU
 aZ
 TZ
 TZ
@@ -8179,14 +8206,14 @@ TZ
 TZ
 oQ
 aZ
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
 aZ
 Ox
 aZ
-IG
+gU
 aZ
 aZ
 TZ
@@ -8228,15 +8255,15 @@ TZ
 oQ
 CO
 aZ
-IG
-IG
+gU
+gU
 aZ
 aZ
 CO
 Wx
 aZ
-IG
-IG
+gU
+gU
 aZ
 TZ
 TZ
@@ -8260,11 +8287,11 @@ TZ
 TZ
 oQ
 aZ
-IG
-IG
-IG
+gU
+gU
+gU
 aZ
-IG
+gU
 aZ
 aZ
 TZ
@@ -8284,8 +8311,8 @@ St
 oQ
 aZ
 aZ
-IG
-IG
+gU
+gU
 aZ
 TZ
 TZ
@@ -8297,7 +8324,7 @@ LC
 LC
 LC
 AC
-Bx
+pn
 LC
 LC
 kr
@@ -8309,11 +8336,11 @@ TZ
 TZ
 aZ
 aZ
-IG
+gU
 aZ
-IG
+gU
 aZ
-IG
+gU
 aZ
 oQ
 TZ
@@ -8331,8 +8358,8 @@ aZ
 oQ
 nG
 aZ
-IG
-IG
+gU
+gU
 aZ
 aZ
 oQ
@@ -8358,11 +8385,11 @@ TZ
 CO
 oQ
 aZ
-IG
+gU
 aZ
-IG
-IG
-IG
+gU
+gU
+gU
 oQ
 CO
 TZ
@@ -8380,7 +8407,7 @@ oQ
 CO
 aZ
 aZ
-IG
+gU
 aZ
 aZ
 CO
@@ -8470,10 +8497,10 @@ TZ
 TZ
 TZ
 aZ
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
 aZ
 oQ
 aZ
@@ -8520,13 +8547,13 @@ TZ
 TZ
 aZ
 aZ
-IG
-IG
+gU
+gU
 bO
 Mj
 tJ
 Sy
-IG
+gU
 aZ
 aZ
 CO
@@ -8549,7 +8576,7 @@ TZ
 mR
 TZ
 aZ
-IG
+gU
 aZ
 TZ
 IW
@@ -8569,13 +8596,13 @@ TZ
 TZ
 aZ
 aZ
-IG
+gU
 RC
 RI
 Qd
 CO
 tJ
-IG
+gU
 aZ
 aZ
 aZ
@@ -8586,7 +8613,7 @@ TZ
 mR
 TZ
 TZ
-qh
+CI
 TZ
 TZ
 LC
@@ -8608,7 +8635,7 @@ CO
 aZ
 aZ
 aZ
-IG
+gU
 aZ
 aZ
 TZ
@@ -8619,13 +8646,13 @@ TZ
 TZ
 aZ
 aZ
-IG
+gU
 Gp
 zq
 zR
 bO
-IG
-IG
+gU
+gU
 aZ
 TZ
 TZ
@@ -8655,10 +8682,10 @@ TZ
 oQ
 aZ
 aZ
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
 aZ
 TZ
 "}
@@ -8670,10 +8697,10 @@ TZ
 aZ
 aZ
 aZ
-IG
-IG
-IG
-IG
+gU
+gU
+gU
+gU
 aZ
 aZ
 TZ
@@ -8704,9 +8731,9 @@ TZ
 TZ
 TZ
 TZ
-IG
-IG
-IG
+gU
+gU
+gU
 aZ
 TZ
 TZ
@@ -8720,7 +8747,7 @@ TZ
 aZ
 aZ
 aZ
-IG
+gU
 aZ
 aZ
 aZ
