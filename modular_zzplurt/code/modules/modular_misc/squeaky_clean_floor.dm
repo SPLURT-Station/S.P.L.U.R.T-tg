@@ -1,5 +1,5 @@
 /obj/effect/decal/cleaned_floor
-	name = "squeaky clean floor"
+	name = "water"
 	desc = "Looks like the janitor has been doing a good job!"
 	icon = 'icons/effects/water.dmi'
 	icon_state = "wet_floor_static"

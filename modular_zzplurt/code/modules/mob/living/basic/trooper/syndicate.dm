@@ -59,17 +59,17 @@
 /obj/effect/spawner/random/syndicate_ansem_suppressed
 	name = "suppressed ansem spawner"
 	spawn_loot_chance = 100
-	loot = list( // 95% chance for a exploded gun, 10% chance of ansem
-		/obj/item/gun/ballistic/automatic/pistol/clandestine/suppressed = 1,
-		/obj/effect/decal/cleanable/generic = 9,
+	loot = list( // 95% chance for a exploded gun, 5% chance of ansem
+		/obj/item/gun/ballistic/automatic/pistol/clandestine/suppressed = 0.5,
+		/obj/effect/decal/cleanable/generic = 9.5,
 	)
 
 /obj/effect/spawner/random/syndicate_ansem
 	name = "ansem spawner"
 	spawn_loot_chance = 100
-	loot = list( // 95% chance for a exploded gun, 10% chance of ansem
-		/obj/item/gun/ballistic/automatic/pistol/clandestine = 1,
-		/obj/effect/decal/cleanable/generic = 9,
+	loot = list( // 95% chance for a exploded gun, 5% chance of ansem
+		/obj/item/gun/ballistic/automatic/pistol/clandestine = 0.5,
+		/obj/effect/decal/cleanable/generic = 9.5,
 	)
 
 /mob/living/basic/trooper/splurt/syndicate/ranged/Initialize(mapload)

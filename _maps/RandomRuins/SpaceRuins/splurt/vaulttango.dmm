@@ -71,7 +71,8 @@
 	pixel_x = -32;
 	dir = 5;
 	pixel_y = -32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -111,7 +112,8 @@
 /obj/machinery/porta_turret/syndicate/assaultops/shuttle{
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	mode = 1
+	mode = 1;
+	density = 0
 	},
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -969,7 +971,8 @@
 	pixel_x = -16;
 	dir = 6;
 	pixel_y = 16;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -1034,9 +1037,12 @@
 /obj/effect/spawner/random/contraband/plus,
 /obj/effect/spawner/random/contraband/plus,
 /obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband/narcotics,
+/obj/effect/spawner/random/contraband/narcotics,
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered)
 "jq" = (
@@ -1211,7 +1217,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango/starboardsolar)
 "lf" = (
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 1
 	},
@@ -1222,8 +1227,10 @@
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "lh" = (
@@ -1323,7 +1330,6 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "lK" = (
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 4
 	},
@@ -1334,8 +1340,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/corner,
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "lL" = (
@@ -2285,6 +2293,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "uf" = (
@@ -2477,7 +2486,8 @@
 	pixel_x = -32;
 	dir = 5;
 	pixel_y = -32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -2736,7 +2746,6 @@
 /obj/effect/turf_decal/trimline/dark/corner{
 	dir = 8
 	},
-/obj/machinery/power/smes/full,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/cell_5k,
@@ -2744,6 +2753,7 @@
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/machinery/firealarm/directional/north,
 /obj/effect/mapping_helpers/apc/full_charge,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/starboardsolar)
 "xq" = (
@@ -2907,13 +2917,11 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/teleporter)
 "zg" = (
-/obj/item/ammo_box/magazine/c35sol_pistol,
-/obj/item/ammo_box/magazine/c35sol_pistol,
-/obj/item/ammo_box/magazine/c35sol_pistol,
-/obj/item/ammo_box/magazine/c35sol_pistol,
-/obj/item/gun/ballistic/automatic/pistol/sol/evil,
 /obj/structure/closet/crate/secure/syndicate/gorlex/weapons,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/gun/ballistic/revolver/c38,
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "zq" = (
@@ -2927,7 +2935,8 @@
 	pixel_x = 32;
 	dir = 9;
 	pixel_y = -32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -2952,7 +2961,8 @@
 /obj/machinery/porta_turret/syndicate/energy/heavy{
 	pixel_x = 32;
 	dir = 8;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -3332,16 +3342,17 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "Dc" = (
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 10
 	},
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
+	},
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
@@ -3410,7 +3421,8 @@
 /area/ruin/unpowered)
 "Dr" = (
 /obj/machinery/porta_turret/syndicate/energy/heavy{
-	pixel_y = 32
+	pixel_y = 32;
+	density = 0
 	},
 /obj/machinery/camera/directional/north{
 	network = list("vaulttango");
@@ -3579,7 +3591,8 @@
 /obj/machinery/porta_turret/syndicate/energy/heavy{
 	pixel_x = -32;
 	dir = 4;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -3625,7 +3638,8 @@
 	pixel_x = -32;
 	dir = 6;
 	pixel_y = 32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -3639,10 +3653,13 @@
 /obj/effect/spawner/random/contraband/plus,
 /obj/effect/spawner/random/contraband/plus,
 /obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
-/obj/effect/spawner/random/contraband/plus,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband,
+/obj/effect/spawner/random/contraband/narcotics,
+/obj/effect/spawner/random/contraband/narcotics,
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "FD" = (
@@ -3851,7 +3868,8 @@
 	pixel_x = 16;
 	dir = 10;
 	pixel_y = 16;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -3977,7 +3995,8 @@
 	pixel_y = -32;
 	dir = 1;
 	system_id = "vaulttango_turrets";
-	mode = 1
+	mode = 1;
+	density = 0
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
@@ -3988,14 +4007,15 @@
 /turf/template_noop,
 /area/ruin/space/solars/vaulttango/solars)
 "II" = (
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 5
 	},
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/dark_red,
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "IK" = (
@@ -4354,17 +4374,19 @@
 /obj/machinery/porta_turret/syndicate/assaultops/shuttle{
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	mode = 1
+	mode = 1;
+	density = 0
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "ME" = (
-/obj/effect/turf_decal/trimline/dark_red,
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
+	},
 /obj/effect/turf_decal/trimline/dark_red/corner,
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 9
 	},
-/obj/effect/turf_decal/trimline/dark_red,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "MH" = (
@@ -4393,7 +4415,8 @@
 	pixel_x = 32;
 	dir = 10;
 	pixel_y = 32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -4406,16 +4429,17 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango/starboardsolar)
 "Nk" = (
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 6
 	},
-/obj/effect/turf_decal/trimline/dark_red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red{
+	alpha = 170
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
@@ -4425,7 +4449,8 @@
 	pixel_x = 32;
 	dir = 9;
 	pixel_y = -32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -4527,7 +4552,8 @@
 	pixel_y = -32;
 	dir = 1;
 	system_id = "vaulttango_turrets";
-	mode = 1
+	mode = 1;
+	density = 0
 	},
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark/textured,
@@ -4552,10 +4578,11 @@
 /obj/machinery/porta_turret/syndicate/energy/heavy{
 	dir = 1;
 	pixel_y = -32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space/nearstation)
 "OB" = (
 /obj/effect/turf_decal/trimline/dark_red/warning,
 /obj/effect/turf_decal/trimline/dark_red/warning{
@@ -4667,7 +4694,6 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "Ps" = (
-/obj/machinery/power/smes/full,
 /obj/machinery/firealarm/directional/south,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -4682,6 +4708,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/apc/full_charge,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/portsolar)
 "PN" = (
@@ -5289,7 +5316,8 @@
 	pixel_x = 32;
 	dir = 10;
 	pixel_y = 32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -5634,7 +5662,8 @@
 	pixel_x = -32;
 	dir = 6;
 	pixel_y = 32;
-	system_id = "vaulttango_turrets"
+	system_id = "vaulttango_turrets";
+	density = 0
 	},
 /turf/template_noop,
 /area/space/nearstation)

@@ -88,11 +88,11 @@
 	name = "Syndicate Executive Officer Operative"
 
 	uniform = /obj/item/clothing/under/rank/syndicate/lieutenant
-	suit = /obj/item/clothing/suit/armor/syndicate_overcoat
+	suit = /obj/item/clothing/suit/armor/syndicate_overcoat/fake
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicateciv/command/empty
-	head = /obj/item/clothing/head/beret/syndicate_lieutenant
+	head = /obj/item/clothing/head/beret/syndicate_lieutenant/fake
 	mask = /obj/item/clothing/mask/gas/syndicate
 	back = /obj/item/storage/backpack/satchel/sec/redsec
 	id = /obj/item/card/id/advanced/black/syndicate_command
@@ -115,11 +115,11 @@
 	name = "Syndicate Commanding Officer Operative"
 
 	uniform = /obj/item/clothing/under/rank/syndicate/captain
-	suit = /obj/item/clothing/suit/armor/syndicate_greatcoat
+	suit = /obj/item/clothing/suit/armor/syndicate_greatcoat/fake
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicateciv/command/empty
-	head = /obj/item/clothing/head/hats/syndicate_cap
+	head = /obj/item/clothing/head/hats/syndicate_cap/fake
 	mask = /obj/item/clothing/mask/gas/syndicate
 	back = /obj/item/storage/backpack/satchel/sec/redsec
 	id = /obj/item/card/id/advanced/black/syndicate_command

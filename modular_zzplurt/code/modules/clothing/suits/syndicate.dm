@@ -10,6 +10,9 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/armor_hos
 
+/obj/item/clothing/suit/armor/syndicate_overcoat/fake
+	armor_type = /datum/armor/suit_armor
+
 /obj/item/clothing/suit/armor/syndicate_greatcoat
 	name = "syndicate captain's greatcoat"
 	desc = "A large, heavily padded greatcoat in dusty dark red colors, there's golden epaulettes and aiguillettes on the coat, heavily ceremonial. It's dawned with Syndicate emblems and captain insignia. It was crafted with durathread-infused fabric, making it a bit heavy. However much more safe than normal formal pieces, it's topped with a black Sam Browne belt with golden buckles with the Syndicate logo engraved in them."
@@ -21,6 +24,9 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/vest_capcarapace
+
+/obj/item/clothing/suit/armor/syndicate_greatcoat/fake
+	armor_type = /datum/armor/suit_armor
 
 /obj/item/clothing/suit/armor/vest/syndicate
 	name = "suspicious armored vest"

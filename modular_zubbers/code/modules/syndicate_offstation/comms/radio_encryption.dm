@@ -10,6 +10,7 @@
 	special_channels = RADIO_SPECIAL_CENTCOM
 
 //radios
+/* // SPLURT REMOVAL, Fuck your ear protection.
 /obj/item/radio/headset/syndicateciv
 	name = "Syndicate Civilian headset"
 	desc = "A bowman headset with a large red cross on the earpiece, it has a small three headed snake on the top strap. Protects the ears from flashbangs."
@@ -21,6 +22,7 @@
 /obj/item/radio/headset/syndicateciv/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+*/
 
 /obj/item/radio/headset/syndicateciv/staff
 	keyslot = /obj/item/encryptionkey/headset_syndicate/cybersun
