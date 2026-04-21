@@ -8,7 +8,7 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
-	armor_type = /datum/armor/hats_caphat
+	armor_type = /datum/armor/hats_hopcap
 	strip_delay = 10 SECONDS
 
 /obj/item/clothing/head/hats/syndicate_cap
@@ -16,7 +16,7 @@
 	desc = "A luxurious dusty dark red peaked cap, worn by only The Syndicate's top officers. Inside the lining of the cap, lies two faint initials."
 	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
-	icon_state = "syndicate_beret"
+	icon_state = "syndicate_cap"
 	flags_inv = 0
 	armor_type = /datum/armor/hats_caphat
 	strip_delay = 8 SECONDS

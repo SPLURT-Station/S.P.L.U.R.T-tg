@@ -18,3 +18,6 @@
 
 /datum/map_template/ruin/space/skyrat/shuttle8532
 	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // Skyrat Map edit.
+
+/datum/map_template/ruin/space/skyrat/vaulttango
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // Skyrat Map edit.

@@ -4,3 +4,5 @@
 #define SECHUD_INTERDYNE_GENETICIST "hud_interdynegeneticist"
 #define SECHUD_INTERDYNE_CMO "hud_interdynecmo"
 #define SECHUD_INTERDYNE_CARGO "hud_interdynecargo"
+//Syndicate Stuff
+#define SECHUD_SYNDICATE_HEAD "hudsyndicatehead"
