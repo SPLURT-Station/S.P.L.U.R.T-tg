@@ -5,7 +5,7 @@
 	faction = list(ROLE_SYNDICATE)
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate
-
+	gender = MALE
 
 /mob/living/basic/trooper/splurt/syndicate/melee
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a knife."
@@ -94,8 +94,8 @@
 	casingtype = /obj/item/ammo_casing/c45
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
-	death_message = "collapses to the ground, their gun hitting the ground."
-	loot = list(/obj/effect/spawner/random/syndicate_c20r)
+	death_message = "collapses to the ground, their gun self-destructing as it hits the ground."
+	loot = list(/obj/effect/decal/cleanable/generic) // 0% chance for a c20-r.
 	burst_shots = 3
 	ranged_cooldown = 3 SECONDS
 	r_hand = /obj/item/gun/ballistic/automatic/c20r
@@ -106,14 +106,6 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
 	maxHealth = 140
 	health = 140
-
-/obj/effect/spawner/random/syndicate_c20r
-	name = "c20-r spawner"
-	spawn_loot_chance = 100
-	loot = list( // 95% chance for a exploded gun, 5% chance of c20-r
-		/obj/item/gun/ballistic/automatic/c20r = 0.5,
-		/obj/effect/decal/cleanable/generic = 9.5,
-	)
 
 /mob/living/basic/trooper/splurt/syndicate/ranged/shotgun
 	name = "Syndicate Defense Operative"
@@ -139,7 +131,8 @@
 	maxHealth = 140
 	health = 140
 	projectilesound = 'sound/items/weapons/gun/shotgun/shot_alt.ogg'
-	loot = list(/obj/effect/spawner/random/syndicate_bulldog)
+	death_message = "collapses to the ground, their gun self-destructing as it hits the ground."
+	loot = list(/obj/effect/decal/cleanable/generic) // 0% chance for a bulldog.
 	burst_shots = 2
 	ranged_cooldown = 3 SECONDS
 	r_hand = /obj/item/gun/ballistic/shotgun/bulldog
@@ -150,14 +143,6 @@
 	loot = list( // 95% chance for a exploded gun, 5% chance of renoster shotgun
 		/obj/item/gun/ballistic/shotgun/riot/sol/evil = 0.5,
 		/obj/effect/decal/cleanable/generic = 9.5,
-	)
-
-/obj/effect/spawner/random/syndicate_bulldog
-	name = "bulldog spawner"
-	spawn_loot_chance = 100
-	loot = list( // 99% chance for a exploded gun, 1% chance of bulldog
-		/obj/item/gun/ballistic/automatic/c20r = 0.1,
-		/obj/effect/decal/cleanable/generic = 9.9,
 	)
 
 /mob/living/basic/trooper/splurt/syndicate/ranged/smg/lieutenant

@@ -23,6 +23,10 @@
 /obj/item/gun/ballistic/automatic/pistol{
 	pixel_y = 6
 	},
+/obj/item/toy/snappop{
+	pixel_x = 8;
+	pixel_y = 3
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/vaulttango/lobby)
 "af" = (
@@ -136,10 +140,10 @@
 /area/ruin/unpowered)
 "bc" = (
 /obj/effect/turf_decal/bot_red,
-/obj/item/melee/energy/sword/saber/red,
 /obj/structure/closet/crate/secure/syndicate/gorlex/weapons{
 	anchored = 1
 	},
+/obj/item/melee/energy/sword/surplus,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "be" = (
@@ -265,6 +269,17 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/vaulttango/lobby)
+"cs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleaned_floor,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "cu" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 8
@@ -903,6 +918,7 @@
 /obj/structure/closet/crate/goldcrate{
 	anchored = 1
 	},
+/obj/item/stack/sheet/mineral/gold/fifty,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "ic" = (
@@ -2027,7 +2043,7 @@
 /area/ruin/space/has_grav/vaulttango/hall)
 "rO" = (
 /obj/effect/turf_decal/delivery/red,
-/obj/vehicle/sealed/mecha/gygax/dark,
+/obj/structure/mecha_wreckage/gygax/dark,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "rS" = (
@@ -2166,6 +2182,11 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
+"tt" = (
+/obj/effect/turf_decal/tile/dark_red/half/contrasted,
+/obj/effect/decal/cleaned_floor,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "tx" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2224,6 +2245,19 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/vaulttango/hall)
+"tX" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/plaque/static_plaque/golden/commission/ks13{
+	desc = "Spinward Sector Blacksite Tango-01 Outpost\nCommissioned 13/11/2559\n'God's Hands'"
+	},
+/turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "tZ" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
@@ -2492,11 +2526,11 @@
 /area/ruin/space/has_grav/vaulttango/hall)
 "wd" = (
 /obj/effect/turf_decal/bot_red,
-/obj/effect/spawner/random/maintenance/seven,
-/obj/structure/closet/crate/secure/syndicate{
+/obj/structure/cable,
+/obj/structure/closet/crate/silvercrate{
 	anchored = 1
 	},
-/obj/structure/cable,
+/obj/item/stack/sheet/mineral/silver/fifty,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "wh" = (
@@ -3150,17 +3184,6 @@
 /obj/item/stack/ore/glass,
 /turf/open/misc/asteroid/dug,
 /area/ruin/unpowered)
-"BG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/decal/cleaned_floor,
-/turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango/hall)
 "BI" = (
 /obj/effect/turf_decal/sand,
 /obj/structure/closet/crate/secure/trashcart/filled,
@@ -3773,6 +3796,7 @@
 	},
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/effect/decal/cleanable/fuel_pool,
+/obj/item/toy/snappop,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/starboardsolar)
 "GW" = (
@@ -4592,6 +4616,11 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
+"Pb" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/effect/decal/cleaned_floor,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "Pd" = (
 /obj/machinery/light/cold/directional/west,
 /turf/open/space/basic,
@@ -5021,11 +5050,6 @@
 /obj/machinery/light/cold/directional/east,
 /turf/template_noop,
 /area/space/nearstation)
-"SP" = (
-/obj/effect/turf_decal/tile/dark_red,
-/obj/effect/decal/cleaned_floor,
-/turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango/hall)
 "Th" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 4
@@ -5163,11 +5187,6 @@
 "TZ" = (
 /turf/template_noop,
 /area/template_noop)
-"Ue" = (
-/obj/effect/turf_decal/tile/dark_red/half/contrasted,
-/obj/effect/decal/cleaned_floor,
-/turf/open/floor/iron/dark/textured,
-/area/ruin/space/has_grav/vaulttango/hall)
 "Uf" = (
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/filingcabinet,
@@ -5633,9 +5652,10 @@
 /area/ruin/space/has_grav/vaulttango/hall)
 "ZH" = (
 /obj/effect/turf_decal/bot_red,
-/obj/structure/closet/crate/silvercrate{
+/obj/structure/closet/crate/secure/syndicate/mi13{
 	anchored = 1
 	},
+/obj/item/storage/box/syndie_kit/chameleon,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "ZO" = (
@@ -6807,7 +6827,7 @@ TZ
 VB
 va
 dP
-BG
+cs
 sX
 ID
 qZ
@@ -6857,7 +6877,7 @@ VB
 Qk
 or
 EA
-SP
+Pb
 Vw
 VB
 VB
@@ -6905,8 +6925,8 @@ mR
 VB
 EN
 rm
-BG
-Ue
+cs
+tt
 VB
 VB
 kr
@@ -6954,7 +6974,7 @@ kr
 VB
 ax
 lu
-BG
+cs
 ly
 VB
 kr
@@ -7240,7 +7260,7 @@ FX
 sO
 Wu
 Dv
-sX
+tX
 LT
 tU
 on
