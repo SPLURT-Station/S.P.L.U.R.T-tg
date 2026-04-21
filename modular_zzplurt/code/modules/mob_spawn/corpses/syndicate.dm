@@ -85,7 +85,7 @@
 	outfit = /datum/outfit/syndicatelieutenant
 
 /datum/outfit/syndicatelieutenant
-	name = "Syndicate Executive Officer Operative"
+	name = "Syndicate Executive Officer"
 
 	uniform = /obj/item/clothing/under/rank/syndicate/lieutenant
 	suit = /obj/item/clothing/suit/armor/syndicate_overcoat/fake
@@ -112,7 +112,7 @@
 	outfit = /datum/outfit/syndicatecaptain
 
 /datum/outfit/syndicatecaptain
-	name = "Syndicate Commanding Officer Operative"
+	name = "Syndicate Commanding Officer"
 
 	uniform = /obj/item/clothing/under/rank/syndicate/captain
 	suit = /obj/item/clothing/suit/armor/syndicate_greatcoat/fake
