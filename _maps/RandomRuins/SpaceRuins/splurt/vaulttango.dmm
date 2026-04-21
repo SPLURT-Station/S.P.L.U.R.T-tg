@@ -2051,7 +2051,7 @@
 /area/ruin/space/has_grav/vaulttango/hall)
 "rO" = (
 /obj/effect/turf_decal/delivery/red,
-/obj/structure/mecha_wreckage/gygax/dark,
+/obj/vehicle/sealed/mecha/gygax/fake_dark,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/vaulttango)
 "rS" = (
@@ -2917,11 +2917,11 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/teleporter)
 "zg" = (
-/obj/structure/closet/crate/secure/syndicate/gorlex/weapons,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/ammo_box/speedloader/c38,
 /obj/item/ammo_box/speedloader/c38,
 /obj/item/gun/ballistic/revolver/c38,
+/obj/structure/closet/crate/secure/weapon,
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "zq" = (
@@ -5337,6 +5337,12 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/portsolar)
+"VH" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/effect/mine/explosive/nri,
+/turf/open/misc/asteroid/airless,
+/area/ruin/unpowered)
 "VS" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 4
@@ -6048,7 +6054,7 @@ oQ
 CO
 aZ
 aZ
-fu
+BS
 aZ
 dp
 wn
@@ -6097,7 +6103,7 @@ oQ
 oQ
 aZ
 aZ
-BS
+VH
 aZ
 tj
 vT
