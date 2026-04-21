@@ -26,6 +26,8 @@
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a Ansem pistol."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative
+	maxHealth = 120
+	health = 120
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 	death_message = "collapses to the ground, their gun hitting the ground."
 	loot = list(/obj/effect/spawner/random/syndicate_ansem)
@@ -44,6 +46,8 @@
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a Suppressed Ansem pistol."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
+	maxHealth = 140
+	health = 140
 	loot = list(/obj/effect/spawner/random/syndicate_ansem_suppressed)
 	projectilesound = 'sound/items/weapons/gun/pistol/shot_suppressed.ogg'
 
@@ -85,6 +89,8 @@
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a C-20r SMG."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative
+	maxHealth = 120
+	health = 120
 	casingtype = /obj/item/ammo_casing/c45
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
@@ -98,6 +104,8 @@
 	name = "Syndicate Assault Operative"
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
+	maxHealth = 140
+	health = 140
 
 /obj/effect/spawner/random/syndicate_c20r
 	name = "c20-r spawner"
@@ -112,6 +120,8 @@
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a Renoster Shotgun."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative
+	maxHealth = 120
+	health = 120
 	casingtype = /obj/item/ammo_casing/shotgun/buckshot
 	projectilesound = 'modular_skyrat/modules/modular_weapons/sounds/shotgun_heavy.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/shotgunner
@@ -126,6 +136,8 @@
 	desc = "A member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a Bulldog Shotgun."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/operative/assault
+	maxHealth = 140
+	health = 140
 	projectilesound = 'sound/items/weapons/gun/shotgun/shot_alt.ogg'
 	loot = list(/obj/effect/spawner/random/syndicate_bulldog)
 	burst_shots = 2
@@ -153,7 +165,8 @@
 	desc = "A high-ranking member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a M-90gl Carbine, they look very tough, fighting is not advised."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/lieutenant
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/lieutenant
-	health = 250
+	maxHealth = 220
+	health = 220
 	casingtype = /obj/item/ammo_casing/a223
 	projectilesound = 'sound/items/weapons/gun/smg/shot_alt.ogg'
 	ranged_cooldown = 4 SECONDS
@@ -166,7 +179,8 @@
 	desc = "Nearly the highest ranking member of The Syndicate, those who wish death upon Nanotrasen, the megacorporation. They appear to be armed with a L6 SAW, they look INCREDIBLY tough, run while you still can."
 	corpse = /obj/effect/mob_spawn/corpse/human/syndicate/captain
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/syndicate/captain
-	health = 300
+	maxHealth = 280
+	health = 280
 	casingtype = /obj/item/ammo_casing/m7mm
 	projectilesound = 'sound/items/weapons/gun/l6/shot.ogg'
 	burst_shots = 6
