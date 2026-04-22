@@ -9,8 +9,8 @@
 	maxHealth = 200 //Splurt Edit
 	health = 200 //Splurt Edit
 	icon_state = "alienravager"
-	melee_damage_lower = 20 //Splurt Edit
-	melee_damage_upper = 25 //Splurt Edit
+	melee_damage_lower = 25 //Splurt Edit
+	melee_damage_upper = 30 //Splurt Edit
 	default_organ_types_by_slot = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/alien,
 		ORGAN_SLOT_XENO_HIVENODE = /obj/item/organ/alien/hivenode,
