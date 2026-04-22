@@ -4,11 +4,11 @@
 	name = "alien warrior"
 	desc = "If there are aliens to call walking tanks, this would be one of them, with both the heavy armor and strong arms to back that claim up."
 	caste = "warrior"
-	maxHealth = 400
-	health = 400
+	maxHealth = 200 //Splurt Edit
+	health = 200 //Splurt Edit
 	icon_state = "alienwarrior"
-	melee_damage_lower = 30
-	melee_damage_upper = 35
+	melee_damage_lower = 20 //Splurt Edit
+	melee_damage_upper = 25 //Splurt Edit
 	default_organ_types_by_slot = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/alien,
 		ORGAN_SLOT_XENO_HIVENODE = /obj/item/organ/alien/hivenode,

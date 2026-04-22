@@ -4,9 +4,9 @@
 	name = "alien queen"
 	desc = "A hulking beast of an alien, for some reason this one seems more important than the others, you should probably quit staring at it and do something."
 	caste = "queen"
-	maxHealth = 500
+	maxHealth = 300 //Splurt Edit
 	status_flags = NONE //can't shove or KO the queen, kiddo.
-	health = 500
+	health = 300 //Splurt Edit
 	icon_state = "alienqueen"
 	melee_damage_lower = 30
 	melee_damage_upper = 35
