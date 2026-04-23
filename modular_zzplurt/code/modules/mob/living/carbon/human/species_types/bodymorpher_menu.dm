@@ -349,7 +349,7 @@
 		desired_parts = list()
 
 	for(var/current_key in current_parts)
-		if(current_key in available_choices && !(current_key in desired_parts))
+		if((current_key in available_choices) && !(current_key in desired_parts))
 			apply_single_bodymorpher_mutant_part(alterer, current_key, null, mutant_part_blocks)
 
 	for(var/desired_key in desired_parts)
