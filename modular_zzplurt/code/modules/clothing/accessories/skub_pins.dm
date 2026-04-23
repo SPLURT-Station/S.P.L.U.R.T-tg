@@ -4,7 +4,7 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/accessories.dmi'
 	icon_state = "pin_yellow"
-	inhand_icon_state = "pin_yellow"
+	inhand_icon_state = null
 
 /obj/item/clothing/accessory/pro_skub_pin/can_attach_accessory(obj/item/clothing/under/attach_to, mob/living/user)
 	. = ..()
@@ -35,7 +35,7 @@
 	icon = 'icons/obj/clothing/accessories.dmi'
 	worn_icon = 'icons/mob/clothing/accessories.dmi'
 	icon_state = "anti_sec"
-	inhand_icon_state = "anti_sec"
+	inhand_icon_state = null
 
 /obj/item/clothing/accessory/anti_skub_pin/can_attach_accessory(obj/item/clothing/under/attach_to, mob/living/user)
 	. = ..()
