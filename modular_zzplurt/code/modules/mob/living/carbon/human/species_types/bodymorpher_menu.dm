@@ -34,6 +34,9 @@
 	ui_interact(alterer)
 
 /datum/action/innate/alter_form/ui_interact(mob/user, datum/tgui/ui)
+	var/mob/living/carbon/human/alterer = owner
+	if(ishuman(alterer))
+		ensure_base_preset(alterer)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BodyMorpher", name)
@@ -47,6 +50,7 @@
 	var/mob/living/carbon/human/alterer = owner
 	if(!ishuman(alterer))
 		return data
+	ensure_base_preset(alterer)
 
 	data["action_name"] = name
 	data["owner_name"] = alterer.real_name
@@ -124,6 +128,15 @@
 	store[BODYMORPHER_PRESET_BASE_KEY] = capture_bodymorpher_snapshot(alterer, BODYMORPHER_PRESET_BASE_NAME, TRUE)
 	if(save_bodymorpher_preset_store(alterer, store))
 		base_preset_synced = TRUE
+
+/datum/action/innate/alter_form/proc/ensure_base_preset(mob/living/carbon/human/alterer)
+	var/list/store = get_bodymorpher_preset_store(alterer)
+	if(islist(store[BODYMORPHER_PRESET_BASE_KEY]))
+		base_preset_synced = TRUE
+		return TRUE
+	sync_base_preset(alterer)
+	store = get_bodymorpher_preset_store(alterer)
+	return islist(store[BODYMORPHER_PRESET_BASE_KEY])
 
 /datum/action/innate/alter_form/proc/capture_bodymorpher_snapshot(mob/living/carbon/human/alterer, preset_name = null, is_base = FALSE)
 	var/list/hair = list(
