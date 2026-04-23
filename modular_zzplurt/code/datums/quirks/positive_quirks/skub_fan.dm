@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(fandom_choices, list(
 /datum/quirk/item_quirk/fandom
 	name = "Partisan Ideologue"
 	desc = "You're an enthusiastic fan of something very specific and get a mood boost from wearing a matching pin."
-	icon = FA_ICON_MAP_PIN
+	icon = FA_ICON_TAG
 	value = 2
 	var/fandom_choice = "Clown"
 	var/pin_type = /obj/item/clothing/accessory/clown_enjoyer_pin
@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(fandom_choices, list(
 /datum/quirk/item_quirk/pro_skub
 	name = "Pro-Skub"
 	desc = "You are firmly pro-skub and get a mood boost from wearing your pro-skub pin."
-	icon = FA_ICON_MAP_PIN
+	icon = FA_ICON_FLAG
 	value = 2
 	hidden_quirk = TRUE
 	mob_trait = TRAIT_PRO_SKUB
@@ -146,7 +146,7 @@ GLOBAL_LIST_INIT(fandom_choices, list(
 /datum/quirk/item_quirk/anti_skub
 	name = "Anti-Skub"
 	desc = "You are firmly anti-skub and get a mood boost from wearing your anti-skub pin."
-	icon = FA_ICON_THUMBTACK
+	icon = FA_ICON_FLAG_CHECKERED
 	value = 2
 	hidden_quirk = TRUE
 	mob_trait = TRAIT_ANTI_SKUB
