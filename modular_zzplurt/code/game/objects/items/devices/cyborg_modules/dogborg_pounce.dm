@@ -9,6 +9,9 @@
 	name = "pounce"
 	icon = 'modular_zzplurt/icons/mob/robot/robot_items.dmi'
 	icon_state = "pounce"
+	inhand_icon_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	desc = "Leap at your target to momentarily stun them."
 	force = 0
 	throwforce = 0
@@ -23,6 +26,8 @@
 /obj/item/dogborg/pounce/New()
 	..()
 	item_flags |= NOBLUDGEON
+	if(!(icon_state in icon_states(icon)))
+		icon_state = "jaws"
 
 /obj/item/dogborg/pounce/ranged_interact_with_atom(atom/interacting_with, mob/living/user)
 	var/mob/living/silicon/robot/this_robot = user
