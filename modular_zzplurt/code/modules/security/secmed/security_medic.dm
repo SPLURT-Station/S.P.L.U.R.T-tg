@@ -125,22 +125,25 @@
 	new /obj/item/clothing/under/rank/security/peacekeeper/security_medic/alternate(src)
 	new /obj/item/clothing/under/rank/security/peacekeeper/security_medic(src)
 	new /obj/item/clothing/under/rank/security/peacekeeper/security_medic/skirt(src)
+	new /obj/item/clothing/glasses/hud/medsechud/sunglasses(src)
+
 
 /obj/structure/closet/secure_closet/security_medic
 	name = "security medic's locker"
 	req_access = list(ACCESS_BRIG)
-	icon = 'modular_zubbers/icons/obj/closets/secmed_closet.dmi'
+	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 	icon_state = "secmed"
 
 /obj/structure/closet/secure_closet/security_medic/PopulateContents()
 	..()
 	new /obj/item/radio/headset/headset_medsec(src)
-	new /obj/item/clothing/glasses/hud/medsechud/sunglasses(src)
 	new /obj/item/storage/medkit/emergency(src)
 	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/storage/belt/security/medic/full(src)
 	new /obj/item/storage/bag/garment/secmed(src)
+	new /obj/item/defibrillator/loaded(src)
+	new /obj/item/reagent_containers/cup/bottle/formaldehyde(src)
 
 //Prevents secmed hours from counting towards HoS
 /datum/controller/subsystem/job/setup_occupations()

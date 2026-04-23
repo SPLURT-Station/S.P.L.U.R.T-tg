@@ -442,6 +442,14 @@ required_map = "MetaStation.dmm"
 coordinates = [57, 119, 1]
 trait_name = "Station"
 
+# Metastation Security Infirmary
+[templates.metastation_sec_infirmary]
+map_files = ["metastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [92, 169, 1]
+trait_name = "Station"
+
 # Metastation Supermatter Chamber
 [templates.metastation_supermatter]
 map_files = ["metastation_supermatter.dmm"]
