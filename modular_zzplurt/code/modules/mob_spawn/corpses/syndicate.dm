@@ -9,6 +9,7 @@
 	name = "Syndicate Agent"
 
 	uniform = /obj/item/clothing/under/rank/syndicate/turtleneck
+	belt = /obj/item/modular_computer/pda/syndicate_real
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicateciv
@@ -18,6 +19,15 @@
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/agent
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicateagent/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = syndicate.wear_id
+	if(istype(id_card))
+		id_card.registered_name = syndicate.real_name
+		id_card.update_label()
+		id_card.update_icon()
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/syndicom/corpse/agent
 	assignment = "Syndicate Agent"
@@ -43,9 +53,19 @@
 	head = /obj/item/clothing/head/beret/sec/syndicate_operative
 	mask = /obj/item/clothing/mask/gas/syndicate
 	back = /obj/item/storage/backpack/satchel/sec/redsec
+	r_pocket = /obj/item/modular_computer/pda/syndicate_real
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/operative
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicatedefenseoperative/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = syndicate.wear_id
+	if(istype(id_card))
+		id_card.registered_name = syndicate.real_name
+		id_card.update_label()
+		id_card.update_icon()
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/syndicom/corpse/operative
 	assignment = "Syndicate Defense Operative"
@@ -71,9 +91,19 @@
 	head = /obj/item/clothing/head/helmet/swat/syndicate
 	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
 	back = /obj/item/storage/backpack/satchel/sec/redsec
+	r_pocket = /obj/item/modular_computer/pda/syndicate_real
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/operative/assault
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicateassaultoperative/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = syndicate.wear_id
+	if(istype(id_card))
+		id_card.registered_name = syndicate.real_name
+		id_card.update_label()
+		id_card.update_icon()
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/syndicom/corpse/operative/assault
 	assignment = "Syndicate Assault Operative"
@@ -89,6 +119,7 @@
 
 	uniform = /obj/item/clothing/under/rank/syndicate/lieutenant
 	suit = /obj/item/clothing/suit/armor/syndicate_overcoat/fake
+	belt = /obj/item/modular_computer/pda/syndicate_real
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicateciv/command/empty
@@ -98,6 +129,15 @@
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/lieutenant
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicatelieutenant/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = syndicate.wear_id
+	if(istype(id_card))
+		id_card.registered_name = syndicate.real_name
+		id_card.update_label()
+		id_card.update_icon()
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/syndicom/corpse/lieutenant
 	assignment = "Syndicate Executive Officer"
@@ -116,6 +156,7 @@
 
 	uniform = /obj/item/clothing/under/rank/syndicate/captain
 	suit = /obj/item/clothing/suit/armor/syndicate_greatcoat/fake
+	belt = /obj/item/modular_computer/pda/syndicate_real
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicateciv/command/empty
@@ -125,6 +166,15 @@
 	id = /obj/item/card/id/advanced/black/syndicate_command
 	id_trim = /datum/id_trim/syndicom/corpse/captain
 	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/syndicatecaptain/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
+	var/obj/item/card/id/id_card = syndicate.wear_id
+	if(istype(id_card))
+		id_card.registered_name = syndicate.real_name
+		id_card.update_label()
+		id_card.update_icon()
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/syndicom/corpse/captain
 	assignment = "Syndicate Commanding Officer"

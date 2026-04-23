@@ -63,7 +63,7 @@
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/fuel_pool,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "aq" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
@@ -84,7 +84,8 @@
 	dir = 5;
 	pixel_y = -32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -135,7 +136,9 @@
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
 	mode = 1;
-	density = 0
+	density = 0;
+	max_integrity = 250;
+	name = "heavy defense turret"
 	},
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -221,6 +224,7 @@
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 4
 	},
+/mob/living/basic/trooper/splurt/syndicate/ranged/shotgun,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "bn" = (
@@ -291,7 +295,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/mob/living/basic/trooper/splurt/syndicate/ranged/smg/captain,
+/mob/living/basic/trooper/splurt/syndicate/melee/sword/captain,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/control)
 "ce" = (
@@ -510,7 +514,7 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/effect/decal/cleanable/garbage,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "dy" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
@@ -764,9 +768,6 @@
 "fc" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark/corner{
-	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark/corner,
 /turf/open/floor/iron/dark/textured,
@@ -1064,7 +1065,7 @@
 	pixel_y = 7
 	},
 /obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "iq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1103,7 +1104,8 @@
 	dir = 6;
 	pixel_y = 16;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -1711,7 +1713,7 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/fuel_pool,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "nn" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -1791,11 +1793,11 @@
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 4
 	},
-/mob/living/basic/trooper/splurt/syndicate/melee,
 /obj/effect/turf_decal/trimline/dark/corner{
 	dir = 4
 	},
 /obj/machinery/light_switch/directional/east,
+/mob/living/basic/trooper/splurt/syndicate/melee/sword/shield,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "of" = (
@@ -1823,7 +1825,7 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
 	},
-/mob/living/basic/trooper/syndicate/ranged/smg/space,
+/mob/living/basic/trooper/splurt/syndicate/ranged/smg/assault,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "on" = (
@@ -1922,7 +1924,7 @@
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/fuel_pool,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "oF" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -1968,7 +1970,7 @@
 /area/ruin/unpowered)
 "oR" = (
 /obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "oS" = (
 /obj/effect/turf_decal/delivery/red,
@@ -2047,13 +2049,13 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/mob/living/basic/trooper/splurt/syndicate/ranged,
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 5
 	},
+/mob/living/basic/trooper/splurt/syndicate/ranged/shotgun,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "pL" = (
@@ -2444,6 +2446,7 @@
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 8
 	},
+/mob/living/basic/trooper/splurt/syndicate/melee/sword,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "tt" = (
@@ -2462,7 +2465,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/effect/decal/cleanable/plastic,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "tD" = (
 /obj/effect/turf_decal/bot_red,
@@ -2565,10 +2568,10 @@
 "uf" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
-/obj/effect/turf_decal/trimline/dark/line{
+/obj/machinery/firealarm/directional/east,
+/obj/effect/turf_decal/trimline/dark/corner{
 	dir = 4
 	},
-/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/teleporter)
 "ui" = (
@@ -2601,16 +2604,16 @@
 	},
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "uz" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/dark/line{
-	dir = 8
-	},
 /obj/machinery/firealarm/directional/west,
+/obj/effect/turf_decal/trimline/dark/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "uH" = (
@@ -2757,7 +2760,8 @@
 	dir = 5;
 	pixel_y = -32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -2798,7 +2802,7 @@
 "vT" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/plasma,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "vU" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -2887,7 +2891,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/greenglow,
 /mob/living/basic/viscerator,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "wq" = (
 /obj/effect/turf_decal/trimline/dark_red/line,
@@ -3157,8 +3161,13 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/dark_red/filled/end,
-/mob/living/basic/trooper/syndicate/ranged/shotgun/space,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 8
+	},
+/mob/living/basic/trooper/splurt/syndicate/ranged/shotgun/assault,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "ys" = (
@@ -3217,7 +3226,7 @@
 /obj/item/ammo_box/magazine/c35sol_pistol,
 /obj/item/ammo_box/magazine/c35sol_pistol,
 /obj/item/gun/ballistic/automatic/pistol/sol/evil,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "zq" = (
 /obj/item/pickaxe/drill,
@@ -3231,7 +3240,8 @@
 	dir = 9;
 	pixel_y = -32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -3257,7 +3267,8 @@
 	pixel_x = 32;
 	dir = 8;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -3518,7 +3529,7 @@
 /obj/structure/closet/crate/secure/trashcart/filled,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "BK" = (
 /obj/machinery/door/poddoor/shutters{
@@ -3670,7 +3681,7 @@
 	pixel_x = -9
 	},
 /obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Cy" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -3685,7 +3696,7 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
 	},
-/mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper,
+/mob/living/basic/trooper/splurt/syndicate/melee/sword/shield,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
 "CM" = (
@@ -3803,12 +3814,13 @@
 /mob/living/basic/trooper/syndicate/ranged/space,
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Dr" = (
 /obj/machinery/porta_turret/syndicate/energy/heavy{
 	pixel_y = 32;
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /obj/machinery/camera/directional/north{
 	network = list("vaulttango");
@@ -3816,6 +3828,23 @@
 	},
 /turf/open/space/basic,
 /area/ruin/space/has_grav/vaulttango/lobby)
+"Ds" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_red/warning{
+	dir = 4
+	},
+/obj/structure/cable,
+/mob/living/basic/trooper/splurt/syndicate/melee/sword,
+/turf/open/floor/iron/dark/textured,
+/area/ruin/space/has_grav/vaulttango/hall)
 "Dv" = (
 /obj/effect/turf_decal/trimline/dark_red,
 /obj/machinery/light/floor,
@@ -3972,7 +4001,6 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/dark/corner,
 /obj/structure/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/digital_clock/directional/north,
@@ -4004,7 +4032,8 @@
 	pixel_x = -32;
 	dir = 4;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -4041,7 +4070,7 @@
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/basic/viscerator,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Fo" = (
 /obj/structure/lattice/catwalk,
@@ -4051,7 +4080,8 @@
 	dir = 6;
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -4072,7 +4102,7 @@
 /obj/effect/spawner/random/contraband,
 /obj/effect/spawner/random/contraband/narcotics,
 /obj/effect/spawner/random/contraband/narcotics,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "FD" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
@@ -4100,13 +4130,13 @@
 /obj/item/reagent_containers/cup/soda_cans/beer,
 /obj/item/pizzabox/random,
 /obj/item/storage/cans/sixbeer,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "FO" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/plasma,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "FP" = (
 /obj/machinery/light/cold/directional/north,
@@ -4119,10 +4149,10 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark/line{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/trimline/dark/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "FW" = (
@@ -4350,7 +4380,8 @@
 	dir = 10;
 	pixel_y = 16;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -4519,7 +4550,9 @@
 	dir = 1;
 	system_id = "vaulttango_turrets";
 	mode = 1;
-	density = 0
+	density = 0;
+	max_integrity = 250;
+	name = "heavy defense turret"
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
@@ -4637,7 +4670,7 @@
 "Jn" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Jp" = (
 /obj/structure/grille,
@@ -4913,7 +4946,9 @@
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
 	mode = 1;
-	density = 0
+	density = 0;
+	max_integrity = 250;
+	name = "heavy defense turret"
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango)
@@ -4954,7 +4989,8 @@
 	dir = 10;
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -5019,7 +5055,8 @@
 	dir = 9;
 	pixel_y = -32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -5061,7 +5098,7 @@
 /mob/living/basic/trooper/syndicate/ranged/smg/space,
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "NP" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -5150,7 +5187,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/effect/decal/cleanable/plasma,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Ol" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted,
@@ -5159,7 +5196,9 @@
 	dir = 1;
 	system_id = "vaulttango_turrets";
 	mode = 1;
-	density = 0
+	density = 0;
+	max_integrity = 250;
+	name = "heavy defense turret"
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -5218,7 +5257,8 @@
 	dir = 1;
 	pixel_y = -32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -6043,7 +6083,8 @@
 	dir = 10;
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -6073,10 +6114,8 @@
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/dark/line{
-	dir = 4
-	},
 /obj/machinery/light_switch/directional/east,
+/obj/effect/turf_decal/trimline/dark/corner,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/teleporter)
 "Wi" = (
@@ -6159,7 +6198,7 @@
 /obj/effect/turf_decal/sand,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "WP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -6332,7 +6371,7 @@
 	},
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/rust,
+/turf/open/floor/plating/rust/airless,
 /area/ruin/unpowered)
 "Yq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -6348,6 +6387,7 @@
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 5
 	},
+/mob/living/basic/trooper/splurt/syndicate/melee/sword,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/vaulttango/hall)
 "YH" = (
@@ -6463,7 +6503,8 @@
 	dir = 6;
 	pixel_y = 32;
 	system_id = "vaulttango_turrets";
-	density = 0
+	density = 0;
+	name = "station defense turret"
 	},
 /turf/template_noop,
 /area/space/nearstation)
@@ -7631,7 +7672,7 @@ ZD
 Ze
 tH
 lL
-IY
+Ds
 IR
 IY
 AU
@@ -8123,8 +8164,8 @@ XN
 lI
 tl
 pp
-tl
 yl
+TU
 of
 vo
 pX

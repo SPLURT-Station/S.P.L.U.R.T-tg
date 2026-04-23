@@ -8,3 +8,11 @@
 	inhand_icon_state = null
 	radiosound = 'modular_skyrat/modules/radiosound/sound/radio/syndie.ogg'
 	keyslot = null
+
+/obj/item/radio/headset/syndicateciv/command
+	icon = 'icons/obj/clothing/headsets.dmi'
+	worn_icon = 'icons/mob/clothing/ears.dmi'
+
+/obj/item/radio/headset/syndicateciv/command/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
