@@ -618,6 +618,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"lx" = (
+/obj/effect/decal/cleanable/blood/oil/slippery,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "lM" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
@@ -935,6 +939,10 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/foreclosed_warehouse/frontoffice)
+"st" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/foreclosed_warehouse)
 "sv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -4239,11 +4247,11 @@ Sf
 rC
 tK
 tN
+st
 kA
 kA
 kA
-kA
-kA
+st
 kA
 bh
 zR
@@ -4307,7 +4315,7 @@ Sf
 rc
 tK
 qF
-kA
+lx
 kA
 kA
 kA
@@ -4345,7 +4353,7 @@ kA
 kA
 kA
 hv
-kA
+lx
 kA
 Ci
 jl
@@ -4410,7 +4418,7 @@ xw
 fw
 ps
 kA
-kA
+st
 kA
 kA
 kA
