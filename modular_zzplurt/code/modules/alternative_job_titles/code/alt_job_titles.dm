@@ -57,6 +57,7 @@
 		"Personnel Officer",
 		"Records Administrator",
 		"Staff Administrator",
+		"Head of Fursonnel",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -559,6 +560,22 @@
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
+/datum/job/blueshield/New()
+	var/list/extra_titles = list(
+		"Bottomshield",
+	)
+	LAZYADD(alt_titles, extra_titles)
+	. = ..()
+
+//Honorifics
+/datum/id_trim/job/blueshield/New()
+	var/list/extra_honorific = list(
+		"Blueshield",
+		"Bottomshield",
+	)
+	LAZYADD(honorifics, extra_honorific)
+	. = ..()
+
 /datum/job/nanotrasen_crew_trainer
 	alt_titles = list(
 		"Nanotrasen Crew Trainer",
@@ -570,4 +587,11 @@
 		"Science Trainer",
 		"Security Trainer",
 		"Service Trainer",
+	)
+
+/proc/get_security_cyborg_alt_titles()
+	return list(
+		"Security Cyborg",
+		"Safeguard Model",
+		"Synthetic Auxiliary Officer",
 	)

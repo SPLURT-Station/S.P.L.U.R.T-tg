@@ -630,3 +630,10 @@ MARKINGS - HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RI
 	name = "Cryptid Fur"
 	icon_state = "cryptid_marking"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+//Khanivore
+
+/datum/body_marking/secondary/splurt/khanivore
+	name = "Khanivore"
+	icon_state = "khanivore"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
