@@ -3,7 +3,9 @@
 	desc = "Your personality is assertive enough to appear as powerful to other people, so much in fact that the weaker kind can't help but throw themselves at your feet on command."
 	icon = "fa-sort-up"
 	medical_record_text = "Patient displays a high level of assertiveness within their personality."
-	value = 1
+	// Purely an ERP/RP flavor quirk; no mechanical advantage in combat or environmental
+	// hazards, so it lives in the neutral category (matches Well-Trained, Buns of Thunder, etc.).
+	value = 0
 	gain_text = span_notice("You feel like making someone your pet.")
 	lose_text = span_notice("You feel less assertive than before")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
