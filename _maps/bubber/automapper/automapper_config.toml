@@ -91,6 +91,14 @@ required_map = "Blueshift.dmm"
 coordinates = [100, 129, 1]
 trait_name = "Station"
 
+# Blueshift Security Infirmary
+[templates.blueshift_sec_infirmary]
+map_files = ["blueshift_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [100, 182, 1]
+trait_name = "Station"
+
 # CATWALK MAP EDITS
 # Catwalk Arrivals
 [templates.catwalk_arrivals]
@@ -230,6 +238,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [123, 143, 1]
 trait_name = "Station"
 
+# Deltastation Security Infirmary
+[templates.deltastation_sec_infirmary]
+map_files = ["deltastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [202, 152, 1]
+trait_name = "Station"
+
 # Deltastation Supermatter Chamber
 [templates.deltastation_supermatter]
 map_files = ["deltastation_supermatter.dmm"]
@@ -319,6 +335,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [87, 128, 3]
 trait_name = "Station"
 
+# IceBoxStation Security Infirmary
+[templates.iceboxstation_sec_infirmary]
+map_files = ["iceboxstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [114, 174, 3]
+trait_name = "Station"
+
 # IceBoxStation Supermatter Chamber
 [templates.iceboxstation_supermatter]
 map_files = ["iceboxstation_supermatter.dmm"]
@@ -350,6 +374,14 @@ map_files = ["book_of_kindred_display.dmm"]
 directory = "_maps/bubber/automapper/templates/generic/"
 required_map = "KiloStation.dmm"
 coordinates = [97, 128, 1]
+trait_name = "Station"
+
+# KiloStation Security Infirmary
+[templates.kilostation_sec_infirmary]
+map_files = ["kilostation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [73, 91, 1]
 trait_name = "Station"
 
 # LAVALAND MAP EDITS
@@ -483,6 +515,14 @@ required_map = "moonstation.dmm"
 coordinates = [101, 154, 3]
 trait_name = "Station"
 
+# Moonstation Security Infirmary
+[templates.moonstation_sec_infirmary]
+map_files = ["moonstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [152, 127, 3]
+trait_name = "Station"
+
 # NEBULASTATION MAP EDITS
 # Nebulastation Armory
 [templates.nebulastation_armory]
@@ -572,6 +612,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [64, 108, 1]
 trait_name = "Station"
 
+# Nebulastation Security Infirmary
+[templates.nebulastation_sec_infirmary]
+map_files = ["nebulastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [155, 101, 1]
+trait_name = "Station"
+
 [templates.nebulastation_blueshield_office]
 map_files = ["nebulastation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/nebulastation/"
@@ -636,6 +684,14 @@ required_map = "tramstation.dmm"
 coordinates = [34, 135, 2]
 trait_name = "Station"
 
+# Tramstation Security Infirmary
+[templates.Tramstation_sec_infirmary]
+map_files = ["tramstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [55, 146, 2]
+trait_name = "Station"
+
 # Tramstation Supermatter Chamber
 [templates.tramstation_supermatter]
 map_files = ["tramstation_supermatter.dmm"]
@@ -651,6 +707,14 @@ map_files = ["book_of_kindred_display.dmm"]
 directory = "_maps/bubber/automapper/templates/generic/"
 required_map = "VoidRaptor.dmm"
 coordinates = [146, 137, 1]
+trait_name = "Station"
+
+# VoidRaptor Security Infirmary
+[templates.voidraptor_sec_infirmary]
+map_files = ["voidraptor_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/voidraptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [139, 169, 1]
 trait_name = "Station"
 
 # WAWASTATION MAP EDITS
@@ -771,6 +835,14 @@ required_map = "biodome.dmm"
 coordinates = [164, 113, 2]
 trait_name = "Station"
 
+# Biodome Security Infirmary
+[templates.biodome_sec_infirmary]
+map_files = ["biodome_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [155, 67, 2]
+trait_name = "Station"
+
 # Metastation Infinidorm
 [templates.metastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -817,6 +889,14 @@ map_files = ["boxstation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/boxstation/"
 required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
+trait_name = "Station"
+
+# Boxstation Security Infirmary
+[templates.boxstation_sec_infirmary]
+map_files = ["boxstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [103, 171, 1]
 trait_name = "Station"
 
 # Kilostation Infinidorm
