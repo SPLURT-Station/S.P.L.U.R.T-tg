@@ -4,7 +4,7 @@
 	icon = "fa-sort-down"
 	medical_record_text = "Patient can be easily swayed by a sufficiently assertive individual"
 	// Yes, it should be neutral. Yes, this is a bad idea. This is funny and multiple people are saying it's time to be funny.
-	value = -1
+	value = 0
 	gain_text = "<span class='notice'>You feel like being someone's pet</span>"
 	lose_text = "<span class='notice'>You no longer feel like being a pet...</span>"
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
