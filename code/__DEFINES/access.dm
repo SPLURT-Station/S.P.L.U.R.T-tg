@@ -608,3 +608,11 @@
 #define SILICON_OVERRIDE "silicon_override"
 #define CHAMELEON_OVERRIDE "chameleon_override"
 #define ID_READ_FAILURE "id_read_failure"
+
+//SPLURT ADDITION
+
+#define REGION_LZGAS "Lizard Gas Station"
+/// Used to seed the accesses_by_region list in SSid_access. A list of all research regional accesses that are overseen by the RD.
+#define REGION_ACCESS_LZGAS list( \
+	ACCESS_LZGAS, \
+)
