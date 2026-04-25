@@ -3,7 +3,7 @@
 	desc = "Your personality is assertive enough to appear as powerful to other people, so much in fact that the weaker kind can't help but throw themselves at your feet on command."
 	icon = "fa-sort-up"
 	medical_record_text = "Patient displays a high level of assertiveness within their personality."
-	value = 1
+	value = 0
 	gain_text = span_notice("You feel like making someone your pet.")
 	lose_text = span_notice("You feel less assertive than before")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
@@ -78,7 +78,7 @@
 
 		. = TRUE
 
-//Gotta check for borg module
+#Gotta check for borg module
 	for(var/mob/living/silicon/robot/borg_sub in hearers(world.view / 2, quirk_holder))
 		if(!borg_sub.has_quirk(/datum/quirk/well_trained) || (borg_sub == quirk_holder))
 			continue
@@ -116,4 +116,3 @@
 
 	if(.)
 		TIMER_COOLDOWN_START(quirk_holder, DOMINANT_COOLDOWN_SNAP, 10 SECONDS) // 1/10th of a second knockdown with a 10 seconds cooldown on a neutral quirk.
-
