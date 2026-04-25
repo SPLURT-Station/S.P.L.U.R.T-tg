@@ -26,7 +26,7 @@
 		if(!reagents || !reagents.total_volume)
 			beingChugged = FALSE
 			return
-		gulp_size = 50
+		gulp_size = reagents.total_volume
 		user.visible_message(span_notice("[user] chugs [src]."), \
 			span_notice("You chug [src]."))
 		beingChugged = FALSE
