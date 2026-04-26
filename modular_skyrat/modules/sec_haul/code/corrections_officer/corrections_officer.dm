@@ -43,9 +43,9 @@
 	name = "Corrections Officer"
 	jobtype = /datum/job/corrections_officer
 	uniform = /obj/item/clothing/under/rank/security/corrections_officer/sweater
-	suit = /obj/item/clothing/suit/toggle/jacket/corrections_officer
+	suit = /obj/item/clothing/suit/armor/vest/secjacket/corrections_officer //SPLURT EDIT, ORIGINAL: obj/item/clothing/suit/toggle/jacket/corrections_officer
 	shoes = /obj/item/clothing/shoes/laceup
-	ears = /obj/item/radio/headset/headset_sec
+	ears = /obj/item/radio/headset/headset_sec/alt //SPLURT EDIT, ORIGINAL: /obj/item/radio/headset/headset_sec
 	glasses = /obj/item/clothing/glasses/sunglasses
 	backpack_contents = list(/obj/item/melee/baton/security/loaded/departmental/prison, /obj/item/restraints/handcuffs = 2, /obj/item/clothing/mask/whistle, /obj/item/gun/energy/disabler)
 	implants = list(/obj/item/implant/mindshield)

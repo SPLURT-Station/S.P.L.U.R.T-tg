@@ -7,6 +7,14 @@ export enum ShuttleState {
   MESSAGES = 'messages',
 }
 
+// SPLURT EDIT - Security cyborg management
+export type SecurityCyborg = {
+  name: string;
+  ref: string;
+  fired: boolean;
+};
+// SPLURT EDIT END
+
 export type Shuttle = {
   activation: string;
   activationTime: number;
@@ -68,6 +76,11 @@ export type CommsConsoleData = {
   shuttleLastCalled: BooleanLike;
   shuttleRecallable: BooleanLike;
   syndicate: BooleanLike;
+
+  // SPLURT EDIT - Security cyborg management
+  canManageSecurityCyborgs: BooleanLike;
+  securityCyborgs: SecurityCyborg[];
+  // SPLURT EDIT END
 
   // static_data
   callShuttleReasonMinLength: number;

@@ -66,8 +66,9 @@
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
-		if(!body_relay || !target.Adjacent(body_relay))
-			return FALSE
+		if(target.loc != self.loc || isturf(target.loc)) //SPLURT ADDITION - Makes sure you can interact with other people in the same container.
+			if(!body_relay || !target.Adjacent(body_relay))
+				return FALSE
 	if(interaction.category == INTERACTION_CAT_HIDE)
 		return FALSE
 	if(self == target && interaction.usage == INTERACTION_OTHER)
@@ -339,6 +340,12 @@
 			if(!genital || !istype(genital) || genital.aroused == AROUSAL_CANT)
 				return FALSE
 
+			//SPLURT ADDITION START
+			if(genital.slot == ORGAN_SLOT_PENIS)
+				var/lock_mode = GLOB.mkultra_arousal_locks[user]
+				if(lock_mode == "hard" || lock_mode == "limp")
+					return FALSE
+			//SPLURT ADDITION END
 			var/arousal = params["arousal"]
 			if(!(arousal in list(AROUSAL_NONE, AROUSAL_PARTIAL, AROUSAL_FULL)))
 				return FALSE

@@ -31,22 +31,28 @@
 	icon_state = "sec_headset"
 	keyslot = new /obj/item/encryptionkey/headset_sec
 
-/obj/item/clothing/suit/toggle/jacket/corrections_officer
+/obj/item/clothing/suit/armor/vest/secjacket/corrections_officer //SPLURT EDIT, ORIGINAL: /obj/item/clothing/suit/toggle/jacket/corrections_officer
 	name = "corrections officer's suit jacket"
 	desc = "A pressed and ironed suit jacket, it has light armor against stabbings. There's some rank badges on the right breast."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "co_coat"
-	body_parts_covered = CHEST|ARMS
-	armor_type = /datum/armor/jacket_corrections_officer
 
+//SPLURT ADDITION START
+/obj/item/clothing/suit/armor/vest/secjacket/corrections_officer/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	// Reuse secjacket emissive without changing this item's normal co_coat icon state.
+	var/old_icon_state = icon_state
+	icon_state = "secjacket"
+	. = ..(standing, isinhands, 'icons/mob/clothing/suits/armor.dmi')
+	icon_state = old_icon_state
+//SPLURT ADDITION END
 
 // LOCKER
-
+/*SPLURT DELETION START
 /datum/armor/jacket_corrections_officer
 	melee = 10
 	melee = 10
-
+SPLURT DELETION END */
 /obj/structure/closet/secure_closet/corrections_officer
 	name = "corrections officer riot gear"
 	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
@@ -63,3 +69,4 @@
 	new /obj/item/clothing/head/helmet/toggleable/riot(src)
 	new /obj/item/shield/riot(src)
 	new /obj/item/clothing/under/rank/security/corrections_officer(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src) //SPLURT ADDITION
