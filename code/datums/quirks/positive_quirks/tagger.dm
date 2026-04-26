@@ -2,7 +2,7 @@
 	name = "Tagger"
 	desc = "You're an experienced artist. People will actually be impressed by your graffiti, and you can get twice as many uses out of drawing supplies in half the time."
 	icon = FA_ICON_SPRAY_CAN
-	value = 4
+	value = 2
 	mob_trait = TRAIT_TAGGER
 	gain_text = span_notice("You know how to tag walls efficiently and quickly.")
 	lose_text = span_danger("You forget how to tag walls properly.")

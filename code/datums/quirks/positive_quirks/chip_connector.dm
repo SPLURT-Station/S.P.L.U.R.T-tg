@@ -2,7 +2,7 @@
 	name = "Chip Connector"
 	desc = "You had a device installed that lets you manually add and remove skillchips! Just try not to get near any electromagnetic pulses."
 	icon = FA_ICON_PLUG
-	value = 4
+	value = 3
 	gain_text = span_notice("You feel CONNECTED.")
 	lose_text = span_danger("You don't feel so CONNECTED anymore.")
 	medical_record_text = "Patient has a cybernetic implant on their back of their head that lets them install and remove skillchips at will. Gross."

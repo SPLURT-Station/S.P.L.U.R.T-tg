@@ -1,3 +1,3 @@
 // Permanent version of Overweight quirk
 /datum/quirk/obese
-	value = -4
+	value = -1

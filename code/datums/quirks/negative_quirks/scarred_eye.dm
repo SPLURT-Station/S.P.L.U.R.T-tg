@@ -2,7 +2,7 @@
 	name = "Scarred Eye"
 	desc = "An accident in your past has cost you one of your eyes, but you got a cool eyepatch. Yarr!"
 	icon = FA_ICON_EYE_SLASH
-	value = -2
+	value = -3
 	gain_text = span_danger("After all this time, your eye still stings a bit...")
 	lose_text = span_notice("Your peripherial vision grows by about thirty percent.")
 	medical_record_text = "Patient has severe scarring on one of their eyes, resulting in partial vision loss."

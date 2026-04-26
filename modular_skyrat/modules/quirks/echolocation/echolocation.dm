@@ -3,7 +3,7 @@
 	desc = "Though your eyes no longer function, you accommodate for it by some means of extrasensory echolocation and sensitive hearing. Beware: if you're ever deafened, you'll also lose your echolocation until you recover!"
 	gain_text = span_notice("The slightest sounds map your surroundings.")
 	lose_text = span_notice("The world resolves into colour and clarity.")
-	value = -14
+	value = -12
 	icon = FA_ICON_EAR_LISTEN
 	mob_trait = TRAIT_GOOD_HEARING
 	medical_record_text = "Patient's eyes are biologically nonfunctional. Hearing tests indicate almost supernatural acuity."

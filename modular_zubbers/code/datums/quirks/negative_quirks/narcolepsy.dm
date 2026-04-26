@@ -2,7 +2,7 @@
 	name = "Narcolepsy"
 	desc = "You may fall asleep at any moment and feel tired often."
 	icon = FA_ICON_CLOUD_MOON_RAIN
-	value = -8
+	value = -7
 	hardcore_value = 8
 	medical_record_text = "Patient may involuntarily fall asleep during normal activities."
 	mail_goodies = list(

@@ -2,7 +2,7 @@
 	name = "Depression"
 	desc = "You sometimes just hate life."
 	icon = FA_ICON_FROWN
-	value = -3
+	value = -2
 	gain_text = span_danger("You start feeling depressed.")
 	lose_text = span_notice("You no longer feel depressed.") //if only it were that easy!
 	medical_record_text = "Patient has a mild mood disorder causing them to experience acute episodes of depression."

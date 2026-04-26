@@ -5,7 +5,7 @@
 	with the drawback of being easily squashed!"
 	icon = FA_ICON_MINIMIZE
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_HIDE_FROM_SCAN|QUIRK_CHANGES_APPEARANCE
-	value = -4
+	value = -2
 	gain_text = span_danger("You feel a bit smaller.")
 	lose_text = span_notice("You feel a bit larger.")
 	medical_record_text = "Patient is short and small."

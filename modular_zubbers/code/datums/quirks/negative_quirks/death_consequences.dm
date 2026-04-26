@@ -3,7 +3,7 @@
 	desc = "Every time you die, your body suffers long-term damage that can't easily be repaired."
 	medical_record_text = DEATH_CONSEQUENCES_QUIRK_DESC
 	icon = FA_ICON_DNA
-	value = 0 // due to its high customization, you can make it really inconsequential
+	value = -2 // due to its high customization, you can make it really inconsequential
 
 /datum/quirk_constant_data/death_consequences
 	associated_typepath = /datum/quirk/death_consequences

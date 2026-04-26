@@ -2,7 +2,7 @@
 	name = "Erratic"
 	desc = "You mood swings like a pendulum, causing your personality to change on a whim every so often."
 	icon = FA_ICON_MASKS_THEATER
-	value = -3
+	value = -2
 	gain_text = span_danger("You feel erratic.") // say that again?
 	lose_text = span_notice("You feel more stable.")
 	medical_record_text = "Patient has a bipolar personality disorder."

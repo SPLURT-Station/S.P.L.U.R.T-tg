@@ -1,2 +1,2 @@
 /datum/quirk/skittish
-	value = 4
+	value = 3

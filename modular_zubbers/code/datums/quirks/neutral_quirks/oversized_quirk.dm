@@ -9,7 +9,7 @@
 	gain_text = span_notice("That airlock looks small...")
 	lose_text = span_notice("Is it still the same size...?") //Lol
 	medical_record_text = "Patient is abnormally tall."
-	value = 0
+	value = -2
 	mob_trait = TRAIT_OVERSIZED
 	icon = FA_ICON_EXPAND_ARROWS_ALT
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE

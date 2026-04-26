@@ -2,7 +2,7 @@
 	name = "Blind"
 	desc = "You are completely blind, nothing can counteract this."
 	icon = FA_ICON_BLIND
-	value = -16
+	value = -14
 	gain_text = span_danger("You can't see anything.")
 	lose_text = span_notice("You miraculously gain back your vision.")
 	medical_record_text = "Patient has permanent blindness."

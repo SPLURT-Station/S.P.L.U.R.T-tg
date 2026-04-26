@@ -2,7 +2,7 @@
 	name = "Mime Fan"
 	desc = "You're a fan of mime antics and get a mood boost from wearing your mime pin."
 	icon = FA_ICON_THUMBTACK
-	value = 2
+	value = 0
 	mob_trait = TRAIT_MIME_FAN
 	gain_text = span_notice("You are a big fan of the Mime.")
 	lose_text = span_danger("The mime doesn't seem so great.")

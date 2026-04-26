@@ -3,7 +3,7 @@
 /datum/quirk/undead
 	name = "Undeath"
 	desc = "You stand on the border between life and death, causing you to function similar to a zombie."
-	value = 0
+	value = 9
 	gain_text = span_notice("The life has left your body, but you haven't stopped moving yet.")
 	lose_text = span_notice("By some miracle, you've been brought back to life!")
 	medical_record_text = "Patient is listed as deceased in medical records."

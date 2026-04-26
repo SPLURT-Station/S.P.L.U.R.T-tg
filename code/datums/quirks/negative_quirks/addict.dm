@@ -84,7 +84,7 @@
 	name = "Junkie"
 	desc = "You can't get enough of hard drugs."
 	icon = FA_ICON_PILLS
-	value = -6
+	value = -3
 	gain_text = span_danger("You suddenly feel the craving for drugs.")
 	medical_record_text = "Patient has a history of hard drugs."
 	hardcore_value = 4
@@ -111,7 +111,7 @@
 	name = "Smoker"
 	desc = "Sometimes you just really want a smoke. Probably not great for your lungs."
 	icon = FA_ICON_SMOKING
-	value = -4
+	value = -2
 	gain_text = span_danger("You could really go for a smoke right about now.")
 	lose_text = span_notice("You don't feel nearly as hooked to nicotine anymore.")
 	medical_record_text = "Patient is a current smoker."
@@ -169,7 +169,7 @@
 	name = "Alcoholic"
 	desc = "You just can't live without alcohol. Your liver is a machine that turns ethanol into acetaldehyde."
 	icon = FA_ICON_WINE_GLASS
-	value = -4
+	value = -3
 	gain_text = span_danger("You really need a drink.")
 	lose_text = span_notice("Alcohol doesn't seem nearly as enticing anymore.")
 	medical_record_text = "Patient is an alcoholic."

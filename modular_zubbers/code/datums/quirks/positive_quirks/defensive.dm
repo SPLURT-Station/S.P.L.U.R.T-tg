@@ -3,7 +3,7 @@
 	desc = "You are rude and impatient, and want people to get out of your way. "
 	icon = FA_ICON_FROWN_OPEN
 	medical_record_text = "Patient has anger issues."
-	value = 6
+	value = 5
 	gain_text = span_notice("You feel like punching someone.")
 	lose_text = span_notice("You feel calmer.")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN

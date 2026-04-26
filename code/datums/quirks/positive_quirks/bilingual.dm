@@ -2,7 +2,7 @@
 	name = "Bilingual"
 	desc = "Over the years you've picked up an extra language!"
 	icon = FA_ICON_GLOBE
-	value = 4
+	value = 3
 	mob_trait = TRAIT_BILINGUAL //BUBBER EDIT ADDITION: Marks down that you're bilingual
 	gain_text = span_notice("Some of the words of the people around you certainly aren't common. Good thing you studied for this.")
 	lose_text = span_notice("You seem to have forgotten your second language.")

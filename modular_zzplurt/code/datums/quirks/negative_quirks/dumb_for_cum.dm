@@ -1,9 +1,9 @@
-#define D4C_CRAVE_TIME 15 MINUTES
+#define D4C_CRAVE_TIME 20 MINUTES // 15 minutes is so low.
 
 /datum/quirk/dumb_for_cum
 	name = "Dumb For Cum"
 	desc = "You're totally addicted to seminal fluids. You need to consume them periodically, or face the consequences."
-	value = -2
+	value = -1
 	gain_text = span_purple("You feel an insatiable craving for seminal fluids.")
 	lose_text = span_purple("Cum didn't even taste that good, anyways.")
 	medical_record_text = "Patient seems to have an unhealthy psychological obsession with seminal fluids."

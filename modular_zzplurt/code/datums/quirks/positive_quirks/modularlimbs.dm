@@ -3,7 +3,7 @@
 /datum/quirk/modularlimbs
 	name = "Modular Limbs"
 	desc = "You've undergone an experimental ligament hook surgery, allowing your limbs to be attached and detached easily. Unfortunately, this means everyone else can alter your limbs too!"
-	value = 0
+	value = 2
 	gain_text = span_notice("Your limbs feel like they could come off with a bit of effort.")
 	lose_text = span_notice("Your limbs feel more firmly attached.")
 	medical_record_text = "Patient has detachable limbs."

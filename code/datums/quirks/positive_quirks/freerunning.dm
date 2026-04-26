@@ -2,7 +2,7 @@
 	name = "Freerunning"
 	desc = "You're great at quick moves! You can climb tables more quickly and take no damage from short falls."
 	icon = FA_ICON_RUNNING
-	value = 8
+	value = 6
 	mob_trait = TRAIT_FREERUNNING
 	gain_text = span_notice("You feel lithe on your feet!")
 	lose_text = span_danger("You feel clumsy again.")

@@ -3,7 +3,7 @@
 /datum/quirk/hungry
 	name = "Hungry"
 	desc = "For some reason, you get hungrier faster than others"
-	value = 0
+	value = -2
 	icon = FA_ICON_BOWL_FOOD
 	gain_text = span_notice("You feel like your stomach is bottomless")
 	lose_text = span_notice("You no longer feel like your stomach is bottomless")

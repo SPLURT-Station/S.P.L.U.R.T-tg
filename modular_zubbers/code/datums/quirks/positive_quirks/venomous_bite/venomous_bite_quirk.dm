@@ -2,7 +2,7 @@
 	name = "Venomous Bite"
 	desc = "You have a venom gland, and can bite people to inject them with a toxin of your choosing."
 	icon = FA_ICON_TEETH_OPEN
-	value = 8
+	value = 7
 	gain_text = span_notice("You feel a venom gland in the back of your throat.")
 	lose_text = span_warning("Your venom gland vanishes.")
 	medical_record_text = "Patient possesses a venom gland."

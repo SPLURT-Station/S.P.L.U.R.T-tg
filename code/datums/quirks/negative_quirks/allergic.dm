@@ -2,7 +2,7 @@
 	name = "Extreme Medicine Allergy"
 	desc = "Ever since you were a kid, you've been allergic to certain chemicals..."
 	icon = FA_ICON_PRESCRIPTION_BOTTLE
-	value = -6
+	value = -4
 	gain_text = span_danger("You feel your immune system shift.")
 	lose_text = span_notice("You feel your immune system phase back into perfect shape.")
 	medical_record_text = "Patient's immune system responds violently to certain chemicals."

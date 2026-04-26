@@ -1,7 +1,7 @@
 /datum/quirk/rad_fiend
 	name = "Rad Fiend"
 	desc = "You've been blessed by Cherenkov's warming light! Radiation is incapable of penetrating your protective barrier."
-	value = 6
+	value = 7
 	gain_text = span_notice("You feel empowered by Cherenkov's glow.")
 	lose_text = span_notice("You realize that rads aren't so rad.")
 	medical_record_text = "Patient emits a slight radioactive aura. The effect is harmless."

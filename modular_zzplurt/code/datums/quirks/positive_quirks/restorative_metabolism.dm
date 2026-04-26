@@ -8,7 +8,7 @@
 /datum/quirk/restorative_metabolism
 	name = "Restorative Metabolism"
 	desc = "Your body possesses a differentiated reconstructive ability, allowing you to slowly recover from light to moderate injuries. Critical injuries, wounds, and genetic damage will still require medical attention."
-	value = 8
+	value = 7
 	quirk_flags = QUIRK_PROCESSES
 	gain_text = span_notice("You feel a surge of reconstructive vitality coursing through your body...")
 	lose_text = span_notice("You sense your enhanced reconstructive ability fading away...")

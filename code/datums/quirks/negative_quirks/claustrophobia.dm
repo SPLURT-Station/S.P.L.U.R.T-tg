@@ -2,7 +2,7 @@
 	name = "Claustrophobia"
 	desc = "You are terrified of small spaces and certain jolly figures. If you are placed inside any container, locker, or machinery, a panic attack sets in and you struggle to breathe."
 	icon = FA_ICON_BOX_OPEN
-	value = -4
+	value = -3
 	medical_record_text = "Patient demonstrates a fear of tight spaces."
 	hardcore_value = 5
 	quirk_flags = QUIRK_HUMAN_ONLY

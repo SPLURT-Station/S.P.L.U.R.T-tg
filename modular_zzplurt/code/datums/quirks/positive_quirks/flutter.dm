@@ -6,7 +6,7 @@
 /datum/quirk/flutter
 	name = "Flutter"
 	desc = "You are able to propel yourself forward in pressurized low-gravity environments. Slowing back down may be tricky."
-	value = 2
+	value = 4
 	gain_text = span_notice("Your body is prepared to maneuver pressurized low-gravity environments.")
 	lose_text = span_notice("You forget how to move around in low-gravity.")
 	medical_record_text = "Patient demonstrates exceptional maneuverability in low-gravity environments."

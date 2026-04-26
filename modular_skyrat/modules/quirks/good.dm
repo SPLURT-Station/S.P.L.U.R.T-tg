@@ -3,7 +3,7 @@
 /datum/quirk/hard_soles
 	name = "Hardened Soles"
 	desc = "You're used to walking barefoot, and won't receive the negative effects of doing so."
-	value = 2
+	value = 3
 	mob_trait = TRAIT_HARD_SOLES
 	gain_text = span_notice("The ground doesn't feel so rough on your feet anymore.")
 	lose_text = span_danger("You start feeling the ridges and imperfections on the ground.")
@@ -13,7 +13,7 @@
 /datum/quirk/linguist
 	name = "Linguist"
 	desc = "You're a student of numerous languages and come with an additional language point."
-	value = 2
+	value = 3
 	mob_trait = TRAIT_LINGUIST
 	gain_text = span_notice("Your brain seems more equipped to handle different modes of conversation.")
 	lose_text = span_danger("Your grasp of the finer points of Draconic idioms fades away.")
@@ -23,7 +23,7 @@
 /datum/quirk/sharpclaws
 	name = "Sharp Claws"
 	desc = "Whether it's a hunter's inherent biology, or your stubborn refusal to clip your nails ahead of your Jiu-Jitsu classes, your unarmed attacks are sharper and will make people bleed."
-	value = 2
+	value = 3
 	gain_text = span_notice("Your palms hurt a bit from the sharpness of your nails.")
 	lose_text = span_danger("You feel a distinct emptiness as your nails dull; good luck scratching that itch.")
 	medical_record_text = "Patient ended up scratching through the examination table's cushions; recommended they look into clipping their claws."
@@ -78,62 +78,11 @@
 	medical_record_text = "Patient possesses biology compatible with aquatic respiration."
 	icon = FA_ICON_FISH
 
-// AdditionalEmotes *turf quirks
-/datum/quirk/water_aspect
-	name = "Water aspect (Emotes)"
-	desc = "(Aquatic innate) Underwater societies are home to you, space ain't much different. (Say *turf to cast)"
-	value = 0
-	mob_trait = TRAIT_WATER_ASPECT
-	gain_text = span_notice("You feel like you can control water.")
-	lose_text = span_danger("Somehow, you've lost your ability to control water!")
-	medical_record_text = "Patient holds a collection of nanobots designed to synthesize H2O."
-	icon = FA_ICON_WATER
-
-/datum/quirk/webbing_aspect
-	name = "Webbing aspect (Emotes)"
-	desc = "(Insect innate) Insect folk capable of weaving aren't unfamiliar with receiving envy from those lacking a natural 3D printer. (Say *turf to cast)"
-	value = 0
-	mob_trait = TRAIT_WEBBING_ASPECT
-	gain_text = span_notice("You could easily spin a web.")
-	lose_text = span_danger("Somehow, you've lost your ability to weave.")
-	medical_record_text = "Patient has the ability to weave webs with naturally synthesized silk."
-	icon = FA_ICON_STICKY_NOTE
-
-/datum/quirk/floral_aspect
-	name = "Floral aspect (Emotes)"
-	desc = "(Podperson innate) Kudzu research isn't pointless, rapid photosynthesis technology is here! (Say *turf to cast)"
-	value = 0
-	mob_trait = TRAIT_FLORAL_ASPECT
-	gain_text = span_notice("You feel like you can grow vines.")
-	lose_text = span_danger("Somehow, you've lost your ability to rapidly photosynthesize.")
-	medical_record_text = "Patient can rapidly photosynthesize to grow vines."
-	icon = FA_ICON_PLANT_WILT
-
-/datum/quirk/ash_aspect
-	name = "Ash aspect (Emotes)"
-	desc = "(Lizard innate) The ability to forge ash and flame, a mighty power - yet mostly used for theatrics. (Say *turf to cast)"
-	value = 0
-	mob_trait = TRAIT_ASH_ASPECT
-	gain_text = span_notice("There is a forge smouldering inside of you.")
-	lose_text = span_danger("Somehow, you've lost your ability to breathe fire.")
-	medical_record_text = "Patients possess a fire breathing gland commonly found in lizard folk."
-	icon = FA_ICON_FIRE
-
-/datum/quirk/sparkle_aspect
-	name = "Sparkle aspect (Emotes)"
-	desc = "(Moth innate) Sparkle like the dust off of a moth's wing, or like a cheap red-light hook-up. (Say *turf to cast)"
-	value = 0
-	mob_trait = TRAIT_SPARKLE_ASPECT
-	gain_text = span_notice("You're covered in sparkling dust!")
-	lose_text = span_danger("Somehow, you've completely cleaned yourself of glitter..")
-	medical_record_text = "Patient seems to be looking fabulous."
-	icon = FA_ICON_HAND_SPARKLES
-
 /datum/quirk/no_appendix
 	name = "Appendicitis Survivor"
 	desc = "You had a run in with appendicitis in the past and no longer have an appendix."
 	icon = FA_ICON_NOTES_MEDICAL
-	value = 2
+	value = 3
 	gain_text = span_notice("You no longer have an appendix.")
 	lose_text = span_danger("Your appendix has magically.. regrown?")
 	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed."

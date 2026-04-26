@@ -3,7 +3,7 @@
 	name = "Gamer"
 	desc = "You are a hardcore gamer, and you have a need to game. You love winning and hate losing. You only like gamer food."
 	icon = FA_ICON_GAMEPAD
-	value = 0
+	value = -2
 	gain_text = span_notice("You feel the sudden urge to game.")
 	lose_text = span_notice("You've lost all interest in gaming.")
 	medical_record_text = "Patient has a severe video game addiction."

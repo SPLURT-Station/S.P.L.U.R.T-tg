@@ -2,7 +2,7 @@
 	name = "Fluoride Stare"
 	desc = "You have lost your eyelids in a horrible accident, or so you tell others. You need to manually wet your eyes with a saline solution every once in a while!"
 	icon = FA_ICON_EYE_DROPPER
-	value = -6
+	value = -5
 	gain_text = span_danger("Your eyes feel itchy and dry...")
 	lose_text = span_notice("You realize that sudden darkness that has just enveloped you was just your eyelids growing back.")
 	medical_record_text = "Patient has lost their eyelids in a grueling accident."

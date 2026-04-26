@@ -10,7 +10,7 @@
 /datum/quirk/tail_sweep
 	name = "Clumsy Tail"
 	desc = "For as long as you can remember, you've had a habit of knocking things off tables with your tail when turning. It's a bit embarrassing, but you can't seem to help it."
-	value = 0
+	value = 2 // SPLURT: You CHOSE to be annoying...
 	gain_text = span_notice("You feel an urge to sweep things off tables with your tail.")
 	lose_text = span_notice("You feel less inclined to sweep things off tables with your tail.")
 	medical_record_text = "Patient has a habit of clumsily knocking things off tables with their tail when turning."

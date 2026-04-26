@@ -2,7 +2,7 @@
 	name = "Friendly"
 	desc = "You give the best hugs, especially when you're in the right mood."
 	icon = FA_ICON_HANDS_HELPING
-	value = 2
+	value = 0
 	mob_trait = TRAIT_FRIENDLY
 	gain_text = span_notice("You want to hug someone.")
 	lose_text = span_danger("You no longer feel compelled to hug others.")

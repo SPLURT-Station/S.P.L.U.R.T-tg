@@ -71,7 +71,7 @@
 	medical_record_text = "Patient can only breathe nitrogen."
 	gain_text = "<span class='danger'>You suddenly have a hard time breathing anything but nitrogen."
 	lose_text = "<span class='notice'>You suddenly feel like you aren't bound to nitrogen anymore."
-	value = 0
+	value = -4
 	forced_items = list(
 		/obj/item/clothing/mask/breath = list(ITEM_SLOT_MASK),
 		/obj/item/tank/internals/nitrogen/belt/full = list(ITEM_SLOT_HANDS, ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET))

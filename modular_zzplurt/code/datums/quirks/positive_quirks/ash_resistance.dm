@@ -1,7 +1,7 @@
 /datum/quirk/ash_resistance
 	name = "Ashen Resistance"
 	desc = "Your body is adapted to the burning sheets of ash that coat volcanic worlds. The heavy downpours of silt will still tire you."
-	value = 2
+	value = 3
 	gain_text = span_notice("Your body has adapted to the harsh climates of volcanic worlds.")
 	lose_text = span_notice("Your body has lost its ashen adaptations.")
 	medical_record_text = "Patient has an abnormally thick epidermis."

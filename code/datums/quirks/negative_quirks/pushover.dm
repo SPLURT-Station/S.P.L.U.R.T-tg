@@ -2,7 +2,7 @@
 	name = "Pushover"
 	desc = "Your first instinct is always to let people push you around. Resisting out of grabs is noticeably more difficult."
 	icon = FA_ICON_HANDSHAKE
-	value = -8
+	value = -7
 	mob_trait = TRAIT_GRABWEAKNESS
 	gain_text = span_danger("You feel like a pushover.")
 	lose_text = span_notice("You feel like standing up for yourself.")

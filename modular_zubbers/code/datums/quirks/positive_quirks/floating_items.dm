@@ -1,7 +1,7 @@
 /datum/quirk/floating_items
 	name = "Psionic Holding"
 	desc = "You find holding items with your hands so inconvenient, and use your mind powers to do so instead."
-	value = 0
+	value = 4
 	icon = FA_ICON_METEOR
 	medical_record_text = "Subject's mind is capable of extremely limited telekinesis."
 	gain_text = "Your mind feels like it can lift weights!"

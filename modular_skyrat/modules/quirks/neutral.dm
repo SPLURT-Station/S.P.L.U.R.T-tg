@@ -40,193 +40,6 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	mob_trait = TRAIT_PERSONALSPACE
 	icon = FA_ICON_HAND_PAPER
 
-/datum/quirk/dnr
-	name = "Do Not Revive"
-	desc = "For whatever reason, you cannot be revived in any way."
-	gain_text = span_notice("Your spirit gets too scarred to accept revival.")
-	lose_text = span_notice("You can feel your soul healing again.")
-	medical_record_text = "Patient is a DNR, and cannot be revived in any way."
-	value = 0
-	mob_trait = TRAIT_DNR
-	icon = FA_ICON_SKULL_CROSSBONES
-
-/datum/quirk/dnr/add(client/client_source)
-	. = ..()
-
-	quirk_holder.update_dnr_hud()
-
-/datum/quirk/dnr/remove()
-	var/mob/living/old_holder = quirk_holder
-
-	. = ..()
-
-	old_holder.update_dnr_hud()
-
-/mob/living/prepare_data_huds()
-	. = ..()
-
-	update_dnr_hud()
-
-/// Adds the DNR HUD element if src has TRAIT_DNR. Removes it otherwise.
-/mob/living/proc/update_dnr_hud()
-	var/image/dnr_holder = hud_list?[DNR_HUD]
-	if(isnull(dnr_holder))
-		return
-
-	var/icon/temporary_icon = icon(icon, icon_state, dir)
-	dnr_holder.pixel_y = temporary_icon.Height() - world.icon_size
-
-	if(HAS_TRAIT(src, TRAIT_DNR))
-		set_hud_image_active(DNR_HUD)
-		dnr_holder.icon_state = "hud_dnr"
-	else
-		set_hud_image_inactive(DNR_HUD)
-
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
-
-	if(stat != DEAD && HAS_TRAIT(src, TRAIT_DNR) && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
-		. += "\n[span_boldwarning("This individual is unable to be revived, and may be permanently dead if allowed to die!")]"
-
-/datum/atom_hud/data/human/dnr
-	hud_icons = list(DNR_HUD)
-
-// uncontrollable laughter
-/datum/quirk/item_quirk/joker
-	name = "Pseudobulbar Affect"
-	desc = "At random intervals, you suffer uncontrollable bursts of laughter."
-	value = 0
-	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
-	medical_record_text = "Patient suffers with sudden and uncontrollable bursts of laughter."
-	var/pcooldown = 0
-	var/pcooldown_time = 60 SECONDS
-	icon = FA_ICON_GRIN_TEARS
-
-/datum/quirk/item_quirk/joker/add_unique(client/client_source)
-	give_item_to_holder(/obj/item/paper/joker, list(LOCATION_BACKPACK, LOCATION_HANDS))
-
-/datum/quirk/item_quirk/joker/process()
-	if(pcooldown > world.time)
-		return
-	pcooldown = world.time + pcooldown_time
-	var/mob/living/carbon/human/user = quirk_holder
-	if(user && istype(user))
-		if(user.stat == CONSCIOUS)
-			if(prob(20))
-				user.emote("laugh")
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 5 SECONDS)
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 10 SECONDS)
-
-/obj/item/paper/joker
-	name = "disability card"
-	icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
-	icon_state = "joker"
-	desc = "Smile, though your heart is aching."
-	default_raw_text = "<i>\
-			<div style='border-style:solid;text-align:center;border-width:5px;margin: 20px;margin-bottom:0px'>\
-			<div style='margin-top:20px;margin-bottom:20px;font-size:150%;'>\
-			Forgive my laughter:<br>\
-			I have a condition.\
-			</div>\
-			</div>\
-			</i>\
-			<br>\
-			<center>\
-			<b>\
-			MORE ON BACK\
-			</b>\
-			</center>"
-	/// Whether or not the card is currently flipped.
-	var/flipped = FALSE
-	/// The flipped version of default_raw_text.
-	var/flipside_default_raw_text = "<i>\
-			<div style='border-style:solid;text-align:center;border-width:5px;margin: 20px;margin-bottom:0px'>\
-			<div style='margin-top:20px;margin-bottom:20px;font-size:100%;'>\
-			<b>\
-			It's a medical condition causing sudden,<br>\
-			frequent and uncontrollable laughter that<br>\
-			doesn't match how you feel.<br>\
-			It can happen in people with a brain injury<br>\
-			or certain neurological conditions.<br>\
-			</b>\
-			</div>\
-			</div>\
-			</i>\
-			<br>\
-			<center>\
-			<b>\
-			KINDLY RETURN THIS CARD\
-			</b>\
-			</center>"
-	/// Flipside version of raw_text_inputs.
-	var/list/datum/paper_input/flipside_raw_text_inputs
-	/// Flipside version of raw_stamp_data.
-	var/list/datum/paper_stamp/flipside_raw_stamp_data
-	/// Flipside version of raw_field_input_data.
-	var/list/datum/paper_field/flipside_raw_field_input_data
-	/// Flipside version of input_field_count
-	var/flipside_input_field_count = 0
-
-
-/obj/item/paper/joker/Initialize(mapload)
-	. = ..()
-	if(flipside_default_raw_text)
-		add_flipside_raw_text(flipside_default_raw_text)
-
-
-/**
- * This is an unironic copy-paste of add_raw_text(), meant to have the same functionalities, but for the flipside.
- *
- * This simple helper adds the supplied raw text to the flipside of the paper, appending to the end of any existing contents.
- *
- * This a God proc that does not care about paper max length and expects sanity checking beforehand if you want to respect it.
- *
- * The caller is expected to handle updating icons and appearance after adding text, to allow for more efficient batch adding loops.
- * * Arguments:
- * * text - The text to append to the paper.
- * * font - The font to use.
- * * color - The font color to use.
- * * bold - Whether this text should be rendered completely bold.
- */
-/obj/item/paper/joker/proc/add_flipside_raw_text(text, font, color, bold)
-	var/new_input_datum = new /datum/paper_input(
-		text,
-		font,
-		color,
-		bold,
-	)
-
-	flipside_input_field_count += get_input_field_count(text)
-
-	LAZYADD(flipside_raw_text_inputs, new_input_datum)
-
-
-/obj/item/paper/joker/update_icon()
-	..()
-	icon_state = "joker"
-
-/obj/item/paper/joker/click_alt(mob/user)
-	var/list/datum/paper_input/old_raw_text_inputs = raw_text_inputs
-	var/list/datum/paper_stamp/old_raw_stamp_data = raw_stamp_data
-	var/list/datum/paper_stamp/old_raw_field_input_data = raw_field_input_data
-	var/old_input_field_count = input_field_count
-
-	raw_text_inputs = flipside_raw_text_inputs
-	raw_stamp_data = flipside_raw_stamp_data
-	raw_field_input_data = flipside_raw_field_input_data
-	input_field_count = flipside_input_field_count
-
-	flipside_raw_text_inputs = old_raw_text_inputs
-	flipside_raw_stamp_data = old_raw_stamp_data
-	flipside_raw_field_input_data = old_raw_field_input_data
-	flipside_input_field_count = old_input_field_count
-
-	flipped = !flipped
-	update_static_data()
-
-	balloon_alert(user, "card flipped")
-	return CLICK_ACTION_SUCCESS
-
 /datum/quirk/felinid_aspect
 	name = "Felinid Traits"
 	desc = "You happen to act like a felinid, for whatever reason. This will replace other tongue-based quirks."
@@ -372,33 +185,23 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	to_chat(owner, span_notice("[potential_food] could probably be used to make [chosen::name]"))
 ///End of Mouse Traits
 
-/datum/quirk/sensitivesnout
-	name = "Sensitive Snout"
-	desc = "Your face has always been sensitive, and it really hurts when someone pokes it!"
-	gain_text = span_notice("Your face is awfully sensitive.")
-	lose_text = span_notice("Your face feels numb.")
-	medical_record_text = "Patient's nose seems to have a cluster of nerves in the tip, would advise against direct contact."
-	value = 0
-	mob_trait = TRAIT_SENSITIVESNOUT
-	icon = FA_ICON_FINGERPRINT
-
-/datum/quirk/overweight
-	name = "Overweight"
-	desc = "You weigh more than an average person at your size, you've gotten used to it by now."
+/datum/quirk/sluggish
+	name = "Sluggish
+	desc = "For whatever reason, you're just slower than everyone else. Maybe you just take life one day at a time." // SPLURT reflavor, former overweight quirk
 	gain_text = span_notice("Your body feels heavy.")
-	lose_text = span_notice("Your suddenly feel lighter!")
+	lose_text = span_notice("You suddenly feel lighter!")
 	value = 0
 	icon = FA_ICON_HAMBURGER // I'm very hungry. Give me the burger!
 	medical_record_text = "Patient weighs higher than average."
 	mob_trait = TRAIT_FAT
 
-/datum/quirk/overweight/add(client/client_source)
-	quirk_holder.add_movespeed_modifier(/datum/movespeed_modifier/overweight)
+/datum/quirk/sluggish/add(client/client_source)
+	quirk_holder.add_movespeed_modifier(/datum/movespeed_modifier/sluggish)
 
-/datum/quirk/overweight/remove()
-	quirk_holder.remove_movespeed_modifier(/datum/movespeed_modifier/overweight)
+/datum/quirk/sluggish/remove()
+	quirk_holder.remove_movespeed_modifier(/datum/movespeed_modifier/sluggish)
 
-/datum/movespeed_modifier/overweight
+/datum/movespeed_modifier/sluggish
 	multiplicative_slowdown = 0.5 //Around that of a dufflebag, enough to be impactful but not debilitating.
 
 /datum/mood_event/fat/can_effect_mob(datum/mood/home, mob/living/target, ...)
@@ -406,5 +209,55 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 	if(HAS_TRAIT_FROM(target, TRAIT_FAT, QUIRK_TRAIT))
 		mood_change = 0 // They are probably used to it, no reason to be viscerally upset about it.
-		description = "<b>I'm fat.</b>"
+		description = "<b>I'm slow.</b>"
 	return TRUE
+
+/datum/quirk/water_aspect
+	name = "Water aspect (Emotes)"
+	desc = "(Aquatic innate) Underwater societies are home to you, space ain't much different. (Say *turf to cast)"
+	value = 0
+	mob_trait = TRAIT_WATER_ASPECT
+	gain_text = span_notice("You feel like you can control water.")
+	lose_text = span_danger("Somehow, you've lost your ability to control water!")
+	medical_record_text = "Patient holds a collection of nanobots designed to synthesize H2O."
+	icon = FA_ICON_WATER
+
+/datum/quirk/webbing_aspect
+	name = "Webbing aspect (Emotes)"
+	desc = "(Insect innate) Insect folk capable of weaving aren't unfamiliar with receiving envy from those lacking a natural 3D printer. (Say *turf to cast)"
+	value = 0
+	mob_trait = TRAIT_WEBBING_ASPECT
+	gain_text = span_notice("You could easily spin a web.")
+	lose_text = span_danger("Somehow, you've lost your ability to weave.")
+	medical_record_text = "Patient has the ability to weave webs with naturally synthesized silk."
+	icon = FA_ICON_STICKY_NOTE
+
+/datum/quirk/floral_aspect
+	name = "Floral aspect (Emotes)"
+	desc = "(Podperson innate) Kudzu research isn't pointless, rapid photosynthesis technology is here! (Say *turf to cast)"
+	value = 0
+	mob_trait = TRAIT_FLORAL_ASPECT
+	gain_text = span_notice("You feel like you can grow vines.")
+	lose_text = span_danger("Somehow, you've lost your ability to rapidly photosynthesize.")
+	medical_record_text = "Patient can rapidly photosynthesize to grow vines."
+	icon = FA_ICON_PLANT_WILT
+
+/datum/quirk/ash_aspect
+	name = "Ash aspect (Emotes)"
+	desc = "(Lizard innate) The ability to forge ash and flame, a mighty power - yet mostly used for theatrics. (Say *turf to cast)"
+	value = 0
+	mob_trait = TRAIT_ASH_ASPECT
+	gain_text = span_notice("There is a forge smouldering inside of you.")
+	lose_text = span_danger("Somehow, you've lost your ability to breathe fire.")
+	medical_record_text = "Patients possess a fire breathing gland commonly found in lizard folk."
+	icon = FA_ICON_FIRE
+
+/datum/quirk/sparkle_aspect
+	name = "Sparkle aspect (Emotes)"
+	desc = "(Moth innate) Sparkle like the dust off of a moth's wing, or like a cheap red-light hook-up. (Say *turf to cast)"
+	value = 0
+	mob_trait = TRAIT_SPARKLE_ASPECT
+	gain_text = span_notice("You're covered in sparkling dust!")
+	lose_text = span_danger("Somehow, you've completely cleaned yourself of glitter..")
+	medical_record_text = "Patient seems to be looking fabulous."
+	icon = FA_ICON_HAND_SPARKLES

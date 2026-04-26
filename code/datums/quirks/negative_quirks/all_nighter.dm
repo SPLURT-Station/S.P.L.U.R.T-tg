@@ -4,7 +4,7 @@
 	name = "All Nighter"
 	desc = "You didn't get any sleep last night, and people can tell! You'll constantly be in a bad mood and will have a tendency to sleep longer. Stimulants or a nap might help, though."
 	icon = FA_ICON_MOON
-	value = -4
+	value = -2
 	mob_trait = TRAIT_HEAVY_SLEEPER
 	gain_text = span_danger("You feel exhausted.")
 	lose_text = span_notice("You feel well rested.")

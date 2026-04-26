@@ -2,7 +2,7 @@
 	name = "Light Drinker"
 	desc = "You just can't handle your drinks and get drunk very quickly."
 	icon = FA_ICON_COCKTAIL
-	value = -2
+	value = 0
 	mob_trait = TRAIT_LIGHT_DRINKER
 	gain_text = span_notice("Just the thought of drinking alcohol makes your head spin.")
 	lose_text = span_danger("You're no longer severely affected by alcohol.")
