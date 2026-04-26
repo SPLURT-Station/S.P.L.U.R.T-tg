@@ -202,7 +202,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	quirk_holder.remove_movespeed_modifier(/datum/movespeed_modifier/sluggish)
 
 /datum/movespeed_modifier/sluggish
-	multiplicative_slowdown = 0.5 //Around that of a dufflebag, enough to be impactful but not debilitating.
+	multiplicative_slowdown = 0.4 //SPLURT, Around that of a dufflebag, enough to be impactful but not debilitating.
 
 /datum/mood_event/fat/can_effect_mob(datum/mood/home, mob/living/target, ...)
 	. = ..()

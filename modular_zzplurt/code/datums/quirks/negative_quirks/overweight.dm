@@ -4,7 +4,7 @@
 	value = 0
 	gain_text = span_notice("You're feeling a bit sluggish this shift!")
 	lose_text = span_notice("You feel more energetic again.")
-	mob_trait = TRAIT_SLOW
+	mob_trait = TRAIT_FAT
 
 /datum/quirk/sluggish/add(client/client_source)
 	// Set nutrition value
@@ -19,4 +19,4 @@
 // Speed multiplier granted by this quirk
 // Disabled because this is a neutral quirk
 /datum/movespeed_modifier/sluggish
-	multiplicative_slowdown = 0 // Previously 0.5
+	multiplicative_slowdown = 0.4 // SPLURT, however this works
