@@ -186,7 +186,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 ///End of Mouse Traits
 
 /datum/quirk/sluggish
-	name = "Sluggish
+	name = "Sluggish"
 	desc = "For whatever reason, you're just slower than everyone else. Maybe you just take life one day at a time." // SPLURT reflavor, former overweight quirk
 	gain_text = span_notice("Your body feels heavy.")
 	lose_text = span_notice("You suddenly feel lighter!")

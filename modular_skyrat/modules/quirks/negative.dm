@@ -97,7 +97,7 @@
 	mob_trait = TRAIT_NOGUNS
 	icon = FA_ICON_GUN
 
-	/datum/quirk/dnr
+/datum/quirk/dnr
 	name = "Do Not Revive"
 	desc = "For whatever reason, you cannot be revived in any way."
 	gain_text = span_notice("Your spirit gets too scarred to accept revival.")
