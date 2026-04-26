@@ -22,7 +22,7 @@
 				continue
 
 			var/possible_fatty_score = possible_fatty.nutrition
-			if(possible_fatty.has_quirk(/datum/quirk/overweight))
+			if(possible_fatty.has_quirk(/datum/quirk/obese))
 				possible_fatty_score = possible_fatty_score * 1.5 + 1000
 
 			if(possible_fatty_score > unlucky_victim_fatty_score)
