@@ -225,7 +225,7 @@
 
 	//SPLURT EDIT ADDITION BEGIN - FEATURE_NAME - (sizecode)
 	//handle micro bumping on help intent
-	if(resolve_intent_name(combat_mode) == "help")
+	if(resolve_intent_name(src) == "help")
 		if(handle_micro_bump_helping(M))
 			return TRUE
 	//SPLURT EDIT ADDITION END
@@ -279,7 +279,7 @@
 		/*
 		if(human.combat_mode)
 		*/
-		if(human.combat_mode != INTENT_HELP)
+		if(resolve_intent_name(human) != "help")
 		//SPLURT EDIT END
 			return TRUE
 	//if they are a cyborg, and they're alive and in combat mode, block pushing
@@ -304,7 +304,7 @@
 		var/mob/living/other_living = other
 		//SPLURT EDIT CHANGE BEGIN - Intents
 		//their_combat_mode = other_living.combat_mode - ORIGINAL
-		their_combat_mode = other_living.combat_mode != INTENT_HELP
+		their_combat_mode = resolve_intent_name(other_living) != "help"
 		//SPLURT EDIT CHANGE END
 		they_can_move = other_living.mobility_flags & MOBILITY_MOVE
 
@@ -321,7 +321,7 @@
 	// If we're in combat mode and not restrained we don't try to pass through people
 	//SPLURT EDIT CHANGE BEGIN - Intents
 	//if (combat_mode && !HAS_TRAIT(src, TRAIT_RESTRAINED)) - ORIGINAL
-	if (combat_mode != INTENT_HELP && !HAS_TRAIT(src, TRAIT_RESTRAINED))
+	if (resolve_intent_name(src) != "help" && !HAS_TRAIT(src, TRAIT_RESTRAINED))
 	//SPLURT EDIT CHANGE END
 		return FALSE
 

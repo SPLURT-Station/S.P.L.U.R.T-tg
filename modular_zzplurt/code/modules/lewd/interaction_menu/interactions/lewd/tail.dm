@@ -31,7 +31,7 @@
 	user_pain = 0
 
 	// Select appropriate message text based on user's current intent
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("help")
 			message = islist(help_text) ? pick(help_text) : help_text
 		if("grab", "disarm")
@@ -105,8 +105,18 @@
 		"forcefully rams their tail into %TARGET%'s pussy with merciless power, giving no rest.",
 		"roughly penetrates %TARGET%'s pussy with their tail, stretching and causing discomfort."
 	)
-	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
-						'modular_zzplurt/sound/interactions/champ2.ogg')
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
 	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with juices."))
 
 /datum/interaction/lewd/tail/vagina_rub
@@ -131,8 +141,18 @@
 		"sharply slaps %TARGET%'s pussy with their tail using merciless force, as if trying to knock out their strength.",
 		"actively stretches %TARGET%'s folds with their tail, making them think about tearing their body."
 	)
-	sound_possible = list('modular_zzplurt/sound/interactions/champ1.ogg',
-						'modular_zzplurt/sound/interactions/champ2.ogg')
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
 	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with juices."))
 
 /datum/interaction/lewd/tail/ass
@@ -266,7 +286,7 @@
 	target_arousal = 6
 	if(target.get_oxy_loss() > 40) // Prevent damage stacking - converts to pure RP when target already suffocating
 		oxy_damage = 0
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("harm")
 			oxy_damage = rand(3, 6)
 			message = list(

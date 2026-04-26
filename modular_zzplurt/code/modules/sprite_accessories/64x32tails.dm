@@ -20,3 +20,9 @@ Big Tails
 /datum/sprite_accessory/tails/splurt_big/snake_large
 	name = "Snake (Large (Splurt))"
 	icon_state = "snakelarge"
+
+/datum/sprite_accessory/tails/splurt_big/khanivore
+	name = "Khanivore (Large) (Wags)"
+	icon_state = "khanivore"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
+

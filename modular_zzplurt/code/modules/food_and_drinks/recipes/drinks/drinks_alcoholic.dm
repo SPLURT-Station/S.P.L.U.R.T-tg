@@ -20,22 +20,6 @@
 	results = list(/datum/reagent/consumable/ethanol/mech_rider = 4)
 	required_reagents = list(/datum/reagent/consumable/ethanol/absinthe = 1, /datum/reagent/consumable/ethanol/hcider = 1, /datum/reagent/consumable/ethanol/syndicatebomb = 1, /datum/reagent/consumable/coffee = 1)
 
-/datum/chemical_reaction/drink/isloation_cell
-	results = list(/datum/reagent/consumable/ethanol/isloation_cell = 5)
-	required_reagents = list(
-		/datum/reagent/drug/aphrodisiac = 1,
-		/datum/reagent/medicine/synaptizine = 2,
-		/datum/reagent/consumable/ethanol/hippies_delight = 2
-	)
-
-/datum/chemical_reaction/drink/isloation_cell/morphine
-	results = list(/datum/reagent/consumable/ethanol/isloation_cell/morphine = 5)
-	required_reagents = list(
-		/datum/reagent/drug/aphrodisiac/crocin = 1,
-		/datum/reagent/medicine/morphine = 2,
-		/datum/reagent/consumable/ethanol/hippies_delight = 2
-	)
-
 /datum/chemical_reaction/drink/chemical_ex
 	results = list(/datum/reagent/consumable/ethanol/chemical_ex = 5)
 	required_reagents = list(
@@ -216,19 +200,19 @@
 	mix_message = "The mixture gives off a concerning aroma..."
 
 /datum/chemical_reaction/drink/isolation_cell
-	results = list(/datum/reagent/consumable/ethanol/isloation_cell = 10)
+	results = list(/datum/reagent/consumable/ethanol/isolation_cell = 10)
 	required_reagents = list(
 		/datum/reagent/consumable/ice = 3,
-		/datum/reagent/drug/aphrodisiac = 2,
+		/datum/reagent/drug/aphrodisiac/crocin = 2,
 		/datum/reagent/consumable/ethanol/vodka = 3,
 		/datum/reagent/consumable/ethanol/gin = 2
 	)
 	mix_message = "The mixture chills to an unsettling temperature..."
 
 /datum/chemical_reaction/drink/isolation_cell_morphine
-	results = list(/datum/reagent/consumable/ethanol/isloation_cell/morphine = 10)
+	results = list(/datum/reagent/consumable/ethanol/isolation_cell/morphine = 10)
 	required_reagents = list(
-		/datum/reagent/consumable/ethanol/isloation_cell = 5,
+		/datum/reagent/consumable/ethanol/isolation_cell = 5,
 		/datum/reagent/medicine/morphine = 2,
 		/datum/reagent/consumable/ethanol/hippies_delight = 3
 	)

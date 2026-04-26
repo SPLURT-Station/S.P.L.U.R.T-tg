@@ -8,7 +8,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/scarred_eye),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/touchy),
-	list(/datum/quirk/jolly, /datum/quirk/depression, /datum/quirk/hypersensitive),
+	list(/datum/quirk/jolly, /datum/quirk/depression), // SPLURT EDIT CHANGE - no reason you can't be sensitive and depressed. to reimplement, ", /datum/quirk/hypersensitive"
+	list(/datum/quirk/jolly, /datum/quirk/hypersensitive), // SPLURT EDIT ADD - we don't want players to be happy
 	list(/datum/quirk/no_taste, /datum/quirk/vegetarian, /datum/quirk/deviant_tastes, /datum/quirk/gamer),
 	list(/datum/quirk/pineapple_liker, /datum/quirk/pineapple_hater, /datum/quirk/gamer),
 	list(/datum/quirk/alcohol_tolerance, /datum/quirk/light_drinker),

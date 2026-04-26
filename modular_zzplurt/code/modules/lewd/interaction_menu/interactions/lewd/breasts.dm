@@ -90,7 +90,7 @@
 		return
 
 	// Handle different intents
-	switch(resolve_intent_name(user.combat_mode))
+	switch(resolve_intent_name(user))
 		if("harm")
 			message = list(
 				"aggressively gropes %TARGET%'s breast.",
@@ -145,7 +145,7 @@
 			qdel(R)
 
 	// Handle arousal effects based on intent
-	var/intent = resolve_intent_name(user.combat_mode)
+	var/intent = resolve_intent_name(user)
 	if(intent != "harm" && prob(5 + target.arousal))
 		var/list/arousal_messages
 		switch(intent)
@@ -261,9 +261,13 @@
 		"The softness of %USER%'s breasts feels amazing"
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/bang1.ogg',
-		'modular_zzplurt/sound/interactions/bang2.ogg',
-		'modular_zzplurt/sound/interactions/bang3.ogg'
+		'modular_zzplurt/sound/interactions/DryFlop1.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop2.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop3.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop4.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop5.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop6.ogg',
+		'modular_zzplurt/sound/interactions/DryFlop7.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE

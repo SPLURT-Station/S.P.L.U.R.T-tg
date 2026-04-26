@@ -21,6 +21,9 @@
 // SKYRAT EDIT START
 #define CHANNEL_HEV 1005
 //SKYRAT EDIT CHANGE END
+// SPLURT EDIT ADDITION BEGIN
+#define CHANNEL_HEADPHONES 1004
+// SPLURT EDIT ADDITION END
 
 /// This is the lowest volume that can be used by playsound otherwise it gets ignored
 /// Most sounds around 10 volume can barely be heard. Almost all sounds at 5 volume or below are inaudible
@@ -209,6 +212,11 @@
 #define ANNOUNCER_WISDOM_COW "announcer_wisdom_cow"
 #define ANNOUNCER_IMMOVABLE_ROD "announcer_immovable_rod"
 #define ANNOUNCER_SCRAMBLER_ANOMALY "announcer_scrambler_anomaly"
+
+
+#define ANNOUNCER_COMMAND_REPORT "announcer_command_report"
+#define ANNOUNCER_RANDOM_ALERT "announcer_random_alert"
+#define ANNOUNCER_RANDOM_WELCOME "announcer_random_welcome"
 // SPLURT EDIT ADDITION END
 
 /// Global list of all of our announcer keys.
