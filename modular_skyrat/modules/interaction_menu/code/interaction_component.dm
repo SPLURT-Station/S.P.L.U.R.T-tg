@@ -80,10 +80,9 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		//SPLURT EDIT CHANGE BEGIN - UI INTERFACE - New interaction menu interface
-		//ui = new(user, src, "Interactions") - SPLURT EDIT - ORIGINAL
+		//ui = new(user, src, "InteractionPanel") - SPLURT EDIT - ORIGINAL
 		ui = new(user, src, "MobInteraction")
 		//SPLURT EDIT CHANGE END
-		ui = new(user, src, "InteractionPanel")
 		ui.open()
 
 /datum/component/interactable/ui_status(mob/user, datum/ui_state/state)

@@ -12,7 +12,6 @@
 /datum/species/gas
 	name = "Giant Armored Serpentid"
 	id = SPECIES_GAS
-	eyes_icon = 'modular_skyrat/modules/organs/icons/serpentid_eyes.dmi'
 	can_augment = FALSE
 
 	inherent_traits = list(

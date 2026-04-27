@@ -14,6 +14,7 @@
 	new /obj/item/clothing/gloves/kaza_ruk/sec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
+	new /obj/item/clothing/accessory/badge/holo/warden(src) //SPLURT ADDITION
 
 /obj/item/storage/bag/garment/hos/PopulateContents()
 	new	/obj/item/clothing/under/rank/security/head_of_security(src)
@@ -36,3 +37,4 @@
 	new	/obj/item/clothing/neck/cloak/hos(src)
 	new	/obj/item/clothing/mask/gas/sechailer/swat(src)
 	new	/obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/accessory/badge/holo/hos(src) //SPLURT ADDITION
