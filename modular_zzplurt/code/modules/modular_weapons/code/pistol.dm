@@ -21,7 +21,7 @@
 	special_mags = TRUE
 	recoil = 2.5
 	fire_delay = 1 SECONDS
-	force = 15
+	force = 10
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_heavy.ogg'
 
 /obj/item/gun/ballistic/automatic/pistol/m45a5/give_manufacturer_examine()
