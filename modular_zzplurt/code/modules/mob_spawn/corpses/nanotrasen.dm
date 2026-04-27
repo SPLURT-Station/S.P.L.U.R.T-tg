@@ -134,7 +134,7 @@
 /datum/outfit/nanotrasenbridgeofficer/shuttle8532
 	name = "Nanotrasen Lieutenant"
 
-	ears = /obj/item/radio/headset/heads/nanotrasen/empty
+	ears = /obj/item/radio/headset/nanotrasen/empty
 	uniform = /obj/item/clothing/under/rank/nanotrasen/official/turtleneck
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -149,6 +149,6 @@
 	subdepartment_color = COLOR_CENTCOM_BLUE
 	access = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL)
 
-/obj/item/radio/headset/heads/nanotrasen/empty
+/obj/item/radio/headset/nanotrasen/empty
 	keyslot = null
 	keyslot2 = null

@@ -90,8 +90,8 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/dog_bone(src)
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
 	new /obj/item/computer_disk/command/consultant(src)
-	new /obj/item/radio/headset/heads/nanotrasen(src)
-	new /obj/item/radio/headset/heads/nanotrasen/alt(src)
+	new /obj/item/radio/headset/heads/ntc(src)
+	new /obj/item/radio/headset/heads/ntc/alt(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/clothing/neck/petcollar(src)
@@ -254,7 +254,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	jobtype = /datum/job/nanotrasen_consultant
 
 	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
-	ears = /obj/item/radio/headset/heads/nanotrasen
+	ears = /obj/item/radio/headset/heads/ntc
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander
 	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat

@@ -26,6 +26,10 @@
 	keyslot = new /obj/item/encryptionkey/headset_iaa
 
 /obj/item/radio/headset/heads/nanotrasen
+	name = "\proper the Nanotrasen headset"
+	desc = "You shouldn't have this."
+
+/obj/item/radio/headset/heads/ntc
 	name = "\proper the Nanotrasen Consultant's headset"
 	desc = "An official Nanotrasen affairs headset, this one is worn by an executive of the NTIA."
 	icon = 'modular_zzplurt/icons/obj/clothing/headsets.dmi'
@@ -35,8 +39,8 @@
 	keyslot = new /obj/item/encryptionkey/head/ntc
 	keyslot2 = new /obj/item/encryptionkey/headset_cent
 
-/obj/item/radio/headset/heads/nanotrasen/alt
-	name = "\proper the Nanotrasen Internal Affairs executive's bowman headset"
+/obj/item/radio/headset/heads/ntc/alt
+	name = "\proper the Nanotrasen Consultant's bowman headset"
 	desc = "An official Nanotrasen affairs headset, this one is worn by an executive of the NTIA. Protects ears from flashbangs."
 	icon_state = "nano_headset_alt"
 	worn_icon_state = "nano_headset_alt"
