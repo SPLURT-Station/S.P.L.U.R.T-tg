@@ -201,6 +201,20 @@
 	landing_zone_y_offset = 8
 	category = GHC_MISC
 
+/datum/map_template/condo/splurt_kiss
+	name = "City Apartment (Empty)"
+	mappath = "_maps/splurt/templates/apartment_kiss.dmm"
+	landing_zone_x_offset = 23
+	landing_zone_y_offset = 15
+	category = GHC_APARTMENT
+
+/datum/map_template/condo/splurt_morgue
+	name = "Mortician's Office"
+	mappath = "_maps/splurt/templates/apartment_morgue.dmm"
+	landing_zone_x_offset = 22
+	landing_zone_y_offset = 10
+	category = GHC_SPECIAL
+
 #undef GHC_MISC
 #undef GHC_APARTMENT
 #undef GHC_BEACH
