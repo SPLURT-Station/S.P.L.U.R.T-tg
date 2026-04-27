@@ -199,6 +199,10 @@ Snouts
 	icon_state = "cryptid"
 	organ_type = /obj/item/organ/snout/top_adj
 
+/datum/sprite_accessory/snouts/splurt/khanivore
+	name = "Khanivore"
+	icon_state = "khanivore"
+
 /*
 Synthliz
 */
