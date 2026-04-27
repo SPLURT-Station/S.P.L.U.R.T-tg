@@ -33,9 +33,11 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 5
 	},
-/obj/item/toy/plush/toaste_plushy,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
+"de" = (
+/turf/closed/wall/r_wall,
+/area/station/security/breakroom)
 "dh" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /turf/open/floor/iron/white,
@@ -120,7 +122,7 @@
 /area/station/security/medical)
 "uW" = (
 /turf/closed/wall/r_wall,
-/area/template_noop)
+/area/station/maintenance/starboard/central)
 "vT" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/effect/turf_decal/trimline/dark_red/filled/corner{
@@ -146,7 +148,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/template_noop)
+/area/station/maintenance/starboard/central)
 "Be" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 1
@@ -219,7 +221,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
-/area/template_noop)
+/area/station/security/breakroom)
 "Ri" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 1
@@ -342,10 +344,10 @@ Vo
 aq
 "}
 (7,1,1) = {"
-uW
-uW
+de
+de
 Pt
-uW
-uW
-uW
+de
+de
+de
 "}

@@ -23,7 +23,7 @@
 	name = "Secure Evidence"
 	},
 /turf/open/floor/iron/dark/small,
-/area/template_noop)
+/area/station/security/evidence)
 "dh" = (
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -36,7 +36,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_edge,
-/area/template_noop)
+/area/station/security/brig)
 "hZ" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/corner{
 	dir = 1
@@ -44,7 +44,7 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
-/area/template_noop)
+/area/station/security/brig)
 "pH" = (
 /turf/closed/wall,
 /area/station/security/medical)
@@ -53,7 +53,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_edge,
-/area/template_noop)
+/area/station/security/brig)
 "qN" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 1
@@ -75,7 +75,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_edge,
-/area/template_noop)
+/area/station/security/brig)
 "uG" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/closet/secure_closet/security_medic,
@@ -95,7 +95,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
-/area/template_noop)
+/area/station/security/brig)
 "uW" = (
 /turf/closed/wall{
 	pixel_x = 0;
@@ -124,14 +124,14 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/template_noop)
+/area/station/security/brig)
 "zm" = (
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/dark/small,
-/area/template_noop)
+/area/station/security/evidence)
 "Be" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -143,7 +143,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/template_noop)
+/area/station/security/brig)
 "Bw" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line,
 /turf/open/floor/iron/white,
@@ -155,14 +155,6 @@
 	alpha = 160
 	},
 /obj/structure/bodycontainer/morgue,
-/obj/item/toy/plush/toaste_plushy{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/item/clothing/mask/surgical{
-	pixel_x = 8;
-	pixel_y = 10
-	},
 /obj/structure/sign/poster/timeclock_psa/directional/west,
 /obj/structure/sign/poster/official/work_for_a_future/directional/south,
 /turf/open/floor/iron/dark,
@@ -182,6 +174,10 @@
 /obj/item/bedsheet/medical,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
+	},
+/obj/item/toy/plush/toaste_plushy{
+	pixel_x = 2;
+	pixel_y = 0
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/medical)
@@ -207,14 +203,14 @@
 /area/station/security/medical)
 "IJ" = (
 /turf/closed/wall,
-/area/template_noop)
+/area/station/security/evidence)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning,
 /turf/open/floor/iron/dark,
-/area/template_noop)
+/area/station/security/evidence)
 "Nq" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
@@ -237,11 +233,8 @@
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "PJ" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "Brig Infirmary";
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/door/window/left/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/medical)
 "Qf" = (
@@ -263,7 +256,7 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/area/template_noop)
+/area/station/security/brig)
 "Ri" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
@@ -289,7 +282,7 @@
 	},
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark,
-/area/template_noop)
+/area/station/security/evidence)
 "Vo" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,

@@ -763,12 +763,20 @@ required_map = "biodome.dmm"
 coordinates = [164, 113, 2]
 trait_name = "Station"
 
-# Biodome Security Medical Expansion + Alternate Punishment Area
+# Biodome Security Medical Expansion
 [templates.biodome_security_medic_medbay]
 map_files = ["biodome_security_medic_medbay.dmm"]
 directory = "_maps/splurt/automapper/templates/biodome/"
 required_map = "biodome.dmm"
-coordinates = [155, 67, 1]
+coordinates = [155, 67, 2]
+trait_name = "Station"
+
+# Biodome Security Secret Alternate Punishment Area
+[templates.biodome_security_alternate_punishment]
+map_files = ["biodome_security_alternate_punishment.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [155, 69, 1]
 trait_name = "Station"
 
 # Metastation Infinidorm
@@ -792,7 +800,7 @@ trait_name = "Station"
 map_files = ["metastation_security_medic_medbay.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
-coordinates = [90, 169, 1]
+coordinates = [91, 169, 1]
 trait_name = "Station"
 
 # Deltastation Infinidorm
@@ -840,7 +848,7 @@ trait_name = "Station"
 map_files = ["boxstation_security_medic_medbay.dmm"]
 directory = "_maps/splurt/automapper/templates/boxstation/"
 required_map = "BoxStation.dmm"
-coordinates = [102, 171, 1]
+coordinates = [101, 170, 1]
 trait_name = "Station"
 
 # Kilostation Infinidorm
@@ -915,12 +923,20 @@ required_map = "IceBoxStation.dmm"
 coordinates = [99, 155, 3]
 trait_name = "Station"
 
-# Iceboxstation Security Medical Expansion
-[templates.iceboxstation_security_medic_medbay]
-map_files = ["iceboxstation_security_medic_medbay.dmm"]
+# Iceboxstation Security Medical Expansion Z-Level 2
+[templates.iceboxstation_security_medic_medbay_zlevel_2]
+map_files = ["iceboxstation_security_medic_medbay_zlevel_2.dmm"]
 directory = "_maps/splurt/automapper/templates/iceboxstation/"
 required_map = "IceBoxStation.dmm"
-coordinates = [113, 174,2]
+coordinates = [113, 174, 2]
+trait_name = "Station"
+
+# Iceboxstation Security Medical Expansion Z-Level 3
+[templates.iceboxstation_security_medic_medbay_zlevel_3]
+map_files = ["iceboxstation_security_medic_medbay_zlevel_3.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [114, 174, 3]
 trait_name = "Station"
 
 # Tramstation Infinidorm

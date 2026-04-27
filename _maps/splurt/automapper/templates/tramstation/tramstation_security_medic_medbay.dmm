@@ -109,7 +109,7 @@
 /area/station/security/medical)
 "uW" = (
 /turf/closed/wall/r_wall,
-/area/template_noop)
+/area/station/maintenance/department/eva)
 "wN" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Security Maintenance Hatch"
@@ -118,7 +118,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/catwalk_floor,
-/area/template_noop)
+/area/station/maintenance/department/eva)
 "zm" = (
 /turf/closed/wall,
 /area/station/security/medical)
@@ -168,7 +168,6 @@
 	dir = 6
 	},
 /obj/machinery/airalarm/directional/south,
-/obj/item/toy/plush/toaste_plushy,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Pt" = (
@@ -187,7 +186,6 @@
 "Ra" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/machinery/light/cold/directional/south,
-/obj/structure/closet/secure_closet/security_medic,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "RV" = (
