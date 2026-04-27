@@ -47,8 +47,8 @@
 
 /obj/machinery/room_controller/Initialize(mapload)
 	. = ..()
-	if(!SShilbertshotel.initialized)
-		message_admins("Attention: [ADMIN_VERBOSEJMP(src)] at room [room_number] failed to locate the main hotel sphere!")
+	if(!SScondos.initialized)
+		message_admins("Attention: [ADMIN_VERBOSEJMP(src)] at room [room_number] failed to locate the condo subsystem!")
 		return INITIALIZE_HINT_QDEL
 	bluespace_box = new /obj/item/storage/box/bluespace(src)
 	bluespace_box.origin_controller = WEAKREF(src)
@@ -120,10 +120,10 @@
 	data["id_card"] = this_id?.registered_name
 	data["bluespace_box"] = !isnull(bluespace_box)
 
-	if(!room_number || !SShilbertshotel.room_data["[room_number]"])
+	if(!room_number || !SScondos.splurt_room_data["[room_number]"])
 		return data
 
-	current_room_data = SShilbertshotel.room_data["[room_number]"]
+	current_room_data = SScondos.splurt_room_data["[room_number]"]
 	data["room_number"] = room_number
 	data["room_preferences"] = current_room_data["room_preferences"]
 	data["access_restrictions"] = current_room_data["access_restrictions"]
@@ -155,13 +155,13 @@
 			depart_user(usr)
 			return TRUE
 
-	if(!room_number || !SShilbertshotel.room_data["[room_number]"])
+	if(!room_number || !SScondos.splurt_room_data["[room_number]"])
 		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
 		say("Room number out of array range.")
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, say), "Please contact the hotel staff for further assistance."), 3 SECONDS)
 		return
 
-	var/list/room_data = SShilbertshotel.room_data["[room_number]"]
+	var/list/room_data = SScondos.splurt_room_data["[room_number]"]
 	switch(action)
 		if("toggle_visibility")
 			room_data["room_preferences"]["visibility"] = !room_data["room_preferences"]["visibility"]
@@ -193,7 +193,6 @@
 			. = TRUE
 	if(.)
 		SStgui.update_uis(src)
-		SEND_SIGNAL(SShilbertshotel, COMSIG_HILBERT_ROOM_UPDATED, list("action" = action, "room" = room_number))
 
 /obj/machinery/room_controller/emp_act(severity)
 	return
@@ -308,10 +307,10 @@
 	return TRUE
 
 /obj/machinery/room_controller/proc/modify_trusted_guests(this_user, action, target_name)
-	if(!room_number || !SShilbertshotel.room_data["[room_number]"])
+	if(!room_number || !SScondos.splurt_room_data["[room_number]"])
 		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
 		return
-	SShilbertshotel.modify_trusted_guests(room_number, this_user, action, target_name)
+	SScondos.splurt_modify_trusted_guests(room_number, this_user, action, target_name)
 	playsound(src, 'sound/machines/terminal/terminal_processing.ogg', 50, TRUE)
 	if(action == ACTION_TRANSFER)
 		say("Room ownership transferred.")

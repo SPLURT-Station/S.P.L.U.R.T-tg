@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(condos)
 	flags = SS_NO_FIRE
 	init_stage = INITSTAGE_LAST
 	/// All possible condo templates.
-	var/list/condo_templates = list()
+	var/list/datum/map_template/condo/condo_templates = list() //SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Store templates by name for faster lookup.
 	/// List of active reservations we have.
 	var/list/active_condos = list()
 	/// Items we delibrately prevent being deleted. Malleable. Try to keep this to only items that cannot be re-obtained without admin interference; with some exceptions.
@@ -75,6 +75,9 @@ SUBSYSTEM_DEF(condos)
 			condo_bottom_left.y + target_active_condo.condo_template.landing_zone_y_offset,
 			condo_bottom_left.z,
 		)))
+			//SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Hook active-room join events for modular state synchronization.
+			on_condo_joined(condo_number, target_active_condo, user)
+			//SPLURT EDIT ADDITION END
 			return TRUE
 
 	to_chat(user, span_warning("Condo [condo_number] error. Mystery failure!"))
@@ -84,6 +87,10 @@ SUBSYSTEM_DEF(condos)
 /datum/controller/subsystem/condos/proc/create_and_enter_condo(condo_number, datum/map_template/condo/our_condo, mob/user, parent_object)
 	if(active_condos["[condo_number]"])
 		return // Get sanity'd
+	//SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Give modular systems first chance to restore a conserved room.
+	if(attempt_restore_condo(condo_number, our_condo, user, parent_object))
+		return
+	//SPLURT EDIT ADDITION END
 	var/datum/turf_reservation/condo/condo_reservation = SSmapping.request_turf_block_reservation(our_condo.width, our_condo.height, 1, reservation_type = /datum/turf_reservation/condo)
 	var/turf/bottom_left = condo_reservation.bottom_left_turfs[1]
 	if(!bottom_left)
@@ -92,7 +99,10 @@ SUBSYSTEM_DEF(condos)
 	our_condo.load(bottom_left)
 	condo_reservation.condo_template = our_condo
 	active_condos["[condo_number]"] = condo_reservation
-	link_condo_turfs(condo_reservation, condo_number, parent_object)
+	link_condo_turfs(condo_reservation, condo_number, parent_object, user)
+	//SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Hook room creation after turf linkage but before user-side logic.
+	on_condo_created(condo_number, condo_reservation, user, parent_object)
+	//SPLURT EDIT ADDITION END
 	do_sparks(3, FALSE, get_turf(user))
 	user.forceMove(locate(
 		bottom_left.x + our_condo.landing_zone_x_offset,
@@ -101,7 +111,7 @@ SUBSYSTEM_DEF(condos)
 	))
 
 /// Tweaks the /area/ in this condo to prevent conflicts; as well as assigns a description to the hotel door.
-/datum/controller/subsystem/condos/proc/link_condo_turfs(datum/turf_reservation/condo/current_reservation, condo_number, parent_object)
+/datum/controller/subsystem/condos/proc/link_condo_turfs(datum/turf_reservation/condo/current_reservation, condo_number, parent_object, mob/entry_user = null)
 	var/turf/condo_bottom_left = current_reservation.bottom_left_turfs[1]
 	var/area/misc/condo/current_area = get_area(condo_bottom_left)
 	current_area.name = "Condo [condo_number]"
@@ -111,10 +121,24 @@ SUBSYSTEM_DEF(condos)
 
 	for(var/turf/closed/indestructible/hoteldoor/door in current_reservation.reserved_turfs)
 		door.parentSphere = parent_object
+		//SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Preserve each user's ingress point for secure per-user egress routing.
+		if(entry_user?.mind)
+			door.entry_points[entry_user.mind] = parent_object
+		//SPLURT EDIT ADDITION END
 		door.desc = "The door to this condo. \
 			The placard reads 'Room [condo_number]'. \
 			Strangely, this door doesn't even seem openable. \
 			The doorknob, however, seems to buzz with unusual energy...<br/>\
 			[span_info("Alt-Click to look through the peephole.")]"
+	//SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Keep room controller state in sync with condo room assignment.
+	for(var/turf/T in current_reservation.reserved_turfs)
+		for(var/obj/machinery/room_controller/controller in T.contents)
+			controller.room_number = condo_number
+			if(controller.bluespace_box)
+				controller.bluespace_box.in_hotel_room = TRUE
+				controller.bluespace_box.creation_area = current_area
+			controller.update_appearance()
+	//SPLURT EDIT ADDITION END
 	for(var/turf/open/space/bluespace/bluespace_turf in current_reservation.reserved_turfs)
 		bluespace_turf.parentSphere = parent_object
+
