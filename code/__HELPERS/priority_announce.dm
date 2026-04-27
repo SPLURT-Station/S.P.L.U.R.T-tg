@@ -202,7 +202,7 @@
 	var/datum/callback/should_play_sound_callback = astype(should_play_sound)
 
 	for(var/mob/target in players)
-		if(isnewplayer(target) || !target.can_hear())
+		if(isnewplayer(target) || HAS_TRAIT(target, TRAIT_DEAF))
 			continue
 
 		to_chat(target, announcement)
@@ -226,7 +226,7 @@
 	var/static/list/quiet_areas = typecacheof(typesof(/area/station/maintenance) + typesof(/area/space) + typesof(/area/station/commons/dorms))
 	for(var/mob/target in players)
 		// no redundant checks please
-		if(isnewplayer(target) || !target.can_hear() || isnull(target.client))
+		if(isnewplayer(target) || HAS_TRAIT(target, TRAIT_DEAF) || isnull(target.client))
 			continue
 
 		// ugly line but it do do dit

@@ -127,7 +127,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/computer/cryopod/proc/announce(message_type, mob/living/user, rank)
 	switch(message_type)
 		if("CRYO_JOIN")
-			radio.talk_into(src, "[user.real_name][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel) //Leave as user here, if not it passes the variable incorrectly and causes a runtime
 		if("CRYO_LEAVE")
 			radio.talk_into(src, "[user.real_name][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
 			var/is_command = user?.mind?.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND
@@ -435,6 +435,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	// get_equipped_items() prevents moving bodyparts, since those are in mob contents now
 	for(var/obj/item/item_content in mob_occupant.get_equipped_items(INCLUDE_POCKETS | INCLUDE_HELD | INCLUDE_ACCESSORIES))
 		try_store_item(mob_occupant, item_content, control_computer)
+
+	if(iscarbon(mob_occupant))
+		var/mob/living/carbon/carbon_occupant = mob_occupant
+		for(var/obj/item/organ/surplus_organ in carbon_occupant.organs)
+			if(istype(surplus_organ, /obj/item/organ/heart/cybernetic/surplus) || istype(surplus_organ, /obj/item/organ/lungs/cybernetic/surplus) || istype(surplus_organ, /obj/item/organ/liver/cybernetic/surplus) || istype(surplus_organ, /obj/item/organ/stomach/cybernetic/surplus) || istype(surplus_organ, /obj/item/organ/brain/cybernetic/surplus))
+				qdel(surplus_organ)
 
 	GLOB.joined_player_list -= stored_ckey
 

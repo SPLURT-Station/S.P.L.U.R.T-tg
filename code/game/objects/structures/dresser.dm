@@ -52,7 +52,7 @@
 				dressing_human.equip_to_slot_or_del(new sprite.briefs_obj(dressing_human), ITEM_SLOT_UNDERWEAR)
 				// SPLURT EDIT END
 		if("Underwear Color")
-			var/new_underwear_color = tgui_color_picker(dressing_human, "Choose your underwear color", "Underwear Color", dressing_human.underwear_color) // BUBBERSTATION EDIT: TGUI COLOR PICKER
+			var/new_underwear_color = tgui_color_picker(dressing_human, "Choose your underwear color", "Underwear Color", dressing_human.underwear_color)
 			if(new_underwear_color)
 				dressing_human.underwear_color = sanitize_hexcolor(new_underwear_color)
 				// SPLURT EDIT ADDITION - Extra Inventory
