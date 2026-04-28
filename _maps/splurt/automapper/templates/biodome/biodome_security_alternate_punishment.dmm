@@ -23,7 +23,6 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "aL" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/purple,
 /obj/effect/turf_decal/siding/dark_red/corner{
@@ -35,12 +34,18 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "dh" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/siding/purple/inner_corner,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/diagonal,
+/area/station/maintenance/department/security)
+"gH" = (
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
 /area/station/maintenance/department/security)
 "pH" = (
 /obj/item/flashlight/glowstick/pink{
@@ -55,24 +60,24 @@
 	pixel_x = 3;
 	pixel_y = 8
 	},
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 8
 	},
+/obj/machinery/light_switch/default_on/directional/west,
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "qN" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
-/obj/item/toy/plush/rouny{
-	pixel_x = 10;
-	pixel_y = 3
-	},
 /obj/structure/sign/poster/contraband/missing_gloves/directional/east,
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
+	},
+/obj/item/toy/plush/rouny{
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
@@ -102,7 +107,6 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "Am" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/chair/milking_machine,
@@ -114,6 +118,14 @@
 	dir = 5
 	},
 /turf/open/floor/iron/dark/diagonal,
+/area/station/maintenance/department/security)
+"Ba" = (
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
+/obj/structure/railing,
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
 /area/station/maintenance/department/security)
 "Be" = (
 /obj/structure/chair/sofa/corp/corner{
@@ -147,8 +159,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/railing,
-/obj/structure/sign/poster/contraband/ultra/directional/west,
 /obj/effect/turf_decal/stripes/end,
+/obj/structure/sign/poster/contraband/ultra/directional/east,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "Du" = (
@@ -188,10 +200,11 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "Lx" = (
-/obj/structure/lattice,
-/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
-/obj/structure/cable,
-/turf/closed/wall,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/north,
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
 /area/station/maintenance/department/security)
 "Nf" = (
 /turf/template_noop,
@@ -268,7 +281,6 @@
 	pixel_x = 7;
 	pixel_y = 0
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/marker_beacon/purple,
@@ -285,15 +297,9 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "Yl" = (
-/obj/machinery/light_switch/default_on/directional/north,
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/vending/boozeomat,
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 1
@@ -301,7 +307,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/department/security)
 "ZJ" = (
-/obj/structure/lattice,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/closed/wall,
 /area/station/maintenance/department/security)
 
@@ -311,7 +317,7 @@ Nf
 Nf
 aq
 aq
-aq
+ZJ
 aq
 aq
 aq
@@ -340,8 +346,8 @@ aq
 "}
 (4,1,1) = {"
 aq
-aq
-aq
+gH
+Ba
 Li
 aL
 Du
@@ -364,10 +370,10 @@ aq
 aq
 aq
 aq
-ZJ
-ZJ
-ZJ
-ZJ
-ZJ
-ZJ
+aq
+aq
+aq
+aq
+aq
+aq
 "}
