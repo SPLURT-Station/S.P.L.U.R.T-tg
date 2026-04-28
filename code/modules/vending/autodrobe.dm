@@ -290,6 +290,9 @@ GLOBAL_LIST_INIT(autodrobe_premium_items, list(
 	/obj/item/clothing/suit/costume/drfreeze_coat = 1,
 	/obj/item/clothing/under/costume/drfreeze = 1,
 	/obj/item/clothing/head/costume/drfreezehat = 1,
+	// SPLURT EDIT ADDITION BEGIN - Extra stuff
+	/obj/item/clothing/ears/ipod = 5,
+	// SPLURT EDIT ADDITION END - Extra stuff
 ))
 
 GLOBAL_LIST_INIT(autodrobe_contraband_items, list(
