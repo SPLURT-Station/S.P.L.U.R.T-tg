@@ -49,7 +49,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/window/right/directional/north{
-	req_access = list("security")
+	req_access = list("security");
+	name = "Security Infirmary"
 	},
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 4
@@ -62,7 +63,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/left/directional/north{
-	req_access = list("security")
+	req_access = list("security");
+	name = "Security Infirmary"
 	},
 /turf/open/floor/iron,
 /area/station/security/medical)
@@ -332,7 +334,8 @@
 "Ri" = (
 /obj/structure/cable,
 /obj/machinery/door/window/brigdoor/right/directional/south{
-	req_access = list("security")
+	req_access = list("security");
+	name = "Cell 4 - Drunk Tank"
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)

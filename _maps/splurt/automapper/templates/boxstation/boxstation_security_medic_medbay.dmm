@@ -234,7 +234,9 @@
 /area/station/security/medical)
 "PJ" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/machinery/door/window/left/directional/south,
+/obj/machinery/door/window/left/directional/south{
+	name = "Brig Infirmary"
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/medical)
 "Qf" = (

@@ -987,6 +987,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [130, 135, 2]
 trait_name = "Station"
 
+# Nebulastation Sauna
+[templates.nebulastation_security_medic_medbay]
+map_files = ["nebulastation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [155, 101, 1]
+trait_name = "Station"
+
 # Birdshotstation Infinidorm
 [templates.birdshotstation_infinidorm]
 map_files = ["infinidorm.dmm"]
