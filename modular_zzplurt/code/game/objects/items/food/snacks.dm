@@ -1,7 +1,7 @@
 /obj/item/food/tibbits
 	name = "\improper Tib-Bits Cheddar Wedges"
 	desc = "Crunchy, bite-sized cheese wedge chips packed with bold cheddar flavor in every savory morsel. \
-		Tib-Bits Cheddar Wedges deliver the perfect balance of crispy texture and rich, cheesy goodness—small \
+		Tib-Bits Cheddar Wedges deliver the perfect balance of crispy texture and rich, cheesy goodness, small \
 		in size, big on snackable satisfaction."
 	icon = 'modular_zzplurt/icons/obj/food/foods.dmi'
 	icon_state = "tibbits"
