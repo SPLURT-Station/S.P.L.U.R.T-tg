@@ -15,7 +15,6 @@
 	)
 	custom_price = PAYCHECK_CREW * 0.7
 	tastes = list("mild cheddar cheese" = 1)
-	rat_heal = 20
 	foodtypes = DAIRY|JUNKFOOD|FRIED
 	w_class = WEIGHT_CLASS_SMALL
 
