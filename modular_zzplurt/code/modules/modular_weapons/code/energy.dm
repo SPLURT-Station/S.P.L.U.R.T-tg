@@ -41,9 +41,16 @@
 	desc = "A Nanotrasen-issued energy revolver designed for Blueshield personnel. Uses a rotating capacitor system that slowly self-recharges \
 		between shots, ensuring consistent readiness without external power. Heavier than standard sidearms, with a reinforced frame suitable for \
 		close-quarters use. Cleanly marked and built to corporate standards."
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos/blueshield/revolver, /obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 	charge_delay = 6
 	force = 10 // Let's not smash sulls in. What are sulls?
 	throwforce = 5
+
+/obj/item/ammo_casing/energy/disabler/hos/blueshield/revolver
+	e_cost = LASER_SHOTS(12, STANDARD_CELL_CHARGE * 1.2)
+
+/obj/item/ammo_casing/energy/laser/hellfire/blueshield
+	e_cost = LASER_SHOTS(6, STANDARD_CELL_CHARGE * 1.2)
 
 /obj/item/gun/energy/e_gun/blueshield/balanced/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
