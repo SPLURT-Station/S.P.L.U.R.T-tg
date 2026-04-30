@@ -40,7 +40,7 @@
 		return data
 
 	if(!SScondos.splurt_user_data[user.ckey])
-		var/datum/map_template/condo/default_template_data = SScondos.condo_templates[1]
+		var/datum/map_template/condo/default_template_data = SScondos.condo_templates[SScondos.condo_templates[1]]
 		var/default_template = default_template_data?.name
 		SScondos.splurt_user_data[user.ckey] = list(
 			"room_number" = 1,

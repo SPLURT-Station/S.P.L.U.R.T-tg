@@ -82,9 +82,8 @@
 	var/prev_lockcharge = borg.lockcharge
 	borg.SetLockdown(TRUE)
 	borg.set_anchored(TRUE)
-	var/datum/effect_system/fluid_spread/smoke/smoke = new
-	smoke.set_up(1, holder = borg, location = borg.loc)
-	smoke.start()
+	var/datum/effect_system/basic/spark_spread/sparks = new(borg.loc, 1, TRUE)
+	sparks.start()
 	sleep(0.2 SECONDS)
 	for(var/i in 1 to 4)
 		playsound(borg, pick(

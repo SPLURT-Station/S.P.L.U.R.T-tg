@@ -50,7 +50,7 @@
 	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
 
-//Re-adds HIDESNOUT to whatever needs it, and marks them CLOTHING_NO_VARIATION so they don't look for muzzled sprites
+//Re-adds HIDESNOUT to whatever needs it, and marks them NONE so they don't look for muzzled sprites
 //TODO - this needs a better method, can we do this as a SQUISH thing like digitigrade?
 /obj/item/clothing/head/helmet/space/changeling
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT

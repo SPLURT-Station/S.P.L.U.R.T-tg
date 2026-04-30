@@ -35,17 +35,9 @@
 	item_path = /obj/item/clothing/under/performer
 
 //
-/datum/loadout_item/uniform/lewdmaid
-	name = "Lewd maid uniform"
-	item_path = /obj/item/clothing/under/costume/lewdmaid
-
 /datum/loadout_item/uniform/blutigen_undergarment
 	name = "Blutigen Undergarments"
 	item_path = /obj/item/clothing/under/blutigen_undergarment
-
-/datum/loadout_item/uniform/colorablestriper
-	name = "Colorable stripper outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
 
 // Suggestion #151
 
