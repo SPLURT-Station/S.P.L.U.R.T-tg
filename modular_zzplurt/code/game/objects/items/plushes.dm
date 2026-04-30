@@ -190,3 +190,21 @@
 	icon_state = "redmut"
 	gender = MALE
 	squeak_override = list('modular_zzplurt/sound/voice/bork.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark1.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
+
+/obj/item/toy/plush/fentalynn
+	name = "\improper Yapping Fox Plushie"
+	desc = "With the consequences of Fenlynn deciding to fuck with the <b>Wizard Federation</b> having caught up with her, she has suffered the wrath of Plaucifico the Soft, having been polymorphed into a marketable plushie.<br><br><br>1 or 2 maybe?"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "fentalynn"
+	attack_verb_simple = list("beat", "bully", "assault", "harass", "abuse", "yap")
+	attack_verb_continuous = list("beats", "bullies", "assaults", "harasses", "abuses", "yaps")
+	squeak_override = list('modular_zzplurt/sound/voice/yap.ogg' = 19, 'modular_skyrat/modules/alerts/sound/security_levels/delta.ogg' = 1)
+
+/obj/item/toy/plush/doctoraddy
+	name = "Doctor Addy Plushie"
+	desc = "The crudely drawn cardboard hospital ID says that she's A Real Doctor™, but holding the plushie doesn't inspire confidence. A velcro pouch on the bottom contains a baggie full of cheese."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "doctoraddy"
+	attack_verb_simple = list("perform", "heal", "cheese")
+	attack_verb_continuous = list("performs", "heals", "cheeses")
+	squeak_override = list('modular_zzplurt/sound/voice/yip.ogg' = 19, 'modular_zubbers/sound/alerts/violet.ogg' = 1)
