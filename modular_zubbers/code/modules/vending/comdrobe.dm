@@ -254,6 +254,8 @@
 		/obj/item/clothing/suit/armor/nanotrasen_furred_greatcoat = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_trenchcoat = 1,
 		/obj/item/clothing/suit/armor/vest/classic_jacket = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_formal = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_winter = 1,
 		/obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen = 1,
 )
 //Splurt Edit End
