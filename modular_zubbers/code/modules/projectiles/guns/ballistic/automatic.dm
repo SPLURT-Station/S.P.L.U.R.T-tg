@@ -13,3 +13,17 @@
 	fire_delay = 3
 	//18 damage per 0.3 seconds = 60 DPS
 	//Reference: Laser Gun 22 damage per 0.4 seconds = 55DPS
+
+//SPLURT ADDITION EDIT BEGIN - WT-458 Tweaks
+/obj/item/gun/ballistic/automatic/wt550/security/Initialize(mapload)
+	. = ..()
+
+	if(type != /obj/item/gun/ballistic/automatic/wt550/security)
+		return
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/wt458)
+
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+	)
+//SPLURT ADDITION EDIT END
