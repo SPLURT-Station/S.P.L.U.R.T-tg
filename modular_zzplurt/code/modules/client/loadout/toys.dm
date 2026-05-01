@@ -53,7 +53,7 @@
 /datum/loadout_item/toys/fentalynn
 	name = "Yapping Fox Plushie"
 	item_path = /obj/item/toy/plush/fentalynn
-	ckeywhitelist = null
+	ckeywhitelist = list("fenduphox")
 
 /datum/loadout_item/toys/doctoraddy
 	name = "Doctor Addy Plushie"

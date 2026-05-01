@@ -193,7 +193,7 @@
 
 /obj/item/toy/plush/fentalynn
 	name = "\improper Yapping Fox Plushie"
-	desc = "With the consequences of Fenlynn deciding to fuck with the <b>Wizard Federation</b> having caught up with her, she has suffered the wrath of Plaucifico the Soft, having been polymorphed into a marketable plushie.<br><br><br>1 or 2 maybe?"
+	desc = "With the consequences of Fenlynn deciding to fuck with the <b>Wizard Federation</b> having caught up with her, she has suffered the wrath of Plaucifico the Flaccid, having been polymorphed into a marketable plushie."
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
 	icon_state = "fentalynn"
 	attack_verb_simple = list("beat", "bully", "assault", "harass", "abuse", "yap")
