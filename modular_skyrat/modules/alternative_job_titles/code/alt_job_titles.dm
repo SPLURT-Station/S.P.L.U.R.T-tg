@@ -416,6 +416,7 @@
 		"Shrink",
 		"Therapist",
 		"Anger Management",
+		"Emotional Support Animal",
 	)
 
 /datum/job/quartermaster
