@@ -39708,6 +39708,9 @@
 /obj/effect/turf_decal/trimline/dark_blue/filled/arrow_ccw{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "nSA" = (
@@ -66315,18 +66318,6 @@
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/plating,
 /area/station/maintenance/port/upper)
-"wUV" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/turf_decal/trimline/red/filled/arrow_cw{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/starboard)
 "wUY" = (
 /obj/machinery/atmospherics/components/trinary/mixer/flipped{
 	name = "plasma mixer"
@@ -177651,7 +177642,7 @@ qkb
 qkb
 qkb
 lYo
-wUV
+qkb
 qkb
 nSt
 qkb

@@ -66,9 +66,9 @@
 	// Record features
 	old_features["species"] = action_owner.dna.species.type
 	old_features["custom_species"] = action_owner.dna.features["custom_species"]
-	//old_features["size"] = get_size(action_owner) // Temporarily disabled
-	old_features["bark"] = action_owner.blooper.id
-	old_features["taur"] = action_owner.dna.features["taur"]
+	//old_features["size"] = get_size(action_owner) //  Disabled for upstream sync, feel free to fix this later
+	//old_features["bark"] = action_owner.blooper.id
+	//old_features["taur"] = action_owner.dna.features["taur"]
 
 	// Set species gendered name
 	switch(action_owner.gender)

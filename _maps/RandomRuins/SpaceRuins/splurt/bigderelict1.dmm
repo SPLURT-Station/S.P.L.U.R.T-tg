@@ -3546,7 +3546,6 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Power Maintenance"
 	},
-/obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/structure/cable,
@@ -3704,6 +3703,14 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/derelictoutpost/staffhall)
+"Oc" = (
+/obj/machinery/door/airlock/multi_tile/public/glass{
+	name = "Arrivals"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/space/has_grav/derelictoutpost/arrivals)
 "Od" = (
 /obj/structure/table/wood,
 /turf/open/floor/iron,
@@ -4385,8 +4392,8 @@
 "VJ" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/structure/barricade/wooden,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/derelictoutpost/arrivals)
 "VO" = (
@@ -6671,7 +6678,7 @@ Nh
 Nh
 Nh
 gF
-vp
+Oc
 jt
 WL
 Ug
