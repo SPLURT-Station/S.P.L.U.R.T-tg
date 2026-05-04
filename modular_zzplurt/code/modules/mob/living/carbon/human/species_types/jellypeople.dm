@@ -1,3 +1,7 @@
+/obj/item/organ/tongue/jelly/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list) //speech bubble addition
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
+
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	var/mob/living/carbon/human/H = new_jellyperson
