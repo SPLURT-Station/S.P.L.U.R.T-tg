@@ -9,6 +9,54 @@
 	var/grab_text
 	var/harm_text
 
+// Helper function to check if tail is large enough for smothering
+/datum/interaction/lewd/tail/proc/can_tail_smother(mob/living/carbon/human/user)
+	if(!ishuman(user))
+		return FALSE
+
+	// Check all possible tail feature keys
+	var/list/tail_features = list(FEATURE_TAIL_GENERIC, FEATURE_TAIL_CAT, FEATURE_TAIL_LIZARD, FEATURE_TAIL_FISH, FEATURE_TAIL_MONKEY, FEATURE_TAIL_XENO)
+	var/tail_type = null
+
+	for(var/feature in tail_features)
+		var/list/mutant_bodyparts = user.dna?.mutant_bodyparts
+		if(mutant_bodyparts)
+			var/list/feature_data = mutant_bodyparts[feature]
+			if(feature_data)
+				tail_type = feature_data[MUTANT_INDEX_NAME]
+				if(tail_type && tail_type != "None")
+					break
+
+	if(!tail_type || tail_type == "None")
+		return FALSE
+
+	// List of tail types that are large enough to smother
+	var/list/large_tails = list(
+		"Snake", "Snake (Dual)", "Snake (Stripe)", "Snake (Stripe Alt)", "Snake (Undertail color)",
+		"Leviathan",
+		"Xeno",
+		"Ash Drake",
+		"Drake",
+		"Serpent",
+		"Tailmaw",
+		"Tailmaw (Wag)",
+		"Tentacle",
+		"Scolipede",
+		"Segmented",
+		"Otusian",
+		"Sergal",
+		"Raptor",
+		"Squirrel",
+		"Horse",
+		"Orca",
+		"Shark",
+		"Fish",
+		"Aquatic",
+		"Ring Tail (Long)"
+	)
+
+	return tail_type in large_tails
+
 /datum/interaction/lewd/tail/act(mob/living/user, mob/living/target)
 	// Check for containers to collect fluids during interactions
 	var/obj/item/reagent_containers/liquid_container
@@ -79,7 +127,7 @@
 	harm_text = list(
 		"tormentingly rough with %TARGET%'s cock, clearly not caring about their partner's sensations.",
 		"squeezes and pulls %TARGET%'s cock with their tail, as if enjoying the pain they cause.",
-		"sharply grips and twists %TARGET%'s cock, acting without mercy and holding with force."
+		"sharply grips and twists %TARGET%'s cock with their tail, acting without mercy and holding with force."
 	)
 	cum_message_text_overrides = list(CLIMAX_POSITION_TARGET = list("%CUMMING% covers %CAME_IN%'s tail with cum."))
 
@@ -307,3 +355,143 @@
 		target_arousal = 12
 		target_pleasure = 4
 	..()
+
+// Tail smothering interactions - smother target's face with tail
+// Only available for large tails (snake, leviathan, xeno, etc.)
+
+/datum/interaction/lewd/tail/tail_smother
+	name = "Tail Smother"
+	description = "Wrap your tail around their face. (Warning: Causes oxygen damage)"
+	unsafe_types = INTERACTION_HARMFUL
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	user_required_parts = list(ORGAN_SLOT_TAIL = REQUIRE_GENITAL_ANY)
+	help_text = list(
+		"carefully wraps their tail around %TARGET%'s face.",
+		"gently encircles %TARGET%'s head with their tail.",
+		"wraps their tail around %TARGET%'s face, a warm constricting hold.",
+		"carefully wraps their tail completely around %TARGET%'s head.",
+		"gently encircles %TARGET%'s entire head with their tail.",
+		"wraps their tail multiple times around %TARGET%'s head, a warm secure hold.",
+		"gently coils their tail around %TARGET%'s face.",
+		"carefully wraps their tail over %TARGET%'s nose and mouth."
+	)
+	grab_text = list(
+		"wraps their tail around %TARGET%'s face, covering nose and mouth.",
+		"loops their tail over %TARGET%'s face, limiting air flow.",
+		"coils their tail gently around %TARGET%'s head.",
+		"wraps their tail multiple times around %TARGET%'s head, completely covering their face.",
+		"loops their tail over and under %TARGET%'s head, holding them tight.",
+		"coils their tail around %TARGET%'s head like a snake, cutting off all air.",
+		"wraps their tail firmly around %TARGET%'s face.",
+		"constricts their tail around %TARGET%'s head."
+	)
+	harm_text = list(
+		"wraps their long tail tightly around %TARGET%'s face, cutting off all air.",
+		"coils their tail around %TARGET%'s head, squeezing hard and blocking airways.",
+		"constricts their tail around %TARGET%'s face, smothering them completely.",
+		"wraps their long tail multiple times around %TARGET%'s head, completely enveloping their face.",
+		"coils their tail tight around %TARGET%'s head, cutting off all air completely.",
+		"constricts their powerful tail around %TARGET%'s head, squeezing with deadly force.",
+		"wraps their tail around %TARGET%'s face and squeezes tightly.",
+		"constricts their tail around %TARGET%'s head with crushing force."
+	)
+	message = null
+	target_arousal = 6
+	target_pleasure = 4
+	target_pain = 0
+	user_arousal = 4
+	user_pleasure = 4
+	user_pain = 0
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+
+/datum/interaction/lewd/tail/tail_smother/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	// Check if user has a large enough tail for smothering
+	if(!can_tail_smother(user))
+		return FALSE
+
+	// Check if smothering is enabled in preferences
+	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/smothering) && !(!ishuman(user) && !user.client && !SSinteractions.is_blacklisted(user)))
+		return FALSE
+	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/erp/smothering) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target)))
+		return FALSE
+
+	return TRUE
+
+/datum/interaction/lewd/tail/tail_smother/act(mob/living/user, mob/living/target)
+	var/intent = resolve_intent_name(user)
+
+	// Default values
+	target_arousal = 6
+	target_pleasure = 4
+	target_pain = 0
+	user_arousal = 4
+	user_pleasure = 4
+	user_pain = 0
+
+	switch(intent)
+		if("harm")
+			// Deep/Intense smother
+			target_pain = 6
+			target_arousal = 10
+			target_pleasure = 8
+			user_arousal = 10
+			user_pleasure = 8
+		if("grab")
+			// Moderate smother
+			target_arousal = 10
+			target_pleasure = 8
+			user_arousal = 8
+			user_pleasure = 6
+
+	// Check for choke slut trait
+	if(HAS_TRAIT(target, TRAIT_CHOKE_SLUT))
+		if(intent == "harm")
+			target_arousal += 10
+			target_pleasure += 6
+			to_chat(target, span_purple("You can't breathe at all! The pressure is intense... it's amazing!"))
+		else
+			target_arousal += 8
+			target_pleasure += 4
+			to_chat(target, span_purple("The pressure on your face is overwhelming... it's so tight!"))
+
+	message = null
+	. = ..()
+
+/datum/interaction/lewd/tail/tail_smother/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	if(!istype(user))
+		return
+	var/stat_before = target.stat
+	var/oxy_damage = 3
+
+	// Set oxy damage based on intent
+	switch(resolve_intent_name(user))
+		if("harm")
+			oxy_damage = 5
+		if("grab")
+			oxy_damage = 4
+		else
+			oxy_damage = 3
+
+	// Always apply oxy damage up to 45
+	if(target.get_oxy_loss() < 45)
+		target.adjust_oxy_loss(oxy_damage)
+	// Only apply additional damage if extmharm is enabled
+	else if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		target.adjust_oxy_loss(oxy_damage)
+
+	// Check if target just passed out
+	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+		if(resolve_intent_name(user) == "harm")
+			message = list("%TARGET% passes out wrapped tightly in %USER%'s tail.")
+		else
+			message = list("%TARGET% passes out wrapped in %USER%'s tail.")
