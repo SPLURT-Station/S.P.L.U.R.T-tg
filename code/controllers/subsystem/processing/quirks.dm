@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/no_taste, /datum/quirk/vegetarian, /datum/quirk/deviant_tastes, /datum/quirk/gamer),
 	list(/datum/quirk/pineapple_liker, /datum/quirk/pineapple_hater, /datum/quirk/gamer),
 	list(/datum/quirk/alcohol_tolerance, /datum/quirk/light_drinker),
-	list(/datum/quirk/item_quirk/clown_enjoyer, /datum/quirk/item_quirk/mime_fan),
+	list(/datum/quirk/item_quirk/clown_enjoyer, /datum/quirk/item_quirk/mime_fan, /datum/quirk/item_quirk/pro_skub, /datum/quirk/item_quirk/anti_skub), //SPLURT EDIT, ORIGINAL: list(/datum/quirk/item_quirk/clown_enjoyer, /datum/quirk/item_quirk/mime_fan),
 	list(/datum/quirk/prosthetic_limb, /datum/quirk/quadruple_amputee, /datum/quirk/body_purist),
 	list(/datum/quirk/transhumanist, /datum/quirk/body_purist),
 	list(/datum/quirk/prosthetic_organ, /datum/quirk/tin_man, /datum/quirk/body_purist),
