@@ -61,6 +61,42 @@
 	qdel(tool)
 	return ITEM_INTERACT_SUCCESS
 
+// SPLURT ADDITION
+/obj/item/polymorph_belt/proc/check_mob_type(mob/living/target_mob)
+	if(istype(target_mob, /mob/living/basic/raptor))
+		var/mob/living/basic/raptor/raptor_mob = target_mob
+		switch(raptor_mob.growth_stage)
+			if(RAPTOR_BABY)
+				switch(raptor_mob.raptor_color.type)
+					if(/datum/raptor_color/red) return /mob/living/basic/raptor/baby/red
+					if(/datum/raptor_color/purple) return /mob/living/basic/raptor/baby/purple
+					if(/datum/raptor_color/green) return /mob/living/basic/raptor/baby/green
+					if(/datum/raptor_color/white) return /mob/living/basic/raptor/baby/white
+					if(/datum/raptor_color/black) return /mob/living/basic/raptor/baby/black
+					if(/datum/raptor_color/yellow) return /mob/living/basic/raptor/baby/yellow
+					if(/datum/raptor_color/blue) return /mob/living/basic/raptor/baby/blue
+			if(RAPTOR_YOUNG)
+				switch(raptor_mob.raptor_color.type)
+					if(/datum/raptor_color/red) return /mob/living/basic/raptor/young/red
+					if(/datum/raptor_color/purple) return /mob/living/basic/raptor/young/purple
+					if(/datum/raptor_color/green) return /mob/living/basic/raptor/young/green
+					if(/datum/raptor_color/white) return /mob/living/basic/raptor/young/white
+					if(/datum/raptor_color/black) return /mob/living/basic/raptor/young/black
+					if(/datum/raptor_color/yellow) return /mob/living/basic/raptor/young/yellow
+					if(/datum/raptor_color/blue) return /mob/living/basic/raptor/young/blue
+			if(RAPTOR_ADULT)
+				switch(raptor_mob.raptor_color.type)
+					if(/datum/raptor_color/red) return /mob/living/basic/raptor/red
+					if(/datum/raptor_color/purple) return /mob/living/basic/raptor/purple
+					if(/datum/raptor_color/green) return /mob/living/basic/raptor/green
+					if(/datum/raptor_color/white) return /mob/living/basic/raptor/white
+					if(/datum/raptor_color/black) return /mob/living/basic/raptor/black
+					if(/datum/raptor_color/yellow) return /mob/living/basic/raptor/yellow
+					if(/datum/raptor_color/blue) return /mob/living/basic/raptor/blue
+
+	return target_mob.type
+// END SPLURT ADDITION
+
 /obj/item/polymorph_belt/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if (.)
@@ -76,7 +112,8 @@
 	if (!target_mob.compare_sentience_type(SENTIENCE_ORGANIC))
 		balloon_alert(user, "target too intelligent!")
 		return TRUE
-	if (stored_mob_type == target_mob.type)
+	var/mob_type = check_mob_type(target_mob) // SPLURT EDIT - Check mob type
+	if (stored_mob_type == mob_type)
 		balloon_alert(user, "already scanned!")
 		return TRUE
 	if (DOING_INTERACTION_WITH_TARGET(user, target_mob))
@@ -87,7 +124,7 @@
 	if (!do_after(user, delay = 5 SECONDS, target = target_mob))
 		return TRUE
 	visible_message(span_notice("[user] scans [target_mob] with [src]."))
-	stored_mob_type = target_mob.type
+	stored_mob_type = mob_type
 	update_transform_action()
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
