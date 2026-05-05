@@ -406,7 +406,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/machinery/conveyor/proc/get_powernet()
 	if(!wire_mode)
 		return
-	var/obj/structure/cable/cable = attached_wire_ref.resolve()
+	var/obj/structure/cable/cable = attached_wire_ref?.resolve() //SPLURT EDIT, ORIGINAL: var/obj/structure/cable/cable = attached_wire_ref.resolve()
 	if(isnull(cable))
 		attached_wire_ref = null
 		return
