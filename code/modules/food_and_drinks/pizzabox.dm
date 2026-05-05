@@ -180,7 +180,7 @@
 				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return
 				bomb_defused = FALSE
-				log_bomber(user, "has activated a", src, "[bomb] set to [bomb_timer] seconds")
+				log_bomber(user, "changed a timer ", src, "[bomb] set to [bomb_timer] seconds") //// SPLURT CHANGE
 				bomb.adminlog = "\The [bomb] in [src.name] that [key_name(user)] activated has detonated!"
 				balloon_alert(user, "bomb set")
 				update_appearance()
