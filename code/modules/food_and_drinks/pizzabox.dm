@@ -141,6 +141,7 @@
 	if(open && !bomb_defused)
 		audible_message(span_warning("[icon2html(src, hearers(src))] *beep*"))
 		bomb_active = TRUE
+		log_bomber(user, "has activated a", src, "[bomb] set to [bomb_timer] seconds") // SPLURT ADDITION - Pizza bomb logging START
 		START_PROCESSING(SSobj, src)
 	update_appearance()
 
@@ -179,7 +180,7 @@
 				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return
 				bomb_defused = FALSE
-				log_bomber(user, "has trapped a", src, "with [bomb] set to [bomb_timer] seconds")
+				log_bomber(user, "has activated a", src, "[bomb] set to [bomb_timer] seconds")
 				bomb.adminlog = "\The [bomb] in [src.name] that [key_name(user)] activated has detonated!"
 				balloon_alert(user, "bomb set")
 				update_appearance()
