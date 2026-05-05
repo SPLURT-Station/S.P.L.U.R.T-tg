@@ -29,11 +29,11 @@
 			continue
 
 		var/obj/item/clothing/under/uniform = mob.w_uniform
-		/* SPLURT ADDITION START
+		// SPLURT ADDITION START
 		if(!istype(uniform) || uniform.has_sensor <= NO_SENSORS || !uniform.sensor_mode)
 			GLOB.suit_sensors_list -= mob
 			continue
-		SPLURT ADDITION END */
+		// SPLURT ADDITION END
 		if(uniform.sensor_mode == SENSOR_COORDS && (uniform.has_sensor != BROKEN_SENSORS) && (HAS_TRAIT(mob, TRAIT_CRITICAL_CONDITION) || mob.stat == DEAD))
 			if(mob.get_dnr()) // DNR won't beep anymore
 				continue
