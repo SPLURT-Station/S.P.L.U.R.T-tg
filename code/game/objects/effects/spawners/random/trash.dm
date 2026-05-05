@@ -179,6 +179,11 @@
 		/obj/item/trash/vendor_trash/lizard_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_box = 1,
 		// BUBBER EDIT ADDITION END
+		// SPLURT EDIT ADDITION START
+		/obj/item/trash/tibbits = 1,
+		/obj/item/trash/toasties = 1,
+		/obj/item/trash/vanillabar = 1,
+		// SPLURT EDIT ADDITION END
 	)
 
 /obj/effect/spawner/random/trash/botanical_waste

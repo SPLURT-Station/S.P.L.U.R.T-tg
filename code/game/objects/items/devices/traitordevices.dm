@@ -390,11 +390,16 @@ effective or pretty fucking useless.
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/jammer/proc/disable_radios_on(atom/target, ignore_syndie = FALSE)
-	for (var/obj/item/radio/radio in target.get_all_contents() + target)
+	//SPLURT EDIT START - Slightly refactors jammer disabling radio so that it disables bodycams too
+	var/list/target_contents = target.get_all_contents() + target
+	for (var/obj/item/radio/radio in target_contents)
 		if(ignore_syndie && (radio.special_channels & RADIO_SPECIAL_SYNDIE))
 			continue
 		radio.set_broadcasting(FALSE)
 
+	for (var/obj/item/bodycam_upgrade/bodycamera in target_contents)
+		bodycamera.turn_off()
+	//SPLURT EDIT END
 /obj/item/jammer/Destroy()
 	GLOB.active_jammers -= src
 	return ..()
