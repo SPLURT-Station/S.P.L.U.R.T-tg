@@ -103,6 +103,10 @@
 	worn_icon_state = "suit_harness"
 	inhand_icon_state = "armor"
 	body_parts_covered = NONE
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5,
+	)
 
 /obj/item/clothing/suit/hooded/explorer/explorerharness
 	name = "explorer suit harness"
