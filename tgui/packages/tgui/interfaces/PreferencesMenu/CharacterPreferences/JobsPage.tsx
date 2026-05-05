@@ -445,7 +445,7 @@ function JoblessRoleDropdown(props) {
 //                 <PriorityHeaders />
 //                 <Department department="Security" />
 //                 <Department department="Medical" />
-//                 <Department department="Central Staff" />
+//                 <Department department="Internal Affairs" />
 //               </Stack>
 //             </Stack.Item>
 //           </Stack>
@@ -501,7 +501,7 @@ function JoblessRoleDropdown(props) {
 //                 <Gap amount={6} />
 //               </Department>
 
-//               <Department department="Central Staff" />
+//               <Department department="Internal Affairs" />
 //             </Stack.Item>
 //           </Stack>
 //           {/* BUBBER EDIT CHANGE END */}
@@ -540,7 +540,7 @@ export function JobsPage() {
                 <PriorityHeaders />
                 <Department department="Security" />
                 <Department department="Medical" />
-                <Department department="Central Staff" />
+                <Department department="Internal Affairs" />
               </Stack>
             </Stack.Item>
           </Stack>

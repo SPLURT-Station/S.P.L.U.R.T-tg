@@ -16,8 +16,9 @@
 
 	outfit = /datum/outfit/job/blueshield
 	plasmaman_outfit = /datum/outfit/plasmaman/blueshield
+	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
-		/datum/job_department/central,
+		/datum/job_department/command,
 	)
 
 	paycheck = PAYCHECK_COMMAND
