@@ -179,6 +179,7 @@
 			var/target_message = list(pick(arousal_messages))
 			target.visible_message(span_lewd(replacetext(target_message, "%TARGET%", target)))
 
+//Mosley asked me to restore this code. (OLD SMOTHER INTERACTION)
 /datum/interaction/lewd/breastsmother
 	name = "Breast Smother"
 	description = "Smother them with your breasts."
@@ -222,6 +223,133 @@
 		target.adjust_oxy_loss(2)
 		target.adjust_arousal(5)
 		user.adjust_arousal(8)
+
+// NEW SMOTHER INTERACTION
+/datum/interaction/lewd/breast_smother
+	name = "Breast Smothering"
+	description = "Smother them with your breasts. (Warning: Causes oxygen damage)"
+	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH)
+	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
+	message = null
+	target_arousal = 6
+	target_pleasure = 4
+	target_pain = 0
+	user_arousal = 4
+	user_pleasure = 4
+	user_pain = 0
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/squelch1.ogg',
+		'modular_zzplurt/sound/interactions/squelch2.ogg',
+		'modular_zzplurt/sound/interactions/squelch3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+
+/datum/interaction/lewd/breast_smother/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	// Check if smothering is enabled in preferences
+	if(!user.client?.prefs?.read_preference(/datum/preference/toggle/erp/smothering) && !(!ishuman(user) && !user.client && !SSinteractions.is_blacklisted(user)))
+		return FALSE
+	if(!target.client?.prefs?.read_preference(/datum/preference/toggle/erp/smothering) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target)))
+		return FALSE
+
+	return TRUE
+
+/datum/interaction/lewd/breast_smother/act(mob/living/user, mob/living/target)
+	message = null
+	var/intent = resolve_intent_name(user)
+
+	switch(intent)
+		if("harm")
+			// Deep/Intense smother
+			target_pain = 4
+			target_arousal = 10
+			target_pleasure = 8
+			user_arousal = 8
+			user_pleasure = 6
+			message = list(
+				"presses their breasts hard against %TARGET%'s face, crushing their nose.",
+				"forces %TARGET%'s face deep into their cleavage, smothering them completely.",
+				"squeezes their breasts tight around %TARGET%'s face, blocking airways.",
+				"grinds their chest down onto %TARGET%'s face, smothering them.",
+				"presses their full cleavage over %TARGET%'s face, cutting off all air.",
+				"wraps their arms around %TARGET%'s head and presses them into their chest.",
+				"crushes %TARGET%'s face between their breasts tightly.",
+				"shoves their cleavage into %TARGET%'s face forcefully."
+			)
+		if("grab")
+			// Moderate smother
+			target_arousal = 8
+			target_pleasure = 6
+			user_arousal = 6
+			user_pleasure = 5
+			message = list(
+				"wraps their arms around %TARGET%'s head, pulling them into their cleavage.",
+				"presses their breasts tight against %TARGET%'s face, smothering them.",
+				"grinds their chest into %TARGET%'s face, blocking their airways.",
+				"wraps their arms around %TARGET%'s head and squeezes them into their chest.",
+				"presses their cleavage firmly against %TARGET%'s face.",
+				"pulls %TARGET%'s face into their breasts.",
+				"holds %TARGET%'s head against their chest tightly.",
+				"presses their breasts over %TARGET%'s face."
+			)
+		else // help
+			// Gentle smother
+			message = list(
+				"gently presses their breasts against %TARGET%'s face.",
+				"carefully covers %TARGET%'s face with their cleavage.",
+				"lays their breasts over %TARGET%'s face softly.",
+				"gently wraps their chest around %TARGET%'s face.",
+				"carefully lowers their breasts onto %TARGET%'s face.",
+				"gently places their cleavage over %TARGET%'s nose and mouth.",
+				"softly presses their chest against %TARGET%'s face.",
+				"gently settles their breasts over %TARGET%'s face."
+			)
+
+	// Check for choke slut trait
+	if(HAS_TRAIT(target, TRAIT_CHOKE_SLUT))
+		if(intent == "harm")
+			target_arousal += 10
+			target_pleasure += 6
+			to_chat(target, span_purple("You can't breathe with their breasts crushing your face... it's amazing!"))
+		else
+			target_arousal += 8
+			target_pleasure += 4
+			to_chat(target, span_purple("You can barely breathe with their breasts on your face... it's incredible!"))
+
+	. = ..()
+
+/datum/interaction/lewd/breast_smother/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	if(!istype(user))
+		return
+
+	var/stat_before = target.stat
+	var/oxy_damage = 3
+
+	// Set oxy damage based on intent
+	switch(resolve_intent_name(user))
+		if("harm")
+			oxy_damage = 4
+		if("grab")
+			oxy_damage = 3
+		else
+			oxy_damage = 2
+
+	// Always apply oxy damage up to 45
+	if(target.get_oxy_loss() < 45)
+		target.adjust_oxy_loss(oxy_damage)
+	// Only apply additional damage if extmharm is enabled
+	else if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
+		target.adjust_oxy_loss(oxy_damage)
+
+
+	// Check if target just passed out
+	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+		message = list("%TARGET% passes out under %USER%'s breasts.")
 
 /datum/interaction/lewd/do_boobjob
 	name = "Give Boobjob"

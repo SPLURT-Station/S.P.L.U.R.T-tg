@@ -82,7 +82,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
 /obj/item/gun/ballistic/automatic/wt458/add_bayonet_point()
-	AddComponent(/datum/component/bayonet_attachable, offset_x = 25, offset_y = 2)
+	AddComponent(/datum/component/bayonet_attachable, offset_x = 25, offset_y = 14)
 
 /obj/item/gun/ballistic/automatic/wt458/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
@@ -90,3 +90,6 @@
 		light_overlay = "flight", \
 		overlay_x = 10, \
 		overlay_y = 19)
+
+/obj/item/gun/ballistic/automatic/wt458/nomag
+	spawnwithmagazine = FALSE

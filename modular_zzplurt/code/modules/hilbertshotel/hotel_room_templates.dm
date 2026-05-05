@@ -219,6 +219,18 @@
 	mappath = "_maps/splurt/templates/apartment_spaceruin.dmm"
 	category = GHC_MISC
 
+/datum/map_template/ghost_cafe_rooms/apartment_kiss
+	name = "City Apartment (Empty)"
+	mappath = "_maps/splurt/templates/apartment_kiss.dmm"
+	category = GHC_APARTMENT
+	landing_coords = list(23, 15)
+
+/datum/map_template/ghost_cafe_rooms/apartment_morgue
+	name = "Mortician's Office"
+	mappath = "_maps/splurt/templates/apartment_morgue.dmm"
+	category = GHC_SPECIAL
+	landing_coords = list(22, 10)
+
 #undef GHC_MISC
 #undef GHC_APARTMENT
 #undef GHC_BEACH

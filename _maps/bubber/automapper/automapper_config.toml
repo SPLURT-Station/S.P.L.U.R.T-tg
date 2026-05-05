@@ -763,6 +763,22 @@ required_map = "biodome.dmm"
 coordinates = [164, 113, 2]
 trait_name = "Station"
 
+# Biodome Security Medical Expansion
+[templates.biodome_security_medic_medbay]
+map_files = ["biodome_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [155, 67, 2]
+trait_name = "Station"
+
+# Biodome Security Secret Alternate Punishment Area
+[templates.biodome_security_alternate_punishment]
+map_files = ["biodome_security_alternate_punishment.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [155, 69, 1]
+trait_name = "Station"
+
 # Metastation Infinidorm
 [templates.metastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -777,6 +793,14 @@ map_files = ["metastation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [89, 135, 1]
+trait_name = "Station"
+
+# Metastation Security Medical Expansion
+[templates.metastation_security_medic_medbay]
+map_files = ["metastation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [91, 169, 1]
 trait_name = "Station"
 
 # Deltastation Infinidorm
@@ -795,6 +819,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [171, 75, 1]
 trait_name = "Station"
 
+# Deltastation Security Medical Expansion
+[templates.deltastation_security_medic_medbay]
+map_files = ["deltastation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [194, 152, 1]
+trait_name = "Station"
+
 # Boxstation Infinidorm
 [templates.boxstation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -809,6 +841,14 @@ map_files = ["boxstation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/boxstation/"
 required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
+trait_name = "Station"
+
+# Boxstation Security Medical Expansion
+[templates.boxstation_security_medic_medbay]
+map_files = ["boxstation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [101, 170, 1]
 trait_name = "Station"
 
 # Kilostation Infinidorm
@@ -835,6 +875,14 @@ required_map = "KiloStation.dmm"
 coordinates = [125, 103, 1]
 trait_name = "Station"
 
+# Kilostation Security Medical Expansion
+[templates.kilostation_security_medic_medbay]
+map_files = ["kilostation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [69, 92, 1]
+trait_name = "Station"
+
 # Limastation Infinidorm (archived station)
 [templates.limastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -851,6 +899,14 @@ required_map = "moonstation.dmm"
 coordinates = [12, 140, 3]
 trait_name = "Station"
 
+# Moonstation Security Medical Expansion
+[templates.moonstation_security_medic_medbay]
+map_files = ["moonstation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [152, 127, 3]
+trait_name = "Station"
+
 # Iceboxstation Infinidorm
 [templates.iceboxstation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -865,6 +921,22 @@ map_files = ["iceboxstation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/iceboxstation/"
 required_map = "IceBoxStation.dmm"
 coordinates = [99, 155, 3]
+trait_name = "Station"
+
+# Iceboxstation Security Medical Expansion Z-Level 2
+[templates.iceboxstation_security_medic_medbay_zlevel_2]
+map_files = ["iceboxstation_security_medic_medbay_zlevel_2.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [113, 174, 2]
+trait_name = "Station"
+
+# Iceboxstation Security Medical Expansion Z-Level 3
+[templates.iceboxstation_security_medic_medbay_zlevel_3]
+map_files = ["iceboxstation_security_medic_medbay_zlevel_3.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [114, 174, 3]
 trait_name = "Station"
 
 # Tramstation Infinidorm
@@ -891,6 +963,14 @@ required_map = "tramstation.dmm"
 coordinates = [81, 130, 2]
 trait_name = "Station"
 
+# Tramstation Security Medical Expansion
+[templates.tramstation_security_medic_medbay]
+map_files = ["tramstation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [55, 149, 2]
+trait_name = "Station"
+
 # Wawastation Infinidorm
 [templates.wawastation_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -905,6 +985,14 @@ map_files = ["infinidorm.dmm"]
 directory = "_maps/splurt/automapper/templates/"
 required_map = "NebulaStation.dmm"
 coordinates = [130, 135, 2]
+trait_name = "Station"
+
+# Nebulastation Sauna
+[templates.nebulastation_security_medic_medbay]
+map_files = ["nebulastation_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [155, 101, 1]
 trait_name = "Station"
 
 # Birdshotstation Infinidorm
@@ -931,6 +1019,22 @@ required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
 trait_name = "Station"
 
+# Blueshift Security Medical Expansion - Main
+[templates.blueshift_security_medic_medbay]
+map_files = ["blueshift_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [100, 182, 1]
+trait_name = "Station"
+
+# Blueshift Security Medical Expansion - Brig
+[templates.blueshift_security_medic_medbay_brig]
+map_files = ["blueshift_security_medic_medbay_brig.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [141, 173, 1]
+trait_name = "Station"
+
 # VoidRaptor Infinidorm
 [templates.voidraptor_infinidorm]
 map_files = ["infinidorm.dmm"]
@@ -945,6 +1049,14 @@ map_files = ["voidraptor_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
+trait_name = "Station"
+
+# VoidRaptor Security Medical Expansion
+[templates.voidraptor_security_medic_medbay]
+map_files = ["voidraptor_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/voidraptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [134, 169, 1]
 trait_name = "Station"
 
 # Interlink Infinidorm (might be redundant aka one here one on station)

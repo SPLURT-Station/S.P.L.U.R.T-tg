@@ -1,0 +1,361 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"at" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"aL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"bW" = (
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"dh" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/east,
+/obj/machinery/computer/operating{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"hj" = (
+/turf/template_noop,
+/area/template_noop)
+"ik" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/light_switch/directional/west,
+/obj/structure/table,
+/obj/item/storage/box/bandages{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/item/storage/box/bodybags{
+	pixel_y = -4;
+	pixel_x = -5
+	},
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"iE" = (
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"mF" = (
+/obj/structure/table,
+/obj/item/clothing/gloves/latex,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/clothing/mask/surgical,
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/obj/item/clothing/suit/jacket/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/blindfold,
+/obj/item/storage/portable_chem_mixer,
+/obj/item/reagent_containers/cup/tube,
+/obj/item/reagent_containers/cup/tube,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"pH" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/wall_healer/directional/north,
+/obj/structure/table/optable,
+/obj/item/paper/crumpled{
+	default_raw_text = "<i>Sorry, microwave broke so I had to cook food with the defib. Didn't work, and now the defib is broken. Just get a new one from medical.</i>";
+	name = "old, crumpled note"
+	},
+/obj/machinery/defibrillator_mount/directional/east,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"qN" = (
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/machinery/light/directional/east,
+/obj/machinery/newscaster/directional/south,
+/obj/structure/bodycontainer/morgue{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"uG" = (
+/turf/open/floor/glass/reinforced/scrape_below,
+/area/station/security/medical)
+"uJ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"uW" = (
+/turf/closed/wall/r_wall,
+/area/station/maintenance/starboard/fore)
+"vT" = (
+/turf/closed/wall/r_wall,
+/area/station/security/medical)
+"zm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/holopad,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Am" = (
+/turf/closed/wall,
+/area/station/security/medical)
+"Be" = (
+/obj/machinery/door/airlock/security/glass{
+	name = "Security Equipment Room"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/medical/general,
+/obj/effect/mapping_helpers/airlock/access/any/security/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/navigate_destination/autoname,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Bw" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"BW" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/computer/records/medical/laptop{
+	pixel_y = 3
+	},
+/obj/item/healthanalyzer{
+	pixel_y = -3;
+	pixel_x = 3
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Du" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Em" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/security_medic,
+/obj/machinery/camera/autoname/security/directional/east,
+/obj/machinery/firealarm/directional/east,
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/toxin,
+/obj/item/clothing/head/helmet/toggleable/justice/escape,
+/obj/item/wallframe/frontier_medstation,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Fl" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/west,
+/obj/structure/bed/medical/emergency,
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ge" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/all/security/brig,
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/security/medical)
+"Jo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Li" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/east,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/requests_console/auto_name/directional/south,
+/obj/item/storage/medkit/regular{
+	pixel_x = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Qf" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ra" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Tf" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/light/directional/east,
+/obj/item/surgery_tray,
+/obj/item/storage/medkit/surgery,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"YF" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/obj/structure/sign/poster/official/random/directional/north,
+/obj/structure/table,
+/obj/item/paper/fluff/jobs/medical/blood_types{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/blood/o_minus{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/blood/o_minus{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/blood/lizard{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/effect/spawner/random/medical/minor_healing,
+/obj/effect/spawner/random/medical/minor_healing,
+/obj/item/reagent_containers/cup/bottle/multiver,
+/obj/item/reagent_containers/syringe,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"ZJ" = (
+/obj/structure/curtain/bounty,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/security/medical)
+
+(1,1,1) = {"
+Am
+Am
+ZJ
+Am
+Be
+Am
+ZJ
+Am
+Am
+"}
+(2,1,1) = {"
+Am
+YF
+Qf
+Fl
+Du
+ik
+mF
+iE
+Am
+"}
+(3,1,1) = {"
+ZJ
+BW
+uJ
+Jo
+zm
+at
+Ra
+bW
+vT
+"}
+(4,1,1) = {"
+ZJ
+Tf
+uG
+uG
+aL
+uG
+uG
+qN
+uW
+"}
+(5,1,1) = {"
+Am
+Am
+pH
+dh
+Bw
+Em
+Li
+uW
+uW
+"}
+(6,1,1) = {"
+hj
+uW
+uW
+uW
+Ge
+uW
+uW
+uW
+hj
+"}

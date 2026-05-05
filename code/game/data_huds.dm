@@ -229,6 +229,16 @@ FAN HUDs! For identifying other fans on-sight.
 
 	set_hud_image_active(FAN_HUD)
 	for(var/accessory in undershirt.attached_accessories)
+		//SPLURT ADDITION START: skub pins
+		if(istype(accessory, /obj/item/clothing/accessory/anti_skub_pin))
+			set_hud_image_state(FAN_HUD, "anti_skub_pin")
+			return
+
+		if(istype(accessory, /obj/item/clothing/accessory/pro_skub_pin))
+			set_hud_image_state(FAN_HUD, "pro_skub_pin")
+			return
+		//SPLURT ADDITION END
+
 		if(istype(accessory, /obj/item/clothing/accessory/mime_fan_pin))
 			set_hud_image_state(FAN_HUD, "mime_fan_pin")
 			return
