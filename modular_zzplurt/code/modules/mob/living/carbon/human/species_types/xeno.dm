@@ -29,6 +29,10 @@
 #define ACTION_STATE_STANDBY 0
 #define ACTION_STATE_PREPARING 1
 
+/obj/item/organ/brain/xeno_hybrid/Initialize(mapload) //speech bubble addition
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
+
 /datum/action/innate/reconstitute_form
 	name = "Reconstitute Form"
 	button_icon = 'modular_zzplurt/icons/hud/actions.dmi'

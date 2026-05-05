@@ -135,12 +135,16 @@
 		radio_off_mob(human_target)
 
 /obj/item/abductor/silencer/proc/radio_off_mob(mob/living/carbon/human/target)
-	var/list/all_items = target.get_all_contents()
+	var/list/all_items = target.get_all_contents() + target //SPLURT EDIT
 
 	for(var/obj/item/radio/radio in all_items)
 		radio.set_listening(FALSE)
 		if(!istype(radio, /obj/item/radio/headset))
 			radio.set_broadcasting(FALSE) //goddamned headset hacks
+	//SPLURT ADDITION START - bodycameras
+	for (var/obj/item/bodycam_upgrade/bodycamera in all_items)
+		bodycamera.turn_off()
+	//SPLURT ADDITION END
 
 /obj/item/abductor/mind_device
 	name = "mental interface device"
