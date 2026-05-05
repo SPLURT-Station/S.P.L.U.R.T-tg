@@ -18,6 +18,10 @@
 
 /datum/action/cooldown/spell/beast_form/cast(atom/target)
 	. = ..()
+	owner.visible_message(span_warning("[owner] begins to snarl, their body beginning to expand!"), span_danger("You begin to transform!"))
+	playsound(owner, 'sound/effects/wounds/crack1.ogg', 50)
+	if(!do_after(owner, delay = 1.5 SECONDS)) //SPLURT EDIT ADD - Action timer; no jumpscaring people mid fight with it
+		return // SPLURT ADD
 	var/obj/item/organ/brain/lycan/brain = owner?.get_organ_slot(ORGAN_SLOT_BRAIN)
 	brain.toggle_beast_form(target)
 	if(!HAS_TRAIT(owner, TRAIT_BEAST_FORM))
