@@ -300,3 +300,18 @@
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
 
+/obj/effect/mob_spawn/corpse/human/nanotrasenelitecommander
+	name = "\improper Nanotrasen Elite Commander Corpse"
+	outfit = /datum/outfit/nanotrasenelitecommandercorpse
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
+
+/datum/outfit/nanotrasenelitecommandercorpse
+	name = "\improper NT Elite Commander Corpse"
+	uniform = /obj/item/clothing/under/rank/centcom/military
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	back = /obj/item/mod/control/pre_equipped/responsory/commander
+	id = /obj/item/card/id/advanced/centcom
+	id_trim = /datum/id_trim/centcom/ert/security

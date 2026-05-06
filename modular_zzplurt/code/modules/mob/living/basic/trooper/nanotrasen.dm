@@ -129,6 +129,7 @@
 	casingtype = /obj/item/ammo_casing/c68
 	maxHealth = 150
 	health = 150
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
 	casingtype = /obj/item/ammo_casing/c68
 	burst_shots = 3
 	projectilesound = 'modular_zzplurt/sound/items/weapons/gun/bulwark_shot.ogg'
@@ -142,8 +143,8 @@
 	desc = "A member of Nanotrasen's Emergency Response Team. Contact Central Command if you see them, prepare to die if you're spotted off-station. They are armed with a Hoshi modular laser carbine."
 	maxHealth = 200
 	health = 200
-	habitable_atmos = null
-	unsuitable_cold_damage = 0
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 	casingtype = /obj/item/ammo_casing/energy/cybersun_small_hellfire
 	projectilesound = 'modular_zubbers/sound/weapons/laser.ogg'
@@ -152,20 +153,39 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine
 
+/mob/living/basic/trooper/nanotrasen/ranged/assault/lead
+	name = "\improper Nanotrasen ERT Commander"
+	desc = "A commanding officer of Nanotrasen's Emergency Response Team. Contact Central Command if you see them, prepare to die if you're spotted off-station. They are armed with a Hyeseong modular laser rifle."
+	maxHealth = 225
+	health = 225
+	casingtype = /obj/item/ammo_casing/energy/cybersun_big_kill
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenelitecommander
+	r_hand = /obj/item/gun/energy/modular_laser_rifle
+
+/mob/living/basic/trooper/nanotrasen/ranged/assault/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	set_light(4)
+
 /mob/living/basic/trooper/nanotrasen/ranged/elite
 	name = "Deathsquad Trooper"
 	desc = "A member of Nanotrasen's Deathsquad, THE elite strike team. Central Command won't help you, prepare to die if you're spotted. They are armed with a Pulse Rifle."
 	maxHealth = 250
 	health = 250
-	habitable_atmos = null
-	unsuitable_cold_damage = 0
-	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	casingtype = /obj/item/ammo_casing/energy/laser/pulse
 	projectilesound = 'sound/items/weapons/pulse.ogg'
 	ranged_cooldown = 5 SECONDS
 	corpse = /obj/effect/gibspawner/human
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasendeathsquad
 	r_hand = /obj/item/gun/energy/pulse
+
+/mob/living/basic/trooper/nanotrasen/ranged/elite/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	set_light_color(COLOR_RED)
+	set_light(4)
 
 /// I'm leaving this one because I really can't be bothered to edit skyrat maps.
 /mob/living/basic/trooper/nanotrasen/peaceful
