@@ -4,7 +4,7 @@
 
 /mob/living/basic/trooper/nanotrasen
 	name = "\improper Nanotrasen Private Security Private"
-	desc = "A member of Nanotrasen's private security, an underpaid security force."
+	desc = "A member of Nanotrasen's private security, an underpaid security force. They seem rather unpleased to meet you."
 	maxHealth = 125
 	health = 125
 	melee_damage_lower = 10
@@ -166,10 +166,9 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasendeathsquad
 	r_hand = /obj/item/gun/energy/pulse
 
-/* // Removing these for now.
-/// A more peaceful variant that will only attack when attacked, or when another Nanotrasen officer calls for help.
+/// I'm leaving this one because I really can't be bothered to edit skyrat maps.
 /mob/living/basic/trooper/nanotrasen/peaceful
-	desc = "An officer of Nanotrasen's private security force."
+	desc = "A member of Nanotrasen's private security, an underpaid security force."
 	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful
 
 /mob/living/basic/trooper/nanotrasen/peaceful/Initialize(mapload)
@@ -177,6 +176,7 @@
 	var/datum/callback/retaliate_callback = CALLBACK(src, PROC_REF(ai_retaliate_behaviour))
 	AddComponent(/datum/component/ai_retaliate_advanced, retaliate_callback)
 
+/* // Removing these for now.
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful
 	desc = "An officer of Nanotrasen's private security force."
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst/peaceful

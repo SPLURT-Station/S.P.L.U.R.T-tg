@@ -197,6 +197,10 @@
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 	pointer_color = COLOR_CENTCOM_BLUE
 
+/obj/effect/mob_spawn/corpse/human/commander // just to stop the complaining.
+	name = JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN
+	outfit = /datum/outfit/nanotrasencaptain
+
 /obj/effect/mob_spawn/corpse/human/bridgeofficer/bigderelict
 	name = JOB_TRADEPOST_COORDINATOR
 	outfit = /datum/outfit/nanotrasenbridgeofficer/bigderelict
