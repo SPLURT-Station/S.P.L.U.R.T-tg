@@ -14,6 +14,9 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity
 	ai_controller = /datum/ai_controller/basic_controller/trooper
 
+/mob/living/basic/trooper/nanotrasen/assess_threat(judgement_criteria, lasercolor, datum/callback/weaponcheck)
+	return -10 // Respect our troops
+
 // --------------------
 // VARIANTS
 // --------------------
@@ -47,7 +50,6 @@
 
 /mob/living/basic/trooper/nanotrasen/ranged/Initialize(mapload)
 	. = ..()
-
 	AddComponent(\
 		/datum/component/ranged_attacks,\
 		casing_type = casingtype,\
@@ -55,7 +57,6 @@
 		cooldown_time = ranged_cooldown,\
 		burst_shots = burst_shots,\
 	)
-
 	if (ranged_cooldown <= 1 SECONDS)
 		AddComponent(/datum/component/ranged_mob_full_auto)
 
@@ -175,6 +176,12 @@
 	. = ..()
 	var/datum/callback/retaliate_callback = CALLBACK(src, PROC_REF(ai_retaliate_behaviour))
 	AddComponent(/datum/component/ai_retaliate_advanced, retaliate_callback)
+
+/mob/living/basic/trooper/nanotrasen/proc/ai_retaliate_behaviour(mob/living/attacker)
+	if (!istype(attacker))
+		return
+	for (var/mob/living/basic/trooper/nanotrasen/potential_trooper in oview(src, 7))
+		potential_trooper.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
 
 /* // Removing these for now.
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful
