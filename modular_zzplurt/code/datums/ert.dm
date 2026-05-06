@@ -4,8 +4,6 @@
 	roles = list(/datum/antagonist/ert/private_security/operative, /datum/antagonist/ert/private_security/medic, /datum/antagonist/ert/private_security/sergeant)
 	leader_role = /datum/antagonist/ert/private_security/leader
 	teamsize = 7
-	opendoors = FALSE
-	notify_players = FALSE
 	rename_team = "Squad of Private Security"
 	mission = "Assist the station."
 	polldesc = "a Nanotrasen Private Security Team"
