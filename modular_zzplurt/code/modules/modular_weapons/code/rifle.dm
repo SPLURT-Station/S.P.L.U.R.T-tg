@@ -105,14 +105,12 @@
 		active = FALSE
 		return FALSE
 
-	// Update AFTER shot (important)
 	var/obj/item/gun/ballistic/automatic/bulwark/taser/parent = loc
 	if(parent)
 		parent.update_taser_overlay()
 
-	// If we just drained the battery → apply punishment
 	if(cell && cell.charge <= 0)
-		recharge_cooldown_end = world.time + 100  // 10 seconds
+		recharge_cooldown_end = world.time + 100
 		to_chat(user, span_warning("The taser battery is fully depleted!"))
 
 	addtimer(CALLBACK(src, PROC_REF(reset_active), user), 100)
@@ -125,16 +123,14 @@
 
 	active = FALSE
 
-	// Only apply normal cooldown if we are NOT already in a harsher one
 	if(world.time >= recharge_cooldown_end)
 		recharge_cooldown_end = world.time + 150
 
 	var/obj/item/gun/ballistic/automatic/bulwark/taser/parent = loc
 	if(parent)
-		// Apply 3s weapon lock
+
 		parent.fire_lock_until = world.time + 30
 
-		// Notify when recovered
 		addtimer(CALLBACK(parent, "notify_recovered", user), 30)
 
 		parent.update_taser_overlay()
@@ -167,44 +163,26 @@
 	if(user)
 		to_chat(user, span_notice("The weapon has recovered from taser discharge."))
 
-/obj/item/gun/ballistic/automatic/bulwark/taser/try_fire_gun(atom/target, mob/living/user, params)
-
-	// Active taser block
-	if(is_tasing())
-		to_chat(user, span_warning("You can't fire the rifle while the taser is deployed!"))
-		return FALSE
-
-	// Recovery lock
-	if(world.time < fire_lock_until)
-		var/time_left = round((fire_lock_until - world.time) / 10)
-		to_chat(user, span_warning("Weapon recovering: [time_left]s"))
-		return FALSE
-
-	// RIGHT CLICK → taser
-	if(LAZYACCESS(params2list(params), RIGHT_CLICK))
-		if(underbarrel)
-			var/result = underbarrel.try_fire_gun(target, user, params)
-			update_taser_overlay()
-			return result
-
-	return ..()
-
 /obj/item/gun/ballistic/automatic/bulwark/taser/process_fire(atom/target, mob/living/user, params)
 
-	// Taser active block
 	if(is_tasing())
 		if(world.time > last_warning + 10)
 			last_warning = world.time
 			to_chat(user, span_warning("You can't fire the rifle while the taser is deployed!"))
 		return FALSE
 
-	// Recovery lock block
 	if(world.time < fire_lock_until)
 		if(world.time > last_warning + 10)
 			last_warning = world.time
 			var/time_left = round((fire_lock_until - world.time) / 10)
 			to_chat(user, span_warning("Weapon recovering: [time_left]s"))
 		return FALSE
+
+	if(LAZYACCESS(params2list(params), RIGHT_CLICK))
+		if(underbarrel)
+			var/result = underbarrel.try_fire_gun(target, user, params)
+			update_taser_overlay()
+			return result
 
 	return ..()
 
