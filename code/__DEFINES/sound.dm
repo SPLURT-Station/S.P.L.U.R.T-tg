@@ -21,6 +21,9 @@
 // SKYRAT EDIT START
 #define CHANNEL_HEV 1005
 //SKYRAT EDIT CHANGE END
+// SPLURT EDIT ADDITION BEGIN
+#define CHANNEL_HEADPHONES 1004
+// SPLURT EDIT ADDITION END
 
 /// This is the lowest volume that can be used by playsound otherwise it gets ignored
 /// Most sounds around 10 volume can barely be heard. Almost all sounds at 5 volume or below are inaudible

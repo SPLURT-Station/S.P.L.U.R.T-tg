@@ -39,6 +39,16 @@
 		if(user)
 			attach_to.balloon_alert(user, "can't pick both sides!")
 		return FALSE
+	//SPLURT ADDITION START - Skub pins
+	if(locate(/obj/item/clothing/accessory/pro_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	if(locate(/obj/item/clothing/accessory/anti_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	//SPLURT ADDITION END
 	return TRUE
 
 /obj/item/clothing/accessory/clown_enjoyer_pin/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
@@ -67,6 +77,16 @@
 		if(user)
 			attach_to.balloon_alert(user, "can't pick both sides!")
 		return FALSE
+	//SPLURT ADDITION START - Skub pins
+	if(locate(/obj/item/clothing/accessory/pro_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	if(locate(/obj/item/clothing/accessory/anti_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	//SPLURT ADDITION END
 	return TRUE
 
 /obj/item/clothing/accessory/mime_fan_pin/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
