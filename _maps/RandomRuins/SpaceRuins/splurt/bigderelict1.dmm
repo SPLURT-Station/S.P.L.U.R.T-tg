@@ -2869,7 +2869,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 1
 	},
-/obj/effect/mob_spawn/corpse/human/privatesecurity{
+/obj/effect/mob_spawn/corpse/human/privatesecurity/corporal{
 	outfit_override = list("head"=null)
 	},
 /turf/open/floor/iron,
@@ -3535,11 +3535,11 @@
 	pixel_y = 3
 	},
 /obj/structure/table/reinforced,
-/obj/item/clothing/head/helmet/swat/nanotrasen{
-	pixel_y = 10;
-	pixel_x = 7
-	},
 /obj/structure/sign/warning/vacuum/directional/west,
+/obj/item/clothing/head/helmet/swat/nanotrasen/ntps{
+	pixel_x = 3;
+	pixel_y = 4
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/derelictoutpost/powerstorage)
 "Mz" = (
