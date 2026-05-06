@@ -34,7 +34,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/soft/sec/ntps
 	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/alt/privsec/empty
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/pvt
 	implants = list(/obj/item/implant/mindshield)
@@ -70,7 +70,7 @@
 	head = /obj/item/clothing/head/beret/sec/medical
 	belt = /obj/item/storage/belt/security/webbing/peacekeeper
 	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/alt/privsec/empty
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/spc
 	implants = list(/obj/item/implant/mindshield)
@@ -105,7 +105,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps
 	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/alt/privsec/empty
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpl
 	implants = list(/obj/item/implant/mindshield)
@@ -140,7 +140,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps/sergeant
 	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/alt/privsec/empty
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/centcom/corpse/private_security/sgt
 	implants = list(/obj/item/implant/mindshield)
@@ -176,7 +176,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/beret/sec/ntps/captain
 	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/alt/privsec/empty
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpt
 	implants = list(/obj/item/implant/mindshield)
