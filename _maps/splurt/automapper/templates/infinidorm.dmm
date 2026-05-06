@@ -1,9 +1,48 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/item/hilbertshotel/ghostdojo,
+/turf/template_noop,
+/area/template_noop)
+"o" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"s" = (
+/obj/machinery/cafe_condo_teleporter,
+/obj/effect/turf_decal/delivery/blue,
+/obj/effect/landmark/navigate_destination/condos,
+/turf/template_noop,
+/area/template_noop)
+"t" = (
+/obj/effect/turf_decal/arrows/red,
+/turf/template_noop,
+/area/template_noop)
+"u" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"O" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 
 (1,1,1) = {"
+a
+o
+a
+"}
+(2,1,1) = {"
+t
+s
+O
+"}
+(3,1,1) = {"
+a
+u
 a
 "}
