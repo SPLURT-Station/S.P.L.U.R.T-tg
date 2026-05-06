@@ -151,7 +151,7 @@
 	id_trim = /datum/id_trim/centcom/ert/medical/privatesecurity
 	belt = /obj/item/storage/belt/medical/privsec/full
 	ears = /obj/item/radio/headset/headset_cent/alt/privsec/medic
-	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps
+	head = /obj/item/clothing/head/beret/sec/medical
 	glasses = /obj/item/clothing/glasses/hud/medsechud/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	l_pocket = /obj/item/storage/pouch/medical/loaded
@@ -291,18 +291,6 @@
 		return
 
 	apply_rank(H, "Captain")
-
-	var/has_taser_bulwark = FALSE
-
-	// Check both hands
-	for(var/obj/item/I in H.get_equipped_items())
-		if(istype(I, /obj/item/gun/ballistic/automatic/bulwark/taser))
-			has_taser_bulwark = TRUE
-			break
-
-	if(has_taser_bulwark)
-		for(var/obj/item/gun/energy/e_gun/advtaser/T in H.contents)
-			qdel(T)
 
 	return ..()
 
