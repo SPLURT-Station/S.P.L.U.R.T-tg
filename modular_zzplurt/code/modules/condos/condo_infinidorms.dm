@@ -34,26 +34,10 @@
 	var/turf/splurt_storage_turf
 	/// Ckey-based UI defaults for the condo check-in interface.
 	var/list/splurt_user_data = list()
-
-/datum/controller/subsystem/condos/proc/splurt_is_template_path_local(template_type)
-	var/datum/map_template/condo/condo_type = template_type
-	var/template_path = initial(condo_type.mappath)
-	return findtext(template_path, "_maps/splurt/") == 1 || findtext(template_path, "modular_zzplurt/") == 1
-
 /datum/controller/subsystem/condos/preload_condo_templates()
-	var/list/local_template_names = list()
 	for(var/item in subtypesof(/datum/map_template/condo))
 		var/datum/map_template/condo/condo_type = item
 		if(!(initial(condo_type.mappath)))
-			continue
-		if(splurt_is_template_path_local(condo_type))
-			local_template_names[initial(condo_type.name)] = TRUE
-
-	for(var/item in subtypesof(/datum/map_template/condo))
-		var/datum/map_template/condo/condo_type = item
-		if(!(initial(condo_type.mappath)))
-			continue
-		if(!splurt_is_template_path_local(condo_type) && local_template_names[initial(condo_type.name)])
 			continue
 
 		var/datum/map_template/condo/condo_template = new condo_type()

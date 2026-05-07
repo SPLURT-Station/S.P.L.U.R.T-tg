@@ -110,22 +110,6 @@ required_map = "moonstation.dmm"
 coordinates = [101, 154, 3]
 trait_name = "Station"
 
-# Nebulastation Library East
-[templates.nebulastation_library_e]
-map_files = ["nebulastation_library_e.dmm"]
-directory = "_maps/bubber/automapper/templates/NebulaStation/"
-required_map = "NebulaStation.dmm"
-coordinates = [105, 133, 2]
-trait_name = "Station"
-
-# Nebulastation Library West
-[templates.nebulastation_library_w]
-map_files = ["nebulastation_library_w.dmm"]
-directory = "_maps/bubber/automapper/templates/NebulaStation/"
-required_map = "NebulaStation.dmm"
-coordinates = [91, 133, 2]
-trait_name = "Station"
-
 [templates.nebulastation_blueshield_office]
 map_files = ["nebulastation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/nebulastation/"
@@ -140,6 +124,7 @@ directory = "_maps/splurt/automapper/templates/biodome/"
 required_map = "biodome.dmm"
 coordinates = [155, 114, 2]
 trait_name = "Station"
+
 # Metastation Blueshield Office
 [templates.metastation_blueshield_office]
 map_files = ["metastation_blueshield_office.dmm"]
@@ -339,6 +324,16 @@ directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
 trait_name = "Station"
+
+# OUROBOROS MAP EDITS
+# Ouroboros NTC Office
+[templates.ouroboros_ntc_office]
+map_files = ["ouroboros_NTC_office.dmm"]
+directory = "_maps/splurt/automapper/templates/ouroboros/"
+required_map = "Ouroboros.dmm"
+coordinates = [131, 131, 2]
+trait_name = "Station"
+
 
 # Override upstream templates without redefining them in [templates].
 # Useful when upstream keeps the same automap placement but Splurt wants to swap
