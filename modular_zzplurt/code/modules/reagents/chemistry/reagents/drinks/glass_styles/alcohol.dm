@@ -47,15 +47,15 @@
 	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
 	icon_state = "mech_rider_bottle"
 
-/datum/glass_style/drinking_glass/isloation_cell
-	required_drink_type = /datum/reagent/consumable/ethanol/isloation_cell
+/datum/glass_style/drinking_glass/isolation_cell
+	required_drink_type = /datum/reagent/consumable/ethanol/isolation_cell
 	name = "Isolation Cell"
 	desc = "Ice cubes in a padded Cell"
 	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
 	icon_state = "isolationcell"
 
-/datum/glass_style/drinking_glass/isloation_cell/morphine
-	required_drink_type = /datum/reagent/consumable/ethanol/isloation_cell/morphine
+/datum/glass_style/drinking_glass/isolation_cell/morphine
+	required_drink_type = /datum/reagent/consumable/ethanol/isolation_cell/morphine
 	name = "Isolation Cell"
 	desc = "It has a distinct, sour smell, much like morphine."
 	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'

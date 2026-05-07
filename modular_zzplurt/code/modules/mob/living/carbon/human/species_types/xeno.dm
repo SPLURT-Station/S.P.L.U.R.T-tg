@@ -1,4 +1,5 @@
 /datum/species/xeno
+	heatmod = 1.5
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/xenohybrid,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/xenohybrid,
@@ -27,6 +28,10 @@
 
 #define ACTION_STATE_STANDBY 0
 #define ACTION_STATE_PREPARING 1
+
+/obj/item/organ/brain/xeno_hybrid/Initialize(mapload) //speech bubble addition
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /datum/action/innate/reconstitute_form
 	name = "Reconstitute Form"

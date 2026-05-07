@@ -35,17 +35,9 @@
 	item_path = /obj/item/clothing/under/performer
 
 //
-/datum/loadout_item/uniform/lewdmaid
-	name = "Lewd maid uniform"
-	item_path = /obj/item/clothing/under/costume/lewdmaid
-
 /datum/loadout_item/uniform/blutigen_undergarment
 	name = "Blutigen Undergarments"
 	item_path = /obj/item/clothing/under/blutigen_undergarment
-
-/datum/loadout_item/uniform/colorablestriper
-	name = "Colorable stripper outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
 
 // Suggestion #151
 
@@ -231,3 +223,15 @@
 /datum/loadout_item/uniform/jeans_high
 	name = "High Waisted Jeans"
 	item_path = /obj/item/clothing/under/urban/jeans_high
+
+/datum/loadout_item/uniform/red_kimono
+	name = "Red Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono/red
+
+/datum/loadout_item/uniform/black_kimono
+	name = "Black Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono
+
+/datum/loadout_item/uniform/purple_kimono
+	name = "Purple Kimono"
+	item_path = /obj/item/clothing/under/costume/kimono/purple

@@ -2,7 +2,7 @@
 
 // Hexacrocin. Advanced aphrodisiac that can cause brain traumas.
 /datum/reagent/drug/aphrodisiac/crocin/hexacrocin
-	name = "hexacrocin"
+	name = "Hexacrocin"
 	description = "Chemically condensed form of basic crocin. This aphrodisiac is extremely powerful and addictive for most animals.\
 					Addiction withdrawals can cause brain damage and shortness of breath. Overdose can lead to brain traumas."
 	taste_description = "liquid desire"

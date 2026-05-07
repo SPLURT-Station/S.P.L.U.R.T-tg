@@ -17,7 +17,10 @@
 	owner.visible_message(span_warning("[owner] grows massive, their body quickly getting covered in fur!"))
 	owner.set_species(current_wolf.lycanthropy_species, TRUE, TRUE, FALSE)
 	ADD_TRAIT(owner, TRAIT_BEAST_FORM, SPECIES_TRAIT)
-	owner.dna.features["body_size"] = 2
+	if(owner.has_quirk(/datum/quirk/big_transformation) || owner.has_quirk(/datum/quirk/oversized) || owner.dna.features["body_size"] >= 1.35) // SPLURT EDIT ADD - CHANGE BASE SIZE TO 1.35, MAKE SIZE 2 CONDITIONAL
+		owner.dna.features["body_size"] = 2
+	else
+		owner.dna.features["body_size"] = 1.35
 	owner.maptext_height = 32 * owner.dna.features["body_size"] //Adjust runechat height
 	owner.dna.update_body_size()
 	owner.mob_size = MOB_SIZE_LARGE

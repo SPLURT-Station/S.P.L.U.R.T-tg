@@ -59,6 +59,7 @@
 //Silicon
 #define JOB_AI "AI"
 #define JOB_CYBORG "Cyborg"
+#define JOB_SECURITY_CYBORG "Security Cyborg" //SPLURT ADDITION
 #define JOB_PERSONAL_AI "Personal AI"
 #define JOB_HUMAN_AI "Big Brother"
 //Security
@@ -145,7 +146,7 @@
 // Off-Station
 #define JOB_SPACE_POLICE "Space Police"
 #define JOB_TERRAGOV "TerraGov"
-#define JOB_TERRAGOV_LIASON "TerraGov Liason"
+#define JOB_TERRAGOV_LIASON "TerraGov Liaison"
 // SKYRAT EDIT ADDITION END
 #define JOB_NT_TRN "Nanotrasen Crew Trainer" //Splurt Addition
 
@@ -182,6 +183,7 @@
 #define JOB_DISPLAY_ORDER_PUN_PUN 15
 #define JOB_DISPLAY_ORDER_AI 16
 #define JOB_DISPLAY_ORDER_CYBORG 17
+#define JOB_DISPLAY_ORDER_SECURITY_CYBORG 41 //SPLURT ADDITION
 #define JOB_DISPLAY_ORDER_CHIEF_ENGINEER 18
 #define JOB_DISPLAY_ORDER_STATION_ENGINEER 19
 #define JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN 20
@@ -329,5 +331,7 @@ DEFINE_BITFIELD(job_flags, list(
 
 /// Mind traits that should be shared by every head of staff. has to be this way cause byond lists lol
 #define HEAD_OF_STAFF_MIND_TRAITS TRAIT_FAST_TYING, TRAIT_HIGH_VALUE_RANSOM
-#define MEDICAL_MIND_TRAITS TRAIT_DESENSITIZED
-#define SECURITY_MIND_TRAITS TRAIT_DESENSITIZED
+
+/// Statistically average probability of a random cop or cop-adjacent person consisting of meat of sus domesticus of suidae family,
+/// also known as swine or hogs, calculated by the university of random numbers
+#define PIG_COP_PROBABILITY 40

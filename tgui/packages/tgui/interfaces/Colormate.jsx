@@ -28,7 +28,7 @@ export const Colormate = (props, context) => {
                   <Section>
                     <center>Item:</center>
                     <img
-                      src={'data:image/jpeg;base64, ' + item.sprite}
+                      src={`data:image/jpeg;base64, ${item.sprite}`}
                       width="100%"
                       height="100%"
                       style={{
@@ -42,7 +42,7 @@ export const Colormate = (props, context) => {
                   <Section>
                     <center>Preview:</center>
                     <img
-                      src={'data:image/jpeg;base64, ' + item.preview}
+                      src={`data:image/jpeg;base64, ${item.preview}`}
                       width="100%"
                       height="100%"
                       style={{

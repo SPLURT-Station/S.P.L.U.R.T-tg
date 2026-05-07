@@ -39,3 +39,13 @@
 	name = "Marketable Mutt Plushie"
 	item_path = /obj/item/toy/plush/red_mut
 	ckeywhitelist = null
+
+/datum/loadout_item/toys/willico
+	name = "Snarky Bnyunn Action Figure"
+	item_path = /obj/item/toy/figure/willico
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/mutt
+	name = "A advanced sauna pod"
+	item_path = /obj/item/survivalcapsule/advanced_sauna
+	ckeywhitelist = list("charlesterrah")

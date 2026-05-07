@@ -82,7 +82,7 @@
 		if(length(boxes))
 			desc = "A pile of boxes suited for pizzas. There appear to be [length(boxes) + 1] boxes in the pile."
 		if(box.boxtag != "")
-			desc = "[desc] The [length(boxes) ? "top box" : "box"]'s tag reads: [box.boxtag]"
+			desc = "[desc] The [length(boxes) ? "top box" : "box"]'s tag reads: [box.boxtag]."
 
 /obj/item/pizzabox/update_icon_state()
 	if(!open)
@@ -141,6 +141,7 @@
 	if(open && !bomb_defused)
 		audible_message(span_warning("[icon2html(src, hearers(src))] *beep*"))
 		bomb_active = TRUE
+		log_bomber(user, "has activated a", src, "[bomb] set to [bomb_timer] seconds") // SPLURT ADDITION - Pizza bomb logging START
 		START_PROCESSING(SSobj, src)
 	update_appearance()
 
@@ -179,7 +180,7 @@
 				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return
 				bomb_defused = FALSE
-				log_bomber(user, "has trapped a", src, "with [bomb] set to [bomb_timer] seconds")
+				log_bomber(user, "changed a timer ", src, "[bomb] set to [bomb_timer] seconds") //// SPLURT CHANGE
 				bomb.adminlog = "\The [bomb] in [src.name] that [key_name(user)] activated has detonated!"
 				balloon_alert(user, "bomb set")
 				update_appearance()

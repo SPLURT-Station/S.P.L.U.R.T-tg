@@ -31,6 +31,7 @@
 		"cumflates_partners_pref" = /datum/preference/toggle/erp/cumflates_partners,
 		"knotting_pref" = /datum/preference/toggle/erp/knotting,
 		"knots_partners_pref" = /datum/preference/toggle/erp/knots_partners,
+		"smothering_pref" = /datum/preference/toggle/erp/smothering,
 		"favorite_interactions" = /datum/preference/blob/favorite_interactions, // Not a toggle but it shouldn't cause any issues
 		// Vore prefs
 		"vore_enable_pref" = /datum/preference/toggle/erp/vore_enable,
@@ -122,16 +123,16 @@
 	var/datum/component/interactable/user_interaction_component = user.GetComponent(/datum/component/interactable)
 
 	// Character info - Reoriented to show from user's perspective
-	.["isTargetSelf"] = (user == self)
+	//.["isTargetSelf"] = (user == self) //sent upstream
 	.["interactingWith"] = user == self ? "Interacting with yourself..." : "Interacting with \the [self]..."
 
 	// Primary attributes (user's stats)
 	if(user)
-		.["pleasure"] = user.pleasure || 0
+		//.["pleasure"] = user.pleasure || 0 //sent upstream
 		.["maxPleasure"] = AROUSAL_LIMIT * (ishuman(user) && human_user.dna.features["lust_tolerance"] ? human_user.dna.features["lust_tolerance"] : 1)
-		.["arousal"] = user.arousal || 0
+		//.["arousal"] = user.arousal || 0 //sent upstream
 		.["maxArousal"] = AROUSAL_LIMIT
-		.["pain"] = user.pain || 0
+		//.["pain"] = user.pain || 0 //sent upstream
 		.["maxPain"] = AROUSAL_LIMIT
 		.["selfAttributes"] = get_interaction_attributes(user)
 	else
@@ -146,11 +147,11 @@
 	// Target attributes (self's stats) only if not self-targeting
 	if(user != self)
 		.["theirAttributes"] = get_interaction_attributes(self)
-		.["theirPleasure"] = self.pleasure || 0
+		//.["theirPleasure"] = self.pleasure || 0 //sent upstream
 		.["theirMaxPleasure"] = AROUSAL_LIMIT * (ishuman(self) && human_self.dna.features["lust_tolerance"] ? human_self.dna.features["lust_tolerance"] : 1)
-		.["theirArousal"] = self.arousal || 0
+		//.["theirArousal"] = self.arousal || 0 //sent upstream
 		.["theirMaxArousal"] = AROUSAL_LIMIT
-		.["theirPain"] = self.pain || 0
+		//.["theirPain"] = self.pain || 0 //sent upstream
 		.["theirMaxPain"] = AROUSAL_LIMIT
 	else
 		.["theirAttributes"] = list()

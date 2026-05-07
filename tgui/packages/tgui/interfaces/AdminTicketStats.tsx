@@ -11,7 +11,7 @@ import {
   Stack,
   Table,
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -394,7 +394,7 @@ export const AdminTicketStats = (props) => {
         const bNum = parseFloat(bVal);
 
         let comparison = 0;
-        if (!isNaN(aNum) && !isNaN(bNum)) {
+        if (!Number.isNaN(aNum) && !Number.isNaN(bNum)) {
           comparison = aNum - bNum;
         } else {
           comparison = String(aVal).localeCompare(String(bVal));

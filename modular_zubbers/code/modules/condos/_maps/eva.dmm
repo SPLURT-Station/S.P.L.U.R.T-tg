@@ -1,0 +1,410 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ck" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"dT" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"gv" = (
+/turf/closed/wall/space{
+	space_lit = 1
+	},
+/area/misc/condo)
+"gW" = (
+/turf/closed/indestructible/steel,
+/area/misc/condo)
+"hb" = (
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/plating,
+/area/misc/condo)
+"oJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/condo)
+"sn" = (
+/obj/item/toy/plush/lizard_plushie/space{
+	pixel_y = 32
+	},
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"sJ" = (
+/turf/closed/indestructible/hoteldoor{
+	icon_state = "closed";
+	icon = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/external/external.dmi'
+	},
+/area/misc/condo)
+"sN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/falsewall,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/plating,
+/area/misc/condo)
+"wm" = (
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"AP" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/room_controller/directional/north,
+/turf/open/floor/plating,
+/area/misc/condo)
+"DR" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/layer4,
+/turf/open/floor/plating,
+/area/misc/condo)
+"Ht" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"Lo" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/machinery/light/directional/south,
+/turf/open/floor/plating,
+/area/misc/condo)
+"Og" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/misc/condo)
+"Ok" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	plane = -3
+	},
+/obj/machinery/suit_storage_unit{
+	desc = "Looks like it's been looted already. Damn you, other visitors! Perhaps, if only those visitors didn't loot those storage units and in turn actually left those suits in the rooms...";
+	helmet_type = /obj/item/clothing/head/helmet/space/emergency;
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/emergency
+	},
+/turf/open/floor/plating,
+/area/misc/condo)
+"QA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"Td" = (
+/obj/structure/lattice,
+/turf/open/floor/fakespace,
+/area/misc/condo)
+"Uz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/obj/machinery/suit_storage_unit{
+	desc = "Looks like it's been looted already. Damn you, other visitors! Perhaps, if only those visitors didn't loot those storage units and in turn actually left those suits in the rooms...";
+	helmet_type = /obj/item/clothing/head/helmet/space/emergency;
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/emergency
+	},
+/turf/open/floor/plating,
+/area/misc/condo)
+"UC" = (
+/obj/machinery/atmospherics/components/tank/air,
+/turf/open/floor/plating,
+/area/misc/condo)
+"VI" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	plane = -3
+	},
+/turf/open/floor/plating,
+/area/misc/condo)
+"Xr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/turf/closed/indestructible/steel,
+/area/misc/condo)
+"YZ" = (
+/turf/closed/indestructible/rock,
+/area/misc/condo)
+
+(1,1,1) = {"
+YZ
+YZ
+YZ
+YZ
+YZ
+gW
+sJ
+gW
+gW
+YZ
+YZ
+YZ
+YZ
+YZ
+YZ
+"}
+(2,1,1) = {"
+YZ
+UC
+UC
+Uz
+Uz
+Xr
+AP
+Lo
+gW
+gW
+gW
+gW
+gW
+gW
+gW
+"}
+(3,1,1) = {"
+YZ
+DR
+oJ
+oJ
+oJ
+sN
+VI
+Ok
+gW
+Td
+Td
+wm
+Td
+wm
+gv
+"}
+(4,1,1) = {"
+gW
+gW
+gW
+gW
+gW
+gW
+hb
+Og
+gW
+wm
+Td
+wm
+QA
+wm
+gv
+"}
+(5,1,1) = {"
+gv
+wm
+Td
+wm
+wm
+wm
+Ht
+dT
+wm
+wm
+QA
+wm
+wm
+wm
+gv
+"}
+(6,1,1) = {"
+gv
+wm
+QA
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(7,1,1) = {"
+gv
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+gv
+"}
+(8,1,1) = {"
+gv
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(9,1,1) = {"
+gv
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(10,1,1) = {"
+gv
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+gv
+"}
+(11,1,1) = {"
+gv
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(12,1,1) = {"
+gv
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(13,1,1) = {"
+gv
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+wm
+ck
+wm
+wm
+gv
+"}
+(14,1,1) = {"
+gv
+sn
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(15,1,1) = {"
+gv
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+wm
+gv
+"}
+(16,1,1) = {"
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+"}

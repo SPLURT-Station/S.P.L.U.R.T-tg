@@ -143,7 +143,7 @@
 		/obj/item/clothing/neck/cloak/rd = 1,
 		/obj/item/clothing/neck/mantle/rdmantle = 1,
 		/obj/item/clothing/suit/toggle/labcoat = 1,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/rd = 1,
+		/obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd = 1, //SPLURT EDIT, ORIGINAL: /obj/item/clothing/suit/toggle/labcoat/skyrat/rd
 		/obj/item/clothing/suit/toggle/labcoat/research_director = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/science/rd = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
@@ -187,7 +187,6 @@
 		/obj/item/clothing/under/rank/security/head_of_security/redsec = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/parade/redsec = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/parade/female/redsec = 1,
-		/obj/item/clothing/under/rank/security/peacekeeper/skirt_hos = 1,
 		/obj/item/clothing/suit/jacket/hos/blue = 1,
 		/obj/item/clothing/suit/armor/hos = 1,
 		/obj/item/clothing/suit/armor/hos/trenchcoat = 1,
@@ -207,6 +206,16 @@
 		/obj/item/clothing/head/playbunnyears/hos = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/bunnysuit = 1,
 		/obj/item/clothing/suit/armor/hos_tailcoat = 1,
+		/obj/item/clothing/under/rank/security/viro/head_of_security/viro = 1,
+		/obj/item/clothing/under/rank/security/viro/head_of_security/skirt = 1,
+		/obj/item/clothing/under/rank/security/viro/head_of_security/alt = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/alt/skirt = 1,
+		/obj/item/clothing/under/rank/security/viro/head_of_security/formal = 1,
+		/obj/item/clothing/under/rank/security/viro/head_of_security/formal/skirt = 1,
+		/obj/item/clothing/suit/armor/hos/viro/trenchcoat/winter = 1,
+		/obj/item/clothing/suit/armor/hos/viro/trenchcoat = 1,
+		/obj/item/clothing/suit/armor/hos/viro = 1,
+		/obj/item/clothing/head/helmet/viro/hos = 1,
 	)
 
 	access_lists["[ACCESS_QM]"] = list(

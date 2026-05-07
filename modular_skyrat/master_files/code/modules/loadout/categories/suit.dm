@@ -110,14 +110,38 @@
 	name = "Virologist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/virologist
 
+//SPLURT ADDITION START
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy
+//SPLURT ADDITION END
+
 /datum/loadout_item/suit/labcoat_regular
 	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular //SPLURT EDIT, ORIGINAL: item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
+
 
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist //SPLURT EDIT, ORIGINAL: item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/skyrat/pharmacist
+	//SPLURT ADDITION START
+	restricted_roles = list(JOB_MEDICAL_DOCTOR,JOB_CHEMIST,JOB_CHIEF_MEDICAL_OFFICER)
 
+/datum/loadout_item/suit/labcoat_RD
+	name = "Research Director's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/rd
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
+
+/datum/loadout_item/suit/labcoat_geneticist
+	name = "Geneticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/geneticist
+	restricted_roles = list(JOB_GENETICIST)
+
+/datum/loadout_item/suit/labcoat_roboticist
+	name = "Roboticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/roboticist
+	restricted_roles = list(JOB_ROBOTICIST)
+//SPLURT ADDITION END
 /*
 *	PONCHOS
 */
@@ -589,21 +613,6 @@
 	name = "Head of Security's Navy Blue Formal Jacket"
 	item_path = /obj/item/clothing/suit/jacket/hos/blue
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-
-/datum/loadout_item/suit/security_jacket
-	name = "Security Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/sec
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY) //Not giving this one to COs because it's actually better than the one they spawn with
-
-/datum/loadout_item/suit/brit
-	name = "High Vis Armored Vest"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/brit
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
-
-/datum/loadout_item/suit/british_jacket
-	name = "Peacekeeper Officer Coat"
-	item_path = /obj/item/clothing/suit/british_officer
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_SECURITY_MEDIC)
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"
