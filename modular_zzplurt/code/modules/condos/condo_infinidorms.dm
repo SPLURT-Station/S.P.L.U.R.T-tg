@@ -35,6 +35,31 @@
 	/// Ckey-based UI defaults for the condo check-in interface.
 	var/list/splurt_user_data = list()
 
+/datum/controller/subsystem/condos/proc/splurt_is_template_path_local(template_type)
+	var/datum/map_template/condo/condo_type = template_type
+	var/template_path = initial(condo_type.mappath)
+	return findtext(template_path, "_maps/splurt/") == 1 || findtext(template_path, "modular_zzplurt/") == 1
+
+/datum/controller/subsystem/condos/preload_condo_templates()
+	var/list/local_template_names = list()
+	for(var/item in subtypesof(/datum/map_template/condo))
+		var/datum/map_template/condo/condo_type = item
+		if(!(initial(condo_type.mappath)))
+			continue
+		if(splurt_is_template_path_local(condo_type))
+			local_template_names[initial(condo_type.name)] = TRUE
+
+	for(var/item in subtypesof(/datum/map_template/condo))
+		var/datum/map_template/condo/condo_type = item
+		if(!(initial(condo_type.mappath)))
+			continue
+		if(!splurt_is_template_path_local(condo_type) && local_template_names[initial(condo_type.name)])
+			continue
+
+		var/datum/map_template/condo/condo_template = new condo_type()
+		condo_templates[condo_template.name] = condo_template
+		SSmapping.map_templates[condo_template.name] = condo_template
+
 /datum/map_template/condo
 	/// Optional category used by SPLURT's check-in UI tabs.
 	var/category = "Misc"
@@ -48,7 +73,11 @@
 		return splurt_storage_turf
 	var/datum/map_template/hilbertshotelstorage/storage_template = new()
 	var/datum/turf_reservation/storage_reservation = SSmapping.request_turf_block_reservation(3, 3)
+	if(!storage_reservation)
+		return
 	var/turf/bottom_left = get_turf(storage_reservation.bottom_left_turfs[1])
+	if(!bottom_left)
+		return
 	storage_template.load(bottom_left)
 	splurt_storage_turf = locate(bottom_left.x + 1, bottom_left.y + 1, bottom_left.z)
 	return splurt_storage_turf
@@ -58,6 +87,11 @@
 	if(!template && template_name)
 		template = condo_templates[template_name]
 	return template
+
+/datum/controller/subsystem/condos/proc/splurt_get_default_template()
+	var/default_template_name = condo_templates[1]
+	if(default_template_name)
+		return condo_templates[default_template_name]
 
 /datum/controller/subsystem/condos/proc/splurt_get_parent_side(parent_object)
 	var/is_ghost_cafe = FALSE
@@ -76,6 +110,8 @@
 	var/status = room_preferences["status"]
 	var/datum/mind/owner_mind = access_restrictions["room_owner"]
 	var/list/trusted_guests = access_restrictions["trusted_guests"]
+	if(!trusted_guests)
+		trusted_guests = list()
 	if(!isnull(requested_is_ghost_cafe) && CONFIG_GET(flag/hilbertshotel_ghost_cafe_restricted))
 		if(room_entry["is_ghost_cafe"] != requested_is_ghost_cafe)
 			to_chat(user, span_warning("You can't enter this room from this side of the network."))
@@ -118,6 +154,8 @@
 	if(!template)
 		return FALSE
 	var/turf/storage_turf = splurt_ensure_storage_turf()
+	if(!storage_turf)
+		return FALSE
 	var/list/storage = list()
 	var/turf_number = 1
 	var/obj/item/abstracthotelstorage/storage_obj = new(storage_turf)
@@ -181,12 +219,15 @@
 	var/template_name = conserved_entry["template"]
 	var/datum/map_template/condo/template = condo_templates[template_name]
 	if(!template)
-		template = condo_templates[1]
+		template = splurt_get_default_template()
 	if(!template)
 		to_chat(user, span_warning("The room archive for [condo_number] is corrupted."))
 		return FALSE
 
 	var/datum/turf_reservation/condo/condo_reservation = SSmapping.request_turf_block_reservation(template.width, template.height, 1, reservation_type = /datum/turf_reservation/condo)
+	if(!condo_reservation)
+		to_chat(user, span_warning("Failed to reserve a room for you! Contact the technical concierge."))
+		return FALSE
 	var/turf/bottom_left = condo_reservation.bottom_left_turfs[1]
 	if(!bottom_left)
 		to_chat(user, span_warning("Failed to reserve a room for you! Contact the technical concierge."))
@@ -225,9 +266,10 @@
 						controller.bluespace_box?.creation_area = get_area(movable_atom.loc)
 			turf_number++
 
-	for(var/obj/item/abstracthotelstorage/storage_obj in splurt_storage_turf)
-		if(storage_obj.vars["roomNumber"] == condo_number)
-			qdel(storage_obj)
+	if(splurt_storage_turf)
+		for(var/obj/item/abstracthotelstorage/storage_obj in splurt_storage_turf)
+			if(storage_obj.vars["roomNumber"] == condo_number)
+				qdel(storage_obj)
 
 	active_condos["[condo_number]"] = condo_reservation
 	link_condo_turfs(condo_reservation, condo_number, parent_object, user)
@@ -243,6 +285,7 @@
 	splurt_room_data["[condo_number]"]["room_preferences"] = conserved_room_preferences ? conserved_room_preferences.Copy() : list()
 	splurt_room_data["[condo_number]"]["access_restrictions"] = conserved_access_restrictions ? conserved_access_restrictions.Copy() : list()
 	splurt_conservated_rooms -= "[condo_number]"
+	splurt_link_room_controls(condo_number, condo_reservation)
 
 	do_sparks(3, FALSE, get_turf(user))
 	user.forceMove(locate(
@@ -259,26 +302,180 @@
 	var/list/access_restrictions = room_entry["access_restrictions"]
 	if(!access_restrictions)
 		return FALSE
+	var/list/trusted_guests = access_restrictions["trusted_guests"]
+	if(!trusted_guests)
+		trusted_guests = list()
+		access_restrictions["trusted_guests"] = trusted_guests
 	switch(action)
 		if("add")
 			if(!user?.mind)
 				return FALSE
-			if(user.mind in access_restrictions["trusted_guests"])
+			if(user.mind in trusted_guests)
 				return FALSE
 			if(user.mind == access_restrictions["room_owner"])
 				return FALSE
-			access_restrictions["trusted_guests"] += user.mind
+			trusted_guests += user.mind
 		if("remove")
-			var/list/trusted_guests = access_restrictions["trusted_guests"]
 			for(var/datum/mind/guest_mind in trusted_guests)
 				if(guest_mind.name == target_name)
 					trusted_guests -= guest_mind
-					break
+					return TRUE
+			return FALSE
 		if("clear")
+			if(!length(trusted_guests))
+				return FALSE
 			access_restrictions["trusted_guests"] = list()
 		if("transfer")
+			if(!user?.mind || access_restrictions["room_owner"] == user.mind)
+				return FALSE
 			access_restrictions["room_owner"] = user.mind
+		else
+			return FALSE
 	return TRUE
+
+/datum/controller/subsystem/condos/proc/splurt_handle_room_control_action(room_number, mob/user, action, list/params)
+	var/list/room_data = splurt_room_data["[room_number]"]
+	if(!room_data)
+		return FALSE
+
+	switch(action)
+		if("toggle_visibility")
+			room_data["room_preferences"]["visibility"] = !room_data["room_preferences"]["visibility"]
+		if("toggle_status")
+			var/current_status = room_data["room_preferences"]["status"]
+			switch(current_status)
+				if(ROOM_OPEN)
+					room_data["room_preferences"]["status"] = ROOM_GUESTS_ONLY
+				if(ROOM_GUESTS_ONLY)
+					room_data["room_preferences"]["status"] = ROOM_CLOSED
+				if(ROOM_CLOSED)
+					room_data["room_preferences"]["status"] = ROOM_OPEN
+		if("toggle_privacy")
+			room_data["room_preferences"]["privacy"] = !room_data["room_preferences"]["privacy"]
+		if("update_description")
+			room_data["room_preferences"]["description"] = params["description"]
+		if("update_name")
+			room_data["room_preferences"]["name"] = params["name"]
+		if("set_icon")
+			room_data["room_preferences"]["icon"] = params["icon"]
+		if("modify_trusted_guests")
+			if(!splurt_modify_trusted_guests(room_number, user, params["action"], params["user"]))
+				return FALSE
+		if("transfer_ownership")
+			if(!splurt_modify_trusted_guests(room_number, user, "transfer", null))
+				return FALSE
+		else
+			return FALSE
+
+	SEND_SIGNAL(src, COMSIG_HILBERT_ROOM_UPDATED, list("action" = action, "room" = room_number))
+	return TRUE
+
+/datum/controller/subsystem/condos/proc/splurt_link_room_controls(condo_number, datum/turf_reservation/condo/condo_reservation)
+	if(!condo_reservation)
+		return
+	var/has_controller = FALSE
+	for(var/turf/reserved_turf in condo_reservation.reserved_turfs)
+		for(var/obj/machinery/room_controller/controller in reserved_turf.contents)
+			splurt_setup_room_controller(controller, condo_number)
+			has_controller = TRUE
+	if(has_controller)
+		return
+
+	var/list/controller_placement = splurt_find_room_controller_placement(condo_reservation)
+	if(!controller_placement)
+		message_admins("Attention: Failed to place a condo room controller for room [condo_number].")
+		return
+	var/turf/controller_wall = controller_placement["wall"]
+	var/controller_type = splurt_get_room_controller_type(controller_placement["dir"])
+	var/obj/machinery/room_controller/controller = new controller_type(controller_wall)
+	splurt_setup_room_controller(controller, condo_number)
+
+/datum/controller/subsystem/condos/proc/splurt_get_reserved_turf_lookup(datum/turf_reservation/condo/condo_reservation)
+	var/list/reserved_turfs = list()
+	for(var/turf/reserved_turf as anything in condo_reservation.reserved_turfs)
+		reserved_turfs[reserved_turf] = TRUE
+	return reserved_turfs
+
+/datum/controller/subsystem/condos/proc/splurt_setup_room_controller(obj/machinery/room_controller/controller, condo_number)
+	if(!controller)
+		return
+	controller.room_number = condo_number
+	if(controller.bluespace_box)
+		controller.bluespace_box.in_hotel_room = TRUE
+		controller.bluespace_box.creation_area = get_area(controller)
+	controller.update_appearance()
+
+/datum/controller/subsystem/condos/proc/splurt_get_room_controller_type(facing_dir)
+	switch(facing_dir)
+		if(NORTH)
+			return /obj/machinery/room_controller/directional/north
+		if(SOUTH)
+			return /obj/machinery/room_controller/directional/south
+		if(EAST)
+			return /obj/machinery/room_controller/directional/east
+		if(WEST)
+			return /obj/machinery/room_controller/directional/west
+	return /obj/machinery/room_controller
+
+/datum/controller/subsystem/condos/proc/splurt_get_reachable_condo_turfs(datum/turf_reservation/condo/condo_reservation)
+	var/list/reachable_turfs = list()
+	var/list/reserved_turfs = splurt_get_reserved_turf_lookup(condo_reservation)
+	var/list/search_queue = list()
+	for(var/turf/closed/indestructible/hoteldoor/door in condo_reservation.reserved_turfs)
+		for(var/direction in GLOB.cardinals)
+			var/turf/adjacent_turf = get_step(door, direction)
+			if(!reserved_turfs[adjacent_turf] || isclosedturf(adjacent_turf) || reachable_turfs[adjacent_turf])
+				continue
+			reachable_turfs[adjacent_turf] = TRUE
+			search_queue += adjacent_turf
+
+	while(length(search_queue))
+		var/turf/current_turf = search_queue[1]
+		search_queue.Cut(1, 2)
+		for(var/direction in GLOB.cardinals)
+			var/turf/next_turf = get_step(current_turf, direction)
+			if(!reserved_turfs[next_turf] || isclosedturf(next_turf) || reachable_turfs[next_turf])
+				continue
+			reachable_turfs[next_turf] = TRUE
+			search_queue += next_turf
+	return reachable_turfs
+
+/datum/controller/subsystem/condos/proc/splurt_find_room_controller_placement(datum/turf_reservation/condo/condo_reservation)
+	var/list/door_turfs = list()
+	for(var/turf/closed/indestructible/hoteldoor/door in condo_reservation.reserved_turfs)
+		door_turfs += door
+	if(!length(door_turfs))
+		return
+
+	var/list/reachable_turfs = splurt_get_reachable_condo_turfs(condo_reservation)
+	if(!length(reachable_turfs))
+		return
+
+	var/best_distance = INFINITY
+	var/turf/best_wall
+	var/best_dir
+	for(var/turf/possible_wall in condo_reservation.reserved_turfs)
+		if(!iswallturf(possible_wall) || (locate(/obj/machinery/room_controller) in possible_wall))
+			continue
+		var/facing_dir
+		for(var/direction in GLOB.cardinals)
+			var/turf/adjacent_turf = get_step(possible_wall, direction)
+			if(reachable_turfs[adjacent_turf])
+				facing_dir = direction
+				break
+		if(!facing_dir)
+			continue
+		var/nearest_door_distance = INFINITY
+		for(var/turf/door in door_turfs)
+			nearest_door_distance = min(nearest_door_distance, get_dist(door, possible_wall))
+		if(nearest_door_distance >= best_distance)
+			continue
+		best_distance = nearest_door_distance
+		best_wall = possible_wall
+		best_dir = facing_dir
+	if(!best_wall)
+		return
+	return list("wall" = best_wall, "dir" = best_dir)
 
 /datum/controller/subsystem/condos/proc/attempt_restore_condo(condo_number, datum/map_template/condo/template, mob/user, parent_object)
 	if(!splurt_conservated_rooms["[condo_number]"])
@@ -295,7 +492,7 @@
 /datum/controller/subsystem/condos/proc/on_condo_created(condo_number, datum/turf_reservation/condo/condo_reservation, mob/user, parent_object)
 	var/template_name = condo_reservation?.condo_template?.name
 	if(!template_name)
-		var/datum/map_template/condo/default_template = condo_templates[1]
+		var/datum/map_template/condo/default_template = splurt_get_default_template()
 		template_name = default_template?.name || "Condo"
 	splurt_room_data["[condo_number]"] = list(
 		"reservation" = condo_reservation,
@@ -315,6 +512,7 @@
 		"is_ghost_cafe" = splurt_get_parent_side(parent_object),
 	)
 	splurt_conservated_rooms -= "[condo_number]"
+	splurt_link_room_controls(condo_number, condo_reservation)
 
 /datum/controller/subsystem/condos/proc/on_condo_joined(condo_number, datum/turf_reservation/condo/condo_reservation, mob/user)
 	if(!user?.mind || !condo_reservation)

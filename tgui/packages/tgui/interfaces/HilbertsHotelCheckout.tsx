@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -25,8 +25,46 @@ type RoomsData = {
   hotel_map_list: any[];
 };
 
+const ROOM_STATUS = {
+  1: {
+    color: 'green',
+    icon: 'door-open',
+    label: 'Open',
+    tooltip: 'Anyone can join',
+  },
+  2: {
+    color: 'blue',
+    icon: 'user-check',
+    label: 'Guests',
+    tooltip: 'Only trusted guests can join',
+  },
+  3: {
+    color: 'red',
+    icon: 'lock',
+    label: 'Closed',
+    tooltip: 'Only the owner can join',
+  },
+};
+
+const RoomStatus = ({ room }) => {
+  const status = ROOM_STATUS[room.room_preferences?.status] || ROOM_STATUS[3];
+  return (
+    <Tooltip content={status.tooltip}>
+      <Button
+        compact
+        color={status.color}
+        icon={status.icon}
+        style={{ pointerEvents: 'none' }}
+      >
+        {status.label}
+      </Button>
+    </Tooltip>
+  );
+};
+
 const OpenRooms = ({ data, act, selected_template }) => {
-  const visibleRooms = data.active_rooms.filter(
+  const activeRooms = data.active_rooms || [];
+  const visibleRooms = activeRooms.filter(
     (room) => room.room_preferences.visibility,
   );
 
@@ -79,6 +117,12 @@ const OpenRooms = ({ data, act, selected_template }) => {
                     }}
                     confirmContent={'Join?'}
                     confirmColor="green"
+                    disabled={!room.can_join}
+                    tooltip={
+                      room.can_join
+                        ? 'Join this room'
+                        : 'You do not have access to this room'
+                    }
                     onClick={() =>
                       act('checkin', {
                         room: Number(room.number),
@@ -119,6 +163,14 @@ const OpenRooms = ({ data, act, selected_template }) => {
                         }}
                       >
                         {room.name}
+                      </span>
+                      <span
+                        style={{
+                          marginLeft: '8px',
+                          lineHeight: '24px',
+                        }}
+                      >
+                        <RoomStatus room={room} />
                       </span>
                       <span
                         style={{
@@ -174,11 +226,12 @@ const OpenRooms = ({ data, act, selected_template }) => {
 const RoomCheckIn = ({
   data,
   act,
+  selectedTemplate,
   selectedTab,
   setSelectedTab,
   tabContent,
 }) => {
-  const { current_room = 1, selected_template = 'Standard' } = data;
+  const { current_room = 1 } = data;
   return (
     <Section title="Room Check-In">
       <Stack>
@@ -261,7 +314,7 @@ const RoomCheckIn = ({
             onClick={() =>
               act('checkin', {
                 room: current_room,
-                template: selected_template,
+                template: selectedTemplate,
               })
             }
             lineHeight={2}
@@ -275,18 +328,44 @@ const RoomCheckIn = ({
   );
 };
 
-const ReservedRooms = ({ data }) => {
+const ReservedRooms = ({ data, act }) => {
+  const conservatedRooms = data.conservated_rooms || [];
   return (
     <Section title="Reserved Rooms">
-      {data.conservated_rooms.length ? (
+      {conservatedRooms.length ? (
         <Table>
-          {data.conservated_rooms?.map((room) => (
+          {conservatedRooms.map((room) => (
             <Table.Row key={room.number}>
               <Table.Cell width="1.8em">
-                <Icon name={room.room_preferences.icon} />
+                <Icon name={room.room_preferences.icon || 'door-open'} />
               </Table.Cell>
               <Table.Cell>Room {room.number}</Table.Cell>
               <Table.Cell>{room.room_preferences.name}</Table.Cell>
+              <Table.Cell collapsing>
+                <RoomStatus room={room} />
+              </Table.Cell>
+              <Table.Cell collapsing>
+                <Button.Confirm
+                  compact
+                  icon="right-to-bracket"
+                  confirmContent="Restore?"
+                  confirmColor="green"
+                  disabled={!room.can_join}
+                  tooltip={
+                    room.can_join
+                      ? 'Restore and join this reserved room'
+                      : 'You do not have access to this room'
+                  }
+                  onClick={() =>
+                    act('checkin', {
+                      room: Number(room.number),
+                      template: data.selected_template,
+                    })
+                  }
+                >
+                  Join
+                </Button.Confirm>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table>
@@ -299,37 +378,59 @@ const ReservedRooms = ({ data }) => {
 
 export const CheckoutMenu = (props) => {
   const { act, data } = useBackend<RoomsData>();
+  const checkoutData = {
+    ...data,
+    current_room: data.current_room ?? 1,
+    selected_template: data.selected_template ?? 'Standard',
+    user_donator_tier: data.user_donator_tier ?? 0,
+    user_ckey: data.user_ckey ?? '',
+    active_rooms: data.active_rooms || [],
+    conservated_rooms: data.conservated_rooms || [],
+    hotel_map_list: data.hotel_map_list || [],
+  };
+  const [selectedTemplate, setSelectedTemplate] = useState(
+    checkoutData.selected_template,
+  );
+  useEffect(() => {
+    setSelectedTemplate(checkoutData.selected_template);
+  }, [checkoutData.selected_template]);
   const [selectedTab, setSelectedTab] = useState(0);
   const tabContent = [
     <RoomsTab
       key="misc"
       category="Misc"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
     <RoomsTab
       key="apartment"
       category="Apartment"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
     <RoomsTab
       key="beach"
       category="Beach"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
     <RoomsTab
       key="station"
       category="Station"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
     <RoomsTab
       key="winter"
       category="Winter"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
     <RoomsTab
       key="special"
       category="Special"
-      selected_template={data?.selected_template}
+      selected_template={selectedTemplate}
+      setSelectedTemplate={setSelectedTemplate}
     />,
   ];
 
@@ -342,8 +443,9 @@ export const CheckoutMenu = (props) => {
       }}
     >
       <RoomCheckIn
-        data={data}
+        data={checkoutData}
         act={act}
+        selectedTemplate={selectedTemplate}
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
         tabContent={tabContent}
@@ -358,28 +460,26 @@ export const CheckoutMenu = (props) => {
         }}
       >
         <OpenRooms
-          data={data}
+          data={checkoutData}
           act={act}
-          selected_template={data.selected_template}
+          selected_template={selectedTemplate}
         />
-        <ReservedRooms data={data} />
+        <ReservedRooms data={checkoutData} act={act} />
       </Box>
     </Box>
   );
 };
 
 const RoomsTab = (props) => {
-  const { category, selected_template } = props;
+  const { category, selected_template, setSelectedTemplate } = props;
   const { act, data } = useBackend<RoomsData>();
-  const { hotel_map_list = [] } = data;
-  const [selectedRoom, setSelectedRoom] = useState(null);
+  const { hotel_map_list = [], user_ckey = '', user_donator_tier = 0 } = data;
 
   const targetCategory = category.toLowerCase();
   const filteredRooms = hotel_map_list.filter(
     (room) =>
       room.category?.toLowerCase() === targetCategory &&
-      (!room.ckeywhitelist?.length ||
-        room.ckeywhitelist.includes(data.user_ckey)),
+      (!room.ckeywhitelist?.length || room.ckeywhitelist.includes(user_ckey)),
   );
 
   const categoryIcons = {
@@ -414,7 +514,7 @@ const RoomsTab = (props) => {
                 room.name === selected_template ? 'selected' : undefined
               }
               onClick={() => {
-                setSelectedRoom(room.name);
+                setSelectedTemplate(room.name);
                 act('select_room', { room: room.name });
               }}
               style={{
@@ -443,7 +543,7 @@ const RoomsTab = (props) => {
               <Stack.Item grow>
                 <Stack>
                   <Stack.Item>{room.name}</Stack.Item>
-                  {room.donator_tier > data.user_donator_tier && (
+                  {room.donator_tier > user_donator_tier && (
                     <Stack.Item grow textAlign="right" color="red">
                       {' | Donator tier ' +
                         room.donator_tier +

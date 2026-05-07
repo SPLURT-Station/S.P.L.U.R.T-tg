@@ -189,10 +189,12 @@
 			room_data["room_preferences"]["icon"] = params["icon"]
 			. = TRUE
 		if("modify_trusted_guests")
-			modify_trusted_guests(usr, params["action"], params["user"])
-			. = TRUE
+			. = modify_trusted_guests(usr, params["action"], params["user"])
+		if("transfer_ownership")
+			. = modify_trusted_guests(usr, ACTION_TRANSFER, null)
 	if(.)
 		SStgui.update_uis(src)
+		SEND_SIGNAL(SScondos, COMSIG_HILBERT_ROOM_UPDATED, list("action" = action, "room" = room_number))
 
 /obj/machinery/room_controller/emp_act(severity)
 	return
@@ -309,11 +311,14 @@
 /obj/machinery/room_controller/proc/modify_trusted_guests(this_user, action, target_name)
 	if(!room_number || !SScondos.splurt_room_data["[room_number]"])
 		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
-		return
-	SScondos.splurt_modify_trusted_guests(room_number, this_user, action, target_name)
+		return FALSE
+	if(!SScondos.splurt_modify_trusted_guests(room_number, this_user, action, target_name))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
+		return FALSE
 	playsound(src, 'sound/machines/terminal/terminal_processing.ogg', 50, TRUE)
 	if(action == ACTION_TRANSFER)
 		say("Room ownership transferred.")
+	return TRUE
 
 #undef ACTION_ADD
 #undef ACTION_REMOVE

@@ -6,6 +6,40 @@
 /obj/machinery/cafe_condo_teleporter/proc/get_ghost_cafe_side()
 	return is_ghost_cafe
 
+/obj/machinery/cafe_condo_teleporter/proc/splurt_get_room_join_status(list/room, mob/user)
+	var/list/room_preferences = room?["room_preferences"]
+	var/list/access_restrictions = room?["access_restrictions"]
+	if(!room_preferences || !access_restrictions || !user?.mind)
+		return list("can_join" = FALSE)
+	var/status = room_preferences["status"]
+	var/datum/mind/owner_mind = access_restrictions["room_owner"]
+	var/list/trusted_guests = access_restrictions["trusted_guests"]
+	if(!trusted_guests)
+		trusted_guests = list()
+	var/is_owner = owner_mind == user.mind
+	var/is_trusted = FALSE
+	if(user.mind in trusted_guests)
+		is_trusted = TRUE
+	return list(
+		"can_join" = status == ROOM_OPEN || is_owner || (status == ROOM_GUESTS_ONLY && is_trusted),
+		"is_owner" = is_owner,
+		"is_trusted" = is_trusted,
+	)
+
+/obj/machinery/cafe_condo_teleporter/proc/splurt_build_room_list_entry(room_number, list/room, mob/user)
+	var/list/join_status = splurt_get_room_join_status(room, user)
+	var/list/room_preferences = room?["room_preferences"]
+	if(!room_preferences)
+		room_preferences = list()
+	return list(
+		"number" = room_number,
+		"name" = room_preferences["name"] || "Room [room_number]",
+		"room_preferences" = room_preferences,
+		"can_join" = join_status["can_join"],
+		"is_owner" = join_status["is_owner"],
+		"is_trusted" = join_status["is_trusted"],
+	)
+
 /obj/machinery/cafe_condo_teleporter/attack_robot(mob/user)
 	if(user.Adjacent(src))
 		ui_interact(user)
@@ -24,6 +58,8 @@
 
 /obj/machinery/cafe_condo_teleporter/ui_static_data(mob/user)
 	. = ..()
+	if(!.)
+		. = list()
 	.["hotel_map_list"] = list()
 	for(var/template_name in SScondos.condo_templates)
 		var/datum/map_template/condo/template = SScondos.condo_templates[template_name]
@@ -40,7 +76,7 @@
 		return data
 
 	if(!SScondos.splurt_user_data[user.ckey])
-		var/datum/map_template/condo/default_template_data = SScondos.condo_templates[SScondos.condo_templates[1]]
+		var/datum/map_template/condo/default_template_data = SScondos.splurt_get_default_template()
 		var/default_template = default_template_data?.name
 		SScondos.splurt_user_data[user.ckey] = list(
 			"room_number" = 1,
@@ -60,38 +96,21 @@
 		var/list/room = SScondos.splurt_room_data["[room_number]"]
 		if(restrict_sides && room["is_ghost_cafe"] != is_ghost_cafe)
 			continue
-		if(room["room_preferences"]["visibility"] == ROOM_VISIBLE)
-			data["active_rooms"] += list(list(
-				"number" = room_number,
-				"name" = room["room_preferences"]["name"],
-				"occupants" = SScondos.splurt_generate_occupant_list(room_number),
-				"room_preferences" = room["room_preferences"],
-			))
+		var/list/room_preferences = room["room_preferences"]
+		if(room_preferences && room_preferences["visibility"] == ROOM_VISIBLE)
+			var/list/room_entry = splurt_build_room_list_entry(room_number, room, user)
+			room_entry["occupants"] = SScondos.splurt_generate_occupant_list(room_number)
+			data["active_rooms"] += list(room_entry)
 
 	data["conservated_rooms"] = list()
 	for(var/room_number in SScondos.splurt_conservated_rooms)
 		var/list/room = SScondos.splurt_conservated_rooms[room_number]
 		if(restrict_sides && room["is_ghost_cafe"] != is_ghost_cafe)
 			continue
-		var/visibility = room["room_preferences"]["visibility"]
-		switch(visibility)
-			if(ROOM_VISIBLE)
-				data["conservated_rooms"] += list(list(
-					"number" = room_number,
-					"room_preferences" = room["room_preferences"],
-				))
-			if(ROOM_GUESTS_ONLY)
-				if((user.mind in room["access_restrictions"]["trusted_guests"]) || (user.mind == room["access_restrictions"]["room_owner"]))
-					data["conservated_rooms"] += list(list(
-						"number" = room_number,
-						"room_preferences" = room["room_preferences"],
-					))
-			if(ROOM_CLOSED)
-				if(user.mind == room["access_restrictions"]["room_owner"])
-					data["conservated_rooms"] += list(list(
-						"number" = room_number,
-						"room_preferences" = room["room_preferences"],
-					))
+		var/list/room_preferences = room["room_preferences"]
+		if(!room_preferences || room_preferences["visibility"] != ROOM_VISIBLE)
+			continue
+		data["conservated_rooms"] += list(splurt_build_room_list_entry(room_number, room, user))
 	return data
 
 /obj/machinery/cafe_condo_teleporter/ui_act(action, params)
@@ -101,7 +120,7 @@
 	if(!usr?.ckey)
 		return
 	if(!SScondos.splurt_user_data[usr.ckey])
-		var/datum/map_template/condo/default_template_data = SScondos.condo_templates[1]
+		var/datum/map_template/condo/default_template_data = SScondos.splurt_get_default_template()
 		var/default_template = default_template_data?.name
 		SScondos.splurt_user_data[usr.ckey] = list(
 			"room_number" = 1,
@@ -123,8 +142,12 @@
 			SScondos.splurt_user_data[usr.ckey]["template"] = template_name
 			return TRUE
 		if("checkin")
-			var/datum/map_template/condo/default_template_data = SScondos.condo_templates[1]
-			var/template_name = SScondos.splurt_user_data[usr.ckey]["template"] || default_template_data?.name
+			var/datum/map_template/condo/default_template_data = SScondos.splurt_get_default_template()
+			var/template_name = params["template"]
+			if(!(template_name in SScondos.condo_templates))
+				template_name = SScondos.splurt_user_data[usr.ckey]["template"] || default_template_data?.name
+			else
+				SScondos.splurt_user_data[usr.ckey]["template"] = template_name
 			var/room_number = text2num(params["room"]) || SScondos.splurt_user_data[usr.ckey]["room_number"] || 1
 			return prompt_check_in(usr, usr, room_number, template_name)
 	return FALSE
@@ -132,10 +155,6 @@
 /obj/machinery/cafe_condo_teleporter/proc/prompt_check_in(mob/user, mob/target, room_number, template_name)
 	if(!CONFIG_GET(flag/hilbertshotel_enabled))
 		to_chat(target, span_warning("Infinidorm rooms are currently disabled!"))
-		return FALSE
-	var/max_rooms = CONFIG_GET(number/hilbertshotel_max_rooms)
-	if((length(SScondos.splurt_room_data) + length(SScondos.splurt_conservated_rooms) + 1) >= max_rooms)
-		to_chat(target, span_warning("This network is currently at maximum room capacity!"))
 		return FALSE
 	if(room_number > SHORT_REAL_LIMIT)
 		to_chat(target, span_warning("This network is only hooked up to [SHORT_REAL_LIMIT] rooms!"))
@@ -153,10 +172,13 @@
 			return FALSE
 		SScondos.enter_active_room(room_number, target)
 		return TRUE
+	if(SScondos.active_condos["[room_number]"])
+		SScondos.enter_active_room(room_number, target)
+		return TRUE
 
 	var/datum/map_template/condo/chosen_condo = SScondos.condo_templates[template_name]
 	if(!chosen_condo)
-		chosen_condo = SScondos.condo_templates[1]
+		chosen_condo = SScondos.splurt_get_default_template()
 	if(!chosen_condo)
 		to_chat(target, span_warning("No condo templates are currently available."))
 		return FALSE
@@ -165,6 +187,10 @@
 		return FALSE
 	if(LAZYLEN(chosen_condo.ckeywhitelist) && !(chosen_condo.ckeywhitelist.Find(target.ckey)))
 		to_chat(target, span_warning("You are not whitelisted to use [chosen_condo.name]."))
+		return FALSE
+	var/max_rooms = CONFIG_GET(number/hilbertshotel_max_rooms)
+	if(!SScondos.splurt_conservated_rooms["[room_number]"] && (length(SScondos.splurt_room_data) + length(SScondos.splurt_conservated_rooms)) >= max_rooms)
+		to_chat(target, span_warning("This network is currently at maximum room capacity!"))
 		return FALSE
 
 	SScondos.create_and_enter_condo(room_number, chosen_condo, target, src)
@@ -211,39 +237,11 @@
 			depart_user(usr)
 			return TRUE
 
-	var/list/room_data = SScondos.splurt_room_data["[room_number]"]
-	switch(action)
-		if("toggle_visibility")
-			room_data["room_preferences"]["visibility"] = !room_data["room_preferences"]["visibility"]
-			. = TRUE
-		if("toggle_status")
-			var/current_status = room_data["room_preferences"]["status"]
-			switch(current_status)
-				if(ROOM_OPEN)
-					room_data["room_preferences"]["status"] = ROOM_GUESTS_ONLY
-				if(ROOM_GUESTS_ONLY)
-					room_data["room_preferences"]["status"] = ROOM_CLOSED
-				if(ROOM_CLOSED)
-					room_data["room_preferences"]["status"] = ROOM_OPEN
-			. = TRUE
-		if("toggle_privacy")
-			room_data["room_preferences"]["privacy"] = !room_data["room_preferences"]["privacy"]
-			. = TRUE
-		if("update_description")
-			room_data["room_preferences"]["description"] = params["description"]
-			. = TRUE
-		if("update_name")
-			room_data["room_preferences"]["name"] = params["name"]
-			. = TRUE
-		if("set_icon")
-			room_data["room_preferences"]["icon"] = params["icon"]
-			. = TRUE
-		if("modify_trusted_guests")
-			SScondos.splurt_modify_trusted_guests(room_number, usr, params["action"], params["user"])
-			. = TRUE
-		if("transfer_ownership")
-			SScondos.splurt_modify_trusted_guests(room_number, usr, "transfer", null)
-			. = TRUE
-	if(.)
+	if(SScondos.splurt_handle_room_control_action(room_number, usr, action, params))
+		if(action == "modify_trusted_guests")
+			playsound(src, 'sound/machines/terminal/terminal_processing.ogg', 50, TRUE)
+			if(params["action"] == "transfer")
+				say("Room ownership transferred.")
 		SStgui.update_uis(src)
-	return
+		return TRUE
+	return FALSE

@@ -5,7 +5,7 @@
 		"_maps/splurt/automapper/automapper_config.toml",
 	)
 
-/proc/apply_automapper_template_overrides(list/loaded_templates, list/template_overrides, config_file)
+/datum/controller/subsystem/automapper/proc/apply_automapper_template_overrides(list/template_overrides, config_file)
 	if(!isnull(template_overrides) && !islist(template_overrides))
 		CRASH("Automapper config [config_file] template_overrides value must be a list!")
 
@@ -17,7 +17,7 @@
 		if(!islist(template_override))
 			CRASH("Automapper config [config_file] template override [template] must be a list!")
 
-		var/list/loaded_template = loaded_templates[template]
+		var/list/loaded_template = loaded_config["templates"][template]
 		if(!islist(loaded_template))
 			CRASH("Automapper config [config_file] tried to override missing template [template]!")
 
@@ -45,5 +45,5 @@
 				CRASH("Duplicate automapper template [template] found in [config_file]!")
 			loaded_templates[template] = config_templates[template]
 
-		apply_automapper_template_overrides(loaded_templates, config_data["template_overrides"], config_file)
+		apply_automapper_template_overrides(config_data["template_overrides"], config_file)
 	return SS_INIT_SUCCESS
