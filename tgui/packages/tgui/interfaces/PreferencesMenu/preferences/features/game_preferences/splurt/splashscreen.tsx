@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const hide_splashscreen: FeatureToggle = {
   name: 'Hide Splashscreen',

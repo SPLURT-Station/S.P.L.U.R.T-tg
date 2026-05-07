@@ -113,7 +113,7 @@ trait_name = "Station"
 map_files = ["catwalk_cryo.dmm"]
 directory = "_maps/bubber/automapper/templates/CatwalkStation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [142, 152, 1]
+coordinates = [141, 152, 1]
 trait_name = "Station"
 
 # Catwalk ERT Bay
@@ -127,7 +127,7 @@ trait_name = "Station"
 # Catwalk NTR Office
 [templates.catwalk_ntrep_office]
 map_files = ["catwalk_ntrep.dmm"]
-directory = "_maps/splurt/automapper/templates/CatwalkStation/"
+directory = "_maps/bubber/automapper/templates/CatwalkStation/"
 required_map = "CatwalkStation_2023.dmm"
 coordinates = [142, 126, 1]
 trait_name = "Station"
@@ -145,7 +145,7 @@ trait_name = "Station"
 map_files = ["catwalk_supermatter.dmm"]
 directory = "_maps/bubber/automapper/templates/CatwalkStation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [171, 163, 1]
+coordinates = [172, 163, 1]
 trait_name = "Station"
 
 # CENTRAL COMMAND MAP EDITS
@@ -163,14 +163,6 @@ map_files = ["centcom_shuttle_dock.dmm"]
 directory = "_maps/bubber/automapper/templates/centcom/"
 required_map = "CentCom_skyrat_z2.dmm"
 coordinates = [51, 167, 2]
-trait_name = "CentCom"
-
-# Interlink Admin Office
-[templates.interlink_adminoffice]
-map_files = ["interlink_adminoffice.dmm"]
-directory = "_maps/bubber/automapper/templates/centcom/"
-required_map = "CentCom_skyrat_z2.dmm"
-coordinates = [72, 183, 2]
 trait_name = "CentCom"
 
 # DELTASTATION MAP EDITS
@@ -225,7 +217,7 @@ trait_name = "Station"
 # Deltastation NTR Office
 [templates.deltastation_ntrep_office]
 map_files = ["deltastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
+directory = "_maps/bubber/automapper/templates/Deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [123, 143, 1]
 trait_name = "Station"
@@ -314,7 +306,7 @@ trait_name = "Station"
 # IceBoxStation NTR Office
 [templates.iceboxstation_ntrep_office]
 map_files = ["iceboxstation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/iceboxstation/"
+directory = "_maps/bubber/automapper/templates/IceBoxStation/"
 required_map = "IceBoxStation.dmm"
 coordinates = [87, 128, 3]
 trait_name = "Station"
@@ -437,7 +429,7 @@ trait_name = "Station"
 # Metastation NTR Office
 [templates.metastation_ntrep_office]
 map_files = ["metastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/metastation/"
+directory = "_maps/bubber/automapper/templates/MetaStation/"
 required_map = "MetaStation.dmm"
 coordinates = [57, 119, 1]
 trait_name = "Station"
@@ -540,22 +532,6 @@ required_map = "NebulaStation.dmm"
 coordinates = [90, 132, 1]
 trait_name = "Station"
 
-# Nebulastation Library East
-[templates.nebulastation_library_e]
-map_files = ["nebulastation_library_e.dmm"]
-directory = "_maps/bubber/automapper/templates/NebulaStation/"
-required_map = "NebulaStation.dmm"
-coordinates = [105, 133, 2]
-trait_name = "Station"
-
-# Nebulastation Library West
-[templates.nebulastation_library_w]
-map_files = ["nebulastation_library_w.dmm"]
-directory = "_maps/bubber/automapper/templates/NebulaStation/"
-required_map = "NebulaStation.dmm"
-coordinates = [91, 133, 2]
-trait_name = "Station"
-
 # Nebulastation NTR + Blueshield Office
 [templates.nebulastation_ntrep_blueshield_offices]
 map_files = ["nebulastation_ntrep_blueshield_offices.dmm"]
@@ -624,7 +600,7 @@ trait_name = "Station"
 # Tramstation NTR Office
 [templates.tramstation_ntrep_office]
 map_files = ["tramstation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/tramstation/"
+directory = "_maps/bubber/automapper/templates/tramstation/"
 required_map = "tramstation.dmm"
 coordinates = [34, 135, 2]
 trait_name = "Station"
@@ -714,7 +690,7 @@ trait_name = "Station"
 # Wawastation NTR Office
 [templates.wawastation_ntrep_office]
 map_files = ["wawastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/wawastation/"
+directory = "_maps/bubber/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [108, 122, 1]
 trait_name = "Station"
@@ -842,14 +818,6 @@ map_files = ["boxstation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/boxstation/"
 required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
-trait_name = "Station"
-
-# Boxstation Blueshield Office
-[templates.boxstation_blueshield_office]
-map_files = ["boxstation_blueshield_office.dmm"]
-directory = "_maps/splurt/automapper/templates/boxstation/"
-required_map = "BoxStation.dmm"
-coordinates = [85, 143, 1]
 trait_name = "Station"
 
 # Boxstation Security Medical Expansion
@@ -1028,14 +996,6 @@ required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
 trait_name = "Station"
 
-# Blueshift Blueshield Office
-[templates.blueshift_blueshield_office]
-map_files = ["blueshift_blueshield_office.dmm"]
-directory = "_maps/splurt/automapper/templates/blueshift/"
-required_map = "Blueshift.dmm"
-coordinates = [93, 156, 2]
-trait_name = "Station"
-
 # Blueshift Security Medical Expansion - Main
 [templates.blueshift_security_medic_medbay]
 map_files = ["blueshift_security_medic_medbay.dmm"]
@@ -1066,14 +1026,6 @@ map_files = ["voidraptor_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
-trait_name = "Station"
-
-# VoidRaptor Blueshield Office
-[templates.voidraptor_blueshield_office]
-map_files = ["voidraptor_blueshield_office.dmm"]
-directory = "_maps/splurt/automapper/templates/voidraptor/"
-required_map = "VoidRaptor.dmm"
-coordinates = [117, 199, 1]
 trait_name = "Station"
 
 # VoidRaptor Security Medical Expansion
@@ -1114,12 +1066,4 @@ map_files = ["metastation_disposal_fix.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
-trait_name = "Station"
-
-# Ouroboros NTR Office
-[templates.ouroboros_ntrep_office]
-map_files = ["ouroboros_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/ouroboros/"
-required_map = "Ouroboros.dmm"
-coordinates = [132, 131, 2]
 trait_name = "Station"

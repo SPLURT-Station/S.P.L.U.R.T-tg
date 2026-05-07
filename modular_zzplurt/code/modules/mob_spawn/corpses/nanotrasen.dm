@@ -19,7 +19,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/lr
 	implants = list(/obj/item/implant/mindshield)
@@ -42,7 +42,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/hr
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/centcom/corpse/private_security/mr
 	implants = list(/obj/item/implant/mindshield)
@@ -61,12 +61,12 @@
 
 	uniform = /obj/item/clothing/under/rank/security/nanotrasen/hr
 	suit = /obj/item/clothing/suit/armor/vest
-	belt = /obj/item/storage/belt/security/webbing/peacekeeper/armadyne
+	belt = /obj/item/storage/belt/security/webbing
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/commander
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/centcom/corpse/private_security/hr
 	implants = list(/obj/item/implant/mindshield)

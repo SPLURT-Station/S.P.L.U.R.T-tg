@@ -47,6 +47,13 @@
 	keyslot = new /obj/item/encryptionkey/head/ntc
 	keyslot2 = new /obj/item/encryptionkey/headset_cent
 
+/obj/item/radio/headset/heads/nanotrasen_consultant
+	parent_type = /obj/item/radio/headset/heads/nanotrasen
+
+/obj/item/radio/headset/heads/nanotrasen_consultant/alt
+	parent_type = /obj/item/radio/headset/heads/nanotrasen/alt
+
+
 /obj/item/radio/headset/heads/nanotrasen/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection)
