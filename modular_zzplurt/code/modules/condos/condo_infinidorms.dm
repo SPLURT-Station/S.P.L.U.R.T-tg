@@ -34,15 +34,6 @@
 	var/turf/splurt_storage_turf
 	/// Ckey-based UI defaults for the condo check-in interface.
 	var/list/splurt_user_data = list()
-/datum/controller/subsystem/condos/preload_condo_templates()
-	for(var/item in subtypesof(/datum/map_template/condo))
-		var/datum/map_template/condo/condo_type = item
-		if(!(initial(condo_type.mappath)))
-			continue
-
-		var/datum/map_template/condo/condo_template = new condo_type()
-		condo_templates[condo_template.name] = condo_template
-		SSmapping.map_templates[condo_template.name] = condo_template
 
 /datum/map_template/condo
 	/// Optional category used by SPLURT's check-in UI tabs.
