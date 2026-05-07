@@ -820,6 +820,14 @@ required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
 trait_name = "Station"
 
+# Boxstation Blueshield Office
+[templates.boxstation_blueshield_office]
+map_files = ["boxstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [85, 143, 1]
+trait_name = "Station"
+
 # Boxstation Security Medical Expansion
 [templates.boxstation_security_medic_medbay]
 map_files = ["boxstation_security_medic_medbay.dmm"]
@@ -996,6 +1004,14 @@ required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
 trait_name = "Station"
 
+# Blueshift Blueshield Office
+[templates.blueshift_blueshield_office]
+map_files = ["blueshift_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [93, 156, 2]
+trait_name = "Station"
+
 # Blueshift Security Medical Expansion - Main
 [templates.blueshift_security_medic_medbay]
 map_files = ["blueshift_security_medic_medbay.dmm"]
@@ -1026,6 +1042,14 @@ map_files = ["voidraptor_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
+trait_name = "Station"
+
+# VoidRaptor Blueshield Office
+[templates.voidraptor_blueshield_office]
+map_files = ["voidraptor_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/voidraptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [117, 199, 1]
 trait_name = "Station"
 
 # VoidRaptor Security Medical Expansion
@@ -1066,4 +1090,12 @@ map_files = ["metastation_disposal_fix.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
+trait_name = "Station"
+
+# Ouroboros NTR Office
+[templates.ouroboros_ntrep_office]
+map_files = ["ouroboros_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/ouroboros/"
+required_map = "Ouroboros.dmm"
+coordinates = [132, 131, 2]
 trait_name = "Station"
