@@ -74,7 +74,7 @@
 			booze_power *= (total_alcohol_volume / combined_dilute_volume)
 
 		// Volume, power, and server alcohol rate effect how quickly one gets drunk
-		drinker.adjust_drunk_effect(1 * sqrt(volume) * booze_power * ALCOHOL_RATE * metabolization_ratio * seconds_per_tick)
+		drinker.adjust_drunk_effect(booze_power * ALCOHOL_RATE * metabolization_ratio * seconds_per_tick) //SPLURT EDIT, ORIGINAL: drinker.adjust_drunk_effect(1 * sqrt(volume) * booze_power * ALCOHOL_RATE * metabolization_ratio * seconds_per_tick)
 		if(boozepwr > 0)
 			var/obj/item/organ/liver/liver = drinker.get_organ_slot(ORGAN_SLOT_LIVER)
 			var/heavy_drinker_multiplier = (HAS_TRAIT(drinker, TRAIT_HEAVY_DRINKER) ? 0.5 : 1)
