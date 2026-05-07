@@ -1,3 +1,10 @@
+/obj/item/organ/eyes/copy_traits_from(obj/item/organ/eyes/old_eyes, copy_actions = FALSE)
+	. = ..()
+	if(isnull(old_eyes))
+		return
+
+	eyes_layer = old_eyes.eyes_layer
+
 /obj/item/organ/eyes/night_vision/arachnid
 	name = "arachnid eyes"
 	desc = "These eyes seem to have increased sensitivity to bright light, offset by basic night vision."

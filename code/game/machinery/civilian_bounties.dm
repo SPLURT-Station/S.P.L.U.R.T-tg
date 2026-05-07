@@ -254,6 +254,12 @@
 			return pick(subtypesof(/datum/bounty/item/atmospherics))
 		if(CIV_JOB_BITRUN)
 			return pick(subtypesof(/datum/bounty/item/bitrunning))
+		// SPLURT EDIT START
+		if(CIV_JOB_SMITH)
+			return pick(subtypesof(/datum/bounty/item/blacksmith))
+		if(CIV_JOB_PRISONER)
+			return pick(subtypesof(/datum/bounty/item/prisoner))
+		// SPLURT EDIT END
 
 	stack_trace("Failed to get random bounty type for input type [input_bounty_type]")
 	return null
