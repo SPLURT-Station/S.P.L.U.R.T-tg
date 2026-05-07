@@ -1,7 +1,7 @@
 /datum/job/blueshield
 	title = JOB_BLUESHIELD
 	description = "Protect the Heads of Staff and get your hands dirty so they can keep theirs clean."
-	department_head = list("Nanotrasen High Command")
+	supervisors = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
 	total_positions = 1
@@ -24,6 +24,8 @@
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
 
+	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
+	desensitized_base = DESENSITIZED_THRESHOLD
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_BLUESHIELD

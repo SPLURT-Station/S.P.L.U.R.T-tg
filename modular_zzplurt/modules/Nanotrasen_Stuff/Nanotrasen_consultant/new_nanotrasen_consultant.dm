@@ -11,7 +11,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	description = "Represent Nanotrasen on the station, inform people about SOP, and Space Law. Command your \
 		Crew Trainers to efficiently train crew, step into security and command issues as seen fit to resolve them. \
 		Be the HR you always wanted to be. Sit in your office and get drunk."
-	department_head = list("Nanotrasen High Command")
+	supervisors = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list("Internal Affairs")
 	faction = FACTION_STATION
@@ -89,7 +89,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	..()
 	new /obj/item/dog_bone(src)
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
-	new /obj/item/computer_disk/command/consultant(src)
+	new /obj/item/disk/computer/command/consultant(src)
 	new /obj/item/radio/headset/heads/ntc(src)
 	new /obj/item/radio/headset/heads/ntc/alt(src)
 	new /obj/item/megaphone/command(src)
@@ -229,7 +229,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	icon_state = "/obj/item/modular_computer/pda/heads/nanotrasen_consultant"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#42B5A6#0C9900#FAFAFA"
-	inserted_disk = /obj/item/computer_disk/command/consultant
+	inserted_disk = /obj/item/disk/computer/command/consultant
 	inserted_item = /obj/item/pen/fountain/nanotrasen
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
@@ -304,7 +304,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant(src)
 	new /obj/item/clothing/accessory/medal/gold/ordom(src)
 
-/obj/item/computer_disk/command/consultant
+/obj/item/disk/computer/command/consultant
 	name = "consultant data disk"
 	desc = "Removable disk used to download essential Consultant tablet apps."
 	icon_state = "datadisk8"
