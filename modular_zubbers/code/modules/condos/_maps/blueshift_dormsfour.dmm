@@ -63,6 +63,7 @@
 /obj/machinery/microwave/engineering/cell_included{
 	pixel_y = 8
 	},
+/obj/machinery/room_controller/directional/west,
 /turf/open/floor/wood,
 /area/misc/condo)
 "r" = (
@@ -125,19 +126,6 @@
 "C" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood,
-/area/misc/condo)
-"F" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 4
-	},
-/obj/machinery/light/built/directional/east,
-/obj/effect/turf_decal/trimline/dark/filled/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
-	dir = 8
-	},
-/turf/open/floor/iron,
 /area/misc/condo)
 "G" = (
 /obj/structure/curtain/bounty,
@@ -226,7 +214,7 @@
 (1,1,1) = {"
 Z
 L
-F
+L
 L
 s
 K

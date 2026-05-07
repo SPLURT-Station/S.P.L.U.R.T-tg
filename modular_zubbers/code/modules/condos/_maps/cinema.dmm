@@ -977,10 +977,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/condo)
 "FW" = (
-/obj/item/bitrunning_disk{
-	pixel_x = 3;
-	pixel_y = -10
-	},
 /obj/item/megaphone,
 /turf/open/floor/carpet,
 /area/misc/condo)
@@ -990,6 +986,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side,
+/area/misc/condo)
+"GI" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/machinery/light/dim/directional/south,
+/obj/machinery/room_controller/directional/south,
+/turf/open/floor/iron/dark,
 /area/misc/condo)
 "GJ" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -2280,7 +2282,7 @@ OV
 NR
 Ik
 Je
-jo
+GI
 NR
 "}
 (23,1,1) = {"
