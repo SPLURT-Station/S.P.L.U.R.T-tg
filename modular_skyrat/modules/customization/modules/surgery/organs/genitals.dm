@@ -173,7 +173,7 @@
 
 	var/reported_girth = CEILING( girth / 3.1415, 0.25) //Circum to Diameter
 	var/reported_length = genital_size
-	if(aroused != AROUSAL_FULL) //Only when not full mast.
+	if(aroused != AROUSAL_FULL && owner) //Only when not full mast. SPLURT EDIT, ORIGNIAL: if(aroused != AROUSAL_FULL)
 		var/temperature_difference = owner.bodytemperature - owner.get_body_temp_normal()
 		if(temperature_difference <= 2) //2 kelvin difference (colder)
 			// https://www.desmos.com/calculator/ivauzad62s

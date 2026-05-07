@@ -1,5 +1,15 @@
 // 200 dollars is 200 dollars :(
 
+/proc/get_genital_sprite_values(organ_slot, include_cyborg_only = FALSE)
+	var/list/possible_values = list()
+	var/list/all_values = assoc_to_keys_features(SSaccessories.sprite_accessories[organ_slot])
+	for(var/accessory_name in all_values)
+		var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[organ_slot]?[accessory_name]
+		if(!include_cyborg_only && accessory?.cyborg_genital_only)
+			continue
+		possible_values += accessory_name
+	return possible_values
+
 // ABSTRACT TYPES
 
 /datum/preference/toggle/allow_genitals
@@ -71,7 +81,7 @@
 	return initial(default_accessory_type.name)
 
 /datum/preference/choiced/genital/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.sprite_accessories[relevant_mutant_bodypart])
+	return get_genital_sprite_values(relevant_mutant_bodypart)
 
 /datum/preference/toggle/genital_skin_tone
 	category = PREFERENCE_CATEGORY_CHARACTER_BASICS

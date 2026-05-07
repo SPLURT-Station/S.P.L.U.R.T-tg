@@ -15,6 +15,7 @@
 
 	var/list/simulated_genitals = list(
 		ORGAN_SLOT_PENIS = FALSE,
+		ORGAN_SLOT_TESTICLES = FALSE,
 		ORGAN_SLOT_VAGINA = FALSE,
 		ORGAN_SLOT_BREASTS = FALSE,
 		ORGAN_SLOT_ANUS = TRUE,
@@ -82,7 +83,7 @@
 	return simulated_interaction_requirements[INTERACTION_REQUIRE_SELF_FEET]
 
 /mob/living/proc/has_balls(required_state = REQUIRE_GENITAL_ANY)
-	return simulated_genitals[ORGAN_SLOT_PENIS]
+	return simulated_genitals[ORGAN_SLOT_TESTICLES]
 
 /mob/living/proc/has_belly(required_state = REQUIRE_GENITAL_ANY)
 	return simulated_genitals[ORGAN_SLOT_BELLY]

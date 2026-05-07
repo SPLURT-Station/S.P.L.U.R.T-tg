@@ -62,6 +62,10 @@
 		stack_trace("Robot model ([src]) initialized outside of a robot at [AREACOORD(robot)]! \
 			This should never happen, make sure this item is not map-placed.")
 		return INITIALIZE_HINT_QDEL
+	// SPLURT ADDITION START
+	if(istype(robot, /mob/living/silicon/robot/cyborg_character_catalog_host))
+		return INITIALIZE_HINT_NORMAL
+	//SPLURT ADDITION END
 	create_storage(storage_type = /datum/storage/cyborg_internal_storage)
 	//src is what we store items visible to borgs, we'll store things in the bot itself otherwise.
 	for(var/path in basic_modules)

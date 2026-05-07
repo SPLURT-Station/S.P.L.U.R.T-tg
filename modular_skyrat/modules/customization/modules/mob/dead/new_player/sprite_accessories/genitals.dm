@@ -7,6 +7,14 @@
 	var/has_skintone_shading = FALSE
 	///Where the genital is on the body. If clothing doesn't cover it, it shows up!
 	var/genital_location = GROIN
+	/// Only show this accessory in silicon genital selection, not human character preferences.
+	var/cyborg_genital_only = FALSE
+	/// Use the borg-authored overlay naming format instead of standard bodypart overlay states.
+	var/cyborg_direct_icon_states = FALSE
+	/// Optional alternate direct-state sheet used when cyborg rendering promotes the source suffix to its oversized variant.
+	var/cyborg_direct_massive_icon = null
+	/// Optional explicit state name inside the alternate oversized direct-state sheet.
+	var/cyborg_direct_massive_icon_state = null
 
 /datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
 	var/obj/item/organ/genital/badonkers = target_mob.get_organ_slot(associated_organ_slot)

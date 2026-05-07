@@ -41,3 +41,13 @@
 
 	human.reload_huds()
 	human.reload_fullscreen()
+
+/datum/preference/toggle/see_cyborg_genitalia
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	default_value = TRUE
+	savefile_key = "see_cyborg_genitalia"
+	savefile_identifier = PREFERENCE_PLAYER
+
+/datum/preference/toggle/see_cyborg_genitalia/apply_to_client_updated(client/client, value)
+	refresh_all_cyborg_genital_images()
+	return ..()

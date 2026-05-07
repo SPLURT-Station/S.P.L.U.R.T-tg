@@ -187,6 +187,11 @@ export enum PrefsWindow {
 }
 
 export type CharacterPreferencesData = {
+  character_preview_view: string;
+  character_profiles: (string | null)[];
+
+  cyborg_character?: CyborgCharacterData;
+
   preview_options: string[]; // SKYRAT EDIT ADDITION
   preview_selection: string; // SKYRAT EDIT ADDITION
 
@@ -200,7 +205,6 @@ export type CharacterPreferencesData = {
   secondary_features: Record<string, unknown>;
   character_basics: Record<string, unknown>; // BUBBER EDIT ADDITION: more character setup tabs
   ooc_preferences: Record<string, unknown>; // BUBBER EDIT ADDITION: more character setup tabs
-  silicon_preferences: Record<string, unknown>; // BUBBER EDIT ADDITION: more character setup tabs
   supplemental_features: Record<string, unknown>;
   manually_rendered_features: Record<string, string>;
 
@@ -275,6 +279,84 @@ export type PreferencesMenuData = {
   name_to_use: string;
 
   window: PrefsWindow;
+};
+
+export type CyborgDirectionalOverride = {
+  visible?: BooleanLike;
+  pixel_x?: number;
+  pixel_y?: number;
+  rotation?: number;
+};
+
+export type CyborgDirectionalLayout = {
+  visible: BooleanLike;
+  pixel_x: number;
+  pixel_y: number;
+  rotation: number;
+  arousal?: Record<string, CyborgDirectionalOverride>;
+};
+
+export type CyborgReproductionGenital = {
+  slot: string;
+  name: string;
+  sprite: string;
+  has_sprite: BooleanLike;
+  visible: BooleanLike;
+  can_arouse: BooleanLike;
+  aroused: number;
+  arousal_label: string;
+  pixel_x: number;
+  pixel_y: number;
+  rotation: number;
+  scale: number;
+  direction_pixel_x: number;
+  direction_pixel_y: number;
+  direction_rotation: number;
+  direction_visible: BooleanLike;
+  scale_limit: number;
+  body_scale: number;
+  offset_limit: number;
+  colors: (string | null)[];
+  color_layers: string[];
+  resolved_colors: (string | null)[];
+  preview_color: string;
+  advanced: Record<string, CyborgDirectionalLayout>;
+};
+
+export type CyborgReproductionManagement = {
+  enabled: BooleanLike;
+  presetLimit: number;
+  presets: { name: string }[];
+  genitals: CyborgReproductionGenital[];
+  model_department: string;
+  model_name: string;
+  model_key: string;
+  has_model_default: BooleanLike;
+};
+
+export type CyborgModelCatalog = Record<string, string[]>;
+
+export type CyborgPreviewStateOption = {
+  value: string;
+  label: string;
+  icon_state: string;
+  movement: boolean;
+};
+
+export type CyborgCharacterData = {
+  preview: string;
+  models: string[];
+  models_by_department: CyborgModelCatalog;
+  selected_department: string;
+  selected_model: string;
+  selected_state: string;
+  base_state: string;
+  states: CyborgPreviewStateOption[];
+  selected_dir: string;
+  play_animation: BooleanLike;
+  preview_width: number;
+  preview_height: number;
+  reproductionManagement: CyborgReproductionManagement;
 };
 
 export type ServerData = {

@@ -111,6 +111,38 @@
 	name = /datum/sprite_accessory/genital/penis/hemiknot::name + " (Old)"
 	knotted = TRUE
 
+/datum/sprite_accessory/genital/penis/dogborg
+	name = "Dogborg Knotted"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_dogborg_onmob.dmi'
+	cyborg_direct_massive_icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/massive_dogborg_cock.dmi'
+	cyborg_direct_massive_icon_state = "massive_cock"
+	icon_state = "knotted"
+	color_src = USE_ONE_COLOR
+	knotted = TRUE
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
+
+
+/datum/sprite_accessory/genital/penis/sheath
+	associated_organ_slot = ORGAN_SLOT_SHEATH
+	key = ORGAN_SLOT_SHEATH
+	can_have_sheath = FALSE
+
+/datum/sprite_accessory/genital/penis/sheath/none
+	icon_state = "none"
+	name = SPRITE_ACCESSORY_NONE
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/penis/sheath/dogborg
+	name = "Dogborg Knotted Sheath"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/penis_dogborg_onmob.dmi'
+	icon_state = "knotted_sheeth"
+	color_src = USE_ONE_COLOR
+	knotted = TRUE
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
+
 // Testicles
 /datum/sprite_accessory/genital/testicles/pair
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_onmob.dmi'
@@ -128,6 +160,38 @@
 /datum/sprite_accessory/genital/testicles/sheath_old
 	name = /datum/sprite_accessory/genital/testicles/sheath::name + " (Old)"
 	icon_state = /datum/sprite_accessory/genital/testicles/sheath::icon_state
+
+/datum/sprite_accessory/genital/testicles/dogborg
+	name = "Dogborg Sheathed Pair"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_dogborg_onmob.dmi'
+	icon_state = "sheath"
+	color_src = USE_MATRIXED_COLORS
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
+
+/datum/sprite_accessory/genital/testicles/dogborg_pair
+	name = "Dogborg Pair"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_dogborg_onmob.dmi'
+	icon_state = "pair"
+	color_src = USE_MATRIXED_COLORS
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
+
+/datum/sprite_accessory/genital/testicles/dogborg_pair_alt
+	name = "Dogborg Pair (Alt)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_dogborg_onmob.dmi'
+	icon_state = "alt"
+	color_src = USE_MATRIXED_COLORS
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
+
+/datum/sprite_accessory/genital/testicles/dogborg_alt
+	name = "Dogborg Sheathed Pair (Alt)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_dogborg_onmob.dmi'
+	icon_state = "sheath_alt"
+	color_src = USE_MATRIXED_COLORS
+	cyborg_genital_only = TRUE
+	cyborg_direct_icon_states = TRUE
 
 // Butt
 /datum/sprite_accessory/genital/butt
@@ -181,7 +245,7 @@
 	color_src = USE_ONE_COLOR
 	always_color_customizable = TRUE
 	has_skintone_shading = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
 
 /datum/sprite_accessory/genital/belly/none
 	icon_state = "none"
