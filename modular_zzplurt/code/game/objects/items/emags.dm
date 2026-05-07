@@ -10,6 +10,10 @@
 	desc = "A card with a blood seal attached to some circuitry. Requires special training to use properly."
 	icon = 'modular_zzplurt/icons/obj/card.dmi'
 	icon_state = "bloodmag"
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.9,
+	)
 	// List of allowed types - Unused!
 	//var/type_whitelist
 

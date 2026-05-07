@@ -29,6 +29,7 @@
 				/obj/item/stack/ore/glass/basalt = 5)
 	time = 5 SECONDS
 	category = CAT_CLOTHING
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/bonesuit_ochre
 	name = "ochre Bone Armor"
@@ -37,6 +38,7 @@
 				/obj/item/stack/ore/glass/basalt = 5)
 	time = 5 SECONDS
 	category = CAT_CLOTHING
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/skullhelm_ochre
 	name = "Ochre Skull"
@@ -45,6 +47,7 @@
 				/obj/item/stack/ore/glass/basalt = 5)
 	time = 5 SECONDS
 	category = CAT_CLOTHING
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/modulator_gasmask
 	name = "Voice Modulator Gasmask"
@@ -59,6 +62,19 @@
 /datum/crafting_recipe/modulator_gasmask/New()
 	..()
 	blacklist += subtypesof(/obj/item/clothing/mask/gas)
+
+/datum/crafting_recipe/muzzle_medical_mask
+	name = "Surgery Mask"
+	result = /obj/item/clothing/mask/breath/muzzle
+	reqs = list(/obj/item/clothing/mask/breath = 1,
+				/obj/item/clothing/mask/muzzle = 1)
+	time = 3 SECONDS
+	category = CAT_CLOTHING
+
+/datum/crafting_recipe/muzzle_medical_mask/New()
+	..()
+	blacklist += typesof(/obj/item/clothing/mask/breath/muzzle)
+	blacklist += subtypesof(/obj/item/clothing/mask/muzzle)
 
 /datum/crafting_recipe/hudsunciv
 	name = "Civilian HUDsunglasses"
@@ -77,6 +93,7 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/civilian/sunglasses = 1)
 	category = CAT_EQUIPMENT
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 // Metal H2 Rework by Xiska
 

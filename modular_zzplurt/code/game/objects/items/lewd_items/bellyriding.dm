@@ -12,7 +12,7 @@
 	worn_icon_taur_paw = 'modular_zzplurt/icons/mob/clothing/suit/misc_paw.dmi'
 	worn_icon_taur_snake = null
 	worn_icon_state = "bellyriding_harness"
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 	slot_flags = ITEM_SLOT_OCLOTHING
 

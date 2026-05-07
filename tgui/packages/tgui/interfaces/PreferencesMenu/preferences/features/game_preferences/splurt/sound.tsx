@@ -1,6 +1,4 @@
-import {
-  type FeatureChoiced,
-} from '../../base';
+import type { FeatureChoiced } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const preferred_announcer: FeatureChoiced = {
