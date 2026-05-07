@@ -35,6 +35,7 @@
 		"number" = room_number,
 		"name" = room_preferences["name"] || "Room [room_number]",
 		"room_preferences" = room_preferences,
+		"expires_at" = room["expires_at"],
 		"can_join" = join_status["can_join"],
 		"is_owner" = join_status["is_owner"],
 		"is_trusted" = join_status["is_trusted"],
@@ -150,6 +151,11 @@
 				SScondos.splurt_user_data[usr.ckey]["template"] = template_name
 			var/room_number = text2num(params["room"]) || SScondos.splurt_user_data[usr.ckey]["room_number"] || 1
 			return prompt_check_in(usr, usr, room_number, template_name)
+		if("delete_reserved_room")
+			var/room_number = text2num(params["room"])
+			if(!room_number)
+				return FALSE
+			return SScondos.splurt_delete_reserved_room(room_number, usr)
 	return FALSE
 
 /obj/machinery/cafe_condo_teleporter/proc/prompt_check_in(mob/user, mob/target, room_number, template_name)

@@ -360,6 +360,24 @@ const ReservedRooms = ({ data, act }) => {
                 <RoomStatus room={room} />
               </Table.Cell>
               <Table.Cell collapsing>
+                {room.is_owner && (
+                  <Button.Confirm
+                    compact
+                    color="red"
+                    icon="trash"
+                    confirmContent="Delete?"
+                    tooltip="Delete this reserved room"
+                    onClick={() =>
+                      act('delete_reserved_room', {
+                        room: Number(room.number),
+                      })
+                    }
+                  >
+                    Delete
+                  </Button.Confirm>
+                )}
+              </Table.Cell>
+              <Table.Cell collapsing>
                 <Button.Confirm
                   compact
                   icon="right-to-bracket"

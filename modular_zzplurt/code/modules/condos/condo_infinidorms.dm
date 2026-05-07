@@ -1,6 +1,8 @@
 /// SPLURT infinidorm extensions for upstream condos.
 /// Upstream still owns reservation lifecycle (`SScondos.active_condos`), while this layer
-/// stores room metadata, trusted guests, and conservation payloads for full parity behavior.
+/// stores room metadata, trusted guests, and short-lived reserved room payloads.
+
+#define SPLURT_RESERVED_ROOM_TIMEOUT (10 MINUTES)
 
 /turf/closed/indestructible/hoteldoor
 	/// Condo-safe per-user return points used to prevent incorrect egress routing.
@@ -28,27 +30,14 @@
 /datum/controller/subsystem/condos
 	/// SPLURT metadata for active condo rooms keyed by room number.
 	var/list/splurt_room_data = list()
-	/// SPLURT metadata for conserved (vacated but saved) condo rooms keyed by room number.
+	/// SPLURT metadata for reserved/restorable condo rooms keyed by room number.
 	var/list/splurt_conservated_rooms = list()
-	/// Hidden storage turf used to hold conserved room contents.
+	/// Timers that delete reserved rooms once their grace period expires.
+	var/list/splurt_reserved_room_timers = list()
+	/// Hidden storage turf used to hold reserved room contents.
 	var/turf/splurt_storage_turf
 	/// Ckey-based UI defaults for the condo check-in interface.
 	var/list/splurt_user_data = list()
-
-/turf/open/lava/fake/Initialize(mapload)
-	for(var/turf_trait in give_turf_traits)
-		ADD_TRAIT(src, turf_trait, INNATE_TRAIT)
-	. = ..()
-
-/turf/open/water/hot_spring/enter_hot_spring(atom/movable/movable)
-	if(is_type_in_typecache(movable, GLOB.immerse_ignored_movable))
-		return FALSE
-	RegisterSignal(movable, SIGNAL_ADDTRAIT(TRAIT_IMMERSED), PROC_REF(dip_in), TRUE)
-	if(isliving(movable))
-		RegisterSignal(movable, SIGNAL_REMOVETRAIT(TRAIT_IMMERSED), PROC_REF(dip_out), TRUE)
-
-	if(HAS_TRAIT(movable, TRAIT_IMMERSED))
-		dip_in(movable)
 
 /datum/map_template/condo
 	/// Optional category used by SPLURT's check-in UI tabs.
@@ -182,24 +171,60 @@
 			storage["[turf_number]"] = turf_contents
 			turf_number++
 
-	splurt_conservated_rooms["[current_area.condo_number]"] = list(
+	var/condo_number = current_area.condo_number
+	splurt_conservated_rooms["[condo_number]"] = list(
 		"storage" = storage,
 		"template" = template_name,
 		"room_preferences" = null,
 		"access_restrictions" = null,
 		"is_ghost_cafe" = room_entry["is_ghost_cafe"],
+		"expires_at" = world.time + SPLURT_RESERVED_ROOM_TIMEOUT,
 	)
 	var/list/room_preferences = room_entry["room_preferences"]
 	var/list/access_restrictions = room_entry["access_restrictions"]
-	splurt_conservated_rooms["[current_area.condo_number]"]["room_preferences"] = room_preferences ? room_preferences.Copy() : list()
-	splurt_conservated_rooms["[current_area.condo_number]"]["access_restrictions"] = access_restrictions ? access_restrictions.Copy() : list()
+	splurt_conservated_rooms["[condo_number]"]["room_preferences"] = room_preferences ? room_preferences.Copy() : list()
+	splurt_conservated_rooms["[condo_number]"]["access_restrictions"] = access_restrictions ? access_restrictions.Copy() : list()
 
 	for(var/turf/turf_to_empty as anything in current_reservation.reserved_turfs)
 		turf_to_empty.empty()
-	active_condos -= "[current_area.condo_number]"
-	splurt_room_data -= "[current_area.condo_number]"
+	active_condos -= "[condo_number]"
+	splurt_room_data -= "[condo_number]"
 	current_area.parent_object = null
 	QDEL_NULL(current_area.reservation)
+	splurt_start_reserved_room_timer(condo_number)
+	return TRUE
+
+/datum/controller/subsystem/condos/proc/splurt_start_reserved_room_timer(condo_number)
+	splurt_stop_reserved_room_timer(condo_number)
+	splurt_reserved_room_timers["[condo_number]"] = addtimer(CALLBACK(src, PROC_REF(splurt_expire_reserved_room), condo_number), SPLURT_RESERVED_ROOM_TIMEOUT, TIMER_STOPPABLE)
+
+/datum/controller/subsystem/condos/proc/splurt_stop_reserved_room_timer(condo_number)
+	var/timer_id = splurt_reserved_room_timers["[condo_number]"]
+	if(timer_id)
+		deltimer(timer_id)
+		splurt_reserved_room_timers -= "[condo_number]"
+
+/datum/controller/subsystem/condos/proc/splurt_expire_reserved_room(condo_number)
+	splurt_reserved_room_timers -= "[condo_number]"
+	splurt_delete_reserved_room(condo_number, force = TRUE)
+
+/datum/controller/subsystem/condos/proc/splurt_delete_reserved_room(condo_number, mob/user = null, force = FALSE)
+	var/list/reserved_entry = splurt_conservated_rooms["[condo_number]"]
+	if(!reserved_entry)
+		return FALSE
+	var/list/access_restrictions = reserved_entry["access_restrictions"]
+	if(!force && access_restrictions?["room_owner"] != user?.mind)
+		if(user)
+			to_chat(user, span_warning("Only this room's owner can delete its reservation."))
+		return FALSE
+	splurt_stop_reserved_room_timer(condo_number)
+	if(splurt_storage_turf)
+		for(var/obj/item/abstracthotelstorage/storage_obj in splurt_storage_turf)
+			if(storage_obj.vars["roomNumber"] == condo_number)
+				QDEL_LIST(storage_obj.contents)
+				qdel(storage_obj)
+	splurt_conservated_rooms -= "[condo_number]"
+	SEND_SIGNAL(src, COMSIG_HILBERT_ROOM_UPDATED, list("action" = "delete_reserved_room", "room" = condo_number))
 	return TRUE
 
 /datum/controller/subsystem/condos/proc/splurt_restore_condo(condo_number, mob/user, parent_object)
@@ -275,6 +300,7 @@
 	splurt_room_data["[condo_number]"]["room_preferences"] = conserved_room_preferences ? conserved_room_preferences.Copy() : list()
 	splurt_room_data["[condo_number]"]["access_restrictions"] = conserved_access_restrictions ? conserved_access_restrictions.Copy() : list()
 	splurt_conservated_rooms -= "[condo_number]"
+	splurt_stop_reserved_room_timer(condo_number)
 	splurt_link_room_controls(condo_number, condo_reservation)
 
 	do_sparks(3, FALSE, get_turf(user))
@@ -502,6 +528,7 @@
 		"is_ghost_cafe" = splurt_get_parent_side(parent_object),
 	)
 	splurt_conservated_rooms -= "[condo_number]"
+	splurt_stop_reserved_room_timer(condo_number)
 	splurt_link_room_controls(condo_number, condo_reservation)
 
 /datum/controller/subsystem/condos/proc/on_condo_joined(condo_number, datum/turf_reservation/condo/condo_reservation, mob/user)
@@ -517,5 +544,12 @@
 /datum/controller/subsystem/condos/proc/should_preserve_condo(area/misc/condo/current_area, atom/movable/gone)
 	if(!splurt_room_data["[current_area.condo_number]"])
 		return FALSE
-	log_game("[gone] has left condo [current_area.condo_number] (SPLURT conservation).")
+	log_game("[gone] has left condo [current_area.condo_number] (SPLURT reservation timeout).")
 	return splurt_conservate_condo(current_area)
+
+/datum/controller/subsystem/condos/proc/splurt_forget_room(condo_number)
+	splurt_room_data -= "[condo_number]"
+	splurt_conservated_rooms -= "[condo_number]"
+	splurt_stop_reserved_room_timer(condo_number)
+
+#undef SPLURT_RESERVED_ROOM_TIMEOUT
