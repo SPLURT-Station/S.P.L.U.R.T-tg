@@ -5,7 +5,6 @@
 	var/cyborg_character_preview_department
 	var/cyborg_character_preview_state = "idle"
 	var/cyborg_character_preview_dir = "south"
-	var/cyborg_character_play_animation = FALSE
 	/// Preview-only cyborg genital arousal overrides, keyed by organ slot.
 	var/list/cyborg_character_preview_arousal_states
 	/// Draft state for cyborg character genital layout edits.

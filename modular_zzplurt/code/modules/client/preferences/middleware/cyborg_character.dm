@@ -351,132 +351,6 @@
 			state_entries += list(state_data)
 	return length(state_entries) ? state_entries : null
 
-/proc/cyborg_character_get_preview_state_data(icon_file, state_name, prefer_movement)
-	var/list/state_entries = cyborg_character_get_state_metadata_entries(icon_file, state_name)
-	if(!length(state_entries))
-		return null
-
-	if(prefer_movement)
-		for(var/list/state_data as anything in state_entries)
-			if(state_data?["movement"])
-				return state_data
-
-	for(var/list/state_data as anything in state_entries)
-		if(!state_data?["movement"])
-			return state_data
-
-	return state_entries[1]
-
-/proc/cyborg_character_get_state_frame_delay(list/state_data, frame_index)
-	var/delays = state_data?["delay"]
-	if(islist(delays))
-		if(frame_index <= length(delays) && isnum(delays[frame_index]))
-			return delays[frame_index]
-		if(length(delays) && isnum(delays[1]))
-			return delays[1]
-	if(isnum(delays))
-		return delays
-	return null
-
-/proc/cyborg_character_get_state_frame_delays(list/state_data)
-	if(!islist(state_data))
-		return null
-
-	var/frame_count = 1
-	if(isnum(state_data["frames"]))
-		frame_count = max(state_data["frames"], 1)
-	else if(istext(state_data["frames"]))
-		frame_count = max(text2num(state_data["frames"]), 1)
-	else if(islist(state_data["delay"]))
-		frame_count = max(length(state_data["delay"]), 1)
-
-	var/list/frame_delays = list()
-	for(var/frame_index in 1 to frame_count)
-		var/frame_delay = cyborg_character_get_state_frame_delay(state_data, frame_index)
-		if(!isnum(frame_delay) || frame_delay <= 0)
-			frame_delay = 1
-		frame_delays += frame_delay
-	return frame_delays
-
-/proc/cyborg_character_get_animation_frame_for_time(list/frame_delays, phase_start_time)
-	if(!islist(frame_delays) || !length(frame_delays))
-		return 1
-
-	var/total_cycle_time = 0
-	for(var/frame_delay in frame_delays)
-		total_cycle_time += max(text2num("[frame_delay]"), 1)
-	if(total_cycle_time <= 0)
-		return 1
-
-	var/cycle_progress = max(world.time - phase_start_time, 0) % total_cycle_time
-	var/accumulated_time = 0
-	for(var/frame_index in 1 to length(frame_delays))
-		var/frame_delay = max(text2num("[frame_delays[frame_index]]"), 1)
-		if(cycle_progress < accumulated_time + frame_delay)
-			return frame_index
-		accumulated_time += frame_delay
-	return 1
-
-/proc/cyborg_character_get_animation_frame_time_remaining(list/frame_delays, phase_start_time)
-	if(!islist(frame_delays) || !length(frame_delays))
-		return 0
-
-	var/total_cycle_time = 0
-	for(var/frame_delay in frame_delays)
-		total_cycle_time += max(text2num("[frame_delay]"), 1)
-	if(total_cycle_time <= 0)
-		return 0
-
-	var/cycle_progress = max(world.time - phase_start_time, 0) % total_cycle_time
-	var/accumulated_time = 0
-	for(var/frame_index in 1 to length(frame_delays))
-		var/frame_delay = max(text2num("[frame_delays[frame_index]]"), 1)
-		var/frame_end = accumulated_time + frame_delay
-		if(cycle_progress < frame_end)
-			return max(frame_end - cycle_progress, 1)
-		accumulated_time = frame_end
-	return max(text2num("[frame_delays[1]]"), 1)
-
-/proc/cyborg_character_get_animation_offset_for_frame(list/offsets, frame_index, direction_key)
-	var/list/directional_offsets = null
-	if(istext(direction_key))
-		directional_offsets = offsets?[direction_key]
-	if(!islist(directional_offsets))
-		directional_offsets = offsets?["south"]
-	if(!islist(directional_offsets) || frame_index < 1 || frame_index > length(directional_offsets))
-		return list("pixel_x" = 0, "pixel_y" = 0)
-
-	var/list/frame_offset = directional_offsets[frame_index]
-	if(!islist(frame_offset))
-		return list("pixel_x" = 0, "pixel_y" = 0)
-	return list(
-		"pixel_x" = frame_offset["pixel_x"] || 0,
-		"pixel_y" = frame_offset["pixel_y"] || 0,
-	)
-
-/proc/cyborg_character_get_animation_marker_data(icon_file, icon_state)
-	if(!icon_file || !istext(icon_state) || !length(icon_state))
-		return null
-
-	var/cache_key = "[icon_file]-[icon_state]"
-	var/static/list/cached_marker_data = list()
-	if(!isnull(cached_marker_data[cache_key]))
-		return islist(cached_marker_data[cache_key]) ? cached_marker_data[cache_key] : null
-
-	var/mob/living/silicon/robot/cyborg_character_catalog_host/preview_host = new()
-	var/obj/item/robot_model/preview_model = new /obj/item/robot_model(preview_host)
-	preview_host.model = preview_model
-	preview_host.icon = icon_file
-	preview_host.icon_state = icon_state
-	preview_model.name = "[icon_state]"
-	preview_model.cyborg_icon_override = icon_file
-	preview_model.cyborg_base_icon = icon_state
-
-	var/list/marker_data = preview_host.build_cyborg_genital_animation_marker_data()
-	cached_marker_data[cache_key] = islist(marker_data) ? marker_data : FALSE
-	qdel(preview_host)
-	return marker_data
-
 /proc/cyborg_character_get_preview_marker_point_offset(list/marker_data, selected_state, selected_dir)
 	if(!islist(marker_data))
 		return null
@@ -527,9 +401,7 @@
 		"pixel_y" = round(marker_anchor_y),
 	)
 
-/proc/cyborg_character_get_preview_body_offset(model_data, selected_state, selected_dir, prefer_movement, list/marker_data = null)
-	var/list/state_data = cyborg_character_get_preview_state_data(model_data?["icon"], selected_state, prefer_movement)
-	var/body_moving = !!state_data?["movement"]
+/proc/cyborg_character_get_preview_body_offset(model_data, selected_state, selected_dir, list/marker_data = null)
 	var/canvas_width = model_data?["preview_width"] || ICON_SIZE_X
 	var/canvas_height = model_data?["preview_height"] || ICON_SIZE_Y
 	var/list/marker_point_offset = cyborg_character_get_preview_marker_point_offset(marker_data, selected_state, selected_dir)
@@ -551,9 +423,6 @@
 	return list(
 		"pixel_x" = pixel_x,
 		"pixel_y" = pixel_y,
-		"state_data" = state_data,
-		"frame_delays" = cyborg_character_get_state_frame_delays(state_data),
-		"is_moving" = body_moving,
 		"direction_key" = cyborg_character_get_preview_direction_key(selected_state, selected_dir),
 	)
 
@@ -888,15 +757,6 @@
 
 	return AROUSAL_NONE
 
-/proc/cyborg_character_get_preview_arousal_signature(datum/preferences/preferences)
-	if(!preferences)
-		return ""
-
-	var/list/parts = list()
-	for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
-		parts += "[organ_slot]=[cyborg_character_get_preview_genital_arousal_state(preferences, organ_slot)]"
-	return jointext(parts, ";")
-
 /proc/cyborg_character_get_genital_color_layers(_organ_slot)
 	return list("1" = "primary")
 
@@ -947,7 +807,6 @@
 		"set_cyborg_preview_model" = PROC_REF(set_cyborg_preview_model),
 		"set_cyborg_preview_state" = PROC_REF(set_cyborg_preview_state),
 		"set_cyborg_preview_dir" = PROC_REF(set_cyborg_preview_dir),
-		"set_cyborg_preview_animation" = PROC_REF(set_cyborg_preview_animation),
 		"set_cyborg_preview_genital_arousal" = PROC_REF(set_cyborg_preview_genital_arousal),
 		"set_cyborg_reproduction_value" = PROC_REF(set_cyborg_reproduction_value),
 		"set_cyborg_reproduction_direction_value" = PROC_REF(set_cyborg_reproduction_direction_value),
@@ -1000,8 +859,6 @@
 		preferences.cyborg_character_preview_state = "idle"
 	if(isnull(preferences.cyborg_character_preview_dir))
 		preferences.cyborg_character_preview_dir = "south"
-	if(isnull(preferences.cyborg_character_play_animation))
-		preferences.cyborg_character_play_animation = FALSE
 
 	if(!preferences.cyborg_character_preview_view)
 		preferences.create_cyborg_character_preview_view(user)
@@ -1052,7 +909,6 @@
 			"selected_state" = preferences.cyborg_character_preview_state,
 			"base_state" = preview_data?["icon_state"] || "robot",
 			"selected_dir" = preferences.cyborg_character_preview_dir,
-			"play_animation" = preferences.cyborg_character_play_animation,
 			"preview_width" = preview_data?["preview_width"] || 32,
 			"preview_height" = preview_data?["preview_height"] || 32,
 			"states" = preview_state_options,
@@ -1101,11 +957,6 @@
 	if(!(dir_name in list("north", "south", "east", "west")))
 		return FALSE
 	preferences.cyborg_character_preview_dir = dir_name
-	cyborg_character_refresh_preview(preferences)
-	return TRUE
-
-/datum/preference_middleware/cyborg_character/proc/set_cyborg_preview_animation(list/params, mob/user)
-	preferences.cyborg_character_play_animation = !!params["play"]
 	cyborg_character_refresh_preview(preferences)
 	return TRUE
 
@@ -1310,9 +1161,6 @@
 	name = "cyborg_character_preview"
 	var/datum/preferences/preferences
 	var/atom/movable/screen/background/cyborg_character_preview_background/background
-	var/preview_animation_timer
-	var/preview_animation_phase_start_time = 0
-	var/preview_animation_last_signature
 	var/mob/living/silicon/robot/cyborg_character_catalog_host/preview_robot
 	var/preview_model_department
 	var/preview_model_name
@@ -1338,22 +1186,10 @@
 	return ..()
 
 /atom/movable/screen/map_view/cyborg_character_preview/Destroy()
-	clear_preview_animation_timer()
 	QDEL_NULL(background)
 	QDEL_NULL(preview_robot)
 	preferences = null
 	return ..()
-
-/atom/movable/screen/map_view/cyborg_character_preview/proc/clear_preview_animation_timer()
-	if(preview_animation_timer)
-		deltimer(preview_animation_timer)
-		preview_animation_timer = null
-
-/atom/movable/screen/map_view/cyborg_character_preview/proc/schedule_preview_animation_update(delay)
-	clear_preview_animation_timer()
-	if(delay <= 0)
-		return
-	preview_animation_timer = addtimer(CALLBACK(src, PROC_REF(update_body)), delay, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /atom/movable/screen/map_view/cyborg_character_preview/proc/ensure_preview_robot(model_department, model_name, list/model_data)
 	if(!preview_robot)
@@ -1457,28 +1293,16 @@
 	preferences.cyborg_character_preview_state = selected_state_token
 	var/list/selected_state_option = state_map[selected_state_token]
 	var/resolved_icon_state = selected_state_option?["icon_state"] || icon_state
-	var/state_prefers_movement = !!selected_state_option?["movement"]
 	var/canvas_size = model_data["canvas_size"] || 0
 	var/preview_scale = cyborg_character_get_preview_scale(canvas_size)
 	var/preview_dir = cyborg_character_text_to_dir(preferences.cyborg_character_preview_dir)
-	var/play_animation = !!preferences.cyborg_character_play_animation
 	var/list/store = cyborg_character_get_layout_store(preferences)
-	var/phase_signature = "[icon_file]-[resolved_icon_state]-state[selected_state_token]-dir[preview_dir]-arousal[cyborg_character_get_preview_arousal_signature(preferences)]"
-	if(!play_animation)
-		clear_preview_animation_timer()
-		preview_animation_phase_start_time = 0
-	else if(phase_signature != preview_animation_last_signature || !preview_animation_phase_start_time)
-		preview_animation_phase_start_time = world.time
-	preview_animation_last_signature = phase_signature
 
 	var/mob/living/silicon/robot/cyborg_character_catalog_host/catalog_host = ensure_preview_robot(model_department, model_name, model_data)
 	configure_preview_robot_state(catalog_host, store, model_data, resolved_icon_state, preview_dir)
 	var/list/marker_data = catalog_host.get_cyborg_genital_animation_marker_data()
 	var/list/preview_canvas_anchor_offset = catalog_host.get_cyborg_genital_canvas_anchor_offset()
-	var/list/body_offset = cyborg_character_get_preview_body_offset(model_data, resolved_icon_state, preview_dir, state_prefers_movement, marker_data)
-	var/list/base_frame_delays = body_offset["frame_delays"]
-	var/base_frame_index = play_animation ? cyborg_character_get_animation_frame_for_time(base_frame_delays, preview_animation_phase_start_time) : 1
-	var/base_is_moving = !!body_offset["is_moving"]
+	var/list/body_offset = cyborg_character_get_preview_body_offset(model_data, resolved_icon_state, preview_dir, marker_data)
 	var/preview_body_pixel_x = (body_offset["pixel_x"] || 0) + (catalog_host.pixel_w || 0) - (preview_canvas_anchor_offset?["pixel_x"] || 0)
 	var/preview_body_pixel_y = (body_offset["pixel_y"] || 0) + (catalog_host.pixel_z || 0) - (preview_canvas_anchor_offset?["pixel_y"] || 0)
 	var/preview_genital_pixel_x = 0
@@ -1518,31 +1342,8 @@
 		preview_icon.Scale(preview_canvas_width, preview_canvas_height)
 	if(isicon(body_icon))
 		preview_icon.Blend(body_icon, ICON_OVERLAY, preview_body_pixel_x + preview_pad_left + 1, preview_body_pixel_y + preview_pad_down + 1)
-	var/direction_key = body_offset["direction_key"]
-	var/animation_label = null
-	var/list/animation_offset_map = null
-	var/list/animation_frame_delays = null
-	if(play_animation && !cyborg_character_get_preview_rest_stage_key(selected_state_token))
-		if(base_is_moving)
-			animation_label = "movement"
-			animation_offset_map = marker_data?["movement_by_direction"]
-			animation_frame_delays = marker_data?["frame_delays"]
-		else
-			animation_label = "idle"
-			animation_offset_map = marker_data?["idle_by_direction"]
-			animation_frame_delays = marker_data?["idle_frame_delays"]
-	var/list/animation_offsets = null
-	if(istext(direction_key))
-		animation_offsets = animation_offset_map?[direction_key]
-	if(!islist(animation_offsets))
-		animation_offsets = animation_offset_map?["south"]
 
 	for(var/organ_slot in catalog_host.get_cyborg_genital_slots())
-		var/list/layout_entry = catalog_host.get_cyborg_genital_layout_entry(organ_slot)
-		var/list/base_offset = catalog_host.get_cyborg_genital_base_offsets(organ_slot, direction_key)
-		var/list/overlay_canvas_anchor_offset = catalog_host.get_cyborg_genital_canvas_anchor_offset()
-		var/list/direction_entry = catalog_host.get_cyborg_genital_direction_entry(organ_slot, layout_entry, direction_key)
-		var/body_scale = catalog_host.get_cyborg_genital_body_scale()
 		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir)
 		var/overlay_subindex = 0
 		for(var/mutable_appearance/genital_overlay as anything in base_genital_overlays)
@@ -1604,16 +1405,3 @@
 	preview_output.layer = MOB_LAYER
 	preview_output.plane = FLOAT_PLANE
 	appearance = preview_output.appearance
-
-	if(play_animation)
-		var/next_delay = 0
-		if(length(base_frame_delays))
-			var/base_delay = cyborg_character_get_animation_frame_time_remaining(base_frame_delays, preview_animation_phase_start_time)
-			if(base_delay > 0)
-				next_delay = base_delay
-		if(length(animation_frame_delays))
-			var/animation_delay = cyborg_character_get_animation_frame_time_remaining(animation_frame_delays, preview_animation_phase_start_time)
-			if(animation_delay > 0)
-				next_delay = next_delay ? min(next_delay, animation_delay) : animation_delay
-		if(next_delay > 0)
-			schedule_preview_animation_update(next_delay)

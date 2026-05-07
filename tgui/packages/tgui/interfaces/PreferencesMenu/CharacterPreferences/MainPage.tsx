@@ -9,7 +9,6 @@ import {
   Floating,
   Input,
   LabeledList,
-  NoticeBox,
   Section,
   Stack,
 } from 'tgui-core/components';

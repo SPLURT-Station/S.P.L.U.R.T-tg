@@ -712,34 +712,10 @@ export function CyborgCharacterPage() {
     ],
   );
 
-  const [playAnimationDraft, setPlayAnimationDraft] = useState(
-    !!cyborg.play_animation,
-  );
-
-  useEffect(() => {
-    setPlayAnimationDraft(!!cyborg.play_animation);
-  }, [cyborg.play_animation]);
-
   const visualsPage = (
     <Stack vertical fill style={{ height: '100%', overflow: 'hidden' }}>
       <Stack.Item grow={0}>
-        <Section
-          title="Preview"
-          buttons={
-            <Button.Checkbox
-              checked={playAnimationDraft}
-              onClick={() => {
-                const nextValue = !playAnimationDraft;
-                setPlayAnimationDraft(nextValue);
-                act('set_cyborg_preview_animation', {
-                  play: nextValue,
-                });
-              }}
-            >
-              Play Animation
-            </Button.Checkbox>
-          }
-        >
+        <Section title="Preview">
           <Box
             style={{
               alignItems: 'center',

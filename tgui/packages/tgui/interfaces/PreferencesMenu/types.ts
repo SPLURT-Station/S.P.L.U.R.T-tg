@@ -353,7 +353,6 @@ export type CyborgCharacterData = {
   base_state: string;
   states: CyborgPreviewStateOption[];
   selected_dir: string;
-  play_animation: BooleanLike;
   preview_width: number;
   preview_height: number;
   reproductionManagement: CyborgReproductionManagement;
