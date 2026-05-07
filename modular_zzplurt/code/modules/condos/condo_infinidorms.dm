@@ -35,6 +35,21 @@
 	/// Ckey-based UI defaults for the condo check-in interface.
 	var/list/splurt_user_data = list()
 
+/turf/open/lava/fake/Initialize(mapload)
+	for(var/turf_trait in give_turf_traits)
+		ADD_TRAIT(src, turf_trait, INNATE_TRAIT)
+	. = ..()
+
+/turf/open/water/hot_spring/enter_hot_spring(atom/movable/movable)
+	if(is_type_in_typecache(movable, GLOB.immerse_ignored_movable))
+		return FALSE
+	RegisterSignal(movable, SIGNAL_ADDTRAIT(TRAIT_IMMERSED), PROC_REF(dip_in), TRUE)
+	if(isliving(movable))
+		RegisterSignal(movable, SIGNAL_REMOVETRAIT(TRAIT_IMMERSED), PROC_REF(dip_out), TRUE)
+
+	if(HAS_TRAIT(movable, TRAIT_IMMERSED))
+		dip_in(movable)
+
 /datum/map_template/condo
 	/// Optional category used by SPLURT's check-in UI tabs.
 	var/category = "Misc"

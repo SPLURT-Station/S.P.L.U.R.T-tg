@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Icon,
+  Input,
   NoticeBox,
   NumberInput,
   Section,
@@ -24,6 +25,37 @@ type RoomsData = {
   conservated_rooms: any[];
   hotel_map_list: any[];
 };
+
+const CATEGORY_ORDER = [
+  'Misc',
+  'Apartment',
+  'Beach',
+  'Station',
+  'Winter',
+  'Special',
+];
+
+const CATEGORY_ICONS = {
+  apartment: 'building',
+  beach: 'umbrella-beach',
+  misc: 'shuffle',
+  station: 'satellite',
+  winter: 'snowflake',
+  special: 'heart',
+};
+
+const sortCategories = (categories: string[]) =>
+  categories.sort((a, b) => {
+    const aIndex = CATEGORY_ORDER.indexOf(a);
+    const bIndex = CATEGORY_ORDER.indexOf(b);
+    if (aIndex !== -1 || bIndex !== -1) {
+      return (
+        (aIndex === -1 ? CATEGORY_ORDER.length : aIndex) -
+        (bIndex === -1 ? CATEGORY_ORDER.length : bIndex)
+      );
+    }
+    return a.localeCompare(b);
+  });
 
 const ROOM_STATUS = {
   1: {
@@ -227,9 +259,12 @@ const RoomCheckIn = ({
   data,
   act,
   selectedTemplate,
-  selectedTab,
-  setSelectedTab,
-  tabContent,
+  setSelectedTemplate,
+  selectedCategory,
+  setSelectedCategory,
+  categories,
+  searchText,
+  setSearchText,
 }) => {
   const { current_room = 1 } = data;
   return (
@@ -237,56 +272,36 @@ const RoomCheckIn = ({
       <Stack>
         <Stack.Item grow>
           <Tabs>
-            <Tabs.Tab
-              key={0}
-              selected={selectedTab === 0}
-              onClick={() => setSelectedTab(0)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="shuffle" /> Misc
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={1}
-              selected={selectedTab === 1}
-              onClick={() => setSelectedTab(1)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="building" /> Apartment
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={2}
-              selected={selectedTab === 2}
-              onClick={() => setSelectedTab(2)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="umbrella-beach" /> Beach
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={3}
-              selected={selectedTab === 3}
-              onClick={() => setSelectedTab(3)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="satellite" /> Station
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={4}
-              selected={selectedTab === 4}
-              onClick={() => setSelectedTab(4)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="snowflake" /> Winter
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={5}
-              selected={selectedTab === 5}
-              onClick={() => setSelectedTab(5)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="heart" /> Special
-            </Tabs.Tab>
+            {categories.map((category) => (
+              <Tabs.Tab
+                key={category}
+                selected={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+                style={{ cursor: 'pointer' }}
+              >
+                <Icon
+                  name={CATEGORY_ICONS[category.toLowerCase()] || 'door-open'}
+                />{' '}
+                {category}
+              </Tabs.Tab>
+            ))}
           </Tabs>
-          <Box mt={1}>{tabContent[selectedTab]}</Box>
+          <Box mt={1}>
+            <Input
+              fluid
+              placeholder="Search templates..."
+              value={searchText}
+              onChange={(value) => setSearchText(value)}
+            />
+          </Box>
+          <Box mt={1}>
+            <RoomsTab
+              category={selectedCategory}
+              searchText={searchText}
+              selected_template={selectedTemplate}
+              setSelectedTemplate={setSelectedTemplate}
+            />
+          </Box>
         </Stack.Item>
         <Stack.Item width="120px">
           <NumberInput
@@ -394,45 +409,22 @@ export const CheckoutMenu = (props) => {
   useEffect(() => {
     setSelectedTemplate(checkoutData.selected_template);
   }, [checkoutData.selected_template]);
-  const [selectedTab, setSelectedTab] = useState(0);
-  const tabContent = [
-    <RoomsTab
-      key="misc"
-      category="Misc"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-    <RoomsTab
-      key="apartment"
-      category="Apartment"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-    <RoomsTab
-      key="beach"
-      category="Beach"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-    <RoomsTab
-      key="station"
-      category="Station"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-    <RoomsTab
-      key="winter"
-      category="Winter"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-    <RoomsTab
-      key="special"
-      category="Special"
-      selected_template={selectedTemplate}
-      setSelectedTemplate={setSelectedTemplate}
-    />,
-  ];
+  const categories = sortCategories(
+    Array.from(
+      new Set(
+        checkoutData.hotel_map_list.map((room) => room.category || 'Misc'),
+      ),
+    ),
+  );
+  const [selectedCategory, setSelectedCategory] = useState(
+    categories[0] || 'Misc',
+  );
+  const [searchText, setSearchText] = useState('');
+  useEffect(() => {
+    if (categories.length && !categories.includes(selectedCategory)) {
+      setSelectedCategory(categories[0]);
+    }
+  }, [categories, selectedCategory]);
 
   return (
     <Box
@@ -446,9 +438,12 @@ export const CheckoutMenu = (props) => {
         data={checkoutData}
         act={act}
         selectedTemplate={selectedTemplate}
-        selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
-        tabContent={tabContent}
+        setSelectedTemplate={setSelectedTemplate}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        categories={categories}
+        searchText={searchText}
+        setSearchText={setSearchText}
       />
       <Box
         style={{
@@ -471,25 +466,25 @@ export const CheckoutMenu = (props) => {
 };
 
 const RoomsTab = (props) => {
-  const { category, selected_template, setSelectedTemplate } = props;
+  const { category, searchText, selected_template, setSelectedTemplate } =
+    props;
   const { act, data } = useBackend<RoomsData>();
   const { hotel_map_list = [], user_ckey = '', user_donator_tier = 0 } = data;
 
   const targetCategory = category.toLowerCase();
+  const searchQuery = searchText.trim().toLowerCase();
   const filteredRooms = hotel_map_list.filter(
-    (room) =>
-      room.category?.toLowerCase() === targetCategory &&
-      (!room.ckeywhitelist?.length || room.ckeywhitelist.includes(user_ckey)),
+    (room) => {
+      const roomCategory = room.category || 'Misc';
+      const canSeeRoom =
+        !room.ckeywhitelist?.length || room.ckeywhitelist.includes(user_ckey);
+      const matchesCategory = roomCategory.toLowerCase() === targetCategory;
+      const matchesSearch =
+        !searchQuery ||
+        [room.name, roomCategory].join(' ').toLowerCase().includes(searchQuery);
+      return canSeeRoom && matchesSearch && (searchQuery || matchesCategory);
+    },
   );
-
-  const categoryIcons = {
-    apartment: 'building',
-    beach: 'umbrella-beach',
-    station: 'satellite',
-    winter: 'snowflake',
-    special: 'heart',
-    misc: 'shuffle',
-  };
 
   return (
     <Box
@@ -501,7 +496,11 @@ const RoomsTab = (props) => {
       }}
     >
       {filteredRooms.length === 0 && (
-        <NoticeBox>No {category} rooms found!</NoticeBox>
+        <NoticeBox>
+          {searchQuery
+            ? 'No room templates match your search.'
+            : `No ${category} rooms found!`}
+        </NoticeBox>
       )}
       <Stack vertical fill>
         {filteredRooms.map((room, index) => (
@@ -534,7 +533,7 @@ const RoomsTab = (props) => {
                 {' '}
                 <Icon
                   name={
-                    categoryIcons[room.category?.toLowerCase()] || 'door-open'
+                    CATEGORY_ICONS[room.category?.toLowerCase()] || 'door-open'
                   }
                   mr={2}
                   style={{ marginLeft: '5px', marginRight: '5px' }}
