@@ -1,0 +1,41 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/cafe_condo_teleporter,
+/obj/effect/turf_decal/delivery/red,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/template_noop)
+"z" = (
+/obj/machinery/computer/old{
+	desc = "Due to various fly related incident, management has disabled direct control of this console.";
+	icon_screen = "comm";
+	name = condoteleportationconsole
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/template_noop)
+"O" = (
+/obj/machinery/cafe_condo_teleporter,
+/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+"}
+(2,1,1) = {"
+z
+"}
+(3,1,1) = {"
+O
+"}
