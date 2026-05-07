@@ -335,10 +335,6 @@ export const HilbertsHotelRoomControl = (props) => {
             overflowY: 'auto',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
-            // // @ts-ignore
-            // '&::-webkit-scrollbar': {
-            //   display: 'none',
-            // },
           }}
         >
           <Section>
