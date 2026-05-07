@@ -22,7 +22,6 @@
 /turf/open/floor/iron/checker,
 /area/misc/condo)
 "fW" = (
-/obj/structure/fireaxecabinet/empty/directional/north,
 /obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
@@ -342,6 +341,10 @@
 /obj/structure/steps/directional/north,
 /turf/open/floor/iron/dark,
 /area/misc/condo)
+"LX" = (
+/obj/machinery/room_controller/directional/south,
+/turf/open/floor/iron/dark/diagonal,
+/area/misc/condo)
 "MA" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 5
@@ -565,7 +568,7 @@ tf
 mI
 kU
 zj
-Zk
+LX
 Wn
 an
 "}

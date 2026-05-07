@@ -60,16 +60,6 @@
 /obj/structure/curtain/bounty,
 /turf/open/floor/grass,
 /area/misc/condo)
-"t" = (
-/obj/machinery/light/built/directional/west,
-/obj/effect/turf_decal/trimline/dark/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
-	dir = 4
-	},
-/turf/open/floor/wood/tile,
-/area/misc/condo)
 "u" = (
 /obj/structure/flora/bush/flowers_pp/style_3,
 /obj/structure/flora/bush/ferny/style_3,
@@ -151,16 +141,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
-/turf/open/floor/wood/tile,
-/area/misc/condo)
-"M" = (
-/obj/machinery/light/small/built/directional/south,
-/obj/effect/turf_decal/trimline/dark/filled/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
-	dir = 1
-	},
+/obj/machinery/room_controller/directional/east,
 /turf/open/floor/wood/tile,
 /area/misc/condo)
 "O" = (
@@ -285,7 +266,7 @@ c
 d
 "}
 (6,1,1) = {"
-M
+K
 d
 E
 h
@@ -319,7 +300,7 @@ d
 (10,1,1) = {"
 H
 R
-t
+R
 R
 R
 B
