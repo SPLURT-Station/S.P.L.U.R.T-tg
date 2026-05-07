@@ -115,9 +115,39 @@
 	//Updating the visuals when the mob updates doesn't work (it disappears)
 	//RegisterSignals(held_mob, list(COMSIG_CARBON_APPLY_OVERLAY, COMSIG_CARBON_REMOVE_OVERLAY, COMSIG_ATOM_EXAMINE), PROC_REF(update_visuals))
 
-/obj/item/mob_holder/micro/release(del_on_release, display_messages)
-	UnregisterSignal(held_mob, list(COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
-	return ..()
+/obj/item/mob_holder/micro/release(display_messages = TRUE)
+	if(!held_mob)
+		if(!QDELETED(src))
+			qdel(src)
+		return FALSE
+
+	var/mob/living/released_mob = held_mob
+	var/turf/release_turf = get_turf(src)
+	if(isliving(loc))
+		var/mob/living/captor = loc
+		if(display_messages)
+			to_chat(captor, span_warning("[released_mob] wriggles free!"))
+		captor.dropItemToGround(src)
+		release_turf = get_turf(src) || get_turf(captor)
+
+	UnregisterSignal(released_mob, list(COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
+	held_mob = null
+
+	if(!release_turf)
+		release_turf = get_turf(released_mob)
+	if(!release_turf)
+		release_turf = get_turf(loc)
+	if(!release_turf)
+		CRASH("/obj/item/mob_holder/micro/release could not resolve a turf for [released_mob]")
+
+	released_mob.forceMove(release_turf)
+	released_mob.reset_perspective()
+	released_mob.setDir(SOUTH)
+	if(display_messages)
+		released_mob.visible_message(span_warning("[released_mob] uncurls!"))
+	if(!QDELETED(src))
+		qdel(src)
+	return TRUE
 
 /obj/item/mob_holder/micro/Destroy()
 	UnregisterSignal(src, COMSIG_ATOM_EXAMINE)
@@ -175,15 +205,34 @@
 	if(istype(M))
 		switch(resolve_intent_name(user))
 			if("harm") //TO:DO, rework all of these interactions to be a lot more in depth
-				visible_message(span_danger("[user] slams their fist down on [M]!"))
+				user.visible_message(span_danger("[user] slams their fist down on [M]!"),
+								span_danger("You slam your fist down on [M]!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] slams their fist down on you!")) // Seems I was wrong, I can do better
 				playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)
 				M.adjust_brute_loss(5)
 			if("disarm")
-				visible_message(span_danger("[user] pins [M] down with a finger!"))
+
+				user.visible_message(span_danger("[user] pins [M] down with a finger!"),
+								span_danger("You pin [M] down with a finger!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] pins you down with a finger!"))
 				playsound(loc, 'sound/effects/bodyfall/bodyfall1.ogg', 50, 1)
 				M.adjust_stamina_loss(10)
 			if("grab")
-				visible_message(span_danger("[user] squeezes their fist around [M]!"))
+				user.visible_message(span_danger("[user] squeezes their fist around [M]!"),
+								span_danger("You squeeze your fist around [M]!"),
+								null,
+								null,
+								list(M)
+				)
+				to_chat(M, span_userdanger("[user] squeezes their fist around you!"))
 				playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, 1)
 				M.adjust_oxy_loss(5)
 			else

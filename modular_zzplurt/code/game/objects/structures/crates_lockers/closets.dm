@@ -123,6 +123,9 @@
 /obj/structure/closet/proc/get_unpacked(create_peanuts = TRUE)
 	if(!packing_overlay)
 		return FALSE
+	for(var/atom/movable/packed_item in src)
+		REMOVE_TRAIT(packed_item, TRAIT_SKIP_BASIC_REACH_CHECK, REF(src))
+		UnregisterSignal(packed_item, COMSIG_MOVABLE_MOVED)
 	QDEL_NULL(packing_overlay)
 	if(create_peanuts)
 		if(!opened)
@@ -135,4 +138,6 @@
 
 	REMOVE_TRAIT(source, TRAIT_SKIP_BASIC_REACH_CHECK, REF(src))
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+	if(!packing_overlay)
+		return
 	packing_overlay.update_contents(src)

@@ -40,7 +40,7 @@
 	if(!network)
 		return
 
-	for(var/datum/component/remote_materials/R as anything in network)
+	for(var/datum/remote_materials/R as anything in network)
 		if(!R.silo && R.parent)
 			connect_receptacle(R, R.parent)
 
@@ -71,7 +71,7 @@
 		if(has_receptacle_for(M))
 			continue
 
-		var/datum/component/remote_materials/R = M.GetComponent(/datum/component/remote_materials)
+		var/datum/remote_materials/R = M.GetComponent(/datum/remote_materials)
 
 		if(!R)
 			continue
@@ -88,15 +88,15 @@
 	addtimer(CALLBACK(src, PROC_REF(auto_link_loop)), auto_link_interval)
 
 /obj/machinery/ore_silo/away/proc/has_receptacle_for(atom/movable/M)
-	for(var/datum/component/remote_materials/R as anything in ore_connected_machines)
+	for(var/datum/remote_materials/R as anything in ore_connected_machines)
 		if(R.parent == M)
 			return TRUE
 	return FALSE
 
-/datum/component/remote_materials/networked
+/datum/remote_materials/networked
 	var/network_id = null
 
-/datum/component/remote_materials/networked/Initialize(...)
+/datum/remote_materials/networked/New(parent, mapload, allow_standalone, force_connect, mat_container_flags, list/mat_container_signals)
 	. = ..()
 
 	if(network_id)
@@ -107,13 +107,13 @@
 
 		try_link_to_silo()
 
-/datum/component/remote_materials/networked/proc/try_link_to_silo()
+/datum/remote_materials/networked/proc/try_link_to_silo()
 	for(var/obj/machinery/ore_silo/away/S in world)
 		if(S.network_id == network_id)
 			if(!src.silo && src.parent)
 				S.connect_receptacle(src, src.parent)
 
-/datum/component/remote_materials/networked/Destroy()
+/datum/remote_materials/networked/Destroy()
 	if(network_id && GLOB.ore_silo_networks[network_id])
 		GLOB.ore_silo_networks[network_id] -= src
 
@@ -157,7 +157,7 @@
 // =========================
 
 /obj/machinery/ore_silo/away/preloaded/proc/apply_starting_materials()
-	var/datum/component/material_container/MC = GetComponent(/datum/component/material_container)
+	var/datum/material_container/MC = materials
 	if(!MC)
 		world.log << "[src]: No material_container component found!"
 		return
@@ -208,7 +208,7 @@
 	set name = "Set Material"
 	set category = "Debug"
 
-	var/datum/component/material_container/MC = GetComponent(/datum/component/material_container)
+	var/datum/material_container/MC = materials
 	if(!MC)
 		to_chat(usr, "No material container found.")
 		return

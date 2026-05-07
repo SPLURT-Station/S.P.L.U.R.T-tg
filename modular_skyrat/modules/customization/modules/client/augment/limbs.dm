@@ -2,13 +2,6 @@
 	category = AUGMENT_CATEGORY_LIMBS
 	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	///Hardcoded styles that can be chosen from and apply to limb, if it's true
-	var/uses_robotic_styles = TRUE
-	// SPLURT EDIT START - https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/issues/453
-	///Should we draw these greyscale?
-	var/uses_greyscale = FALSE
-	///Used for legs - if it has a digitigrade sprite variant, set to TRUE.
-	var/supports_digitigrade = FALSE
-	// SPLURT EDIT END
 
 /datum/augment_item/limb/apply(mob/living/carbon/human/augmented, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
@@ -57,7 +50,7 @@
 			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.bodyshape = old_limb.bodyshape
 		// SPLURT EDIT END
-		new_limb.replace_limb(augmented, special = TRUE)
+		new_limb.replace_limb(augmented)
 		qdel(old_limb)
 
 //HEADS

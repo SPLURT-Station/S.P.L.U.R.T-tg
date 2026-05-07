@@ -21,6 +21,9 @@
 // SKYRAT EDIT START
 #define CHANNEL_HEV 1005
 //SKYRAT EDIT CHANGE END
+// SPLURT EDIT ADDITION BEGIN
+#define CHANNEL_HEADPHONES 1004
+// SPLURT EDIT ADDITION END
 
 /// This is the lowest volume that can be used by playsound otherwise it gets ignored
 /// Most sounds around 10 volume can barely be heard. Almost all sounds at 5 volume or below are inaudible
@@ -48,7 +51,7 @@
 
 /* Calculates the volume of a sound based on distance
  *
- * https://www.desmos.com/calculator/sqdfl8ipgf
+ * https://www.desmos.com/calculator/shjpmz3ck7
  *
  * Arguments:
  * * volume: The initial volume of the sound being played
@@ -422,6 +425,7 @@ GLOBAL_LIST_EMPTY(sfx_datum_by_key)
 #define SFX_HARD_HAT_PICKUP "hard_hat_pickup"
 #define SFX_HARD_HAT_DROP "hard_hat_drop"
 #define SFX_HARD_HAT_EQUIP "hard_hat_equip"
+#define SFX_ALIEN_SPIT_ACID "alien_split_acid"
 
 // Standard is 44.1khz
 #define MIN_EMOTE_PITCH 40000

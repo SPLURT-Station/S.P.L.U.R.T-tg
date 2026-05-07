@@ -163,3 +163,7 @@
 
 /datum/preference/toggle/erp/stomping
 	savefile_key = "stomp_on_pref"
+
+/datum/preference/toggle/erp/smothering
+	savefile_key = "smothering_pref"
+	default_value = FALSE

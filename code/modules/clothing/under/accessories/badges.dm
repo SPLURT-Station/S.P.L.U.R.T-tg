@@ -39,6 +39,16 @@
 		if(user)
 			attach_to.balloon_alert(user, "can't pick both sides!")
 		return FALSE
+	//SPLURT ADDITION START - Skub pins
+	if(locate(/obj/item/clothing/accessory/pro_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	if(locate(/obj/item/clothing/accessory/anti_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	//SPLURT ADDITION END
 	return TRUE
 
 /obj/item/clothing/accessory/clown_enjoyer_pin/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
@@ -67,6 +77,16 @@
 		if(user)
 			attach_to.balloon_alert(user, "can't pick both sides!")
 		return FALSE
+	//SPLURT ADDITION START - Skub pins
+	if(locate(/obj/item/clothing/accessory/pro_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	if(locate(/obj/item/clothing/accessory/anti_skub_pin) in attach_to.attached_accessories)
+		if(user)
+			attach_to.balloon_alert(user, "can't pick both sides!")
+		return FALSE
+	//SPLURT ADDITION END
 	return TRUE
 
 /obj/item/clothing/accessory/mime_fan_pin/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
@@ -177,28 +197,50 @@
 	name = "Pre-Approved Cyborg Candidate dogtag"
 	display = "This employee has been screened for negative mental traits to an acceptable level of accuracy, and is approved for the NT Cyborg program as an alternative to medical resuscitation."
 
+// Pride pin skins
+/datum/atom_skin/pride_pin
+	abstract_type = /datum/atom_skin/pride_pin
+
+/datum/atom_skin/pride_pin/gay
+	preview_name = "Rainbow Pride"
+	new_icon_state = "pride"
+
+/datum/atom_skin/pride_pin/bi
+	preview_name = "Bisexual Pride"
+	new_icon_state = "pride_bi"
+
+/datum/atom_skin/pride_pin/pan
+	preview_name = "Pansexual Pride"
+	new_icon_state = "pride_pan"
+
+/datum/atom_skin/pride_pin/ace
+	preview_name = "Asexual Pride"
+	new_icon_state = "pride_ace"
+
+/datum/atom_skin/pride_pin/enby
+	preview_name = "Non-binary Pride"
+	new_icon_state = "pride_enby"
+
+/datum/atom_skin/pride_pin/trans
+	preview_name = "Transgender Pride"
+	new_icon_state = "pride_trans"
+
+/datum/atom_skin/pride_pin/intersex
+	preview_name = "Intersex Pride"
+	new_icon_state = "pride_intersex"
+
+/datum/atom_skin/pride_pin/lesbian
+	preview_name = "Lesbian Pride"
+	new_icon_state = "pride_lesbian"
+
 /obj/item/clothing/accessory/pride
 	name = "pride pin"
 	desc = "A Nanotrasen Diversity & Inclusion Center-sponsored holographic pin to show off your pride, reminding the crew of their unwavering commitment to equity, diversity, and inclusion!"
 	icon_state = "pride"
-	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
-	unique_reskin = list(
-		"Rainbow Pride" = "pride",
-		"Bisexual Pride" = "pride_bi",
-		"Pansexual Pride" = "pride_pan",
-		"Asexual Pride" = "pride_ace",
-		"Non-binary Pride" = "pride_enby",
-		"Transgender Pride" = "pride_trans",
-		"Intersex Pride" = "pride_intersex",
-		"Lesbian Pride" = "pride_lesbian",
-	)
+	obj_flags = UNIQUE_RENAME
 
-/obj/item/clothing/accessory/pride/setup_reskinning()
-	if(!check_setup_reskinning())
-		return
-
-	// We already register context regardless in Initialize.
-	RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(on_click_alt_reskin))
+/obj/item/clothing/accessory/pride/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/pride_pin, infinite = TRUE)
 
 /obj/item/clothing/accessory/deaf_pin
 	name = "deaf personnel pin"

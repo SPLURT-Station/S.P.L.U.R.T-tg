@@ -8,7 +8,7 @@
 	medical_record_text = "Patient has abnormally low capacity for injury."
 	mob_trait = TRAIT_FLIMSY
 	hardcore_value = 2
-	icon = FA_ICON_USER_INJURED
+	icon = FA_ICON_CRUTCH
 	hidden_quirk = TRUE
 
 /datum/quirk/flimsy/add(client/client_source)
