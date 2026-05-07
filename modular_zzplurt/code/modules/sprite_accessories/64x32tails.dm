@@ -26,3 +26,15 @@ Big Tails
 	icon_state = "khanivore"
 	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
+/datum/sprite_accessory/tails/splurt_big/pichu
+	name = "Pichu (Large)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_64x32_tails.dmi'
+	icon_state = "pichu"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
+
+/datum/sprite_accessory/tails/splurt_big/pikachu_male
+	name = "Pikachu Male (Large)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_64x32_tails.dmi'
+	icon_state = "pikachumale"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
+
