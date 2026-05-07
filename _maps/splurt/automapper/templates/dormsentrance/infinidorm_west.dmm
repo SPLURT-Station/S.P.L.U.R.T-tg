@@ -11,16 +11,15 @@
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "o" = (
-/obj/machinery/computer/old{
-	desc = "Due to various fly related incident, management has disabled direct control of this console.";
-	icon_screen = "comm";
-	name = condoteleportationconsole;
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/computer{
+	name = "Condo Teleportation Console";
+	desc = "Due to various fly related incident, management has disabled direct control of this console.";
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
