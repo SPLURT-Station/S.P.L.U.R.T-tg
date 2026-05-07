@@ -24,7 +24,7 @@ export const LewdItemsTab = ({ searchText }: LewdItemsTabProps) => {
     const searchLower = searchText.toLowerCase();
     return (
       slot.name.toLowerCase().includes(searchLower) ||
-      (slot.item_name && slot.item_name.toLowerCase().includes(searchLower))
+      slot.item_name?.toLowerCase().includes(searchLower)
     );
   });
 
@@ -53,7 +53,7 @@ export const LewdItemsTab = ({ searchText }: LewdItemsTabProps) => {
               >
                 {slot.img ? (
                   <img
-                    src={'data:image/png;base64,' + slot.img}
+                    src={`data:image/png;base64,${slot.img}`}
                     style={{
                       width: '100%',
                       height: '100%',

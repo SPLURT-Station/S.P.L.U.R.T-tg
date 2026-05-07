@@ -37,7 +37,7 @@
 /datum/quirk/hypnotic_borg
 	name = "Hypnotic Optics"
 	desc = "Your optical displays and chassis presence are captivating to those susceptible to hypnosis."
-	abstract_parent_type = /datum/quirk/hypnotic_borg
+	abstract_type = /datum/quirk/hypnotic_borg
 	icon = FA_ICON_FACE_GRIN_HEARTS
 	value = 0
 	quirk_flags = QUIRK_HIDE_FROM_SCAN

@@ -6,7 +6,7 @@
 	lose_text = span_notice("You no longer feel like you should be eating trash.")
 	medical_record_text = "Patient has a strange craving for trash."
 	mob_trait = TRAIT_TRASHCAN
-	icon = FA_ICON_TRASH_ALT
+	icon = FA_ICON_TRASH_CAN
 
 /datum/quirk/trashcan/add(client/client_source)
 	. = ..()

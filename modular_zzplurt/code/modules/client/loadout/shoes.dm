@@ -30,11 +30,13 @@
 /datum/loadout_item/shoes/highheels
 	name = "High Heels"
 	item_path = /obj/item/clothing/shoes/highheels
-*/
+
 
 /datum/loadout_item/shoes/latex
 	name = "Latex Socks"
 	item_path = /obj/item/clothing/shoes/latex_socks
+*/
+
 
 /datum/loadout_item/shoes/highheel_sandals
 	name = "High-heel Sandals"

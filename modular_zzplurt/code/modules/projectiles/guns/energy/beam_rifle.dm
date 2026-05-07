@@ -5,6 +5,14 @@
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/guns_righthand.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/back.dmi'
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.25,
+	)
 
 /obj/item/ammo_casing/energy/event_horizon
 	select_name = "hyper-resonant"

@@ -1,8 +1,3 @@
-/obj/machinery/vending/security
-	zzplurt_contraband = list(
-		/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne = 2,
-	)
-
 /obj/machinery/vending/security/old
 	name = "\improper SecTech"
 	desc = "A security equipment vendor."
