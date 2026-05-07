@@ -237,6 +237,7 @@
 		if(!action.show_to_observers || !action.owner_has_control)
 			continue
 		action.GiveAction(src)
+	UnregisterSignal(take_from, list(COMSIG_MOB_GRANTED_ACTION, COMSIG_MOB_REMOVED_ACTION)) //SPLURT ADDITION: - Auto-observe stacking registering fix
 	RegisterSignal(take_from, COMSIG_MOB_GRANTED_ACTION, PROC_REF(on_observing_action_granted))
 	RegisterSignal(take_from, COMSIG_MOB_REMOVED_ACTION, PROC_REF(on_observing_action_removed))
 

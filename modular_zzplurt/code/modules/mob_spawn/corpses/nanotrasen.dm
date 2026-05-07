@@ -33,7 +33,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/soft/sec/ntps
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/pvt
@@ -69,7 +69,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/beret/sec/medical
 	belt = /obj/item/storage/belt/security/webbing/peacekeeper
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/spc
@@ -104,7 +104,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpl
@@ -139,7 +139,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps/sergeant
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel
 	ears = /obj/item/radio/headset/headset_cent/empty/privsec
 	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/centcom/corpse/private_security/sgt
@@ -170,13 +170,12 @@
 
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps/captain
 	suit = /obj/item/clothing/suit/armor/vest
-	belt = /obj/item/storage/belt/security/webbing/peacekeeper/armadyne/privsec
+	belt = /obj/item/storage/belt/security/webbing/privsec
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	head = /obj/item/clothing/head/beret/sec/ntps/captain
-	back = /obj/item/storage/backpack/satchel/sec/redsec
-	ears = /obj/item/radio/headset/headset_cent/empty/privsec
+	head = /obj/item/clothing/head/helmet/swat/nanotrasen/commander
+	back = /obj/item/storage/backpack/satchel/sec
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/centcom/corpse/private_security/cpt
 	implants = list(/obj/item/implant/mindshield)
