@@ -1,5 +1,3 @@
-// BLUESEC REMOVAL - SPLURT EDIT
-/*
 /obj/item/clothing/head/beret/sec/peacekeeper
 	name = "peacekeeper beret"
 	desc = "A robust beret with the peacekeeper insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."

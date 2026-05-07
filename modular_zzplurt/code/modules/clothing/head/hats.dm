@@ -105,3 +105,128 @@
 /obj/item/clothing/head/costume/maid_headband/syndicate/donor
 	name = "tactical maid headband"
 	desc = "Tacticute modified to fit certain shadekins."
+
+/obj/item/clothing/head/beret/sec/splurt
+	name = "security beret"
+	desc = "A robust beret with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "security_beret"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+	armor_type = /datum/armor/cosmetic_sec
+	strip_delay = 6 SECONDS
+	dog_fashion = null
+	flags_1 = NONE
+
+/obj/item/clothing/head/beret/sec/splurt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_beret)
+
+/datum/atom_skin/security_beret
+	abstract_type = /datum/atom_skin/security_beret
+
+/datum/atom_skin/security_beret/default
+	preview_name = "Default Variant"
+	new_icon_state = "security_beret"
+
+/datum/atom_skin/security_beret/alt
+	preview_name = "Black Variant"
+	new_icon_state = "security_beret_alt"
+
+/obj/item/clothing/head/beret/sec/splurt/warden
+	name = "warden's beret"
+	desc = "A robust beret with the silver security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "security_warden_beret"
+	armor_type = /datum/armor/hats_warden
+
+/obj/item/clothing/head/beret/sec/splurt/warden/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/warden_beret)
+
+/datum/atom_skin/warden_beret
+	abstract_type = /datum/atom_skin/warden_beret
+
+/datum/atom_skin/warden_beret/default
+	preview_name = "Default Variant"
+	new_icon_state = "security_warden_beret"
+
+/datum/atom_skin/warden_beret/alt
+	preview_name = "Black Variant"
+	new_icon_state = "security_warden_beret_alt"
+
+/obj/item/clothing/head/beret/sec/splurt/hos
+	name = "head of security's beret"
+	desc = "A robust beret with the golden security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "security_hos_beret"
+	armor_type = /datum/armor/hats_hos
+
+/obj/item/clothing/head/beret/sec/splurt/hos/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hos_beret)
+
+/datum/atom_skin/hos_beret
+	abstract_type = /datum/atom_skin/hos_beret
+
+/datum/atom_skin/hos_beret/default
+	preview_name = "Default Variant"
+	new_icon_state = "security_hos_beret"
+
+/datum/atom_skin/hos_beret/alt
+	preview_name = "Black Variant"
+	new_icon_state = "security_hos_beret_alt"
+
+/obj/item/clothing/head/security_garrison
+	name = "security garrison cap"
+	desc = "A garrison cap usually worn by old Solarian military personnel, this one is painted in security colors and has security insignia."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "sec_garrison"
+	armor_type = /datum/armor/cosmetic_sec
+	strip_delay = 6 SECONDS
+	dog_fashion = null
+	flags_1 = null
+
+/obj/item/clothing/head/security_garrison/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison)
+
+/datum/atom_skin/security_garrison
+	abstract_type = /datum/atom_skin/security_garrison
+
+/datum/atom_skin/security_garrison/default
+	preview_name = "Default Variant"
+	new_icon_state = "sec_garrison"
+
+/datum/atom_skin/security_garrison/alt
+	preview_name = "Black Variant"
+	new_icon_state = "sec_garrison_alt"
+
+/obj/item/clothing/head/security_garrison/warden
+	name = "warden's garrison cap"
+	desc = "A garrison cap usually worn by old Solarian military personnel, this one is painted in security colors and has silver security insignia."
+	icon_state = "sec_warden_garrison"
+	armor_type = /datum/armor/hats_warden
+	strip_delay = 6 SECONDS
+
+/obj/item/clothing/head/security_garrison/warden/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/warden_garrison)
+
+/datum/atom_skin/warden_garrison
+	abstract_type = /datum/atom_skin/warden_garrison
+
+/datum/atom_skin/warden_garrison/default
+	preview_name = "Default Variant"
+	new_icon_state = "sec_warden_garrison"
+
+/datum/atom_skin/warden_garrison/alt
+	preview_name = "Black Variant"
+	new_icon_state = "sec_warden_garrison_alt"
+
+/obj/item/clothing/head/hats/warden
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
+	icon_state = "policehelm"

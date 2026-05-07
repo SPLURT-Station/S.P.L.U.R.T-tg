@@ -960,4 +960,3 @@
 
 /obj/item/clothing/suit/bio_suit/security
 	desc = "A suit that protects against biological contamination. This is a slightly outdated model from Nanotrasen Securities, using their red color-scheme and even outdated labelling. Hopefully it's still up to spec..."
-*/
