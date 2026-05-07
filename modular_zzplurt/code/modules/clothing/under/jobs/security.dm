@@ -44,11 +44,25 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/rank/security/splurt/officer/skirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/officer/suit
 	name = "security suit"
 	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with security insignia, not guaranteed to be good to run in!"
 	icon_state = "security_suit"
 	can_adjust = TRUE
+
+/obj/item/clothing/under/rank/security/splurt/officer/suit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/splurt/officer/casual
 	name = "security casual suit"
@@ -56,17 +70,30 @@
 	icon_state = "security_casual"
 	can_adjust = TRUE
 
+/obj/item/clothing/under/rank/security/splurt/officer/casual/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/officer/turtleneck
 	name = "security turtleneck suit"
 	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with black cargo pants to look tactical!"
 	icon_state = "turtleneck"
 	can_adjust = TRUE
 
+/obj/item/clothing/under/rank/security/splurt/officer/turtleneck/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/officer/turtleneck/skirt
 	name = "security turtleneck skirt"
 	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with a black skirt to look tactical!"
 	icon_state = "turtleneck_skirt"
-	can_adjust = TRUE
 
 /obj/item/clothing/under/rank/security/splurt/officer/trousers
 	name = "security trousers"
@@ -79,6 +106,14 @@
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+
+/obj/item/clothing/under/rank/security/splurt/officer/trousers/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 
 /obj/item/clothing/under/rank/security/splurt/officer/trousers/shorts
 	name = "security shorts"
@@ -97,6 +132,13 @@
 	can_adjust = TRUE
 	body_parts_covered = GROIN | LEGS
 
+/obj/item/clothing/under/rank/security/splurt/officer/miniskirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/officer/battledress
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt. Now in security red!"
@@ -104,6 +146,13 @@
 	can_adjust = TRUE
 	alt_covers_chest = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/splurt/officer/battledress/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/officer/formal
 	icon = 'icons/obj/clothing/under/security.dmi'
@@ -142,17 +191,38 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/rank/security/splurt/warden/skirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/warden/suit
 	name = "warden's suit"
 	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with silver security insignia, not guaranteed to be good to run in!"
 	icon_state = "warden_suit"
 	can_adjust = TRUE
 
+/obj/item/clothing/under/rank/security/splurt/warden/suit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/warden/turtleneck
 	name = "warden's turtleneck suit"
 	desc = "A comfortable turtleneck in the classic security red, dawned with silver security insignia. Paired with black cargo pants to look tactical!"
 	icon_state = "turtleneck_warden"
 	can_adjust = TRUE
+
+/obj/item/clothing/under/rank/security/splurt/warden/turtleneck/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/splurt/warden/turtleneck/skirt
 	name = "warden's turtleneck skirt"
@@ -167,6 +237,13 @@
 	can_adjust = TRUE
 	alt_covers_chest = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/splurt/warden/battledress/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/warden/formal
 	icon = 'icons/obj/clothing/under/security.dmi'
@@ -207,17 +284,38 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/rank/security/splurt/head_of_security/skirt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/head_of_security/suit
 	name = "head of security's suit"
 	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with golden security insignia, not guaranteed to be good to run in!"
 	icon_state = "hos_suit"
 	can_adjust = TRUE
 
+/obj/item/clothing/under/rank/security/splurt/head_of_security/suit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
 /obj/item/clothing/under/rank/security/splurt/head_of_security/casual
 	name = "head of security's casual suit"
 	desc = "A sleek, formal suit with a white dress shirt dawned with golden security insignia, not guaranteed to be good to run in!"
 	icon_state = "security_casual_hos"
 	can_adjust = TRUE
+
+/obj/item/clothing/under/rank/security/splurt/head_of_security/casual/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/splurt/head_of_security/turtleneck
 	name = "head of security's turtleneck suit"
@@ -268,6 +366,13 @@
 	can_adjust = TRUE
 	alt_covers_chest = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/splurt/head_of_security/battledress/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/under/rank/security/head_of_security/formal
 	icon = 'icons/obj/clothing/under/security.dmi'

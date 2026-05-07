@@ -49,7 +49,6 @@
 				/obj/item/clothing/neck/security_cape = 6,
 				/obj/item/clothing/neck/security_cape/armplate = 6,
 				/obj/item/clothing/gloves/color/black = 6,
-				/obj/item/clothing/gloves/tackler = 6,
 				/obj/item/clothing/gloves/color/black/security = 6,
 				/obj/item/clothing/accessory/armband/deputy = 6,
 				/obj/item/clothing/under/rank/security/officer/formal = 6,
