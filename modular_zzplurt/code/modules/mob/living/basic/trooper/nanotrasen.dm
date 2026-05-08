@@ -32,6 +32,67 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
 
 // --------------------
+// MELEE BASE
+// --------------------
+
+/mob/living/basic/trooper/nanotrasen/melee
+	desc = "A member of Nanotrasen's private security, an underpaid security force. They seem rather unpleased to meet you. They are armed with an stun baton."
+	melee_damage_lower = 35
+	melee_damage_upper = 35
+	melee_damage_type = STAMINA
+	attack_verb_continuous = "beats"
+	attack_verb_simple = "beat"
+	attack_sound = 'sound/items/weapons/egloves.ogg'
+	r_hand = /obj/item/melee/baton/security/loaded
+	light_range = 1.5
+	light_power = 0.5
+	light_color = LIGHT_COLOR_ORANGE
+	var/projectile_deflect_chance = 0
+
+/mob/living/basic/trooper/nanotrasen/melee/projectile_hit(obj/projectile/hitting_projectile, def_zone, piercing_hit, blocked)
+	if(prob(projectile_deflect_chance))
+		visible_message(span_danger("[src] blocks [hitting_projectile] with its shield!"))
+		return BULLET_ACT_BLOCK
+	return ..()
+
+// --------------------
+// VARIANTS
+// --------------------
+
+/mob/living/basic/trooper/nanotrasen/melee/corporal
+	name = "\improper Nanotrasen Private Security Corporal"
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/corporal
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/corporal
+
+/mob/living/basic/trooper/nanotrasen/melee/sergeant
+	name = "\improper Nanotrasen Private Security Sergeant"
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
+
+// --------------------
+// MELEE + SHIELD BASE
+// --------------------
+
+/mob/living/basic/trooper/nanotrasen/melee/shield
+	desc = "A member of Nanotrasen's private security, an underpaid security force. They seem rather unpleased to meet you. They are armed with an stun baton and riot shield."
+	projectile_deflect_chance = 45
+	l_hand = /obj/item/shield/riot
+
+// --------------------
+// VARIANTS
+// --------------------
+
+/mob/living/basic/trooper/nanotrasen/melee/shield/corporal
+	name = "\improper Nanotrasen Private Security Corporal"
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/corporal
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/corporal
+
+/mob/living/basic/trooper/nanotrasen/melee/shield/sergeant
+	name = "\improper Nanotrasen Private Security Sergeant"
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/sergeant
+
+// --------------------
 // RANGED BASE
 // --------------------
 
@@ -203,13 +264,17 @@
 	for (var/mob/living/basic/trooper/nanotrasen/potential_trooper in oview(src, 7))
 		potential_trooper.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
 
-/* // Removing these for now.
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful
-	desc = "An officer of Nanotrasen's private security force."
-	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst/peaceful
+	desc = "A member of Nanotrasen's private security, an underpaid security force. They are armed with an WT-550."
+	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful
 
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful/Initialize(mapload)
 	. = ..()
 	var/datum/callback/retaliate_callback = CALLBACK(src, PROC_REF(ai_retaliate_behaviour))
 	AddComponent(/datum/component/ai_retaliate_advanced, retaliate_callback)
-*/
+
+/mob/living/basic/trooper/nanotrasen/proc/ai_retaliate_behaviour(mob/living/attacker)
+	if (!istype(attacker))
+		return
+	for (var/mob/living/basic/trooper/nanotrasen/potential_trooper in oview(src, 7))
+		potential_trooper.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
