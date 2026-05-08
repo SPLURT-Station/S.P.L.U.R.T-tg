@@ -246,7 +246,7 @@
 	id = /obj/item/card/id/advanced/platinum
 	id_trim = /datum/id_trim/centcom/ert/commander/privatesecurity
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps/captain
-	belt = /obj/item/storage/belt/security/webbing/peacekeeper/armadyne/privsec/full
+	belt = /obj/item/storage/belt/security/webbing/privsec/full
 	ears = /obj/item/radio/headset/headset_cent/alt/privsec/leader
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 
@@ -359,7 +359,7 @@
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
 
-/obj/item/storage/belt/security/webbing/peacekeeper/armadyne/privsec
+/obj/item/storage/belt/security/webbing/privsec
 	name = "private security webbing"
 	desc = "A tactical chest rig issued to fit security equipment, the added holster seems to help fit sidearms too."
 	storage_type = /datum/storage/security_belt/webbing/holster
@@ -389,7 +389,7 @@
 		/obj/item/gun/energy/disabler,
 	))
 
-/obj/item/storage/belt/security/webbing/peacekeeper/armadyne/privsec/full/PopulateContents()
+/obj/item/storage/belt/security/webbing/privsec/full/PopulateContents()
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/restraints/handcuffs(src)
 	new /obj/item/grenade/flashbang(src)
