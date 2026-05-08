@@ -318,7 +318,22 @@
 	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/captain
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/captain
 	r_hand = /obj/item/gun/ballistic/automatic/bulwark
-	death_message = "collapses to the ground, their gun self-destructing after losing their grip."
+	death_message = "collapses to the ground, their gun self-destructing after leaving their grip."
+
+/mob/living/basic/trooper/nanotrasen/ranged/assault
+	name = "\improper Nanotrasen Assault Team Officer"
+	desc = "A member of Nanotrasen's Private Security, one of their underfunded Assault Division officers. If you see them, they're probably here to kill everything on-sight. They are armed with a L6 SAW."
+	maxHealth = 175
+	health = 175
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
+	casingtype = /obj/item/ammo_casing/m7mm
+	burst_shots = 3
+	projectilesound = 'sound/items/weapons/gun/l6/shot.ogg'
+	ranged_cooldown = 3 SECONDS
+	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/assault
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/assault
+	r_hand = /obj/item/gun/ballistic/automatic/l6_saw
+	death_message = "collapses to the ground, their gun self-destructing after leaving their grip."
 
 /mob/living/basic/trooper/nanotrasen/energy/assault
 	name = "\improper Nanotrasen ERT Security Officer"

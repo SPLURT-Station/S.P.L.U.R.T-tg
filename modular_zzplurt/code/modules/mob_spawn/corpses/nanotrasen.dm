@@ -29,6 +29,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps
 	suit = /obj/item/clothing/suit/armor/vest
+	belt = /obj/item/storage/belt/security/redsec
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
@@ -64,6 +65,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps
 	suit = /obj/item/clothing/suit/armor/vest
+	belt = /obj/item/storage/belt/security/redsec
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
@@ -100,6 +102,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps/corporal
 	suit = /obj/item/clothing/suit/armor/vest
+	belt = /obj/item/storage/belt/security/redsec
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
@@ -135,6 +138,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps/sergeant
 	suit = /obj/item/clothing/suit/armor/vest
+	belt = /obj/item/storage/belt/security/redsec
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat/black
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
@@ -158,6 +162,41 @@
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_SECURITY, ACCESS_MECH_SECURITY, ACCESS_WEAPONS)
 	big_pointer = TRUE
 	honorifics = list("Sgt.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+	pointer_color = COLOR_CENTCOM_BLUE
+
+/obj/effect/mob_spawn/corpse/human/privatesecurity/assault
+	name = "Nanotrasen Private Security Assault Officer"
+	outfit = /datum/outfit/nanotrasenassault
+
+/datum/outfit/nanotrasenassault
+	name = "NT Private Security Assault Officer Corpse"
+
+	uniform = /obj/item/clothing/under/rank/security/splurt/ntps/fatigues
+	suit = /obj/item/clothing/suit/armor/bulletproof
+	belt = /obj/item/storage/belt/security/webbing/privsec
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	head = /obj/item/clothing/head/helmet/swat/nanotrasen/ntps
+	back = /obj/item/storage/backpack/satchel
+	ears = /obj/item/radio/headset/headset_cent/empty/privsec
+	id = /obj/item/card/id/advanced/black
+	id_trim = /datum/id_trim/centcom/corpse/private_security/assault
+	implants = list(/obj/item/implant/mindshield)
+
+/datum/outfit/nanotrasenassault/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	apply_corpse_rank_name(H, "Off.")
+
+/datum/id_trim/centcom/corpse/private_security/assault
+	assignment = JOB_CENTCOM_PRIVATE_SECURITY_SERGEANT
+	subdepartment_color = COLOR_SYNDIE_RED
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_SECURITY, ACCESS_MECH_SECURITY, ACCESS_WEAPONS)
+	big_pointer = TRUE
+	honorifics = list("Off.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 	pointer_color = COLOR_CENTCOM_BLUE
 
