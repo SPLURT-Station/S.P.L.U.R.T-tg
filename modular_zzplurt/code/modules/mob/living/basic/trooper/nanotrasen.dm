@@ -370,7 +370,7 @@
 
 /mob/living/basic/trooper/nanotrasen/energy/elite
 	name = "Deathsquad Trooper"
-	desc = "A member of Nanotrasen's Deathsquad, THE elite strike team. Central Command won't help you, prepare to die if you're spotted. They are armed with a Pulse Rifle."
+	desc = "A member of Nanotrasen's Deathsquad, THE elite strike team. Central Command won't help you, prepare to die if you're spotted. They are armed with a pulse rifle."
 	maxHealth = 250
 	health = 250
 	speed = 1.8
@@ -388,6 +388,21 @@
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	set_light_color(COLOR_RED)
 	set_light(4)
+
+/mob/living/basic/trooper/nanotrasen/energy/elite/asset_protection
+	name = "Asset Protection Specialist"
+	desc = "A member of Nanotrasen's Asset Protection, THE elite protection team, but you are probably here to really test if that's true. They are armed with a pulse carbine."
+	maxHealth = 225
+	health = 225
+	speed = 1.6
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenassetprotection
+	r_hand = /obj/item/gun/energy/pulse/carbine
+
+/mob/living/basic/trooper/nanotrasen/energy/elite/asset_protection/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	set_light_color(COLOR_GREEN)
+	set_light(3)
 
 /// I'm leaving this one because I really can't be bothered to edit skyrat maps.
 /mob/living/basic/trooper/nanotrasen/peaceful

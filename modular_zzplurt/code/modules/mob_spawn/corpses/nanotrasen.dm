@@ -323,6 +323,22 @@
 	name = JOB_CENTCOM_PRIVATE_SECURITY_CORPORAL
 	outfit = /datum/outfit/nanotrasencorporal
 
+/obj/effect/mob_spawn/corpse/human/nanotrasenelitecommander
+	name = "\improper Nanotrasen Elite Commander Corpse"
+	outfit = /datum/outfit/nanotrasenelitecommandercorpse
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
+
+/datum/outfit/nanotrasenelitecommandercorpse
+	name = "\improper NT Elite Commander Corpse"
+	uniform = /obj/item/clothing/under/rank/centcom/military
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	back = /obj/item/mod/control/pre_equipped/responsory/commander
+	id = /obj/item/card/id/advanced/centcom
+	id_trim = /datum/id_trim/centcom/ert/security
+
 /obj/effect/mob_spawn/corpse/human/nanotrasendeathsquad
 	name = "\improper Nanotrasen Deathsquad Corpse"
 	outfit = /datum/outfit/nanotrasendeathsquadcorpse
@@ -339,18 +355,18 @@
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
 
-/obj/effect/mob_spawn/corpse/human/nanotrasenelitecommander
-	name = "\improper Nanotrasen Elite Commander Corpse"
-	outfit = /datum/outfit/nanotrasenelitecommandercorpse
+/obj/effect/mob_spawn/corpse/human/nanotrasenassetprotection
+	name = "\improper Nanotrasen Asset Protection Corpse"
+	outfit = /datum/outfit/nanotrasenassetprotectioncorpse
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
-/datum/outfit/nanotrasenelitecommandercorpse
-	name = "\improper NT Elite Commander Corpse"
-	uniform = /obj/item/clothing/under/rank/centcom/military
-	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
+/datum/outfit/nanotrasenassetprotectioncorpse
+	name = "\improper NT Asset Protection Corpse"
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	shoes = /obj/item/clothing/shoes/combat/swat
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	back = /obj/item/mod/control/pre_equipped/responsory/commander
-	id = /obj/item/card/id/advanced/centcom
-	id_trim = /datum/id_trim/centcom/ert/security
+	back = /obj/item/mod/control/pre_equipped/asset_protection
+	id = /obj/item/card/id/advanced/centcom/ert
+	id_trim = /datum/id_trim/centcom
