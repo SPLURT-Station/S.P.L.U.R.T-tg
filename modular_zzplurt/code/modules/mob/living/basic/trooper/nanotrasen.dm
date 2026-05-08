@@ -356,7 +356,7 @@
 	projectilesound = 'modular_zubbers/sound/weapons/incinerate.ogg'
 	ranged_cooldown = 1 SECONDS
 	corpse = /obj/effect/gibspawner/human
-	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenertsecurity
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine
 
 /mob/living/basic/trooper/nanotrasen/energy/assault/lead
@@ -368,7 +368,7 @@
 	burst_shots = 2
 	projectiletype = /obj/projectile/beam/cybersun_laser
 	projectilesound = 'modular_zubbers/sound/weapons/laser.ogg'
-	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenelitecommander
+	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenertcommander
 	r_hand = /obj/item/gun/energy/modular_laser_rifle
 
 /mob/living/basic/trooper/nanotrasen/energy/assault/Initialize(mapload)
