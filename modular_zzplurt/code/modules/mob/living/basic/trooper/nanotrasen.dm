@@ -322,18 +322,26 @@
 
 /mob/living/basic/trooper/nanotrasen/ranged/assault
 	name = "\improper Nanotrasen Assault Team Officer"
-	desc = "A member of Nanotrasen's Private Security, one of their underfunded Assault Division officers. If you see them, they're probably here to kill everything on-sight. They are armed with a L6 SAW."
+	desc = "A member of Nanotrasen's Private Security, one of their underfunded Assault Division officers. If you see them, they're probably here to kill everything on-sight. They are armed with a NT-ARG Boarder."
 	maxHealth = 175
 	health = 175
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
-	casingtype = /obj/item/ammo_casing/m7mm
+	casingtype = /obj/item/ammo_casing/a223
 	burst_shots = 3
-	projectilesound = 'sound/items/weapons/gun/l6/shot.ogg'
+	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	ranged_cooldown = 3 SECONDS
 	corpse = /obj/effect/mob_spawn/corpse/human/privatesecurity/assault
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/privatesecurity/assault
-	r_hand = /obj/item/gun/ballistic/automatic/l6_saw
+	r_hand = /obj/item/gun/ballistic/automatic/ar
 	death_message = "collapses to the ground, their gun self-destructing after leaving their grip."
+
+/mob/living/basic/trooper/nanotrasen/ranged/assault/elite
+	name = "\improper Nanotrasen Assault Team Elite"
+	desc = "A member of Nanotrasen's Private Security, one of their underfunded Assault Division officers. If you see them, they're probably here to kill everything on-sight. They are armed with a L6 SAW."
+	casingtype = /obj/item/ammo_casing/m7mm
+	burst_shots = 4
+	projectilesound = 'sound/items/weapons/gun/l6/shot.ogg'
+	r_hand = /obj/item/gun/ballistic/automatic/l6_saw
 
 /mob/living/basic/trooper/nanotrasen/energy/assault
 	name = "\improper Nanotrasen ERT Security Officer"
