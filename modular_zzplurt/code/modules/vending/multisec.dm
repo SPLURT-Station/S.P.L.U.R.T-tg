@@ -59,5 +59,23 @@
 				/obj/item/clothing/neck/tie/bunnytie/security/tied = 6,
 				/obj/item/clothing/head/playbunnyears/security = 6,
 			)
-		)
+		),
+		list(
+			"name" = "Viro",
+			"icon" = "vest",
+			"products" = list(
+					/obj/item/clothing/under/rank/security/viro/officer = 6,
+					/obj/item/clothing/under/rank/security/viro/officer/lowcut = 6,
+					/obj/item/clothing/under/rank/security/viro/officer/skirt = 6,
+					/obj/item/clothing/under/rank/security/viro/officer/formal = 6,
+					/obj/item/clothing/under/rank/security/viro/officer/bodysuit = 6,
+					/obj/item/clothing/suit/armor/vest/secwintercoat = 6,
+					/obj/item/clothing/suit/armor/vest/viro = 6,
+					/obj/item/clothing/suit/armor/vest/viro/heavy = 6,
+					/obj/item/clothing/suit/armor/vest/viro/leatherjacket = 6,
+					/obj/item/clothing/suit/armor/vest/viro/softshell = 6,
+					/obj/item/clothing/head/sec/viro = 6,
+					/obj/item/clothing/head/sec/viro/beanie = 6,
+			),
+		),
 )

@@ -114,7 +114,6 @@
 	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
 		qdel(reskin_component)
 
-
 /obj/item/clothing/under/rank/security/splurt/officer/trousers/shorts
 	name = "security shorts"
 	desc = "Some security combat shorts. Definitely should pair it with a vest for safety."
