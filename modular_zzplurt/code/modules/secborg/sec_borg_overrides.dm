@@ -232,6 +232,18 @@
 	. = ..()
 	update_secborg_taser_ammo_hud()
 
+/obj/item/borg/upgrade/syndicate
+	model_type = list(
+		/obj/item/robot_model/standard,
+		/obj/item/robot_model/engineering,
+		/obj/item/robot_model/janitor,
+		/obj/item/robot_model/medical,
+		/obj/item/robot_model/miner,
+		/obj/item/robot_model/peacekeeper,
+		/obj/item/robot_model/sci,
+		/obj/item/robot_model/service,
+	)
+
 // Detective kit upgrade: adds forensic scanner and evidence bag to the security borg
 /obj/item/borg/upgrade/detective_kit
 	name = "detective kit module"
@@ -679,6 +691,7 @@
 		/obj/item/extinguisher/mini,
 	)
 	radio_channels = list(RADIO_CHANNEL_SECURITY)
+	emag_modules = list()
 	cyborg_base_icon = "sec"
 	model_select_icon = "security"
 	model_traits = list(TRAIT_PUSHIMMUNE)
