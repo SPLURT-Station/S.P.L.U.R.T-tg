@@ -118,8 +118,7 @@
 	else
 		uniform = pick(list(
 			/obj/item/clothing/under/rank/security/splurt/ntps,
-			/obj/item/clothing/under/rank/security/splurt/ntps/turtleneck,
-			/obj/item/clothing/under/rank/security/splurt/ntps/fatigues
+			/obj/item/clothing/under/rank/security/splurt/ntps/turtleneck
 		))
 
 	head = pick(list(
@@ -185,8 +184,7 @@
 
 	uniform = pick(list(
 		/obj/item/clothing/under/rank/security/splurt/ntps,
-		/obj/item/clothing/under/rank/security/splurt/ntps/turtleneck,
-		/obj/item/clothing/under/rank/security/splurt/ntps/fatigues
+		/obj/item/clothing/under/rank/security/splurt/ntps/turtleneck
 	))
 
 	return ..()
