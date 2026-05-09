@@ -1,4 +1,10 @@
-
+/datum/security_level/delta
+	announcement_color = "pink"
+	lowering_to_configuration_key = /datum/config_entry/string/alert_delta_downto
+	elevating_to_configuration_key = /datum/config_entry/string/alert_delta_upto
+	looping_sound = 'modular_skyrat/modules/alerts/sound/misc/alarm_delta.ogg'
+	looping_sound_interval = 8 SECONDS
+	shuttle_call_time_mod = 0.1
 
 /**
  * Violet
@@ -48,14 +54,6 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_amber_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_amber_upto
 	shuttle_call_time_mod = 0.5
-
-/datum/security_level/delta
-	announcement_color = "pink"
-	lowering_to_configuration_key = /datum/config_entry/string/alert_delta_downto
-	elevating_to_configuration_key = /datum/config_entry/string/alert_delta_upto
-	looping_sound = 'modular_skyrat/modules/alerts/sound/misc/alarm_delta.ogg'
-	looping_sound_interval = 8 SECONDS
-	shuttle_call_time_mod = 0.1
 
 /**
  * Epsilon
