@@ -1,0 +1,436 @@
+python
+#!/usr/bin/env python3
+"""
+Generate a Node.js ``package.json`` manifest for a backend service.
+
+The script is idempotent: it creates the target directory if it does not exist
+and overwrites an existing ``package.json`` only after successful validation of
+the generated content.
+
+All functions are fully type‑annotated, include comprehensive docstrings,
+perform input validation, and log at appropriate levels.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import os
+import sys
+import tempfile
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Mapping, MutableMapping
+
+# --------------------------------------------------------------------------- #
+# Logging configuration
+# --------------------------------------------------------------------------- #
+
+LOGGER = logging.getLogger(__name__)
+if not LOGGER.handlers:  # Prevent duplicate handlers in interactive sessions
+    LOGGER.setLevel(logging.INFO)
+    _handler = logging.StreamHandler(sys.stdout)
+    _formatter = logging.Formatter(
+        "%(asctime)s %(levelname)s %(name)s – %(message)s"
+    )
+    _handler.setFormatter(_formatter)
+    LOGGER.addHandler(_handler)
+
+# --------------------------------------------------------------------------- #
+# Exceptions
+# --------------------------------------------------------------------------- #
+
+
+class ManifestError(RuntimeError):
+    """Base exception for manifest generation failures."""
+
+
+class ValidationError(ValueError):
+    """Exception raised when input validation fails."""
+
+
+# --------------------------------------------------------------------------- #
+# Configuration dataclass
+# --------------------------------------------------------------------------- #
+
+
+@dataclass(frozen=True, slots=True)
+class PackageConfig:
+    """Immutable configuration for the generated ``package.json``."""
+
+    name: str = "backend"
+    version: str = "1.0.0"
+    description: str = (
+        "Node.js backend for the lightweight web‑service architecture exposing "
+        "RESTful endpoints for slit and sheath resources."
+    )
+    main: str = "src/index.js"
+    author: str = "Your Company"
+    license: str = "MIT"
+    scripts: Mapping[str, str] = field(
+        default_factory=lambda: {
+            "start": "node src/index.js",
+            "dev": "nodemon src/index.js",
+            "test": "jest",
+            "lint": "eslint .",
+        }
+    )
+    dependencies: Mapping[str, str] = field(
+        default_factory=lambda: {
+            "express": "^4.18.2",
+            "sequelize": "^6.32.1",
+            "pg": "^8.11.3",
+            "pg-hstore": "^2.3.4",
+            "cors": "^2.8.5",
+            "dotenv": "^16.3.1",
+            "joi": "^17.9.2",
+            "axios": "^1.5.0",
+            "styled-components": "^5.3.11",
+            "react": "^18.2.0",
+            "react-dom": "^18.2.0",
+            "react-router-dom": "^6.14.2",
+            "formik": "^2.4.5",
+            "yup": "^1.2.0",
+        }
+    )
+    dev_dependencies: Mapping[str, str] = field(
+        default_factory=lambda: {
+            "jest": "^29.7.0",
+            "supertest": "^6.3.3",
+            "nodemon": "^3.0.3",
+            "eslint": "^8.49.0",
+            "eslint-plugin-react": "^7.33.2",
+        }
+    )
+    engines: Mapping[str, str] = field(default_factory=lambda: {"node": ">=14.0.0"})
+
+
+DEFAULT_CONFIG = PackageConfig()
+
+# --------------------------------------------------------------------------- #
+# Validation helpers
+# --------------------------------------------------------------------------- #
+
+
+def _validate_non_empty(value: str, field_name: str) -> None:
+    """
+    Raise :class:`ValidationError` if *value* is empty or whitespace only.
+
+    Parameters
+    ----------
+    value: str
+        Value to validate.
+    field_name: str
+        Human‑readable name of the field for error messages.
+    """
+    if not value or not value.strip():
+        raise ValidationError(f"The field '{field_name}' must not be empty.")
+
+
+def _validate_config(cfg: PackageConfig) -> None:
+    """
+    Validate that all required configuration fields are non‑empty.
+
+    Parameters
+    ----------
+    cfg: PackageConfig
+        Configuration instance to validate.
+
+    Raises
+    ------
+    ValidationError
+        If any required field is empty.
+    """
+    _validate_non_empty(cfg.name, "name")
+    _validate_non_empty(cfg.version, "version")
+    _validate_non_empty(cfg.description, "description")
+    _validate_non_empty(cfg.main, "main")
+    _validate_non_empty(cfg.author, "author")
+    _validate_non_empty(cfg.license, "license")
+    LOGGER.debug("Configuration validation passed.")
+
+
+def _validate_output_dir(path: Path) -> None:
+    """
+    Ensure *path* is a writable directory (or can be created).
+
+    Parameters
+    ----------
+    path: Path
+        Directory to validate.
+
+    Raises
+    ------
+    ValidationError
+        If the directory cannot be created or is not writable.
+    """
+    try:
+        path.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise ValidationError(f"Cannot create directory {path}: {exc}") from exc
+
+    if not path.is_dir():
+        raise ValidationError(f"The path {path} is not a directory.")
+    if not os.access(path, os.W_OK):
+        raise ValidationError(f"The directory {path} is not writable.")
+
+
+# --------------------------------------------------------------------------- #
+# Manifest construction
+# --------------------------------------------------------------------------- #
+
+
+def _build_manifest(cfg: PackageConfig) -> MutableMapping[str, Any]:
+    """
+    Build the ``package.json`` manifest dictionary.
+
+    Parameters
+    ----------
+    cfg: PackageConfig
+        Configuration values to embed in the manifest.
+
+    Returns
+    -------
+    MutableMapping[str, Any]
+        Manifest ready for JSON serialization.
+
+    Raises
+    ------
+    ValidationError
+        If configuration validation fails.
+    """
+    _validate_config(cfg)
+
+    manifest: MutableMapping[str, Any] = {
+        "name": cfg.name,
+        "version": cfg.version,
+        "description": cfg.description,
+        "main": cfg.main,
+        "scripts": dict(cfg.scripts),
+        "author": cfg.author,
+        "license": cfg.license,
+        "dependencies": dict(cfg.dependencies),
+        "devDependencies": dict(cfg.dev_dependencies),
+        "engines": dict(cfg.engines),
+    }
+    LOGGER.debug("Manifest built with %d keys.", len(manifest))
+    return manifest
+
+
+# --------------------------------------------------------------------------- #
+# File I/O helpers
+# --------------------------------------------------------------------------- #
+
+
+def _write_json_atomic(target: Path, data: Mapping[str, Any]) -> None:
+    """
+    Write *data* to *target* as pretty‑printed JSON using an atomic replace.
+
+    Parameters
+    ----------
+    target: Path
+        Destination file path. Parent directories are created automatically.
+    data: Mapping[str, Any]
+        Mapping to be serialized.
+
+    Raises
+    ------
+    OSError
+        If the file cannot be written.
+    TypeError
+        If *data* contains non‑serializable values.
+    """
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        encoding="utf-8",
+        delete=False,
+        dir=str(target.parent),
+        suffix=".tmp",
+    ) as tmp_file:
+        try:
+            json.dump(
+                data,
+                tmp_file,
+                indent=2,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ": "),
+            )
+            tmp_file.flush()
+            os.fsync(tmp_file.fileno())
+            LOGGER.debug("Temporary JSON written to %s.", tmp_file.name)
+        except (OSError, TypeError) as exc:
+            LOGGER.error("Failed to serialize JSON for %s – %s", target, exc)
+            raise
+
+    try:
+        Path(tmp_file.name).replace(target)
+        LOGGER.info("Successfully wrote %s.", target)
+    except OSError as exc:
+        LOGGER.error("Atomic rename failed for %s – %s", target, exc)
+        raise
+
+
+# --------------------------------------------------------------------------- #
+# Public API
+# --------------------------------------------------------------------------- #
+
+
+def generate_package_json(output_dir: Path, cfg: PackageConfig = DEFAULT_CONFIG) -> Path:
+    """
+    Generate a ``package.json`` file inside *output_dir*.
+
+    Parameters
+    ----------
+    output_dir: Path
+        Directory where the file should be created. Must be writable.
+    cfg: PackageConfig, optional
+        Configuration to use; defaults to ``DEFAULT_CONFIG``.
+
+    Returns
+    -------
+    Path
+        Path to the created ``package.json`` file.
+
+    Raises
+    ------
+    ValidationError
+        If *output_dir* is not writable or configuration is invalid.
+    ManifestError
+        If the manifest cannot be written.
+    """
+    LOGGER.debug("Generating package.json in %s with config %s.", output_dir, cfg)
+    _validate_output_dir(output_dir)
+
+    manifest = _build_manifest(cfg)
+    target_path = output_dir / "package.json"
+
+    try:
+        _write_json_atomic(target_path, manifest)
+    except Exception as exc:
+        raise ManifestError(f"Failed to write manifest to {target_path}") from exc
+
+    return target_path
+
+
+# --------------------------------------------------------------------------- #
+# Argument parsing
+# --------------------------------------------------------------------------- #
+
+
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """
+    Parse command‑line arguments.
+
+    Parameters
+    ----------
+    argv: list[str] | None, optional
+        Argument list to parse (defaults to ``sys.argv[1:]``).
+
+    Returns
+    -------
+    argparse.Namespace
+        Parsed arguments.
+    """
+    parser = argparse.ArgumentParser(
+        description="Generate a Node.js package.json manifest."
+    )
+    parser.add_argument(
+        "output_dir",
+        type=Path,
+        help="Directory where package.json will be created.",
+    )
+    parser.add_argument(
+        "--name", type=str, default=DEFAULT_CONFIG.name, help="Package name."
+    )
+    parser.add_argument(
+        "--version", type=str, default=DEFAULT_CONFIG.version, help="Package version."
+    )
+    parser.add_argument(
+        "--description",
+        type=str,
+        default=DEFAULT_CONFIG.description,
+        help="Package description.",
+    )
+    parser.add_argument(
+        "--main", type=str, default=DEFAULT_CONFIG.main, help="Entry point script."
+    )
+    parser.add_argument(
+        "--author", type=str, default=DEFAULT_CONFIG.author, help="Author name."
+    )
+    parser.add_argument(
+        "--license", type=str, default=DEFAULT_CONFIG.license, help="License identifier."
+    )
+    return parser.parse_args(argv)
+
+
+def _build_config_from_args(args: argparse.Namespace) -> PackageConfig:
+    """
+    Build a :class:`PackageConfig` instance from parsed arguments.
+
+    Parameters
+    ----------
+    args: argparse.Namespace
+        Parsed command‑line arguments.
+
+    Returns
+    -------
+    PackageConfig
+        Configuration populated with user‑provided values.
+    """
+    return PackageConfig(
+        name=args.name,
+        version=args.version,
+        description=args.description,
+        main=args.main,
+        author=args.author,
+        license=args.license,
+        scripts=DEFAULT_CONFIG.scripts,
+        dependencies=DEFAULT_CONFIG.dependencies,
+        dev_dependencies=DEFAULT_CONFIG.dev_dependencies,
+        engines=DEFAULT_CONFIG.engines,
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Main entry point
+# --------------------------------------------------------------------------- #
+
+
+def main(argv: list[str] | None = None) -> int:
+    """
+    Execute the script.
+
+    Parameters
+    ----------
+    argv: list[str] | None, optional
+        Argument list to process (defaults to ``sys.argv[1:]``).
+
+    Returns
+    -------
+    int
+        Exit status (0 on success, non‑zero on failure).
+    """
+    try:
+        args = _parse_args(argv)
+        cfg = _build_config_from_args(args)
+        generate_package_json(args.output_dir, cfg)
+        return 0
+    except ValidationError as ve:
+        LOGGER.error("Validation error: %s", ve)
+        return 1
+    except ManifestError as me:
+        LOGGER.error("Manifest generation error: %s", me)
+        return 2
+    except KeyboardInterrupt:
+        LOGGER.warning("Execution interrupted by user.")
+        return 130
+    except Exception as exc:  # pragma: no cover
+        LOGGER.exception("Unexpected error: %s", exc)
+        return 99
+
+
+if __name__ == "__main__":
+    sys.exit(main())
