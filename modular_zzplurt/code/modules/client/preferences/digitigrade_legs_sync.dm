@@ -1,4 +1,7 @@
 /// Keeps the standalone digitigrade legs preference in sync with the legacy DNA feature cache.
+/datum/preference/choiced/digitigrade_legs
+	priority = PREFERENCE_PRIORITY_BODYPARTS
+
 /datum/preferences/proc/sync_digitigrade_legs_feature(value, list/save_data)
 	if(!(value in list(NORMAL_LEGS, DIGITIGRADE_LEGS)))
 		return
