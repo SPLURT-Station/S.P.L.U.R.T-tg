@@ -19,10 +19,9 @@
 	"packageManager": "bun@1.2.16",
 	"private": true,
 	"scripts": {
-		"tgui:analyze": "rspack --analyze",
-		"tgui:build": "rspack build",
-		"tgui:dev": "bun --smol packages/tgui-dev-server/index.ts",
-		"tgui:modular-test": "bun test ../modular_zzplurt/modules/tgui_modular",
+		"tgui:analyze": "bun ../modular_zzplurt/modules/tgui_modular/tools/cli.ts analyze",
+		"tgui:build": "bun ../modular_zzplurt/modules/tgui_modular/tools/cli.ts build",
+		"tgui:dev": "bun ../modular_zzplurt/modules/tgui_modular/tools/cli.ts dev",
 		"tgui:test": "bun test",
 		"tgui:tsc": "tsc"
 	},

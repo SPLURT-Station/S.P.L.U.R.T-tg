@@ -3,8 +3,6 @@ import path from 'node:path';
 import { defineConfig } from '@rspack/cli';
 import rspack, { type StatsOptions } from '@rspack/core';
 
-import { createModularTguiPlugins } from '../modular_zzplurt/modules/tgui_modular';
-
 export function createStats(verbose: boolean): StatsOptions {
   return {
     assets: verbose,
@@ -112,7 +110,6 @@ export default defineConfig({
     hints: false,
   },
   plugins: [
-    ...createModularTguiPlugins(dirname),
     new rspack.CssExtractRspackPlugin({
       chunkFilename: '[name].bundle.css',
       filename: '[name].bundle.css',
