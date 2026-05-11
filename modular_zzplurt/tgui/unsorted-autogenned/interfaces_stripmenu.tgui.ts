@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -12,14 +12,48 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "  eyes: {",
 				position: "before",
-				content: "  socks: {\n    displayName: 'socks',\n    gridSpot: getGridSpotKey([0, 0]),\n    image: 'inventory-socks.png',\n  },\n\n",
+				content: block`
+				  socks: {
+				    displayName: 'socks',
+				    gridSpot: getGridSpotKey([0, 0]),
+				    image: 'inventory-socks.png',
+				  },
+				
+				
+				`,
 				expectedOccurrences: 1,
 			},
 			{
 				kind: "insert",
 				anchor: "  neck: {",
 				position: "before",
-				content: "  ears_extra: {\n    displayName: 'right ear',\n    gridSpot: getGridSpotKey([0, 3]),\n    image: 'inventory-ears_extra.png',\n  },\n\n  undershirt: {\n    displayName: 'shirt',\n    gridSpot: getGridSpotKey([0, 4]),\n    image: 'inventory-undershirt.png',\n  },\n\n  underwear: {\n    displayName: 'underwear',\n    gridSpot: getGridSpotKey([0, 5]),\n    image: 'inventory-underwear.png',\n  },\n\n  bra: {\n    displayName: 'bra',\n    gridSpot: getGridSpotKey([1, 0]),\n    image: 'inventory-bra.png',\n  },\n\n",
+				content: block`
+				  ears_extra: {
+				    displayName: 'right ear',
+				    gridSpot: getGridSpotKey([0, 3]),
+				    image: 'inventory-ears_extra.png',
+				  },
+				
+				  undershirt: {
+				    displayName: 'shirt',
+				    gridSpot: getGridSpotKey([0, 4]),
+				    image: 'inventory-undershirt.png',
+				  },
+				
+				  underwear: {
+				    displayName: 'underwear',
+				    gridSpot: getGridSpotKey([0, 5]),
+				    image: 'inventory-underwear.png',
+				  },
+				
+				  bra: {
+				    displayName: 'bra',
+				    gridSpot: getGridSpotKey([1, 0]),
+				    image: 'inventory-bra.png',
+				  },
+				
+				
+				`,
 				expectedOccurrences: 1,
 			},
 			{
@@ -32,7 +66,15 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "  suit_storage: {",
 				position: "before",
-				content: "  wrists: {\n    displayName: 'wrists',\n    gridSpot: getGridSpotKey([3, 3]),\n    image: 'inventory-wrists.png',\n  },\n\n",
+				content: block`
+				  wrists: {
+				    displayName: 'wrists',
+				    gridSpot: getGridSpotKey([3, 3]),
+				    image: 'inventory-wrists.png',
+				  },
+				
+				
+				`,
 				expectedOccurrences: 1,
 			},
 		],

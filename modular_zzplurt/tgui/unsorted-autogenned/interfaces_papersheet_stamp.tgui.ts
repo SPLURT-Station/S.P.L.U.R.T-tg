@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,30 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "  const { activeStamp, sprite, x, y, rotation, opacity, yOffset = 0 } = props;\n  const stamp_transform = {\n    left: `${x}px`,\n    top: `${y + yOffset}px`,\n    transform: `rotate(${rotation}deg)`,",
-				content: "  // SPLURT EDIT START - Added scale props for more dynamic stamps\n  const {\n    activeStamp,\n    sprite,\n    x,\n    y,\n    rotation,\n    opacity,\n    yOffset = 0,\n    scale = 1,\n  } = props; //SPLURT EDIT END\n  const stamp_transform = {\n    left: `${x}px`,\n    top: `${y + yOffset}px`,\n    transform: `rotate(${rotation}deg) scale(${scale})`, //SPLURT EDIT",
+				anchor: block`
+				  const { activeStamp, sprite, x, y, rotation, opacity, yOffset = 0 } = props;
+				  const stamp_transform = {
+				    left: \`\${x}px\`,
+				    top: \`\${y + yOffset}px\`,
+				    transform: \`rotate(\${rotation}deg)\`,
+				`,
+				content: block`
+				  // SPLURT EDIT START - Added scale props for more dynamic stamps
+				  const {
+				    activeStamp,
+				    sprite,
+				    x,
+				    y,
+				    rotation,
+				    opacity,
+				    yOffset = 0,
+				    scale = 1,
+				  } = props; //SPLURT EDIT END
+				  const stamp_transform = {
+				    left: \`\${x}px\`,
+				    top: \`\${y + yOffset}px\`,
+				    transform: \`rotate(\${rotation}deg) scale(\${scale})\`, //SPLURT EDIT
+				`,
 				expectedOccurrences: 1,
 			},
 		],

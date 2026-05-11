@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -12,7 +12,15 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "      case KEY.Enter:",
 				position: "after",
-				content: "\n        // SPLURT EDIT START\n        // Allow Shift+Enter for new lines\n        if (event.shiftKey) {\n          return;\n        }\n        // SPLURT EDIT END",
+				content: block`
+				
+				        // SPLURT EDIT START
+				        // Allow Shift+Enter for new lines
+				        if (event.shiftKey) {
+				          return;
+				        }
+				        // SPLURT EDIT END
+				`,
 				expectedOccurrences: 1,
 			},
 		],

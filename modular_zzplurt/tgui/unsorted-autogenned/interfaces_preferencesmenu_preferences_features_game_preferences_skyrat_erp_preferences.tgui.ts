@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,7 +10,14 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "import {\n  CheckboxInput,\n  type FeatureChoiced,\n  type FeatureToggle,\n} from '../../base';\nimport { FeatureDropdownInput } from '../../dropdowns';",
+				anchor: block`
+				import {
+				  CheckboxInput,
+				  type FeatureChoiced,
+				  type FeatureToggle,
+				} from '../../base';
+				import { FeatureDropdownInput } from '../../dropdowns';
+				`,
 				content: "import { CheckboxInput, type FeatureToggle } from '../../base';",
 				expectedOccurrences: 1,
 			},
@@ -18,13 +25,25 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "export const erp_sexuality_pref: FeatureChoiced = {",
 				position: "before",
-				content: "/* SPLURT EDIT REMOVAL - No\n",
+				content: block`
+				/* SPLURT EDIT REMOVAL - No
+				
+				`,
 				expectedOccurrences: 1,
 			},
 			{
 				kind: "replace",
-				anchor: "};\n\nexport const genitalia_removal_pref: FeatureToggle = {",
-				content: "};\n*/ // SPLURT EDIT REMOVAL END\n\nexport const genitalia_removal_pref: FeatureToggle = {",
+				anchor: block`
+				};
+				
+				export const genitalia_removal_pref: FeatureToggle = {
+				`,
+				content: block`
+				};
+				*/ // SPLURT EDIT REMOVAL END
+				
+				export const genitalia_removal_pref: FeatureToggle = {
+				`,
 				expectedOccurrences: 1,
 			},
 		],

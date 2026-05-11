@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,15 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "};\n\nexport function LoadoutTabDisplay(props: TabProps) {",
-				content: "};\nexport function LoadoutTabDisplay(props: TabProps) {",
+				anchor: block`
+				};
+				
+				export function LoadoutTabDisplay(props: TabProps) {
+				`,
+				content: block`
+				};
+				export function LoadoutTabDisplay(props: TabProps) {
+				`,
 				expectedOccurrences: 1,
 			},
 		],

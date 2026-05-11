@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,15 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "import { useBackend } from '../backend';\nimport { Collapsible, Section } from 'tgui-core/components';",
-				content: "import { Collapsible, Section } from 'tgui-core/components';\n\nimport { useBackend } from '../backend';",
+				anchor: block`
+				import { useBackend } from '../backend';
+				import { Collapsible, Section } from 'tgui-core/components';
+				`,
+				content: block`
+				import { Collapsible, Section } from 'tgui-core/components';
+				
+				import { useBackend } from '../backend';
+				`,
 				expectedOccurrences: 1,
 			},
 		],

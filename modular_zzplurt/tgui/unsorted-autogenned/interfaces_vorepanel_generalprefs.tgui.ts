@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,23 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "  absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },\n  fullscreen_overlays_allowed: {\n    component: PrefBinary,\n    name: 'Fullscreen Overlays',\n  },",
-				content: "  // SPLURT MODULAR EDIT - CHOMPStation Drain mode preference\n  drain_allowed: { component: PrefBinary, name: 'Drain Allowed' },\n  absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },\n  fullscreen_overlays_allowed: {\n    component: PrefBinary,\n    name: 'Fullscreen Overlays',\n  },\n  cyborg_sleepers: { component: PrefBinary, name: 'Cyborg Sleepers' }, // SPLURT ADDITION - CYBORGS - Cyborg sleepers",
+				anchor: block`
+				  absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },
+				  fullscreen_overlays_allowed: {
+				    component: PrefBinary,
+				    name: 'Fullscreen Overlays',
+				  },
+				`,
+				content: block`
+				  // SPLURT MODULAR EDIT - CHOMPStation Drain mode preference
+				  drain_allowed: { component: PrefBinary, name: 'Drain Allowed' },
+				  absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },
+				  fullscreen_overlays_allowed: {
+				    component: PrefBinary,
+				    name: 'Fullscreen Overlays',
+				  },
+				  cyborg_sleepers: { component: PrefBinary, name: 'Cyborg Sleepers' }, // SPLURT ADDITION - CYBORGS - Cyborg sleepers
+				`,
 				expectedOccurrences: 1,
 			},
 		],

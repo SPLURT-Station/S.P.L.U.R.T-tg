@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,19 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "  // SKYRAT EDIT END\n\n  keybindings: Record<string, string[]>;",
-				content: "  // SKYRAT EDIT END\n  // SPLURT EDIT START\n  donator_tier: number;\n  // SPLURT EDIT END\n\n  keybindings: Record<string, string[]>;",
+				anchor: block`
+				  // SKYRAT EDIT END
+				
+				  keybindings: Record<string, string[]>;
+				`,
+				content: block`
+				  // SKYRAT EDIT END
+				  // SPLURT EDIT START
+				  donator_tier: number;
+				  // SPLURT EDIT END
+				
+				  keybindings: Record<string, string[]>;
+				`,
 				expectedOccurrences: 1,
 			},
 		],

@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,46 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "import { toTitleCase } from 'tgui-core/string';\nimport { useState } from 'react';\n\nimport { useBackend, useSharedState } from '../backend';\nimport {\n  Box,\n  Button,\n  Flex,\n  NoticeBox,\n  NumberInput,\n  ProgressBar,\n  RoundGauge,\n  Section,\n  Stack,\n  Table,\n  Tabs,\n  Tooltip,\n} from 'tgui-core/components';",
-				content: "import { useState } from 'react';\nimport {\n  Box,\n  Button,\n  Flex,\n  NoticeBox,\n  NumberInput,\n  ProgressBar,\n  RoundGauge,\n  Section,\n  Stack,\n  Table,\n  Tabs,\n  Tooltip,\n} from 'tgui-core/components';\nimport { toTitleCase } from 'tgui-core/string';\n\nimport { useBackend, useSharedState } from '../backend';",
+				anchor: block`
+				import { toTitleCase } from 'tgui-core/string';
+				import { useState } from 'react';
+				
+				import { useBackend, useSharedState } from '../backend';
+				import {
+				  Box,
+				  Button,
+				  Flex,
+				  NoticeBox,
+				  NumberInput,
+				  ProgressBar,
+				  RoundGauge,
+				  Section,
+				  Stack,
+				  Table,
+				  Tabs,
+				  Tooltip,
+				} from 'tgui-core/components';
+				`,
+				content: block`
+				import { useState } from 'react';
+				import {
+				  Box,
+				  Button,
+				  Flex,
+				  NoticeBox,
+				  NumberInput,
+				  ProgressBar,
+				  RoundGauge,
+				  Section,
+				  Stack,
+				  Table,
+				  Tabs,
+				  Tooltip,
+				} from 'tgui-core/components';
+				import { toTitleCase } from 'tgui-core/string';
+				
+				import { useBackend, useSharedState } from '../backend';
+				`,
 				expectedOccurrences: 1,
 			},
 		],

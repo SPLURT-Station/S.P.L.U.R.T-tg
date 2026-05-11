@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,62 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "  color: string;\n  bold: boolean;\n  advanced_html: boolean;\n}>;\n\ntype StampInput = {\n  class: string;\n  x: number;\n  y: number;\n  rotation: number;\n};\n\nexport enum InteractionType {\n  reading = 0,\n  writing = 1,\n  stamping = 2,\n}\n\nexport type WritingImplement = {\n  interaction_mode: InteractionType;\n} & Partial<{\n  color: string;\n  font: string;\n  stamp_class: string;",
-				content: "  color: string; //SPLURT ADDITION\n  bold: boolean; //SPLURT ADDITION\n  advanced_html: boolean;\n}>;\n\ntype StampInput = {\n  class: string;\n  x: number;\n  y: number;\n  rotation: number;\n  color?: string; //SPLURT ADDITION\n  scale?: number; //SPLURT ADDITION\n};\n\nexport enum InteractionType {\n  reading = 0,\n  writing = 1,\n  stamping = 2,\n}\n\nexport type WritingImplement = {\n  interaction_mode: InteractionType;\n} & Partial<{\n  color: string;\n  font: string;\n  stamp_class: string;\n  stamp_color: string; //SPLURT ADDITION\n  stamp_scale: number; //SPLURT ADDITION",
+				anchor: block`
+				  color: string;
+				  bold: boolean;
+				  advanced_html: boolean;
+				}>;
+				
+				type StampInput = {
+				  class: string;
+				  x: number;
+				  y: number;
+				  rotation: number;
+				};
+				
+				export enum InteractionType {
+				  reading = 0,
+				  writing = 1,
+				  stamping = 2,
+				}
+				
+				export type WritingImplement = {
+				  interaction_mode: InteractionType;
+				} & Partial<{
+				  color: string;
+				  font: string;
+				  stamp_class: string;
+				`,
+				content: block`
+				  color: string; //SPLURT ADDITION
+				  bold: boolean; //SPLURT ADDITION
+				  advanced_html: boolean;
+				}>;
+				
+				type StampInput = {
+				  class: string;
+				  x: number;
+				  y: number;
+				  rotation: number;
+				  color?: string; //SPLURT ADDITION
+				  scale?: number; //SPLURT ADDITION
+				};
+				
+				export enum InteractionType {
+				  reading = 0,
+				  writing = 1,
+				  stamping = 2,
+				}
+				
+				export type WritingImplement = {
+				  interaction_mode: InteractionType;
+				} & Partial<{
+				  color: string;
+				  font: string;
+				  stamp_class: string;
+				  stamp_color: string; //SPLURT ADDITION
+				  stamp_scale: number; //SPLURT ADDITION
+				`,
 				expectedOccurrences: 1,
 			},
 		],

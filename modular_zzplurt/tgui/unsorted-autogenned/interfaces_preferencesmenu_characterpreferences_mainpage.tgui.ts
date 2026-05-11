@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,160 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "            <Stack.Item>\n              <CharacterControls\n                gender={data.character_preferences.misc.gender}\n                handleOpenSpecies={props.openSpecies}\n                handleRotate={(value) => {\n                  act('rotate', { backwards: value }); // BUBBER EDIT CHANGE - Original: handleRotate={() => { act('rotate'); }}\n                }}\n                // BUBBER EDIT ADDITION BEGIN\n                handleFood={() => {\n                  act('open_food');\n                }}\n                // BUBBER EDIT ADDITION END\n                setGender={createSetPreference(act, 'gender')}\n                showGender={\n                  currentSpeciesData ? !!currentSpeciesData.sexes : true\n                }\n                canDeleteCharacter={\n                  Object.values(data.character_profiles).filter(\n                    (name) => !!name,\n                  ).length > 1\n                }\n                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}\n              />\n            </Stack.Item>\n\n            {/* BUBBER EDIT ADDITION BEGIN: Preview Selection */}\n            <Stack.Item position=\"relative\">\n              <SideDropdown\n                selected={data.preview_selection}\n                options={data.preview_options}\n                onSelected={(value) =>\n                  act('update_preview', {\n                    updated_preview: value,\n                  })\n                }\n              />\n            </Stack.Item>\n            {/* BUBBER EDIT ADDITION END: Preview Selection */}\n\n            {/* BUBBER EDIT ADDITION START: Background Selection */}\n            <Stack.Item position=\"relative\">\n              <SideDropdown\n                selected={data.character_preferences.misc.background_state}\n                options={serverData?.background_state.choices || []}\n                onSelected={(value) =>\n                  act('update_background', {\n                    new_background: value,\n                  })\n                }\n              />\n            </Stack.Item>\n            {/* BUBBER EDIT ADDITION END: Background Selection */}\n            <Stack.Item height=\"545px\">\n              <CharacterPreview\n                height=\"100%\"\n                width=\"270px\" // BUBBER EDIT ADDITION\n                id={data.character_preview_view}\n              />\n            </Stack.Item>\n\n            <Stack.Item position=\"relative\">\n              <NameInput\n                name={data.character_preferences.names[data.name_to_use]}\n                handleUpdateName={createSetPreference(act, data.name_to_use)}\n                openMultiNameInput={() => {\n                  setMultiNameInputOpen(true);\n                }}\n              />\n            </Stack.Item>",
-				content: "            {/* SPLURT EDIT - Puts the name pref first  */}\n            <Stack.Item position=\"relative\">\n              <NameInput\n                name={data.character_preferences.names[data.name_to_use]}\n                handleUpdateName={createSetPreference(act, data.name_to_use)}\n                openMultiNameInput={() => {\n                  setMultiNameInputOpen(true);\n                }}\n              />\n            </Stack.Item>\n            {/* SPLURT EDIT END */}\n            <Stack.Item>\n              <CharacterControls\n                gender={data.character_preferences.misc.gender}\n                handleOpenSpecies={props.openSpecies}\n                handleRotate={(value) => {\n                  act('rotate', { backwards: value }); // BUBBER EDIT CHANGE - Original: handleRotate={() => { act('rotate'); }}\n                }}\n                // BUBBER EDIT ADDITION BEGIN\n                handleFood={() => {\n                  act('open_food');\n                }}\n                // BUBBER EDIT ADDITION END\n                setGender={createSetPreference(act, 'gender')}\n                showGender={\n                  currentSpeciesData ? !!currentSpeciesData.sexes : true\n                }\n                canDeleteCharacter={\n                  Object.values(data.character_profiles).filter(\n                    (name) => !!name,\n                  ).length > 1\n                }\n                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}\n              />\n            </Stack.Item>\n\n            {/* BUBBER EDIT ADDITION BEGIN: Preview Selection */}\n            <Stack.Item position=\"relative\">\n              <SideDropdown\n                selected={data.preview_selection}\n                options={data.preview_options}\n                onSelected={(value) =>\n                  act('update_preview', {\n                    updated_preview: value,\n                  })\n                }\n              />\n            </Stack.Item>\n            {/* BUBBER EDIT ADDITION END: Preview Selection */}\n\n            {/* BUBBER EDIT ADDITION START: Background Selection */}\n            <Stack.Item position=\"relative\">\n              <SideDropdown\n                selected={data.character_preferences.misc.background_state}\n                options={serverData?.background_state.choices || []}\n                onSelected={(value) =>\n                  act('update_background', {\n                    new_background: value,\n                  })\n                }\n              />\n            </Stack.Item>\n            {/* BUBBER EDIT ADDITION END: Background Selection */}\n            <Stack.Item height=\"545px\">\n              <CharacterPreview\n                height=\"100%\"\n                width=\"270px\" // BUBBER EDIT ADDITION\n                id={data.character_preview_view}\n              />\n            </Stack.Item>\n            {/* SPLURT EDIT - Puts the name pref first\n            <Stack.Item position=\"relative\">\n              <NameInput\n                name={data.character_preferences.names[data.name_to_use]}\n                handleUpdateName={createSetPreference(act, data.name_to_use)}\n                openMultiNameInput={() => {\n                  setMultiNameInputOpen(true);\n                }}\n              />\n            </Stack.Item>\n            SPLURT EDIT END */}",
+				anchor: block`
+				            <Stack.Item>
+				              <CharacterControls
+				                gender={data.character_preferences.misc.gender}
+				                handleOpenSpecies={props.openSpecies}
+				                handleRotate={(value) => {
+				                  act('rotate', { backwards: value }); // BUBBER EDIT CHANGE - Original: handleRotate={() => { act('rotate'); }}
+				                }}
+				                // BUBBER EDIT ADDITION BEGIN
+				                handleFood={() => {
+				                  act('open_food');
+				                }}
+				                // BUBBER EDIT ADDITION END
+				                setGender={createSetPreference(act, 'gender')}
+				                showGender={
+				                  currentSpeciesData ? !!currentSpeciesData.sexes : true
+				                }
+				                canDeleteCharacter={
+				                  Object.values(data.character_profiles).filter(
+				                    (name) => !!name,
+				                  ).length > 1
+				                }
+				                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}
+				              />
+				            </Stack.Item>
+				
+				            {/* BUBBER EDIT ADDITION BEGIN: Preview Selection */}
+				            <Stack.Item position="relative">
+				              <SideDropdown
+				                selected={data.preview_selection}
+				                options={data.preview_options}
+				                onSelected={(value) =>
+				                  act('update_preview', {
+				                    updated_preview: value,
+				                  })
+				                }
+				              />
+				            </Stack.Item>
+				            {/* BUBBER EDIT ADDITION END: Preview Selection */}
+				
+				            {/* BUBBER EDIT ADDITION START: Background Selection */}
+				            <Stack.Item position="relative">
+				              <SideDropdown
+				                selected={data.character_preferences.misc.background_state}
+				                options={serverData?.background_state.choices || []}
+				                onSelected={(value) =>
+				                  act('update_background', {
+				                    new_background: value,
+				                  })
+				                }
+				              />
+				            </Stack.Item>
+				            {/* BUBBER EDIT ADDITION END: Background Selection */}
+				            <Stack.Item height="545px">
+				              <CharacterPreview
+				                height="100%"
+				                width="270px" // BUBBER EDIT ADDITION
+				                id={data.character_preview_view}
+				              />
+				            </Stack.Item>
+				
+				            <Stack.Item position="relative">
+				              <NameInput
+				                name={data.character_preferences.names[data.name_to_use]}
+				                handleUpdateName={createSetPreference(act, data.name_to_use)}
+				                openMultiNameInput={() => {
+				                  setMultiNameInputOpen(true);
+				                }}
+				              />
+				            </Stack.Item>
+				`,
+				content: block`
+				            {/* SPLURT EDIT - Puts the name pref first  */}
+				            <Stack.Item position="relative">
+				              <NameInput
+				                name={data.character_preferences.names[data.name_to_use]}
+				                handleUpdateName={createSetPreference(act, data.name_to_use)}
+				                openMultiNameInput={() => {
+				                  setMultiNameInputOpen(true);
+				                }}
+				              />
+				            </Stack.Item>
+				            {/* SPLURT EDIT END */}
+				            <Stack.Item>
+				              <CharacterControls
+				                gender={data.character_preferences.misc.gender}
+				                handleOpenSpecies={props.openSpecies}
+				                handleRotate={(value) => {
+				                  act('rotate', { backwards: value }); // BUBBER EDIT CHANGE - Original: handleRotate={() => { act('rotate'); }}
+				                }}
+				                // BUBBER EDIT ADDITION BEGIN
+				                handleFood={() => {
+				                  act('open_food');
+				                }}
+				                // BUBBER EDIT ADDITION END
+				                setGender={createSetPreference(act, 'gender')}
+				                showGender={
+				                  currentSpeciesData ? !!currentSpeciesData.sexes : true
+				                }
+				                canDeleteCharacter={
+				                  Object.values(data.character_profiles).filter(
+				                    (name) => !!name,
+				                  ).length > 1
+				                }
+				                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}
+				              />
+				            </Stack.Item>
+				
+				            {/* BUBBER EDIT ADDITION BEGIN: Preview Selection */}
+				            <Stack.Item position="relative">
+				              <SideDropdown
+				                selected={data.preview_selection}
+				                options={data.preview_options}
+				                onSelected={(value) =>
+				                  act('update_preview', {
+				                    updated_preview: value,
+				                  })
+				                }
+				              />
+				            </Stack.Item>
+				            {/* BUBBER EDIT ADDITION END: Preview Selection */}
+				
+				            {/* BUBBER EDIT ADDITION START: Background Selection */}
+				            <Stack.Item position="relative">
+				              <SideDropdown
+				                selected={data.character_preferences.misc.background_state}
+				                options={serverData?.background_state.choices || []}
+				                onSelected={(value) =>
+				                  act('update_background', {
+				                    new_background: value,
+				                  })
+				                }
+				              />
+				            </Stack.Item>
+				            {/* BUBBER EDIT ADDITION END: Background Selection */}
+				            <Stack.Item height="545px">
+				              <CharacterPreview
+				                height="100%"
+				                width="270px" // BUBBER EDIT ADDITION
+				                id={data.character_preview_view}
+				              />
+				            </Stack.Item>
+				            {/* SPLURT EDIT - Puts the name pref first
+				            <Stack.Item position="relative">
+				              <NameInput
+				                name={data.character_preferences.names[data.name_to_use]}
+				                handleUpdateName={createSetPreference(act, data.name_to_use)}
+				                openMultiNameInput={() => {
+				                  setMultiNameInputOpen(true);
+				                }}
+				              />
+				            </Stack.Item>
+				            SPLURT EDIT END */}
+				`,
 				expectedOccurrences: 1,
 			},
 		],

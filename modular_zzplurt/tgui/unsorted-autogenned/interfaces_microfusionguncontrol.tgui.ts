@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -12,7 +12,10 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "  Button,",
 				position: "before",
-				content: "  Box, // SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream\n",
+				content: block`
+				  Box, // SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream
+				
+				`,
 				expectedOccurrences: 1,
 			},
 			{
@@ -23,14 +26,138 @@ export const patches: ModularTguiPatch[] = [
 			},
 			{
 				kind: "replace",
-				anchor: "            <Section title={'Attachments'}>\n              {has_attachments ? (\n                attachments.map((attachment, index) => (\n                  <Section\n                    key={index}\n                    title={attachment.name}\n                    buttons={\n                      <Button\n                        icon=\"eject\"\n                        content=\"Eject Attachment\"\n                        onClick={() =>\n                          act('remove_attachment', {\n                            attachment_ref: attachment.ref,\n                          })\n                        }\n                      />\n                    }\n                  >\n                    <LabeledList>\n                      <LabeledList.Item label=\"Description\">\n                        {attachment.desc}\n                      </LabeledList.Item>\n                      <LabeledList.Item label=\"Slot\">\n                        {attachment.slot}\n                      </LabeledList.Item>\n                      {attachment.information && (\n                        <LabeledList.Item label=\"Information\">\n                          {attachment.information}",
-				content: "            <Section title={'Attachments'} fill>\n              {/* SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream */}\n              <Box\n                style={{\n                  height: '200px',\n                  overflowY: 'auto',\n                  overflowX: 'hidden',\n                }}\n              >\n                {has_attachments ? (\n                  attachments.map((attachment, index) => (\n                    <Section\n                      key={index}\n                      title={attachment.name}\n                      buttons={\n                        <Button\n                          icon=\"eject\"\n                          content=\"Eject Attachment\"\n                          onClick={() =>\n                            act('remove_attachment', {\n                              attachment_ref: attachment.ref,\n                            })\n                          }\n                        />\n                      }\n                    >\n                      <LabeledList>\n                        <LabeledList.Item label=\"Description\">\n                          {attachment.desc}",
+				anchor: block`
+				            <Section title={'Attachments'}>
+				              {has_attachments ? (
+				                attachments.map((attachment, index) => (
+				                  <Section
+				                    key={index}
+				                    title={attachment.name}
+				                    buttons={
+				                      <Button
+				                        icon="eject"
+				                        content="Eject Attachment"
+				                        onClick={() =>
+				                          act('remove_attachment', {
+				                            attachment_ref: attachment.ref,
+				                          })
+				                        }
+				                      />
+				                    }
+				                  >
+				                    <LabeledList>
+				                      <LabeledList.Item label="Description">
+				                        {attachment.desc}
+				                      </LabeledList.Item>
+				                      <LabeledList.Item label="Slot">
+				                        {attachment.slot}
+				                      </LabeledList.Item>
+				                      {attachment.information && (
+				                        <LabeledList.Item label="Information">
+				                          {attachment.information}
+				`,
+				content: block`
+				            <Section title={'Attachments'} fill>
+				              {/* SPLURT TEMPORARY FIX - No scrollwheel - Remove when fixed upstream */}
+				              <Box
+				                style={{
+				                  height: '200px',
+				                  overflowY: 'auto',
+				                  overflowX: 'hidden',
+				                }}
+				              >
+				                {has_attachments ? (
+				                  attachments.map((attachment, index) => (
+				                    <Section
+				                      key={index}
+				                      title={attachment.name}
+				                      buttons={
+				                        <Button
+				                          icon="eject"
+				                          content="Eject Attachment"
+				                          onClick={() =>
+				                            act('remove_attachment', {
+				                              attachment_ref: attachment.ref,
+				                            })
+				                          }
+				                        />
+				                      }
+				                    >
+				                      <LabeledList>
+				                        <LabeledList.Item label="Description">
+				                          {attachment.desc}
+				`,
 				expectedOccurrences: 1,
 			},
 			{
 				kind: "replace",
-				anchor: "                      )}\n                      {!!attachment.has_modifications &&\n                        attachment.modify.map((mod, index) => (\n                          <LabeledList.Item\n                            key={index}\n                            buttons={\n                              <Button\n                                key={index}\n                                icon={mod.icon}\n                                color={mod.color}\n                                content={mod.title}\n                                onClick={() =>\n                                  act('modify_attachment', {\n                                    attachment_ref: attachment.ref,\n                                    modify_ref: mod.reference,\n                                  })\n                                }\n                              />\n                            }\n                          />\n                        ))}\n                    </LabeledList>\n                  </Section>\n                ))\n              ) : (\n                <NoticeBox color=\"blue\">No attachments installed!</NoticeBox>\n              )}",
-				content: "                        <LabeledList.Item label=\"Slot\">\n                          {attachment.slot}\n                        </LabeledList.Item>\n                        {attachment.information && (\n                          <LabeledList.Item label=\"Information\">\n                            {attachment.information}\n                          </LabeledList.Item>\n                        )}\n                        {!!attachment.has_modifications &&\n                          attachment.modify.map((mod, index) => (\n                            <LabeledList.Item\n                              key={index}\n                              buttons={\n                                <Button\n                                  key={index}\n                                  icon={mod.icon}\n                                  color={mod.color}\n                                  content={mod.title}\n                                  onClick={() =>\n                                    act('modify_attachment', {\n                                      attachment_ref: attachment.ref,\n                                      modify_ref: mod.reference,\n                                    })\n                                  }\n                                />\n                              }\n                            />\n                          ))}\n                      </LabeledList>\n                    </Section>\n                  ))\n                ) : (\n                  <NoticeBox color=\"blue\">No attachments installed!</NoticeBox>\n                )}\n              </Box>\n              {/* SPLURT TEMPORARY FIX END*/}",
+				anchor: block`
+				                      )}
+				                      {!!attachment.has_modifications &&
+				                        attachment.modify.map((mod, index) => (
+				                          <LabeledList.Item
+				                            key={index}
+				                            buttons={
+				                              <Button
+				                                key={index}
+				                                icon={mod.icon}
+				                                color={mod.color}
+				                                content={mod.title}
+				                                onClick={() =>
+				                                  act('modify_attachment', {
+				                                    attachment_ref: attachment.ref,
+				                                    modify_ref: mod.reference,
+				                                  })
+				                                }
+				                              />
+				                            }
+				                          />
+				                        ))}
+				                    </LabeledList>
+				                  </Section>
+				                ))
+				              ) : (
+				                <NoticeBox color="blue">No attachments installed!</NoticeBox>
+				              )}
+				`,
+				content: block`
+				                        <LabeledList.Item label="Slot">
+				                          {attachment.slot}
+				                        </LabeledList.Item>
+				                        {attachment.information && (
+				                          <LabeledList.Item label="Information">
+				                            {attachment.information}
+				                          </LabeledList.Item>
+				                        )}
+				                        {!!attachment.has_modifications &&
+				                          attachment.modify.map((mod, index) => (
+				                            <LabeledList.Item
+				                              key={index}
+				                              buttons={
+				                                <Button
+				                                  key={index}
+				                                  icon={mod.icon}
+				                                  color={mod.color}
+				                                  content={mod.title}
+				                                  onClick={() =>
+				                                    act('modify_attachment', {
+				                                      attachment_ref: attachment.ref,
+				                                      modify_ref: mod.reference,
+				                                    })
+				                                  }
+				                                />
+				                              }
+				                            />
+				                          ))}
+				                      </LabeledList>
+				                    </Section>
+				                  ))
+				                ) : (
+				                  <NoticeBox color="blue">No attachments installed!</NoticeBox>
+				                )}
+				              </Box>
+				              {/* SPLURT TEMPORARY FIX END*/}
+				`,
 				expectedOccurrences: 1,
 			},
 		],

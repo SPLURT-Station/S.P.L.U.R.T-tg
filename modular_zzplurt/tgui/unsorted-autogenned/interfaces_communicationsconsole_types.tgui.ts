@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -12,14 +12,31 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "export type Shuttle = {",
 				position: "before",
-				content: "// SPLURT EDIT - Security cyborg management\nexport type SecurityCyborg = {\n  name: string;\n  ref: string;\n  fired: boolean;\n};\n// SPLURT EDIT END\n\n",
+				content: block`
+				// SPLURT EDIT - Security cyborg management
+				export type SecurityCyborg = {
+				  name: string;
+				  ref: string;
+				  fired: boolean;
+				};
+				// SPLURT EDIT END
+				
+				
+				`,
 				expectedOccurrences: 1,
 			},
 			{
 				kind: "insert",
 				anchor: "  // static_data",
 				position: "before",
-				content: "  // SPLURT EDIT - Security cyborg management\n  canManageSecurityCyborgs: BooleanLike;\n  securityCyborgs: SecurityCyborg[];\n  // SPLURT EDIT END\n\n",
+				content: block`
+				  // SPLURT EDIT - Security cyborg management
+				  canManageSecurityCyborgs: BooleanLike;
+				  securityCyborgs: SecurityCyborg[];
+				  // SPLURT EDIT END
+				
+				
+				`,
 				expectedOccurrences: 1,
 			},
 		],

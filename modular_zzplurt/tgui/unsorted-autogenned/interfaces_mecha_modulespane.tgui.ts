@@ -1,4 +1,4 @@
-import type { ModularTguiOverride } from '../.';
+import type { ModularTguiOverride } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 

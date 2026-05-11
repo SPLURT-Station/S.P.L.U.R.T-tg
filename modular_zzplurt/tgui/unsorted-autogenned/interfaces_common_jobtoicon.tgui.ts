@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -12,14 +12,20 @@ export const patches: ModularTguiPatch[] = [
 				kind: "insert",
 				anchor: "  Cyborg: 'robot',",
 				position: "after",
-				content: "\n  'Security Cyborg': 'robot', //SPLURT ADDITION",
+				content: block`
+				
+				  'Security Cyborg': 'robot', //SPLURT ADDITION
+				`,
 				expectedOccurrences: 1,
 			},
 			{
 				kind: "insert",
 				anchor: "  'Nanotrasen Consultant': 'clipboard-check',",
 				position: "after",
-				content: "\n  'Nanotrasen Crew Trainer': 'hat-cowboy', //Splurt Edit",
+				content: block`
+				
+				  'Nanotrasen Crew Trainer': 'hat-cowboy', //Splurt Edit
+				`,
 				expectedOccurrences: 1,
 			},
 		],

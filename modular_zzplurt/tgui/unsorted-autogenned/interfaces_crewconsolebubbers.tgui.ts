@@ -1,4 +1,4 @@
-import type { ModularTguiPatch } from '../.';
+import { block, type ModularTguiPatch } from '../../modules/tgui_modular/index';
 
 export const modularTgui = true;
 
@@ -10,8 +10,24 @@ export const patches: ModularTguiPatch[] = [
 		operations: [
 			{
 				kind: "replace",
-				anchor: "  if (healthSum <= 56) return 0;\n  if (healthSum <= 72) return 1;\n  if (healthSum <= 85) return 2;\n  if (healthSum <= 100) return 3;\n  if (healthSum <= 115) return 4;\n  return 5; // over 116 (near crit)",
-				content: "  //Splurt Edit Start\n  if (healthSum <= 56) return 0;\n  if (healthSum <= 72) return 1;\n  if (healthSum <= 85) return 2;\n  if (healthSum <= 100) return 3;\n  if (healthSum <= 115) return 4;\n  return 5; // over 116 (near crit)\n  // Back to 100 HP :) Splurt edit end",
+				anchor: block`
+				  if (healthSum <= 56) return 0;
+				  if (healthSum <= 72) return 1;
+				  if (healthSum <= 85) return 2;
+				  if (healthSum <= 100) return 3;
+				  if (healthSum <= 115) return 4;
+				  return 5; // over 116 (near crit)
+				`,
+				content: block`
+				  //Splurt Edit Start
+				  if (healthSum <= 56) return 0;
+				  if (healthSum <= 72) return 1;
+				  if (healthSum <= 85) return 2;
+				  if (healthSum <= 100) return 3;
+				  if (healthSum <= 115) return 4;
+				  return 5; // over 116 (near crit)
+				  // Back to 100 HP :) Splurt edit end
+				`,
 				expectedOccurrences: 1,
 			},
 		],
