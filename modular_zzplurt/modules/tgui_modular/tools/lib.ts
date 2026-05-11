@@ -416,7 +416,7 @@ function renderPatchManifest(options: {
 	target: string;
 }) {
 	return [
-		`import type { ModularTguiPatch } from '${options.importPath}';`,
+		`import { block, type ModularTguiPatch } from '${options.importPath}';`,
 		'',
 		'export const modularTgui = true;',
 		'',
@@ -1081,7 +1081,15 @@ function renderObject(value: unknown): string {
 		].join('\n');
 	}
 
+	if (typeof value === 'string' && value.includes('\n')) {
+		return renderBlock(value);
+	}
+
 	return JSON.stringify(value);
+}
+
+function renderBlock(value: string) {
+	return `block\`\n${value.replaceAll('`', '\\`').replaceAll('${', '\\${')}\n\``;
 }
 
 function indent(source: string, level: number) {
@@ -1103,13 +1111,17 @@ function slugTarget(target: string) {
 }
 
 function toImportPath(importPath: string) {
-	const posixPath = toPosixPath(importPath).replace(/\.[^.]+$/, '');
+	const posixPath = toPosixPath(importPath);
+	const extension = path.posix.extname(posixPath);
+	const extensionlessPath = extension ?
+		posixPath.slice(0, -extension.length) :
+		posixPath;
 
-	if (posixPath.startsWith('.')) {
-		return posixPath;
+	if (extensionlessPath.startsWith('.')) {
+		return extensionlessPath;
 	}
 
-	return `./${posixPath}`;
+	return `./${extensionlessPath}`;
 }
 
 function toPosixPath(filePath: string) {

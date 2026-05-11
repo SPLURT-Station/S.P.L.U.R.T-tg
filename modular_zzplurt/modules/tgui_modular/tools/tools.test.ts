@@ -134,6 +134,43 @@ describe('modular tgui tools', () => {
 		);
 	});
 
+	test('renders inferred multiline patches with readable block strings', () => {
+		const paths = makeWorkspace();
+		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const result = createOverrideFromSources({
+			localSource: [
+				'export function Panel() {',
+				'  return (',
+				'    <Box>',
+				'      <Button>One</Button>',
+				'      <Button>Two</Button>',
+				'    </Box>',
+				'  );',
+				'}',
+				'',
+			].join('\n'),
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/Panel.tsx',
+			upstreamSource: [
+				'export function Panel() {',
+				'  return (',
+				'    <Box>',
+				'      <Button>One</Button>',
+				'    </Box>',
+				'  );',
+				'}',
+				'',
+			].join('\n'),
+		});
+		const manifest = fs.readFileSync(result.manifestPath!, 'utf8');
+
+		expect(result.strategy).toBe('ast-patch');
+		expect(manifest).toContain("import { block, type ModularTguiPatch }");
+		expect(manifest).toContain('content: block`');
+		expect(manifest).toContain('      <Button>Two</Button>');
+	});
+
 	test('allows large additive hunks without allowing broad rewrites', () => {
 		const paths = makeWorkspace();
 		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');

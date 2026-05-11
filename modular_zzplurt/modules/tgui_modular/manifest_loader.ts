@@ -59,9 +59,13 @@ export const block = (
 	...values: unknown[]
 ) => {
 	const source = String.raw({ raw: strings.raw }, ...values)
-		.replace(/^\n/, '')
-		.replace(/\n$/, '');
+		.replaceAll('\\`', '`')
+		.replaceAll('\\${', '${')
+		.replace(/^\n/, '');
 	const lines = source.split('\n');
+	if (lines.at(-1)?.trim().length === 0) {
+		lines.pop();
+	}
 	const indentedLines = lines.filter((line) => line.trim().length > 0);
 	if (indentedLines.length === 0) {
 		return '';
@@ -72,9 +76,13 @@ export const block = (
 	);
 
 	return lines
-		.map((line) =>
-			line.slice(Math.min(commonTabs, line.match(/^\t*/)?.[0].length ?? 0)),
-		)
+		.map((line) => {
+			if (line.trim().length === 0) {
+				return '';
+			}
+
+			return line.slice(Math.min(commonTabs, line.match(/^\t*/)?.[0].length ?? 0));
+		})
 		.join('\n');
 };
 

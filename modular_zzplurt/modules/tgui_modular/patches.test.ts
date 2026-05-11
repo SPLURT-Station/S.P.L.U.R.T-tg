@@ -3,11 +3,25 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { loadModularTguiDefinitions } from './manifest_loader';
+import { block, loadModularTguiDefinitions } from './manifest_loader';
 import { applyPatchOperations } from './patches';
 import { findOverrideReplacement } from './plugin';
 
 describe('modular tgui patches', () => {
+	test('normalizes whitespace-only lines in readable block strings', () => {
+		expect(block`
+			first
+			
+			second
+		`).toBe(['first', '', 'second'].join('\n'));
+	});
+
+	test('supports escaped template syntax in readable block strings', () => {
+		expect(block`
+			const title = \`Hello \${name}\`;
+		`).toBe('const title = `Hello ${name}`;');
+	});
+
 	test('adds imports to existing named imports with AST targeting', () => {
 		const source = [
 			'import {',
