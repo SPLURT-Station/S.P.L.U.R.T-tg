@@ -31,7 +31,6 @@ const BASEICONS = {
   Curator: 'book',
   'Cyber Police': 'qrcode',
   Cyborg: 'robot',
-  'Security Cyborg': 'robot', //SPLURT ADDITION
   Detective: 'user-secret',
   Geneticist: 'dna',
   'Head of Personnel': 'dog',
@@ -71,7 +70,6 @@ const BASEICONS = {
   'Customs Agent': 'shield-heart',
   'Engineering Guard': 'shield-heart',
   'Nanotrasen Consultant': 'clipboard-check',
-  'Nanotrasen Crew Trainer': 'hat-cowboy', //Splurt Edit
   Orderly: 'shield-heart',
   'Science Guard': 'shield-heart',
   'Security Medic': 'heart-pulse',

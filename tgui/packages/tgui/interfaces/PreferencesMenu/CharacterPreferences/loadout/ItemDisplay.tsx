@@ -187,6 +187,7 @@ const FilterItemList = (items: LoadoutItem[]) => {
 type TabProps = {
   category: LoadoutCategory | undefined;
 };
+
 export function LoadoutTabDisplay(props: TabProps) {
   const { category } = props;
   if (!category) {

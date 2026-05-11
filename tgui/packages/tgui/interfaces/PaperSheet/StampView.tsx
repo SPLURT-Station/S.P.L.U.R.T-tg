@@ -20,7 +20,6 @@ export function StampView(props) {
             y={stamp.y}
             rotation={stamp.rotation}
             sprite={stamp.class}
-            scale={stamp.scale} //SPLURT ADDITION
             yOffset={stampYOffset}
           />
         );

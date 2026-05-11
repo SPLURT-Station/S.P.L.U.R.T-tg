@@ -12,7 +12,6 @@ import { NowPlayingWidget } from './audio/NowPlayingWidget';
 import { ChatPanel } from './chat/ChatPanel';
 import { ChatTabs } from './chat/ChatTabs';
 import { useChatPersistence } from './chat/use-chat-persistence';
-import { EmotesToolbar, useEmotes } from './emotes'; // SPLURT EDIT:  CUSTOM EMOTE PANEL
 import { gameAtom } from './game/atoms';
 import { useKeepAlive } from './game/use-keep-alive';
 import { Notifications } from './Notifications';
@@ -25,7 +24,6 @@ import { useSettings } from './settings/use-settings';
 export function Panel(props) {
   const [audioVisible, setAudioVisible] = useAtom(visibleAtom);
   const game = useAtomValue(gameAtom);
-  const emotes = useEmotes(); // SPLURT EDIT:  CUSTOM EMOTE PANEL
   const { settings } = useSettings();
   const [settingsVisible, setSettingsVisible] = useAtom(settingsVisibleAtom);
   useChatPersistence();
@@ -43,18 +41,6 @@ export function Panel(props) {
               <Stack.Item>
                 <PingIndicator />
               </Stack.Item>
-              {/* SPLURT EDIT START:  CUSTOM EMOTE PANEL */}
-              <Stack.Item>
-                <Button
-                  color="grey"
-                  selected={emotes.visible}
-                  icon="asterisk"
-                  tooltip="Emote Panel"
-                  tooltipPosition="bottom-start"
-                  onClick={() => emotes.toggle()}
-                />
-              </Stack.Item>
-              {/* SPLURT EDIT END:  CUSTOM EMOTE PANEL */}
               <Stack.Item>
                 <Button
                   color="grey"
@@ -77,14 +63,6 @@ export function Panel(props) {
             </Stack>
           </Section>
         </Stack.Item>
-        {/* SPLURT EDIT START:  CUSTOM EMOTE PANEL */}
-        {emotes.visible && (
-          <Stack.Item>
-            <Section>
-              <EmotesToolbar />
-            </Section>
-          </Stack.Item>
-        )}
         {audioVisible && (
           <Stack.Item>
             <Section>

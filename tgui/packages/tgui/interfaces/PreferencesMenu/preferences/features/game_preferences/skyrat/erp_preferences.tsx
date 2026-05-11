@@ -1,5 +1,10 @@
 // THIS IS A SKYRAT UI FILE
-import { CheckboxInput, type FeatureToggle } from '../../base';
+import {
+  CheckboxInput,
+  type FeatureChoiced,
+  type FeatureToggle,
+} from '../../base';
+import { FeatureDropdownInput } from '../../dropdowns';
 
 export const master_erp_pref: FeatureToggle = {
   name: 'Show/Hide Erotic Roleplay Preferences',
@@ -132,7 +137,6 @@ export const autoemote_pref: FeatureToggle = {
   component: CheckboxInput,
 };
 
-/* SPLURT EDIT REMOVAL - No
 export const erp_sexuality_pref: FeatureChoiced = {
   name: 'Sexuality Preference',
   category: 'ERP',
@@ -140,7 +144,6 @@ export const erp_sexuality_pref: FeatureChoiced = {
     'Determines what sexual content you see, limited use. None will show all content.',
   component: FeatureDropdownInput,
 };
-*/ // SPLURT EDIT REMOVAL END
 
 export const genitalia_removal_pref: FeatureToggle = {
   name: 'ERP Genitalia Removal',

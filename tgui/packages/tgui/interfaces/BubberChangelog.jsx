@@ -118,14 +118,13 @@ const DateDropdown = (props) => {
 };
 
 const ChangelogList = (props) => {
-  const { contents, bubberContents, splurtContents } = props; // SPLURT EDIT ADDITION: Changelog 3
+  const { contents, bubberContents } = props;
 
   const combinedDates = {};
   Object.assign(
     combinedDates,
     typeof contents === 'object' ? contents : {},
     typeof bubberContents === 'object' ? bubberContents : {},
-    typeof splurtContents === 'object' ? splurtContents : {}, // SPLURT EDIT ADDITION: Changelog 3
   );
 
   if (Object.keys(combinedDates).length < 1) {
@@ -138,19 +137,6 @@ const ChangelogList = (props) => {
     .map((date) => (
       <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)} pb={1}>
         <Box ml={3}>
-          {/* SPLURT EDIT ADDITION: Changelog 3 */}
-          {splurtContents[date] && (
-            <Section mb={-2}>
-              {Object.entries(splurtContents[date]).map(([name, changes]) => (
-                <SplurtChangelogEntry
-                  key={name}
-                  author={name}
-                  changes={changes}
-                />
-              ))}
-            </Section>
-          )}
-          {/* SPLURT EDIT ADDITION END */}
           {bubberContents[date] && (
             <Section mb={-2}>
               {Object.entries(bubberContents[date]).map(([name, changes]) => (
@@ -272,70 +258,17 @@ const ChangelogEntry = (props) => {
   );
 };
 
-// SPLURT EDIT ADDITION: Changelog 3
-const SplurtChangelogEntry = (props) => {
-  const { author, changes } = props;
-
-  return (
-    <Stack.Item mb={-1} pb={1} key={author}>
-      <Box>
-        <h4>
-          <Image verticalAlign="bottom" src={resolveAsset('splurt_16.png')} />{' '}
-          {author} changed:
-        </h4>
-      </Box>
-      <Box ml={3} mt={-0.2}>
-        <Table>
-          {changes.map((change) => {
-            const changeType = Object.keys(change)[0];
-            return (
-              <Table.Row key={changeType + change[changeType]}>
-                <Table.Cell
-                  className={classes([
-                    'Changelog__Cell',
-                    'Changelog__Cell--Icon',
-                  ])}
-                >
-                  <Icon
-                    color={
-                      icons[changeType]
-                        ? icons[changeType].color
-                        : icons.unknown.color
-                    }
-                    name={
-                      icons[changeType]
-                        ? icons[changeType].icon
-                        : icons.unknown.icon
-                    }
-                    verticalAlign="middle"
-                  />
-                </Table.Cell>
-                <Table.Cell className="Changelog__Cell">
-                  {change[changeType]}
-                </Table.Cell>
-              </Table.Row>
-            );
-          })}
-        </Table>
-      </Box>
-    </Stack.Item>
-  );
-};
-// SPLURT EDIT ADDITION END
-
 export const BubberChangelog = (props) => {
   const { data } = useBackend();
   const { dates } = data;
   const [contents, setContents] = useState('');
   const [bubberContents, setBubberContents] = useState('');
-  const [splurtContents, setSplurtContents] = useState(''); // SPLURT EDIT ADDITION: Changelog 3
   const [selectedDate, setSelectedDate] = useState(dates[0]);
   const [selectedDateIndex, setSelectedDateIndex] = useState(0);
 
   useEffect(() => {
     setContents('Loading changelog data...');
     setBubberContents('Loading changelog data...');
-    setSplurtContents('Loading changelog data...'); // SPLURT EDIT ADDITION: Changelog 3
     getData(selectedDate);
   }, [selectedDate]);
 
@@ -353,30 +286,17 @@ export const BubberChangelog = (props) => {
     Promise.all([
       fetch(resolveAsset(`${date}.yml`)),
       fetch(resolveAsset(`bubber_${date}.yml`)),
-      fetch(resolveAsset(`splurt_${date}.yml`)), // SPLURT EDIT ADDITION: Changelog 3
     ]).then(async (links) => {
       const result = await links[0].text();
       const bubberResult = await links[1].text();
-      const splurtResult = await links[2].text(); // SPLURT EDIT ADDITION: Changelog 3
 
-      // SPLURT EDIT ADDITION: Changelog 3
-      if (
-        links[0].status !== 200 &&
-        links[1].status !== 200 &&
-        links[2].status !== 200
-      ) {
-        // SPLURT EDIT ADDITION END
+      if (links[0].status !== 200 && links[1].status !== 200) {
         const timeout = 50 + attemptNumber * 50;
 
         setContents(`Loading changelog data${'.'.repeat(attemptNumber + 3)}`);
         setBubberContents(
           `Loading changelog data${'.'.repeat(attemptNumber + 3)}`,
         );
-        // SPLURT EDIT ADDITION: Changelog 3
-        setSplurtContents(
-          `Loading changelog data${'.'.repeat(attemptNumber + 3)}`,
-        );
-        // SPLURT EDIT ADDITION END
         setTimeout(() => {
           getData(date, attemptNumber + 1);
         }, timeout);
@@ -389,20 +309,13 @@ export const BubberChangelog = (props) => {
             yaml.load(bubberResult, { schema: yaml.CORE_SCHEMA }),
           );
         }
-        // SPLURT EDIT ADDITION: Changelog 3
-        if (links[2].status === 200) {
-          setSplurtContents(
-            yaml.load(splurtResult, { schema: yaml.CORE_SCHEMA }),
-          );
-        }
-        // SPLURT EDIT ADDITION END
       }
     });
   }
 
   const header = (
     <Section>
-      <h1>S.P.L.U.R.T-tg</h1> {/* SPLURT EDIT ADDITION: Changelog 3 */}
+      <h1>Bubberstation 13</h1>
       <p>
         <b>Thanks to: </b>
         /tg/station 13, Effigy, Stellar Haven, Baystation 12, /vg/station,
@@ -412,16 +325,16 @@ export const BubberChangelog = (props) => {
       </p>
       <p>
         {'Current organization members can be found '}
-        <a href="https://github.com/orgs/SPLURT-Station/people">here</a>
+        <a href="https://github.com/orgs/Bubberstation/people">here</a>
         {', recent GitHub contributors can be found '}
-        <a href="https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/pulse/monthly">
+        <a href="https://github.com/Bubberstation/Bubberstation/pulse/monthly">
           here
         </a>
         .
       </p>
       <p>
         {'You can also join our discord '}
-        <a href="https://discord.com/invite/wynHVMzHzC">here</a>!
+        <a href="https://discord.com/invite/AvjrTqnqEx">here</a>!
       </p>
       <DateDropdown
         dates={dates}
@@ -443,12 +356,12 @@ export const BubberChangelog = (props) => {
         setSelectedDateIndex={setSelectedDateIndex}
       />
       <h2>Licenses</h2>
-      <Section title="S.P.L.U.R.T-tg">
+      <Section title="Bubberstation 13">
         <p>
           {'All code is licensed under '}
           <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL v3</a>.
           {' See '}
-          <a href="https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/blob/master/LICENSE">
+          <a href="https://github.com/bubberstation/bubberstation/blob/master/LICENSE">
             LICENSE
           </a>{' '}
           for more details.
@@ -535,8 +448,8 @@ export const BubberChangelog = (props) => {
           No
         </p>
         <p>
-          S.P.L.U.R.T, Bubberstation and /tg/station 13 are thankful to the
-          GoonStation 13 Development Team for its work on the game up to the
+          Bubberstation and /tg/station 13 are thankful to the GoonStation 13
+          Development Team for its work on the game up to the
           {' r4407 release. The changelog for changes up to r4407 can be seen '}
           <a href="https://wiki.ss13.co/Pre-2016_Changelog#April_2010">here</a>.
         </p>
@@ -560,13 +473,7 @@ export const BubberChangelog = (props) => {
     <Window title="Changelog" width={730} height={700}>
       <Window.Content scrollable>
         {header}
-        {/* SPLURT EDIT ADDITION: Changelog 3 */}
-        <ChangelogList
-          contents={contents}
-          bubberContents={bubberContents}
-          splurtContents={splurtContents}
-        />
-        {/* SPLURT EDIT ADDITION END */}
+        <ChangelogList contents={contents} bubberContents={bubberContents} />
         {footer}
       </Window.Content>
     </Window>

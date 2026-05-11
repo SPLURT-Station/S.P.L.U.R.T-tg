@@ -27,8 +27,8 @@ export type PaperInput = {
   raw_text: string;
 } & Partial<{
   font: string;
-  color: string; //SPLURT ADDITION
-  bold: boolean; //SPLURT ADDITION
+  color: string;
+  bold: boolean;
   advanced_html: boolean;
 }>;
 
@@ -37,8 +37,6 @@ type StampInput = {
   x: number;
   y: number;
   rotation: number;
-  color?: string; //SPLURT ADDITION
-  scale?: number; //SPLURT ADDITION
 };
 
 export enum InteractionType {
@@ -53,8 +51,6 @@ export type WritingImplement = {
   color: string;
   font: string;
   stamp_class: string;
-  stamp_color: string; //SPLURT ADDITION
-  stamp_scale: number; //SPLURT ADDITION
   stamp_icon: string;
   stamp_icon_state: string;
   use_bold: boolean;

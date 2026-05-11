@@ -254,9 +254,6 @@ export type PreferencesMenuData = {
   species_restricted_jobs?: string[];
   ckey: string;
   // SKYRAT EDIT END
-  // SPLURT EDIT START
-  donator_tier: number;
-  // SPLURT EDIT END
 
   keybindings: Record<string, string[]>;
   overflow_role: string;

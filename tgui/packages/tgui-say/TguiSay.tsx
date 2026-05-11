@@ -217,12 +217,6 @@ export function TguiSay() {
         break;
 
       case KEY.Enter:
-        // SPLURT EDIT START
-        // Allow Shift+Enter for new lines
-        if (event.shiftKey) {
-          return;
-        }
-        // SPLURT EDIT END
         event.preventDefault();
         handleEnter();
         break;
