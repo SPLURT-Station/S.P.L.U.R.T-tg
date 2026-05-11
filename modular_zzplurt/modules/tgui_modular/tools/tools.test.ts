@@ -30,20 +30,26 @@ describe('modular tgui tools', () => {
 	test('creates a whole-file override manifest and replacement file', () => {
 		const paths = makeWorkspace();
 		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const upstreamSource = Array.from(
+			{ length: 70 },
+			(_, index) => `export const value${index} = ${index};`,
+		).join('\n');
+		const localSource = Array.from(
+			{ length: 70 },
+			(_, index) => `export const changed${index} = ${index};`,
+		).join('\n');
 		const result = createOverrideFromSources({
-			localSource: 'export const value = 2;\n',
+			localSource,
 			moduleRoot: paths.moduleRoot,
 			outputDir,
 			target: 'packages/tgui/interfaces/Panel.tsx',
-			upstreamSource: 'export const value = 1;\n',
+			upstreamSource,
 		});
 
 		expect(result.changed).toBe(true);
 		expect(result.strategy).toBe('whole-file-override');
 		expect(result.warnings).toHaveLength(1);
-		expect(fs.readFileSync(result.replacementPath!, 'utf8')).toBe(
-			'export const value = 2;\n',
-		);
+		expect(fs.readFileSync(result.replacementPath!, 'utf8')).toBe(localSource);
 		expect(fs.readFileSync(result.manifestPath!, 'utf8')).toContain(
 			"target: 'packages/tgui/interfaces/Panel.tsx'",
 		);
@@ -82,23 +88,144 @@ describe('modular tgui tools', () => {
 		);
 	});
 
-	test('generates final source from an override definition', () => {
+	test('creates a replace-all patch when one repeated line change can be inferred', () => {
 		const paths = makeWorkspace();
 		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const result = createOverrideFromSources({
+			localSource: [
+				'<a href="https://downstream.example">',
+				'Other line',
+				'<a href="https://downstream.example">',
+				'',
+			].join('\n'),
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/Rules.tsx',
+			upstreamSource: [
+				'<a href="https://upstream.example">',
+				'Other line',
+				'<a href="https://upstream.example">',
+				'',
+			].join('\n'),
+		});
 
-		createOverrideFromSources({
-			localSource: 'export const value = 2;\n',
+		expect(result.strategy).toBe('ast-patch');
+		expect(result.replacementPath).toBeUndefined();
+		expect(fs.readFileSync(result.manifestPath!, 'utf8')).toContain(
+			"kind: \"replace-all\"",
+		);
+	});
+
+	test('creates a patch for a single inserted line hunk', () => {
+		const paths = makeWorkspace();
+		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const result = createOverrideFromSources({
+			localSource: ['const first = true;', 'const second = true;', ''].join('\n'),
 			moduleRoot: paths.moduleRoot,
 			outputDir,
 			target: 'packages/tgui/interfaces/Panel.tsx',
-			upstreamSource: 'export const value = 1;\n',
+			upstreamSource: ['const first = true;', ''].join('\n'),
+		});
+
+		expect(result.strategy).toBe('ast-patch');
+		expect(result.replacementPath).toBeUndefined();
+		expect(fs.readFileSync(result.manifestPath!, 'utf8')).toContain(
+			"kind: \"insert\"",
+		);
+	});
+
+	test('allows large additive hunks without allowing broad rewrites', () => {
+		const paths = makeWorkspace();
+		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const insertedLines = Array.from(
+			{ length: 120 },
+			(_, index) => `  <Button key="${index}">Action ${index}</Button>`,
+		);
+		const additiveResult = createOverrideFromSources({
+			localSource: [
+				'export function Panel() {',
+				'  return <Box />;',
+				...insertedLines,
+				'}',
+				'',
+			].join('\n'),
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/Panel.tsx',
+			upstreamSource: [
+				'export function Panel() {',
+				'  return <Box />;',
+				'}',
+				'',
+			].join('\n'),
+		});
+
+		const rewriteResult = createOverrideFromSources({
+			localSource: Array.from(
+				{ length: 90 },
+				(_, index) => `export const changed${index} = ${index};`,
+			).join('\n'),
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/RewrittenPanel.tsx',
+			upstreamSource: Array.from(
+				{ length: 90 },
+				(_, index) => `export const value${index} = ${index};`,
+			).join('\n'),
+		});
+
+		expect(additiveResult.strategy).toBe('ast-patch');
+		expect(additiveResult.replacementPath).toBeUndefined();
+		expect(fs.readFileSync(additiveResult.manifestPath!, 'utf8')).toContain(
+			"kind: \"insert\"",
+		);
+		expect(rewriteResult.strategy).toBe('whole-file-override');
+		expect(rewriteResult.replacementPath).toBeDefined();
+	});
+
+	test('creates patches for independent line replacements', () => {
+		const paths = makeWorkspace();
+		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const result = createOverrideFromSources({
+			localSource: ['const first = 2;', 'const second = 3;', ''].join('\n'),
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/Panel.tsx',
+			upstreamSource: ['const first = 1;', 'const second = 1;', ''].join('\n'),
+		});
+
+		expect(result.strategy).toBe('ast-patch');
+		expect(result.replacementPath).toBeUndefined();
+		expect(fs.readFileSync(result.manifestPath!, 'utf8')).toContain(
+			"kind: \"replace-all\"",
+		);
+	});
+
+	test('generates final source from an override definition', () => {
+		const paths = makeWorkspace();
+		const outputDir = path.join(paths.repoRoot, 'modular_zzplurt/tgui/example');
+		const upstreamSource = Array.from(
+			{ length: 70 },
+			(_, index) => `export const value${index} = ${index};`,
+		).join('\n');
+		const localSource = Array.from(
+			{ length: 70 },
+			(_, index) => `export const changed${index} = ${index};`,
+		).join('\n');
+
+		createOverrideFromSources({
+			localSource,
+			moduleRoot: paths.moduleRoot,
+			outputDir,
+			target: 'packages/tgui/interfaces/Panel.tsx',
+			upstreamSource,
 		});
 
 		const definitions = loadModularTguiDefinitions(paths.moduleRoot, {
 			scanRoots: [{ path: '../../tgui/example', recursive: true }],
 		});
 		const result = generateFinalSource({
-			baseSource: 'export const value = 1;\n',
+			baseSource: upstreamSource,
 			definitions,
 			moduleRoot: paths.moduleRoot,
 			target: 'packages/tgui/interfaces/Panel.tsx',
@@ -106,7 +233,7 @@ describe('modular tgui tools', () => {
 		});
 
 		expect(result.sourceKind).toBe('override');
-		expect(result.source).toBe('export const value = 2;\n');
+		expect(result.source).toBe(localSource);
 	});
 
 	test('generates final source by composing multiple patches in load order', () => {
@@ -168,7 +295,7 @@ describe('modular tgui tools', () => {
 
 		fs.mkdirSync(path.dirname(targetPath), { recursive: true });
 		fs.mkdirSync(
-			path.join(paths.repoRoot, 'modular_zzplurt/tgui/cyborg_genitals'),
+			path.join(paths.repoRoot, 'modular_zzplurt/tgui/unsorted-autogenned'),
 			{ recursive: true },
 		);
 		fs.writeFileSync(targetPath, 'export const value = 2;\n');

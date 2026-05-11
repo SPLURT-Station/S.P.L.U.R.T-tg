@@ -22,6 +22,13 @@ export type ReplacePatchOperation = {
 	expectedOccurrences?: number;
 };
 
+export type ReplaceAllPatchOperation = {
+	kind: 'replace-all';
+	anchor: string;
+	content: string;
+	expectedOccurrences?: number;
+};
+
 export type EdgePatchOperation = {
 	kind: 'prepend' | 'append';
 	content: string;
@@ -132,9 +139,34 @@ export type AstReplaceVariableInitializerPatchOperation = {
 	content: string;
 };
 
+export type AstAddDestructuredPropertiesPatchOperation = {
+	kind: 'ast-add-destructured-properties';
+	sourceExpression: string;
+	properties: string[];
+	afterProperty?: string;
+};
+
+export type AstAddFunctionBodyStatementPatchOperation = {
+	kind: 'ast-add-function-body-statement';
+	functionName: string;
+	content: string;
+	position: 'after-start' | 'before-return';
+};
+
+export type AstAddJsxChildPatchOperation = {
+	kind: 'ast-add-jsx-child';
+	functionName?: string;
+	componentName: string;
+	content: string;
+	containingText?: string;
+	propName?: string;
+	propValue?: string;
+};
+
 export type ModularTguiPatchOperation =
 	| AnchorPatchOperation
 	| ReplacePatchOperation
+	| ReplaceAllPatchOperation
 	| EdgePatchOperation
 	| AddImportPatchOperation
 	| AddTypeMemberPatchOperation
@@ -152,7 +184,10 @@ export type ModularTguiPatchOperation =
 	| AstRemoveEnumMemberPatchOperation
 	| AstAddSwitchCasePatchOperation
 	| AstRemoveSwitchCasePatchOperation
-	| AstReplaceVariableInitializerPatchOperation;
+	| AstReplaceVariableInitializerPatchOperation
+	| AstAddDestructuredPropertiesPatchOperation
+	| AstAddFunctionBodyStatementPatchOperation
+	| AstAddJsxChildPatchOperation;
 
 export type ModularTguiPatch = {
 	/**
@@ -199,6 +234,15 @@ function applyPatchOperation(
 				operation.anchor,
 				operation.content,
 				operation.expectedOccurrences ?? 1,
+				target,
+			);
+
+		case 'replace-all':
+			return replaceAllAnchors(
+				source,
+				operation.anchor,
+				operation.content,
+				operation.expectedOccurrences,
 				target,
 			);
 
@@ -298,6 +342,15 @@ function applyPatchOperation(
 				operation.content,
 				target,
 			);
+
+		case 'ast-add-destructured-properties':
+			return astAddDestructuredProperties(source, operation, target);
+
+		case 'ast-add-function-body-statement':
+			return astAddFunctionBodyStatement(source, operation, target);
+
+		case 'ast-add-jsx-child':
+			return astAddJsxChild(source, operation, target);
 	}
 }
 
@@ -529,6 +582,160 @@ function astReplaceVariableInitializer(
 	);
 }
 
+function astAddDestructuredProperties(
+	source: string,
+	operation: AstAddDestructuredPropertiesPatchOperation,
+	target: string,
+) {
+	const syntax = getTypeScript();
+	const sourceFile = createSourceFile(source, target);
+	const declaration = findVariableDeclarationByInitializer(
+		sourceFile,
+		operation.sourceExpression,
+		(node) => syntax.isObjectBindingPattern(node.name),
+	);
+
+	if (!declaration || !syntax.isObjectBindingPattern(declaration.name)) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: destructuring from '${operation.sourceExpression}' not found`,
+		);
+	}
+
+	const binding = declaration.name;
+	const existingNames = new Set(
+		binding.elements
+			.map((element) => getBindingElementName(element, sourceFile))
+			.filter(Boolean),
+	);
+	const newProperties = operation.properties.filter(
+		(propertyName) => !existingNames.has(propertyName),
+	);
+
+	if (newProperties.length === 0) {
+		return source;
+	}
+
+	const content = newProperties.map((propertyName) => `${propertyName},`).join('\n');
+	const afterElement = operation.afterProperty ?
+		binding.elements.find(
+			(element) => getBindingElementName(element, sourceFile) === operation.afterProperty,
+		) :
+		undefined;
+
+	if (operation.afterProperty && !afterElement) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: destructured property '${operation.afterProperty}' not found`,
+		);
+	}
+
+	if (afterElement) {
+		const lineEnd = source.indexOf('\n', afterElement.end);
+		const insertIndex = lineEnd === -1 ? afterElement.end : lineEnd;
+		const indent = getLineIndent(source, afterElement.getStart(sourceFile));
+		return insertBeforeIndex(source, insertIndex, indentContent(content, indent));
+	}
+
+	const closeIndex = source.lastIndexOf('}', binding.end);
+	const indent =
+		binding.elements.length > 0 ?
+			getLineIndent(source, binding.elements[0].getStart(sourceFile)) :
+			getLineIndent(source, closeIndex) + 2;
+
+	return insertBeforeClosingLine(source, closeIndex, indentContent(content, indent));
+}
+
+function astAddFunctionBodyStatement(
+	source: string,
+	operation: AstAddFunctionBodyStatementPatchOperation,
+	target: string,
+) {
+	const sourceFile = createSourceFile(source, target);
+	const declaration = findFunctionLikeDeclaration(sourceFile, operation.functionName);
+	const body = declaration && getFunctionBody(declaration);
+
+	if (!body) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: function '${operation.functionName}' body not found`,
+		);
+	}
+
+	if (operation.position === 'after-start') {
+		const indent = getLineIndent(source, body.getStart(sourceFile)) + 2;
+		return insertBeforeIndex(
+			source,
+			body.getStart(sourceFile) + 1,
+			indentContent(operation.content, indent),
+		);
+	}
+
+	const returnStatement = body.statements.find((statement) => {
+		const syntax = getTypeScript();
+		return syntax.isReturnStatement(statement);
+	});
+
+	if (!returnStatement) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: function '${operation.functionName}' has no return statement`,
+		);
+	}
+
+	const indent = getLineIndent(source, returnStatement.getStart(sourceFile));
+	const lineStart = source.lastIndexOf('\n', returnStatement.getStart(sourceFile)) + 1;
+	return insertBeforeIndex(
+		source,
+		lineStart,
+		indentContent(operation.content, indent),
+	);
+}
+
+function astAddJsxChild(
+	source: string,
+	operation: AstAddJsxChildPatchOperation,
+	target: string,
+) {
+	const syntax = getTypeScript();
+	const sourceFile = createSourceFile(source, target);
+	const functionScope = operation.functionName ?
+		findFunctionLikeDeclaration(sourceFile, operation.functionName) :
+		sourceFile;
+	const scopeBody = functionScope && getFunctionSearchNode(functionScope);
+
+	if (!scopeBody) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: function '${operation.functionName}' not found`,
+		);
+	}
+
+	const candidates: ts.JsxElement[] = [];
+
+	function visit(node: ts.Node) {
+		if (syntax.isJsxElement(node)) {
+			const tagName = node.openingElement.tagName.getText(sourceFile);
+
+			if (tagName === operation.componentName && jsxElementMatches(node, operation, sourceFile)) {
+				candidates.push(node);
+			}
+		}
+
+		syntax.forEachChild(node, visit);
+	}
+
+	visit(scopeBody);
+
+	if (candidates.length !== 1) {
+		throw new Error(
+			`Modular tgui AST patch failed for ${target}: expected one JSX element '${operation.componentName}', found ${candidates.length}`,
+		);
+	}
+
+	const element = candidates[0];
+	const closeTagStart = element.closingElement.getStart(sourceFile);
+	const closeTagLineStart = source.lastIndexOf('\n', closeTagStart) + 1;
+	const indent = getLineIndent(source, closeTagStart) + 2;
+
+	return insertBeforeIndex(source, closeTagLineStart, indentContent(operation.content, indent));
+}
+
 function astAddEnumMember(
 	source: string,
 	enumName: string,
@@ -698,6 +905,87 @@ function findVariableDeclaration(sourceFile: ts.SourceFile, variableName: string
 	return found;
 }
 
+function findVariableDeclarationByInitializer(
+	sourceFile: ts.SourceFile,
+	sourceExpression: string,
+	matchesName: (node: ts.VariableDeclaration) => boolean,
+) {
+	const syntax = getTypeScript();
+	let found: ts.VariableDeclaration | undefined;
+
+	function visit(node: ts.Node) {
+		if (
+			syntax.isVariableDeclaration(node) &&
+			matchesName(node) &&
+			node.initializer?.getText(sourceFile) === sourceExpression
+		) {
+			found = node;
+			return;
+		}
+
+		syntax.forEachChild(node, visit);
+	}
+
+	visit(sourceFile);
+	return found;
+}
+
+function findFunctionLikeDeclaration(sourceFile: ts.SourceFile, functionName: string) {
+	const syntax = getTypeScript();
+	let found:
+		| ts.FunctionDeclaration
+		| ts.ArrowFunction
+		| ts.FunctionExpression
+		| undefined;
+
+	function visit(node: ts.Node) {
+		if (syntax.isFunctionDeclaration(node) && node.name?.text === functionName) {
+			found = node;
+			return;
+		}
+
+		if (
+			syntax.isVariableDeclaration(node) &&
+			syntax.isIdentifier(node.name) &&
+			node.name.text === functionName &&
+			node.initializer &&
+			(syntax.isArrowFunction(node.initializer) ||
+				syntax.isFunctionExpression(node.initializer))
+		) {
+			found = node.initializer;
+			return;
+		}
+
+		syntax.forEachChild(node, visit);
+	}
+
+	visit(sourceFile);
+	return found;
+}
+
+function getFunctionBody(
+	declaration: ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression,
+) {
+	const syntax = getTypeScript();
+	const body = declaration.body;
+
+	return body && syntax.isBlock(body) ? body : undefined;
+}
+
+function getFunctionSearchNode(node: ts.Node) {
+	const syntax = getTypeScript();
+	const body =
+		(
+			syntax.isFunctionDeclaration(node) ||
+			syntax.isArrowFunction(node) ||
+			syntax.isFunctionExpression(node)
+		) ?
+			getFunctionBody(node) :
+			undefined;
+
+	return body ?? node;
+}
+
 function findSwitchStatement(sourceFile: ts.SourceFile, switchExpression: string) {
 	const syntax = getTypeScript();
 	let found: ts.SwitchStatement | undefined;
@@ -716,6 +1004,56 @@ function findSwitchStatement(sourceFile: ts.SourceFile, switchExpression: string
 
 	visit(sourceFile);
 	return found;
+}
+
+function getBindingElementName(element: ts.BindingElement, sourceFile: ts.SourceFile) {
+	const syntax = getTypeScript();
+	const name = element.propertyName ?? element.name;
+
+	if (syntax.isIdentifier(name)) {
+		return name.text;
+	}
+
+	return name.getText(sourceFile);
+}
+
+function jsxElementMatches(
+	element: ts.JsxElement,
+	operation: AstAddJsxChildPatchOperation,
+	sourceFile: ts.SourceFile,
+) {
+	if (operation.containingText && !element.getText(sourceFile).includes(operation.containingText)) {
+		return false;
+	}
+
+	if (!operation.propName) {
+		return true;
+	}
+
+	const attribute = element.openingElement.attributes.properties.find((property) => {
+		const syntax = getTypeScript();
+		return syntax.isJsxAttribute(property) && property.name.text === operation.propName;
+	});
+
+	if (!attribute) {
+		return false;
+	}
+
+	if (operation.propValue === undefined) {
+		return true;
+	}
+
+	const syntax = getTypeScript();
+
+	if (!syntax.isJsxAttribute(attribute) || !attribute.initializer) {
+		return false;
+	}
+
+	if (syntax.isStringLiteral(attribute.initializer)) {
+		return attribute.initializer.text === operation.propValue;
+	}
+
+	return attribute.initializer.getText(sourceFile).includes(operation.propValue);
 }
 
 function findEnumDeclaration(sourceFile: ts.SourceFile, enumName: string) {
@@ -751,7 +1089,9 @@ function getPropertyNameText(name: ts.PropertyName | undefined) {
 
 function createSourceFile(source: string, target: string) {
 	const syntax = getTypeScript();
-	const scriptKind = target.endsWith('.tsx') ? syntax.ScriptKind.TSX : syntax.ScriptKind.TS;
+	const scriptKind = /\.(t|j)sx$/.test(target) ?
+		syntax.ScriptKind.TSX :
+		syntax.ScriptKind.TS;
 
 	return syntax.createSourceFile(target, source, syntax.ScriptTarget.Latest, true, scriptKind);
 }
@@ -926,6 +1266,30 @@ function replaceAnchor(
 	const index = findSingleAnchor(source, anchor, expectedOccurrences, target);
 
 	return `${source.slice(0, index)}${content}${source.slice(index + anchor.length)}`;
+}
+
+function replaceAllAnchors(
+	source: string,
+	anchor: string,
+	content: string,
+	expectedOccurrences: number | undefined,
+	target: string,
+) {
+	const count = countOccurrences(source, anchor);
+
+	if (count === 0) {
+		throw new Error(
+			`Modular tgui patch failed for ${target}: expected at least one occurrence of '${anchor}', found 0`,
+		);
+	}
+
+	if (expectedOccurrences !== undefined && count !== expectedOccurrences) {
+		throw new Error(
+			`Modular tgui patch failed for ${target}: expected ${expectedOccurrences} occurrence(s) of '${anchor}', found ${count}`,
+		);
+	}
+
+	return source.split(anchor).join(content);
 }
 
 function replaceRange(source: string, start: number, end: number, content: string) {

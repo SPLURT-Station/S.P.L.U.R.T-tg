@@ -227,6 +227,107 @@ describe('modular tgui patches', () => {
 		).toContain("const mainFeatures = ['clothing'].filter(Boolean);");
 	});
 
+	test('adds destructured properties by initializer with AST targeting', () => {
+		const source = [
+			'export function PageMain() {',
+			'  const {',
+			'    alertLevel,',
+			'    shuttleRecallable,',
+			'  } = data;',
+			'',
+			'  return null;',
+			'}',
+			'',
+		].join('\n');
+
+		expect(
+			applyPatchOperations(source, [
+				{
+					kind: 'ast-add-destructured-properties',
+					sourceExpression: 'data',
+					afterProperty: 'shuttleRecallable',
+					properties: ['canManageSecurityCyborgs', 'securityCyborgs'],
+				},
+			]),
+		).toContain(
+			[
+				'    shuttleRecallable,',
+				'    canManageSecurityCyborgs,',
+				'    securityCyborgs,',
+			].join('\n'),
+		);
+	});
+
+	test('adds function body statements before return with AST targeting', () => {
+		const source = [
+			'export function PageMain() {',
+			'  const showAlertLevelConfirm = true;',
+			'',
+			'  return <Box />;',
+			'}',
+			'',
+		].join('\n');
+
+		expect(
+			applyPatchOperations(
+				source,
+				[
+					{
+						kind: 'ast-add-function-body-statement',
+						functionName: 'PageMain',
+						position: 'before-return',
+						content: 'const securityCyborgReasonLongEnough = true;',
+					},
+				],
+				'PageMain.tsx',
+			),
+		).toContain(
+			[
+				'  const securityCyborgReasonLongEnough = true;',
+				'  return <Box />;',
+			].join('\n'),
+		);
+	});
+
+	test('adds JSX children to matching components with AST targeting', () => {
+		const source = [
+			'export function PageMain() {',
+			'  return (',
+			'    <Section title="Functions">',
+			'      <Flex direction="column">',
+			'        <Button>Existing</Button>',
+			'      </Flex>',
+			'    </Section>',
+			'  );',
+			'}',
+			'',
+		].join('\n');
+
+		expect(
+			applyPatchOperations(
+				source,
+				[
+					{
+						kind: 'ast-add-jsx-child',
+						functionName: 'PageMain',
+						componentName: 'Flex',
+						propName: 'direction',
+						propValue: 'column',
+						containingText: 'Existing',
+						content: '<Button>Security Cyborg Management</Button>',
+					},
+				],
+				'PageMain.tsx',
+			),
+		).toContain(
+			[
+				'        <Button>Existing</Button>',
+				'        <Button>Security Cyborg Management</Button>',
+				'      </Flex>',
+			].join('\n'),
+		);
+	});
+
 	test('adds enum members with AST targeting', () => {
 		const source = ['enum Page {', '  Main,', '  Jobs,', '}', ''].join('\n');
 
@@ -496,6 +597,21 @@ describe('modular tgui patches', () => {
 				},
 			]),
 		).toContain("  return 'Downstream';");
+	});
+
+	test('replaces all matching anchors when requested', () => {
+		const source = ['const first = "old";', 'const second = "old";', ''].join('\n');
+
+		expect(
+			applyPatchOperations(source, [
+				{
+					kind: 'replace-all',
+					anchor: '"old"',
+					content: '"new"',
+					expectedOccurrences: 2,
+				},
+			]),
+		).toBe(['const first = "new";', 'const second = "new";', ''].join('\n'));
 	});
 
 	test('supports whole-file override resolution with extensionless imports', () => {

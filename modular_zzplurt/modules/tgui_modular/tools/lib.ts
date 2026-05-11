@@ -13,6 +13,14 @@ import {
 	type ModularTguiPatchOperation,
 } from '../patches';
 
+const MIN_INFERRED_REPLACE_LINE_CAP = 24;
+const MAX_INFERRED_DELETE_LINES = 80;
+const MAX_INFERRED_INSERT_LINES = 260;
+const MAX_INFERRED_REPLACE_ADDED_LINES = 160;
+const MAX_INFERRED_REPLACE_REMOVED_LINES = 80;
+const REPLACE_LINE_CAP_FILE_FRACTION = 0.12;
+const MAX_INFERRED_LINE_REPLACEMENTS = 20;
+
 export type ToolPaths = {
 	moduleRoot: string;
 	repoRoot: string;
@@ -31,6 +39,7 @@ export type CreateOverrideResult = {
 	changed: boolean;
 	manifestPath?: string;
 	operation?: ModularTguiPatchOperation;
+	operations?: ModularTguiPatchOperation[];
 	replacement?: string;
 	replacementPath?: string;
 	strategy?: 'ast-patch' | 'whole-file-override';
@@ -108,7 +117,7 @@ export function createOverrideFromSources(options: CreateOverrideOptions) {
 	}
 
 	const outputDir = path.resolve(options.outputDir);
-	const inferredOperation = inferAstPatchOperation(
+	const inferredOperations = inferPatchOperations(
 		options.upstreamSource,
 		options.localSource,
 		target,
@@ -118,13 +127,13 @@ export function createOverrideFromSources(options: CreateOverrideOptions) {
 		path.relative(outputDir, path.resolve(options.moduleRoot, 'index')),
 	);
 
-	if (inferredOperation) {
+	if (inferredOperations) {
 		fs.mkdirSync(outputDir, { recursive: true });
 		fs.writeFileSync(
 			manifestPath,
 			renderPatchManifest({
 				importPath,
-				operation: inferredOperation,
+				operations: inferredOperations,
 				target,
 			}),
 		);
@@ -132,7 +141,8 @@ export function createOverrideFromSources(options: CreateOverrideOptions) {
 		return {
 			changed: true,
 			manifestPath,
-			operation: inferredOperation,
+			operation: inferredOperations[0],
+			operations: inferredOperations,
 			strategy: 'ast-patch',
 			target,
 			warnings: [],
@@ -289,11 +299,11 @@ export async function migrateModifiedTguiFiles(options: MigrateOptions) {
 					target,
 				},
 			});
-		} else if (override.operation) {
+		} else if (override.operations ?? override.operation) {
 			definitions.entries.push({
 				kind: 'patch',
 				patch: {
-					operations: [override.operation],
+					operations: override.operations ?? [override.operation!],
 					target,
 				},
 			});
@@ -402,7 +412,7 @@ function renderOverrideManifest(options: {
 
 function renderPatchManifest(options: {
 	importPath: string;
-	operation: ModularTguiPatchOperation;
+	operations: ModularTguiPatchOperation[];
 	target: string;
 }) {
 	return [
@@ -416,7 +426,7 @@ function renderPatchManifest(options: {
 		'\t{',
 		`\t\ttarget: '${options.target}',`,
 		'\t\toperations: [',
-		indent(renderObject(options.operation), 3),
+		...options.operations.map((operation) => `${indent(renderObject(operation), 3)},`),
 		'\t\t],',
 		'\t},',
 		'];',
@@ -424,7 +434,7 @@ function renderPatchManifest(options: {
 	].join('\n');
 }
 
-function inferAstPatchOperation(
+function inferPatchOperations(
 	upstreamSource: string,
 	localSource: string,
 	target: string,
@@ -433,9 +443,526 @@ function inferAstPatchOperation(
 
 	if (
 		importOperation &&
-		applyPatchOperations(upstreamSource, [importOperation], target) === localSource
+		operationsReproduce(upstreamSource, localSource, [importOperation], target)
 	) {
-		return importOperation;
+		return [importOperation];
+	}
+
+	const lineReplaceOperation = inferRepeatedLineReplace(upstreamSource, localSource);
+
+	if (
+		lineReplaceOperation &&
+		operationsReproduce(upstreamSource, localSource, [lineReplaceOperation], target)
+	) {
+		return [lineReplaceOperation];
+	}
+
+	const lineReplaceOperations = inferIndependentLineReplacements(
+		upstreamSource,
+		localSource,
+	);
+
+	if (
+		lineReplaceOperations &&
+		operationsReproduce(upstreamSource, localSource, lineReplaceOperations, target)
+	) {
+		return lineReplaceOperations;
+	}
+
+	const lineHunkOperation = inferSingleLineHunk(upstreamSource, localSource);
+
+	if (
+		lineHunkOperation &&
+		operationsReproduce(upstreamSource, localSource, [lineHunkOperation], target)
+	) {
+		return [lineHunkOperation];
+	}
+
+	const lineHunkOperations = inferLineHunks(upstreamSource, localSource);
+
+	if (
+		lineHunkOperations &&
+		operationsReproduce(upstreamSource, localSource, lineHunkOperations, target)
+	) {
+		return lineHunkOperations;
+	}
+
+	return undefined;
+}
+
+function operationsReproduce(
+	upstreamSource: string,
+	localSource: string,
+	operations: ModularTguiPatchOperation[],
+	target: string,
+) {
+	try {
+		return applyPatchOperations(upstreamSource, operations, target) === localSource;
+	} catch {
+		return false;
+	}
+}
+
+function inferRepeatedLineReplace(upstreamSource: string, localSource: string) {
+	const upstreamLines = upstreamSource.split('\n');
+	const localLines = localSource.split('\n');
+
+	if (upstreamLines.length !== localLines.length) {
+		return undefined;
+	}
+
+	const replacements = new Map<string, string>();
+
+	for (let index = 0; index < upstreamLines.length; index++) {
+		const upstreamLine = upstreamLines[index];
+		const localLine = localLines[index];
+
+		if (upstreamLine === localLine) {
+			continue;
+		}
+
+		const existing = replacements.get(upstreamLine);
+
+		if (upstreamLine.length === 0) {
+			return undefined;
+		}
+
+		if (existing !== undefined && existing !== localLine) {
+			return undefined;
+		}
+
+		replacements.set(upstreamLine, localLine);
+	}
+
+	if (replacements.size !== 1) {
+		return undefined;
+	}
+
+	const [[anchor, content]] = replacements;
+
+	return {
+		kind: 'replace-all',
+		anchor,
+		content,
+		expectedOccurrences: countOccurrences(upstreamSource, anchor),
+	} satisfies ModularTguiPatchOperation;
+}
+
+function inferIndependentLineReplacements(
+	upstreamSource: string,
+	localSource: string,
+) {
+	const upstreamLines = upstreamSource.split('\n');
+	const localLines = localSource.split('\n');
+
+	if (upstreamLines.length !== localLines.length) {
+		return undefined;
+	}
+
+	const replacements = new Map<string, string>();
+
+	for (let index = 0; index < upstreamLines.length; index++) {
+		const upstreamLine = upstreamLines[index];
+		const localLine = localLines[index];
+
+		if (upstreamLine === localLine) {
+			continue;
+		}
+
+		const existing = replacements.get(upstreamLine);
+
+		if (existing !== undefined && existing !== localLine) {
+			return undefined;
+		}
+
+		replacements.set(upstreamLine, localLine);
+	}
+
+	if (
+		replacements.size < 2 ||
+		replacements.size > MAX_INFERRED_LINE_REPLACEMENTS
+	) {
+		return undefined;
+	}
+
+	return [...replacements].map(([anchor, content]) => {
+		return {
+			kind: 'replace-all',
+			anchor,
+			content,
+			expectedOccurrences: countOccurrences(upstreamSource, anchor),
+		} satisfies ModularTguiPatchOperation;
+	});
+}
+
+function inferSingleLineHunk(upstreamSource: string, localSource: string) {
+	const upstreamLines = upstreamSource.split('\n');
+	const localLines = localSource.split('\n');
+	let start = 0;
+
+	while (
+		start < upstreamLines.length &&
+		start < localLines.length &&
+		upstreamLines[start] === localLines[start]
+	) {
+		start++;
+	}
+
+	let upstreamEnd = upstreamLines.length;
+	let localEnd = localLines.length;
+
+	while (
+		upstreamEnd > start &&
+		localEnd > start &&
+		upstreamLines[upstreamEnd - 1] === localLines[localEnd - 1]
+	) {
+		upstreamEnd--;
+		localEnd--;
+	}
+
+	const removedLines = upstreamLines.slice(start, upstreamEnd);
+	const addedLines = localLines.slice(start, localEnd);
+
+	return inferLineHunkOperation(
+		upstreamLines,
+		start,
+		upstreamEnd,
+		removedLines,
+		addedLines,
+		upstreamSource,
+	);
+}
+
+function inferLineHunks(upstreamSource: string, localSource: string) {
+	const upstreamLines = upstreamSource.split('\n');
+	const localLines = localSource.split('\n');
+	const matches = findLineMatches(upstreamLines, localLines);
+	const operations: ModularTguiPatchOperation[] = [];
+	let upstreamIndex = 0;
+	let localIndex = 0;
+
+	for (const [matchedUpstreamIndex, matchedLocalIndex] of [
+		...matches,
+		[upstreamLines.length, localLines.length] as const,
+	]) {
+		const removedLines = upstreamLines.slice(upstreamIndex, matchedUpstreamIndex);
+		const addedLines = localLines.slice(localIndex, matchedLocalIndex);
+
+		if (removedLines.length > 0 || addedLines.length > 0) {
+			const operation = inferLineHunkOperation(
+				upstreamLines,
+				upstreamIndex,
+				matchedUpstreamIndex,
+				removedLines,
+				addedLines,
+				upstreamSource,
+			);
+
+			if (!operation) {
+				return undefined;
+			}
+
+			operations.push(operation);
+		}
+
+		upstreamIndex = matchedUpstreamIndex + 1;
+		localIndex = matchedLocalIndex + 1;
+	}
+
+	if (
+		operations.length < 2 ||
+		operations.length > MAX_INFERRED_LINE_REPLACEMENTS
+	) {
+		return undefined;
+	}
+
+	return operations;
+}
+
+function inferLineHunkOperation(
+	upstreamLines: string[],
+	start: number,
+	upstreamEnd: number,
+	removedLines: string[],
+	addedLines: string[],
+	upstreamSource: string,
+) {
+	if (removedLines.length === 0 && addedLines.length === 0) {
+		return undefined;
+	}
+
+	if (!lineHunkWithinDynamicCap(upstreamLines, removedLines, addedLines)) {
+		return undefined;
+	}
+
+	if (removedLines.length === 0) {
+		const content = addedLines.join('\n');
+
+		if (start > 0) {
+			const anchor = upstreamLines[start - 1];
+
+			if (anchor.length > 0 && countOccurrences(upstreamSource, anchor) === 1) {
+				return {
+					kind: 'insert',
+					anchor,
+					position: 'after',
+					content: `\n${content}`,
+					expectedOccurrences: 1,
+				} satisfies ModularTguiPatchOperation;
+			}
+		}
+
+		const anchor = upstreamLines[start];
+
+		if (anchor?.length > 0 && countOccurrences(upstreamSource, anchor) === 1) {
+			return {
+				kind: 'insert',
+				anchor,
+				position: 'before',
+				content: `${content}\n`,
+				expectedOccurrences: 1,
+			} satisfies ModularTguiPatchOperation;
+		}
+
+		if (start > 0) {
+			const contextualInsert = inferContextualInsert(
+				upstreamLines,
+				start,
+				addedLines,
+				upstreamSource,
+			);
+
+			if (contextualInsert) {
+				return contextualInsert;
+			}
+		}
+
+		return undefined;
+	}
+
+	if (addedLines.length === 0) {
+		const anchor = removedLines.join('\n');
+		const hasFollowingLine = upstreamEnd < upstreamLines.length;
+		const deleteAnchor = hasFollowingLine ? `${anchor}\n` : anchor;
+
+		if (
+			removedLines.every((line) => line.length === 0) ||
+			countOccurrences(upstreamSource, deleteAnchor) !== 1
+		) {
+			const contextualDelete = inferContextualChange(
+				upstreamLines,
+				start,
+				upstreamEnd,
+				[],
+				upstreamSource,
+			);
+
+			if (contextualDelete) {
+				return contextualDelete;
+			}
+		}
+
+		if (deleteAnchor.length === 0) {
+			return undefined;
+		}
+
+		return {
+			kind: 'replace',
+			anchor: deleteAnchor,
+			content: '',
+			expectedOccurrences: countOccurrences(upstreamSource, deleteAnchor),
+		} satisfies ModularTguiPatchOperation;
+	}
+
+	const anchor = removedLines.join('\n');
+
+	if (anchor.length === 0) {
+		const contextualReplace = inferContextualChange(
+			upstreamLines,
+			start,
+			upstreamEnd,
+			addedLines,
+			upstreamSource,
+		);
+
+		if (contextualReplace) {
+			return contextualReplace;
+		}
+
+		return undefined;
+	}
+
+	if (countOccurrences(upstreamSource, anchor) !== 1) {
+		const contextualReplace = inferContextualChange(
+			upstreamLines,
+			start,
+			upstreamEnd,
+			addedLines,
+			upstreamSource,
+		);
+
+		if (contextualReplace) {
+			return contextualReplace;
+		}
+	}
+
+	return {
+		kind: 'replace',
+		anchor,
+		content: addedLines.join('\n'),
+		expectedOccurrences: countOccurrences(upstreamSource, anchor),
+	} satisfies ModularTguiPatchOperation;
+}
+
+function lineHunkWithinDynamicCap(
+	upstreamLines: string[],
+	removedLines: string[],
+	addedLines: string[],
+) {
+	if (removedLines.length === 0) {
+		return addedLines.length <= MAX_INFERRED_INSERT_LINES;
+	}
+
+	if (addedLines.length === 0) {
+		return removedLines.length <= MAX_INFERRED_DELETE_LINES;
+	}
+
+	const fileScaledReplaceCap = Math.ceil(
+		upstreamLines.length * REPLACE_LINE_CAP_FILE_FRACTION,
+	);
+	const replaceRemovedCap = Math.max(
+		MIN_INFERRED_REPLACE_LINE_CAP,
+		Math.min(MAX_INFERRED_REPLACE_REMOVED_LINES, fileScaledReplaceCap),
+	);
+
+	return (
+		removedLines.length <= replaceRemovedCap &&
+		addedLines.length <= MAX_INFERRED_REPLACE_ADDED_LINES
+	);
+}
+
+function findLineMatches(upstreamLines: string[], localLines: string[]) {
+	const width = localLines.length + 1;
+	const lengths = new Uint32Array((upstreamLines.length + 1) * width);
+
+	for (let upstreamIndex = upstreamLines.length - 1; upstreamIndex >= 0; upstreamIndex--) {
+		for (let localIndex = localLines.length - 1; localIndex >= 0; localIndex--) {
+			const offset = upstreamIndex * width + localIndex;
+
+			if (upstreamLines[upstreamIndex] === localLines[localIndex]) {
+				lengths[offset] = lengths[(upstreamIndex + 1) * width + localIndex + 1] + 1;
+			} else {
+				lengths[offset] = Math.max(
+					lengths[(upstreamIndex + 1) * width + localIndex],
+					lengths[upstreamIndex * width + localIndex + 1],
+				);
+			}
+		}
+	}
+
+	const matches: Array<readonly [number, number]> = [];
+	let upstreamIndex = 0;
+	let localIndex = 0;
+
+	while (upstreamIndex < upstreamLines.length && localIndex < localLines.length) {
+		if (upstreamLines[upstreamIndex] === localLines[localIndex]) {
+			matches.push([upstreamIndex, localIndex]);
+			upstreamIndex++;
+			localIndex++;
+		} else if (
+			lengths[(upstreamIndex + 1) * width + localIndex] >=
+				lengths[upstreamIndex * width + localIndex + 1]
+		) {
+			upstreamIndex++;
+		} else {
+			localIndex++;
+		}
+	}
+
+	return matches;
+}
+
+function inferContextualInsert(
+	upstreamLines: string[],
+	start: number,
+	addedLines: string[],
+	upstreamSource: string,
+) {
+	for (let beforeCount = 1; beforeCount <= 8; beforeCount++) {
+		const beforeStart = start - beforeCount;
+
+		if (beforeStart < 0) {
+			break;
+		}
+
+		for (let afterCount = 0; afterCount <= 8; afterCount++) {
+			const afterEnd = start + afterCount;
+
+			if (afterEnd > upstreamLines.length) {
+				break;
+			}
+
+			const beforeLines = upstreamLines.slice(beforeStart, start);
+			const afterLines = upstreamLines.slice(start, afterEnd);
+			const anchor = [...beforeLines, ...afterLines].join('\n');
+			const content = [...beforeLines, ...addedLines, ...afterLines].join('\n');
+
+			if (
+				anchor.length > 0 &&
+				countOccurrences(upstreamSource, anchor) === 1
+			) {
+				return {
+					kind: 'replace',
+					anchor,
+					content,
+					expectedOccurrences: 1,
+				} satisfies ModularTguiPatchOperation;
+			}
+		}
+	}
+
+	return undefined;
+}
+
+function inferContextualChange(
+	upstreamLines: string[],
+	start: number,
+	upstreamEnd: number,
+	addedLines: string[],
+	upstreamSource: string,
+) {
+	for (let beforeCount = 1; beforeCount <= 8; beforeCount++) {
+		const beforeStart = start - beforeCount;
+
+		if (beforeStart < 0) {
+			break;
+		}
+
+		for (let afterCount = 1; afterCount <= 8; afterCount++) {
+			const afterEnd = upstreamEnd + afterCount;
+
+			if (afterEnd > upstreamLines.length) {
+				break;
+			}
+
+			const beforeLines = upstreamLines.slice(beforeStart, start);
+			const removedLines = upstreamLines.slice(start, upstreamEnd);
+			const afterLines = upstreamLines.slice(upstreamEnd, afterEnd);
+			const anchor = [...beforeLines, ...removedLines, ...afterLines].join('\n');
+			const content = [...beforeLines, ...addedLines, ...afterLines].join('\n');
+
+			if (
+				anchor.length > 0 &&
+				countOccurrences(upstreamSource, anchor) === 1
+			) {
+				return {
+					kind: 'replace',
+					anchor,
+					content,
+					expectedOccurrences: 1,
+				} satisfies ModularTguiPatchOperation;
+			}
+		}
 	}
 
 	return undefined;
@@ -508,6 +1035,22 @@ function readNamedImports(source: string) {
 	}
 
 	return imports;
+}
+
+function countOccurrences(source: string, anchor: string) {
+	if (anchor.length === 0) {
+		return 0;
+	}
+
+	let count = 0;
+	let index = source.indexOf(anchor);
+
+	while (index !== -1) {
+		count++;
+		index = source.indexOf(anchor, index + anchor.length);
+	}
+
+	return count;
 }
 
 function renderObject(value: unknown): string {

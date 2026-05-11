@@ -4,7 +4,7 @@ import type { ModularTguiOverride } from './plugin';
 
 export const scanRoots: ModularTguiScanRoot[] = [
 	{
-		path: '../../tgui/cyborg_genitals',
+		path: '../../tgui/unsorted-autogenned',
 		recursive: true,
 	},
 ];

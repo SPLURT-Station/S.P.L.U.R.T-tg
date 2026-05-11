@@ -204,9 +204,41 @@ export function PreferencesMenu() {
 
 ### 6. Replace one function or block
 
-There is no generic AST replacement yet. Use exact text replacement when a
-single block has to change and a whole-file override would be too much. By
-default, the anchor must appear exactly once.
+For component-shaped edits, prefer the AST helpers before reaching for text
+replacement:
+
+```ts
+{
+	kind: 'ast-add-destructured-properties',
+	sourceExpression: 'data',
+	afterProperty: 'shuttleRecallable',
+	properties: ['canManageSecurityCyborgs', 'securityCyborgs'],
+}
+```
+
+```ts
+{
+	kind: 'ast-add-function-body-statement',
+	functionName: 'PageMain',
+	position: 'before-return',
+	content: 'const ready = true;',
+}
+```
+
+```ts
+{
+	kind: 'ast-add-jsx-child',
+	functionName: 'PageMain',
+	componentName: 'Flex',
+	propName: 'direction',
+	propValue: 'column',
+	containingText: 'Existing child text',
+	content: '<Button>Extra Action</Button>',
+}
+```
+
+Use exact text replacement when a single block has to change and a whole-file
+override would be too much. By default, the anchor must appear exactly once.
 
 ```ts
 {
@@ -290,9 +322,11 @@ bun ../modular_zzplurt/modules/tgui_modular/tools/cli.ts create-override \
 
 `--upstream-url` may be used instead of `--upstream-ref` for a GitHub repo or
 raw-content base URL. The tool compares upstream source against the local file.
-It first tries to infer a safe AST patch, currently starting with named import
-additions. If it cannot prove the AST patch reproduces the local file exactly,
-it writes a whole-file override instead and prints a warning.
+It first tries to infer safe AST and small text patches, then checks that the
+operations reproduce the local file exactly. Text hunk inference uses different
+limits for inserts, deletes, and replacements: large additive hunks are allowed,
+but broad rewrites still fall back to whole-file overrides. If no patch can be
+proven exact, it writes a whole-file override instead and prints a warning.
 
 Generate the final runtime source for a tgui file after modular overrides and
 patches:
