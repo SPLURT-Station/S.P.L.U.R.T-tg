@@ -249,6 +249,33 @@
 	qdel(preview_holder)
 	return rendered_data
 
+/proc/cyborg_character_apply_body_scale_to_rendered_genital(mob/living/silicon/robot/owner_robot, list/rendered_genital_data, body_scale)
+	if(!owner_robot || !islist(rendered_genital_data))
+		return null
+
+	var/icon/rendered_genital_icon = rendered_genital_data["icon"]
+	if(!isicon(rendered_genital_icon))
+		return null
+
+	body_scale = max(body_scale || RESIZE_NORMAL, 0.25)
+	var/original_width = max(rendered_genital_icon.Width(), 1)
+	var/original_height = max(rendered_genital_icon.Height(), 1)
+	var/target_width = max(round(original_width * body_scale), 1)
+	var/target_height = max(round(original_height * body_scale), 1)
+	var/icon/scaled_icon = rendered_genital_icon
+	if(target_width != original_width || target_height != original_height)
+		scaled_icon = owner_robot.scale_cyborg_icon_nearest_neighbor(rendered_genital_icon, target_width, target_height)
+	if(!isicon(scaled_icon))
+		return null
+
+	return list(
+		"icon" = scaled_icon,
+		"pixel_x" = (rendered_genital_data["pixel_x"] || 0) + round((original_width - scaled_icon.Width()) * 0.5),
+		"pixel_y" = (rendered_genital_data["pixel_y"] || 0) + round((original_height - scaled_icon.Height()) * 0.5),
+		"width" = scaled_icon.Width(),
+		"height" = scaled_icon.Height(),
+	)
+
 /mob/living/silicon/robot/cyborg_character_catalog_host/Destroy()
 	if(ispath(cell))
 		cell = null
@@ -1514,6 +1541,7 @@
 			genital_overlay.pixel_y += preview_genital_pixel_y
 			genital_overlay.plane = FLOAT_PLANE
 			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir)
+			rendered_genital_data = cyborg_character_apply_body_scale_to_rendered_genital(catalog_host, rendered_genital_data, selected_size)
 			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
 			if(isicon(rendered_genital_icon))
 				var/genital_draw_x = preview_body_pixel_x + (rendered_genital_data["pixel_x"] || 0)

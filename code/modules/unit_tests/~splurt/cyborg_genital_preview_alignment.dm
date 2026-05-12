@@ -108,16 +108,23 @@
 			if(!islist(live_render) || !islist(preview_render))
 				TEST_FAIL("Missing genital render data for [model_name] / [variant_name], size [selected_size], dir [selected_dir]. live=[islist(live_render)] preview=[islist(preview_render)]")
 				continue
+			var/list/live_display = cyborg_character_apply_body_scale_to_rendered_genital(live_robot, live_render, selected_size)
+			var/list/preview_display = cyborg_character_apply_body_scale_to_rendered_genital(preview_robot, preview_render, selected_size)
+			if(!islist(live_display) || !islist(preview_display))
+				TEST_FAIL("Missing body-scaled genital display data for [model_name] / [variant_name], size [selected_size], dir [selected_dir]. live=[islist(live_display)] preview=[islist(preview_display)]")
+				continue
 
 			var/list/body_scale_offset = get_body_scale_offset(selected_size)
-			var/live_relative_x = (live_render["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
-			var/live_relative_y = (live_render["pixel_y"] || 0) - (body_scale_offset["pixel_y"] || 0)
-			var/preview_relative_x = (preview_render["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
-			var/preview_relative_y = (preview_render["pixel_y"] || 0) - (body_scale_offset["pixel_y"] || 0)
+			var/live_relative_x = (live_display["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
+			var/live_relative_y = (live_display["pixel_y"] || 0) - (body_scale_offset["pixel_y"] || 0)
+			var/preview_relative_x = (preview_display["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
+			var/preview_relative_y = (preview_display["pixel_y"] || 0) - (body_scale_offset["pixel_y"] || 0)
 
-			if(live_render["width"] != preview_render["width"] || live_render["height"] != preview_render["height"] || live_relative_x != preview_relative_x || live_relative_y != preview_relative_y)
-				TEST_FAIL("[model_name] / [variant_name] size [selected_size] dir [selected_dir] live=(px [live_render["pixel_x"]], py [live_render["pixel_y"]], rel [live_relative_x],[live_relative_y], size [live_render["width"]]x[live_render["height"]]) preview=(px [preview_render["pixel_x"]], py [preview_render["pixel_y"]], rel [preview_relative_x],[preview_relative_y], size [preview_render["width"]]x[preview_render["height"]]) body_scale_offset=([body_scale_offset["pixel_x"]],[body_scale_offset["pixel_y"]])")
+			if(live_display["width"] != preview_display["width"] || live_display["height"] != preview_display["height"] || live_relative_x != preview_relative_x || live_relative_y != preview_relative_y)
+				TEST_FAIL("[model_name] / [variant_name] size [selected_size] dir [selected_dir] live=(px [live_display["pixel_x"]], py [live_display["pixel_y"]], rel [live_relative_x],[live_relative_y], size [live_display["width"]]x[live_display["height"]]) preview=(px [preview_display["pixel_x"]], py [preview_display["pixel_y"]], rel [preview_relative_x],[preview_relative_y], size [preview_display["width"]]x[preview_display["height"]]) body_scale_offset=([body_scale_offset["pixel_x"]],[body_scale_offset["pixel_y"]])")
 
 /datum/unit_test/cyborg_genital_preview_alignment/Run()
 	check_case("Peacekeeper", "Drake")
 	check_case("Peacekeeper", "Meka")
+
+TEST_FOCUS(/datum/unit_test/cyborg_genital_preview_alignment)
