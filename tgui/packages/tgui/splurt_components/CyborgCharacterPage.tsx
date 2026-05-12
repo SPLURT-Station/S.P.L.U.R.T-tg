@@ -8,10 +8,10 @@ import {
   NoticeBox,
   NumberInput,
   Section,
+  Slider,
   Stack,
 } from 'tgui-core/components';
 
-import { CharacterPreview } from '../interfaces/common/CharacterPreview';
 import { PreferenceList } from '../interfaces/PreferencesMenu/CharacterPreferences/MainPage';
 import { NameInput } from '../interfaces/PreferencesMenu/CharacterPreferences/names';
 import { PageButton } from '../interfaces/PreferencesMenu/components/PageButton';
@@ -20,6 +20,7 @@ import type {
   PreferencesMenuData,
 } from '../interfaces/PreferencesMenu/types';
 import { createSetPreference } from '../interfaces/PreferencesMenu/types';
+import { useServerPrefs } from '../interfaces/PreferencesMenu/useServerPrefs';
 import { BottomDropdown } from './BottomDropdown';
 
 const PREVIEW_DIRS = ['south', 'north', 'east', 'west'];
@@ -28,6 +29,8 @@ const AROUSAL_PARTIAL = 2;
 const AROUSAL_FULL = 3;
 const PREVIEW_MAP_SIZE_PX = 480;
 const PREVIEW_MAP_SIZE = `${PREVIEW_MAP_SIZE_PX}px`;
+const PREVIEW_DEFAULT_ZOOM = 2;
+const PREVIEW_MAX_ZOOM = 8;
 const PREVIEW_LABEL_WIDTH = '86px';
 const NO_RANDOMIZATIONS = {} as Record<string, never>;
 
@@ -71,6 +74,17 @@ function CyborgPreviewControlRow(props: {
   );
 }
 
+function StopWindowDrag(props: { children: ReactNode }) {
+  return (
+    <Box
+      onMouseDown={(event) => event.stopPropagation()}
+      onPointerDown={(event) => event.stopPropagation()}
+    >
+      {props.children}
+    </Box>
+  );
+}
+
 function normalizeList<T>(value: T[] | Record<string, T> | undefined): T[] {
   if (!value) {
     return [];
@@ -79,6 +93,26 @@ function normalizeList<T>(value: T[] | Record<string, T> | undefined): T[] {
     return value;
   }
   return Object.values(value);
+}
+
+function normalizeColorLayers(
+  value: string[] | Record<string, string> | undefined,
+): [string, string][] {
+  if (!value) {
+    return [['1', 'primary']];
+  }
+
+  if (Array.isArray(value)) {
+    if (!value.length) {
+      return [['1', 'primary']];
+    }
+    return value.map((layer, index) => [String(index + 1), layer]);
+  }
+
+  const entries = Object.entries(value).sort(
+    ([leftKey], [rightKey]) => Number(leftKey) - Number(rightKey),
+  );
+  return entries.length ? entries : [['1', 'primary']];
 }
 
 function CyborgNumberInput(props: {
@@ -132,28 +166,31 @@ function CyborgNumberInput(props: {
   };
 
   return (
-    <NumberInput
-      animated
-      tickWhileDragging
-      stepPixelSize={6}
-      width="90px"
-      value={draftValue}
-      onChange={(nextValue) => {
-        setDraftValue(nextValue);
-        queueCommit(nextValue);
-      }}
-      {...numberProps}
-    />
+    <StopWindowDrag>
+      <NumberInput
+        animated
+        tickWhileDragging
+        stepPixelSize={6}
+        width="90px"
+        value={draftValue}
+        onChange={(nextValue) => {
+          setDraftValue(nextValue);
+          queueCommit(nextValue);
+        }}
+        {...numberProps}
+      />
+    </StopWindowDrag>
   );
 }
 
 function CyborgDirectionalLayoutControls(props: {
   genital: CyborgReproductionManagement['genitals'][number];
   direction: string;
+  directionLabel: string;
   arousal: number | null;
 }) {
   const { act } = useBackend<PreferencesMenuData>();
-  const { genital, direction, arousal } = props;
+  const { genital, direction, directionLabel, arousal } = props;
   const settings = genital.advanced?.[direction] || {};
   const arousalKey = cyborgArousalKey(arousal);
   const arousalSettings = arousalKey
@@ -178,12 +215,16 @@ function CyborgDirectionalLayoutControls(props: {
       arousalSettings.rotation !== undefined
         ? arousalSettings.rotation
         : settings.rotation || 0,
+    priority:
+      arousalSettings.priority !== undefined
+        ? arousalSettings.priority
+        : settings.priority || 5,
   };
 
   return (
     <Stack align="center" mb={0.5}>
       <Stack.Item basis="80px" color="label">
-        {direction.charAt(0).toUpperCase() + direction.slice(1)}
+        {directionLabel}
       </Stack.Item>
       <Stack.Item basis="90px">
         <Button.Checkbox
@@ -211,7 +252,7 @@ function CyborgDirectionalLayoutControls(props: {
           arousal={activeArousal}
           minValue={-offsetLimit}
           maxValue={offsetLimit}
-          step={1}
+          step={0.1}
           value={effectiveSettings.pixel_x || 0}
         />
       </Stack.Item>
@@ -223,7 +264,7 @@ function CyborgDirectionalLayoutControls(props: {
           arousal={activeArousal}
           minValue={-offsetLimit}
           maxValue={offsetLimit}
-          step={1}
+          step={0.1}
           value={effectiveSettings.pixel_y || 0}
         />
       </Stack.Item>
@@ -238,6 +279,26 @@ function CyborgDirectionalLayoutControls(props: {
           step={1}
           value={effectiveSettings.rotation || 0}
         />
+      </Stack.Item>
+      <Stack.Item basis="110px">
+        <StopWindowDrag>
+          <Slider
+            minValue={1}
+            maxValue={10}
+            step={1}
+            stepPixelSize={14}
+            value={effectiveSettings.priority || 5}
+            onChange={(e, value) =>
+              act('set_cyborg_reproduction_direction_value', {
+                slot: genital.slot,
+                field: 'priority',
+                value,
+                direction,
+                arousal: activeArousal,
+              })
+            }
+          />
+        </StopWindowDrag>
       </Stack.Item>
       <Stack.Item grow textAlign="right">
         <Button
@@ -258,13 +319,13 @@ function CyborgDirectionalLayoutControls(props: {
 
 function CyborgGenitalControls(props: {
   genital: CyborgReproductionManagement['genitals'][number];
+  offsetDirections: CyborgReproductionManagement['offset_directions'];
 }) {
   const { act } = useBackend<PreferencesMenuData>();
-  const { genital } = props;
+  const { genital, offsetDirections } = props;
   const hasSprite = !!genital.has_sprite;
-  const [directionalArousal, setDirectionalArousal] = useState<number | null>(
-    null,
-  );
+  const [directionalArousal, setDirectionalArousal] =
+    useState<number>(AROUSAL_NONE);
   const effectiveDirectionalArousal = genital.can_arouse
     ? directionalArousal
     : null;
@@ -276,7 +337,7 @@ function CyborgGenitalControls(props: {
         ? 'Partial'
         : effectiveDirectionalArousal === AROUSAL_FULL
           ? 'Full'
-          : 'Current';
+          : 'None';
 
   return (
     <Collapsible
@@ -305,70 +366,63 @@ function CyborgGenitalControls(props: {
           {hasSprite && (
             <LabeledList.Item label="Color">
               <Stack vertical>
-                {Object.entries(
-                  genital.color_layers?.length
-                    ? Object.fromEntries(
-                        genital.color_layers.map((layer, index) => [
-                          String(index + 1),
-                          layer,
-                        ]),
-                      )
-                    : { 1: 'primary' },
-                ).map(([layerKey, layerName]) => {
-                  const colorIndex = Number(layerKey);
-                  const customColor = genital.colors?.[colorIndex - 1];
-                  const resolvedColor =
-                    genital.resolved_colors?.[colorIndex - 1] || '#000000';
+                {normalizeColorLayers(genital.color_layers).map(
+                  ([layerKey, layerName]) => {
+                    const colorIndex = Number(layerKey);
+                    const customColor = genital.colors?.[colorIndex - 1];
+                    const resolvedColor =
+                      genital.resolved_colors?.[colorIndex - 1] || '#000000';
 
-                  return (
-                    <Stack align="center" key={`${genital.slot}-${layerKey}`}>
-                      <Stack.Item basis="70px" color="label">
-                        {layerName}
-                      </Stack.Item>
-                      <Stack.Item>
-                        <Box
-                          style={{
-                            background: resolvedColor,
-                            border: '1px solid white',
-                            boxSizing: 'border-box',
-                            height: '16px',
-                            width: '16px',
-                          }}
-                        />
-                      </Stack.Item>
-                      <Stack.Item grow={1}>
-                        {customColor || `Default (${resolvedColor})`}
-                      </Stack.Item>
-                      <Stack.Item>
-                        <Button
-                          icon="palette"
-                          content="Change"
-                          onClick={() =>
-                            act('set_cyborg_reproduction_value', {
-                              slot: genital.slot,
-                              field: 'color',
-                              value: colorIndex,
-                            })
-                          }
-                        />
-                      </Stack.Item>
-                      <Stack.Item>
-                        <Button
-                          icon="undo"
-                          content="Default"
-                          disabled={!customColor}
-                          onClick={() =>
-                            act('set_cyborg_reproduction_value', {
-                              slot: genital.slot,
-                              field: 'reset_color',
-                              value: colorIndex,
-                            })
-                          }
-                        />
-                      </Stack.Item>
-                    </Stack>
-                  );
-                })}
+                    return (
+                      <Stack align="center" key={`${genital.slot}-${layerKey}`}>
+                        <Stack.Item basis="70px" color="label">
+                          {layerName}
+                        </Stack.Item>
+                        <Stack.Item>
+                          <Box
+                            style={{
+                              background: resolvedColor,
+                              border: '1px solid white',
+                              boxSizing: 'border-box',
+                              height: '16px',
+                              width: '16px',
+                            }}
+                          />
+                        </Stack.Item>
+                        <Stack.Item grow={1}>
+                          {customColor || `Default (${resolvedColor})`}
+                        </Stack.Item>
+                        <Stack.Item>
+                          <Button
+                            icon="palette"
+                            content="Change"
+                            onClick={() =>
+                              act('set_cyborg_reproduction_value', {
+                                slot: genital.slot,
+                                field: 'color',
+                                value: colorIndex,
+                              })
+                            }
+                          />
+                        </Stack.Item>
+                        <Stack.Item>
+                          <Button
+                            icon="undo"
+                            content="Default"
+                            disabled={!customColor}
+                            onClick={() =>
+                              act('set_cyborg_reproduction_value', {
+                                slot: genital.slot,
+                                field: 'reset_color',
+                                value: colorIndex,
+                              })
+                            }
+                          />
+                        </Stack.Item>
+                      </Stack>
+                    );
+                  },
+                )}
               </Stack>
             </LabeledList.Item>
           )}
@@ -392,7 +446,7 @@ function CyborgGenitalControls(props: {
               field="pixel_x"
               minValue={-(genital.offset_limit || 32)}
               maxValue={genital.offset_limit || 32}
-              step={1}
+              step={0.1}
               value={genital.pixel_x || 0}
             />
           </Stack.Item>
@@ -405,7 +459,7 @@ function CyborgGenitalControls(props: {
               field="pixel_y"
               minValue={-(genital.offset_limit || 32)}
               maxValue={genital.offset_limit || 32}
-              step={1}
+              step={0.1}
               value={genital.pixel_y || 0}
             />
           </Stack.Item>
@@ -449,19 +503,6 @@ function CyborgGenitalControls(props: {
             <Stack.Item>
               {genital.can_arouse ? (
                 <Stack>
-                  <Stack.Item>
-                    <Button
-                      selected={effectiveDirectionalArousal === null}
-                      content="Current"
-                      onClick={() => {
-                        setDirectionalArousal(null);
-                        act('set_cyborg_preview_genital_arousal', {
-                          slot: genital.slot,
-                          arousal: null,
-                        });
-                      }}
-                    />
-                  </Stack.Item>
                   <Stack.Item>
                     <Button
                       selected={effectiveDirectionalArousal === AROUSAL_NONE}
@@ -524,13 +565,17 @@ function CyborgGenitalControls(props: {
             <Stack.Item basis="90px" color="label">
               Rotation
             </Stack.Item>
+            <Stack.Item basis="110px" color="label">
+              Priority
+            </Stack.Item>
           </Stack>
 
-          {Object.keys(genital.advanced || {}).map((direction) => (
+          {offsetDirections.map((directionEntry) => (
             <CyborgDirectionalLayoutControls
-              key={`${genital.slot}-${direction}`}
+              key={`${genital.slot}-${directionEntry.value}`}
               genital={genital}
-              direction={direction}
+              direction={directionEntry.value}
+              directionLabel={directionEntry.label}
               arousal={effectiveDirectionalArousal}
             />
           ))}
@@ -548,8 +593,11 @@ function CyborgReproductionManagementSection(props: {
   const { act } = useBackend<PreferencesMenuData>();
   const rawGenitals = props.reproductionManagement.genitals || [];
   const rawPresets = props.reproductionManagement.presets || [];
+  const rawOffsetDirections =
+    props.reproductionManagement.offset_directions || [];
   const genitals = normalizeList(rawGenitals);
   const presets = normalizeList(rawPresets);
+  const offsetDirections = normalizeList(rawOffsetDirections);
 
   return (
     <Section title="Genital Layout">
@@ -639,7 +687,10 @@ function CyborgReproductionManagementSection(props: {
         <Stack vertical>
           {genitals.map((genital) => (
             <Stack.Item key={genital.slot}>
-              <CyborgGenitalControls genital={genital} />
+              <CyborgGenitalControls
+                genital={genital}
+                offsetDirections={offsetDirections}
+              />
             </Stack.Item>
           ))}
         </Stack>
@@ -675,10 +726,12 @@ function preferenceSubsetFromBuckets(
 
 export function CyborgCharacterPage() {
   const { act, data } = useBackend<PreferencesMenuData>();
+  const serverData = useServerPrefs();
   const cyborg = data.cyborg_character;
   const [currentPrefPage, setCurrentPrefPage] = useState(
     CyborgPrefPage.Visuals,
   );
+  const [previewZoom, setPreviewZoom] = useState(PREVIEW_DEFAULT_ZOOM);
 
   if (!cyborg) {
     return <NoticeBox>Loading cyborg character data...</NoticeBox>;
@@ -704,11 +757,11 @@ export function CyborgCharacterPage() {
   const genitalPreferences = preferenceSubsetFromBuckets(
     data.character_preferences,
     [
-      'silicon_genitals_toggle',
       'silicon_penis_sprite',
       'silicon_sheath_sprite',
       'silicon_testicles_sprite',
       'silicon_vagina_sprite',
+      'silicon_breasts_sprite',
     ],
   );
 
@@ -732,20 +785,77 @@ export function CyborgCharacterPage() {
                 display: 'flex',
                 height: PREVIEW_MAP_SIZE,
                 justifyContent: 'center',
-                overflow: 'hidden',
+                overflow: 'auto',
                 width: PREVIEW_MAP_SIZE,
               }}
             >
-              <CharacterPreview
-                height={PREVIEW_MAP_SIZE}
-                width={PREVIEW_MAP_SIZE}
-                id={cyborg.preview}
-              />
+              {cyborg.preview_image && (
+                <img
+                  alt=""
+                  src={cyborg.preview_image}
+                  style={{
+                    height: `${PREVIEW_MAP_SIZE_PX * previewZoom}px`,
+                    imageRendering: 'pixelated',
+                    objectFit: 'contain',
+                    width: `${PREVIEW_MAP_SIZE_PX * previewZoom}px`,
+                  }}
+                />
+              )}
             </Box>
             <Box mt={1} style={{ width: PREVIEW_MAP_SIZE }}>
+              <CyborgPreviewControlRow label="Zoom">
+                <StopWindowDrag>
+                  <Slider
+                    minValue={0.5}
+                    maxValue={PREVIEW_MAX_ZOOM}
+                    step={0.1}
+                    stepPixelSize={8}
+                    value={previewZoom}
+                    unit="x"
+                    onChange={(e, value) => setPreviewZoom(value)}
+                  />
+                </StopWindowDrag>
+              </CyborgPreviewControlRow>
+              <CyborgPreviewControlRow label="Background">
+                <BottomDropdown
+                  fluid
+                  width="100%"
+                  options={serverData?.background_state.choices || []}
+                  selected={data.character_preferences.misc.background_state}
+                  onSelected={(value) =>
+                    act('update_cyborg_background', {
+                      new_background: value,
+                    })
+                  }
+                />
+              </CyborgPreviewControlRow>
+              <CyborgPreviewControlRow label="Size">
+                <StopWindowDrag>
+                  <Slider
+                    minValue={0}
+                    maxValue={(cyborg.size_options?.length || 1) - 1}
+                    step={1}
+                    stepPixelSize={80}
+                    value={Math.max(
+                      0,
+                      (cyborg.size_options || []).indexOf(cyborg.size),
+                    )}
+                    format={(value) => {
+                      const size = cyborg.size_options?.[value] || cyborg.size;
+                      return `${Math.round(size * 100)}%`;
+                    }}
+                    onChange={(e, value) =>
+                      act('set_cyborg_size', {
+                        size: cyborg.size_options?.[value] || cyborg.size,
+                      })
+                    }
+                  />
+                </StopWindowDrag>
+              </CyborgPreviewControlRow>
               <CyborgPreviewControlRow label="Department">
                 <BottomDropdown
                   fluid
+                  over
                   width="100%"
                   options={cyborg.models}
                   selected={cyborg.selected_department}
@@ -759,6 +869,7 @@ export function CyborgCharacterPage() {
               <CyborgPreviewControlRow label="Model">
                 <BottomDropdown
                   fluid
+                  over
                   width="100%"
                   options={
                     cyborg.models_by_department?.[cyborg.selected_department] ||
@@ -773,6 +884,7 @@ export function CyborgCharacterPage() {
               <CyborgPreviewControlRow label="State">
                 <BottomDropdown
                   fluid
+                  over
                   width="100%"
                   options={(cyborg.states || []).map((state) => ({
                     displayText: state.label,
@@ -787,6 +899,7 @@ export function CyborgCharacterPage() {
               <CyborgPreviewControlRow label="Direction">
                 <BottomDropdown
                   fluid
+                  over
                   width="100%"
                   options={PREVIEW_DIRS}
                   selected={cyborg.selected_dir}

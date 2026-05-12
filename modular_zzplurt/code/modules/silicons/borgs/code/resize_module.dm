@@ -41,65 +41,8 @@
 			return resize_amount
 
 /obj/item/borg/upgrade/resize/action(mob/living/silicon/robot/borg, mob/living/user = usr)
-	. = ..()
-	if(!. || HAS_TRAIT(borg, TRAIT_NO_TRANSFORM))
-		return FALSE
-
-	// All these conditions are to prevent this from being installed on borgs that either have been expanded/shrunk or have had a resizer already installed
-	if(borg.hasExpanded)
-		to_chat(usr, span_warning("This unit already has an expand module installed!"))
-		return FALSE
-
-	if(borg.hasShrunk)
-		to_chat(usr, span_warning("This unit already has a shrink module installed!"))
-		return FALSE
-
-	if(borg.resized)
-		to_chat(usr, span_warning("This unit already has an resizing module installed!"))
-		return FALSE
-
-	// SKYRAT EDIT ADDITION BEGIN
-	if(TRAIT_R_EXPANDER_BLOCKED in borg.model.model_features)
-		to_chat(usr, span_warning("This unit is unable to equip an resize module!"))
-		return FALSE
-	// SKYRAT EDIT ADDITION END
-
-	// Let's the borg player themselves pick what size they want to be in percentage.
-	resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing (70-250)","Resizer size setting")
-	// We do not trust the input given, no matter if it's ran through tgui first, so we are sanitizing it to prevent any possible malicious inputs
-	sanitize_integer(resize_amount, 70, 250, 160)
-
-	// 250 is the current limit of what we allow for. A Drakeborg at such a size would be almost 5 tiles long.
-	if(resize_amount >= 250 || !isnum(resize_amount) || resize_amount == null || resize_amount <= 0)
-		resize_amount = 250
-
-	// Agreed upon limit to prevent power gaming or people utilizing smaller borg sizes to make themselves harder to hit.
-	if(resize_amount <= 70)
-		resize_amount = 70
-	to_chat(borg, span_notice("Resize set to [resize_amount]%"))
-
-	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
-	var/prev_lockcharge = borg.lockcharge
-	borg.SetLockdown(TRUE)
-	borg.set_anchored(TRUE)
-	var/datum/effect_system/basic/spark_spread/sparks = new(borg.loc, 1, TRUE)
-	sparks.start()
-	sleep(0.2 SECONDS)
-	for(var/i in 1 to 4)
-		playsound(borg, pick(
-			'sound/items/tools/drill_use.ogg',
-			'sound/items/tools/jaws_cut.ogg',
-			'sound/items/tools/jaws_pry.ogg',
-			'sound/items/tools/welder.ogg',
-			'sound/items/tools/ratchet.ogg',
-			), 80, TRUE, -1)
-		sleep(1.2 SECONDS)
-	if(!prev_lockcharge)
-		borg.SetLockdown(FALSE)
-	borg.set_anchored(FALSE)
-	REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
-	borg.resized = TRUE
-	borg.update_transform(resize_amount/100) // Divide by 100 to reach usable number so 160% / 100 will become 1.6 and 250% / 100 will be 2.5%
+	to_chat(user, span_warning("Cyborg chassis size is now selected in character preferences. This module is obsolete."))
+	return FALSE
 
 /obj/item/borg/upgrade/resize/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
@@ -136,10 +79,7 @@
 	// Removes the shrink and expander from the pool of designs the crew can print, used so there's only one option to use for resizing rather than commenting out those lines of code
 	design_ids -= list(
 		"borg_upgrade_expand",
-		"borg_upgrade_shrink"
-	)
-	// Adds the borg_upgrade_resize to the design pool.
-	design_ids += list(
+		"borg_upgrade_shrink",
 		"borg_upgrade_resize"
 	)
 

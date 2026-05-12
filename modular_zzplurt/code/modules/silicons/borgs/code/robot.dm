@@ -29,6 +29,7 @@
 	var/image/generated = image(image_appearance)
 	generated.loc = owner_robot
 	generated.dir = owner_robot.dir
+	generated.appearance_flags |= KEEP_APART | PIXEL_SCALE
 	if(generated.plane == FLOAT_PLANE)
 		SET_PLANE_EXPLICIT(generated, GAME_PLANE, owner_robot)
 	if(image_appearance == base_image_appearance)
@@ -278,7 +279,9 @@
 	inject_cyborg_genital_animation_metadata(tmp_path, dmi_metadata)
 
 	var/icon/repaired_icon = icon(tmp_path)
-	fdel(tmp_path)
+	// BYOND can lazily read DMI metadata from file-backed icons. Keep repaired
+	// animation DMIs available after readback so later flattening/client renders
+	// do not lose the baked state metadata out from under the icon.
 	return isicon(repaired_icon) ? repaired_icon : animated_icon
 
 /obj/effect/client_image_holder/cyborg_genital/proc/apply_cyborg_genital_appearance_transform(icon/flat_icon, matrix/appearance_transform)
@@ -594,15 +597,15 @@
 	if(!player_client?.prefs)
 		return FALSE
 
+	apply_cyborg_size_preference(player_client)
 	var/list/new_toggleable_genitals = list()
-	var/silicon_genitals_enabled = player_client.prefs.read_preference(/datum/preference/toggle/silicon_genitals_toggle)
 
 	for(var/organ_slot in get_cyborg_genital_slots())
 		var/sprite_choice = read_cyborg_genital_sprite_choice(player_client, organ_slot)
 		cyborg_genital_sprite_choices[organ_slot] = sprite_choice
 		cyborg_genital_arousal_states[organ_slot] = get_default_cyborg_genital_arousal_state(organ_slot)
 		simulated_genitals[organ_slot] = FALSE
-		if(silicon_genitals_enabled && is_factual_sprite_accessory(organ_slot, sprite_choice))
+		if(is_factual_sprite_accessory(organ_slot, sprite_choice))
 			new_toggleable_genitals += organ_slot
 
 	toggleable_cyborg_genitals = new_toggleable_genitals
@@ -612,8 +615,32 @@
 	update_cyborg_genital_appearance()
 	return TRUE
 
+/mob/living/silicon/robot/proc/enforce_cyborg_sharp_scaling()
+	fuzzy = FALSE
+	appearance_flags |= PIXEL_SCALE
+
+/mob/living/silicon/robot/proc/apply_cyborg_size_preference(client/player_client)
+	if(!player_client?.prefs)
+		return FALSE
+
+	var/target_size = cyborg_character_sanitize_size(player_client.prefs.read_preference(/datum/preference/numeric/cyborg_size))
+	var/current_scale = current_size || RESIZE_NORMAL
+	enforce_cyborg_sharp_scaling()
+	if(current_scale == target_size)
+		return TRUE
+
+	update_transform(target_size / current_scale)
+	appearance_flags |= PIXEL_SCALE
+	hasExpanded = target_size > RESIZE_NORMAL
+	hasShrunk = target_size < RESIZE_NORMAL
+	resized = target_size != RESIZE_NORMAL
+	return TRUE
+
 /mob/living/silicon/robot/proc/get_cyborg_genital_slots()
-	return list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA)
+	return list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_BREASTS)
+
+/mob/living/silicon/robot/proc/can_cyborg_genital_animate(organ_slot)
+	return organ_slot != ORGAN_SLOT_BREASTS
 
 /mob/living/silicon/robot/proc/is_cyborg_dogborg_model()
 	if(!model)
@@ -689,7 +716,9 @@
 	return !isnull(get_cyborg_quad_model_family())
 
 /mob/living/silicon/robot/proc/use_cyborg_side_occlusion(organ_slot)
-	if(!(organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA)))
+	if(!(organ_slot in get_cyborg_genital_slots()))
+		return FALSE
+	if(organ_slot == ORGAN_SLOT_BREASTS)
 		return FALSE
 	if(!(dir & (EAST|WEST)))
 		return FALSE
@@ -708,6 +737,18 @@
 /mob/living/silicon/robot/proc/clear_cyborg_genital_images()
 	QDEL_LIST(cyborg_genital_image_holders)
 	cyborg_genital_image_holders = list()
+
+/mob/living/silicon/robot/proc/reset_cyborg_genital_holder_animations()
+	cyborg_genital_movement_active = FALSE
+	cyborg_genital_movement_signature = null
+	cyborg_genital_movement_deadline = 0
+	cyborg_genital_movement_phase_start_time = 0
+	cyborg_genital_last_move_time = 0
+	cyborg_genital_last_move_interval = 0
+	for(var/obj/effect/client_image_holder/cyborg_genital/holder as anything in cyborg_genital_image_holders)
+		if(!istype(holder))
+			continue
+		holder.reset_cyborg_animation()
 
 /mob/living/silicon/robot/proc/add_cyborg_drawover_state_candidate(list/candidates, candidate_state)
 	if(!islist(candidates) || !istext(candidate_state) || !length(candidate_state) || (candidate_state in candidates))
@@ -1692,6 +1733,7 @@
 			return null
 		drawover_overlay = mutable_appearance(drawover_icon, drawover_state, ABOVE_MOB_LAYER + 0.06)
 		drawover_overlay.dir = dir
+	drawover_overlay.appearance_flags |= KEEP_APART | PIXEL_SCALE
 	SET_PLANE_EXPLICIT(drawover_overlay, GAME_PLANE, src)
 	return drawover_overlay
 
@@ -1782,9 +1824,13 @@
 
 /mob/living/silicon/robot/proc/update_cyborg_genital_appearance()
 	cyborg_genital_appearance_revision++
+	enforce_cyborg_sharp_scaling()
 	update_appearance(UPDATE_OVERLAYS)
 	// Color/layout edits need to invalidate the active holder immediately, not after the next animation tick.
 	refresh_cyborg_genital_images(FALSE)
+	if(robot_resting)
+		reset_cyborg_genital_holder_animations()
+		return
 	if(cyborg_genital_movement_active)
 		if(animate_cyborg_genital_movement(TRUE, TRUE))
 			return
@@ -1839,6 +1885,7 @@
 		"pixel_x" = 0,
 		"pixel_y" = 0,
 		"rotation" = 0,
+		"priority" = 5,
 	)
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_layout_arousal_keys()
@@ -1885,6 +1932,8 @@
 		sanitized_colors[index] = sanitize_cyborg_genital_color(colors[index])
 	return sanitized_colors
 
+/mob/living/silicon/robot/proc/sanitize_cyborg_genital_offset(offset)
+	return sanitize_float(offset, -128, 128, 0.01, 0)
 
 /mob/living/silicon/robot/proc/sanitize_cyborg_genital_direction_override_entry(list/entry)
 	var/list/sanitized_entry = list()
@@ -1893,11 +1942,13 @@
 	if(!isnull(entry["visible"]))
 		sanitized_entry["visible"] = !!entry["visible"]
 	if(!isnull(entry["pixel_x"]))
-		sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
+		sanitized_entry["pixel_x"] = sanitize_cyborg_genital_offset(entry["pixel_x"])
 	if(!isnull(entry["pixel_y"]))
-		sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+		sanitized_entry["pixel_y"] = sanitize_cyborg_genital_offset(entry["pixel_y"])
 	if(!isnull(entry["rotation"]))
 		sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
+	if(!isnull(entry["priority"]))
+		sanitized_entry["priority"] = round(sanitize_float(entry["priority"], 1, 10, 1, 5))
 	return sanitized_entry
 
 /mob/living/silicon/robot/proc/sanitize_cyborg_genital_direction_entry(list/entry, include_arousal_overrides = TRUE)
@@ -1906,9 +1957,10 @@
 		return sanitized_entry
 	if(!isnull(entry["visible"]))
 		sanitized_entry["visible"] = !!entry["visible"]
-	sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
-	sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+	sanitized_entry["pixel_x"] = sanitize_cyborg_genital_offset(entry["pixel_x"])
+	sanitized_entry["pixel_y"] = sanitize_cyborg_genital_offset(entry["pixel_y"])
 	sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
+	sanitized_entry["priority"] = round(sanitize_float(entry["priority"], 1, 10, 1, 5))
 	if(include_arousal_overrides)
 		var/list/sanitized_arousal = list()
 		for(var/arousal_key in get_cyborg_genital_layout_arousal_keys())
@@ -1936,12 +1988,16 @@
 		effective_entry[field_name] = arousal_override[field_name]
 	return effective_entry
 
+/mob/living/silicon/robot/proc/get_cyborg_genital_priority_layer_adjustment(list/direction_entry)
+	var/priority = round(sanitize_float(direction_entry?["priority"], 1, 10, 1, 5))
+	return (10 - priority) * 0.0001
+
 /mob/living/silicon/robot/proc/sanitize_cyborg_genital_layout_entry(list/entry)
 	var/list/sanitized_entry = get_default_cyborg_genital_layout_entry()
 	if(!islist(entry))
 		return sanitized_entry
-	sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
-	sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+	sanitized_entry["pixel_x"] = sanitize_cyborg_genital_offset(entry["pixel_x"])
+	sanitized_entry["pixel_y"] = sanitize_cyborg_genital_offset(entry["pixel_y"])
 	sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
 	sanitized_entry["scale"] = sanitize_float(entry["scale"], 0.25, get_cyborg_genital_scale_limit(), 0.05, 1)
 	var/list/colors = sanitize_cyborg_genital_color_list(entry["colors"])
@@ -2067,13 +2123,23 @@
 	return !!direction_entry["visible"]
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_body_scale()
-	return max(current_size || 1, 0.25)
+	return 1
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_offset_scale()
+	return max(current_size || RESIZE_NORMAL, 0.25)
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_transform_offset()
+	var/offset_scale = get_cyborg_genital_offset_scale()
+	return list(
+		"pixel_x" = round((ICON_SIZE_X - (ICON_SIZE_X * offset_scale)) * 0.5),
+		"pixel_y" = round((ICON_SIZE_Y - (ICON_SIZE_Y * offset_scale)) * 0.5) + round(get_transform_translation_size(offset_scale)),
+	)
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_offset_budget()
-	return round(32 * max(get_cyborg_genital_body_scale(), 1))
+	return round(32 * max(get_cyborg_genital_offset_scale(), 1))
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_canvas_anchor_offset()
-	var/body_scale = get_cyborg_genital_body_scale()
+	var/body_scale = get_cyborg_genital_offset_scale()
 	var/list/base_anchor_offset = get_cyborg_genital_canvas_anchor_base_offset(icon)
 	return list(
 		"pixel_x" = round((base_anchor_offset?["pixel_x"] || 0) * body_scale),
@@ -2122,6 +2188,8 @@
 			return /datum/preference/choiced/silicon_genital_sprite/testicles
 		if(ORGAN_SLOT_VAGINA)
 			return /datum/preference/choiced/silicon_genital_sprite/vagina
+		if(ORGAN_SLOT_BREASTS)
+			return /datum/preference/choiced/silicon_genital_sprite/breasts
 	return null
 
 /mob/living/silicon/robot/proc/get_cyborg_direct_genital_state_slot(organ_slot)
@@ -2536,6 +2604,8 @@
 			return /datum/bodypart_overlay/mutant/genital/testicles
 		if(ORGAN_SLOT_VAGINA)
 			return /datum/bodypart_overlay/mutant/genital/vagina
+		if(ORGAN_SLOT_BREASTS)
+			return /datum/bodypart_overlay/mutant/genital/breasts
 	return null
 
 /mob/living/silicon/robot/proc/get_cyborg_external_overlay_layer(body_layer)
@@ -2613,9 +2683,30 @@
 			return max(round(10 * scale), 1)
 		if(ORGAN_SLOT_TESTICLES)
 			return clamp(round(2 * scale), 0, TESTICLES_MAX_SIZE)
+		if(ORGAN_SLOT_BREASTS)
+			return clamp(round(scale), BREASTS_MIN_SIZE, BREASTS_MAX_SIZE)
 
 	return 1
 
+/mob/living/silicon/robot/proc/get_cyborg_genital_generic_render_scale(organ_slot, list/layout_entry = null)
+	layout_entry = sanitize_cyborg_genital_layout_entry(layout_entry)
+	var/layout_scale = layout_entry["scale"] || 1
+	var/render_scale = 1
+	var/dynamic_scale_start
+
+	switch(organ_slot)
+		if(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH)
+			dynamic_scale_start = get_cyborg_direct_genital_dynamic_scale_start(organ_slot)
+			if(dynamic_scale_start && layout_scale > dynamic_scale_start)
+				render_scale = layout_scale / dynamic_scale_start
+		if(ORGAN_SLOT_TESTICLES)
+			dynamic_scale_start = get_cyborg_direct_genital_dynamic_scale_start(organ_slot)
+			if(dynamic_scale_start && layout_scale > dynamic_scale_start)
+				render_scale = layout_scale / dynamic_scale_start
+		else
+			render_scale = layout_scale
+
+	return render_scale * get_cyborg_genital_body_scale()
 
 /mob/living/silicon/robot/proc/get_cyborg_direct_genital_render_scale(organ_slot, datum/sprite_accessory/genital/accessory, sprite_suffix, list/layout_entry = null)
 	layout_entry = sanitize_cyborg_genital_layout_entry(layout_entry)
@@ -2634,28 +2725,6 @@
 		render_scale = layout_scale / dynamic_scale_start
 
 	return render_scale * get_cyborg_genital_body_scale()
-
-
-/mob/living/silicon/robot/proc/get_cyborg_direct_genital_blur_size(organ_slot, list/layout_entry = null)
-	layout_entry = sanitize_cyborg_genital_layout_entry(layout_entry)
-	var/scale = layout_entry["scale"] || 1
-	var/dynamic_scale_start = get_cyborg_direct_genital_dynamic_scale_start(organ_slot)
-	if(!dynamic_scale_start || scale <= dynamic_scale_start)
-		return null
-
-	var/blur_size = 0.2 + ((scale - dynamic_scale_start) * 0.52)
-	return clamp(blur_size, 0.2, 0.85)
-
-
-/mob/living/silicon/robot/proc/get_cyborg_direct_genital_supersample_factor(organ_slot, sprite_suffix, list/layout_entry = null, render_scale = 1)
-	layout_entry = sanitize_cyborg_genital_layout_entry(layout_entry)
-	var/scale = layout_entry["scale"] || 1
-	if(organ_slot == ORGAN_SLOT_TESTICLES && get_cyborg_direct_genital_size_from_suffix(organ_slot, sprite_suffix) == 9 && scale > (TESTICLES_MAX_SIZE / 2))
-		return 2
-	if(render_scale <= 1 || scale < 6)
-		return 1
-
-	return 2
 
 
 /mob/living/silicon/robot/proc/build_cyborg_visual_genital(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry = null)
@@ -2686,6 +2755,8 @@
 			genital = new /obj/item/organ/genital/testicles
 		if(ORGAN_SLOT_VAGINA)
 			genital = new /obj/item/organ/genital/vagina
+		if(ORGAN_SLOT_BREASTS)
+			genital = new /obj/item/organ/genital/breasts
 
 	if(!genital)
 		return null
@@ -2694,6 +2765,8 @@
 	genital.genital_type = accessory.icon_state
 	var/arousal_state = get_cyborg_genital_arousal_state(organ_slot)
 	if(organ_slot == ORGAN_SLOT_SHEATH)
+		arousal_state = AROUSAL_NONE
+	else if(organ_slot == ORGAN_SLOT_BREASTS)
 		arousal_state = AROUSAL_NONE
 	else if(arousal_state == AROUSAL_CANT)
 		arousal_state = AROUSAL_NONE
@@ -2711,6 +2784,8 @@
 	switch(organ_slot)
 		if(ORGAN_SLOT_VAGINA)
 			return "#d9a0aa"
+		if(ORGAN_SLOT_BREASTS)
+			return "#f2cfbf"
 		if(ORGAN_SLOT_TESTICLES)
 			return "#f2cfbf"
 		if(ORGAN_SLOT_PENIS)
@@ -2811,38 +2886,30 @@
 	var/target_height = max(round((icon_dimensions?["height"] || ICON_SIZE_Y) * render_scale), 1)
 	if(target_width == (icon_dimensions?["width"] || ICON_SIZE_X) && target_height == (icon_dimensions?["height"] || ICON_SIZE_Y))
 		return flat_icon
-	var/supersample_factor = get_cyborg_direct_genital_supersample_factor(organ_slot, sprite_suffix, layout_entry, render_scale)
-	var/working_width = target_width * supersample_factor
-	var/working_height = target_height * supersample_factor
 
 	var/icon_file = get_cyborg_direct_genital_icon_file(organ_slot, accessory, sprite_suffix)
 	var/list/resolved_colors = get_cyborg_genital_overlay_colors(organ_slot, accessory, layout_entry)
-	var/cache_key = "[icon_file]-[organ_slot]-[sprite_suffix]-[depth_group || "DEFAULT"]-[resolved_dir]-[resolved_colors[1]]-[resolved_colors[2]]-[resolved_colors[3]]-[target_width]x[target_height]-ss[supersample_factor]"
+	var/cache_key = "[icon_file]-[organ_slot]-[sprite_suffix]-[depth_group || "DEFAULT"]-[resolved_dir]-[resolved_colors[1]]-[resolved_colors[2]]-[resolved_colors[3]]-[target_width]x[target_height]"
 	var/static/list/cached_scaled_icons = list()
 	if(!cached_scaled_icons[cache_key])
-		var/icon/scaled_icon = scale_cyborg_icon_nearest_neighbor(flat_icon, working_width, working_height)
-		if(supersample_factor > 1 && scaled_icon)
-			scaled_icon.Scale(target_width, target_height)
-		cached_scaled_icons[cache_key] = scaled_icon
+		cached_scaled_icons[cache_key] = scale_cyborg_icon_nearest_neighbor(flat_icon, target_width, target_height)
 
 	return cached_scaled_icons[cache_key]
 
-/mob/living/silicon/robot/proc/make_cyborg_direct_genital_overlay(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override = null)
+/mob/living/silicon/robot/proc/make_cyborg_direct_genital_overlay(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override = null, list/direction_entry = null)
 	var/resolved_dir = dir_override || dir
 	var/list/direct_overlays = list()
-	var/blur_size = get_cyborg_direct_genital_blur_size(organ_slot, layout_entry)
+	var/priority_layer_adjustment = get_cyborg_genital_priority_layer_adjustment(direction_entry)
 	for(var/depth_group in get_cyborg_direct_genital_depth_groups(organ_slot, sprite_suffix, accessory))
 		var/icon/flat_icon = get_cyborg_direct_genital_scaled_icon(organ_slot, accessory, sprite_suffix, layout_entry, render_scale, depth_group, resolved_dir)
 		if(!flat_icon)
 			continue
 
 		var/display_layer = get_cyborg_direct_genital_display_layer_for_group(organ_slot, depth_group)
-		var/mutable_appearance/genital_overlay = mutable_appearance(flat_icon, "", layer = display_layer)
+		var/mutable_appearance/genital_overlay = mutable_appearance(flat_icon, "", layer = display_layer + priority_layer_adjustment)
 		genital_overlay.alpha = alpha
 		genital_overlay.dir = resolved_dir
-		genital_overlay.appearance_flags |= PIXEL_SCALE
-		if(blur_size)
-			genital_overlay.filters = list(gauss_blur_filter(blur_size))
+		genital_overlay.appearance_flags |= PIXEL_SCALE | KEEP_APART
 		genital_overlay.pixel_x = effective_pixel_x
 		genital_overlay.pixel_y = effective_pixel_y
 		if(rotation)
@@ -2948,6 +3015,9 @@
 	for(var/obj/effect/client_image_holder/cyborg_genital/holder as anything in cyborg_genital_image_holders)
 		if(!istype(holder))
 			continue
+		if(!can_cyborg_genital_animate(holder.cyborg_genital_organ_slot))
+			holder.reset_cyborg_animation()
+			continue
 		holder.play_cyborg_movement_animation(offsets, frame_delays, -1, preserve_phase, "idle", cyborg_genital_idle_phase_start_time)
 	return TRUE
 
@@ -3003,6 +3073,9 @@
 	if(refresh_only || !cyborg_genital_movement_active || cyborg_genital_movement_signature != movement_signature)
 		for(var/obj/effect/client_image_holder/cyborg_genital/holder as anything in cyborg_genital_image_holders)
 			if(!istype(holder))
+				continue
+			if(!can_cyborg_genital_animate(holder.cyborg_genital_organ_slot))
+				holder.reset_cyborg_animation()
 				continue
 			holder.play_cyborg_movement_animation(offsets, frame_delays, -1, preserve_phase, "movement", cyborg_genital_movement_phase_start_time)
 	cyborg_genital_movement_active = TRUE
@@ -3081,7 +3154,7 @@
 	var/list/layout_entry = sanitize_cyborg_genital_layout_entry(active_layout[organ_slot])
 
 	if(direction_key)
-		if(field_name != "visible" && field_name != "pixel_x" && field_name != "pixel_y" && field_name != "rotation")
+		if(field_name != "visible" && field_name != "pixel_x" && field_name != "pixel_y" && field_name != "rotation" && field_name != "priority")
 			return FALSE
 		var/list/direction_entry = layout_entry["advanced"][direction_key]
 		var/arousal_key = get_cyborg_genital_layout_arousal_key(organ_slot, arousal_state)
@@ -3345,9 +3418,9 @@
 			overlay_subindex++
 
 
-/mob/living/silicon/robot/proc/make_cyborg_genital_overlay(organ_slot, dir_override = null)
+/mob/living/silicon/robot/proc/make_cyborg_genital_overlay(organ_slot, dir_override = null, direction_key_override = null)
 	var/list/layout_entry = get_cyborg_genital_layout_entry(organ_slot)
-	var/direction_key = dir_override ? get_cyborg_genital_direction_key_for_dir(dir_override) : get_cyborg_genital_direction_key()
+	var/direction_key = direction_key_override || (dir_override ? get_cyborg_genital_direction_key_for_dir(dir_override) : get_cyborg_genital_direction_key())
 	if(!is_cyborg_genital_visible_for_direction(organ_slot, layout_entry, direction_key))
 		return list()
 
@@ -3361,11 +3434,15 @@
 	var/list/direction_entry = get_cyborg_genital_direction_entry(organ_slot, layout_entry, direction_key)
 	var/overlay_color = get_cyborg_genital_overlay_color(organ_slot, accessory, layout_entry)
 	var/list/appearances = list()
-	var/body_scale = get_cyborg_genital_body_scale()
+	var/offset_scale = get_cyborg_genital_offset_scale()
+	var/list/transform_offset = get_cyborg_genital_transform_offset()
+	var/priority_layer_adjustment = get_cyborg_genital_priority_layer_adjustment(direction_entry)
 
-	var/render_scale = layout_entry["scale"] * body_scale
+	var/render_scale
 	if(uses_cyborg_direct_genital_overlay(accessory))
 		render_scale = get_cyborg_direct_genital_render_scale(organ_slot, accessory, sprite_suffix, layout_entry)
+	else
+		render_scale = get_cyborg_genital_generic_render_scale(organ_slot, layout_entry)
 
 	var/rotation = layout_entry["rotation"] + direction_entry["rotation"]
 	var/matrix/genital_transform = matrix()
@@ -3374,11 +3451,11 @@
 	if(rotation)
 		genital_transform.Turn(rotation)
 
-	var/effective_pixel_x = round((base_offset["pixel_x"] + layout_entry["pixel_x"] + direction_entry["pixel_x"]) * body_scale) + (canvas_anchor_offset?["pixel_x"] || 0)
-	var/effective_pixel_y = round((base_offset["pixel_y"] + layout_entry["pixel_y"] + direction_entry["pixel_y"]) * body_scale) + (canvas_anchor_offset?["pixel_y"] || 0)
+	var/effective_pixel_x = ((base_offset["pixel_x"] + layout_entry["pixel_x"] + direction_entry["pixel_x"]) * offset_scale) + (canvas_anchor_offset?["pixel_x"] || 0) + (transform_offset?["pixel_x"] || 0)
+	var/effective_pixel_y = ((base_offset["pixel_y"] + layout_entry["pixel_y"] + direction_entry["pixel_y"]) * offset_scale) + (canvas_anchor_offset?["pixel_y"] || 0) + (transform_offset?["pixel_y"] || 0)
 
 	if(uses_cyborg_direct_genital_overlay(accessory))
-		return make_cyborg_direct_genital_overlay(organ_slot, accessory, layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override)
+		return make_cyborg_direct_genital_overlay(organ_slot, accessory, layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override, direction_entry)
 
 	var/overlay_builder_type = get_cyborg_genital_overlay_builder_type(organ_slot)
 	if(!overlay_builder_type)
@@ -3398,7 +3475,8 @@
 		if(!length(generated_overlays))
 			continue
 		for(var/mutable_appearance/genital_overlay as anything in generated_overlays)
-			genital_overlay.layer = display_layer
+			genital_overlay.appearance_flags |= KEEP_APART
+			genital_overlay.layer = display_layer + priority_layer_adjustment
 			if(dir_override)
 				genital_overlay.dir = dir_override
 			genital_overlay.pixel_x = effective_pixel_x

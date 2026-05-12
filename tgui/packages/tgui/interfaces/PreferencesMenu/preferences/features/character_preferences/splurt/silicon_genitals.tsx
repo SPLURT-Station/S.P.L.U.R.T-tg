@@ -1,13 +1,5 @@
-import type { FeatureChoiced, FeatureToggle } from '../../base';
-import { CheckboxInput } from '../../base';
+import type { FeatureChoiced } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
-
-export const silicon_genitals_toggle: FeatureToggle = {
-  name: 'Silicon Genitals',
-  description:
-    'Allows your cyborg shell to support configurable, toggleable genitals.',
-  component: CheckboxInput,
-};
 
 export const silicon_penis_sprite: FeatureChoiced = {
   name: 'Silicon Penis Sprite',
@@ -30,5 +22,11 @@ export const silicon_testicles_sprite: FeatureChoiced = {
 export const silicon_vagina_sprite: FeatureChoiced = {
   name: 'Silicon Vagina Sprite',
   description: 'Choose a vagina sprite, or None to omit that genital slot.',
+  component: FeatureDropdownInput,
+};
+
+export const silicon_breasts_sprite: FeatureChoiced = {
+  name: 'Silicon Breasts Sprite',
+  description: 'Choose a breasts sprite, or None to omit that genital slot.',
   component: FeatureDropdownInput,
 };

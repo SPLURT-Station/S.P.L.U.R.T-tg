@@ -286,6 +286,7 @@ export type CyborgDirectionalOverride = {
   pixel_x?: number;
   pixel_y?: number;
   rotation?: number;
+  priority?: number;
 };
 
 export type CyborgDirectionalLayout = {
@@ -293,6 +294,7 @@ export type CyborgDirectionalLayout = {
   pixel_x: number;
   pixel_y: number;
   rotation: number;
+  priority: number;
   arousal?: Record<string, CyborgDirectionalOverride>;
 };
 
@@ -317,10 +319,15 @@ export type CyborgReproductionGenital = {
   body_scale: number;
   offset_limit: number;
   colors: (string | null)[];
-  color_layers: string[];
+  color_layers: string[] | Record<string, string>;
   resolved_colors: (string | null)[];
   preview_color: string;
   advanced: Record<string, CyborgDirectionalLayout>;
+};
+
+export type CyborgOffsetDirection = {
+  value: string;
+  label: string;
 };
 
 export type CyborgReproductionManagement = {
@@ -328,6 +335,7 @@ export type CyborgReproductionManagement = {
   presetLimit: number;
   presets: { name: string }[];
   genitals: CyborgReproductionGenital[];
+  offset_directions: CyborgOffsetDirection[];
   model_department: string;
   model_name: string;
   model_key: string;
@@ -345,6 +353,7 @@ export type CyborgPreviewStateOption = {
 
 export type CyborgCharacterData = {
   preview: string;
+  preview_image: string;
   models: string[];
   models_by_department: CyborgModelCatalog;
   selected_department: string;
@@ -355,6 +364,8 @@ export type CyborgCharacterData = {
   selected_dir: string;
   preview_width: number;
   preview_height: number;
+  size: number;
+  size_options: number[];
   reproductionManagement: CyborgReproductionManagement;
 };
 

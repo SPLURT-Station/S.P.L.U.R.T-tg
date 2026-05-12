@@ -28,6 +28,7 @@ type Props = {
   iconSpin: boolean;
   menuWidth: string | number;
   noChevron: boolean;
+  over: boolean;
   fluid: boolean;
   placeholder: string;
   clipSelectedText: boolean;
@@ -63,6 +64,7 @@ export function BottomDropdown(props: Props) {
     onClick,
     onSelected,
     options = [],
+    over,
     placeholder = 'Select...',
     selected,
     fluid,
@@ -118,7 +120,10 @@ export function BottomDropdown(props: Props) {
         closeAfterInteract
         contentAutoWidth={!menuWidth}
         contentClasses="Dropdown__menu--wrapper"
-        contentStyles={{ width: menuWidth ? unit(menuWidth) : undefined }}
+        contentStyles={{
+          width: menuWidth ? unit(menuWidth) : undefined,
+          zIndex: 10000,
+        }}
         disabled={disabled}
         onMounted={() => {
           if (open && autoScroll && selectedIndex !== NONE) {
@@ -126,7 +131,7 @@ export function BottomDropdown(props: Props) {
           }
         }}
         onOpenChange={setOpen}
-        placement="bottom-start"
+        placement={over ? 'top-start' : 'bottom-start'}
         content={
           <div ref={innerRef} className="Dropdown__menu">
             {options.length === 0 ? (

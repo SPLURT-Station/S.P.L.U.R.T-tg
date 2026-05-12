@@ -16,7 +16,6 @@
 
 /datum/preferences/proc/create_cyborg_character_preview_view(mob/user)
 	cyborg_character_preview_view = new(null, src)
-	cyborg_character_preview_view.generate_view("cyborg_character_preview_[REF(cyborg_character_preview_view)]")
 	cyborg_character_preview_view.update_body()
 	return cyborg_character_preview_view
 

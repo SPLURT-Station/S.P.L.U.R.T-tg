@@ -7,11 +7,11 @@ export const CYBORG_CHARACTER_PREFS = new Set([
   'ooc_notes_silicon',
   'custom_species_silicon',
   'custom_species_lore_silicon',
-  'silicon_genitals_toggle',
   'silicon_penis_sprite',
   'silicon_sheath_sprite',
   'silicon_testicles_sprite',
   'silicon_vagina_sprite',
+  'silicon_breasts_sprite',
 ]);
 
 export function filterOutCyborgPrefs<T extends Record<string, unknown>>(prefs: T): T {

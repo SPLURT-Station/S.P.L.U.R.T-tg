@@ -8,12 +8,24 @@
 	default_value = FALSE
 
 /datum/preference/toggle/silicon_genitals_toggle/is_accessible(datum/preferences/preferences)
-	if(!..())
-		return FALSE
-	return !CONFIG_GET(flag/disable_erp_preferences) && preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+	return FALSE
 
 /datum/preference/toggle/silicon_genitals_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
+
+/datum/preference/numeric/cyborg_size
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "cyborg_size"
+	minimum = RESIZE_SMALL
+	maximum = 2.5
+	step = 0.01
+
+/datum/preference/numeric/cyborg_size/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return
+
+/datum/preference/numeric/cyborg_size/create_default_value()
+	return RESIZE_NORMAL
 
 /datum/preference/choiced/silicon_genital_sprite
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -35,7 +47,7 @@
 		return FALSE
 	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
 		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/silicon_genitals_toggle)
+	return TRUE
 
 /datum/preference/choiced/silicon_genital_sprite/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
@@ -63,6 +75,12 @@
 	main_feature_name = "Silicon Vagina"
 	organ_slot = ORGAN_SLOT_VAGINA
 	default_accessory_type = /datum/sprite_accessory/genital/vagina/none
+
+/datum/preference/choiced/silicon_genital_sprite/breasts
+	savefile_key = "silicon_breasts_sprite"
+	main_feature_name = "Silicon Breasts"
+	organ_slot = ORGAN_SLOT_BREASTS
+	default_accessory_type = /datum/sprite_accessory/genital/breasts/none
 
 /datum/preference/blob/silicon_genital_layout_presets
 	savefile_identifier = PREFERENCE_CHARACTER

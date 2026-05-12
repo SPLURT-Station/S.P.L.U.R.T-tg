@@ -159,6 +159,26 @@
 	var/native_size = 32 + (32 * canvas_size)
 	return max(1, FLOOR(384 / native_size, 1))
 
+/proc/cyborg_character_get_allowed_sizes()
+	return list(RESIZE_SMALL, RESIZE_NORMAL, 1.6, RESIZE_BIG, 2.5)
+
+/proc/cyborg_character_get_genital_slots()
+	return list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_BREASTS)
+
+/proc/cyborg_character_sanitize_size(size)
+	var/size_number = text2num("[size]")
+	if(isnull(size_number))
+		return RESIZE_NORMAL
+	var/list/allowed_sizes = cyborg_character_get_allowed_sizes()
+	var/closest_size = allowed_sizes[1]
+	var/closest_distance = abs(size_number - closest_size)
+	for(var/allowed_size in allowed_sizes)
+		var/distance = abs(size_number - allowed_size)
+		if(distance < closest_distance)
+			closest_size = allowed_size
+			closest_distance = distance
+	return closest_size
+
 /atom/movable/screen/background/cyborg_character_preview_background
 	name = "cyborg preview background"
 	icon = 'icons/hud/map_backgrounds.dmi'
@@ -178,6 +198,8 @@
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+	if(LAZYLEN(faction))
+		faction = string_list(faction)
 	simulated_genitals = list()
 	toggleable_cyborg_genitals = list()
 	cyborg_genital_layout = list()
@@ -186,6 +208,49 @@
 	cyborg_genital_image_holders = list()
 	current_size = 1
 	return INITIALIZE_HINT_NORMAL
+
+/mob/living/silicon/robot/cyborg_character_catalog_host/get_cyborg_genital_body_scale()
+	return max(current_size || 1, 0.25)
+
+/proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir)
+	if(!owner_robot || !genital_overlay)
+		return null
+
+	var/obj/effect/client_image_holder/cyborg_genital/preview_holder = new(owner_robot, owner_robot, image(genital_overlay), list(), organ_slot, overlay_subindex)
+	if(owner_robot.can_cyborg_genital_animate(organ_slot))
+		var/list/idle_offsets = owner_robot.get_cyborg_genital_idle_offsets()
+		var/list/idle_frame_delays = owner_robot.get_cyborg_automated_idle_frame_delays()
+		if(length(idle_offsets) && length(idle_frame_delays))
+			preview_holder.play_cyborg_movement_animation(idle_offsets, idle_frame_delays, 0, FALSE, "idle")
+
+	var/image/render_image = preview_holder.generate_image()
+	if(!render_image)
+		qdel(preview_holder)
+		return null
+
+	var/matrix/render_transform = render_image.transform ? matrix(render_image.transform) : null
+	var/image/flat_render_image = image(render_image)
+	flat_render_image.transform = null
+	var/icon/flat_icon = getFlatIcon(flat_render_image, render_dir, no_anim = TRUE)
+	if(!isicon(flat_icon))
+		qdel(preview_holder)
+		return null
+
+	var/list/transformed_icon_data = preview_holder.apply_cyborg_genital_appearance_transform(flat_icon, render_transform)
+	var/icon/transformed_icon = transformed_icon_data["icon"]
+	if(!isicon(transformed_icon))
+		qdel(preview_holder)
+		return null
+
+	var/list/rendered_data = list(
+		"icon" = transformed_icon,
+		"pixel_x" = (render_image.pixel_x || 0) + (transformed_icon_data["pixel_x"] || 0),
+		"pixel_y" = (render_image.pixel_y || 0) + (transformed_icon_data["pixel_y"] || 0),
+		"width" = transformed_icon.Width(),
+		"height" = transformed_icon.Height(),
+	)
+	qdel(preview_holder)
+	return rendered_data
 
 /mob/living/silicon/robot/cyborg_character_catalog_host/Destroy()
 	if(ispath(cell))
@@ -439,7 +504,7 @@
 	return "south"
 
 /proc/cyborg_character_text_to_dir(dir_text)
-	switch(lowertext("[dir_text]"))
+	switch(LOWER_TEXT("[dir_text]"))
 		if("north")
 			return NORTH
 		if("east")
@@ -451,12 +516,43 @@
 /proc/cyborg_character_get_direction_keys()
 	return list("south", "north", "east", "west", "rest", "sit", "bellyup", "rest_deep")
 
+/proc/cyborg_character_get_base_direction_entries()
+	return list(
+		list("value" = "south", "label" = "South"),
+		list("value" = "north", "label" = "North"),
+		list("value" = "east", "label" = "East"),
+		list("value" = "west", "label" = "West"),
+	)
+
+/proc/cyborg_character_get_editable_direction_entries(list/state_options)
+	var/list/direction_entries = cyborg_character_get_base_direction_entries()
+	var/list/seen_keys = list("south" = TRUE, "north" = TRUE, "east" = TRUE, "west" = TRUE)
+	for(var/list/state_option as anything in state_options)
+		var/direction_key = cyborg_character_get_preview_rest_stage_key(state_option?["value"])
+		if(!direction_key || seen_keys[direction_key])
+			continue
+		direction_entries += list(list(
+			"value" = direction_key,
+			"label" = state_option?["label"] || capitalize(direction_key),
+		))
+		seen_keys[direction_key] = TRUE
+	return direction_entries
+
+/proc/cyborg_character_get_editable_direction_keys(list/state_options)
+	var/list/direction_keys = list()
+	for(var/list/direction_entry as anything in cyborg_character_get_editable_direction_entries(state_options))
+		var/direction_key = direction_entry["value"]
+		if(istext(direction_key) && length(direction_key))
+			direction_keys += direction_key
+	return direction_keys
+
 /proc/cyborg_character_get_default_direction_entry()
 	return list(
 		"visible" = TRUE,
 		"pixel_x" = 0,
 		"pixel_y" = 0,
 		"rotation" = 0,
+		"priority" = 5,
 	)
 
 /proc/cyborg_character_get_default_layout_entry()
@@ -504,7 +600,7 @@
 		store["model_defaults"] = list()
 
 	var/list/active = store["active"]
-	for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
+	for(var/organ_slot in cyborg_character_get_genital_slots())
 		if(!islist(active[organ_slot]))
 			active[organ_slot] = cyborg_character_get_default_layout_entry()
 
@@ -566,6 +662,8 @@
 	switch(organ_slot)
 		if(ORGAN_SLOT_VAGINA)
 			return "#d9a0aa"
+		if(ORGAN_SLOT_BREASTS)
+			return "#f2cfbf"
 		if(ORGAN_SLOT_TESTICLES)
 			return "#f2cfbf"
 		if(ORGAN_SLOT_PENIS)
@@ -587,6 +685,9 @@
 		sanitized_colors[index] = cyborg_character_sanitize_color(colors[index])
 	return sanitized_colors
 
+/proc/cyborg_character_sanitize_offset(offset)
+	return sanitize_float(offset, -128, 128, 0.01, 0)
+
 /proc/cyborg_character_sanitize_direction_override(list/entry)
 	var/list/sanitized_entry = list()
 	if(!islist(entry))
@@ -594,11 +695,13 @@
 	if(!isnull(entry["visible"]))
 		sanitized_entry["visible"] = !!entry["visible"]
 	if(!isnull(entry["pixel_x"]))
-		sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
+		sanitized_entry["pixel_x"] = cyborg_character_sanitize_offset(entry["pixel_x"])
 	if(!isnull(entry["pixel_y"]))
-		sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+		sanitized_entry["pixel_y"] = cyborg_character_sanitize_offset(entry["pixel_y"])
 	if(!isnull(entry["rotation"]))
 		sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
+	if(!isnull(entry["priority"]))
+		sanitized_entry["priority"] = round(sanitize_float(entry["priority"], 1, 10, 1, 5))
 	return sanitized_entry
 
 /proc/cyborg_character_sanitize_direction_entry(list/entry)
@@ -607,9 +710,10 @@
 		return sanitized_entry
 	if(!isnull(entry["visible"]))
 		sanitized_entry["visible"] = !!entry["visible"]
-	sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
-	sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+	sanitized_entry["pixel_x"] = cyborg_character_sanitize_offset(entry["pixel_x"])
+	sanitized_entry["pixel_y"] = cyborg_character_sanitize_offset(entry["pixel_y"])
 	sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
+	sanitized_entry["priority"] = round(sanitize_float(entry["priority"], 1, 10, 1, 5))
 	if(islist(entry["arousal"]))
 		var/list/arousal_entries = list()
 		for(var/arousal_key in cyborg_character_get_layout_arousal_keys())
@@ -624,8 +728,8 @@
 	var/list/sanitized_entry = cyborg_character_get_default_layout_entry()
 	if(!islist(entry))
 		return sanitized_entry
-	sanitized_entry["pixel_x"] = sanitize_float(entry["pixel_x"], -128, 128, 1, 0)
-	sanitized_entry["pixel_y"] = sanitize_float(entry["pixel_y"], -128, 128, 1, 0)
+	sanitized_entry["pixel_x"] = cyborg_character_sanitize_offset(entry["pixel_x"])
+	sanitized_entry["pixel_y"] = cyborg_character_sanitize_offset(entry["pixel_y"])
 	sanitized_entry["rotation"] = sanitize_float(entry["rotation"], -180, 180, 1, 0)
 	sanitized_entry["scale"] = sanitize_float(entry["scale"], 0.25, 16, 0.05, 1)
 	sanitized_entry["colors"] = cyborg_character_sanitize_color_list(entry["colors"])
@@ -645,7 +749,7 @@
 		store["model_defaults"] = list()
 
 	var/list/active = store["active"]
-	for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
+	for(var/organ_slot in cyborg_character_get_genital_slots())
 		active[organ_slot] = cyborg_character_sanitize_layout_entry(active[organ_slot])
 
 	var/list/presets = store["presets"]
@@ -655,7 +759,7 @@
 			presets -= preset_name
 			continue
 		var/list/sanitized_preset = list()
-		for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
+		for(var/organ_slot in cyborg_character_get_genital_slots())
 			sanitized_preset[organ_slot] = cyborg_character_sanitize_layout_entry(preset_data[organ_slot])
 		presets[preset_name] = sanitized_preset
 
@@ -670,7 +774,7 @@
 			model_defaults -= model_key
 			continue
 		var/list/sanitized_model_data = list()
-		for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
+		for(var/organ_slot in cyborg_character_get_genital_slots())
 			sanitized_model_data[organ_slot] = cyborg_character_sanitize_layout_entry(model_data[organ_slot])
 		model_defaults[model_key] = sanitized_model_data
 
@@ -686,6 +790,8 @@
 			return /datum/preference/choiced/silicon_genital_sprite/testicles
 		if(ORGAN_SLOT_VAGINA)
 			return /datum/preference/choiced/silicon_genital_sprite/vagina
+		if(ORGAN_SLOT_BREASTS)
+			return /datum/preference/choiced/silicon_genital_sprite/breasts
 	return null
 
 /proc/cyborg_character_get_organ_slot_from_sprite_preference_key(preference_key)
@@ -698,6 +804,8 @@
 			return ORGAN_SLOT_TESTICLES
 		if("silicon_vagina_sprite")
 			return ORGAN_SLOT_VAGINA
+		if("silicon_breasts_sprite")
+			return ORGAN_SLOT_BREASTS
 	return null
 
 /proc/cyborg_character_get_sprite_choice(datum/preferences/preferences, organ_slot)
@@ -730,6 +838,8 @@
 			return "Balls / Sheath"
 		if(ORGAN_SLOT_VAGINA)
 			return "Vagina"
+		if(ORGAN_SLOT_BREASTS)
+			return "Breasts"
 	return capitalize("[organ_slot]")
 
 /proc/cyborg_character_get_arousal_label(arousal_state)
@@ -757,7 +867,23 @@
 
 	return AROUSAL_NONE
 
-/proc/cyborg_character_get_genital_color_layers(_organ_slot)
+/proc/cyborg_character_get_genital_color_layers(datum/preferences/preferences, organ_slot, list/layout_entry)
+	var/sprite_choice = cyborg_character_get_sprite_choice(preferences, organ_slot)
+	var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[organ_slot]?[sprite_choice]
+	var/mob/living/silicon/robot/cyborg_character_catalog_host/catalog_host = preferences?.cyborg_character_preview_view?.preview_robot
+	if(catalog_host && accessory)
+		if(!islist(catalog_host.cyborg_genital_layout))
+			catalog_host.cyborg_genital_layout = list()
+		if(!islist(catalog_host.cyborg_genital_sprite_choices))
+			catalog_host.cyborg_genital_sprite_choices = list()
+		if(!islist(catalog_host.cyborg_genital_arousal_states))
+			catalog_host.cyborg_genital_arousal_states = list()
+		catalog_host.cyborg_genital_layout[organ_slot] = deep_copy_list(layout_entry)
+		catalog_host.cyborg_genital_sprite_choices[organ_slot] = sprite_choice
+		catalog_host.cyborg_genital_arousal_states[organ_slot] = cyborg_character_get_preview_genital_arousal_state(preferences, organ_slot)
+		var/list/color_layers = catalog_host.get_cyborg_genital_color_layer_names(organ_slot, accessory)
+		if(length(color_layers))
+			return color_layers
 	return list("1" = "primary")
 
 /proc/cyborg_character_build_genital_entry(datum/preferences/preferences, organ_slot, list/layout_entry, model_name)
@@ -792,7 +918,7 @@
 		"body_scale" = 1,
 		"offset_limit" = 32,
 		"colors" = custom_colors,
-		"color_layers" = cyborg_character_get_genital_color_layers(organ_slot),
+		"color_layers" = cyborg_character_get_genital_color_layers(preferences, organ_slot, layout_entry),
 		"resolved_colors" = resolved_colors,
 		"preview_color" = resolved_colors[1],
 		"advanced" = deep_copy_list(layout_entry["advanced"]),
@@ -807,6 +933,8 @@
 		"set_cyborg_preview_model" = PROC_REF(set_cyborg_preview_model),
 		"set_cyborg_preview_state" = PROC_REF(set_cyborg_preview_state),
 		"set_cyborg_preview_dir" = PROC_REF(set_cyborg_preview_dir),
+		"set_cyborg_size" = PROC_REF(set_cyborg_size),
+		"update_cyborg_background" = PROC_REF(update_cyborg_background),
 		"set_cyborg_preview_genital_arousal" = PROC_REF(set_cyborg_preview_genital_arousal),
 		"set_cyborg_reproduction_value" = PROC_REF(set_cyborg_reproduction_value),
 		"set_cyborg_reproduction_direction_value" = PROC_REF(set_cyborg_reproduction_direction_value),
@@ -869,7 +997,7 @@
 	var/list/preview_data = cyborg_character_get_model_icon_data(model_department, model_name)
 	var/list/preview_state_options = cyborg_character_get_model_preview_state_options(model_department, model_name)
 	var/list/preview_state_map = cyborg_character_get_preview_state_option_map(model_department, model_name)
-	preferences.cyborg_character_preview_state = lowertext("[preferences.cyborg_character_preview_state]")
+	preferences.cyborg_character_preview_state = LOWER_TEXT("[preferences.cyborg_character_preview_state]")
 	if(!(preferences.cyborg_character_preview_state in preview_state_map))
 		var/normalized_state = cyborg_character_get_preview_state_token_from_icon_state(preferences.cyborg_character_preview_state)
 		if(normalized_state in preview_state_map)
@@ -886,6 +1014,7 @@
 		"presetLimit" = 10,
 		"presets" = list(),
 		"genitals" = list(),
+		"offset_directions" = cyborg_character_get_editable_direction_entries(preview_state_options),
 		"model_department" = model_department || "Current Department",
 		"model_name" = model_name || "Current Model",
 		"model_key" = model_key,
@@ -895,13 +1024,14 @@
 	for(var/preset_name in store["presets"])
 		reproduction_management["presets"] += list(list("name" = preset_name))
 
-	for(var/organ_slot in list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA))
+	for(var/organ_slot in cyborg_character_get_genital_slots())
 		var/list/layout_entry = cyborg_character_sanitize_layout_entry(store["active"][organ_slot])
 		reproduction_management["genitals"] += list(cyborg_character_build_genital_entry(preferences, organ_slot, layout_entry, model_name))
 
 	return list(
 		"cyborg_character" = list(
 			"preview" = preferences.cyborg_character_preview_view.assigned_map,
+			"preview_image" = preferences.cyborg_character_preview_view.preview_image,
 			"models" = model_departments,
 			"models_by_department" = model_catalog,
 			"selected_department" = model_department,
@@ -911,10 +1041,26 @@
 			"selected_dir" = preferences.cyborg_character_preview_dir,
 			"preview_width" = preview_data?["preview_width"] || 32,
 			"preview_height" = preview_data?["preview_height"] || 32,
+			"size" = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size)),
+			"size_options" = cyborg_character_get_allowed_sizes(),
 			"states" = preview_state_options,
 			"reproductionManagement" = reproduction_management,
 		),
 	)
+
+/datum/preference_middleware/cyborg_character/proc/set_cyborg_size(list/params, mob/user)
+	var/new_size = cyborg_character_sanitize_size(params["size"])
+	if(!preferences.update_preference(GLOB.preference_entries[/datum/preference/numeric/cyborg_size], new_size))
+		return FALSE
+	preferences.save_character(TRUE)
+	cyborg_character_refresh_preview(preferences)
+	return TRUE
+
+/datum/preference_middleware/cyborg_character/proc/update_cyborg_background(list/params, mob/user)
+	if(!preferences.update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"]))
+		return FALSE
+	cyborg_character_refresh_preview(preferences)
+	return TRUE
 
 /datum/preference_middleware/cyborg_character/proc/set_cyborg_preview_department(list/params, mob/user)
 	var/department_name = params["department"]
@@ -953,7 +1099,7 @@
 	return TRUE
 
 /datum/preference_middleware/cyborg_character/proc/set_cyborg_preview_dir(list/params, mob/user)
-	var/dir_name = lowertext("[params["dir"]]")
+	var/dir_name = LOWER_TEXT("[params["dir"]]")
 	if(!(dir_name in list("north", "south", "east", "west")))
 		return FALSE
 	preferences.cyborg_character_preview_dir = dir_name
@@ -1018,7 +1164,8 @@
 /datum/preference_middleware/cyborg_character/proc/set_cyborg_reproduction_direction_value(list/params, mob/user)
 	var/organ_slot = params["slot"]
 	var/direction_key = params["direction"]
-	if(!(direction_key in cyborg_character_get_direction_keys()))
+	var/list/preview_state_options = cyborg_character_get_model_preview_state_options(preferences.cyborg_character_preview_department, preferences.cyborg_character_preview_model)
+	if(!(direction_key in cyborg_character_get_editable_direction_keys(preview_state_options)))
 		return FALSE
 
 	var/list/store = cyborg_character_get_layout_store(preferences)
@@ -1029,7 +1176,7 @@
 	var/arousal_key = cyborg_character_get_layout_arousal_key(text2num("[params["arousal"]]"))
 
 	switch(field)
-		if("visible", "pixel_x", "pixel_y", "rotation")
+		if("visible", "pixel_x", "pixel_y", "rotation", "priority")
 			if(arousal_key)
 				var/list/arousal_entries = islist(direction_entry["arousal"]) ? direction_entry["arousal"] : list()
 				var/list/arousal_entry = cyborg_character_sanitize_direction_override(arousal_entries?[arousal_key])
@@ -1060,7 +1207,8 @@
 /datum/preference_middleware/cyborg_character/proc/reset_cyborg_reproduction_direction_value(list/params, mob/user)
 	var/organ_slot = params["slot"]
 	var/direction_key = params["direction"]
-	if(!(direction_key in cyborg_character_get_direction_keys()))
+	var/list/preview_state_options = cyborg_character_get_model_preview_state_options(preferences.cyborg_character_preview_department, preferences.cyborg_character_preview_model)
+	if(!(direction_key in cyborg_character_get_editable_direction_keys(preview_state_options)))
 		return FALSE
 
 	var/list/store = cyborg_character_get_layout_store(preferences)
@@ -1164,6 +1312,7 @@
 	var/mob/living/silicon/robot/cyborg_character_catalog_host/preview_robot
 	var/preview_model_department
 	var/preview_model_name
+	var/preview_image
 
 /atom/movable/screen/map_view/cyborg_character_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
@@ -1225,7 +1374,13 @@
 	catalog_host.icon = model_data?["icon"] || catalog_host.icon
 	catalog_host.icon_state = selected_state
 	catalog_host.dir = selected_dir
-	catalog_host.current_size = 1
+	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
+	catalog_host.current_size = selected_size
+	catalog_host.transform = matrix().Scale(selected_size)
+	catalog_host.cyborg_genital_appearance_revision++
+	catalog_host.cyborg_genital_idle_phase_start_time = world.time
+	catalog_host.cyborg_genital_movement_active = FALSE
+	catalog_host.cyborg_genital_movement_signature = null
 	catalog_host.robot_resting = cyborg_character_get_preview_robot_resting(selected_state)
 	catalog_host.simulated_genitals = list()
 	catalog_host.toggleable_cyborg_genitals = list()
@@ -1281,7 +1436,7 @@
 	var/icon_state = model_data["icon_state"]
 	var/list/state_map = cyborg_character_get_preview_state_option_map(model_department, model_name)
 	var/list/state_options = cyborg_character_get_model_preview_state_options(model_department, model_name)
-	var/selected_state_token = lowertext("[preferences.cyborg_character_preview_state]")
+	var/selected_state_token = LOWER_TEXT("[preferences.cyborg_character_preview_state]")
 	if(!(selected_state_token in state_map))
 		var/normalized_state = cyborg_character_get_preview_state_token_from_icon_state(selected_state_token)
 		if(normalized_state in state_map)
@@ -1294,7 +1449,6 @@
 	var/list/selected_state_option = state_map[selected_state_token]
 	var/resolved_icon_state = selected_state_option?["icon_state"] || icon_state
 	var/canvas_size = model_data["canvas_size"] || 0
-	var/preview_scale = cyborg_character_get_preview_scale(canvas_size)
 	var/preview_dir = cyborg_character_text_to_dir(preferences.cyborg_character_preview_dir)
 	var/list/store = cyborg_character_get_layout_store(preferences)
 
@@ -1323,51 +1477,56 @@
 		preview_canvas_height = 96
 		preview_canvas = image('modular_zubbers/icons/customization/template_96x96.dmi')
 	var/icon/body_icon = getFlatIcon(image(icon = icon_file, icon_state = resolved_icon_state, dir = preview_dir), preview_dir, no_anim = TRUE)
+	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
+	var/body_native_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
+	var/body_native_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
+	if(isicon(body_icon) && selected_size != RESIZE_NORMAL)
+		body_icon.Scale(max(round(body_icon.Width() * selected_size), 1), max(round(body_icon.Height() * selected_size), 1))
 	var/body_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
 	var/body_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
-	var/preview_margin = 32
-	var/preview_visible_margin = 8
-	var/preview_content_min_x = preview_body_pixel_x
-	var/preview_content_min_y = preview_body_pixel_y
-	var/preview_content_max_x = preview_body_pixel_x + body_width
-	var/preview_content_max_y = preview_body_pixel_y + body_height
-	var/preview_pad_left = max(-preview_body_pixel_x, 0) + preview_margin
-	var/preview_pad_down = max(-preview_body_pixel_y, 0) + preview_margin
-	preview_canvas_width = max(preview_canvas_width + preview_pad_left + preview_margin, preview_body_pixel_x + preview_pad_left + body_width + preview_margin)
-	preview_canvas_height = max(preview_canvas_height + preview_pad_down + preview_margin, preview_body_pixel_y + preview_pad_down + body_height + preview_margin)
+	var/body_scale_pixel_x = round((body_native_width - (body_native_width * selected_size)) * 0.5)
+	var/body_scale_pixel_y = round((body_native_height - (body_native_height * selected_size)) * 0.5) + round((selected_size - RESIZE_NORMAL) * (ICON_SIZE_Y * 0.5))
+	var/preview_body_draw_pixel_x = preview_body_pixel_x + body_scale_pixel_x
+	var/preview_body_draw_pixel_y = preview_body_pixel_y + body_scale_pixel_y
+	var/preview_margin = 96
+	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
+	if(!istext(canvas_state) || !length(canvas_state))
+		canvas_state = "clear"
+	var/preview_content_min_x = preview_body_draw_pixel_x
+	var/preview_content_min_y = preview_body_draw_pixel_y
+	var/preview_content_max_x = preview_body_draw_pixel_x + body_width
+	var/preview_content_max_y = preview_body_draw_pixel_y + body_height
+	var/preview_pad_left = max(-preview_body_draw_pixel_x, 0) + preview_margin
+	var/preview_pad_down = max(-preview_body_draw_pixel_y, 0) + preview_margin
+	preview_canvas_width = max(preview_canvas_width + preview_pad_left + preview_margin, preview_body_draw_pixel_x + preview_pad_left + body_width + preview_margin)
+	preview_canvas_height = max(preview_canvas_height + preview_pad_down + preview_margin, preview_body_draw_pixel_y + preview_pad_down + body_height + preview_margin)
 	var/icon/preview_icon = icon('icons/blanks/32x32.dmi', "nothing")
 	preview_canvas_width = max(preview_canvas_width, 1)
 	preview_canvas_height = max(preview_canvas_height, 1)
 	if(preview_icon.Width() != preview_canvas_width || preview_icon.Height() != preview_canvas_height)
 		preview_icon.Scale(preview_canvas_width, preview_canvas_height)
 	if(isicon(body_icon))
-		preview_icon.Blend(body_icon, ICON_OVERLAY, preview_body_pixel_x + preview_pad_left + 1, preview_body_pixel_y + preview_pad_down + 1)
+		preview_icon.Blend(body_icon, ICON_OVERLAY, preview_body_draw_pixel_x + preview_pad_left + 1, preview_body_draw_pixel_y + preview_pad_down + 1)
 
+	var/preview_direction_key = catalog_host.get_cyborg_genital_direction_key()
 	for(var/organ_slot in catalog_host.get_cyborg_genital_slots())
-		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir)
+		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir, preview_direction_key)
 		var/overlay_subindex = 0
 		for(var/mutable_appearance/genital_overlay as anything in base_genital_overlays)
 			overlay_subindex++
 			genital_overlay.pixel_x += preview_genital_pixel_x
 			genital_overlay.pixel_y += preview_genital_pixel_y
 			genital_overlay.plane = FLOAT_PLANE
-			var/obj/effect/client_image_holder/cyborg_genital/preview_holder = new(catalog_host, catalog_host, image(genital_overlay), list(), organ_slot, overlay_subindex)
-			var/image/genital_render_image = image(genital_overlay)
-			var/matrix/genital_transform = genital_overlay.transform ? matrix(genital_overlay.transform) : null
-			genital_render_image.transform = null
-			var/icon/genital_flat_icon = getFlatIcon(genital_render_image, preview_dir, no_anim = TRUE)
-			if(isicon(genital_flat_icon))
-				var/list/transformed_genital_icon_data = preview_holder.apply_cyborg_genital_appearance_transform(genital_flat_icon, genital_transform)
-				var/icon/transformed_genital_icon = transformed_genital_icon_data["icon"]
-				if(isicon(transformed_genital_icon))
-					var/genital_draw_x = preview_body_pixel_x + genital_overlay.pixel_x + (transformed_genital_icon_data["pixel_x"] || 0)
-					var/genital_draw_y = preview_body_pixel_y + genital_overlay.pixel_y + (transformed_genital_icon_data["pixel_y"] || 0)
-					preview_content_min_x = min(preview_content_min_x, genital_draw_x)
-					preview_content_min_y = min(preview_content_min_y, genital_draw_y)
-					preview_content_max_x = max(preview_content_max_x, genital_draw_x + transformed_genital_icon.Width())
-					preview_content_max_y = max(preview_content_max_y, genital_draw_y + transformed_genital_icon.Height())
-					preview_icon.Blend(transformed_genital_icon, ICON_OVERLAY, genital_draw_x + preview_pad_left + 1, genital_draw_y + preview_pad_down + 1)
-			qdel(preview_holder)
+			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir)
+			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
+			if(isicon(rendered_genital_icon))
+				var/genital_draw_x = preview_body_pixel_x + (rendered_genital_data["pixel_x"] || 0)
+				var/genital_draw_y = preview_body_pixel_y + (rendered_genital_data["pixel_y"] || 0)
+				preview_content_min_x = min(preview_content_min_x, genital_draw_x)
+				preview_content_min_y = min(preview_content_min_y, genital_draw_y)
+				preview_content_max_x = max(preview_content_max_x, genital_draw_x + rendered_genital_icon.Width())
+				preview_content_max_y = max(preview_content_max_y, genital_draw_y + rendered_genital_icon.Height())
+				preview_icon.Blend(rendered_genital_icon, ICON_OVERLAY, genital_draw_x + preview_pad_left + 1, genital_draw_y + preview_pad_down + 1)
 
 	var/mutable_appearance/drawover_overlay = catalog_host.build_cyborg_side_drawover_overlay()
 	if(drawover_overlay)
@@ -1375,32 +1534,29 @@
 		var/image/drawover_render_image = image(drawover_overlay)
 		var/icon/drawover_flat_icon = getFlatIcon(drawover_render_image, preview_dir, no_anim = TRUE)
 		if(isicon(drawover_flat_icon))
-			var/drawover_draw_x = preview_body_pixel_x + drawover_overlay.pixel_x
-			var/drawover_draw_y = preview_body_pixel_y + drawover_overlay.pixel_y
+			if(selected_size != RESIZE_NORMAL)
+				drawover_flat_icon.Scale(max(round(drawover_flat_icon.Width() * selected_size), 1), max(round(drawover_flat_icon.Height() * selected_size), 1))
+			var/drawover_draw_x = preview_body_draw_pixel_x + drawover_overlay.pixel_x
+			var/drawover_draw_y = preview_body_draw_pixel_y + drawover_overlay.pixel_y
 			preview_content_min_x = min(preview_content_min_x, drawover_draw_x)
 			preview_content_min_y = min(preview_content_min_y, drawover_draw_y)
 			preview_content_max_x = max(preview_content_max_x, drawover_draw_x + drawover_flat_icon.Width())
 			preview_content_max_y = max(preview_content_max_y, drawover_draw_y + drawover_flat_icon.Height())
 			preview_icon.Blend(drawover_flat_icon, ICON_OVERLAY, drawover_draw_x + preview_pad_left + 1, drawover_draw_y + preview_pad_down + 1)
 
-	if(isicon(preview_icon))
-		var/crop_x1 = preview_content_min_x + preview_pad_left - preview_visible_margin + 1
-		var/crop_y1 = preview_content_min_y + preview_pad_down - preview_visible_margin + 1
-		var/crop_x2 = preview_content_max_x + preview_pad_left + preview_visible_margin
-		var/crop_y2 = preview_content_max_y + preview_pad_down + preview_visible_margin
-		preview_icon.Crop(crop_x1, crop_y1, crop_x2, crop_y2)
-	else
+	if(!isicon(preview_icon))
 		appearance = preview_canvas.appearance
 		return
-	preview_scale = max(1, FLOOR(448 / max(preview_icon.Width(), preview_icon.Height()), 1))
-	if(preview_scale > 1)
-		preview_icon.Scale(max(preview_icon.Width() * preview_scale, 1), max(preview_icon.Height() * preview_scale, 1))
-	var/final_preview_size = 448
-	var/final_preview_offset_x = -64
-	var/icon/centered_preview_icon = icon('icons/blanks/32x32.dmi', "nothing")
-	centered_preview_icon.Scale(final_preview_size, final_preview_size)
-	centered_preview_icon.Blend(preview_icon, ICON_OVERLAY, max(round((final_preview_size - preview_icon.Width()) / 2) + final_preview_offset_x + 1, 1), max(round((final_preview_size - preview_icon.Height()) / 2) + 1, 1))
-	preview_icon = centered_preview_icon
+
+	var/icon/background_icon = icon('modular_zubbers/icons/customization/template_96x96.dmi', canvas_state)
+	var/icon/background_preview_icon = icon('icons/blanks/32x32.dmi', "nothing")
+	background_preview_icon.Scale(preview_icon.Width(), preview_icon.Height())
+	for(var/tile_x in 1 to preview_icon.Width() step 96)
+		for(var/tile_y in 1 to preview_icon.Height() step 96)
+			background_preview_icon.Blend(background_icon, ICON_OVERLAY, tile_x, tile_y)
+	background_preview_icon.Blend(preview_icon, ICON_OVERLAY, 1, 1)
+	preview_icon = background_preview_icon
+	preview_image = "data:image/png;base64,[icon2base64(preview_icon)]"
 	var/image/preview_output = image(fcopy_rsc(preview_icon))
 	preview_output.layer = MOB_LAYER
 	preview_output.plane = FLOAT_PLANE
