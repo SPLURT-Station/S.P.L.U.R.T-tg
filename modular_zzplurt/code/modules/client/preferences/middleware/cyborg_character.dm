@@ -243,33 +243,6 @@
 	qdel(preview_holder)
 	return rendered_data
 
-/proc/cyborg_character_apply_body_scale_to_rendered_genital(mob/living/silicon/robot/owner_robot, list/rendered_genital_data, body_scale)
-	if(!owner_robot || !islist(rendered_genital_data))
-		return null
-
-	var/icon/rendered_genital_icon = rendered_genital_data["icon"]
-	if(!isicon(rendered_genital_icon))
-		return null
-
-	body_scale = max(body_scale || RESIZE_NORMAL, 0.25)
-	var/original_width = max(rendered_genital_icon.Width(), 1)
-	var/original_height = max(rendered_genital_icon.Height(), 1)
-	var/target_width = max(round(original_width * body_scale), 1)
-	var/target_height = max(round(original_height * body_scale), 1)
-	var/icon/scaled_icon = rendered_genital_icon
-	if(target_width != original_width || target_height != original_height)
-		scaled_icon = owner_robot.scale_cyborg_icon_nearest_neighbor(rendered_genital_icon, target_width, target_height)
-	if(!isicon(scaled_icon))
-		return null
-
-	return list(
-		"icon" = scaled_icon,
-		"pixel_x" = (rendered_genital_data["pixel_x"] || 0) + round((original_width - scaled_icon.Width()) * 0.5),
-		"pixel_y" = (rendered_genital_data["pixel_y"] || 0) + round((original_height - scaled_icon.Height()) * 0.5),
-		"width" = scaled_icon.Width(),
-		"height" = scaled_icon.Height(),
-	)
-
 /mob/living/silicon/robot/cyborg_character_catalog_host/Destroy()
 	if(ispath(cell))
 		cell = null
@@ -501,8 +474,12 @@
 	if(islist(marker_anchor_offset))
 		marker_anchor_x = marker_anchor_offset["pixel_x"] || 0
 		marker_anchor_y = marker_anchor_offset["pixel_y"] || 0
-		pixel_x = round(marker_point_x - marker_anchor_x)
-		pixel_y = round(marker_point_y - marker_anchor_y)
+		// Marker anchor offsets are stored in live mob tile space: marker pixel
+		// minus the normal 32x32 tile center and any wide/tall canvas anchor.
+		// Convert them back to preview body top-left space before applying the
+		// preview-side canvas anchor and update_transform() scaling math.
+		pixel_x = round(marker_point_x - marker_anchor_x - (ICON_SIZE_X * 0.5))
+		pixel_y = round(marker_point_y - marker_anchor_y - (ICON_SIZE_Y * 0.5))
 	return list(
 		"pixel_x" = pixel_x,
 		"pixel_y" = pixel_y,
@@ -1392,9 +1369,8 @@
 	catalog_host.icon = model_data?["icon"] || catalog_host.icon
 	catalog_host.icon_state = selected_state
 	catalog_host.dir = selected_dir
-	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
-	catalog_host.current_size = selected_size
-	catalog_host.transform = matrix().Scale(selected_size)
+	catalog_host.current_size = RESIZE_NORMAL
+	catalog_host.transform = null
 	catalog_host.cyborg_genital_appearance_revision++
 	catalog_host.cyborg_genital_idle_phase_start_time = world.time
 	catalog_host.cyborg_genital_movement_active = FALSE
@@ -1496,15 +1472,10 @@
 		preview_canvas = image('modular_zubbers/icons/customization/template_96x96.dmi')
 	var/icon/body_icon = getFlatIcon(image(icon = icon_file, icon_state = resolved_icon_state, dir = preview_dir), preview_dir, no_anim = TRUE)
 	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
-	if(isicon(body_icon) && selected_size != RESIZE_NORMAL)
-		body_icon.Scale(max(round(body_icon.Width() * selected_size), 1), max(round(body_icon.Height() * selected_size), 1))
 	var/body_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
 	var/body_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
-	var/list/body_scale_offset = catalog_host.get_cyborg_genital_transform_offset()
-	var/body_scale_pixel_x = body_scale_offset["pixel_x"] || 0
-	var/body_scale_pixel_y = body_scale_offset["pixel_y"] || 0
-	var/preview_body_draw_pixel_x = preview_body_pixel_x + body_scale_pixel_x
-	var/preview_body_draw_pixel_y = preview_body_pixel_y + body_scale_pixel_y
+	var/preview_body_draw_pixel_x = preview_body_pixel_x
+	var/preview_body_draw_pixel_y = preview_body_pixel_y
 	var/preview_margin = 96
 	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
 	if(!istext(canvas_state) || !length(canvas_state))
@@ -1535,7 +1506,6 @@
 			genital_overlay.pixel_y += preview_genital_pixel_y
 			genital_overlay.plane = FLOAT_PLANE
 			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir)
-			rendered_genital_data = cyborg_character_apply_body_scale_to_rendered_genital(catalog_host, rendered_genital_data, selected_size)
 			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
 			if(isicon(rendered_genital_icon))
 				var/genital_draw_x = preview_body_pixel_x + (rendered_genital_data["pixel_x"] || 0)
@@ -1552,8 +1522,6 @@
 		var/image/drawover_render_image = image(drawover_overlay)
 		var/icon/drawover_flat_icon = getFlatIcon(drawover_render_image, preview_dir, no_anim = TRUE)
 		if(isicon(drawover_flat_icon))
-			if(selected_size != RESIZE_NORMAL)
-				drawover_flat_icon.Scale(max(round(drawover_flat_icon.Width() * selected_size), 1), max(round(drawover_flat_icon.Height() * selected_size), 1))
 			var/drawover_draw_x = preview_body_draw_pixel_x + drawover_overlay.pixel_x
 			var/drawover_draw_y = preview_body_draw_pixel_y + drawover_overlay.pixel_y
 			preview_content_min_x = min(preview_content_min_x, drawover_draw_x)
@@ -1567,10 +1535,13 @@
 		return
 
 	var/icon/background_icon = icon('modular_zubbers/icons/customization/template_96x96.dmi', canvas_state)
+	var/background_tile_size = max(round(96 / max(selected_size || RESIZE_NORMAL, 0.25)), 1)
+	if(background_tile_size != 96)
+		background_icon.Scale(background_tile_size, background_tile_size)
 	var/icon/background_preview_icon = icon('icons/blanks/32x32.dmi', "nothing")
 	background_preview_icon.Scale(preview_icon.Width(), preview_icon.Height())
-	for(var/tile_x in 1 to preview_icon.Width() step 96)
-		for(var/tile_y in 1 to preview_icon.Height() step 96)
+	for(var/tile_x in 1 to preview_icon.Width() step background_tile_size)
+		for(var/tile_y in 1 to preview_icon.Height() step background_tile_size)
 			background_preview_icon.Blend(background_icon, ICON_OVERLAY, tile_x, tile_y)
 	background_preview_icon.Blend(preview_icon, ICON_OVERLAY, 1, 1)
 	preview_icon = background_preview_icon

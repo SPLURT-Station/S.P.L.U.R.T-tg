@@ -352,7 +352,6 @@
 #include "~skyrat\opposing_force.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
-#include "~splurt\cyborg_genital_preview_alignment.dm"
 #include "~splurt\underwear_items.dm"
 // SPLURT EDIT END
 // END_INCLUDE

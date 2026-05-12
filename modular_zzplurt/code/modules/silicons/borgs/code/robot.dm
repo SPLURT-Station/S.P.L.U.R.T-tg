@@ -2419,6 +2419,9 @@
 	if(!max_native_scale)
 		return null
 
+	if(organ_slot == ORGAN_SLOT_TESTICLES)
+		return max_native_scale + 0.25
+
 	return max_native_scale + 0.5
 
 /mob/living/silicon/robot/proc/get_cyborg_direct_genital_standard_source_size(organ_slot, sprite_suffix, list/layout_entry = null)
