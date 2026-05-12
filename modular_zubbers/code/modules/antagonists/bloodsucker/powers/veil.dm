@@ -104,7 +104,6 @@
 	SIGNAL_HANDLER
 
 	identity[VISIBLE_NAME_FACE] = disguise_name
-	//user.get_message_voice(disguise_name) SPLURT REMOVAL: This causes infinite recursion because get_message_voice() calls COMSIG_HUMAN_GET_VISIBLE, which then calls...this proc again. This wasn't even storing the result!
 
 /datum/action/cooldown/bloodsucker/veil/DeactivatePower(deactivate_flags)
 	. = ..()
