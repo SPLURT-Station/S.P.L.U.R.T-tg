@@ -214,12 +214,6 @@
 		return null
 
 	var/obj/effect/client_image_holder/cyborg_genital/preview_holder = new(owner_robot, owner_robot, image(genital_overlay), list(), organ_slot, overlay_subindex)
-	if(owner_robot.can_cyborg_genital_animate(organ_slot))
-		var/list/idle_offsets = owner_robot.get_cyborg_genital_idle_offsets()
-		var/list/idle_frame_delays = owner_robot.get_cyborg_automated_idle_frame_delays()
-		if(length(idle_offsets) && length(idle_frame_delays))
-			preview_holder.play_cyborg_movement_animation(idle_offsets, idle_frame_delays, 0, FALSE, "idle")
-
 	var/image/render_image = preview_holder.generate_image()
 	if(!render_image)
 		qdel(preview_holder)
