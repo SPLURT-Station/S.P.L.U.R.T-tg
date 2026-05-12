@@ -209,9 +209,6 @@
 	current_size = 1
 	return INITIALIZE_HINT_NORMAL
 
-/mob/living/silicon/robot/cyborg_character_catalog_host/get_cyborg_genital_body_scale()
-	return max(current_size || 1, 0.25)
-
 /proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir)
 	if(!owner_robot || !genital_overlay)
 		return null
@@ -1478,14 +1475,13 @@
 		preview_canvas = image('modular_zubbers/icons/customization/template_96x96.dmi')
 	var/icon/body_icon = getFlatIcon(image(icon = icon_file, icon_state = resolved_icon_state, dir = preview_dir), preview_dir, no_anim = TRUE)
 	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
-	var/body_native_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
-	var/body_native_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
 	if(isicon(body_icon) && selected_size != RESIZE_NORMAL)
 		body_icon.Scale(max(round(body_icon.Width() * selected_size), 1), max(round(body_icon.Height() * selected_size), 1))
 	var/body_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
 	var/body_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
-	var/body_scale_pixel_x = round((body_native_width - (body_native_width * selected_size)) * 0.5)
-	var/body_scale_pixel_y = round((body_native_height - (body_native_height * selected_size)) * 0.5) + round((selected_size - RESIZE_NORMAL) * (ICON_SIZE_Y * 0.5))
+	var/list/body_scale_offset = catalog_host.get_cyborg_genital_transform_offset()
+	var/body_scale_pixel_x = body_scale_offset["pixel_x"] || 0
+	var/body_scale_pixel_y = body_scale_offset["pixel_y"] || 0
 	var/preview_body_draw_pixel_x = preview_body_pixel_x + body_scale_pixel_x
 	var/preview_body_draw_pixel_y = preview_body_pixel_y + body_scale_pixel_y
 	var/preview_margin = 96

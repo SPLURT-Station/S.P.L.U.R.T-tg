@@ -27,6 +27,9 @@
 		radio = null
 	return ..()
 
+/mob/living/silicon/robot/cyborg_genital_alignment_live_probe/check_held_item_sprites(obj/item/checked_item)
+	return FALSE
+
 /datum/unit_test/cyborg_genital_preview_alignment
 
 /datum/unit_test/cyborg_genital_preview_alignment/proc/configure_probe(mob/living/silicon/robot/robot, obj/item/robot_model/model, list/model_data, selected_size, selected_dir)
@@ -60,17 +63,14 @@
 
 /datum/unit_test/cyborg_genital_preview_alignment/proc/build_probe(type, model_type, list/model_data, selected_size, selected_dir)
 	var/mob/living/silicon/robot/robot = allocate(type)
-	var/obj/item/robot_model/model = allocate(model_type, robot)
+	var/obj/item/robot_model/model = new model_type(robot)
 	configure_probe(robot, model, model_data, selected_size, selected_dir)
 	return robot
 
-/datum/unit_test/cyborg_genital_preview_alignment/proc/get_body_scale_offset(list/model_data, selected_state, selected_dir, selected_size)
-	var/icon/body_icon = getFlatIcon(image(icon = model_data["icon"], icon_state = selected_state, dir = selected_dir), selected_dir, no_anim = TRUE)
-	var/body_native_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
-	var/body_native_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
+/datum/unit_test/cyborg_genital_preview_alignment/proc/get_body_scale_offset(selected_size)
 	return list(
-		"pixel_x" = round((body_native_width - (body_native_width * selected_size)) * 0.5),
-		"pixel_y" = round((body_native_height - (body_native_height * selected_size)) * 0.5) + round((selected_size - RESIZE_NORMAL) * (ICON_SIZE_Y * 0.5)),
+		"pixel_x" = round((ICON_SIZE_X - (ICON_SIZE_X * selected_size)) * 0.5),
+		"pixel_y" = round((ICON_SIZE_Y - (ICON_SIZE_Y * selected_size)) * 0.5) + round((selected_size - RESIZE_NORMAL) * (ICON_SIZE_Y * 0.5)),
 	)
 
 /datum/unit_test/cyborg_genital_preview_alignment/proc/get_render_record(mob/living/silicon/robot/robot, selected_dir)
@@ -96,7 +96,6 @@
 
 	var/list/model_data = cyborg_character_get_model_icon_data(model_name, variant_name)
 	model_data["variant_name"] = variant_name
-	var/selected_state = model_data["icon_state"]
 	var/list/sizes = list(RESIZE_NORMAL, 1.6, 2.5)
 	var/list/directions = list(SOUTH, EAST, WEST)
 
@@ -110,7 +109,7 @@
 				TEST_FAIL("Missing genital render data for [model_name] / [variant_name], size [selected_size], dir [selected_dir]. live=[islist(live_render)] preview=[islist(preview_render)]")
 				continue
 
-			var/list/body_scale_offset = get_body_scale_offset(model_data, selected_state, selected_dir, selected_size)
+			var/list/body_scale_offset = get_body_scale_offset(selected_size)
 			var/live_relative_x = (live_render["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
 			var/live_relative_y = (live_render["pixel_y"] || 0) - (body_scale_offset["pixel_y"] || 0)
 			var/preview_relative_x = (preview_render["pixel_x"] || 0) - (body_scale_offset["pixel_x"] || 0)
@@ -122,5 +121,3 @@
 /datum/unit_test/cyborg_genital_preview_alignment/Run()
 	check_case("Peacekeeper", "Drake")
 	check_case("Peacekeeper", "Meka")
-
-TEST_FOCUS(/datum/unit_test/cyborg_genital_preview_alignment)
