@@ -133,14 +133,6 @@ required_map = "MetaStation.dmm"
 coordinates = [89, 135, 1]
 trait_name = "Station"
 
-# Metastation Security Medical Expansion
-[templates.metastation_security_medic_medbay]
-map_files = ["metastation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/metastation/"
-required_map = "MetaStation.dmm"
-coordinates = [91, 169, 1]
-trait_name = "Station"
-
 # Deltastation Blueshield Office
 [templates.deltastation_blueshield_office]
 map_files = ["deltastation_blueshield_office.dmm"]
@@ -149,28 +141,12 @@ required_map = "DeltaStation2.dmm"
 coordinates = [171, 75, 1]
 trait_name = "Station"
 
-# Deltastation Security Medical Expansion
-[templates.deltastation_security_medic_medbay]
-map_files = ["deltastation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
-required_map = "DeltaStation2.dmm"
-coordinates = [194, 152, 1]
-trait_name = "Station"
-
 # Boxstation NTR Office
 [templates.boxstation_ntrep_office]
 map_files = ["boxstation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/boxstation/"
 required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
-trait_name = "Station"
-
-# Boxstation Security Medical Expansion
-[templates.boxstation_security_medic_medbay]
-map_files = ["boxstation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/boxstation/"
-required_map = "BoxStation.dmm"
-coordinates = [101, 170, 1]
 trait_name = "Station"
 
 # Kilostation NTR Office
@@ -189,44 +165,12 @@ required_map = "KiloStation.dmm"
 coordinates = [125, 103, 1]
 trait_name = "Station"
 
-# Kilostation Security Medical Expansion
-[templates.kilostation_security_medic_medbay]
-map_files = ["kilostation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/kilostation/"
-required_map = "KiloStation.dmm"
-coordinates = [69, 92, 1]
-trait_name = "Station"
-
-# Moonstation Security Medical Expansion
-[templates.moonstation_security_medic_medbay]
-map_files = ["moonstation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/moonstation/"
-required_map = "moonstation.dmm"
-coordinates = [152, 127, 3]
-trait_name = "Station"
-
 # Iceboxstation Blueshield Office
 [templates.iceboxstation_blueshield_office]
 map_files = ["iceboxstation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/iceboxstation/"
 required_map = "IceBoxStation.dmm"
 coordinates = [99, 155, 3]
-trait_name = "Station"
-
-# Iceboxstation Security Medical Expansion Z-Level 2
-[templates.iceboxstation_security_medic_medbay_zlevel_2]
-map_files = ["iceboxstation_security_medic_medbay_zlevel_2.dmm"]
-directory = "_maps/splurt/automapper/templates/iceboxstation/"
-required_map = "IceBoxStation.dmm"
-coordinates = [113, 174, 2]
-trait_name = "Station"
-
-# Iceboxstation Security Medical Expansion Z-Level 3
-[templates.iceboxstation_security_medic_medbay_zlevel_3]
-map_files = ["iceboxstation_security_medic_medbay_zlevel_3.dmm"]
-directory = "_maps/splurt/automapper/templates/iceboxstation/"
-required_map = "IceBoxStation.dmm"
-coordinates = [114, 174, 3]
 trait_name = "Station"
 
 # Tramstation Blueshield Office
@@ -245,44 +189,12 @@ required_map = "tramstation.dmm"
 coordinates = [81, 130, 2]
 trait_name = "Station"
 
-# Tramstation Security Medical Expansion
-[templates.tramstation_security_medic_medbay]
-map_files = ["tramstation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/tramstation/"
-required_map = "tramstation.dmm"
-coordinates = [55, 149, 2]
-trait_name = "Station"
-
-# Nebulastation Sauna
-[templates.nebulastation_security_medic_medbay]
-map_files = ["nebulastation_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [155, 101, 1]
-trait_name = "Station"
-
 # Blueshift NTR Office
 [templates.blueshift_ntrep_office]
 map_files = ["blueshift_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/blueshift/"
 required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
-trait_name = "Station"
-
-# Blueshift Security Medical Expansion - Main
-[templates.blueshift_security_medic_medbay]
-map_files = ["blueshift_security_medic_medbay.dmm"]
-directory = "_maps/splurt/automapper/templates/blueshift/"
-required_map = "Blueshift.dmm"
-coordinates = [100, 182, 1]
-trait_name = "Station"
-
-# Blueshift Security Medical Expansion - Brig
-[templates.blueshift_security_medic_medbay_brig]
-map_files = ["blueshift_security_medic_medbay_brig.dmm"]
-directory = "_maps/splurt/automapper/templates/blueshift/"
-required_map = "Blueshift.dmm"
-coordinates = [141, 173, 1]
 trait_name = "Station"
 
 # VoidRaptor NTR Office
@@ -293,12 +205,101 @@ required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
 trait_name = "Station"
 
-# VoidRaptor Security Medical Expansion
-[templates.voidraptor_security_medic_medbay]
-map_files = ["voidraptor_security_medic_medbay.dmm"]
+# # Security Medic Infirmaries/Expansions
+# Biodome Security Infirmary
+[templates.biodome_sec_infirmary]
+map_files = ["biodome_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [149, 87, 2]
+trait_name = "Station"
+
+# Blueshift Security Infirmary
+[templates.blueshift_sec_infirmary]
+map_files = ["blueshift_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [100, 182, 1]
+trait_name = "Station"
+
+# Boxstation Security Infirmary
+[templates.boxstation_sec_infirmary]
+map_files = ["boxstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [103, 171, 1]
+trait_name = "Station"
+
+# Deltastation Security Infirmary
+[templates.deltastation_sec_infirmary]
+map_files = ["deltastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [202, 152, 1]
+trait_name = "Station"
+
+# IceBoxStation Security Infirmary
+[templates.iceboxstation_sec_infirmary]
+map_files = ["iceboxstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [114, 174, 3]
+trait_name = "Station"
+
+# KiloStation Security Infirmary
+[templates.kilostation_sec_infirmary]
+map_files = ["kilostation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [73, 91, 1]
+trait_name = "Station"
+
+# Metastation Security Infirmary
+[templates.metastation_sec_infirmary]
+map_files = ["metastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [92, 169, 1]
+trait_name = "Station"
+
+# Moonstation Security Infirmary
+[templates.moonstation_sec_infirmary]
+map_files = ["moonstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [152, 127, 3]
+trait_name = "Station"
+
+# Nebulastation Security Infirmary
+[templates.nebulastation_sec_infirmary]
+map_files = ["nebulastation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [155, 101, 1]
+trait_name = "Station"
+
+# Ouroboros Security Infirmary
+[templates.ouroboros_sec_infirmary]
+map_files = ["ouroboros_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/ouroboros/"
+required_map = "Ouroboros.dmm"
+coordinates = [163, 150, 1]
+trait_name = "Station"
+
+# Tramstation Security Infirmary
+[templates.Tramstation_sec_infirmary]
+map_files = ["tramstation_secmed_infirmary.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [55, 146, 2]
+trait_name = "Station"
+
+# VoidRaptor Security Infirmary
+[templates.voidraptor_sec_infirmary]
+map_files = ["voidraptor_secmed_infirmary.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
-coordinates = [134, 169, 1]
+coordinates = [139, 168, 1]
 trait_name = "Station"
 
 # # Lavaland NE Ashwalker Fortress # Added in upstream
