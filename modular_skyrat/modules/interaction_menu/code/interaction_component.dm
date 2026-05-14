@@ -118,8 +118,6 @@
 			categories[interaction.category] = list(interaction.name)
 		else
 			categories[interaction.category] += interaction.name
-			var/list/sorted_category = sort_list(categories[interaction.category])
-			categories[interaction.category] = sorted_category
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
 		// SPLURT EDIT START - INTERACTIONS
@@ -131,6 +129,7 @@
 	data["colors"] = colors
 	data["additional_details"] = additional_details // SPLURT EDIT ADDITION - INTERACTIONS
 	for(var/category in categories)
+		categories[category] = sort_list(categories[category])
 		display_categories += category
 	data["categories"] = sort_list(display_categories)
 	data["ref_user"] = REF(user)
@@ -418,6 +417,7 @@
 				var/already_processing = LAZYLEN(user_interaction_component.auto_interaction_info)
 				user_interaction_component.auto_interaction_info[params["interaction_text"]] = list(
 					"speed" = clamp(round(params["speed"], 0.5), (INTERACTION_SPEED_MIN * (1 / (1 SECONDS))), (INTERACTION_SPEED_MAX * (1 / (1 SECONDS)))),
+					"interaction_id" = splittext(params["interaction_text"], "_target_")[1],
 					"target" = params["selfref"],
 					"target_name" = self.name,
 				)

@@ -192,7 +192,7 @@ SUBSYSTEM_DEF(shuttle)
 	setup_shuttles(stationary_docking_ports)
 	has_purchase_shuttle_access = init_has_purchase_shuttle_access()
 
-	if(!arrivals)
+	if(!arrivals && !getShuttle("arrivals_shuttle", warn_on_missing = FALSE))
 		log_mapping("No /obj/docking_port/mobile/arrivals placed on the map!")
 	if(!emergency)
 		log_mapping("No /obj/docking_port/mobile/emergency placed on the map!")
@@ -313,11 +313,12 @@ SUBSYSTEM_DEF(shuttle)
 		return
 	emergency_no_recall = FALSE
 
-/datum/controller/subsystem/shuttle/proc/getShuttle(id)
+/datum/controller/subsystem/shuttle/proc/getShuttle(id, warn_on_missing = TRUE)
 	for(var/obj/docking_port/mobile/M in mobile_docking_ports)
 		if(M.shuttle_id == id)
 			return M
-	WARNING("couldn't find shuttle with id: [id]")
+	if(warn_on_missing)
+		WARNING("couldn't find shuttle with id: [id]")
 
 /datum/controller/subsystem/shuttle/proc/getDock(id)
 	for(var/obj/docking_port/stationary/S in stationary_docking_ports)

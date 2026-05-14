@@ -77,6 +77,8 @@
 
 /obj/docking_port/stationary/unregister()
 	. = ..()
+	if(!.)
+		return
 	SSshuttle.stationary_docking_ports -= src
 
 /obj/docking_port/stationary/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)

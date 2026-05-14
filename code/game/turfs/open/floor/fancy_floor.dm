@@ -890,6 +890,10 @@
 	. = ..()
 	MakeSlippery(TURF_WET_PERMAFROST, INFINITY, 0, INFINITY, TRUE)
 
+/turf/open/floor/fakeice/slippery/icemoon
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	baseturfs = /turf/open/openspace/icemoon
+
 /turf/open/floor/fakespace
 	icon = 'icons/turf/space.dmi'
 	icon_state = "space"

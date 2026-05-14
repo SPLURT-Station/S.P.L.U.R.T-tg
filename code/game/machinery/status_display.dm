@@ -700,6 +700,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 	name = "shuttle display"
 	current_mode = SD_MESSAGE
 	var/shuttle_id
+	var/obj/docking_port/mobile/shuttle_port
+	var/shuttle_lookup_failed = FALSE
 
 	text_color = COLOR_DISPLAY_GREEN
 	header_text_color = COLOR_DISPLAY_CYAN
@@ -710,7 +712,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 		update_appearance()
 		return PROCESS_KILL
 
-	return display_shuttle_status(SSshuttle.getShuttle(shuttle_id))
+	if(!shuttle_port && !shuttle_lookup_failed)
+		shuttle_port = SSshuttle.getShuttle(shuttle_id, warn_on_missing = FALSE)
+		if(!shuttle_port && SSshuttle.initialized)
+			shuttle_lookup_failed = TRUE
+
+	return display_shuttle_status(shuttle_port)
 
 /obj/machinery/status_display/shuttle/vv_edit_var(var_name, var_value)
 	. = ..()
@@ -718,10 +725,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 		return
 	switch(var_name)
 		if(NAMEOF(src, shuttle_id))
+			shuttle_port = null
+			shuttle_lookup_failed = FALSE
 			update()
 
 /obj/machinery/status_display/shuttle/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(port)
+		shuttle_port = port
+		shuttle_lookup_failed = FALSE
 		shuttle_id = port.shuttle_id
 	update()
 

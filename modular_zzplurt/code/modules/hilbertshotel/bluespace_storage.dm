@@ -29,6 +29,7 @@
 	resistance_flags = FLAMMABLE // no more plot armour
 	successfully_sent = TRUE
 	in_hotel_room = FALSE
+	STOP_PROCESSING(SSobj, src)
 	update_icon()
 
 /obj/item/storage/box/bluespace/update_icon()
@@ -63,6 +64,7 @@
 	START_PROCESSING(SSobj, src)
 
 /obj/item/storage/box/bluespace/Destroy(force)
+	STOP_PROCESSING(SSobj, src)
 	if(origin_controller)
 		var/obj/machinery/room_controller/controller = origin_controller.resolve()
 		if(controller)
@@ -70,6 +72,8 @@
 	. = ..()
 
 /obj/item/storage/box/bluespace/process()
+	if(successfully_sent)
+		return PROCESS_KILL
 	if(!creation_area)
 		return
 	if(!in_hotel_room)

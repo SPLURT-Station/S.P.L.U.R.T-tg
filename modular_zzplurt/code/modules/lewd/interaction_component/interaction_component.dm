@@ -94,21 +94,29 @@
 	if(!LAZYLEN(auto_interaction_info))
 		return PROCESS_KILL
 
+	var/current_time = world.time
 	for(var/interaction_text in auto_interaction_info)
-		var/datum/interaction/interaction = SSinteractions.interactions[splittext(interaction_text, "_target_")[1]]
-		var/interaction_speed = auto_interaction_info[interaction_text]["speed"] SECONDS
-		var/mob/living/target = locate(auto_interaction_info[interaction_text]["target"])
+		var/list/auto_info = auto_interaction_info[interaction_text]
+		if(!auto_info)
+			auto_interaction_info -= interaction_text
+			continue
+
+		var/next_interaction = auto_info["next_interaction"]
+		if(next_interaction && current_time < next_interaction)
+			continue
+
+		var/interaction_id = auto_info["interaction_id"] || splittext(interaction_text, "_target_")[1]
+		var/datum/interaction/interaction = SSinteractions.interactions[interaction_id]
+		var/interaction_speed = auto_info["speed"] SECONDS
+		var/mob/living/target = locate(auto_info["target"])
 		var/datum/component/interactable/target_interaction_component = target?.GetComponent(/datum/component/interactable)
 
 		if(!interaction || QDELETED(target) || !target_interaction_component?.can_interact(interaction, self))
 			auto_interaction_info -= interaction_text
 			continue
 
-		if(!(world.time >= auto_interaction_info[interaction_text]["next_interaction"]))
-			continue
-
 		interaction.act(self, target)
-		auto_interaction_info[interaction_text]["next_interaction"] = world.time + interaction_speed
+		auto_info["next_interaction"] = current_time + interaction_speed
 
 /datum/component/interactable/ui_data(mob/living/user)
 	. = ..()

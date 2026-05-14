@@ -45,9 +45,9 @@
 ///unregister from SSshuttles
 /obj/docking_port/proc/unregister()
 	if(!registered)
-		WARNING("docking_port unregistered multiple times")
+		return FALSE
 	registered = FALSE
-	return
+	return TRUE
 
 /obj/docking_port/proc/Check_id()
 	return

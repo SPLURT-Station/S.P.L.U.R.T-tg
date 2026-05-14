@@ -217,6 +217,8 @@
 
 /obj/docking_port/mobile/unregister()
 	. = ..()
+	if(!.)
+		return
 	SSshuttle.mobile_docking_ports -= src
 	SSshuttle.custom_shuttles -= src
 
