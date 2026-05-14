@@ -19,18 +19,19 @@
 	if(!check_rights(0))
 		return
 
-	var/dat
+	var/list/dat = list()
 
-	dat += "<a href='byond://?src=[REF(src)];[HrefToken()];gamemode_panel=1'>Storyteller Panel</a><BR>" // BUBBER EDIT CHANGE - Storyteller - Dynamic Panel -> Storyteller Panel
+	dat += "<a href='byond://?_src_=holder;[HrefToken()];gamemode_panel=1'>Storyteller Panel</a><BR>" // BUBBER EDIT CHANGE - Storyteller - Dynamic Panel -> Storyteller Panel
 	dat += "<hr/>"
 
-	dat += "<a href='byond://?src=[REF(src)];[HrefToken()];spawn_panel=1'>Spawn Panel</a><br>"
+	dat += "<a href='byond://?_src_=holder;[HrefToken()];check_antagonist=1'>Round Status</a><br>"
+	dat += "<a href='byond://?_src_=holder;[HrefToken()];spawn_panel=1'>Spawn Panel</a><br>"
 
 	if(marked_datum && istype(marked_datum, /atom))
-		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</a><br>"
+		dat += "<a href='byond://?_src_=holder;[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</a><br>"
 
 	var/datum/browser/browser = new(usr, "admin2", "Game Panel", 240, 280)
-	browser.set_content(dat)
+	browser.set_content(dat.Join())
 	browser.open()
 	return
 
