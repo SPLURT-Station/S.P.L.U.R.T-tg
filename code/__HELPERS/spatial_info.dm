@@ -318,7 +318,7 @@
 	var/dx = first_location.x - second_location.x
 	var/dy = first_location.y - second_location.y
 
-	var/dist = sqrt(dx ** 2 + dy ** 2)
+	var/dist = sqrt(dx * dx + dy * dy)
 
 	return dist
 

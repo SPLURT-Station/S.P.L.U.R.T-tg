@@ -37,7 +37,6 @@
 	owner = new_owner
 	LAZYADD(owner.vore_bellies, src)
 	digest_mode = GLOB.digest_modes[DIGEST_MODE_SAFE]
-	START_PROCESSING(SSvore, src)
 	// Do our best not to get dropped
 	ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 
@@ -55,6 +54,8 @@
 
 /// On process, bellies ask their digestion mode (if there is one) to process them
 /obj/vore_belly/process(seconds_per_tick)
+	if(!length(contents))
+		return
 	digest_mode?.handle_belly(src, seconds_per_tick)
 	prey_loop()
 
@@ -301,6 +302,7 @@
 	. = ..()
 	if(!owner)
 		return
+	START_PROCESSING(SSvore, src)
 	var/mob/living/living_parent = owner.parent
 	owner.play_vore_sound(get_insert_sound())
 	to_chat(living_parent, span_notice("[arrived] slides into your [LOWER_TEXT(name)]."))
@@ -368,6 +370,8 @@
 		// We added it so let's take it away
 		if(M.client)
 			M.client.screen -= owner.appearance_holder
+	if(!length(contents))
+		STOP_PROCESSING(SSvore, src)
 
 /// Does not call parent, which hides the "you can't move while buckled" message
 /// Also makes squelchy sounds when prey tries to squirm.
