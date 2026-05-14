@@ -11,6 +11,8 @@ SUBSYSTEM_DEF(machines)
 
 	/// All machines, not just those that are processing.
 	VAR_PRIVATE/list/all_machines = list()
+	/// Cached subtype lookup results. Invalidated whenever machines register or unregister.
+	VAR_PRIVATE/list/machine_subtype_cache = list()
 
 	var/list/processing = list()
 	var/list/processing_early = list()
@@ -38,6 +40,7 @@ SUBSYSTEM_DEF(machines)
 /datum/controller/subsystem/machines/proc/register_machine(obj/machinery/machine)
 	LAZYADD(machines_by_type[machine.type], machine)
 	all_machines |= machine
+	machine_subtype_cache.Cut()
 
 /// Removes a machine from the machine subsystem; should only be called by the machine itself inside Destroy.
 /datum/controller/subsystem/machines/proc/unregister_machine(obj/machinery/machine)
@@ -46,6 +49,7 @@ SUBSYSTEM_DEF(machines)
 	if(!length(existing))
 		machines_by_type -= machine.type
 	all_machines -= machine
+	machine_subtype_cache.Cut()
 
 /// Gets a list of all machines that are either the passed type or a subtype.
 /datum/controller/subsystem/machines/proc/get_machines_by_type_and_subtypes(obj/machinery/machine_type)
@@ -53,12 +57,16 @@ SUBSYSTEM_DEF(machines)
 		machine_type = machine_type.type
 	if(!ispath(machine_type, /obj/machinery))
 		CRASH("called get_machines_by_type_and_subtypes with a non-machine type [machine_type]")
+	var/list/cached_machines = machine_subtype_cache[machine_type]
+	if(cached_machines)
+		return cached_machines.Copy()
 	var/list/machines = list()
 	for(var/next_type in typesof(machine_type))
 		var/list/found_machines = machines_by_type[next_type]
 		if(found_machines)
 			machines += found_machines
-	return machines
+	machine_subtype_cache[machine_type] = machines
+	return machines.Copy()
 
 
 /// Gets a list of all machines that are the exact passed type.
@@ -185,3 +193,4 @@ SUBSYSTEM_DEF(machines)
 		all_machines = SSmachines.all_machines
 	if(islist(SSmachines.machines_by_type))
 		machines_by_type = SSmachines.machines_by_type
+	machine_subtype_cache = list()

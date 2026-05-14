@@ -221,7 +221,10 @@ SUBSYSTEM_DEF(tgui)
 	for(var/datum/tgui/ui in src_object.open_uis)
 		// Check if UI is valid.
 		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
-			INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/tgui, process), wait * 0.1, TRUE)
+			if(ui.force_update_queued)
+				continue
+			ui.force_update_queued = TRUE
+			addtimer(CALLBACK(ui, TYPE_PROC_REF(/datum/tgui, process), wait * 0.1, TRUE), 0, TIMER_UNIQUE)
 			count++
 	return count
 

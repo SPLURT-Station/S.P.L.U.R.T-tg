@@ -37,6 +37,8 @@
 	var/datum/ui_state/state = null
 	/// Rate limit client refreshes to prevent DoS.
 	COOLDOWN_DECLARE(refresh_cooldown)
+	/// Prevents object-wide update calls from stacking duplicate forced updates on this UI.
+	var/force_update_queued = FALSE
 
 	/// The id of any ByondUi elements that we have opened
 	var/list/open_byondui_elements
@@ -306,6 +308,8 @@
 /datum/tgui/process(seconds_per_tick, force = FALSE)
 	if(closing)
 		return
+	if(force)
+		force_update_queued = FALSE
 	var/datum/host = src_object.ui_host(user)
 	// If the object or user died (or something else), abort.
 	if(QDELETED(src_object) || QDELETED(host) || QDELETED(user) || QDELETED(window))
