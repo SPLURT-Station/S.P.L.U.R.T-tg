@@ -214,7 +214,10 @@
 		return null
 
 	var/obj/effect/client_image_holder/cyborg_genital/preview_holder = new(owner_robot, owner_robot, image(genital_overlay), list(), organ_slot, overlay_subindex)
-	var/image/render_image = preview_holder.generate_image()
+	var/image/render_image = image(genital_overlay)
+	render_image.dir = render_dir
+	render_image.loc = null
+	render_image.appearance_flags |= KEEP_APART | PIXEL_SCALE
 	if(!render_image)
 		qdel(preview_holder)
 		return null
@@ -233,10 +236,25 @@
 		qdel(preview_holder)
 		return null
 
+	var/transformed_pixel_x = transformed_icon_data["pixel_x"] || 0
+	var/transformed_pixel_y = transformed_icon_data["pixel_y"] || 0
+	var/body_scale = owner_robot.get_cyborg_genital_offset_scale()
+	var/rendered_pixel_x = (render_image.pixel_x || 0) + transformed_pixel_x
+	var/rendered_pixel_y = (render_image.pixel_y || 0) + transformed_pixel_y
+	if(body_scale != RESIZE_NORMAL)
+		var/original_width = transformed_icon.Width()
+		var/original_height = transformed_icon.Height()
+		transformed_icon = owner_robot.scale_cyborg_icon_nearest_neighbor(transformed_icon, max(round(original_width * body_scale), 1), max(round(original_height * body_scale), 1))
+		if(!isicon(transformed_icon))
+			qdel(preview_holder)
+			return null
+		rendered_pixel_x += round((original_width - transformed_icon.Width()) / 2)
+		rendered_pixel_y = round((render_image.pixel_y || 0) * body_scale) + transformed_pixel_y + round((original_height - transformed_icon.Height()) / 2) + round(owner_robot.get_transform_translation_size(body_scale))
+
 	var/list/rendered_data = list(
 		"icon" = transformed_icon,
-		"pixel_x" = (render_image.pixel_x || 0) + (transformed_icon_data["pixel_x"] || 0),
-		"pixel_y" = (render_image.pixel_y || 0) + (transformed_icon_data["pixel_y"] || 0),
+		"pixel_x" = rendered_pixel_x,
+		"pixel_y" = rendered_pixel_y,
 		"width" = transformed_icon.Width(),
 		"height" = transformed_icon.Height(),
 	)
@@ -1362,14 +1380,14 @@
 	preview_robot.icon = model.cyborg_icon_override || preview_robot.icon
 	return preview_robot
 
-/atom/movable/screen/map_view/cyborg_character_preview/proc/configure_preview_robot_state(mob/living/silicon/robot/cyborg_character_catalog_host/catalog_host, list/store, list/model_data, selected_state, selected_dir)
+/atom/movable/screen/map_view/cyborg_character_preview/proc/configure_preview_robot_state(mob/living/silicon/robot/cyborg_character_catalog_host/catalog_host, list/store, list/model_data, selected_state, selected_dir, selected_size = RESIZE_NORMAL)
 	if(!catalog_host)
 		return
 
 	catalog_host.icon = model_data?["icon"] || catalog_host.icon
 	catalog_host.icon_state = selected_state
 	catalog_host.dir = selected_dir
-	catalog_host.current_size = RESIZE_NORMAL
+	catalog_host.current_size = max(selected_size || RESIZE_NORMAL, 0.25)
 	catalog_host.transform = null
 	catalog_host.cyborg_genital_appearance_revision++
 	catalog_host.cyborg_genital_idle_phase_start_time = world.time
@@ -1445,9 +1463,10 @@
 	var/canvas_size = model_data["canvas_size"] || 0
 	var/preview_dir = cyborg_character_text_to_dir(preferences.cyborg_character_preview_dir)
 	var/list/store = cyborg_character_get_layout_store(preferences)
+	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
 
 	var/mob/living/silicon/robot/cyborg_character_catalog_host/catalog_host = ensure_preview_robot(model_department, model_name, model_data)
-	configure_preview_robot_state(catalog_host, store, model_data, resolved_icon_state, preview_dir)
+	configure_preview_robot_state(catalog_host, store, model_data, resolved_icon_state, preview_dir, selected_size)
 	var/list/marker_data = catalog_host.get_cyborg_genital_animation_marker_data()
 	var/list/preview_canvas_anchor_offset = catalog_host.get_cyborg_genital_canvas_anchor_offset()
 	var/list/body_offset = cyborg_character_get_preview_body_offset(model_data, resolved_icon_state, preview_dir, marker_data)
@@ -1471,11 +1490,13 @@
 		preview_canvas_height = 96
 		preview_canvas = image('modular_zubbers/icons/customization/template_96x96.dmi')
 	var/icon/body_icon = getFlatIcon(image(icon = icon_file, icon_state = resolved_icon_state, dir = preview_dir), preview_dir, no_anim = TRUE)
-	var/selected_size = cyborg_character_sanitize_size(preferences.read_preference(/datum/preference/numeric/cyborg_size))
+	if(isicon(body_icon) && selected_size != RESIZE_NORMAL)
+		body_icon = catalog_host.scale_cyborg_icon_nearest_neighbor(body_icon, max(round(body_icon.Width() * selected_size), 1), max(round(body_icon.Height() * selected_size), 1))
 	var/body_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
 	var/body_height = isicon(body_icon) ? body_icon.Height() : ICON_SIZE_Y
-	var/preview_body_draw_pixel_x = preview_body_pixel_x
-	var/preview_body_draw_pixel_y = preview_body_pixel_y
+	var/list/body_scale_offset = catalog_host.get_cyborg_genital_transform_offset()
+	var/preview_body_draw_pixel_x = preview_body_pixel_x + (body_scale_offset?["pixel_x"] || 0)
+	var/preview_body_draw_pixel_y = preview_body_pixel_y + (body_scale_offset?["pixel_y"] || 0)
 	var/preview_margin = 96
 	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
 	if(!istext(canvas_state) || !length(canvas_state))
@@ -1493,9 +1514,9 @@
 	preview_canvas_height = max(preview_canvas_height, 1)
 	if(preview_icon.Width() != preview_canvas_width || preview_icon.Height() != preview_canvas_height)
 		preview_icon.Scale(preview_canvas_width, preview_canvas_height)
-	if(isicon(body_icon))
-		preview_icon.Blend(body_icon, ICON_OVERLAY, preview_body_draw_pixel_x + preview_pad_left + 1, preview_body_draw_pixel_y + preview_pad_down + 1)
 
+	var/list/preview_genital_underlays = list()
+	var/list/preview_genital_overlays = list()
 	var/preview_direction_key = catalog_host.get_cyborg_genital_direction_key()
 	for(var/organ_slot in catalog_host.get_cyborg_genital_slots())
 		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir, preview_direction_key)
@@ -1514,7 +1535,28 @@
 				preview_content_min_y = min(preview_content_min_y, genital_draw_y)
 				preview_content_max_x = max(preview_content_max_x, genital_draw_x + rendered_genital_icon.Width())
 				preview_content_max_y = max(preview_content_max_y, genital_draw_y + rendered_genital_icon.Height())
-				preview_icon.Blend(rendered_genital_icon, ICON_OVERLAY, genital_draw_x + preview_pad_left + 1, genital_draw_y + preview_pad_down + 1)
+				var/list/rendered_genital = list(
+					"icon" = rendered_genital_icon,
+					"x" = genital_draw_x,
+					"y" = genital_draw_y,
+				)
+				if((genital_overlay.layer || ABOVE_MOB_LAYER) < MOB_LAYER)
+					preview_genital_underlays += list(rendered_genital)
+				else
+					preview_genital_overlays += list(rendered_genital)
+
+	for(var/list/rendered_genital as anything in preview_genital_underlays)
+		var/icon/rendered_genital_icon = rendered_genital["icon"]
+		if(isicon(rendered_genital_icon))
+			preview_icon.Blend(rendered_genital_icon, ICON_OVERLAY, rendered_genital["x"] + preview_pad_left + 1, rendered_genital["y"] + preview_pad_down + 1)
+
+	if(isicon(body_icon))
+		preview_icon.Blend(body_icon, ICON_OVERLAY, preview_body_draw_pixel_x + preview_pad_left + 1, preview_body_draw_pixel_y + preview_pad_down + 1)
+
+	for(var/list/rendered_genital as anything in preview_genital_overlays)
+		var/icon/rendered_genital_icon = rendered_genital["icon"]
+		if(isicon(rendered_genital_icon))
+			preview_icon.Blend(rendered_genital_icon, ICON_OVERLAY, rendered_genital["x"] + preview_pad_left + 1, rendered_genital["y"] + preview_pad_down + 1)
 
 	var/mutable_appearance/drawover_overlay = catalog_host.build_cyborg_side_drawover_overlay()
 	if(drawover_overlay)
@@ -1522,6 +1564,8 @@
 		var/image/drawover_render_image = image(drawover_overlay)
 		var/icon/drawover_flat_icon = getFlatIcon(drawover_render_image, preview_dir, no_anim = TRUE)
 		if(isicon(drawover_flat_icon))
+			if(selected_size != RESIZE_NORMAL)
+				drawover_flat_icon = catalog_host.scale_cyborg_icon_nearest_neighbor(drawover_flat_icon, max(round(drawover_flat_icon.Width() * selected_size), 1), max(round(drawover_flat_icon.Height() * selected_size), 1))
 			var/drawover_draw_x = preview_body_draw_pixel_x + drawover_overlay.pixel_x
 			var/drawover_draw_y = preview_body_draw_pixel_y + drawover_overlay.pixel_y
 			preview_content_min_x = min(preview_content_min_x, drawover_draw_x)
@@ -1535,9 +1579,7 @@
 		return
 
 	var/icon/background_icon = icon('modular_zubbers/icons/customization/template_96x96.dmi', canvas_state)
-	var/background_tile_size = max(round(96 / max(selected_size || RESIZE_NORMAL, 0.25)), 1)
-	if(background_tile_size != 96)
-		background_icon.Scale(background_tile_size, background_tile_size)
+	var/background_tile_size = 96
 	var/icon/background_preview_icon = icon('icons/blanks/32x32.dmi', "nothing")
 	background_preview_icon.Scale(preview_icon.Width(), preview_icon.Height())
 	for(var/tile_x in 1 to preview_icon.Width() step background_tile_size)

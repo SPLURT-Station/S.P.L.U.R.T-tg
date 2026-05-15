@@ -3438,7 +3438,6 @@
 	var/overlay_color = get_cyborg_genital_overlay_color(organ_slot, accessory, layout_entry)
 	var/list/appearances = list()
 	var/offset_scale = get_cyborg_genital_offset_scale()
-	var/list/transform_offset = get_cyborg_genital_transform_offset()
 	var/priority_layer_adjustment = get_cyborg_genital_priority_layer_adjustment(direction_entry)
 
 	var/render_scale
@@ -3454,8 +3453,8 @@
 	if(rotation)
 		genital_transform.Turn(rotation)
 
-	var/effective_pixel_x = ((base_offset["pixel_x"] + layout_entry["pixel_x"] + direction_entry["pixel_x"]) * offset_scale) + (canvas_anchor_offset?["pixel_x"] || 0) + (transform_offset?["pixel_x"] || 0)
-	var/effective_pixel_y = ((base_offset["pixel_y"] + layout_entry["pixel_y"] + direction_entry["pixel_y"]) * offset_scale) + (canvas_anchor_offset?["pixel_y"] || 0) + (transform_offset?["pixel_y"] || 0)
+	var/effective_pixel_x = ((base_offset["pixel_x"] + layout_entry["pixel_x"] + direction_entry["pixel_x"]) * offset_scale) + (canvas_anchor_offset?["pixel_x"] || 0)
+	var/effective_pixel_y = ((base_offset["pixel_y"] + layout_entry["pixel_y"] + direction_entry["pixel_y"]) * offset_scale) + (canvas_anchor_offset?["pixel_y"] || 0)
 
 	if(uses_cyborg_direct_genital_overlay(accessory))
 		return make_cyborg_direct_genital_overlay(organ_slot, accessory, layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override, direction_entry)
