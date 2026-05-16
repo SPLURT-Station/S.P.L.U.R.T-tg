@@ -25,6 +25,12 @@ export const silicon_vagina_sprite: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
+export const silicon_anus_sprite: FeatureChoiced = {
+  name: 'Silicon Anus Sprite',
+  description: 'Choose an anus sprite, or None to omit that genital slot.',
+  component: FeatureDropdownInput,
+};
+
 export const silicon_breasts_sprite: FeatureChoiced = {
   name: 'Silicon Breasts Sprite',
   description: 'Choose a breasts sprite, or None to omit that genital slot.',

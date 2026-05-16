@@ -637,7 +637,7 @@
 	return TRUE
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_slots()
-	return list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_BREASTS)
+	return list(ORGAN_SLOT_PENIS, ORGAN_SLOT_SHEATH, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_ANUS, ORGAN_SLOT_BREASTS)
 
 /mob/living/silicon/robot/proc/can_cyborg_genital_animate(organ_slot)
 	return organ_slot != ORGAN_SLOT_BREASTS
@@ -1839,7 +1839,7 @@
 	animate_cyborg_genital_idle(TRUE, TRUE)
 
 /mob/living/silicon/robot/proc/get_default_cyborg_genital_arousal_state(organ_slot)
-	if(organ_slot == ORGAN_SLOT_PENIS || organ_slot == ORGAN_SLOT_VAGINA)
+	if(organ_slot == ORGAN_SLOT_PENIS || organ_slot == ORGAN_SLOT_VAGINA || organ_slot == ORGAN_SLOT_ANUS)
 		return AROUSAL_NONE
 	return AROUSAL_CANT
 
@@ -1991,6 +1991,13 @@
 /mob/living/silicon/robot/proc/get_cyborg_genital_priority_layer_adjustment(list/direction_entry)
 	var/priority = round(sanitize_float(direction_entry?["priority"], 1, 10, 1, 5))
 	return (10 - priority) * 0.0001
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_priority_layer(base_layer, list/direction_entry)
+	var/priority = round(sanitize_float(direction_entry?["priority"], 1, 10, 1, 5))
+	if(base_layer < ABOVE_MOB_LAYER)
+		return base_layer + ((10 - priority) * 0.004)
+	var/base_tiebreaker = clamp(base_layer - ABOVE_MOB_LAYER, 0, 0.0009)
+	return ABOVE_MOB_LAYER + 0.01 + ((10 - priority) * 0.004) + base_tiebreaker
 
 /mob/living/silicon/robot/proc/sanitize_cyborg_genital_layout_entry(list/entry)
 	var/list/sanitized_entry = get_default_cyborg_genital_layout_entry()
@@ -2156,6 +2163,8 @@
 			return "Balls / Sheath"
 		if(ORGAN_SLOT_VAGINA)
 			return "Vagina"
+		if(ORGAN_SLOT_ANUS)
+			return "Anus"
 	return capitalize("[organ_slot]")
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_direction_label(direction_key)
@@ -2188,6 +2197,8 @@
 			return /datum/preference/choiced/silicon_genital_sprite/testicles
 		if(ORGAN_SLOT_VAGINA)
 			return /datum/preference/choiced/silicon_genital_sprite/vagina
+		if(ORGAN_SLOT_ANUS)
+			return /datum/preference/choiced/silicon_genital_sprite/anus
 		if(ORGAN_SLOT_BREASTS)
 			return /datum/preference/choiced/silicon_genital_sprite/breasts
 	return null
@@ -2483,7 +2494,7 @@
 		return sprite_suffix
 
 	var/dynamic_scale_start = get_cyborg_direct_genital_dynamic_scale_start(organ_slot)
-	if(!dynamic_scale_start || (layout_entry["scale"] || 1) <= dynamic_scale_start)
+	if(!dynamic_scale_start || (layout_entry["scale"] || 1) < dynamic_scale_start)
 		return sprite_suffix
 
 	return get_cyborg_direct_genital_overflow_sprite_suffix(organ_slot, accessory, sprite_suffix) || get_cyborg_direct_genital_scaled_base_suffix(organ_slot, sprite_suffix)
@@ -2607,6 +2618,8 @@
 			return /datum/bodypart_overlay/mutant/genital/testicles
 		if(ORGAN_SLOT_VAGINA)
 			return /datum/bodypart_overlay/mutant/genital/vagina
+		if(ORGAN_SLOT_ANUS)
+			return /datum/bodypart_overlay/mutant/genital/anus
 		if(ORGAN_SLOT_BREASTS)
 			return /datum/bodypart_overlay/mutant/genital/breasts
 	return null
@@ -2724,7 +2737,7 @@
 	if(source_size == 9)
 		var/match_scale = get_cyborg_direct_genital_match_scale(organ_slot, accessory, sprite_suffix, layout_entry)
 		render_scale = match_scale * (layout_scale / dynamic_scale_start)
-	else if(source_size >= max_standard_source_size && layout_scale > dynamic_scale_start)
+	else if(source_size >= max_standard_source_size && layout_scale >= dynamic_scale_start)
 		render_scale = layout_scale / dynamic_scale_start
 
 	return render_scale * get_cyborg_genital_body_scale()
@@ -2758,6 +2771,8 @@
 			genital = new /obj/item/organ/genital/testicles
 		if(ORGAN_SLOT_VAGINA)
 			genital = new /obj/item/organ/genital/vagina
+		if(ORGAN_SLOT_ANUS)
+			genital = new /obj/item/organ/genital/anus
 		if(ORGAN_SLOT_BREASTS)
 			genital = new /obj/item/organ/genital/breasts
 
@@ -2786,6 +2801,8 @@
 
 	switch(organ_slot)
 		if(ORGAN_SLOT_VAGINA)
+			return "#d9a0aa"
+		if(ORGAN_SLOT_ANUS)
 			return "#d9a0aa"
 		if(ORGAN_SLOT_BREASTS)
 			return "#f2cfbf"
@@ -2902,14 +2919,13 @@
 /mob/living/silicon/robot/proc/make_cyborg_direct_genital_overlay(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override = null, list/direction_entry = null)
 	var/resolved_dir = dir_override || dir
 	var/list/direct_overlays = list()
-	var/priority_layer_adjustment = get_cyborg_genital_priority_layer_adjustment(direction_entry)
 	for(var/depth_group in get_cyborg_direct_genital_depth_groups(organ_slot, sprite_suffix, accessory))
 		var/icon/flat_icon = get_cyborg_direct_genital_scaled_icon(organ_slot, accessory, sprite_suffix, layout_entry, render_scale, depth_group, resolved_dir)
 		if(!flat_icon)
 			continue
 
 		var/display_layer = get_cyborg_direct_genital_display_layer_for_group(organ_slot, depth_group)
-		var/mutable_appearance/genital_overlay = mutable_appearance(flat_icon, "", layer = display_layer + priority_layer_adjustment)
+		var/mutable_appearance/genital_overlay = mutable_appearance(flat_icon, "", layer = get_cyborg_genital_priority_layer(display_layer, direction_entry))
 		genital_overlay.alpha = alpha
 		genital_overlay.dir = resolved_dir
 		genital_overlay.appearance_flags |= PIXEL_SCALE | KEEP_APART
@@ -2940,6 +2956,8 @@
 		if(ORGAN_SLOT_TESTICLES)
 			return list("pixel_x" = 0, "pixel_y" = is_dogborg ? -15 : (is_drake ? -13 : (is_other_quad ? -11 : 1)))
 		if(ORGAN_SLOT_VAGINA)
+			return list("pixel_x" = 0, "pixel_y" = is_dogborg ? -16 : (is_drake ? -15 : (is_other_quad ? -13 : 0)))
+		if(ORGAN_SLOT_ANUS)
 			return list("pixel_x" = 0, "pixel_y" = is_dogborg ? -16 : (is_drake ? -15 : (is_other_quad ? -13 : 0)))
 	return list("pixel_x" = 0, "pixel_y" = 0)
 
@@ -3438,7 +3456,6 @@
 	var/overlay_color = get_cyborg_genital_overlay_color(organ_slot, accessory, layout_entry)
 	var/list/appearances = list()
 	var/offset_scale = get_cyborg_genital_offset_scale()
-	var/priority_layer_adjustment = get_cyborg_genital_priority_layer_adjustment(direction_entry)
 
 	var/render_scale
 	if(uses_cyborg_direct_genital_overlay(accessory))
@@ -3478,7 +3495,7 @@
 			continue
 		for(var/mutable_appearance/genital_overlay as anything in generated_overlays)
 			genital_overlay.appearance_flags |= KEEP_APART
-			genital_overlay.layer = display_layer + priority_layer_adjustment
+			genital_overlay.layer = get_cyborg_genital_priority_layer(display_layer, direction_entry)
 			if(dir_override)
 				genital_overlay.dir = dir_override
 			genital_overlay.pixel_x = effective_pixel_x

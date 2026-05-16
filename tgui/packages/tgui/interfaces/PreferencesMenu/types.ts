@@ -349,13 +349,35 @@ export type CyborgPreviewStateOption = {
   label: string;
   icon_state: string;
   movement: boolean;
+  preview_image?: string | null;
+};
+
+export type CyborgPreviewVisualOption = {
+  value: string;
+  label: string;
+  preview_image?: string | null;
+  preview_model?: string;
 };
 
 export type CyborgCharacterData = {
   preview: string;
-  preview_image: string;
+  preview_image: string | null;
+  preview_layers: {
+    key: string;
+    kind: string;
+    image: string;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    z: number;
+  }[];
+  preview_canvas_width: number;
+  preview_canvas_height: number;
   models: string[];
   models_by_department: CyborgModelCatalog;
+  department_previews: CyborgPreviewVisualOption[];
+  model_previews: CyborgPreviewVisualOption[];
   selected_department: string;
   selected_model: string;
   selected_state: string;

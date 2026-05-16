@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Collapsible,
+  ImageButton,
   LabeledList,
   NoticeBox,
   NumberInput,
@@ -16,6 +17,8 @@ import { PreferenceList } from '../interfaces/PreferencesMenu/CharacterPreferenc
 import { NameInput } from '../interfaces/PreferencesMenu/CharacterPreferences/names';
 import { PageButton } from '../interfaces/PreferencesMenu/components/PageButton';
 import type {
+  CyborgPreviewStateOption,
+  CyborgPreviewVisualOption,
   CyborgReproductionManagement,
   PreferencesMenuData,
 } from '../interfaces/PreferencesMenu/types';
@@ -23,7 +26,8 @@ import { createSetPreference } from '../interfaces/PreferencesMenu/types';
 import { useServerPrefs } from '../interfaces/PreferencesMenu/useServerPrefs';
 import { BottomDropdown } from './BottomDropdown';
 
-const PREVIEW_DIRS = ['south', 'north', 'east', 'west'];
+const PREVIEW_ROTATION_DIRS = ['north', 'east', 'south', 'west'];
+const REST_DIRECTION_KEYS = ['rest', 'sit', 'bellyup', 'rest_deep'];
 const AROUSAL_NONE = 1;
 const AROUSAL_PARTIAL = 2;
 const AROUSAL_FULL = 3;
@@ -82,6 +86,109 @@ function StopWindowDrag(props: { children: ReactNode }) {
     >
       {props.children}
     </Box>
+  );
+}
+
+type CyborgPreviewChoice = {
+  value: string;
+  label: string;
+  preview_image?: string | null;
+  preview_model?: string;
+};
+
+function CyborgPreviewSelectedButton(props: {
+  label: string;
+  options: CyborgPreviewChoice[];
+  selected: string;
+  open: boolean;
+  onToggle: () => void;
+  tooltipFor?: (option: CyborgPreviewChoice) => string;
+}) {
+  const { label, options, selected, open, onToggle, tooltipFor } = props;
+  if (!options.length) {
+    return null;
+  }
+
+  const selectedOption =
+    options.find((option) => option.value === selected) || options[0];
+  const optionTooltip = (option: CyborgPreviewChoice) =>
+    tooltipFor?.(option) || option.label;
+
+  return (
+    <Box style={{ width: '78px' }}>
+      <Box color="label" mb={0.25}>
+        {label}
+      </Box>
+      <StopWindowDrag>
+        <ImageButton
+          base64={selectedOption.preview_image || undefined}
+          color={open ? 'green' : undefined}
+          imageSize={48}
+          selected={open}
+          tooltip={optionTooltip(selectedOption)}
+          tooltipPosition="bottom"
+          onClick={onToggle}
+          style={{
+            minHeight: '72px',
+            minWidth: '72px',
+            textTransform: 'none',
+          }}
+        >
+          {selectedOption.label}
+        </ImageButton>
+      </StopWindowDrag>
+    </Box>
+  );
+}
+
+function CyborgPreviewOptionTray(props: {
+  options: CyborgPreviewChoice[];
+  selected: string;
+  onSelect: (value: string) => void;
+  tooltipFor?: (option: CyborgPreviewChoice) => string;
+}) {
+  const { options, selected, onSelect, tooltipFor } = props;
+  if (!options.length) {
+    return null;
+  }
+
+  const optionTooltip = (option: CyborgPreviewChoice) =>
+    tooltipFor?.(option) || option.label;
+
+  return (
+    <StopWindowDrag>
+      <Box
+        mb={0.75}
+        style={{
+          maxHeight: '180px',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+        }}
+      >
+        <Stack wrap>
+          {options.map((option) => (
+            <Stack.Item key={option.value}>
+              <ImageButton
+                base64={option.preview_image || undefined}
+                color={option.value === selected ? 'green' : undefined}
+                imageSize={48}
+                selected={option.value === selected}
+                tooltip={optionTooltip(option)}
+                tooltipPosition="bottom"
+                onClick={() => onSelect(option.value)}
+                style={{
+                  minHeight: '72px',
+                  minWidth: '72px',
+                  textTransform: 'none',
+                }}
+              >
+                {option.label}
+              </ImageButton>
+            </Stack.Item>
+          ))}
+        </Stack>
+      </Box>
+    </StopWindowDrag>
   );
 }
 
@@ -287,12 +394,13 @@ function CyborgDirectionalLayoutControls(props: {
             maxValue={10}
             step={1}
             stepPixelSize={14}
-            value={effectiveSettings.priority || 5}
+            value={11 - (effectiveSettings.priority || 5)}
+            format={(value) => `${11 - value}`}
             onChange={(e, value) =>
               act('set_cyborg_reproduction_direction_value', {
                 slot: genital.slot,
                 field: 'priority',
-                value,
+                value: 11 - value,
                 direction,
                 arousal: activeArousal,
               })
@@ -338,6 +446,24 @@ function CyborgGenitalControls(props: {
         : effectiveDirectionalArousal === AROUSAL_FULL
           ? 'Full'
           : 'None';
+  const normalDirections = offsetDirections.filter(
+    (directionEntry) => !REST_DIRECTION_KEYS.includes(directionEntry.value),
+  );
+  const restDirections = offsetDirections.filter((directionEntry) =>
+    REST_DIRECTION_KEYS.includes(directionEntry.value),
+  );
+  const renderDirectionRows = (
+    directionEntries: CyborgReproductionManagement['offset_directions'],
+  ) =>
+    directionEntries.map((directionEntry) => (
+      <CyborgDirectionalLayoutControls
+        key={`${genital.slot}-${directionEntry.value}`}
+        genital={genital}
+        direction={directionEntry.value}
+        directionLabel={directionEntry.label}
+        arousal={effectiveDirectionalArousal}
+      />
+    ));
 
   return (
     <Collapsible
@@ -570,15 +696,13 @@ function CyborgGenitalControls(props: {
             </Stack.Item>
           </Stack>
 
-          {offsetDirections.map((directionEntry) => (
-            <CyborgDirectionalLayoutControls
-              key={`${genital.slot}-${directionEntry.value}`}
-              genital={genital}
-              direction={directionEntry.value}
-              directionLabel={directionEntry.label}
-              arousal={effectiveDirectionalArousal}
-            />
-          ))}
+          {renderDirectionRows(normalDirections)}
+
+          {!!restDirections.length && (
+            <Collapsible title="Resting State Offsets" mt={1}>
+              {renderDirectionRows(restDirections)}
+            </Collapsible>
+          )}
         </Section>
           </>
         )}
@@ -595,7 +719,9 @@ function CyborgReproductionManagementSection(props: {
   const rawPresets = props.reproductionManagement.presets || [];
   const rawOffsetDirections =
     props.reproductionManagement.offset_directions || [];
-  const genitals = normalizeList(rawGenitals);
+  const genitals = normalizeList(rawGenitals).filter(
+    (genital) => !!genital.has_sprite,
+  );
   const presets = normalizeList(rawPresets);
   const offsetDirections = normalizeList(rawOffsetDirections);
 
@@ -732,6 +858,56 @@ export function CyborgCharacterPage() {
     CyborgPrefPage.Visuals,
   );
   const [previewZoom, setPreviewZoom] = useState(PREVIEW_DEFAULT_ZOOM);
+  const [openPreviewPicker, setOpenPreviewPicker] = useState<string | null>(
+    null,
+  );
+  const previewScrollerRef = useRef<HTMLDivElement>(null);
+  const previewTopScrollRef = useRef<HTMLDivElement>(null);
+  const previewPanOffsetRef = useRef({ x: 0, y: 0 });
+  const previewCenteringRef = useRef(false);
+  const previewSyncingScrollRef = useRef(false);
+  const previewLayers = [...(cyborg?.preview_layers || [])].sort(
+    (left, right) => left.z - right.z,
+  );
+  const previewCanvasWidth = cyborg?.preview_canvas_width || PREVIEW_MAP_SIZE_PX;
+  const previewCanvasHeight =
+    cyborg?.preview_canvas_height || PREVIEW_MAP_SIZE_PX;
+  const previewBodyLayer = previewLayers.find((layer) => layer.kind === 'body');
+  const previewBodyCenterX = previewBodyLayer
+    ? (previewBodyLayer.x + previewBodyLayer.width / 2) * previewZoom
+    : null;
+  const previewBodyCenterY = previewBodyLayer
+    ? (previewCanvasHeight - previewBodyLayer.y - previewBodyLayer.height / 2) *
+      previewZoom
+    : null;
+
+  useEffect(() => {
+    const scroller = previewScrollerRef.current;
+    if (!scroller || previewBodyCenterX === null || previewBodyCenterY === null) {
+      return;
+    }
+
+    const frame = requestAnimationFrame(() => {
+      previewCenteringRef.current = true;
+      const nextScrollLeft =
+        previewBodyCenterX -
+        scroller.clientWidth / 2 +
+        previewPanOffsetRef.current.x;
+      scroller.scrollLeft = nextScrollLeft;
+      scroller.scrollTop =
+        previewBodyCenterY -
+        scroller.clientHeight / 2 +
+        previewPanOffsetRef.current.y;
+      if (previewTopScrollRef.current) {
+        previewTopScrollRef.current.scrollLeft = nextScrollLeft;
+      }
+      requestAnimationFrame(() => {
+        previewCenteringRef.current = false;
+      });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [previewBodyCenterX, previewBodyCenterY]);
 
   if (!cyborg) {
     return <NoticeBox>Loading cyborg character data...</NoticeBox>;
@@ -761,9 +937,120 @@ export function CyborgCharacterPage() {
       'silicon_sheath_sprite',
       'silicon_testicles_sprite',
       'silicon_vagina_sprite',
+      'silicon_anus_sprite',
       'silicon_breasts_sprite',
     ],
   );
+
+  const syncPreviewTopScroll = (scrollLeft: number) => {
+    const topScroller = previewTopScrollRef.current;
+    if (!topScroller || previewSyncingScrollRef.current) {
+      return;
+    }
+
+    previewSyncingScrollRef.current = true;
+    topScroller.scrollLeft = scrollLeft;
+    previewSyncingScrollRef.current = false;
+  };
+
+  const handlePreviewScroll = () => {
+    const scroller = previewScrollerRef.current;
+    if (
+      !scroller ||
+      previewCenteringRef.current ||
+      previewBodyCenterX === null ||
+      previewBodyCenterY === null
+    ) {
+      return;
+    }
+
+    previewPanOffsetRef.current = {
+      x: scroller.scrollLeft - (previewBodyCenterX - scroller.clientWidth / 2),
+      y: scroller.scrollTop - (previewBodyCenterY - scroller.clientHeight / 2),
+    };
+    syncPreviewTopScroll(scroller.scrollLeft);
+  };
+
+  const handlePreviewTopScroll = () => {
+    const scroller = previewScrollerRef.current;
+    const topScroller = previewTopScrollRef.current;
+    if (
+      !scroller ||
+      !topScroller ||
+      previewSyncingScrollRef.current ||
+      previewBodyCenterX === null
+    ) {
+      return;
+    }
+
+    previewSyncingScrollRef.current = true;
+    scroller.scrollLeft = topScroller.scrollLeft;
+    previewSyncingScrollRef.current = false;
+    previewPanOffsetRef.current = {
+      ...previewPanOffsetRef.current,
+      x:
+        topScroller.scrollLeft -
+        (previewBodyCenterX - scroller.clientWidth / 2),
+    };
+  };
+
+  const rotatePreviewDirection = (offset: number) => {
+    const currentIndex = PREVIEW_ROTATION_DIRS.indexOf(cyborg.selected_dir);
+    const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+    const nextIndex =
+      (safeIndex + offset + PREVIEW_ROTATION_DIRS.length) %
+      PREVIEW_ROTATION_DIRS.length;
+    act('set_cyborg_preview_dir', { dir: PREVIEW_ROTATION_DIRS[nextIndex] });
+  };
+
+  const departmentPreviewOptions =
+    (cyborg.department_previews as CyborgPreviewVisualOption[] | undefined) ||
+    cyborg.models.map((department) => ({
+      value: department,
+      label: department,
+    }));
+  const modelPreviewOptions =
+    (cyborg.model_previews as CyborgPreviewVisualOption[] | undefined) ||
+    (cyborg.models_by_department?.[cyborg.selected_department] || []).map(
+      (model) => ({
+        value: model,
+        label: model,
+      }),
+    );
+  const statePreviewOptions = (cyborg.states ||
+    []) as CyborgPreviewStateOption[];
+  const departmentTooltip = (option: CyborgPreviewChoice) =>
+    option.preview_model
+      ? `${option.label}: ${option.preview_model}`
+      : option.label;
+  const activePreviewPicker =
+    openPreviewPicker === 'department'
+      ? {
+          options: departmentPreviewOptions,
+          selected: cyborg.selected_department,
+          tooltipFor: departmentTooltip,
+          onSelect: (value: string) =>
+            act('set_cyborg_preview_department', {
+              department: value,
+            }),
+        }
+      : openPreviewPicker === 'model'
+        ? {
+            options: modelPreviewOptions,
+            selected: cyborg.selected_model,
+            tooltipFor: undefined,
+            onSelect: (value: string) =>
+              act('set_cyborg_preview_model', { model: value }),
+          }
+        : openPreviewPicker === 'state'
+          ? {
+              options: statePreviewOptions,
+              selected: cyborg.selected_state,
+              tooltipFor: undefined,
+              onSelect: (value: string) =>
+                act('set_cyborg_preview_state', { state: value }),
+            }
+          : null;
 
   const visualsPage = (
     <Stack vertical fill style={{ height: '100%', overflow: 'hidden' }}>
@@ -774,35 +1061,89 @@ export function CyborgCharacterPage() {
               alignItems: 'center',
               display: 'flex',
               flexDirection: 'column',
-              height: '100%',
+              maxHeight: '760px',
+              overflowX: 'hidden',
+              overflowY: 'auto',
               width: '100%',
             }}
           >
-            <Box
-              style={{
-                alignItems: 'center',
-                backgroundColor: '#000',
-                display: 'flex',
-                height: PREVIEW_MAP_SIZE,
-                justifyContent: 'center',
-                overflow: 'auto',
-                width: PREVIEW_MAP_SIZE,
-              }}
-            >
-              {cyborg.preview_image && (
-                <img
-                  alt=""
-                  src={cyborg.preview_image}
-                  style={{
-                    height: `${PREVIEW_MAP_SIZE_PX * previewZoom}px`,
-                    imageRendering: 'pixelated',
-                    objectFit: 'contain',
-                    width: `${PREVIEW_MAP_SIZE_PX * previewZoom}px`,
+            <Box style={{ maxWidth: PREVIEW_MAP_SIZE, width: '100%' }}>
+              <Stack mb={0.75}>
+                <Stack.Item>
+                  <CyborgPreviewSelectedButton
+                    label="Department"
+                    options={departmentPreviewOptions}
+                    selected={cyborg.selected_department}
+                    open={openPreviewPicker === 'department'}
+                    tooltipFor={departmentTooltip}
+                    onToggle={() =>
+                      setOpenPreviewPicker(
+                        openPreviewPicker === 'department'
+                          ? null
+                          : 'department',
+                      )
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <CyborgPreviewSelectedButton
+                    label="Model"
+                    options={modelPreviewOptions}
+                    selected={cyborg.selected_model}
+                    open={openPreviewPicker === 'model'}
+                    onToggle={() =>
+                      setOpenPreviewPicker(
+                        openPreviewPicker === 'model' ? null : 'model',
+                      )
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <CyborgPreviewSelectedButton
+                    label="State"
+                    options={statePreviewOptions}
+                    selected={cyborg.selected_state}
+                    open={openPreviewPicker === 'state'}
+                    onToggle={() =>
+                      setOpenPreviewPicker(
+                        openPreviewPicker === 'state' ? null : 'state',
+                      )
+                    }
+                  />
+                </Stack.Item>
+              </Stack>
+              {activePreviewPicker && (
+                <CyborgPreviewOptionTray
+                  options={activePreviewPicker.options}
+                  selected={activePreviewPicker.selected}
+                  tooltipFor={activePreviewPicker.tooltipFor}
+                  onSelect={(value) => {
+                    setOpenPreviewPicker(null);
+                    activePreviewPicker.onSelect(value);
                   }}
                 />
               )}
-            </Box>
-            <Box mt={1} style={{ width: PREVIEW_MAP_SIZE }}>
+              <CyborgPreviewControlRow label="Direction">
+                <Stack>
+                  <Stack.Item>
+                    <Button
+                      icon="rotate-left"
+                      content="Rotate Left"
+                      onClick={() => rotatePreviewDirection(1)}
+                    />
+                  </Stack.Item>
+                  <Stack.Item grow textAlign="center" color="label">
+                    {cyborg.selected_dir}
+                  </Stack.Item>
+                  <Stack.Item>
+                    <Button
+                      icon="rotate-right"
+                      content="Rotate Right"
+                      onClick={() => rotatePreviewDirection(-1)}
+                    />
+                  </Stack.Item>
+                </Stack>
+              </CyborgPreviewControlRow>
               <CyborgPreviewControlRow label="Zoom">
                 <StopWindowDrag>
                   <Slider
@@ -852,62 +1193,71 @@ export function CyborgCharacterPage() {
                   />
                 </StopWindowDrag>
               </CyborgPreviewControlRow>
-              <CyborgPreviewControlRow label="Department">
-                <BottomDropdown
-                  fluid
-                  over
-                  width="100%"
-                  options={cyborg.models}
-                  selected={cyborg.selected_department}
-                  onSelected={(value) =>
-                    act('set_cyborg_preview_department', {
-                      department: value,
-                    })
-                  }
+            </Box>
+            <StopWindowDrag>
+              <Box
+                ref={previewTopScrollRef}
+                onScroll={handlePreviewTopScroll}
+                style={{
+                  backgroundColor: '#000',
+                  height: '14px',
+                  maxWidth: PREVIEW_MAP_SIZE,
+                  overflowX: 'auto',
+                  overflowY: 'hidden',
+                  width: '100%',
+                }}
+              >
+                <Box
+                  style={{
+                    height: '1px',
+                    width: `${previewCanvasWidth * previewZoom}px`,
+                  }}
                 />
-              </CyborgPreviewControlRow>
-              <CyborgPreviewControlRow label="Model">
-                <BottomDropdown
-                  fluid
-                  over
-                  width="100%"
-                  options={
-                    cyborg.models_by_department?.[cyborg.selected_department] ||
-                    []
-                  }
-                  selected={cyborg.selected_model}
-                  onSelected={(value) =>
-                    act('set_cyborg_preview_model', { model: value })
-                  }
-                />
-              </CyborgPreviewControlRow>
-              <CyborgPreviewControlRow label="State">
-                <BottomDropdown
-                  fluid
-                  over
-                  width="100%"
-                  options={(cyborg.states || []).map((state) => ({
-                    displayText: state.label,
-                    value: state.value,
-                  }))}
-                  selected={cyborg.selected_state}
-                  onSelected={(value) =>
-                    act('set_cyborg_preview_state', { state: value })
-                  }
-                />
-              </CyborgPreviewControlRow>
-              <CyborgPreviewControlRow label="Direction">
-                <BottomDropdown
-                  fluid
-                  over
-                  width="100%"
-                  options={PREVIEW_DIRS}
-                  selected={cyborg.selected_dir}
-                  onSelected={(value) =>
-                    act('set_cyborg_preview_dir', { dir: value })
-                  }
-                />
-              </CyborgPreviewControlRow>
+              </Box>
+            </StopWindowDrag>
+            <Box
+              ref={previewScrollerRef}
+              onScroll={handlePreviewScroll}
+              style={{
+                alignItems: 'center',
+                backgroundColor: '#000',
+                display: 'flex',
+                height: PREVIEW_MAP_SIZE,
+                justifyContent: 'center',
+                overflowX: 'hidden',
+                overflowY: 'auto',
+                width: PREVIEW_MAP_SIZE,
+              }}
+            >
+              {!!previewLayers.length && (
+                <Box
+                  style={{
+                    height: `${previewCanvasHeight * previewZoom}px`,
+                    position: 'relative',
+                    width: `${previewCanvasWidth * previewZoom}px`,
+                  }}
+                >
+                  {previewLayers.map((layer) => (
+                    <img
+                      alt=""
+                      key={layer.key}
+                      src={layer.image}
+                      style={{
+                        height: `${layer.height * previewZoom}px`,
+                        imageRendering: 'pixelated',
+                        left: `${layer.x * previewZoom}px`,
+                        position: 'absolute',
+                        top: `${
+                          (previewCanvasHeight - layer.y - layer.height) *
+                          previewZoom
+                        }px`,
+                        width: `${layer.width * previewZoom}px`,
+                        zIndex: layer.z,
+                      }}
+                    />
+                  ))}
+                </Box>
+              )}
             </Box>
           </Box>
         </Section>

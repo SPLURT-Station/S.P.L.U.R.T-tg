@@ -1,18 +1,6 @@
 /proc/get_silicon_genital_sprite_values(organ_slot)
 	return get_genital_sprite_values(organ_slot, TRUE)
 
-/datum/preference/toggle/silicon_genitals_toggle
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "silicon_genitals_toggle"
-	default_value = FALSE
-
-/datum/preference/toggle/silicon_genitals_toggle/is_accessible(datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/toggle/silicon_genitals_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return
-
 /datum/preference/numeric/cyborg_size
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -75,6 +63,12 @@
 	main_feature_name = "Silicon Vagina"
 	organ_slot = ORGAN_SLOT_VAGINA
 	default_accessory_type = /datum/sprite_accessory/genital/vagina/none
+
+/datum/preference/choiced/silicon_genital_sprite/anus
+	savefile_key = "silicon_anus_sprite"
+	main_feature_name = "Silicon Anus"
+	organ_slot = ORGAN_SLOT_ANUS
+	default_accessory_type = /datum/sprite_accessory/genital/anus/none
 
 /datum/preference/choiced/silicon_genital_sprite/breasts
 	savefile_key = "silicon_breasts_sprite"
