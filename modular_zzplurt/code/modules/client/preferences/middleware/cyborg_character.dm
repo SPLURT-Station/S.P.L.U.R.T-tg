@@ -114,6 +114,7 @@
 		options += list(list(
 			"value" = "idle",
 			"label" = "Idle",
+			"icon" = icon_file,
 			"icon_state" = icon_state,
 			"movement" = FALSE,
 		))
@@ -127,6 +128,7 @@
 		options += list(list(
 			"value" = "moving",
 			"label" = "Moving",
+			"icon" = icon_file,
 			"icon_state" = icon_state,
 			"movement" = TRUE,
 		))
@@ -144,11 +146,47 @@
 		options += list(list(
 			"value" = spec["value"],
 			"label" = spec["label"],
+			"icon" = icon_file,
 			"icon_state" = state_name,
 			"movement" = FALSE,
 		))
 
 	return options
+
+/proc/cyborg_character_get_metadata_count(metadata_value)
+	if(islist(metadata_value))
+		return max(length(metadata_value), 1)
+	if(isnum(metadata_value))
+		return max(metadata_value, 1)
+	if(istext(metadata_value))
+		return max(text2num(metadata_value), 1)
+	return 1
+
+/proc/cyborg_character_get_dirs_for_metadata_count(dir_count)
+	if(dir_count >= 8)
+		return GLOB.alldirs
+	if(dir_count >= 4)
+		return GLOB.cardinals
+	return list(SOUTH)
+
+/proc/cyborg_character_get_state_direction_entries(icon_file, state_name)
+	var/list/state_entries = cyborg_character_get_state_metadata_entries(icon_file, state_name)
+	var/list/direction_entries = list()
+	var/list/seen_direction_keys = list()
+	for(var/list/state_data as anything in state_entries)
+		var/dir_count = cyborg_character_get_metadata_count(state_data?["dirs"])
+		for(var/output_dir in cyborg_character_get_dirs_for_metadata_count(dir_count))
+			var/direction_key = cyborg_character_dir_to_text(output_dir)
+			if(seen_direction_keys[direction_key])
+				continue
+			direction_entries += list(list(
+				"value" = direction_key,
+				"label" = cyborg_character_get_direction_label(direction_key),
+			))
+			seen_direction_keys[direction_key] = TRUE
+	if(!length(direction_entries))
+		direction_entries += list(list("value" = "south", "label" = "South"))
+	return direction_entries
 
 /proc/cyborg_character_get_preview_state_option_map(model_name, variant_name = null)
 	var/list/state_options = cyborg_character_get_model_preview_state_options(model_name, variant_name)
@@ -213,7 +251,43 @@
 	current_size = 1
 	return INITIALIZE_HINT_NORMAL
 
-/proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir)
+/proc/cyborg_character_get_cached_preview_image(icon/layer_icon, cache_key, list/image_cache, list/cache_order)
+	if(!isicon(layer_icon))
+		return null
+	if(!istext(cache_key) || !length(cache_key) || !islist(image_cache) || !islist(cache_order))
+		return "data:image/png;base64,[icon2base64(layer_icon)]"
+
+	if(cache_key in image_cache)
+		return image_cache[cache_key]
+
+	var/cached_image = "data:image/png;base64,[icon2base64(layer_icon)]"
+	image_cache[cache_key] = cached_image
+	cache_order += cache_key
+	while(length(cache_order) > 256)
+		var/old_key = cache_order[1]
+		cache_order.Cut(1, 2)
+		image_cache -= old_key
+	return cached_image
+
+/proc/cyborg_character_get_cached_genital_icon_data(cache_key, list/icon_cache)
+	if(!istext(cache_key) || !length(cache_key) || !islist(icon_cache))
+		return null
+
+	return icon_cache[cache_key]
+
+/proc/cyborg_character_set_cached_genital_icon_data(cache_key, list/icon_data, list/icon_cache, list/cache_order)
+	if(!istext(cache_key) || !length(cache_key) || !islist(icon_data) || !islist(icon_cache) || !islist(cache_order))
+		return
+
+	if(!(cache_key in icon_cache))
+		cache_order += cache_key
+	icon_cache[cache_key] = icon_data
+	while(length(cache_order) > 128)
+		var/old_key = cache_order[1]
+		cache_order.Cut(1, 2)
+		icon_cache -= old_key
+
+/proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir, image_cache_key = null, list/icon_cache = null, list/icon_cache_order = null)
 	if(!owner_robot || !genital_overlay)
 		return null
 
@@ -226,34 +300,51 @@
 		qdel(preview_holder)
 		return null
 
-	var/matrix/render_transform = render_image.transform ? matrix(render_image.transform) : null
-	var/image/flat_render_image = image(render_image)
-	flat_render_image.transform = null
-	var/icon/flat_icon = getFlatIcon(flat_render_image, render_dir, no_anim = TRUE)
-	if(!isicon(flat_icon))
-		qdel(preview_holder)
-		return null
-
-	var/list/transformed_icon_data = preview_holder.apply_cyborg_genital_appearance_transform(flat_icon, render_transform)
-	var/icon/transformed_icon = transformed_icon_data["icon"]
-	if(!isicon(transformed_icon))
-		qdel(preview_holder)
-		return null
-
-	var/transformed_pixel_x = transformed_icon_data["pixel_x"] || 0
-	var/transformed_pixel_y = transformed_icon_data["pixel_y"] || 0
 	var/body_scale = owner_robot.get_cyborg_genital_offset_scale()
-	var/rendered_pixel_x = (render_image.pixel_x || 0) + transformed_pixel_x
-	var/rendered_pixel_y = (render_image.pixel_y || 0) + transformed_pixel_y
-	if(body_scale != RESIZE_NORMAL)
-		var/original_width = transformed_icon.Width()
-		var/original_height = transformed_icon.Height()
-		transformed_icon = owner_robot.scale_cyborg_icon_nearest_neighbor(transformed_icon, max(round(original_width * body_scale), 1), max(round(original_height * body_scale), 1))
+	var/source_pixel_x = render_image.pixel_x || 0
+	var/source_pixel_y = render_image.pixel_y || 0
+	var/list/cached_icon_data = cyborg_character_get_cached_genital_icon_data(image_cache_key, icon_cache)
+	var/icon/transformed_icon = cached_icon_data?["icon"]
+	var/static_pixel_x = cached_icon_data?["pixel_x"] || 0
+	var/static_pixel_y = cached_icon_data?["pixel_y"] || 0
+
+	if(!isicon(transformed_icon))
+		var/matrix/render_transform = render_image.transform ? matrix(render_image.transform) : null
+		var/image/flat_render_image = image(render_image)
+		flat_render_image.pixel_x = 0
+		flat_render_image.pixel_y = 0
+		flat_render_image.transform = null
+		var/icon/flat_icon = getFlatIcon(flat_render_image, render_dir, no_anim = TRUE)
+		if(!isicon(flat_icon))
+			qdel(preview_holder)
+			return null
+
+		var/list/transformed_icon_data = preview_holder.apply_cyborg_genital_appearance_transform(flat_icon, render_transform)
+		transformed_icon = transformed_icon_data["icon"]
 		if(!isicon(transformed_icon))
 			qdel(preview_holder)
 			return null
-		rendered_pixel_x += round((original_width - transformed_icon.Width()) / 2)
-		rendered_pixel_y = round((render_image.pixel_y || 0) * body_scale) + transformed_pixel_y + round((original_height - transformed_icon.Height()) / 2)
+
+		static_pixel_x = transformed_icon_data["pixel_x"] || 0
+		static_pixel_y = transformed_icon_data["pixel_y"] || 0
+		if(body_scale != RESIZE_NORMAL)
+			var/original_width = transformed_icon.Width()
+			var/original_height = transformed_icon.Height()
+			transformed_icon = owner_robot.scale_cyborg_icon_nearest_neighbor(transformed_icon, max(round(original_width * body_scale), 1), max(round(original_height * body_scale), 1))
+			if(!isicon(transformed_icon))
+				qdel(preview_holder)
+				return null
+			static_pixel_x += round((original_width - transformed_icon.Width()) / 2)
+			static_pixel_y += round((original_height - transformed_icon.Height()) / 2)
+
+		cyborg_character_set_cached_genital_icon_data(image_cache_key, list(
+			"icon" = transformed_icon,
+			"pixel_x" = static_pixel_x,
+			"pixel_y" = static_pixel_y,
+		), icon_cache, icon_cache_order)
+
+	var/rendered_pixel_x = source_pixel_x + static_pixel_x
+	var/rendered_pixel_y = body_scale == RESIZE_NORMAL ? (source_pixel_y + static_pixel_y) : (round(source_pixel_y * body_scale) + static_pixel_y)
 
 	var/list/rendered_data = list(
 		"icon" = transformed_icon,
@@ -265,14 +356,14 @@
 	qdel(preview_holder)
 	return rendered_data
 
-/proc/cyborg_character_build_preview_layer(icon/layer_icon, layer_key, layer_kind, pixel_x, pixel_y, z_index)
+/proc/cyborg_character_build_preview_layer(icon/layer_icon, layer_key, layer_kind, pixel_x, pixel_y, z_index, image_cache_key = null, list/image_cache = null, list/image_cache_order = null)
 	if(!isicon(layer_icon))
 		return null
 
 	return list(
 		"key" = layer_key,
 		"kind" = layer_kind,
-		"image" = "data:image/png;base64,[icon2base64(layer_icon)]",
+		"image" = cyborg_character_get_cached_preview_image(layer_icon, image_cache_key, image_cache, image_cache_order),
 		"x" = pixel_x,
 		"y" = pixel_y,
 		"width" = layer_icon.Width(),
@@ -505,6 +596,9 @@
 /proc/cyborg_character_get_preview_rest_stage_key(selected_state)
 	if(!istext(selected_state) || !length(selected_state))
 		return null
+	var/separator = findtext(selected_state, ":")
+	if(separator)
+		selected_state = copytext(selected_state, 1, separator)
 	if(selected_state == "rest_deep" || findtext(selected_state, "-rest_deep"))
 		return "rest_deep"
 	if(selected_state == "bellyup" || findtext(selected_state, "-bellyup"))
@@ -515,10 +609,27 @@
 		return "rest"
 	return null
 
+/proc/cyborg_character_make_rest_direction_key(rest_stage_key, direction_key)
+	if(!istext(rest_stage_key) || !length(rest_stage_key) || !istext(direction_key) || !length(direction_key))
+		return null
+	return "[rest_stage_key]:[direction_key]"
+
+/proc/cyborg_character_get_rest_direction_key(direction_key, fallback_dir = SOUTH)
+	if(!istext(direction_key) || !length(direction_key))
+		return cyborg_character_dir_to_text(fallback_dir)
+	var/separator = findtext(direction_key, ":")
+	if(separator)
+		var/specific_direction = copytext(direction_key, separator + 1)
+		if(specific_direction in list("south", "north", "east", "west"))
+			return specific_direction
+	if(direction_key in list("south", "north", "east", "west"))
+		return direction_key
+	return cyborg_character_dir_to_text(fallback_dir)
+
 /proc/cyborg_character_get_preview_direction_key(selected_state, selected_dir)
 	var/rest_stage_key = cyborg_character_get_preview_rest_stage_key(selected_state)
 	if(rest_stage_key)
-		return rest_stage_key
+		return cyborg_character_make_rest_direction_key(rest_stage_key, cyborg_character_dir_to_text(selected_dir))
 	return cyborg_character_dir_to_text(selected_dir)
 
 /proc/cyborg_character_get_preview_robot_resting(selected_state)
@@ -552,14 +663,15 @@
 		return null
 
 	var/direction_key = cyborg_character_get_preview_direction_key(selected_state, selected_dir)
+	var/rest_direction_key = cyborg_character_get_rest_direction_key(direction_key, selected_dir)
 	var/list/marker_point = null
 	var/rest_stage_key = cyborg_character_get_preview_rest_stage_key(selected_state)
 	if(rest_stage_key)
-		marker_point = marker_data["rest_marker_point_by_stage"]?[rest_stage_key]?[direction_key]
+		marker_point = marker_data["rest_marker_point_by_stage"]?[rest_stage_key]?[rest_direction_key]
 		if(!islist(marker_point))
 			marker_point = marker_data["rest_marker_point_by_stage"]?[rest_stage_key]?["south"]
 	if(!islist(marker_point))
-		marker_point = marker_data["marker_point_by_direction"]?[direction_key]
+		marker_point = marker_data["marker_point_by_direction"]?[rest_stage_key ? rest_direction_key : direction_key]
 	if(!islist(marker_point))
 		marker_point = marker_data["marker_point_by_direction"]?["south"]
 	if(!islist(marker_point))
@@ -577,14 +689,15 @@
 		return null
 
 	var/direction_key = cyborg_character_get_preview_direction_key(selected_state, selected_dir)
+	var/rest_direction_key = cyborg_character_get_rest_direction_key(direction_key, selected_dir)
 	var/list/marker_anchor = null
 	var/rest_stage_key = cyborg_character_get_preview_rest_stage_key(selected_state)
 	if(rest_stage_key)
-		marker_anchor = marker_data["rest_anchor_by_stage"]?[rest_stage_key]?[direction_key]
+		marker_anchor = marker_data["rest_anchor_by_stage"]?[rest_stage_key]?[rest_direction_key]
 		if(!islist(marker_anchor))
 			marker_anchor = marker_data["rest_anchor_by_stage"]?[rest_stage_key]?["south"]
 	if(!islist(marker_anchor))
-		marker_anchor = marker_data["anchor_by_direction"]?[direction_key]
+		marker_anchor = marker_data["anchor_by_direction"]?[rest_stage_key ? rest_direction_key : direction_key]
 	if(!islist(marker_anchor))
 		marker_anchor = marker_data["anchor_by_direction"]?["south"]
 	if(!islist(marker_anchor))
@@ -649,7 +762,31 @@
 	return SOUTH
 
 /proc/cyborg_character_get_direction_keys()
-	return list("south", "north", "east", "west", "rest", "sit", "bellyup", "rest_deep")
+	var/list/direction_keys = list("south", "north", "east", "west", "rest", "sit", "bellyup", "rest_deep")
+	for(var/rest_stage_key in list("rest", "sit", "bellyup", "rest_deep"))
+		for(var/direction_key in list("south", "north", "east", "west"))
+			direction_keys += cyborg_character_make_rest_direction_key(rest_stage_key, direction_key)
+	return direction_keys
+
+/proc/cyborg_character_get_direction_label(direction_key)
+	switch(direction_key)
+		if("south")
+			return "South"
+		if("north")
+			return "North"
+		if("east")
+			return "East"
+		if("west")
+			return "West"
+		if("rest")
+			return "Rest"
+		if("sit")
+			return "Sit"
+		if("bellyup")
+			return "Belly Up"
+		if("rest_deep")
+			return "Deep Rest"
+	return capitalize("[direction_key]")
 
 /proc/cyborg_character_get_base_direction_entries()
 	return list(
@@ -663,14 +800,25 @@
 	var/list/direction_entries = cyborg_character_get_base_direction_entries()
 	var/list/seen_keys = list("south" = TRUE, "north" = TRUE, "east" = TRUE, "west" = TRUE)
 	for(var/list/state_option as anything in state_options)
-		var/direction_key = cyborg_character_get_preview_rest_stage_key(state_option?["value"])
-		if(!direction_key || seen_keys[direction_key])
+		var/rest_stage_key = cyborg_character_get_preview_rest_stage_key(state_option?["value"])
+		if(!rest_stage_key)
 			continue
-		direction_entries += list(list(
-			"value" = direction_key,
-			"label" = state_option?["label"] || capitalize(direction_key),
-		))
-		seen_keys[direction_key] = TRUE
+		var/icon_file = state_option?["icon"]
+		var/state_name = state_option?["icon_state"]
+		var/list/state_direction_entries = cyborg_character_get_state_direction_entries(icon_file, state_name)
+		for(var/list/state_direction_entry as anything in state_direction_entries)
+			var/state_direction_key = state_direction_entry?["value"]
+			var/direction_key = cyborg_character_make_rest_direction_key(rest_stage_key, state_direction_key)
+			if(!direction_key || seen_keys[direction_key])
+				continue
+			direction_entries += list(list(
+				"value" = direction_key,
+				"label" = state_direction_entry?["label"] || cyborg_character_get_direction_label(state_direction_key),
+				"rest" = TRUE,
+				"group" = rest_stage_key,
+				"group_label" = state_option?["label"] || cyborg_character_get_direction_label(rest_stage_key),
+			))
+			seen_keys[direction_key] = TRUE
 	return direction_entries
 
 /proc/cyborg_character_get_editable_direction_keys(list/state_options)
@@ -871,8 +1019,13 @@
 	sanitized_entry["scale"] = sanitize_float(entry["scale"], 0.25, 16, 0.05, 1)
 	sanitized_entry["colors"] = cyborg_character_sanitize_color_list(entry["colors"])
 	var/list/advanced = sanitized_entry["advanced"]
+	var/list/source_advanced = entry["advanced"]
 	for(var/direction_key in cyborg_character_get_direction_keys())
-		advanced[direction_key] = cyborg_character_sanitize_direction_entry(entry["advanced"]?[direction_key])
+		var/list/source_direction = source_advanced?[direction_key]
+		var/rest_stage_key = cyborg_character_get_preview_rest_stage_key(direction_key)
+		if(rest_stage_key && islist(source_advanced) && !(direction_key in source_advanced) && (rest_stage_key in source_advanced))
+			source_direction = source_advanced[rest_stage_key]
+		advanced[direction_key] = cyborg_character_sanitize_direction_entry(source_direction)
 	return sanitized_entry
 
 /proc/cyborg_character_normalize_layout_store(list/store)
@@ -1363,7 +1516,16 @@
 
 	var/list/store = cyborg_character_get_layout_store(preferences)
 	var/list/layout_entry = get_slot_layout(store, organ_slot)
-	layout_entry["advanced"][direction_key] = cyborg_character_get_default_direction_entry()
+	var/arousal_key = cyborg_character_get_layout_arousal_key(text2num("[params["arousal"]]"))
+	if(arousal_key)
+		var/list/direction_entry = cyborg_character_sanitize_direction_entry(layout_entry["advanced"]?[direction_key])
+		if(islist(direction_entry["arousal"]))
+			direction_entry["arousal"] -= arousal_key
+			if(!length(direction_entry["arousal"]))
+				direction_entry -= "arousal"
+		layout_entry["advanced"][direction_key] = cyborg_character_sanitize_direction_entry(direction_entry)
+	else
+		layout_entry["advanced"][direction_key] = cyborg_character_get_default_direction_entry()
 	store["active"][organ_slot] = cyborg_character_sanitize_layout_entry(layout_entry)
 	if(!cyborg_character_save_layout_store(preferences, cyborg_character_normalize_layout_store(store)))
 		return FALSE
@@ -1466,6 +1628,10 @@
 	var/list/preview_layers = list()
 	var/preview_canvas_width = ICON_SIZE_X
 	var/preview_canvas_height = ICON_SIZE_Y
+	var/list/layer_image_cache = list()
+	var/list/layer_image_cache_order = list()
+	var/list/genital_icon_cache = list()
+	var/list/genital_icon_cache_order = list()
 
 /atom/movable/screen/map_view/cyborg_character_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
@@ -1490,6 +1656,10 @@
 /atom/movable/screen/map_view/cyborg_character_preview/Destroy()
 	QDEL_NULL(background)
 	QDEL_NULL(preview_robot)
+	layer_image_cache = null
+	layer_image_cache_order = null
+	genital_icon_cache = null
+	genital_icon_cache_order = null
 	preferences = null
 	return ..()
 
@@ -1648,6 +1818,7 @@
 			"z" = round(MOB_LAYER * 100000),
 			"key" = "body",
 			"kind" = "body",
+			"image_cache_key" = "body|[icon_file]|[resolved_icon_state]|[preview_dir]|[selected_size]",
 		))
 
 	var/preview_direction_key = catalog_host.get_cyborg_genital_direction_key()
@@ -1657,7 +1828,9 @@
 		for(var/mutable_appearance/genital_overlay as anything in base_genital_overlays)
 			overlay_subindex++
 			genital_overlay.plane = FLOAT_PLANE
-			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir)
+			var/genital_transform_key = genital_overlay.transform ? json_encode(matrix(genital_overlay.transform).tolist()) : ""
+			var/genital_image_cache_key = "genital|[organ_slot]|[overlay_subindex]|[preview_dir]|[selected_size]|[genital_overlay.icon]|[genital_overlay.icon_state]|[genital_overlay.color]|[genital_overlay.alpha]|[genital_transform_key]"
+			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir, genital_image_cache_key, genital_icon_cache, genital_icon_cache_order)
 			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
 			if(isicon(rendered_genital_icon))
 				var/genital_draw_x = preview_body_pixel_x + (rendered_genital_data["pixel_x"] || 0)
@@ -1673,6 +1846,7 @@
 					"z" = round((genital_overlay.layer || ABOVE_MOB_LAYER) * 100000) + overlay_subindex,
 					"key" = "genital-[organ_slot]-[overlay_subindex]",
 					"kind" = "genital",
+					"image_cache_key" = genital_image_cache_key,
 				))
 
 	var/mutable_appearance/drawover_overlay = (selected_state_token == "rest_deep") ? null : catalog_host.build_cyborg_side_drawover_overlay()
@@ -1696,6 +1870,7 @@
 				"z" = round((drawover_overlay.layer || ABOVE_MOB_LAYER) * 100000) + 50000,
 				"key" = "drawover",
 				"kind" = "drawover",
+				"image_cache_key" = "drawover|[drawover_overlay.icon]|[drawover_overlay.icon_state]|[preview_dir]|[selected_size]|[drawover_overlay.color]|[drawover_overlay.alpha]",
 			))
 
 	var/preview_pad_left = max(-preview_content_min_x, 0) + preview_margin
@@ -1714,7 +1889,7 @@
 			background_preview_icon.Blend(background_icon, ICON_OVERLAY, tile_x, tile_y)
 
 	preview_layers = list()
-	preview_layers += list(cyborg_character_build_preview_layer(background_preview_icon, "background", "background", 0, 0, 0))
+	preview_layers += list(cyborg_character_build_preview_layer(background_preview_icon, "background", "background", 0, 0, 0, "background|[canvas_state]|[preview_canvas_width]|[preview_canvas_height]", layer_image_cache, layer_image_cache_order))
 	for(var/list/raw_layer as anything in raw_layers)
 		var/icon/layer_icon = raw_layer["icon"]
 		var/list/preview_layer = cyborg_character_build_preview_layer(
@@ -1724,6 +1899,9 @@
 			(raw_layer["x"] || 0) + preview_pad_left,
 			(raw_layer["y"] || 0) + preview_pad_down,
 			raw_layer["z"] || 0,
+			raw_layer["image_cache_key"],
+			layer_image_cache,
+			layer_image_cache_order,
 		)
 		if(preview_layer)
 			preview_layers += list(preview_layer)

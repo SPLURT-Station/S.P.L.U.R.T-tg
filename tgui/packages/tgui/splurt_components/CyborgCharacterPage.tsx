@@ -27,7 +27,6 @@ import { useServerPrefs } from '../interfaces/PreferencesMenu/useServerPrefs';
 import { BottomDropdown } from './BottomDropdown';
 
 const PREVIEW_ROTATION_DIRS = ['north', 'east', 'south', 'west'];
-const REST_DIRECTION_KEYS = ['rest', 'sit', 'bellyup', 'rest_deep'];
 const AROUSAL_NONE = 1;
 const AROUSAL_PARTIAL = 2;
 const AROUSAL_FULL = 3;
@@ -447,11 +446,19 @@ function CyborgGenitalControls(props: {
           ? 'Full'
           : 'None';
   const normalDirections = offsetDirections.filter(
-    (directionEntry) => !REST_DIRECTION_KEYS.includes(directionEntry.value),
+    (directionEntry) => !directionEntry.rest,
   );
-  const restDirections = offsetDirections.filter((directionEntry) =>
-    REST_DIRECTION_KEYS.includes(directionEntry.value),
+  const restDirections = offsetDirections.filter(
+    (directionEntry) => !!directionEntry.rest,
   );
+  const restDirectionGroups = restDirections.reduce<
+    Record<string, CyborgReproductionManagement['offset_directions']>
+  >((groups, directionEntry) => {
+    const groupKey = directionEntry.group || 'rest';
+    groups[groupKey] = groups[groupKey] || [];
+    groups[groupKey].push(directionEntry);
+    return groups;
+  }, {});
   const renderDirectionRows = (
     directionEntries: CyborgReproductionManagement['offset_directions'],
   ) =>
@@ -700,7 +707,20 @@ function CyborgGenitalControls(props: {
 
           {!!restDirections.length && (
             <Collapsible title="Resting State Offsets" mt={1}>
-              {renderDirectionRows(restDirections)}
+              {Object.entries(restDirectionGroups).map(
+                ([groupKey, directionEntries]) => (
+                  <Collapsible
+                    key={`${genital.slot}-${groupKey}`}
+                    title={
+                      directionEntries[0]?.group_label ||
+                      directionEntries[0]?.label ||
+                      groupKey
+                    }
+                  >
+                    {renderDirectionRows(directionEntries)}
+                  </Collapsible>
+                ),
+              )}
             </Collapsible>
           )}
         </Section>

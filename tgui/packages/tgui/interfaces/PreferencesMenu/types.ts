@@ -328,6 +328,9 @@ export type CyborgReproductionGenital = {
 export type CyborgOffsetDirection = {
   value: string;
   label: string;
+  rest?: BooleanLike;
+  group?: string;
+  group_label?: string;
 };
 
 export type CyborgReproductionManagement = {

@@ -1459,10 +1459,11 @@
 	var/direction_key = direction_key_override || get_cyborg_genital_direction_key()
 	var/list/base_offset = null
 	if(is_cyborg_genital_rest_stage_key(direction_key))
-		var/rest_dir_key = get_cyborg_genital_direction_key_for_dir(dir) || "south"
-		base_offset = marker_data["rest_anchor_by_stage"]?[direction_key]?[rest_dir_key]
+		var/rest_stage_key = get_cyborg_genital_rest_stage_key(direction_key)
+		var/rest_dir_key = get_cyborg_genital_direction_from_rest_key(direction_key) || "south"
+		base_offset = marker_data["rest_anchor_by_stage"]?[rest_stage_key]?[rest_dir_key]
 		if(!islist(base_offset))
-			base_offset = marker_data["rest_anchor_by_stage"]?[direction_key]?["south"]
+			base_offset = marker_data["rest_anchor_by_stage"]?[rest_stage_key]?["south"]
 	else
 		base_offset = marker_data["anchor_by_direction"]?[direction_key]
 	if(!islist(base_offset))
@@ -1666,13 +1667,14 @@
 	var/base_state = model?.cyborg_base_icon
 	var/current_state = icon_state
 	var/direction_key = get_cyborg_genital_direction_key()
+	var/drawover_direction_key = get_cyborg_genital_rest_stage_key(direction_key) || direction_key
 
 	if(istext(current_state) && length(current_state) && current_state != base_state)
 		add_cyborg_drawover_state_candidate(candidates, current_state)
 
-	if(istext(direction_key) && length(direction_key))
-		add_cyborg_drawover_state_candidate(candidates, "[current_state]-[direction_key]")
-		add_cyborg_drawover_state_candidate(candidates, "[base_state]-[direction_key]")
+	if(istext(drawover_direction_key) && length(drawover_direction_key))
+		add_cyborg_drawover_state_candidate(candidates, "[current_state]-[drawover_direction_key]")
+		add_cyborg_drawover_state_candidate(candidates, "[base_state]-[drawover_direction_key]")
 
 	if(dir & EAST)
 		add_cyborg_drawover_state_candidate(candidates, "[current_state]-east")
@@ -1874,10 +1876,42 @@
 	return "Locked"
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_direction_keys()
-	return list("south", "north", "east", "west", "rest", "sit", "bellyup", "rest_deep")
+	var/list/direction_keys = list("south", "north", "east", "west", "rest", "sit", "bellyup", "rest_deep")
+	for(var/rest_stage_key in list("rest", "sit", "bellyup", "rest_deep"))
+		for(var/direction_key in list("south", "north", "east", "west"))
+			direction_keys += get_cyborg_genital_rest_direction_key(rest_stage_key, direction_key)
+	return direction_keys
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_rest_stage_key(direction_key)
+	if(!istext(direction_key) || !length(direction_key))
+		return null
+	var/separator = findtext(direction_key, ":")
+	if(separator)
+		direction_key = copytext(direction_key, 1, separator)
+	if(direction_key in list("rest", "sit", "bellyup", "rest_deep"))
+		return direction_key
+	return null
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_rest_direction_key(rest_stage_key, direction_key)
+	if(!istext(rest_stage_key) || !length(rest_stage_key) || !istext(direction_key) || !length(direction_key))
+		return null
+	return "[rest_stage_key]:[direction_key]"
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_direction_from_rest_key(direction_key, fallback_dir = null)
+	if(istext(direction_key) && length(direction_key))
+		var/separator = findtext(direction_key, ":")
+		if(separator)
+			var/specific_direction = copytext(direction_key, separator + 1)
+			if(specific_direction in list("south", "north", "east", "west"))
+				return specific_direction
+		if(direction_key in list("south", "north", "east", "west"))
+			return direction_key
+	if(!isnull(fallback_dir))
+		return get_cyborg_genital_direction_key_for_dir(fallback_dir)
+	return get_cyborg_genital_direction_key_for_dir(dir)
 
 /mob/living/silicon/robot/proc/is_cyborg_genital_rest_stage_key(direction_key)
-	return direction_key in list("rest", "sit", "bellyup", "rest_deep")
+	return !isnull(get_cyborg_genital_rest_stage_key(direction_key))
 
 /mob/living/silicon/robot/proc/get_default_cyborg_genital_direction_entry()
 	return list(
@@ -2016,6 +2050,10 @@
 	var/list/sanitized_advanced = sanitized_entry["advanced"]
 	var/list/legacy_lying_entry = sanitize_cyborg_genital_direction_entry(advanced_entry?["lying"])
 	for(var/direction_key in get_cyborg_genital_direction_keys())
+		var/rest_stage_key = get_cyborg_genital_rest_stage_key(direction_key)
+		if(rest_stage_key && islist(advanced_entry) && !(direction_key in advanced_entry) && (rest_stage_key in advanced_entry))
+			sanitized_advanced[direction_key] = sanitize_cyborg_genital_direction_entry(advanced_entry[rest_stage_key])
+			continue
 		if(is_cyborg_genital_rest_stage_key(direction_key) && islist(advanced_entry) && !(direction_key in advanced_entry) && ("lying" in advanced_entry))
 			sanitized_advanced[direction_key] = legacy_lying_entry.Copy()
 		else
@@ -2168,6 +2206,9 @@
 	return capitalize("[organ_slot]")
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_direction_label(direction_key)
+	var/rest_stage_key = get_cyborg_genital_rest_stage_key(direction_key)
+	if(rest_stage_key && rest_stage_key != direction_key)
+		return get_cyborg_genital_direction_label(get_cyborg_genital_direction_from_rest_key(direction_key))
 	switch(direction_key)
 		if("south")
 			return "South"
@@ -2963,16 +3004,17 @@
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_direction_key()
 	if(robot_resting)
+		var/rest_direction_key = get_cyborg_genital_direction_key_for_dir(dir) || "south"
 		switch(robot_resting)
 			if(ROBOT_REST_NORMAL)
-				return "rest"
+				return get_cyborg_genital_rest_direction_key("rest", rest_direction_key)
 			if(ROBOT_REST_SITTING)
-				return "sit"
+				return get_cyborg_genital_rest_direction_key("sit", rest_direction_key)
 			if(ROBOT_REST_BELLY_UP)
-				return "bellyup"
+				return get_cyborg_genital_rest_direction_key("bellyup", rest_direction_key)
 			if(ROBOT_REST_SLEEP)
-				return "rest_deep"
-		return "rest"
+				return get_cyborg_genital_rest_direction_key("rest_deep", rest_direction_key)
+		return get_cyborg_genital_rest_direction_key("rest", rest_direction_key)
 	if(dir & NORTH)
 		return "north"
 	if(dir & SOUTH)
