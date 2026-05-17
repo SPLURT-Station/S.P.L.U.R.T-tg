@@ -5,7 +5,7 @@
 	var/autotransfer_enabled = FALSE
 	var/obj/vore_belly/autotransfer_target = null
 	var/autotransfer_delay = 60 SECONDS // How long before transfer
-	var/autotransfer_timer = 0 // Current timer for each prey
+	var/autotransfer_timer = 0 // Elapsed transfer time in deciseconds
 
 /obj/vore_belly/process(seconds_per_tick)
 	. = ..()
@@ -70,7 +70,7 @@
 		return
 
 	// Increment timer
-	autotransfer_timer += seconds_per_tick
+	autotransfer_timer += seconds_per_tick * 1 SECONDS
 
 	// Check if it's time to transfer
 	if(autotransfer_timer >= autotransfer_delay)
