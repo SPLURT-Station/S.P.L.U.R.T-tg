@@ -79,12 +79,12 @@ function CyborgPreviewControlRow(props: {
 
 function StopWindowDrag(props: { children: ReactNode }) {
   return (
-    <Box
+    <div
       onMouseDown={(event) => event.stopPropagation()}
       onPointerDown={(event) => event.stopPropagation()}
     >
       {props.children}
-    </Box>
+    </div>
   );
 }
 
@@ -1215,7 +1215,7 @@ export function CyborgCharacterPage() {
               </CyborgPreviewControlRow>
             </Box>
             <StopWindowDrag>
-              <Box
+              <div
                 ref={previewTopScrollRef}
                 onScroll={handlePreviewTopScroll}
                 style={{
@@ -1233,9 +1233,9 @@ export function CyborgCharacterPage() {
                     width: `${previewCanvasWidth * previewZoom}px`,
                   }}
                 />
-              </Box>
+              </div>
             </StopWindowDrag>
-            <Box
+            <div
               ref={previewScrollerRef}
               onScroll={handlePreviewScroll}
               style={{
@@ -1278,7 +1278,7 @@ export function CyborgCharacterPage() {
                   ))}
                 </Box>
               )}
-            </Box>
+            </div>
           </Box>
         </Section>
       </Stack.Item>
