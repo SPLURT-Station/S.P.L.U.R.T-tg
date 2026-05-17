@@ -9,6 +9,7 @@
 	var/image/image_appearance
 	var/matrix/base_transform
 	var/cyborg_genital_active_animation_key
+	var/list/cyborg_genital_active_animation_direction_pixels
 	var/cyborg_genital_organ_slot
 	var/cyborg_genital_overlay_subindex = 1
 
@@ -30,6 +31,10 @@
 	generated.loc = owner_robot
 	generated.dir = owner_robot.dir
 	generated.appearance_flags |= KEEP_APART | PIXEL_SCALE
+	var/list/animation_pixels = get_cyborg_genital_active_animation_pixels(owner_robot.dir)
+	if(islist(animation_pixels))
+		generated.pixel_x = animation_pixels["pixel_x"] || 0
+		generated.pixel_y = animation_pixels["pixel_y"] || 0
 	if(generated.plane == FLOAT_PLANE)
 		SET_PLANE_EXPLICIT(generated, GAME_PLANE, owner_robot)
 	if(image_appearance == base_image_appearance)
@@ -56,11 +61,13 @@
 	if(image_appearance != base_image_appearance)
 		image_appearance = base_image_appearance
 		cyborg_genital_active_animation_key = null
+		cyborg_genital_active_animation_direction_pixels = null
 		regenerate_image()
 	return !!shown_image
 
 /obj/effect/client_image_holder/cyborg_genital/proc/clear_cyborg_active_animation(regenerate = TRUE)
 	cyborg_genital_active_animation_key = null
+	cyborg_genital_active_animation_direction_pixels = null
 	if(image_appearance != base_image_appearance)
 		image_appearance = base_image_appearance
 		if(regenerate)
@@ -77,6 +84,24 @@
 	base_transform = appearance_to_cache.transform ? matrix(appearance_to_cache.transform) : null
 	return TRUE
 
+/obj/effect/client_image_holder/cyborg_genital/proc/get_cyborg_genital_active_animation_pixels(output_dir)
+	if(!islist(cyborg_genital_active_animation_direction_pixels) || !owner_robot)
+		return null
+	var/direction_key = owner_robot.get_cyborg_genital_direction_key_for_dir(output_dir)
+	if(!direction_key)
+		return null
+	return cyborg_genital_active_animation_direction_pixels[direction_key]
+
+/obj/effect/client_image_holder/cyborg_genital/proc/apply_cyborg_genital_animation_direction_pixels(output_dir)
+	if(!shown_image)
+		return FALSE
+	var/list/animation_pixels = get_cyborg_genital_active_animation_pixels(output_dir)
+	if(!islist(animation_pixels))
+		return FALSE
+	shown_image.pixel_x = animation_pixels["pixel_x"] || 0
+	shown_image.pixel_y = animation_pixels["pixel_y"] || 0
+	return TRUE
+
 /obj/effect/client_image_holder/cyborg_genital/proc/update_image_appearance(image/new_appearance, defer_active_animation_regenerate = FALSE)
 	var/new_appearance_key = get_cyborg_genital_animation_base_key() || get_cyborg_genital_base_appearance_key(new_appearance)
 	var/appearance_matches_active_base = !isnull(new_appearance_key) && new_appearance_key == base_image_appearance_key
@@ -89,10 +114,12 @@
 		return TRUE
 	if(defer_active_animation_regenerate && image_appearance != base_image_appearance && cyborg_genital_active_animation_key)
 		cyborg_genital_active_animation_key = null
+		cyborg_genital_active_animation_direction_pixels = null
 		return TRUE
 
 	image_appearance = new_appearance
 	cyborg_genital_active_animation_key = null
+	cyborg_genital_active_animation_direction_pixels = null
 	regenerate_image()
 	return TRUE
 
@@ -336,10 +363,10 @@
 		rotated_frame_delays += frame_delays[source_frame_index]
 
 	var/list/frame_records = list()
-	var/min_pixel_x = 0
-	var/min_pixel_y = 0
-	var/max_pixel_x = 1
-	var/max_pixel_y = 1
+	var/canvas_left_extent = 0
+	var/canvas_right_extent = 1
+	var/canvas_down_extent = 0
+	var/canvas_up_extent = 1
 	for(var/output_dir in GLOB.cardinals)
 		var/direction_key = owner_robot.get_cyborg_genital_direction_key_for_dir(output_dir)
 		var/image/directional_appearance = get_cyborg_genital_directional_base_appearance(output_dir)
@@ -349,6 +376,10 @@
 		var/image/base_render_image = image(directional_appearance)
 		base_render_image.dir = output_dir
 		var/matrix/appearance_transform = directional_appearance.transform ? matrix(directional_appearance.transform) : null
+		base_render_image.pixel_x = 0
+		base_render_image.pixel_y = 0
+		base_render_image.pixel_w = 0
+		base_render_image.pixel_z = 0
 		base_render_image.transform = null
 		var/icon/base_flat_icon = getFlatIcon(base_render_image, output_dir, no_anim = TRUE)
 		if(!base_flat_icon)
@@ -366,37 +397,46 @@
 
 		var/source_width = max(base_flat_icon.Width(), 1)
 		var/source_height = max(base_flat_icon.Height(), 1)
+		var/base_screen_pixel_x = (directional_appearance.pixel_x || 0) + transformed_flat_icon_data["pixel_x"]
+		var/base_screen_pixel_y = (directional_appearance.pixel_y || 0) + transformed_flat_icon_data["pixel_y"]
+		var/source_center_x = source_width * 0.5
+		var/source_center_y = source_height * 0.5
 		for(var/sequence_index in 0 to (frame_count - 1))
 			var/source_frame_index = ((start_frame_index - 1 + sequence_index) % frame_count) + 1
 			var/list/source_offset = directional_offsets[source_frame_index]
 			if(!islist(source_offset))
 				source_offset = list()
-			var/screen_pixel_x = (directional_appearance.pixel_x || 0) + transformed_flat_icon_data["pixel_x"] + round((source_offset?["pixel_x"] || 0) * body_scale)
-			var/screen_pixel_y = (directional_appearance.pixel_y || 0) + transformed_flat_icon_data["pixel_y"] + round((source_offset?["pixel_y"] || 0) * body_scale)
-			min_pixel_x = min(min_pixel_x, screen_pixel_x)
-			min_pixel_y = min(min_pixel_y, screen_pixel_y)
-			max_pixel_x = max(max_pixel_x, screen_pixel_x + source_width)
-			max_pixel_y = max(max_pixel_y, screen_pixel_y + source_height)
+			var/animation_pixel_x = round((source_offset?["pixel_x"] || 0) * body_scale)
+			var/animation_pixel_y = round((source_offset?["pixel_y"] || 0) * body_scale)
+			canvas_left_extent = max(canvas_left_extent, source_center_x - animation_pixel_x)
+			canvas_right_extent = max(canvas_right_extent, source_center_x + animation_pixel_x)
+			canvas_down_extent = max(canvas_down_extent, source_center_y - animation_pixel_y)
+			canvas_up_extent = max(canvas_up_extent, source_center_y + animation_pixel_y)
 			frame_records += list(list(
 				"dir" = output_dir,
+				"direction_key" = direction_key,
 				"frame" = sequence_index + 1,
 				"icon" = base_flat_icon,
-				"pixel_x" = screen_pixel_x,
-				"pixel_y" = screen_pixel_y,
+				"source_width" = source_width,
+				"source_height" = source_height,
+				"base_pixel_x" = base_screen_pixel_x,
+				"base_pixel_y" = base_screen_pixel_y,
+				"animation_pixel_x" = animation_pixel_x,
+				"animation_pixel_y" = animation_pixel_y,
 			))
 
 	if(!length(frame_records))
 		return null
 
-	var/pad_left = max(-min_pixel_x, 0)
-	var/pad_down = max(-min_pixel_y, 0)
-	var/canvas_width = max(max_pixel_x - min_pixel_x, 1)
-	var/canvas_height = max(max_pixel_y - min_pixel_y, 1)
+	var/canvas_center_x = ceil(canvas_left_extent)
+	var/canvas_center_y = ceil(canvas_down_extent)
+	var/canvas_width = max(ceil(canvas_left_extent + canvas_right_extent), 1)
+	var/canvas_height = max(ceil(canvas_down_extent + canvas_up_extent), 1)
 	return list(
 		"frame_records" = frame_records,
 		"frame_delays" = rotated_frame_delays,
-		"pad_left" = pad_left,
-		"pad_down" = pad_down,
+		"canvas_center_x" = canvas_center_x,
+		"canvas_center_y" = canvas_center_y,
 		"canvas_width" = canvas_width,
 		"canvas_height" = canvas_height,
 		"moving" = (animation_label == "movement"),
@@ -419,8 +459,8 @@
 
 	var/list/frame_records = frame_record_data["frame_records"]
 	var/list/rotated_frame_delays = frame_record_data["frame_delays"]
-	var/pad_left = frame_record_data["pad_left"]
-	var/pad_down = frame_record_data["pad_down"]
+	var/canvas_center_x = frame_record_data["canvas_center_x"]
+	var/canvas_center_y = frame_record_data["canvas_center_y"]
 	var/canvas_width = frame_record_data["canvas_width"]
 	var/canvas_height = frame_record_data["canvas_height"]
 	var/animated_icon_state = get_cyborg_genital_animation_state_name(animation_label)
@@ -430,12 +470,24 @@
 		return null
 
 	var/icon/animated_icon = new(blank_animation_icon)
+	var/list/direction_pixels = list()
 	for(var/list/frame_record as anything in frame_records)
 		var/icon/base_flat_icon = frame_record["icon"]
+		var/source_width = frame_record["source_width"] || ICON_SIZE_X
+		var/source_height = frame_record["source_height"] || ICON_SIZE_Y
+		var/insert_x = round(canvas_center_x + (frame_record["animation_pixel_x"] || 0) - (source_width * 0.5))
+		var/insert_y = round(canvas_center_y + (frame_record["animation_pixel_y"] || 0) - (source_height * 0.5))
+		if(frame_record["frame"] == 1)
+			var/direction_key = frame_record["direction_key"]
+			if(direction_key)
+				direction_pixels[direction_key] = list(
+					"pixel_x" = round((frame_record["base_pixel_x"] || 0) - insert_x),
+					"pixel_y" = round((frame_record["base_pixel_y"] || 0) - insert_y),
+				)
 		var/icon/frame_icon = icon('icons/blanks/32x32.dmi', "nothing")
 		if(frame_icon.Width() != canvas_width || frame_icon.Height() != canvas_height)
 			frame_icon.Scale(canvas_width, canvas_height)
-		frame_icon.Blend(base_flat_icon, ICON_OVERLAY, pad_left + frame_record["pixel_x"] + 1, pad_down + frame_record["pixel_y"] + 1)
+		frame_icon.Blend(base_flat_icon, ICON_OVERLAY, insert_x + 1, insert_y + 1)
 		animated_icon.Insert(frame_icon, animated_icon_state, dir = frame_record["dir"], frame = frame_record["frame"], moving = animated_icon_moving)
 	animated_icon = finalize_cyborg_genital_baked_icon(animated_icon, canvas_width, canvas_height, animated_icon_state, rotated_frame_delays, animated_icon_moving)
 	if(!isicon(animated_icon))
@@ -444,8 +496,7 @@
 	var/list/icon_data = list(
 		"icon" = animated_icon,
 		"icon_state" = animated_icon_state,
-		"pixel_x" = -pad_left,
-		"pixel_y" = -pad_down,
+		"direction_pixels" = direction_pixels,
 	)
 	if(length(cached_animated_icon_data) > 256)
 		cached_animated_icon_data.Cut()
@@ -465,8 +516,10 @@
 	animated_appearance.overlays.Cut()
 	animated_appearance.underlays.Cut()
 	animated_appearance.transform = null
-	animated_appearance.pixel_x = icon_data["pixel_x"]
-	animated_appearance.pixel_y = icon_data["pixel_y"]
+	cyborg_genital_active_animation_direction_pixels = icon_data["direction_pixels"]
+	var/list/animation_pixels = get_cyborg_genital_active_animation_pixels(owner_robot.dir)
+	animated_appearance.pixel_x = animation_pixels?["pixel_x"] || 0
+	animated_appearance.pixel_y = animation_pixels?["pixel_y"] || 0
 	return animated_appearance
 
 /proc/get_cyborg_genital_animation_timing_data(list/offsets, list/frame_delays)
@@ -1819,6 +1872,7 @@
 			return FALSE
 		if(holder.shown_image)
 			holder.shown_image.dir = new_dir
+			holder.apply_cyborg_genital_animation_direction_pixels(new_dir)
 		else
 			holder.regenerate_image()
 	return TRUE
@@ -2188,6 +2242,14 @@
 	var/list/base_anchor_offset = get_cyborg_genital_canvas_anchor_base_offset(icon)
 	return list(
 		"pixel_x" = round((base_anchor_offset?["pixel_x"] || 0) * body_scale),
+		"pixel_y" = round((base_anchor_offset?["pixel_y"] || 0) * body_scale),
+	)
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_live_canvas_anchor_offset()
+	var/body_scale = get_cyborg_genital_offset_scale()
+	var/list/base_anchor_offset = get_cyborg_genital_canvas_anchor_base_offset(icon)
+	return list(
+		"pixel_x" = round(base_anchor_offset?["pixel_x"] || 0),
 		"pixel_y" = round((base_anchor_offset?["pixel_y"] || 0) * body_scale),
 	)
 
@@ -3481,7 +3543,7 @@
 			overlay_subindex++
 
 
-/mob/living/silicon/robot/proc/make_cyborg_genital_overlay(organ_slot, dir_override = null, direction_key_override = null)
+/mob/living/silicon/robot/proc/make_cyborg_genital_overlay(organ_slot, dir_override = null, direction_key_override = null, use_preview_canvas_anchor = FALSE)
 	var/list/layout_entry = get_cyborg_genital_layout_entry(organ_slot)
 	var/direction_key = direction_key_override || (dir_override ? get_cyborg_genital_direction_key_for_dir(dir_override) : get_cyborg_genital_direction_key())
 	if(!is_cyborg_genital_visible_for_direction(organ_slot, layout_entry, direction_key))
@@ -3493,7 +3555,7 @@
 		return list()
 
 	var/list/base_offset = get_cyborg_genital_base_offsets(organ_slot, direction_key)
-	var/list/canvas_anchor_offset = get_cyborg_genital_canvas_anchor_offset()
+	var/list/canvas_anchor_offset = use_preview_canvas_anchor ? get_cyborg_genital_canvas_anchor_offset() : get_cyborg_genital_live_canvas_anchor_offset()
 	var/list/direction_entry = get_cyborg_genital_direction_entry(organ_slot, layout_entry, direction_key)
 	var/overlay_color = get_cyborg_genital_overlay_color(organ_slot, accessory, layout_entry)
 	var/list/appearances = list()

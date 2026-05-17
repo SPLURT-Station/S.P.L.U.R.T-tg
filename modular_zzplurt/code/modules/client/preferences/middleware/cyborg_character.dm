@@ -287,12 +287,19 @@
 		cache_order.Cut(1, 2)
 		icon_cache -= old_key
 
-/proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir, image_cache_key = null, list/icon_cache = null, list/icon_cache_order = null)
+/proc/cyborg_character_get_rendered_genital_icon_data(mob/living/silicon/robot/owner_robot, mutable_appearance/genital_overlay, organ_slot, overlay_subindex, render_dir, image_cache_key = null, list/icon_cache = null, list/icon_cache_order = null, list/animation_offsets = null, list/animation_frame_delays = null, animation_label = null)
 	if(!owner_robot || !genital_overlay)
 		return null
 
 	var/obj/effect/client_image_holder/cyborg_genital/preview_holder = new(owner_robot, owner_robot, image(genital_overlay), list(), organ_slot, overlay_subindex)
 	var/image/render_image = image(genital_overlay)
+	var/static_animation_pixel_x = 0
+	var/static_animation_pixel_y = 0
+	if(owner_robot.can_cyborg_genital_animate(organ_slot) && length(animation_offsets) && length(animation_frame_delays) && istext(animation_label))
+		var/list/first_animation_offset = animation_offsets[1]
+		if(islist(first_animation_offset))
+			static_animation_pixel_x = first_animation_offset["pixel_x"] || 0
+			static_animation_pixel_y = first_animation_offset["pixel_y"] || 0
 	render_image.dir = render_dir
 	render_image.loc = null
 	render_image.appearance_flags |= KEEP_APART | PIXEL_SCALE
@@ -301,8 +308,8 @@
 		return null
 
 	var/body_scale = owner_robot.get_cyborg_genital_offset_scale()
-	var/source_pixel_x = render_image.pixel_x || 0
-	var/source_pixel_y = render_image.pixel_y || 0
+	var/source_pixel_x = (render_image.pixel_x || 0) + static_animation_pixel_x
+	var/source_pixel_y = (render_image.pixel_y || 0) + static_animation_pixel_y
 	var/list/cached_icon_data = cyborg_character_get_cached_genital_icon_data(image_cache_key, icon_cache)
 	var/icon/transformed_icon = cached_icon_data?["icon"]
 	var/static_pixel_x = cached_icon_data?["pixel_x"] || 0
@@ -335,7 +342,7 @@
 				qdel(preview_holder)
 				return null
 			static_pixel_x += round((original_width - transformed_icon.Width()) / 2)
-			static_pixel_y += round((original_height - transformed_icon.Height()) / 2)
+			static_pixel_y += round((original_height - transformed_icon.Height()) / 2) + round(owner_robot.get_transform_translation_size(body_scale))
 
 		cyborg_character_set_cached_genital_icon_data(image_cache_key, list(
 			"icon" = transformed_icon,
@@ -344,7 +351,7 @@
 		), icon_cache, icon_cache_order)
 
 	var/rendered_pixel_x = source_pixel_x + static_pixel_x
-	var/rendered_pixel_y = body_scale == RESIZE_NORMAL ? (source_pixel_y + static_pixel_y) : (round(source_pixel_y * body_scale) + static_pixel_y)
+	var/rendered_pixel_y = source_pixel_y + static_pixel_y
 
 	var/list/rendered_data = list(
 		"icon" = transformed_icon,
@@ -532,7 +539,7 @@
 	if(cache_key in preview_cache)
 		return preview_cache[cache_key]
 
-	var/icon/preview_icon = icon(icon_file, icon_state, preview_dir, 1)
+	var/icon/preview_icon = icon(icon_file, icon_state, preview_dir, 1, FALSE)
 	if(!isicon(preview_icon))
 		preview_cache[cache_key] = null
 		return null
@@ -721,10 +728,12 @@
 	var/marker_point_y = 0
 	var/marker_anchor_x = 0
 	var/marker_anchor_y = 0
+	var/uses_marker_anchor = FALSE
 	if(islist(marker_point_offset))
 		marker_point_x = marker_point_offset["pixel_x"] || 0
 		marker_point_y = marker_point_offset["pixel_y"] || 0
 	if(islist(marker_anchor_offset))
+		uses_marker_anchor = TRUE
 		marker_anchor_x = marker_anchor_offset["pixel_x"] || 0
 		marker_anchor_y = marker_anchor_offset["pixel_y"] || 0
 		// Marker anchor offsets are stored in live mob tile space: marker pixel
@@ -736,6 +745,7 @@
 	return list(
 		"pixel_x" = pixel_x,
 		"pixel_y" = pixel_y,
+		"uses_marker_anchor" = uses_marker_anchor,
 		"direction_key" = cyborg_character_get_preview_direction_key(selected_state, selected_dir),
 	)
 
@@ -1780,8 +1790,11 @@
 	var/list/marker_data = catalog_host.get_cyborg_genital_animation_marker_data()
 	var/list/preview_canvas_anchor_offset = catalog_host.get_cyborg_genital_canvas_anchor_offset()
 	var/list/body_offset = cyborg_character_get_preview_body_offset(model_data, resolved_icon_state, preview_dir, marker_data)
-	var/preview_body_pixel_x = (body_offset["pixel_x"] || 0) + (catalog_host.pixel_w || 0) - (preview_canvas_anchor_offset?["pixel_x"] || 0)
-	var/preview_body_pixel_y = (body_offset["pixel_y"] || 0) + (catalog_host.pixel_z || 0) - (preview_canvas_anchor_offset?["pixel_y"] || 0)
+	var/body_offset_scale = body_offset["uses_marker_anchor"] ? selected_size : RESIZE_NORMAL
+	var/body_anchor_pixel_x = body_offset["uses_marker_anchor"] ? (preview_canvas_anchor_offset?["pixel_x"] || 0) : 0
+	var/body_anchor_pixel_y = body_offset["uses_marker_anchor"] ? (preview_canvas_anchor_offset?["pixel_y"] || 0) : 0
+	var/preview_body_pixel_x = round((body_offset["pixel_x"] || 0) * body_offset_scale) + (catalog_host.pixel_w || 0) - body_anchor_pixel_x
+	var/preview_body_pixel_y = round((body_offset["pixel_y"] || 0) * body_offset_scale) + (catalog_host.pixel_z || 0) - body_anchor_pixel_y
 	var/preview_base_width = model_data?["preview_width"] || ICON_SIZE_X
 	var/preview_base_height = model_data?["preview_height"] || ICON_SIZE_Y
 	if(canvas_size == 0)
@@ -1793,7 +1806,7 @@
 	else
 		preview_base_width = 96
 		preview_base_height = 96
-	var/icon/body_icon = icon(icon_file, resolved_icon_state, preview_dir, 1)
+	var/icon/body_icon = icon(icon_file, resolved_icon_state, preview_dir, 1, FALSE)
 	if(isicon(body_icon) && selected_size != RESIZE_NORMAL)
 		body_icon = catalog_host.scale_cyborg_icon_nearest_neighbor(body_icon, max(round(body_icon.Width() * selected_size), 1), max(round(body_icon.Height() * selected_size), 1))
 	var/body_width = isicon(body_icon) ? body_icon.Width() : ICON_SIZE_X
@@ -1822,15 +1835,24 @@
 		))
 
 	var/preview_direction_key = catalog_host.get_cyborg_genital_direction_key()
+	var/list/preview_idle_offsets
+	var/list/preview_idle_frame_delays
+	var/preview_animation_label
+	if(selected_state_token == "idle" && !catalog_host.robot_resting)
+		preview_idle_offsets = catalog_host.get_cyborg_genital_idle_offsets(preview_direction_key)
+		preview_idle_frame_delays = catalog_host.get_cyborg_automated_idle_frame_delays()
+		if(length(preview_idle_offsets) && length(preview_idle_frame_delays))
+			preview_animation_label = "idle"
 	for(var/organ_slot in catalog_host.get_cyborg_genital_slots())
-		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir, preview_direction_key)
+		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir, preview_direction_key, TRUE)
 		var/overlay_subindex = 0
 		for(var/mutable_appearance/genital_overlay as anything in base_genital_overlays)
 			overlay_subindex++
 			genital_overlay.plane = FLOAT_PLANE
 			var/genital_transform_key = genital_overlay.transform ? json_encode(matrix(genital_overlay.transform).tolist()) : ""
-			var/genital_image_cache_key = "genital|[organ_slot]|[overlay_subindex]|[preview_dir]|[selected_size]|[genital_overlay.icon]|[genital_overlay.icon_state]|[genital_overlay.color]|[genital_overlay.alpha]|[genital_transform_key]"
-			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir, genital_image_cache_key, genital_icon_cache, genital_icon_cache_order)
+			var/genital_animation_key = preview_animation_label ? "[preview_animation_label]|[json_encode(preview_idle_offsets)]|[json_encode(preview_idle_frame_delays)]" : ""
+			var/genital_image_cache_key = "genital|[organ_slot]|[overlay_subindex]|[preview_dir]|[selected_size]|[genital_overlay.icon]|[genital_overlay.icon_state]|[genital_overlay.color]|[genital_overlay.alpha]|[genital_transform_key]|[genital_animation_key]"
+			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir, genital_image_cache_key, genital_icon_cache, genital_icon_cache_order, preview_idle_offsets, preview_idle_frame_delays, preview_animation_label)
 			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
 			if(isicon(rendered_genital_icon))
 				var/genital_draw_x = preview_body_pixel_x + (rendered_genital_data["pixel_x"] || 0)
@@ -1853,7 +1875,15 @@
 	if(drawover_overlay)
 		drawover_overlay.plane = FLOAT_PLANE
 		var/image/drawover_render_image = image(drawover_overlay)
-		var/icon/drawover_flat_icon = getFlatIcon(drawover_render_image, preview_dir, no_anim = TRUE)
+		drawover_render_image.dir = preview_dir
+		drawover_render_image.pixel_x = 0
+		drawover_render_image.pixel_y = 0
+		drawover_render_image.transform = null
+		var/icon/drawover_flat_icon
+		if(drawover_render_image.icon)
+			drawover_flat_icon = icon(drawover_render_image.icon, drawover_render_image.icon_state, preview_dir, 1, FALSE)
+		if(!isicon(drawover_flat_icon))
+			drawover_flat_icon = getFlatIcon(drawover_render_image, preview_dir, no_anim = TRUE)
 		if(isicon(drawover_flat_icon))
 			if(selected_size != RESIZE_NORMAL)
 				drawover_flat_icon = catalog_host.scale_cyborg_icon_nearest_neighbor(drawover_flat_icon, max(round(drawover_flat_icon.Width() * selected_size), 1), max(round(drawover_flat_icon.Height() * selected_size), 1))
@@ -1870,7 +1900,7 @@
 				"z" = round((drawover_overlay.layer || ABOVE_MOB_LAYER) * 100000) + 50000,
 				"key" = "drawover",
 				"kind" = "drawover",
-				"image_cache_key" = "drawover|[drawover_overlay.icon]|[drawover_overlay.icon_state]|[preview_dir]|[selected_size]|[drawover_overlay.color]|[drawover_overlay.alpha]",
+				"image_cache_key" = "drawover|static|[drawover_overlay.icon]|[drawover_overlay.icon_state]|[preview_dir]|[selected_size]|[drawover_overlay.color]|[drawover_overlay.alpha]",
 			))
 
 	var/preview_pad_left = max(-preview_content_min_x, 0) + preview_margin
