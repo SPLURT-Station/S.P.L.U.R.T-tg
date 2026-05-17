@@ -1845,13 +1845,31 @@
 			preview_animation_label = "idle"
 	for(var/organ_slot in catalog_host.get_cyborg_genital_slots())
 		var/list/base_genital_overlays = catalog_host.make_cyborg_genital_overlay(organ_slot, preview_dir, preview_direction_key, TRUE)
+		var/list/genital_layout_entry = catalog_host.get_cyborg_genital_layout_entry(organ_slot)
+		var/list/genital_direction_entry = catalog_host.get_cyborg_genital_direction_entry(organ_slot, genital_layout_entry, preview_direction_key)
+		var/datum/sprite_accessory/genital/genital_accessory = catalog_host.get_cyborg_genital_sprite_accessory(organ_slot)
+		var/genital_sprite_suffix = catalog_host.get_cyborg_genital_overlay_sprite_suffix(organ_slot, genital_accessory)
+		var/genital_render_scale = catalog_host.uses_cyborg_direct_genital_overlay(genital_accessory) ? catalog_host.get_cyborg_direct_genital_render_scale(organ_slot, genital_accessory, genital_sprite_suffix, genital_layout_entry) : catalog_host.get_cyborg_genital_generic_render_scale(organ_slot, genital_layout_entry)
+		var/genital_layout_cache_key = json_encode(list(
+			"sprite" = catalog_host.get_cyborg_genital_sprite_choice(organ_slot),
+			"accessory" = "[genital_accessory?.type]",
+			"icon" = "[genital_accessory?.icon]",
+			"icon_state" = genital_accessory?.icon_state,
+			"suffix" = genital_sprite_suffix,
+			"direct" = catalog_host.uses_cyborg_direct_genital_overlay(genital_accessory),
+			"render_scale" = genital_render_scale,
+			"scale" = genital_layout_entry["scale"],
+			"rotation" = genital_layout_entry["rotation"],
+			"colors" = genital_layout_entry["colors"],
+			"direction" = genital_direction_entry,
+		))
 		var/overlay_subindex = 0
 		for(var/mutable_appearance/genital_overlay as anything in base_genital_overlays)
 			overlay_subindex++
 			genital_overlay.plane = FLOAT_PLANE
 			var/genital_transform_key = genital_overlay.transform ? json_encode(matrix(genital_overlay.transform).tolist()) : ""
 			var/genital_animation_key = preview_animation_label ? "[preview_animation_label]|[json_encode(preview_idle_offsets)]|[json_encode(preview_idle_frame_delays)]" : ""
-			var/genital_image_cache_key = "genital|[organ_slot]|[overlay_subindex]|[preview_dir]|[selected_size]|[genital_overlay.icon]|[genital_overlay.icon_state]|[genital_overlay.color]|[genital_overlay.alpha]|[genital_transform_key]|[genital_animation_key]"
+			var/genital_image_cache_key = "genital|[organ_slot]|[overlay_subindex]|[preview_dir]|[selected_size]|[genital_layout_cache_key]|[genital_overlay.icon]|[genital_overlay.icon_state]|[genital_overlay.color]|[genital_overlay.alpha]|[genital_transform_key]|[genital_animation_key]"
 			var/list/rendered_genital_data = cyborg_character_get_rendered_genital_icon_data(catalog_host, genital_overlay, organ_slot, overlay_subindex, preview_dir, genital_image_cache_key, genital_icon_cache, genital_icon_cache_order, preview_idle_offsets, preview_idle_frame_delays, preview_animation_label)
 			var/icon/rendered_genital_icon = rendered_genital_data?["icon"]
 			if(isicon(rendered_genital_icon))

@@ -12,11 +12,14 @@
 	var/list/cyborg_genital_active_animation_direction_pixels
 	var/cyborg_genital_organ_slot
 	var/cyborg_genital_overlay_subindex = 1
+	var/cyborg_genital_source_identity_key
+	var/list/cyborg_genital_directional_base_appearance_cache
 
-/obj/effect/client_image_holder/cyborg_genital/Initialize(mapload, mob/living/silicon/robot/new_owner, image/new_appearance, list/mobs_which_see_us, new_organ_slot = null, new_overlay_subindex = 1)
+/obj/effect/client_image_holder/cyborg_genital/Initialize(mapload, mob/living/silicon/robot/new_owner, image/new_appearance, list/mobs_which_see_us, new_organ_slot = null, new_overlay_subindex = 1, new_source_identity_key = null)
 	owner_robot = new_owner
 	cyborg_genital_organ_slot = new_organ_slot
 	cyborg_genital_overlay_subindex = max(new_overlay_subindex || 1, 1)
+	cyborg_genital_source_identity_key = new_source_identity_key
 	base_image_appearance = new_appearance
 	base_image_appearance_key = get_cyborg_genital_animation_base_key() || get_cyborg_genital_base_appearance_key(new_appearance)
 	image_appearance = new_appearance
@@ -102,7 +105,9 @@
 	shown_image.pixel_y = animation_pixels["pixel_y"] || 0
 	return TRUE
 
-/obj/effect/client_image_holder/cyborg_genital/proc/update_image_appearance(image/new_appearance, defer_active_animation_regenerate = FALSE)
+/obj/effect/client_image_holder/cyborg_genital/proc/update_image_appearance(image/new_appearance, defer_active_animation_regenerate = FALSE, new_source_identity_key = null)
+	cyborg_genital_directional_base_appearance_cache = null
+	cyborg_genital_source_identity_key = new_source_identity_key
 	var/new_appearance_key = get_cyborg_genital_animation_base_key() || get_cyborg_genital_base_appearance_key(new_appearance)
 	var/appearance_matches_active_base = !isnull(new_appearance_key) && new_appearance_key == base_image_appearance_key
 	base_image_appearance = new_appearance
@@ -123,14 +128,40 @@
 	regenerate_image()
 	return TRUE
 
+/obj/effect/client_image_holder/cyborg_genital/proc/fast_update_directional_base_appearance(image/new_appearance, new_source_identity_key = null)
+	if(!new_appearance)
+		return FALSE
+	for(var/mob/seer as anything in who_sees_us)
+		hide_image_from(seer)
+	if(!isnull(new_source_identity_key))
+		cyborg_genital_source_identity_key = new_source_identity_key
+	base_image_appearance = new_appearance
+	cache_cyborg_genital_base_appearance_data(new_appearance)
+	image_appearance = new_appearance
+	cyborg_genital_active_animation_key = null
+	cyborg_genital_active_animation_direction_pixels = null
+	shown_image = generate_image()
+	for(var/mob/seer as anything in who_sees_us)
+		show_image_to(seer)
+	return TRUE
+
 /obj/effect/client_image_holder/cyborg_genital/proc/get_cyborg_genital_directional_base_appearance(output_dir)
 	if(!owner_robot || isnull(cyborg_genital_organ_slot))
 		return null
 
+	var/cache_key = "[output_dir]"
+	if(!islist(cyborg_genital_directional_base_appearance_cache))
+		cyborg_genital_directional_base_appearance_cache = list()
+	if(cache_key in cyborg_genital_directional_base_appearance_cache)
+		return cyborg_genital_directional_base_appearance_cache[cache_key] || null
+
 	var/list/directional_overlays = owner_robot.make_cyborg_genital_overlay(cyborg_genital_organ_slot, output_dir)
 	if(cyborg_genital_overlay_subindex > length(directional_overlays))
+		cyborg_genital_directional_base_appearance_cache[cache_key] = FALSE
 		return null
-	return directional_overlays[cyborg_genital_overlay_subindex]
+	var/image/directional_appearance = directional_overlays[cyborg_genital_overlay_subindex]
+	cyborg_genital_directional_base_appearance_cache[cache_key] = directional_appearance || FALSE
+	return directional_appearance
 
 /obj/effect/client_image_holder/cyborg_genital/proc/get_cyborg_genital_animation_base_key()
 	if(!owner_robot || isnull(cyborg_genital_organ_slot))
@@ -146,12 +177,18 @@
 	if(!appearance_to_key)
 		return null
 
+	var/icon_width = 0
+	var/icon_height = 0
+	if(isicon(appearance_to_key.icon) && !isfile(appearance_to_key.icon) && "[appearance_to_key.icon]" == "/icon")
+		var/icon/appearance_icon = appearance_to_key.icon
+		icon_width = appearance_icon.Width()
+		icon_height = appearance_icon.Height()
 	var/transform_key = "identity"
 	if(appearance_to_key.transform)
 		var/matrix/appearance_transform = matrix(appearance_to_key.transform)
 		var/list/transform_values = appearance_transform.tolist()
 		transform_key = transform_values.Join(",")
-	return "[appearance_to_key.icon]-[appearance_to_key.icon_state]-dir[appearance_to_key.dir]-layer[appearance_to_key.layer]-plane[appearance_to_key.plane]-px[appearance_to_key.pixel_x]-py[appearance_to_key.pixel_y]-pw[appearance_to_key.pixel_w]-pz[appearance_to_key.pixel_z]-color[appearance_to_key.color]-alpha[appearance_to_key.alpha]-transform[transform_key]"
+	return "[cyborg_genital_source_identity_key]-[appearance_to_key.icon]-[appearance_to_key.icon_state]-[icon_width]x[icon_height]-dir[appearance_to_key.dir]-layer[appearance_to_key.layer]-plane[appearance_to_key.plane]-px[appearance_to_key.pixel_x]-py[appearance_to_key.pixel_y]-pw[appearance_to_key.pixel_w]-pz[appearance_to_key.pixel_z]-color[appearance_to_key.color]-alpha[appearance_to_key.alpha]-transform[transform_key]"
 
 /obj/effect/client_image_holder/cyborg_genital/proc/get_cyborg_genital_animation_identity_key(list/offsets, list/frame_delays, animation_label)
 	var/body_scale = owner_robot?.get_cyborg_genital_body_scale() || 1
@@ -591,6 +628,7 @@
 	var/list/cyborg_genital_arousal_states = list()
 	var/list/cyborg_genital_image_holders = list()
 	var/last_cyborg_genital_model_key
+	var/mutable_appearance/cyborg_side_drawover_overlay
 	var/cyborg_genital_idle_phase_start_time = 0
 	var/cyborg_genital_movement_active = FALSE
 	var/cyborg_genital_movement_signature
@@ -1761,8 +1799,6 @@
 	return FALSE
 
 /mob/living/silicon/robot/proc/build_cyborg_side_drawover_overlay()
-	if(!(dir & (EAST|WEST)))
-		return null
 	if(!has_cyborg_authored_drawover() || !has_cyborg_side_drawover_genitals())
 		return null
 
@@ -1792,6 +1828,30 @@
 	SET_PLANE_EXPLICIT(drawover_overlay, GAME_PLANE, src)
 	return drawover_overlay
 
+/mob/living/silicon/robot/proc/refresh_cyborg_side_drawover_overlay(new_dir = dir)
+	if(!has_cyborg_side_drawover_genitals())
+		if(cyborg_side_drawover_overlay)
+			cut_overlay(cyborg_side_drawover_overlay)
+			cyborg_side_drawover_overlay = null
+		return
+
+	if(cyborg_side_drawover_overlay)
+		cyborg_side_drawover_overlay.dir = new_dir
+		return
+
+	var/mutable_appearance/drawover_overlay = build_cyborg_side_drawover_overlay()
+	if(!drawover_overlay)
+		return
+
+	cyborg_side_drawover_overlay = drawover_overlay
+	cyborg_side_drawover_overlay.dir = new_dir
+	add_overlay(cyborg_side_drawover_overlay)
+
+/mob/living/silicon/robot/proc/clear_cyborg_side_drawover_overlay()
+	if(cyborg_side_drawover_overlay)
+		cut_overlay(cyborg_side_drawover_overlay)
+		cyborg_side_drawover_overlay = null
+
 /mob/living/silicon/robot/proc/sync_cyborg_image_holder_viewers(obj/effect/client_image_holder/holder, list/viewers)
 	if(!istype(holder) || !islist(viewers))
 		return FALSE
@@ -1819,26 +1879,30 @@
 
 	var/list/genital_overlay_entries = get_cyborg_genital_overlay_entries()
 	var/list/existing_genital_holders = cyborg_genital_image_holders
+	var/list/existing_genital_holders_by_identity = list()
+	for(var/obj/effect/client_image_holder/cyborg_genital/existing_holder as anything in existing_genital_holders)
+		if(!istype(existing_holder) || isnull(existing_holder.cyborg_genital_source_identity_key))
+			continue
+		existing_genital_holders_by_identity[existing_holder.cyborg_genital_source_identity_key] = existing_holder
 	var/list/new_genital_holders = list()
-	var/genital_index = 1
 	for(var/list/genital_overlay_entry as anything in genital_overlay_entries)
 		var/mutable_appearance/genital_overlay = genital_overlay_entry["appearance"]
-		var/obj/effect/client_image_holder/cyborg_genital/holder = genital_index <= existing_genital_holders.len ? existing_genital_holders[genital_index] : null
+		var/identity_key = genital_overlay_entry["identity_key"]
+		var/obj/effect/client_image_holder/cyborg_genital/holder = existing_genital_holders_by_identity[identity_key]
 		if(!istype(holder))
-			holder = new /obj/effect/client_image_holder/cyborg_genital(src, src, genital_overlay, viewers, genital_overlay_entry["organ_slot"], genital_overlay_entry["overlay_subindex"])
+			holder = new /obj/effect/client_image_holder/cyborg_genital(src, src, genital_overlay, viewers, genital_overlay_entry["organ_slot"], genital_overlay_entry["overlay_subindex"], identity_key)
 		else
 			holder.owner_robot = src
 			holder.cyborg_genital_organ_slot = genital_overlay_entry["organ_slot"]
 			holder.cyborg_genital_overlay_subindex = genital_overlay_entry["overlay_subindex"]
-			holder.update_image_appearance(genital_overlay, defer_active_animation_regenerate)
+			holder.update_image_appearance(genital_overlay, defer_active_animation_regenerate, identity_key)
 			if(!sync_cyborg_image_holder_viewers(holder, viewers))
-				holder = new /obj/effect/client_image_holder/cyborg_genital(src, src, genital_overlay, viewers, genital_overlay_entry["organ_slot"], genital_overlay_entry["overlay_subindex"])
+				holder = new /obj/effect/client_image_holder/cyborg_genital(src, src, genital_overlay, viewers, genital_overlay_entry["organ_slot"], genital_overlay_entry["overlay_subindex"], identity_key)
 		new_genital_holders += holder
-		genital_index++
 
-	while(genital_index <= length(existing_genital_holders))
-		qdel(existing_genital_holders[genital_index])
-		genital_index++
+	for(var/obj/effect/client_image_holder/cyborg_genital/old_holder as anything in existing_genital_holders)
+		if(!(old_holder in new_genital_holders))
+			qdel(old_holder)
 
 	cyborg_genital_image_holders = new_genital_holders
 
@@ -1851,16 +1915,13 @@
 	for(var/obj/effect/client_image_holder/cyborg_genital/holder as anything in cyborg_genital_image_holders)
 		if(!istype(holder))
 			return FALSE
-		if(holder.image_appearance == holder.base_image_appearance || !holder.cyborg_genital_active_animation_key)
-			return FALSE
 	return TRUE
 
 /mob/living/silicon/robot/proc/fast_refresh_cyborg_genital_direction(new_dir)
 	if(!can_fast_refresh_cyborg_genital_direction())
 		return FALSE
 
-	if(has_cyborg_side_drawover_genitals() && has_cyborg_authored_drawover())
-		update_appearance(UPDATE_OVERLAYS)
+	refresh_cyborg_side_drawover_overlay(new_dir)
 
 	var/list/viewers = get_cyborg_genital_viewers()
 	if(!length(viewers))
@@ -1870,11 +1931,14 @@
 	for(var/obj/effect/client_image_holder/cyborg_genital/holder as anything in cyborg_genital_image_holders)
 		if(!sync_cyborg_image_holder_viewers(holder, viewers))
 			return FALSE
-		if(holder.shown_image)
+		if(holder.cyborg_genital_active_animation_key && holder.image_appearance != holder.base_image_appearance && holder.shown_image)
 			holder.shown_image.dir = new_dir
 			holder.apply_cyborg_genital_animation_direction_pixels(new_dir)
-		else
-			holder.regenerate_image()
+			continue
+
+		var/image/directional_appearance = holder.get_cyborg_genital_directional_base_appearance(new_dir)
+		if(!holder.fast_update_directional_base_appearance(directional_appearance))
+			return FALSE
 	return TRUE
 
 
@@ -2084,7 +2148,7 @@
 	var/priority = round(sanitize_float(direction_entry?["priority"], 1, 10, 1, 5))
 	if(base_layer < ABOVE_MOB_LAYER)
 		return base_layer + ((10 - priority) * 0.004)
-	var/base_tiebreaker = clamp(base_layer - ABOVE_MOB_LAYER, 0, 0.0009)
+	var/base_tiebreaker = clamp((base_layer - ABOVE_MOB_LAYER) * 0.1, 0, 0.0039)
 	return ABOVE_MOB_LAYER + 0.01 + ((10 - priority) * 0.004) + base_tiebreaker
 
 /mob/living/silicon/robot/proc/sanitize_cyborg_genital_layout_entry(list/entry)
@@ -2970,6 +3034,57 @@
 
 	return getFlatIcon(composite_image, resolved_dir)
 
+/mob/living/silicon/robot/proc/build_cyborg_generic_genital_flat_icon(organ_slot, datum/sprite_accessory/genital/accessory, sprite_suffix, list/layout_entry, overlay_color, dir_override = null)
+	var/overlay_builder_type = get_cyborg_genital_overlay_builder_type(organ_slot)
+	if(!overlay_builder_type || !accessory?.icon || !sprite_suffix)
+		return null
+
+	var/datum/bodypart_overlay/mutant/genital/overlay_builder = new overlay_builder_type
+	overlay_builder.sprite_datum = accessory
+	overlay_builder.sprite_suffix = sprite_suffix
+	overlay_builder.draw_color = overlay_color
+
+	if(!SSaccessories.cached_mutant_icon_files[accessory.icon])
+		SSaccessories.cached_mutant_icon_files[accessory.icon] = icon_states(new /icon(accessory.icon))
+	var/list/cached_icon_states = SSaccessories.cached_mutant_icon_files[accessory.icon]
+	var/list/color_layer_names = overlay_builder.get_color_layer_names(sprite_suffix)
+	var/list/resolved_colors = get_cyborg_genital_overlay_colors(organ_slot, accessory, layout_entry)
+	var/resolved_dir = dir_override || dir
+	var/icon/composite_icon = icon('icons/blanks/32x32.dmi', "nothing")
+	var/added_overlay = FALSE
+	for(var/body_layer in accessory.relevent_layers)
+		var/external_layer = get_cyborg_external_overlay_layer(body_layer)
+		if(!external_layer)
+			continue
+		var/image_layer = overlay_builder.bitflag_to_layer(external_layer)
+		if(!(external_layer & overlay_builder.layers))
+			continue
+
+		var/layer_text = overlay_builder.mutant_bodyparts_layertext(image_layer)
+		var/plain_state = "m_[overlay_builder.feature_key]_[sprite_suffix]_[layer_text]"
+		if(plain_state in cached_icon_states)
+			var/icon/plain_overlay = icon(accessory.icon, plain_state, resolved_dir, 1, FALSE)
+			if(accessory.color_src)
+				plain_overlay.Blend(overlay_color, ICON_MULTIPLY)
+			composite_icon.Blend(plain_overlay, ICON_OVERLAY)
+			added_overlay = TRUE
+			continue
+
+		for(var/layer_index in color_layer_names)
+			var/color_layer = color_layer_names[layer_index]
+			var/color_state = "[plain_state]_[color_layer]"
+			if(!(color_state in cached_icon_states))
+				continue
+			var/icon/color_overlay = icon(accessory.icon, color_state, resolved_dir, 1, FALSE)
+			color_overlay.Blend(resolved_colors[text2num(layer_index)] || "#ffffff", ICON_MULTIPLY)
+			composite_icon.Blend(color_overlay, ICON_OVERLAY)
+			added_overlay = TRUE
+
+	qdel(overlay_builder)
+	if(!added_overlay)
+		return null
+	return composite_icon
+
 //Nuts so fat my ass had to add my own fucking nearest neighbor.
 /mob/living/silicon/robot/proc/scale_cyborg_icon_nearest_neighbor(icon/source_icon, target_width, target_height)
 	if(!source_icon || target_width < 1 || target_height < 1)
@@ -3019,6 +3134,29 @@
 
 	return cached_scaled_icons[cache_key]
 
+/mob/living/silicon/robot/proc/get_cyborg_generic_genital_scaled_icon(organ_slot, datum/sprite_accessory/genital/accessory, sprite_suffix, list/layout_entry, overlay_color, render_scale, dir_override = null)
+	var/resolved_dir = dir_override || dir
+	var/list/resolved_colors = get_cyborg_genital_overlay_colors(organ_slot, accessory, layout_entry)
+	var/cache_key = "[accessory?.icon]-[organ_slot]-[sprite_suffix]-[resolved_dir]-[resolved_colors[1]]-[resolved_colors[2]]-[resolved_colors[3]]-[render_scale]"
+	var/static/list/cached_scaled_icons = list()
+	if(cached_scaled_icons[cache_key])
+		return cached_scaled_icons[cache_key]
+
+	var/icon/flat_icon = build_cyborg_generic_genital_flat_icon(organ_slot, accessory, sprite_suffix, layout_entry, overlay_color, resolved_dir)
+	if(!flat_icon)
+		return null
+
+	var/list/icon_dimensions = get_icon_dimensions(flat_icon)
+	var/target_width = max(round((icon_dimensions?["width"] || ICON_SIZE_X) * render_scale), 1)
+	var/target_height = max(round((icon_dimensions?["height"] || ICON_SIZE_Y) * render_scale), 1)
+	if(target_width != (icon_dimensions?["width"] || ICON_SIZE_X) || target_height != (icon_dimensions?["height"] || ICON_SIZE_Y))
+		flat_icon = scale_cyborg_icon_nearest_neighbor(flat_icon, target_width, target_height)
+
+	if(length(cached_scaled_icons) > 256)
+		cached_scaled_icons.Cut()
+	cached_scaled_icons[cache_key] = flat_icon
+	return cached_scaled_icons[cache_key]
+
 /mob/living/silicon/robot/proc/make_cyborg_direct_genital_overlay(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override = null, list/direction_entry = null)
 	var/resolved_dir = dir_override || dir
 	var/list/direct_overlays = list()
@@ -3041,6 +3179,25 @@
 		direct_overlays += genital_overlay
 
 	return direct_overlays
+
+/mob/living/silicon/robot/proc/make_cyborg_generic_direct_style_genital_overlay(organ_slot, datum/sprite_accessory/genital/accessory, list/layout_entry, sprite_suffix, overlay_color, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override = null, list/direction_entry = null)
+	var/resolved_dir = dir_override || dir
+	var/icon/flat_icon = get_cyborg_generic_genital_scaled_icon(organ_slot, accessory, sprite_suffix, layout_entry, overlay_color, render_scale, resolved_dir)
+	if(!flat_icon)
+		return list()
+
+	var/display_layer = get_cyborg_direct_genital_display_layer_for_group(organ_slot, null)
+	var/mutable_appearance/genital_overlay = mutable_appearance(flat_icon, "", layer = get_cyborg_genital_priority_layer(display_layer, direction_entry))
+	genital_overlay.alpha = alpha
+	genital_overlay.dir = resolved_dir
+	genital_overlay.appearance_flags |= PIXEL_SCALE | KEEP_APART
+	genital_overlay.pixel_x = effective_pixel_x
+	genital_overlay.pixel_y = effective_pixel_y
+	if(rotation)
+		var/matrix/rotation_transform = matrix()
+		rotation_transform.Turn(rotation)
+		genital_overlay.transform = rotation_transform
+	return list(genital_overlay)
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_base_offsets(organ_slot, direction_key_override = null)
 	var/list/automated_offsets = get_cyborg_genital_automated_base_offsets(organ_slot, direction_key_override)
@@ -3516,14 +3673,45 @@
 
 /mob/living/silicon/robot/update_overlays()
 	. = ..()
-	var/mutable_appearance/drawover_overlay = build_cyborg_side_drawover_overlay()
-	if(drawover_overlay)
-		. += drawover_overlay
+	cyborg_side_drawover_overlay = build_cyborg_side_drawover_overlay()
+	if(cyborg_side_drawover_overlay)
+		. += cyborg_side_drawover_overlay
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_overlays()
 	. = list()
 	for(var/list/overlay_entry as anything in get_cyborg_genital_overlay_entries())
 		. += overlay_entry["appearance"]
+
+/mob/living/silicon/robot/proc/get_cyborg_genital_overlay_identity_key(organ_slot, overlay_subindex = 1, dir_override = null, direction_key_override = null)
+	var/list/layout_entry = get_cyborg_genital_layout_entry(organ_slot)
+	var/direction_key = direction_key_override || (dir_override ? get_cyborg_genital_direction_key_for_dir(dir_override) : get_cyborg_genital_direction_key())
+	var/datum/sprite_accessory/genital/accessory = get_cyborg_genital_sprite_accessory(organ_slot)
+	var/sprite_suffix = get_cyborg_genital_overlay_sprite_suffix(organ_slot, accessory)
+	var/list/direction_entry = get_cyborg_genital_direction_entry(organ_slot, layout_entry, direction_key)
+	var/render_scale = uses_cyborg_direct_genital_overlay(accessory) ? get_cyborg_direct_genital_render_scale(organ_slot, accessory, sprite_suffix, layout_entry) : get_cyborg_genital_generic_render_scale(organ_slot, layout_entry)
+	return json_encode(list(
+		"organ_slot" = organ_slot,
+		"overlay_subindex" = overlay_subindex,
+		"sprite" = get_cyborg_genital_sprite_choice(organ_slot),
+		"accessory" = "[accessory?.type]",
+		"icon" = "[accessory?.icon]",
+		"icon_state" = accessory?.icon_state,
+		"suffix" = sprite_suffix,
+		"direct" = uses_cyborg_direct_genital_overlay(accessory),
+		"render_scale" = render_scale,
+		"body_scale" = get_cyborg_genital_body_scale(),
+		"offset_scale" = get_cyborg_genital_offset_scale(),
+		"dir" = dir_override || dir,
+		"direction_key" = direction_key,
+		"layout" = list(
+			"pixel_x" = layout_entry["pixel_x"],
+			"pixel_y" = layout_entry["pixel_y"],
+			"rotation" = layout_entry["rotation"],
+			"scale" = layout_entry["scale"],
+			"colors" = layout_entry["colors"],
+		),
+		"direction" = direction_entry,
+	))
 
 /mob/living/silicon/robot/proc/get_cyborg_genital_overlay_entries(dir_override = null)
 	. = list()
@@ -3539,6 +3727,7 @@
 				"appearance" = genital_overlay,
 				"organ_slot" = organ_slot,
 				"overlay_subindex" = overlay_subindex,
+				"identity_key" = get_cyborg_genital_overlay_identity_key(organ_slot, overlay_subindex, dir_override),
 			))
 			overlay_subindex++
 
@@ -3558,7 +3747,6 @@
 	var/list/canvas_anchor_offset = use_preview_canvas_anchor ? get_cyborg_genital_canvas_anchor_offset() : get_cyborg_genital_live_canvas_anchor_offset()
 	var/list/direction_entry = get_cyborg_genital_direction_entry(organ_slot, layout_entry, direction_key)
 	var/overlay_color = get_cyborg_genital_overlay_color(organ_slot, accessory, layout_entry)
-	var/list/appearances = list()
 	var/offset_scale = get_cyborg_genital_offset_scale()
 
 	var/render_scale
@@ -3568,11 +3756,6 @@
 		render_scale = get_cyborg_genital_generic_render_scale(organ_slot, layout_entry)
 
 	var/rotation = layout_entry["rotation"] + direction_entry["rotation"]
-	var/matrix/genital_transform = matrix()
-	if(!uses_cyborg_direct_genital_overlay(accessory))
-		genital_transform.Scale(render_scale, render_scale)
-	if(rotation)
-		genital_transform.Turn(rotation)
 
 	var/effective_pixel_x = ((base_offset["pixel_x"] + layout_entry["pixel_x"] + direction_entry["pixel_x"]) * offset_scale) + (canvas_anchor_offset?["pixel_x"] || 0)
 	var/effective_pixel_y = ((base_offset["pixel_y"] + layout_entry["pixel_y"] + direction_entry["pixel_y"]) * offset_scale) + (canvas_anchor_offset?["pixel_y"] || 0)
@@ -3580,34 +3763,7 @@
 	if(uses_cyborg_direct_genital_overlay(accessory))
 		return make_cyborg_direct_genital_overlay(organ_slot, accessory, layout_entry, sprite_suffix, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override, direction_entry)
 
-	var/overlay_builder_type = get_cyborg_genital_overlay_builder_type(organ_slot)
-	if(!overlay_builder_type)
-		return list()
-
-	var/datum/bodypart_overlay/mutant/genital/overlay_builder = new overlay_builder_type
-	overlay_builder.sprite_datum = accessory
-	overlay_builder.sprite_suffix = sprite_suffix
-	overlay_builder.draw_color = overlay_color
-
-	for(var/body_layer in accessory.relevent_layers)
-		var/external_layer = get_cyborg_external_overlay_layer(body_layer)
-		if(!external_layer)
-			continue
-		var/display_layer = get_cyborg_genital_display_layer(body_layer, organ_slot)
-		var/list/generated_overlays = overlay_builder.get_overlay(external_layer, null)
-		if(!length(generated_overlays))
-			continue
-		for(var/mutable_appearance/genital_overlay as anything in generated_overlays)
-			genital_overlay.appearance_flags |= KEEP_APART
-			genital_overlay.layer = get_cyborg_genital_priority_layer(display_layer, direction_entry)
-			if(dir_override)
-				genital_overlay.dir = dir_override
-			genital_overlay.pixel_x = effective_pixel_x
-			genital_overlay.pixel_y = effective_pixel_y
-			genital_overlay.transform = genital_transform
-			appearances += genital_overlay
-
-	return appearances
+	return make_cyborg_generic_direct_style_genital_overlay(organ_slot, accessory, layout_entry, sprite_suffix, overlay_color, render_scale, rotation, effective_pixel_x, effective_pixel_y, dir_override, direction_entry)
 
 /mob/living/silicon/robot/setDir(newdir)
 	var/old_dir = dir
