@@ -47,14 +47,12 @@
 /area/station/security/prison/safe)
 "tc" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/effect/turf_decal/tile/red/real_red/half{
-	dir = 3
-	},
 /obj/structure/chair/pillow_small,
 /obj/item/toy/plush/snakeplushie{
 	name = "snek med plushie";
 	desc = "An adorable stuffed toy that resembles a snake. This one comes with 3 years of med school debt and a tiny plastic badge."
 	},
+/obj/effect/turf_decal/tile/red/real_red/half,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/medical)
 "uG" = (
@@ -142,9 +140,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/security/medical)
 "Vo" = (
-/obj/effect/turf_decal/tile/red/real_red/half{
-	dir = 3
-	},
+/obj/effect/turf_decal/tile/red/real_red/half,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/medical)
 "Wf" = (
