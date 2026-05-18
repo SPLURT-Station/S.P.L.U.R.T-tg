@@ -208,3 +208,19 @@
 	attack_verb_simple = list("perform", "heal", "cheese")
 	attack_verb_continuous = list("performs", "heals", "cheeses")
 	squeak_override = list('modular_zzplurt/sound/voice/yip.ogg' = 19, 'modular_zubbers/sound/alerts/violet.ogg' = 1)
+
+/obj/item/toy/plush/fox_protogen
+	name = "\improper Silly Protogen Plushie"
+	desc = "A silly looking fox protogen made to be extremly squishable with folding tails, the inside being fluffier then the outside, seems to pair wonderfully with the Suspicious Protogen Plushie."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "foxproot"
+	gender = FEMALE
+	squeak_override = list('modular_zzplurt/sound/voice/yap.ogg' = 1)
+
+/obj/item/toy/plush/fuckassrabit
+	name = "\improper a fuck ass rabitt plushie"
+	desc = "You get the unbridled sense of superiority and vanity from this plushie"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "dumbrabbit"
+	gender = MALE
+	squeak_override = list('sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1)
