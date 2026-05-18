@@ -218,9 +218,9 @@
 	squeak_override = list('modular_zzplurt/sound/voice/yap.ogg' = 1)
 
 /obj/item/toy/plush/fuckassrabit
-	name = "\improper a fuck ass rabitt plushie"
+	name = "\improper Wabbit of Gier"
 	desc = "You get the unbridled sense of superiority and vanity from this plushie"
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
 	icon_state = "dumbrabbit"
 	gender = MALE
-	squeak_override = list('sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1)
+	squeak_override = list('modular_zzplurt/sound/items/donorplushsound.ogg' = 1)
