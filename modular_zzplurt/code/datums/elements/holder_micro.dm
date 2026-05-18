@@ -171,6 +171,12 @@
 	visible_message(span_warning("[src] escapes [carrier]!"))
 	release()
 
+/obj/item/mob_holder/micro/relaymove(mob/living/mover, direction)
+	if(mover==held_mob)
+		return
+	return ..() //This prevents movemement while being held
+	// This looks like a bandaid solution but it works at least; Would probably be better off in its parent file
+
 /obj/item/mob_holder/micro/assume_air(datum/gas_mixture/giver)
 	var/turf/location = get_turf(src)
 	return location.assume_air(giver)
@@ -211,7 +217,7 @@
 								null,
 								list(M)
 				)
-				to_chat(M, span_userdanger("[user] slams their fist down on you!")) // Seems I was wrong, I can do better
+				to_chat(M, span_userdanger("[user] slams their fist down on you!"))
 				playsound(loc, 'sound/items/weapons/punch1.ogg', 50, 1)
 				M.adjust_brute_loss(5)
 			if("disarm")
