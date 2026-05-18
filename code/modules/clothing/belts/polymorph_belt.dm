@@ -76,7 +76,8 @@
 	if (!target_mob.compare_sentience_type(SENTIENCE_ORGANIC))
 		balloon_alert(user, "target too intelligent!")
 		return TRUE
-	if (stored_mob_type == target_mob.type)
+	var/mob_type = check_mob_type(target_mob) // SPLURT EDIT - Check mob type
+	if (stored_mob_type == mob_type)
 		balloon_alert(user, "already scanned!")
 		return TRUE
 	if (DOING_INTERACTION_WITH_TARGET(user, target_mob))
@@ -87,7 +88,7 @@
 	if (!do_after(user, delay = 5 SECONDS, target = target_mob))
 		return TRUE
 	visible_message(span_notice("[user] scans [target_mob] with [src]."))
-	stored_mob_type = target_mob.type
+	stored_mob_type = mob_type
 	update_transform_action()
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
