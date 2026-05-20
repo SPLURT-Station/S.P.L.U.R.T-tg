@@ -102,8 +102,9 @@
 	color = "#713333";
 	dir = 8
 	},
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -3
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -3;
+	pixel_y = 0
 	},
 /turf/open/floor/carpet,
 /area/misc/condo)
@@ -224,8 +225,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 6
 	},
-/obj/structure/window/spawner/directional/east{
-	pixel_x = 3
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 3;
+	pixel_y = 0
 	},
 /turf/open/floor/carpet/black,
 /area/misc/condo)
@@ -330,6 +332,12 @@
 /obj/item/paint/anycolor{
 	pixel_x = 12;
 	pixel_y = 12
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional{
+	dir = 6;
+	pixel_x = 3;
+	pixel_y = -3;
+	layer = 3.3
 	},
 /turf/open/floor/carpet/black,
 /area/misc/condo)
@@ -1010,11 +1018,6 @@
 	dir = 1
 	},
 /obj/structure/table/wood/fancy/black,
-/obj/structure/decorative/shelf/alcohol_assortment{
-	pixel_y = 29;
-	icon_state = "empty_shelf_1";
-	anchored = 1
-	},
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_x = -8;
 	pixel_y = 13
@@ -1030,6 +1033,10 @@
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = -16;
 	pixel_y = 7
+	},
+/obj/structure/decorative/shelf/alcohol_assortment{
+	pixel_y = 29;
+	anchored = 1
 	},
 /turf/open/floor/vault/rock,
 /area/misc/condo)
@@ -1226,6 +1233,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	color = "#713333";
 	dir = 10
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional{
+	dir = 9;
+	pixel_x = -3;
+	pixel_y = 3;
+	layer = 3.3
 	},
 /turf/open/floor/carpet,
 /area/misc/condo)
@@ -2083,6 +2096,12 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional{
+	dir = 5;
+	pixel_x = 3;
+	pixel_y = 3;
+	layer = 3.3
+	},
 /turf/open/floor/wood/tile,
 /area/misc/condo)
 "sn" = (
@@ -2122,17 +2141,18 @@
 	color = "#713333";
 	dir = 9
 	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional{
+	dir = 10;
+	pixel_x = -3;
+	pixel_y = -3;
+	layer = 3.3
+	},
 /turf/open/floor/carpet,
 /area/misc/condo)
 "sF" = (
-/obj/machinery/vending/boozeomat{
-	all_products_free = 1;
-	onstation = 0;
-	scan_id = 0;
-	pixel_x = 32
-	},
 /obj/machinery/biogenerator/lizard_gas_smartfridge{
-	biomass = 10000
+	biomass = 10000;
+	color = "#999999"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/condo)
@@ -2206,6 +2226,10 @@
 	},
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	pixel_x = 0;
+	pixel_y = 3
 	},
 /turf/open/floor/wood/tile,
 /area/misc/condo)
@@ -2479,14 +2503,14 @@
 	anchored = 1
 	},
 /obj/item/serviette/colonial{
-	pixel_x = 5;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/cup/soda_cans/skyrat/ginger_beer{
 	pixel_x = 6;
-	pixel_y = 5
+	pixel_y = 0
 	},
 /obj/structure/marker_beacon/olive,
+/obj/item/reagent_containers/cup/soda_cans/gem_grape_soda{
+	pixel_x = -7;
+	pixel_y = 2
+	},
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "vP" = (
@@ -2577,6 +2601,12 @@
 /obj/structure/marker_beacon/bronze,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
 	pixel_y = -26
+	},
+/obj/machinery/vending/boozeomat{
+	all_products_free = 1;
+	onstation = 0;
+	scan_id = 0;
+	pixel_x = -32
 	},
 /turf/open/floor/vault/rock,
 /area/misc/condo)
@@ -3124,9 +3154,10 @@
 /turf/open/floor/wood/tile,
 /area/misc/condo)
 "Bk" = (
-/obj/structure/window/spawner/directional/north,
 /obj/structure/flora/bush/jungle/c/style_3,
-/turf/open/water/jungle/biodome,
+/turf/open/water/jungle/biodome{
+	name = "Aquarium Water"
+	},
 /area/misc/condo)
 "Bn" = (
 /obj/effect/turf_decal/shuttle/exploration/echidna,
@@ -3216,6 +3247,10 @@
 	density = 1;
 	pixel_y = -28;
 	pixel_x = -16
+	},
+/obj/item/ph_booklet{
+	pixel_x = -12;
+	pixel_y = 3
 	},
 /turf/open/floor/stone,
 /area/misc/condo)
@@ -3975,8 +4010,9 @@
 	pixel_y = -8;
 	name = "obviously off-grid wooden chair"
 	},
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -3
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -3;
+	pixel_y = 0
 	},
 /turf/open/floor/carpet,
 /area/misc/condo)
@@ -4342,25 +4378,13 @@
 	pixel_y = -28;
 	pixel_x = -16
 	},
-/obj/structure/decorative{
-	anchored = 1;
-	name = "sword";
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi';
-	icon_state = "katana";
-	dir = 8;
-	desc = "Secretly a mimic.";
-	pixel_x = -1;
-	pixel_y = 4
+/obj/item/book/manual/wiki/chemistry{
+	pixel_x = 6;
+	pixel_y = 3
 	},
-/obj/structure/decorative{
-	anchored = 1;
-	name = "sword";
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi';
-	icon_state = "katana";
-	dir = 8;
-	desc = "Secretly a mimic.";
-	pixel_x = -9;
-	pixel_y = 5
+/obj/item/book/manual/wiki/plumbing{
+	pixel_x = -7;
+	pixel_y = 3
 	},
 /turf/open/floor/stone,
 /area/misc/condo)
@@ -4548,14 +4572,15 @@
 /turf/open/floor/wood/tile,
 /area/misc/condo)
 "Mg" = (
-/obj/structure/window/spawner/directional/south,
 /obj/structure/flora/bush/jungle/c/style_2,
 /obj/structure/flora/bush/reed,
 /obj/structure/marker_beacon/jade{
 	pixel_x = 0;
 	pixel_y = 16
 	},
-/turf/open/water/jungle/biodome,
+/turf/open/water/jungle/biodome{
+	name = "Aquarium Water"
+	},
 /area/misc/condo)
 "Mh" = (
 /obj/effect/light_emitter/interlink{
@@ -6293,8 +6318,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/structure/window/spawner/directional/east{
-	pixel_x = 3
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 3;
+	pixel_y = 0
 	},
 /turf/open/floor/carpet/black,
 /area/misc/condo)
@@ -6375,6 +6401,10 @@
 "Yy" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/end,
 /obj/effect/turf_decal/siding/wood/end,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	pixel_x = 0;
+	pixel_y = -3
+	},
 /turf/open/floor/wood/tile,
 /area/misc/condo)
 "YE" = (
