@@ -281,10 +281,12 @@
 	if(isturf(inside.loc))
 		// storage items block light, also don't be moving into a qdeleted item
 		if(QDELETED(inside) || istype(inside, /obj/item/storage))
+			if(overlay_lighting_flags & LIGHTING_ON)
+				turn_off()
 			set_holder(null)
+			return
 		else
 			set_holder(inside)
-		return
 	set_holder(null)
 
 
