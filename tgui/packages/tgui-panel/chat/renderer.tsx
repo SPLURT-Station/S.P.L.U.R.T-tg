@@ -395,6 +395,13 @@ class ChatRenderer {
         for (let i = 0; i < nodes.length; i++) {
           const childNode = nodes[i];
           const targetName = childNode.getAttribute('data-component');
+          //SPLURT ADDITION START: Better TGUI error handling
+          const Element = TGUI_CHAT_COMPONENTS[targetName];
+          if (!Element) {
+            logger.warn(`Unknown chat component "${targetName}"`);
+            continue;
+          }
+          //SPLURT ADDITION END
           // Let's pull out the attibute info we need
           const outputProps = {};
           for (let j = 0; j < childNode.attributes.length; j++) {
@@ -417,13 +424,18 @@ class ChatRenderer {
             let canon_name = attribute.nodeName.replace('data-', '');
             // html attributes don't support upper case chars, so we need to map
             canon_name = TGUI_CHAT_ATTRIBUTES_TO_PROPS[canon_name];
+            //SPLURT ADDITION START: Better TGUI error handling
+            if (!canon_name) {
+              continue;
+            }
+            //SPLURT ADDITION END
             outputProps[canon_name] = working_value;
           }
           const oldHtml = { __html: childNode.innerHTML };
           while (childNode.firstChild) {
             childNode.removeChild(childNode.firstChild);
           }
-          const Element = TGUI_CHAT_COMPONENTS[targetName];
+          //const Element = TGUI_CHAT_COMPONENTS[targetName]; SPLURT REMOVAL, defined earlier now.
 
           const reactRoot = createRoot(childNode);
 
