@@ -333,23 +333,14 @@
 	pixel_x = 12;
 	pixel_y = 12
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional{
+/obj/structure/flora/bush/large{
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
+	icon_state = "pwindow";
 	dir = 6;
 	pixel_x = 3;
 	pixel_y = -3
 	},
 /turf/open/floor/carpet/black,
-/area/misc/condo)
-"fc" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 4;
-	color = "#515152"
-	},
-/obj/item/toy/cattoy{
-	pixel_x = 1;
-	pixel_y = -2
-	},
-/turf/open/floor/wood/large,
 /area/misc/condo)
 "fe" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1233,10 +1224,12 @@
 	color = "#713333";
 	dir = 10
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional{
-	dir = 9;
-	pixel_x = -3;
-	pixel_y = 3
+/obj/structure/flora/bush/large{
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
+	icon_state = "pwindow";
+	dir = 6;
+	pixel_x = -27;
+	pixel_y = 27
 	},
 /turf/open/floor/carpet,
 /area/misc/condo)
@@ -2094,10 +2087,12 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional{
-	dir = 5;
+/obj/structure/flora/bush/large{
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
+	icon_state = "pwindow";
+	dir = 6;
 	pixel_x = 3;
-	pixel_y = 3
+	pixel_y = 27
 	},
 /turf/open/floor/wood/tile,
 /area/misc/condo)
@@ -2138,9 +2133,11 @@
 	color = "#713333";
 	dir = 9
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional{
-	dir = 10;
-	pixel_x = -3;
+/obj/structure/flora/bush/large{
+	icon = 'icons/obj/mining_zones/survival_pod.dmi';
+	icon_state = "pwindow";
+	dir = 6;
+	pixel_x = -27;
 	pixel_y = -3
 	},
 /turf/open/floor/carpet,
@@ -5160,7 +5157,6 @@
 /turf/open/floor/carpet/black,
 /area/misc/condo)
 "Pz" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/open/floor/wood/stairs/right,
 /area/misc/condo)
 "PB" = (
@@ -5375,9 +5371,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/condo)
 "Rb" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
 /obj/structure/railing{
 	dir = 5;
 	color = "#5d341f";
@@ -5385,6 +5378,12 @@
 	pixel_y = 3
 	},
 /obj/structure/flora/bush/fullgrass/style_3,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
 /turf/open/floor/grass,
 /area/misc/condo)
 "Ri" = (
@@ -6762,7 +6761,7 @@ BI
 to
 aA
 zn
-fc
+CL
 RY
 JH
 cs
