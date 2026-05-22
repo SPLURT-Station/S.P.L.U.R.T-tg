@@ -398,7 +398,11 @@ class ChatRenderer {
           //SPLURT ADDITION START: Better TGUI error handling
           const Element = TGUI_CHAT_COMPONENTS[targetName];
           if (!Element) {
-            logger.warn(`Unknown chat component "${targetName}"`);
+            logger.error(
+              `Error: unknown chat component "${targetName}" in message`,
+              message,
+            );
+            childNode.removeAttribute('data-component');
             continue;
           }
           //SPLURT ADDITION END
