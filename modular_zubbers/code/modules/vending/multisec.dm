@@ -10,6 +10,7 @@
 			"name" = "Red",
 			"icon" = "shield",
 			"products" = list(
+					/* // SPLURT EDIT - REDSEC OVERRIDE
 					/obj/item/clothing/suit/hooded/wintercoat/security/redsec = 6,
 					/obj/item/storage/backpack/security/redsec = 6,
 					/obj/item/storage/backpack/satchel/sec/redsec = 6,
@@ -78,7 +79,7 @@
 					/obj/item/clothing/suit/armor/vest/viro/softshell = 6,
 					/obj/item/clothing/head/sec/viro = 6,
 					/obj/item/clothing/head/sec/viro/beanie = 6,
-
+					*/
 				),
 			),
 		list(
@@ -116,10 +117,12 @@
 		),
 	)
 	premium = list(
+					/* // SPLURT REMOVAL - Moved to main category
 					/obj/item/clothing/under/rank/security/officer/formal = 6,
 					/obj/item/clothing/suit/jacket/officer/blue = 6,
 					/obj/item/clothing/head/beret/sec/navyofficer = 6,
 					/obj/item/clothing/suit/jacket/officer/tan = 6,
+					*/
 					/obj/item/clothing/accessory/badge/holo = 10, //I know there's a box of them but, why not have more, eh?
 					/obj/item/clothing/accessory/badge/holo/cord = 10,
 					/obj/item/clothing/head/helmet/blueshirt = 3,
