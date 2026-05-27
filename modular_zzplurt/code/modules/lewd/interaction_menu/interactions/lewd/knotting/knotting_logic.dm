@@ -64,7 +64,7 @@
 		return FALSE
 	// Need a way to see if a non-carbon/non-cyborg mob's penis has a knot
 	// For now, the only non-carbon/non-cyborg mobs with a penis are funclaws and werewolves so return true for just werewolves
-	if(istype(user, /mob/living/basic/werewolf))
+	if(istype(user, /mob/living/basic/werewolf) || istype(user, /mob/living/basic/deathclaw))
 		return TRUE
 	return FALSE
 
