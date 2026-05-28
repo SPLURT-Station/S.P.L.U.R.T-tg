@@ -236,23 +236,24 @@
 		else
 			preferred_announcer = SSstation.announcer
 
-		if(!sound_override)
-			sound_override = preferred_announcer.get_rand_alert_sound()
-		else if(preferred_announcer.event_sounds[sound_override])
-			var/list/announcer_key = preferred_announcer.event_sounds[sound_override]
-			sound_override = pick(announcer_key)
-		else if(sound_override == ANNOUNCER_COMMAND_REPORT)
-			sound_override = preferred_announcer.get_rand_report_sound()
-		else if(sound_override == ANNOUNCER_RANDOM_WELCOME)
-			sound_override = preferred_announcer.get_rand_welcome_sound()
+		var/preferred_sound = sound_override
+		if(!preferred_sound)
+			preferred_sound = preferred_announcer.get_rand_alert_sound()
+		else if(preferred_announcer.event_sounds[preferred_sound])
+			var/list/announcer_key = preferred_announcer.event_sounds[preferred_sound]
+			preferred_sound = pick(announcer_key)
+		else if(preferred_sound == ANNOUNCER_COMMAND_REPORT)
+			preferred_sound = preferred_announcer.get_rand_report_sound()
+		else if(preferred_sound == ANNOUNCER_RANDOM_WELCOME)
+			preferred_sound = preferred_announcer.get_rand_welcome_sound()
 		// couldnt find ANYTHING fallback please FALLBACK!!!
-		else if(GLOB.announcer_keys.Find(sound_override) || sound_override == ANNOUNCER_RANDOM_ALERT)
-			sound_override = preferred_announcer.get_rand_alert_sound()
+		else if(GLOB.announcer_keys.Find(preferred_sound) || preferred_sound == ANNOUNCER_RANDOM_ALERT)
+			preferred_sound = preferred_announcer.get_rand_alert_sound()
 
-		if(!isnull(sound_override))
-			sound_override = sound(sound_override)
+		if(!isnull(preferred_sound))
+			preferred_sound = sound(preferred_sound)
 
-		var/sound_to_play = !isnull(sound_override) ? sound_override : 'sound/announcer/notice/notice2.ogg'
+		var/sound_to_play = !isnull(preferred_sound) ? preferred_sound : 'sound/announcer/notice/notice2.ogg'
 
 		if(target.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements))
 			var/area/A = get_area(target)
