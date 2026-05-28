@@ -79,10 +79,12 @@
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	passtable_on(new_teshari, SPECIES_TRAIT)
+	new_teshari.set_base_pixel_x(new_teshari.base_pixel_x - 1)
 
 /datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
 	. = ..()
 	passtable_off(C, SPECIES_TRAIT)
+	C.set_base_pixel_x(C.base_pixel_x + 1)
 
 /datum/species/teshari/create_pref_unique_perks()
 	var/list/perk_descriptions = list()
