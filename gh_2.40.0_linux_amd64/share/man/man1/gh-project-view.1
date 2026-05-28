@@ -1,0 +1,42 @@
+.nh
+.TH "GH-PROJECT-VIEW" "1" "Dec 2023" "GitHub CLI 2.40.0" "GitHub CLI manual"
+
+.SH NAME
+.PP
+gh-project-view - View a project
+
+
+.SH SYNOPSIS
+.PP
+\fBgh project view [<number>] [flags]\fR
+
+
+.SH OPTIONS
+.TP
+\fB--format\fR \fB<string>\fR
+Output format: {json}
+
+.TP
+\fB--owner\fR \fB<string>\fR
+Login of the owner. Use "@me" for the current user.
+
+.TP
+\fB-w\fR, \fB--web\fR
+Open a project in the browser
+
+
+.SH EXAMPLE
+.EX
+# view the current user's project "1"
+gh project view 1
+
+# open user monalisa's project "1" in the browser
+gh project view 1 --owner monalisa --web
+
+
+.EE
+
+
+.SH SEE ALSO
+.PP
+\fBgh-project(1)\fR

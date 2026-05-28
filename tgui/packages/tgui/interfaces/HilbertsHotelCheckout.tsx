@@ -265,6 +265,8 @@ const RoomCheckIn = ({
   categories,
   searchText,
   setSearchText,
+  roomName,
+  setRoomName,
 }) => {
   const { current_room = 1 } = data;
   return (
@@ -319,6 +321,13 @@ const RoomCheckIn = ({
             lineHeight={1.8}
             fontSize="20px"
           />
+          <Input
+            width="100%"
+            placeholder="Room name"
+            value={roomName}
+            onChange={(value) => setRoomName(value)}
+            style={{ textAlign: 'center' }}
+          />
           <Button.Confirm
             style={{ cursor: 'pointer' }}
             width="100%"
@@ -330,6 +339,7 @@ const RoomCheckIn = ({
               act('checkin', {
                 room: current_room,
                 template: selectedTemplate,
+                room_name: roomName,
               })
             }
             lineHeight={2}
@@ -438,6 +448,7 @@ export const CheckoutMenu = (props) => {
     categories[0] || 'Misc',
   );
   const [searchText, setSearchText] = useState('');
+  const [roomName, setRoomName] = useState('');
   useEffect(() => {
     if (categories.length && !categories.includes(selectedCategory)) {
       setSelectedCategory(categories[0]);
@@ -462,6 +473,8 @@ export const CheckoutMenu = (props) => {
         categories={categories}
         searchText={searchText}
         setSearchText={setSearchText}
+        roomName={roomName}
+        setRoomName={setRoomName}
       />
       <Box
         style={{

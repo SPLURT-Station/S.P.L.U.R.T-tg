@@ -151,7 +151,7 @@
 				SScondos.splurt_user_data[usr.ckey]["template"] = template_name
 			var/room_number = text2num(params["room"]) || SScondos.splurt_user_data[usr.ckey]["room_number"] || 1
 			var/room_name = params["room_name"]
-                        return prompt_check_in(usr, usr, room_number, template_name, room_name)
+			return prompt_check_in(usr, usr, room_number, template_name, room_name)
 		if("delete_reserved_room")
 			var/room_number = text2num(params["room"])
 			if(!room_number)
@@ -201,58 +201,8 @@
 		return FALSE
 
 	SScondos.create_and_enter_condo(room_number, chosen_condo, target, src)
-        if(room_name)
-             var/list/room_data = SScondos.splurt_room_data["[room_number]"]
-               if(room_data)
-                  room_data["room_preferences"]["name"] = room_name
+	if(room_name)
+		var/list/room_data = SScondos.splurt_room_data["[room_number]"]
+		if(room_data)
+			room_data["room_preferences"]["name"] = room_name
 	return TRUE
-
-/obj/machinery/room_controller/ui_data(mob/user)
-	var/area/current_area = get_area(src)
-	if(!istype(current_area, /area/misc/condo) || !SScondos.splurt_room_data["[room_number]"])
-		return ..()
-
-	var/list/data = list()
-	var/obj/item/card/id/this_id = inserted_id
-	data["id_card"] = this_id?.registered_name
-	data["bluespace_box"] = !isnull(bluespace_box)
-	data["room_number"] = room_number
-	data["room_preferences"] = SScondos.splurt_room_data["[room_number]"]["room_preferences"]
-	data["access_restrictions"] = SScondos.splurt_room_data["[room_number]"]["access_restrictions"]
-	data["user"] = user
-	return data
-
-/obj/machinery/room_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	var/area/current_area = get_area(src)
-	if(!istype(current_area, /area/misc/condo) || !SScondos.splurt_room_data["[room_number]"])
-		return ..()
-	. = FALSE
-
-	switch(action)
-		if("eject_id")
-			if(inserted_id)
-				eject_id(inserted_id, usr)
-				return TRUE
-		if("eject_box")
-			if(bluespace_box)
-				bluespace_box.forceMove(drop_location())
-				bluespace_box = null
-				update_appearance()
-				return TRUE
-		if("depart")
-			if(!inserted_id || !can_depart(usr))
-				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
-				say("Access denied.")
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, say), "Please contact the hotel staff for further assistance."), 3 SECONDS)
-				return FALSE
-			depart_user(usr)
-			return TRUE
-
-	if(SScondos.splurt_handle_room_control_action(room_number, usr, action, params))
-		if(action == "modify_trusted_guests")
-			playsound(src, 'sound/machines/terminal/terminal_processing.ogg', 50, TRUE)
-			if(params["action"] == "transfer")
-				say("Room ownership transferred.")
-		SStgui.update_uis(src)
-		return TRUE
-	return FALSE

@@ -1,0 +1,35 @@
+.nh
+.TH "GH-PROJECT-DELETE" "1" "Dec 2023" "GitHub CLI 2.40.0" "GitHub CLI manual"
+
+.SH NAME
+.PP
+gh-project-delete - Delete a project
+
+
+.SH SYNOPSIS
+.PP
+\fBgh project delete [<number>] [flags]\fR
+
+
+.SH OPTIONS
+.TP
+\fB--format\fR \fB<string>\fR
+Output format: {json}
+
+.TP
+\fB--owner\fR \fB<string>\fR
+Login of the owner. Use "@me" for the current user.
+
+
+.SH EXAMPLE
+.EX
+# delete the current user's project "1"
+gh project delete 1 --owner "@me"
+
+
+.EE
+
+
+.SH SEE ALSO
+.PP
+\fBgh-project(1)\fR
