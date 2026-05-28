@@ -150,7 +150,8 @@
 			else
 				SScondos.splurt_user_data[usr.ckey]["template"] = template_name
 			var/room_number = text2num(params["room"]) || SScondos.splurt_user_data[usr.ckey]["room_number"] || 1
-			return prompt_check_in(usr, usr, room_number, template_name)
+			var/room_name = params["room_name"]
+                        return prompt_check_in(usr, usr, room_number, template_name, room_name)
 		if("delete_reserved_room")
 			var/room_number = text2num(params["room"])
 			if(!room_number)
@@ -158,7 +159,7 @@
 			return SScondos.splurt_delete_reserved_room(room_number, usr)
 	return FALSE
 
-/obj/machinery/cafe_condo_teleporter/proc/prompt_check_in(mob/user, mob/target, room_number, template_name)
+/obj/machinery/cafe_condo_teleporter/proc/prompt_check_in(mob/user, mob/target, room_number, template_name, room_name = null)
 	if(!CONFIG_GET(flag/hilbertshotel_enabled))
 		to_chat(target, span_warning("Infinidorm rooms are currently disabled!"))
 		return FALSE
@@ -200,6 +201,10 @@
 		return FALSE
 
 	SScondos.create_and_enter_condo(room_number, chosen_condo, target, src)
+        if(room_name)
+             var/list/room_data = SScondos.splurt_room_data["[room_number]"]
+               if(room_data)
+                  room_data["room_preferences"]["name"] = room_name
 	return TRUE
 
 /obj/machinery/room_controller/ui_data(mob/user)
