@@ -13,9 +13,9 @@
 	speed = 1
 	see_in_dark = 8
 	butcher_results = list(
-	    /obj/item/food/meat/slab/ = 4,
-	    /obj/item/stack/sheet/animalhide = 2,
-	    /obj/item/stack/sheet/bone = 4
+		/obj/item/food/meat/slab/ = 4,
+		/obj/item/stack/sheet/animalhide = 2,
+		/obj/item/stack/sheet/bone = 4
 	)
 	attack_verb_continuous = "claws"
 	maxHealth = 500
@@ -45,14 +45,14 @@
 
 /mob/living/basic/deathclaw/hostile/proc/show_cock()
 	if(cock_shown)
-	    return
+		return
 	cock_shown = TRUE
 	icon_state = cock_state
 	visible_message(span_purple("<b>\The [src]</b>'s cock unsheathes.</span>"))
 
 /mob/living/basic/deathclaw/hostile/proc/hide_cock()
 	if(!cock_shown)
-	    return
+		return
 	cock_shown = FALSE
 	icon_state = base_state
 	visible_message(span_purple("<b>\The [src]</b>'s cock slowly retracts back into its sheath.</span>"))
@@ -60,9 +60,9 @@
 /mob/living/basic/deathclaw/hostile/set_arousal(amount)
 	. = ..()
 	if(arousal > 0)
-	    show_cock()
+		show_cock()
 	else
-	    hide_cock()
+		hide_cock()
 
 /mob/living/basic/deathclaw/hostile/death()
 	..()
@@ -71,8 +71,8 @@
 /mob/living/basic/deathclaw/funclaw/
 	name = "Docile Deathclaw"
 	simulated_genitals = list(
-	    ORGAN_SLOT_PENIS = TRUE,
-	    ORGAN_SLOT_ANUS = TRUE
+		ORGAN_SLOT_PENIS = TRUE,
+		ORGAN_SLOT_ANUS = TRUE
 	)
 	gold_core_spawnable = FRIENDLY_SPAWN
 
@@ -85,10 +85,10 @@
 	health = 400
 	armour_penetration = 45
 	simulated_genitals = list(
-	    ORGAN_SLOT_PENIS = FALSE,
-	    ORGAN_SLOT_ANUS = TRUE,
-	    ORGAN_SLOT_VAGINA = TRUE,
-	    ORGAN_SLOT_BREASTS = TRUE
+		ORGAN_SLOT_PENIS = FALSE,
+		ORGAN_SLOT_ANUS = TRUE,
+		ORGAN_SLOT_VAGINA = TRUE,
+		ORGAN_SLOT_BREASTS = TRUE
 	)
 
 /mob/living/basic/deathclaw/funclaw/femclaw/mommyclaw
