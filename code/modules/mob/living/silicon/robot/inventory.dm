@@ -52,6 +52,8 @@
 
 ///Helper for cyborgs unequipping things.
 /mob/living/silicon/robot/proc/deactivate_module(obj/item/item_module)
+	if(module_active == item_module)
+		module_active = null
 	return transferItemToLoc(item_module, newloc = model)
 
 /mob/living/silicon/robot/doUnEquip(obj/item/item_dropping, force, atom/newloc, no_move, invdrop, silent)

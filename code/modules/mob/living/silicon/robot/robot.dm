@@ -131,6 +131,8 @@
 	if(shell)
 		GLOB.available_ai_shells -= src
 
+	module_active = null
+
 	QDEL_NULL(modularInterface)
 	QDEL_NULL(model)
 	QDEL_NULL(eye_lights)
