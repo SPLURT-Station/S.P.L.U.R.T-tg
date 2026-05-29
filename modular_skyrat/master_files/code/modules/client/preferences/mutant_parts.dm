@@ -83,6 +83,22 @@
 /datum/preference/toggle/eye_emissives/proc/is_allowed(datum/preferences/preferences)
 	return preferences.read_preference(/datum/preference/toggle/allow_emissives)
 
+/datum/preference/numeric/eyes_opacity
+	category = PREFERENCE_CATEGORY_CHARACTER_BASICS
+	savefile_key = "eyes_opacity"
+	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 0
+	maximum = 255
+
+/datum/preference/numeric/eyes_opacity/create_default_value()
+	return maximum
+
+/datum/preference/numeric/eyes_opacity/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/obj/item/organ/eyes/eyes_organ = target.get_organ_by_type(/obj/item/organ/eyes)
+	if(istype(eyes_organ))
+		eyes_organ.eyes_opacity = value
+	return TRUE
+
 // Body Markings - This isn't used anymore and thus I'm making it not do anything.
 
 /datum/preference/toggle/mutant_toggle/body_markings
