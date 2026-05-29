@@ -53,6 +53,13 @@ const actions = [
     description: 'Swap to a different body marking set.',
     icon: 'paint-roller',
   },
+  {
+    id: 'alter_character',
+    title: 'Character',
+    description:
+      'Transform yourself or others into a completely custom character profile.',
+    icon: 'user-cog',
+  },
 ];
 
 export const BodyMorpher = (_props: unknown) => {
