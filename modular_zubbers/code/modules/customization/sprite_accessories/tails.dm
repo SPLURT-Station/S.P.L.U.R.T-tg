@@ -16,6 +16,12 @@
 	icon_state = "kangarooalt"
 	icon = 'modular_zubbers/icons/customization/kangarooalt.dmi'
 
+/datum/sprite_accessory/tails/mammal/wagging/mantledbeast // Adapted from the existing Kangaroo (Alt) tail.
+	name = "Mantled Beast"
+	icon_state = "mantledbeast"
+	icon = 'modular_zubbers/icons/customization/mantledbeast.dmi'
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/tails/mammal/wagging/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"

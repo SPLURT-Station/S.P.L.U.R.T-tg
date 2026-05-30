@@ -107,6 +107,18 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/bubber/mantledbeast_stripe
+	name = "Mantled Beast Stripe"
+	icon = 'modular_zubbers/icons/customization/body_markings/mantledbeast.dmi'
+	icon_state = "mantledbeast_stripe"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/bubber/mantledbeast_diamond
+	name = "Mantled Beast Diamond"
+	icon = 'modular_zubbers/icons/customization/body_markings/mantledbeast.dmi'
+	icon_state = "mantledbeast_diamond"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/bubber/monster2_mouth
 	name = "Monster Mouth (White)"
 	icon_state = "monster2"
