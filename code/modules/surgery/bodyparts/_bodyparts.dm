@@ -1437,7 +1437,9 @@
 
 			var/mutable_appearance/accessory_overlay
 			var/mutable_appearance/emissive
-			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string][gender_modifier]", -BODYPARTS_LAYER)
+			var/marking_icon_state = body_marking.direct_icon_state ? body_marking.icon_state : "[body_marking.icon_state]_[render_limb_string][gender_modifier]"
+			var/marking_layer = body_marking.render_layer || -BODYPARTS_LAYER
+			accessory_overlay = mutable_appearance(body_marking.icon, marking_icon_state, marking_layer)
 			accessory_overlay.alpha = markings_alpha
 			if(markings[key][2])
 				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
@@ -1459,7 +1461,9 @@
 
 				var/mutable_appearance/emissive
 				var/mutable_appearance/accessory_overlay
-				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
+				var/marking_icon_state = body_marking.direct_icon_state ? body_marking.icon_state : "[body_marking.icon_state]_[render_limb_string]"
+				var/marking_layer = body_marking.render_layer || -aux_layer
+				accessory_overlay = mutable_appearance(body_marking.icon, marking_icon_state, marking_layer)
 				accessory_overlay.alpha = markings_alpha
 				if (aux_zone_markings[key][2])
 					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)

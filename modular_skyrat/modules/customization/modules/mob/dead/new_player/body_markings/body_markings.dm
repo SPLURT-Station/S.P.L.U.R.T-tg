@@ -14,14 +14,24 @@
 	var/affected_bodyparts
 	///Which species is this marking recommended to. Important for randomisations.
 	var/recommended_species = list(SPECIES_MAMMAL)
+	///Species this marking is allowed for. If set, this overrides recommended_species.
+	var/list/species_allowed
+	///If TRUE, species_allowed/recommended_species are enforced even with mismatched parts enabled.
+	var/apply_restrictions = FALSE
 	///If this is on the color customization will show up despite the pref settings, it will also cause the marking to not reset colors to match the defaults
 	var/always_color_customizable
 	///Whether the body marking sprite is the same for both sexes or not. Only relevant for chest right now.
 	var/gendered = TRUE
+	///If TRUE, render icon_state directly instead of appending the body zone suffix.
+	var/direct_icon_state = FALSE
+	///Optional layer override for direct, full-tile markings.
+	var/render_layer
 
 /datum/body_marking/New()
 	if(!default_color)
 		default_color = "#FFFFFF"
+	if(species_allowed)
+		recommended_species = species_allowed
 
 /datum/body_marking/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
 	var/list/colors
