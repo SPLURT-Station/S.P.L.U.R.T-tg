@@ -127,6 +127,7 @@
 	new /obj/item/clothing/under/rank/security/peacekeeper/security_medic(src)
 	new /obj/item/clothing/under/rank/security/peacekeeper/security_medic/skirt(src)
 	new /obj/item/clothing/suit/toggle/jacket/sec/medical(src)
+	//Some bluesec elements, will be expanded upon once bluesec is back.
 	new /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/orderly(src)
 	new /obj/item/clothing/under/rank/security/officer/blueshirt(src)
 	new /obj/item/clothing/head/beret/sec/medical(src)
@@ -139,21 +140,31 @@
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 	icon_state = "secmed"
 
+/*
+Adding certain items to the locker directly, like the medkits, defibs, and formaldehyde. This is to ensure that if future adjustments are
+necessary, items can be added or removed here easily. Additionally ensures the secmed spawns with their basic equipment in maps not covered
+by the automapper.
+*/
 /obj/structure/closet/secure_closet/security_medic/PopulateContents()
 	..()
 	new /obj/item/radio/headset/headset_medsec(src)
+	//Basic damage medkits, for treatments without surgery.
 	new /obj/item/storage/medkit/brute(src)
 	new /obj/item/storage/medkit/fire(src)
 	new /obj/item/storage/medkit/toxin(src)
 	new /obj/item/storage/medkit/o2(src)
+	//Basic robotic repair kit. Worse than a toolbox in every way possible, but at least it gives you something to use for synths.
 	new /obj/item/storage/medkit/robotic_repair/stocked(src)
+	//Moving the clothes meant for restraining patients into the locker, instead of having it be map dependent.
 	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/clothing/mask/muzzle(src)
 	new /obj/item/restraints/handcuffs/cable/zipties(src)
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/storage/belt/security/medic/full(src)
 	new /obj/item/storage/bag/garment/secmed(src)
+	//Defibs no longer can be printed, and can only be ordered. This is added to ensure the secmedic doesn't need to steal one from medbay.
 	new /obj/item/defibrillator/loaded(src)
+	//To prevent the bodies of your fellow officers from decaying, or the antag with one million implants in them.
 	new /obj/item/reagent_containers/cup/bottle/formaldehyde(src)
 
 //Prevents secmed hours from counting towards HoS
