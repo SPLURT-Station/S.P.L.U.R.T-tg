@@ -69,3 +69,18 @@
 	name = "a fuck ass rabbit plushie"
 	item_path = /obj/item/toy/plush/fuckassrabit
 	ckeywhitelist = null
+
+/datum/loadout_item/toys/zenplush
+	name = "Fluffy plushie"
+	item_path = /obj/item/toy/plush/zenplush
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/novaplush
+	name = "Marketable Nova Plushie"
+	item_path = /obj/item/toy/plush/novaplush
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/toy_mace
+	name = "Balloon Mace"
+	item_path = /obj/item/balloon_mallet/mace
+	ckeywhitelist = null

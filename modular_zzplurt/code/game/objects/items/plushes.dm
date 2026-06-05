@@ -224,3 +224,19 @@
 	icon_state = "dumbrabbit"
 	gender = MALE
 	squeak_override = list('modular_zzplurt/sound/items/donorplushsound.ogg' = 1)
+
+/obj/item/toy/plush/zenplush
+	name = "\improper Fluffy plushie"
+	desc = "A warm fluffy plushie, it seems very cuddleable"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "zenplush"
+	gender = FEMALE
+	squeak_override = list('modular_zzplurt/sound/items/donorawoo.ogg' = 1)
+
+/obj/item/toy/plush/novaplush
+	name = "\improper Marketable Nova Plushie"
+	desc = "even when I am not here, I will always be here."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "novaplush"
+	gender = FEMALE
+	squeak_override = list('modular_zubbers/sound/emotes/sound_voice_mar.ogg' = 1)

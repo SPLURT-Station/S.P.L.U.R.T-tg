@@ -16,6 +16,8 @@
 				/obj/item/toy/plush/doctoraddy = 3,
 				/obj/item/toy/plush/fuckassrabit = 3,
 				/obj/item/toy/plush/suspicious_protogen = 3,
+				/obj/item/toy/plush/zenplush = 3,
+				/obj/item/toy/plush/novaplush = 3,
 			),
 		)
 	)
