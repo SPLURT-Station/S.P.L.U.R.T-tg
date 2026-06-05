@@ -7,7 +7,7 @@
 		/obj/item/reagent_containers/cup/soda_cans/blooddiscrete = 5,
 		/obj/item/reagent_containers/cup/glass/waterbottle/wataur = 5,
 		/obj/item/reagent_containers/cup/soda_cans/determination = 5,
-		// /obj/item/reagent_containers/cup/soda_cans/bun_drink = 5 commented out until they respond
+		/obj/item/reagent_containers/cup/soda_cans/bun_drink = 5
 	)
 	LAZYADD(products, extra_products)
 	. = ..()

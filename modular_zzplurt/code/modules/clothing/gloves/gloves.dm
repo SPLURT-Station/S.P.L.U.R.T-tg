@@ -49,6 +49,5 @@
 /obj/item/clothing/gloves/combat/donor
 	name = "Modifed Combat Gloves"
 	desc = "These seem to be modified combat gloves to fit the legal requirements by NT standards by L.Y.D.I.A herself"
-	resistance_flags = NONE
-	armor_type = NONE
-	clothing_traits = NONE
+	armor_type = /datum/armor/none
+	clothing_traits = null
