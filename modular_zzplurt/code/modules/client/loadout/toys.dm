@@ -80,7 +80,8 @@
 	item_path = /obj/item/toy/plush/novaplush
 	ckeywhitelist = null
 
-// /datum/loadout_item/toys/toy_mace commented out until they respond
+/* /datum/loadout_item/toys/toy_mace commented out until they respond
 	name = "Balloon Mace"
 	item_path = /obj/item/balloon_mallet/mace
 	ckeywhitelist = null
+*/
