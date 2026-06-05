@@ -11,4 +11,4 @@
 	maximum_fuel = 10
 
 /obj/item/lighter/bright/gunlighter/create_lighter_overlay()
-  return null
+	return null
