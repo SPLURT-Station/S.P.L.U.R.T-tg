@@ -4,7 +4,7 @@
 	icon_state = "willico"
 	toysay = "Coffee is one place, And the second surprisingly a paramount of credit stealing"
 
-/obj/item/balloon_mallet/mace
+/* /obj/item/balloon_mallet/mace commented out until they respond
 	name = ""
 	desc = ""
 	icon = 'modular_zzplurt/icons/obj/toys/toy.dmi'
@@ -13,3 +13,4 @@
 	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/hammers_lefthand.dmi'
 	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/hammers_righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
+*/
