@@ -282,24 +282,36 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_HIGH
 
-/datum/reagent/consumable/ethanol/gem_grape_juice/on_mob_metabolize(mob/living/affected_mob) //Update this if bastion_bourbon is changed.
+/datum/reagent/consumable/ethanol/gem_grape_juice/on_mob_metabolize(mob/living/drinker) //Update this if bastion_bourbon is changed.
 	. = ..()
 	var/heal_points = 10
-	if(affected_mob.health <= 0)
+	if(drinker.health <= 0)
 		heal_points = 20 //heal more if we're in softcrit
 	var/need_mob_update
 	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
-	need_mob_update = affected_mob.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = drinker.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += drinker.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	// heal stamina loss on first metabolization, but only to a max of 20
-	need_mob_update += affected_mob.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	need_mob_update += drinker.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
-		affected_mob.updatehealth()
-	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
-	if(!affected_mob.stat && heal_points == 20) //brought us out of softcrit
-		affected_mob.visible_message(span_danger("[affected_mob] lurches to [affected_mob.p_their()] feet!"), span_boldnotice("Up and at 'em, kid."))
+		drinker.updatehealth()
+	drinker.visible_message(span_warning("[drinker] seems refreshed and well rested!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
+	if(!drinker.stat && heal_points == 20) //brought us out of softcrit
+		drinker.visible_message(span_danger("[drinker] lurches to [drinker.p_their()] feet!"), span_boldnotice("Nothing a short rest cannot fix."))
+
+/datum/reagent/consumable/ethanol/gem_grape_juice/on_mob_life(mob/living/drinker, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	if(drinker.health > 0)
+		var/need_mob_update
+		need_mob_update = drinker.adjust_brute_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_fire_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_tox_loss(-0.125 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+		need_mob_update += drinker.adjust_oxy_loss(-0.75 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += drinker.adjust_stamina_loss(-1.25 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+		if(need_mob_update)
+			return UPDATE_MOB_HEALTH
 
 //Donator items
 /datum/reagent/consumable/ethanol/gem_grape_soda
@@ -314,21 +326,33 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_HIGH
 
-/datum/reagent/consumable/ethanol/gem_grape_soda/on_mob_metabolize(mob/living/affected_mob) //Update this if bastion_bourbon is changed.
+/datum/reagent/consumable/ethanol/gem_grape_soda/on_mob_metabolize(mob/living/drinker) //Update this if bastion_bourbon is changed.
 	. = ..()
 	var/heal_points = 10
-	if(affected_mob.health <= 0)
+	if(drinker.health <= 0)
 		heal_points = 20 //heal more if we're in softcrit
 	var/need_mob_update
 	var/heal_amt = min(volume, heal_points) //only heals 1 point of damage per unit on add, for balance reasons
-	need_mob_update = affected_mob.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = drinker.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_tox_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype)
+	need_mob_update += drinker.adjust_oxy_loss(-heal_amt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	// heal stamina loss on first metabolization, but only to a max of 20
-	need_mob_update += affected_mob.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+	need_mob_update += drinker.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
-		affected_mob.updatehealth()
-	affected_mob.visible_message(span_warning("[affected_mob] shivers with renewed vigor!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
-	if(!affected_mob.stat && heal_points == 20) //brought us out of softcrit
-		affected_mob.visible_message(span_danger("[affected_mob] lurches to [affected_mob.p_their()] feet!"), span_boldnotice("Up and at 'em, kid."))
+		drinker.updatehealth()
+	drinker.visible_message(span_warning("[drinker] seems refreshed and well rested!"), span_notice("One taste of [LOWER_TEXT(name)] fills you with energy!"))
+	if(!drinker.stat && heal_points == 20) //brought us out of softcrit
+		drinker.visible_message(span_danger("[drinker] lurches to [drinker.p_their()] feet!"), span_boldnotice("Nothing a short rest cannot fix."))
+
+/datum/reagent/consumable/ethanol/gem_grape_soda/on_mob_life(mob/living/drinker, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	if(drinker.health > 0)
+		var/need_mob_update
+		need_mob_update = drinker.adjust_brute_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_fire_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_tox_loss(-0.125 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+		need_mob_update += drinker.adjust_oxy_loss(-0.75 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += drinker.adjust_stamina_loss(-1.25 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+		if(need_mob_update)
+			return UPDATE_MOB_HEALTH
