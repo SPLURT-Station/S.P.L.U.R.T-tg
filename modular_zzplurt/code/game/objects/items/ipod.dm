@@ -183,7 +183,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 
 	GLOB.ipod_last_upload = world.time
 	var/real_round_time = world.timeofday - SSticker.real_round_start_time
-	var/logged_filename = "data/ipodupload/round-[GLOB.round_id ? GLOB.round_id : "NULL"]/[user.ckey[1]]/[user.ckey]/[time2text(real_round_time, "hh_mm_ss", 0)][file_extension]"
+	var/logged_filename = "tmp/ipodupload/round-[GLOB.round_id ? GLOB.round_id : "NULL"]/[user.ckey[1]]/[user.ckey]/[time2text(real_round_time, "hh_mm_ss", 0)][file_extension]"
 	if(fexists(logged_filename))
 		fdel(logged_filename)
 	if(!fcopy(infile, logged_filename))
