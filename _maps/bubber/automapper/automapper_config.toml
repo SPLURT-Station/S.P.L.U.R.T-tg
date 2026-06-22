@@ -58,6 +58,14 @@ required_map = "birdshot.dmm"
 coordinates = [188, 72, 1]
 trait_name = "Station"
 
+# Birdshot NTR Office
+[templates.birdshot_ntrep_office]
+map_files = ["birdshot_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/Birdshot/"
+required_map = "birdshot.dmm"
+coordinates = [111, 157, 1]
+trait_name = "Station"
+
 # Birdshot Supermatter Chamber
 [templates.birdshot_supermatter]
 map_files = ["birdshot_supermatter.dmm"]
@@ -114,6 +122,14 @@ map_files = ["catwalk_centcom.dmm"]
 directory = "_maps/bubber/automapper/templates/CatwalkStation/"
 required_map = "CatwalkStation_2023.dmm"
 coordinates = [136, 49, 1]
+trait_name = "Station"
+
+# Catwalk NTR Office
+[templates.catwalk_ntrep_office]
+map_files = ["catwalk_ntrep.dmm"]
+directory = "_maps/bubber/automapper/templates/CatwalkStation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [142, 126, 1]
 trait_name = "Station"
 
 # Catwalk Sauna
@@ -198,6 +214,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [157, 77, 1]
 trait_name = "Station"
 
+# Deltastation NTR Office
+[templates.deltastation_ntrep_office]
+map_files = ["deltastation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/Deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [123, 143, 1]
+trait_name = "Station"
+
 # Deltastation Supermatter Chamber
 [templates.deltastation_supermatter]
 map_files = ["deltastation_supermatter.dmm"]
@@ -277,6 +301,14 @@ map_files = ["iceboxstation_medbay.dmm"]
 directory = "_maps/bubber/automapper/templates/IceBoxStation/"
 required_map = "IceBoxStation.dmm"
 coordinates = [141, 108, 3]
+trait_name = "Station"
+
+# IceBoxStation NTR Office
+[templates.iceboxstation_ntrep_office]
+map_files = ["iceboxstation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/IceBoxStation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [87, 128, 3]
 trait_name = "Station"
 
 # IceBoxStation Supermatter Chamber
@@ -394,6 +426,14 @@ required_map = "MetaStation.dmm"
 coordinates = [86, 105, 1]
 trait_name = "Station"
 
+# Metastation NTR Office
+[templates.metastation_ntrep_office]
+map_files = ["metastation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/MetaStation/"
+required_map = "MetaStation.dmm"
+coordinates = [57, 119, 1]
+trait_name = "Station"
+
 # Metastation Supermatter Chamber
 [templates.metastation_supermatter]
 map_files = ["metastation_supermatter.dmm"]
@@ -476,6 +516,14 @@ required_map = "NebulaStation.dmm"
 coordinates = [90, 132, 1]
 trait_name = "Station"
 
+# Nebulastation NTR Office
+[templates.nebulastation_ntrep_office]
+map_files = ["nebulastation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/NebulaStation/"
+required_map = "NebulaStation.dmm"
+coordinates = [110, 116, 2]
+trait_name = "Station"
+
 # Nebulastation Sauna
 [templates.nebulastation_sauna]
 map_files = ["nebulastation_sauna.dmm"]
@@ -531,6 +579,14 @@ map_files = ["tramstation_medbay.dmm"]
 directory = "_maps/bubber/automapper/templates/tramstation/"
 required_map = "tramstation.dmm"
 coordinates = [118, 101, 2]
+trait_name = "Station"
+
+# Tramstation NTR Office
+[templates.tramstation_ntrep_office]
+map_files = ["tramstation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [34, 135, 2]
 trait_name = "Station"
 
 # Tramstation Supermatter Chamber
@@ -613,6 +669,14 @@ map_files = ["wawastation_lockers.dmm"]
 directory = "_maps/bubber/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [111, 93, 1]
+trait_name = "Station"
+
+# Wawastation NTR Office
+[templates.wawastation_ntrep_office]
+map_files = ["wawastation_ntrep_office.dmm"]
+directory = "_maps/bubber/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [108, 122, 1]
 trait_name = "Station"
 
 # Wawastation Supermatter

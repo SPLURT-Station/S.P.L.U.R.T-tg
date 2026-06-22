@@ -102,6 +102,21 @@ required_map = "VoidRaptor.dmm"
 coordinates = [77, 141, 1]
 trait_name = "Station"
 
+# Moonstation NTR Office
+[templates.moonstation_ntrep_office]
+map_files = ["moonstation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [101, 154, 3]
+trait_name = "Station"
+
+[templates.nebulastation_blueshield_office]
+map_files = ["nebulastation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [117, 113, 2]
+trait_name = "Station"
+
 # Biodome NTR Office
 [templates.biodome_ntrep_office]
 map_files = ["biodome_ntrep_office.dmm"]
@@ -116,6 +131,22 @@ map_files = ["metastation_blueshield_office.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
 required_map = "MetaStation.dmm"
 coordinates = [89, 135, 1]
+trait_name = "Station"
+
+# Biodome Security Medical Expansion
+[templates.biodome_security_medic_medbay]
+map_files = ["biodome_security_medic_medbay.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [149, 88, 2]
+trait_name = "Station"
+
+# Biodome Security Secret Alternate Punishment Area
+[templates.biodome_security_alternate_punishment]
+map_files = ["biodome_security_alternate_punishment.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [149, 81, 1]
 trait_name = "Station"
 
 # Metastation Security Medical Expansion
@@ -262,15 +293,7 @@ required_map = "tramstation.dmm"
 coordinates = [55, 149, 2]
 trait_name = "Station"
 
-# Nebulastation NTR + Blueshield Office
-[templates.nebulastation_ntrep_blueshield_offices]
-map_files = ["nebulastation_ntrep_blueshield_offices.dmm"]
-directory = "_maps/splurt/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [110, 113, 2]
-trait_name = "Station"
-
-# Nebulastation Sauna
+# Nebulastation Security Medical Expansion
 [templates.nebulastation_security_medic_medbay]
 map_files = ["nebulastation_security_medic_medbay.dmm"]
 directory = "_maps/splurt/automapper/templates/nebulastation/"
@@ -358,13 +381,15 @@ required_map = "MetaStation.dmm"
 coordinates = [145, 91, 1]
 trait_name = "Station"
 
-# Ouroboros NTR Office
-[templates.ouroboros_ntrep_office]
-map_files = ["ouroboros_ntrep_office.dmm"]
+# OUROBOROS MAP EDITS
+# Ouroboros NTC Office
+[templates.ouroboros_ntc_office]
+map_files = ["ouroboros_NTC_office.dmm"]
 directory = "_maps/splurt/automapper/templates/ouroboros/"
 required_map = "Ouroboros.dmm"
 coordinates = [131, 131, 2]
 trait_name = "Station"
+
 
 # Override upstream templates without redefining them in [templates].
 # Useful when upstream keeps the same automap placement but Splurt wants to swap
@@ -372,3 +397,27 @@ trait_name = "Station"
 [template_overrides.catwalk_ntrep_office]
 map_files = ["catwalk_ntrep.dmm"]
 directory = "_maps/splurt/automapper/templates/CatwalkStation/"
+
+[template_overrides.deltastation_ntrep_office]
+map_files = ["deltastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+
+[template_overrides.iceboxstation_ntrep_office]
+map_files = ["iceboxstation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/iceboxstation/"
+
+[template_overrides.metastation_ntrep_office]
+map_files = ["metastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/metastation/"
+
+[template_overrides.nebulastation_ntrep_office]
+map_files = ["nebulastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/nebulastation/"
+
+[template_overrides.tramstation_ntrep_office]
+map_files = ["tramstation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/tramstation/"
+
+[template_overrides.wawastation_ntrep_office]
+map_files = ["wawastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/wawastation/"
