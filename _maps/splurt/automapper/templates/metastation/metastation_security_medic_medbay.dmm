@@ -60,10 +60,10 @@
 /turf/open/floor/iron,
 /area/station/security/brig)
 "hZ" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/structure/window/spawner/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 5
 	},
-/obj/structure/window/spawner/directional/east,
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 5
 	},
@@ -74,12 +74,12 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/south,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 10
+	},
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 10
 	},
@@ -106,10 +106,10 @@
 /turf/open/floor/iron,
 /area/station/security/brig)
 "mF" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/structure/bed/medical/emergency,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
 	},
-/obj/structure/bed/medical/emergency,
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 8
 	},
@@ -127,8 +127,8 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 5
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
-	dir = 8
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 5
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
@@ -144,9 +144,7 @@
 /obj/structure/chair/office{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/line{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/dark_red/line,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "tc" = (
@@ -157,8 +155,8 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 6
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
-	dir = 1
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 6
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
@@ -184,9 +182,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 6
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -196,6 +191,9 @@
 /obj/item/reagent_containers/cup/tube,
 /obj/item/storage/portable_chem_mixer,
 /obj/item/wallframe/frontier_medstation,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 6
+	},
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 6
 	},
@@ -223,8 +221,8 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 10
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
-	dir = 4
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 10
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
@@ -238,8 +236,10 @@
 	dir = 9
 	},
 /obj/structure/sign/poster/official/moth_epi/directional/west,
-/obj/effect/turf_decal/trimline/dark_blue/filled/corner,
 /obj/item/healthanalyzer,
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 9
+	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Bw" = (
@@ -260,17 +260,15 @@
 /area/station/security/brig)
 "Cn" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/effect/turf_decal/trimline/dark_blue/filled/line{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/dark_red/line,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Du" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
 /obj/machinery/door/window/right/directional/east{
 	name = "Infirmary"
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 4
 	},
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 4
@@ -278,19 +276,19 @@
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Em" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
-	},
 /obj/machinery/wall_healer/directional/west,
 /obj/structure/table/optable,
 /obj/item/wallframe/defib_mount,
 /obj/machinery/light/small/directional/west,
-/obj/effect/turf_decal/trimline/dark_red/line{
-	dir = 9
-	},
 /obj/item/storage/medkit/surgery{
 	pixel_x = -2;
 	pixel_y = 0
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 9
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
@@ -299,10 +297,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/effect/turf_decal/trimline/dark_red/line,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
@@ -328,10 +326,10 @@
 /obj/machinery/door/window/left/directional/east{
 	name = "Infirmary"
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 4
 	},
@@ -342,11 +340,11 @@
 /area/station/security/medical)
 "Ra" = (
 /obj/structure/extinguisher_cabinet/directional/west,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
 /obj/machinery/computer/operating{
 	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 8
 	},
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 8
@@ -359,7 +357,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/line,
 /obj/item/folder/red{
 	pixel_x = 3
 	},
@@ -367,10 +364,13 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "RV" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/line{
@@ -382,13 +382,13 @@
 /turf/closed/wall/r_wall,
 /area/station/security/prison/visit)
 "Tf" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/landmark/start/security_medic,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 1
 	},
-/obj/effect/landmark/start/security_medic,
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Vo" = (
@@ -396,7 +396,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/line,
 /obj/item/storage/medkit/brute{
 	pixel_x = -5;
 	pixel_y = 0
@@ -413,6 +412,9 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "Wf" = (
@@ -428,7 +430,6 @@
 	},
 /obj/machinery/iv_drip,
 /obj/structure/cable,
-/obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -436,6 +437,7 @@
 /obj/machinery/light/small/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
 /obj/machinery/airalarm/directional/south,
+/obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/effect/turf_decal/trimline/dark_red/line,
 /turf/open/floor/iron/white,
 /area/station/security/medical)

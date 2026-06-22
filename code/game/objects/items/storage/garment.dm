@@ -86,6 +86,7 @@
 	new /obj/item/clothing/suit/armor/vest/hop/hop_formal(src)
 	new /obj/item/clothing/neck/mantle/hopmantle(src)
 
+/* // SPLURT REDSEC OVERRIDE
 /obj/item/storage/bag/garment/hos/PopulateContents()
 	new /obj/item/clothing/under/rank/security/head_of_security/skirt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/alt(src)
@@ -144,6 +145,7 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
 	new /obj/item/clothing/accessory/badge/holo/warden(src) //SPLURT ADDITION
+*/
 
 /obj/item/storage/bag/garment/research_director/PopulateContents()
 	new /obj/item/clothing/under/rank/rnd/research_director(src)

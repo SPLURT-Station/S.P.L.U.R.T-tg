@@ -191,3 +191,8 @@
 	name = "yellow trencher officer cap"
 	desc = "An army officer cap with yellow pin."
 	icon_state = "goner_offcap_y"
+
+/obj/item/clothing/head/helmet/novisor
+	desc = "Standard Security gear. Protects the head from impacts, this one lacks a visor over the eyes."
+	icon_state = "helmet-novisor"
+	flags_cover = EARS_COVERED
