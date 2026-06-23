@@ -1,6 +1,6 @@
 /obj/item/toolgun
-	name = "Туллган"
-	desc = "Странный револьер с кучей проводов и дисплеем приделанным к его основанию!"
+	name = "Toolgun"
+	desc = "A strange revolver with a bunch of wires and a display attached to its base!"
 	icon = 'fenysha_events/icons/items/tools/gmod_tools.dmi'
 	icon_state = "toolgun"
 	inhand_icon_state = "toolgun"
@@ -40,20 +40,20 @@
 
 /obj/item/toolgun/examine(mob/user)
 	. = ..()
-	. += span_notice("Используй в руке, чтобы изменить режим работы!")
+	. += span_notice("Use it in hand to change the working mode!")
 	if(!selected_mode)
-		. += span_notice("Режим не выбран!")
+		. += span_notice("No mode selected!")
 		return
 	. += span_notice(selected_mode.desc)
 
 	if(!user?.client?.holder)
-		. += span_boldwarning("\n Кажется у меня не должно его быть!")
+		. += span_boldwarning("\n Seems like I shouldn't have this!")
 
 /obj/item/toolgun/examine_more(mob/user)
 	. = ..()
-	. += span_notice("Ты надеялся увидеть тут что-то? Серьезно? Как наивно с твоей стороны \
-					послушай друг, здесь ничего нет. Вообще ничего нет, я говорю тебе - абсолютно ничего. \
-					даже не пытайся искать тут что-нибудь. Ты меня слышишь? Даже не пытайся. Ты все равно ничего не найдешь.")
+	. += span_notice("Did you hope to see something here? Seriously? How naive of you \
+					listen, friend, there's nothing here. Nothing at all, I'm telling you - absolutely nothing. \
+					don't even try to look for anything here. Do you hear me? Don't even try. You won't find anything anyway.")
 
 /obj/item/toolgun/click_alt(mob/user)
 	return ..()
@@ -178,5 +178,5 @@
 
 
 /obj/item/toolgun/spawn_only
-	name = "Туллган - ослабленный"
+	name = "Toolgun - weakened"
 	available_modes = list(/datum/toolgun_mode/spawning/objects)

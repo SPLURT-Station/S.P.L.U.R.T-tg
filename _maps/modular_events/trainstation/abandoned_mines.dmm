@@ -351,8 +351,8 @@
 	},
 /obj/structure/sign/warning/secure_area/directional/south{
 	is_editable = 0;
-	sign_change_name = "Внимание - защищенное хранилище";
-	name = "Внимание - защищенное хранилище"
+	sign_change_name = "Warning - secured vault";
+	name = "Warning - secured vault"
 	},
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/catwalk_floor,
@@ -1113,7 +1113,7 @@
 /area/trainstation/indoors/station/powered)
 "CQ" = (
 /obj/machinery/puzzle/button/directional/north{
-	name = "Питание генераторов"
+	name = "Generator power"
 	},
 /obj/effect/mapping_helpers/trigger_helper/hand_punch{
 	EDITOR_TARGET = /obj/machinery/puzzle/button/directional/north
@@ -1260,9 +1260,9 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/add_modular_log{
-	log_timestamp = 3дняназад;
-	log_message = "Прости саня, мне пришлось изменить контур питаниязащинного хранилища из-за обвала, я уверен ты сможешь восстановить питание если вручную перезагрузишь генераторы с терминалов.";
-	log_author = "Гриша"
+	log_timestamp = 3daysago;
+	log_message = "Sorry Sanya, I had to reroute the power circuit of the secured vault because of the cave-in. I'm sure you'll be able to restore power if you manually reboot the generators from the terminals.";
+	log_author = "Grisha"
 	},
 /obj/structure/railing,
 /turf/open/indestructible/dark/textured,
@@ -1351,9 +1351,9 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/add_modular_log{
-	log_timestamp = 3дняназад;
-	log_message = "Нет, вы не должны верить в то, что в разломах кто-то обитает. Это негативно сказывается на вашей продуктивности.";
-	log_author = "УДАЛЕНО"
+	log_timestamp = 3daysago;
+	log_message = "No, you must not believe that someone dwells in the rifts. It negatively affects your productivity.";
+	log_author = "DELETED"
 	},
 /turf/open/misc/dirt/station,
 /area/trainstation/indoors/station/powered)
@@ -1780,8 +1780,8 @@
 	},
 /obj/structure/sign/warning/secure_area/directional/south{
 	is_editable = 0;
-	sign_change_name = "Внимание - защищенное хранилище";
-	name = "Внимание - защищенное хранилище"
+	sign_change_name = "Warning - secured vault";
+	name = "Warning - secured vault"
 	},
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/catwalk_floor,

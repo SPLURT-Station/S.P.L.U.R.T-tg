@@ -1,6 +1,6 @@
 /datum/toolgun_mode/color_mode
-	name = "Покраска"
-	desc = "Режим покраски обьектов. Может покрасить что и кого угодно!"
+	name = "Painting"
+	desc = "Object painting mode. Can paint anything and anyone!"
 	mode_key = "color"
 
 	var/selected_color = "#FFFFFF"

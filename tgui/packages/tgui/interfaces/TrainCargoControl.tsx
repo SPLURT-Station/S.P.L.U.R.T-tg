@@ -41,7 +41,7 @@ const safeToFixed = (
 export const TrainCargoControl = () => {
   const { act, data } = useBackend<CargoData>();
 
-  // Безопасные значения с запасными
+  // Safe values with fallbacks
   const connected = !!data.connected;
   const health = safeNum(data.container_health, 100);
   const temperature = safeNum(data.container_temperature, 40);
@@ -62,14 +62,14 @@ export const TrainCargoControl = () => {
 
   return (
     <Window
-      title="СИСТЕМА УПРАВЛЕНИЯ ГРУЗОМ • СЕКРЕТНО"
+      title="CARGO CONTROL SYSTEM • CLASSIFIED"
       width={460}
       height={800}
       theme="abductor"
     >
       <Window.Content backgroundColor="#0a0a12" scrollable>
         <Stack fill vertical>
-          {/* === Визуализатор контейнера (круглый) === */}
+          {/* === Container visualizer (circular) === */}
           <Stack.Item>
             <Box
               style={{
@@ -79,7 +79,7 @@ export const TrainCargoControl = () => {
                 position: 'relative',
               }}
             >
-              {/* Кольцо целостности */}
+              {/* Integrity ring */}
               <Box
                 style={{
                   position: 'absolute',
@@ -96,7 +96,7 @@ export const TrainCargoControl = () => {
                 }}
               />
 
-              {/* Сам контейнер */}
+              {/* The container itself */}
               <Box
                 style={{
                   position: 'absolute',
@@ -165,18 +165,18 @@ export const TrainCargoControl = () => {
                 }}
               >
                 <Box fontSize="28px" bold fontFamily="Courier New">
-                  ГРУЗ
+                  CARGO
                 </Box>
                 <Box fontSize="11px" opacity={0.6} mt={-0.5}>
-                  АНОМАЛЬНОЕ СОДЕРЖИМОЕ
+                  ANOMALOUS CONTENTS
                 </Box>
               </Box>
             </Box>
           </Stack.Item>
 
-          {/* === Гироскоп (полукруглая шкала) === */}
+          {/* === Gyroscope (semicircular gauge) === */}
           <Stack.Item>
-            <Section title="Управление гироскопом" textAlign="center">
+            <Section title="Gyroscope Control" textAlign="center">
               <Box
                 style={{
                   position: 'relative',
@@ -185,7 +185,7 @@ export const TrainCargoControl = () => {
                   margin: '20px auto 10px auto',
                 }}
               >
-                {/* Полукруглый фон */}
+                {/* Semicircular background */}
                 <Box
                   style={{
                     position: 'absolute',
@@ -201,7 +201,7 @@ export const TrainCargoControl = () => {
                   }}
                 />
 
-                {/* Метки градусов по дуге */}
+                {/* Degree marks along the arc */}
                 {[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50].map((deg) => {
                   const angle = deg * (180 / 100);
                   const rad = (angle * Math.PI) / 180;
@@ -238,7 +238,7 @@ export const TrainCargoControl = () => {
                   );
                 })}
 
-                {/* Индикатор целевого положения (жёлтый треугольник) */}
+                {/* Target position indicator (yellow triangle) */}
                 {(() => {
                   const angleDeg = gyroReq * (180 / 100);
                   const rad = (angleDeg * Math.PI) / 180;
@@ -268,7 +268,7 @@ export const TrainCargoControl = () => {
                   );
                 })()}
 
-                {/* Текущее положение (зелёная линия + круг) */}
+                {/* Current position (green line + circle) */}
                 <Box
                   style={{
                     position: 'absolute',
@@ -300,7 +300,7 @@ export const TrainCargoControl = () => {
                   />
                 </Box>
 
-                {/* Текст: Текущее / Целевое / Требуемое */}
+                {/* Text: Current / Target / Required */}
                 <Box
                   style={{
                     position: 'absolute',
@@ -314,26 +314,26 @@ export const TrainCargoControl = () => {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  Текущее:{' '}
+                  Current:{' '}
                   <span
                     style={{ color: gyroDiff > 25 ? '#ff4444' : '#00ffcc' }}
                   >
                     {safeToFixed(data.gyro_position)}°
                   </span>
                   {'  •  '}
-                  Цель:{' '}
+                  Target:{' '}
                   <span style={{ color: '#ffcc00' }}>
                     {safeToFixed(data.gyro_required)}°
                   </span>
                   {'  •  '}
-                  Требуется:{' '}
+                  Required:{' '}
                   <span style={{ color: '#88ccff' }}>
                     {safeToFixed(data.gyro_desired)}°
                   </span>
                 </Box>
               </Box>
 
-              {/* Скрытый слайдер для управления (полупрозрачный) */}
+              {/* Hidden control slider (semi-transparent) */}
               <Slider
                 value={gyroReq}
                 minValue={-50}
@@ -354,11 +354,11 @@ export const TrainCargoControl = () => {
             </Section>
           </Stack.Item>
 
-          {/* === Температура и целостность === */}
+          {/* === Temperature and integrity === */}
           <Stack.Item grow>
             <Flex fill>
               <Flex.Item grow basis={0}>
-                <Section title="Температура" textAlign="center">
+                <Section title="Temperature" textAlign="center">
                   <ProgressBar
                     value={temperature}
                     minValue={minTemp - 30}
@@ -379,7 +379,7 @@ export const TrainCargoControl = () => {
               </Flex.Item>
 
               <Flex.Item grow basis={0}>
-                <Section title="Целостность удержания" textAlign="center">
+                <Section title="Containment Integrity" textAlign="center">
                   <ProgressBar
                     value={health}
                     minValue={0}
@@ -393,30 +393,30 @@ export const TrainCargoControl = () => {
             </Flex>
           </Stack.Item>
 
-          {/* === Критические предупреждения === */}
+          {/* === Critical warnings === */}
           {isCritical && (
             <Stack.Item>
               <Section
-                title="⚠ КРИТИЧЕСКАЯ ДЕСТАБИЛИЗАЦИЯ"
+                title="⚠ CRITICAL DESTABILIZATION"
                 color="bad"
                 bold
                 textAlign="center"
               >
-                {health < 30 && <Box>Целостность поля критически низкая!</Box>}
-                {gyroDiff > 25 && <Box>Гироскоп сильно разбалансирован!</Box>}
+                {health < 30 && <Box>Field integrity critically low!</Box>}
+                {gyroDiff > 25 && <Box>Gyroscope severely imbalanced!</Box>}
                 {(temperature < minTemp - 5 || temperature > maxTemp + 5) && (
-                  <Box>Обнаружена температурная аномалия!</Box>
+                  <Box>Temperature anomaly detected!</Box>
                 )}
-                {!isPowered && <Box>Отказ питания стабилизатора!</Box>}
+                {!isPowered && <Box>Stabilizer power failure!</Box>}
               </Section>
             </Stack.Item>
           )}
 
-          {/* === Статус поезда === */}
+          {/* === Train status === */}
           <Stack.Item>
             <Box textAlign="center" opacity={0.7} fontSize="12px">
-              Поезд: <b>{isMoving ? 'В ДВИЖЕНИИ' : 'НА СТАНЦИИ'}</b> • Питание:{' '}
-              <b>{isPowered ? 'НОРМА' : 'ОТКАЗ'}</b>
+              Train: <b>{isMoving ? 'MOVING' : 'AT STATION'}</b> • Power:{' '}
+              <b>{isPowered ? 'NOMINAL' : 'FAILURE'}</b>
             </Box>
           </Stack.Item>
         </Stack>

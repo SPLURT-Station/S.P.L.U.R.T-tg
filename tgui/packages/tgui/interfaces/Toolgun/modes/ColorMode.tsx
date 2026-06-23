@@ -7,10 +7,10 @@ export function ColorMode({ act, selectedColor }: ColorModeProps) {
     <Stack.Item grow>
       <Section
         fill
-        title="Настройки цвета"
+        title="Color Settings"
         buttons={
           <Button icon="palette" onClick={() => act('pick_color')}>
-            Выбрать цвет
+            Pick Color
           </Button>
         }
       >
@@ -24,12 +24,12 @@ export function ColorMode({ act, selectedColor }: ColorModeProps) {
           </Stack.Item>
           <Stack.Item>
             <Box color={selectedColor} fontSize="1.1em">
-              Текущий цвет: {selectedColor}
+              Current color: {selectedColor}
             </Box>
           </Stack.Item>
           <Stack.Item>
             <Box color="#d2d2d2" fontSize="0.9em">
-              ЛКМ: применить цвет к объекту • ПКМ: сбросить цвет объекта
+              LMB: apply color to object • RMB: reset object color
             </Box>
           </Stack.Item>
         </Stack>

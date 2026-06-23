@@ -331,10 +331,10 @@
 
 
 /datum/action/cooldown/mob_cooldown/mech_crush
-	name = "Разрушить меха"
+	name = "Destroy Mech"
 	button_icon = 'icons/mob/rideables/mecha.dmi'
 	button_icon_state = "seraph-broken"
-	desc = "Атакуйте меха, разрывая его на части и уничтожая пилота."
+	desc = "Attack a mech, tearing it apart and destroying the pilot."
 	cooldown_time = 1 SECONDS
 
 	var/rip_chance = 33
@@ -356,12 +356,12 @@
 
 /datum/action/cooldown/mob_cooldown/mech_crush/Activate(atom/target)
 	if(get_dist(target, owner) > maximum_distance)
-		owner.balloon_alert(owner, "Слишком далеко")
+		owner.balloon_alert(owner, "Too far away")
 		StartCooldown()
 		return
 	crushing = TRUE
 	StartCooldown()
-	owner.balloon_alert_to_viewers("Прыгает на [target]")
+	owner.balloon_alert_to_viewers("Leaps at [target]")
 	INVOKE_ASYNC(src, PROC_REF(crush_mech), target, owner)
 
 
@@ -379,7 +379,7 @@
 
 /datum/action/cooldown/mob_cooldown/mech_crush/proc/crush_mech(obj/vehicle/sealed/mecha/mech, mob/living/user, hits = 0)
 	if(!check_continue(mech, user))
-		user.balloon_alert_to_viewers("Прекращает терзать[mech ? mech : "меха"]!")
+		user.balloon_alert_to_viewers("Stops mauling [mech ? mech : "the mech"]!")
 		crushing = FALSE
 		return
 
@@ -388,26 +388,26 @@
 		extra_checks = CALLBACK(src, PROC_REF(check_continue), mech, user), \
 		max_interact_count = 1))
 
-		user.balloon_alert_to_viewers("Прекращает терзать[mech ? mech : "меха"]!")
+		user.balloon_alert_to_viewers("Stops mauling [mech ? mech : "the mech"]!")
 		crushing = FALSE
 		return
 
 	var/message = span_warning(pick(list(
-		"[user] безжалостно вгрызается в броню [mech]!",
-		"[user] с хрустом разрывает сегменты брони [mech]!",
-		"[user] вгрызается между сочленений [mech]!",
-		"[user] буквально разрывает броню [mech] надвое!",
-		"Из-под брони [mech] летят искры и обугленные куски!",
-		"конечности [user] с жутким скрежетом входит в корпус [mech]!",
-		"[user] с дикой силой рвёт бронепластины [mech] в клочья!",
-		"[user] с хрустом ломает внешний слой брони [mech]!",
-		"Броня [mech] трещит и лопается под ударом [user]!",
-		"Из пробоины в [mech] валит едкий дым и искры!",
-		"[user] с ужасающей лёгкостью режет броню [mech], словно бумагу!",
-		"Броня [mech] разлетается в стороны от мощного удара [user]!"
+		"[user] mercilessly gnaws into the armor of [mech]!",
+		"[user] rips apart the armor segments of [mech] with a crunch!",
+		"[user] gnaws between the joints of [mech]!",
+		"[user] literally tears the armor of [mech] in two!",
+		"Sparks and charred chunks fly out from under the armor of [mech]!",
+		"[user]'s limb plunges into the hull of [mech] with a horrible grinding sound!",
+		"[user] tears the armor plates of [mech] to shreds with savage force!",
+		"[user] crunches through the outer layer of [mech]'s armor!",
+		"The armor of [mech] cracks and bursts under [user]'s blow!",
+		"Acrid smoke and sparks pour from the breach in [mech]!",
+		"[user] cuts through the armor of [mech] with terrifying ease, like paper!",
+		"The armor of [mech] flies apart from [user]'s powerful blow!"
 	)))
 
-	user.visible_message(message, span_warning("Ты терзаешь броню [mech]!"), span_warning("Ты слышишь звуки металических лязгов!"))
+	user.visible_message(message, span_warning("You maul the armor of [mech]!"), span_warning("You hear the sounds of clanging metal!"))
 	do_sparks(rand(3, 4), TRUE, mech)
 	user.do_attack_animation(mech)
 	var/damage = mech.take_damage(damage_per_slash, BRUTE, attack_dir = get_dir(user, mech), armour_penetration = slash_armor_penetration)
@@ -418,7 +418,7 @@
 	sleep(0.1 SECONDS)
 
 	if(!check_continue(mech, user))
-		user.balloon_alert_to_viewers("Прекращает терзать[mech ? mech : "меха"]!")
+		user.balloon_alert_to_viewers("Stops mauling [mech ? mech : "the mech"]!")
 		crushing = FALSE
 		return
 
@@ -426,8 +426,8 @@
 		for(var/obj/item/mecha_parts/mecha_equipment/qeuipment in shuffle(mech.flat_equipment.Copy()))
 			qeuipment.detach()
 			do_sparks(rand(3, 4), TRUE, mech)
-			user.visible_message(span_danger("[user] агрессивно вырывает [qeuipment] из [mech], ломая то!"),
-								span_warning("Ты вырываешь [qeuipment] из [mech]!"))
+			user.visible_message(span_danger("[user] aggressively rips [qeuipment] out of [mech], breaking it!"),
+								span_warning("You rip [qeuipment] out of [mech]!"))
 
 
 			new /obj/effect/temp_visual/slash(get_turf(mech), mech, world.icon_size / 2, world.icon_size / 2, COLOR_RED)
@@ -441,7 +441,7 @@
 			sleep(0.2 SECONDS)
 
 	if(!check_continue(mech, user))
-		user.balloon_alert_to_viewers("Прекращает терзать[mech ? mech : "меха"]!")
+		user.balloon_alert_to_viewers("Stops mauling [mech ? mech : "the mech"]!")
 		crushing = FALSE
 		return
 
@@ -459,8 +459,8 @@
 
 
 /datum/action/cooldown/mob_cooldown/consume
-	name = "Жрать"
-	desc = "Сожрать части тела и внутренности цели - кромсая те в клочья.."
+	name = "Devour"
+	desc = "Devour the target's body parts and innards, shredding them to pieces.."
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "berserk_mode"
 
@@ -489,7 +489,7 @@
 
 /datum/action/cooldown/mob_cooldown/consume/proc/perform_decup(mob/living/carbon/target, amputation_chance)
 	if(!length(target.bodyparts))
-		owner.balloon_alert(owner, "Нет конечностей для поглощения!")
+		owner.balloon_alert(owner, "No limbs to consume!")
 		return
 
 	var/list/valid_limbs = list()
@@ -506,25 +506,25 @@
 	var/effective_amputation_chance = is_complicated_limb ? complicated_limb_amputation_chance : amputation_chance
 
 	owner.visible_message(
-		span_danger("[owner] бросается к [chosen_limb.name] [target], оскалив зубы, чтобы разорвать её!"),
-		span_danger("Ты впиваешься зубами в [chosen_limb.name] [target]!"),
+		span_danger("[owner] lunges at [target]'s [chosen_limb.name], baring its teeth to tear it off!"),
+		span_danger("You sink your teeth into [target]'s [chosen_limb.name]!"),
 	)
 	playsound(target, 'sound/effects/magic/demon_attack1.ogg', 50, TRUE)
 
 	if(!do_after(owner, do_after_delay, target))
-		owner.balloon_alert(owner, "Поглощение прервано!")
+		owner.balloon_alert(owner, "Consumption interrupted!")
 		return
 
 	playsound(target, 'sound/effects/magic/demon_consume.ogg', 75, TRUE)
-	owner.balloon_alert(owner, "Поглощена [chosen_limb.name]!")
+	owner.balloon_alert(owner, "Consumed [chosen_limb.name]!")
 
 	if(effective_amputation_chance >= 100 || prob(effective_amputation_chance))
 		if(!is_complicated_limb)
 			chosen_limb.forced_removal(TRUE, TRUE, FALSE)
 			target.spawn_gibs()
 			owner.visible_message(
-				span_danger("[owner] с дикой яростью отрывает [chosen_limb.name] [target] полностью!"),
-				span_danger("Ты отрываешь [chosen_limb.name] [target]!"),
+				span_danger("[owner] tears off [target]'s [chosen_limb.name] entirely with savage fury!"),
+				span_danger("You tear off [target]'s [chosen_limb.name]!"),
 			)
 			qdel(chosen_limb)
 		else
@@ -536,8 +536,8 @@
 			if(to_remove)
 				to_remove.bodypart_remove(chosen_limb, target)
 				owner.visible_message(
-					span_danger("[owner] с отвратительным хрустом вырывает [to_remove.name] [target]!"),
-					span_danger("Ты вырываешь [to_remove.name] [target]!"),
+					span_danger("[owner] rips out [target]'s [to_remove.name] with a disgusting crunch!"),
+					span_danger("You rip out [target]'s [to_remove.name]!"),
 				)
 				target.spawn_gibs()
 			else
@@ -545,8 +545,8 @@
 	else
 		target.apply_damage(rand(base_damage_min, base_damage_max), BRUTE, chosen_limb.body_zone, FALSE, wound_bonus = wound_bonus)
 		owner.visible_message(
-			span_danger("[owner] жестоко разрывает и кромсает [chosen_limb.name] [target]!"),
-			span_danger("Ты зверски разрываешь [chosen_limb.name] [target]!"),
+			span_danger("[owner] brutally tears and shreds [target]'s [chosen_limb.name]!"),
+			span_danger("You savagely tear apart [target]'s [chosen_limb.name]!"),
 		)
 
 	INVOKE_ASYNC(src, PROC_REF(perform_decup), target, amputation_chance)

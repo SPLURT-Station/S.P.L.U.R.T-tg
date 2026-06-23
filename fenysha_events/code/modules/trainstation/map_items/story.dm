@@ -2,13 +2,13 @@
 	color = COLOR_GOLD
 
 /obj/item/keycard/important/trainstation/lab_key
-	name = "Ключ-карта лаборатории"
-	desc = "Ключ-карта с высоким уровнем допуска, открывающая доступ в лабораторный комплекс."
+	name = "laboratory keycard"
+	desc = "A high-clearance keycard that grants access to the laboratory complex."
 
 
 /obj/structure/prop/big/bigdice/radiosphere
-	name = "Радиосфера"
-	desc = "Огромный комплекс датчиков и усилителей сигнала, заключённый в оболочку, напоминающую идеально симметричный октаэдр. От объекта исходит едва уловимый, постоянный шум — словно далёкий шёпот эфира."
+	name = "Radiosphere"
+	desc = "An enormous complex of sensors and signal amplifiers, encased in a shell resembling a perfectly symmetrical octahedron. A faint, constant hum emanates from the object - like the distant whisper of the airwaves."
 	icon = 'fenysha_events/icons/structures/radiosphere.dmi'
 	icon_state = "main"
 	density = TRUE

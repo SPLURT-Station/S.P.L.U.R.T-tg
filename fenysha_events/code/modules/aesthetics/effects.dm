@@ -1,5 +1,5 @@
 /obj/effect/overlay/water
-	name = "вода" // water
+	name = "water"
 	icon = 'fenysha_events/icons/unique/pool.dmi'
 	icon_state = "bottom"
 	density = FALSE
@@ -14,7 +14,7 @@
 	plane = GAME_PLANE
 
 
-//ОБШИВКА //SIDING
+//SIDING
 
 /obj/effect/turf_decal/siding
 	icon = 'fenysha_events/icons/turf/decals/bubber.dmi'
@@ -38,7 +38,7 @@
 /obj/effect/turf_decal/siding/wideplating_new
 	color = "#757476"
 
-//темный //темный //dark
+//dark
 
 /obj/effect/turf_decal/siding/dark
 	color = "#3d3e44"
@@ -55,7 +55,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark
 	color = "#3d3e44"
 
-//светлый //light
+//light
 
 /obj/effect/turf_decal/siding/light
 	color = "#e2e2e2"
@@ -122,17 +122,17 @@
 	icon_state = "caution_blue"
 
 
-// Полная заслуга принадлежит VG station за эти ассеты. https://github.com/vgstation-coders/vgstation13
-// Все предметы в этом .dm и связанном .dmi были созданы VG station и вся заслуга принадлежит им.
+// Full credit goes to VG station for these assets. https://github.com/vgstation-coders/vgstation13
+// All items in this .dm and the associated .dmi were created by VG station and all credit belongs to them.
 
-// -<| ВАЖНАЯ ЗАМЕТКА МАППЕРА |>-
-// Измените переменную 'color' на любом белом спрайте, чтобы просто перекрасить его!
+// -<| IMPORTANT MAPPER NOTE |>-
+// Change the 'color' variable on any white sprite to simply recolor it!
 
 /obj/effect/turf_decal/vg_decals
 	icon = 'fenysha_events/icons/turf/decals/vgstation_decals.dmi'
 	icon_state = "no"
 
-// НАЧАЛО НОМЕРОВ // NUMBERS START
+// NUMBERS START
 
 /obj/effect/turf_decal/vg_decals/numbers
 	icon_state = "no"
@@ -167,9 +167,9 @@
 /obj/effect/turf_decal/vg_decals/numbers/zero
 	icon_state = "0"
 
-// КОНЕЦ НОМЕРОВ // NUMBERS END
+// NUMBERS END
 
-// НАЧАЛО АТМОСФЕРЫ // ATMOS START
+// ATMOS START
 
 /obj/effect/turf_decal/vg_decals/atmos
 	icon_state = "no"
@@ -195,9 +195,9 @@
 /obj/effect/turf_decal/vg_decals/atmos/mix
 	icon_state = "mix"
 
-// КОНЕЦ АТМОСФЕРЫ // ATMOS END
+// ATMOS END
 
-// НАЧАЛО ОТДЕЛА // DEPARTMENT START
+// DEPARTMENT START
 
 /obj/effect/turf_decal/vg_decals/department/hop
 	icon_state = "hop"
@@ -223,9 +223,9 @@
 /obj/effect/turf_decal/vg_decals/department/zoo
 	icon_state = "zoo"
 
-// КОНЕЦ ОТДЕЛА // DEPARTMENT END
+// DEPARTMENT END
 
-// РАЗНОЕ НАЧАЛО // MISC START
+// MISC START
 
 /obj/effect/turf_decal/vg_decals/no
 	icon_state = "no"
@@ -239,5 +239,5 @@
 /obj/effect/turf_decal/vg_decals/radiation_custom
 	icon_state = "radiation-w"
 
-// РАЗНОЕ КОНЕЦ // MISC END
+// MISC END
 

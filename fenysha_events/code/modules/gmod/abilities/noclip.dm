@@ -1,6 +1,6 @@
 /datum/action/cooldown/noclip
-	name = "Переключить noclip"
-	desc = "При активации позволяет двигаться сквозь твердые обьекты!"
+	name = "Toggle noclip"
+	desc = "When activated, lets you move through solid objects!"
 	cooldown_time = 1 SECONDS
 
 	button_icon = 'icons/effects/effects.dmi'
@@ -63,7 +63,7 @@
 		return
 	if(backrooms_wall_phase_chance <= 0)
 		return
-	if(!owner.client) // только игроки
+	if(!owner.client) // players only
 		return
 	if(!isturf(owner.loc) || !isturf(old_loc))
 		return

@@ -26,7 +26,7 @@
 		return
 	var/mob/living/carbon/human/human = attacked
 
-	// Если включена проверка ран и ран нет — заражение не происходит
+	// If the wound check is enabled and there are no wounds, no infection occurs
 	if(!human.all_wounds && only_with_wounds)
 		return
 
@@ -115,18 +115,18 @@
 	return istype(thing, /mob/living/basic/khara_mutant) || HAS_TRAIT(thing, TRAIT_KHARAMUTANT)
 
 /obj/effect/mob_spawn/ghost_role/flesh_spider
-	name = "Плоть-кокон"
-	desc = "Огромное пульсирующее растение..."
+	name = "Flesh Cocoon"
+	desc = "A huge, pulsating plant..."
 	icon = 'icons/mob/simple/meteor_heart.dmi'
 	icon_state = "flesh_pod"
 	mob_type = /mob/living/basic/khara_mutant/flesh_spider
 	density = FALSE
 	uses = 1
 	deletes_on_zero_uses_left = FALSE
-	prompt_name = "плотоядная ловушка"
-	you_are_text = "Ты — паук из плоти и крови."
-	flavour_text = "Ты — паук из плоти и крови! Защищай своё гнездо любой ценой и пожирай всех, кто посмеет приблизиться!"
-	important_text = "Ни при каких обстоятельствах не покидай своё гнездо!"
+	prompt_name = "carnivorous trap"
+	you_are_text = "You are a spider of flesh and blood."
+	flavour_text = "You are a spider of flesh and blood! Defend your nest at any cost and devour everyone who dares to come close!"
+	important_text = "Under no circumstances leave your nest!"
 	faction = list(FACTION_KHARA)
 	light_range = 2
 	light_power = 3
@@ -140,17 +140,17 @@
 	for(var/turf/blood_turf in view(src, 2))
 		new /obj/effect/decal/cleanable/blood(blood_turf)
 		for(var/mob/living/mob_in_turf in blood_turf)
-			mob_in_turf.visible_message(span_danger("[mob_in_turf] обрызган кровью!"), span_userdanger("Ты обрызган кровью!"))
-			mob_in_turf.add_blood_DNA(list("Не-человеческая ДНК" = random_human_blood_type()), list(/datum/disease/khara))
+			mob_in_turf.visible_message(span_danger("[mob_in_turf] is splattered with blood!"), span_userdanger("You are splattered with blood!"))
+			mob_in_turf.add_blood_DNA(list("Non-human DNA" = random_human_blood_type()), list(/datum/disease/khara))
 			playsound(mob_in_turf, 'sound/effects/splat.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return ..()
 
 
 /mob/living/basic/khara_mutant
-	name = "Мутант Кхара"
-	desc = "Мерзкая, окровавленная мерзость..."
+	name = "Khara Mutant"
+	desc = "A vile, blood-soaked abomination..."
 	mob_biotypes = MOB_ORGANIC|MOB_BUG|MOB_SPECIAL
-	speak_emote = list("рычит")
+	speak_emote = list("growls")
 	damage_coeff = list(BRUTE = 1.3, BURN = 0.7, TOX = 0, STAMINA = 1, OXY = 0)
 	basic_mob_flags = FLAMMABLE_MOB|IMMUNE_TO_FISTS|REMAIN_DENSE_WHILE_DEAD
 	status_flags = CANSTUN
@@ -163,8 +163,8 @@
 	wound_bonus = 20
 	obj_damage = 50
 	melee_attack_cooldown = CLICK_CD_MELEE
-	attack_verb_continuous = "вгрызается"
-	attack_verb_simple = "вгрызться"
+	attack_verb_continuous = "bites into"
+	attack_verb_simple = "bite into"
 	attack_sound = 'sound/items/weapons/bite.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	unsuitable_cold_damage = 10
@@ -186,21 +186,21 @@
 	unsuitable_cold_damage = 10
 	habitable_atmos = null
 
-	/// Каста этого мутанта
+	/// This mutant's caste
 	var/cast = KHARA_CAST_LESSER
-	/// Ссылка на компонент колеективного разума этого мутанта
+	/// Reference to this mutant's hivemind component
 	VAR_FINAL/datum/component/khara_hivemind/hivemind_link = null
-	/// Сила этого мутанта
+	/// This mutant's power
 	var/mutant_power = KHARA_POWER_WEAK
 
-	/// Минимальный урон в ближнем бою, необходимый, чтобы пробить этого мутанта
+	/// The minimum melee damage required to pierce this mutant
 	var/minimum_melee_damage_treshold = 10
-	/// Модификатор дополнительного урона в ближнем бою, где - 1 - это 2х урон
+	/// Additional melee damage modifier, where 1 means 2x damage
 	var/addictional_melee_damage_multiplier = 1
 
-	/// Должен ли этот мутант лопаться при смерти
+	/// Whether this mutant should burst on death
 	var/gib_on_death = TRUE
-	/// Радиус распыления крови, при гибе мутанта
+	/// The radius of blood spray when the mutant dies
 	var/spread_blood_radius = 3
 
 	var/spread_miasma_amount = 12
@@ -208,9 +208,9 @@
 	var/spreads_miasma = FALSE
 	var/regeneration_delay = 4 SECONDS
 	var/health_regen_per_second = 4
-	/// Способности этого мутанта
+	/// This mutant's abilities
 	var/list/innate_actions
-	/// Способности всех мутантов по умолчанию
+	/// The default abilities of all mutants
 	VAR_PRIVATE/list/default_actions = list(
 		/datum/action/cooldown/mob_cooldown/consume = BB_MOB_ABILITY_CONSUME
 	)
@@ -223,7 +223,7 @@
 /mob/living/basic/khara_mutant/Initialize(mapload)
 	. = ..()
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_NO_FLOATING_ANIM, TRAIT_THERMAL_VISION, TRAIT_KHARAMUTANT), MEGAFAUNA_TRAIT)
-	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "это бессмысленно!")
+	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "it's pointless!")
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HEAVY)
 	AddElement(/datum/element/ai_retaliate)
 
@@ -276,7 +276,7 @@
 
 /mob/living/basic/khara_mutant/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if((attacking_item.force < minimum_melee_damage_treshold) && !HAS_TRAIT(attacking_item, TRAIT_ALWAYS_PENETRAIT_KHARA))
-		attacking_item.visible_message("[attacking_item], отскакивает от тела [src], не в силах пробить его.")
+		attacking_item.visible_message("[attacking_item] bounces off the body of [src], unable to pierce it.")
 		user.do_attack_animation(src, used_item = attacking_item)
 		return ATTACK_FAILED
 
@@ -298,7 +298,7 @@
 
 /mob/living/basic/khara_mutant/melee_attack(atom/target, list/modifiers, ignore_cooldown)
 	if(is_khara_creature(target))
-		to_chat(src, span_warning("Ты не можешь атаковать подобных себе!"))
+		to_chat(src, span_warning("You cannot attack your own kind!"))
 		return ATTACK_FAILED
 	. = ..()
 
@@ -326,24 +326,24 @@
 	for(var/turf/blood_turf in circle_range(src, spread_blood_radius))
 		new /obj/effect/decal/cleanable/blood(blood_turf)
 		for(var/mob/living/mob_in_turf in blood_turf)
-			mob_in_turf.visible_message(span_danger("[mob_in_turf] обрызган кровью!"), span_userdanger("Ты обрызган кровью!"))
-			mob_in_turf.add_blood_DNA(list("Не-человеческая ДНК" = random_human_blood_type()), list(/datum/disease/khara))
+			mob_in_turf.visible_message(span_danger("[mob_in_turf] is splattered with blood!"), span_userdanger("You are splattered with blood!"))
+			mob_in_turf.add_blood_DNA(list("Non-human DNA" = random_human_blood_type()), list(/datum/disease/khara))
 			playsound(mob_in_turf, 'sound/effects/splat.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return ..()
 
 
 /mob/living/basic/khara_mutant/flesh_spider
-	name = "Паук из плоти"
-	desc = "Странное существо из плоти в форме паука. Глаза — чёрные бездонные провалы без намёка на душу."
+	name = "Flesh Spider"
+	desc = "A strange creature made of flesh, shaped like a spider. Its eyes are black, bottomless pits without a hint of a soul."
 	icon = 'icons/mob/simple/arachnoid.dmi'
 	icon_state = "flesh"
 	icon_living = "flesh"
 	icon_dead = "flesh_dead"
-	speak_emote = list("щёлкает")
-	response_help_continuous = "гладит"
-	response_help_simple = "погладить"
-	response_disarm_continuous = "осторожно отталкивает"
-	response_disarm_simple = "оттолкнуть"
+	speak_emote = list("clicks")
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "push aside"
 	ai_controller = /datum/ai_controller/basic_controller/giant_spider
 	health = 125
 	maxHealth = 125
@@ -370,18 +370,18 @@
 
 
 /mob/living/basic/khara_mutant/flesh_human
-	name = "Мясной гуманоид"
-	desc = "Страшное гуманоидное существо, что яво еще недавно было человеком. Все тело существа дрожит неестственно изгибаясь, \
-			пока четыре отростка за спиной быстро колыхаются."
+	name = "Flesh Humanoid"
+	desc = "A terrifying humanoid creature that was clearly a human until recently. Its whole body trembles, bending unnaturally, \
+			while four appendages on its back undulate rapidly."
 	icon = 'fenysha_events/icons/mob/horror.dmi'
 	icon_state = "khara_creature"
 	icon_living = "khara_creature"
 	icon_dead = "khara_creature"
-	speak_emote = list("извивается")
-	response_help_continuous = "гладит"
-	response_help_simple = "погладить"
-	response_disarm_continuous = "осторожно отталкивает"
-	response_disarm_simple = "оттолкнуть"
+	speak_emote = list("writhes")
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "push aside"
 	ai_controller = /datum/ai_controller/basic_controller/giant_spider
 	melee_damage_upper = 20
 	melee_damage_lower = 20
@@ -414,8 +414,8 @@
 	return TRUE
 
 /mob/living/basic/khara_mutant/arachnid
-	name = "Искажённый арахнид"
-	desc = "Несмотря на внушительные размеры, предпочитает нападать из засады и атаковать только уже искалеченную жертву."
+	name = "Distorted Arachnid"
+	desc = "Despite its impressive size, it prefers to attack from ambush and to strike only an already crippled victim."
 	cast = KHARA_CAST_ADAPTED
 	mutant_power = KHARA_POWER_STRONG
 	icon = 'icons/mob/simple/jungle/arachnid.dmi'
@@ -439,7 +439,7 @@
 	base_pixel_x = -16
 	mob_size = MOB_SIZE_HUGE
 
-	speak_emote = list("ревёт")
+	speak_emote = list("roars")
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	ai_controller = /datum/ai_controller/basic_controller/corrupted_arachnid
@@ -450,10 +450,10 @@
 	)
 
 
-// Не бойся Жнеца!
+// Don't fear the Reaper!
 /mob/living/basic/khara_mutant/reaper
-	name = "Жнец"
-	desc = "Ужасающая мерзость на тонких окровавленных ногах. Конечности двигаются хаотично и неестественно."
+	name = "Reaper"
+	desc = "A horrifying abomination on thin, blood-soaked legs. Its limbs move chaotically and unnaturally."
 	cast = KHARA_CAST_ADAPTED
 	mutant_power = KHARA_POWER_STRONG
 	icon = 'fenysha_events/icons/mob/64x64.dmi'
@@ -477,7 +477,7 @@
 	base_pixel_x = -16
 	mob_size = MOB_SIZE_HUGE
 
-	speak_emote = list("ревёт")
+	speak_emote = list("roars")
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	attack_vis_effect = null
 	ai_controller = /datum/ai_controller/basic_controller/khara_reaper
@@ -511,8 +511,8 @@
 
 
 /mob/living/basic/khara_mutant/crusher
-	name = "Скорпион"
-	desc = "Огромная мерзость перемещающаяся на неуклюжем подобии ног, лучше не стоять у этого на пути."
+	name = "Scorpion"
+	desc = "A huge abomination that moves on a clumsy imitation of legs; you'd best not stand in its way."
 	cast = KHARA_CAST_ASSIMILATING
 	mutant_power = KHARA_POWER_VERY_STRONG
 	icon = 'fenysha_events/icons/mob/128x128.dmi'
@@ -550,8 +550,8 @@
 	)
 
 /mob/living/basic/khara_mutant/spreader
-	name = "Распространитель"
-	desc = "Огромная мерзость, напоминающая живое лёгкое. Извергает колоссальные объёмы заражённого миазмами Кхара тумана."
+	name = "Spreader"
+	desc = "A huge abomination resembling a living lung. It belches colossal volumes of fog laden with Khara miasma."
 	cast = KHARA_CAST_ASSIMILATING
 	mutant_power = KHARA_POWER_VERY_STRONG
 	icon = 'fenysha_events/icons/mob/256x256.dmi'

@@ -24,13 +24,13 @@ export const TrainStationControl = (props: any, context: any) => {
 
   return (
     <Window
-      title={`${station_name} — терминал управления`}
+      title={`${station_name} — Control Terminal`}
       width={380}
       height={600}
     >
       <Window.Content scrollable>
         {unlocked ? (
-          <Section title="Статус доступа" backgroundColor="#1e3a2f">
+          <Section title="Access Status" backgroundColor="#1e3a2f">
             <Box
               textAlign="center"
               fontSize="20px"
@@ -40,14 +40,14 @@ export const TrainStationControl = (props: any, context: any) => {
               mb={3}
             >
               <Icon name="lock-open" mr={1} />
-              СТАНЦИЯ РАЗБЛОКИРОВАНА
+              STATION UNLOCKED
             </Box>
             <Box textAlign="center" color="grey">
-              Поезд может продолжить движение к следующей станции.
+              The train may continue to the next station.
             </Box>
           </Section>
         ) : (
-          <Section title="Система блокировки">
+          <Section title="Lock System">
             <Box textAlign="center" mt={2} mb={3}>
               <Icon
                 name="shield-halved"
@@ -60,12 +60,12 @@ export const TrainStationControl = (props: any, context: any) => {
               <Stack vertical align="center">
                 <Stack.Item mb={2}>
                   <Box fontSize="14px" color="average">
-                    Эта станция не требует ввода кода доступа
+                    This station does not require an access code
                   </Box>
                 </Stack.Item>
                 <Stack.Item>
                   <Button
-                    content="Разблокировать станцию"
+                    content="Unlock Station"
                     color="good"
                     textAlign="center"
                     fontSize="16px"
@@ -77,7 +77,7 @@ export const TrainStationControl = (props: any, context: any) => {
             ) : (
               <>
                 <Box textAlign="center" bold fontSize="16px" mb={2}>
-                  Введите код доступа
+                  Enter access code
                 </Box>
 
                 <Box
@@ -195,8 +195,7 @@ export const TrainStationControl = (props: any, context: any) => {
         <Divider />
 
         <Box textAlign="center" color="grey" italic mt={2}>
-          Терминал управления станцией v2.4 • Только для уполномоченного
-          персонала
+          Station Control Terminal v2.4 • Authorized personnel only
         </Box>
       </Window.Content>
     </Window>

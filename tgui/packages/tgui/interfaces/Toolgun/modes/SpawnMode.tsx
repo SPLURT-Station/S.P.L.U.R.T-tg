@@ -34,8 +34,8 @@ export function SpawnMode(props: SpawnModeProps) {
 
   const isMobMode = modeKey === 'mobs';
   const rootPath = isMobMode ? '/mob' : '/obj';
-  const rootTitle = isMobMode ? 'mob (корень)' : 'obj (корень)';
-  const sectionTitle = isMobMode ? 'Мобы' : 'Объекты';
+  const rootTitle = isMobMode ? 'mob (root)' : 'obj (root)';
+  const sectionTitle = isMobMode ? 'Mobs' : 'Objects';
 
   const fallback = <Box width="48px" height="48px" />;
   const gridStyle = {
@@ -63,8 +63,8 @@ export function SpawnMode(props: SpawnModeProps) {
           fluid
           placeholder={
             isMobMode
-              ? 'Поиск по всем типам и именам мобов...'
-              : 'Поиск по всем типам и именам...'
+              ? 'Search across all mob types and names...'
+              : 'Search across all types and names...'
           }
           value={search}
           onChange={onSearchChange}
@@ -76,7 +76,7 @@ export function SpawnMode(props: SpawnModeProps) {
             <Section
               fill
               scrollable
-              title={isMobMode ? 'Подтипы мобов' : 'Подтипы объектов'}
+              title={isMobMode ? 'Mob Subtypes' : 'Object Subtypes'}
             >
               {currentBrowsePath !== rootPath && (
                 <Button
@@ -93,7 +93,7 @@ export function SpawnMode(props: SpawnModeProps) {
                     act('browse_to', { path: parentPath });
                   }}
                 >
-                  .. Назад
+                  .. Back
                 </Button>
               )}
               <Box mb={1}>
@@ -121,8 +121,8 @@ export function SpawnMode(props: SpawnModeProps) {
               {folderChildNodes.length === 0 && (
                 <Box color="#888888" textAlign="center" py={4}>
                   {normalizedSearch
-                    ? 'Подтипы не обнаружены'
-                    : 'У этого типа нет подтипов'}
+                    ? 'No subtypes found'
+                    : 'This type has no subtypes'}
                 </Box>
               )}
             </Section>
@@ -135,7 +135,7 @@ export function SpawnMode(props: SpawnModeProps) {
               title={sectionTitle}
               buttons={
                 <Button icon="plus" onClick={() => act('spawn_here')}>
-                  Заспавнить здесь
+                  Spawn here
                 </Button>
               }
             >
@@ -174,7 +174,7 @@ export function SpawnMode(props: SpawnModeProps) {
                   mt={2}
                   onClick={() => act('load_more')}
                 >
-                  Загрузить ещё ({visibleCount}/{matchCount})
+                  Load more ({visibleCount}/{matchCount})
                 </Button>
               )) ||
                 ''}
@@ -183,7 +183,7 @@ export function SpawnMode(props: SpawnModeProps) {
 
           <Stack.Item basis="300px">
             <Section
-              title={isMobMode ? 'Выбранный моб' : 'Выбранный объект'}
+              title={isMobMode ? 'Selected Mob' : 'Selected Object'}
               mb={2}
             >
               {selectedEntry ? (
@@ -210,16 +210,16 @@ export function SpawnMode(props: SpawnModeProps) {
                   </Stack.Item>
                 </Stack>
               ) : (
-                <Box color="#aaaaaa">Ничего не выбрано</Box>
+                <Box color="#aaaaaa">Nothing selected</Box>
               )}
             </Section>
 
-            <Section title="Настройки спавна" mb={2}>
+            <Section title="Spawn Settings" mb={2}>
               <Stack scrollable vertical>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={useCustomColor}
-                    content="Использовать свой цвет"
+                    content="Use custom color"
                     onClick={() => act('toggle_use_custom_color')}
                   />
                 </Stack.Item>
@@ -239,7 +239,7 @@ export function SpawnMode(props: SpawnModeProps) {
                         icon="palette"
                         onClick={() => act('pick_custom_color')}
                       >
-                        Выбрать
+                        Pick
                       </Button>
                     </Stack.Item>
                   </Stack>
@@ -247,21 +247,21 @@ export function SpawnMode(props: SpawnModeProps) {
                 <Stack.Item>
                   <Button.Checkbox
                     checked={customDensity}
-                    content="Плотность включена"
+                    content="Density enabled"
                     onClick={() => act('toggle_custom_density')}
                   />
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={customOpacity}
-                    content="Непрозрачность включена"
+                    content="Opacity enabled"
                     onClick={() => act('toggle_custom_opacity')}
                   />
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={customIndestructible}
-                    content="Неразрушимый"
+                    content="Indestructible"
                     onClick={() => act('toggle_custom_indestructible')}
                   />
                 </Stack.Item>
@@ -279,10 +279,10 @@ export function SpawnMode(props: SpawnModeProps) {
 function MobExtraSettings(props: SpawnModeProps) {
   const { act } = props;
   return (
-    <Section title="Параметры моба">
+    <Section title="Mob Parameters">
       <Stack scrollable vertical>
         <Stack.Item>
-          <Box color="#d2d2d2">AI контроллер (typepath)</Box>
+          <Box color="#d2d2d2">AI controller (typepath)</Box>
           <Input
             fluid
             value={props.mob_ai_controller || ''}
@@ -338,12 +338,12 @@ function MobExtraSettings(props: SpawnModeProps) {
         <Stack.Item>
           <Button.Checkbox
             checked={Boolean(props.mob_need_atmosphere)}
-            content="Нуждается в атмосфере"
+            content="Needs atmosphere"
             onClick={() => act('toggle_mob_need_atmosphere')}
           />
         </Stack.Item>
         <Stack.Item>
-          <Box color="#d2d2d2">Урон от неподходящей атмосферы</Box>
+          <Box color="#d2d2d2">Damage from unsuitable atmosphere</Box>
           <Input
             fluid
             value={String(props.mob_unsuitable_atmos_damage ?? 1)}

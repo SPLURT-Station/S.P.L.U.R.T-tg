@@ -1,6 +1,6 @@
 /datum/toolgun_mode/spawning/objects
-	name = "Обьекты"
-	desc = "Используйте браузер типов и обьектов, чтобы быстро создавать почти любые обьекты."
+	name = "Objects"
+	desc = "Use the type and object browser to quickly create almost any object."
 	mode_key = "spawn"
 	type_blacklist = list(
 		/obj/effect,
@@ -12,12 +12,12 @@
 		/obj/energy_ball,
 		/obj/docking_port,
 		/obj/pathfind_guy,
-		/obj/item/toolgun, // Не хочу, чтобы ими спамили
-		/obj/item/physgun/advanced/admin, // БАН ЗА ПРОП СПАМ
+		/obj/item/toolgun, // Don't want these to be spammed
+		/obj/item/physgun/advanced/admin, // BAN FOR PROP SPAM
 		/obj/item/debug/omnitool/item_spawner,
-		/obj/item/gun/magic/wand/death, // Думаю никому не хочется, чтобы его убили просто так
+		/obj/item/gun/magic/wand/death, // I think nobody wants to be killed just like that
 		/obj/item/storage/box/debugtools,
-		/obj/item/mod/control/pre_equipped/debug, // И это тоже,
+		/obj/item/mod/control/pre_equipped/debug, // And this too,
 	)
 
 /datum/toolgun_mode/spawning/objects/get_root_type()

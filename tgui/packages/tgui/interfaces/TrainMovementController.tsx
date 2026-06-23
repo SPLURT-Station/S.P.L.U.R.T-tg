@@ -21,7 +21,7 @@ export const TrainMovementController = () => {
   return (
     <Window title="Train Controller" width={450} height={580}>
       <Window.Content scrollable>
-        {/* Основное управление поездом */}
+        {/* Main train control */}
         <Section title="Movement Control">
           <LabeledList>
             <LabeledList.Item label="Status">
@@ -68,7 +68,7 @@ export const TrainMovementController = () => {
 
         <Divider />
 
-        {/* Управление станциями */}
+        {/* Station management */}
         <Section title="Station Management">
           <Box mb={1}>
             <Button
@@ -108,7 +108,7 @@ export const TrainMovementController = () => {
         </Section>
 
         <Divider />
-        {/* Информация и подсказки */}
+        {/* Info and hints */}
         <Section title="Info">
           <Box italic color="label">
             • Use "Load" to dock at a station and stop the train.

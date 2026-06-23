@@ -388,7 +388,7 @@ html.loading #screen_image {
 }
 
 html.loading .lobby-name:before {
-	content: "Происходит загруз-очка...";
+	content: "Loooading...";
 	background: transparent;
 	background-size: 200%;
 	background-clip: text;
@@ -400,7 +400,7 @@ html.loading #character_name:before {
 	content: attr(data-loading);
 }
 
-/* ===== LOGO ===== не баньте пж */
+/* ===== LOGO ===== please don't ban me */
 #logo {
 	visibility: hidden;
 }
@@ -705,7 +705,7 @@ html.loading #character_name:before {
 }
 
 .lobby-name:before {
-	content: "На смену прибывает...";
+	content: "Arriving for the shift...";
 	text-align: center;
 	font-weight: normal;
 	font-size: 1.1rem;

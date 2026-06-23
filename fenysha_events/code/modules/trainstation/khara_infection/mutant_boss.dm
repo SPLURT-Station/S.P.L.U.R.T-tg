@@ -1,8 +1,8 @@
 /mob/living/basic/khara_mutant/heat_of_infection
-	name = "Сердце инфекции"
-	desc = "Огромная мясная абоминация напоминающая что-то среднее между оторванной головой и бьющимся сердцем, \
-			висит на потолке за складки сухожилий. Раззевает свой огромный рот выплевывая из него мерзкие остатки чего-то \
-			живого. Это - ужасное создание."
+	name = "Heart of Infection"
+	desc = "A massive fleshy abomination resembling something between a torn-off head and a beating heart, \
+			it hangs from the ceiling by folds of sinew. It gapes its enormous mouth, spitting out vile remnants of something \
+			that was once alive. This is a horrifying creature."
 	cast = KHARA_CAST_ASSIMILATING
 	icon = 'fenysha_events/icons/mob/256x256.dmi'
 	icon_state = "screamer"
@@ -10,7 +10,7 @@
 	icon_dead = "screamer"
 
 	speed = 16
-	maxHealth = 100000 // Это - самый жирный моб в игре
+	maxHealth = 100000 // This is the tankiest mob in the game
 	health = 100000
 
 	anchored = TRUE
@@ -57,7 +57,7 @@
 	ADD_TRAIT(src, TRAIT_MOVE_FLYING, INNATE_TRAIT)
 
 	AddElement(/datum/element/simple_flying)
-	notify_ghosts("Сердце инфекции только что появилось!", src, "Сердце инфекции")
+	notify_ghosts("The Heart of Infection has just appeared!", src, "Heart of Infection")
 
 	animate(src, pixel_y = -10, time = 2 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -30, time = 2 SECONDS, flags = ANIMATION_RELATIVE)
@@ -70,13 +70,13 @@
 	for(var/mob/living/player in GLOB.alive_player_list)
 		flash_color(player, flash_color = "#FF0000", flash_time = 50)
 		shake_camera(player, 2 SECONDS, 1)
-		to_chat(player, span_userdanger("Сердце инфекции - пробудилось!"))
+		to_chat(player, span_userdanger("The Heart of Infection has awakened!"))
 		player.Shake(duration = 1 SECONDS)
 
 	AddComponent( \
 		/datum/component/bossbar, \
 		port_state = "screamer", \
-		name_override = "Сердце инфекции", \
+		name_override = "Heart of Infection", \
 		range = 30, \
 	)
 
@@ -207,18 +207,18 @@
 	switch(new_stage)
 		if(2)
 			heal_overall_damage(10000)
-			visible_message(span_userdanger("[src] издает истошный вопль - оно в ярости!"))
+			visible_message(span_userdanger("[src] lets out a piercing wail - it is enraged!"))
 			playsound(src, 'fenysha_events/sounds/mobs/mutant_boss_death.ogg', 60, TRUE)
 			while(get_hands_count() < 4)
 				add_new_hand()
 		if(3)
 			heal_overall_damage(10000)
-			visible_message(span_userdanger("[src] издает истошный вопль - оно в ярости!"))
+			visible_message(span_userdanger("[src] lets out a piercing wail - it is enraged!"))
 			while(get_hands_count() < 4)
 				add_new_hand()
 		if(4)
 			heal_overall_damage(15000)
-			visible_message(span_userdanger("[src] издает истошный вопль - оно кричит ярости!"))
+			visible_message(span_userdanger("[src] lets out a piercing wail - it screams in fury!"))
 			while(get_hands_count() < 6)
 				add_new_hand()
 			for(var/datum/action/cooldown/action in actions)
@@ -230,8 +230,8 @@
 	stage = new_stage
 
 /mob/living/basic/khara_mutant/heat_of_infection_hand
-	name = "Конечность"
-	desc = "Огромная мерзкая конечность еще больше существа."
+	name = "Limb"
+	desc = "A huge, vile limb even larger than the creature itself."
 	icon = 'fenysha_events/icons/mob/256x256.dmi'
 	icon_state = "scream_hand_r"
 	icon_living = "scream_hand_r"
@@ -341,7 +341,7 @@
 
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection
-	name = "Атака настоящего босса"
+	name = "True boss attack"
 	check_flags = NONE
 	cooldown_time = 10 SECONDS
 	text_cooldown = TRUE
@@ -358,8 +358,8 @@
 	boss_owner = owner
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack
-	name = "Удар рукой"
-	desc = "Использовать одну из своих рук, чтобы атаковать зону."
+	name = "Hand Strike"
+	desc = "Use one of your hands to attack an area."
 	cooldown_time = 1 SECONDS
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack/IsAvailable(feedback)
@@ -372,11 +372,11 @@
 	var/mob/living/basic/khara_mutant/heat_of_infection_hand/hand = boss_owner.get_free_hand()
 	var/turf/target_turf = get_turf(target)
 	if(!hand)
-		to_chat(boss_owner, span_danger("Нет доступных рук!"))
+		to_chat(boss_owner, span_danger("No hands available!"))
 		StartCooldown()
 		return
 	hand.attack_callback = CALLBACK(src, PROC_REF(on_attack))
-	boss_owner.visible_message(span_danger("[boss_owner] заносит свою руку для атаки!"))
+	boss_owner.visible_message(span_danger("[boss_owner] raises its hand to strike!"))
 	for(var/turf/T in view(1, target_turf))
 		new /obj/effect/temp_visual/telegraphing/boss_hit(T)
 	ASYNC
@@ -402,8 +402,8 @@
 
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack/bones
-	name = "Костяной удар"
-	desc = "Ударить рукой по зоне, чтобы вызвать удар костями"
+	name = "Bone Strike"
+	desc = "Strike an area with your hand to unleash a bone attack."
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack/bones/on_attack(mob/living/basic/khara_mutant/heat_of_infection_hand/hand, turf/attacked_turf)
 	. = ..()
@@ -415,8 +415,8 @@
 	CHECK_TICK
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack/rumbling
-	name = "Силовой удар"
-	desc = "Ударить рукой по зоне, чтобы вызвать ударную волну"
+	name = "Force Strike"
+	desc = "Strike an area with your hand to unleash a shockwave."
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hand_attack/rumbling/on_attack(mob/living/basic/khara_mutant/heat_of_infection_hand/hand, turf/attacked_turf)
 	. = ..()
@@ -456,8 +456,8 @@
 
 
 /datum/action/cooldown/mob_cooldown/boss_bone_shard_wave
-	name = "Костяная волна"
-	desc = "Выпускает косяную волну в указанном направлении."
+	name = "Bone Wave"
+	desc = "Unleashes a wave of bones in the chosen direction."
 	button_icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	button_icon_state = "legion_turret"
 	background_icon_state = "bg_alien"
@@ -486,13 +486,13 @@
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/boss_bone_shard_wave/proc/do_hurl_wave(turf/target)
-	owner.visible_message(span_danger("[owner] ГОТОВИТЬСЯ ВЫПУСТИТЬ ВОЛНУ СНАРЯДОВ!"))
+	owner.visible_message(span_danger("[owner] PREPARES TO UNLEASH A WAVE OF PROJECTILES!"))
 	var/turf/start = get_turf(owner)
 	var/list/target_turfs = get_wave_turfs(start, target, wave_width)
 	for(var/turf/T in target_turfs)
 		new /obj/effect/temp_visual/telegraphing/boss_hit(T)
 	sleep(shard_delay)
-	owner.visible_message(span_danger("[owner] ВЫПУСКАЕТ ВОЛНУ СНАРЯДОВ!"))
+	owner.visible_message(span_danger("[owner] UNLEASHES A WAVE OF PROJECTILES!"))
 	if(shard_sound)
 		playsound(owner, shard_sound, 50, TRUE)
 	var/turf/owner_turf = get_turf(owner)
@@ -526,8 +526,8 @@
 
 
 /datum/action/cooldown/mob_cooldown/deadly_roar
-	name = "Смертоносный крик"
-	desc = "Испустить истошный крик!"
+	name = "Deadly Scream"
+	desc = "Let out a piercing scream!"
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "the_traps"
 
@@ -540,13 +540,13 @@
 			continue
 		flash_color(player, flash_color = "#FF0000", flash_time = 50)
 		shake_camera(player, 2 SECONDS, 1)
-		to_chat(player, span_userdanger("[owner] истошно рычит, погружая вас в отчаянье!"))
+		to_chat(player, span_userdanger("[owner] roars frenziedly, plunging you into despair!"))
 		player.Shake(duration = 1 SECONDS)
 	StartCooldown()
 
 /datum/action/cooldown/mob_cooldown/throw_spider/strong
-	name = "Мясной шар"
-	desc = "Выпускает мясной шар с существом внутри"
+	name = "Meat Ball"
+	desc = "Launches a ball of meat with a creature inside."
 
 	projectile_type = /obj/projectile/meat_ball/huge
 	cooldown_time = 7 SECONDS
@@ -556,8 +556,8 @@
 	. = ..()
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hello
-	name = "Поприветствовать своих опонентов"
-	desc = "Одноразовое! Запускает катсцену, после чего добавляет компонент боссбара!"
+	name = "Greet Your Opponents"
+	desc = "One-time use! Triggers a cutscene, after which it adds the bossbar component!"
 	click_to_activate = FALSE
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/hello/Activate(atom/target)
@@ -565,8 +565,8 @@
 	qdel(src)
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/laser_sweep
-	name = "Круговая лазерная атака"
-	desc = "Запускает 1–3 вращающихся широких лазера."
+	name = "Circular Laser Attack"
+	desc = "Launches 1-3 rotating wide lasers."
 	cooldown_time = 60 SECONDS
 	click_to_activate = FALSE
 
@@ -578,7 +578,7 @@
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/heat_of_infection/laser_sweep/proc/do_laser_sweep()
-	owner.visible_message(span_userdanger("[owner] начинает заряжать круговые лазеры!"))
+	owner.visible_message(span_userdanger("[owner] begins charging up the circular lasers!"))
 	playsound(owner, 'sound/effects/magic/lightning_chargeup.ogg', 80, TRUE)
 
 	INVOKE_ASYNC(src, PROC_REF(sweep_single_laser))
@@ -603,7 +603,7 @@
 		for(var/turf/T in side_path)
 			new /obj/effect/temp_visual/telegraphing/boss_hit(T)
 
-	owner.visible_message(span_danger("[owner] наводит лазеры!"))
+	owner.visible_message(span_danger("[owner] takes aim with the lasers!"))
 	sleep(3 SECONDS)
 
 	var/datum/beam/center_beam = null
@@ -660,8 +660,8 @@
 GLOBAL_LIST_EMPTY(infection_lasers)
 
 /obj/machinery/infection_laser
-	name = "S-Jok лазер"
-	desc = "Специальный лазер, предназначенный для борьбы с сердцем инфекции. Активируйте его, чтобы подготовить к атаке."
+	name = "S-Jok Laser"
+	desc = "A special laser designed to fight the Heart of Infection. Activate it to prepare it for an attack."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "explosive_compressor"
 	density = TRUE
@@ -702,14 +702,14 @@ GLOBAL_LIST_EMPTY(infection_lasers)
 	if(.)
 		return
 	if(active)
-		to_chat(user, span_notice("Лазер уже активирован."))
+		to_chat(user, span_notice("The laser is already activated."))
 		return
 	if(world.time < cooldown_time)
-		to_chat(user, span_warning("Лазер на перезарядке! Осталось [round((cooldown_time - world.time) / 10)] секунд."))
+		to_chat(user, span_warning("The laser is on cooldown! [round((cooldown_time - world.time) / 10)] seconds remaining."))
 		return
 	active = TRUE
 	update_visuals()
-	to_chat(user, span_notice("Вы активируете [src]."))
+	to_chat(user, span_notice("You activate [src]."))
 	check_all_active()
 
 /obj/machinery/infection_laser/proc/check_all_active()

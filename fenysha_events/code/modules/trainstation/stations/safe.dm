@@ -1,14 +1,14 @@
 /datum/train_station/near_station/abandoned_depo
-	name = "Пристанционная зона — Заброшенное депо"
+	name = "Station Area - Abandoned Depot"
 	map_path = "_maps/modular_events/trainstation/nearstations/static_abandoned_train_depo.dmm"
 
 
 /datum/train_station/abandoned_depo
-	name = "Железнодорожное депо Гайрена"
-	desc = "Эвакуированное депо, расположенное в непосредственной близости от города Гайрен, \
-			прямо за территорией завода, который ещё недавно выпускал самые современные поезда региона. \
-			Сейчас здесь царит тишина, нарушаемая лишь скрипом металла на ветру и редкими хлопками лопнувших стёкол в заброшенных вагонах. \
-			Радиомаяк молчит уже несколько недель."
+	name = "Gairen Railway Depot"
+	desc = "An evacuated depot located in the immediate vicinity of the city of Gairen, \
+			right behind the grounds of the factory that, until recently, produced the most modern trains in the region. \
+			Now silence reigns here, broken only by the creak of metal in the wind and the occasional pop of shattered glass in the abandoned cars. \
+			The radio beacon has been silent for several weeks now."
 	map_path = "_maps/modular_events/trainstation/abandoned_train_depot.dmm"
 	creator = "Fenysha"
 	possible_nearstations = list(/datum/train_station/near_station/abandoned_depo)
@@ -19,11 +19,11 @@
 
 
 /datum/train_station/gairen
-	name = "Город Гайрен"
-	desc = "Промышленный город на севере страны — когда-то один из важнейших транспортных и производственных узлов. \
-			Десятки заводов, дымящих труб, бесконечные конвейеры и гул поездов круглые сутки. \
-			Сейчас город переживает тяжёлые времена: многие предприятия остановлены, улицы опустели, а над заводами висит тяжёлый запах ржавчины и заброшенности. \
-			Радиомаяк станции передаёт старое объявление о «временных мерах безопасности», но голос диктора давно сменился на автоматический цикл."
+	name = "City of Gairen"
+	desc = "An industrial city in the north of the country - once one of the most important transport and production hubs. \
+			Dozens of factories, smoking chimneys, endless conveyors and the rumble of trains around the clock. \
+			Now the city is going through hard times: many enterprises have shut down, the streets have emptied, and a heavy smell of rust and abandonment hangs over the factories. \
+			The station's radio beacon broadcasts an old announcement about \"temporary safety measures\", but the announcer's voice has long since been replaced by an automatic loop."
 	map_path = "_maps/modular_events/trainstation/start_city.dmm"
 	creator = "Kierri & Fenysha"
 	ambience_sounds = list('fenysha_events/sounds/thefinalstation/piano_loop.ogg' = 33 SECONDS)
@@ -33,14 +33,14 @@
 
 
 /datum/train_station/deep_forest
-	name = "Глубокий лес"
+	name = "Deep Forest"
 	creator = "Fenysha"
 
 	region = TRAINSTATION_REGION_THUNDRA
 	map_path = "_maps/modular_events/trainstation/deep_forest.dmm"
 	possible_nearstations = list(/datum/train_station/near_station/static_mountaints)
 
-	// Можно добавить описание, если хочешь усилить атмосферу
-	desc = "Густой, почти непроходимый лес, куда почти не проникает свет. \
-			Старые рельсы давно заросли мхом и молодыми деревьями, а путь вперёд теряется в зелёной темноте. \
-			Здесь нет радиомаяка, нет ориентиров — только тишина и ощущение, что за тобой кто-то наблюдает из-за деревьев."
+	// You can add a description if you want to enhance the atmosphere
+	desc = "A dense, almost impassable forest where light barely penetrates. \
+			The old rails have long been overgrown with moss and young trees, and the path ahead is lost in the green darkness. \
+			There is no radio beacon here, no landmarks - only silence and the feeling that someone is watching you from behind the trees."

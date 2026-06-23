@@ -1,5 +1,5 @@
 /area/awaymission/secret/powered/ss_construct
-	name = "Констракт"
+	name = "Construct"
 	area_flags = NO_BOH|QUIET_LOGS|BLOCK_SUICIDE
 
 	ambientsounds = list('fenysha_events/sounds/ambience/construct_inside.ogg')
@@ -7,7 +7,7 @@
 	min_ambience_cooldown = 0
 
 /area/awaymission/secret/powered/ss_construct/outdoors
-	name = "Констракт (на улице)"
+	name = "Construct (outdoors)"
 	outdoors = TRUE
 	daylight = TRUE
 	allow_shuttle_docking = TRUE
@@ -17,7 +17,7 @@
 	min_ambience_cooldown = 0
 
 /area/awaymission/secret/powered/ss_construct/backrooms
-	name = "Закулисье"
+	name = "Backrooms"
 	area_flags = NO_BOH|HIDDEN_AREA|NOTELEPORT|QUIET_LOGS|BLOCK_SUICIDE
 
 	ambientsounds = list('fenysha_events/sounds/ambience/backrooms_level0.ogg')

@@ -3,46 +3,46 @@
 	returns_created_atoms = TRUE
 
 /datum/train_station
-	/// Название станции
+	/// Name of the station
 	var/name = "Train station"
-	/// Полное описание станции
+	/// Full description of the station
 	var/desc = "A generic train station"
-	/// Флаги станции, подробнее в файле fenysha_events/__DEFINES/trainstation.dm
+	/// Station flags, see the file fenysha_events/__DEFINES/trainstation.dm for details
 	var/station_flags = NONE
-	/// Видна ли эта станция в меню train_controll'ера, если FALSE - так же не даст  стнциаи быть выбранной в качестве следующей
+	/// Whether this station is visible in the train_controller menu; if FALSE - also prevents the station from being selected as the next one
 	var/visible = TRUE
-	/// Сколько станций поезду нужно посетить перед этой станцией
+	/// How many stations the train needs to visit before this station
 	var/required_stations = 0
-	/// Максимально количество посещений для этой станции
+	/// Maximum number of visits for this station
 	var/maximum_visits = 1
-	/// Сколько раз - эта станция была посещена
+	/// How many times this station has been visited
 	var/visited = 0
-	/// Необходим ли пароль для разблокирования этой станции
+	/// Whether a password is required to unlock this station
 	var/required_password = TRUE
-	/// Создатель этой станции, будет отобржен при её посещении
+	/// Creator of this station, will be displayed when it is visited
 	var/creator = "Fenysha"
-	/// Уровень угрозы на станции
+	/// Threat level at the station
 	var/threat_level = THREAT_LEVEL_SAFE
-	/// Регион в котором находится эта станция
+	/// Region in which this station is located
 	var/region = "None"
-	/// Тип станции
+	/// Type of the station
 	var/station_type = "unknown"
 
 
-	/// Overmap обьект обозначающий эту станцию
+	/// Overmap object representing this station
 	var/datum/trainmap_object/map_object
-	/// Путь к карте станции, автоматически создает темплейт для неё
+	/// Path to the station map, automatically creates a template for it
 	var/map_path
-	/// list() - эмбиет звуков, что играют на этой станции
+	/// list() - ambient sounds that play at this station
 	var/ambience_sounds = null
-	/// Список возможных окрестностей станции(генерируются над поездом)
+	/// List of possible station surroundings (generated above the train)
 	var/list/possible_nearstations = list(
 		/datum/train_station/near_station/static_default,
 		/datum/train_station/near_station/static_mountaints,
 	)
-	/// Возможные следующие станции. По умолчанию - пуст и будет наполнен при загрузке, но может устаовлен заранее
+	/// Possible next stations. Empty by default and will be filled on load, but can be set in advance
 	var/list/possible_next = list()
-	// Блокирует ли эта станция движение поезда, будет установлен автоматически, если у станции есть флаг TRAINSTATION_BLOCKING
+	// Whether this station blocks the train's movement, will be set automatically if the station has the TRAINSTATION_BLOCKING flag
 	var/blocking_moving = FALSE
 
 	VAR_PRIVATE/datum/looping_sound/global_sound/station_loop_soound = null

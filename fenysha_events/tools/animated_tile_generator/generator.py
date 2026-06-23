@@ -36,7 +36,7 @@ def save_png_with_ztxt(img: Image.Image, key: str, text: str, path: str):
     pos = 8
     while True:
         if pos >= len(png_bytes):
-            raise ValueError("Не найден IHDR в PNG")
+            raise ValueError("IHDR not found in PNG")
         chunk_len = struct.unpack(">I", png_bytes[pos : pos + 4])[0]
         chunk_type = png_bytes[pos + 4 : pos + 8]
         if chunk_type == b"IHDR":
@@ -101,12 +101,12 @@ def process_single_tile(
     img = Image.open(input_path).convert("RGBA")
     size = img.width
     if img.height != size:
-        raise ValueError("Тайл должен быть квадратным!")
+        raise ValueError("The tile must be square!")
 
     dx *= speed
     dy *= speed
 
-    print(f"🎨 Создаю {frames} кадров движения (скорость {speed})...")
+    print(f"🎨 Creating {frames} movement frames (speed {speed})...")
 
     frame_list = generate_animation_frames(img, dx, dy, frames, size)
 
@@ -127,7 +127,7 @@ def process_single_tile(
     dmi_path = os.path.join(output_dir, f"{base_name}_flow.dmi")
     create_dmi([(base_name, frame_list, frame_delay)], frames, size, dmi_path)
 
-    print(f"✅ Готово! Всё сохранено в папку: {output_dir}")
+    print(f"✅ Done! Everything saved to folder: {output_dir}")
     print(f" 🗂️  BYOND: {os.path.basename(dmi_path)}")
 
 
@@ -138,9 +138,9 @@ def process_folder(
         [os.path.join(input_path, f) for f in os.listdir(input_path) if f.lower().endswith(".png")]
     )
     if not png_files:
-        raise ValueError("В папке нет PNG-файлов!")
+        raise ValueError("There are no PNG files in the folder!")
 
-    print(f"📁 Найдено {len(png_files)} тайлов...")
+    print(f"📁 Found {len(png_files)} tiles...")
 
     state_data = []
     first_size = None
@@ -149,12 +149,12 @@ def process_folder(
         img = Image.open(png_path).convert("RGBA")
         size = img.width
         if img.height != size:
-            raise ValueError(f"Тайл {os.path.basename(png_path)} должен быть квадратным!")
+            raise ValueError(f"Tile {os.path.basename(png_path)} must be square!")
 
         if first_size is None:
             first_size = size
         elif size != first_size:
-            raise ValueError("Все тайлы должны быть одного размера!")
+            raise ValueError("All tiles must be the same size!")
 
         dx_speed = dx * speed
         dy_speed = dy * speed
@@ -183,27 +183,27 @@ def process_folder(
     dmi_path = os.path.join(output_dir, f"{os.path.basename(os.path.normpath(input_path))}_flow.dmi")
     create_dmi(state_data, frames, first_size, dmi_path)
 
-    print(f"✅ Готово! .dmi создан: {os.path.basename(dmi_path)}")
+    print(f"✅ Done! .dmi created: {os.path.basename(dmi_path)}")
 
 
 def auto_mode():
-    """Автоматический режим без параметров"""
+    """Automatic mode without parameters"""
     current_dir = os.getcwd()
     input_path = os.path.join(current_dir, "input")
     output_dir = os.path.join(current_dir, "output")
 
     if not os.path.isdir(input_path):
-        raise ValueError(f"Папка 'input' не найдена!\nОжидаемый путь: {input_path}")
+        raise ValueError(f"'input' folder not found!\nExpected path: {input_path}")
 
     os.makedirs(output_dir, exist_ok=True)
 
-    print("🚀 Авто-режим: обрабатываю папку 'input' → 'output' с тремя скоростями...")
+    print("🚀 Auto mode: processing 'input' folder → 'output' with three speeds...")
 
     png_files = sorted(
         [os.path.join(input_path, f) for f in os.listdir(input_path) if f.lower().endswith(".png")]
     )
     if not png_files:
-        raise ValueError("В папке 'input' нет PNG-файлов!")
+        raise ValueError("There are no PNG files in the 'input' folder!")
 
     variants = [
         ("normal", 2, 1),
@@ -220,12 +220,12 @@ def auto_mode():
         img = Image.open(png_path).convert("RGBA")
         size = img.width
         if img.height != size:
-            raise ValueError(f"Тайл {os.path.basename(png_path)} должен быть квадратным!")
+            raise ValueError(f"Tile {os.path.basename(png_path)} must be square!")
 
         if first_size is None:
             first_size = size
         elif size != first_size:
-            raise ValueError("Все тайлы должны быть одного размера!")
+            raise ValueError("All tiles must be the same size!")
 
         state_base = os.path.splitext(os.path.basename(png_path))[0]
 
@@ -240,19 +240,19 @@ def auto_mode():
     create_dmi(state_data, frames, first_size, dmi_path)
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:  # Запуск без параметров → авто-режим
+    if len(sys.argv) == 1:  # Run without parameters → auto mode
         auto_mode()
     else:
-        # Обычный режим с аргументами
+        # Normal mode with arguments
         parser = argparse.ArgumentParser(
-            description="Бесшовная анимация тайлов + экспорт в BYOND .dmi"
+            description="Seamless tile animation + export to BYOND .dmi"
         )
-        parser.add_argument("input", help="Путь к PNG-тайлу ИЛИ папке с PNG-тайлами")
-        parser.add_argument("-d", "--direction", default="down", help="Направление...")
-        parser.add_argument("-s", "--speed", type=int, default=1, help="Скорость сдвига")
-        parser.add_argument("-f", "--frames", type=int, default=32, help="Количество кадров")
-        parser.add_argument("-fd", "--frame-delay", type=int, default=1, help="Задержка кадра в .dmi")
-        parser.add_argument("-o", "--output", help="Папка для сохранения")
+        parser.add_argument("input", help="Path to a PNG tile OR a folder of PNG tiles")
+        parser.add_argument("-d", "--direction", default="down", help="Direction...")
+        parser.add_argument("-s", "--speed", type=int, default=1, help="Shift speed")
+        parser.add_argument("-f", "--frames", type=int, default=32, help="Number of frames")
+        parser.add_argument("-fd", "--frame-delay", type=int, default=1, help="Frame delay in .dmi")
+        parser.add_argument("-o", "--output", help="Folder to save to")
 
         args = parser.parse_args()
 
@@ -270,7 +270,7 @@ if __name__ == "__main__":
                 dx = parts[0]
                 dy = parts[1] if len(parts) > 1 else 0
             except:
-                raise ValueError(f"Неизвестное направление '{args.direction}'.")
+                raise ValueError(f"Unknown direction '{args.direction}'.")
 
         if args.output is None:
             if os.path.isdir(args.input):
@@ -291,4 +291,4 @@ if __name__ == "__main__":
                 args.input, output_dir, dx, dy, args.speed, args.frames, args.frame_delay
             )
         else:
-            raise ValueError("Укажите PNG-файл или папку с PNG-файлами!")
+            raise ValueError("Specify a PNG file or a folder of PNG files!")

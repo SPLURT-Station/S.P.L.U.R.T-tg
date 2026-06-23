@@ -1,6 +1,6 @@
 /datum/toolgun_mode/spawning/build_mode
-	name = "Строительство"
-	desc = "Режим строительства для быстрой постройки чего-либо. Абсолютно бесплатно!"
+	name = "Building"
+	desc = "Build mode for quickly building anything. Absolutely free!"
 	mode_key = "build"
 	type_blacklist = list(
 		/turf/baseturf_skipover,
@@ -80,7 +80,7 @@
 		return FALSE
 	selected_type = target_turf.type
 	selected_type_path = "[target_turf.type]"
-	our_tool.balloon_alert(user, "Выбрано [target_turf]!")
+	our_tool.balloon_alert(user, "Selected [target_turf]!")
 	return FALSE
 
 /datum/toolgun_mode/spawning/build_mode/proc/apply_to_turf(turf/target_turf)

@@ -1,4 +1,4 @@
-// Аирлоки
+// Airlocks
 /obj/machinery/door/airlock/shuttle/ferry
 	icon = 'fenysha_events/icons/machinery/airlocks/shuttle2/erokez.dmi'
 	overlays_file = 'fenysha_events/icons/machinery/airlocks/shuttle2/overlays.dmi'
@@ -10,7 +10,7 @@
 /obj/machinery/door/airlock/hos
 	icon = 'fenysha_events/icons/machinery/airlocks/hos.dmi'
 
-// Переключатели
+// Switches
 
 /obj/machinery/light_switch/default_on
 

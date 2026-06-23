@@ -1,24 +1,24 @@
-// Материалы для шатлов
+// Materials for shuttles
 
 /obj/item/stack/sheet/spaceship
-	name = "обшивка космического корабля" // spaceship plating
-	desc = "Металлический лист из титанового сплава, склепанный для использования в стенах космических кораблей." // A metal sheet made out of a titanium alloy, rivited for use in spaceship walls.
+	name = "spaceship plating"
+	desc = "A metal sheet made out of a titanium alloy, riveted for use in spaceship walls."
 	icon = 'fenysha_events/icons/items/shipstacks.dmi'
 	icon_state = "sheet-spaceship"
 	inhand_icon_state = "sheet-plastitaniumglass"
-	singular_name = "пластина космического корабля" // spaceship plate
+	singular_name = "spaceship plate"
 	construction_path_type = "spaceship"
 	merge_type = /obj/item/stack/sheet/spaceship
 	walltype = /turf/closed/wall/mineral/titanium/spaceship
 	mats_per_unit = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/stack/sheet/spaceshipglass
-	name = "стекла обшивки окон" // spaceship window plates
-	desc = "Стеклянный лист из титано-силикатного сплава, склепанный для использования в рамах окон космических кораблей." // A glass sheet made out of a titanium-silicate alloy, rivited for use in spaceship window frames.
+	name = "spaceship window plates"
+	desc = "A glass sheet made out of a titanium-silicate alloy, riveted for use in spaceship window frames."
 	icon = 'fenysha_events/icons/items/shipstacks.dmi'
 	icon_state = "sheet-spaceshipglass"
 	inhand_icon_state = "sheet-plastitaniumglass"
-	singular_name = "пластина окна космического корабля" // spaceship window plate
+	singular_name = "spaceship window plate"
 	merge_type = /obj/item/stack/sheet/spaceshipglass
 	mats_per_unit = list(/datum/material/alloy/plastitaniumglass = SHEET_MATERIAL_AMOUNT)
 

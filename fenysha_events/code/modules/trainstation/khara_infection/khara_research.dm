@@ -8,8 +8,8 @@
 
 
 /datum/design/khara_express_test
-	name = "Экспресс тест 'Кхара'"
-	desc = "Дизайн простой лаборатории, способной быстро определить наличие анти-тел Кхары в крови."
+	name = "Khara Express Test"
+	desc = "The design for a simple lab capable of quickly detecting the presence of Khara antibodies in the blood."
 	id = "khara_test"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -24,9 +24,9 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
 /obj/item/khara_express_test
-	name = "Экспресс Тест 'Кхара'"
-	desc = "Простой девайс представляющий из себя микроскопическую лабораторию, \
-			способную проверку реакцию органики на клетки зараженные вирусом 'Кхара'"
+	name = "Khara Express Test"
+	desc = "A simple device that is essentially a microscopic laboratory, \
+			capable of checking the reaction of organic matter to cells infected with the 'Khara' virus."
 	force = 0
 	throwforce = 0
 	icon = 'fenysha_events/icons/items/devices.dmi'
@@ -41,17 +41,17 @@
 	if(!is_reagent_container(attacking_item))
 		return ..()
 	if(used)
-		balloon_alert_to_viewers("Тестер уже использован!")
+		balloon_alert_to_viewers("Tester already used!")
 		return
 	perform_test(attacking_item, user)
 
 /obj/item/khara_express_test/proc/perform_test(obj/item/reagent_containers/container, mob/living/user)
 	if(container.reagents.total_volume == 0)
-		balloon_alert_to_viewers("Образец пуст!")
+		balloon_alert_to_viewers("Sample is empty!")
 		return
 
 	if(!container.reagents.has_reagent(/datum/reagent/blood))
-		balloon_alert_to_viewers("В образце отсутствует кровь!")
+		balloon_alert_to_viewers("No blood present in sample!")
 		return
 
 	if(!do_after(user, 3 SECONDS, src))
@@ -72,19 +72,19 @@
 
 	used = TRUE
 	if(has_khara)
-		balloon_alert_to_viewers("Обнаружен враждебный патоген!")
+		balloon_alert_to_viewers("Hostile pathogen detected!")
 		icon_state = "kharatest_bad"
 		playsound(src, 'sound/machines/beep/twobeep.ogg', vol = 50, vary = TRUE)
 	else
-		balloon_alert_to_viewers("Образец чист!")
+		balloon_alert_to_viewers("Sample is clean!")
 		icon_state = "kharatest_good"
 		playsound(src, 'sound/machines/buzz/buzz-two.ogg', vol = 40, vary = TRUE)
 
 	update_appearance()
 
 /datum/design/ranged_experi_scanner
-	name = "Дистанционный сканер"
-	desc = "Продвинутый дистанционный сканер, позволяющий сканировать цели на расстоянии. Как удобно!"
+	name = "Remote Scanner"
+	desc = "An advanced remote scanner that lets you scan targets from a distance. How convenient!"
 	id = "ranged_experiscaner"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -134,20 +134,20 @@
 	if(QDELETED(interacting_with) || QDELETED(user) || user.stat != CONSCIOUS)
 		return
 	if(get_dist(get_turf(src), interacting_with) > max_distance)
-		balloon_alert(user, "Слишком далеко!")
+		balloon_alert(user, "Too far away!")
 		return
 	handler.try_run_handheld_experiment(src, interacting_with, user, modifiers)
 
 /**
- * Эксперимент: Сканирование образцов крови с вирусом Кхара
+ * Experiment: Scanning blood samples with the Khara virus
  */
 /datum/experiment/scanning/blood_khara
-	name = "Сканирование образцов крови с вирусом Кхара"
-	description = "Проведите сканирование образцов крови, содержащих вирус Кхара."
-	exp_tag = "Сканирование крови"
+	name = "Scanning Blood Samples with the Khara Virus"
+	description = "Scan blood samples containing the Khara virus."
+	exp_tag = "Blood Scanning"
 	allowed_experimentors = list(/obj/item/experi_scanner, /obj/item/ranged_experi_scanner, /obj/item/scanner_wand)
 	required_atoms = list(/obj/item/reagent_containers = 1)
-	/// Требуемый вирус
+	/// Required virus
 	var/datum/disease/required_disease = /datum/disease/khara
 
 /datum/experiment/scanning/blood_khara/final_contributing_index_checks(datum/component/experiment_handler/experiment_handler, atom/target, typepath)
@@ -161,11 +161,11 @@
 /datum/experiment/scanning/blood_khara/proc/is_valid_scan_target(datum/component/experiment_handler/experiment_handler, obj/item/reagent_containers/container)
 	SHOULD_CALL_PARENT(TRUE)
 	if(container.reagents.total_volume == 0)
-		experiment_handler.announce_message("Образец крови пуст!")
+		experiment_handler.announce_message("Blood sample is empty!")
 		return FALSE
 
 	if(!container.reagents.has_reagent(/datum/reagent/blood))
-		experiment_handler.announce_message("В образце отсутствует кровь!")
+		experiment_handler.announce_message("No blood present in sample!")
 		return FALSE
 
 	for(var/datum/reagent/blood/blood_reagent as anything in container.reagents.reagent_list)
@@ -180,26 +180,26 @@
 			if(istype(D, required_disease))
 				return TRUE
 
-	experiment_handler.announce_message("Вирус Кхара не обнаружен в образце крови!")
+	experiment_handler.announce_message("Khara virus not detected in blood sample!")
 	return FALSE
 
 /datum/experiment/scanning/blood_khara/serialize_progress_stage(atom/target, list/seen_instances)
-	return EXPERIMENT_PROG_INT("Просканируйте [required_atoms[target]] образцов крови с вирусом [required_disease::name].", \
+	return EXPERIMENT_PROG_INT("Scan [required_atoms[target]] blood samples with the [required_disease::name] virus.", \
 		seen_instances.len, required_atoms[target])
 
 /**
- * Эксперимент: Сканирование заражённого человека (видимая болезнь Кхара)
+ * Experiment: Scanning an infected human (visible Khara disease)
  */
 /datum/experiment/scanning/infected_human
-	name = "Сканирование заражённого человека"
-	description = "Проведите сканирование живого человека, поражённого вирусом Кхара."
+	name = "Scanning an Infected Human"
+	description = "Scan a living human afflicted by the Khara virus."
 	allowed_experimentors = list(/obj/item/experi_scanner, /obj/item/ranged_experi_scanner, /obj/item/scanner_wand)
 	required_atoms = list(/mob/living/carbon/human = 1)
-	/// Требуемый вирус
+	/// Required virus
 	var/datum/disease/required_disease = /datum/disease/khara
-	/// Минимальная стадия болезни
+	/// Minimum disease stage
 	var/required_stage = 1
-	/// Должна ли болезнь быть видимой (TRUE = без флагов невидимости)
+	/// Whether the disease must be visible (TRUE = no invisibility flags)
 	var/required_visible = TRUE
 
 /datum/experiment/scanning/infected_human/final_contributing_index_checks(datum/component/experiment_handler/experiment_handler, atom/target, typepath)
@@ -213,34 +213,34 @@
 /datum/experiment/scanning/infected_human/proc/is_valid_scan_target(datum/component/experiment_handler/experiment_handler, mob/living/carbon/human/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(target.stat == DEAD)
-		experiment_handler.announce_message("Цель мертва!")
+		experiment_handler.announce_message("Target is dead!")
 		return FALSE
 
 	if(!length(target.diseases))
-		experiment_handler.announce_message("У цели нет активных заболеваний!")
+		experiment_handler.announce_message("Target has no active diseases!")
 		return FALSE
 
 	for(var/datum/disease/D as anything in target.diseases)
 		if(!istype(D, required_disease))
 			continue
 
-		// Проверка видимости
+		// Visibility check
 		if(required_visible && D.visibility_flags)
 			continue
 
-		// Проверка стадии
+		// Stage check
 		if(D.stage >= required_stage)
 			return TRUE
 
-		experiment_handler.announce_message("Стадия вируса недостаточна! Требуется минимум [required_stage]-я стадия.")
+		experiment_handler.announce_message("Virus stage is insufficient! Stage [required_stage] is required at minimum.")
 		return FALSE
 
-	experiment_handler.announce_message("Вирус [required_disease::name] не обнаружен!")
+	experiment_handler.announce_message("The [required_disease::name] virus was not detected!")
 	return FALSE
 
 /datum/experiment/scanning/infected_human/serialize_progress_stage(atom/target, list/seen_instances)
-	var/visible_text = required_visible ? " (вирус должен быть видимым при сканировании)" : ""
-	return EXPERIMENT_PROG_INT("Просканируйте человека, заражённого вирусом [required_disease::name], на [required_stage]-й стадии или выше.[visible_text]", \
+	var/visible_text = required_visible ? " (the virus must be visible when scanned)" : ""
+	return EXPERIMENT_PROG_INT("Scan a human infected with the [required_disease::name] virus, at stage [required_stage] or higher.[visible_text]", \
 		seen_instances.len, required_atoms[target])
 
 /datum/experiment/scanning/infected_human/late_khara
@@ -250,18 +250,18 @@
 	required_disease = /datum/disease/true_khara
 
 /**
- * Эксперимент: Сканирование существ, поражённых Кхара
+ * Experiment: Scanning creatures afflicted by Khara
  */
 /datum/experiment/scanning/khara_creature
-	name = "Сканирование пораженных Кхара существ"
-	description = "Проведите сканирование существ, обращённых вирусом Кхара."
-	performance_hint = "Поражённые Кхара в основном состоят из мышечной ткани. Их легко замедлить шоковым оружием."
+	name = "Scanning Khara-Afflicted Creatures"
+	description = "Scan creatures that have been turned by the Khara virus."
+	performance_hint = "Khara-afflicted creatures are mostly made of muscle tissue. They are easy to slow down with shock weapons."
 	allowed_experimentors = list(/obj/item/experi_scanner, /obj/item/ranged_experi_scanner, /obj/item/scanner_wand)
 
 	var/required_count = 3
 	var/required_cast = KHARA_CAST_LESSER
 	var/mob/living/basic/khara_mutant/restricted_type = null
-	var/exploration_text = "Подойдут самые примитивные формы — например, мясные пауки."
+	var/exploration_text = "The most primitive forms will do - for example, flesh spiders."
 
 /datum/experiment/scanning/khara_creature/New(datum/techweb/techweb)
 	required_atoms = list(/mob/living/basic/khara_mutant = required_count)
@@ -278,38 +278,38 @@
 /datum/experiment/scanning/khara_creature/proc/is_valid_scan_target(datum/component/experiment_handler/experiment_handler, mob/living/basic/khara_mutant/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(restricted_type && !istype(target, restricted_type))
-		experiment_handler.announce_message("Неподходящий тип мутанта!")
+		experiment_handler.announce_message("Unsuitable mutant type!")
 		return FALSE
 
 	if(target.cast != required_cast)
-		experiment_handler.announce_message("Мутант принадлежит другой касте!")
+		experiment_handler.announce_message("Mutant belongs to a different caste!")
 		return FALSE
 
 	return TRUE
 
 /datum/experiment/scanning/khara_creature/serialize_progress_stage(atom/target, list/seen_instances)
-	return EXPERIMENT_PROG_INT("Просканируйте [required_atoms[target]] пораженных Кхара касты [required_cast]. [exploration_text]", \
+	return EXPERIMENT_PROG_INT("Scan [required_atoms[target]] Khara-afflicted of the [required_cast] caste. [exploration_text]", \
 		seen_instances.len, required_atoms[target])
 
 /datum/experiment/scanning/khara_creature/adapted
 	required_cast = KHARA_CAST_ADAPTED
 	required_count = 2
-	exploration_text = "Подойдут адаптированные формы — жнецы и арахниды."
+	exploration_text = "Adapted forms will do - reapers and arachnids."
 
 /datum/experiment/scanning/khara_creature/assimilating
 	required_cast = KHARA_CAST_ASSIMILATING
 	required_count = 1
-	exploration_text = "Подойдут ассимилирующие формы — распространители."
+	exploration_text = "Assimilating forms will do - spreaders."
 
 
 /datum/aas_config_entry/khara_research
-	name = "Science Alert: Прогресс исследования Кхара"
+	name = "Science Alert: Khara Research Progress"
 	modifiable = FALSE
 	announcement_lines_map = list(
-		"Message" = "Получена новая информация о вирусе Кхара: «%KHARA_DATA»"
+		"Message" = "New information about the Khara virus has been obtained: \"%KHARA_DATA\""
 	)
 	vars_and_tooltips_map = list(
-		"KHARA_DATA" = "будет заменено на текст исследования"
+		"KHARA_DATA" = "will be replaced with the research text"
 	)
 
 
@@ -330,24 +330,24 @@
 		aas_config_announce(/datum/aas_config_entry/khara_research, list("KHARA_DATA" = research_text), null, channels_to_use)
 
 	if(document_to_spawn && research_source)
-		research_source.visible_message(span_notice("Печатается важный исследовательский документ!"))
+		research_source.visible_message(span_notice("An important research document is being printed!"))
 		new document_to_spawn(get_turf(research_source))
 
 
-// НОДЫ ИССЛЕДОВАНИЯ + СООТВЕТСТВУЮЩИЕ ДОКУМЕНТЫ
+// RESEARCH NODES + CORRESPONDING DOCUMENTS
 
 
 /datum/techweb_node/khara_start
 	id = TECHWEB_NODE_KHARA_START
 	starting_node = TRUE
-	display_name = "Информация о наличии в мире вируса Кхара"
-	description = "Вы получили данные о наличии в мире вируса Кхара."
+	display_name = "Information on the Existence of the Khara Virus"
+	description = "You have obtained data on the existence of the Khara virus in the world."
 	experiments_to_unlock = list(/datum/experiment/scanning/blood_khara)
 
 /datum/techweb_node/khara/khara_basic
 	id = TECHWEB_NODE_KHARA_BASIC
-	display_name = "Базовая информация о вирусе Кхара"
-	description = "Получены первичные данные о вирусе Кхара и его характеристиках."
+	display_name = "Basic Information on the Khara Virus"
+	description = "Preliminary data on the Khara virus and its characteristics has been obtained."
 	prereq_ids = list(TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_KHARA_START)
 	design_ids = list(
 		"khara_test",
@@ -359,28 +359,28 @@
 	announce_channels = list(RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
 	document_to_spawn = /obj/item/paper/khara_basic_research
 
-	research_text = "Первичные исследования показали, что вирус Кхара обладает крайне высокой устойчивостью к изменениям температуры, \
-					особенно к высоким значениям. Однако радиоактивное излучение оказывает выраженное негативное воздействие на заражённые клетки. \
-					Введение пациенту технеция-99 может значительно замедлить прогрессирование болезни."
+	research_text = "Preliminary research has shown that the Khara virus possesses an extremely high resistance to temperature changes, \
+					especially to high values. However, radioactive radiation has a pronounced negative effect on infected cells. \
+					Administering technetium-99 to a patient can significantly slow the progression of the disease."
 
 /obj/item/paper/khara_basic_research
-	name = "Отчёт: Базовые исследования вируса Кхара"
+	name = "Report: Basic Research on the Khara Virus"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Базовая информация о вирусе Кхара<BR>\
+	<b>Subject:</b> Basic information on the Khara virus<BR>\
 	<BR>\
-	Первичные исследования показали, что вирус Кхара обладает крайне высокой устойчивостью к изменениям температуры, особенно к высоким значениям. Однако радиоактивное излучение оказывает выраженное негативное воздействие на заражённые клетки. Введение пациенту технеция-99 может значительно замедлить прогрессирование болезни.\
+	Preliminary research has shown that the Khara virus possesses an extremely high resistance to temperature changes, especially to high values. However, radioactive radiation has a pronounced negative effect on infected cells. Administering technetium-99 to a patient can significantly slow the progression of the disease.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ III</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и медицинского персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL III</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and medical personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"
 
 /datum/techweb_node/khara/khara_initial_infection
 	id = TECHWEB_NODE_KHARA_INITIAL_INFECTION
-	display_name = "Механизм развития вируса Кхара"
-	description = "Получена информация о развитии вируса в организме и методах противодействия."
+	display_name = "Mechanism of Khara Virus Development"
+	description = "Information on the virus's development within the body and methods of countering it has been obtained."
 	prereq_ids = list(TECHWEB_NODE_KHARA_BASIC, TECHWEB_NODE_MEDBAY_EQUIP_ADV)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS * 2)
 	required_experiments = list(/datum/experiment/scanning/infected_human, /datum/experiment/scanning/khara_creature)
@@ -388,28 +388,28 @@
 	document_to_spawn = /obj/item/paper/khara_initial_infection_research
 	experiments_to_unlock = list(/datum/experiment/scanning/khara_creature/adapted)
 
-	research_text = "Исследование живых и заражённых образцов выявило, что некоторые химикаты способны эффективно противодействовать созданиям Кхара. \
-					Анацея, голопередол и резадон способны обращать вспять развитие заражённых клеток и частично лечить больных. \
-					Кроме того, ткань мутантов обладает высокой восприимчивостью к физическому урону — оружие ближнего боя особенно эффективно против них."
+	research_text = "Study of living and infected samples revealed that certain chemicals can effectively counter Khara creatures. \
+					Anacea, haloperidol and rezadone are able to reverse the development of infected cells and partially heal the sick. \
+					In addition, mutant tissue is highly susceptible to physical damage - melee weapons are especially effective against them."
 
 /obj/item/paper/khara_initial_infection_research
-	name = "Отчёт: Механизм развития вируса Кхара"
+	name = "Report: Mechanism of Khara Virus Development"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Механизм развития вируса Кхара и методы противодействия<BR>\
+	<b>Subject:</b> Mechanism of Khara virus development and methods of countering it<BR>\
 	<BR>\
-	Исследование живых и заражённых образцов выявило, что некоторые химикаты способны эффективно противодействовать созданиям Кхара. Анацея, голопередол и резадон способны обращать вспять развитие заражённых клеток и частично лечить больных. Кроме того, ткань мутантов обладает высокой восприимчивостью к физическому урону — оружие ближнего боя особенно эффективно против них.\
+	Study of living and infected samples revealed that certain chemicals can effectively counter Khara creatures. Anacea, haloperidol and rezadone are able to reverse the development of infected cells and partially heal the sick. In addition, mutant tissue is highly susceptible to physical damage - melee weapons are especially effective against them.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ III</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и медицинского персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL III</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and medical personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"
 
 /datum/techweb_node/khara/khara_ammunition_basic
 	id = TECHWEB_NODE_KHARA_AMMUNITION_BASIC
-	display_name = "Базовое вооружение против заражённых Кхара"
-	description = "Получены чертежи специальных боеприпасов и оружия для борьбы с поражёнными."
+	display_name = "Basic Weaponry Against the Khara-Infected"
+	description = "Blueprints for special ammunition and weapons for fighting the afflicted have been obtained."
 	design_ids = list(
 		"anti_khara_ammunition",
 		"anti_khara_weapon_sword",
@@ -421,28 +421,28 @@
 	document_to_spawn = /obj/item/paper/khara_ammunition_basic_research
 	experiments_to_unlock = list(/datum/experiment/scanning/khara_creature/assimilating)
 
-	research_text = "Дальнейшие исследования мутантов высоких каст показали, что все поражённые Кхара обладают коллективным сознанием и способны \
-					обмениваться информацией на расстоянии. Это позволило создать боеприпасы, улавливающие данный сигнал и наносящие \
-					урон исключительно созданиям Кхара, игнорируя обычных людей. Кроме того, теперь для создания доступна линейка особенного Анти-кхара оружия."
+	research_text = "Further study of high-caste mutants showed that all Khara-afflicted possess a collective consciousness and are able \
+					to exchange information at a distance. This made it possible to create ammunition that picks up this signal and deals \
+					damage exclusively to Khara creatures, ignoring ordinary humans. In addition, a line of special Anti-Khara weapons is now available for fabrication."
 
 /obj/item/paper/khara_ammunition_basic_research
-	name = "Отчёт: Базовое вооружение против Кхара"
+	name = "Report: Basic Weaponry Against Khara"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Базовое вооружение против заражённых Кхара<BR>\
+	<b>Subject:</b> Basic weaponry against the Khara-infected<BR>\
 	<BR>\
-	Дальнейшие исследования мутантов высоких каст показали, что все поражённые Кхара обладают коллективным сознанием и способны обмениваться информацией на расстоянии. Это позволило создать боеприпасы, улавливающие данный сигнал и наносящие урон исключительно созданиям Кхара, игнорируя обычных людей. Кроме того, теперь для создания доступна линейка особенного Анти-кхара оружия.\
+	Further study of high-caste mutants showed that all Khara-afflicted possess a collective consciousness and are able to exchange information at a distance. This made it possible to create ammunition that picks up this signal and deals damage exclusively to Khara creatures, ignoring ordinary humans. In addition, a line of special Anti-Khara weapons is now available for fabrication.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ IV</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и охранного персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL IV</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and security personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"
 
 /datum/techweb_node/khara/khara_ammunition_advanced
 	id = TECHWEB_NODE_KHARA_AMMUNITION_ADVANCED
-	display_name = "Продвинутое анти-Кхара вооружение"
-	description = "Получены чертежи продвинутого оружия для уничтожения крупных колоний заражённых."
+	display_name = "Advanced Anti-Khara Weaponry"
+	description = "Blueprints for advanced weapons to destroy large colonies of the infected have been obtained."
 	prereq_ids = list(TECHWEB_NODE_KHARA_AMMUNITION_BASIC)
 	design_ids = list(
 		"anti_khara_grenade",
@@ -454,77 +454,77 @@
 	announce_channels = list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SECURITY)
 	document_to_spawn = /obj/item/paper/khara_ammunition_advanced_research
 
-	research_text = "Исследования самых массивных мутантов позволили синтезировать чертежи продвинутых гранат, генерирующих особое энергетическое поле, \
-					в котором инфекция Кхара не способна существовать. А так же самого продвинутого оружия ближнего боя."
+	research_text = "Study of the most massive mutants made it possible to synthesize blueprints for advanced grenades that generate a special energy field \
+					in which the Khara infection cannot survive. As well as the most advanced melee weapon."
 
 /obj/item/paper/khara_ammunition_advanced_research
-	name = "Отчёт: Продвинутое анти-Кхара вооружение"
+	name = "Report: Advanced Anti-Khara Weaponry"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Продвинутое вооружение против колоний Кхара<BR>\
+	<b>Subject:</b> Advanced weaponry against Khara colonies<BR>\
 	<BR>\
-	Исследования самых массивных мутантов позволили синтезировать чертежи продвинутых гранат, генерирующих особое энергетическое поле, в котором инфекция Кхара не способна существовать.\
+	Study of the most massive mutants made it possible to synthesize blueprints for advanced grenades that generate a special energy field in which the Khara infection cannot survive.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ IV</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и охранного персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL IV</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and security personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"
 
 /datum/techweb_node/khara/khara_positive_basic
 	id = TECHWEB_NODE_KHARA_POSITIVE_BASIC
-	display_name = "Альтернативное развитие вируса Кхара"
-	description = "Получена информация о положительных мутациях, вызываемых вирусом."
+	display_name = "Alternative Development of the Khara Virus"
+	description = "Information on the positive mutations caused by the virus has been obtained."
 	prereq_ids = list(TECHWEB_NODE_KHARA_INITIAL_INFECTION)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS * 3)
 	announce_channels = list(RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SECURITY, RADIO_CHANNEL_COMMON)
 	document_to_spawn = /obj/item/paper/khara_positive_basic_research
 	experiments_to_unlock = list(/datum/experiment/scanning/infected_human/true_khara, /datum/experiment/scanning/infected_human/late_khara)
 
-	research_text = "Несмотря на высокий уровень опасности, вирус Кхара в редких случаях вызывает обратную реакцию. \
-					Некоторые организмы вместо мутаций получают выдающиеся физические способности. Вероятность положительной мутации крайне мала и \
-					сильно зависит от индивидуальных особенностей подопытного. Необходимо продолжить изучение перерождённых субъектов.\
-					Их отличительная черта — полностью белые глаза."
+	research_text = "Despite the high level of danger, the Khara virus in rare cases triggers the opposite reaction. \
+					Some organisms, instead of mutations, gain outstanding physical abilities. The probability of a positive mutation is extremely low and \
+					strongly depends on the individual characteristics of the subject. Study of reborn subjects must be continued.\
+					Their distinguishing feature is completely white eyes."
 
 /obj/item/paper/khara_positive_basic_research
-	name = "Отчёт: Альтернативное развитие вируса Кхара"
+	name = "Report: Alternative Development of the Khara Virus"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Альтернативное развитие вируса Кхара<BR>\
+	<b>Subject:</b> Alternative development of the Khara virus<BR>\
 	<BR>\
-	Несмотря на высокий уровень опасности, вирус Кхара в редких случаях вызывает обратную реакцию. Некоторые организмы вместо мутаций получают выдающиеся физические способности. Вероятность положительной мутации крайне мала и сильно зависит от индивидуальных особенностей подопытного. Необходимо продолжить изучение перерождённых субъектов. Их отличительная черта — полностью белые глаза.\
+	Despite the high level of danger, the Khara virus in rare cases triggers the opposite reaction. Some organisms, instead of mutations, gain outstanding physical abilities. The probability of a positive mutation is extremely low and strongly depends on the individual characteristics of the subject. Study of reborn subjects must be continued. Their distinguishing feature is completely white eyes.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ IV</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и медицинского персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL IV</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and medical personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"
 
 /datum/techweb_node/khara/khara_positive_advanced
 	id = TECHWEB_NODE_KHARA_POSITIVE_ADVANCED
-	display_name = "Перерождённые вирусом Кхара"
-	description = "Подробная информация о положительном эффекте вируса и его использовании."
+	display_name = "Those Reborn by the Khara Virus"
+	description = "Detailed information on the positive effect of the virus and its use."
 	prereq_ids = list(TECHWEB_NODE_KHARA_POSITIVE_BASIC)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS * 2)
 	announce_channels = list(RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SECURITY, RADIO_CHANNEL_COMMON)
 	document_to_spawn = /obj/item/paper/khara_positive_advanced_research
 	required_experiments = list(/datum/experiment/scanning/infected_human/true_khara)
 
-	research_text = "В крайне редких случаях вирус Кхара действительно действует как лекарство. Высокий интеллект, \
-					превосходные физические качества и сильные личностные черты значительно повышают шанс перерождения. \
-					Перерождённые субъекты, судя по всему, обладают практически бессмертием. \
-					Единственный способ остановить регенерацию — отделить голову или извлечь мозг."
+	research_text = "In extremely rare cases the Khara virus actually acts as a cure. High intelligence, \
+					superior physical qualities and strong personality traits significantly increase the chance of rebirth. \
+					Reborn subjects appear to possess virtual immortality. \
+					The only way to stop the regeneration is to sever the head or remove the brain."
 
 /obj/item/paper/khara_positive_advanced_research
-	name = "Отчёт: Перерождённые вирусом Кхара"
+	name = "Report: Those Reborn by the Khara Virus"
 	default_raw_text = \
-	"<center><b>ОТЧЁТ ИССЛЕДОВАТЕЛЬСКОГО ОТДЕЛА</b></center>\
+	"<center><b>RESEARCH DEPARTMENT REPORT</b></center>\
 	<BR>\
-	<b>Тема:</b> Перерождённые вирусом Кхара<BR>\
+	<b>Subject:</b> Those reborn by the Khara virus<BR>\
 	<BR>\
-	В крайне редких случаях вирус Кхара действительно действует как лекарство. Высокий интеллект, превосходные физические качества и сильные личностные черты значительно повышают шанс перерождения. Перерождённые субъекты, судя по всему, обладают практически бессмертием. Единственный способ остановить регенерацию — отделить голову или извлечь мозг.\
+	In extremely rare cases the Khara virus actually acts as a cure. High intelligence, superior physical qualities and strong personality traits significantly increase the chance of rebirth. Reborn subjects appear to possess virtual immortality. The only way to stop the regeneration is to sever the head or remove the brain.\
 	<BR><BR>\
-	<b>СЕКРЕТНО — УРОВЕНЬ V</b><BR>\
-	Документ является конфиденциальным. Запрещено копирование. Запрещено обсуждение вне научного и медицинского персонала. Запрещено оставлять без охраны.\
+	<b>CLASSIFIED - LEVEL V</b><BR>\
+	This document is confidential. Copying is prohibited. Discussion outside of scientific and medical personnel is prohibited. Leaving it unguarded is prohibited.\
 	<BR><BR>\
-	— Исследовательский отдел"
+	- Research Department"

@@ -1,7 +1,7 @@
 /obj/item/tank/jump_jetpack
-	name = "Реактивный ранец-прыгун"
-	desc = "Баллон со сжатым газом для использования в качестве реактивного ранца в условиях невесомости. \
-			Использовать с осторожностью — резкие манёвры могут закончиться плохо."
+	name = "jump jetpack"
+	desc = "A canister of compressed gas for use as a jetpack in zero-gravity conditions. \
+			Use with caution - sudden maneuvers may end badly."
 	icon_state = "jetpack-mini"
 	inhand_icon_state = "jetpack-black"
 	lefthand_file = 'icons/mob/inhands/equipment/jetpacks_lefthand.dmi'
@@ -11,20 +11,20 @@
 	distribute_pressure = ONE_ATMOSPHERE * O2STANDARD
 	actions_types = list(/datum/action/cooldown/jetpack_jump)
 
-	// Максимальная дистанция прыжка (в тайлах)
+	// Maximum jump distance (in tiles)
 	var/jump_range = 7
-	// Время колдауна
+	// Cooldown time
 	var/jump_cooldown = 10 SECONDS
 
-	// Пропасть в которую мы падаем
+	// The chasm we are falling into
 	var/turf/open/chasm/felling_chasm = null
-	// Спасаемся ли мы в данный момент
+	// Whether we are currently being rescued
 	var/attempting = FALSE
 
 /obj/item/tank/jump_jetpack/examine(mob/user)
 	. = ..()
-	. += span_boldnicegreen("Ранец-прыгун, может спасти вас от падения в пропасть, \
-							давая время на то, чтобы вылетить из неё в случае падения.")
+	. += span_boldnicegreen("A jump jetpack can save you from falling into a chasm, \
+							giving you time to fly out of it if you fall.")
 
 /obj/item/tank/jump_jetpack/equipped(mob/living/user, slot, initial)
 	. = ..()
@@ -62,12 +62,12 @@
 	var/matrix/drop_transfrom = matrix()
 	drop_transfrom.Scale(0.1, 0.1)
 	animate(user, alpha = 100, transform = drop_transfrom, time = 5 SECONDS)
-	to_chat(user, span_userdanger("Ты падешь в безду, срочно найди цель, чтобы выпрыгнуть!"))
+	to_chat(user, span_userdanger("You're falling into the abyss, quickly pick a target to jump out!"))
 	addtimer(CALLBACK(src, PROC_REF(check_rescue), user), 5 SECONDS)
 
 /obj/item/tank/jump_jetpack/proc/check_rescue(mob/living/user)
 	if(!attempting || !felling_chasm)
-		return // Мы спаслись
+		return // We were rescued
 
 	UnregisterSignal(user, COMSIG_MOVABLE_PRE_MOVE)
 	var/rescued = FALSE
@@ -100,8 +100,8 @@
 		felling_chasm = null
 
 /datum/action/cooldown/jetpack_jump
-	name = "Прыжок с реактивным ранцем"
-	desc = "Активируй и выбери це ль, чтобы совершить мощный прыжок к ней!"
+	name = "Jetpack Jump"
+	desc = "Activate and select a target to make a powerful jump toward it!"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "jetboot"
 	background_icon = 'icons/mob/actions/actions_items.dmi'
@@ -119,16 +119,16 @@
 	var/mob/living/carbon/human/jumper = owner
 	var/obj/item/tank/jump_jetpack/jetpack = locate() in owner.contents
 	if(!jetpack)
-		jumper.balloon_alert(jumper, "Ранец пропал!")
+		jumper.balloon_alert(jumper, "Jetpack gone!")
 		return FALSE
 
 	if(isclosedturf(target))
-		jumper.balloon_alert(jumper, "Туда нельзя прыгнуть!")
+		jumper.balloon_alert(jumper, "Can't jump there!")
 		return FALSE
 
 	var/turf/target_turf = target
 	if(!can_see(target_turf, jumper, jetpack.jump_range))
-		jumper.balloon_alert(jumper, "Слишком далеко!")
+		jumper.balloon_alert(jumper, "Too far away!")
 		return FALSE
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
@@ -140,7 +140,7 @@
 	var/ignores = IGNORE_SLOWDOWNS|IGNORE_TARGET_LOC_CHANGE|IGNORE_USER_LOC_CHANGE
 	if(!do_after(jumper, 0.2 SECONDS, jumper, ignores, max_interact_count = 1))
 		StartCooldown(2 SECONDS)
-		jumper.balloon_alert(jumper, "Прыжок прерван!")
+		jumper.balloon_alert(jumper, "Jump interrupted!")
 		return FALSE
 
 	INVOKE_ASYNC(src, PROC_REF(perform_jump), jumper, target_turf, jetpack)
@@ -151,7 +151,7 @@
 		return
 
 	jumper.movement_type = FLYING
-	// Подготовка
+	// Preparation
 	var/saved_passflags = jumper.pass_flags
 	var/given_traits = list(TRAIT_CHASM_STOPPER, TRAIT_TURF_IGNORE_SLOWDOWN)
 	jumper.pass_flags = PASSTABLE|PASSGRILLE|PASSBLOB|PASSMOB|LETPASSTHROW|PASSMACHINE|PASSSTRUCTURE|PASSVEHICLE|LETPASSCLICKS
@@ -172,7 +172,7 @@
 
 	var/dist_to_turf = get_dist(jumper, target_turf)
 	var/steps = dist_to_turf * 4
-	var/apex_height = 60 + dist_to_turf * 9  // Высота дуги прыжка
+	var/apex_height = 60 + dist_to_turf * 9  // Height of the jump arc
 
 	jetpack.jumped(jumper, get_turf(jumper))
 
@@ -233,7 +233,7 @@
 	var/turf/jumper_turf = get_turf(jumper)
 	jumper_turf.Entered(jumper)
 
-	// Удар по приземлению
+	// Impact on landing
 	for(var/mob/living/L in get_turf(jumper))
 		if(L == jumper)
 			continue
@@ -245,7 +245,7 @@
 
 
 /datum/outfit/train_raider
-	name = "Рейдер поезда — базовый"
+	name = "Train Raider - basic"
 
 	uniform = /obj/item/clothing/under/rank/centcom/military
 	shoes = /obj/item/clothing/shoes/combat
@@ -292,7 +292,7 @@
 
 
 /datum/outfit/train_raider/shotgun
-	name = "Рейдер поезда — дробовик"
+	name = "Train Raider - shotgun"
 	r_hand = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
 
 /datum/outfit/train_raider/shotgun/New()
@@ -304,7 +304,7 @@
 
 
 /datum/outfit/train_raider/rifleman
-	name = "Рейдер поезда — автоматчик"
+	name = "Train Raider - gunner"
 	r_hand = /obj/item/gun/ballistic/automatic/mini_uzi
 
 /datum/outfit/train_raider/rifleman/New()
@@ -315,19 +315,19 @@
 
 
 /datum/job/train_raider
-	title = "Рейдер поезда"
+	title = "Train Raider"
 
 
 /datum/antagonist/train_raider
-	name = "Рейдер поезда"
-	roundend_category = "рейдеры"
+	name = "Train Raider"
+	roundend_category = "raiders"
 	antagpanel_category = ANTAG_GROUP_SYNDICATE
 	pref_flag = ROLE_TRAITOR
 	antag_hud_name = "synd"
 	antag_moodlet = /datum/mood_event/focused
 	show_to_ghosts = TRUE
 	hijack_speed = 2
-	suicide_cry = "ЗА СИНДИКАТ!!"
+	suicide_cry = "FOR THE SYNDICATE!!"
 
 	var/static/list/possible_outfits = list(
 		/datum/outfit/train_raider/rifleman,
@@ -341,8 +341,8 @@
 
 /datum/antagonist/train_raider/forge_objectives()
 	var/datum/objective/custom/destroy_cargo = new()
-	destroy_cargo.name = "Уничтожить груз"
-	destroy_cargo.explanation_text = "Разрушь целостность перевозимого поезда груза и захвати ресурсы!"
+	destroy_cargo.name = "Destroy the cargo"
+	destroy_cargo.explanation_text = "Breach the integrity of the cargo being transported by the train and seize the resources!"
 	objectives += destroy_cargo
 
 
@@ -360,11 +360,11 @@
 
 
 /datum/round_event_control/train_raiders
-	name = "Рейдеры поезда"
+	name = "Train Raiders"
 	category = EVENT_CATEGORY_INVASION
-	description = "Группа рейдеров окружила поезд, чтобы ворваться внутрь и уничтожить груз."
+	description = "A group of raiders has surrounded the train to break inside and destroy the cargo."
 	typepath = /datum/round_event/ghost_role/train_raiders
-	weight = 0  // По умолчанию выключено, включается вручную или через админку
+	weight = 0  // Disabled by default, enabled manually or through admin tools
 
 /datum/round_event/ghost_role/train_raiders
 	minimum_required = 1
@@ -382,7 +382,7 @@
 	var/list/chosen = SSpolling.poll_ghost_candidates(
 		check_jobban = ROLE_TRAITOR,
 		role = ROLE_TRAITOR,
-		role_name_text = "Рейдер поезда",
+		role_name_text = "Train Raider",
 		alert_pic = /obj/vehicle/ridden/trainstation,
 		amount_to_pick = 4
 	)
@@ -431,8 +431,8 @@
 	INVOKE_ASYNC(src, PROC_REF(strike_raider), raider, raider_bike)
 
 	spawned_mobs += raider
-	message_admins("[ADMIN_LOOKUPFLW(raider)] стал одиночным рейдером поезда через событие.")
-	raider.log_message("был заспавнен как рейдер поезда через событие.", LOG_GAME)
+	message_admins("[ADMIN_LOOKUPFLW(raider)] became a solo train raider through the event.")
+	raider.log_message("was spawned as a train raider through the event.", LOG_GAME)
 
 
 /datum/round_event/ghost_role/train_raiders/proc/strike_raider(mob/living/raider, obj/vehicle/ridden/trainstation/raider_bike)
@@ -459,5 +459,5 @@
 		raider_bike.set_light_on(TRUE)
 	raider_bike.last_real_move = world.time + 10 SECONDS
 
-	var/reminder = span_big(span_boldnotice("Не забудь использовать свой прыжковый ранец! Иконка в левом верхнем углу!"))
+	var/reminder = span_big(span_boldnotice("Don't forget to use your jump jetpack! The icon is in the upper left corner!"))
 	to_chat(raider, reminder)

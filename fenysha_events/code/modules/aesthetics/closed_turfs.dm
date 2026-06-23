@@ -41,8 +41,8 @@
 	T.transform = transform
 
 /obj/structure/window/reinforced/shuttle/spaceship
-	name = "окно космического корабля" // spaceship window
-	desc = "Устойчивое к давлению окно космического корабля." // A pressure-resistant spaceship window.
+	name = "spaceship window"
+	desc = "A pressure-resistant spaceship window."
 	icon = 'fenysha_events/icons/turf/shipwindows.dmi'
 	icon_state = "pod_window-0"
 	base_icon_state = "pod_window"
@@ -60,8 +60,8 @@
 	anchored = FALSE
 
 /obj/structure/fence/interlink
-	name = "укрепленный забор" // reinforced fence
-	desc = "Новейшая разработка Nanotrasen: укрепленный металлический забор. Это удержит надоедливых ассистентов!" // The latest in Nanotrasen development: A reinforced metal fence. This'll keep those pesky assistants out!
+	name = "reinforced fence"
+	desc = "The latest in Nanotrasen development: A reinforced metal fence. This'll keep those pesky assistants out!"
 	cuttable = FALSE
 	invulnerable = TRUE
 

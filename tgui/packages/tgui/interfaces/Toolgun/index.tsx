@@ -174,7 +174,7 @@ export function Toolgun() {
       return;
     }
 
-    // Debounce для непустого поиска
+    // Debounce for non-empty search
     const timer = setTimeout(() => {
       act('set_search', { search: trimmedSearch });
     }, 450);

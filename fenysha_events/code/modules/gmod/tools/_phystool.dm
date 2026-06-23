@@ -2,8 +2,8 @@
 #define PHYSGUN_EFFECTS "physgun_effects"
 
 /obj/item/physgun
-	name = "Физган"
-	desc = "Инструмент для манипуляции физикой объектов."
+	name = "Physgun"
+	desc = "A tool for manipulating the physics of objects."
 	icon = 'fenysha_events/icons/items/tools/gmod_tools.dmi'
 	icon_state = "gravitygun"
 	inhand_icon_state = "gravitygun"
@@ -18,28 +18,28 @@
 	drop_sound = 'sound/items/handling/tools/screwdriver_drop.ogg'
 	pickup_sound = 'fenysha_events/sounds/tools/phystools/physgun_pickup.ogg'
 
-	/// Персональный цвет пушки
+	/// Personal color of the gun
 	var/personal_color = COLOR_TAN_ORANGE
-	/// Цвет эффектов пушки, обычно равен personal_color
+	/// Color of the gun's effects, usually equal to personal_color
 	var/effects_color = null
-	/// Имеет лиэта пушка усиленный захват
+	/// Whether the gun has a reinforced grab
 	var/force_grab = FALSE
-	/// Имеет ли пушка продвинутные функции, вроде физического ипульса
+	/// Whether the gun has advanced functions, like a physics impulse
 	var/advanced = FALSE
-	/// Коллдаун между грабами обьектов
+	/// Cooldown between grabbing objects
 	var/use_cooldown = 1.5 SECONDS
-	/// Максимальная дистанция работы пушки
+	/// Maximum working distance of the gun
 	var/maximum_distance = 8
 
-	/// Перетаскиваемый объект
+	/// The object being dragged
 	var/atom/movable/handled_atom
-	/// Ссылка на компонент захвата
+	/// Reference to the grab component
 	var/datum/component/physgun_grab/current_grab_component
-	/// Пользователь
+	/// The user
 	var/mob/living/physgun_user
-	/// Бим
+	/// The beam
 	var/datum/beam/physgun_beam
-	/// Курсор-кэтчер
+	/// The cursor catcher
 	var/atom/movable/screen/fullscreen/cursor_catcher/physgun_catcher
 
 	COOLDOWN_DECLARE(grab_cooldown)
@@ -83,7 +83,7 @@
 		release_atom()
 
 /**
- * Захват объекта.
+ * Grab an object.
  */
 /obj/item/physgun/ranged_interact_with_atom(atom/movable/target, mob/living/user, list/modifiers)
 	. = ..()
@@ -92,10 +92,10 @@
 			playsound(user, 'fenysha_events/sounds/tools/phystools/physgun_cant_grab.ogg', 100, TRUE)
 			return
 		if(!COOLDOWN_FINISHED(src, grab_cooldown) && !handled_atom)
-			user.balloon_alert(user, "на перезарядке!")
+			user.balloon_alert(user, "recharging!")
 			return
 		if(!range_check(target, user) && !handled_atom)
-			user.balloon_alert(user, "слишком далеко!")
+			user.balloon_alert(user, "too far away!")
 			return
 
 		catch_atom(target, user)
@@ -104,11 +104,11 @@
 
 /obj/item/physgun/click_alt(mob/user)
 	if(handled_atom)
-		balloon_alert(user, "Невозможно в текущем состоянии!")
+		balloon_alert(user, "Impossible in the current state!")
 		return CLICK_ACTION_SUCCESS
-	var/chosen_color = tgui_color_picker(user, "Выберите новый цвет эффектов", "Цвет физпушки")
+	var/chosen_color = tgui_color_picker(user, "Choose a new effects color", "Physgun Color")
 	if(!chosen_color)
-		balloon_alert(user, "Невалидный цвет!")
+		balloon_alert(user, "Invalid color!")
 		return
 
 	effects_color = chosen_color
@@ -118,16 +118,16 @@
 
 /obj/item/physgun/examine(mob/user)
 	. = ..()
-	. += span_notice("Краткое руководство:")
-	. += span_notice("ALT + ЛКМ по устройству — выбрать цвет.")
-	. += span_notice("ЛКМ по объекту — начать перетаскивание.")
-	. += span_green("ПКМ во время перетаскивания — заморозить объект.")
-	. += span_red("ЛКМ во время перетаскивания — отпустить объект.")
-	. += span_notice("CTRL + ЛКМ во время перетаскивания — бросить объект.")
-	. += span_notice("ALT + ЛКМ во время перетаскивания — повернуть объект.")
+	. += span_notice("Quick guide:")
+	. += span_notice("ALT + Left Click on the device — pick a color.")
+	. += span_notice("Left Click on an object — start dragging.")
+	. += span_green("Right Click while dragging — freeze the object.")
+	. += span_red("Left Click while dragging — release the object.")
+	. += span_notice("CTRL + Left Click while dragging — throw the object.")
+	. += span_notice("ALT + Left Click while dragging — rotate the object.")
 
 /**
- * Процесс движения объекта за курсором.
+ * Process of moving the object after the cursor.
  */
 /obj/item/physgun/process(seconds_per_tick)
 	if(!physgun_user || !current_grab_component || QDELETED(handled_atom))
@@ -201,7 +201,7 @@
 	return TRUE
 
 /**
- * Обработка кликов во время перетаскивания.
+ * Handling clicks while dragging.
  */
 /obj/item/physgun/proc/on_clicked(atom/source, atom/clicked_on, modifiers)
 	SIGNAL_HANDLER
@@ -212,7 +212,7 @@
 
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(!advanced)
-			physgun_user.balloon_alert(physgun_user, "мало энергии!")
+			physgun_user.balloon_alert(physgun_user, "not enough energy!")
 			return
 		pause_atom(handled_atom)
 		return
@@ -227,13 +227,13 @@
 /obj/item/physgun/proc/on_living_resist(mob/living)
 	SIGNAL_HANDLER
 	if(force_grab)
-		handled_atom.balloon_alert(handled_atom, "не сбежать!")
+		handled_atom.balloon_alert(handled_atom, "can't escape!")
 		return
 	if(handled_atom)
 		release_atom()
 
 /**
- * Захват объекта
+ * Grab an object
  */
 /obj/item/physgun/proc/catch_atom(atom/movable/target, mob/user)
 	if(SEND_SIGNAL(target, COMSIG_MOVABLE_PHYSGUN_GRABBED, src) & COMPONENT_BLOCK_PHYSGUN_GRAB)
@@ -261,7 +261,7 @@
 	START_PROCESSING(SSfastprocess, src)
 
 /**
- * Отпускание объекта.
+ * Release the object.
  */
 /obj/item/physgun/proc/release_atom()
 	if(isliving(handled_atom))
@@ -284,13 +284,13 @@
 	loop_sound.stop()
 
 /**
- * Поворот объекта.
+ * Rotate the object.
  */
 /obj/item/physgun/proc/rotate_object(atom/movable/target)
 	target.setDir(turn(target.dir, -90))
 
 /**
- * Заморозка объекта (логика теперь в компоненте).
+ * Freeze the object (logic is now in the component).
  */
 /obj/item/physgun/proc/pause_atom(atom/movable/target)
 	STOP_PROCESSING(SSfastprocess, src)
@@ -343,9 +343,9 @@
 /datum/status_effect/physgun_pause/proc/on_resist()
 	SIGNAL_HANDLER
 	if(force)
-		owner.balloon_alert(owner, "не сбежать!")
+		owner.balloon_alert(owner, "can't escape!")
 		return
-	// Полностью снимаем все эффекты физпушки через компонент
+	// Fully remove all physgun effects through the component
 	SEND_SIGNAL(owner, COMSIG_MOVABLE_PHYSGUN_RELEASED)
 	owner.remove_status_effect(src)
 
@@ -358,13 +358,13 @@
 	VAR_PRIVATE/obj/item/physgun/physgun = null
 	VAR_PRIVATE/paused = FALSE
 
-	/// Исходные значения для полного восстановления
+	/// Original values for full restoration
 	VAR_PRIVATE/original_density = FALSE
 	VAR_PRIVATE/original_movement_type = 0
 	VAR_PRIVATE/original_plane = 0
 	VAR_PRIVATE/original_anchored = FALSE
 
-	/// Сохранённые пиксель-смещения (для анимации в process и восстановления)
+	/// Saved pixel offsets (for animation in process and restoration)
 	var/stored_pixel_x = 0
 	var/stored_pixel_y = 0
 

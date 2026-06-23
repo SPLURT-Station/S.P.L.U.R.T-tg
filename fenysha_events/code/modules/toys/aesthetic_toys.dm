@@ -68,11 +68,11 @@
 */
 
 /obj/item/toy/plush/skyrat/tesh
-	name = "Плюшевая игрушка Авали"
-	desc = "Мягкая игрушка авали. Кто - это такие?"
+	name = "Avali plush toy"
+	desc = "A soft Avali plushie. Who are they, anyway?"
 	icon_state = "plushie_alara"
 
 /obj/item/toy/plush/skyrat/tiredteesh
-	name = "Плюшевая игрушка уставшего авали"
-	desc = "Мягкая игрушка авали. Кажется эта выглядил очень грустной. Кто - это такие?"
+	name = "tired Avali plush toy"
+	desc = "A soft Avali plushie. This one seems to look very sad. Who are they, anyway?"
 	icon_state = "plush_tiredtesh"

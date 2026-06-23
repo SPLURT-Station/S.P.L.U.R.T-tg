@@ -4,21 +4,21 @@
 #define KHARA_TUMOR_THRESHOLD_STAGE 5
 
 /datum/disease/khara
-	name = "Инфекция Кхара"
-	desc = "Неизлечимый, заразный патоген. Кхара развивается в нервной системе и кровотоке носителя, стремительно мутируя клетки. \
-			Внешне инфекция напоминает рак. В теле больного появляются множественные быстрорастущие злокачественные опухоли. \
-			На первых трёх стадиях некоторые реагенты могут замедлить или частично обратить развитие болезни. \
-			На поздних стадиях этот эффект значительно слабее. \
-			После полного развития тело носителя будет разрушено новой формой жизни, сформировавшейся внутри него."
-	form = "Биоинженерная болезнь"
-	agent = "Споры Veral khara"
+	name = "Khara Infection"
+	desc = "An incurable, contagious pathogen. Khara develops in the host's nervous system and bloodstream, rapidly mutating cells. \
+			Outwardly the infection resembles cancer. Multiple fast-growing malignant tumors appear in the patient's body. \
+			During the first three stages certain reagents can slow or partially reverse the development of the disease. \
+			In the later stages this effect is significantly weaker. \
+			Once fully developed, the host's body will be destroyed by a new life form that has formed inside it."
+	form = "Bioengineered disease"
+	agent = "Veral khara spores"
 	visibility_flags = HIDDEN_SCANNER|HIDDEN_PANDEMIC
 	spread_flags = DISEASE_SPREAD_SPECIAL|DISEASE_SPREAD_AIRBORNE
 	stage_prob = 13
 	max_stages = 7
-	spread_text = "Споры Veral khara (контакт + миазмы на поздних стадиях)"
-	cure_text = "Неизлечимо. Резадон и галоперидол могут замедлить / частично обратить прогрессию. \
-				Токсин анацеа крайне эффективно уничтожает споры. Технеций-99 значительно усиливает действие анацеа."
+	spread_text = "Veral khara spores (contact + miasma in the late stages)"
+	cure_text = "Incurable. Rezadone and haloperidol can slow / partially reverse progression. \
+				The toxin anacea destroys the spores extremely effectively. Technetium-99 significantly enhances the effect of anacea."
 	viable_mobtypes = list(/mob/living/carbon/human)
 	bypasses_immunity = TRUE
 	severity = DISEASE_SEVERITY_BIOHAZARD
@@ -69,7 +69,7 @@
 	var/obj/item/organ/brain/brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(brain && brain.GetComponent(/datum/component/khara_disease))
 		qdel(brain.GetComponent(/datum/component/khara_disease))
-	to_chat(affected_mob, span_big(span_boldnicegreen("Кхара отступает... пока.")))
+	to_chat(affected_mob, span_big(span_boldnicegreen("The Khara recedes... for now.")))
 	. = ..()
 
 /datum/disease/khara/update_stage(new_stage)
@@ -85,19 +85,19 @@
 			process_dead = FALSE
 			spreading_modifier = KHARA_SPREADING_MODIFIER
 		if(4)
-			to_chat(affected_mob, span_userdanger("Что-то тяжёлое и неправильное пульсирует глубоко внутри живота…"))
+			to_chat(affected_mob, span_userdanger("Something heavy and wrong pulses deep inside your belly..."))
 			spreading_modifier *= 0.6
 			process_dead = TRUE
 			visibility_flags = NONE
 			spreading_modifier = KHARA_SPREADING_MODIFIER * 1.2
 		if(5)
-			to_chat(affected_mob, span_userdanger("Кожа вздувается и шевелится — что-то растёт слишком быстро!"))
+			to_chat(affected_mob, span_userdanger("Your skin swells and writhes - something is growing far too fast!"))
 			spreading_modifier = KHARA_SPREADING_MODIFIER * 1.4
 		if(6)
-			to_chat(affected_mob, span_userdanger("Кости трещат и ломаются под немыслимым внутренним давлением!"))
+			to_chat(affected_mob, span_userdanger("Your bones crack and break under unthinkable internal pressure!"))
 			spreading_modifier = KHARA_SPREADING_MODIFIER * 1.6
 		if(7)
-			to_chat(affected_mob, span_userdanger("Всё внутри шевелится. Оно хочет наружу."))
+			to_chat(affected_mob, span_userdanger("Everything inside you is moving. It wants out."))
 			affected_mob.Shake(duration = 2 SECONDS)
 			spreading_modifier = KHARA_SPREADING_MODIFIER * 2
 	affected_mob.update_health_hud()
@@ -170,61 +170,61 @@
 			if(SPT_PROB(5, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(6, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Вы чувствуете странное тепло, распространяющееся под кожей…"))
+				to_chat(affected_mob, span_warning("You feel a strange warmth spreading beneath your skin..."))
 			if(SPT_PROB(4, seconds_per_tick))
-				to_chat(affected_mob, span_notice("В [pick("запястьях","пальцах","коленях")] будто лёгкое покалывание…"))
+				to_chat(affected_mob, span_notice("There's a faint tingling in your [pick("wrists","fingers","knees")]..."))
 
 		if(2 to 3)
 			if(SPT_PROB(5 + stage, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Тупая, пульсирующая боль расцветает где-то внутри."))
+				to_chat(affected_mob, span_warning("A dull, throbbing pain blossoms somewhere inside you."))
 			if(SPT_PROB(4, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Голова тяжёлая, в висках стучит…"))
+				to_chat(affected_mob, span_warning("Your head feels heavy, your temples are pounding..."))
 				affected_mob.adjust_confusion(4)
 
 			if(SPT_PROB(3, seconds_per_tick))
 				affected_mob.adjust_brute_loss(1.2, forced = TRUE)
 
 			if(SPT_PROB(3.5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Суставы [pick("ноют","скрипят","будто ржавые")]…"))
+				to_chat(affected_mob, span_warning("Your joints [pick("ache","creak","feel rusted")]..."))
 				affected_mob.adjust_stamina_loss(6)
 
 		if(4)
 			if(SPT_PROB(3, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Вы чувствуете, как внутри [pick("грудной клетки", "живота", "бока")] растёт что-то твёрдое и неправильное."))
+				to_chat(affected_mob, span_danger("You feel something hard and wrong growing inside your [pick("chest", "belly", "side")]."))
 
 			if(SPT_PROB(6, seconds_per_tick))
 				var/obj/item/bodypart/affecting = affected_mob.get_bodypart(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 				if(affecting)
-					to_chat(affected_mob, span_warning("В [affecting.name] вспыхивает резкая боль!"))
+					to_chat(affected_mob, span_warning("A sharp pain flares up in your [affecting.name]!"))
 					affecting.receive_damage(5, 0, wound_bonus = CANT_WOUND)
 
 			if(SPT_PROB(5, seconds_per_tick))
 				affected_mob.adjust_brute_loss(rand(2,5), forced = TRUE)
 
-			// Дрожь в руках → роняние предметов
+			// Trembling hands -> dropping items
 			if(SPT_PROB(4.5, seconds_per_tick) && affected_mob.get_active_hand())
-				to_chat(affected_mob, span_warning("Пальцы внезапно онемели и не слушаются…"))
+				to_chat(affected_mob, span_warning("Your fingers suddenly go numb and won't obey you..."))
 				affected_mob.dropItemToGround(affected_mob.get_active_held_item())
 				affected_mob.emote("gasp")
 
 			if(SPT_PROB(5, seconds_per_tick) && COOLDOWN_FINISHED(src, tumor_pain_cd))
 				affected_mob.emote("scream")
-				to_chat(affected_mob, span_userdanger("Вы чувствуете как что-то в внутри [pick("грудной клетки", "правой руке", "левой руке")] болезненно пульсирует."))
+				to_chat(affected_mob, span_userdanger("You feel something inside your [pick("chest", "right arm", "left arm")] pulse painfully."))
 				affected_mob.adjust_brute_loss(rand(5, 15), forced = TRUE)
 				COOLDOWN_START(src, tumor_pain_cd, rand(25, 45) SECONDS)
 
 		if(5)
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_userdanger("Плоть чудовищно вздувается — внутри что-то живое!"))
+				to_chat(affected_mob, span_userdanger("Your flesh swells monstrously - something is alive inside!"))
 				affected_mob.adjust_brute_loss(rand(5, 10), forced = TRUE)
 
 			if(SPT_PROB(4, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Голова раскалывается, в глазах мелькают вспышки…"))
+				to_chat(affected_mob, span_warning("Your head is splitting, flashes flicker before your eyes..."))
 				affected_mob.adjust_confusion(6)
 				affected_mob.adjust_eye_blur(8)
 
 			if(SPT_PROB(3.5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Ноги подкашиваются, суставы будто плавятся…"))
+				to_chat(affected_mob, span_warning("Your legs give way, your joints feel like they're melting..."))
 				affected_mob.AdjustKnockdown(rand(15, 30))
 				affected_mob.adjust_stamina_loss(10)
 
@@ -233,7 +233,7 @@
 
 			if(SPT_PROB(5, seconds_per_tick) && COOLDOWN_FINISHED(src, miasma_spread_cd))
 				if(protected_area)
-					to_chat(affected_mob, span_userdanger("Ты ощущает, как густая миазма подступает к горлу, но что-то мешает ей выйти наружу!"))
+					to_chat(affected_mob, span_userdanger("You feel a thick miasma rising in your throat, but something keeps it from escaping!"))
 					affected_mob.adjust_stamina_loss(5)
 				else
 					spread_khara_miasma()
@@ -241,13 +241,13 @@
 
 		if(6)
 			if(SPT_PROB(4, seconds_per_tick))
-				to_chat(affected_mob, span_bolddanger("Рёбра стонут и смещаются — что-то раздвигает их!"))
+				to_chat(affected_mob, span_bolddanger("Your ribs groan and shift - something is forcing them apart!"))
 
 			if(SPT_PROB(6, seconds_per_tick))
 				affected_mob.adjust_brute_loss(rand(6,11), forced = TRUE)
 
 			if(SPT_PROB(4.5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("Руки дрожат так сильно, что невозможно ничего удержать…"))
+				to_chat(affected_mob, span_warning("Your hands are shaking so badly you can't hold anything..."))
 				if(affected_mob.get_active_held_item())
 					affected_mob.dropItemToGround(affected_mob.get_active_held_item(), TRUE)
 
@@ -261,7 +261,7 @@
 
 			if(SPT_PROB(2.5, seconds_per_tick) && COOLDOWN_FINISHED(src, miasma_spread_cd))
 				if(protected_area)
-					to_chat(affected_mob, span_userdanger("Ты ощущает, как густая миазма подступает к горлу, но что-то мешает ей выйти наружу!"))
+					to_chat(affected_mob, span_userdanger("You feel a thick miasma rising in your throat, but something keeps it from escaping!"))
 					affected_mob.adjust_stamina_loss(5)
 				else
 					spread_khara_miasma()
@@ -272,7 +272,7 @@
 				return
 			if(protected_area && (affected_mob.stat != DEAD))
 				if(SPT_PROB(5, seconds_per_tick))
-					to_chat(affected_mob, span_userdanger("Ты ощущаешь, что твело готово взорваться, но что-то не дает этому случиться!"))
+					to_chat(affected_mob, span_userdanger("You feel your body is ready to burst, but something is keeping it from happening!"))
 					affected_mob.emote("scream")
 					affected_mob.adjust_brute_loss(5, forced = TRUE)
 					new /obj/effect/temp_visual/morph_engine_block(get_turf(affected_mob))
@@ -280,7 +280,7 @@
 			if(make_reborn_roll())
 				return
 
-			to_chat(affected_mob, span_boldnicegreen("Боль отступает! Всё в порядке."))
+			to_chat(affected_mob, span_boldnicegreen("The pain recedes! Everything is fine."))
 			visibility_flags = HIDDEN_SCANNER|HIDDEN_PANDEMIC
 			affected_mob.update_health_hud()
 
@@ -292,7 +292,7 @@
 	ADD_TRAIT(affected_mob, TRAIT_GRANTEDKHARA_REBORN, REF(src))
 	make_reborn_roll()
 
-/// Запускает ролии того, что больной переродится в совершенного человека вместо смерти
+/// Runs the rolls for whether the sick host will be reborn as a perfect human instead of dying
 /datum/disease/khara/proc/make_reborn_roll()
 	var/roll_chance = 3
 	var/roll_attempts = 3
@@ -352,13 +352,13 @@
 	if(QDELETED(affected_mob))
 		return
 	visibility_flags = NONE
-	affected_mob.visible_message(span_userdanger("Тело [affected_mob] бьётся в страшных судорогах — что-то рвётся наружу!"), span_userdanger("Всё кончено."))
+	affected_mob.visible_message(span_userdanger("[affected_mob]'s body convulses in terrible spasms - something is tearing its way out!"), span_userdanger("It's all over."))
 	affected_mob.Paralyze(30 SECONDS)
 	affected_mob.Knockdown(30 SECONDS)
 	affected_mob.Shake(duration = 10 SECONDS)
 	var/mob/dead/observer/chosen = SSpolling.poll_ghost_candidates(
 		poll_time = 10 SECONDS,
-		role_name_text = "Перерожденный [affected_mob]",
+		role_name_text = "Reborn [affected_mob]",
 		alert_pic = thing_emerg,
 		amount_to_pick = 1
 	)
@@ -372,8 +372,8 @@
 		affected_mob.Shake()
 
 	affected_mob.visible_message(
-		span_userdanger("Грудная клетка [affected_mob] разрывается фонтаном крови и внутренностей, наружу вырывается уродливое существо!"),
-		span_userdanger("Ваше тело взрывается изнутри — вас больше нет.")
+		span_userdanger("[affected_mob]'s chest bursts in a fountain of blood and entrails, and a hideous creature breaks free!"),
+		span_userdanger("Your body explodes from within - you are no more.")
 	)
 	sleep(0.2 SECONDS)
 	emerged = TRUE
@@ -383,8 +383,8 @@
 		if(chosen && chosen.client)
 			creature.key = chosen.key
 
-	log_virus("[key_name(affected_mob)] был поглощён и разорван Кхара в [loc_name(affected_mob)]")
-	affected_mob.investigate_log("погиб от инфекции Кхара (поглощён и разорван).", INVESTIGATE_DEATHS)
+	log_virus("[key_name(affected_mob)] was consumed and torn apart by Khara in [loc_name(affected_mob)]")
+	affected_mob.investigate_log("died from the Khara infection (consumed and torn apart).", INVESTIGATE_DEATHS)
 	affected_mob.gib(DROP_ALL_REMAINS)
 	spread_khara_miasma(TRUE)
 
@@ -411,7 +411,7 @@
 		return
 	O.apply_organ_damage(dmg)
 	if(O.organ_flags & ORGAN_FAILING)
-		to_chat(affected_mob, span_userdanger("Ваш [O.name] будто раздавливают изнутри!"))
+		to_chat(affected_mob, span_userdanger("Your [O.name] feels like it's being crushed from the inside!"))
 
 #undef KHARA_SPREADING_MODIFIER
 #undef KHARA_FINAL_EMERGENCE_DELAY
@@ -494,7 +494,7 @@
 		return
 
 	if(disease_type == /datum/disease/khara)
-		current_mob.visible_message(span_userdanger("Это была плохая идея!"))
+		current_mob.visible_message(span_userdanger("That was a bad idea!"))
 		current_mob.apply_damage(500, BRUTE, forced = TRUE, spread_damage = TRUE, wound_bonus = 100)
 
 		var/datum/disease/khara/khara = null
@@ -522,9 +522,9 @@
 	register_to_mob(brain_parent.owner)
 
 /datum/antagonist/khara_member
-	name = "Перерожденный"
-	roundend_category = "Перерожденные Кхарой"
-	antagpanel_category = "Перерожденные"
+	name = "Reborn"
+	roundend_category = "Reborn by Khara"
+	antagpanel_category = "Reborn"
 	antag_moodlet = /datum/mood_event/ling
 	show_to_ghosts = TRUE
 
@@ -534,31 +534,31 @@
 
 /datum/antagonist/khara_member/forge_objectives()
 	var/datum/objective/custom/be_badass = new()
-	be_badass.name = "Игнорируйте"
-	be_badass.explanation_text = "Отстранитесь от проблем не перерожденных. Это более не ваша забота!"
+	be_badass.name = "Ignore"
+	be_badass.explanation_text = "Stay out of the troubles of the unreborn. It is no longer your concern!"
 
 	var/datum/objective/custom/assimilation = new()
-	assimilation.name = "Ассимилируйте"
-	assimilation.explanation_text = "Сделайте так, чтобы другие люди смогли переродиться!"
+	assimilation.name = "Assimilate"
+	assimilation.explanation_text = "Make it so that other people can be reborn too!"
 
 	objectives += assimilation
 	objectives += be_badass
 
 /datum/disease/true_khara
-	name = "Истинная инфекция Кхара"
-	desc = "Симбиотический патоген Veral khara - панацея. \
-			Вместо разрушения он срастается с организмом носителя, усиливая его во всём: ускоряет регенерацию, \
-			повышает силу, скорость и выносливость, полностью исцеляет другие болезни и делает тело совершеннее."
-	form = "Биоинженерная симбиотическая инфекция"
-	agent = "Симбиотические споры Veral khara"
+	name = "True Khara Infection"
+	desc = "The symbiotic Veral khara pathogen - a panacea. \
+			Instead of destroying, it fuses with the host's body, enhancing it in every way: accelerating regeneration, \
+			increasing strength, speed and endurance, fully curing other diseases and making the body more perfect."
+	form = "Bioengineered symbiotic infection"
+	agent = "Symbiotic Veral khara spores"
 	visibility_flags = HIDDEN_SCANNER
 	spread_flags = DISEASE_SPREAD_SPECIAL
 	cure_chance = 0
 	stage_prob = 100
 	max_stages = 1
 	process_dead = TRUE
-	spread_text = "Не распространяется"
-	cure_text = "Неизлечимо"
+	spread_text = "Does not spread"
+	cure_text = "Incurable"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	bypasses_immunity = TRUE
 	severity = DISEASE_SEVERITY_POSITIVE
@@ -609,14 +609,14 @@
 /datum/disease/true_khara/proc/on_host_examine(source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 	if(!affected_mob.is_eyes_covered())
-		examine_text += span_notice("[affected_mob.p_theirs()] глаза <b>белые</b>.")
+		examine_text += span_notice("[affected_mob.p_theirs()] eyes are <b>white</b>.")
 
 /datum/disease/true_khara/cure(add_resistance)
 	var/obj/item/organ/brain/brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(brain)
-		return // Только отсечение головы позволяет излечиться, вот так вот
+		return // Only severing the head allows a cure, that's how it is
 
-	affected_mob.visible_message(span_danger("Симбиоз с истинной Кхарой разрушен! Тело слабеет..."))
+	affected_mob.visible_message(span_danger("The symbiosis with the true Khara is broken! The body weakens..."))
 	affected_mob.apply_damage(300, BRUTE, forced = TRUE, spread_damage = TRUE)
 	affected_mob.remove_traits(given_traits, REF(src))
 
@@ -632,7 +632,7 @@
 
 /datum/disease/true_khara/infect(mob/living/infectee, make_copy)
 	. = ..()
-	to_chat(infectee, span_boldnicegreen("Ты ощущаешь как твое тело крепнет - а все болезни отступают, твое состояние улучшается."))
+	to_chat(infectee, span_boldnicegreen("You feel your body growing stronger - and all your ailments recede, your condition improves."))
 	infectee.revive(HEAL_DAMAGE)
 	var/obj/item/organ/brain/brain = infectee.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(brain)
@@ -711,22 +711,22 @@
 		return
 
 	affected_mob.revive(HEAL_DAMAGE|HEAL_TRAUMAS|HEAL_BLOOD|HEAL_TEMP, excess_healing = 50, force_grab_ghost = TRUE)
-	affected_mob.visible_message(span_danger("Тело [affected_mob] регенерирует, пока [affected_mob.p_they()] поднимается, вставая на ноги!"), \
-								span_danger("Ты восстаешь из мертвых - Кхара восстанавливает тебя!"))
+	affected_mob.visible_message(span_danger("[affected_mob]'s body regenerates as [affected_mob.p_they()] rises, getting back up onto their feet!"), \
+								span_danger("You rise from the dead - the Khara restores you!"))
 
 
 /datum/weather/khara_infection
-	name = "Туман Кхара"
-	desc = "Густой туман, наполненный спорами Кхара…"
+	name = "Khara Fog"
+	desc = "A thick fog filled with Khara spores..."
 
-	telegraph_message = span_userdanger("С неба опускается туман, наполненный спорами Кхара!")
+	telegraph_message = span_userdanger("A fog filled with Khara spores descends from the sky!")
 	telegraph_duration = 30 SECONDS
 
-	weather_message = span_userdanger("Густой едкий туман опускается с неба. Пора переходить на внутренний запас воздуха!")
+	weather_message = span_userdanger("A thick, acrid fog descends from the sky. Time to switch to an internal air supply!")
 	weather_overlay = "dust_med"
 	weather_color = COLOR_MAROON
 
-	end_message = span_userdanger("Туман рассеивается!")
+	end_message = span_userdanger("The fog disperses!")
 	end_duration = 0 SECONDS
 
 	area_type = /area
@@ -769,6 +769,6 @@
 	if(!does_breath && total_prot >= 80)
 		return
 	if(human.has_reagent(/datum/reagent/toxin/khara, 10))
-		return // уже достаточно
+		return // already enough
 
 	weather_reagent_holder.reagents.expose(human, VAPOR|INHALE, show_message = TRUE)

@@ -1,7 +1,7 @@
 /obj/machinery/ammo_workbench
-	name = "верстак боеприпасов"
-	desc = "Машина, отдалённо напоминающая токарный станок, предназначенная исключительно для изготовления боеприпасов. \
-			Имеет слот для магазинов, коробок патронов, обойм — всего, что может содержать боеприпасы."
+	name = "ammo workbench"
+	desc = "A machine that vaguely resembles a lathe, designed exclusively for manufacturing ammunition. \
+			It has a slot for magazines, ammo boxes, clips - anything that can hold ammunition."
 	icon = 'fenysha_events/icons/machinery/ammo_workbench.dmi'
 	icon_state = "ammobench"
 	density = TRUE
@@ -29,11 +29,11 @@
 	var/obj/item/ammo_box/loaded_magazine = null
 	var/obj/item/disk/ammo_workbench/advanced/loaded_datadisk = null
 
-	/// Список всех возможных типов патронов (typepaths)
+	/// List of all possible round types (typepaths)
 	var/list/possible_ammo_types = list()
-	/// Отфильтрованные допустимые типы гильз/патронов
+	/// Filtered allowed casing/round types
 	var/list/valid_casings = list()
-	/// Строки с затратами материалов для интерфейса
+	/// Strings with material costs for the interface
 	var/list/casing_mat_strings = list()
 
 	var/allowed_harmful = TRUE
@@ -50,10 +50,10 @@
 	var/turbo_time_per_round = 0.225 SECONDS
 	var/turbo_efficiency = 1.4
 
-	/// Режим полного игнорирования ограничений (опасно!)
+	/// Mode that completely ignores restrictions (dangerous!)
 	var/adminbus = FALSE
 
-	/// Контейнер материалов
+	/// Material container
 	var/datum/material_container/materials
 
 /obj/machinery/ammo_workbench/unlocked
@@ -61,7 +61,7 @@
 	allowed_advanced = TRUE
 
 /obj/item/circuitboard/machine/ammo_workbench
-	name = "Плата верстака боеприпасов"
+	name = "Ammo Workbench Board"
 	icon_state = "circuit_map"
 	build_path = /obj/machinery/ammo_workbench
 	req_components = list(
@@ -94,30 +94,30 @@
 /obj/machinery/ammo_workbench/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("Дисплей показывает: хранит до <b>[materials.max_amount / SHEET_MATERIAL_AMOUNT]</b> листов материалов.<br>Расход материалов: <b>[creation_efficiency*100]%</b>.")
+		. += span_notice("The display shows: stores up to <b>[materials.max_amount / SHEET_MATERIAL_AMOUNT]</b> sheets of material.<br>Material consumption: <b>[creation_efficiency*100]%</b>.")
 
 /obj/machinery/ammo_workbench/RefreshParts()
 	. = ..()
 
-	// Время на один патрон
+	// Time per round
 	var/time_eff = 1.8 SECONDS
 	for(var/datum/stock_part/micro_laser/L in component_parts)
-		time_eff -= L.tier * 0.4 SECONDS  // два лазера → максимум -1.6 с
+		time_eff -= L.tier * 0.4 SECONDS  // two lasers -> maximum -1.6s
 
 	time_per_round = clamp(time_eff, 0.2 SECONDS, 20 SECONDS)
 	base_time_per_round = time_per_round
 	turbo_time_per_round = time_eff / 8
 
-	// Эффективность расхода материалов
+	// Material consumption efficiency
 	var/eff = 1.4
 	for(var/datum/stock_part/servo/S in component_parts)
-		eff -= S.tier * 0.1  // два серво → максимум -0.4 → 1.0 → 0.6 и т.д.
+		eff -= S.tier * 0.1  // two servos -> maximum -0.4 -> 1.0 -> 0.6 etc.
 
 	creation_efficiency = max(0.1, eff)
 	base_efficiency = creation_efficiency
 	turbo_efficiency = creation_efficiency * 2
 
-	// Ёмкость хранилища
+	// Storage capacity
 	var/cap = 0
 	for(var/datum/stock_part/matter_bin/B in component_parts)
 		cap += B.tier * 40 * SHEET_MATERIAL_AMOUNT
@@ -148,7 +148,7 @@
 		if(initial(path:anti_khara) && !allowed_antikhara)
 			continue
 
-		// Получаем материалы
+		// Get the materials
 		var/obj/item/ammo_casing/temp = new path
 		var/list/raw = temp.get_material_composition()
 		qdel(temp)
@@ -203,16 +203,16 @@
 
 	if(!error_message)
 		if(busy)
-			data["error"] = "СИСТЕМА ЗАНЯТА"
+			data["error"] = "SYSTEM BUSY"
 		else if(!loaded_magazine)
-			data["error"] = "МАГАЗИН НЕ УСТАНОВЛЕН"
+			data["error"] = "NO MAGAZINE INSERTED"
 
 	data["efficiency"] = creation_efficiency
 	data["time"] = time_per_round / 10
 	data["hacked"] = hacked
 	data["turboBoost"] = turbo_boost
 
-	// Материалы
+	// Materials
 	data["materials"] = list()
 	for(var/mat_ref in materials.materials)
 		var/datum/material/M = mat_ref
@@ -313,36 +313,36 @@
 
 	update_ammotypes()
 	update_appearance()
-	to_chat(user, span_notice("Вы извлекли контейнер из верстака."))
+	to_chat(user, span_notice("You removed the container from the workbench."))
 
 /obj/machinery/ammo_workbench/proc/fill_magazine_start(casing_path)
 	if(machine_stat & (NOPOWER|BROKEN) || busy)
 		return
 
 	if(!(casing_path in possible_ammo_types))
-		error_message = "НЕСОВМЕСТИМЫЙ ТИП БОЕПРИПАСОВ"
+		error_message = "INCOMPATIBLE AMMUNITION TYPE"
 		error_type = "bad"
 		return
 
 	var/obj/item/ammo_casing/C = casing_path
 
 	if(initial(C.harmful) && !allowed_harmful && !hacked)
-		error_message = "ОБНАРУЖЕНО НАРУШЕНИЕ БЕЗОПАСНОСТИ"
+		error_message = "SECURITY VIOLATION DETECTED"
 		error_type = "bad"
 		return
 
 	if(initial(C.anti_khara) && !allowed_antikhara)
-		error_message = "НЕВОЗМОЖНО ПЕЧАТАТЬ БЕЗ УЛУЧШЕНИЯ"
+		error_message = "CANNOT PRINT WITHOUT UPGRADE"
 		error_type = "bad"
 		return
 
 	if(!loaded_magazine)
-		error_message = "МАГАЗИН НЕ УСТАНОВЛЕН"
+		error_message = "NO MAGAZINE INSERTED"
 		error_type = ""
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
-		error_message = "КОНТЕЙНЕР ПОЛОН"
+		error_message = "CONTAINER FULL"
 		error_type = "good"
 		return
 
@@ -365,14 +365,14 @@
 		cost[mat_ref] = raw_cost[mat_ref] * creation_efficiency
 
 	if(!materials.has_materials(cost))
-		error_message = "НЕДОСТАТОЧНО МАТЕРИАЛОВ"
+		error_message = "INSUFFICIENT MATERIALS"
 		error_type = "bad"
 		qdel(new_casing)
 		ammo_fill_finish(FALSE)
 		return
 
 	if(!loaded_magazine.give_round(new_casing))
-		error_message = "НЕСОВМЕСТИМЫЙ ТИП ПАТРОНА"
+		error_message = "INCOMPATIBLE ROUND TYPE"
 		error_type = "bad"
 		qdel(new_casing)
 		ammo_fill_finish(FALSE)
@@ -387,7 +387,7 @@
 	playsound(loc, 'sound/machines/piston/piston_raise.ogg', 60, TRUE)
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
-		error_message = "КОНТЕЙНЕР ЗАПОЛНЕН"
+		error_message = "CONTAINER FILLED"
 		error_type = "good"
 		ammo_fill_finish(TRUE)
 		return
@@ -412,12 +412,12 @@
 			return FALSE
 
 		if(loaded_magazine)
-			to_chat(user, span_notice("Вы быстро заменили [loaded_magazine] на [I]."))
+			to_chat(user, span_notice("You quickly swapped [loaded_magazine] for [I]."))
 			loaded_magazine.forceMove(drop_location())
 			user.put_in_hands(loaded_magazine)
 
 		loaded_magazine = I
-		to_chat(user, span_notice("Вы вставили [I] в приёмник верстака."))
+		to_chat(user, span_notice("You inserted [I] into the workbench's receiver."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
@@ -426,13 +426,13 @@
 
 	if(istype(I, /obj/item/disk/ammo_workbench))
 		if(loaded_datadisk)
-			to_chat(user, span_warning("[src] уже содержит диск."))
+			to_chat(user, span_warning("[src] already contains a disk."))
 			return FALSE
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
 
 		loaded_datadisk = I
-		to_chat(user, span_notice("Вы вставили [I] в дисковод."))
+		to_chat(user, span_notice("You inserted [I] into the disk drive."))
 		flick("h_lathe_load", src)
 		playsound(loc, 'sound/machines/terminal/terminal_insert_disc.ogg', 35, TRUE)
 		loadDisk()
@@ -465,16 +465,16 @@
 
 /obj/machinery/ammo_workbench/proc/loadDisk()
 	if(!loaded_datadisk)
-		disk_error = "ДИСК НЕ ВСТАВЛЕН"
+		disk_error = "NO DISK INSERTED"
 		disk_error_type = "bad"
 		return FALSE
 
 	if(loaded_datadisk.type in loaded_datadisks)
-		disk_error = "ДАННЫЕ С ДИСКА УЖЕ ЗАГРУЖЕНЫ"
+		disk_error = "DISK DATA ALREADY LOADED"
 		disk_error_type = "bad"
 		return FALSE
 
-	disk_error = "ДИСК УСПЕШНО ЗАГРУЖЕН"
+	disk_error = "DISK LOADED SUCCESSFULLY"
 	disk_error_type = "good"
 	loaded_datadisk.on_bench_install(src)
 	loaded_datadisks += loaded_datadisk.type
@@ -502,7 +502,7 @@
 
 /datum/wires/ammo_workbench
 	holder_type = /obj/machinery/ammo_workbench
-	proper_name = "Верстак боеприпасов"
+	proper_name = "Ammo Workbench"
 
 /datum/wires/ammo_workbench/New(atom/holder)
 	wires = list(WIRE_HACK, WIRE_DISABLE, WIRE_SHOCK, WIRE_ZAP)
@@ -548,12 +548,12 @@
 	hacked = state
 
 /obj/item/disk/ammo_workbench
-	name = "диск с чертежами боеприпасов"
-	desc = "Вы не должны это видеть."
+	name = "ammo blueprint disk"
+	desc = "You shouldn't be seeing this."
 
 /obj/item/disk/ammo_workbench/advanced
-	name = "продвинутый диск боеприпасов"
-	desc = "Содержит данные по изготовлению летальных и специальных типов боеприпасов. Использование может нарушить настройки безопасности."
+	name = "advanced ammo disk"
+	desc = "Contains data for manufacturing lethal and special ammunition types. Using it may compromise security settings."
 
 /obj/item/disk/ammo_workbench/advanced/proc/on_bench_install(obj/machinery/ammo_workbench/bench)
 	bench.allowed_harmful = TRUE

@@ -34,7 +34,7 @@ export function BuildMode(props: BuildModeProps) {
       <Stack.Item>
         <Input
           fluid
-          placeholder="Поиск по всем типам и именам турфов..."
+          placeholder="Search across all turf types and names..."
           value={props.search}
           onChange={props.onSearchChange}
         />
@@ -42,7 +42,7 @@ export function BuildMode(props: BuildModeProps) {
       <Stack.Item grow>
         <Stack fill>
           <Stack.Item basis="280px">
-            <Section fill scrollable title="Подтипы турфов">
+            <Section fill scrollable title="Turf Subtypes">
               {props.currentBrowsePath !== '/turf' && (
                 <Button
                   fluid
@@ -58,7 +58,7 @@ export function BuildMode(props: BuildModeProps) {
                     props.act('browse_to', { path: parentPath });
                   }}
                 >
-                  .. Назад
+                  .. Back
                 </Button>
               )}
               <Box mb={1}>
@@ -69,7 +69,7 @@ export function BuildMode(props: BuildModeProps) {
                   }
                   onClick={() => props.act('browse_to', { path: '/turf' })}
                 >
-                  turf (корень)
+                  turf (root)
                 </Button>
               </Box>
               {folderChildNodes.map((node) => (
@@ -90,13 +90,13 @@ export function BuildMode(props: BuildModeProps) {
             <Section
               fill
               scrollable
-              title="Поверхности"
+              title="Surfaces"
               buttons={
                 <Button
                   icon="paint-brush"
                   onClick={() => props.act('build_here')}
                 >
-                  Построить здесь
+                  Build here
                 </Button>
               }
             >
@@ -136,14 +136,14 @@ export function BuildMode(props: BuildModeProps) {
                   mt={2}
                   onClick={() => props.act('load_more')}
                 >
-                  Загрузить ещё ({props.visibleCount}/{props.matchCount})
+                  Load more ({props.visibleCount}/{props.matchCount})
                 </Button>
               )}
             </Section>
           </Stack.Item>
 
           <Stack.Item basis="300px">
-            <Section title="Выбранная поверхность" mb={2}>
+            <Section title="Selected Surface" mb={2}>
               {props.selectedEntry ? (
                 <Stack vertical>
                   <Stack.Item>
@@ -154,11 +154,11 @@ export function BuildMode(props: BuildModeProps) {
                   </Stack.Item>
                 </Stack>
               ) : (
-                <Box color="#aaaaaa">Ничего не выбрано</Box>
+                <Box color="#aaaaaa">Nothing selected</Box>
               )}
             </Section>
 
-            <Section title="Режим строительства" mb={2}>
+            <Section title="Build Mode" mb={2}>
               <Stack vertical>
                 <Stack.Item>
                   <Button
@@ -170,7 +170,7 @@ export function BuildMode(props: BuildModeProps) {
                       props.act('set_build_action', { build_action: 'brush' })
                     }
                   >
-                    Кисть
+                    Brush
                   </Button>
                 </Stack.Item>
                 <Stack.Item>
@@ -183,7 +183,7 @@ export function BuildMode(props: BuildModeProps) {
                       props.act('set_build_action', { build_action: 'fill' })
                     }
                   >
-                    Заливка
+                    Fill
                   </Button>
                 </Stack.Item>
                 <Stack.Item>
@@ -196,7 +196,7 @@ export function BuildMode(props: BuildModeProps) {
                       props.act('set_build_action', { build_action: 'wand' })
                     }
                   >
-                    Палочка
+                    Wand
                   </Button>
                 </Stack.Item>
                 {props.buildAction === 'wand' && (
@@ -213,12 +213,12 @@ export function BuildMode(props: BuildModeProps) {
               </Stack>
             </Section>
 
-            <Section title="Настройки">
+            <Section title="Settings">
               <Stack vertical>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={props.useCustomColor}
-                    content="Использовать свой цвет"
+                    content="Use custom color"
                     onClick={() => props.act('toggle_use_custom_color')}
                   />
                 </Stack.Item>
@@ -234,21 +234,21 @@ export function BuildMode(props: BuildModeProps) {
                 <Stack.Item>
                   <Button.Checkbox
                     checked={props.customDensity}
-                    content="Плотность включена"
+                    content="Density enabled"
                     onClick={() => props.act('toggle_custom_density')}
                   />
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={props.customOpacity}
-                    content="Непрозрачность включена"
+                    content="Opacity enabled"
                     onClick={() => props.act('toggle_custom_opacity')}
                   />
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Checkbox
                     checked={props.customIndestructible}
-                    content="Неразрушимый"
+                    content="Indestructible"
                     onClick={() => props.act('toggle_custom_indestructible')}
                   />
                 </Stack.Item>

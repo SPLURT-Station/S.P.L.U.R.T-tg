@@ -1,6 +1,6 @@
 /datum/toolgun_mode/spawning/mobs
-	name = "Мобы"
-	desc = "Заспавните почти любое живое существо без каких-либо ограничений!"
+	name = "Mobs"
+	desc = "Spawn almost any living creature without any restrictions!"
 	mode_key = "mobs"
 	type_blacklist = list(
 		/mob/dead,
@@ -8,7 +8,7 @@
 		/mob/dview,
 		/mob/proccall_handler,
 		/mob/oranges_ear,
-		/mob/living/basic/supermatter_spider, // По понятным причинам
+		/mob/living/basic/supermatter_spider, // For obvious reasons
 	)
 
 	var/mob_ai_controller = ""

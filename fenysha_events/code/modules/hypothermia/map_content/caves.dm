@@ -2,8 +2,8 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 #define TRAIT_CREVICE_CRAWLER "crevice_crawler"
 
 /obj/structure/sneak_pod
-	name = "узкая расщелина"
-	desc = "Тесная щель в замёрзшей породе, едва достаточная, чтобы протиснуться ползком или боком. Движение требует осторожных манёвров."
+	name = "narrow crevice"
+	desc = "A tight gap in the frozen rock, barely enough to squeeze through by crawling or going sideways. Movement requires careful maneuvering."
 	// icon = 'icons/obj/structures.dmi'
 	icon_state = "crevice"
 	density = TRUE
@@ -14,11 +14,11 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	armor_type = /datum/armor/none
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-	// Список мобов, которые сейчас ползут внутри
+	// List of mobs currently crawling inside
 	var/list/crawlers = list()
-	// Максимальное количество мелких мобов
+	// Maximum number of small mobs
 	var/max_crawlers = 3
-	// Ассоциативный список: моб → list(x, y, transform)
+	// Associative list: mob → list(x, y, transform)
 	var/list/crawler_pixel_offsets = list()
 	var/datum/component/seethrough/filtered/seethrough
 
@@ -46,7 +46,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	if(!can_crawl_into(M, src))
 		return
 	if(!do_after(user, 5 SECONDS, src))
-		user.balloon_alert(user, "Не удалось пролезть!")
+		user.balloon_alert(user, "Couldn't squeeze through!")
 		return
 	begin_crawl(M)
 
@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	crawler.add_traits(list(TRAIT_FLOORED, TRAIT_CREVICE_CRAWLER), REF(src))
 	register_to_crawler(crawler)
 	if(!silent)
-		balloon_alert(crawler, "Вы протискиваетесь в расщелину, ползёте вперёд...")
+		balloon_alert(crawler, "You squeeze into the crevice, crawling forward...")
 
 
 /obj/structure/sneak_pod/proc/end_crawl(mob/living/crawler, forced = FALSE)
@@ -91,7 +91,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	crawler.pass_flags &= ~(PASSMOB | PASSTABLE)
 	crawler.remove_traits(list(TRAIT_FLOORED, TRAIT_CREVICE_CRAWLER), REF(src))
 	if(!forced)
-		balloon_alert(crawler, "Вы выбираетесь из расщелины.")
+		balloon_alert(crawler, "You climb out of the crevice.")
 
 
 /obj/structure/sneak_pod/Bumped(atom/movable/bumped_atom)
@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	if(!can_crawl_into(M, src))
 		return
 	if(!do_after(M, 5 SECONDS, src))
-		M.balloon_alert(M, "Не удалось пролезть!")
+		M.balloon_alert(M, "Couldn't squeeze through!")
 		return
 	begin_crawl(M)
 
@@ -133,7 +133,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	if(C.stat != CONSCIOUS)
 		return
 	if(HAS_TRAIT(C, TRAIT_GIANT))
-		C.balloon_alert(C, "Я слишком большой!")
+		C.balloon_alert(C, "I'm too big!")
 		return
 	var/body_size = 1
 	if(ishuman(C))
@@ -146,29 +146,29 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 				var/mob/living/carbon/human/OH = other
 				other_size = OH.dna.features["body_size"] || 1
 			if(other_size >= 1)
-				balloon_alert(C, "Следующая расщелина слишком забита!")
+				balloon_alert(C, "The next crevice is too crowded!")
 				return FALSE
 	if(length(next_pod.crawlers) >= next_pod.max_crawlers)
-		balloon_alert(C, "Расщелина заполнена!")
+		balloon_alert(C, "The crevice is full!")
 		return FALSE
 	if(!C.resting)
-		balloon_alert(C, "Нужно прилечь!")
+		balloon_alert(C, "You need to lie down!")
 		return FALSE
 	return TRUE
 
 /obj/structure/sneak_pod/proc/attempt_move(mob/living/C, atom/newloc)
 	if(!(C in crawlers) || C.stat != CONSCIOUS || !C.resting)
-		balloon_alert(C, "Движение прервано!")
+		balloon_alert(C, "Movement interrupted!")
 		return
 	if(!can_crawl_into(C, newloc))
-		balloon_alert(C, "Путь заблокирован!")
+		balloon_alert(C, "Path is blocked!")
 		return
 	if(!do_after(C, 1 SECONDS, src, IGNORE_USER_LOC_CHANGE | IGNORE_HELD_ITEM, max_interact_count = 1))
-		balloon_alert(C, "Движение прервано!")
+		balloon_alert(C, "Movement interrupted!")
 		return
 	var/obj/structure/sneak_pod/next_pod = locate() in newloc
 	if(isclosedturf(newloc))
-		balloon_alert(C, "Путь перекрыт!")
+		balloon_alert(C, "Path is sealed off!")
 		return
 	if(next_pod)
 		C.forceMove(newloc)
@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 	SIGNAL_HANDLER
 	var/mob/living/C = source
 	if(!resting && (C in crawlers))
-		balloon_alert(C, "Здесь не встать!")
+		balloon_alert(C, "You can't stand up here!")
 		C.set_resting(TRUE, TRUE, TRUE)
 
 /obj/structure/sneak_pod/proc/is_still_crawling(mob/living/C)
@@ -209,19 +209,19 @@ GLOBAL_LIST_EMPTY(sneak_pod_list)
 #undef TRAIT_CREVICE_CRAWLER
 
 /obj/structure/sneak_pod/iced
-	name = "заледенелая расщелина"
+	name = "iced-over crevice"
 	icon = 'fenysha_events/icons/structures/crevice.dmi'
 	icon_state = "iced"
 
 /obj/structure/sneak_pod/iced/enterence
-	name = "заледенелая расщелина"
+	name = "iced-over crevice"
 	icon = 'fenysha_events/icons/structures/crevice.dmi'
 	icon_state = "iced_enterence"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sneak_pod/iced/enterence, 27)
 
 /obj/structure/sneak_pod/rock
-	name = "каменная расщелина"
+	name = "rocky crevice"
 	icon = 'fenysha_events/icons/structures/crevice.dmi'
 	icon_state = "rock"
 

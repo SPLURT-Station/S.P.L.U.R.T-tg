@@ -1,11 +1,11 @@
 /**
- * Костюм сына маминой подруги
+ * Outfit of mom's friend's son
  */
 
 /obj/item/clothing/suit/armor/combine
-	name = "Костюм комбайнов"
-	desc = "Сверх-прочный, неразрушаемый костюм, который может защитить от всего, что угодно. \
-			Он сделан из редкого материала - админиума, что был укреплен с помощью вайбкодиума."
+	name = "Combine suit"
+	desc = "An ultra-durable, indestructible suit that can protect from absolutely anything. \
+			It is made of a rare material - adminium, which has been reinforced with vibecodium."
 	armor_type = /datum/armor/immune
 	allowed = list(
 		/obj/item/toolgun,
@@ -51,15 +51,15 @@
 	)
 
 /obj/item/clothing/suit/armor/combine/stalker
-	name = "Костюм сталкеров"
+	name = "Stalker suit"
 	icon_state = "elite_combine"
 	worn_icon_state = "elite_combine"
 
 
 /obj/item/clothing/under/male07
-	name = "Костюм гражданского"
-	desc = "Простой костюм, который может защитить от легких ударов и порезов. \
-			Он сделан из обычного материала, который не обладает никакими особыми свойствами."
+	name = "Civilian suit"
+	desc = "A simple suit that can protect against light blows and cuts. \
+			It is made of an ordinary material that has no special properties."
 
 	icon = 'fenysha_events/icons/items/clothing/gmod_clothing.dmi'
 	worn_icon = 'fenysha_events/icons/items/clothing/onmob/gmod_clothing.dmi'
@@ -67,8 +67,8 @@
 	worn_icon_state = "citizen"
 
 /obj/item/clothing/under/male07/chell
-	name = "Костюм подопытного"
-	desc = "Яркий и удобный комбинезон, используемые подопытными! Кажется стоит поискать поратльную пушку для него!"
+	name = "Test subject suit"
+	desc = "A bright and comfortable jumpsuit, used by test subjects! Seems like it's worth looking for a portal gun to go with it!"
 	icon_state = "chell"
 	worn_icon_state = "chell"
 
@@ -84,7 +84,7 @@
 	allow_big_nesting = TRUE
 
 /obj/item/storage/backpack/satchel/construct
-	name = "Рюкзак архитектора"
+	name = "Architect's backpack"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	item_flags = NO_MAT_REDEMPTION
 	armor_type = /datum/armor/immune

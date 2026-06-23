@@ -62,7 +62,7 @@
 	var/anti_khara = FALSE
 
 /**
- * ППШКИ / ТЯЖЁЛЫЕ КАЛИБРЫ
+ * SMGS / HEAVY CALIBERS
  */
 
 /obj/item/ammo_casing/p50/anti_khara
@@ -112,7 +112,7 @@
 	anti_khara = TRUE
 
 /**
- * ДРОБОВИКИ
+ * SHOTGUNS
  */
 
 /obj/item/ammo_casing/shotgun/anti_khara
@@ -161,7 +161,7 @@
 	return ..()
 
 /**
- * ПИСТОЛЕТНЫЕ КАЛИБРЫ
+ * PISTOL CALIBERS
  */
 
 /obj/item/ammo_casing/c10mm/anti_khara
@@ -227,7 +227,7 @@
 	anti_khara = TRUE
 
 /**
- * ВИНТОВОЧНЫЕ КАЛИБРЫ
+ * RIFLE CALIBERS
  */
 
 /obj/item/ammo_casing/strilka310/anti_khara
@@ -287,7 +287,7 @@
 	return ..()
 
 /**
- * ПУЛЕМЁТНЫЙ КАЛИБР
+ * MACHINE GUN CALIBER
  */
 
 /obj/item/ammo_casing/m7mm/anti_khara
@@ -321,8 +321,8 @@
 
 
 /datum/design/anti_khara_ammunition
-	name = "Диск Анти-Кхара аммуниции"
-	desc = "Диск наполненный обновленными данными для верстака печати патронов. Эта аммуниция может эффективно бороться с пораждениями Кхары."
+	name = "Anti-Khara Ammunition Disk"
+	desc = "A disk filled with updated data for the ammunition printing workbench. This ammunition can effectively combat Khara abominations."
 	id = "anti_khara_ammunition"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -339,8 +339,8 @@
 
 
 /obj/item/disk/ammo_workbench/advanced/anti_khara
-	name = "диск боеприпасов типа 'Анти-Кхара'"
-	desc = "Содержит данные по изготовлению особенных боеприпасов, что эффективно поражают создания Кхары - игнорируя обычных людей."
+	name = "'Anti-Khara' type ammunition disk"
+	desc = "Contains data for manufacturing special ammunition that effectively strikes Khara creatures while ignoring ordinary humans."
 
 /obj/item/disk/ammo_workbench/advanced/anti_khara/on_bench_install(obj/machinery/ammo_workbench/bench)
 	// bench.allowed_antikhara = TRUE
@@ -350,9 +350,9 @@
 
 
 /obj/item/gun/energy/anti_khara
-	name = "Анти-Кхара бластер"
-	desc = "Продвинутый энергетический бластер испускающую пучки энергии колебающиеся на особой частоте. \
-			Тонкая настройка позволяет им атаковать исключительно абоминации Кхары - игнорируя другие живые цели."
+	name = "Anti-Khara Blaster"
+	desc = "An advanced energy blaster that emits beams of energy oscillating at a special frequency. \
+			Fine tuning allows them to attack exclusively Khara abominations while ignoring other living targets."
 	icon_state = "instagibgreen"
 	inhand_icon_state = "instagibgreen"
 	w_class = WEIGHT_CLASS_BULKY
@@ -383,15 +383,15 @@
 
 /obj/item/gun/energy/anti_khara/examine(mob/user)
 	. = ..()
-	. += span_hypnophrase("Это невероятное оружие. \n")
+	. += span_hypnophrase("This is an incredible weapon. \n")
 
 	if(selfcharge)
-		. += span_boldnicegreen("Ядро оружие автоматически восстанавливает энергию в нем.")
+		. += span_boldnicegreen("The weapon's core automatically replenishes the energy within it.")
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 	if(istype(shot, /obj/item/ammo_casing/energy/anti_khara/smart))
-		. += span_boldnotice("Включен умный режим стрельбы с доводкой по цели.")
+		. += span_boldnotice("Smart firing mode with target tracking is enabled.")
 	else
-		. += span_boldnotice("Включен усиленный режим стрельбы с повышенным уроном.")
+		. += span_boldnotice("Reinforced firing mode with increased damage is enabled.")
 
 
 
@@ -518,11 +518,11 @@
 	build_path = /obj/item/melee/anti_khara/spear
 
 
-/// Я интегрировал компонент transormating в оружие, потому что да
+/// I integrated the transforming component into the weapon, because yes
 /obj/item/melee/anti_khara
-	name = "Анти-Кхара оружие"
-	desc = "Специализированное оружие против созданий Кхары. Изготовлено из высокопрочного армированного титана с уникальным сплавом, \
-			который позволяет наносить дополнительные разрушительные эффекты этим существам."
+	name = "Anti-Khara Weapon"
+	desc = "A specialized weapon against Khara creatures. Made of high-strength reinforced titanium with a unique alloy \
+			that allows it to inflict additional devastating effects on these creatures."
 	icon = 'fenysha_events/icons/items/melee/anti_khara.dmi'
 	lefthand_file = 'fenysha_events/icons/items/inhand/melee/anti_khara_left.dmi'
 	righthand_file = 'fenysha_events/icons/items/inhand/melee/anti_khara_right.dmi'
@@ -532,7 +532,7 @@
 	force = 0
 	throwforce = 0
 
-	/// Развёрнуто ли оружие (активное состояние)
+	/// Whether the weapon is deployed (active state)
 	var/deployed = FALSE
 
 	var/active_force = 30
@@ -556,13 +556,13 @@
 	var/list/attack_verb_simple_off
 
 	var/special_des = \
-	"Это — <b>Анти-Кхара оружие</b>. \
-	Специальная настройка лезвия и уникальный сплав материала позволяют эффективно атаковать создания Кхары, \
-	нанося им дополнительные повреждения и визуальные эффекты пробития."
+	"This is an <b>Anti-Khara Weapon</b>. \
+	The special tuning of the blade and the unique material alloy allow it to effectively attack Khara creatures, \
+	inflicting additional damage and visual penetration effects on them."
 
 /obj/item/melee/anti_khara/examine(mob/user)
 	. = ..()
-	. += span_notice("Альт. клик - для того, чтобы развернуть")
+	. += span_notice("Alt-click to deploy it")
 	. += span_notice(special_des)
 
 
@@ -617,7 +617,7 @@
 	tool_behaviour = (deployed ? TOOL_SAW : NONE)
 
 	if(user)
-		balloon_alert(user, "[name] [deployed ? "развёрнуто" : "свёрнуто"]")
+		balloon_alert(user, "[name] [deployed ? "deployed" : "retracted"]")
 
 	update_appearance(UPDATE_ICON_STATE)
 
@@ -660,9 +660,9 @@
 		new /obj/effect/temp_visual/impact_effect/anti_khara(get_turf(target))
 
 /obj/item/melee/anti_khara/sword
-	name = "Анти-кхара клинок"
-	desc = "Длинный, элегантный клинок из усиленного титана с анти-кхара покрытием. \
-			Рукоять идеально лежит в ладони, а лезвие издаёт тихий, угрожающий гул энергии. "
+	name = "Anti-Khara Blade"
+	desc = "A long, elegant blade of reinforced titanium with an anti-khara coating. \
+			The grip sits perfectly in the palm, and the blade emits a quiet, menacing hum of energy. "
 	base_icon_state = "sword"
 	icon_state = "sword"
 	inhand_icon_state = "sword"
@@ -676,9 +676,9 @@
 	wound_bonus = 20
 
 /obj/item/melee/anti_khara/great_sword
-	name = "Усиленный Анти-кхара клинок"
-	desc = "Массивный двуручный клинок из титана и пластали, созданный для сокрушительных ударов. \
-			Каждый взмах требует силы, но в развёрнутом состоянии он пробивает любую защиту созданий Кхары."
+	name = "Reinforced Anti-Khara Blade"
+	desc = "A massive two-handed blade of titanium and plasteel, built for crushing blows. \
+			Every swing requires strength, but when deployed it pierces any defense of Khara creatures."
 	base_icon_state = "greatsword"
 	icon_state = "greatsword"
 	inhand_icon_state = "greatsword"
@@ -727,7 +727,7 @@
 	. = ..()
 	if(.)
 		user.Knockdown()
-		user.visible_message(span_warning("[user] валится на пол, провалив тяжёлый взмах [src]!"))
+		user.visible_message(span_warning("[user] collapses to the floor, having botched a heavy swing of [src]!"))
 		return
 
 	COOLDOWN_START(src, attack_cd, attack_cooldown)
@@ -747,9 +747,9 @@
 	return TRUE
 
 /obj/item/melee/anti_khara/spear
-	name = "Анти-кхара копьё"
-	desc = "Лёгкое, идеально сбалансированное копьё с длинным острым наконечником из специального анти-кхара сплава. \
-			Позволяет атаковать на расстоянии, нанося точные колющие удары, которые особенно эффективны против созданий Кхары."
+	name = "Anti-Khara Spear"
+	desc = "A light, perfectly balanced spear with a long, sharp tip made of a special anti-khara alloy. \
+			It allows attacking from a distance, dealing precise thrusting blows that are especially effective against Khara creatures."
 	base_icon_state = "spear"
 	icon_state = "spear"
 	inhand_icon_state = "spear"
@@ -797,8 +797,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_SCIENCE
 
 /obj/item/grenade/anti_khara
-	name = "Анти-Кхара граната"
-	desc = "Экстремально эффективная граната испускающая низко-волновую радиацию, что эффективно пораждает клетки Кхары."
+	name = "Anti-Khara Grenade"
+	desc = "An extremely effective grenade that emits low-wave radiation, which effectively strikes Khara cells."
 	icon_state = "timeg"
 	inhand_icon_state = "emp"
 
@@ -815,6 +815,6 @@
 			var/dist = get_dist(kaboom_turf, AM)
 
 			khara_mutant.take_overall_damage(round(150 / dist), round(50 / dist), 45)
-			to_chat(khara_mutant, span_userdanger("Энергетическая волна - терзает твое тело!"))
+			to_chat(khara_mutant, span_userdanger("An energy wave tears at your body!"))
 
 	qdel(src)

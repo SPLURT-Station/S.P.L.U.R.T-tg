@@ -1,3 +1,3 @@
-## Об авторе
+## About the author
 
-Автор оригинальных спрайтов: git:https://github.com/PiotrTheTchaikowsky
+Author of the original sprites: git:https://github.com/PiotrTheTchaikowsky

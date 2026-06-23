@@ -8,8 +8,8 @@
 
 
 /turf/open/moving
-	name = "Матрица" // Matrix
-	desc = "Вы, вероятно, не должны это видеть" // You probably shouldn't see this
+	name = "Matrix"
+	desc = "You probably shouldn't see this"
 	icon = 'fenysha_events/icons/turf/trainturf.dmi'
 	turf_flags = NO_RUST | IS_SOLID | NOJAUNT
 	gender = PLURAL
@@ -17,16 +17,16 @@
 	planetary_atmos = TRUE
 	rust_resistance = RUST_RESISTANCE_ABSOLUTE
 
-	// Префиксы для icon_state (анимация турфа)
+	// Prefixes for icon_state (turf animation)
 	var/moving_prefix = "moving"
 	var/still_prefix = "still"
 	var/fake = FALSE
 
-	// Двигаемся ли мы прямо сейчас (синхронизировано контроллером)
+	// Whether we are moving right now (synchronized by the controller)
 	VAR_FINAL/moving = FALSE
-	// Направление симуляции движения фона (WEST = поезд "едет" EAST)
+	// Direction of the background movement simulation (WEST = train "drives" EAST)
 	VAR_FINAL/movement_direction = WEST
-	// Происходит ли в данный момент процессинг содержимого турфа
+	// Whether the turf contents are currently being processed
 	VAR_PRIVATE/processing_content = FALSE
 
 /turf/open/moving/Initialize(mapload)
@@ -156,8 +156,8 @@
 
 
 /turf/open/moving/snow
-	name = "Снег" // Snow
-	desc = "Выглядит холодно" // It looks cold
+	name = "Snow"
+	desc = "It looks cold"
 	icon_state = "snow_still"
 	base_icon_state = "snow"
 
@@ -170,8 +170,8 @@
 	density = TRUE
 
 /turf/open/moving/rails
-	name = "Рельсы" // Rails
-	desc = "Лучше не стойте на пути поезда." // It's better not to stand in the way of a train.
+	name = "Rails"
+	desc = "It's better not to stand in the way of a train."
 
 	slowdown = 2
 
@@ -282,8 +282,8 @@
 
 
 /turf/open/indestructible/train_platform
-	name = "Платформа" // Platform
-	desc = "Платформа железнодорожной станции." // Railway station platform.
+	name = "Platform"
+	desc = "Railway station platform."
 	icon = 'fenysha_events/icons/turf/trainturf.dmi'
 	icon_state = "platform_middle_still"
 

@@ -619,12 +619,12 @@
 	switch(new_stage)
 		if(2)
 			grant_actions_by_list(list(/datum/action/cooldown/mob_cooldown/boss_bone_shard_wave = null))
-			visible_message(span_userdanger("[src] издает истошный вопль - оно в ярости!"))
+			visible_message(span_userdanger("[src] lets out a frenzied shriek - it is enraged!"))
 			playsound(src, 'fenysha_events/sounds/mobs/mutant_boss_death.ogg', 60, TRUE)
 			Shake()
 		if(3)
 			heal_overall_damage(300)
-			visible_message(span_userdanger("[src] издает истошный вопль - оно в ярости!"))
+			visible_message(span_userdanger("[src] lets out a frenzied shriek - it is enraged!"))
 			grant_actions_by_list(list(/datum/action/cooldown/mob_cooldown/crushing_charge = null))
 			speed = speed - 0.3
 			playsound(src, 'fenysha_events/sounds/mobs/mutant_boss_death.ogg', 80, TRUE)
@@ -633,7 +633,7 @@
 			Shake()
 		if(4)
 			heal_overall_damage(300)
-			visible_message(span_userdanger("[src] издает истошный вопль - оно кричит ярости!"))
+			visible_message(span_userdanger("[src] lets out a frenzied shriek - it screams in rage!"))
 			grant_actions_by_list(list(/datum/action/cooldown/mob_cooldown/crush_wave = null))
 			speed = speed - 0.7
 			animate(src, color = COLOR_BUBBLEGUM_RED, time = 3 SECONDS)

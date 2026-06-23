@@ -1,1 +1,1 @@
-Специальная папка для того, чтобы шаловливые ручки мапперов совали сюда свои красивые(или не очень) dmi'шки для маппинга.
+A special folder for mappers' mischievous hands to stuff their pretty (or not-so-pretty) dmi files for mapping.

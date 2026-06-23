@@ -6,8 +6,8 @@
 /obj/docking_port/mobile/arrivals
 
 /turf/closed/wall/mineral/titanium/shuttle_wall
-	name = "стена шаттла" // shuttle wall
-	desc = "Легкая титановая стена, используемая в шаттлах." // A light-weight titanium wall used in shuttles.
+	name = "shuttle wall"
+	desc = "A light-weight titanium wall used in shuttles."
 	icon = 'fenysha_events/icons/unique/shuttles/pod.dmi'
 	icon_state = ""
 	base_icon_state = ""
@@ -37,7 +37,7 @@
 	opacity = FALSE
 
 /*
-*	КАПСУЛА (POD)
+*	POD
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/pod
@@ -48,7 +48,7 @@
 	icon_state = "3,1"
 
 /*
-*	ПАРОХОД (FERRY)
+*	FERRY
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/ferry
@@ -60,7 +60,7 @@
 	icon_state = "18,2"
 
 /turf/open/floor/iron/shuttle/ferry
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	icon = 'fenysha_events/icons/unique/shuttles/erokez.dmi'
 	icon_state = "floor1"
 
@@ -68,7 +68,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	ЭВАКУАЦИЯ (EVAC)
+*	EVAC
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/evac
@@ -80,7 +80,7 @@
 	icon_state = "9,1"
 
 /turf/open/floor/iron/shuttle/evac
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	floor_tile = /obj/item/stack/tile/mineral/titanium/shuttle_evac
 	icon = 'fenysha_events/icons/unique/shuttles/evac_shuttle.dmi'
 	icon_state = "floor"
@@ -89,7 +89,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	ПРИБЫТИЕ (ARRIVALS)
+*	ARRIVALS
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals
@@ -101,7 +101,7 @@
 	icon_state = "3,1"
 
 /turf/open/floor/iron/shuttle/arrivals
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	floor_tile = /obj/item/stack/tile/mineral/titanium/shuttle_arrivals
 	icon = 'fenysha_events/icons/unique/shuttles/wagon.dmi'
 	icon_state = "floor"
@@ -110,7 +110,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	ГРУЗОВОЙ (CARGO)
+*	CARGO
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/cargo
@@ -122,7 +122,7 @@
 	icon_state = "3,1"
 
 /turf/open/floor/iron/shuttle/cargo
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	floor_tile = /obj/item/stack/tile/mineral/titanium/cargo
 	icon = 'fenysha_events/icons/unique/shuttles/cargo.dmi'
 	icon_state = "floor"
@@ -147,7 +147,7 @@
 	base_icon_state = "floor_maintc"
 
 /*
-*	ШАХТА (MINING)
+*	MINING
 */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/mining
@@ -177,11 +177,11 @@
 	dir = NORTH
 
 /*
-*	ШАХТА/НИО/РАЗВЕДКА - ПОЛЫ (MINING/RND/EXPLORATION FLOORS)
+*	MINING/RND/EXPLORATION FLOORS
 */
 
 /turf/open/floor/iron/shuttle/exploration
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	floor_tile = /obj/item/stack/tile/mineral/titanium/exploration
 	icon = 'fenysha_events/icons/unique/shuttles/exploration_floor.dmi'
 	icon_state = "oside"
@@ -266,7 +266,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/floor/iron/shuttle/exploration/smooth
-	name = "пол шаттла" // shuttle floor
+	name = "shuttle floor"
 	icon = 'fenysha_events/icons/turf/floors/exploration_floor.dmi'
 	icon_state = "exploration-0"
 	base_icon_state = "exploration"
@@ -276,13 +276,13 @@
 	canSmoothWith = SMOOTH_GROUP_EXPLORATION_FLOOR
 
 /*
-*	СТОПКИ ПЛИТОК (TILE STACKS)
+*	TILE STACKS
 */
 
 /obj/item/stack/tile/mineral/titanium/cargo
-	name = "плитка грузового шаттла" // cargo shuttle tile
-	singular_name = "плитка пола грузового шаттла" // cargo shuttle floor tile
-	desc = "Утилитарные титановые плитки для пола, используемые в грузовых шаттлах." // Utilitarian titanium floor tiles, used for cargo shuttles.
+	name = "cargo shuttle tile"
+	singular_name = "cargo shuttle floor tile"
+	desc = "Utilitarian titanium floor tiles, used for cargo shuttles."
 	icon = 'fenysha_events/icons/items/tiles_misc.dmi'
 	icon_state = "cargo"
 	inhand_icon_state = "tile-shuttle"
@@ -291,33 +291,33 @@
 	merge_type = /obj/item/stack/tile/mineral/titanium/cargo
 
 /obj/item/stack/tile/mineral/titanium/cargo/mainta
-	name = "плитка грузового шаттла A" // cargo shuttle charger A tile
-	singular_name = "плитка пола грузового шаттла A" // cargo shuttle charger A floor tile
+	name = "cargo shuttle charger A tile"
+	singular_name = "cargo shuttle charger A floor tile"
 	icon_state = "cargo_mainta"
 	turf_type = /turf/open/floor/iron/shuttle/cargo/cargo_mainta
 	merge_type = /obj/item/stack/tile/mineral/titanium/cargo/mainta
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /obj/item/stack/tile/mineral/titanium/cargo/maintb
-	name = "плитка грузового шаттла B" // cargo shuttle charger B tile
-	singular_name = "плитка пола грузового шаттла B" // cargo shuttle charger B floor tile
+	name = "cargo shuttle charger B tile"
+	singular_name = "cargo shuttle charger B floor tile"
 	icon_state = "cargo_maintb"
 	turf_type = /turf/open/floor/iron/shuttle/cargo/cargo_maintb
 	merge_type = /obj/item/stack/tile/mineral/titanium/cargo/maintb
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /obj/item/stack/tile/mineral/titanium/cargo/maintc
-	name = "крайняя плитка грузового шаттла" // cargo shuttle edge tile
-	singular_name = "крайняя плитка пола грузового шаттла" // cargo shuttle edge floor tile
+	name = "cargo shuttle edge tile"
+	singular_name = "cargo shuttle edge floor tile"
 	icon_state = "cargo_maintc"
 	turf_type = /turf/open/floor/iron/shuttle/cargo/cargo_maintc
 	merge_type = /obj/item/stack/tile/mineral/titanium/cargo/maintc
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST, SOUTHEAST, SOUTHWEST, NORTHEAST, NORTHWEST)
 
 /obj/item/stack/tile/mineral/titanium/exploration
-	name = "плитка шахтёрского шаттла" // mining shuttle tile
-	singular_name = "плитка пола шахтёрского шаттла" // mining shuttle floor tile
-	desc = "Прочные титановые плитки для пола, используемые в шахтёрских шаттлах." // rugged titanium floor tiles, used for mining shuttles.
+	name = "mining shuttle tile"
+	singular_name = "mining shuttle floor tile"
+	desc = "rugged titanium floor tiles, used for mining shuttles."
 	icon = 'fenysha_events/icons/items/tiles_misc.dmi'
 	icon_state = "exploration"
 	inhand_icon_state = "tile-shuttle"
@@ -326,30 +326,30 @@
 	merge_type = /obj/item/stack/tile/mineral/titanium/exploration
 
 /obj/item/stack/tile/mineral/titanium/exploration/flat
-	name = "плоская плитка шахтёрского шаттла" // flat mining shuttle tile
-	singular_name = "плоская плитка пола шахтёрского шаттла" // flat mining shuttle floor tile
+	name = "flat mining shuttle tile"
+	singular_name = "flat mining shuttle floor tile"
 	icon_state = "exploration_flat"
 	turf_type = /turf/open/floor/iron/shuttle/exploration/flat
 	merge_type = /obj/item/stack/tile/mineral/titanium/exploration/flat
 
 /obj/item/stack/tile/mineral/titanium/exploration/flat_textured
-	name = "текстурная плитка шахтёрского шаттла" // textured mining shuttle tile
-	singular_name = "текстурная плитка пола шахтёрского шаттла" // textured mining shuttle floor tile
+	name = "textured mining shuttle tile"
+	singular_name = "textured mining shuttle floor tile"
 	icon_state = "exploration_flat_textured"
 	turf_type = /turf/open/floor/iron/shuttle/exploration/textured_flat
 	merge_type = /obj/item/stack/tile/mineral/titanium/exploration/flat_textured
 
 /obj/item/stack/tile/mineral/titanium/exploration/hazard
-	name = "опасная плитка шахтёрского шаттла" // hazard mining shuttle tile
-	singular_name = "опасная плитка пола шахтёрского шаттла" // hazard mining shuttle floor tile
+	name = "hazard mining shuttle tile"
+	singular_name = "hazard mining shuttle floor tile"
 	icon_state = "exploration_flat_hazard"
 	turf_type = /turf/open/floor/iron/shuttle/exploration/hazard
 	merge_type = /obj/item/stack/tile/mineral/titanium/exploration/hazard
 
 /obj/item/stack/tile/mineral/titanium/shuttle_arrivals
-	name = "полосатая плитка шаттла" // striped shuttle tile
-	singular_name = "полосатая плитка пола шаттла" // striped shuttle floor tile
-	desc = "Полосатые титановые плитки для пола, используемые в шаттлах." // striped titanium floor tiles, used for shuttles.
+	name = "striped shuttle tile"
+	singular_name = "striped shuttle floor tile"
+	desc = "striped titanium floor tiles, used for shuttles."
 	icon = 'fenysha_events/icons/items/tiles_misc.dmi'
 	icon_state = "shuttle_arrivals"
 	inhand_icon_state = "tile-shuttle"
@@ -358,9 +358,9 @@
 	merge_type = /obj/item/stack/tile/mineral/titanium/shuttle_arrivals
 
 /obj/item/stack/tile/mineral/titanium/shuttle_evac
-	name = "плитка шаттла" // shuttle tile
-	singular_name = "плитка пола шаттла" // shuttle floor tile
-	desc = "Полосатые титановые плитки для пола, используемые в шаттлах." // striped titanium floor tiles, used for shuttles.
+	name = "shuttle tile"
+	singular_name = "shuttle floor tile"
+	desc = "striped titanium floor tiles, used for shuttles."
 	icon = 'fenysha_events/icons/items/tiles_misc.dmi'
 	icon_state = "shuttle_evac"
 	inhand_icon_state = "tile-shuttle"

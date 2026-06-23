@@ -67,8 +67,8 @@ GLOBAL_VAR(main_morph_engine)
 	if(!new_turf)
 		return
 
-	// Блокируем ТОЛЬКО попытку войти в защищённую зону (из незащищённой)
-	// Внутри зоны - движение свободно, выход тоже свободен
+	// Block ONLY the attempt to enter a protected zone (from an unprotected one)
+	// Inside the zone - movement is free, exiting is free too
 	if(!(old_turf && !active_engine.is_protected_turf(old_turf) && active_engine.is_protected_turf(new_turf)))
 		return
 
@@ -83,15 +83,15 @@ GLOBAL_VAR(main_morph_engine)
 		return
 
 	target.throw_at(old_loc, get_dist(get_turf(target), old_loc), 10, atom_parent, FALSE, TRUE)
-	to_chat(target, span_userdanger("Энергетическая волна выталкивает тебя!"))
+	to_chat(target, span_userdanger("An energy wave pushes you back!"))
 	if(isliving(target))
 		var/mob/living/living_target = target
 		living_target.take_overall_damage(20)
 
 /obj/machinery/morphological_engine
-	name = "\improper Морфологический двигатель"
-	desc = "Сфера покрытая множеством проводов, труб и техических отверстий, источает слабый, еле слышимый гул вблизи. \
-			Панель внизу - имеет несколько настроек, обозначенные буквами IV, VIII, XX. Под ними - надпись. 'Морфологический двигатель'"
+	name = "\improper Morphological Engine"
+	desc = "A sphere covered with countless wires, pipes, and technical openings, emitting a faint, barely audible hum up close. \
+			The panel at the bottom has several settings, marked with the letters IV, VIII, XX. Beneath them is an inscription. 'Morphological Engine'"
 	icon = 'fenysha_events/icons/machinery/64x64.dmi'
 	icon_state = "morf_engine"
 	opacity = FALSE
@@ -108,30 +108,30 @@ GLOBAL_VAR(main_morph_engine)
 	var/enabled_power_usage = 0
 
 	VAR_PRIVATE/list/protected_areas = null
-	/// Список всех зон, что находятся под нашей защитой
+	/// List of all zones that are under our protection
 	VAR_PRIVATE/list/area_type_cache = null
-	/// Список зон(в том числе их под-типов), что будут защищены двигателем
+	/// List of zones (including their subtypes) that will be protected by the engine
 	var/list/protected_area_types = list(/area/trainstation/indoors/train)
-	/// Текущий режим в котором работает морфологический двигатель
+	/// The current mode the Morphological Engine is operating in
 	var/mode = NONE
-	/// Включен ли морфологический двигатель
+	/// Whether the Morphological Engine is on
 	var/on = FALSE
-	/// Является ли этот двигатель главным
+	/// Whether this engine is the main one
 	var/main_engine = FALSE
 
-	/// Временный режим, который выбран для применения после калибровки
+	/// Temporary mode selected to be applied after calibration
 	var/pending_mode = 0
-	/// Шаг открытия панели доступа (0 - закрыта, 1-3 - этапы)
+	/// Access panel opening step (0 - closed, 1-3 - stages)
 	var/access_step = 0
-	/// Шаг калибровки режимов (0 - не начата, 1-3 - этапы)
+	/// Mode calibration step (0 - not started, 1-3 - stages)
 	var/calibration_step = 0
-	/// Повреждён ли двигатель
+	/// Whether the engine is damaged
 	var/damaged = FALSE
 
 	var/radio_channel = null
-	/// Наше радио для передаи сообщений
+	/// Our radio for transmitting messages
 	var/obj/item/radio/radio
-	/// Ключ внутри нашего радио
+	/// The key inside our radio
 	var/radio_key = /obj/item/encryptionkey/headset_eng
 
 	COOLDOWN_DECLARE(turn_power_cd)
@@ -160,7 +160,7 @@ GLOBAL_VAR(main_morph_engine)
 /obj/machinery/morphological_engine/examine(mob/user)
 	. = ..()
 	if(on)
-		. += span_warning("Глаза напрягаются от попытки наблюдения за двигателем.")
+		. += span_warning("Your eyes strain from the attempt to observe the engine.")
 		if(isliving(user))
 			var/mob/living/living_user = user
 			if(!living_user.is_eyes_covered())
@@ -169,24 +169,24 @@ GLOBAL_VAR(main_morph_engine)
 					eyes.apply_organ_damage(5)
 
 	if(damaged)
-		. += span_danger("Двигатель повреждён и нестабилен! Требуется ремонт.")
+		. += span_danger("The engine is damaged and unstable! Repair is required.")
 
 	if(access_step > 0 || calibration_step > 0)
-		. += span_notice("Панель управления открыта для настройки режимов.")
+		. += span_notice("The control panel is open for mode configuration.")
 
 	if(mode & MORPH_ENGINE_MODE_BARRIER)
-		. += span_notice("<b>Режим барьера - включен.</b> Двигатель будет создавать силовой барьер, \
-							что не даст мутантам Кхары физически пройти через него.")
+		. += span_notice("<b>Barrier mode - enabled.</b> The engine will create a force barrier \
+							that will prevent Khara mutants from physically passing through it.")
 	if(mode & MORPH_ENGINE_MODE_CONTAINMENT)
-		. += span_notice("<b>Режим сдерживание - включен.</b> Двигатель будет эммитировать аномальную радиацию, \
-							что будет замедлять развитие клеток Кхары в пределах зоны сдерживания.")
+		. += span_notice("<b>Containment mode - enabled.</b> The engine will emit anomalous radiation \
+							that will slow the development of Khara cells within the containment zone.")
 	if(mode & MORPH_ENGINE_MODE_ISOLATION)
-		. += span_notice("<b>Режим изоляции - включен.</b> Двигатель будет эммитировать силовые волны - разрушая клетки Кхары \
-							в пределах зоны сдерживания, значительно снижая её распространение. Внимание - этот режим \
-							значительно повышает энергопотребление и может навредить всем больным.")
+		. += span_notice("<b>Isolation mode - enabled.</b> The engine will emit force waves - destroying Khara cells \
+							within the containment zone, significantly reducing its spread. Warning - this mode \
+							significantly increases power consumption and may harm all of the infected.")
 
 	if(on)
-		. += span_warning("Текущее энергопотребление: [enabled_power_usage] ватт")
+		. += span_warning("Current power consumption: [enabled_power_usage] watts")
 
 /obj/machinery/morphological_engine/proc/build_area_cache()
 	if(!protected_area_types || !islist(protected_area_types) || !length(protected_area_types))
@@ -222,7 +222,7 @@ GLOBAL_VAR(main_morph_engine)
 	if(on || damaged)
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, turn_power_cd))
-		to_chat(user, span_warning("Двигатель ещё не остыл после предыдущего включения!"))
+		to_chat(user, span_warning("The engine hasn't cooled down yet after the previous activation!"))
 		return FALSE
 	enabled_power_usage = 0
 
@@ -240,19 +240,19 @@ GLOBAL_VAR(main_morph_engine)
 		if(!is_protected_turf(get_turf(L)))
 			continue
 		flash_color(L, flash_color = COLOR_NAVY, flash_time = 3 SECONDS)
-		to_chat(L, span_notice("Ты ощущаешь, как твое тело обвалакивает экзотическая материя."))
+		to_chat(L, span_notice("You feel exotic matter enveloping your body."))
 		new /obj/effect/temp_visual/morph_engine_block(get_turf(L))
 
 	radio.talk_into(
 		src,
-		"ВНИМАНИЕ: Морфологический двигатель - включен.",
+		"ATTENTION: Morphological Engine - activated.",
 		radio_channel,
 		list(SPAN_COMMAND)
 	)
 
 	update_appearance()
 	begin_processing()
-	visible_message(span_notice("[src] издаёт низкий гул и активируется."))
+	visible_message(span_notice("[src] emits a low hum and activates."))
 	COOLDOWN_START(src, turn_power_cd, 60 SECONDS)
 	return TRUE
 
@@ -262,7 +262,7 @@ GLOBAL_VAR(main_morph_engine)
 
 	radio.talk_into(
 		src,
-		"ВНИМАНИЕ: Морфологический двигатель - выключен.",
+		"ATTENTION: Morphological Engine - deactivated.",
 		radio_channel,
 		list(SPAN_COMMAND)
 	)
@@ -272,7 +272,7 @@ GLOBAL_VAR(main_morph_engine)
 	update_appearance()
 	end_processing()
 	cleanup_areas()
-	visible_message(span_notice("[src] затихает и деактивируется."))
+	visible_message(span_notice("[src] goes quiet and deactivates."))
 	COOLDOWN_START(src, turn_power_cd, 60 SECONDS)
 	return TRUE
 
@@ -301,7 +301,7 @@ GLOBAL_VAR(main_morph_engine)
 		return PROCESS_KILL
 
 	if(!powered() || !use_energy(enabled_power_usage))
-		balloon_alert_to_viewers("Недостаточное питание - отключение!")
+		balloon_alert_to_viewers("Insufficient power - shutting down!")
 		turn_off()
 		return
 
@@ -309,22 +309,22 @@ GLOBAL_VAR(main_morph_engine)
 /obj/machinery/morphological_engine/attack_hand(mob/living/user, list/modifiers)
 	add_fingerprint(user)
 	if(access_step > 0 || calibration_step > 0)
-		to_chat(user, span_warning("Панель открыта — сначала завершите настройку!"))
+		to_chat(user, span_warning("The panel is open - finish the configuration first!"))
 		return
 
 	if(!COOLDOWN_FINISHED(src, turn_power_cd))
-		to_chat(user, span_warning("Двигатель ещё не остыл после предыдущего переключения!"))
+		to_chat(user, span_warning("The engine hasn't cooled down yet after the previous toggle!"))
 		return
 
-	balloon_alert_to_viewers("Переключение настроек!")
+	balloon_alert_to_viewers("Toggling settings!")
 	if(!do_after(user, 10 SECONDS, src))
-		balloon_alert_to_viewers("Переключение прервано!")
+		balloon_alert_to_viewers("Toggle interrupted!")
 		return
 	if(on)
-		balloon_alert_to_viewers("Двигатель - выключен!")
+		balloon_alert_to_viewers("Engine - off!")
 		turn_off(user)
 	else
-		balloon_alert_to_viewers("Двигатель - включен!")
+		balloon_alert_to_viewers("Engine - on!")
 		turn_on(user)
 
 /obj/machinery/morphological_engine/attackby(obj/item/I, mob/living/user, params)
@@ -339,8 +339,8 @@ GLOBAL_VAR(main_morph_engine)
 					if(do_after(user, 2 SECONDS, target = src))
 						access_step = 1
 						I.play_tool_sound(src)
-						to_chat(user, span_notice("Вы аккуратно открутили крепления панели управления."))
-						visible_message(span_notice("[user] откручивает панель на [src]."))
+						to_chat(user, span_notice("You carefully unscrew the control panel fastenings."))
+						visible_message(span_notice("[user] unscrews the panel on [src]."))
 						return TRUE
 					return
 
@@ -349,8 +349,8 @@ GLOBAL_VAR(main_morph_engine)
 					if(do_after(user, 2 SECONDS, target = src))
 						access_step = 2
 						I.play_tool_sound(src)
-						to_chat(user, span_notice("Вы затянули болты внутренних контуров."))
-						visible_message(span_notice("[user] подтягивает болты [src]."))
+						to_chat(user, span_notice("You tighten the bolts of the internal circuits."))
+						visible_message(span_notice("[user] tightens the bolts on [src]."))
 						return TRUE
 					return
 
@@ -359,8 +359,8 @@ GLOBAL_VAR(main_morph_engine)
 					if(!I.use_tool(src, user, 3 SECONDS, volume = 50))
 						return
 					access_step = 3
-					to_chat(user, span_notice("Вы заварили герметичные соединения панели."))
-					visible_message(span_notice("[user] заваривает панель [src]."))
+					to_chat(user, span_notice("You weld the panel's airtight joints."))
+					visible_message(span_notice("[user] welds the panel on [src]."))
 					do_mode_selection(user)
 					return TRUE
 
@@ -374,7 +374,7 @@ GLOBAL_VAR(main_morph_engine)
 							return TRUE
 						calibration_step = 1
 						I.play_tool_sound(src)
-						to_chat(user, span_notice("Калибровочные винты выставлены в новые позиции."))
+						to_chat(user, span_notice("The calibration screws are set to new positions."))
 						return TRUE
 					return
 
@@ -386,7 +386,7 @@ GLOBAL_VAR(main_morph_engine)
 							return TRUE
 						calibration_step = 2
 						I.play_tool_sound(src)
-						to_chat(user, span_notice("Крепления излучателей Морф-двигателя надёжно подтянуты."))
+						to_chat(user, span_notice("The Morph Engine's emitter mounts are securely tightened."))
 						return TRUE
 					return
 
@@ -402,13 +402,13 @@ GLOBAL_VAR(main_morph_engine)
 					access_step = 0
 					calibration_step = 0
 					pending_mode = 0
-					visible_message(span_boldnotice("[src] издаёт стабильный гул — калибровка завершена успешно!"))
-					to_chat(user, span_notice("Режимы морфологического двигателя успешно настроены."))
+					visible_message(span_boldnotice("[src] emits a steady hum - calibration completed successfully!"))
+					to_chat(user, span_notice("The Morphological Engine's modes have been configured successfully."))
 					COOLDOWN_START(src, change_mode_cd, 30 SECONDS)
 					return TRUE
 
 	if(on)
-		to_chat(user, span_warning("Невозможно проводить настройку, пока двигатель включён!"))
+		to_chat(user, span_warning("Configuration cannot be done while the engine is on!"))
 		return ..()
 
 	return ..()
@@ -432,10 +432,10 @@ GLOBAL_VAR(main_morph_engine)
 	while(continue_choosing && Adjacent(user) && !QDELETED(src) && !damaged)
 		for(var/i)
 		var/list/radial_choices = list(
-			"toggle_barrier" = create_radial_choice("Барьер ([pending_mode & MORPH_ENGINE_MODE_BARRIER ? "ВКЛ" : "ВЫКЛ"])"),
-			"toggle_containment" = create_radial_choice("Сдерживание ([pending_mode & MORPH_ENGINE_MODE_CONTAINMENT ? "ВКЛ" : "ВЫКЛ"])"),
-			"toggle_isolation" = create_radial_choice("Изоляция ([pending_mode & MORPH_ENGINE_MODE_ISOLATION ? "ВКЛ" : "ВЫКЛ"])"),
-			"confirm" = create_radial_choice("Подтвердить изменения"),
+			"toggle_barrier" = create_radial_choice("Barrier ([pending_mode & MORPH_ENGINE_MODE_BARRIER ? "ON" : "OFF"])"),
+			"toggle_containment" = create_radial_choice("Containment ([pending_mode & MORPH_ENGINE_MODE_CONTAINMENT ? "ON" : "OFF"])"),
+			"toggle_isolation" = create_radial_choice("Isolation ([pending_mode & MORPH_ENGINE_MODE_ISOLATION ? "ON" : "OFF"])"),
+			"confirm" = create_radial_choice("Confirm changes"),
 		)
 
 		var/choice = show_radial_menu(user, get_turf(src), radial_choices, radius = 24, require_near = TRUE, tooltips = TRUE)
@@ -446,62 +446,62 @@ GLOBAL_VAR(main_morph_engine)
 		switch(choice)
 			if("toggle_barrier")
 				pending_mode |= MORPH_ENGINE_MODE_BARRIER
-				to_chat(user, span_notice("Режим Барьера переключён."))
+				to_chat(user, span_notice("Barrier mode toggled."))
 			if("toggle_containment")
 				pending_mode |= MORPH_ENGINE_MODE_CONTAINMENT
-				to_chat(user, span_notice("Режим Сдерживания переключён."))
+				to_chat(user, span_notice("Containment mode toggled."))
 			if("toggle_isolation")
 				pending_mode |= MORPH_ENGINE_MODE_ISOLATION
-				to_chat(user, span_notice("Режим Изоляции переключён."))
+				to_chat(user, span_notice("Isolation mode toggled."))
 			if("confirm")
 				if(pending_mode == mode)
-					to_chat(user, span_warning("Вы не изменили режимы."))
+					to_chat(user, span_warning("You didn't change any modes."))
 					pending_mode = NONE
 					return
-				to_chat(user, span_boldnotice("Режимы выбраны. Переход к калибровке..."))
+				to_chat(user, span_boldnotice("Modes selected. Proceeding to calibration..."))
 				calibration_step = 0
 				continue_choosing = FALSE
 
 /obj/machinery/morphological_engine/proc/fail_calibration(mob/user)
-	visible_message(span_danger("[src] внезапно перегружается! Искры вылетают из панели!"))
+	visible_message(span_danger("[src] suddenly overloads! Sparks fly out of the panel!"))
 	do_sparks(5, FALSE, src)
 	calibration_step = 0
 
 
 /obj/item/paper/guides/fenysha_events/morph_engine
-	name = "Бумага — «Краткое руководство по Морфологическому двигателю!»"
-	default_raw_text = "<B>Морфологический двигатель — полное руководство</B><BR>\
+	name = "Paper - \"Quick Guide to the Morphological Engine!\""
+	default_raw_text = "<B>Morphological Engine - complete guide</B><BR>\
 	<HR>\
-	<B>Назначение</B><BR>\
-	Двигатель защищает внутренние помещения поезда от мутации Кхары.<BR>\
-	Создаёт силовые поля, аномальную радиацию и волны, блокируя, замедляя и уничтожая клетки Кхары.<BR>\
-	Это главный (и единственный) двигатель поезда.<BR>\
+	<B>Purpose</B><BR>\
+	The engine protects the train's interior spaces from Khara mutation.<BR>\
+	It creates force fields, anomalous radiation, and waves, blocking, slowing, and destroying Khara cells.<BR>\
+	This is the main (and only) engine of the train.<BR>\
 	<HR>\
-	<B>Три режима работы(совмещаются)</B><BR>\
-	- <B>Барьер</B> (20 кВт): физический энергетический барьер.<BR>\
-	  Мутанты Кхары НЕ МОГУТ войти в зону, силовая волна выбрасывает назад.<BR>\
-	  Внутри помещений и выход — свободны.<BR>\
-	- <B>Сдерживание</B> (40 кВт): аномальная радиация.<BR>\
-	  Замедляет развитие и распространение клеток Кхары в зоне.<BR>\
-	- <B>Изоляция</B> (100 кВт): силовые волны.<BR>\
-	  Активно разрушает клетки Кхары, сильно снижая заражение.<BR>\
-	  <B>ВНИМАНИЕ:</B> очень высокое потребление энергии + может навредить ВСЕМ заражённым в зоне!<BR>\
+	<B>Three operating modes (can be combined)</B><BR>\
+	- <B>Barrier</B> (20 kW): a physical energy barrier.<BR>\
+	  Khara mutants CANNOT enter the zone; a force wave throws them back.<BR>\
+	  Movement inside the rooms and exiting - are free.<BR>\
+	- <B>Containment</B> (40 kW): anomalous radiation.<BR>\
+	  Slows the development and spread of Khara cells in the zone.<BR>\
+	- <B>Isolation</B> (100 kW): force waves.<BR>\
+	  Actively destroys Khara cells, greatly reducing infection.<BR>\
+	  <B>WARNING:</B> very high power consumption + may harm ALL infected in the zone!<BR>\
 	<HR>\
-	<B>Как изменить режимы (только когда двигатель ВЫКЛЮЧЕН)</B><BR>\
-	1. Отвёрткой — открутить панель.<BR>\
-	2. Гаечным ключом — подтянуть внутренние болты.<BR>\
-	3. Сваркой — заварить герметичные соединения.<BR>\
-	4. В меню: нажмите на нужные режимы (Барьер / Сдерживание / Изоляция) — они переключаются.<BR>\
-		Нажмите «Подтвердить изменения».<BR>\
-	5. Калибровка (после подтверждения):<BR>\
-		- Отвёртка<BR>\
-		- Гаечный ключ<BR>\
-		- Сварка<BR>\
-	<B>ВНИМАНИЕ:</B> на каждом шаге калибровки — есть шанс провала!<BR>\
-	После успешной калибровки режимы зафиксированы.<BR>\
+	<B>How to change modes (only when the engine is OFF)</B><BR>\
+	1. Screwdriver - unscrew the panel.<BR>\
+	2. Wrench - tighten the internal bolts.<BR>\
+	3. Welder - weld the airtight joints.<BR>\
+	4. In the menu: click the desired modes (Barrier / Containment / Isolation) - they toggle.<BR>\
+		Click \"Confirm changes\".<BR>\
+	5. Calibration (after confirmation):<BR>\
+		- Screwdriver<BR>\
+		- Wrench<BR>\
+		- Welder<BR>\
+	<B>WARNING:</B> there is a chance of failure at each calibration step!<BR>\
+	After successful calibration, the modes are locked in.<BR>\
 	<HR>\
-	<B>Дополнительно</B><BR>\
-	- При включении все живые в зоне действия, могут получть легкое недомагание.<BR>\
-	- Если панель открыта — сначала завершите настройку или калибровку.<BR>\
-	- Главный двигатель один на всю станцию.<BR>\
-	Удачи, инженер! Не дайте Кхаре прорваться."
+	<B>Additional</B><BR>\
+	- When activated, all living beings in the zone of effect may suffer slight malaise.<BR>\
+	- If the panel is open - finish the configuration or calibration first.<BR>\
+	- There is one main engine for the entire station.<BR>\
+	Good luck, engineer! Don't let the Khara break through."

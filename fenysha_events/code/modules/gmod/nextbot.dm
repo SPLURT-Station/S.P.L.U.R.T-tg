@@ -125,7 +125,7 @@
 
 /mob/living/basic/nextbot
 	name = "nextbot"
-	desc = "Что-то не должно было сюда попасть."
+	desc = "Something wasn't supposed to end up here."
 	icon = 'fenysha_events/icons/mob/nextbot.dmi'
 
 	invisibility = INVISIBILITY_OBSERVER

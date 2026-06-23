@@ -1,7 +1,7 @@
 /turf/open/misc/asteroid/snow/indestructible
 	gender = PLURAL
-	name = "снег" // snow
-	desc = "Красивый снег! Не слишком холодно." // Pretty snow! It's not too cold.
+	name = "snow"
+	desc = "Pretty snow! It's not too cold."
 	baseturfs = /turf/open/misc/asteroid/snow/indestructible
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	slowdown = 1
@@ -13,8 +13,8 @@
 
 
 /turf/open/indestructible/cobble
-	name = "булыжная дорожка" // cobblestone path
-	desc = "Простая, но красивая дорожка из камней разного размера." // A simple but beautiful path made of various sized stones.
+	name = "cobblestone path"
+	desc = "A simple but beautiful path made of various sized stones."
 	icon = 'fenysha_events/icons/turf/floors/floors.dmi'
 	icon_state = "cobble"
 	baseturfs = /turf/open/indestructible/cobble

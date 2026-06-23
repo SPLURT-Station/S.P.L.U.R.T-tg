@@ -6,11 +6,11 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NO_STATION_UNLOAD, INNATE_TRAIT)
 
-// Используетя для создания окрестности станции над рельсами путей
+// Used to create the station surroundings above the track rails
 /obj/effect/landmark/trainstation/nearstation_spawnpoint
 	name = "Near station placer"
 
-// Используется для создания станций, под рельсами путей
+// Used to create stations below the track rails
 /obj/effect/landmark/trainstation/station_spawnpoint
 	name = "Station Placer"
 

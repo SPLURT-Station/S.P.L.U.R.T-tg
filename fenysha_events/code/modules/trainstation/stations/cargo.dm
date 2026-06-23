@@ -1,12 +1,12 @@
 /datum/train_station/near_station/cargo_station
-	name = "Пристанционная зона — Грузовой терминал"
+	name = "Station Area - Cargo Terminal"
 	map_path = "_maps/modular_events/trainstation/nearstations/static_cargo_station.dmm"
 
 /datum/train_station/cargo_station
-	name = "Грузовой терминал"
+	name = "Cargo Terminal"
 	map_path = "_maps/modular_events/trainstation/cargo_station.dmm"
-	desc = "Старая, но надёжная станция для погрузки грузов на товарные поезда. \
-			Эта конкретная расположена внутри горного массива."
+	desc = "An old but reliable station for loading cargo onto freight trains. \
+			This particular one is located inside a mountain range."
 
 	possible_nearstations = list(/datum/train_station/near_station/cargo_station)
 	station_flags = TRAINSTATION_NO_SELECTION
@@ -19,13 +19,13 @@
 	creator = "Fenysha"
 
 /datum/train_station/cargo_station/thundra_1
-	name = "Аварийный грузовой терминал"
+	name = "Emergency Cargo Terminal"
 
 /datum/train_station/cargo_station/thundra_2
-	name = "Речной грузовой терминал"
+	name = "River Cargo Terminal"
 	map_path = "_maps/modular_events/trainstation/cargo_station_river.dmm"
-	desc = "Старая, но надёжная станция для погрузки грузов на товарные поезда. \
-			Эта конкретная расположена внутри горного массива."
+	desc = "An old but reliable station for loading cargo onto freight trains. \
+			This particular one is located inside a mountain range."
 
 
 /datum/train_station/cargo_station/after_load()
@@ -49,24 +49,24 @@
 	var/is_train_cargo = FALSE
 
 /obj/machinery/computer/cargo/train_cargo
-	name = "Пульт управления грузовым поездом"
-	desc = "Используется для заказа поставок, утверждения запросов и управления грузовым поездом."
-	safety_warning = "По соображениям безопасности и этики автоматизированный грузовой поезд не может перевозить живые организмы, \
-		человеческие останки, засекреченное ядерное вооружение, почту, нераспакованные departmental-заказы, бомбы Синдиката, \
-		маяки наведения, нестабильные эйген-состояния, факс-машины или любое оборудование, содержащее формы искусственного интеллекта."
+	name = "Cargo Train Control Console"
+	desc = "Used to order supplies, approve requests and control the cargo train."
+	safety_warning = "For safety and ethics reasons, the automated cargo train cannot transport living organisms, \
+		human remains, classified nuclear weapons, mail, unpacked departmental orders, Syndicate bombs, \
+		guidance beacons, unstable eigenstates, fax machines, or any equipment containing artificial intelligence forms."
 	is_train_cargo = TRUE
 
 
 /obj/machinery/computer/cargo/interact(mob/user, special_state)
 	if(SStrain_controller.mode_active && !is_train_cargo)
-		balloon_alert_to_viewers("Грузовой шаттл не работает на этой планете!")
+		balloon_alert_to_viewers("Cargo shuttle does not work on this planet!")
 		return
 	return ..()
 
 
 /obj/structure/train_car_blank
-	name = "Вагон поезда"
-	desc = "Движущийся грузовой вагон. Лучше не стоять у него на пути!"
+	name = "Train car"
+	desc = "A moving cargo car. Best not to stand in its way!"
 	icon = 'fenysha_events/icons/structures/train_blank.dmi'
 	icon_state = "normal"
 	density = TRUE
@@ -82,7 +82,7 @@
 	var/car_width = 17
 	var/car_height = 12
 
-	/// Как часто фейковые вагоны делают шаг, в децисекундах
+	/// How often the fake cars take a step, in deciseconds
 	var/step_delay = 2
 
 /obj/structure/train_car_blank/proc/get_length_for_dir(direction)
@@ -164,11 +164,11 @@
 /datum/map_template/shuttle/cargo/cargo_train
 	prefix = "_maps/modular_events/"
 	suffix = "trainstation"
-	name = "Грузовой поезд"
+	name = "Cargo train"
 
 
 /obj/docking_port/mobile/supply/cargo_train
-	name = "Грузовой поезд"
+	name = "Cargo train"
 	callTime = 3 MINUTES
 
 	var/fake_car_count = 3
@@ -299,6 +299,6 @@
 
 
 /obj/docking_port/stationary/cargo_station
-	name = "Стыковочный узел грузового поезда"
+	name = "Cargo train docking node"
 	override_can_dock_checks = TRUE
 	shuttle_id = "cargo_home"

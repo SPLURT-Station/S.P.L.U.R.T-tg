@@ -2,10 +2,10 @@
 	icon = 'fenysha_events/icons/area/trainareas.dmi'
 	icon_state = "trainstation13"
 
-/* НАРУЖНИЕ ЗОНЫ */
+/* OUTDOOR AREAS */
 
 /area/trainstation/outdoor
-	name = "Железная дорога" // Railways
+	name = "Railways"
 	outdoors = TRUE
 	requires_power = FALSE
 	always_unpowered = TRUE
@@ -16,7 +16,7 @@
 	daylight = TRUE
 
 /area/trainstation/outdoor/powered_light
-	name = "Вокзал" // Train station
+	name = "Train station"
 	requires_power = FALSE
 	always_unpowered = TRUE
 	power_light = TRUE
@@ -27,15 +27,15 @@
 	daylight = TRUE
 
 /area/trainstation/outdoor/rails
-	name = "Железная дорога" // Railways
+	name = "Railways"
 	icon_state = "rails"
 
 
 /area/trainstation/outdoor/station
-	name = "Станция" // Station
+	name = "Station"
 
 /area/trainstation/outdoor/station/radiosphere
-	name = "Радиосфера" // The Radiosphere
+	name = "The Radiosphere"
 	icon_state = "radio"
 	min_ambience_cooldown = 30 SECONDS
 	max_ambience_cooldown = 1 MINUTES
@@ -48,7 +48,7 @@
 	area_flags = NOTELEPORT
 
 
-/* ВНУТРЕННИЕ ЗОНЫ */
+/* INDOOR AREAS */
 
 /area/trainstation/indoors
 	min_ambience_cooldown = 1 MINUTES
@@ -58,7 +58,7 @@
 	daylight = FALSE
 
 /area/trainstation/indoors/radiosphere
-	name = "Радиосфера" // The Radiosphere
+	name = "The Radiosphere"
 	icon_state = "radio"
 	min_ambience_cooldown = 15 SECONDS
 	max_ambience_cooldown = 30 SECONDS
@@ -68,10 +68,10 @@
 	)
 
 /area/trainstation/indoors/station
-	name = "Станция" // Station
+	name = "Station"
 
 /area/trainstation/indoors/station/controll
-	name = "Магнитный контроллер" // Magnetic interlock controll
+	name = "Magnetic interlock controll"
 	requires_power = FALSE
 	always_unpowered = FALSE
 	power_environ = TRUE
@@ -81,7 +81,7 @@
 	max_ambience_cooldown = 6 MINUTES
 
 /area/trainstation/indoors/station/powered
-	name = "Вокзал" // Trainstation
+	name = "Trainstation"
 	requires_power = FALSE
 	always_unpowered = FALSE
 	power_environ = TRUE
@@ -91,7 +91,7 @@
 	max_ambience_cooldown = 6 MINUTES
 
 /area/trainstation/indoors/station/collapsed_lab
-	name = "Обрушенная лаборатория" // Collapsed Laboratory
+	name = "Collapsed Laboratory"
 	icon_state = "soyuz"
 	always_unpowered = FALSE
 	power_environ = FALSE
@@ -100,7 +100,7 @@
 	requires_power = FALSE
 
 /area/trainstation/indoors/station/collapsed_lab/caves
-	name = "Пещеры" // Caves
+	name = "Caves"
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 	min_ambience_cooldown = 45 SECONDS
 	ambientsounds = list(
@@ -114,63 +114,63 @@
 	)
 
 /area/trainstation/indoors/station/collapsed_lab/cargo
-	name = "Обрушенный грузовой отсек" // Collapsed Cargo Bay
+	name = "Collapsed Cargo Bay"
 
 /area/trainstation/indoors/station/collapsed_lab/facility
-	name = "Руины объекта" // Facility Ruins
+	name = "Facility Ruins"
 
 
-/*ЗОНЫ СВЯЗАННЫЕ С ПОЕЗДОМ */
+/* TRAIN-RELATED AREAS */
 
 /area/trainstation/indoors/train
-	name = "Вагон"
+	name = "Train car"
 	icon_state = "train"
 
 /area/trainstation/indoors/train/bathroom
-	name = "Уборная поезда"
+	name = "Train lavatory"
 	icon_state = "bathroom"
 
 /area/trainstation/indoors/train/kitchen
-	name = "Кухня поезда" // Train kitchen
+	name = "Train kitchen"
 	icon_state = "kitchen"
 
 /area/trainstation/indoors/train/reustoran
-	name = "Вагон-ресторан" // Restauran car
+	name = "Restaurant car"
 	icon_state = "tea"
 
 /area/trainstation/indoors/train/cook
 
-	name = "Кухня поезда" // Train kitchen
+	name = "Train kitchen"
 	icon_state = "chef"
 
 /area/trainstation/indoors/train/vip
 	icon_state = "vip"
 
 /area/trainstation/indoors/train/security
-	name = "Штабной вагон" // Security car
+	name = "Security car"
 	icon_state = "security"
 
 /area/trainstation/indoors/train/medical
-	name = "Медицинский вагон" // Medical car
+	name = "Medical car"
 	icon_state = "medic"
 
 /area/trainstation/indoors/train/cargo
-	name = "Грузовой вагон" // Cargo car
+	name = "Cargo car"
 	icon_state = "maintenance"
 
 /area/trainstation/indoors/train/containment
-	name = "Вагон содержания" // Containment car
+	name = "Containment car"
 	icon_state = "maintenance"
 
 /area/trainstation/indoors/train/reserch
-	name = "Исследовательский вагон" // Research car
+	name = "Research car"
 	icon_state = "soyuz"
 
 /area/trainstation/indoors/train/server
-	name = "Исследовательский вагон" // Research car
+	name = "Research car"
 	icon_state = "soyuz"
 
-// Индивидуальные зоны вагонов
+// Individual car areas
 /area/trainstation/indoors/train/vagon_1
 	icon_state = "aux1"
 

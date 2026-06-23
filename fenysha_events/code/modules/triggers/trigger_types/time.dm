@@ -31,7 +31,7 @@
 /obj/effect/mapping_helpers/trigger_helper/periodic/frequent
 	extra_params = list(5 SECONDS)
 
-// Подтипы для delayed_once
+// Subtypes for delayed_once
 /obj/effect/mapping_helpers/trigger_helper/delayed_once
 	name = "Trigger Helper - Delayed Once"
 	trigger_type = /datum/trigger_type/delayed_once

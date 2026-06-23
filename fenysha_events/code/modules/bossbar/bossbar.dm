@@ -21,17 +21,17 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /datum/component/bossbar
-	/// Иконка и состояние для портрета
+	/// Icon and state for the portrait
 	var/icon/boss_portrait_icon = 'fenysha_events/icons/hud/boss_icons.dmi'
 	var/boss_portrait_state
-	/// Имя босса (можно оверрайдить)
+	/// Boss name (can be overridden)
 	var/override_name
-	/// Здоровье
+	/// Health
 	var/max_health
 	var/current_health
-	/// Кому сейчас показан бар
+	/// Who the bar is currently shown to
 	var/list/client_to_screens = list()
-	/// Радиус видимости
+	/// Visibility radius
 	var/view_range = 30
 
 	var/text_size = 12

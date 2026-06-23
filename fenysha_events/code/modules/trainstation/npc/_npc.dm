@@ -2,7 +2,7 @@
 	return istype(thing, /mob/living/basic/npc)
 
 /mob/living/basic/npc
-	name = "Гражданский"
+	name = "Civilian"
 	desc = ""
 	icon = 'icons/mob/simple/simple_human.dmi'
 	health = 150
@@ -11,8 +11,8 @@
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	basic_mob_flags = FLAMMABLE_MOB | SENDS_DEATH_MOODLETS
 	sentience_type = SENTIENCE_HUMANOID
-	attack_verb_continuous = "бьёт кулаком"
-	attack_verb_simple = "ударить кулаком"
+	attack_verb_continuous = "punches"
+	attack_verb_simple = "punch"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	melee_damage_lower = 10
 	melee_damage_upper = 10
@@ -35,8 +35,8 @@
 	var/call_for_help = TRUE
 	var/make_random_name = TRUE
 	var/ghost_controlable = TRUE
-	var/join_text = "Вы NPC, соблюдайсте стандартвые правила RP, помните, что вы лишь часть истории - а не её центр."
-	var/important_text = "Не гриферите игроков!"
+	var/join_text = "You are an NPC, follow the standard RP rules, remember that you are only a part of the story - not its center."
+	var/important_text = "Do not grief players!"
 
 	var/randomize_mutant_colors = FALSE
 	var/add_hair = TRUE
@@ -57,44 +57,44 @@
 
 	var/speech_chance = 20
 	var/list/speech_phrases = list(
-		"Тише… стены слушают.",
-		"Сирены всю ночь напролёт… опять.",
-		"Никогда не верь объявлениям.",
-		"%MOBNAME%, ты тоже кашляешь?",
-		"Говорят, скоро всё закончится…",
-		"Я уже забыл, как пахнет чистый воздух.",
-		"Прошлой ночью кого-то снова забрали.",
-		"Не подходи к блокпосту без маски.",
-		"Вчера был сосед… сегодня — пусто.",
-		"Всё под контролем, да? Хех…",
-		"Скоро опять локдаун, чувствую.",
-		"Глаза болят… эта пыль опять.",
-		"Кто-нибудь видел солнце без фильтров?",
-		"Не спрашивай, откуда этот шрам.",
-		"Просто держись подальше от новостей."
+		"Quiet… the walls are listening.",
+		"Sirens all night long… again.",
+		"Never trust the announcements.",
+		"%MOBNAME%, are you coughing too?",
+		"They say it'll all be over soon…",
+		"I've forgotten what clean air smells like.",
+		"Someone got taken away again last night.",
+		"Don't approach the checkpoint without a mask.",
+		"Yesterday there was a neighbor… today — empty.",
+		"Everything's under control, right? Heh…",
+		"Another lockdown soon, I can feel it.",
+		"My eyes hurt… this dust again.",
+		"Has anyone seen the sun without filters?",
+		"Don't ask where this scar came from.",
+		"Just stay away from the news."
 	)
 
 	var/list/speech_emote_see = list(
-		"нервно оглядывается по сторонам.",
-		"прижимает руку ко рту и кашляет.",
-		"вздрагивает от далёкой сирены.",
-		"сжимает кулаки и смотрит в пустоту.",
-		"быстро натягивает маску на нос.",
-		"трёт покрасневшие глаза и морщится.",
-		"замирает, напряжённо прислушиваясь.",
-		"прячет руки в рукава и сутулится.",
-		"бессознательно трогает горло."
+		"glances around nervously.",
+		"presses a hand to their mouth and coughs.",
+		"flinches at a distant siren.",
+		"clenches their fists and stares into space.",
+		"quickly pulls a mask over their nose.",
+		"rubs their reddened eyes and winces.",
+		"freezes, listening tensely.",
+		"tucks their hands into their sleeves and hunches over.",
+		"unconsciously touches their throat."
 	)
 
 	var/list/speech_emote_hear = list(
-		"шепчет почти неслышно: «они следят…»",
-		"бормочет проклятия низким хриплым голосом.",
-		"хрипло кашляет и сплёвывает в сторону.",
-		"бормочет: «ещё один день… ещё один…»",
-		"издаёт короткий сдавленный всхлип и замолкает.",
-		"медленно выдыхает сквозь стиснутые зубы.",
-		"шепчет трёхсловную молитву и умолкает.",
-		"тихо повторяет: «не оглядывайся… не оглядывайся…»"
+		"whispers almost inaudibly: \"they're watching…\"",
+		"mutters curses in a low, hoarse voice.",
+		"coughs hoarsely and spits to the side.",
+		"mutters: \"another day… another one…\"",
+		"lets out a short, strangled sob and falls silent.",
+		"slowly exhales through clenched teeth.",
+		"whispers a three-word prayer and goes quiet.",
+		"quietly repeats: \"don't look back… don't look back…\""
 	)
 
 	var/save_data = TRUE
@@ -151,19 +151,19 @@
 	. = ..()
 	if(item_r_hand)
 		var/obj/item/I = item_r_hand
-		. += span_notice("В правой руке [p_their()] [I::name].")
+		. += span_notice("In [p_their()] right hand is [I::name].")
 	if(item_l_hand)
 		var/obj/item/I = item_l_hand
-		. += span_notice("В левой руке [p_their()] [I::name].")
+		. += span_notice("In [p_their()] left hand is [I::name].")
 
 
 /mob/living/basic/npc/attack_ghost(mob/dead/observer/user)
 	. = ..()
 	if(!user.client || key || !ghost_controlable)
 		return
-	var/ask = tgui_alert(user, "Вы хотите сыграть за [name] - это будет требовать от вас соблюдения особых правил.", \
-	"Сыграть за NPC?", list("Да", "Никогда"), 15 SECONDS)
-	if(!ask || ask != "Да")
+	var/ask = tgui_alert(user, "Do you want to play as [name] - this will require you to follow special rules.", \
+	"Play as NPC?", list("Yes", "Never"), 15 SECONDS)
+	if(!ask || ask != "Yes")
 		return
 	take_control(user)
 
@@ -238,18 +238,18 @@
 /mob/living/basic/npc/proc/generate_desc_based_on_species()
 	switch(species)
 		if(/datum/species/human)
-			desc = "Обычный человек-гражданский. Ничем особенно не выделяется."
+			desc = "An ordinary human civilian. Nothing particularly stands out."
 		if(/datum/species/vulpkanin)
-			desc = "Меховой вульпканин с выразительными ушами и пушистым хвостом. Этот похожий на собаку гражданский настороженно осматривается."
+			desc = "A furry vulpkanin with expressive ears and a fluffy tail. This dog-like civilian looks around warily."
 		if(/datum/species/tajaran)
-			desc = "Кошачий таяран с мягкой шерстью, выразительными ушами и покачивающимся хвостом. Острые глаза внимательно сканируют окружение."
+			desc = "A feline tajaran with soft fur, expressive ears, and a swaying tail. Sharp eyes carefully scan the surroundings."
 		if(/datum/species/lizard)
-			desc = "Чешуйчатый ящер с гордой осанкой и подёргивающимся хвостом. Твёрдая шкура и резкие черты говорят о выносливости."
+			desc = "A scaly lizard with proud posture and a twitching tail. The tough hide and sharp features speak of endurance."
 		else
 			var/datum/species/path = species
-			desc = "Гражданский необычной расы. [path ? "([path::name])" : "Неизвестная раса."]"
+			desc = "A civilian of an unusual species. [path ? "([path::name])" : "Unknown species."]"
 	if(prob(30))
-		desc += pick(" Кажется немного потерянным.", " Выглядит уставшим после долгой смены.", " Тихо напевает что-то себе под нос.", " Вокруг витает слабый запах [pick("кофе","машинного масла","рыбы","мокрой шерсти")].")
+		desc += pick(" Seems a little lost.", " Looks tired after a long shift.", " Quietly hums something to themselves.", " A faint smell of [pick("coffee","machine oil","fish","wet fur")] lingers around them.")
 
 
 /mob/living/basic/npc/proc/randomize_colors()
@@ -384,7 +384,7 @@
 
 
 /mob/living/basic/npc/civilian
-	name = "Гражданский"
+	name = "Civilian"
 	possible_outfits = list(
 		/datum/outfit/trainstation_civilian,
 		/datum/outfit/trainstation_civilian/style_1,
@@ -420,12 +420,12 @@
 	name = "Police patrol point"
 
 /mob/living/basic/npc/police
-	name = "Офицер полиции"
+	name = "Police Officer"
 	health = 250
 	maxHealth = 250
 	faction = list(FACTION_CIVILIAN, FACTION_POLICE, FACTION_NEUTRAL)
-	join_text = "Вы - полицейский. Соблюдайте порядок в вашей зоне и защищайте гражданских."
-	important_text = "Не атакуйте игроков просто так а так же не покидайте свой город!"
+	join_text = "You are a police officer. Maintain order in your zone and protect civilians."
+	important_text = "Do not attack players without reason, and do not leave your city!"
 	melee_damage_lower = 15
 	melee_damage_upper = 30
 	melee_damage_type = STAMINA
@@ -440,29 +440,29 @@
 
 	speech_chance = 15
 	speech_phrases = list(
-		"Проходите, не задерживайтесь!",
-		"Здесь всё под контролем.",
-		"Руки держите на виду.",
-		"Подозрительное поведение будет доложено.",
-		"Будьте осторожны.",
+		"Move along, don't linger!",
+		"Everything's under control here.",
+		"Keep your hands where I can see them.",
+		"Suspicious behavior will be reported.",
+		"Be careful.",
 	)
 	speech_emote_see = list(
-		"поправляет берет.",
-		"осматривает окрестности.",
-		"кладёт руку на дубинку.",
+		"adjusts their beret.",
+		"surveys the surroundings.",
+		"rests a hand on their baton.",
 	)
 	speech_emote_hear = list(
-		"бормочет что-то в рацию.",
-		"прочищает горло.",
+		"mutters something into their radio.",
+		"clears their throat.",
 	)
 
 
 /mob/living/basic/npc/police/generate_name()
 	var/static/ranks = list(
-		"Офицер",
-		"Капрал",
-		"Сержант",
-		"Лейтенант",
+		"Officer",
+		"Corporal",
+		"Sergeant",
+		"Lieutenant",
 	)
 	var/base = ..()
 	return "[pick(ranks)] [base]"
@@ -495,14 +495,14 @@
 
 
 /obj/effect/landmark/military_patrol_point
-	name = "Точка патрулирования военных"
+	name = "Military patrol point"
 
 
 /mob/living/basic/npc/police/military
 	health = 300
 	maxHealth = 300
 	faction = list(FACTION_POLICE, FACTION_NEUTRAL)
-	join_text = "Вы - военный. Вы должны поддерживать порядок в вашей зоне а так же защищать гражданских."
+	join_text = "You are a soldier. You must maintain order in your zone and protect civilians."
 	melee_damage_lower = 15
 	melee_damage_upper = 30
 	melee_damage_type = BRUTE
@@ -521,47 +521,47 @@
 
 	speech_chance = 15
 	speech_phrases = list(
-		"Проходи.",
-		"Двигайся дальше.",
-		"Тебе здесь не место.",
-		"Очисти территорию.",
-		"Руки на виду.",
-		"Зона ограниченного доступа.",
-		"Расходитесь, живо.",
-		"Не твоё дело.",
-		"Отойди.",
-		"Вали отсюда.",
-		"Территория закрыта.",
-		"Иди дальше.",
-		"Посторонись.",
-		"Без лоитеринга.",
-		"Шевелись, гражданский."
+		"Move along.",
+		"Keep moving.",
+		"You don't belong here.",
+		"Clear the area.",
+		"Hands where I can see them.",
+		"Restricted access zone.",
+		"Disperse, now.",
+		"None of your business.",
+		"Step back.",
+		"Get out of here.",
+		"Area's closed.",
+		"Keep walking.",
+		"Step aside.",
+		"No loitering.",
+		"Get moving, civilian."
 	)
 
 	speech_emote_see = list(
-		"осматривает окрестности.",
-		"слегка поднимает оружие.",
-		"делает шаг вперёд.",
-		"держит руку на винтовке.",
-		"прищуривается, глядя на тебя.",
-		"резко машет рукой — двигайся.",
-		"становится поперёк пути.",
-		"поворачивает голову, проверяя тыл.",
-		"держит руку возле кобуры.",
-		"смотрит не мигая."
+		"surveys the surroundings.",
+		"slightly raises their weapon.",
+		"takes a step forward.",
+		"keeps a hand on their rifle.",
+		"narrows their eyes at you.",
+		"sharply waves a hand — move along.",
+		"steps into your path.",
+		"turns their head, checking their rear.",
+		"keeps a hand near their holster.",
+		"stares without blinking."
 	)
 
 	speech_emote_hear = list(
-		"бормочет в рацию.",
-		"говорит тихо в гарнитуру.",
-		"издаёт невнятный рык.",
-		"лает короткий код.",
-		"шепчет координаты.",
-		"тихо докладывает: «один гражданский»",
-		"бормочет: «ещё один бродяга»",
-		"цокает языком и включает рацию.",
-		"тяжело дышит в микрофон.",
-		"повторяет короткий приказ под нос."
+		"mutters into the radio.",
+		"speaks quietly into their headset.",
+		"lets out an unintelligible growl.",
+		"barks a short code.",
+		"whispers coordinates.",
+		"quietly reports: \"one civilian\"",
+		"mutters: \"another drifter\"",
+		"clicks their tongue and switches on the radio.",
+		"breathes heavily into the microphone.",
+		"repeats a short order under their breath."
 	)
 
 	possible_outfits = list(/datum/outfit/trainstation_military)
@@ -576,12 +576,12 @@
 
 
 /mob/living/basic/npc/police/military/bad_guys
-	name = "Мародёр"
+	name = "Raider"
 
 	faction = list(FACTION_HOSTILE)
 	make_random_name = FALSE
-	join_text = "Вы - мародёр. Защищайте зону, где вы находитесь а так же атакуйте посторонних. Постарайтесь при этом оставить их в живых."
-	important_text = "Не атакуйте поезд, а так же не приследуйте игроков! Не выводите игроков из раунда целиком!"
+	join_text = "You are a raider. Defend the zone you are in and attack outsiders. Try to keep them alive while doing so."
+	important_text = "Do not attack the train, and do not pursue players! Do not remove players from the round entirely!"
 	possible_outfits = list(
 		/datum/outfit/trainstation_raider,
 		/datum/outfit/trainstation_raider/alt,

@@ -5,28 +5,28 @@ GLOBAL_LIST_INIT(streamers, list(
 	"alcoreru",
 ))
 
-#define TRAIT_ROFLS_ZAKONCHILIS "рофлы_закончились_расходимся"
+#define TRAIT_ROFLS_ZAKONCHILIS "rofls_are_over_lets_disperse"
 #define ZTRAIT_SSCONSTRUCT "Debug construct"
 
 #define NEW_COOL_MOTO (span_notice("\
-[span_big("Общение игрока на сервере cc220")] \n \
-1.1. Запрещено оскорбление админов, а так же злоупотребление пастами на сервере. \n \
-1.2. Запрещено использование робаста при не достижении возрастных ограничений сервера 220+. \n \
-1.3. Запрещено использование сильногоS робаста, пастинг голосовой/текстовый чат музыкой, разговорами не по нон рп, а так же командами/биндами. \n \
-1.4. Запрещено подстрекательство и провокационные действия на сервере | Пастиг | зетки | сон | Голосование за смену карты и тд. \n \
-1.5. Запрещено обсуждать действия администрации, а так же вести свою деятельность от лица администрации. \n \n \
-Наказание: Отключение Микрофона и Чата кетчупу на срок по решению Администратора. \n \n \
-Использование запрещенных СЛОВ и сторонние нарушения игрока на сервере. \n \
-2.1. Запрещено использование [span_red("Ливрах | Проклятье | Робаст клаб | Ахахахах оооо бля | Санаби | дайте ему стул")] \n \
-2.2. Запрещено мешать игровому процессу | Закидывать хайриски в недоступные места | Убийство стримера | Намеренное ослепление моли | Нанесение порно/эротического спрея \n \
-2.3. Запрещена реклама на сервере (Любые ссылки и IP Адреса - Связанных с проектом Robust Club). \n \
-2.4. Запрещен метагейм на сервере (Любые подсказки в чат, а так же использование сторонних способов связи). \n \n \
-Наказание: Блокировка доступа к серверу на срок по решению Администратора минимум 220 деней. \n \n \
-Поведение игрока на сервере. \n \
-3.1. Запрещено злоупотребление серверными командами в своих целях, а так же спам. \n \
-Наказание: Отключение возможности использовать робаст сервера. \n \n \
-3.2. Запрещено использовать зетки, сон, ocean_fish, пародировать ники игроков, а так же администраторов. \n \
-Наказание: Установка ника Лампус без возможности смены. \n \n \
+[span_big("Player conduct on the cc220 server")] \n \
+1.1. Insulting admins is forbidden, as is the abuse of pastes on the server. \n \
+1.2. Use of robust is forbidden for those who do not meet the server's 220+ age restriction. \n \
+1.3. Forbidden: use of heavy robust, pasting music into voice/text chat, non-RP conversations, as well as commands/binds. \n \
+1.4. Forbidden: incitement and provocative actions on the server | Pasting | zetks | sleep | Voting to change the map, etc. \n \
+1.5. Discussing administration actions is forbidden, as is acting on behalf of the administration. \n \n \
+Punishment: Microphone and Chat muting for ketchup for a duration at the Administrator's discretion. \n \n \
+Use of forbidden WORDS and other player violations on the server. \n \
+2.1. Forbidden: use of [span_red("Livrah | Curse | Robust Club | Ahahaha oooo fuck | Sanabi | give him a chair")] \n \
+2.2. Forbidden: interfering with the gameplay | Throwing highrisks into inaccessible places | Killing the streamer | Deliberately blinding moths | Applying porn/erotic spray \n \
+2.3. Advertising is forbidden on the server (Any links and IP addresses - associated with the Robust Club project). \n \
+2.4. Metagaming is forbidden on the server (Any hints in chat, as well as using outside means of communication). \n \n \
+Punishment: Blocking server access for a duration at the Administrator's discretion, minimum 220 days. \n \n \
+Player behavior on the server. \n \
+3.1. Forbidden: abusing server commands for one's own purposes, as well as spam. \n \
+Punishment: Disabling the ability to use server robust. \n \n \
+3.2. Forbidden: using zetks, sleep, ocean_fish, impersonating player nicknames, as well as administrators. \n \
+Punishment: Setting the nickname to Lampus with no ability to change it. \n \n \
 "))
 
 
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(streamers, list(
 	name = "Consturct spawnpoint"
 
 /datum/controller/subsystem/april_rofls
-	name = "Рофлы и как их понимать"
+	name = "ROFLs and how to understand them"
 	ss_flags = SS_NO_FIRE
 
 	dependencies = list(
@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(streamers, list(
 		/datum/controller/subsystem/daylight,
 	)
 
-	// Клиенты, что впервые услышали новый звук приветствия а так же УВИДЕЛИ NEW_COOL_MOTO
+	// Clients who heard the new greeting sound for the first time and also SAW NEW_COOL_MOTO
 	var/list/client_first_moto = list()
 	var/are_we_ready = FALSE
 	var/we_cooking = FALSE
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(streamers, list(
 	equip_mob(joining)
 
 	joining.forceMove(target_turf)
-	to_chat(world, span_bold(span_adminsay("[joining.name] присоеденился к серверу!")))
+	to_chat(world, span_bold(span_adminsay("[joining.name] has joined the server!")))
 
 /datum/controller/subsystem/april_rofls/proc/equip_mob(mob/living/joining)
 	var/datum/outfit/ss_construct/cool_outfit = new()
@@ -153,51 +153,51 @@ GLOBAL_LIST_INIT(streamers, list(
 		SEND_SOUND(new_voter, sound('fenysha_events/sounds/effects/endvote.ogg'))
 
 
-ADMIN_VERB(give_everyonetoolgun, R_ADMIN, "Выдать всем туллганы", "Выдает всем игрокам туллганы и на выбор цель на остаться в живых", "Event.Construct")
+ADMIN_VERB(give_everyonetoolgun, R_ADMIN, "Give Everyone Toolguns", "Gives all players toolguns and optionally an objective to stay alive", "Event.Construct")
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/color = tgui_alert(usr, "Вы уверены?", "Выдать всем туллганы", list("Да", "Нет"))
-	if(color != "Да")
+	var/color = tgui_alert(usr, "Are you sure?", "Give Everyone Toolguns", list("Yes", "No"))
+	if(color != "Yes")
 		return
-	var/give_antag = tgui_alert(usr, "Выдать цель остаться в живых?", "Выдать всем туллганы", list("Да", "Нет"))
+	var/give_antag = tgui_alert(usr, "Give an objective to stay alive?", "Give Everyone Toolguns", list("Yes", "No"))
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_player_list)
 		if(!is_station_level(H.z))
 			continue
 		H.put_in_active_hand(new /obj/item/toolgun/spawn_only, TRUE, TRUE)
-		if(give_antag == "Да")
+		if(give_antag == "Yes")
 			var/datum/antagonist/custom/survivor = new()
-			survivor.name = "Выживший"
+			survivor.name = "Survivor"
 			var/datum/objective/custom/rip_and_tear = new()
-			rip_and_tear.explanation_text = "Останьтесь последним выжившим на станции, убив всех остальных игроков."
+			rip_and_tear.explanation_text = "Be the last survivor on the station by killing all the other players."
 			survivor.objectives += rip_and_tear
 			H.mind.add_antag_datum(survivor)
 
 /datum/emote/living/chillman
-	name = "Спокойствие!"
+	name = "Chill!"
 	key = "chill"
 	key_third_person = "chills"
 	sound = 'fenysha_events/sounds/effects/emotes/emote_chill.mp3'
-	message = "Выкрикивает, 'СПОКОЙСТВИЕ'!"
+	message = "shouts, 'CHILL'!"
 
 /datum/emote/living/cowboy
-	name = "Ковбой!"
+	name = "Cowboy!"
 	key = "cowboy"
 	key_third_person = "cawboy"
 	sound = 'fenysha_events/sounds/effects/emotes/emote_cowboy.mp3'
-	message = "Выкрикивает, 'КОВБОЙ'!"
+	message = "shouts, 'COWBOY'!"
 
 /datum/emote/living/godlike
-	name = "Богоподобно!"
+	name = "Godlike!"
 	key = "imgodlike"
 	key_third_person = "imgodlike"
 	sound = 'fenysha_events/sounds/effects/emotes/emote_godlike.mp3'
-	message = "Выкрикивает, 'БОЖЕСТВЕННО'!"
+	message = "shouts, 'DIVINE'!"
 
 /datum/emote/living/headshot
-	name = "В голову!!"
+	name = "Headshot!!"
 	key = "headshot"
 	key_third_person = "headshot"
 	sound = 'fenysha_events/sounds/effects/emotes/emote_headshote.wav'
-	message = "Выкрикивает, 'В ГОЛОВУ'!"
+	message = "shouts, 'HEADSHOT'!"

@@ -1,9 +1,9 @@
 /datum/reagent/toxin/khara
-	name = "Споры Кхара"
-	description = "Микроскопические биоинженерные споры внеземного происхождения. Они агрессивно колонизируют \
-					органические ткани, вызывая стремительный рост опухолеподобных образований, которые в итоге рождают новую хищную форму жизни."
+	name = "Khara Spores"
+	description = "Microscopic bioengineered spores of extraterrestrial origin. They aggressively colonize \
+					organic tissue, triggering the rapid growth of tumor-like formations that ultimately give rise to a new predatory life form."
 	color = COLOR_MAROON
-	taste_description = "горькое железо и гниль"
+	taste_description = "bitter iron and rot"
 	taste_mult = 1.4
 	chemical_flags = REAGENT_IGNORE_STASIS | REAGENT_INVISIBLE | REAGENT_DEAD_PROCESS
 	metabolization_rate = REAGENTS_METABOLISM * 4

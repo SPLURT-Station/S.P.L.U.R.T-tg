@@ -5,7 +5,7 @@
 
 #define TRAIT_NO_STATION_UNLOAD "!no_unload"
 
-/// Абстрактная станция, не будет отображаться в меню train_controll'ера, не будет связана с другими станциями
+/// Abstract station, will not be shown in the train_controller menu, will not be linked to other stations
 #define TRAINSTATION_ABSCTRACT (1 << 1)
 #define TRAINSTATION_NO_FORKS (1 << 2)
 #define TRAINSTATION_BLOCKING (1 << 3)
@@ -64,9 +64,9 @@
 
 #define BB_MEMORY_ENEMIES_LIST "enemies_list"
 
-#define KHARA_CAST_LESSER "Низшие"
-#define KHARA_CAST_ADAPTED "Адаптированные"
-#define KHARA_CAST_ASSIMILATING "Ассмилирующие"
+#define KHARA_CAST_LESSER "Lesser"
+#define KHARA_CAST_ADAPTED "Adapted"
+#define KHARA_CAST_ASSIMILATING "Assimilating"
 
 #define KHARA_POWER_WEAK 1
 #define KHARA_POWER_STRONG 2

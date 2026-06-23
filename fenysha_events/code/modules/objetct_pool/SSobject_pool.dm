@@ -18,28 +18,28 @@ SUBSYSTEM_DEF(object_pool)
 	/// type => precomputed list of var keys to copy
 	var/list/copy_vars = list()
 
-	/// Максимальный размер пула по умолчанию
+	/// Default maximum pool size
 	var/static/pool_max_size = 500
 
 	var/static/list/var_blacklist = list(
 		"type", "parent_type", "vars",
-		// GC и уничтожение
+		// GC and destruction
 		"gc_destroyed", "harddel_deets_dumped",
-		// Позиционирование и структура
+		// Positioning and structure
 		"x", "y", "z", "loc", "locs", "contents",
-		// Ссылки и теги
+		// References and tags
 		"tag", "weak_reference", "weakref",
 		"_active_timers", "_datum_components", "_listen_lookup", "_signal_procs", "_status_traits",
 		"datum_flags", "cooldowns",
 		// UI
 		"open_uis", "verbs",
-		// Визуальные списки и специальные поля
+		// Visual lists and special fields
 		"appearance", "appearance_flags", "blend_mode",
 		"overlays", "underlays", "vis_contents", "vis_locs", "filters",
 		"render_source", "render_target", "override",
-		// Дополнительные фильтры и кэши
+		// Additional filters and caches
 		"filter_data", "filter_cache",
-		// Прочие
+		// Other
 		"layout_prefs_used", "abstract_type"
 	)
 
@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(object_pool)
 		if(isatom(instance))
 			var/atom/A = instance
 			if(A.flags_1 & INITIALIZED_1)
-				A.flags_1 &= ~INITIALIZED_1 //На всякий случай
+				A.flags_1 &= ~INITIALIZED_1 //Just in case
 			A.Initialize(arglist(init_args))
 	else
 		instance = length(args) > 1 ? new type(arglist(args)) : new type()

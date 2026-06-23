@@ -5,7 +5,7 @@ import type { ResizeModeProps } from './modeProps';
 export function ResizeMode({ act, scaleValue }: ResizeModeProps) {
   return (
     <Stack.Item grow>
-      <Section fill title="Настройки размера">
+      <Section fill title="Size Settings">
         <Stack vertical>
           <Stack.Item>
             <Input
@@ -16,7 +16,7 @@ export function ResizeMode({ act, scaleValue }: ResizeModeProps) {
           </Stack.Item>
           <Stack.Item>
             <Box color="#d2d2d2" fontSize="0.9em">
-              ЛКМ: изменить размер на ×{scaleValue} • ПКМ: сбросить масштаб
+              LMB: resize to ×{scaleValue} • RMB: reset scale
             </Box>
           </Stack.Item>
           <Stack.Item>

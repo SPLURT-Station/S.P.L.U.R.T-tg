@@ -224,16 +224,16 @@ img.bg {
 
 /datum/controller/subsystem/train_controller/proc/announce_game()
 	to_chat(world, span_boldnotice( \
-		"[span_big("Trainstation режим - активен")] \n \
+		"[span_big("Trainstation mode - active")] \n \
 		\n \
-		Станция будет заменена на поезд, которму приедстоит выполнить важное задание: доставить ценнй груз. \
-		Для этого экипажу поезда придется направить состав через транс-атлантическую желездную дорону. \
-		На пути к цели, поезду предстоит столкнуться с множеством угроз и препядствий. \
-		Управляйте поездом и доберитесь до финальной станции. \n \
+		The station will be replaced with a train, which is tasked with an important mission: to deliver a valuable cargo. \
+		To do this, the train crew will have to guide the train across the trans-atlantic railway. \
+		On the way to the goal, the train will face numerous threats and obstacles. \
+		Drive the train and reach the final station. \n \
 		\n \
-		Автор ивента: Fenysha, \n \
-		Специальное спасибо: Kierri<3, Mold, TYWONKA, V1S1Ti \n \
-		Вдохновленно: The final station, Far: Lone Sails\
+		Event author: Fenysha, \n \
+		Special thanks: Kierri<3, Mold, TYWONKA, V1S1Ti \n \
+		Inspired by: The final station, Far: Lone Sails\
 	"))
 
 
