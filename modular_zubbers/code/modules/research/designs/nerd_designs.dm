@@ -57,7 +57,7 @@
 	id = "physgun"
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-	build_path = /obj/item/physic_manipulation_tool
+	build_path = /obj/item/physgun
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT*10,
 		/datum/material/uranium=SHEET_MATERIAL_AMOUNT*5,
