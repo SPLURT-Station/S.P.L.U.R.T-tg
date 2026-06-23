@@ -165,14 +165,12 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/machinery/camera/directional/south{
-	c_tag = "Blueshield's Office"
-	},
 /obj/machinery/button/door/directional/south{
 	name = "Privacy Shutters Control";
 	id = "blueshield_priv";
 	req_access = list("cent_officer")
 	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "eE" = (
@@ -201,6 +199,9 @@
 /obj/structure/closet/secure_closet/blueshield,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+/obj/machinery/camera/directional/east{
+	c_tag = "Blueshield's Armory"
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "fE" = (

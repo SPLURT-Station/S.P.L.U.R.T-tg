@@ -4,8 +4,21 @@
 /area/template_noop)
 "b" = (
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/modular_computer/laptop/preset/civilian/closed{
-	pixel_y = 3
+/obj/item/reagent_containers/cup/glass/bottle/champagne{
+	pixel_y = 24;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/coin/gold{
+	pixel_x = 2;
+	pixel_y = -3
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -132,7 +145,6 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
-/obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
@@ -412,6 +424,9 @@
 	dir = 1
 	},
 /obj/machinery/status_display/ai/directional/south,
+/obj/machinery/camera/directional/south{
+	c_tag = "Bridge - Nanotrasen Internal Affairs' Office"
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "T" = (
