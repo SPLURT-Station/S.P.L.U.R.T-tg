@@ -8,7 +8,6 @@
 /obj/item/choice_beacon/nanotrasen_consultant/generate_display_names()
 	var/static/list/selectable_gun_types = list(
 		"NTX-12 \"Viceroy\" Executive Pistol" = /obj/item/storage/toolbox/guncase/skyrat/pistol/viceroy,
-		"Gold-Trimmed M1911 Pistol" = /obj/item/storage/toolbox/guncase/skyrat/pistol/m1911_gold,
 		"NTX-9 \"Asterion\" Executive Energy Pistol" = /obj/item/gun/energy/e_gun/asterion
 	)
 
