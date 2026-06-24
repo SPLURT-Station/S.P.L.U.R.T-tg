@@ -153,6 +153,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_BARBER = 74, // SKYRAT EDIT ADDITION
 		JOB_BOUNCER = 73, // SKYRAT EDIT ADDITION
 		JOB_PSYCHOLOGIST = 72,
+		JOB_NT_TRN = 73, // SPLURT EDIT ADDITION (Can't be CC because health monitor)
 		// 200-229: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,
 		JOB_CENTCOM = 201,
@@ -172,7 +173,6 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_ERT_DEATHSQUAD = 227,
 		JOB_NT_REP = 230, // SKYRAT EDIT ADDITION
 		JOB_BLUESHIELD = 231, // SKYRAT EDIT ADDITION
-		JOB_NT_TRN = 232, // SKYRAT EDIT ADDITION
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
