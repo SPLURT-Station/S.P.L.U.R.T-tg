@@ -178,13 +178,13 @@
 	name = ".460 Rowland bullet"
 	damage = 40
 	stamina = 15 //knock the winds outta ya
-	wound_bonus = -15
+	wound_bonus = -5
 	stamina_falloff_tile = 0.3
 
 /obj/projectile/bullet/c460rowland/ap
 	name = ".460 Rowland armor-piercing bullet"
 	damage = 30
-	wound_bonus = -35
+	wound_bonus = -25
 	armour_penetration = 40
 	damage_falloff_tile = 0
 	stamina_falloff_tile = 0
