@@ -3,7 +3,7 @@
 	name = "NT-EG \"Defender\" Energy Rifle"
 	desc = "A decommissioned Nanotrasen security rifle, the NT-EG \"Defender\" is a heavy energy weapon designed for non-lethal enforcement. \
 		Capable of firing standard energy bolts, alongside some stun electrodes, it prioritizes control over lethality. This particular model is \
-		a downgraded production variant of the original Tactical Energy Gun, assembled with lower-grade components—resulting in notably slow \
+		a downgraded production variant of the original Tactical Energy Gun, assembled with lower-grade components, resulting in notably slow \
 		recharge times and reduced efficiency. While reliable enough for basic use, it struggles to keep pace in prolonged engagements."
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/sec, /obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos/blueshield)
 	cell_type = /obj/item/stock_parts/power_store/cell/hos_gun

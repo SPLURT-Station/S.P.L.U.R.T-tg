@@ -40,14 +40,14 @@
 		<br>\
 		<br>\
 		Drawing from an advanced Sol-based design, the pistol was pushed into production with little time for \
-		refinement—simple in appearance, but devastatingly effective in practice. Despite its unassuming profile, the weapon quickly became more than \
+		refinement, simple in appearance, but devastatingly effective in practice. Despite its unassuming profile, the weapon quickly became more than \
 		just a tool of war. As the newly formed Romulus National Army adopted it en masse, the M45A5 grew into a symbol of resistance and self-reliance. \
-		Older NRI-pattern weapons, once standard issue, came to represent an era of foreign dependence and political pressure—one the Federation was \
+		Older NRI-pattern weapons, once standard issue, came to represent an era of foreign dependence and political pressure, one the Federation was \
 		eager to leave behind. \
 		<br>\
 		<br>\
 		To those who carried it, the Goliath was never just a sidearm. It was a reminder of hardship, of independence hard-won, \
-		and of a future no longer dictated by outside powers. Weapons cannot bring back what was lost—but in the hands of the Romulus people, this one \
+		and of a future no longer dictated by outside powers. Weapons cannot bring back what was lost, but in the hands of the Romulus people, this one \
 		ensured there was still something left to protect."
 
 	return .
@@ -85,7 +85,7 @@
 
 	. += "The NTX-12 \"Viceroy\" was commissioned following a series of high-profile security \
 	breaches targeting Nanotrasen's upper management aboard deep-space installations. Standard-issue \
-	sidearms were deemed insufficient—not due to lack of lethality, but due to a failure in presence. \
-	Executives needed something that was not only effective, but symbolic. And then the Viceroy was created."
+	sidearms were deemed insufficient, not due to lack of lethality, but due to a failure in presence. \
+	Executives needed something that was not only effective, but symbolic. In which the Viceroy was manufactured."
 
 	return .
