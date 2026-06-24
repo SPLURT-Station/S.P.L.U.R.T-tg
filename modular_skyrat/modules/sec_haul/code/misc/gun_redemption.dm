@@ -31,7 +31,7 @@
 	)
 
 	return selectable_gun_types
-*/
+
 //Station Central Command Staff
 
 /obj/item/choice_beacon/station_magistrate
@@ -47,3 +47,4 @@
 	)
 
 	return selectable_gun_types
+*/

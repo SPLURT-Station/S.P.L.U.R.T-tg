@@ -7,7 +7,7 @@
 	new /obj/item/ammo_box/magazine/mps5(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m1911_gold
-	name = "Gold-Trimmed M1911 gun case"
+	name = "Gold-Trimmed M1911 Pistol gun case"
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m1911_gold/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/pistol/m1911/gold(src)

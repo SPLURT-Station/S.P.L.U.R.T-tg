@@ -370,18 +370,3 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 		Consultant, do not let us down."
 	icon_state = "corppaperslip_words"
 	return ..()
-
-/obj/item/choice_beacon/nanotrasen_consultant
-	name = "Nanotrasen executive gunset beacon"
-	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
-	icon_state = "self_delivery"
-	company_source = "Nanotrasen Corporation"
-	company_message = span_bold("Understood, Consultant. Supply pod incoming with your request, please stand by and avoid the drop zone.")
-
-/obj/item/choice_beacon/nanotrasen_consultant/generate_display_names()
-	var/static/list/selectable_gun_types = list(
-		"NTX-12 \"Viceroy\" Executive Pistol" = /obj/item/storage/toolbox/guncase/skyrat/pistol/viceroy,
-		"NTX-9 \"Asterion\" Executive Energy Pistol" = /obj/item/gun/energy/e_gun/asterion
-	)
-
-	return selectable_gun_types
