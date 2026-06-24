@@ -1,10 +1,21 @@
+// The Sunlight wash deliberately lives on O_LIGHTING_VISUAL_PLANE: the overlay-lighting plane master
+// collects it and ADDS it (BLEND_ADD) into the lighting pipeline, which is how daylight injects colored
+// ambient light. This is NOT a plane collision - the backdrop is content on that plane, not a plane master.
 #define SUNLIGHTING_PLANE (LIGHTING_PLANE+1)
-#define SUNLIGHTING_RENDER_TARGET "*SUNLIGHT_PLANE"
-#define RENDER_PLANE_DAYLIGHT 21
+// Host plane for the daylight render plate. It renders nothing itself (its only job is to spawn the wash
+// backdrop in show_to), so any free plane works - it just must not be a real plane master's number.
+// (Was 21, which collided with RENDER_PLANE_LIGHT_MASK and clobbered the light mask.)
+#define RENDER_PLANE_DAYLIGHT 18
+
+/// Trait source keeping daylight viewers area-sensitive, so we know when they cross indoors<->outdoors.
+#define DAYLIGHT_SUNLIGHT_TRAIT "daylight_sunlight"
 
 /area
 	var/daylight = FALSE
 	var/has_virtual_lighting = FALSE
+	/// If TRUE, the fullscreen daylight wash is hidden for viewers standing in this area (i.e. it's indoors).
+	/// Set this on indoor area typepaths to keep sunlight outside.
+	var/blocks_sunlight = FALSE
 
 /area/Initialize(mapload)
 	. = ..()
@@ -220,17 +231,23 @@ SUBSYSTEM_DEF(daylight)
 		CHECK_TICK
 	setup_running = FALSE
 
-/datum/controller/subsystem/daylight/proc/set_target(intensity, color)
+/datum/controller/subsystem/daylight/proc/set_target(intensity, color, transition_time)
 	target_intensity = clamp(intensity, 0, 1)
 	target_color = color
 	start_intensity = current_intensity
 	start_color = current_color
 	transition_steps = TRANSITION_STEPS
+	if(isnull(transition_time))
+		transition_time = TRANSITION_STEPS * wait
+	// Animate the visual wash straight to the target in ONE smooth pass over the whole transition,
+	// instead of restarting a short animation on every fire() step (which is what made it stutter).
+	update_sunlight_backdrops(target_intensity, target_color, transition_time)
 
 /datum/controller/subsystem/daylight/proc/set_intensity_and_color(intensity = target_intensity, color = target_color, force = FALSE)
 	if(force)
 		transition_steps = 0
 		update_current(intensity, color)
+		update_sunlight_backdrops(intensity, color, 0) // snap the wash to match
 	else
 		set_target(intensity, color)
 
@@ -245,7 +262,8 @@ SUBSYSTEM_DEF(daylight)
 
 	if(changed)
 		update_all_areas()
-		update_sunlight_backdrops()
+		// The wash is animated to its target in set_target()/set_intensity_and_color(); do NOT restart its
+		// animation on every intermediate transition step here, or it stutters.
 		for(var/obj/effect/light_emitter/daylight/E in all_emitters)
 			E.apply_current_state()
 		SEND_SIGNAL(src, COMSIG_DAYLIGHT_UPDATED, current_intensity, current_color)
@@ -328,12 +346,12 @@ SUBSYSTEM_DEF(daylight)
 		current_particle_weather = next_auto
 	return current_particle_weather
 
-/datum/controller/subsystem/daylight/proc/update_sunlight_backdrops()
+/datum/controller/subsystem/daylight/proc/update_sunlight_backdrops(intensity = current_intensity, color = current_color, transition_time = mob_visual_update_cooldown)
 	for(var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/LB as anything in sunlighting_planes)
 		if(QDELETED(LB))
 			sunlighting_planes -= LB
 			continue
-		LB.apply_daylight_state(current_intensity, current_color, mob_visual_update_cooldown)
+		LB.apply_daylight_state(intensity, color, transition_time)
 
 /datum/controller/subsystem/daylight/fire()
 	if(transition_steps > 0)
@@ -395,7 +413,7 @@ SUBSYSTEM_DEF(daylight)
 		steps_down = round((duration / wait) / 2, 1)
 		steps_up = steps_down
 
-	set_target(1, color)
+	set_target(1, color, transition_time)
 	for(var/i in 1 to steps_up)
 		fire()
 		sleep(trainstation_wait)
@@ -405,7 +423,7 @@ SUBSYSTEM_DEF(daylight)
 		sleep(duration / hold_steps)
 		CHECK_TICK
 
-	set_target(orig_target_intensity, orig_target_color)
+	set_target(orig_target_intensity, orig_target_color, transition_time)
 	for(var/i in 1 to steps_down)
 		fire()
 		sleep(trainstation_wait)
@@ -473,7 +491,9 @@ SUBSYSTEM_DEF(daylight)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting_daylight
 	name = "Lighting plate - daylight"
-	documentation = "A layer that containt daylighting"
+	documentation = "Host plane for the daylight wash. It renders nothing itself; its only job is to spawn the \
+		Sunlight backdrop (which lives on the overlay-lighting plane) for each viewer in show_to, and tear it \
+		down in hide_from. We also keep the viewer area-sensitive so the wash can hide while they're indoors."
 	plane = RENDER_PLANE_DAYLIGHT
 	blend_mode_override = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -482,10 +502,31 @@ SUBSYSTEM_DEF(daylight)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting_daylight/show_to(mob/mymob)
 	. = ..()
-	mymob.overlay_fullscreen("daylight_overlay", /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight)
+	// One wash backdrop + one area hook per viewer is enough; only the top offset (0) manages it.
+	if(offset != 0 || !mymob)
+		return
+	var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/backdrop = mymob.overlay_fullscreen("daylight_overlay", /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight)
+	// Listen for area changes so we can fade the wash out indoors and back in outdoors.
+	mymob.become_area_sensitive(DAYLIGHT_SUNLIGHT_TRAIT)
+	RegisterSignal(mymob, COMSIG_ENTER_AREA, PROC_REF(on_enter_area), override = TRUE)
+	// Apply the current indoor/outdoor state instantly on first show so it doesn't flash before settling.
+	var/area/current_area = get_area(mymob)
+	backdrop.sunlit = !current_area?.blocks_sunlight
+	if(SSdaylight)
+		backdrop.apply_daylight_state(SSdaylight.current_intensity, SSdaylight.current_color, 0)
+
+/atom/movable/screen/plane_master/rendering_plate/lighting_daylight/proc/on_enter_area(mob/source, area/new_area)
+	SIGNAL_HANDLER
+	var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/backdrop = source.screens?["daylight_overlay"]
+	if(backdrop)
+		backdrop.set_sunlit(!new_area?.blocks_sunlight)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting_daylight/hide_from(mob/oldmob)
 	. = ..()
+	if(offset != 0 || !oldmob)
+		return
+	UnregisterSignal(oldmob, COMSIG_ENTER_AREA)
+	oldmob.lose_area_sensitivity(DAYLIGHT_SUNLIGHT_TRAIT)
 	oldmob.clear_fullscreen("daylight_overlay")
 
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight
@@ -493,12 +534,15 @@ SUBSYSTEM_DEF(daylight)
 	plane = SUNLIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
+	/// Whether the viewer is somewhere the sun reaches. When FALSE the wash is hidden (alpha 0), e.g. indoors.
+	var/sunlit = TRUE
 
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Initialize()
 	. = ..()
-	filters += filter(type="layer", render_source=SUNLIGHTING_RENDER_TARGET)
 	SSdaylight.sunlighting_planes |= src
-	color = SSdaylight.target_color
+	// Start at the CURRENT daylight state (not the target) so a freshly-shown backdrop doesn't pop.
+	color = SSdaylight.current_color
+	alpha = round(clamp(SSdaylight.current_intensity, 0, 1) * 255, 1)
 
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
 	. = ..()
@@ -508,9 +552,21 @@ SUBSYSTEM_DEF(daylight)
 	if(QDELETED(src))
 		return
 
-	var/target_alpha = round(clamp(intensity, 0, 1) * 255, 1)
-	color = new_color
-	animate(src, alpha = target_alpha, time = max(1, round(transition_time / (1 SECONDS), 1)))
+	// Indoors (sunlit == FALSE) the wash is hidden regardless of the daylight intensity.
+	var/target_alpha = sunlit ? round(clamp(intensity, 0, 1) * 255, 1) : 0
+	// transition_time is already in deciseconds (e.g. 3 SECONDS == 30) and animate()'s time is in deciseconds
+	// too, so pass it through directly. Animate the colour as well so phases blend instead of snapping.
+	animate(src, color = new_color, alpha = target_alpha, time = max(0, transition_time), easing = SINE_EASING)
+
+/// Sets whether the viewer is in sunlight; fades the wash in/out and remembers the state for cycle updates.
+/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/proc/set_sunlit(new_sunlit)
+	new_sunlit = !!new_sunlit
+	if(sunlit == new_sunlit)
+		return
+	sunlit = new_sunlit
+	if(!SSdaylight)
+		return
+	apply_daylight_state(SSdaylight.current_intensity, SSdaylight.current_color, 0.5 SECONDS)
 
 
 
