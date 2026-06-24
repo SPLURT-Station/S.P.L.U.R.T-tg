@@ -67,7 +67,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/viceroy
 	can_suppress = FALSE
 	recoil = 0.25
-	fire_delay = 0.15 // fuck if I know if this changes anything.
+	fire_delay = 0.2 // fuck if I know if this changes anything.
 	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
