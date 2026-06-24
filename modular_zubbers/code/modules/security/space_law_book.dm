@@ -30,7 +30,8 @@
 	name = "Corporate Regulations"
 	desc = "A set of Nanotrasen regulations for keeping law, order, and procedure followed within their space stations."
 	starting_title = "Corporate Regulations"
-	page_link = "index.php?title=Space_Law"
+	page_link = "?title=Space_Law" //SPLURT EDIT - So it sends us to the space law page we have
+
 
 /obj/item/book/manual/wiki/security_space_law/attack_self(mob/user) // Was in /tg/ folder, moved it here, made it 100% chance to learn language since you can spam it inhand anyhow. Saves us all from carpal tunnel.
 	if(user.can_read(src) && !user.has_language(/datum/language/legalese, SPOKEN_LANGUAGE))
@@ -40,7 +41,7 @@
 		.=..()
 
 /obj/item/book/manual/wiki/security_space_law/display_content(mob/living/user)
-	var/wiki_url = "http://wiki.bubberstation.org"
+	var/wiki_url = "http://wiki.splurt.space" // SPLURT EDIT - it was bubber's first, we are not bubber.
 	if(!wiki_url)
 		user.balloon_alert(user, "this book is empty!")
 		return

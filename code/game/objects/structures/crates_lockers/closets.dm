@@ -1163,7 +1163,10 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 		if(error_msg)
 			if(!silent)
 				balloon_alert(user, error_msg)
-			return TRUE
+			//SPLURT EDIT CHANGE BEGIN - Fixes not able to tear manifests from locked crate
+			return FALSE //SPLURT EDIT - ORIGINAL: return TRUE
+			
+			//SPLURT EDIT CHANGE END
 
 	if(iscarbon(user))
 		add_fingerprint(user)
