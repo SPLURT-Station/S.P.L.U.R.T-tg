@@ -57,7 +57,7 @@
 	desc = "A premium sidearm issued exclusively to high-ranking Nanotrasen executives, \
 		the NTX-12 \"Viceroy\" is designed for both personal defense and quiet authority, \
 		the Viceroy combines compact ergonomics with reinforced internal systems capable of \
-		handling its unusually powerful round. Chambered in 9x25mm Mk.12. Its angular slide \
+		handling its unusually powerful round. Chambered in 9x19mm. Its angular slide \
 		and dense barrel assembly reflect its purpose: controlled, decisive force in the hands \
 		of those who command it. A polished polymer grip with embedded smart-sensor nodes ensures \
 		user-specific recoil compensation, making it both secure and effortless to wield."

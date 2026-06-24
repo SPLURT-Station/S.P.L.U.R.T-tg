@@ -65,11 +65,11 @@
 	. = ..()
 
 	. += "The NT-SR4 \"Aegis\" was developed by Nanotrasen to provide Blueshields with a reliable, self-sufficient sidearm for executive \
-	protection duties. Its revolver-style capacitor system reduces dependency on charging infrastructure while maintaining predictable performance.\
-	<br>\
-	<br>\
-	Issued exclusively to authorized protection personnel, the Aegis reflects Nanotrasen's priority on control, reliability, and the uninterrupted \
-	safety of command staff."
+		protection duties. Its revolver-style capacitor system reduces dependency on charging infrastructure while maintaining predictable performance.\
+		<br>\
+		<br>\
+		Issued exclusively to authorized protection personnel, the Aegis reflects Nanotrasen's priority on control, reliability, and the uninterrupted \
+		safety of command staff."
 
 	return .
 

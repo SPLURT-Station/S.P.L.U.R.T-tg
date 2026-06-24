@@ -3,3 +3,6 @@
 
 /// M45A5 caliber
 #define CALIBER_460ROWLAND ".460 Rowland"
+
+/// 9x19 if it weren't made by security
+#define CALIBER_9X19MM "9x19mm"
