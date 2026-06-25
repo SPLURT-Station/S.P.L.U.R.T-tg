@@ -209,8 +209,8 @@ img.bg {
 		SStitle.current_title_screen = new(styles = custom_css)
 		SStitle.current_title_screen.title_css = custom_css
 	SStitle.set_title_image_silent('fenysha_events/icons/lobby/trainstation_v2.png')
-	SSticker.set_lobby_music('fenysha_events/sounds/trainstation_lobbymusic.ogg', override = TRUE)
 	*/
+	SSticker.set_lobby_music('fenysha_events/sounds/trainstation_lobbymusic.ogg', override = TRUE)
 	for(var/client/C in GLOB.clients)
 //		SStitle.show_title_screen_to(C)
 		C?.playtitlemusic(volume_multiplier = 1)
@@ -232,12 +232,13 @@ img.bg {
 		Drive the train and reach the final station. \n \
 		\n \
 		Event author: Fenysha, \n \
-		Special thanks: Kierri<3, Mold, TYWONKA, V1S1Ti \n \
+		Special thanks: Kierri, Mold, TYWONKA, V1S1Ti, Arturlang \n \
 		Inspired by: The final station, Far: Lone Sails\
 	"))
 
 
 /datum/controller/subsystem/train_controller/proc/set_lobby_screen()
+	SStitle.change_title_screen('fenysha_events/icons/lobby/trainstation_v2.png')
 	return
 
 /*

@@ -270,7 +270,7 @@ SUBSYSTEM_DEF(train_controller)
 	var/list/screens = null
 	if(hide_for_players)
 		for(var/mob/living/L in GLOB.alive_player_list)
-			L.overlay_fullscreen("station_loading", /atom/movable/screen/fullscreen/flash/black)
+			L.overlay_fullscreen("station_loading", /atom/movable/screen/fullscreen/flash/black/station_loading)
 			ADD_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
 			LAZYADD(screens, L)
 	if(loaded_station)
@@ -284,7 +284,7 @@ SUBSYSTEM_DEF(train_controller)
 	if(screens && islist(screens) && length(screens))
 		for(var/mob/living/L in screens)
 			REMOVE_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
-			L.clear_fullscreen("station_loading", animated = 5 SECONDS)
+			L.clear_fullscreen("station_loading", animated = 1 SECONDS)
 
 	if(!result)
 		return
@@ -589,6 +589,83 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 	parent.screen -= src
 	qdel(src)
 
+
+/atom/movable/screen/fullscreen/flash/black/station_loading
+	var/text_phrase = "Loading"
+	var/list/loading_phrases = list(
+		"Installing railways",
+		"Placing turfs",
+		"Cleaning khara",
+		"Subscrubing to signals",
+		"Updating turf atmos"
+	)
+
+	var/phrase_index = 1
+	var/dot_count = 0
+	var/timer_id
+	var/last_phrase_change = 0
+
+	var/update_interval = 1 SECONDS
+	var/atom/movable/screen/text/load_phrases
+	var/datum/hud/owner_hud
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+
+
+	load_phrases = new()
+	owner_hud = hud_owner
+	hud_owner.mymob.client?.screen += load_phrases
+	var/icon_size = world.icon_size
+
+	load_phrases.maptext_height = icon_size * 6
+	load_phrases.maptext_width = icon_size * 24
+
+	last_phrase_change = world.time
+	phrase_index = rand(1, length(loading_phrases))
+	text_phrase = loading_phrases[phrase_index]
+
+	update_loading_text(TRUE)
+
+	timer_id = addtimer(CALLBACK(src, PROC_REF(update_loading_text), FALSE), update_interval, TIMER_LOOP)
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/Destroy()
+	if(timer_id)
+		deltimer(timer_id)
+		timer_id = null
+	owner_hud.mymob.client?.screen -= load_phrases
+	QDEL_NULL(load_phrases)
+	. = ..()
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/get_next_phrase()
+	phrase_index++
+	if(phrase_index > length(loading_phrases))
+		phrase_index = 1
+
+	return loading_phrases[phrase_index]
+
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/update_loading_text(first = FALSE)
+	if(!first && (world.time - last_phrase_change) >= 4 SECONDS)
+		last_phrase_change = world.time
+		text_phrase = get_next_phrase()
+
+	dot_count = (dot_count + 1) % 5
+	var/dots = ""
+	for(var/i = 1, i <= dot_count, i++)
+		dots += "."
+
+	load_phrases.maptext = {"<div style='
+		width:100%;
+		text-align:center;
+		font-family:\"Pixellari\";
+		font-size:16pt;
+		color:#FFFFFF;
+		-dm-text-outline: 1px black;
+		line-height:1.25;
+	'>
+		[text_phrase][dots]<br>
+	</div>"}
 
 /datum/looping_sound/global_sound/train_sound_loop
 	sounds_to_play = list(

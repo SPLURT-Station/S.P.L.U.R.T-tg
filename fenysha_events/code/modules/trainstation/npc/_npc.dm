@@ -158,7 +158,6 @@
 
 
 /mob/living/basic/npc/attack_ghost(mob/dead/observer/user)
-	. = ..()
 	if(!user.client || key || !ghost_controlable)
 		return
 	var/ask = tgui_alert(user, "Do you want to play as [name] - this will require you to follow special rules.", \

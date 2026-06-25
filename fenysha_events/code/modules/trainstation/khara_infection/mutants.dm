@@ -178,7 +178,7 @@
 	lighting_cutoff_red = 22
 	lighting_cutoff_green = 5
 	lighting_cutoff_blue = 5
-	// butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8)
+
 	max_stamina = 250
 	stamina_crit_threshold = 90
 	stamina_recovery = 5
@@ -197,6 +197,17 @@
 	var/minimum_melee_damage_treshold = 10
 	/// Additional melee damage modifier, where 1 means 2x damage
 	var/addictional_melee_damage_multiplier = 1
+
+	/// Footstep sounds of this mob
+	var/footstep_sounds = list(
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_1.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_2.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_3.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_4.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_5.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_6.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/lurker_footstep_7.ogg'
+	)
 
 	/// Whether this mutant should burst on death
 	var/gib_on_death = TRUE
@@ -218,13 +229,11 @@
 	var/spread_minimal_cooldown = 5 SECONDS
 	COOLDOWN_DECLARE(spread_cd)
 
-/datum/element/footstep
-
 /mob/living/basic/khara_mutant/Initialize(mapload)
 	. = ..()
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_NO_FLOATING_ANIM, TRAIT_THERMAL_VISION, TRAIT_KHARAMUTANT), MEGAFAUNA_TRAIT)
 	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "it's pointless!")
-	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HEAVY)
+	AddElement(/datum/element/footstep_callback, CALLBACK(src, PROC_REF(get_footstep_sounds)), 0.5, -8, FALSE)
 	AddElement(/datum/element/ai_retaliate)
 
 	AddComponent(/datum/component/seethrough_mob)
@@ -331,6 +340,9 @@
 			playsound(mob_in_turf, 'sound/effects/splat.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return ..()
 
+/mob/living/basic/khara_mutant/proc/get_footstep_sounds()
+	PRIVATE_PROC(TRUE)
+	return footstep_sounds
 
 /mob/living/basic/khara_mutant/flesh_spider
 	name = "Flesh Spider"
@@ -435,6 +447,16 @@
 	regeneration_delay = 7 SECONDS
 	health_regen_per_second = 10
 
+	footstep_sounds = list(
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_1.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_2.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_3.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_4.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_5.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_6.ogg'
+	)
+
+
 	pixel_x = -16
 	base_pixel_x = -16
 	mob_size = MOB_SIZE_HUGE
@@ -532,6 +554,14 @@
 	pixel_x = -46
 	base_pixel_x = -46
 
+	footstep_sounds = list(
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_1.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_2.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_3.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_4.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_5.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/brute_step_6.ogg'
+	)
 
 	mob_size = MOB_SIZE_HUGE
 	plane = MASSIVE_OBJ_PLANE
@@ -572,6 +602,15 @@
 	base_pixel_x = -112
 	pixel_y = -16
 	base_pixel_y = -16
+
+	footstep_sounds = list(
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_1.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_2.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_3.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_4.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_5.ogg',
+		'fenysha_events/sounds/mobs/footsteps/dsnecro/tripod_footstep_6.ogg'
+	)
 
 	mob_size = MOB_SIZE_HUGE
 	plane = MASSIVE_OBJ_PLANE
