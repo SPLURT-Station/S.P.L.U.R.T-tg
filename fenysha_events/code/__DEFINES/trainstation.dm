@@ -72,6 +72,47 @@
 #define KHARA_POWER_STRONG 2
 #define KHARA_POWER_VERY_STRONG 3
 
+#define GROUP_WEIGHTED_SPAWNLIST "spawnlist"
+#define GROUP_SPAWN_CHANCE "spawnchance"
+#define GROUP_SPAWN_RANGE "spawnrange"
+
+#define SPAWNER_GROUP_CENTER "spawners_center"
+#define SPAWNER_GROUP_NEAR_RAILS "spawners_nearrails"
+#define SPAWNER_GROUP_FOREIGN "spawners_foreign"
+#define SPAWNER_GROUP_BACKDROP "spawners_backdrop"
+
+// It's pretty shitty, but it's works
+// it's more then enough groups for any suitable cases, probably
+#define TRANSITION_GROUP_1  "group_1"
+#define TRANSITION_GROUP_2  "group_2"
+#define TRANSITION_GROUP_3  "group_3"
+#define TRANSITION_GROUP_4  "group_4"
+#define TRANSITION_GROUP_5  "group_5"
+#define TRANSITION_GROUP_6  "group_6"
+#define TRANSITION_GROUP_7  "group_7"
+#define TRANSITION_GROUP_8  "group_8"
+#define TRANSITION_GROUP_9  "group_9"
+#define TRANSITION_GROUP_10 "group_10"
+#define TRANSITION_GROUP_11 "group_11"
+#define TRANSITION_GROUP_12 "group_12"
+#define TRANSITION_GROUP_13 "group_13"
+#define TRANSITION_GROUP_14 "group_14"
+#define TRANSITION_GROUP_15 "group_15"
+#define TRANSITION_GROUP_16 "group_16"
+#define TRANSITION_GROUP_17 "group_17"
+#define TRANSITION_GROUP_18 "group_18"
+#define TRANSITION_GROUP_19 "group_19"
+
+#define TRANSITION_TOP_SIDE "train_top"
+#define TRANSITION_BOTTOM_SIDE "train_bottom"
+#define TRANSITION_BOTH "both"
+
+#define MOVING_TURF_ICON "turf_icon"
+#define MOVING_TURF_ICON_STATE "turf_icon_state"
+#define MOVING_TURF_NAME = "turf_name"
+#define MOVING_TURF_DESC = "turf_desc"
+#define SET_TURF_DENSITY "set_turf_density"
+#define SET_TURF_OPACITY "set_turf_opacity"
 
 /proc/find_nearest_ally(atom/source, faction, range = 12)
 	var/closest

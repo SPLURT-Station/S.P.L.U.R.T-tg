@@ -2,23 +2,11 @@
 "a" = (
 /turf/open/moving/snow,
 /area/trainstation/outdoor/rails)
-"e" = (
-/obj/effect/landmark/trainstation/object_spawner/very_low_chance,
-/turf/open/moving/snow,
-/area/trainstation/outdoor/rails)
 "m" = (
 /turf/open/moving/snow/fake/dense,
 /area/trainstation/outdoor/rails)
 "U" = (
 /turf/closed/indestructible/train_border,
-/area/trainstation/outdoor/rails)
-"V" = (
-/obj/effect/landmark/trainstation/object_spawner,
-/turf/open/moving/snow,
-/area/trainstation/outdoor/rails)
-"W" = (
-/obj/effect/landmark/trainstation/object_spawner/low_chance,
-/turf/open/moving/snow,
 /area/trainstation/outdoor/rails)
 
 (1,1,1) = {"
@@ -6840,14 +6828,14 @@ m
 a
 a
 a
-W
 a
-e
 a
-e
 a
-e
-W
+a
+a
+a
+a
+a
 a
 a
 a
@@ -6893,16 +6881,16 @@ m
 m
 a
 a
-V
 a
-W
 a
-V
 a
-V
 a
-W
-V
+a
+a
+a
+a
+a
+a
 a
 a
 "}

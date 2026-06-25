@@ -46,8 +46,14 @@ SUBSYSTEM_DEF(train_controller)
 
 	/// List of station control terminals
 	var/list/station_terminals
+
+
 	/// The currently selected theme for objects/effects while the train is moving
 	var/datum/train_object_spawner_theme/selected_theme = null
+	/// Current transition theme, for auto_icon moving turfs
+	var/datum/moving_turf_transition/transition_theme = null
+
+
 	/// Reference to the train engine (turbine core)
 	var/obj/machinery/power/train_turbine/core_rotor/train_engine = null
 	/// Flag: a station is currently being loaded or unloaded

@@ -9,11 +9,16 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /datum/train_object_spawner_theme
 	var/list/weighted_spawnlist
+
+	var/general_spawn_chance = 50
 	var/min_delay = 1 SECONDS
 	var/max_delay = 3 SECONDS
 	var/accuracy_min = 1
 	var/accuracy_max = 1
 	var/allow_selection = TRUE
+
+	var/options = list()
+
 
 /datum/train_object_spawner_theme/New()
 	. = ..()
@@ -29,13 +34,26 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 
 /datum/train_object_spawner_theme/forest
-	weighted_spawnlist = list(
-		/obj/structure/flora/tree/pine/style_random = 60,
-		/obj/structure/flora/bush/snow/style_random = 20,
-		/obj/structure/flora/grass/both/style_random = 20,
-	)
-	accuracy_max = 3
 	max_delay = 4 SECONDS
+	options = list(
+		SPAWNER_GROUP_NEAR_RAILS = list(
+			GROUP_SPAWN_CHANCE = 80,
+			GROUP_SPAWN_RANGE = 1,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/flora/tree/pine/style_random = 80,
+				/obj/structure/flora/tree/dead/style_random = 20,
+			)
+		),
+		SPAWNER_GROUP_CENTER = list(
+			GROUP_SPAWN_CHANCE = 50,
+			GROUP_SPAWN_RANGE = 3,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/flora/bush/snow/style_random = 20,
+				/obj/structure/flora/grass/both/style_random = 20,
+			)
+		)
+	)
+
 
 /datum/train_object_spawner_theme/war
 	weighted_spawnlist = list(
@@ -67,9 +85,14 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 /obj/effect/landmark/trainstation/object_spawner
 	name = "Object spawner"
 
-	var/spawn_chance = 100
+	var/group = NONE
+	VAR_PRIVATE/spawn_chance = 100
+	VAR_PRIVATE/spawn_range = 0 //0 means on the same tile
+	VAR_PRIVATE/spawn_list
+
 	VAR_PRIVATE/datum/train_object_spawner_theme/theme
 	VAR_PRIVATE/spawning = FALSE
+
 	COOLDOWN_DECLARE(spawn_cd)
 
 
@@ -88,6 +111,14 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /obj/effect/landmark/trainstation/object_spawner/proc/set_theme(datum/train_object_spawner_theme/new_theme)
 	theme = new_theme
+	var/list/group_options = new_theme.options[group]
+	if(!group_options || !islist(group_options))
+		return
+
+	spawn_chance = group_options[GROUP_SPAWN_CHANCE] || new_theme.general_spawn_chance
+	spawn_list = group_options[GROUP_WEIGHTED_SPAWNLIST] || null
+	spawn_range = group_options[GROUP_SPAWN_RANGE] || 0
+
 
 /obj/effect/landmark/trainstation/object_spawner/proc/on_train_begin_moving()
 	SIGNAL_HANDLER
@@ -108,11 +139,11 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	INVOKE_ASYNC(src, PROC_REF(attempt_spawn))
 
 /obj/effect/landmark/trainstation/object_spawner/proc/attempt_spawn()
-	if(!length(theme.weighted_spawnlist))
+	if(!length(spawn_list))
 		return
 	spawning = TRUE
 	var/turf/target_turf = get_turf(src)
-	var/accuracy = rand(theme.accuracy_min, theme.accuracy_max)
+	var/accuracy = rand(0, spawn_range)
 	if(accuracy > 0)
 		for(var/turf/T as anything in shuffle(RANGE_TURFS(accuracy, src)))
 			if(!can_see(src, T, accuracy))
@@ -120,7 +151,8 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 			if(isopenturf(T) || !T.density || T.type == target_turf.type)
 				target_turf = T
 				break
-	var/selected = pick_weight(theme.weighted_spawnlist)
+	var/selected = pick_weight(spawn_list)
+
 	var/atom/movable/new_obj = POOL_TAKE(selected, src)
 	new_obj.forceMove(src)
 	if(new_obj)
@@ -128,8 +160,15 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 			new_obj.Move(target_turf, update_dir = FALSE)
 	spawning = FALSE
 
-/obj/effect/landmark/trainstation/object_spawner/low_chance
-	spawn_chance = 50
+/obj/effect/landmark/trainstation/object_spawner/backdrop
+	group = SPAWNER_GROUP_BACKDROP
 
-/obj/effect/landmark/trainstation/object_spawner/very_low_chance
-	spawn_chance = 20
+/obj/effect/landmark/trainstation/object_spawner/center
+	group = SPAWNER_GROUP_CENTER
+
+/obj/effect/landmark/trainstation/object_spawner/near_rails
+	group = SPAWNER_GROUP_NEAR_RAILS
+
+/obj/effect/landmark/trainstation/object_spawner/foreign
+	group = SPAWNER_GROUP_FOREIGN
+
