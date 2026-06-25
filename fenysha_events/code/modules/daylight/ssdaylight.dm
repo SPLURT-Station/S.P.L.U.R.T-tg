@@ -14,8 +14,6 @@
 	var/daylight = FALSE
 	var/has_virtual_lighting = FALSE
 	/// If TRUE, the fullscreen daylight wash is hidden for viewers standing in this area (i.e. it's indoors).
-	/// Set this on indoor area typepaths to keep sunlight outside.
-	var/blocks_sunlight = FALSE
 
 /area/Initialize(mapload)
 	. = ..()
@@ -511,7 +509,7 @@ SUBSYSTEM_DEF(daylight)
 	RegisterSignal(mymob, COMSIG_ENTER_AREA, PROC_REF(on_enter_area), override = TRUE)
 	// Apply the current indoor/outdoor state instantly on first show so it doesn't flash before settling.
 	var/area/current_area = get_area(mymob)
-	backdrop.sunlit = !current_area?.blocks_sunlight
+	backdrop.sunlit = current_area?.daylight
 	if(SSdaylight)
 		backdrop.apply_daylight_state(SSdaylight.current_intensity, SSdaylight.current_color, 0)
 
@@ -519,7 +517,7 @@ SUBSYSTEM_DEF(daylight)
 	SIGNAL_HANDLER
 	var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/backdrop = source.screens?["daylight_overlay"]
 	if(backdrop)
-		backdrop.set_sunlit(!new_area?.blocks_sunlight)
+		backdrop.set_sunlit(new_area?.daylight)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting_daylight/hide_from(mob/oldmob)
 	. = ..()

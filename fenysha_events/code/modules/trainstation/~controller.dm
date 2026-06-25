@@ -201,8 +201,6 @@ SUBSYSTEM_DEF(train_controller)
 /datum/controller/subsystem/train_controller/proc/load_map()
 	load_train()
 	load_startpoint()
-	for(var/obj/machinery/light/light in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/light))
-		light.update()
 
 /datum/controller/subsystem/train_controller/proc/load_train()
 	var/datum/map_template/train/train_template = new()
@@ -229,7 +227,18 @@ SUBSYSTEM_DEF(train_controller)
 /datum/controller/subsystem/train_controller/proc/on_round_start()
 	SIGNAL_HANDLER
 
+	INVOKE_ASYNC(src, PROC_REF(refresh_train_lights))
 	addtimer(CALLBACK(src, PROC_REF(show_current_station_logo)), 15 SECONDS)
+
+/datum/controller/subsystem/train_controller/proc/refresh_train_lights()
+	for(var/obj/machinery/light/light as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/light))
+		if(!light.light)
+			continue
+		var/range = light.light_range
+		light.set_light(0)
+		light.set_light(range)
+		CHECK_TICK
+
 /**
  * Working with stations
  */
