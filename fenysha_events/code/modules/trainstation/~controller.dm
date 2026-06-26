@@ -85,9 +85,11 @@ SUBSYSTEM_DEF(train_controller)
 	return moving
 
 /datum/controller/subsystem/train_controller/proc/allow_spawning()
+	if(loading)
+		return FALSE
 	if(loaded_station?.station_flags & TRAINSTATION_NO_SPAWNING)
 		return FALSE
-	if(transition_theme.transition)
+	if(transition_theme && transition_theme.transition)
 		return FALSE
 
 	return TRUE
@@ -282,7 +284,9 @@ SUBSYSTEM_DEF(train_controller)
 	var/list/screens = null
 	if(hide_for_players)
 		for(var/mob/living/L in GLOB.alive_player_list)
-			L.overlay_fullscreen("station_loading", /atom/movable/screen/fullscreen/flash/black/station_loading)
+			var/atom/movable/screen/fullscreen/flash/black/station_loading/LS = L.overlay_fullscreen("station_loading", /atom/movable/screen/fullscreen/flash/black/station_loading)
+
+			LS.apply_to(L)
 			ADD_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
 			LAZYADD(screens, L)
 	if(loaded_station)
@@ -296,9 +300,10 @@ SUBSYSTEM_DEF(train_controller)
 	if(screens && islist(screens) && length(screens))
 		for(var/mob/living/L in screens)
 			REMOVE_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
-			L.clear_fullscreen("station_loading", animated = 1 SECONDS)
+			L.clear_fullscreen("station_loading")
 
 	if(!result)
+		loading = FALSE
 		return
 
 	if(stop_moving)
@@ -350,9 +355,16 @@ SUBSYSTEM_DEF(train_controller)
 	var/datum/moving_turf_transition/transition = null
 
 	if(ispath(type_or_instance, /datum/moving_turf_transition))
+		if(transition_theme && (type_or_instance == transition_theme.type))
+			return
 		transition = new type_or_instance()
 	else if(istype(type_or_instance, /datum/moving_turf_transition))
 		transition = type_or_instance
+		if(transition_theme && (transition == transition_theme))
+			return // Why would it happen?
+		else if(transition_theme && (transition.type == transition_theme.type))
+			qdel(transition)
+			return //We already on it
 
 	if(!transition)
 		CRASH("Train controller try to change current transition with [type_or_instance] use instance or type instead!")
@@ -450,7 +462,8 @@ SUBSYSTEM_DEF(train_controller)
 			next_transition_time = world.time + last_departed_station.exit_transition_time
 		else
 			next_transition_time = INFINITY
-	else
+
+	if(!transition_theme)
 		change_transition(DEFAULT_TRANSITION, TRUE)
 		set_movement_theme(pick_theme())
 		next_transition_time = INFINITY
@@ -484,6 +497,12 @@ SUBSYSTEM_DEF(train_controller)
 	if((!train_engine || !train_engine.is_active()) && !no_engine_mode)
 		stop_moving()
 		return
+
+	if(next_transition_time && ((world.time - next_transition_time) >= 0))
+		change_transition(DEFAULT_TRANSITION)
+
+	if(planned_to_load && planned_to_load.enter_transition && (time_to_next_station <= planned_to_load.enter_transition_time))
+		change_transition(planned_to_load.enter_transition)
 
 	if(moving && planned_to_load && time_to_next_station >= 0)
 		time_to_next_station -= wait
@@ -581,6 +600,10 @@ SUBSYSTEM_DEF(train_controller)
 			if(!station_type)
 				return
 
+			var/confirm = tgui_alert(usr, "Are you sure want to load station [raw_id]?", "Station loading", list("Yes", "Nevermind"))
+			if(confirm != "Yes")
+				return
+
 			INVOKE_ASYNC(src, PROC_REF(load_station), station_type)
 			return TRUE
 		if("unload_station")
@@ -639,6 +662,9 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 	var/text_phrase = "Loading"
 	var/list/loading_phrases = list(
 		"Installing railways",
+		"Hugging tesharies",
+		"Fixing lights",
+		"Feeding coders",
 		"Placing turfs",
 		"Cleaning khara",
 		"Subscrubing to signals",
@@ -654,17 +680,20 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 	var/atom/movable/screen/text/load_phrases
 	var/datum/hud/owner_hud
 
-/atom/movable/screen/fullscreen/flash/black/station_loading/Initialize(mapload, datum/hud/hud_owner)
-	. = ..()
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/apply_to(mob/living)
+	load_phrases = new(src)
 
+	owner_hud = living.hud_used
+	owner_hud.always_visible_inventory += load_phrases
+	owner_hud.hud_version = HUD_STYLE_NOHUD
+	owner_hud.show_hud(owner_hud.hud_version)
 
-	load_phrases = new()
-	owner_hud = hud_owner
-	hud_owner.mymob.client?.screen += load_phrases
 	var/icon_size = world.icon_size
 
 	load_phrases.maptext_height = icon_size * 6
 	load_phrases.maptext_width = icon_size * 24
+	load_phrases.maptext_x = 380
+	load_phrases.maptext_y = 100
 
 	last_phrase_change = world.time
 	phrase_index = rand(1, length(loading_phrases))
@@ -672,13 +701,15 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 
 	update_loading_text(TRUE)
 
-	timer_id = addtimer(CALLBACK(src, PROC_REF(update_loading_text), FALSE), update_interval, TIMER_LOOP)
-
 /atom/movable/screen/fullscreen/flash/black/station_loading/Destroy()
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
-	owner_hud.mymob.client?.screen -= load_phrases
+
+	owner_hud.always_visible_inventory -= load_phrases
+	owner_hud.hud_version = HUD_STYLE_STANDARD
+	owner_hud.show_hud(owner_hud.hud_version)
+
 	QDEL_NULL(load_phrases)
 	. = ..()
 
@@ -700,17 +731,8 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 	for(var/i = 1, i <= dot_count, i++)
 		dots += "."
 
-	load_phrases.maptext = {"<div style='
-		width:100%;
-		text-align:center;
-		font-family:\"Pixellari\";
-		font-size:16pt;
-		color:#FFFFFF;
-		-dm-text-outline: 1px black;
-		line-height:1.25;
-	'>
-		[text_phrase][dots]<br>
-	</div>"}
+	load_phrases.maptext = {"<div style="font:'Small Fonts'">[text_phrase][dots]</div>"}
+	timer_id = addtimer(CALLBACK(src, PROC_REF(update_loading_text), FALSE), update_interval, TIMER_STOPPABLE)
 
 /datum/looping_sound/global_sound/train_sound_loop
 	sounds_to_play = list(

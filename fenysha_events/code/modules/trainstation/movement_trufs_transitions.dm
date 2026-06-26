@@ -1,5 +1,5 @@
 /datum/moving_turf_transition
-	var/transition_speed = 3
+	var/transition_speed = 10
 
 	/// list(
 	///     GROUP_ID = list(
@@ -92,7 +92,7 @@
 
 
 /datum/moving_turf_transition/proc/process_instant()
-	if(!grouped_turfs)
+	if(!grouped_turfs || !length(grouped_turfs))
 		prepare_groups()
 	transition = TRUE
 	for(var/group_id in grouped_turfs)
@@ -138,7 +138,7 @@
 	for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
 		if(T.x != current_x)
 			continue
-		T.color = null
+
 		var/list/options = general_options
 
 		switch(affected_sides)
@@ -158,6 +158,7 @@
 
 
 /datum/moving_turf_transition/proc/apply_to_turf(turf/open/moving/auto_icon/T, list/options)
+	T.color = null
 	T.change_me(
 		options[MOVING_TURF_ICON],
 		options[MOVING_TURF_ICON_STATE]
@@ -181,6 +182,8 @@
 
 /turf/open/moving/auto_icon/Initialize(mapload)
 	. = ..()
+	if(SStrain_controller.loading)
+		return
 
 	var/datum/moving_turf_transition/transition = SStrain_controller.transition_theme
 	if(!transition || !transition_group)

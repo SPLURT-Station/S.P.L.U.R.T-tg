@@ -503,5 +503,5 @@ GLOBAL_VAR(main_morph_engine)
 	<B>Additional</B><BR>\
 	- When activated, all living beings in the zone of effect may suffer slight malaise.<BR>\
 	- If the panel is open - finish the configuration or calibration first.<BR>\
-	- There is one main engine for the entire station.<BR>\
+	- There is one main engine for the entire train.<BR>\
 	Good luck, engineer! Don't let the Khara break through."
