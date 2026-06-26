@@ -83,6 +83,9 @@
 
 // It's pretty shitty, but it's works
 // it's more then enough groups for any suitable cases, probably
+
+// Real turfs, players able to move on them
+
 #define TRANSITION_GROUP_1  "group_1"
 #define TRANSITION_GROUP_2  "group_2"
 #define TRANSITION_GROUP_3  "group_3"
@@ -93,14 +96,23 @@
 #define TRANSITION_GROUP_8  "group_8"
 #define TRANSITION_GROUP_9  "group_9"
 #define TRANSITION_GROUP_10 "group_10"
-#define TRANSITION_GROUP_11 "group_11"
-#define TRANSITION_GROUP_12 "group_12"
-#define TRANSITION_GROUP_13 "group_13"
-#define TRANSITION_GROUP_14 "group_14"
-#define TRANSITION_GROUP_15 "group_15"
-#define TRANSITION_GROUP_16 "group_16"
-#define TRANSITION_GROUP_17 "group_17"
+#define TRANSITION_GROUP_11 "group_11" // 2 tiles
+
+// Decorative turfs, unable to move on them
+// Doesn't actually moves, fake
+
+#define TRANSITION_GROUP_12 "group_12" // 2 tiles
+#define TRANSITION_GROUP_13 "group_13" // 2 tiles
+#define TRANSITION_GROUP_14 "group_14" // 2 tiles
+#define TRANSITION_GROUP_15 "group_15" // 2 tiles
+#define TRANSITION_GROUP_16 "group_16" // 2 tiles
+#define TRANSITION_GROUP_17 "group_17" // 2 tiles
+
+// Border of the movement parts
+
 #define TRANSITION_GROUP_18 "group_18"
+
+// Not used currently
 #define TRANSITION_GROUP_19 "group_19"
 
 #define TRANSITION_TOP_SIDE "train_top"
@@ -109,8 +121,8 @@
 
 #define MOVING_TURF_ICON "turf_icon"
 #define MOVING_TURF_ICON_STATE "turf_icon_state"
-#define MOVING_TURF_NAME = "turf_name"
-#define MOVING_TURF_DESC = "turf_desc"
+#define MOVING_TURF_NAME "turf_name"
+#define MOVING_TURF_DESC "turf_desc"
 #define SET_TURF_DENSITY "set_turf_density"
 #define SET_TURF_OPACITY "set_turf_opacity"
 

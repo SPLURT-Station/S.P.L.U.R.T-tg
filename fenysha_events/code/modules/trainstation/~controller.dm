@@ -1,3 +1,5 @@
+#define DEFAULT_TRANSITION (/datum/moving_turf_transition/plain_snow)
+
 /datum/map_config
 	// Whether this map is a train map
 	var/trainstation = FALSE
@@ -10,6 +12,7 @@ SUBSYSTEM_DEF(train_controller)
 		/datum/controller/subsystem/mapping,
 		/datum/controller/subsystem/daylight,
 	)
+
 	/// The global map along which the train moves
 	VAR_FINAL/datum/train_global_map/global_map = null
 	/// List of all known and loaded stations
@@ -47,12 +50,12 @@ SUBSYSTEM_DEF(train_controller)
 	/// List of station control terminals
 	var/list/station_terminals
 
-
+	/// How soon we want to change transition or reset it
+	var/next_transition_time = 0
 	/// The currently selected theme for objects/effects while the train is moving
 	var/datum/train_object_spawner_theme/selected_theme = null
 	/// Current transition theme, for auto_icon moving turfs
 	var/datum/moving_turf_transition/transition_theme = null
-
 
 	/// Reference to the train engine (turbine core)
 	var/obj/machinery/power/train_turbine/core_rotor/train_engine = null
@@ -84,6 +87,9 @@ SUBSYSTEM_DEF(train_controller)
 /datum/controller/subsystem/train_controller/proc/allow_spawning()
 	if(loaded_station?.station_flags & TRAINSTATION_NO_SPAWNING)
 		return FALSE
+	if(transition_theme.transition)
+		return FALSE
+
 	return TRUE
 
 /datum/controller/subsystem/train_controller/proc/check_trainstation()
@@ -318,6 +324,7 @@ SUBSYSTEM_DEF(train_controller)
 			SEND_SOUND(player, 'fenysha_events/sounds/effects/station_logo.ogg')
 		new /atom/movable/screen/station_logo(null, null, station.name, station.creator, player.client)
 
+
 /datum/controller/subsystem/train_controller/proc/set_movement_theme(datum/train_object_spawner_theme/new_theme)
 	var/datum/train_object_spawner_theme/selected = null
 	if(ispath(new_theme))
@@ -337,6 +344,27 @@ SUBSYSTEM_DEF(train_controller)
 
 	for(var/obj/effect/landmark/trainstation/object_spawner/spawner in GLOB.train_object_spawners)
 		spawner.set_theme(selected)
+
+
+/datum/controller/subsystem/train_controller/proc/change_transition(type_or_instance, instant = FALSE)
+	var/datum/moving_turf_transition/transition = null
+
+	if(ispath(type_or_instance, /datum/moving_turf_transition))
+		transition = new type_or_instance()
+	else if(istype(type_or_instance, /datum/moving_turf_transition))
+		transition = type_or_instance
+
+	if(!transition)
+		CRASH("Train controller try to change current transition with [type_or_instance] use instance or type instead!")
+
+	transition_theme = transition
+	if(!instant)
+		transition.start_transition()
+	else
+		transition.process_instant()
+
+/datum/controller/subsystem/train_controller/proc/reset_transition()
+	change_transition(DEFAULT_TRANSITION)
 
 /**
  * Movement control
@@ -411,11 +439,22 @@ SUBSYSTEM_DEF(train_controller)
 		time_to_next_station = time_to_next
 		stations_visited += 1
 
-	set_movement_theme(pick_theme())
 	moving = TRUE
 
 	if(unload_station && !istype(loaded_station, /datum/train_station/train_backstage))
 		load_station(/datum/train_station/train_backstage, FALSE, TRUE, FALSE)
+
+	if(last_departed_station && last_departed_station.exit_transition)
+		change_transition(last_departed_station.exit_transition, TRUE)
+		if(last_departed_station.exit_transition_time > 0)
+			next_transition_time = world.time + last_departed_station.exit_transition_time
+		else
+			next_transition_time = INFINITY
+	else
+		change_transition(DEFAULT_TRANSITION, TRUE)
+		set_movement_theme(pick_theme())
+		next_transition_time = INFINITY
+
 
 	SSmoving_turfs.on_train_start()
 	soundloop.start()

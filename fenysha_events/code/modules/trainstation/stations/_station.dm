@@ -40,6 +40,17 @@
 		/datum/train_station/near_station/static_default,
 		/datum/train_station/near_station/static_mountaints,
 	)
+
+	/// What transition we want to set on leaving this station
+	var/exit_transition
+	/// How long it takes to end exit transition, -1 - means it stay until next transition change
+	var/exit_transition_time = -1
+
+	/// What transition we want to use before entering this station
+	var/enter_transition
+	/// How long before arrival at the station will set enter_transition
+	var/enter_transition_time = 60 SECONDS
+
 	/// Possible next stations. Empty by default and will be filled on load, but can be set in advance
 	var/list/possible_next = list()
 	// Whether this station blocks the train's movement, will be set automatically if the station has the TRAINSTATION_BLOCKING flag

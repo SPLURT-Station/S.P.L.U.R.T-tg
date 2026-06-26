@@ -206,9 +206,7 @@ def auto_mode():
         raise ValueError("There are no PNG files in the 'input' folder!")
 
     variants = [
-        ("normal", 2, 1),
-        ("slow", 1, 2),
-        ("very_slow", 1, 4),
+        ("moving", 2, 0.1)
     ]
 
     state_data = []

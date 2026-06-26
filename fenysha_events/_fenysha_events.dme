@@ -6,6 +6,7 @@
 #include "code\__DEFINES\signals.dm"
 #include "code\__DEFINES\spawning.dm"
 #include "code\__DEFINES\trainstation.dm"
+#include "code\__DEFINES\moving_turfs.dm"
 #include "code\__DEFINES\~triggers.dm"
 #include "code\modules\aesthetic_shuttles\decals.dm"
 #include "code\modules\aesthetic_shuttles\turfs.dm"
@@ -136,3 +137,12 @@
 #include "code\modules\triggers\trigger_types\time.dm"
 #include "code\modules\weather\SSweather_sounds.dm"
 /// MOD_INCLUDE_END
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE

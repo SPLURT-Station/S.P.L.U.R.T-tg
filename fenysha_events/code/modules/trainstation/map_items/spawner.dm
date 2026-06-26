@@ -18,13 +18,15 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	var/allow_selection = TRUE
 
 	var/options = list()
-
+	var/spawn_side = TRANSITION_BOTH
 
 /datum/train_object_spawner_theme/New()
 	. = ..()
+	/*
 	if(weighted_spawnlist && islist(weighted_spawnlist))
 		for(var/object_type in weighted_spawnlist)
 			POOL_REGISTER(object_type)
+	*/
 
 /datum/train_object_spawner_theme/proc/on_selected()
 	return
@@ -52,6 +54,20 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 				/obj/structure/flora/grass/both/style_random = 20,
 			)
 		)
+	)
+
+
+/datum/train_object_spawner_theme/bridge
+	max_delay = 3 SECONDS
+	min_delay = 3 SECONDS
+	options = list(
+		SPAWNER_GROUP_NEAR_RAILS = list(
+			GROUP_SPAWN_CHANCE = 100,
+			GROUP_SPAWN_RANGE = 0,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/prop/city/street_on = 100,
+			)
+		),
 	)
 
 
@@ -98,10 +114,11 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /obj/effect/landmark/trainstation/object_spawner/Initialize(mapload)
 	. = ..()
+
 	RegisterSignal(SStrain_controller, COMSIG_TRAIN_BEGIN_MOVING, PROC_REF(on_train_begin_moving))
 	RegisterSignal(SStrain_controller, COMSIG_TRAIN_STOP_MOVING, PROC_REF(on_train_stop_moving))
 	GLOB.train_object_spawners += src
-	theme = SStrain_controller.selected_theme
+	set_theme(SStrain_controller.selected_theme)
 	if(SStrain_controller.is_moving())
 		START_PROCESSING(SSobj, src)
 
@@ -111,8 +128,26 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /obj/effect/landmark/trainstation/object_spawner/proc/set_theme(datum/train_object_spawner_theme/new_theme)
 	theme = new_theme
-	var/list/group_options = new_theme.options[group]
+
+	var/list/group_options
+
+	if(new_theme.options[TRANSITION_TOP_SIDE] || new_theme.options[TRANSITION_BOTTOM_SIDE])
+		if(theme.spawn_side == TRANSITION_TOP_SIDE && is_top_side())
+			group_options = new_theme.options[TRANSITION_TOP_SIDE][group]
+		else if(theme.spawn_side == TRANSITION_BOTTOM_SIDE && !is_top_side())
+			group_options = new_theme.options[TRANSITION_BOTTOM_SIDE][group]
+		else if(theme.spawn_side == TRANSITION_BOTH)
+			if(is_top_side() && new_theme.options[TRANSITION_TOP_SIDE])
+				group_options = new_theme.options[TRANSITION_TOP_SIDE][group]
+			else if(new_theme.options[TRANSITION_BOTTOM_SIDE])
+				group_options = new_theme.options[TRANSITION_BOTTOM_SIDE][group]
+	else
+		group_options = new_theme.options[group]
+
 	if(!group_options || !islist(group_options))
+		spawn_chance = 0
+		spawn_list = null
+		spawn_range = 0
 		return
 
 	spawn_chance = group_options[GROUP_SPAWN_CHANCE] || new_theme.general_spawn_chance
@@ -129,7 +164,7 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	STOP_PROCESSING(SSobj, src)
 
 /obj/effect/landmark/trainstation/object_spawner/process(seconds_per_tick)
-	if(spawning || !SStrain_controller.allow_spawning() || !theme)
+	if(spawning || !SStrain_controller.allow_spawning() || !theme || !spawn_chance)
 		return
 	if(spawn_chance < 100 && !ROUND_PROB(spawn_chance))
 		return
@@ -137,6 +172,13 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		return
 	COOLDOWN_START(src, spawn_cd, rand(theme.min_delay, theme.max_delay))
 	INVOKE_ASYNC(src, PROC_REF(attempt_spawn))
+
+/obj/effect/landmark/trainstation/object_spawner/proc/is_top_side()
+	var/static/obj/effect/landmark/trainstation/train_spawnpoint/SP
+	if(!SP)
+		SP = locate() in GLOB.landmarks_list
+
+	return x > SP.x
 
 /obj/effect/landmark/trainstation/object_spawner/proc/attempt_spawn()
 	if(!length(spawn_list))

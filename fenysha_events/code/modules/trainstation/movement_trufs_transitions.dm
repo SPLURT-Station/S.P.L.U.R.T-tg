@@ -1,5 +1,5 @@
 /datum/moving_turf_transition
-	var/transition_speed = 1
+	var/transition_speed = 3
 
 	/// list(
 	///     GROUP_ID = list(
@@ -27,6 +27,8 @@
 	/// Wich side of train would be affected by that group
 	var/affected_sides = TRANSITION_BOTH
 
+	var/transition = FALSE
+
 /datum/moving_turf_transition/proc/prepare_groups()
 	grouped_turfs = get_transition_turfs()
 
@@ -45,7 +47,7 @@
 	return result
 
 /datum/moving_turf_transition/proc/start_transition()
-	if(!grouped_turfs)
+	if(!grouped_turfs || !length(grouped_turfs))
 		prepare_groups()
 
 	for(var/group_id in grouped_turfs)
@@ -69,7 +71,12 @@
 	return turf_to_check.x > SP.x
 
 /datum/moving_turf_transition/proc/run_trough_trufs()
+	transition = TRUE
 	while(TRUE)
+		if(!SStrain_controller.is_moving())
+			stoplag()
+			continue
+
 		var/finished = TRUE
 
 		for(var/group_id in grouped_turfs)
@@ -80,13 +87,14 @@
 			break
 
 		sleep(1 SECONDS / transition_speed)
+	transition = FALSE
 	transition_ends()
 
 
 /datum/moving_turf_transition/proc/process_instant()
 	if(!grouped_turfs)
 		prepare_groups()
-
+	transition = TRUE
 	for(var/group_id in grouped_turfs)
 		var/list/general_options = transition_options[group_id]
 		var/list/top_options
@@ -111,6 +119,7 @@
 			apply_to_turf(T, options)
 
 	transition_ends()
+	transition = FALSE
 
 /datum/moving_turf_transition/proc/process_group(group_id)
 	var/current_x = current_columns[group_id]
@@ -129,7 +138,7 @@
 	for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
 		if(T.x != current_x)
 			continue
-
+		T.color = null
 		var/list/options = general_options
 
 		switch(affected_sides)
@@ -154,10 +163,14 @@
 		options[MOVING_TURF_ICON_STATE]
 	)
 
-	if(options[SET_TURF_DENSITY] != null)
+	if(options[MOVING_TURF_NAME])
+		T.name = options[MOVING_TURF_NAME]
+		T.desc = options[MOVING_TURF_DESC]
+
+	if(options[SET_TURF_DENSITY])
 		T.density = options[SET_TURF_DENSITY]
 
-	if(options[SET_TURF_OPACITY] != null)
+	if(options[SET_TURF_OPACITY])
 		T.opacity = options[SET_TURF_OPACITY]
 
 
@@ -171,6 +184,7 @@
 
 	var/datum/moving_turf_transition/transition = SStrain_controller.transition_theme
 	if(!transition || !transition_group)
+		reset_to_default()
 		return
 
 	var/list/options = transition.transition_options[transition_group]
@@ -185,7 +199,7 @@
 		transition.apply_to_turf(src, options)
 
 /turf/open/moving/auto_icon/proc/reset_to_default()
-	src.icon = icon
+	src.icon = initial(src.icon)
 	base_icon_state = "snow"
 
 	update_icon()
@@ -281,3 +295,51 @@
 /turf/open/moving/auto_icon/groups/group_19
 	transition_group = TRANSITION_GROUP_19
 	color = "#40E0D0"
+
+
+/datum/moving_turf_transition/plain_snow
+	transition_options = list(
+		TRANSITION_GROUP_1  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_2  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_3  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_4  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_5  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_6  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_7  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_8  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_9  = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_10 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_11 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_12 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_13 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_14 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_15 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_16 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_17 = TRANSITION_OPTION_SNOW,
+		TRANSITION_GROUP_18 = TRANSITION_OPTION_SNOW_BORDER
+	)
+
+
+/datum/moving_turf_transition/bridge
+
+	change_spawn_theme = /datum/train_object_spawner_theme/bridge
+	transition_options = list(
+		TRANSITION_GROUP_1  = TRANSITION_OPTION_BRIDGE,
+		TRANSITION_GROUP_2  = TRANSITION_OPTION_BRIDGE,
+		TRANSITION_GROUP_3  = TRANSITION_OPTION_BRIDGE,
+		TRANSITION_GROUP_4  = TRANSITION_OPTION_BRIDGE,
+		TRANSITION_GROUP_5  = TRANSITION_OPTION_BRIDGE_FENCE,
+		TRANSITION_GROUP_6  = TRANSITION_OPTION_WATER,
+		TRANSITION_GROUP_7  = TRANSITION_OPTION_WATER,
+		TRANSITION_GROUP_8  = TRANSITION_OPTION_WATER,
+		TRANSITION_GROUP_9  = TRANSITION_OPTION_WATER,
+		TRANSITION_GROUP_10 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_11 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_12 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_13 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_14 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_15 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_16 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_17 = TRANSITION_OPTION_WATER_DENSE,
+		TRANSITION_GROUP_18 = TRANSITION_OPTION_WATER_BORDER
+	)

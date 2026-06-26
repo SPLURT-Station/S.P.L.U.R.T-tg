@@ -32,6 +32,9 @@
 /turf/open/moving/Initialize(mapload)
 	. = ..()
 	SSmoving_turfs.register(src)
+	if(SStrain_controller.is_moving())
+		check_process(TRUE)
+	update_appearance()
 
 /turf/open/moving/Destroy()
 	SSmoving_turfs.unregister(src)
