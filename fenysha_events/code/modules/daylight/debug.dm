@@ -57,6 +57,43 @@ ADMIN_VERB(open_daylight_control_panel, R_ADMIN, "Open Daylight Control Panel", 
 	var/datum/daylight_control_panel/panel = new
 	panel.ui_interact(usr)
 
+// ================= Daylight debugging (temporary) =================
+// "Status Report" - confirms the daylight SOURCE exists + is registered on your screen, and how many daylight
+//   areas got their per-turf light overlays. If 0 areas are lit, run "Reapply Area Lighting". If the source isn't
+//   on your screen, run "Re-register Source".
+
+ADMIN_VERB(daylight_debug_report, R_ADMIN, "Daylight Debug: Status Report", "Print daylight diagnostics", ADMIN_CATEGORY_EVENTS)
+	var/list/lines = list()
+	lines += "Daylight areas registered: [length(SSdaylight.daylight_areas)]"
+	var/lit = 0
+	for(var/area/daylit_area as anything in SSdaylight.daylight_areas)
+		if(daylit_area.daylight_lit)
+			lit++
+	lines += "Areas with light overlay painted: [lit]"
+	var/obj/daylight_wash_source/source = SSdaylight.wash_source
+	if(source)
+		lines += "Daylight source: present (color [source.color], alpha [source.alpha], target [source.render_target])"
+		lines += "Source on your screen: [(usr.canon_client && (source in usr.canon_client.screen)) ? "YES" : "NO"]"
+	else
+		lines += "Daylight source: MISSING"
+	lines += "Anchor plane on your HUD: [usr.hud_used?.get_plane_master(RENDER_PLANE_DAYLIGHT) ? "YES" : "NO"]"
+	to_chat(usr, span_boldnotice("== Daylight debug ==\n[lines.Join("\n")]"))
+
+ADMIN_VERB(daylight_debug_reapply_lighting, R_ADMIN, "Daylight Debug: Reapply Area Lighting", "Re-add the daylight light overlay to all daylight areas", ADMIN_CATEGORY_EVENTS)
+	var/count = 0
+	for(var/area/daylit_area as anything in SSdaylight.daylight_areas)
+		daylit_area.clear_daylight_overlay()
+		daylit_area.apply_daylight_overlay()
+		count++
+	to_chat(usr, span_notice("Reapplied the daylight light overlay to [count] daylight area(s)."))
+
+ADMIN_VERB(daylight_debug_reregister_source, R_ADMIN, "Daylight Debug: Re-register Source", "Re-add the daylight source to your screen", ADMIN_CATEGORY_EVENTS)
+	if(!SSdaylight.wash_source)
+		to_chat(usr, span_warning("No daylight source exists yet."))
+		return
+	usr.hud_used?.register_reuse(SSdaylight.wash_source)
+	to_chat(usr, span_notice("Re-registered the daylight source onto your screen."))
+
 /datum/daylight_control_panel/ui_state(mob/user)
 	return ADMIN_STATE(R_ADMIN)
 
