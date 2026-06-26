@@ -135,19 +135,19 @@
 /obj/effect/landmark/start/security_officer,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor)
-"cU" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "el_test";
-	floor = 2
-	},
-/turf/open/misc/asphalt/no_border,
-/area/trainstation/outdoor)
 "cX" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/station)
+"cZ" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "el_test";
+	floor = 2
+	},
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor)
 "da" = (
 /turf/closed/wall/city/siding/style/style_2,
 /area/trainstation/indoors/station/controll)
@@ -306,6 +306,12 @@
 /obj/structure/fluff/bus/passable,
 /obj/effect/landmark/start/lawyer,
 /turf/open/floor/iron/dark,
+/area/trainstation/outdoor)
+"ge" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "el_test"
+	},
+/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor)
 "gf" = (
 /obj/effect/turf_decal/bot_white,
@@ -972,6 +978,17 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/outdoor)
+"pZ" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "el_test";
+	floor = 2
+	},
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "el_test";
+	floor = 2
+	},
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor)
 "qe" = (
 /obj/item/stack/cable_coil{
 	pixel_x = -3;
@@ -1022,12 +1039,6 @@
 	pixel_y = -14
 	},
 /turf/open/indestructible/plating,
-/area/trainstation/outdoor)
-"qy" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "el_test"
-	},
-/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor)
 "qB" = (
 /turf/open/floor/plating,
@@ -1196,13 +1207,6 @@
 	icon_state = "frontwallbottomrear"
 	},
 /turf/open/misc/asphalt,
-/area/trainstation/outdoor)
-"sX" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "el_test";
-	floor = 2
-	},
-/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor)
 "sZ" = (
 /turf/open/floor/iron/shuttle/exploration/doubleside,
@@ -1471,13 +1475,6 @@
 /obj/effect/turf_decal/siding/thinplating_new/light/corner,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor)
-"wr" = (
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "el_test";
-	floor = 2
-	},
-/turf/open/misc/asphalt/no_border,
-/area/trainstation/outdoor)
 "wA" = (
 /obj/structure/flora/rock/style_random,
 /turf/open/misc/asteroid/snow/indestructible,
@@ -1566,6 +1563,12 @@
 /obj/machinery/modular_computer/preset/civilian,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/station/controll)
+"yA" = (
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "el_test"
+	},
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor)
 "yO" = (
 /obj/effect/spawner/random/trash/grille_or_waste,
 /obj/effect/decal/cleanable/dirt,
@@ -1605,17 +1608,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/plating,
 /area/trainstation/indoors/station)
-"zn" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "el_test";
-	floor = 2
-	},
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "el_test";
-	floor = 2
-	},
-/turf/open/misc/asphalt/no_border,
-/area/trainstation/outdoor)
 "zt" = (
 /obj/structure/prop/general/barrel_wy,
 /turf/open/misc/asphalt/no_border,
@@ -2353,12 +2345,10 @@
 /obj/structure/fence/interlink,
 /turf/open/misc/asteroid/snow/indestructible,
 /area/trainstation/outdoor)
-"Mv" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "el_test"
-	},
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "el_test"
+"Mt" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "el_test";
+	floor = 2
 	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor)
@@ -2563,6 +2553,15 @@
 	name = "locked down stasis control terminal"
 	},
 /turf/open/indestructible/plating,
+/area/trainstation/outdoor)
+"Qb" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "el_test"
+	},
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "el_test"
+	},
+/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor)
 "Qm" = (
 /obj/effect/turf_decal/siding/dark{
@@ -2811,12 +2810,6 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station)
-"Ua" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "el_test"
-	},
-/turf/open/misc/asphalt/no_border,
-/area/trainstation/outdoor)
 "Uf" = (
 /turf/open/floor/iron,
 /area/trainstation/indoors/station)
@@ -2865,6 +2858,12 @@
 /obj/effect/spawner/random/structure/barricade,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station)
+"UU" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "el_test"
+	},
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor)
 "Vr" = (
 /obj/item/stack/cable_coil{
 	pixel_x = -3;
@@ -3018,12 +3017,6 @@
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/indestructible/train_platform/top,
 /area/trainstation/indoors/station)
-"Yb" = (
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "el_test"
-	},
-/turf/open/misc/asphalt/no_border,
-/area/trainstation/outdoor)
 "Yo" = (
 /obj/structure/window/reinforced/shuttle/survival_pod,
 /turf/open/floor/plating,
@@ -3116,6 +3109,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/station/controll)
+"ZQ" = (
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "el_test";
+	floor = 2
+	},
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor)
 "ZX" = (
 /obj/item/flashlight{
 	pixel_x = 1;
@@ -3413,7 +3413,7 @@ GI
 Cv
 Cv
 Cv
-Yb
+yA
 KD
 KD
 Wx
@@ -3453,8 +3453,8 @@ Az
 Az
 GI
 Cv
-Mv
-qy
+Qb
+UU
 Cv
 KD
 KD
@@ -3495,8 +3495,8 @@ Az
 Az
 GI
 Cv
-qy
-qy
+UU
+UU
 Cv
 KD
 KD
@@ -3537,8 +3537,8 @@ Az
 Az
 GI
 Cv
-Ua
-Ua
+ge
+ge
 Cv
 KD
 KD
@@ -3581,7 +3581,7 @@ GI
 Cv
 Cv
 Cv
-wr
+ZQ
 KD
 KD
 Wx
@@ -3621,8 +3621,8 @@ Az
 Az
 GI
 Cv
-zn
-cU
+pZ
+cZ
 Cv
 KD
 KD
@@ -3663,8 +3663,8 @@ Az
 Az
 GI
 Cv
-cU
-cU
+cZ
+cZ
 Cv
 KD
 KD
@@ -3705,8 +3705,8 @@ Az
 Az
 GI
 Cv
-sX
-sX
+Mt
+Mt
 Cv
 KD
 KD

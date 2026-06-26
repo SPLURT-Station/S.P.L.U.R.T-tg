@@ -3,6 +3,11 @@ GLOBAL_LIST_INIT(all_elevators, list())
 #define SOUND_ELEVATOR_MOVE 'fenysha_events/sounds/effects/elevator_sounds.ogg'
 
 
+/atom
+	var/can_elevate = TRUE
+
+
+
 /proc/get_or_create_elevator(id)
 	var/datum/elevator/E = GLOB.all_elevators[id]
 
@@ -33,6 +38,11 @@ GLOBAL_LIST_INIT(all_elevators, list())
 	var/list/all_buttons = list()
 	var/list/request_queue = list()
 
+	var/static/list/blacklisted_atoms = list(
+		/obj/effect/mapping_helpers/elevator_turf_marker,
+		/obj/machinery/button/elevator_control,
+		/obj/machinery/door/poddoor/story/elevator,
+	)
 
 /datum/elevator/proc/num_to_floor(num)
 	return "floor_[num]"
@@ -180,11 +190,31 @@ GLOBAL_LIST_INIT(all_elevators, list())
 	if(!old_turfs || !new_turfs)
 		return
 
-	for(var/turf/old_turf in old_turfs)
-		for(var/turf/new_turf in new_turfs)
-			if(old_turf && new_turf)
-				for(var/atom/movable/m in old_turf.contents)
-					m.forceMove(new_turf)
+	if(length(old_turfs) != length(new_turfs))
+		CRASH("Elevator [elevator_id]: floor [old_floor] and [new_floor] have different platform sizes!")
+
+	for(var/i = 1, i <= old_turfs.len, i++)
+		var/turf/source = old_turfs[i]
+		var/turf/destination = new_turfs[i]
+
+		if(!source || !destination)
+			continue
+
+		var/list/movables = source.contents.Copy()
+
+		for(var/atom/movable/M in movables)
+			if(!should_move_atom(M, source))
+				continue
+
+			M.forceMove(destination)
+
+/datum/elevator/proc/should_move_atom(atom/A, turf/source_turf)
+	if(!A.can_elevate || QDELETED(A))
+		return FALSE
+	for(var/T in blacklisted_atoms)
+		if(istype(A, T))
+			return FALSE
+	return TRUE
 
 /datum/elevator/proc/close_floor(floor)
 	var/floor_key = num_to_floor(floor)
@@ -288,6 +318,8 @@ GLOBAL_LIST_INIT(all_elevators, list())
 	var/elevator_id
 	var/datum/elevator/control
 
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	flags_1 = SUPERMATTER_IGNORES_1
 
 /obj/machinery/button/elevator_control/Initialize(mapload)
 	. = ..()
@@ -341,6 +373,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 		control.move_to_floor(available_floors[picked])
 		return TRUE
 	return TRUE
+
+/obj/machinery/button/elevator_control/screwdriver_act(mob/living/user, obj/item/tool)
+	return
+
+/obj/machinery/button/elevator_control/wrench_act(mob/living/user, obj/item/tool)
+	return
+
+/obj/machinery/button/elevator_control/emag_act(mob/user, obj/item/card/emag/emag_card)
+	return
 
 
 /obj/machinery/door/poddoor/story/elevator
