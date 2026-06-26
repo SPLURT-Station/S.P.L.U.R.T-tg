@@ -155,6 +155,7 @@
 	if(load_callback)
 		load_callback.Invoke()
 	after_load()
+	SSdaylight?.handle_loaded_turfs(docking_turfs)
 	return TRUE
 
 

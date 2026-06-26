@@ -1,28 +1,35 @@
-// The Sunlight wash deliberately lives on O_LIGHTING_VISUAL_PLANE: the overlay-lighting plane master
-// collects it and ADDS it (BLEND_ADD) into the lighting pipeline, which is how daylight injects colored
-// ambient light. This is NOT a plane collision - the backdrop is content on that plane, not a plane master.
-#define SUNLIGHTING_PLANE (LIGHTING_PLANE+1)
-// Host plane for the daylight render plate. It renders nothing itself (its only job is to spawn the wash
-// backdrop in show_to), so any free plane works - it just must not be a real plane master's number.
-// (Was 21, which collided with RENDER_PLANE_LIGHT_MASK and clobbered the light mask.)
-#define RENDER_PLANE_DAYLIGHT 18
+// One shared, smoothly-animated "daylight source" object publishes its colour+alpha as a render target. Every
+// turf in a daylight area carries a cheap overlay that render_source-mirrors that target onto the lighting plane
+// (BLEND_ADD). So the daylight light lives ON the turfs (world-space, spatially correct), driven by a single
+// animated object - smooth and cheap. This is the engine's starlight pattern (see /obj/starlight_appearance), and
+// it sidesteps masking entirely: a fullscreen wash can't be clipped by geometry, but per-turf overlays simply
+// aren't there indoors.
+#define DAYLIGHT_WASH_RENDER_TARGET "*DAYLIGHT_WASH"
 
-/// Trait source keeping daylight viewers area-sensitive, so we know when they cross indoors<->outdoors.
-#define DAYLIGHT_SUNLIGHT_TRAIT "daylight_sunlight"
+// Anchor plane: a plane master that draws nothing - its only job is to put the shared daylight source onto each
+// viewer's screen, so the source renders and publishes its render target per-client.
+#define RENDER_PLANE_DAYLIGHT 18
 
 /area
 	var/daylight = FALSE
 	var/has_virtual_lighting = FALSE
-	/// If TRUE, the fullscreen daylight wash is hidden for viewers standing in this area (i.e. it's indoors).
+	/// Whether we've added the daylight light overlay to this area's turfs (daylight areas only).
+	var/daylight_lit = FALSE
+	/// Indoor turfs (in other areas) we've feathered daylight onto -> the overlay used on them, for cleanup.
+	var/list/daylight_leaked
 
 /area/Initialize(mapload)
 	. = ..()
-	initialize_daylight()
+	INVOKE_ASYNC(src, PROC_REF(initialize_daylight), mapload)
 
 /area/Destroy()
 	. = ..()
-	remove_daylight()
+	INVOKE_ASYNC(src, PROC_REF(remove_daylight))
 
+
+/turf/AfterChange(flags, oldType)
+	. = ..()
+	INVOKE_ASYNC(SSdaylight, TYPE_PROC_REF(/datum/controller/subsystem/daylight, refresh_turf_daylight), src)
 
 /area/proc/clear_virtual_lighting()
 	if(!has_virtual_lighting)
@@ -48,15 +55,97 @@
 			for(var/turf/area_turf as anything in get_turfs_by_zlevel(area_zlevel))
 				area_turf.luminosity = intensity
 
-/area/proc/initialize_daylight()
+/area/proc/initialize_daylight(mapload = FALSE)
 	if(daylight)
 		SSdaylight.daylight_areas += src
 		SSdaylight.update_area(src)
+		// At roundstart, areas init before SSdaylight runs its central lighting pass, so defer to that. Anything
+		// loaded AFTER that pass (runtime map templates, code-spawned areas) lights itself immediately.
+		if(!mapload || SSdaylight.setup_complete)
+			apply_daylight_overlay()
 
 /area/proc/remove_daylight()
 	if(daylight)
 		SSdaylight.daylight_areas -= src
+	clear_daylight_overlay()
 	clear_virtual_lighting()
+
+/// Shared overlay that mirrors the single daylight source (via render_source) onto the lighting plane, additively.
+/// Because it's a render_source mirror, animating that one source updates the daylight on every turf at once.
+/// `strength` (0-255) scales it: 255 on full daylight turfs, less on the leak rings that feather into indoors.
+/// Cached per strength so add_overlay/cut_overlay always match.
+/proc/get_daylight_overlay_appearance(strength = 255)
+	var/static/list/cached = list()
+	var/cache_key = "[strength]"
+	. = cached[cache_key]
+	if(.)
+		return
+	var/mutable_appearance/light = new /mutable_appearance()
+	light.plane = LIGHTING_PLANE
+	light.layer = LIGHTING_PRIMARY_LAYER
+	light.blend_mode = BLEND_ADD
+	light.render_source = DAYLIGHT_WASH_RENDER_TARGET
+	light.alpha = strength
+	cached[cache_key] = light
+	return light
+
+/// Adds the daylight light overlay to every turf in this area, then feathers it a little into adjacent indoors.
+/area/proc/apply_daylight_overlay()
+	if(daylight_lit)
+		return
+	daylight_lit = TRUE
+	var/mutable_appearance/light = get_daylight_overlay_appearance()
+	var/list/own_turfs = list()
+	for(var/turf/area_turf in src)
+		area_turf.add_overlay(light)
+		own_turfs += area_turf
+		CHECK_TICK
+	leak_daylight(own_turfs)
+
+/// Feathers daylight a couple of tiles into adjacent indoor (non-daylight) turfs at decreasing strength, so the
+/// boundary is a soft transition rather than a hard cliff. Light stops at opaque tiles (walls / closed doors).
+/// Static: computed once at setup; it will not re-leak when doors later open or close.
+/area/proc/leak_daylight(list/source_turfs)
+	// Alpha per ring (ring 1 is nearest the daylight). Add entries / raise values for a wider or stronger leak.
+	var/static/list/leak_falloff = list(165, 120, 90, 45)
+	LAZYINITLIST(daylight_leaked)
+	var/list/visited = list()
+	for(var/turf/seed_turf as anything in source_turfs)
+		visited[seed_turf] = TRUE
+	var/list/frontier = source_turfs
+	for(var/ring in 1 to length(leak_falloff))
+		var/mutable_appearance/leak_light = get_daylight_overlay_appearance(leak_falloff[ring])
+		var/list/next_frontier = list()
+		for(var/turf/frontier_turf as anything in frontier)
+			if(frontier_turf.opacity) // light can't pass this tile (wall / closed door) - don't propagate past it
+				continue
+			for(var/cardinal_dir in GLOB.cardinals)
+				var/turf/neighbor = get_step(frontier_turf, cardinal_dir)
+				if(!neighbor || visited[neighbor])
+					continue
+				visited[neighbor] = TRUE
+				var/area/neighbor_area = neighbor.loc
+				if(neighbor_area?.daylight) // already a fully-lit daylight area, leave it alone
+					continue
+				neighbor.add_overlay(leak_light)
+				daylight_leaked[neighbor] = leak_light
+				next_frontier += neighbor
+		frontier = next_frontier
+		CHECK_TICK
+
+/// Removes the daylight light overlay (and any leaked feather) from this area's turfs.
+/area/proc/clear_daylight_overlay()
+	if(!daylight_lit)
+		return
+	daylight_lit = FALSE
+	var/mutable_appearance/light = get_daylight_overlay_appearance()
+	for(var/turf/area_turf in src)
+		area_turf.cut_overlay(light)
+		CHECK_TICK
+	for(var/turf/leaked_turf as anything in daylight_leaked)
+		leaked_turf.cut_overlay(daylight_leaked[leaked_turf])
+		CHECK_TICK
+	daylight_leaked = null
 
 
 /area/centcom/central_command_areas/admin/daylight
@@ -117,7 +206,11 @@ SUBSYSTEM_DEF(daylight)
 
 	var/static/list/daylight_areas = list()
 	var/static/list/obj/effect/light_emitter/daylight/all_emitters = list()
-	var/static/list/sunlighting_planes = list()
+	/// The one shared source object whose colour/alpha the per-turf daylight overlays mirror via render_source.
+	var/obj/daylight_wash_source/wash_source
+	/// TRUE once Initialize() has run its first lighting pass. Areas that loaded BEFORE this defer to that pass;
+	/// areas/turfs loaded AFTER it (runtime map templates) light themselves immediately.
+	var/setup_complete = FALSE
 
 	var/current_intensity = 1
 	var/current_color = "#ffffff"
@@ -202,7 +295,23 @@ SUBSYSTEM_DEF(daylight)
 	var/list/phase_state = get_phase_light_state()
 	current_intensity = phase_state["intensity"]
 	current_color = phase_state["color"]
+
+	// Create the shared daylight source (publishes the render target the per-turf overlays mirror) and seed it
+	// with the current state.
+	wash_source = new()
+	wash_source.color = current_color
+	wash_source.alpha = round(clamp(current_intensity, 0, 1) * 255, 1)
+	// Register it onto anyone who already has a HUD (built before now); future HUDs register via the anchor plate.
+	for(var/mob/viewer as anything in GLOB.player_list)
+		viewer.hud_used?.register_reuse(wash_source)
+
 	update_current(current_intensity, current_color)
+
+	// Light every daylight area now that the map is fully loaded.
+	for(var/area/daylit_area as anything in daylight_areas)
+		daylit_area.apply_daylight_overlay()
+		CHECK_TICK
+	setup_complete = TRUE
 
 	return SS_INIT_SUCCESS
 
@@ -210,6 +319,37 @@ SUBSYSTEM_DEF(daylight)
 	if(!istype(A) || QDELETED(A) || !A.daylight)
 		return
 	A.update_virtual_lighting(round(current_intensity * 255, 1))
+
+/// Lights newly-loaded daylight turfs. Call this after dropping a map template into the world (e.g. a train
+/// station) so the daylight system picks up the new turfs automatically - no manual passes needed.
+/datum/controller/subsystem/daylight/proc/handle_loaded_turfs(list/turfs)
+	if(!setup_complete || !length(turfs))
+		return
+	var/mutable_appearance/light = get_daylight_overlay_appearance()
+	for(var/turf/loaded_turf as anything in turfs)
+		var/area/loaded_area = loaded_turf.loc
+		if(!loaded_area?.daylight)
+			continue
+		if(!loaded_area.daylight_lit)
+			loaded_area.apply_daylight_overlay() // brand-new daylight area: light it fully (and feather inward)
+			continue
+		// Turf added to an already-lit area: ensure it carries the overlay exactly once (cut guards re-runs).
+		loaded_turf.cut_overlay(light)
+		loaded_turf.add_overlay(light)
+		CHECK_TICK
+
+/// Re-applies (or removes) the daylight overlay on a single turf - called from /turf/AfterChange so that a turf
+/// replaced by ChangeTurf (a fresh object with no overlays) is re-lit, since the area's one-time pass never re-runs.
+/// Cheap no-op for the vast majority of turfs that aren't in daylight areas.
+/datum/controller/subsystem/daylight/proc/refresh_turf_daylight(turf/changed)
+	if(!setup_complete || QDELETED(changed)) // roundstart turfs are handled by the central pass
+		return
+	var/area/turf_area = changed.loc
+	if(!turf_area?.daylight)
+		return
+	var/mutable_appearance/light = get_daylight_overlay_appearance()
+	changed.cut_overlay(light) // guard against doubling if it somehow already has it
+	changed.add_overlay(light)
 
 /datum/controller/subsystem/daylight/proc/register_emitter(obj/effect/light_emitter/daylight/emitter)
 	if(!emitter || QDELETED(emitter) || (emitter in all_emitters))
@@ -237,15 +377,15 @@ SUBSYSTEM_DEF(daylight)
 	transition_steps = TRANSITION_STEPS
 	if(isnull(transition_time))
 		transition_time = TRANSITION_STEPS * wait
-	// Animate the visual wash straight to the target in ONE smooth pass over the whole transition,
-	// instead of restarting a short animation on every fire() step (which is what made it stutter).
-	update_sunlight_backdrops(target_intensity, target_color, transition_time)
+	// Animate the source straight to the target in ONE smooth pass over the whole transition, instead of
+	// restarting a short animation on every fire() step (which is what made it stutter).
+	update_wash(target_intensity, target_color, transition_time)
 
 /datum/controller/subsystem/daylight/proc/set_intensity_and_color(intensity = target_intensity, color = target_color, force = FALSE)
 	if(force)
 		transition_steps = 0
 		update_current(intensity, color)
-		update_sunlight_backdrops(intensity, color, 0) // snap the wash to match
+		update_wash(intensity, color, 0) // snap the source to match
 	else
 		set_target(intensity, color)
 
@@ -344,12 +484,13 @@ SUBSYSTEM_DEF(daylight)
 		current_particle_weather = next_auto
 	return current_particle_weather
 
-/datum/controller/subsystem/daylight/proc/update_sunlight_backdrops(intensity = current_intensity, color = current_color, transition_time = mob_visual_update_cooldown)
-	for(var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/LB as anything in sunlighting_planes)
-		if(QDELETED(LB))
-			sunlighting_planes -= LB
-			continue
-		LB.apply_daylight_state(intensity, color, transition_time)
+/// Animates the shared daylight source toward the given state. Every per-turf overlay render_source-mirrors it,
+/// so this single animation drives the daylight on all daylight turfs at once.
+/datum/controller/subsystem/daylight/proc/update_wash(intensity = current_intensity, color = current_color, transition_time = mob_visual_update_cooldown)
+	if(QDELETED(wash_source))
+		return
+	var/target_alpha = round(clamp(intensity, 0, 1) * 255, 1)
+	animate(wash_source, color = color, alpha = target_alpha, time = max(0, transition_time), easing = SINE_EASING)
 
 /datum/controller/subsystem/daylight/fire()
 	if(transition_steps > 0)
@@ -487,84 +628,45 @@ SUBSYSTEM_DEF(daylight)
 	return ..()
 
 
-/atom/movable/screen/plane_master/rendering_plate/lighting_daylight
-	name = "Lighting plate - daylight"
-	documentation = "Host plane for the daylight wash. It renders nothing itself; its only job is to spawn the \
-		Sunlight backdrop (which lives on the overlay-lighting plane) for each viewer in show_to, and tear it \
-		down in hide_from. We also keep the viewer area-sensitive so the wash can hide while they're indoors."
-	plane = RENDER_PLANE_DAYLIGHT
-	blend_mode_override = BLEND_MULTIPLY
+/// The shared daylight source. A single off-screen tile whose colour+alpha track the daylight cycle (animated in
+/// ONE place, see update_wash) and whose appearance is published as DAYLIGHT_WASH_RENDER_TARGET. Every daylight
+/// turf carries an overlay that render_source-mirrors this, so one animation drives the light on every turf.
+/// This is the engine's starlight pattern - see /obj/starlight_appearance.
+/obj/daylight_wash_source
+	icon = 'icons/effects/alphacolors.dmi'
+	icon_state = "white"
+	plane = LIGHTING_PLANE
+	blend_mode = BLEND_ADD
+	// The leading "*" in the render target means "render to this target only, never draw normally" - so the
+	// source object itself is invisible; it exists purely to be mirrored.
+	render_target = DAYLIGHT_WASH_RENDER_TARGET
+	screen_loc = "1,1"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	critical = PLANE_CRITICAL_DISPLAY
+
+/// Draws nothing. Its only job is to register the shared daylight source onto each viewer's screen (via the HUD
+/// reuse system), so the source renders and publishes DAYLIGHT_WASH_RENDER_TARGET for the per-turf overlays to mirror.
+/atom/movable/screen/plane_master/daylight_anchor
+	name = "Daylight anchor"
+	documentation = "Renders nothing. It registers the shared daylight source (/obj/daylight_wash_source) onto each \
+		viewer's screen so the source publishes its render target, which the per-turf daylight overlays mirror via \
+		render_source. The daylight light therefore lives on the turfs themselves (spatially correct), not as a fullscreen sheet."
+	plane = RENDER_PLANE_DAYLIGHT
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_planes = list()
 
-/atom/movable/screen/plane_master/rendering_plate/lighting_daylight/show_to(mob/mymob)
+/atom/movable/screen/plane_master/daylight_anchor/show_to(mob/mymob)
 	. = ..()
-	// One wash backdrop + one area hook per viewer is enough; only the top offset (0) manages it.
-	if(offset != 0 || !mymob)
+	// Once per viewer is enough; only the top offset (0) registers.
+	if(offset != 0 || !mymob || !SSdaylight?.wash_source)
 		return
-	var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/backdrop = mymob.overlay_fullscreen("daylight_overlay", /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight)
-	// Listen for area changes so we can fade the wash out indoors and back in outdoors.
-	mymob.become_area_sensitive(DAYLIGHT_SUNLIGHT_TRAIT)
-	RegisterSignal(mymob, COMSIG_ENTER_AREA, PROC_REF(on_enter_area), override = TRUE)
-	// Apply the current indoor/outdoor state instantly on first show so it doesn't flash before settling.
-	var/area/current_area = get_area(mymob)
-	backdrop.sunlit = current_area?.daylight
-	if(SSdaylight)
-		backdrop.apply_daylight_state(SSdaylight.current_intensity, SSdaylight.current_color, 0)
+	mymob.hud_used?.register_reuse(SSdaylight.wash_source)
 
-/atom/movable/screen/plane_master/rendering_plate/lighting_daylight/proc/on_enter_area(mob/source, area/new_area)
-	SIGNAL_HANDLER
-	var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/backdrop = source.screens?["daylight_overlay"]
-	if(backdrop)
-		backdrop.set_sunlit(new_area?.daylight)
-
-/atom/movable/screen/plane_master/rendering_plate/lighting_daylight/hide_from(mob/oldmob)
+/atom/movable/screen/plane_master/daylight_anchor/hide_from(mob/oldmob)
 	. = ..()
-	if(offset != 0 || !oldmob)
+	if(offset != 0 || !oldmob || !SSdaylight?.wash_source)
 		return
-	UnregisterSignal(oldmob, COMSIG_ENTER_AREA)
-	oldmob.lose_area_sensitivity(DAYLIGHT_SUNLIGHT_TRAIT)
-	oldmob.clear_fullscreen("daylight_overlay")
-
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight
-	transform = null
-	plane = SUNLIGHTING_PLANE
-	blend_mode = BLEND_ADD
-	show_when_dead = TRUE
-	/// Whether the viewer is somewhere the sun reaches. When FALSE the wash is hidden (alpha 0), e.g. indoors.
-	var/sunlit = TRUE
-
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Initialize()
-	. = ..()
-	SSdaylight.sunlighting_planes |= src
-	// Start at the CURRENT daylight state (not the target) so a freshly-shown backdrop doesn't pop.
-	color = SSdaylight.current_color
-	alpha = round(clamp(SSdaylight.current_intensity, 0, 1) * 255, 1)
-
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
-	. = ..()
-	SSdaylight.sunlighting_planes -= src
-
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/proc/apply_daylight_state(intensity, new_color, transition_time = 2 SECONDS)
-	if(QDELETED(src))
-		return
-
-	// Indoors (sunlit == FALSE) the wash is hidden regardless of the daylight intensity.
-	var/target_alpha = sunlit ? round(clamp(intensity, 0, 1) * 255, 1) : 0
-	// transition_time is already in deciseconds (e.g. 3 SECONDS == 30) and animate()'s time is in deciseconds
-	// too, so pass it through directly. Animate the colour as well so phases blend instead of snapping.
-	animate(src, color = new_color, alpha = target_alpha, time = max(0, transition_time), easing = SINE_EASING)
-
-/// Sets whether the viewer is in sunlight; fades the wash in/out and remembers the state for cycle updates.
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/proc/set_sunlit(new_sunlit)
-	new_sunlit = !!new_sunlit
-	if(sunlit == new_sunlit)
-		return
-	sunlit = new_sunlit
-	if(!SSdaylight)
-		return
-	apply_daylight_state(SSdaylight.current_intensity, SSdaylight.current_color, 0.5 SECONDS)
+	oldmob.hud_used?.unregister_reuse(SSdaylight.wash_source)
 
 
 
