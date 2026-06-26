@@ -467,7 +467,10 @@ SUBSYSTEM_DEF(train_controller)
 		change_transition(DEFAULT_TRANSITION, TRUE)
 		set_movement_theme(pick_theme())
 		next_transition_time = INFINITY
-
+	else
+		transition_theme.process_instant()
+		set_movement_theme(pick_theme())
+		next_transition_time = INFINITY
 
 	SSmoving_turfs.on_train_start()
 	soundloop.start()
@@ -658,6 +661,23 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 	qdel(src)
 
 
+/atom/movable/screen/trainstation_icon
+	name = "Trainstation"
+	icon = 'fenysha_events/icons/hud/logos.dmi'
+	icon_state = "trainstation"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	screen_loc = "CENTER+3.8,CENTER-4"
+	maptext_height = 480
+	maptext_width = 480
+
+/atom/movable/screen/trainstation_icon/animated
+
+/atom/movable/screen/trainstation_icon/animated/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	animate(src, alpha = 130, time = 2 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
+	animate(alpha = 255, time = 2 SECONDS, flags = ANIMATION_RELATIVE)
+
+
 /atom/movable/screen/fullscreen/flash/black/station_loading
 	var/text_phrase = "Loading"
 	var/list/loading_phrases = list(
@@ -668,7 +688,13 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 		"Placing turfs",
 		"Cleaning khara",
 		"Subscrubing to signals",
-		"Updating turf atmos"
+		"Updating turf atmos",
+		"Kissing avalis",
+		"Headpating avalis",
+		"Cleaning up qdel logs",
+		"Fixing turfs icons",
+		"Creating bounds",
+		"Picking up all raptors",
 	)
 
 	var/phrase_index = 1
@@ -678,13 +704,16 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 
 	var/update_interval = 1 SECONDS
 	var/atom/movable/screen/text/load_phrases
+	var/atom/movable/screen/trainstation_icon/animated/logo
 	var/datum/hud/owner_hud
 
 /atom/movable/screen/fullscreen/flash/black/station_loading/proc/apply_to(mob/living)
 	load_phrases = new(src)
+	logo = new(src)
 
 	owner_hud = living.hud_used
 	owner_hud.always_visible_inventory += load_phrases
+	owner_hud.always_visible_inventory += logo
 	owner_hud.hud_version = HUD_STYLE_NOHUD
 	owner_hud.show_hud(owner_hud.hud_version)
 
@@ -707,10 +736,12 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 		timer_id = null
 
 	owner_hud.always_visible_inventory -= load_phrases
+	owner_hud.always_visible_inventory -= logo
 	owner_hud.hud_version = HUD_STYLE_STANDARD
 	owner_hud.show_hud(owner_hud.hud_version)
 
 	QDEL_NULL(load_phrases)
+	QDEL_NULL(logo)
 	. = ..()
 
 /atom/movable/screen/fullscreen/flash/black/station_loading/proc/get_next_phrase()
