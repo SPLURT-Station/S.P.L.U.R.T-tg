@@ -36,11 +36,12 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 
 /datum/train_object_spawner_theme/forest
-	max_delay = 4 SECONDS
 	options = list(
 		SPAWNER_GROUP_NEAR_RAILS = list(
 			GROUP_SPAWN_CHANCE = 80,
 			GROUP_SPAWN_RANGE = 1,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
 			GROUP_WEIGHTED_SPAWNLIST = list(
 				/obj/structure/flora/tree/pine/style_random = 80,
 				/obj/structure/flora/tree/dead/style_random = 20,
@@ -48,18 +49,32 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		),
 		SPAWNER_GROUP_CENTER = list(
 			GROUP_SPAWN_CHANCE = 50,
-			GROUP_SPAWN_RANGE = 3,
+			GROUP_SPAWN_RANGE = 2,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
 			GROUP_WEIGHTED_SPAWNLIST = list(
-				/obj/structure/flora/bush/snow/style_random = 20,
-				/obj/structure/flora/grass/both/style_random = 20,
+				/obj/structure/flora/tree/pine/style_random = 65,
+				/obj/structure/flora/tree/dead/style_random = 20,
+				/obj/structure/flora/bush/snow/style_random = 5,
+				/obj/structure/flora/grass/both/style_random = 15,
 			)
-		)
+		),
+		SPAWNER_GROUP_BACKDROP = list(
+			GROUP_SPAWN_CHANCE = 75,
+			GROUP_SPAWN_RANGE = 2,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 3 SECONDS,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/flora/grass/both/style_random = 100,
+			)
+		),
 	)
 
 
 /datum/train_object_spawner_theme/bridge
 	max_delay = 3 SECONDS
 	min_delay = 3 SECONDS
+	allow_selection = FALSE
 	options = list(
 		SPAWNER_GROUP_NEAR_RAILS = list(
 			GROUP_SPAWN_CHANCE = 100,
@@ -105,6 +120,9 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	VAR_PRIVATE/spawn_chance = 100
 	VAR_PRIVATE/spawn_range = 0 //0 means on the same tile
 	VAR_PRIVATE/spawn_list
+
+	VAR_PRIVATE/min_delay = 1 SECONDS
+	VAR_PRIVATE/max_delay = 3 SECONDS
 
 	VAR_PRIVATE/datum/train_object_spawner_theme/theme
 	VAR_PRIVATE/spawning = FALSE
@@ -153,7 +171,8 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	spawn_chance = group_options[GROUP_SPAWN_CHANCE] || new_theme.general_spawn_chance
 	spawn_list = group_options[GROUP_WEIGHTED_SPAWNLIST] || null
 	spawn_range = group_options[GROUP_SPAWN_RANGE] || 0
-
+	min_delay = group_options[GROUP_SPAWN_MIN_DELAY] || 1 SECONDS
+	max_delay = group_options[GROUP_SPAWN_MAX_DELAY] || 3 SECONDS
 
 /obj/effect/landmark/trainstation/object_spawner/proc/on_train_begin_moving()
 	SIGNAL_HANDLER
@@ -170,7 +189,7 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		return
 	if(!COOLDOWN_FINISHED(src, spawn_cd))
 		return
-	COOLDOWN_START(src, spawn_cd, rand(theme.min_delay, theme.max_delay))
+	COOLDOWN_START(src, spawn_cd, rand(min_delay, max_delay))
 	INVOKE_ASYNC(src, PROC_REF(attempt_spawn))
 
 /obj/effect/landmark/trainstation/object_spawner/proc/is_top_side()
@@ -210,6 +229,9 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /obj/effect/landmark/trainstation/object_spawner/near_rails
 	group = SPAWNER_GROUP_NEAR_RAILS
+
+/obj/effect/landmark/trainstation/object_spawner/near_rails_secondnary
+	group = SPAWNER_GROUP_NEAR_RAILS_2
 
 /obj/effect/landmark/trainstation/object_spawner/foreign
 	group = SPAWNER_GROUP_FOREIGN

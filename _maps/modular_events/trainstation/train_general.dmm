@@ -114,6 +114,18 @@
 	pixel_y = 7
 	},
 /obj/machinery/light/small/directional/east,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/chemsprayer/janitor,
+/obj/item/reagent_containers/spray/mister/janitor,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/reustoran)
 "av" = (
@@ -3468,6 +3480,8 @@
 /obj/item/clothing/head/bio_hood/virology,
 /obj/item/clothing/suit/bio_suit/virology,
 /obj/item/gun/medbeam,
+/obj/item/khara_express_test,
+/obj/item/khara_express_test,
 /turf/open/floor/iron/dark/diagonal,
 /area/trainstation/indoors/train/medical)
 "lX" = (
@@ -4485,6 +4499,15 @@
 /obj/machinery/light/floor,
 /turf/open/floor/engine/hull/reinforced,
 /area/trainstation/indoors/train/server)
+"pB" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/open/floor/iron/dark/diagonal,
+/area/trainstation/indoors/train/vagon_6)
 "pF" = (
 /obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /obj/structure/cable,
@@ -5025,6 +5048,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner,
+/mob/living/basic/bot/cleanbot/medbay,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/train/medical)
 "rD" = (
@@ -5664,6 +5688,11 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/kitchen/small,
 /area/trainstation/indoors/train/kitchen)
+"ug" = (
+/obj/effect/turf_decal/tile/dark_green/opposingcorners,
+/mob/living/basic/bot/cleanbot/medbay,
+/turf/open/floor/iron/white,
+/area/trainstation/indoors/train/medical)
 "uk" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
@@ -5912,6 +5941,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/item/paper/guides/fenysha_events/morph_engine,
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/vagon_7)
 "vc" = (
@@ -6243,6 +6273,8 @@
 /obj/item/construction/rcd/ce,
 /obj/item/fireaxe,
 /obj/item/key/master_key,
+/obj/item/construction/rld,
+/obj/item/multitool/advanced,
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/vagon_7)
 "wg" = (
@@ -6285,37 +6317,36 @@
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 8
 	},
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden,
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
-	pixel_y = -5
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	pixel_y = -1
 	},
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
-	pixel_y = 5
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	pixel_y = -11
 	},
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
-	pixel_y = 10
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	pixel_y = -6
 	},
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
-	pixel_y = -10
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	pixel_y = 4
 	},
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
-	pixel_y = -10
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	pixel_y = 9
 	},
-/obj/item/gun/ballistic/automatic/carwo/auto/wooden{
+/obj/item/gun/ballistic/automatic/sol_rifle{
 	pixel_y = 14
 	},
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/security)
 "wt" = (
@@ -6715,6 +6746,12 @@
 /obj/effect/turf_decal/tile/purple/full,
 /obj/item/stamp/head/rd,
 /obj/item/gun/energy/e_gun/mini,
+/obj/item/physgun,
+/obj/item/crowbar/freeman{
+	force = 30;
+	throwforce = 20;
+	name = "old crowbar"
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/reserch)
 "xW" = (
@@ -6848,6 +6885,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/diagonal,
 /area/trainstation/indoors/train)
+"yB" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/trainstation/indoors/train/security)
 "yE" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 5
@@ -9611,6 +9652,28 @@
 /obj/structure/closet/l3closet/janitor,
 /obj/item/clothing/gloves/color/orange,
 /obj/item/clothing/gloves/color/orange,
+/obj/item/grenade/clusterbuster/cleaner,
+/obj/item/grenade/clusterbuster/cleaner,
+/obj/item/grenade/clusterbuster/cleaner,
+/obj/item/grenade/clusterbuster/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/storage/belt/janitor/full,
+/obj/item/storage/belt/janitor/full,
+/obj/item/autosurgeon/janitor,
+/obj/item/watertank/janitor,
+/obj/item/watertank/janitor,
+/obj/item/mop/advanced,
+/obj/item/mop/advanced,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/reustoran)
 "IC" = (
@@ -9769,6 +9832,8 @@
 "Jc" = (
 /obj/structure/sign/poster/random/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/mod/module/mister/cleaner,
+/obj/item/mod/module/mister/cleaner,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/reustoran)
 "Jd" = (
@@ -10017,6 +10082,14 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/tech_1)
+"Kf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/cup/jerrycan/space_cleaner,
+/obj/item/reagent_containers/cup/jerrycan/space_cleaner,
+/obj/item/reagent_containers/cup/jerrycan/space_cleaner,
+/obj/structure/statue/silver/janitor,
+/turf/open/floor/iron,
+/area/trainstation/indoors/train/reustoran)
 "Kh" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -10548,6 +10621,11 @@
 /obj/machinery/computer/upload/ai{
 	pixel_y = -7
 	},
+/obj/item/clothing/accessory/medal/gold/ordom{
+	name = "Best train AI";
+	desc = "A medal given for special."
+	},
+/obj/item/stock_parts/power_store/cell/emproof/slime,
 /turf/open/floor/circuit/telecomms,
 /area/trainstation/indoors/train/server)
 "Md" = (
@@ -10871,6 +10949,9 @@
 /obj/item/clothing/suit/bio_suit/security,
 /obj/item/mod/control/pre_equipped/safeguard,
 /obj/item/reagent_containers/hypospray/combat,
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/security)
 "MZ" = (
@@ -11329,6 +11410,8 @@
 /obj/item/crowbar/power/paramedic,
 /obj/item/gun/medbeam,
 /obj/item/gun/medbeam,
+/obj/item/khara_express_test,
+/obj/item/khara_express_test,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/medical)
 "OB" = (
@@ -13052,6 +13135,8 @@
 /obj/item/clothing/suit/bio_suit/virology,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/gun/medbeam,
+/obj/item/khara_express_test,
+/obj/item/khara_express_test,
 /turf/open/floor/iron/dark/diagonal,
 /area/trainstation/indoors/train/medical)
 "Um" = (
@@ -13070,6 +13155,9 @@
 /obj/structure/closet/secure_closet/quartermaster,
 /obj/item/stamp/head/qm,
 /obj/item/gun/energy/e_gun/mini,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/gun/ballistic/revolver/mateba,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/cargo)
 "Ur" = (
@@ -13251,6 +13339,9 @@
 /obj/item/gun/energy/laser/captain,
 /obj/item/mod/control/pre_equipped/magnate,
 /obj/item/reagent_containers/hypospray/combat,
+/obj/item/gun/ballistic/revolver/mateba,
+/obj/item/ammo_box/speedloader/c38,
+/obj/item/ammo_box/speedloader/c38,
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/security)
 "UR" = (
@@ -13485,6 +13576,12 @@
 /obj/item/gun/energy/e_gun/mini,
 /obj/item/organ/cyberimp/arm/toolkit/medibeam,
 /obj/item/reagent_containers/hypospray/combat,
+/obj/item/scalpel/advanced,
+/obj/item/blood_filter/advanced,
+/obj/item/cautery/advanced,
+/obj/item/retractor/advanced,
+/obj/item/khara_express_test,
+/obj/item/khara_express_test,
 /turf/open/floor/iron/dark/diagonal,
 /area/trainstation/indoors/train/medical)
 "Vy" = (
@@ -13569,6 +13666,10 @@
 	},
 /obj/structure/closet/secure_closet/hop,
 /obj/item/gun/energy/e_gun/mini,
+/obj/item/clothing/accessory/medal/silver{
+	name = "Медаль за всю хуйню";
+	desc = "Серебрянная на вид мель(потделка), с надписью за всю хуйню. Такую можно купить за 15 кредитов. Ты полезный!"
+	},
 /turf/open/floor/iron/dark/small,
 /area/trainstation/indoors/train/security)
 "VI" = (
@@ -14149,6 +14250,10 @@
 	dir = 1;
 	pixel_y = -4
 	},
+/obj/item/stock_parts/power_store/cell/bluespace,
+/obj/item/borg/upgrade/selfrepair,
+/obj/item/borg/upgrade/surgery_omnitool,
+/obj/item/borg/upgrade/engineering_omnitool,
 /turf/open/floor/circuit/telecomms,
 /area/trainstation/indoors/train/server)
 "Xy" = (
@@ -14394,6 +14499,8 @@
 /obj/item/reagent_containers/hypospray/medipen/survival/luxury,
 /obj/item/melee/baseball_bat/metal,
 /obj/item/melee/baseball_bat/metal,
+/obj/item/gun/energy/recharge/kinetic_accelerator/railgun,
+/obj/item/gun/energy/recharge/kinetic_accelerator/railgun,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/cargo)
 "Yn" = (
@@ -14434,14 +14541,21 @@
 /obj/machinery/recharger{
 	pixel_x = 11
 	},
-/obj/item/gun/energy/laser/awaymission_aeg,
 /obj/item/clothing/glasses/hud/security/sunglasses{
 	pixel_x = -3;
-	pixel_y = 2
+	pixel_y = 7
 	},
 /obj/item/clothing/glasses/hud/security/sunglasses{
 	pixel_x = -3;
 	pixel_y = -2
+	},
+/obj/item/clothing/glasses/hud/security/sunglasses{
+	pixel_x = -3;
+	pixel_y = 12
+	},
+/obj/item/clothing/glasses/hud/security/sunglasses{
+	pixel_x = -3;
+	pixel_y = 3
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/security)
@@ -16812,7 +16926,7 @@ EU
 ga
 Wr
 at
-uu
+Kf
 Xk
 jM
 "}
@@ -17263,7 +17377,7 @@ mm
 iE
 ag
 oo
-oo
+ug
 ag
 oo
 eS
@@ -18231,8 +18345,8 @@ tO
 rU
 Ka
 aJ
-KX
-tO
+pB
+yB
 vB
 Bu
 ut

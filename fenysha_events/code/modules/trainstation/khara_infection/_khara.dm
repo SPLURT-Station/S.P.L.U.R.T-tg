@@ -766,7 +766,7 @@
 	var/obj/item/clothing/suit = human.wear_suit
 	var/obj/item/clothing/mask = human.is_mouth_covered(ITEM_SLOT_MASK)
 	var/total_prot = (suit?.get_armor_rating(BIO) + mask?.get_armor_rating(BIO))
-	if(!does_breath && total_prot >= 80)
+	if(!does_breath && total_prot >= 50)
 		return
 	if(human.has_reagent(/datum/reagent/toxin/khara, 10))
 		return // already enough

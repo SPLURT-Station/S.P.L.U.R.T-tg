@@ -30,6 +30,10 @@
 	fake = 1
 	},
 /area/trainstation/outdoor/rails)
+"l" = (
+/obj/effect/landmark/trainstation/object_spawner/center,
+/turf/open/moving/auto_icon/groups/group_6,
+/area/trainstation/outdoor/rails)
 "n" = (
 /turf/open/moving/auto_icon/groups/group_16{
 	fake = 1
@@ -96,6 +100,10 @@
 "Y" = (
 /obj/effect/landmark/trainstation/object_spawner/center,
 /turf/open/moving/auto_icon/groups/group_5,
+/area/trainstation/outdoor/rails)
+"Z" = (
+/obj/effect/landmark/trainstation/object_spawner/backdrop,
+/turf/open/moving/auto_icon/groups/group_8,
 /area/trainstation/outdoor/rails)
 
 (1,1,1) = {"
@@ -6908,7 +6916,7 @@ r
 i
 D
 x
-u
+l
 y
 L
 H
@@ -6964,7 +6972,7 @@ w
 x
 q
 y
-L
+Z
 H
 a
 O

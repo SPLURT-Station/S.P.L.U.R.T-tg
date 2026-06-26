@@ -75,9 +75,12 @@
 #define GROUP_WEIGHTED_SPAWNLIST "spawnlist"
 #define GROUP_SPAWN_CHANCE "spawnchance"
 #define GROUP_SPAWN_RANGE "spawnrange"
+#define GROUP_SPAWN_MIN_DELAY "mindelay"
+#define GROUP_SPAWN_MAX_DELAY "maxdelay"
 
 #define SPAWNER_GROUP_CENTER "spawners_center"
 #define SPAWNER_GROUP_NEAR_RAILS "spawners_nearrails"
+#define SPAWNER_GROUP_NEAR_RAILS_2 "spawners_nearrails_second"
 #define SPAWNER_GROUP_FOREIGN "spawners_foreign"
 #define SPAWNER_GROUP_BACKDROP "spawners_backdrop"
 
