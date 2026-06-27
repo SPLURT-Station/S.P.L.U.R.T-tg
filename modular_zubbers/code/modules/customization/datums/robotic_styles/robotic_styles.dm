@@ -154,6 +154,10 @@ GLOBAL_LIST_EMPTY(robotic_styles_list)
 	name = "Excelsior"
 	icon = 'modular_zubbers/icons/mob/augmentation/excelsior.dmi'
 
+/datum/robotic_style/spectre //SPLURT ADDITION
+	name = "Spectre Dynamics"
+	icon = 'modular_zzplurt/icons/mob/augmentation/spectre.dmi'
+
 /datum/robotic_style/dimorphic // subtype so we don't have to define dimorphic head+chest every single time
 	abstract_type = /datum/robotic_style/dimorphic
 	dimorphic_overrides = list(

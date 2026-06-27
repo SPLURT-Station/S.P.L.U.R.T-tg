@@ -346,7 +346,7 @@
 	outfit_type = /datum/outfit/job/captain
 
 /datum/preset_holoimage/nanotrasenprivatesecurity
-	outfit_type = /datum/outfit/nanotrasensoldiercorpse
+	outfit_type = /datum/outfit/nanotrasenprivate // Splurt edit
 
 /datum/preset_holoimage/syndicatebattlecruisercaptain
 	outfit_type = /datum/outfit/syndicate_empty/battlecruiser
