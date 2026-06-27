@@ -705,7 +705,7 @@ ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active
 		"Feeding coders",
 		"Placing turfs",
 		"Cleaning khara",
-		"Subscrubing to signals",
+		"Subscribing to signals",
 		"Updating turf atmos",
 		"Kissing avalis",
 		"Headpating avalis",
