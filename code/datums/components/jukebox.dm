@@ -234,7 +234,11 @@
 	if(isnull(active_song_sound))
 		var/area/juke_area = get_area(parent)
 		active_song_sound = sound(selection.song_path)
+		/* SPLURT EDIT - Use new sound channel for headphones - ORIGINAL:
 		active_song_sound.channel = CHANNEL_JUKEBOX
+		*/ // ORIGINAL END - SPLURT EDIT START:
+		active_song_sound.channel = !requires_range_check ? CHANNEL_JUKEBOX : CHANNEL_HEADPHONES
+		// SPLURT EDIT END
 		active_song_sound.priority = 255
 		active_song_sound.falloff = 2
 		active_song_sound.volume = volume * (pref_volume/100)
@@ -314,7 +318,11 @@
 	PROTECTED_PROC(TRUE)
 
 	listeners -= no_longer_listening
+	/* SPLURT EDIT - Use new sound channel for headphones - ORIGINAL:
 	no_longer_listening.stop_sound_channel(CHANNEL_JUKEBOX)
+	*/ // ORIGINAL END - SPLURT EDIT START:
+	no_longer_listening.stop_sound_channel(!requires_range_check ? CHANNEL_JUKEBOX : CHANNEL_HEADPHONES)
+	// SPLURT EDIT END
 	UnregisterSignal(no_longer_listening, list(
 		COMSIG_MOB_LOGIN,
 		COMSIG_QDELETING,

@@ -13,6 +13,7 @@
 
 /obj/item/organ/genital/butt/get_description_string(datum/sprite_accessory/genital/gas)
 	var/size_name
+	var/butt_style = gas ? LOWER_TEXT(gas.icon_state) : LOWER_TEXT(genital_name)
 	switch(round(genital_size))
 		if(1)
 			size_name = "average"
@@ -33,7 +34,7 @@
 		else
 			size_name = "nonexistent"
 
-	return "You see a [LOWER_TEXT(gas.icon_state)] of [size_name] asscheeks."
+	return "You see a [butt_style] of [size_name] asscheeks."
 
 /obj/item/organ/genital/butt/set_size(size)
 	. = ..()

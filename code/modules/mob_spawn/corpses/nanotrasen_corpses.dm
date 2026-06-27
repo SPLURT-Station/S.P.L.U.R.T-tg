@@ -15,6 +15,7 @@
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/corpse/bridge_officer
 
+/* SPLURT REMOVAL. Modular Private Security.
 /obj/effect/mob_spawn/corpse/human/commander
 	name = "Commander"
 	outfit = /datum/outfit/nanotrasencommander
@@ -48,6 +49,7 @@
 	back = /obj/item/storage/backpack/security
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/centcom/corpse/private_security
+*/
 
 /obj/effect/mob_spawn/corpse/human/intern //this is specifically the comms intern from the event
 	name = "CentCom Intern"

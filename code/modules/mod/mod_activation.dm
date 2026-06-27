@@ -83,7 +83,7 @@
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
-		if(istype(overslot)) // BUBBER EDIT - check for /obj/item, not /obj/item/clothing - ORIGINAL: if(istype(overslot, /obj/item/clothing))
+		if(can_part_overslot_item(part, overslot)) // BUBBER EDIT - check for /obj/item, not /obj/item/clothing - ORIGINAL: if(istype(overslot, /obj/item/clothing))
 			part_datum.overslotting = overslot
 			wearer.transferItemToLoc(overslot, part, force = TRUE)
 			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
@@ -115,6 +115,18 @@
 		balloon_alert(user, "bodypart clothed!")
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return FALSE
+
+//BUBBER ADDITION START
+/// Checks whether an item can be nested inside a deploying MOD part as its overslotted visual underlay.
+/obj/item/mod/control/proc/can_part_overslot_item(obj/item/part, obj/item/overslot)
+	if(!istype(overslot))
+		return FALSE
+	if(is_mod_part_or_control(overslot))
+		return FALSE
+
+	return TRUE
+
+//BUBBER ADDITION END
 
 /// Retract a part of the suit from the user.
 /obj/item/mod/control/proc/retract(mob/user, obj/item/part, instant = FALSE)
@@ -259,6 +271,9 @@
 		part.heat_protection = initial(part.heat_protection)
 		part.cold_protection = initial(part.cold_protection)
 		part.alternate_worn_layer = part_datum.sealed_layer
+		if(part.slot_flags & ITEM_SLOT_HEAD)
+			var/datum/component/wearertargeting/protection = part.AddComponent(/datum/component/wearertargeting/earprotection, protection_amount = src.theme.hearing_protection)
+			protection.on_equip(src, wearer, ITEM_SLOT_HEAD)
 	else
 		part.icon_state = "[skin]-[part.base_icon_state]"
 		part.flags_cover &= ~part.visor_flags_cover
@@ -267,6 +282,8 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
+		if((part.slot_flags & ITEM_SLOT_HEAD) && istype(part, /obj/item/clothing/head/mod))
+			qdel(part.GetComponent(/datum/component/wearertargeting/earprotection))
 	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
 	wearer.refresh_obscured()

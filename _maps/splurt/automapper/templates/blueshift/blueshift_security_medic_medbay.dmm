@@ -1,0 +1,313 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aq" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 1
+	},
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A"
+	},
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"at" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/machinery/wall_healer/directional/west,
+/obj/structure/bed/medical/emergency{
+	dir = 1
+	},
+/obj/item/storage/portable_chem_mixer,
+/obj/item/reagent_containers/cup/tube,
+/obj/item/reagent_containers/cup/tube,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"aL" = (
+/turf/closed/wall/r_wall,
+/area/station/security/mechbay)
+"dh" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"hj" = (
+/obj/machinery/door/airlock/medical/glass{
+	id_tag = "MedbayFoyer";
+	name = "Brig Infirmary"
+	},
+/obj/effect/turf_decal/delivery/blue,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"ho" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 10
+	},
+/turf/closed/wall/r_wall,
+/area/station/security/medical)
+"mF" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 8
+	},
+/obj/machinery/computer/operating{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"uJ" = (
+/turf/template_noop,
+/area/template_noop)
+"uW" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Security Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/turf/open/floor/iron,
+/area/station/security/medical)
+"vT" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/bandages{
+	pixel_x = 6
+	},
+/obj/item/stack/medical/mesh{
+	pixel_x = -6
+	},
+/obj/item/healthanalyzer/simple{
+	pixel_y = 8
+	},
+/obj/item/wallframe/frontier_medstation,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"wN" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 5
+	},
+/obj/structure/chair/sofa/corp/corner{
+	color = "#DE3A3A"
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"yb" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 4
+	},
+/obj/structure/chair/sofa/corp/left{
+	color = "#DE3A3A";
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"zm" = (
+/obj/effect/turf_decal/trimline/dark_red/end{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Am" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 10
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/item/storage/medkit/surgery,
+/obj/structure/sign/poster/official/corporate_perks_vacation/directional/west,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Be" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Security - Medbay Waiting Room"
+	},
+/obj/structure/closet/secure_closet/security_medic,
+/obj/effect/spawner/random/medical/medkit,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Bw" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 6
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Du" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Pt" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/firealarm/directional/east,
+/obj/machinery/light_switch/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/table/glass,
+/obj/machinery/computer/records/medical/laptop,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"PR" = (
+/turf/closed/wall/r_wall,
+/area/station/security/medical)
+"Ra" = (
+/obj/effect/landmark/start/security_medic,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Rh" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ri" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/effect/landmark/start/security_medic,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"RV" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small/directional/north,
+/obj/structure/table/glass,
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/toxin,
+/obj/structure/sign/poster/official/help_others/directional/north,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Tf" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line,
+/obj/structure/table/optable,
+/obj/item/wallframe/defib_mount{
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/obj/machinery/light/small/directional/south,
+/obj/structure/sign/poster/official/cleanliness/directional/south,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Vo" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Wf" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/security/medical)
+"Ye" = (
+/obj/effect/turf_decal/trimline/dark_red/end,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"ZJ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad/secure,
+/obj/effect/turf_decal/trimline/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+
+(1,1,1) = {"
+PR
+PR
+PR
+PR
+ho
+PR
+uJ
+"}
+(2,1,1) = {"
+uW
+dh
+Ra
+mF
+Am
+PR
+uJ
+"}
+(3,1,1) = {"
+PR
+aq
+zm
+Ye
+Tf
+PR
+uJ
+"}
+(4,1,1) = {"
+PR
+wN
+yb
+Rh
+Bw
+PR
+aL
+"}
+(5,1,1) = {"
+PR
+PR
+PR
+Be
+Ri
+at
+Wf
+"}
+(6,1,1) = {"
+uJ
+uJ
+PR
+RV
+ZJ
+Vo
+hj
+"}
+(7,1,1) = {"
+uJ
+uJ
+PR
+Pt
+Du
+vT
+Wf
+"}
+(8,1,1) = {"
+uJ
+uJ
+PR
+PR
+PR
+PR
+PR
+"}

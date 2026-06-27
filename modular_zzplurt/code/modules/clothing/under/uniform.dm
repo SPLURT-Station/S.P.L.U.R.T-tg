@@ -24,7 +24,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	icon_state = "tunic"
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/lumberjack
@@ -34,7 +34,7 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 /obj/item/clothing/under/latex
 	name = "full latex jumpsuit"
@@ -64,7 +64,7 @@
 	gender = PLURAL
 	body_parts_covered = GROIN
 	female_sprite_flags = NO_FEMALE_UNIFORM
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 	can_adjust = FALSE
 	species_exception = list(/datum/species/golem)
 
@@ -182,39 +182,33 @@
 	name = "trencher uniform replica"
 	desc = "A 90% replica of No Man's Land-type uniform. Obviously won't protect you from the blastwave."
 	armor_type = /datum/armor/clothing_under
-	uses_advanced_reskins = TRUE // Since polychromic no longer available at least allow us to reskin it after GWTB armies colors.
-	unique_reskin = list(
-		"Default (Purple)" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi',
-			RESKIN_ICON_STATE = "goner_uniform",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/uniform.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_uniform"
-		),
-		"Red" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi',
-			RESKIN_ICON_STATE = "goner_uniform_r",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/uniform.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_uniform_r"
-		),
-		"Green" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi',
-			RESKIN_ICON_STATE = "goner_uniform_g",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/uniform.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_uniform_g"
-		),
-		"Blue" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi',
-			RESKIN_ICON_STATE = "goner_uniform_b",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/uniform.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_uniform_b"
-		),
-		"Yellow" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi',
-			RESKIN_ICON_STATE = "goner_uniform_y",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/uniform.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_uniform_y"
-		)
-	)
+
+/obj/item/clothing/under/goner/fake/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/goner_uniform)
+
+/datum/atom_skin/goner_uniform
+	abstract_type = /datum/atom_skin/goner_uniform
+
+/datum/atom_skin/goner_uniform/default
+	preview_name = "Default (Purple)"
+	new_icon_state = "goner_uniform"
+
+/datum/atom_skin/goner_uniform/red
+	preview_name = "Red"
+	new_icon_state = "goner_uniform_r"
+
+/datum/atom_skin/goner_uniform/green
+	preview_name = "Green"
+	new_icon_state = "goner_uniform_g"
+
+/datum/atom_skin/goner_uniform/blue
+	preview_name = "Blue"
+	new_icon_state = "goner_uniform_b"
+
+/datum/atom_skin/goner_uniform/yellow
+	preview_name = "Yellow"
+	new_icon_state = "goner_uniform_y"
 
 //
 /obj/item/clothing/under/goner/red

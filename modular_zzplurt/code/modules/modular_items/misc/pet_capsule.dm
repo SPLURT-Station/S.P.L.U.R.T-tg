@@ -100,9 +100,8 @@
 
 		// smoke & message effect
 		loc.visible_message("<span class='warning'>\The [src] opens, [stored_pet.name] suddenly appearing!</span>")
-		var/datum/effect_system/spark_spread/smoke = new
-		smoke.set_up(10,TRUE, targetloc)
-		smoke.start()
+		var/datum/effect_system/basic/spark_spread/sparks = new(targetloc, 10, TRUE)
+		sparks.start()
 
 		//setting owners only for pets which can be interacted with
 		////// Need funclawes

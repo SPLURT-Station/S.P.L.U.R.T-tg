@@ -40,9 +40,7 @@
 	body_parts_covered = CHEST|ARMS
 	armor_type = /datum/armor/jacket_corrections_officer
 
-
 // LOCKER
-
 /datum/armor/jacket_corrections_officer
 	melee = 10
 	melee = 10
@@ -63,3 +61,4 @@
 	new /obj/item/clothing/head/helmet/toggleable/riot(src)
 	new /obj/item/shield/riot(src)
 	new /obj/item/clothing/under/rank/security/corrections_officer(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src) //SPLURT ADDITION

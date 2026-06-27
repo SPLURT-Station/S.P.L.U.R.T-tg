@@ -114,7 +114,6 @@
 	name = "Security Gloves"
 	item_path = /obj/item/clothing/gloves/color/black/security
 	restricted_roles = list(ALL_JOBS_SEC)
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/gloves/combat/peacekeeper/armadyne
 	name = "Armadyne Combat Gloves"
@@ -147,7 +146,6 @@
 /datum/loadout_item/gloves/elofy
 	name = "Solar Admiral Gloves"
 	item_path = /obj/item/clothing/gloves/elofy
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 //	ckeywhitelist = list("october23")
 
 /datum/loadout_item/gloves/hypnoring_sharkenning
@@ -185,3 +183,6 @@
 	item_path = /obj/item/clothing/gloves/ring/hypno/bippys
 	ckeywhitelist = list("bippys")
 
+/datum/loadout_item/gloves/latex_gloves
+	name = "Latex Gloves"
+	item_path = /obj/item/clothing/gloves/latex_gloves

@@ -198,7 +198,7 @@
 /datum/outfit/interdyneheadcorpse
 	name = "Interdyne Medical Director Corpse"
 	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
-	suit = /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
+	suit = /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/regular //SPLURT EDIT, ORIGINAL: /obj/item/clothing/suit/toggle/labcoat/skyrat/regular
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicateciv/command/empty

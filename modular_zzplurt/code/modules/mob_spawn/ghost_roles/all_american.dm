@@ -92,7 +92,7 @@
 /obj/effect/mob_spawn/ghost_role/robot/diner/special(mob/living/silicon/robot/new_spawn)
 	. = ..()
 	if(new_spawn.client) //It should have a client, right?
-		new_spawn.faction += ROLE_ALLAMERICAN
+		new_spawn.add_faction(list(ROLE_ALLAMERICAN))
 		new_spawn.UnlinkSelf() //This should prevent AI linking and consoles to see or lock them down.
 		new_spawn.laws = new /datum/ai_laws/allamerican()
 		new_spawn.show_laws() //Check your laws.

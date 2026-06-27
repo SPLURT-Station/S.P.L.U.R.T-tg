@@ -66,8 +66,9 @@
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp) && !(!ishuman(target) && !target.client && !SSinteractions.is_blacklisted(target))) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
-		if(!body_relay || !target.Adjacent(body_relay))
-			return FALSE
+		if(target.loc != self.loc || isturf(target.loc)) //SPLURT ADDITION - Makes sure you can interact with other people in the same container.
+			if(!body_relay || !target.Adjacent(body_relay))
+				return FALSE
 	if(interaction.category == INTERACTION_CAT_HIDE)
 		return FALSE
 	if(self == target && interaction.usage == INTERACTION_OTHER)
@@ -79,7 +80,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		//SPLURT EDIT CHANGE BEGIN - UI INTERFACE - New interaction menu interface
-		//ui = new(user, src, "Interactions") - SPLURT EDIT - ORIGINAL
+		//ui = new(user, src, "InteractionPanel") - SPLURT EDIT - ORIGINAL
 		ui = new(user, src, "MobInteraction")
 		//SPLURT EDIT CHANGE END
 		ui.open()
@@ -90,7 +91,12 @@
 
 	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
 
-/datum/component/interactable/ui_data(mob/living/user)  	// SPLURT EDIT - INTERACTIONS - All mobs should be interactable
+/datum/component/interactable/ui_static_data(mob/user)
+	var/list/data = list()
+	data["arousalLimit"] = AROUSAL_LIMIT
+	return data
+
+/datum/component/interactable/ui_data(mob/user)
 	var/list/data = list()
 	var/list/descriptions = list()
 	var/list/categories = list()
@@ -135,6 +141,34 @@
 		if(!can_see(user, self))
 			data["self"] = body_relay.name
 	data["interactions"] = categories
+	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
+
+	var/mob/living/carbon/human/human_user = user
+
+	data["isTargetSelf"] = (user == self)
+
+	// user (the one who opened the ui)
+	var/user_pleasure = 0
+	var/user_arousal = 0
+	var/user_pain = 0
+
+	if(user)
+		user_pleasure = human_user.pleasure
+		user_arousal = human_user.arousal
+		user_pain = human_user.pain
+
+		data["pleasure"] = user_pleasure
+		data["arousal"] = user_arousal
+		data["pain"] = user_pain
+		data["yourName"] = human_user.real_name
+
+
+	// self - the one who the interaction component belongs to, aka who it's opened on (confusing var name yep)
+	if(user != self)
+		data["theirPleasure"] = self.pleasure
+		data["theirArousal"] = self.arousal
+		data["theirPain"] = self.pain
+		data["theirName"] = self.real_name
 
 	var/list/parts = list()
 	if(ishuman(user) && ishuman(self) && can_lewd_strip(user, self)) // SPLURT EDIT - INTERACTIONS - Original: if(ishuman(user) && can_lewd_strip(user, self))

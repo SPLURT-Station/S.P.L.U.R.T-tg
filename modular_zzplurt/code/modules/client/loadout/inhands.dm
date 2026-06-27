@@ -123,10 +123,6 @@
 	name = "Remote Vibroegg"
 	item_path = /obj/item/clothing/sextoy/eggvib
 
-/datum/loadout_item/pocket_items/strapon_strap
-	name = "Strapon Strap"
-	item_path = /obj/item/clothing/strapon
-
 //
 /datum/loadout_item/pocket_items/plushbox
 	name = "Plushie Choice Box"

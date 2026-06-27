@@ -137,6 +137,7 @@
 	name = "cybernetic bladder"
 	desc = "This is where your oil comes from!" // not really
 	icon_state = "bladder-c"
+	organ_flags = ORGAN_ROBOTIC
 
 // /obj/item/organ/bladder/cybernetic/emp_act(severity)
 // 	. = ..()

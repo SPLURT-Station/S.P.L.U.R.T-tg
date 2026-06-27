@@ -44,3 +44,5 @@
 #define LIST_PAPER_STAMP_X "x"
 #define LIST_PAPER_STAMP_Y "y"
 #define LIST_PAPER_ROTATION "rotation"
+#define LIST_PAPER_STAMP_COLOR "color" //SPLURT ADDITION
+#define LIST_PAPER_STAMP_SCALE "scale" //SPLURT ADDITION

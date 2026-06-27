@@ -59,10 +59,12 @@
 	var/list/original_cum_partner = cum_partner_text_overrides.Copy()
 
 	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = cumming.get_active_held_item()
+	if(!istype(fleshlight))
+		fleshlight = came_in.get_active_held_item()
 	var/obj/item/clothing/sextoy/portal_panties/panties = istype(fleshlight) ? fleshlight.linked_panties : null
 
 	// Replace with anonymous messages if needed
-	if((fleshlight.anonymous && position == CLIMAX_POSITION_TARGET) || (panties.anonymous && position == CLIMAX_POSITION_USER))
+	if((istype(fleshlight) && fleshlight.anonymous && position == CLIMAX_POSITION_TARGET) || (istype(panties) && panties.anonymous && position == CLIMAX_POSITION_USER))
 		if(length(hidden_cum_message_text_overrides[position]))
 			cum_message_text_overrides[position] = hidden_cum_message_text_overrides[position]
 			cum_self_text_overrides[position] = hidden_cum_self_text_overrides[position]

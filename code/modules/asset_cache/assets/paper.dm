@@ -25,6 +25,7 @@
 
 		//SPLURT ADDITION: START - Splurt Stamp Icons
 		"stamp-nanotrasen" = 'icons/stamp_icons/large_stamp-nanotrasen.png',
+		"stamp-kiss" = 'modular_zzplurt/icons/effects/kissmark.png',
 		"stamp-centcom_med" = 'icons/stamp_icons/large_stamp-centcom_med.png',
 		"stamp-centcom_eng" = 'icons/stamp_icons/large_stamp-centcom_eng.png',
 		"stamp-centcom_sec" = 'icons/stamp_icons/large_stamp-centcom_sec.png',

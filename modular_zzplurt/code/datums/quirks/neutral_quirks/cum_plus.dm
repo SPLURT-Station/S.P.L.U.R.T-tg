@@ -29,16 +29,19 @@
 	var/obj/item/organ/genital/testicles/mob_testi = quirk_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(mob_testi)
 		mob_testi.internal_fluid_maximum *= CUMPLUS_MULT_TESTI
+		mob_testi.reagents.maximum_volume *= CUMPLUS_MULT_TESTI
 
 	// Vagina
 	var/obj/item/organ/genital/vagina/mob_vagi = quirk_mob.get_organ_slot(ORGAN_SLOT_VAGINA)
 	if(mob_vagi)
 		mob_vagi.internal_fluid_maximum *= CUMPLUS_MULT_VAGI
+		mob_vagi.reagents.maximum_volume *= CUMPLUS_MULT_VAGI
 
 	// Breasts
 	var/obj/item/organ/genital/testicles/mob_boobi = quirk_mob.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(mob_boobi)
 		mob_boobi.internal_fluid_maximum *= CUMPLUS_MULT_BOOBI
+		mob_boobi.reagents.maximum_volume *= CUMPLUS_MULT_BOOBI
 
 // Reduce fluids
 /datum/quirk/cum_plus/remove()
@@ -51,16 +54,19 @@
 	var/obj/item/organ/genital/testicles/mob_testi = quirk_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(mob_testi)
 		mob_testi.internal_fluid_maximum /= CUMPLUS_MULT_TESTI
+		mob_testi.reagents.maximum_volume /= CUMPLUS_MULT_TESTI
 
 	// Vagina
 	var/obj/item/organ/genital/vagina/mob_vagi = quirk_mob.get_organ_slot(ORGAN_SLOT_VAGINA)
 	if(mob_vagi)
 		mob_vagi.internal_fluid_maximum /= CUMPLUS_MULT_VAGI
+		mob_vagi.reagents.maximum_volume /= CUMPLUS_MULT_VAGI
 
 	// Breasts
 	var/obj/item/organ/genital/testicles/mob_boobi = quirk_mob.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(mob_boobi)
 		mob_boobi.internal_fluid_maximum /= CUMPLUS_MULT_BOOBI
+		mob_boobi.reagents.maximum_volume /= CUMPLUS_MULT_BOOBI
 
 #undef CUMPLUS_MULT_GLOBAL
 #undef CUMPLUS_MULT_TESTI

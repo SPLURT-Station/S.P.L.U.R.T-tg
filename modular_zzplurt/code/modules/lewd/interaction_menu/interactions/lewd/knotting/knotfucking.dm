@@ -27,8 +27,16 @@
 		"slams their %KNOT% in and out of %TARGET%'s cunt."
 	)
 	sound_possible = list(
-		'modular_zzplurt/sound/interactions/champ1.ogg',
-		'modular_zzplurt/sound/interactions/champ2.ogg'
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
 	)
 	sound_range = 1
 	sound_use = TRUE

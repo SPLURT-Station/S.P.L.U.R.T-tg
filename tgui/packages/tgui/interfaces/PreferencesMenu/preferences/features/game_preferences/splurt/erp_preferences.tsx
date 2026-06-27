@@ -68,3 +68,10 @@ export const stomp_on_pref: FeatureToggle = {
     'Allows your character to get stomped on. (Characters below 50% size have this enabled by default)',
   component: CheckboxInput,
 };
+
+export const smothering_pref: FeatureToggle = {
+  name: 'Smothering',
+  category: 'ERP',
+  description: 'Allow smothering interactions.',
+  component: CheckboxInput,
+};
