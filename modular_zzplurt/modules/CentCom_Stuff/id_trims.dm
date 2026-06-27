@@ -59,7 +59,7 @@
 
 /// Trim for Centcom Bartenders.
 /datum/id_trim/centcom/bartender
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_BAR, ACCESS_BAR)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_BAR, ACCESS_BAR, ACCESS_SERVICE, ACCESS_WEAPONS)
 	assignment = JOB_CENTCOM_BARTENDER
 	trim_state = "trim_bartender"
 	subdepartment_color = COLOR_SERVICE_LIME
@@ -76,7 +76,7 @@
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/centcom/technical_officer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_ENGINE_EQUIP, ACCESS_ENGINEERING, ACCESS_ATMOSPHERICS)
 	assignment = "Technical Officer"
 	trim_state = "trim_stationengineer"
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
@@ -86,7 +86,7 @@
 
 /// Trim for Centcom Medical Officers.
 /datum/id_trim/centcom/supply_officer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_LOGISTICS, ACCESS_CARGO)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_LOGISTICS, ACCESS_CARGO, ACCESS_SHIPPING)
 	assignment = "Supply Officer"
 	trim_state = "trim_cargotechnician"
 	subdepartment_color = COLOR_CARGO_BROWN
@@ -96,7 +96,7 @@
 
 /// Trim for Centcom Research Officers.
 /datum/id_trim/centcom/research_officer
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_RESEARCH, ACCESS_ORDNANCE, ACCESS_ROBOTICS)
 	assignment = JOB_CENTCOM_RESEARCH_OFFICER
 	trim_state = "trim_scientist"
 	subdepartment_color = COLOR_SCIENCE_PINK

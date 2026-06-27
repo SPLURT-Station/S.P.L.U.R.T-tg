@@ -3,5 +3,3 @@
 /// Additional Accesses here, was too minimal for most roles.
 #define ACCESS_CENT_SECURITY "cent_security"
 #define ACCESS_CENT_LOGISTICS "cent_logistics"
-// For ERT's to have their own access.
-#define ACCESS_CENT_OPERATIONS "cent_operations"

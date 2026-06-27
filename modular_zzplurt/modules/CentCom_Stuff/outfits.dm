@@ -15,13 +15,79 @@
 	var/obj/item/implant/mindshield/mindshield = new /obj/item/implant/mindshield(centcom_member)//hmm lets have centcom officials become revs
 	mindshield.implant(centcom_member, null, silent = TRUE)
 
-	centcom_member.faction |= ROLE_DEATHSQUAD // Can't exactly let the NT mobs and whatnot kill CentCom right?
-
+	centcom_member.add_faction(ROLE_DEATHSQUAD) // Can't exactly let the NT mobs and whatnot kill CentCom right?
 	var/obj/item/card/id/W = centcom_member.wear_id
 	W.registered_name = centcom_member.real_name
 	W.update_label()
 	W.update_icon()
 	return ..()
+
+/datum/outfit/centcom/commander
+	name = "CentCom Commander"
+
+	id_trim = /datum/id_trim/centcom/commander
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	suit = /obj/item/clothing/suit/armor/centcom_formal
+	suit_store = /obj/item/gun/ballistic/revolver/mateba
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+		/obj/item/stamp/centcom/commander = 1,
+		/obj/item/ammo_box/speedloader/c357 = 2,
+	)
+	belt = /obj/item/storage/belt/sheath/sabre
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	head = /obj/item/clothing/head/hats/centcom_cap
+	shoes = /obj/item/clothing/shoes/combat/swat
+	l_pocket = /obj/item/melee/baton/telescopic/gold
+	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+
+/datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Commander")
+
+/datum/outfit/centcom/commander/mod
+	name = "CentCom Commander (MODsuit)"
+
+	suit_store = /obj/item/tank/internals/oxygen
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	back = /obj/item/mod/control/pre_equipped/corporate
+	internals_slot = ITEM_SLOT_SUITSTORE
+
+/datum/outfit/centcom/centcom_official
+	name = "CentCom Official"
+
+	id_trim = /datum/id_trim/centcom/official
+	uniform = /obj/item/clothing/under/rank/centcom/official
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/stamp/centcom = 1,
+		/obj/item/pen/fountain/centcom/silver = 1,
+	)
+	belt = /obj/item/gun/energy/e_gun
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = /obj/item/melee/baton/telescopic/silver
+	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+	l_hand = /obj/item/clipboard/centcom
+
+/datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Official")
+
+/datum/outfit/centcom/centcom_official/turtleneck
+	name = "CentCom Official - Turtleneck"
+
+	uniform = /obj/item/clothing/under/rank/centcom/official/turtleneck
 
 /datum/outfit/centcom/centcom_intern
 	name = "CentCom Intern"
@@ -60,65 +126,6 @@
 	l_pocket = null
 	r_pocket = null
 
-/datum/outfit/centcom/centcom_official
-	name = "CentCom Official"
-
-	id_trim = /datum/id_trim/centcom/official
-	uniform = /obj/item/clothing/under/rank/centcom/official
-	back = /obj/item/storage/backpack/satchel
-	backpack_contents = list(
-		/obj/item/stamp/centcom = 1,
-	)
-	belt = /obj/item/gun/energy/e_gun/asterion
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/color/black
-	l_pocket = /obj/item/pen
-	r_pocket = /obj/item/modular_computer/pda/heads
-	l_hand = /obj/item/clipboard
-
-/datum/outfit/centcom/spec_ops
-	name = "CentCom Special Ops Officer"
-
-	id_trim = /datum/id_trim/centcom/specops_officer
-	uniform = /obj/item/clothing/under/rank/centcom/commander
-	back = /obj/item/storage/backpack/satchel/leather
-	belt = /obj/item/gun/energy/pulse/pistol/m1911
-	ears = /obj/item/radio/headset/headset_cent/commander
-	glasses = /obj/item/clothing/glasses/thermal/eyepatch
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	head = /obj/item/clothing/head/helmet/space/beret
-	mask = /obj/item/cigarette/cigar/havana
-	shoes = /obj/item/clothing/shoes/combat/swat
-	r_pocket = /obj/item/lighter
-
-/datum/outfit/centcom/commander
-	name = "CentCom Commander"
-
-	id_trim = /datum/id_trim/centcom/commander
-	uniform = /obj/item/clothing/under/rank/centcom/commander
-	suit = /obj/item/clothing/suit/armor/centcom_formal
-	suit_store = /obj/item/gun/ballistic/revolver/mateba
-	back = /obj/item/storage/backpack/satchel/leather
-	belt = /obj/item/storage/belt/sheath/sabre
-	ears = /obj/item/radio/headset/headset_cent/commander
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	head = /obj/item/clothing/head/hats/centcom_cap
-	mask = /obj/item/cigarette/cigar/cohiba
-	shoes = /obj/item/clothing/shoes/combat/swat
-	l_pocket = /obj/item/ammo_box/speedloader/c357
-	r_pocket = /obj/item/lighter
-
-/datum/outfit/centcom/commander/mod
-	name = "CentCom Commander (MODsuit)"
-
-	suit_store = /obj/item/tank/internals/oxygen/yellow
-	suit = null
-	head = null
-	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	back = /obj/item/mod/control/pre_equipped/corporate
-	internals_slot = ITEM_SLOT_SUITSTORE
-
 /datum/outfit/centcom/ert
 	name = "ERT Common"
 
@@ -140,10 +147,17 @@
 		R.keyslot2 = new additional_radio()
 		R.recalculateChannels()
 
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
+
 /datum/outfit/centcom/ert/commander
 	name = "ERT Commander"
 
-	id = /obj/item/card/id/advanced/centcom/ert
+	id = /obj/item/card/id/advanced/centcom/ert/commander
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
 	l_hand = /obj/item/gun/energy/e_gun
 	box = /obj/item/storage/box/survival/centcom
@@ -260,7 +274,7 @@
 	name = "Inquisition Commander"
 
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/commander
-	r_hand = /obj/item/nullrod/vibro/talking/chainsword
+	r_hand = /obj/item/nullrod/claymore/talking/chainsword
 	backpack_contents = null
 
 /datum/outfit/centcom/ert/security/inquisitor

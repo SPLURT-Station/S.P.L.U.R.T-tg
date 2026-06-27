@@ -13,6 +13,11 @@
 	desc = "A emerald green folder stamped \"Top Secret - Property of Nanotrasen's Central Command Division.\""
 	icon_state = "folder_centcomgold"
 
+/obj/item/folder/centcom/gold/Initialize(mapload)
+	. = ..()
+	new /obj/item/documents/nanotrasen(src)
+	update_appearance()
+
 /obj/item/folder/centcom/supply
 	desc = "A emerald green folder stamped \"Central Command's Supply Division\""
 	icon_state = "folder_centcomcarg"

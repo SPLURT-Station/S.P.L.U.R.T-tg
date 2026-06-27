@@ -16,8 +16,3 @@
 	var/list/access_list = ..()
 	access_list += ACCESS_CENT_LOGISTICS
 	return access_list
-
-/obj/effect/mapping_helpers/airlock/access/all/admin/operations/get_access()
-	var/list/access_list = ..()
-	access_list += ACCESS_CENT_OPERATIONS
-	return access_list
