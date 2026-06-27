@@ -19,8 +19,7 @@
 	W.registered_name = centcom_member.real_name
 	W.update_label()
 	W.update_icon()
-	centcom_member.add_faction(ROLE_DEATHSQUAD) // Can't exactly let the NT mobs and whatnot kill CentCom right?
-	centcom_member.update_icons()
+	return ..()
 
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
