@@ -77,6 +77,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 	anchored = TRUE
 	light_range = 2
 	light_power = 3
+	light_system = OVERLAY_LIGHT
 	var/icon_prefix = "marker"
 	var/remove_speed = 15
 	var/picked_color

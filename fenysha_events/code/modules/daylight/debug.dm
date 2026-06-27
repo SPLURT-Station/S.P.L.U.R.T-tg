@@ -62,7 +62,7 @@ ADMIN_VERB(open_daylight_control_panel, R_ADMIN, "Open Daylight Control Panel", 
 //   areas got their per-turf light overlays. If 0 areas are lit, run "Reapply Area Lighting". If the source isn't
 //   on your screen, run "Re-register Source".
 
-ADMIN_VERB(daylight_debug_report, R_ADMIN, "Daylight Debug: Status Report", "Print daylight diagnostics", ADMIN_CATEGORY_EVENTS)
+ADMIN_VERB(daylight_debug_report, R_ADMIN, "Daylight Status", "Print daylight diagnostics", ADMIN_CATEGORY_EVENTS)
 	var/list/lines = list()
 	lines += "Daylight areas registered: [length(SSdaylight.daylight_areas)]"
 	var/lit = 0
@@ -89,11 +89,11 @@ ADMIN_VERB(daylight_debug_report, R_ADMIN, "Daylight Debug: Status Report", "Pri
 		count++
 	return count
 
-ADMIN_VERB(daylight_debug_reapply_lighting, R_ADMIN, "Daylight Debug: Reapply Area Lighting", "Re-add the daylight light overlay to all daylight areas", ADMIN_CATEGORY_EVENTS)
+ADMIN_VERB(daylight_debug_reapply_lighting, R_ADMIN, "Daylight Reapply Area Lighting", "Re-add the daylight light overlay to all daylight areas", ADMIN_CATEGORY_EVENTS)
 	var/count = SSdaylight.reapply_lighting()
 	to_chat(usr, span_notice("Reapplied the daylight light overlay to [count] daylight area(s)."))
 
-ADMIN_VERB(daylight_debug_reregister_source, R_ADMIN, "Daylight Debug: Re-register Source", "Re-add the daylight source to your screen", ADMIN_CATEGORY_EVENTS)
+ADMIN_VERB(daylight_debug_reregister_source, R_ADMIN, "Daylight Re-register Source", "Re-add the daylight source to your screen", ADMIN_CATEGORY_EVENTS)
 	if(!SSdaylight.wash_source)
 		to_chat(usr, span_warning("No daylight source exists yet."))
 		return
