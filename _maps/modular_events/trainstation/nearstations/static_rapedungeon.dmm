@@ -115,6 +115,23 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"at" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "au" = (
 /obj/structure/fluff/metalpole{
 	dir = 6;
@@ -208,6 +225,12 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"aE" = (
+/obj/structure/mannequin/plastic{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "aH" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -319,40 +342,17 @@
 /turf/open/floor/iron/shuttle/exploration/corner,
 /area/trainstation/indoors/train/bathroom)
 "aT" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -4;
-	pixel_y = 7;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 6;
-	pixel_y = -12;
-	icon_state = "footprint"
-	},
-/obj/effect/light_emitter/interlink{
-	light_color = "#3e3a57";
-	color = "#3e3a57"
-	},
-/turf/open/floor/black{
-	name = "void"
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = -74;
+	target_turf_x = 11;
+	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "aW" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"aX" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -68;
-	teleport_x_offset = 48
-	},
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -68;
-	target_turf_x = 48;
-	dir = 1
-	},
 /area/trainstation/indoors/train/bathroom)
 "aY" = (
 /obj/structure/railing{
@@ -378,6 +378,16 @@
 	mouse_opacity = 0
 	},
 /turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
+"bc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -9;
+	pixel_y = 1;
+	icon_state = "?"
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "bd" = (
 /obj/structure/railing{
@@ -469,6 +479,18 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"bs" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/shuttle/engivent{
+	pixel_y = 27
+	},
+/obj/structure/mannequin/plastic{
+	dir = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "bt" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -482,6 +504,25 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
+"bu" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 100
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 50
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "bw" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -577,23 +618,20 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"bM" = (
-/obj/structure/flora/bush/reed/style_3{
-	pixel_x = 8;
-	pixel_y = 5
+"bN" = (
+/obj/structure/broken_flooring/plating/directional/east,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
 	},
-/obj/structure/flora/bush/reed/style_2{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/structure/spacevine{
-	color = "#FFFFFF";
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
+/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "bQ" = (
 /obj/item/stack/rods{
@@ -644,16 +682,10 @@
 /obj/item/flashlight/flare/candle/infinite,
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
-"bV" = (
-/obj/structure/table/wood,
-/turf/open/floor/carpet,
-/area/trainstation/indoors/train/bathroom)
 "bW" = (
-/obj/structure/broken_flooring/plating/directional/west{
-	dir = 4
-	},
-/turf/open/floor/black{
-	name = "void"
+/turf/open/floor/plating/elevatorshaft{
+	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
+	icon_state = "rail"
 	},
 /area/trainstation/indoors/train/bathroom)
 "bX" = (
@@ -739,6 +771,18 @@
 	dir = 8;
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 1;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
 	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
@@ -837,7 +881,10 @@
 /turf/open/floor/asphalt,
 /area/trainstation/indoors/train/bathroom)
 "cz" = (
-/turf/open/floor/carpet,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "cA" = (
 /obj/structure/decorative{
@@ -1029,33 +1076,57 @@
 /obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron/shuttle/ferry,
 /area/trainstation/indoors/train/bathroom)
+"db" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 6;
+	pixel_y = -12;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -4;
+	pixel_y = 7;
+	icon_state = "footprint"
+	},
+/turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
 "dc" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/indoors/train/bathroom)
-"de" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 6;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "di" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table,
+/obj/item/stack/rods,
 /turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"dj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10;
+	color = "#634f33"
+	},
+/obj/structure/rack/shelf{
+	desc = "A sturdy wooden shelf to store a variety of items on.";
+	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi';
+	icon_state = "seedshelf";
+	base_icon_state = "seedshelf"
+	},
+/obj/structure/rack/shelf{
+	desc = "A sturdy wooden shelf to store a variety of items on.";
+	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon_state = "empty_shelf_1"
+	},
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "decorative element";
+	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi';
+	icon_state = "coil";
+	pixel_x = -28;
+	pixel_y = -8
+	},
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "dk" = (
 /obj/structure/railing{
@@ -1159,6 +1230,11 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
+"ds" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/zcomputermachine_off,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "dt" = (
 /obj/structure/closet/cardboard,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1171,12 +1247,40 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "dv" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"dx" = (
+/obj/structure/closet/cabinet/undertable,
+/obj/structure/table/wood/cabinet,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 9;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 2;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "dz" = (
 /obj/structure/table/reinforced,
@@ -1202,6 +1306,19 @@
 	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
+"dD" = (
+/obj/structure/spacevine{
+	color = "#FFFFFF";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/structure/flora/rock/pile/jungle{
+	pixel_y = -6
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "dI" = (
 /obj/structure/closet/cardboard,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1214,14 +1331,24 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
+"dK" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table,
+/obj/item/lighter/greyscale{
+	pixel_x = 1;
+	pixel_y = 0
+	},
+/obj/item/lighter/greyscale{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "dM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"dN" = (
-/obj/structure/deployable_barricade/wooden,
-/turf/closed/wall/mineral/wood/nonmetal,
 /area/trainstation/indoors/train/bathroom)
 "dP" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -1232,22 +1359,6 @@
 "dV" = (
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"dY" = (
-/obj/structure/railing{
-	dir = 8;
-	color = "#5d341f"
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/structure/flora/bush/sparsegrass/style_2{
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "dZ" = (
 /obj/structure/railing,
@@ -1263,6 +1374,12 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"eb" = (
+/obj/structure/broken_flooring/plating/directional/north{
+	dir = 8
+	},
+/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "ed" = (
 /obj/structure/railing{
@@ -1332,20 +1449,6 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
-/area/trainstation/indoors/train/bathroom)
-"ej" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "ek" = (
 /obj/structure/railing{
@@ -1425,15 +1528,8 @@
 	alpha = 150;
 	mouse_opacity = 0
 	},
+/obj/structure/mannequin/plastic,
 /turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
-"ex" = (
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -68;
-	target_turf_x = 48;
-	dir = 1
-	},
 /area/trainstation/indoors/train/bathroom)
 "ez" = (
 /obj/structure/prop/nt_biocan,
@@ -1515,9 +1611,6 @@
 	},
 /obj/structure/marker_beacon/bronze,
 /obj/effect/turf_decal/trimline/brown,
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "rapedungeon"
-	},
 /obj/machinery/button/elevator_control/directional/north{
 	elevator_id = "rapedungeon";
 	pixel_y = 12;
@@ -1536,6 +1629,9 @@
 	pixel_y = 0;
 	dir = 8;
 	pixel_x = -5
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "rapedungeon"
 	},
 /turf/open/floor/plating/elevatorshaft{
 	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
@@ -1596,6 +1692,11 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"fj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "fm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/crayon/e{
@@ -1604,6 +1705,14 @@
 	icon_state = "r"
 	},
 /turf/open/floor/asphalt,
+/area/trainstation/indoors/train/bathroom)
+"fn" = (
+/obj/effect/light_emitter/interlink{
+	light_color = "#3e3a57";
+	color = "#3e3a57"
+	},
+/obj/structure/table/wood,
+/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "fp" = (
 /obj/effect/light_emitter/interlink{
@@ -1619,18 +1728,58 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
-"fs" = (
-/obj/effect/turf_decal/tile/dark/half{
-	dir = 1;
-	color = "#000000"
+"fr" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5;
+	color = "#634f33"
 	},
-/obj/structure/fans/tiny/invisible{
-	density = 1
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/light_emitter/interlink{
+	light_color = "#3e3a57";
+	color = "#3e3a57"
 	},
-/turf/open/floor/plating/elevatorshaft{
-	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
-	icon_state = "rail"
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
+"fu" = (
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = 8;
+	pixel_y = 10
 	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = 4;
+	pixel_y = 0
+	},
+/obj/item/trash/candle{
+	pixel_x = 4;
+	pixel_y = 11;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = 8;
+	pixel_y = 0;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = -4;
+	pixel_y = -2;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = 0;
+	pixel_y = -1
+	},
+/obj/item/trash/candle{
+	pixel_x = 11;
+	pixel_y = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "fw" = (
 /obj/structure/fans/tiny/invisible{
@@ -1685,15 +1834,6 @@
 	dir = 2
 	},
 /area/trainstation/indoors/train/bathroom)
-"fD" = (
-/obj/structure/flora/bush/jungle/c/style_2{
-	pixel_x = -2;
-	pixel_y = 0
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "fE" = (
 /obj/structure/fluff/metalpole/anchor{
 	dir = 6
@@ -1743,33 +1883,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"fS" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#634f33"
-	},
-/obj/item/reagent_containers/cup/glass/bottle/wine{
-	name = "Moldb's molded special wine";
-	desc = "A faint aura of unease and SDMM debauchery surrounds the bottle.";
-	pixel_x = -3;
-	pixel_y = 45
-	},
-/obj/item/reagent_containers/cup/glass/trophy{
-	pixel_x = 7;
-	pixel_y = 47
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "fT" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -1786,6 +1899,21 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
+/area/trainstation/indoors/train/bathroom)
+"fW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "fX" = (
 /obj/structure/railing{
@@ -1885,13 +2013,6 @@
 	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
 	icon_state = "rail"
 	},
-/area/trainstation/indoors/train/bathroom)
-"gg" = (
-/obj/structure/prop/stalagmite/style_3{
-	pixel_x = 3;
-	pixel_y = -4
-	},
-/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "gj" = (
 /obj/item/toy/crayon/spraycan{
@@ -2053,6 +2174,22 @@
 	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
+"gw" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "gx" = (
 /obj/machinery/light/small/red/dim/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2072,21 +2209,6 @@
 /turf/open/floor/iron/shuttle/exploration/corner{
 	dir = 1
 	},
-/area/trainstation/indoors/train/bathroom)
-"gz" = (
-/obj/structure/broken_flooring/plating/directional/east,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "gB" = (
 /obj/structure/flora/ash/cap_shroom{
@@ -2169,6 +2291,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"gM" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "rapedungeon";
+	floor = 2
+	},
+/turf/open/floor/plating/elevatorshaft{
+	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
+	icon_state = "rail"
+	},
+/area/trainstation/indoors/train/bathroom)
 "gN" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2201,7 +2333,6 @@
 	pixel_x = 0
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/reagent_containers/syringe,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "gS" = (
@@ -2239,11 +2370,12 @@
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
 "gY" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/microwave,
-/turf/open/floor/iron/dark,
+/obj/structure/broken_flooring/plating/directional/west{
+	dir = 4
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "ha" = (
 /obj/effect/spawner/structure/flipped_table,
@@ -2336,10 +2468,32 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"hm" = (
+/obj/structure/mannequin/plastic{
+	dir = 2
+	},
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
+"ht" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mannequin/plastic{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "hu" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"hw" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6;
+	color = "#634f33"
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "hx" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2532,6 +2686,23 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"hS" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "hT" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2766,9 +2937,6 @@
 	density = 1
 	},
 /area/trainstation/indoors/train/bathroom)
-"jk" = (
-/turf/closed/wall/city/siding/red,
-/area/trainstation/indoors/train/bathroom)
 "jl" = (
 /obj/machinery/light/small/red/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2869,6 +3037,22 @@
 /obj/structure/railing,
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"jG" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood{
+	dir = 2;
+	color = "#634f33"
+	},
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "jI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2890,25 +3074,6 @@
 /turf/open/floor/iron/shuttle/exploration/invertcorner{
 	dir = 8
 	},
-/area/trainstation/indoors/train/bathroom)
-"jN" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 5
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 5;
-	color = "#634f33"
-	},
-/obj/structure/closet/cabinet/undertable,
-/obj/structure/table/wood,
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "jO" = (
 /obj/structure/railing{
@@ -2950,27 +3115,17 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "jR" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
+/obj/structure/flora/bush/reed/style_4{
+	pixel_x = 9;
+	pixel_y = 2
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8;
-	color = "#634f33"
+/obj/structure/flora/bush/reed/style_4{
+	pixel_x = -7;
+	pixel_y = -3
 	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
+/turf/open/floor/black{
+	name = "void"
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
-"jT" = (
-/obj/structure/broken_flooring/plating/directional/north{
-	dir = 8
-	},
-/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "jU" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3030,16 +3185,6 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
-"ke" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "woven window";
-	icon = 'modular_zubbers/icons/turf/catwalk_newfloors.dmi';
-	icon_state = "wood_above";
-	density = 1
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "kf" = (
 /obj/item/shard{
 	pixel_x = 3;
@@ -3063,6 +3208,33 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
+"kl" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	name = "Moldb's molded special wine";
+	desc = "A faint aura of unease and SDMM debauchery surrounds the bottle.";
+	pixel_x = -3;
+	pixel_y = 45
+	},
+/obj/item/reagent_containers/cup/glass/trophy{
+	pixel_x = 7;
+	pixel_y = 47
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "kn" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/weather/dirt{
@@ -3080,12 +3252,25 @@
 	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
+"ko" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = 67;
+	teleport_x_offset = -48
+	},
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 67;
+	target_turf_x = -48;
+	dir = 2
+	},
+/area/trainstation/indoors/train/bathroom)
 "kr" = (
 /obj/structure/railing{
 	dir = 8;
 	color = "#ba9986"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "ks" = (
@@ -3255,7 +3440,27 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"kX" = (
+"kY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"la" = (
+/obj/structure/broken_flooring/plating/directional/north,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
+"lc" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -5;
 	pixel_y = -6;
@@ -3271,11 +3476,6 @@
 /turf/open/floor/black{
 	name = "void"
 	},
-/area/trainstation/indoors/train/bathroom)
-"kY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "lf" = (
 /obj/structure/railing,
@@ -3294,34 +3494,24 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
-"li" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/obj/structure/statue/bone/rib,
-/turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
-"lj" = (
-/obj/structure/broken_flooring/plating/directional,
+"lg" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 10;
+	pixel_x = -9;
 	pixel_y = -1;
-	icon_state = "footprint"
+	icon_state = "a"
 	},
 /obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 2;
-	pixel_y = 7;
-	icon_state = "footprint"
+	pixel_x = 1;
+	pixel_y = -1;
+	icon_state = "f"
 	},
-/turf/open/misc/dirt/planet,
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 13;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "lk" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3355,25 +3545,6 @@
 	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
-"lo" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 50
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 50
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "lp" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -3392,14 +3563,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle/exploration/uside,
-/area/trainstation/indoors/train/bathroom)
-"lr" = (
-/obj/structure/table/wood,
-/obj/item/storage/box/matches{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "ls" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -3476,17 +3639,6 @@
 /obj/item/reagent_containers/syringe/contraband/bath_salts,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"lE" = (
-/obj/structure/broken_flooring/plating/directional/north{
-	dir = 8
-	},
-/obj/structure/fans/tiny/invisible{
-	density = 1
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "lF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/crowbar/red,
@@ -3554,27 +3706,27 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"lW" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood{
+	dir = 2;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "lY" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/computer/operating{
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle/ferry,
-/area/trainstation/indoors/train/bathroom)
-"ma" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "mb" = (
 /obj/structure/railing,
@@ -3638,6 +3790,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"ml" = (
+/obj/structure/broken_flooring/plating/directional/north{
+	dir = 8
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "mn" = (
 /obj/structure/railing,
 /turf/open/floor/iron/shuttle/exploration/uside{
@@ -3648,6 +3808,24 @@
 /obj/structure/closet/shuttle/engivent{
 	pixel_y = 26;
 	pixel_x = 0
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"mp" = (
+/obj/structure/closet/cardboard,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 1;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
@@ -3817,6 +3995,7 @@
 	pixel_x = 15;
 	pixel_y = 5
 	},
+/obj/effect/spawner/random/entertainment/musical_instrument,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "nj" = (
@@ -3866,6 +4045,22 @@
 	density = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"np" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "nr" = (
 /obj/structure/fake_stairs/directional/north{
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
@@ -3877,21 +4072,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"ns" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 6;
-	pixel_y = -5;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -4;
-	pixel_y = 7;
-	icon_state = "footprint"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "nt" = (
 /turf/open/space/basic,
@@ -3911,6 +4091,18 @@
 	opacity = 0
 	},
 /turf/open/floor/iron/shuttle/exploration/hazard,
+/area/trainstation/indoors/train/bathroom)
+"nw" = (
+/obj/structure/fireplace,
+/obj/structure/railing{
+	dir = 1;
+	pixel_y = -7
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/end,
+/obj/effect/turf_decal/siding/wood/end{
+	color = "#634f33"
+	},
+/turf/open/indestructible/cobble,
 /area/trainstation/indoors/train/bathroom)
 "ny" = (
 /obj/effect/turf_decal/tile/dark/full{
@@ -3956,18 +4148,6 @@
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"nB" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 68;
-	teleport_x_offset = -48
-	},
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = 68;
-	target_turf_x = -48;
-	dir = 2
-	},
-/area/trainstation/indoors/train/bathroom)
 "nF" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -4003,20 +4183,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sign/warning/directional/south,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"nJ" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "nN" = (
 /obj/structure/railing{
@@ -4140,14 +4306,6 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
-"nY" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 6;
-	color = "#634f33"
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "ob" = (
 /obj/structure/chair/sofa/corp/right,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4214,21 +4372,6 @@
 	pixel_y = 0
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"oj" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/wood{
-	dir = 2;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "ol" = (
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -4343,6 +4486,16 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
+"oz" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "woven window";
+	icon = 'modular_zubbers/icons/turf/catwalk_newfloors.dmi';
+	icon_state = "wood_above";
+	density = 1
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "oC" = (
 /obj/item/trash/semki/healthy,
 /turf/open/floor/plating/elevatorshaft,
@@ -4387,6 +4540,18 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"oH" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = 74;
+	teleport_x_offset = -11
+	},
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 74;
+	target_turf_x = -11;
+	dir = 2
+	},
 /area/trainstation/indoors/train/bathroom)
 "oM" = (
 /obj/structure/fluff/paper/stack{
@@ -4460,10 +4625,6 @@
 	mouse_opacity = 0
 	},
 /turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
-"oX" = (
-/obj/effect/turf_decal/siding/wood/end,
-/turf/open/floor/wood/parquet,
 /area/trainstation/indoors/train/bathroom)
 "oY" = (
 /obj/structure/fake_stairs/directional/north{
@@ -4584,18 +4745,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
-"pn" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 75;
-	teleport_x_offset = -11
-	},
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = 75;
-	target_turf_x = -11;
-	dir = 2
-	},
-/area/trainstation/indoors/train/bathroom)
 "pr" = (
 /obj/structure/grille,
 /obj/structure/marker_beacon/burgundy,
@@ -4607,6 +4756,26 @@
 	color = "#3e3a57"
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/indoors/train/bathroom)
+"pu" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 100
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 150
+	},
+/turf/open/floor/black{
+	name = "void";
+	color = "#FFFFFF"
+	},
 /area/trainstation/indoors/train/bathroom)
 "pw" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -4959,11 +5128,41 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"qD" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "qH" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
+/area/trainstation/indoors/train/bathroom)
+"qI" = (
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 1;
+	color = "#000000"
+	},
+/obj/structure/fans/tiny/invisible{
+	density = 1
+	},
+/turf/open/floor/plating/elevatorshaft{
+	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
+	icon_state = "rail"
+	},
 /area/trainstation/indoors/train/bathroom)
 "qO" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -5004,6 +5203,17 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"qS" = (
+/obj/structure/broken_flooring/plating/directional/north,
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
+"qU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
+/turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
 "qX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/decorative{
@@ -5019,6 +5229,31 @@
 	alpha = 150
 	},
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"qY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"ra" = (
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = -67;
+	target_turf_x = 48;
+	dir = 1
+	},
 /area/trainstation/indoors/train/bathroom)
 "rc" = (
 /obj/structure/fluff/metalpole{
@@ -5041,29 +5276,19 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "rh" = (
-/obj/item/table_clock{
-	pixel_x = -5;
-	pixel_y = 39
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 6;
+	pixel_y = -12;
+	icon_state = "footprint"
 	},
-/obj/item/flashlight/lantern/on{
-	pixel_x = 7;
-	pixel_y = 42
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -4;
+	pixel_y = 7;
+	icon_state = "footprint"
 	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
+/turf/open/floor/black{
+	name = "void"
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "rk" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5331,6 +5556,66 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"sc" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -16;
+	pixel_y = 13;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -12;
+	pixel_y = 13;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -21;
+	pixel_y = 15;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -9;
+	pixel_y = 12;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -9;
+	pixel_y = 14;
+	icon_state = "-"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -1;
+	pixel_y = 9;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 3;
+	pixel_y = 10;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 7;
+	pixel_y = 13;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 11;
+	pixel_y = 13;
+	icon_state = "i"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 1;
+	pixel_y = 9;
+	icon_state = "-"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 10;
+	pixel_y = 12;
+	icon_state = "-"
+	},
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "sd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage{
@@ -5353,6 +5638,13 @@
 	alpha = 150
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
+"sl" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/mannequin/plastic{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "sn" = (
@@ -5473,15 +5765,8 @@
 	color = "#ba9986"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/highvoltagegrille_off,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"sS" = (
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = 75;
-	target_turf_x = -11;
-	dir = 2
-	},
 /area/trainstation/indoors/train/bathroom)
 "sT" = (
 /obj/effect/turf_decal/tile/dark/full{
@@ -5519,22 +5804,6 @@
 /obj/structure/table,
 /obj/item/crowbar/red,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"te" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/wood{
-	dir = 2;
-	color = "#634f33"
-	},
-/obj/structure/closet/secure_closet/personal/cabinet,
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "tg" = (
 /turf/closed/indestructible/rock{
@@ -5707,19 +5976,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"tP" = (
-/obj/structure/table/wood,
-/obj/item/plate{
-	pixel_x = 3;
-	pixel_y = 2;
-	layer = 3.01
-	},
-/obj/item/plate{
-	pixel_x = -16;
-	pixel_y = -5
-	},
-/turf/open/floor/carpet,
-/area/trainstation/indoors/train/bathroom)
 "tR" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -5801,6 +6057,17 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "ug" = (
@@ -5808,19 +6075,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"uh" = (
-/obj/structure/spacevine{
-	color = "#FFFFFF";
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/obj/structure/flora/rock/pile/jungle{
-	pixel_y = -6
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "uj" = (
 /obj/structure/table,
@@ -5845,6 +6099,31 @@
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
+/area/trainstation/indoors/train/bathroom)
+"uu" = (
+/obj/item/table_clock{
+	pixel_x = -5;
+	pixel_y = 39
+	},
+/obj/item/flashlight/lantern/on{
+	pixel_x = 7;
+	pixel_y = 42
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "uv" = (
 /obj/item/stack/rods,
@@ -5976,26 +6255,6 @@
 	},
 /turf/open/floor/asphalt,
 /area/trainstation/indoors/train/bathroom)
-"uP" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 50
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 50
-	},
-/turf/open/floor/black{
-	name = "void";
-	color = "#FFFFFF"
-	},
-/area/trainstation/indoors/train/bathroom)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6091,10 +6350,6 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
-"vd" = (
-/obj/structure/broken_flooring/plating/directional,
-/turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
 "ve" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -6108,7 +6363,12 @@
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
 "vf" = (
-/obj/structure/broken_flooring/plating/directional/north,
+/obj/structure/broken_flooring/plating/directional/north{
+	dir = 2
+	},
+/obj/structure/fans/tiny/invisible{
+	density = 1
+	},
 /turf/open/floor/black{
 	name = "void"
 	},
@@ -6201,6 +6461,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblack,
 /area/trainstation/indoors/train/bathroom)
+"vt" = (
+/turf/closed/wall/city/siding/red,
+/area/trainstation/indoors/train/bathroom)
 "vu" = (
 /obj/structure/fluff/paper/stack{
 	dir = 1;
@@ -6231,6 +6494,29 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
+/area/trainstation/indoors/train/bathroom)
+"vx" = (
+/obj/structure/table/wood,
+/obj/item/kirbyplants/organic/plant17{
+	pixel_x = -12;
+	pixel_y = 10
+	},
+/obj/structure/fluff/paper/stack{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/tickle_feather{
+	name = "feather";
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = 5;
+	pixel_y = 2;
+	list_reagents = list(/datum/reagent/fuel/oil = 5);
+	name = "ink container"
+	},
+/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "vy" = (
 /obj/structure/railing{
@@ -6272,24 +6558,22 @@
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "vC" = (
-/obj/item/stack/sheet/iron/five{
-	pixel_x = -4;
-	pixel_y = 3
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/city/buildingventbig11_off{
+	name = "Generator"
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"vE" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5;
-	color = "#634f33"
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/light_emitter/interlink{
-	light_color = "#3e3a57";
-	color = "#3e3a57"
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "vH" = (
 /obj/structure/railing{
@@ -6328,6 +6612,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "vM" = (
@@ -6371,6 +6666,19 @@
 /obj/item/reagent_containers/syringe/contraband/bath_salts,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"vR" = (
+/obj/structure/table/wood,
+/obj/item/plate{
+	pixel_x = 3;
+	pixel_y = 2;
+	layer = 3.01
+	},
+/obj/item/plate{
+	pixel_x = -16;
+	pixel_y = -5
+	},
+/turf/open/floor/carpet,
+/area/trainstation/indoors/train/bathroom)
 "vS" = (
 /obj/machinery/computer{
 	name = "electrohighway terminal";
@@ -6378,6 +6686,21 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"vV" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint"
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "vY" = (
 /obj/structure/minecart_rail,
@@ -6447,6 +6770,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "wu" = (
@@ -6467,20 +6801,19 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"wx" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -75;
-	teleport_x_offset = 11
+"wy" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wood{
+	dir = 2;
+	color = "#634f33"
 	},
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -75;
-	target_turf_x = 11;
+/obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
-/area/trainstation/indoors/train/bathroom)
-"wy" = (
-/obj/structure/fake_stairs/wood/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1;
+	color = "#634f33"
+	},
 /turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "wA" = (
@@ -6533,19 +6866,6 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
-"wI" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 6;
-	pixel_y = -12;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -4;
-	pixel_y = 7;
-	icon_state = "footprint"
-	},
-/turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
 "wJ" = (
 /obj/machinery/light/small/red/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6590,19 +6910,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"wQ" = (
-/obj/structure/flora/bush/reed/style_4{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/structure/flora/bush/reed/style_4{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "wR" = (
 /obj/effect/step_trigger/teleporter/offset{
 	teleport_x_offset = -203
@@ -6633,33 +6940,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"xd" = (
-/obj/structure/prop/stalagmite/style_3{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
-"xg" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8;
-	color = "#634f33"
-	},
-/obj/structure/chair/wood{
-	dir = 8
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "xh" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -6708,14 +6988,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/asphalt,
 /area/trainstation/indoors/train/bathroom)
-"xp" = (
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = 68;
-	target_turf_x = -48;
-	dir = 2
-	},
-/area/trainstation/indoors/train/bathroom)
 "xq" = (
 /obj/structure/prop/stalagmite/style_5{
 	pixel_x = 7;
@@ -6733,33 +7005,6 @@
 	},
 /obj/item/trash/flare,
 /turf/open/floor/stone,
-/area/trainstation/indoors/train/bathroom)
-"xw" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 10;
-	color = "#634f33"
-	},
-/obj/structure/rack/shelf{
-	desc = "A sturdy wooden shelf to store a variety of items on.";
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi';
-	icon_state = "seedshelf";
-	base_icon_state = "seedshelf"
-	},
-/obj/structure/rack/shelf{
-	desc = "A sturdy wooden shelf to store a variety of items on.";
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
-	icon_state = "empty_shelf_1"
-	},
-/obj/structure/wall_torch/spawns_lit/directional/west,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "decorative element";
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi';
-	icon_state = "coil";
-	pixel_x = -28;
-	pixel_y = -8
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "xx" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -6845,16 +7090,6 @@
 /obj/structure/railing,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
-"xI" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 9;
-	color = "#634f33"
-	},
-/obj/structure/mirror/broken/directional/north,
-/obj/structure/table/wood,
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "xJ" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = 12;
@@ -6901,32 +7136,6 @@
 	density = 1
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"xZ" = (
-/obj/structure/broken_flooring/plating/directional/north,
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 9;
-	pixel_y = -11;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -3;
-	pixel_y = -3;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 7;
-	pixel_y = 6;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -3;
-	pixel_y = 15;
-	icon_state = "footprint"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "yb" = (
 /obj/effect/turf_decal/tile/dark/half{
@@ -6978,6 +7187,17 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "yk" = (
@@ -6996,6 +7216,17 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "ym" = (
@@ -7043,6 +7274,22 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"yw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "yx" = (
 /obj/structure/chair{
 	dir = 4
@@ -7069,22 +7316,20 @@
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "yE" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
-	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/wood{
-	dir = 8;
+	dir = 2;
 	color = "#634f33"
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood{
-	dir = 4;
+	dir = 1;
 	color = "#634f33"
 	},
 /obj/structure/chair/wood{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
@@ -7093,6 +7338,18 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
+"yJ" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = -67;
+	teleport_x_offset = 48
+	},
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = -67;
+	target_turf_x = 48;
+	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "yN" = (
@@ -7105,23 +7362,6 @@
 	opacity = 0
 	},
 /turf/open/floor/iron/shuttle/exploration/hazard,
-/area/trainstation/indoors/train/bathroom)
-"yO" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "yP" = (
 /obj/structure/closet/cardboard,
@@ -7176,6 +7416,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"yY" = (
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 67;
+	target_turf_x = -48;
+	dir = 2
+	},
+/area/trainstation/indoors/train/bathroom)
 "za" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/asphalt,
@@ -7184,6 +7432,20 @@
 /obj/structure/closet/crate/bin,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"zc" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "ze" = (
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -7223,6 +7485,10 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
+"zp" = (
+/obj/structure/broken_flooring/plating/directional,
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "zr" = (
@@ -7386,29 +7652,45 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "zY" = (
-/obj/effect/turf_decal/tile/dark/half{
-	dir = 2;
-	color = "#000000"
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = 9;
+	pixel_y = -8
 	},
-/obj/effect/turf_decal/tile/dark/half{
-	dir = 1;
-	color = "#000000";
-	alpha = 150
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = -7;
+	pixel_y = 4
 	},
-/obj/effect/turf_decal/tile/dark/full{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "black";
-	color = "#FFFFFF"
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = 7;
+	pixel_y = 4
 	},
-/obj/effect/turf_decal/tile/dark/full{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "black";
-	color = "#FFFFFF"
+/obj/item/trash/candle{
+	pixel_x = 3;
+	pixel_y = 5;
+	icon_state = "candle3"
 	},
-/turf/open/floor/plating/elevatorshaft{
-	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
-	icon_state = "rail"
+/obj/item/trash/candle{
+	pixel_x = 12;
+	pixel_y = -9;
+	icon_state = "candle3"
 	},
+/obj/item/trash/candle{
+	pixel_x = -10;
+	pixel_y = 4;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = 5;
+	pixel_y = -9
+	},
+/obj/item/trash/candle{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Ac" = (
 /obj/item/stack/sheet/cardboard{
@@ -7443,6 +7725,23 @@
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
+/area/trainstation/indoors/train/bathroom)
+"Ag" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "Am" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7541,6 +7840,10 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"AP" = (
+/obj/structure/prop/general/redalertblank,
+/turf/closed/indestructible/steel,
+/area/trainstation/indoors/train/bathroom)
 "AR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4,
@@ -7602,6 +7905,20 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
+"AX" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/shuttle/engivent{
+	pixel_y = -4;
+	pixel_x = -31
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 11;
+	pixel_y = -1;
+	icon_state = "s"
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "AY" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -7721,6 +8038,17 @@
 	pixel_y = -6;
 	pixel_x = -8
 	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Bo" = (
@@ -7747,6 +8075,23 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"Br" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/toolbox/emergency,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "Bt" = (
 /obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/stripes/white/line,
@@ -7764,6 +8109,15 @@
 /turf/closed/wall/city/siding{
 	opacity = 0
 	},
+/area/trainstation/indoors/train/bathroom)
+"Bx" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 8;
+	pixel_x = -10;
+	pixel_y = 1
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Bz" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -7832,6 +8186,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
+"BJ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9;
+	color = "#634f33"
+	},
+/obj/structure/mirror/broken/directional/north,
+/obj/structure/table/wood,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "BK" = (
 /obj/structure/closet/cardboard,
@@ -7956,6 +8320,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Cf" = (
+/obj/structure/prop/stalagmite/style_3{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
 "Ch" = (
 /obj/structure/rack/shelf,
 /obj/item/flashlight/flare{
@@ -8034,6 +8405,15 @@
 	icon_state = "rail"
 	},
 /area/trainstation/indoors/train/bathroom)
+"Co" = (
+/obj/structure/flora/bush/jungle/c/style_2{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "Cp" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
@@ -8067,6 +8447,10 @@
 	pixel_y = 7
 	},
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"Ct" = (
+/obj/structure/prop/general/redalert,
+/turf/closed/indestructible/steel,
 /area/trainstation/indoors/train/bathroom)
 "Cv" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8364,6 +8748,21 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"DJ" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 6;
+	pixel_y = -5;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -4;
+	pixel_y = 7;
+	icon_state = "footprint"
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "DL" = (
 /obj/structure/fluff/metalpole{
 	dir = 6;
@@ -8492,6 +8891,24 @@
 /obj/item/flashlight/flare,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Ej" = (
+/obj/structure/flora/bush/reed/style_3{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/obj/structure/flora/bush/reed/style_2{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/structure/spacevine{
+	color = "#FFFFFF";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "Em" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8519,6 +8936,13 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"Ep" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/city/buildingventbig11_off{
+	name = "Generator"
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Eq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8566,6 +8990,14 @@
 	},
 /obj/structure/sign/warning/directional/south,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"Ez" = (
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 74;
+	target_turf_x = -11;
+	dir = 2
+	},
 /area/trainstation/indoors/train/bathroom)
 "EA" = (
 /obj/effect/turf_decal/tile/dark/full{
@@ -8615,26 +9047,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"EM" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 100
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 150
-	},
-/turf/open/floor/black{
-	name = "void";
-	color = "#FFFFFF"
-	},
-/area/trainstation/indoors/train/bathroom)
 "EP" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -8646,21 +9058,19 @@
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
-"ET" = (
-/obj/structure/fireplace,
-/obj/structure/railing{
-	dir = 1;
-	pixel_y = -7
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/end,
-/obj/effect/turf_decal/siding/wood/end{
-	color = "#634f33"
-	},
-/turf/open/indestructible/cobble,
-/area/trainstation/indoors/train/bathroom)
 "EU" = (
 /obj/effect/spawner/random/trash,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"EV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/armor/sf_peacekeeper/debranded{
+	pixel_x = 0;
+	pixel_y = -8
+	},
+/turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "EY" = (
 /obj/structure/minecart_rail{
@@ -8751,29 +9161,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"Fh" = (
-/obj/structure/table/wood,
-/obj/item/kirbyplants/organic/plant17{
-	pixel_x = -12;
-	pixel_y = 10
-	},
-/obj/structure/fluff/paper/stack{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/item/tickle_feather{
-	name = "feather";
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_x = 5;
-	pixel_y = 2;
-	list_reagents = list(/datum/reagent/fuel/oil = 5);
-	name = "ink container"
-	},
-/turf/open/floor/carpet,
-/area/trainstation/indoors/train/bathroom)
 "Fm" = (
 /obj/structure/chair,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8841,23 +9228,6 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
-"Fx" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 4;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "Fz" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -8873,6 +9243,18 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/reagent_containers/syringe,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 1;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "FI" = (
@@ -8938,6 +9320,15 @@
 	alpha = 150
 	},
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"FO" = (
+/obj/structure/flora/bush/reed/style_4{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "FP" = (
 /obj/effect/decal/cleanable/crayon/l{
@@ -9044,6 +9435,25 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"Gg" = (
+/obj/structure/broken_flooring/plating/directional/north{
+	dir = 2
+	},
+/obj/item/flashlight/flare{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
+"Gh" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "Gk" = (
 /obj/item/stack/sheet/iron/ten,
 /obj/item/stock_parts/matter_bin{
@@ -9084,6 +9494,21 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Gt" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/structure/statue/bone/rib,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
 "Gx" = (
 /obj/structure/sign/warning/directional/south,
 /turf/open/space/basic,
@@ -9101,6 +9526,23 @@
 	base_icon_state = "rock";
 	density = 1
 	},
+/area/trainstation/indoors/train/bathroom)
+"GC" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "GE" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9366,6 +9808,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"HW" = (
+/obj/structure/railing{
+	dir = 8;
+	color = "#5d341f"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/flora/bush/sparsegrass/style_2{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "HX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/garbage,
@@ -9444,6 +9902,20 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"Iq" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
 "Is" = (
 /obj/structure/fans/tiny/invisible{
 	density = 1
@@ -9468,19 +9940,15 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
-"Ix" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "rapedungeon";
-	floor = 2
-	},
-/turf/open/floor/plating/elevatorshaft{
-	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
-	icon_state = "rail"
-	},
-/area/trainstation/indoors/train/bathroom)
 "IA" = (
 /obj/structure/railing/corner,
 /turf/open/floor/catwalk_floor/iron_dark,
+/area/trainstation/indoors/train/bathroom)
+"IB" = (
+/obj/structure/chair/wood{
+	dir = 2
+	},
+/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "IE" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9588,23 +10056,6 @@
 	},
 /obj/structure/railing/corner,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/trainstation/indoors/train/bathroom)
-"IU" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint";
-	color = "#FFFFFF"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint";
-	color = "#FFFFFF"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "IV" = (
 /obj/structure/railing{
@@ -9775,6 +10226,22 @@
 /obj/structure/closet/crate/cardboard,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/trainstation/indoors/train/bathroom)
+"Ju" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -4;
+	icon_state = "footprint"
+	},
+/turf/open/floor/iron/shuttle/exploration/uside,
+/area/trainstation/indoors/train/bathroom)
 "Jx" = (
 /obj/structure/railing,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9809,20 +10276,22 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"JK" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 6;
-	pixel_y = -12;
-	icon_state = "footprint"
+"JJ" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
 	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -4;
-	pixel_y = 7;
-	icon_state = "footprint"
+/obj/effect/turf_decal/siding/wood{
+	dir = 6;
+	color = "#634f33"
 	},
-/turf/open/floor/black{
-	name = "void"
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
 	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
 "JN" = (
 /obj/structure/chair/sofa/corp/right{
@@ -10003,21 +10472,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
-"KD" = (
-/obj/effect/turf_decal/siding/dark/end{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -4;
-	icon_state = "footprint"
-	},
-/turf/open/floor/iron/shuttle/exploration/uside,
+"KB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "KF" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -10084,6 +10542,36 @@
 	dir = 8
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
+/area/trainstation/indoors/train/bathroom)
+"Li" = (
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 2;
+	color = "#000000"
+	},
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 1;
+	color = "#000000";
+	alpha = 150
+	},
+/obj/effect/turf_decal/tile/dark/full{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "black";
+	color = "#FFFFFF"
+	},
+/obj/effect/turf_decal/tile/dark/full{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "black";
+	color = "#FFFFFF"
+	},
+/obj/effect/turf_decal/tile/dark/full{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "black";
+	color = "#FFFFFF"
+	},
+/turf/open/floor/plating/elevatorshaft{
+	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
+	icon_state = "rail"
+	},
 /area/trainstation/indoors/train/bathroom)
 "Lk" = (
 /obj/structure/railing/corner,
@@ -10301,6 +10789,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Mk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/mannequin/plastic{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "Mm" = (
 /obj/machinery/rnd/production/protolathe/department/service,
 /obj/item/flashlight/flare{
@@ -10337,12 +10832,6 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"Ms" = (
-/obj/structure/chair/wood{
-	dir = 2
-	},
-/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "Mu" = (
 /turf/open/floor/iron/shuttle/exploration/doubleside,
@@ -10480,6 +10969,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"MS" = (
+/obj/structure/deployable_barricade/wooden,
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/trainstation/indoors/train/bathroom)
 "MT" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
@@ -10563,21 +11056,6 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
-"Nb" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -4;
-	pixel_y = 7;
-	icon_state = "footprint"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 6;
-	pixel_y = -12;
-	icon_state = "footprint"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "Nd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -10614,6 +11092,25 @@
 /obj/machinery/door/poddoor/preopen,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"Nm" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 50
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 50
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "Nn" = (
 /obj/effect/decal/cleanable/crayon/l{
@@ -10710,6 +11207,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"NE" = (
+/obj/structure/broken_flooring/plating/directional/east,
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "NF" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating/reinforced,
@@ -10729,6 +11232,10 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"NM" = (
+/obj/effect/turf_decal/siding/wood/end,
+/turf/open/floor/wood/parquet,
 /area/trainstation/indoors/train/bathroom)
 "NN" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -10890,6 +11397,21 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"Op" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
 "Or" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -13;
@@ -11041,12 +11563,6 @@
 "ON" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"OP" = (
-/obj/structure/broken_flooring/plating/directional/east,
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "OR" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -11269,6 +11785,25 @@
 /obj/item/stack/rods,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
+"PK" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 5;
+	color = "#634f33"
+	},
+/obj/structure/closet/cabinet/undertable,
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8;
+	color = "#634f33"
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "PR" = (
 /obj/structure/railing{
 	dir = 5
@@ -11312,6 +11847,25 @@
 	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
+"PU" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -4;
+	pixel_y = 7;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 6;
+	pixel_y = -12;
+	icon_state = "footprint"
+	},
+/obj/effect/light_emitter/interlink{
+	light_color = "#3e3a57";
+	color = "#3e3a57"
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "PW" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/crayon/e{
@@ -11332,6 +11886,23 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
+/area/trainstation/indoors/train/bathroom)
+"Qc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 1;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Qd" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11396,24 +11967,25 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
-"Qn" = (
-/obj/effect/light_emitter/interlink{
-	light_color = "#3e3a57";
-	color = "#3e3a57"
-	},
+"Qi" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
-/area/trainstation/indoors/train/bathroom)
-"Qr" = (
-/turf/open/floor/plating/elevatorshaft{
-	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
-	icon_state = "rail"
-	},
 /area/trainstation/indoors/train/bathroom)
 "Qt" = (
 /obj/structure/table/reinforced,
 /obj/item/wrench,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Qu" = (
@@ -11570,6 +12142,17 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
+"QM" = (
+/obj/structure/broken_flooring/plating/directional/north{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible{
+	density = 1
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "QO" = (
 /obj/structure/railing{
 	dir = 4
@@ -11583,66 +12166,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"QP" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -16;
-	pixel_y = 13;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -12;
-	pixel_y = 13;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -21;
-	pixel_y = 15;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -9;
-	pixel_y = 12;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -9;
-	pixel_y = 14;
-	icon_state = "-"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -1;
-	pixel_y = 9;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 3;
-	pixel_y = 10;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 7;
-	pixel_y = 13;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 11;
-	pixel_y = 13;
-	icon_state = "i"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 1;
-	pixel_y = 9;
-	icon_state = "-"
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 10;
-	pixel_y = 12;
-	icon_state = "-"
-	},
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 1
-	},
-/area/trainstation/indoors/train/bathroom)
 "QQ" = (
 /obj/structure/fluff/metalpole{
 	dir = 6;
@@ -11653,18 +12176,6 @@
 	dir = 10;
 	alpha = 105;
 	color = "#FFFFFF"
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
-"QS" = (
-/obj/structure/broken_flooring/plating/directional/north{
-	dir = 2
-	},
-/obj/item/flashlight/flare{
-	pixel_x = -1;
-	pixel_y = 7
 	},
 /turf/open/floor/black{
 	name = "void"
@@ -11682,21 +12193,6 @@
 	pixel_y = 2
 	},
 /turf/open/floor/asphalt,
-/area/trainstation/indoors/train/bathroom)
-"QU" = (
-/obj/structure/broken_flooring/plating/directional/north,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "QW" = (
 /obj/structure/fake_stairs/directional/north{
@@ -11818,6 +12314,14 @@
 /obj/structure/prop/stalagmite/style_2,
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"Rt" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/matches{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/turf/open/floor/carpet,
+/area/trainstation/indoors/train/bathroom)
 "Ru" = (
 /obj/machinery/door/poddoor/story,
 /turf/open/floor/plating/reinforced,
@@ -11861,6 +12365,20 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"RG" = (
+/obj/structure/broken_flooring/plating/directional,
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 10;
+	pixel_y = -1;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 2;
+	pixel_y = 7;
+	icon_state = "footprint"
+	},
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
 "RH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11869,15 +12387,6 @@
 	pixel_y = 27
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"RI" = (
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 4
-	},
-/turf/open/floor/wood/parquet,
 /area/trainstation/indoors/train/bathroom)
 "RK" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -11928,21 +12437,24 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"RZ" = (
-/obj/structure/flora/bush/reed/style_4{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "Sc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/rods,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 1;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
+	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "Sd" = (
@@ -12010,6 +12522,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Sm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "Sn" = (
 /obj/structure/fake_stairs/directional/north{
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
@@ -12054,6 +12571,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Sy" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = -74;
+	teleport_x_offset = 11
+	},
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = -74;
+	target_turf_x = 11;
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "SC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12090,36 +12619,6 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"SH" = (
-/obj/effect/turf_decal/tile/dark/half{
-	dir = 2;
-	color = "#000000"
-	},
-/obj/effect/turf_decal/tile/dark/half{
-	dir = 1;
-	color = "#000000";
-	alpha = 150
-	},
-/obj/effect/turf_decal/tile/dark/full{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "black";
-	color = "#FFFFFF"
-	},
-/obj/effect/turf_decal/tile/dark/full{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "black";
-	color = "#FFFFFF"
-	},
-/obj/effect/turf_decal/tile/dark/full{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "black";
-	color = "#FFFFFF"
-	},
-/turf/open/floor/plating/elevatorshaft{
-	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
-	icon_state = "rail"
-	},
-/area/trainstation/indoors/train/bathroom)
 "SI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/paper{
@@ -12131,6 +12630,11 @@
 /obj/structure/filingcabinet{
 	pixel_x = 10
 	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"SJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/general/zbunkbed3,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "SL" = (
@@ -12151,6 +12655,13 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
+"SN" = (
+/obj/structure/prop/stalagmite/style_3{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
 "SO" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = 2;
@@ -12162,6 +12673,7 @@
 	},
 /area/trainstation/indoors/train/bathroom)
 "SP" = (
+/obj/structure/plasticflaps,
 /obj/structure/decorative{
 	anchored = 1;
 	name = "flesh amoeba";
@@ -12173,8 +12685,9 @@
 	alpha = 150;
 	mouse_opacity = 0
 	},
-/obj/effect/mob_spawn/corpse/human/charredskeleton,
-/turf/open/indestructible/meat,
+/turf/open/floor/iron/shuttle/exploration/doubleside{
+	dir = 4
+	},
 /area/trainstation/indoors/train/bathroom)
 "SS" = (
 /obj/structure/railing{
@@ -12225,6 +12738,26 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"SZ" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "Tc" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -12238,6 +12771,9 @@
 /turf/open/floor/iron/shuttle/exploration/doubleside{
 	dir = 8
 	},
+/area/trainstation/indoors/train/bathroom)
+"Te" = (
+/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "Tm" = (
 /obj/structure/grille,
@@ -12254,23 +12790,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"Tv" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/wood{
-	dir = 2;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1;
-	color = "#634f33"
-	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/large,
+"To" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/microwave,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Tw" = (
 /obj/structure/bed/pod,
@@ -12502,6 +13027,10 @@
 	},
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"Um" = (
+/obj/structure/fake_stairs/wood/directional/north,
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "Un" = (
 /obj/structure/fluff/paper/stack{
 	layer = 2;
@@ -12548,31 +13077,32 @@
 	},
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
-"Uu" = (
-/obj/structure/closet/cabinet/undertable,
-/obj/structure/table/wood/cabinet,
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 9
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 9;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 2;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "Uv" = (
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "Ux" = (
-/obj/structure/broken_flooring/plating/directional/north{
-	dir = 8
+/obj/structure/broken_flooring/plating/directional/north,
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 9;
+	pixel_y = -11;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -3;
+	pixel_y = -3;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 7;
+	pixel_y = 6;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -3;
+	pixel_y = 15;
+	icon_state = "footprint"
 	},
 /turf/open/floor/black{
 	name = "void"
@@ -12713,18 +13243,30 @@
 /obj/effect/decal/fakelattice,
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
+"UY" = (
+/obj/structure/railing{
+	dir = 4;
+	color = "#5d341f"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/flora/grass/jungle/b{
+	pixel_x = -4;
+	pixel_y = -8
+	},
+/obj/structure/flora/bush/reed/style_2{
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
 "Va" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/shelf,
 /turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"Vb" = (
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -75;
-	target_turf_x = 11;
-	dir = 1
-	},
 /area/trainstation/indoors/train/bathroom)
 "Vd" = (
 /obj/structure/fans/tiny/invisible{
@@ -12823,6 +13365,40 @@
 /turf/open/floor/iron/shuttle/exploration/corner{
 	dir = 8
 	},
+/area/trainstation/indoors/train/bathroom)
+"Vt" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = -7;
+	pixel_y = -8
+	},
+/obj/item/trash/candle{
+	pixel_x = -10;
+	pixel_y = 3;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = -3;
+	pixel_y = -8;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = 11;
+	pixel_y = -3;
+	icon_state = "candle3"
+	},
+/obj/item/trash/candle{
+	pixel_x = 2;
+	pixel_y = -8
+	},
+/obj/item/trash/candle{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "Vu" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13093,6 +13669,26 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
+"Wg" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4;
+	color = "#634f33"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#634f33"
+	},
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/trainstation/indoors/train/bathroom)
 "Wj" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -13192,6 +13788,23 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
+"WF" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint";
+	color = "#FFFFFF"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint";
+	color = "#FFFFFF"
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "WH" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13448,17 +14061,6 @@
 	pixel_y = -3
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"Xo" = (
-/obj/structure/broken_flooring/plating/directional/north{
-	dir = 2
-	},
-/obj/structure/fans/tiny/invisible{
-	density = 1
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "Xp" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13733,6 +14335,25 @@
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"Yd" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/sheet/iron/five{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
 "Yg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13747,25 +14368,6 @@
 	},
 /obj/structure/bed/maint,
 /turf/open/floor/stone,
-/area/trainstation/indoors/train/bathroom)
-"Yl" = (
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = -5;
-	pixel_y = -6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 100
-	},
-/obj/effect/decal/cleanable/crayon/e{
-	pixel_x = 5;
-	pixel_y = 6;
-	icon_state = "footprint";
-	color = "#FFFFFF";
-	alpha = 50
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "Yn" = (
 /obj/structure/fluff/metalpole/anchor{
@@ -13791,6 +14393,46 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/corner{
 	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
+"Yq" = (
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 2;
+	color = "#000000"
+	},
+/obj/effect/turf_decal/tile/dark/half{
+	dir = 1;
+	color = "#000000";
+	alpha = 150
+	},
+/obj/effect/turf_decal/tile/dark/full{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "black";
+	color = "#FFFFFF"
+	},
+/obj/effect/turf_decal/tile/dark/full{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "black";
+	color = "#FFFFFF"
+	},
+/turf/open/floor/plating/elevatorshaft{
+	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
+	icon_state = "rail"
+	},
+/area/trainstation/indoors/train/bathroom)
+"Ys" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -4;
+	pixel_y = 7;
+	icon_state = "footprint"
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 6;
+	pixel_y = -12;
+	icon_state = "footprint"
+	},
+/turf/open/floor/black{
+	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
 "YC" = (
@@ -13861,21 +14503,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
-"YN" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/wood{
-	dir = 2;
-	color = "#634f33"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1;
-	color = "#634f33"
-	},
-/turf/open/floor/wood/large,
-/area/trainstation/indoors/train/bathroom)
 "YR" = (
 /obj/effect/turf_decal/tile/dark/full{
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
@@ -13902,6 +14529,22 @@
 	icon_state = "darkiron_above"
 	},
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"YS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
 "YT" = (
 /turf/open/misc/dirt/planet,
@@ -13933,6 +14576,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/ore_box,
 /turf/open/floor/iron/shuttle/exploration/corner,
+/area/trainstation/indoors/train/bathroom)
+"YZ" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
 /area/trainstation/indoors/train/bathroom)
 "Za" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13980,6 +14632,26 @@
 	},
 /turf/open/floor/black{
 	name = "void"
+	},
+/area/trainstation/indoors/train/bathroom)
+"Zh" = (
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = -5;
+	pixel_y = -6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 50
+	},
+/obj/effect/decal/cleanable/crayon/e{
+	pixel_x = 5;
+	pixel_y = 6;
+	icon_state = "footprint";
+	color = "#FFFFFF";
+	alpha = 50
+	},
+/turf/open/floor/black{
+	name = "void";
+	color = "#FFFFFF"
 	},
 /area/trainstation/indoors/train/bathroom)
 "Zi" = (
@@ -14103,6 +14775,13 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
+"Zu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/mannequin/plastic{
+	dir = 2
+	},
+/turf/open/floor/iron,
+/area/trainstation/indoors/train/bathroom)
 "Zw" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -14176,27 +14855,8 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/item/clothing/suit/armor/sf_peacekeeper/debranded,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"ZM" = (
-/obj/structure/railing{
-	dir = 4;
-	color = "#5d341f"
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/structure/flora/grass/jungle/b{
-	pixel_x = -4;
-	pixel_y = -8
-	},
-/obj/structure/flora/bush/reed/style_2{
-	pixel_x = -28;
-	pixel_y = 12
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
 /area/trainstation/indoors/train/bathroom)
 "ZO" = (
 /obj/structure/fluff/metalpole{
@@ -14699,8 +15359,8 @@ nt
 nt
 nt
 nt
-wD
-wD
+nt
+Ri
 wD
 iM
 YT
@@ -15107,8 +15767,8 @@ nt
 nt
 nt
 nt
-wD
-wD
+nt
+Ri
 wD
 iM
 YT
@@ -15984,7 +16644,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 wr
 wr
@@ -15993,7 +16653,7 @@ cH
 wr
 RS
 RS
-nt
+Ri
 nt
 nt
 nt
@@ -16086,7 +16746,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 At
 PG
@@ -16095,7 +16755,7 @@ cH
 DG
 vl
 RS
-nt
+Ri
 nt
 nt
 nt
@@ -16188,7 +16848,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 At
 At
@@ -16197,7 +16857,7 @@ Ok
 DG
 DG
 RS
-nt
+Ri
 nt
 nt
 nt
@@ -16290,7 +16950,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 hb
 hb
@@ -16299,7 +16959,7 @@ Ok
 Ii
 Tm
 RS
-nt
+Ri
 nt
 nt
 nt
@@ -16392,7 +17052,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 At
 PG
@@ -16401,7 +17061,7 @@ Ni
 DG
 DG
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16494,8 +17154,8 @@ rs
 Ri
 nt
 nt
-nt
-wr
+Ri
+AP
 At
 At
 Ni
@@ -16503,7 +17163,7 @@ Ok
 pD
 DG
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16596,16 +17256,16 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 hb
 hb
-Ok
+ht
 Ok
 iH
 hb
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16698,7 +17358,7 @@ rs
 Ri
 nt
 nt
-nt
+Ri
 wr
 At
 PG
@@ -16707,7 +17367,7 @@ Ok
 At
 PG
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16809,7 +17469,7 @@ Ni
 At
 At
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16911,7 +17571,7 @@ UE
 vi
 hb
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -16982,7 +17642,7 @@ rs
 nl
 nl
 uw
-Ni
+RX
 gI
 lp
 hj
@@ -17013,7 +17673,7 @@ UE
 At
 PG
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -17115,7 +17775,7 @@ UE
 At
 At
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -17217,7 +17877,7 @@ UE
 wr
 wr
 wr
-nt
+Ri
 nt
 nt
 nt
@@ -17317,9 +17977,9 @@ wr
 At
 rv
 wr
-nt
-nt
-nt
+Ri
+Ri
+Ri
 nt
 nt
 nt
@@ -17415,12 +18075,12 @@ Ri
 Ri
 wr
 wr
-wr
+AP
 Cj
 UE
 wr
 wr
-nt
+Ri
 nt
 nt
 Ri
@@ -17496,7 +18156,7 @@ nl
 nl
 nl
 uw
-UE
+cw
 gI
 lp
 hj
@@ -17522,7 +18182,7 @@ gt
 bl
 Pr
 wr
-nt
+Ri
 nt
 nt
 Ri
@@ -17624,7 +18284,7 @@ UE
 bl
 iH
 wr
-nt
+Ri
 Ri
 Ri
 Ri
@@ -17942,8 +18602,8 @@ ga
 QA
 eZ
 tA
-Qr
-Qr
+bW
+bW
 wr
 Ri
 nt
@@ -18127,7 +18787,7 @@ ON
 wr
 tB
 av
-wr
+AP
 cn
 Ue
 wr
@@ -18350,8 +19010,8 @@ VR
 Fq
 ZW
 tA
-Qr
-Qr
+bW
+bW
 wr
 Ri
 nt
@@ -18412,7 +19072,7 @@ nt
 nt
 wr
 Jc
-Ni
+Dl
 Ie
 eF
 cw
@@ -18512,10 +19172,10 @@ nt
 nt
 nt
 nt
-wr
+RS
 Jc
-Ni
-Ni
+Dl
+Dl
 Ni
 aN
 Ni
@@ -18604,19 +19264,19 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
+wr
+wr
+wr
+wr
+wr
+wr
 wr
 wr
 At
 wr
-wr
-wr
-wr
+RS
+RS
+RS
 Qu
 Qu
 Qu
@@ -18706,12 +19366,12 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
+BZ
+UE
+fu
+AX
+BZ
+cw
 wr
 YJ
 YJ
@@ -18808,18 +19468,18 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
-At
+cY
+UE
+Vt
+lg
+cY
+cw
+ux
 YJ
 Il
 YJ
 ux
-dM
+yw
 EE
 gH
 iY
@@ -18839,11 +19499,11 @@ KW
 Ok
 BN
 yU
-wr
+AP
 yT
 Cc
 lD
-wr
+AP
 ww
 zn
 iH
@@ -18910,12 +19570,12 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
+BZ
+dK
+zY
+bc
+BZ
+cw
 wr
 YJ
 YJ
@@ -19012,12 +19672,12 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
+wr
+wr
+wr
+wr
+wr
+wr
 wr
 wr
 cY
@@ -19121,7 +19781,7 @@ nt
 wr
 wr
 wr
-Dc
+Gh
 UE
 UE
 wr
@@ -19325,7 +19985,7 @@ nt
 wr
 wr
 wr
-UE
+VY
 UE
 bB
 wr
@@ -19354,7 +20014,7 @@ RH
 vv
 vp
 wr
-RH
+bs
 vp
 vp
 wr
@@ -19529,7 +20189,7 @@ nt
 nt
 nt
 wr
-Ni
+KB
 Ni
 ni
 wr
@@ -19632,7 +20292,7 @@ nt
 nt
 wr
 gR
-UE
+ug
 td
 wr
 Ri
@@ -19735,7 +20395,7 @@ nt
 wr
 KW
 UE
-UE
+ug
 wr
 Ri
 Ri
@@ -19835,9 +20495,9 @@ wr
 wr
 wr
 wr
-Ni
-Ax
-ug
+fj
+qU
+cz
 wr
 wr
 LO
@@ -19934,9 +20594,9 @@ Vi
 nF
 wr
 UE
-KW
+Ep
 Ni
-Ni
+Ep
 UE
 iY
 Dc
@@ -20143,8 +20803,8 @@ ZX
 Uf
 Dc
 Sc
-UE
-UE
+LH
+LH
 Bn
 XQ
 hC
@@ -20172,7 +20832,7 @@ nt
 Ri
 tg
 iS
-YT
+hm
 Jy
 iS
 iS
@@ -20245,10 +20905,10 @@ wr
 wr
 oo
 cf
-Ni
-wr
-wr
-wr
+Dl
+RS
+RS
+RS
 wr
 wr
 wr
@@ -20347,8 +21007,8 @@ Ri
 wr
 Xe
 ao
-UE
-wr
+LH
+RS
 Ri
 Ri
 Ri
@@ -20867,7 +21527,7 @@ Ri
 Ri
 wr
 wr
-wr
+Ct
 IG
 qX
 Ni
@@ -20959,8 +21619,8 @@ HQ
 Bb
 UE
 iY
-yP
-wr
+mp
+RS
 Ri
 nt
 nt
@@ -21060,9 +21720,9 @@ Kw
 Bb
 Bb
 UE
-UE
-sF
-wr
+Qc
+hS
+RS
 Ri
 nt
 nt
@@ -21082,7 +21742,7 @@ wr
 wr
 Ri
 wr
-wr
+Ct
 EU
 Ni
 UE
@@ -21161,9 +21821,9 @@ UE
 Vu
 UE
 Am
-UE
-PH
-sF
+Qc
+Ag
+hS
 wr
 Ri
 nt
@@ -21264,7 +21924,7 @@ UE
 iY
 UE
 FD
-iY
+YS
 uQ
 wr
 Ri
@@ -21363,9 +22023,9 @@ LG
 wr
 sF
 jW
-UE
-bB
-UE
+Qc
+qY
+LH
 UE
 UE
 wr
@@ -21400,7 +22060,7 @@ fw
 oh
 Ni
 Ni
-wr
+AP
 Ri
 nt
 nt
@@ -21466,8 +22126,8 @@ wr
 wr
 Qu
 Qu
-wr
-wr
+RS
+RS
 qv
 wr
 wr
@@ -21567,9 +22227,9 @@ Ri
 wr
 Oh
 Oh
-Hw
-wr
-cw
+fW
+RS
+gw
 cw
 cw
 wr
@@ -21670,8 +22330,8 @@ wr
 wr
 Qu
 Qu
-wr
-wr
+RS
+RS
 qv
 wr
 wr
@@ -21769,12 +22429,12 @@ nt
 Ri
 wr
 vn
-Ni
-Ni
-Ni
-Ni
+fj
+fj
+np
+Dl
 vC
-Ni
+Dl
 Ni
 dv
 wr
@@ -21872,10 +22532,10 @@ Ri
 wr
 Ni
 Ax
-Ax
-Ax
-Ax
-Ax
+AU
+AU
+AU
+Yd
 ue
 Ax
 dv
@@ -21894,7 +22554,7 @@ ii
 rx
 UE
 Ni
-wr
+Ct
 wr
 Ri
 RS
@@ -21972,12 +22632,12 @@ nt
 nt
 Ri
 wr
-gY
+To
 Ax
 UB
 dz
 Qt
-Ev
+Br
 UB
 Ax
 XL
@@ -22009,7 +22669,7 @@ iY
 Dc
 Xp
 rO
-wr
+AP
 wr
 Ri
 Ri
@@ -22079,7 +22739,7 @@ Ax
 Ax
 jC
 du
-Ax
+AU
 Ax
 Ov
 sw
@@ -22180,11 +22840,11 @@ yg
 Ni
 Fd
 Ni
-Ni
+Dl
 yl
 Fd
 Ni
-Ni
+Mk
 wr
 Ri
 nt
@@ -22282,7 +22942,7 @@ wr
 uX
 cJ
 hU
-hU
+SP
 hU
 cJ
 bC
@@ -22497,11 +23157,11 @@ nt
 Ri
 wr
 wr
-wr
+Ct
 Ii
 Ax
 tx
-tc
+EV
 ip
 UE
 LT
@@ -22859,8 +23519,8 @@ nt
 nt
 nt
 nt
-wD
-wD
+nt
+Ri
 wD
 iM
 YT
@@ -23094,18 +23754,18 @@ nt
 nt
 Ri
 wr
-Ni
+ds
 Ax
 Ax
 Ax
+Zu
 Ax
-Ax
-Ax
+sl
 Ar
 Ou
 wr
 Ri
-wr
+Ct
 as
 HH
 RW
@@ -23403,12 +24063,12 @@ wr
 ik
 Ni
 Ni
+Mk
 Ni
 Ni
 Ni
-Ni
-Ni
-Ni
+Sm
+fj
 wr
 Ri
 wr
@@ -23707,9 +24367,9 @@ nt
 nt
 Ri
 wr
-YJ
-YJ
-YJ
+lp
+hj
+fw
 wr
 Ri
 nt
@@ -23809,9 +24469,9 @@ nt
 nt
 Ri
 wr
-YJ
-At
-YJ
+lp
+sT
+nl
 wr
 Ri
 nt
@@ -23911,15 +24571,15 @@ nt
 nt
 Ri
 wr
-YJ
-YJ
-YJ
+lp
+sT
+nl
 wr
 Ri
 Ri
 Ri
 wr
-wr
+Ct
 pm
 BF
 wr
@@ -24226,7 +24886,7 @@ BF
 th
 BF
 BF
-IJ
+aE
 sV
 wr
 Mv
@@ -24304,13 +24964,13 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
-nt
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
 nt
 nt
 Ri
@@ -24407,11 +25067,11 @@ nt
 nt
 nt
 Ri
-Ri
-Ri
-Ri
-Ri
-Ri
+rs
+rs
+rs
+rs
+rs
 Ri
 Ri
 Ri
@@ -24512,7 +25172,7 @@ Ri
 iS
 iS
 iW
-ex
+ra
 iS
 tg
 iS
@@ -24554,7 +25214,7 @@ cw
 sa
 UE
 UE
-Ni
+SJ
 wr
 nt
 nt
@@ -24611,10 +25271,10 @@ nt
 nt
 nt
 Ri
-jk
+vt
 iS
 iW
-aX
+yJ
 YT
 YT
 YT
@@ -24716,7 +25376,7 @@ Ri
 iS
 iS
 iW
-ex
+ra
 tg
 iS
 tg
@@ -24758,7 +25418,7 @@ TE
 Ni
 Dc
 wP
-nQ
+Bx
 wr
 nt
 nt
@@ -24815,11 +25475,11 @@ nt
 nt
 nt
 Ri
-Ri
-Ri
-Ri
-Ri
-Ri
+rs
+rs
+rs
+rs
+rs
 Ri
 iS
 iS
@@ -24916,12 +25576,12 @@ nt
 nt
 nt
 nt
-nt
-nt
-nt
-nt
-nt
-nt
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
 Ri
 Ri
 Ri
@@ -26906,14 +27566,14 @@ nl
 nl
 nl
 nl
-SH
-zY
-fs
-Ix
-Ix
-Ix
-Ix
-Ix
+Li
+Yq
+qI
+gM
+gM
+gM
+gM
+gM
 Cm
 Xb
 Oo
@@ -27019,7 +27679,7 @@ RA
 yN
 gj
 oe
-QP
+sc
 uc
 De
 OD
@@ -27314,14 +27974,14 @@ nl
 nl
 nl
 nl
-SH
-zY
-fs
-Ix
-Ix
-Ix
-Ix
-Ix
+Li
+Yq
+qI
+gM
+gM
+gM
+gM
+gM
 Cm
 MV
 SO
@@ -29148,15 +29808,15 @@ nt
 nt
 nt
 nt
-nt
+Ri
 Ri
 RS
 RS
-nJ
-li
-nJ
-QU
-ej
+zc
+Gt
+zc
+la
+Iq
 tg
 tg
 tg
@@ -29251,15 +29911,15 @@ nt
 nt
 Ri
 Ri
-Ri
 RS
-nJ
-nJ
-SP
-nJ
-ej
+RS
+zc
+zc
+Op
+zc
+Iq
 IJ
-lE
+QM
 nl
 nl
 tg
@@ -29269,13 +29929,13 @@ Ri
 Ri
 Ri
 Ri
-nt
-nt
-nt
-nt
-nt
-nt
-nt
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
 nt
 nt
 nt
@@ -29354,29 +30014,29 @@ nt
 Ri
 RS
 RS
-nJ
-nJ
-nJ
-nJ
-QU
+zc
+zc
+zc
+zc
+la
 IJ
 IJ
 fw
 fw
 fw
 fw
-vf
+qS
 iS
 iS
 iS
 tg
 Ri
 Ri
-Ri
-Ri
-Ri
-Ri
-Ri
+rs
+rs
+rs
+rs
+rs
 Ri
 Ri
 nt
@@ -29455,28 +30115,28 @@ nt
 nt
 Ri
 RS
-nJ
-li
-nJ
+zc
+Gt
+zc
 RS
-nJ
-ej
+zc
+Iq
 IJ
-Ux
+ml
 nl
 nl
 nl
 nl
-bW
+gY
 IJ
-jT
-xd
+eb
+Cf
 iS
 iS
 tg
 tg
 tg
-xp
+yY
 iW
 iS
 iS
@@ -29558,19 +30218,19 @@ nt
 Ri
 tg
 tg
-nJ
-nJ
-nJ
-nJ
-ej
-wI
-Nb
-Nb
-aT
-JK
-ns
-xZ
-lj
+zc
+zc
+zc
+zc
+Iq
+db
+Ys
+Ys
+PU
+rh
+DJ
+Ux
+RG
 YT
 YT
 YT
@@ -29578,10 +30238,10 @@ YT
 YT
 YT
 YT
-nB
+ko
 iW
 iS
-jk
+vt
 Ri
 nt
 nt
@@ -29660,27 +30320,27 @@ nt
 Ri
 Ri
 RS
-nJ
-nJ
-SP
-nJ
-ej
+zc
+zc
+Op
+zc
+Iq
 IJ
 nl
 nl
 nl
 nl
 nl
-OP
+NE
 IJ
-vd
+zp
 YT
-gg
+SN
 tg
 iS
 iS
 tg
-xp
+yY
 iW
 iS
 iS
@@ -29762,29 +30422,29 @@ nt
 nt
 Ri
 RS
-nJ
-nJ
-nJ
-nJ
-gz
+zc
+zc
+zc
+zc
+bN
 IJ
-QS
+Gg
 fw
 fw
 fw
 fw
-vf
+qS
 IJ
 IJ
 tg
 iS
 iS
 Ri
-Ri
-Ri
-Ri
-Ri
-Ri
+rs
+rs
+rs
+rs
+rs
 Ri
 Ri
 nt
@@ -29864,12 +30524,12 @@ nt
 Ri
 Ri
 RS
-nJ
-nJ
-nJ
+zc
+zc
+zc
 RS
-nJ
-ej
+zc
+Iq
 IJ
 fw
 nl
@@ -29882,12 +30542,12 @@ iS
 Ri
 Ri
 Ri
-nt
-nt
-nt
-nt
-nt
-nt
+Ri
+Ri
+Ri
+Ri
+Ri
+Ri
 nt
 nt
 nt
@@ -29966,14 +30626,14 @@ nt
 Ri
 RS
 RS
-nJ
-nJ
-nJ
-nJ
-SP
-gz
-ej
-Xo
+zc
+zc
+zc
+zc
+Op
+bN
+Iq
+vf
 nl
 tg
 tg
@@ -30067,13 +30727,13 @@ nt
 nt
 Ri
 Ri
-Ri
 RS
 RS
-nJ
-li
-nJ
-nJ
+RS
+zc
+Gt
+zc
+zc
 RS
 tg
 tg
@@ -30168,9 +30828,9 @@ nt
 nt
 nt
 nt
-nt
 Ri
-RS
+Ri
+Ri
 RS
 RS
 RS
@@ -30218,7 +30878,7 @@ nt
 Ri
 rs
 iW
-Vb
+aT
 rs
 rs
 rs
@@ -30320,7 +30980,7 @@ nt
 Ri
 rs
 iW
-Vb
+aT
 fw
 fw
 fw
@@ -30422,7 +31082,7 @@ nt
 Ri
 rs
 iW
-wx
+Sy
 nl
 nl
 nl
@@ -30524,29 +31184,29 @@ nt
 Ri
 rs
 iW
-wx
-ma
-IU
-EM
-Yl
-kX
-ma
-ma
-ma
-IU
-EM
-Yl
-kX
-ma
-ma
-ma
-IU
-EM
-Yl
-kX
-ma
-ma
-KD
+Sy
+vV
+WF
+pu
+bu
+lc
+vV
+vV
+vV
+WF
+pu
+bu
+lc
+vV
+vV
+vV
+WF
+pu
+bu
+lc
+vV
+vV
+Ju
 qQ
 wT
 Lk
@@ -30626,7 +31286,7 @@ nt
 Ri
 rs
 iW
-wx
+Sy
 nl
 nl
 nl
@@ -30728,7 +31388,7 @@ nt
 Ri
 rs
 iW
-Vb
+aT
 fw
 fw
 fw
@@ -30830,7 +31490,7 @@ nt
 Ri
 rs
 iW
-Vb
+aT
 rs
 rs
 rs
@@ -31191,7 +31851,7 @@ nl
 nl
 nl
 rl
-ke
+oz
 rl
 rl
 nl
@@ -31293,10 +31953,10 @@ nl
 nl
 nl
 rl
-xI
-xw
-dN
-ZM
+BJ
+dj
+MS
+UY
 nl
 nl
 nl
@@ -31394,11 +32054,11 @@ nl
 nl
 nl
 nl
-ke
-vE
-nY
-oX
-wy
+oz
+fr
+hw
+NM
+Um
 nl
 nl
 nl
@@ -31415,7 +32075,7 @@ rs
 rs
 rs
 rs
-sS
+Ez
 iW
 rs
 Ri
@@ -31495,12 +32155,12 @@ nl
 nl
 rl
 rl
-ke
+oz
 rl
-RI
+YZ
 rl
 rl
-dY
+HW
 nl
 nl
 nl
@@ -31517,7 +32177,7 @@ fw
 fw
 fw
 fw
-sS
+Ez
 iW
 rs
 Ri
@@ -31596,13 +32256,13 @@ nl
 nl
 nl
 rl
-Uu
-rh
-yE
-jR
-Fx
+dx
+uu
+SZ
+at
+GC
 rl
-bM
+Ej
 nl
 nl
 nl
@@ -31619,7 +32279,7 @@ nl
 nl
 nl
 nl
-pn
+oH
 iW
 rs
 Ri
@@ -31697,31 +32357,31 @@ rs
 ea
 nl
 nl
-ke
-oj
-Ms
-lr
-bV
-Tv
-ke
-RZ
+oz
+lW
+IB
+Rt
+Qi
+yE
+oz
+FO
 nl
 ea
-lo
-lo
-lo
-lo
-lo
-uP
-Yl
-kX
-ma
-ma
-ma
-IU
-IU
-ma
-pn
+Nm
+Nm
+Nm
+Nm
+Nm
+Zh
+bu
+lc
+vV
+vV
+vV
+WF
+WF
+vV
+oH
 iW
 rs
 Ri
@@ -31800,13 +32460,13 @@ nl
 nl
 nl
 rl
-ET
-cz
-Qn
-Fh
-YN
-ke
-uh
+nw
+Te
+fn
+vx
+wy
+oz
+dD
 nl
 nl
 nl
@@ -31823,7 +32483,7 @@ nl
 nl
 nl
 nl
-pn
+oH
 iW
 rs
 Ri
@@ -31901,14 +32561,14 @@ rs
 nl
 nl
 nl
-ke
-te
-Ms
-tP
-bV
-Tv
+oz
+jG
+IB
+vR
+Qi
+yE
 rl
-fD
+Co
 nl
 nl
 nl
@@ -31925,7 +32585,7 @@ fw
 fw
 fw
 fw
-sS
+Ez
 iW
 rs
 Ri
@@ -32004,13 +32664,13 @@ nl
 nl
 nl
 rl
-jN
-fS
-yO
-xg
-de
-dN
-wQ
+PK
+kl
+qD
+Wg
+JJ
+MS
+jR
 nl
 nl
 nl
@@ -32027,7 +32687,7 @@ rs
 rs
 rs
 rs
-sS
+Ez
 iW
 rs
 Ri
@@ -32107,9 +32767,9 @@ nl
 nl
 rl
 rl
-ke
+oz
 rl
-ke
+oz
 rl
 rl
 nl
@@ -33876,7 +34536,7 @@ nt
 nt
 nt
 nt
-wD
+Ri
 wD
 iM
 YT
