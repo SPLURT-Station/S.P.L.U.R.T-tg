@@ -439,6 +439,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 	mouse_opacity = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
+	anchored = TRUE
 
 	icon = 'fenysha_events/icons/turf/floors/floors.dmi'
 	icon_state = "dark_large"
