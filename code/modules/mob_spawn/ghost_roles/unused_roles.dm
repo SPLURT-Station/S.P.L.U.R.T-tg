@@ -173,6 +173,7 @@
 			message = "<b>You wished for immortality, even as your friends lay dying behind you. No matter how many times you cast yourself into the lava, you awaken in this room again within a few days. There is no escape.</b>"
 	to_chat(new_spawn, span_infoplain("[message]"))
 
+/* SPLURT REMOVAL. Modular Private Security.
 /obj/effect/mob_spawn/ghost_role/human/nanotrasensoldier
 	name = "sleeper"
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -193,6 +194,7 @@
 	flavour_text = "Upper-crusty of Nanotrasen. You should be given the respect you're owed."
 	outfit = /datum/outfit/nanotrasencommander
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
+*/
 
 //space doctor, a rat with cancer, and bessie from an old removed lavaland ruin.
 
