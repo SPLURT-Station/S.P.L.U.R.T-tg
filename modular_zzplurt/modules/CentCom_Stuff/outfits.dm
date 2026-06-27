@@ -15,12 +15,12 @@
 	var/obj/item/implant/mindshield/mindshield = new /obj/item/implant/mindshield(centcom_member)//hmm lets have centcom officials become revs
 	mindshield.implant(centcom_member, null, silent = TRUE)
 
-	centcom_member.add_faction(ROLE_DEATHSQUAD) // Can't exactly let the NT mobs and whatnot kill CentCom right?
 	var/obj/item/card/id/W = centcom_member.wear_id
 	W.registered_name = centcom_member.real_name
 	W.update_label()
 	W.update_icon()
-	return ..()
+	centcom_member.add_faction(ROLE_DEATHSQUAD) // Can't exactly let the NT mobs and whatnot kill CentCom right?
+	centcom_member.update_icons()
 
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"

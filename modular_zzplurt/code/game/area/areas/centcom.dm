@@ -1,5 +1,7 @@
 /area/centcom/central_command_areas
-	ambience_index = AMBIENCE_GENERIC
+	name = "Central Command Snowy Plains"
+	ambience_index = AMBIENCE_MINING
+	sound_environment = SOUND_AREA_ICEMOON
 	airlock_wires = /datum/wires/airlock/centcom
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
@@ -10,35 +12,42 @@
 /area/centcom/central_command_areas/control
 	name = "CentCom Central Hallway"
 	icon_state = "centcom"
+	ambience_index = AMBIENCE_GENERIC
 
 /area/centcom/central_command_areas/control/main
 	name = "CentCom Central Control Office"
 	icon_state = "centcom_control"
+	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/centcom/central_command_areas/evacuation/lounge
 	name = "CentCom Recovery Wing Lounge"
 	icon_state = "centcom"
+	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/centcom/central_command_areas/evacuation/sec
 	name = "CentCom Recovery Wing Security Post"
 	icon_state = "centcom"
 	ambience_index = AMBIENCE_DANGER
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/evacuation/med
 	name = "CentCom Recovery Wing Medical Post"
 	icon_state = "centcom"
 	ambience_index = AMBIENCE_MEDICAL
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/evacuation/checkpoint
 	name = "CentCom Recovery Wing Security Checkpoint"
 	icon_state = "centcom"
+	ambience_index = AMBIENCE_DANGER
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/evacuation/ai_storage
 	name = "CentCom Recovery Wing AI Storage"
 	icon_state = "centcom"
+	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/morgue
@@ -50,21 +59,25 @@
 /area/centcom/central_command_areas/secpost
 	name = "CentCom Security Post"
 	icon_state = "centcom"
+	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/medpost
 	name = "CentCom Medical Post"
 	icon_state = "centcom"
 	ambience_index = AMBIENCE_MEDICAL
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/supplypod
 	name = "CentCom Supplypod Loading Bay"
 	icon_state = "supplypod"
+	ambience_index = AMBIENCE_GENERIC
 	ambience_index = AMBIENCE_ENGI
 
 /area/centcom/central_command_areas/ferry
 	name = "CentCom Executive Operations Wing"
 	icon_state = "centcom_ferry"
+	ambience_index = AMBIENCE_GENERIC
 
 /area/centcom/central_command_areas/ferry/dock
 	name = "CentCom Executive Operations Docking Bay"
@@ -78,7 +91,12 @@
 /area/centcom/central_command_areas/admin
 	name = "CentCom Administrative Sector"
 	icon_state = "centcom_admin"
+	ambience_index = AMBIENCE_DANGER
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	ambientsounds = list(
+		'sound/ambience/security/ambidet1.ogg',
+		'sound/ambience/security/ambidet2.ogg',
+		)
 
 /area/centcom/central_command_areas/admin/front
 	name = "CentCom Administrative Front Office"
@@ -116,6 +134,7 @@
 /area/centcom/central_command_areas/fore
 	name = "CentCom Corporate Security & Logistics Wing"
 	icon_state = "centcom_fore"
+	ambience_index = AMBIENCE_GENERIC
 
 /area/centcom/central_command_areas/prison
 	name = "CentCom Corporate Security Prison Wing"
@@ -139,12 +158,9 @@
 /area/centcom/central_command_areas/prison/cells
 	name = "CentCom Corporate Security Prison Cells"
 	icon_state = "centcom_cells"
+	ambience_index = AMBIENCE_MINING
 
 /area/centcom/central_command_areas/evacuation/ship
 	name = "CentCom Pod Recovery Outpost"
 	icon_state = "centcom_evacuation_ship"
-
-/area/centcom/central_command_areas
-	name = "Central Command Snowy Plains"
-	ambience_index = AMBIENCE_MINING
-	sound_environment = SOUND_AREA_ICEMOON
+	ambience_index = AMBIENCE_GENERIC
