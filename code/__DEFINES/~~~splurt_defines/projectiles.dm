@@ -6,3 +6,6 @@
 
 /// 9x19 if it weren't made by security
 #define CALIBER_9X19MM "9x19mm"
+
+// Bulwark AR caliber, basically lesser .223
+#define CALIBER_68MM "6.8mm Caseless"
