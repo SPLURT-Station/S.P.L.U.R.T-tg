@@ -389,16 +389,16 @@ SUBSYSTEM_DEF(daylight)
 	else
 		set_target(intensity, color)
 
-/datum/controller/subsystem/daylight/proc/update_current(intensity, color)
+/datum/controller/subsystem/daylight/proc/update_current(intensity, color, force = FALSE)
 	var/changed = abs(current_intensity - intensity) > 0.001 || current_color != color
-	if(!changed)
+	if(!changed && !force)
 		return
 
 	current_intensity = intensity
 	current_color = color
 	current_rgb = hex2rgb(color)
 
-	if(changed)
+	if(changed || force)
 		update_all_areas()
 		// The wash is animated to its target in set_target()/set_intensity_and_color(); do NOT restart its
 		// animation on every intermediate transition step here, or it stutters.

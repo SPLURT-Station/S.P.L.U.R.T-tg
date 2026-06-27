@@ -115,7 +115,9 @@
 			var/list/options = rail_theme
 			for(var/role in options)
 				for(var/turf/open/moving/auto_rail/RT as anything in grouped_turfs[group_id])
-					if((RT.rail_role != role))
+					if(!istype(RT, /turf/open/moving/auto_rail))
+						continue
+					if((RT.rail_role && RT.rail_role != role))
 						continue
 					var/list/reail_options = options[role]
 					apply_to_rail(RT, reail_options)
@@ -341,6 +343,7 @@
 /datum/moving_turf_transition/plain_snow
 
 	change_spawn_theme = /datum/train_object_spawner_theme/forest
+	rail_theme = RAIL_THEME_SNOWED
 	transition_options = list(
 		TRANSITION_GROUP_1  = TRANSITION_OPTION_SNOW,
 		TRANSITION_GROUP_2  = TRANSITION_OPTION_SNOW,
@@ -366,6 +369,8 @@
 /datum/moving_turf_transition/bridge
 
 	change_spawn_theme = /datum/train_object_spawner_theme/bridge
+	rail_theme = RAIL_THEME_BRIDGE
+
 	transition_options = list(
 		TRANSITION_TOP_SIDE = list(
 			TRANSITION_GROUP_1  = TRANSITION_OPTION_BRIDGE,
@@ -412,7 +417,7 @@
 /datum/moving_turf_transition/tunnel
 
 	/// How many time we gonna spend inside tunnel
-	var/duration
+	var/duration = 2 MINUTES
 	/// Where we gonna find outself after leaving tunnel
 	var/destination_theme
 
@@ -438,7 +443,7 @@
 			TRANSITION_GROUP_17 = TRANSITION_OPTION_ROCKW_BORDER,
 			TRANSITION_GROUP_18 = TRANSITION_OPTION_ROCKW_BORDER
 		),
-		TRANSITION_TOP_SIDE = list(
+		TRANSITION_BOTTOM_SIDE = list(
 			TRANSITION_GROUP_1  = TRANSITION_OPTION_TUNNEL_FLOOR,
 			TRANSITION_GROUP_2  = TRANSITION_OPTION_TUNNEL_FLOOR,
 			TRANSITION_GROUP_3  = TRANSITION_OPTION_TUNNEL_FLOOR,
@@ -462,3 +467,21 @@
 
 /datum/moving_turf_transition/tunnel/transition_ends()
 	. = ..()
+	SSdaylight.cycle_locked = TRUE
+	SSdaylight.set_intensity_and_color(0, COLOR_BLACK, TRUE)
+
+	if(destination_theme && istype(destination_theme, /datum/moving_turf_transition))
+		if(SStrain_controller.time_to_next_station >= duration)
+			SStrain_controller.time_to_next_station += duration + 1 MINUTES
+			SStrain_controller.planned_transition = destination_theme
+			SStrain_controller.enforce_transition = TRUE
+
+/datum/moving_turf_transition/tunnel/transit_out()
+	SSdaylight.cycle_locked = FALSE
+
+	var/list/phase_state = SSdaylight.get_phase_light_state()
+	SSdaylight.set_target(phase_state["intensity"], phase_state["color"])
+	SSdaylight.transition_steps = 2
+	for(var/i = 0 to 2)
+		SSdaylight.fire()
+		sleep(0.1 SECONDS)

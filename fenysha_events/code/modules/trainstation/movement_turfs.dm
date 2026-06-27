@@ -162,7 +162,7 @@
 	name = "Rail scheme"
 	desc = "Helper to plan how rails will be in game"
 
-	var/rail_role = NONE
+	var/rail_role
 	icon = 'fenysha_events/icons/turf/rail_scheme.dmi'
 
 /turf/open/moving/auto_rail/Initialize(mapload)
@@ -170,6 +170,9 @@
 	if(!rail_role)
 		return
 
+	if(!SStrain_controller || !SStrain_controller.transition_theme)
+		reset_to_default()
+		return
 	var/list/rail_theme = SStrain_controller?.transition_theme.rail_theme
 	if(!rail_theme)
 		reset_to_default()

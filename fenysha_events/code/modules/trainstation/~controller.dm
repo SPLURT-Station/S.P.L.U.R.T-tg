@@ -50,8 +50,14 @@ SUBSYSTEM_DEF(train_controller)
 	/// List of station control terminals
 	var/list/station_terminals
 
+	/// Should we enforce planned_transition even if we station_enter_transition_loaded
+	var/enforce_transition = FALSE
+	/// Transition we plan to set at next_transition_time
+	var/planned_transition
 	/// How soon we want to change transition or reset it
 	var/next_transition_time = 0
+	/// Did we loaded station enter transition
+	var/station_enter_transition_loaded = FALSE
 	/// The currently selected theme for objects/effects while the train is moving
 	var/datum/train_object_spawner_theme/selected_theme = null
 	/// Current transition theme, for auto_icon moving turfs
@@ -300,6 +306,8 @@ SUBSYSTEM_DEF(train_controller)
 	loaded_station.pre_load()
 
 	var/result = to_load.load_station(CALLBACK(src, PROC_REF(on_station_loaded)))
+	SSdaylight.reapply_lighting()
+
 	if(screens && islist(screens) && length(screens))
 		for(var/mob/living/L in screens)
 			REMOVE_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
@@ -318,6 +326,7 @@ SUBSYSTEM_DEF(train_controller)
 	connect_terminals()
 	SEND_SIGNAL(src, COMSIG_TRAINSTATION_LOADED, loaded_station)
 	loading = FALSE
+	station_enter_transition_loaded = FALSE
 
 	if(loaded_station.station_flags & TRAINSTATION_NO_FORKS)
 		return
@@ -371,6 +380,8 @@ SUBSYSTEM_DEF(train_controller)
 
 	if(!transition)
 		CRASH("Train controller try to change current transition with [type_or_instance] use instance or type instead!")
+	if(transition_theme)
+		transition_theme.transit_out()
 
 	transition_theme = transition
 	if(!instant)
@@ -504,11 +515,15 @@ SUBSYSTEM_DEF(train_controller)
 		stop_moving()
 		return
 
-	if(next_transition_time && ((world.time - next_transition_time) >= 0))
-		change_transition(DEFAULT_TRANSITION)
+	if(next_transition_time && planned_transition && ((world.time - next_transition_time) >= 0) && (!station_enter_transition_loaded || enforce_transition))
+		change_transition(planned_transition)
+		next_transition_time = 0
+		planned_transition = null
+		enforce_transition = FALSE
 
-	if(planned_to_load && planned_to_load.enter_transition && (time_to_next_station <= planned_to_load.enter_transition_time))
+	if(planned_to_load && planned_to_load.enter_transition && (time_to_next_station <= planned_to_load.enter_transition_time) && !station_enter_transition_loaded)
 		change_transition(planned_to_load.enter_transition)
+		station_enter_transition_loaded = TRUE
 
 	if(moving && planned_to_load && time_to_next_station >= 0)
 		time_to_next_station -= wait

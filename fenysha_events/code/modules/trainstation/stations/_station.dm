@@ -227,6 +227,7 @@
 	var/obj/effect/landmark/trainstation/crew_spawnpoint/crew_mover = locate() in GLOB.landmarks_list
 
 	Master.StartLoadingMap()
+
 	for(var/turf/T in docking_turfs)
 		for(var/atom/movable/AM in T.contents)
 			if(HAS_TRAIT(AM, TRAIT_NO_STATION_UNLOAD))
@@ -240,8 +241,8 @@
 			if(isobserver(AM))
 				continue
 			POOL_ASYNC_RELEASE(AM)
-		T.ChangeTurf(/turf/baseturf_bottom)
-		T.baseturfs = /turf/baseturf_bottom
+		T.ChangeTurf(/turf/open/space, list(/turf/open/space), CHANGETURF_DEFER_CHANGE)
+		/// T.baseturfs = /turf/baseturf_bottom
 	docking_turfs.Cut()
 	template.created_atoms = null
 	if(unload_callback)

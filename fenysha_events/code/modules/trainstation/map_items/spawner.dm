@@ -94,7 +94,7 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
 			GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
 			GROUP_WEIGHTED_SPAWNLIST = list(
-				/obj/structure/prop/city/street_on = 100,
+				/obj/structure/marker_beacon/burgundy = 100,
 			)
 		),
 	)

@@ -31,9 +31,108 @@
 	), \
 )
 
+#define RAIL_THEME_SNOWED list( \
+	RAIL_ROLE_TOP_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_TOP_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_RAIL = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_FILLER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_snowed.dmi', \
+		MOVING_TURF_NAME = "Snowed rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+)
+
+#define RAIL_THEME_BRIDGE list( \
+	RAIL_ROLE_TOP_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_TOP_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_RAIL = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_FILLER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_bridge.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+)
+
+
+#define RAIL_THEME_VOID list( \
+	RAIL_ROLE_TOP_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_TOP_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_RAIL = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_FILLER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CORNER = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+	RAIL_ROLE_BOTTOM_CONNECTOR = list( \
+		MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+		MOVING_TURF_NAME = "Rails", \
+		MOVING_TURF_DESC = "Better watch your step!", \
+	), \
+)
 
 #define TRANSITION_OPTION_SNOW list( \
-	MOVING_TURF_ICON = 'fenysha_events/icons/turf/trainturf.dmi', \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/snow_turfs.dmi', \
 	MOVING_TURF_ICON_STATE = "snow", \
 	MOVING_TURF_NAME = "Snow", \
 	MOVING_TURF_DESC = "It looks cold.", \
@@ -51,7 +150,7 @@
 )
 
 #define TRANSITION_OPTION_SNOW_DENSE list( \
-	MOVING_TURF_ICON = 'fenysha_events/icons/turf/trainturf.dmi', \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/snow_turfs.dmi', \
 	MOVING_TURF_ICON_STATE = "snow", \
 	MOVING_TURF_NAME = "Snow", \
 	MOVING_TURF_DESC = "It looks cold.", \
@@ -60,7 +159,7 @@
 )
 
 #define TRANSITION_OPTION_SNOW_BORDER list( \
-	MOVING_TURF_ICON = 'fenysha_events/icons/turf/trainturf.dmi', \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/snow_turfs.dmi', \
 	MOVING_TURF_ICON_STATE = "snow", \
 	MOVING_TURF_NAME = "Snow", \
 	MOVING_TURF_DESC = "It looks cold.", \

@@ -1,6 +1,6 @@
 PROCESSING_SUBSYSTEM_DEF(moving_turfs)
 	name = "Moving turfs"
-	wait = 0.1 SECONDS
+	wait = 0.146 SECONDS
 	stat_tag = "MT"
 	flags = SS_NO_INIT
 

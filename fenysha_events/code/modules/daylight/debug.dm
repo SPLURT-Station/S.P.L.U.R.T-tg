@@ -79,12 +79,18 @@ ADMIN_VERB(daylight_debug_report, R_ADMIN, "Daylight Debug: Status Report", "Pri
 	lines += "Anchor plane on your HUD: [usr.hud_used?.get_plane_master(RENDER_PLANE_DAYLIGHT) ? "YES" : "NO"]"
 	to_chat(usr, span_boldnotice("== Daylight debug ==\n[lines.Join("\n")]"))
 
-ADMIN_VERB(daylight_debug_reapply_lighting, R_ADMIN, "Daylight Debug: Reapply Area Lighting", "Re-add the daylight light overlay to all daylight areas", ADMIN_CATEGORY_EVENTS)
+
+
+/datum/controller/subsystem/daylight/proc/reapply_lighting()
 	var/count = 0
 	for(var/area/daylit_area as anything in SSdaylight.daylight_areas)
 		daylit_area.clear_daylight_overlay()
 		daylit_area.apply_daylight_overlay()
 		count++
+	return count
+
+ADMIN_VERB(daylight_debug_reapply_lighting, R_ADMIN, "Daylight Debug: Reapply Area Lighting", "Re-add the daylight light overlay to all daylight areas", ADMIN_CATEGORY_EVENTS)
+	var/count = SSdaylight.reapply_lighting()
 	to_chat(usr, span_notice("Reapplied the daylight light overlay to [count] daylight area(s)."))
 
 ADMIN_VERB(daylight_debug_reregister_source, R_ADMIN, "Daylight Debug: Re-register Source", "Re-add the daylight source to your screen", ADMIN_CATEGORY_EVENTS)
