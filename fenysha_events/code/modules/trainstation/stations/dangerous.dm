@@ -144,3 +144,20 @@
 	required_stations = 5
 
 	ambience_sounds = list('fenysha_events/sounds/radiosphere_loop1.ogg' = 40 SECONDS)
+
+
+/datum/train_station/habitation
+	name = "Undeground Habitation"
+	creator = "Mold"
+	map_path = "_maps/modular_events/trainstation/warehouse.dmm"
+	desc = "Unknown location"
+	threat_level = THREAT_LEVEL_DEADLY
+	region = TRAINSTATION_REGION_THUNDRA
+	station_flags = TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
+
+	possible_nearstations = list(/datum/train_station/near_station/static_habitation)
+
+
+/datum/train_station/near_station/static_habitation
+	name = "Station Area - Undeground Habitation"
+	map_path = "_maps/modular_events/trainstation/nearstations/static_rapedungeon.dmm"

@@ -206,7 +206,16 @@ GLOBAL_LIST_INIT(all_elevators, list())
 			if(!should_move_atom(M, source))
 				continue
 
+			var/pixel_x = M.pixel_x
+			var/pixel_y = M.pixel_y
+			var/pixel_z = M.pixel_z
+
 			M.forceMove(destination)
+
+			M.pixel_x = pixel_x
+			M.pixel_y = pixel_y
+			M.pixel_z = pixel_z
+
 
 /datum/elevator/proc/should_move_atom(atom/A, turf/source_turf)
 	if(!A.can_elevate || QDELETED(A))

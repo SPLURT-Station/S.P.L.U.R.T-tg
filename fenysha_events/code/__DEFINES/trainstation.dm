@@ -129,6 +129,17 @@
 #define SET_TURF_DENSITY "set_turf_density"
 #define SET_TURF_OPACITY "set_turf_opacity"
 
+
+// Rails customization
+
+#define RAIL_ROLE_TOP_CONNECTOR "rail_connector_top"
+#define RAIL_ROLE_TOP_CORNER "rail_corner_top"
+#define RAIL_ROLE_RAIL "rail"
+#define RAIL_ROLE_FILLER "rail_filler"
+#define RAIL_ROLE_BOTTOM_CORNER "rail_corner_bottom"
+#define RAIL_ROLE_BOTTOM_CONNECTOR "rail_connector_bottom"
+
+
 /proc/find_nearest_ally(atom/source, faction, range = 12)
 	var/closest
 	var/closest_dist = INFINITY

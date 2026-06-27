@@ -72,13 +72,27 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 
 /datum/train_object_spawner_theme/bridge
-	max_delay = 3 SECONDS
-	min_delay = 3 SECONDS
 	allow_selection = FALSE
 	options = list(
 		SPAWNER_GROUP_NEAR_RAILS = list(
 			GROUP_SPAWN_CHANCE = 100,
 			GROUP_SPAWN_RANGE = 0,
+			GROUP_SPAWN_MIN_DELAY = 2 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/prop/city/street_on = 100,
+			)
+		),
+	)
+
+/datum/train_object_spawner_theme/tunnel
+	allow_selection = FALSE
+	options = list(
+		SPAWNER_GROUP_NEAR_RAILS = list(
+			GROUP_SPAWN_CHANCE = 100,
+			GROUP_SPAWN_RANGE = 0,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
 			GROUP_WEIGHTED_SPAWNLIST = list(
 				/obj/structure/prop/city/street_on = 100,
 			)
@@ -117,6 +131,8 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	name = "Object spawner"
 
 	var/group = NONE
+	delete_on_unload = TRUE
+
 	VAR_PRIVATE/spawn_chance = 100
 	VAR_PRIVATE/spawn_range = 0 //0 means on the same tile
 	VAR_PRIVATE/spawn_list
@@ -197,7 +213,7 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	if(!SP)
 		SP = locate() in GLOB.landmarks_list
 
-	return x > SP.x
+	return y > SP.y
 
 /obj/effect/landmark/trainstation/object_spawner/proc/attempt_spawn()
 	if(!length(spawn_list))

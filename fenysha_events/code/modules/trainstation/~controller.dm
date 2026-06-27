@@ -124,6 +124,9 @@ SUBSYSTEM_DEF(train_controller)
 	load_stations()
 	connect_stations()
 	global_map.generate()
+
+	transition_theme = new /datum/moving_turf_transition/plain_snow() /// TODO: Make it normaly
+
 	load_map()
 
 

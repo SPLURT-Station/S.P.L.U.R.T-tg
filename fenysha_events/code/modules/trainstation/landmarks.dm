@@ -2,9 +2,12 @@
 	icon_state = "tdome_admin"
 	flags_1 = NO_TURF_MOVEMENT_1
 
+	var/delete_on_unload = FALSE
+
 /obj/effect/landmark/trainstation/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NO_STATION_UNLOAD, INNATE_TRAIT)
+	if(!delete_on_unload)
+		ADD_TRAIT(src, TRAIT_NO_STATION_UNLOAD, INNATE_TRAIT)
 
 // Used to create the station surroundings above the track rails
 /obj/effect/landmark/trainstation/nearstation_spawnpoint

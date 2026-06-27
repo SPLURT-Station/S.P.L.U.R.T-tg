@@ -63,15 +63,15 @@ def save_png_with_ztxt(img: Image.Image, key: str, text: str, path: str):
 
 
 def create_dmi(
-    state_data: list[tuple[str, list[Image.Image], int]],
-    num_frames: int,
+    state_data: list[tuple[str, list[Image.Image], float]],
     icon_size: int,
     output_path: str,
 ):
     if not state_data:
         return
 
-    big_height = icon_size * num_frames * len(state_data)
+    total_frames = sum(len(frames) for _, frames, _ in state_data)
+    big_height = icon_size * total_frames
     big_img = Image.new("RGBA", (icon_size, big_height))
 
     y = 0
@@ -83,12 +83,16 @@ def create_dmi(
     dmi_desc = "# BEGIN DMI\nversion = 4.0\n"
     dmi_desc += f"width = {icon_size}\nheight = {icon_size}\n"
 
-    for state_name, _, state_delay in state_data:
-        delay_str = ",".join([str(state_delay)] * num_frames)
+    for state_name, frame_list, state_delay in state_data:
+        frame_count = len(frame_list)
+
         dmi_desc += f'state = "{state_name}"\n'
-        dmi_desc += f"\tdirs = 1\n"
-        dmi_desc += f"\tframes = {num_frames}\n"
-        dmi_desc += f"\tdelay = {delay_str}\n"
+        dmi_desc += "\tdirs = 1\n"
+        dmi_desc += f"\tframes = {frame_count}\n"
+
+        if frame_count > 1:
+            delay_str = ",".join([str(state_delay)] * frame_count)
+            dmi_desc += f"\tdelay = {delay_str}\n"
 
     dmi_desc += "# END DMI\n"
 
@@ -125,7 +129,14 @@ def process_single_tile(
 
     base_name = os.path.splitext(os.path.basename(input_path))[0]
     dmi_path = os.path.join(output_dir, f"{base_name}_flow.dmi")
-    create_dmi([(base_name, frame_list, frame_delay)], frames, size, dmi_path)
+    create_dmi(
+        [
+            (f"{base_name}_still", [img], 1),
+            (base_name, frame_list, frame_delay),
+        ],
+        size,
+        dmi_path,
+    )
 
     print(f"✅ Done! Everything saved to folder: {output_dir}")
     print(f" 🗂️  BYOND: {os.path.basename(dmi_path)}")
@@ -162,6 +173,8 @@ def process_folder(
         frame_list = generate_animation_frames(img, dx_speed, dy_speed, frames, size)
 
         state_name = os.path.splitext(os.path.basename(png_path))[0]
+        state_data.append((f"{state_name}_still", [img], 1))
+        state_data.append((state_name, frame_list, frame_delay))
         sub_dir = os.path.join(output_dir, f"{state_name}_flow")
         os.makedirs(sub_dir, exist_ok=True)
 
@@ -232,10 +245,11 @@ def auto_mode():
             dy_s = dy * var_speed
             frame_list = generate_animation_frames(img, dx_s, dy_s, frames, size)
             full_name = f"{state_base}_{suffix}"
+            state_data.append((f"{state_base}_still", [img], 1))
             state_data.append((full_name, frame_list, var_delay))
 
     dmi_path = os.path.join(output_dir, "tiles_flow.dmi")
-    create_dmi(state_data, frames, first_size, dmi_path)
+    create_dmi(state_data, first_size, dmi_path)
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:  # Run without parameters → auto mode

@@ -1,3 +1,5 @@
+#define RAIL_GROUP "rail_group"
+
 /datum/moving_turf_transition
 	var/transition_speed = 10
 
@@ -15,6 +17,8 @@
 	///		TRANSITION_BOTTOM_SIDE = list_of_groups_options,
 	/// )
 	var/list/transition_options = list()
+
+	var/list/rail_theme = RAIL_THEME_DEFAULT
 
 	/// GROUP_ID = current_x
 	var/list/current_columns = list()
@@ -35,15 +39,23 @@
 /datum/moving_turf_transition/proc/get_transition_turfs()
 	var/list/result = list()
 
-	for(var/turf/open/moving/auto_icon/T in SSmoving_turfs.all_simulated_turfs)
-		if(!T.transition_group)
-			continue
+	for(var/turf/open/moving/T as anything in SSmoving_turfs.all_simulated_turfs)
+		if(istype(T, /turf/open/moving/auto_icon))
+			var/turf/open/moving/auto_icon/MT = T
+			if(!MT.transition_group)
+				continue
 
-		if(!result[T.transition_group])
-			result[T.transition_group] = list()
+			if(!result[MT.transition_group])
+				result[MT.transition_group] = list()
 
-		result[T.transition_group] += T
-
+			result[MT.transition_group] += MT
+		else if(istype(T, /turf/open/moving/auto_rail))
+			var/turf/open/moving/auto_rail/RT = T
+			if(!RT.rail_role)
+				continue
+			if(!result[RAIL_GROUP])
+				result[RAIL_GROUP] = list()
+			result[RAIL_GROUP] += RT
 	return result
 
 /datum/moving_turf_transition/proc/start_transition()
@@ -60,6 +72,9 @@
 
 	addtimer(CALLBACK(src, PROC_REF(run_trough_trufs)), 1)
 
+/datum/moving_turf_transition/proc/transit_out()
+	return
+
 /datum/moving_turf_transition/proc/transition_ends()
 	if(change_spawn_theme && ispath(change_spawn_theme, /datum/train_object_spawner_theme))
 		SStrain_controller.set_movement_theme(change_spawn_theme)
@@ -68,7 +83,7 @@
 	var/static/obj/effect/landmark/trainstation/train_spawnpoint/SP
 	if(!SP)
 		SP = locate() in GLOB.landmarks_list
-	return turf_to_check.x > SP.x
+	return turf_to_check.y > SP.y
 
 /datum/moving_turf_transition/proc/run_trough_trufs()
 	transition = TRUE
@@ -96,27 +111,32 @@
 		prepare_groups()
 	transition = TRUE
 	for(var/group_id in grouped_turfs)
-		var/list/general_options = transition_options[group_id]
-		var/list/top_options
-		var/list/bottom_options
+		if(group_id == RAIL_GROUP)
+			var/list/options = rail_theme
+			for(var/role in options)
+				for(var/turf/open/moving/auto_rail/RT as anything in grouped_turfs[group_id])
+					if((RT.rail_role != role))
+						continue
+					var/list/reail_options = options[role]
+					apply_to_rail(RT, reail_options)
+		else
+			var/list/general_options = transition_options[group_id]
+			var/list/top_options
+			var/list/bottom_options
 
-		if(transition_options[TRANSITION_TOP_SIDE] || transition_options[TRANSITION_BOTTOM_SIDE])
-			top_options = transition_options[TRANSITION_TOP_SIDE]
-			bottom_options = transition_options[TRANSITION_BOTTOM_SIDE]
+			if(transition_options[TRANSITION_TOP_SIDE] || transition_options[TRANSITION_BOTTOM_SIDE])
+				top_options = transition_options[TRANSITION_TOP_SIDE]
+				bottom_options = transition_options[TRANSITION_BOTTOM_SIDE]
 
-		for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
-			var/list/options = general_options
+			for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
+				var/list/options = general_options
 
-			switch(affected_sides)
-				if(TRANSITION_TOP_SIDE)
-					if(is_turf_top(T) && top_options)
-						options = top_options
+				if(is_turf_top(T) && top_options)
+					options = top_options[group_id]
+				else if(!is_turf_top(T) && bottom_options)
+					options = bottom_options[group_id]
 
-				if(TRANSITION_BOTTOM_SIDE)
-					if(!is_turf_top(T) && bottom_options)
-						options = bottom_options
-
-			apply_to_turf(T, options)
+				apply_to_turf(T, options)
 
 	transition_ends()
 	transition = FALSE
@@ -127,34 +147,54 @@
 	if(current_x <= 0)
 		return FALSE
 
-	var/list/general_options = transition_options[group_id]
-	var/list/top_options
-	var/list/bottom_options
+	if(group_id == RAIL_GROUP)
+		var/list/options = rail_theme
+		for(var/role in options)
+			for(var/turf/open/moving/auto_rail/RT as anything in grouped_turfs[group_id])
+				if((RT.rail_role != role) || RT.x != current_x)
+					continue
+				var/list/reail_options = options[role]
+				apply_to_rail(RT, reail_options)
+	else
+		var/list/general_options = transition_options[group_id]
+		var/list/top_options
+		var/list/bottom_options
 
-	if(transition_options[TRANSITION_TOP_SIDE] || transition_options[TRANSITION_BOTTOM_SIDE])
-		top_options = transition_options[TRANSITION_TOP_SIDE]
-		bottom_options = transition_options[TRANSITION_BOTTOM_SIDE]
+		if(transition_options[TRANSITION_TOP_SIDE] || transition_options[TRANSITION_BOTTOM_SIDE])
+			top_options = transition_options[TRANSITION_TOP_SIDE]
+			bottom_options = transition_options[TRANSITION_BOTTOM_SIDE]
 
-	for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
-		if(T.x != current_x)
-			continue
+		for(var/turf/open/moving/auto_icon/T as anything in grouped_turfs[group_id])
+			if(T.x != current_x)
+				continue
 
-		var/list/options = general_options
+			var/list/options = general_options
+			if(is_turf_top(T) && top_options)
+				options = top_options[group_id]
+			else if(!is_turf_top(T) && bottom_options)
+				options = bottom_options[group_id]
 
-		switch(affected_sides)
-			if(TRANSITION_TOP_SIDE)
-				if(is_turf_top(T) && top_options)
-					options = top_options
-
-			if(TRANSITION_BOTTOM_SIDE)
-				if(!is_turf_top(T) && bottom_options)
-					options = bottom_options
-
-		apply_to_turf(T, options)
+			apply_to_turf(T, options)
 
 	current_columns[group_id] = current_x - 1
-
 	return TRUE
+
+/datum/moving_turf_transition/proc/apply_to_rail(turf/open/moving/auto_rail/T, list/options)
+	T.color = null
+	T.change_me(
+		options[MOVING_TURF_ICON],
+		options[MOVING_TURF_ICON_STATE]
+	)
+
+	if(options[MOVING_TURF_NAME])
+		T.name = options[MOVING_TURF_NAME]
+		T.desc = options[MOVING_TURF_DESC]
+
+	if(options[SET_TURF_DENSITY])
+		T.density = options[SET_TURF_DENSITY]
+
+	if(options[SET_TURF_OPACITY])
+		T.opacity = options[SET_TURF_OPACITY]
 
 
 /datum/moving_turf_transition/proc/apply_to_turf(turf/open/moving/auto_icon/T, list/options)
@@ -206,7 +246,6 @@
 	base_icon_state = "snow"
 
 	update_icon()
-	update_icon_state()
 	update_appearance()
 
 
@@ -215,7 +254,6 @@
 	src.base_icon_state = icon_state
 
 	update_icon()
-	update_icon_state()
 	update_appearance()
 
 
@@ -301,6 +339,8 @@
 
 
 /datum/moving_turf_transition/plain_snow
+
+	change_spawn_theme = /datum/train_object_spawner_theme/forest
 	transition_options = list(
 		TRANSITION_GROUP_1  = TRANSITION_OPTION_SNOW,
 		TRANSITION_GROUP_2  = TRANSITION_OPTION_SNOW,
@@ -327,22 +367,98 @@
 
 	change_spawn_theme = /datum/train_object_spawner_theme/bridge
 	transition_options = list(
-		TRANSITION_GROUP_1  = TRANSITION_OPTION_BRIDGE,
-		TRANSITION_GROUP_2  = TRANSITION_OPTION_BRIDGE,
-		TRANSITION_GROUP_3  = TRANSITION_OPTION_BRIDGE,
-		TRANSITION_GROUP_4  = TRANSITION_OPTION_BRIDGE,
-		TRANSITION_GROUP_5  = TRANSITION_OPTION_BRIDGE_FENCE,
-		TRANSITION_GROUP_6  = TRANSITION_OPTION_WATER,
-		TRANSITION_GROUP_7  = TRANSITION_OPTION_WATER,
-		TRANSITION_GROUP_8  = TRANSITION_OPTION_WATER,
-		TRANSITION_GROUP_9  = TRANSITION_OPTION_WATER,
-		TRANSITION_GROUP_10 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_11 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_12 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_13 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_14 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_15 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_16 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_17 = TRANSITION_OPTION_WATER_DENSE,
-		TRANSITION_GROUP_18 = TRANSITION_OPTION_WATER_BORDER
+		TRANSITION_TOP_SIDE = list(
+			TRANSITION_GROUP_1  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_2  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_3  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_4  = TRANSITION_OPTION_BRIDGE_FENCE,
+			TRANSITION_GROUP_5  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_6  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_7  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_8  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_9  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_10 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_11 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_12 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_13 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_14 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_15 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_16 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_17 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_18 = TRANSITION_OPTION_WATER_BORDER
+		),
+		TRANSITION_BOTTOM_SIDE = list(
+			TRANSITION_GROUP_1  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_2  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_3  = TRANSITION_OPTION_BRIDGE,
+			TRANSITION_GROUP_4  = TRANSITION_OPTION_BRIDGE_FENCE,
+			TRANSITION_GROUP_5  = TRANSITION_OPTION_SIDINGBOTTOM,
+			TRANSITION_GROUP_6  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_7  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_8  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_9  = TRANSITION_OPTION_WATER,
+			TRANSITION_GROUP_10 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_11 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_12 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_13 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_14 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_15 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_16 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_17 = TRANSITION_OPTION_WATER_DENSE,
+			TRANSITION_GROUP_18 = TRANSITION_OPTION_WATER_BORDER
+		)
 	)
+
+/datum/moving_turf_transition/tunnel
+
+	/// How many time we gonna spend inside tunnel
+	var/duration
+	/// Where we gonna find outself after leaving tunnel
+	var/destination_theme
+
+	change_spawn_theme = /datum/train_object_spawner_theme/tunnel
+	transition_options = list(
+		TRANSITION_TOP_SIDE = list(
+			TRANSITION_GROUP_1  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_2  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_3  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_4  = TRANSITION_OPTION_SIDINGBOTTOM,
+			TRANSITION_GROUP_5  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_6  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_7  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_8  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_9  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_10 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_11 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_12 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_13 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_14 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_15 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_16 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_17 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_18 = TRANSITION_OPTION_ROCKW_BORDER
+		),
+		TRANSITION_TOP_SIDE = list(
+			TRANSITION_GROUP_1  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_2  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_3  = TRANSITION_OPTION_TUNNEL_FLOOR,
+			TRANSITION_GROUP_4  = TRANSITION_OPTION_SIDINGTOP_BORDER,
+			TRANSITION_GROUP_5  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_6  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_7  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_8  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_9  = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_10 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_11 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_12 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_13 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_14 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_15 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_16 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_17 = TRANSITION_OPTION_ROCKW_BORDER,
+			TRANSITION_GROUP_18 = TRANSITION_OPTION_ROCKW_BORDER
+		)
+	)
+
+/datum/moving_turf_transition/tunnel/transition_ends()
+	. = ..()

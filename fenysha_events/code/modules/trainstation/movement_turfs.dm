@@ -158,6 +158,72 @@
 	icon_state = "[base_icon_state]_[prefix]"
 
 
+/turf/open/moving/auto_rail
+	name = "Rail scheme"
+	desc = "Helper to plan how rails will be in game"
+
+	var/rail_role = NONE
+	icon = 'fenysha_events/icons/turf/rail_scheme.dmi'
+
+/turf/open/moving/auto_rail/Initialize(mapload)
+	. = ..()
+	if(!rail_role)
+		return
+
+	var/list/rail_theme = SStrain_controller?.transition_theme.rail_theme
+	if(!rail_theme)
+		reset_to_default()
+		return
+
+	var/list/options = rail_theme[rail_role]
+	SStrain_controller.transition_theme.apply_to_rail(src, options)
+
+
+/turf/open/moving/auto_rail/proc/reset_to_default()
+	src.icon = 'fenysha_events/icons/turf/moving/rails/rails_default.dmi'
+
+	update_icon()
+	update_icon_state()
+	update_appearance()
+
+
+/turf/open/moving/auto_rail/proc/change_me(icon)
+	src.icon = icon
+
+	update_icon()
+	update_icon_state()
+	update_appearance()
+
+/turf/open/moving/auto_rail/update_appearance(updates)
+	. = ..()
+	var/prefix = moving ? moving_prefix : still_prefix
+	icon_state = "[rail_role]_[prefix]"
+
+/turf/open/moving/auto_rail/rail
+	rail_role = RAIL_ROLE_RAIL
+	icon_state = RAIL_ROLE_RAIL
+
+/turf/open/moving/auto_rail/top_connector
+	rail_role = RAIL_ROLE_TOP_CONNECTOR
+	icon_state = RAIL_ROLE_TOP_CONNECTOR
+
+/turf/open/moving/auto_rail/top_corner
+	rail_role = RAIL_ROLE_TOP_CORNER
+	icon_state = RAIL_ROLE_TOP_CORNER
+
+/turf/open/moving/auto_rail/filler
+	rail_role = RAIL_ROLE_FILLER
+	icon_state = RAIL_ROLE_FILLER
+
+/turf/open/moving/auto_rail/bottom_corner
+	rail_role = RAIL_ROLE_BOTTOM_CORNER
+	icon_state = RAIL_ROLE_BOTTOM_CORNER
+
+/turf/open/moving/auto_rail/bottom_connector
+	rail_role = RAIL_ROLE_BOTTOM_CONNECTOR
+	icon_state = RAIL_ROLE_BOTTOM_CONNECTOR
+
+
 /turf/open/moving/snow
 	name = "Snow"
 	desc = "It looks cold"
@@ -171,117 +237,6 @@
 
 /turf/open/moving/snow/fake/dense
 	density = TRUE
-
-/turf/open/moving/rails
-	name = "Rails"
-	desc = "It's better not to stand in the way of a train."
-
-	slowdown = 2
-
-/turf/open/moving/rails/l1
-	icon_state = "rails_left_1_still"
-	base_icon_state = "rails_left_1"
-
-/turf/open/moving/rails/l2
-	icon_state = "rails_left_2_still"
-	base_icon_state = "rails_left_2"
-
-/turf/open/moving/rails/l3
-	icon_state = "rails_left_3_still"
-	base_icon_state = "rails_left_3"
-
-/turf/open/moving/rails/l4
-	icon_state = "rails_left_4_still"
-	base_icon_state = "rails_left_4"
-
-/turf/open/moving/rails/l5
-	icon_state = "rails_left_5_still"
-	base_icon_state = "rails_left_5"
-
-/turf/open/moving/rails/l6
-	icon_state = "rails_left_6_still"
-	base_icon_state = "rails_left_6"
-
-/turf/open/moving/rails/l7
-	icon_state = "rails_left_7_still"
-	base_icon_state = "rails_left_7"
-
-/turf/open/moving/rails/l8
-	icon_state = "rails_left_8_still"
-	base_icon_state = "rails_left_8"
-
-/turf/open/moving/rails/l9
-	icon_state = "rails_left_9_still"
-	base_icon_state = "rails_left_9"
-
-/turf/open/moving/rails/l10
-	icon_state = "rails_left_10_still"
-	base_icon_state = "rails_left_10"
-
-/turf/open/moving/rails/l11
-	icon_state = "rails_left_11_still"
-	base_icon_state = "rails_left_11"
-
-/turf/open/moving/rails/l12
-	icon_state = "rails_left_12_still"
-	base_icon_state = "rails_left_12"
-
-/turf/open/moving/rails/l13
-	icon_state = "rails_left_13_still"
-	base_icon_state = "rails_left_13"
-
-
-/turf/open/moving/rails/r1
-	icon_state = "rails_right_1_still"
-	base_icon_state = "rails_right_1"
-
-/turf/open/moving/rails/r2
-	icon_state = "rails_right_2_still"
-	base_icon_state = "rails_right_2"
-
-/turf/open/moving/rails/r3
-	icon_state = "rails_right_3_still"
-	base_icon_state = "rails_right_3"
-
-/turf/open/moving/rails/r4
-	icon_state = "rails_right_4_still"
-	base_icon_state = "rails_right_4"
-
-/turf/open/moving/rails/r5
-	icon_state = "rails_right_5_still"
-	base_icon_state = "rails_right_5"
-
-/turf/open/moving/rails/r6
-	icon_state = "rails_right_6_still"
-	base_icon_state = "rails_right_6"
-
-/turf/open/moving/rails/r7
-	icon_state = "rails_right_7_still"
-	base_icon_state = "rails_right_7"
-
-/turf/open/moving/rails/r8
-	icon_state = "rails_right_8_still"
-	base_icon_state = "rails_right_8"
-
-/turf/open/moving/rails/r9
-	icon_state = "rails_right_9_still"
-	base_icon_state = "rails_right_9"
-
-/turf/open/moving/rails/r10
-	icon_state = "rails_right_10_still"
-	base_icon_state = "rails_right_10"
-
-/turf/open/moving/rails/r11
-	icon_state = "rails_right_11_still"
-	base_icon_state = "rails_right_11"
-
-/turf/open/moving/rails/r12
-	icon_state = "rails_right_12_still"
-	base_icon_state = "rails_right_12"
-
-/turf/open/moving/rails/r13
-	icon_state = "rails_right_13_still"
-	base_icon_state = "rails_right_13"
 
 
 /turf/open/indestructible/train_platform
