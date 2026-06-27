@@ -232,7 +232,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "aJ" = (
 /obj/structure/railing{
@@ -353,16 +369,6 @@
 /turf/open/floor/iron/shuttle/exploration/corner{
 	dir = 8
 	},
-/area/trainstation/indoors/train/bathroom)
-"bf" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/obj/item/trash/flare{
-	pixel_x = -4;
-	pixel_y = 13
-	},
-/turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
 "bh" = (
 /obj/structure/railing{
@@ -1393,7 +1399,23 @@
 /obj/structure/table/train_table{
 	pixel_y = -2
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "eY" = (
 /obj/structure/prop/general/zhalfgrate1{
@@ -1423,7 +1445,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "fd" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -1664,7 +1702,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "gj" = (
 /obj/item/toy/crayon/spraycan{
@@ -1848,7 +1902,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "gH" = (
 /obj/structure/chair/office/light{
@@ -1860,19 +1930,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"gI" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark,
-/obj/machinery/door/poddoor/story/elevator{
-	alpha = 0;
-	mouse_opacity = 0;
-	elevator_id = "rapedungeon";
-	floor = 2
-	},
-/turf/open/floor/iron/shuttle/exploration/hazard,
-/area/trainstation/indoors/train/bathroom)
 "gJ" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
@@ -1883,6 +1940,12 @@
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 1
 	},
+/area/trainstation/indoors/train/bathroom)
+"gK" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "gN" = (
 /obj/effect/decal/cleanable/glass,
@@ -2735,22 +2798,6 @@
 	pixel_y = -8
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"kg" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/table/train_table{
-	pixel_y = -2
-	},
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "rapedungeon";
-	pixel_y = 12;
-	pixel_x = 1;
-	floor = 2
-	},
-/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/indoors/train/bathroom)
 "kh" = (
 /obj/item/kirbyplants/organic/plant3,
@@ -4257,6 +4304,10 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"qd" = (
+/obj/structure/railing,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "qe" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -5020,17 +5071,22 @@
 	density = 1
 	},
 /obj/structure/fluff/metalpole{
-	dir = 4;
-	pixel_x = -2
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
 	},
 /obj/structure/fluff/metalpole{
-	dir = 4;
-	pixel_x = -16
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
 	},
-/obj/structure/fluff/metalpole/anchor{
-	dir = 1
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
 	},
-/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "tB" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5065,16 +5121,6 @@
 /turf/open/floor/black{
 	name = "void"
 	},
-/area/trainstation/indoors/train/bathroom)
-"tI" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 6
-	},
-/obj/structure/closet/crate/cardboard,
-/turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
 "tJ" = (
 /obj/effect/turf_decal/stripes/white{
@@ -5755,6 +5801,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"vY" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "rapedungeon";
+	floor = 2
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "vZ" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -5907,29 +5960,6 @@
 	},
 /obj/structure/minecart_rail,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
-/area/trainstation/indoors/train/bathroom)
-"wO" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#55585a"
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/obj/item/flashlight/flare{
-	pixel_x = 5;
-	pixel_y = 9;
-	fuel = 1e+031;
-	randomize_fuel = 0;
-	start_on = 1
-	},
-/turf/open/floor/vault/rock{
-	icon = 'icons/turf/mining.dmi';
-	desc = "Safely recreated turf for your hellplanet-scaping.";
-	icon_state = "rock2";
-	name = "gravel";
-	base_icon_state = "rock2"
-	},
 /area/trainstation/indoors/train/bathroom)
 "wP" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6272,14 +6302,22 @@
 /area/trainstation/indoors/train/bathroom)
 "yt" = (
 /obj/structure/fluff/metalpole{
-	dir = 4;
-	pixel_x = -2
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
 	},
 /obj/structure/fluff/metalpole{
-	dir = 4;
-	pixel_x = -16
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
 	},
-/turf/open/floor/plating/elevatorshaft,
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "yx" = (
 /obj/structure/chair{
@@ -6297,25 +6335,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/corner,
-/area/trainstation/indoors/train/bathroom)
-"yD" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 6
-	},
-/obj/item/flashlight/flare{
-	pixel_x = 7;
-	pixel_y = -7;
-	fuel = 1e+031;
-	randomize_fuel = 0;
-	start_on = 1
-	},
-/turf/open/floor/vault/rock{
-	icon = 'icons/turf/mining.dmi';
-	desc = "Safely recreated turf for your hellplanet-scaping.";
-	icon_state = "rock2";
-	name = "gravel";
-	base_icon_state = "rock2"
-	},
 /area/trainstation/indoors/train/bathroom)
 "yE" = (
 /obj/structure/decorative{
@@ -6348,23 +6367,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
-"yN" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 6
-	},
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#55585a";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/vault/rock{
-	icon = 'icons/turf/mining.dmi';
-	desc = "Safely recreated turf for your hellplanet-scaping.";
-	icon_state = "rock2";
-	name = "gravel";
-	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
 "yP" = (
@@ -6665,6 +6667,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/sheet/iron/five,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"Ap" = (
+/obj/structure/railing{
+	dir = 10
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Aq" = (
@@ -7102,7 +7110,8 @@
 /obj/machinery/door/poddoor/story/elevator{
 	alpha = 0;
 	mouse_opacity = 0;
-	elevator_id = "rapedungeon"
+	elevator_id = "rapedungeon";
+	floor = 2
 	},
 /turf/open/floor/iron/shuttle/exploration/hazard,
 /area/trainstation/indoors/train/bathroom)
@@ -7608,17 +7617,20 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "DR" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
+/obj/structure/railing{
+	dir = 1
 	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 6
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/train_table{
+	pixel_y = -2
 	},
-/obj/item/trash/flare{
-	pixel_x = -1;
-	pixel_y = 9
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "rapedungeon";
+	pixel_y = 12;
+	pixel_x = 1;
+	floor = 2
 	},
-/turf/open/floor/stone,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/indoors/train/bathroom)
 "DS" = (
 /obj/structure/railing{
@@ -7956,7 +7968,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "Fw" = (
 /obj/structure/railing{
@@ -9060,20 +9088,17 @@
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"KH" = (
-/obj/structure/fluff/metalpole{
-	dir = 6;
-	color = "#FFFFFF";
-	pixel_x = -8;
-	plane = -7
+"KI" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
 	},
-/obj/structure/fluff/metalpole{
-	dir = 6;
-	color = "#FFFFFF";
-	pixel_x = 7;
-	plane = -7
+/obj/effect/turf_decal/siding/dark,
+/obj/machinery/door/poddoor/story/elevator{
+	alpha = 0;
+	mouse_opacity = 0;
+	elevator_id = "rapedungeon"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/turf/open/floor/iron/shuttle/exploration/hazard,
 /area/trainstation/indoors/train/bathroom)
 "KR" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -9096,26 +9121,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"La" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#55585a";
-	dir = 1
-	},
-/obj/structure/ore_box,
-/turf/open/floor/vault/rock{
-	icon = 'icons/turf/mining.dmi';
-	desc = "Safely recreated turf for your hellplanet-scaping.";
-	icon_state = "rock2";
-	name = "gravel";
-	base_icon_state = "rock2"
-	},
 /area/trainstation/indoors/train/bathroom)
 "Lh" = (
 /obj/structure/railing{
@@ -10158,7 +10163,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "PB" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -10996,6 +11017,29 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"Td" = (
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "rapedungeon";
+	floor = 2
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
+/area/trainstation/indoors/train/bathroom)
 "Tm" = (
 /obj/structure/grille,
 /obj/structure/decorative{
@@ -11230,20 +11274,6 @@
 	mouse_opacity = 0
 	},
 /turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"Un" = (
-/obj/effect/turf_decal/siding/wideplating_new{
-	color = "#55585a";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/vault/rock{
-	icon = 'icons/turf/mining.dmi';
-	desc = "Safely recreated turf for your hellplanet-scaping.";
-	icon_state = "rock2";
-	name = "gravel";
-	base_icon_state = "rock2"
-	},
 /area/trainstation/indoors/train/bathroom)
 "Uo" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -11709,7 +11739,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "VW" = (
 /obj/item/stack/rods,
@@ -12858,7 +12904,23 @@
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
 	icon_state = "smooth_large"
 	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = 7;
+	plane = -7;
+	can_elevate = 0
+	},
+/obj/structure/fluff/metalpole{
+	dir = 6;
+	color = "#FFFFFF";
+	pixel_x = -8;
+	plane = -7;
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft{
+	plane = -7
+	},
 /area/trainstation/indoors/train/bathroom)
 "ZX" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -14091,7 +14153,7 @@ nt
 Ri
 wD
 wD
-xt
+LO
 wD
 iM
 wD
@@ -14395,7 +14457,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Cp
 dP
 aj
@@ -14599,7 +14661,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Ht
 eu
 Wa
@@ -15558,9 +15620,9 @@ Ri
 rs
 nl
 nl
+gK
 YJ
-YJ
-YJ
+qd
 lp
 hj
 fw
@@ -15660,10 +15722,10 @@ Ri
 rs
 nl
 nl
+Kq
 YJ
 YJ
-YJ
-YJ
+Ap
 lp
 hj
 fw
@@ -15763,10 +15825,10 @@ rs
 nl
 nl
 nl
+Kq
 YJ
 YJ
-YJ
-YJ
+Ap
 lp
 hj
 fw
@@ -15823,7 +15885,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Ht
 eu
 Wa
@@ -15866,10 +15928,10 @@ rs
 nl
 nl
 nl
+Kq
 YJ
 YJ
-YJ
-YJ
+Ap
 lp
 hj
 fw
@@ -15969,10 +16031,10 @@ rs
 nl
 nl
 nl
+Kq
 YJ
 YJ
-YJ
-YJ
+Ap
 lp
 hj
 fw
@@ -16027,7 +16089,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 vw
 wL
 GU
@@ -16072,9 +16134,9 @@ rs
 nl
 nl
 nl
+gK
 YJ
-YJ
-YJ
+qd
 lp
 hj
 fw
@@ -16082,10 +16144,10 @@ nl
 nl
 rs
 Ri
-nt
-nt
-nt
-nt
+Ri
+Ri
+Ri
+Ri
 Ri
 iS
 iS
@@ -16184,7 +16246,7 @@ rs
 rs
 rs
 Ri
-nt
+Ri
 wr
 wr
 wr
@@ -16614,7 +16676,7 @@ At
 UP
 vk
 xJ
-BX
+KI
 ud
 hQ
 rX
@@ -16818,7 +16880,7 @@ sr
 PB
 gr
 Gf
-BX
+KI
 HZ
 Sh
 FP
@@ -17149,7 +17211,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 uy
 gp
 Pp
@@ -17763,7 +17825,7 @@ nt
 Ri
 wD
 wD
-xt
+LO
 wD
 iM
 iM
@@ -17863,13 +17925,13 @@ nt
 nt
 nt
 Ri
-wD
-Ht
-bJ
-zv
-ju
-aL
-Do
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (50,1,1) = {"
@@ -17964,14 +18026,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (51,1,1) = {"
@@ -18066,14 +18128,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-dP
-aj
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (52,1,1) = {"
@@ -18168,14 +18230,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (53,1,1) = {"
@@ -18270,14 +18332,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (54,1,1) = {"
@@ -18372,14 +18434,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-uy
-gp
-Pp
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (55,1,1) = {"
@@ -18474,14 +18536,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-vw
-wL
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (56,1,1) = {"
@@ -18576,14 +18638,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ll
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (57,1,1) = {"
@@ -18678,14 +18740,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (58,1,1) = {"
@@ -18780,14 +18842,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-YV
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (59,1,1) = {"
@@ -18883,13 +18945,13 @@ nt
 nt
 nt
 Ri
-wD
-ci
-LV
-CD
-LW
-hV
-If
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (60,1,1) = {"
@@ -18987,7 +19049,7 @@ nt
 Ri
 wD
 wD
-xt
+LO
 wD
 iM
 iM
@@ -19597,7 +19659,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 uy
 gp
 Pp
@@ -20211,7 +20273,7 @@ nt
 Ri
 wD
 wD
-xt
+wD
 wD
 iM
 iM
@@ -20311,13 +20373,13 @@ nt
 nt
 nt
 Ri
-wD
-Ht
-bJ
-zv
-ju
-aL
-Do
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (74,1,1) = {"
@@ -20412,14 +20474,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (75,1,1) = {"
@@ -20514,14 +20576,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-dP
-aj
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (76,1,1) = {"
@@ -20616,14 +20678,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (77,1,1) = {"
@@ -20718,14 +20780,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (78,1,1) = {"
@@ -20820,14 +20882,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-uy
-gp
-Pp
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (79,1,1) = {"
@@ -20922,14 +20984,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-vw
-wL
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (80,1,1) = {"
@@ -21024,14 +21086,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ll
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (81,1,1) = {"
@@ -21126,14 +21188,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (82,1,1) = {"
@@ -21228,14 +21290,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-YV
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (83,1,1) = {"
@@ -21330,14 +21392,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ci
-LV
-CD
-LW
-hV
-If
+iS
+Gy
 YT
 "}
 (84,1,1) = {"
@@ -21432,11 +21494,11 @@ nt
 nt
 nt
 nt
-Ri
-wD
-wD
-xt
-wD
+nt
+nt
+nt
+nt
+nt
 iM
 iM
 iM
@@ -21534,14 +21596,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-vw
-wL
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (86,1,1) = {"
@@ -21636,14 +21698,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ll
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (87,1,1) = {"
@@ -21738,14 +21800,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (88,1,1) = {"
@@ -21840,14 +21902,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-YV
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (89,1,1) = {"
@@ -21942,14 +22004,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ci
-LV
-CD
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (90,1,1) = {"
@@ -22044,14 +22106,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-Vo
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (91,1,1) = {"
@@ -22146,14 +22208,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (92,1,1) = {"
@@ -22248,14 +22310,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (93,1,1) = {"
@@ -22350,14 +22412,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (94,1,1) = {"
@@ -22452,14 +22514,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (95,1,1) = {"
@@ -22555,13 +22617,13 @@ nt
 nt
 nt
 Ri
-wD
-uy
-gp
-jF
-LW
-hV
-If
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (96,1,1) = {"
@@ -22659,7 +22721,7 @@ nt
 Ri
 wD
 wD
-xt
+LO
 wD
 iM
 iM
@@ -24697,7 +24759,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Cp
 dP
 aj
@@ -24901,7 +24963,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Ht
 eu
 Wa
@@ -25486,13 +25548,13 @@ nl
 vu
 gP
 RP
-KH
-KH
-KH
-KH
-KH
+Td
+Td
+Td
+Td
+Td
 XY
-kg
+DR
 Oo
 mi
 wr
@@ -25588,12 +25650,12 @@ nl
 vZ
 oR
 yb
-sz
-sz
-sz
-sz
-sz
-gI
+vY
+vY
+vY
+vY
+vY
+BX
 gj
 oe
 Uv
@@ -25690,11 +25752,11 @@ nl
 vZ
 oR
 yb
-sz
-sz
-sz
-sz
-sz
+vY
+vY
+vY
+vY
+vY
 nu
 Wr
 zw
@@ -25792,12 +25854,12 @@ nl
 vZ
 oR
 yb
-sz
-sz
-sz
-sz
-sz
-gI
+vY
+vY
+vY
+vY
+vY
+BX
 Zk
 hB
 Bi
@@ -25894,11 +25956,11 @@ nl
 vu
 gP
 RP
-KH
-KH
-KH
-KH
-KH
+Td
+Td
+Td
+Td
+Td
 Cm
 MV
 SO
@@ -26635,7 +26697,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Cp
 dP
 aj
@@ -26839,7 +26901,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 Ht
 eu
 Wa
@@ -30205,7 +30267,7 @@ nt
 nt
 nt
 Ri
-wD
+LO
 gu
 yi
 cs
@@ -31227,7 +31289,7 @@ nt
 Ri
 wD
 wD
-xt
+LO
 wD
 iM
 iM
@@ -31327,13 +31389,13 @@ nt
 nt
 nt
 Ri
-wD
-ji
-bJ
-zv
-ju
-aL
-Do
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (182,1,1) = {"
@@ -31428,14 +31490,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (183,1,1) = {"
@@ -31530,14 +31592,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-ZU
-aj
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (184,1,1) = {"
@@ -31632,14 +31694,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-wO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (185,1,1) = {"
@@ -31734,14 +31796,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (186,1,1) = {"
@@ -31836,14 +31898,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-uy
-gp
-Pp
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (187,1,1) = {"
@@ -31938,14 +32000,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Un
-wL
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (188,1,1) = {"
@@ -32040,14 +32102,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-yN
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (189,1,1) = {"
@@ -32142,14 +32204,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-bo
-tI
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (190,1,1) = {"
@@ -32244,14 +32306,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-La
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (191,1,1) = {"
@@ -32346,14 +32408,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ci
-LV
-CD
-LW
-hV
-If
+iS
+Gy
 YT
 "}
 (192,1,1) = {"
@@ -32448,12 +32510,12 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-wD
-xt
-wD
-iM
 iM
 iM
 YT
@@ -32550,14 +32612,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-zv
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (194,1,1) = {"
@@ -32652,14 +32714,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (195,1,1) = {"
@@ -32754,14 +32816,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-ZU
-aj
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (196,1,1) = {"
@@ -32856,14 +32918,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-DR
-PT
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (197,1,1) = {"
@@ -32958,14 +33020,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (198,1,1) = {"
@@ -33060,14 +33122,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-uy
-gp
-Pp
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (199,1,1) = {"
@@ -33162,14 +33224,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-vw
-wL
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (200,1,1) = {"
@@ -33264,14 +33326,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ll
-dP
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (201,1,1) = {"
@@ -33366,14 +33428,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (202,1,1) = {"
@@ -33468,14 +33530,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-YV
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (203,1,1) = {"
@@ -33571,13 +33633,13 @@ nt
 nt
 nt
 Ri
-wD
-ci
-LV
-CD
-LW
-hV
-If
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (204,1,1) = {"
@@ -33675,7 +33737,7 @@ nt
 Ri
 wD
 wD
-xt
+iM
 wD
 iM
 iM
@@ -34899,7 +34961,7 @@ nt
 Ri
 wD
 wD
-xt
+wD
 wD
 iM
 iM
@@ -34999,13 +35061,13 @@ nt
 nt
 nt
 Ri
-wD
-Ht
-bJ
-zv
-ju
-aL
-Do
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (218,1,1) = {"
@@ -35100,14 +35162,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-gu
-yi
-CW
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (219,1,1) = {"
@@ -35202,14 +35264,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Cp
-dP
-aj
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (220,1,1) = {"
@@ -35304,14 +35366,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (221,1,1) = {"
@@ -35406,14 +35468,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-eu
-Wa
-Xh
-DT
-Bl
+iS
+Gy
 YT
 "}
 (222,1,1) = {"
@@ -35508,14 +35570,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-uy
-gp
-Pp
-VG
-VG
-VG
+iS
+Gy
 YT
 "}
 (223,1,1) = {"
@@ -35610,14 +35672,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-vw
-yD
-GU
-ju
-aL
-Do
+iS
+Gy
 YT
 "}
 (224,1,1) = {"
@@ -35712,14 +35774,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-ll
-bf
-aj
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (225,1,1) = {"
@@ -35814,14 +35876,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-Ht
-bJ
-PT
-xA
-sV
-Bw
+iS
+Gy
 YT
 "}
 (226,1,1) = {"
@@ -35916,14 +35978,14 @@ nt
 nt
 nt
 nt
+nt
+nt
+nt
+nt
+nt
 Ri
-wD
-YV
-hy
-gO
-xA
-pr
-Bw
+iS
+Gy
 YT
 "}
 (227,1,1) = {"
@@ -36019,13 +36081,13 @@ nt
 nt
 nt
 Ri
-wD
-ci
-LV
-CD
-LW
-hV
-If
+Ri
+Ri
+Ri
+Ri
+Ri
+iS
+Gy
 YT
 "}
 (228,1,1) = {"
@@ -36123,7 +36185,7 @@ nt
 Ri
 wD
 wD
-xt
+wD
 wD
 iM
 iM
@@ -38571,7 +38633,7 @@ nt
 Ri
 wD
 wD
-xt
+wD
 wD
 wD
 wD
