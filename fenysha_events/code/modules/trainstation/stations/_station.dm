@@ -241,8 +241,8 @@
 			if(isobserver(AM))
 				continue
 			POOL_ASYNC_RELEASE(AM)
-		T.ChangeTurf(/turf/open/space, list(/turf/open/space), CHANGETURF_DEFER_CHANGE)
-		/// T.baseturfs = /turf/baseturf_bottom
+		T.ChangeTurf(/turf/open/space, null, CHANGETURF_DEFER_CHANGE|CHANGETURF_IGNORE_AIR)
+		// T.baseturfs = /turf/open/space
 	docking_turfs.Cut()
 	template.created_atoms = null
 	if(unload_callback)

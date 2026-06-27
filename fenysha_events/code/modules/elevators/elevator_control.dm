@@ -443,4 +443,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 	icon = 'fenysha_events/icons/turf/floors/floors.dmi'
 	icon_state = "dark_large"
 
-	layer = ABOVE_OPEN_TURF_LAYER
+	layer = ABOVE_OPEN_TURF_LAYER - 12
