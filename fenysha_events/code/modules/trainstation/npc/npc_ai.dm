@@ -81,6 +81,14 @@
 		/datum/ai_planning_subtree/flee_target/from_flee_key,
 		/datum/ai_planning_subtree/random_speech/basic_npc,
 	)
+/*
+/datum/ai_controller/basic_controller/npc
+
+/datum/ai_controller/basic_controller/npc/New(atom/new_pawn)
+	. = ..()
+
+	RegisterSginal(new_pawn, COMSIG_ATOM_START_PULL)
+*/
 
 /datum/idle_behavior/idle_random_walk/often
 	walk_chance = 80

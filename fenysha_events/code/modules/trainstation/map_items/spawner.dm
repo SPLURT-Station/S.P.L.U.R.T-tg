@@ -85,6 +85,82 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		),
 	)
 
+
+/datum/train_object_spawner_theme/near_river_top
+	options = list(
+		TRANSITION_BOTTOM_SIDE = list(
+			SPAWNER_GROUP_NEAR_RAILS = list(
+				GROUP_SPAWN_CHANCE = 80,
+				GROUP_SPAWN_RANGE = 1,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 80,
+					/obj/structure/flora/tree/dead/style_random = 20,
+				)
+			),
+			SPAWNER_GROUP_CENTER = list(
+				GROUP_SPAWN_CHANCE = 50,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 65,
+					/obj/structure/flora/tree/dead/style_random = 20,
+					/obj/structure/flora/bush/snow/style_random = 5,
+					/obj/structure/flora/grass/both/style_random = 15,
+				)
+			),
+			SPAWNER_GROUP_BACKDROP = list(
+				GROUP_SPAWN_CHANCE = 75,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 3 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/grass/both/style_random = 100,
+				)
+			),
+		),
+	)
+
+
+/datum/train_object_spawner_theme/near_river_bottom
+	options = list(
+		TRANSITION_TOP_SIDE = list(
+			SPAWNER_GROUP_NEAR_RAILS = list(
+				GROUP_SPAWN_CHANCE = 80,
+				GROUP_SPAWN_RANGE = 1,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 80,
+					/obj/structure/flora/tree/dead/style_random = 20,
+				)
+			),
+			SPAWNER_GROUP_CENTER = list(
+				GROUP_SPAWN_CHANCE = 50,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 65,
+					/obj/structure/flora/tree/dead/style_random = 20,
+					/obj/structure/flora/bush/snow/style_random = 5,
+					/obj/structure/flora/grass/both/style_random = 15,
+				)
+			),
+			SPAWNER_GROUP_BACKDROP = list(
+				GROUP_SPAWN_CHANCE = 75,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 3 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/grass/both/style_random = 100,
+				)
+			),
+		),
+	)
+
 /datum/train_object_spawner_theme/tunnel
 	allow_selection = FALSE
 	options = list(

@@ -109,7 +109,6 @@
 	var/saved_facial_hair_color
 	var/list/saved_dna_features = list()
 
-
 /mob/living/basic/npc/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SHOE)

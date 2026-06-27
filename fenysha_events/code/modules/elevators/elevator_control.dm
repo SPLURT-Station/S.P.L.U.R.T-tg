@@ -40,7 +40,6 @@ GLOBAL_LIST_INIT(all_elevators, list())
 
 	var/static/list/blacklisted_atoms = list(
 		/obj/effect/mapping_helpers/elevator_turf_marker,
-		/obj/machinery/button/elevator_control,
 		/obj/machinery/door/poddoor/story/elevator,
 	)
 
