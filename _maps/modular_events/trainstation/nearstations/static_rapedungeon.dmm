@@ -65,6 +65,22 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
+"ak" = (
+/obj/structure/broken_flooring/plating/directional/east,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
 "al" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -81,13 +97,6 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
-/area/trainstation/indoors/train/bathroom)
-"an" = (
-/obj/structure/flora/ash/cap_shroom{
-	light_on = 0
-	},
-/obj/effect/mist,
-/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "ao" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -251,12 +260,13 @@
 	},
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
-"aG" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "sideelevator2";
-	floor = 2
+"aF" = (
+/obj/structure/sign/warning/directional/north,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
 	},
-/turf/open/floor/plating/reinforced,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "aH" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -365,10 +375,6 @@
 	density = 1
 	},
 /area/trainstation/indoors/train/bathroom)
-"aP" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner,
-/area/trainstation/indoors/train/bathroom)
 "aR" = (
 /obj/structure/closet/crate/cardboard,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -406,6 +412,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
+"aX" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "aY" = (
 /obj/structure/railing{
@@ -601,6 +614,12 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
+"bv" = (
+/obj/structure/closet,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "bw" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -681,23 +700,11 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
-"bG" = (
+"bH" = (
 /obj/structure/door_assembly/door_assembly_med{
 	name = "CMO Office"
 	},
 /turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"bH" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"bI" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 4
-	},
 /area/trainstation/indoors/train/bathroom)
 "bJ" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -772,11 +779,6 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
-"bT" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/white,
-/area/trainstation/indoors/train/bathroom)
 "bU" = (
 /obj/item/trash/candle,
 /obj/item/flashlight/flare/candle/infinite,
@@ -836,6 +838,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
+"cc" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/ore_box,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "cd" = (
 /obj/effect/mapping_helpers/elevator_turf_marker{
@@ -1174,6 +1188,16 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"cW" = (
+/obj/structure/grille/broken,
+/obj/item/shard{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "cY" = (
 /obj/machinery/door/manual_airlock,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1215,32 +1239,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
-/area/trainstation/indoors/train/bathroom)
-"df" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
-"dg" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 4
-	},
 /area/trainstation/indoors/train/bathroom)
 "dh" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1420,14 +1418,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"dw" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 8
-	},
-/area/trainstation/indoors/train/bathroom)
 "dx" = (
 /obj/structure/closet/cabinet/undertable,
 /obj/structure/table/wood/cabinet,
@@ -1492,9 +1482,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"dF" = (
-/turf/open/floor/stone,
-/area/trainstation/indoors/train/bathroom)
 "dG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/line,
@@ -1549,36 +1536,18 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
-"dR" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator2";
-	pixel_y = 7;
-	pixel_x = 31
+"dT" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 2;
+	icon_state = "siding_plain_end"
 	},
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"dS" = (
-/obj/machinery/door/poddoor/story,
-/obj/effect/mapping_helpers/listener_helper/open_door/delete_after{
-	listener_key = "evilgate"
-	},
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"dU" = (
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator2";
-	pixel_y = 7;
-	pixel_x = 31;
-	floor = 2
+/obj/structure/chair/office{
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/black,
 /area/trainstation/indoors/train/bathroom)
 "dV" = (
 /obj/machinery/door/poddoor,
@@ -1722,11 +1691,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
-"et" = (
-/obj/structure/closet/firecloset/full,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
 "eu" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -1767,6 +1731,13 @@
 /obj/structure/mannequin/plastic,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
+"ey" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator2";
+	floor = 2
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "ez" = (
 /obj/structure/prop/nt_biocan,
 /obj/effect/turf_decal/stripes/line,
@@ -1785,6 +1756,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"eB" = (
+/turf/open/floor/stone,
+/area/trainstation/indoors/train/bathroom)
 "eC" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	color = "#55585a";
@@ -1798,13 +1772,6 @@
 /obj/item/screwdriver,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"eE" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
 /area/trainstation/indoors/train/bathroom)
 "eF" = (
 /obj/structure/fluff/paper/stack{
@@ -1841,8 +1808,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"eK" = (
+/obj/effect/mist,
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
 "eP" = (
 /turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/indoors/train/bathroom)
+"eT" = (
+/obj/structure/closet/firecloset/full,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "eV" = (
 /obj/item/trash/nachos,
@@ -1880,6 +1856,20 @@
 	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
 	icon_state = "rail"
 	},
+/area/trainstation/indoors/train/bathroom)
+"eX" = (
+/obj/structure/decorative/fluff{
+	name = "metal barrel";
+	desc = "So metal.";
+	icon_state = "vat";
+	icon = 'icons/obj/medical/chemical_tanks.dmi';
+	anchored = 1;
+	color = "#ecd6c9";
+	density = 1;
+	can_be_unanchored = 1
+	},
+/obj/effect/mist,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "eY" = (
 /obj/structure/prop/general/zhalfgrate1{
@@ -1925,9 +1915,23 @@
 	},
 /area/trainstation/indoors/train/bathroom)
 "fb" = (
-/obj/structure/grille,
-/obj/effect/mist,
-/turf/open/floor/plating/reinforced,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/closet/crate/cardboard,
+/obj/item/clothing/suit/armor/vest/secwintercoat,
+/obj/item/clothing/suit/armor/vest/secwintercoat{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/armor/vest/secwintercoat{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
 "fd" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -1941,10 +1945,21 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"fi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "fj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/prop/general/highvoltagegrille_off,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"fl" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "fm" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2029,6 +2044,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"fv" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 1
+	},
 /area/trainstation/indoors/train/bathroom)
 "fw" = (
 /obj/structure/fans/tiny/invisible{
@@ -2161,14 +2183,20 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
-"fR" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
+"fP" = (
+/obj/machinery/door/poddoor/story{
+	name = "Security Outpost"
 	},
-/turf/open/floor/iron/dark,
+/obj/effect/mapping_helpers/listener_helper/open_door{
+	listener_key = "rapedungeon_lockdown_disengaged"
+	},
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"fR" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "fT" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -2301,27 +2329,16 @@
 	icon_state = "rail"
 	},
 /area/trainstation/indoors/train/bathroom)
-"gb" = (
+"gc" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/plating/reinforced,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/indoors/train/bathroom)
-"gd" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
+"ge" = (
+/obj/structure/closet/crate/freezer/blood,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
 	},
-/obj/effect/mist,
-/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "gf" = (
 /obj/structure/grille/broken,
@@ -2379,33 +2396,6 @@
 	icon_state = "i"
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
-/area/trainstation/indoors/train/bathroom)
-"gk" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator2"
-	},
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator2";
-	pixel_y = 36;
-	pixel_x = 1
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
-"gl" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = -6
-	},
-/obj/structure/filingcabinet{
-	pixel_x = 10
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
 /area/trainstation/indoors/train/bathroom)
 "gn" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2612,6 +2602,10 @@
 	icon_state = "rail"
 	},
 /area/trainstation/indoors/train/bathroom)
+"gG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_edge,
+/area/trainstation/indoors/train/bathroom)
 "gH" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -2761,7 +2755,6 @@
 "he" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 1
@@ -2992,12 +2985,6 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"hK" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
 "hN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/ore_box,
@@ -3132,6 +3119,15 @@
 /obj/structure/prop/stamper,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"hZ" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "ib" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -7;
@@ -3149,10 +3145,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"id" = (
-/obj/structure/closet/emcloset/anchored,
+"ie" = (
+/obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/reinforced,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 1
+	},
 /area/trainstation/indoors/train/bathroom)
 "ii" = (
 /obj/structure/railing{
@@ -3230,6 +3228,19 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"iw" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
+"ix" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "sideelevator2"
+	},
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "iz" = (
 /obj/effect/decal/cleanable/crayon/i{
 	pixel_x = 16;
@@ -3259,14 +3270,6 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"iC" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
 "iD" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	color = "#55585a";
@@ -3289,13 +3292,6 @@
 /obj/structure/table,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"iK" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 8
-	},
-/area/trainstation/indoors/train/bathroom)
 "iM" = (
 /turf/closed/wall/city/siding{
 	opacity = 0
@@ -3310,25 +3306,6 @@
 	},
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
-"iO" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/closet/crate/cardboard,
-/obj/item/clothing/suit/armor/vest/secwintercoat,
-/obj/item/clothing/suit/armor/vest/secwintercoat{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/clothing/suit/armor/vest/secwintercoat{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/turf/open/floor/iron/shuttle/exploration/uside,
-/area/trainstation/indoors/train/bathroom)
 "iP" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Subject Containment Area"
@@ -3341,9 +3318,17 @@
 "iT" = (
 /turf/open/mirage{
 	range = 6;
-	target_turf_y = 49;
-	target_turf_x = 71;
-	dir = 8
+	target_turf_y = -49;
+	target_turf_x = -71;
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
+"iV" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "iW" = (
@@ -3475,20 +3460,6 @@
 	name = "rock";
 	base_icon_state = "rock";
 	density = 1
-	},
-/area/trainstation/indoors/train/bathroom)
-"jv" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"jw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "jx" = (
@@ -3887,10 +3858,21 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"kz" = (
-/obj/effect/decal/cleanable/dirt/dust,
+"kC" = (
+/obj/structure/broken_flooring/plating/directional/north,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /obj/effect/mist,
-/turf/open/floor/plating,
+/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "kD" = (
 /obj/item/trash/flare{
@@ -4021,13 +4003,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
-"kZ" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator2";
-	floor = 2
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
 "la" = (
 /obj/structure/broken_flooring/plating/directional/north,
 /obj/structure/decorative{
@@ -4063,14 +4038,6 @@
 	},
 /turf/open/floor/black{
 	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
-"ld" = (
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -49;
-	target_turf_x = -71;
-	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
 "le" = (
@@ -4329,17 +4296,37 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"lR" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator2"
+	},
+/obj/structure/railing,
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "lS" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
-"lT" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
+"lU" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
 /obj/effect/mist,
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "lW" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -4356,38 +4343,12 @@
 	},
 /turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
-"lX" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
 "lY" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/computer/operating{
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle/ferry,
-/area/trainstation/indoors/train/bathroom)
-"lZ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/fluff/paper/stack{
-	dir = 5
-	},
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "mb" = (
 /obj/structure/railing,
@@ -4437,12 +4398,6 @@
 	target_turf_y = -44
 	},
 /area/trainstation/indoors/train/bathroom)
-"mg" = (
-/obj/structure/closet/secure_closet/medical1,
-/obj/item/reagent_containers/cup/bottle/formaldehyde,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_large,
-/area/trainstation/indoors/train/bathroom)
 "mh" = (
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/train/bathroom)
@@ -4471,6 +4426,14 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"mk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "ml" = (
 /obj/structure/broken_flooring/plating/directional/north{
@@ -4515,12 +4478,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
-"ms" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "mv" = (
 /obj/effect/turf_decal/tile/dark/half{
@@ -4645,14 +4602,6 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
-"mQ" = (
-/obj/structure/sign/warning/directional/north,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
 "mT" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -4668,6 +4617,12 @@
 	},
 /obj/structure/minecart_rail,
 /turf/open/floor/iron/shuttle/ferry,
+/area/trainstation/indoors/train/bathroom)
+"na" = (
+/obj/structure/closet/secure_closet/medical1,
+/obj/item/reagent_containers/cup/bottle/formaldehyde,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "nc" = (
 /obj/structure/railing{
@@ -4688,11 +4643,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/side,
-/area/trainstation/indoors/train/bathroom)
-"nf" = (
-/obj/structure/railing,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "nh" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4767,6 +4717,13 @@
 	name = "rock";
 	base_icon_state = "rock";
 	density = 1
+	},
+/area/trainstation/indoors/train/bathroom)
+"no" = (
+/obj/machinery/door/poddoor/story,
+/turf/closed/indestructible/hotelwall{
+	color = "#000000";
+	name = "darkness"
 	},
 /area/trainstation/indoors/train/bathroom)
 "np" = (
@@ -4883,6 +4840,19 @@
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"nC" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_large,
+/area/trainstation/indoors/train/bathroom)
+"nD" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
 "nF" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -4927,6 +4897,12 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
+/area/trainstation/indoors/train/bathroom)
+"nM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/remains/human,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "nN" = (
 /obj/structure/railing{
@@ -4990,6 +4966,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"nT" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "nU" = (
 /obj/effect/turf_decal/tile/dark/full{
 	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
@@ -5052,25 +5035,15 @@
 /area/trainstation/indoors/train/bathroom)
 "nY" = (
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 49;
-	teleport_x_offset = 71
+	teleport_y_offset = -49;
+	teleport_x_offset = -71
 	},
 /turf/open/mirage{
 	range = 6;
-	target_turf_y = 49;
-	target_turf_x = 71;
-	dir = 8
+	target_turf_y = -49;
+	target_turf_x = -71;
+	dir = 4
 	},
-/area/trainstation/indoors/train/bathroom)
-"nZ" = (
-/obj/structure/marker_beacon/indigo,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer/trainstation_control{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "ob" = (
 /obj/structure/chair/sofa/corp/right,
@@ -5263,13 +5236,6 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"ov" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
 "ow" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -5294,6 +5260,22 @@
 	density = 1
 	},
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"oy" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist,
+/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "oz" = (
 /obj/structure/decorative{
@@ -5367,6 +5349,21 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"oJ" = (
+/obj/machinery/computer{
+	name = "Security Lockdown Computer";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "rapedungeon_lockdown5";
+	EDITOR_use_time = 70;
+	EDITOR_balloon = "Partially disengaged security lockdown";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
 "oM" = (
 /obj/structure/fluff/paper/stack{
 	dir = 8
@@ -5394,15 +5391,6 @@
 "oP" = (
 /obj/structure/prop/stalagmite/style_1,
 /turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
-"oQ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/remains/human,
-/obj/effect/mist,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "oR" = (
 /obj/effect/turf_decal/tile/dark/half{
@@ -5937,6 +5925,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/ferry,
 /area/trainstation/indoors/train/bathroom)
+"qo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "qq" = (
 /obj/structure/railing{
 	dir = 1;
@@ -6015,6 +6009,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"qC" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/spawner/structure/flipped_table{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "qD" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
@@ -6050,6 +6053,15 @@
 	icon = 'fenysha_events/icons/_prefabs/elevatorrail.dmi';
 	icon_state = "rail"
 	},
+/area/trainstation/indoors/train/bathroom)
+"qL" = (
+/obj/structure/prop/general/comfychair_zenithred{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
 "qO" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -6149,6 +6161,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"qZ" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside,
+/area/trainstation/indoors/train/bathroom)
 "ra" = (
 /turf/open/mirage{
 	range = 6;
@@ -6166,6 +6183,23 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"re" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "rf" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -6235,6 +6269,12 @@
 	dir = 6
 	},
 /turf/open/floor/iron/shuttle/ferry,
+/area/trainstation/indoors/train/bathroom)
+"ru" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "rv" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
@@ -6416,6 +6456,13 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"rL" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
+/area/trainstation/indoors/train/bathroom)
 "rO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/trash,
@@ -6480,19 +6527,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
-"rY" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 2;
-	icon_state = "siding_plain_end"
-	},
-/obj/structure/chair/office{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/black,
 /area/trainstation/indoors/train/bathroom)
 "sa" = (
 /obj/machinery/vending/cola/pwr_game,
@@ -6573,35 +6607,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"sf" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/computer{
-	name = "Security Lockdown Computer";
-	dir = 4
-	},
-/obj/effect/mapping_helpers/trigger_helper/hand_punch{
-	EDITOR_TARGET = /obj/machinery/computer;
-	trigger_key = "rapedungeon_lockdown3";
-	EDITOR_use_time = 70;
-	EDITOR_balloon = "Partially disengaged security lockdown";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/trainstation/indoors/train/bathroom)
-"sh" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 1
-	},
+"si" = (
+/obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/cardboard,
-/obj/item/clothing/suit/armor/vest/hecu,
-/turf/open/floor/iron/shuttle/exploration/uside{
+/turf/open/floor/iron/white/smooth_corner{
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
@@ -6696,10 +6705,33 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"su" = (
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 49;
+	target_turf_x = 71;
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "sw" = (
 /obj/structure/closet/cardboard,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"sx" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator1"
+	},
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator1";
+	pixel_y = 36;
+	pixel_x = 1
+	},
+/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "sy" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6791,17 +6823,6 @@
 /obj/structure/grille,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
-"sX" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator2"
-	},
-/obj/structure/railing,
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
 "sZ" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -6809,15 +6830,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"ta" = (
-/obj/effect/mapping_helpers/listener_helper/combined_broadcast{
-	EDITOR_broadcast_keys = list("rapedungeon_lockdown_disengaged");
-	EDITOR_fail_message = "Disengage the lockdown via other terminals first!";
-	EDITOR_signals = list("rapedungeon_lockdown1","rapedungeon_lockdown2","rapedungeon_lockdown4","rapedungeon_lockdown5");
-	EDITOR_main_signal = "rapedungeon_lockdown3"
-	},
-/turf/closed/indestructible/steel,
 /area/trainstation/indoors/train/bathroom)
 "tc" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6846,10 +6858,6 @@
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
-/area/trainstation/indoors/train/bathroom)
-"tn" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_edge,
 /area/trainstation/indoors/train/bathroom)
 "to" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6921,12 +6929,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"tz" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/grille,
-/obj/effect/mist,
-/turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
 "tA" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 1;
@@ -6978,11 +6980,17 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
+"tH" = (
+/obj/item/clothing/head/helmet/toggleable/riot,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "tI" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
+/obj/effect/mist{
+	opacity = 1
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "tJ" = (
@@ -6994,6 +7002,14 @@
 	},
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
+"tK" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 4
+	},
 /area/trainstation/indoors/train/bathroom)
 "tL" = (
 /obj/structure/railing{
@@ -7023,10 +7039,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"tP" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
+/area/trainstation/indoors/train/bathroom)
 "tQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 4
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
 "tR" = (
@@ -7039,11 +7061,6 @@
 	start_on = 1
 	},
 /turf/open/floor/stone,
-/area/trainstation/indoors/train/bathroom)
-"tS" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "tT" = (
 /obj/structure/railing/corner{
@@ -7079,15 +7096,6 @@
 /turf/open/floor/iron/shuttle/exploration/doubleside{
 	dir = 8
 	},
-/area/trainstation/indoors/train/bathroom)
-"tY" = (
-/obj/structure/prop/general/comfychair_zenithred{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
 "ua" = (
 /obj/structure/table/reinforced,
@@ -7135,11 +7143,6 @@
 	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"uf" = (
-/obj/structure/table,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside,
-/area/trainstation/indoors/train/bathroom)
 "ug" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7164,6 +7167,10 @@
 	pixel_y = -18
 	},
 /turf/open/floor/stone,
+/area/trainstation/indoors/train/bathroom)
+"up" = (
+/obj/item/clothing/suit/armor/riot,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "uq" = (
 /obj/structure/railing,
@@ -7503,6 +7510,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"vj" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "vk" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -4;
@@ -7535,6 +7550,13 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"vm" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "vn" = (
 /obj/structure/prop/nt_biocan,
 /obj/effect/turf_decal/stripes/line,
@@ -7551,6 +7573,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblack,
+/area/trainstation/indoors/train/bathroom)
+"vr" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "vt" = (
 /turf/closed/wall/city/siding/red,
@@ -7778,6 +7806,11 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
+"vQ" = (
+/obj/structure/closet/emcloset/anchored,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "vR" = (
 /obj/structure/table/wood,
 /obj/item/plate{
@@ -7858,13 +7891,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
-"wb" = (
-/obj/structure/table,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 8
-	},
-/area/trainstation/indoors/train/bathroom)
 "wc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7875,17 +7901,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"wg" = (
+/obj/effect/spawner/structure/window/reinforced/indestructible,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "wh" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/suit_storage_unit,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"wp" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
+"wk" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "sideelevator1"
 	},
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
@@ -8003,6 +8030,24 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
+"wI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
 "wJ" = (
 /obj/machinery/light/small/red/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8076,14 +8121,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"wZ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
 "xc" = (
 /obj/item/stack/sheet/iron{
 	pixel_x = 2;
@@ -8091,14 +8128,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"xd" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
 /area/trainstation/indoors/train/bathroom)
 "xh" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -8155,6 +8184,13 @@
 "xn" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/asphalt,
+/area/trainstation/indoors/train/bathroom)
+"xp" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "xq" = (
 /obj/structure/prop/stalagmite/style_5{
@@ -8275,16 +8311,11 @@
 /obj/structure/railing,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
-"xI" = (
+"xH" = (
+/obj/machinery/door/poddoor/preopen,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator1";
-	pixel_y = 7;
-	pixel_x = -30
-	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "xJ" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -8308,6 +8339,18 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"xN" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "xO" = (
 /obj/structure/railing{
 	dir = 4
@@ -8316,10 +8359,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle/exploration/uside,
-/area/trainstation/indoors/train/bathroom)
-"xQ" = (
-/obj/item/clothing/suit/armor/riot,
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "xR" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8383,6 +8422,21 @@
 	density = 1
 	},
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"yf" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator2"
+	},
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator2";
+	pixel_y = 36;
+	pixel_x = 1
+	},
+/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "yg" = (
 /obj/structure/table/reinforced,
@@ -8471,13 +8525,6 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
-"yo" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "sideelevator1";
-	floor = 2
-	},
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
 "yp" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -8496,27 +8543,6 @@
 	pixel_x = 1;
 	pixel_y = 0
 	},
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"yr" = (
-/obj/machinery/computer{
-	name = "Security Lockdown Computer";
-	dir = 8
-	},
-/obj/effect/mapping_helpers/trigger_helper/hand_punch{
-	EDITOR_TARGET = /obj/machinery/computer;
-	trigger_key = "rapedungeon_lockdown5";
-	EDITOR_use_time = 70;
-	EDITOR_balloon = "Partially disengaged security lockdown";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
-"ys" = (
-/obj/structure/closet,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "yt" = (
@@ -8554,6 +8580,16 @@
 /obj/effect/mist,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"yy" = (
+/obj/structure/marker_beacon/indigo,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer/trainstation_control{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "yz" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -8589,13 +8625,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
-"yF" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator1";
-	floor = 2
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
 "yH" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/dark,
@@ -8615,6 +8644,16 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"yK" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator1"
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "yL" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8629,12 +8668,6 @@
 	floor = 2
 	},
 /turf/open/floor/iron/shuttle/exploration/hazard,
-/area/trainstation/indoors/train/bathroom)
-"yO" = (
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "yP" = (
 /obj/structure/closet/cardboard,
@@ -8729,13 +8762,10 @@
 "ze" = (
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/trainstation/indoors/train/bathroom)
-"zg" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 1
-	},
+"zf" = (
+/obj/structure/grille,
+/obj/effect/mist,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "zh" = (
 /obj/effect/turf_decal/siding/dark{
@@ -8753,20 +8783,6 @@
 /turf/open/floor/iron/shuttle/exploration/corner_invcorner{
 	dir = 8
 	},
-/area/trainstation/indoors/train/bathroom)
-"zi" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "sideelevator1"
-	},
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"zk" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "zm" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8833,6 +8849,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"zz" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "zA" = (
 /obj/item/stack/rods,
@@ -8939,20 +8960,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
-"zQ" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
+"zO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 5
 	},
 /obj/effect/mist,
-/turf/open/indestructible/meat,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "zR" = (
 /obj/item/screwdriver{
@@ -9051,18 +9066,6 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
-"Ad" = (
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator1";
-	pixel_y = 7;
-	pixel_x = -30;
-	floor = 2
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
 "Ae" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/railing{
@@ -9155,14 +9158,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
-"Av" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
-/area/trainstation/indoors/train/bathroom)
 "Aw" = (
 /obj/item/clothing/shoes/sneakers/black,
 /obj/item/clothing/shoes/sneakers/black{
@@ -9242,14 +9237,6 @@
 /obj/structure/prop/general/redalertblank,
 /turf/closed/indestructible/steel,
 /area/trainstation/indoors/train/bathroom)
-"AQ" = (
-/obj/effect/mapping_helpers/listener_helper/announce{
-	listener_key = "rapedungeon_lockdown_disengaged";
-	EDITOR_message = "Security Lockdown lifted.";
-	EDITOR_title = "Lockdown Status Update"
-	},
-/turf/closed/indestructible/steel,
-/area/trainstation/indoors/train/bathroom)
 "AR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4,
@@ -9312,13 +9299,6 @@
 	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"AW" = (
-/obj/machinery/door/poddoor/story,
-/turf/closed/indestructible/hotelwall{
-	color = "#000000";
-	name = "darkness"
-	},
-/area/trainstation/indoors/train/bathroom)
 "AX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9340,12 +9320,6 @@
 	icon_state = "body"
 	},
 /turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
-"AZ" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "Ba" = (
 /obj/effect/light_emitter/interlink{
@@ -9610,13 +9584,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
-"BH" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 1
+"BG" = (
+/obj/machinery/computer/trainstation_control{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/listener_helper/combined_broadcast{
+	EDITOR_broadcast_keys = list("rapedungeon_lockdown_disengaged");
+	EDITOR_fail_message = "Disengage the lockdown via other terminals first!";
+	EDITOR_signals = list("rapedungeon_lockdown1","rapedungeon_lockdown2","rapedungeon_lockdown4","rapedungeon_lockdown5");
+	EDITOR_main_signal = "rapedungeon_lockdown3"
+	},
+/turf/open/space/basic,
 /area/trainstation/indoors/train/bathroom)
 "BJ" = (
 /obj/effect/turf_decal/siding/wood{
@@ -9786,13 +9764,6 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
-"Cg" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 8
-	},
-/area/trainstation/indoors/train/bathroom)
 "Ch" = (
 /obj/structure/rack/shelf,
 /obj/item/flashlight/flare{
@@ -9942,16 +9913,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/black,
 /area/trainstation/indoors/train/bathroom)
-"Cw" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator1"
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
 "Cx" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -16;
@@ -10037,16 +9998,23 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/train/bathroom)
+"CI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/misc/dirt/planet,
+/area/trainstation/indoors/train/bathroom)
 "CJ" = (
 /obj/machinery/door/manual_airlock,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "CL" = (
-/obj/machinery/door/poddoor/story/elevator{
-	elevator_id = "sideelevator2"
-	},
-/turf/open/floor/plating/reinforced,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/medical/medkit_rare,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "CM" = (
 /obj/structure/grille,
@@ -10069,14 +10037,6 @@
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 8
 	},
-/area/trainstation/indoors/train/bathroom)
-"CQ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "CT" = (
 /obj/structure/railing{
@@ -10194,6 +10154,16 @@
 	},
 /turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
+"Dh" = (
+/obj/effect/light_emitter/interlink{
+	light_color = "#3e3a57";
+	color = "#3e3a57"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/doubleside{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "Di" = (
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 1
@@ -10269,6 +10239,12 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"Ds" = (
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "Dt" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -10290,13 +10266,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/white/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"Dz" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "DC" = (
 /obj/structure/fluff/paper/stack{
@@ -10514,13 +10483,6 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
-"Eh" = (
-/obj/structure/table,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 1
-	},
-/area/trainstation/indoors/train/bathroom)
 "Ei" = (
 /obj/structure/closet/crate/cardboard,
 /obj/item/flashlight/flare,
@@ -10543,12 +10505,6 @@
 /turf/open/floor/black{
 	name = "void"
 	},
-/area/trainstation/indoors/train/bathroom)
-"Ek" = (
-/obj/machinery/door/poddoor/preopen,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "Em" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -10632,16 +10588,6 @@
 /obj/structure/sign/warning/directional/south,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"Ey" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator2"
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/train/bathroom)
 "Ez" = (
 /turf/open/mirage{
 	range = 6;
@@ -10714,18 +10660,26 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"EI" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
+"EH" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/regular,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 8
-	},
+/turf/open/floor/iron/white/smooth_corner,
 /area/trainstation/indoors/train/bathroom)
 "EJ" = (
 /obj/structure/ore_box,
 /obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"EL" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator1";
+	pixel_y = 7;
+	pixel_x = -30
+	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "EP" = (
@@ -10733,17 +10687,6 @@
 	dir = 8
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/trainstation/indoors/train/bathroom)
-"EQ" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/structure/railing,
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator1"
-	},
-/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "ER" = (
 /obj/effect/turf_decal/stripes/white,
@@ -10790,13 +10733,6 @@
 	},
 /obj/effect/mist,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"Fa" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "Fb" = (
 /obj/structure/fluff/metalpole/anchor{
@@ -10861,14 +10797,37 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Fk" = (
+/obj/machinery/computer{
+	name = "Security Lockdown Computer";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/marker_beacon/bronze,
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "rapedungeon_lockdown1";
+	EDITOR_use_time = 70;
+	EDITOR_balloon = "Partially disengaged security lockdown";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "Fm" = (
 /obj/structure/chair,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"Fp" = (
-/obj/effect/spawner/structure/window/reinforced/indestructible,
-/turf/open/floor/plating/reinforced,
+"Fn" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Fq" = (
 /obj/structure/railing{
@@ -10973,18 +10932,12 @@
 /area/trainstation/indoors/train/bathroom)
 "FE" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
-"FF" = (
-/obj/effect/light_emitter/interlink{
-	light_color = "#3e3a57";
-	color = "#3e3a57"
-	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/doubleside{
-	dir = 8
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
 	},
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "FI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11050,12 +11003,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
-"FN" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 8
-	},
-/area/trainstation/indoors/train/bathroom)
 "FO" = (
 /obj/structure/flora/bush/reed/style_4{
 	pixel_x = 9;
@@ -11089,6 +11036,11 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"FQ" = (
+/obj/structure/closet/cardboard,
+/obj/item/stack/sheet/mineral/gold/fifty,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "FS" = (
 /turf/open/floor/iron/shuttle/exploration/uside{
@@ -11214,6 +11166,12 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Gj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille,
+/obj/effect/mist,
+/turf/open/floor/plating,
+/area/trainstation/indoors/train/bathroom)
 "Gk" = (
 /obj/item/stack/sheet/iron/ten,
 /obj/item/stock_parts/matter_bin{
@@ -11269,24 +11227,17 @@
 /obj/structure/statue/bone/rib,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
-"Gu" = (
-/obj/machinery/computer{
-	name = "Security Lockdown Computer";
+"Gw" = (
+/obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/marker_beacon/bronze,
-/obj/effect/mapping_helpers/trigger_helper/hand_punch{
-	EDITOR_TARGET = /obj/machinery/computer;
-	trigger_key = "rapedungeon_lockdown1";
-	EDITOR_use_time = 70;
-	EDITOR_balloon = "Partially disengaged security lockdown";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/black,
 /area/trainstation/indoors/train/bathroom)
 "Gx" = (
 /obj/structure/sign/warning/directional/south,
@@ -11306,18 +11257,6 @@
 	name = "rock";
 	base_icon_state = "rock";
 	density = 1
-	},
-/area/trainstation/indoors/train/bathroom)
-"GA" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -49;
-	teleport_x_offset = -71
-	},
-/turf/open/mirage{
-	range = 6;
-	target_turf_y = -49;
-	target_turf_x = -71;
-	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
 "GC" = (
@@ -11393,6 +11332,13 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
+"GN" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "sideelevator1";
+	floor = 2
+	},
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "GO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/smooth_large,
@@ -11414,6 +11360,11 @@
 	dir = 9
 	},
 /turf/open/floor/stone,
+/area/trainstation/indoors/train/bathroom)
+"GV" = (
+/obj/structure/table/wood,
+/obj/item/paper/trainstation_password,
+/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "GW" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -11487,6 +11438,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
+"Hj" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "Hk" = (
 /obj/machinery/light/small/red/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11516,17 +11474,12 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"Hp" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 1
-	},
+"Hr" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/ore_box,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
 "Hs" = (
 /obj/item/storage/box/nri_flares{
@@ -11546,26 +11499,6 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
-"Hu" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer{
-	name = "Security Lockdown Computer";
-	dir = 8
-	},
-/obj/effect/mapping_helpers/trigger_helper/hand_punch{
-	EDITOR_TARGET = /obj/machinery/computer;
-	trigger_key = "rapedungeon_lockdown4";
-	EDITOR_use_time = 70;
-	EDITOR_balloon = "Partially disengaged security lockdown - 1/5";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/turf/open/floor/black{
-	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
 "Hw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced,
@@ -11577,13 +11510,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"Hz" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "HB" = (
 /obj/structure/fluff/metalpole/anchor{
@@ -11611,11 +11537,6 @@
 	},
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
-"HD" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
-/area/trainstation/indoors/train/bathroom)
 "HE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/cardboard,
@@ -11640,6 +11561,10 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/black,
+/area/trainstation/indoors/train/bathroom)
+"HJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner,
 /area/trainstation/indoors/train/bathroom)
 "HK" = (
 /obj/structure/railing,
@@ -11863,31 +11788,6 @@
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 1
 	},
-/area/trainstation/indoors/train/bathroom)
-"Iy" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
-/area/trainstation/indoors/train/bathroom)
-"Iz" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569";
-	dir = 2;
-	mouse_opacity = 0;
-	layer = 2;
-	alpha = 150
-	},
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "IA" = (
 /obj/structure/railing/corner,
@@ -12178,6 +12078,16 @@
 /obj/effect/spawner/random/medical/patient_stretcher,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Jm" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1;
+	icon_state = "siding_plain_end"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/black,
+/area/trainstation/indoors/train/bathroom)
 "Jo" = (
 /obj/structure/decorative/fluff{
 	name = "broken exosuit fabricator";
@@ -12252,22 +12162,6 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/uside,
 /area/trainstation/indoors/train/bathroom)
-"Jw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/obj/effect/mist,
-/turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
 "Jx" = (
 /obj/structure/railing,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12310,6 +12204,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
+"JH" = (
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "sideelevator2";
+	floor = 2
+	},
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "JJ" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
@@ -12338,16 +12239,6 @@
 	target_turf_y = -2;
 	target_turf_x = 11
 	},
-/area/trainstation/indoors/train/bathroom)
-"JL" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1;
-	icon_state = "siding_plain_end"
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/black,
 /area/trainstation/indoors/train/bathroom)
 "JN" = (
 /obj/structure/chair/sofa/corp/right{
@@ -12452,13 +12343,6 @@
 	},
 /turf/open/floor/iron/shuttle/ferry,
 /area/trainstation/indoors/train/bathroom)
-"Kd" = (
-/obj/structure/railing,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
 "Ke" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12500,34 +12384,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"Kp" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/spawner/structure/flipped_table{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_large,
-/area/trainstation/indoors/train/bathroom)
 "Kq" = (
 /obj/structure/railing{
 	dir = 5
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"Kr" = (
-/obj/structure/decorative/fluff{
-	name = "metal barrel";
-	desc = "So metal.";
-	icon_state = "vat";
-	icon = 'icons/obj/medical/chemical_tanks.dmi';
-	anchored = 1;
-	color = "#ecd6c9";
-	density = 1;
-	can_be_unanchored = 1
-	},
-/obj/effect/mist,
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "Ku" = (
 /turf/open/mirage{
@@ -12598,6 +12459,12 @@
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"KG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "KH" = (
 /obj/structure/railing{
 	dir = 5
@@ -12615,6 +12482,19 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
+"KL" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"KM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
 "KN" = (
@@ -12643,6 +12523,27 @@
 "KS" = (
 /obj/structure/prop/general/smallwallvent2,
 /turf/closed/indestructible/steel,
+/area/trainstation/indoors/train/bathroom)
+"KU" = (
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/train/bathroom)
+"KV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 4
+	},
 /area/trainstation/indoors/train/bathroom)
 "KW" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12691,6 +12592,12 @@
 	icon_state = "rail"
 	},
 /area/trainstation/indoors/train/bathroom)
+"Lj" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
+/area/trainstation/indoors/train/bathroom)
 "Lk" = (
 /obj/structure/railing/corner,
 /obj/structure/railing/corner{
@@ -12699,6 +12606,13 @@
 /turf/open/floor/iron/shuttle/exploration/doubleside{
 	dir = 8
 	},
+/area/trainstation/indoors/train/bathroom)
+"Lm" = (
+/obj/structure/flora/ash/cap_shroom{
+	light_on = 0
+	},
+/obj/effect/mist,
+/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "Lo" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12737,11 +12651,6 @@
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 1
 	},
-/area/trainstation/indoors/train/bathroom)
-"Lx" = (
-/obj/structure/table/wood,
-/obj/item/paper/trainstation_password,
-/turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
 "Ly" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12811,6 +12720,15 @@
 	alpha = 150;
 	mouse_opacity = 0
 	},
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"LI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/remains/human,
+/obj/effect/mist,
+/obj/effect/mist,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "LJ" = (
@@ -12911,6 +12829,10 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/indoors/train/bathroom)
+"Mc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside,
+/area/trainstation/indoors/train/bathroom)
 "Me" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -12952,11 +12874,6 @@
 /area/trainstation/indoors/train/bathroom)
 "Mn" = (
 /turf/open/floor/iron/white,
-/area/trainstation/indoors/train/bathroom)
-"Mo" = (
-/obj/structure/closet/cardboard,
-/obj/item/stack/sheet/mineral/gold/fifty,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Mp" = (
 /obj/structure/table/reinforced,
@@ -13065,12 +12982,6 @@
 	pixel_y = -3
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"MH" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "MI" = (
 /obj/structure/prop/general/paneloff,
@@ -13271,6 +13182,28 @@
 /obj/item/trash/flare,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"Nc" = (
+/obj/item/phone{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/radio/intercom/directional/east,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark/smooth_large,
+/area/trainstation/indoors/train/bathroom)
 "Nd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13357,10 +13290,6 @@
 	target_turf_y = 44
 	},
 /area/trainstation/indoors/train/bathroom)
-"Np" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/side,
-/area/trainstation/indoors/train/bathroom)
 "Nq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/greyscale{
@@ -13396,28 +13325,6 @@
 "Nt" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"Nu" = (
-/obj/item/phone{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_x = 5;
-	pixel_y = 4
-	},
-/obj/item/pen{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/radio/intercom/directional/east,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
 "Nv" = (
@@ -13540,6 +13447,18 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/uside{
 	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
+"NP" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = 49;
+	teleport_x_offset = 71
+	},
+/turf/open/mirage{
+	range = 6;
+	target_turf_y = 49;
+	target_turf_x = 71;
+	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
 "NU" = (
@@ -13832,12 +13751,6 @@
 /obj/structure/railing,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"OC" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/medkit/regular,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_corner,
-/area/trainstation/indoors/train/bathroom)
 "OD" = (
 /turf/open/floor/asphalt,
 /area/trainstation/indoors/train/bathroom)
@@ -13906,12 +13819,6 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
-"OQ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
 "OR" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -13971,6 +13878,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
+"OZ" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator2"
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "Pa" = (
 /obj/structure/minecart_rail{
 	dir = 4
@@ -14025,13 +13942,9 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Pk" = (
-/obj/structure/grille/broken,
-/obj/item/shard{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "Pn" = (
@@ -14061,21 +13974,6 @@
 	color = "#55585a"
 	},
 /turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
-"Pq" = (
-/obj/structure/elevator_platfrom{
-	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
-	icon_state = "smooth"
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "sideelevator1"
-	},
-/obj/machinery/button/elevator_control/directional/north{
-	elevator_id = "sideelevator1";
-	pixel_y = 36;
-	pixel_x = 1
-	},
-/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "Pr" = (
 /obj/structure/ore_box,
@@ -14204,22 +14102,6 @@
 /obj/item/stack/rods,
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
-"PI" = (
-/obj/structure/broken_flooring/plating/directional/east,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
-/obj/effect/mist,
-/turf/open/indestructible/meat,
-/area/trainstation/indoors/train/bathroom)
 "PK" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 5
@@ -14322,6 +14204,21 @@
 	base_icon_state = "rock2"
 	},
 /area/trainstation/indoors/train/bathroom)
+"Qa" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/shuttle/exploration/doubleside,
+/area/trainstation/indoors/train/bathroom)
+"Qb" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "Qc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -14411,12 +14308,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/white/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"Qn" = (
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
 "Qo" = (
 /obj/item/reagent_containers/cup/glass/waterbottle{
 	pixel_x = 11;
@@ -14428,21 +14319,19 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
-"Qp" = (
-/obj/structure/broken_flooring/plating/directional/north,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
-	},
+"Qq" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mist,
-/turf/open/indestructible/meat,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"Qr" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Qs" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -14585,6 +14474,19 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
+"QF" = (
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator2";
+	pixel_y = 7;
+	pixel_x = 31;
+	floor = 2
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "QH" = (
 /obj/effect/light_emitter/interlink{
 	light_color = "#3e3a57";
@@ -14721,13 +14623,6 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/train/bathroom)
-"QX" = (
-/obj/structure/closet/crate/freezer/blood,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
 "QZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/paper/stack{
@@ -14790,12 +14685,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/trainstation/indoors/train/bathroom)
-"Rh" = (
-/obj/effect/mist,
-/turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
 "Ri" = (
 /turf/closed/indestructible/binary,
+/area/trainstation/indoors/train/bathroom)
+"Rj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Rn" = (
 /obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible/layer2,
@@ -14836,6 +14735,20 @@
 /obj/structure/prop/stalagmite/style_2,
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"Rs" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/cardboard,
+/obj/item/clothing/suit/armor/vest/hecu,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "Rt" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/matches{
@@ -14875,6 +14788,14 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
+"RB" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
 "RC" = (
 /obj/structure/railing{
 	dir = 8
@@ -14891,18 +14812,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"RD" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
-"RE" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/train/bathroom)
 "RG" = (
 /obj/structure/broken_flooring/plating/directional,
@@ -14941,23 +14850,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"RL" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 4
-	},
-/area/trainstation/indoors/train/bathroom)
-"RN" = (
-/obj/structure/table/reinforced,
-/obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
 "RP" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -14992,19 +14884,6 @@
 "RX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
-/area/trainstation/indoors/train/bathroom)
-"RY" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/iron/white,
-/area/trainstation/indoors/train/bathroom)
-"Sa" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Sb" = (
 /obj/effect/smooths_with_walls,
@@ -15057,6 +14936,14 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
+"Sf" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "Sg" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -15100,6 +14987,11 @@
 	can_be_unanchored = 1
 	},
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"Sj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "Sm" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -15211,11 +15103,12 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"SG" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist,
-/turf/open/floor/plating,
+"SE" = (
+/obj/machinery/door/poddoor/story,
+/obj/effect/mapping_helpers/listener_helper/open_door/delete_after{
+	listener_key = "evilgate"
+	},
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "SH" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -15246,6 +15139,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/prop/general/zbunkbed3,
 /turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
+"SK" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "SL" = (
 /obj/item/storage/toolbox/mechanical{
@@ -15299,6 +15200,24 @@
 	dir = 4
 	},
 /area/trainstation/indoors/train/bathroom)
+"SQ" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/computer{
+	name = "Security Lockdown Computer";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "rapedungeon_lockdown3";
+	EDITOR_use_time = 70;
+	EDITOR_balloon = "Partially disengaged security lockdown";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/trainstation/indoors/train/bathroom)
 "SS" = (
 /obj/structure/railing{
 	dir = 4;
@@ -15324,6 +15243,12 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"SU" = (
+/obj/effect/mist{
+	opacity = 1
+	},
+/turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
 "SV" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -15389,23 +15314,12 @@
 "Te" = (
 /turf/open/floor/carpet,
 /area/trainstation/indoors/train/bathroom)
-"Tf" = (
-/obj/effect/mist,
-/turf/open/floor/plating/reinforced,
-/area/trainstation/indoors/train/bathroom)
 "Tg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/barricade/wooden,
 /obj/effect/mist,
 /turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
-"Tl" = (
-/obj/structure/table,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside{
-	dir = 1
-	},
 /area/trainstation/indoors/train/bathroom)
 "Tm" = (
 /obj/structure/grille,
@@ -15430,21 +15344,12 @@
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Tr" = (
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_floor";
-	color = "#d66569";
-	layer = 2;
-	alpha = 150;
-	mouse_opacity = 0
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 8
 	},
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
 "Tw" = (
 /obj/structure/bed/pod,
@@ -15475,6 +15380,15 @@
 /obj/structure/ore_box,
 /turf/open/floor/iron/shuttle/exploration/corner{
 	dir = 4
+	},
+/area/trainstation/indoors/train/bathroom)
+"TB" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
 "TC" = (
@@ -15553,6 +15467,23 @@
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 2
 	},
+/area/trainstation/indoors/train/bathroom)
+"TN" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_floor";
+	color = "#d66569";
+	layer = 2;
+	alpha = 150;
+	mouse_opacity = 0
+	},
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "TO" = (
 /obj/effect/decal/cleanable/glass,
@@ -15788,13 +15719,6 @@
 	dir = 1
 	},
 /area/trainstation/indoors/train/bathroom)
-"Uw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/plating,
-/area/trainstation/indoors/train/bathroom)
 "Ux" = (
 /obj/structure/broken_flooring/plating/directional/north,
 /obj/effect/decal/cleanable/crayon/e{
@@ -15949,15 +15873,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"UV" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mist{
-	opacity = 1
-	},
-/turf/open/floor/iron/dark,
-/area/trainstation/indoors/train/bathroom)
 "UW" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -15997,6 +15912,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/shelf,
 /turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"Vb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Vd" = (
 /obj/structure/fans/tiny/invisible{
@@ -16078,12 +15999,6 @@
 	name = "gravel";
 	base_icon_state = "rock2"
 	},
-/area/trainstation/indoors/train/bathroom)
-"Vp" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/remains/human,
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Vq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -16170,12 +16085,6 @@
 	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
-"Vw" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/white,
-/area/trainstation/indoors/train/bathroom)
 "Vy" = (
 /obj/structure/fluff/metalpole{
 	dir = 6;
@@ -16188,7 +16097,10 @@
 /area/trainstation/indoors/train/bathroom)
 "VA" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/uside,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/plating,
 /area/trainstation/indoors/train/bathroom)
 "VB" = (
 /obj/machinery/door/airlock/centcom,
@@ -16308,6 +16220,12 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/train/bathroom)
+"VK" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 8
+	},
+/area/trainstation/indoors/train/bathroom)
 "VM" = (
 /obj/effect/decal/cleanable/crayon/e{
 	pixel_x = -2;
@@ -16378,6 +16296,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
+"VV" = (
+/obj/machinery/computer/trainstation_control{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/listener_helper/announce{
+	listener_key = "rapedungeon_lockdown_disengaged";
+	EDITOR_message = "Security Lockdown lifted.";
+	EDITOR_title = "Lockdown Status Update"
+	},
+/turf/open/space/basic,
+/area/trainstation/indoors/train/bathroom)
 "VW" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -16433,22 +16362,12 @@
 	name = "void"
 	},
 /area/trainstation/indoors/train/bathroom)
-"Wc" = (
+"Wd" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/decorative{
-	anchored = 1;
-	name = "flesh amoeba";
-	desc = "It's pulsing...";
-	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
-	icon_state = "blob_wall";
-	color = "#d66569";
-	dir = 8;
-	mouse_opacity = 0;
-	layer = 2;
-	alpha = 150
+/obj/effect/mist{
+	opacity = 1
 	},
-/obj/effect/mist,
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "We" = (
 /obj/machinery/computer{
@@ -16502,6 +16421,23 @@
 	},
 /turf/open/floor/wood/large,
 /area/trainstation/indoors/train/bathroom)
+"Wh" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 2;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
+	},
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "Wj" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -16536,15 +16472,6 @@
 	},
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/misc/dirt/planet,
-/area/trainstation/indoors/train/bathroom)
-"Wn" = (
-/obj/machinery/door/poddoor/story{
-	name = "Security Outpost"
-	},
-/obj/effect/mapping_helpers/listener_helper/open_door{
-	listener_key = "rapedungeon_lockdown_disengaged"
-	},
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "Wr" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -16592,6 +16519,13 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/stone,
 /area/trainstation/indoors/train/bathroom)
+"Wz" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator1";
+	floor = 2
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
 "WB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/briefcase/secure{
@@ -16632,6 +16566,17 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"WG" = (
+/obj/structure/elevator_platfrom{
+	icon = 'modular_zubbers/icons/turf/floors/floors.dmi';
+	icon_state = "smooth"
+	},
+/obj/structure/railing,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "sideelevator1"
+	},
+/turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/train/bathroom)
 "WH" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -16731,6 +16676,26 @@
 	},
 /obj/effect/decal/fakelattice,
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/train/bathroom)
+"WP" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer{
+	name = "Security Lockdown Computer";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "rapedungeon_lockdown4";
+	EDITOR_use_time = 70;
+	EDITOR_balloon = "Partially disengaged security lockdown - 1/5";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/black{
+	name = "void"
+	},
 /area/trainstation/indoors/train/bathroom)
 "WT" = (
 /obj/effect/mob_spawn/corpse/human/skeleton,
@@ -16881,6 +16846,10 @@
 	density = 1
 	},
 /area/trainstation/indoors/train/bathroom)
+"Xi" = (
+/obj/effect/mist,
+/turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
 "Xm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage{
@@ -16980,10 +16949,6 @@
 	color = "#3e3a57"
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
-/area/trainstation/indoors/train/bathroom)
-"Xz" = (
-/obj/item/clothing/head/helmet/toggleable/riot,
-/turf/open/floor/plating/reinforced,
 /area/trainstation/indoors/train/bathroom)
 "XA" = (
 /obj/effect/decal/cleanable/crayon/e{
@@ -17201,6 +17166,13 @@
 	},
 /turf/open/floor/iron,
 /area/trainstation/indoors/train/bathroom)
+"Yf" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/trainstation/indoors/train/bathroom)
 "Yg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -17251,6 +17223,17 @@
 /turf/open/floor/black{
 	name = "void"
 	},
+/area/trainstation/indoors/train/bathroom)
+"Yo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator2";
+	pixel_y = 7;
+	pixel_x = 31
+	},
+/turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
 "Yp" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -17308,12 +17291,6 @@
 /obj/structure/broken_flooring/plating/directional/west,
 /turf/open/floor/black{
 	name = "void"
-	},
-/area/trainstation/indoors/train/bathroom)
-"Yu" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/shuttle/exploration/corner{
-	dir = 8
 	},
 /area/trainstation/indoors/train/bathroom)
 "Yy" = (
@@ -17478,6 +17455,23 @@
 "YT" = (
 /turf/open/misc/dirt/planet,
 /area/trainstation/indoors/train/bathroom)
+"YU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/decorative{
+	anchored = 1;
+	name = "flesh amoeba";
+	desc = "It's pulsing...";
+	icon = 'fenysha_events/icons/_prefabs/blob_resin.dmi';
+	icon_state = "blob_wall";
+	color = "#d66569";
+	dir = 8;
+	mouse_opacity = 0;
+	layer = 2;
+	alpha = 150
+	},
+/obj/effect/mist,
+/turf/open/floor/iron/dark,
+/area/trainstation/indoors/train/bathroom)
 "YV" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -17505,6 +17499,18 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/ore_box,
 /turf/open/floor/iron/shuttle/exploration/corner,
+/area/trainstation/indoors/train/bathroom)
+"YY" = (
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "sideelevator1";
+	pixel_y = 7;
+	pixel_x = -30;
+	floor = 2
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/uside{
+	dir = 4
+	},
 /area/trainstation/indoors/train/bathroom)
 "YZ" = (
 /obj/effect/turf_decal/siding/wood/end{
@@ -17627,6 +17633,11 @@
 	icon_state = "-"
 	},
 /turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/indoors/train/bathroom)
+"Zn" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mist,
+/turf/open/floor/iron/white,
 /area/trainstation/indoors/train/bathroom)
 "Zo" = (
 /obj/structure/table,
@@ -17789,18 +17800,6 @@
 /obj/effect/spawner/structure/flipped_table,
 /turf/open/floor/iron/dark,
 /area/trainstation/indoors/train/bathroom)
-"ZJ" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/dark{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/black,
-/area/trainstation/indoors/train/bathroom)
 "ZK" = (
 /obj/structure/railing{
 	dir = 8
@@ -17902,6 +17901,13 @@
 	dir = 8
 	},
 /turf/open/floor/plating/reinforced,
+/area/trainstation/indoors/train/bathroom)
+"ZY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/shuttle/exploration/corner{
+	dir = 1
+	},
 /area/trainstation/indoors/train/bathroom)
 "ZZ" = (
 /obj/structure/grille,
@@ -18275,9 +18281,9 @@ nt
 nt
 Ri
 rs
-iT
-nY
-iT
+su
+NP
+su
 rs
 Ri
 nt
@@ -19574,7 +19580,7 @@ nl
 nl
 AD
 fw
-iO
+fb
 Td
 hg
 lp
@@ -19676,7 +19682,7 @@ ST
 MD
 dr
 fw
-sh
+Rs
 so
 mn
 lp
@@ -19778,7 +19784,7 @@ ST
 Qf
 ou
 fw
-Hp
+cc
 so
 HK
 lp
@@ -20068,8 +20074,8 @@ SH
 nl
 wr
 wr
-OC
-bI
+EH
+si
 wr
 wr
 Ri
@@ -20169,10 +20175,10 @@ LD
 FW
 nl
 wr
-mg
-eE
-Vw
-QX
+na
+Yf
+Lj
+ge
 wr
 Ri
 rs
@@ -20270,11 +20276,11 @@ wr
 nl
 SH
 nl
-bG
-Kp
-Iy
-Vw
-tn
+bH
+qC
+vj
+Lj
+gG
 wr
 Ri
 rs
@@ -20372,11 +20378,11 @@ fw
 nl
 FW
 nl
-Pk
-ms
-Av
-tY
-BH
+cW
+nC
+iV
+qL
+Sf
 wr
 Ri
 rs
@@ -20476,8 +20482,8 @@ SH
 nl
 wr
 wr
-Cg
-Gu
+Hj
+Fk
 KS
 wr
 Ri
@@ -21303,8 +21309,8 @@ wr
 Ni
 Ep
 wr
-Cw
-EQ
+yK
+WG
 wr
 wr
 wr
@@ -21405,8 +21411,8 @@ wr
 sS
 zm
 wr
-Pq
-EQ
+sx
+WG
 wr
 pe
 TS
@@ -21507,8 +21513,8 @@ wr
 ns
 Ok
 wr
-zi
-zi
+wk
+wk
 wr
 Ss
 sZ
@@ -21525,8 +21531,8 @@ BZ
 Eb
 ks
 Ap
-lT
-wZ
+Vb
+Rj
 UI
 sr
 DW
@@ -21611,7 +21617,7 @@ Ni
 zA
 Cd
 UE
-xI
+EL
 Dc
 Gx
 wr
@@ -21628,8 +21634,8 @@ wr
 bL
 Ap
 tr
-UV
-RE
+tI
+Qa
 At
 Mu
 Ug
@@ -21730,8 +21736,8 @@ cY
 Ni
 IN
 cB
-wZ
-HD
+Rj
+tP
 wr
 Eg
 gP
@@ -21815,7 +21821,7 @@ UE
 vI
 Ni
 ae
-dR
+Yo
 zx
 bg
 wr
@@ -21831,9 +21837,9 @@ wr
 wr
 bL
 Ap
-tI
+aX
 Un
-RE
+Qa
 sr
 rk
 Ug
@@ -21915,8 +21921,8 @@ wr
 lI
 Ni
 wr
-CL
-CL
+ix
+ix
 wr
 Ok
 Ni
@@ -21934,7 +21940,7 @@ Eb
 TO
 Ni
 kf
-Sa
+vr
 Yg
 At
 ZC
@@ -22017,8 +22023,8 @@ wr
 Ni
 Ni
 wr
-gk
-sX
+yf
+lR
 wr
 Ij
 dE
@@ -22102,7 +22108,7 @@ KS
 vW
 Pc
 iP
-bT
+Zn
 OU
 OU
 OU
@@ -22119,8 +22125,8 @@ wr
 Ni
 xk
 wr
-Ey
-sX
+OZ
+lR
 wr
 Eb
 UE
@@ -22205,7 +22211,7 @@ BL
 zB
 BZ
 us
-bT
+Zn
 Bs
 GY
 pV
@@ -22307,7 +22313,7 @@ BZ
 BZ
 wr
 eh
-RY
+Hr
 AF
 tq
 OT
@@ -22409,7 +22415,7 @@ Uj
 Qo
 iP
 Hb
-bT
+Zn
 Bs
 fO
 jT
@@ -22543,7 +22549,7 @@ pc
 kT
 wr
 Ni
-lT
+Vb
 MB
 Ok
 uv
@@ -22645,7 +22651,7 @@ wr
 wr
 wr
 wr
-MH
+fi
 BW
 nj
 wr
@@ -22748,7 +22754,7 @@ MO
 wr
 DI
 VW
-iC
+Fn
 yx
 EJ
 wr
@@ -22950,7 +22956,7 @@ MO
 MO
 MO
 wr
-ys
+bv
 xB
 Ok
 JV
@@ -23053,8 +23059,8 @@ wr
 wr
 wr
 wr
-mQ
-RD
+aF
+KG
 Ok
 wr
 wr
@@ -23075,8 +23081,8 @@ Tw
 wr
 Ri
 tg
-Rh
-Rh
+eK
+eK
 tg
 Ri
 nt
@@ -23155,7 +23161,7 @@ wr
 wr
 BK
 Yl
-Wc
+YU
 Ax
 Ni
 Ok
@@ -23177,8 +23183,8 @@ wr
 wr
 Ri
 tg
-Rh
-Rh
+eK
+eK
 iS
 Ri
 Ri
@@ -23280,7 +23286,7 @@ Ri
 Ri
 iS
 iS
-yO
+SU
 iS
 iS
 Ri
@@ -23382,8 +23388,8 @@ nt
 Ri
 iS
 tg
-Rh
-an
+eK
+Lm
 iS
 Ri
 nt
@@ -23483,9 +23489,9 @@ nt
 nt
 Ri
 iS
-Rh
-Rh
-Rh
+eK
+eK
+eK
 iS
 Ri
 nt
@@ -23526,8 +23532,8 @@ wr
 Pr
 rQ
 wr
-df
-lX
+wI
+TN
 SC
 Dc
 UE
@@ -23628,10 +23634,10 @@ wr
 BK
 BK
 qv
-Jw
+oy
 lk
 IX
-Iz
+Wh
 Dc
 wP
 nQ
@@ -24595,7 +24601,7 @@ Ri
 Ri
 wr
 wr
-Mo
+FQ
 EU
 Gk
 zG
@@ -25570,9 +25576,9 @@ nt
 nt
 Ri
 rs
-ld
-GA
-ld
+iT
+nY
+iT
 rs
 Ri
 nt
@@ -26332,11 +26338,11 @@ Ri
 Ri
 wr
 Mv
-kz
-SG
-SG
-SG
-kz
+fl
+ru
+ru
+ru
+fl
 wr
 Ri
 nt
@@ -26437,8 +26443,8 @@ wr
 CM
 wr
 MI
-Uw
-gb
+nD
+Wd
 wr
 Ri
 nt
@@ -26536,11 +26542,11 @@ wr
 Ri
 Ri
 wr
-SG
-CQ
-OQ
-FE
-Tf
+ru
+SK
+Pk
+Sj
+Xi
 wr
 Ri
 nt
@@ -26632,15 +26638,15 @@ ye
 UE
 Ni
 oi
-SG
-Fa
+ru
+VA
 wr
 KS
 wr
 wr
-kz
+fl
 wr
-FE
+Sj
 wr
 wr
 wr
@@ -26738,11 +26744,11 @@ wr
 Tg
 wr
 pm
-kz
-kz
-kz
+fl
+fl
+fl
 wr
-FE
+Sj
 wr
 Ri
 Ri
@@ -26837,14 +26843,14 @@ pm
 wr
 Ri
 wr
-zk
-kz
+mk
+fl
 pm
 wr
 wr
-OQ
-Qn
-FE
+Pk
+Ds
+Sj
 wr
 Ri
 nt
@@ -26944,7 +26950,7 @@ wr
 sV
 sV
 wr
-FE
+Sj
 KS
 wr
 wr
@@ -27039,14 +27045,14 @@ wF
 wr
 Hw
 wr
-Xz
-xQ
+tH
+up
 rq
 wr
 wr
 Hw
 Hw
-FE
+Sj
 wr
 Ri
 Ri
@@ -27228,10 +27234,10 @@ Ri
 Ri
 Ri
 wr
-Uw
-kz
-kz
-kz
+nD
+fl
+fl
+fl
 pm
 Hw
 wr
@@ -27245,7 +27251,7 @@ pm
 wr
 Ri
 KS
-SG
+ru
 wr
 wr
 wr
@@ -27330,9 +27336,9 @@ Ri
 Ri
 wr
 wr
-Uw
+nD
 wr
-Kr
+eX
 Ow
 wr
 wr
@@ -27347,8 +27353,8 @@ pm
 wr
 wr
 wr
-wp
-tS
+FE
+CI
 lv
 tg
 tg
@@ -27431,8 +27437,8 @@ nt
 Ri
 Ri
 wr
-fb
-zk
+zf
+mk
 wr
 wr
 wr
@@ -27448,9 +27454,9 @@ Oh
 BF
 bq
 fq
-tz
-kz
-tS
+Gj
+fl
+CI
 YT
 hG
 hG
@@ -27533,8 +27539,8 @@ Ri
 Ri
 wr
 Ct
-kz
-SG
+fl
+ru
 wr
 sV
 sV
@@ -27634,8 +27640,8 @@ wr
 wr
 wr
 wr
-Tf
-kz
+Xi
+fl
 wr
 wr
 Mv
@@ -27737,7 +27743,7 @@ LG
 wr
 sV
 Mv
-kz
+fl
 sV
 wr
 sV
@@ -27961,7 +27967,7 @@ wr
 XI
 Bq
 JN
-lT
+Vb
 Ni
 sw
 wr
@@ -28063,8 +28069,8 @@ wr
 Zc
 QZ
 cw
-oQ
-lT
+LI
+Vb
 mM
 wr
 Ri
@@ -28165,8 +28171,8 @@ wr
 ss
 cw
 sa
-lT
-lT
+Vb
+Vb
 SJ
 wr
 Ri
@@ -28236,9 +28242,9 @@ YT
 YT
 YT
 ux
-jv
-fR
-jv
+KL
+Qr
+KL
 Dc
 Dc
 Dc
@@ -28266,10 +28272,10 @@ wr
 Ni
 UE
 Dc
-jv
-lT
-wZ
-bH
+KL
+Vb
+Rj
+Qq
 wr
 Ri
 nt
@@ -28340,7 +28346,7 @@ YT
 wr
 MO
 MO
-Hu
+WP
 hb
 Vi
 MO
@@ -28367,10 +28373,10 @@ IJ
 qv
 Ni
 UE
-Vp
-bH
-fR
-lZ
+nM
+Qq
+Qr
+zO
 Bx
 wr
 Ri
@@ -28471,7 +28477,7 @@ sw
 XL
 gh
 qW
-lT
+Vb
 jU
 hu
 wr
@@ -31053,10 +31059,10 @@ Hk
 Vi
 oT
 wr
-AQ
-Fp
-Wn
-Fp
+wr
+wg
+fP
+wg
 wr
 wD
 wD
@@ -31155,10 +31161,10 @@ wr
 wr
 wr
 wr
-ta
-JL
-ZJ
-rY
+wr
+Jm
+Gw
+dT
 LO
 Ri
 wD
@@ -31258,9 +31264,9 @@ Ri
 Ri
 Ri
 wr
-RN
-nZ
-Nu
+CL
+yy
+Nc
 wr
 Ri
 wD
@@ -31862,7 +31868,7 @@ nt
 nt
 nt
 nt
-nt
+VV
 nt
 nt
 nt
@@ -31875,7 +31881,7 @@ nt
 nt
 Ri
 LO
-dF
+eB
 Ht
 eu
 Wa
@@ -31964,7 +31970,7 @@ nt
 nt
 nt
 nt
-nt
+BG
 nt
 nt
 nt
@@ -32767,7 +32773,7 @@ RS
 RS
 zc
 Gt
-zQ
+KU
 la
 Iq
 tg
@@ -32869,7 +32875,7 @@ RS
 zc
 zc
 Op
-Tr
+re
 Iq
 IJ
 QM
@@ -32969,9 +32975,9 @@ RS
 RS
 zc
 zc
-zQ
-Tr
-Qp
+KU
+re
+kC
 IJ
 IJ
 fw
@@ -33072,7 +33078,7 @@ zc
 Gt
 zc
 RS
-zQ
+KU
 Iq
 IJ
 ml
@@ -33173,8 +33179,8 @@ tg
 tg
 zc
 zc
-Tr
-zQ
+re
+KU
 Iq
 db
 Ys
@@ -33274,10 +33280,10 @@ Ri
 Ri
 RS
 zc
-zQ
+KU
 Op
-zQ
-gd
+KU
+lU
 IJ
 nl
 nl
@@ -33376,10 +33382,10 @@ nt
 Ri
 RS
 zc
-zQ
-Tr
-zQ
-PI
+KU
+re
+KU
+ak
 IJ
 Gg
 fw
@@ -33387,7 +33393,7 @@ fw
 fw
 fw
 qS
-yr
+oJ
 IJ
 tg
 iS
@@ -33479,9 +33485,9 @@ Ri
 RS
 zc
 zc
-zQ
+KU
 RS
-zQ
+KU
 Iq
 IJ
 fw
@@ -33582,7 +33588,7 @@ RS
 zc
 zc
 zc
-zQ
+KU
 Op
 bN
 Iq
@@ -33685,8 +33691,8 @@ RS
 RS
 zc
 Gt
-Tr
-zQ
+re
+KU
 RS
 tg
 tg
@@ -35518,7 +35524,7 @@ oz
 jG
 IB
 vR
-Lx
+GV
 yE
 rl
 Co
@@ -37681,8 +37687,8 @@ Ru
 Ru
 wr
 wr
-yF
-yF
+Wz
+Wz
 wr
 rs
 nt
@@ -37777,14 +37783,14 @@ QO
 bY
 fd
 wr
-uf
+qZ
 Td
 Td
 Td
-Tl
+ie
 wr
-yF
-yF
+Wz
+Wz
 wr
 rs
 rs
@@ -37879,14 +37885,14 @@ fw
 wr
 Sg
 wr
-Dz
+xp
 RX
 RX
 RX
-Dz
+xp
 wr
-yo
-yo
+GN
+GN
 wr
 wr
 wr
@@ -37981,15 +37987,15 @@ Lu
 pG
 FV
 gK
-aP
-tQ
+HJ
+KV
 DR
-aP
-tQ
+HJ
+KV
 gK
-aP
-tQ
-Ad
+HJ
+KV
+YY
 Ru
 rs
 rs
@@ -38083,13 +38089,13 @@ so
 ps
 Bi
 gK
-Np
+gc
 Bi
 DR
-Np
+gc
 Bi
 gK
-Np
+gc
 Bi
 rk
 Ru
@@ -38185,13 +38191,13 @@ Aq
 Vs
 gy
 gK
-Yu
+VK
 to
 DR
-Yu
+VK
 to
 gK
-Yu
+VK
 to
 py
 Ru
@@ -38287,11 +38293,11 @@ fw
 wr
 Wj
 wr
-ov
+iw
 RX
 RX
 RX
-ov
+iw
 wr
 RX
 RX
@@ -38389,14 +38395,14 @@ XS
 JB
 wG
 wr
-uf
+qZ
 Td
 Td
 Td
-Tl
+ie
 wr
-aP
-tQ
+HJ
+KV
 wr
 rs
 rs
@@ -38492,13 +38498,13 @@ wr
 wr
 wr
 wr
-AW
+no
 Ru
 Ru
 wr
 wr
-wb
-Eh
+vm
+fv
 wr
 rs
 nt
@@ -40622,7 +40628,7 @@ YR
 XC
 WO
 Lh
-sf
+SQ
 hF
 DU
 DU
@@ -41539,9 +41545,9 @@ BC
 wr
 wr
 wr
-dS
-dS
-dS
+SE
+SE
+SE
 wr
 wr
 wr
@@ -41743,9 +41749,9 @@ BC
 wr
 wr
 wr
-dS
-dS
-dS
+SE
+SE
+SE
 wr
 wr
 wr
@@ -41847,7 +41853,7 @@ hj
 fw
 KI
 DR
-xd
+RB
 lp
 hj
 fw
@@ -41949,7 +41955,7 @@ hj
 fw
 XY
 DR
-AZ
+fR
 lp
 hj
 fw
@@ -42051,7 +42057,7 @@ hj
 fw
 RP
 DR
-dw
+Tr
 lp
 hj
 fw
@@ -42152,8 +42158,8 @@ Kg
 hj
 fw
 XU
-FF
-zg
+Dh
+he
 lp
 hj
 fw
@@ -42255,7 +42261,7 @@ hj
 fw
 KI
 DR
-Kd
+nT
 lp
 hj
 fw
@@ -42357,7 +42363,7 @@ Hn
 Kg
 XY
 DR
-nf
+zz
 lp
 hj
 fw
@@ -42459,7 +42465,7 @@ Su
 Kg
 RP
 DR
-EI
+hZ
 lp
 hj
 fw
@@ -42560,8 +42566,8 @@ Kg
 dA
 gE
 uD
-FF
-he
+Dh
+TB
 lp
 hj
 fw
@@ -42663,7 +42669,7 @@ hj
 fw
 KI
 DR
-RL
+Qb
 lp
 hj
 fw
@@ -42765,7 +42771,7 @@ hj
 fw
 XY
 DR
-Hz
+rL
 lp
 hj
 fw
@@ -42867,7 +42873,7 @@ hj
 fw
 RP
 DR
-EI
+hZ
 lp
 hj
 fw
@@ -42969,7 +42975,7 @@ wr
 wr
 gK
 gK
-Ek
+xH
 wr
 wr
 wr
@@ -43068,11 +43074,11 @@ rs
 rs
 rs
 wr
-et
-VA
-FF
+eT
+Mc
+Dh
 Ny
-id
+vQ
 wr
 rs
 rs
@@ -43170,7 +43176,7 @@ nt
 rs
 wr
 wr
-gl
+xN
 RX
 cw
 cw
@@ -43273,13 +43279,13 @@ rs
 wr
 as
 rk
-aP
-hK
-dg
+HJ
+qo
+tK
 Wl
-aP
-hK
-tQ
+HJ
+qo
+KV
 wr
 rs
 nt
@@ -43375,12 +43381,12 @@ rs
 wr
 as
 rk
-Yu
-FN
-jw
+VK
+KM
+ZY
 Wl
-dU
-iK
+QF
+tQ
 to
 wr
 rs
@@ -43482,8 +43488,8 @@ RX
 RX
 Vi
 wr
-aG
-aG
+JH
+JH
 wr
 rs
 nt
@@ -43584,8 +43590,8 @@ Ru
 Ru
 wr
 wr
-kZ
-kZ
+ey
+ey
 wr
 rs
 nt
@@ -43686,8 +43692,8 @@ rs
 rs
 rs
 wr
-kZ
-kZ
+ey
+ey
 wr
 rs
 nt
