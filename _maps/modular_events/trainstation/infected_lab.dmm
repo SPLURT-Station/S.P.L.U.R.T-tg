@@ -73,6 +73,7 @@
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
+/obj/item/stack/rods,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "aC" = (
@@ -152,6 +153,12 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/trainstation/outdoor/station/no_build)
+"aY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "aZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -160,6 +167,15 @@
 "ba" = (
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"bb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "bc" = (
 /obj/structure/statue/bone/rib{
@@ -223,6 +239,14 @@
 /obj/structure/mecha_wreckage/durand,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"br" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "bs" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/structure/fluff/paper/stack{
@@ -334,6 +358,10 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"cb" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "cc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -368,9 +396,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"cq" = (
+/obj/effect/mob_spawn/corpse/human/skeleton,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "cr" = (
 /turf/closed/wall/city/siding,
 /area/trainstation/indoors)
+"ct" = (
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
 "cu" = (
 /obj/structure/statue/bone/rib{
 	dir = 8
@@ -416,6 +452,7 @@
 "cV" = (
 /obj/structure/bed/medical/emergency,
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "cW" = (
@@ -473,6 +510,12 @@
 	},
 /turf/open/floor/plating,
 /area/trainstation/indoors/station/powered)
+"df" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "dg" = (
 /obj/effect/mapping_helpers/turf_cracks/heavy,
 /turf/closed/wall/city/siding/style/style_1,
@@ -503,6 +546,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
+"du" = (
+/obj/structure/bed/medical/emergency{
+	dir = 1
+	},
+/obj/effect/mob_spawn/corpse/human/damaged,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "dv" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light/small/broken/directional/west,
@@ -522,6 +573,12 @@
 	dir = 5
 	},
 /turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
+"dC" = (
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "dD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -597,11 +654,13 @@
 /turf/open/indestructible/meat,
 /area/trainstation/indoors)
 "ea" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/iron/shuttle/exploration/blanktile,
+/obj/effect/decal/fakelattice,
+/obj/item/stack/rods,
+/turf/open/chasm/icy_planet,
+/area/trainstation/outdoor/station/no_build)
+"ed" = (
+/obj/structure/prop/city/street_dmg,
+/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "ee" = (
 /obj/effect/turf_decal/tile/neutral/tram,
@@ -666,6 +725,18 @@
 	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"ez" = (
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"eF" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/inflatable{
+	color = "#556B2F";
+	opacity = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "eG" = (
 /obj/structure/trash_pile,
 /turf/closed/wall/city/siding/red,
@@ -709,6 +780,14 @@
 /obj/effect/decal/cleanable/blood/trail,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"eY" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit_rare,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -722,6 +801,13 @@
 "ff" = (
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors)
+"fi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/security,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
 "fk" = (
 /obj/structure/elevator_platfrom,
 /turf/open/floor/plating/elevatorshaft,
@@ -745,6 +831,18 @@
 "fw" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/white,
+/area/trainstation/indoors/station/powered)
+"fA" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter4"
+	},
+/obj/item/stack/rods,
+/turf/open/floor/iron/dark/textured_half,
 /area/trainstation/indoors/station/powered)
 "fB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -779,6 +877,14 @@
 	},
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"fD" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/wooden,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "splatter6"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
 "fE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/red/directional/north,
@@ -795,6 +901,11 @@
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
+/area/trainstation/indoors/station/powered)
+"fJ" = (
+/obj/item/stack/rods,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "fM" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -836,6 +947,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"fV" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "fX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
@@ -851,6 +966,14 @@
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
+"gc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "gd" = (
@@ -912,6 +1035,14 @@
 /obj/effect/decal/fakelattice,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"gw" = (
+/obj/structure/bed/medical/emergency{
+	dir = 4
+	},
+/obj/item/gun/ballistic/automatic/pistol/sol,
+/obj/effect/spawner/random/medical/minor_healing,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "gx" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/blood/trail{
@@ -927,6 +1058,12 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth,
+/area/trainstation/outdoor/station/no_build)
+"gB" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/effect/gibspawner/human,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "gD" = (
 /obj/effect/turf_decal/stripes/line,
@@ -989,6 +1126,15 @@
 /obj/structure/trash_pile,
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
+"hb" = (
+/obj/structure/rack/shelf,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "hc" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
@@ -1068,7 +1214,7 @@
 /area/trainstation/indoors)
 "hp" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/sandbags,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "hr" = (
@@ -1103,6 +1249,13 @@
 	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"hM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "hP" = (
 /turf/closed/indestructible/meat,
 /area/trainstation/indoors/station/powered)
@@ -1144,6 +1297,7 @@
 /obj/structure/deployable_barricade/metal{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
@@ -1173,6 +1327,10 @@
 "iq" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
+"is" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "it" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -1206,6 +1364,14 @@
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
+"iz" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
 "iC" = (
 /obj/structure/railing,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1255,7 +1421,6 @@
 "iO" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/glass,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
@@ -1275,6 +1440,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
+"iX" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/gun/ballistic/automatic/sol_rifle/no_mag,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "jc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
@@ -1283,6 +1453,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"je" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/inflatable{
+	color = "#556B2F";
+	opacity = 1
+	},
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "jg" = (
 /obj/structure/chair/office/tactical{
@@ -1401,6 +1580,7 @@
 /obj/machinery/iv_drip,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/spawner/random/medical/medkit,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "jQ" = (
@@ -1474,6 +1654,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"ki" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/effect/mob_spawn/corpse/human/damaged,
+/obj/effect/decal/cleanable/blood,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "kl" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1520,12 +1709,10 @@
 "ku" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 1
-	},
-/area/trainstation/outdoor/station/no_build)
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "kv" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -1557,6 +1744,14 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors)
+"kC" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "hitsplatter1";
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
 "kE" = (
 /obj/structure/deployable_barricade/guardrail{
 	dir = 1
@@ -1606,6 +1801,11 @@
 /obj/effect/decal/fakelattice,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"kT" = (
+/obj/structure/prop/medium/dark_pillar,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/trainstation/outdoor/station/no_build)
 "kX" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -1623,6 +1823,10 @@
 "la" = (
 /obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
 /obj/effect/decal/fakelattice,
+/obj/structure/trash_pile,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
+"lc" = (
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
@@ -1646,9 +1850,9 @@
 /turf/open/floor/iron/shuttle/exploration/corner_invcorner,
 /area/trainstation/indoors/station/controll)
 "lo" = (
-/obj/effect/turf_decal/tile/neutral/tram,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "lq" = (
@@ -1661,6 +1865,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/white/small,
 /area/trainstation/outdoor/station/no_build)
+"lt" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "lu" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/misc/asphalt/no_border,
@@ -1730,6 +1939,22 @@
 	dir = 8
 	},
 /area/trainstation/indoors/station/controll)
+"lG" = (
+/obj/machinery/door/poddoor/story,
+/obj/effect/mapping_helpers/listener_helper/open_door{
+	listener_key = "lab_maindoors";
+	name = "lab_maindoors";
+	EDITOR_TARGET = /obj/machinery/door/poddoor/story
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small,
+/area/trainstation/indoors/station/powered)
+"lH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/item/shard,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "lI" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -1767,6 +1992,11 @@
 /area/trainstation/outdoor/station/no_build)
 "lK" = (
 /turf/open/space/basic,
+/area/trainstation/outdoor/station/no_build)
+"lL" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "lU" = (
 /obj/structure/table/reinforced,
@@ -1930,6 +2160,11 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"nk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "nl" = (
 /obj/structure/table/optable,
 /obj/effect/mob_spawn/corpse/human/damaged,
@@ -1966,7 +2201,6 @@
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "nt" = (
@@ -2114,6 +2348,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"ob" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/dark/textured_half,
+/area/trainstation/indoors/station/powered)
 "oc" = (
 /obj/machinery/door/poddoor/story/elevator{
 	elevator_id = "gz_lab";
@@ -2158,6 +2397,11 @@
 /obj/structure/trash_pile,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"op" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
 "ou" = (
 /obj/item/gun/ballistic/automatic/sol_rifle,
 /turf/open/indestructible/meat,
@@ -2196,6 +2440,10 @@
 /obj/structure/mannequin/plastic,
 /turf/open/floor/iron/white/textured,
 /area/trainstation/outdoor/station/no_build)
+"oL" = (
+/obj/effect/spawner/surgery_tray/full/deployed,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "oN" = (
 /obj/structure/curtain/cloth{
 	color = "#556B2F"
@@ -2211,6 +2459,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "oX" = (
@@ -2238,11 +2487,22 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"pg" = (
+/obj/structure/prop/tgmc_console1_on,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
+"ph" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "pi" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "hitsplatter1";
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "pk" = (
@@ -2254,7 +2514,6 @@
 /obj/structure/curtain/cloth{
 	color = "#556B2F"
 	},
-/obj/structure/marker_beacon/burgundy,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "pm" = (
@@ -2282,6 +2541,12 @@
 	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"py" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "pA" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 4
@@ -2315,6 +2580,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
+"pU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
+"pW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "pX" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/trash_pile,
@@ -2336,6 +2613,14 @@
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
+"qg" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/obj/item/shard,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "qi" = (
 /obj/structure/prop/city/buildingventbig11_off{
 	name = "Generator";
@@ -2353,13 +2638,10 @@
 /turf/open/indestructible/dark/textured,
 /area/trainstation/indoors/station/controll)
 "ql" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/floor/iron/shuttle/exploration/blanktile,
-/area/trainstation/outdoor/station/no_build)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/trail,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "qn" = (
 /obj/item/ammo_box/magazine/c35sol_pistol/starts_empty,
 /turf/open/misc/asphalt,
@@ -2418,6 +2700,15 @@
 /obj/effect/decal/fakelattice,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"qA" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter6"
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "qC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/trash_pile,
@@ -2432,9 +2723,10 @@
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors)
 "qG" = (
-/obj/structure/curtain/cloth{
+/obj/structure/inflatable/door{
 	color = "#556B2F"
 	},
+/obj/effect/decal/cleanable/blood/trail,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "qJ" = (
@@ -2542,6 +2834,12 @@
 /obj/structure/prop/city/street_on,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"re" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "rj" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "splatter6"
@@ -2633,7 +2931,7 @@
 "rw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/sandbags,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "rA" = (
@@ -2643,6 +2941,30 @@
 /area/trainstation/outdoor/station/no_build)
 "rB" = (
 /turf/closed/wall/city/siding/style/style_2,
+/area/trainstation/indoors/station/powered)
+"rD" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
+"rF" = (
+/obj/effect/spawner/random/medical/surgery_tool,
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 6
+	},
+/obj/effect/spawner/random/medical/minor_healing,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
+"rG" = (
+/obj/structure/bed/medical/emergency{
+	dir = 1
+	},
+/obj/effect/mob_spawn/corpse/human/damaged,
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "rL" = (
 /turf/open/space/basic,
@@ -2740,6 +3062,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
+"sf" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "sg" = (
 /obj/effect/decal/cleanable/blood/trail{
 	dir = 5
@@ -2748,6 +3077,13 @@
 /area/trainstation/indoors/station/powered)
 "sh" = (
 /turf/closed/indestructible/reinforced,
+/area/trainstation/indoors/station/powered)
+"sk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "splatter3"
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
 "sl" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -2759,6 +3095,16 @@
 "sm" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/white/small,
+/area/trainstation/outdoor/station/no_build)
+"so" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
 /area/trainstation/outdoor/station/no_build)
 "sp" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2934,6 +3280,15 @@
 	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"tr" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 10
+	},
+/obj/item/gun/ballistic/automatic/sol_rifle,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "ts" = (
 /obj/structure/inflatable{
 	color = "#556B2F";
@@ -3019,6 +3374,12 @@
 /obj/structure/ore_box,
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"tR" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/gun/ballistic/automatic/sol_rifle,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "tT" = (
 /obj/item/stack/rods,
 /turf/open/misc/asphalt/no_border,
@@ -3106,6 +3467,12 @@
 /obj/structure/trash_pile,
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
+"uu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "uy" = (
 /obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 9
@@ -3145,6 +3512,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/mob_spawn/corpse/human/charredskeleton,
 /turf/open/floor/iron/textured,
+/area/trainstation/indoors/station/powered)
+"uH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "uN" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -3194,6 +3566,12 @@
 /obj/structure/grille/indestructible,
 /turf/open/floor/plating,
 /area/trainstation/indoors/station/controll)
+"vd" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "ve" = (
 /obj/structure/toilet{
 	dir = 8
@@ -3235,6 +3613,14 @@
 /obj/effect/decal/cleanable/blood/trail,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"vu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/obj/item/gun/ballistic/automatic/sol_rifle/machinegun,
+/turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "vv" = (
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
@@ -3312,6 +3698,17 @@
 /obj/machinery/dish_drive/bullet,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"vL" = (
+/obj/effect/mob_spawn/corpse/human/damaged,
+/obj/structure/bed/medical/emergency,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
+"vM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/armor/sf_peacekeeper/debranded,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "vN" = (
 /obj/structure/fluff/paper/stack{
 	dir = 9
@@ -3322,7 +3719,6 @@
 "vQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/barricade/wooden,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "vR" = (
@@ -3344,6 +3740,10 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"wa" = (
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "wc" = (
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall/city/siding/style/style_1,
@@ -3377,6 +3777,15 @@
 /obj/item/reagent_containers/hypospray/combat/empty,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/smooth_large,
+/area/trainstation/outdoor/station/no_build)
+"ww" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/trainstation/outdoor/station/no_build)
 "wy" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -3429,6 +3838,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"wI" = (
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "wJ" = (
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
@@ -3475,6 +3888,7 @@
 	icon_state = "hitsplatter3";
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "wR" = (
@@ -3484,6 +3898,13 @@
 "wV" = (
 /turf/closed/indestructible/binary,
 /area/trainstation/outdoor/station/no_build)
+"wW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 4
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "wX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -3514,6 +3935,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/red/directional/north,
 /turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
+"xd" = (
+/obj/structure/curtain/cloth{
+	color = "#556B2F"
+	},
+/obj/effect/decal/cleanable/blood/trail,
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "xe" = (
 /obj/machinery/door/airlock/shuttle/ferry{
@@ -3610,6 +4038,12 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"xz" = (
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 9
+	},
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "xB" = (
 /obj/structure/prop/general/multimonitormedium_on,
 /turf/closed/indestructible/reinforced/titanium/nodiagonal,
@@ -3622,6 +4056,17 @@
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
+/area/trainstation/outdoor/station/no_build)
+"xI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
+"xJ" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "xO" = (
 /obj/machinery/button/elevator_control/directional/east,
@@ -3670,6 +4115,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/closed/wall/city/siding/style,
+/area/trainstation/indoors/station/powered)
+"yh" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/armor/sf_hardened,
+/turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "yj" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3728,10 +4178,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"yB" = (
+/obj/item/shard,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/trainstation/outdoor/station/no_build)
 "yC" = (
 /obj/effect/decal/fakelattice,
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
+"yD" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "yF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/fakelattice,
@@ -3755,13 +4214,10 @@
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
 "yK" = (
+/obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/iron/shuttle/exploration/side{
-	dir = 1
-	},
-/area/trainstation/outdoor/station/no_build)
+/turf/open/floor/iron/dark/textured_half,
+/area/trainstation/indoors/station/powered)
 "yL" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3804,6 +4260,17 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"yR" = (
+/obj/structure/prop/vehicle/meridiancar_shell{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"yS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "yW" = (
 /obj/structure/statue/bone/rib{
 	dir = 8
@@ -3823,6 +4290,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
+/area/trainstation/outdoor/station/no_build)
+"yZ" = (
+/obj/structure/prop/vehicle/tank/broken{
+	dir = 1
+	},
+/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "zf" = (
 /obj/structure/statue/bone/rib{
@@ -3935,6 +4408,13 @@
 	},
 /turf/closed/indestructible/reinforced/titanium/nodiagonal,
 /area/trainstation/indoors/station/powered)
+"zB" = (
+/obj/machinery/door/poddoor/story,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/outdoor/station/no_build)
 "zG" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
@@ -4022,6 +4502,18 @@
 	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"Ae" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1;
+	pixel_x = 9;
+	pixel_y = -5
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "Al" = (
 /obj/structure/closet,
 /turf/open/floor/iron/white/side{
@@ -4036,8 +4528,21 @@
 	dir = 1
 	},
 /area/trainstation/indoors/station/powered)
+"Ap" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "Aq" = (
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"As" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "At" = (
 /obj/effect/turf_decal/siding/dark{
@@ -4092,6 +4597,14 @@
 /obj/effect/decal/fakelattice,
 /turf/open/chasm/icy_planet,
 /area/trainstation/indoors/station/powered)
+"AM" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/damaged,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "AN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/paper/stack{
@@ -4137,6 +4650,11 @@
 /obj/effect/decal/cleanable/glass,
 /turf/closed/wall/city/siding/style,
 /area/trainstation/indoors/station/powered)
+"AW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "AX" = (
 /obj/effect/spawner/structure/window/hollow/directional{
 	dir = 1
@@ -4186,6 +4704,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Bg" = (
@@ -4220,6 +4739,12 @@
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"Bt" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/dark/textured_half,
 /area/trainstation/indoors/station/powered)
 "Bu" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -4265,6 +4790,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/glass,
+/obj/item/shard,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "BP" = (
@@ -4354,6 +4880,24 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
+"Cs" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "vomittox_4"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
+"Ct" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"Cv" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "vomittox_1"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
 "Cx" = (
 /obj/machinery/light/directional/south,
 /obj/structure/fluff/paper/stack{
@@ -4398,6 +4942,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
+"CS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/security,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "CV" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -4432,6 +4981,12 @@
 /obj/machinery/light/small/broken/directional/east,
 /turf/open/floor/iron/white/small,
 /area/trainstation/outdoor/station/no_build)
+"CY" = (
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "CZ" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/effect/decal/cleanable/blood/old{
@@ -4480,6 +5035,10 @@
 	dir = 1
 	},
 /area/trainstation/outdoor/station/no_build)
+"Dr" = (
+/obj/effect/decal/cleanable/blood/trail,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "Ds" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/misc/asphalt,
@@ -4550,11 +5109,38 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/small,
 /area/trainstation/outdoor/station/no_build)
+"DU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/shard,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "DV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"DX" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
+"Ea" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/trainstation/outdoor/station/no_build)
+"Eb" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
 "Ek" = (
 /obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
@@ -4570,6 +5156,11 @@
 "Ep" = (
 /obj/structure/barricade/wooden,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
+"Es" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "Eu" = (
 /obj/effect/mapping_helpers/elevator_turf_marker{
@@ -4653,6 +5244,7 @@
 /obj/structure/bed/medical/emergency,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "EP" = (
@@ -4764,6 +5356,15 @@
 /obj/effect/decal/fakelattice,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"Fz" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/floor/iron/dark/textured_half,
+/area/trainstation/indoors/station/powered)
 "FA" = (
 /obj/structure/statue/bone/rib{
 	dir = 8
@@ -4780,6 +5381,12 @@
 	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"FC" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/shard,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "FN" = (
 /obj/effect/spawner/random/medical/medkit,
 /obj/effect/decal/cleanable/dirt,
@@ -4791,6 +5398,12 @@
 /obj/structure/bed/medical/emergency,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
+"FT" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor4"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "FU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
@@ -4845,6 +5458,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/red/directional/north,
+/obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Gu" = (
@@ -4945,6 +5559,10 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors)
+"He" = (
+/obj/structure/prop/tgmc_console3_on,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "Hh" = (
 /obj/item/gun/ballistic/automatic/sol_rifle/no_mag,
 /turf/open/misc/asphalt/no_border,
@@ -5039,7 +5657,6 @@
 "HI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "HJ" = (
@@ -5058,6 +5675,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"HW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/fakelattice,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "HY" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -5152,6 +5775,13 @@
 	},
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
+"IJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "IL" = (
 /obj/structure/trash_pile,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
@@ -5184,6 +5814,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"IU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "IX" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -5198,6 +5834,16 @@
 	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"IZ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 5
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "Ja" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5244,6 +5890,13 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"Jo" = (
+/obj/structure/bed/medical/emergency{
+	dir = 1
+	},
+/obj/effect/spawner/random/medical/minor_healing,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "Jq" = (
 /obj/effect/decal/cleanable/blood/trail{
 	dir = 6
@@ -5279,6 +5932,14 @@
 	opacity = 1
 	},
 /turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
+"JF" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/trail{
+	dir = 6
+	},
+/turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "JI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5407,6 +6068,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/iron,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Kw" = (
@@ -5415,7 +6077,6 @@
 /obj/structure/fluff/paper/stack{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "Kx" = (
@@ -5471,6 +6132,11 @@
 	dir = 8
 	},
 /turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
+"KP" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "KQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5568,6 +6234,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/glass,
+/obj/item/stack/sheet/iron,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Lx" = (
@@ -5595,10 +6262,35 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"LJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "LM" = (
 /obj/effect/spawner/random/medical/surgery_tool,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"LQ" = (
+/obj/item/clothing/suit/armor/sf_hardened,
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
+"LS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/vehicle/meridiancar_shell{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
+"LY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "Ma" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -5639,6 +6331,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"Mq" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/indestructible/train_platform/bottom,
+/area/trainstation/indoors/station/powered)
 "Mr" = (
 /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled,
 /turf/open/misc/asphalt/no_border,
@@ -5647,6 +6346,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/shard,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Mv" = (
@@ -5666,6 +6366,11 @@
 /obj/item/storage/box/coffeepack,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/station/controll)
+"Mz" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/security,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "MA" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/iron/smooth,
@@ -5675,6 +6380,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/fakelattice,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
+"MF" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/cardboard,
+/obj/effect/spawner/random/entertainment/plushie_delux,
+/turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
 "MI" = (
 /obj/effect/turf_decal/siding/dark{
@@ -5709,6 +6420,15 @@
 "MQ" = (
 /obj/item/stack/sheet/mineral/sandbags,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
+"MU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
 /area/trainstation/outdoor/station/no_build)
 "MV" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -5755,6 +6475,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/fakelattice,
+/obj/item/stack/rods,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Nm" = (
@@ -5828,6 +6549,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"NW" = (
+/obj/item/clothing/suit/armor/sf_hardened,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "NX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5843,6 +6568,13 @@
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
+"Oc" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "Og" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -5876,6 +6608,11 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"Ol" = (
+/obj/effect/decal/cleanable/glass,
+/obj/item/gun/ballistic/automatic/sol_rifle/no_mag,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "Ou" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -5887,6 +6624,12 @@
 	dir = 1
 	},
 /area/trainstation/indoors/station/powered)
+"Ov" = (
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman/no_mag,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "Ow" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/glass,
@@ -5897,6 +6640,12 @@
 /obj/structure/deployable_barricade/metal,
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"OE" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/rods,
+/turf/open/floor/iron/dark/textured_half,
+/area/trainstation/indoors/station/powered)
 "OG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5909,6 +6658,17 @@
 /obj/machinery/light/floor/transport,
 /turf/open/floor/iron/shuttle/exploration/doubleside,
 /area/trainstation/indoors/station/controll)
+"ON" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter2"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/trainstation/indoors/station/powered)
 "OO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/chasm/icy_planet,
@@ -5979,10 +6739,23 @@
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
+"Pf" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
+/turf/open/indestructible/train_platform,
+/area/trainstation/indoors/station/powered)
 "Pg" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/shard,
 /turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
+"Pk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/vehicle/meridiancar_shell,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
 /area/trainstation/outdoor/station/no_build)
 "Pl" = (
 /obj/structure/barricade/wooden,
@@ -6050,6 +6823,10 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/white/small,
+/area/trainstation/outdoor/station/no_build)
+"PX" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "PZ" = (
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
@@ -6242,6 +7019,11 @@
 /area/trainstation/outdoor/station/no_build)
 "Rn" = (
 /turf/closed/wall/city/siding/style,
+/area/trainstation/indoors/station/powered)
+"Ro" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6439,6 +7221,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/item/stack/rods,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Sk" = (
@@ -6456,6 +7239,14 @@
 /obj/machinery/light/red/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
+"Sp" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 9
+	},
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Sq" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -6478,6 +7269,12 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
+"Ss" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/item/stack/rods,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "Su" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/stripes/line{
@@ -6575,12 +7372,14 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
+/obj/item/stack/sheet/iron,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Tl" = (
-/obj/structure/statue/bone/rib,
-/obj/effect/decal/cleanable/glass,
-/turf/open/indestructible/meat,
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "Tm" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6589,6 +7388,12 @@
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
+/area/trainstation/outdoor/station/no_build)
+"Tn" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "To" = (
 /obj/structure/marker_beacon/burgundy,
@@ -6618,12 +7423,32 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
+"TB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter3"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
+"TE" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/indestructible/train_platform/bottom,
+/area/trainstation/indoors/station/powered)
 "TF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/grille/broken,
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"TG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/structure/barricade/sandbags,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "TK" = (
@@ -6636,10 +7461,21 @@
 	},
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
+"TL" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "TM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/city/siding,
 /area/trainstation/indoors/station/controll)
+"TN" = (
+/obj/machinery/light/floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "TS" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
@@ -6660,6 +7496,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/indestructible/grille,
+/area/trainstation/outdoor/station/no_build)
+"TY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "TZ" = (
 /obj/effect/turf_decal/siding/dark,
@@ -6743,6 +7586,11 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
+"Uy" = (
+/obj/effect/decal/fakelattice,
+/obj/item/stack/sheet/iron,
+/turf/open/chasm/icy_planet,
+/area/trainstation/outdoor/station/no_build)
 "UA" = (
 /obj/structure/closet/crate/trashcart/filled,
 /turf/open/misc/asphalt/no_border,
@@ -6788,6 +7636,17 @@
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"UZ" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"Va" = (
+/obj/item/defibrillator/loaded,
+/obj/structure/table,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "Ve" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6831,6 +7690,11 @@
 	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"Vo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/armor/sf_hardened,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "Vp" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/indestructible/meat,
@@ -6860,6 +7724,17 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"Vw" = (
+/obj/structure/prop/vehicle/meridiancar_shell{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"Vy" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/stack/sheet/iron,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "Vz" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
@@ -6869,6 +7744,7 @@
 /obj/machinery/iv_drip,
 /obj/structure/bed/medical/emergency,
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "VD" = (
@@ -6978,6 +7854,13 @@
 /obj/structure/frame/machine/secured,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"Wp" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/prop/vehicle/meridiancar_shell{
+	dir = 1
+	},
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "Wt" = (
 /turf/open/space/basic,
 /area/trainstation/indoors)
@@ -7091,6 +7974,10 @@
 /obj/effect/decal/fakelattice,
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
+"Xb" = (
+/obj/structure/prop/tgmc_console4_on,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "Xd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7104,6 +7991,12 @@
 "Xg" = (
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/iron/dark/textured_large,
+/area/trainstation/indoors/station/powered)
+"Xh" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/shard,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Xj" = (
 /obj/effect/turf_decal/siding/dark{
@@ -7160,6 +8053,14 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"XC" = (
+/obj/structure/bed/medical/emergency{
+	dir = 4
+	},
+/obj/effect/mob_spawn/corpse/human/damaged,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/smooth_large,
+/area/trainstation/indoors/station/powered)
 "XG" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
@@ -7207,6 +8108,10 @@
 	dir = 1
 	},
 /area/trainstation/indoors/station/powered)
+"XV" = (
+/obj/structure/barricade/security,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "XW" = (
 /turf/open/floor/iron/white/small,
 /area/trainstation/indoors/station/powered)
@@ -7236,6 +8141,17 @@
 /obj/structure/elevator_platfrom,
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
+"Yo" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	pixel_y = -5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter1"
+	},
+/turf/open/floor/iron/dark/textured_half,
 /area/trainstation/indoors/station/powered)
 "Yq" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -7285,6 +8201,13 @@
 	},
 /obj/structure/sign/departments/restroom/directional/north,
 /turf/closed/wall/city/siding/red,
+/area/trainstation/outdoor/station/no_build)
+"YL" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "YO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7422,6 +8345,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
+/obj/item/shard,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Zz" = (
@@ -7429,11 +8353,10 @@
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "ZC" = (
-/obj/structure/fluff/paper/stack{
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "ZD" = (
 /obj/structure/sink/directional/west,
@@ -7456,6 +8379,13 @@
 /obj/machinery/door/poddoor/story/elevator,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
+"ZI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
 "ZJ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/cardboard,
@@ -7471,6 +8401,11 @@
 	dir = 9
 	},
 /turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
+"ZP" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mob_spawn/corpse/human/damaged,
+/turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "ZR" = (
 /obj/effect/decal/fakelattice,
@@ -7497,6 +8432,10 @@
 	},
 /turf/open/floor/plating,
 /area/trainstation/indoors/station/powered)
+"ZV" = (
+/obj/structure/trash_pile,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "ZX" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/white/small,
@@ -7711,7 +8650,7 @@ bn
 bn
 bn
 fX
-fX
+sk
 fX
 bn
 bn
@@ -7835,8 +8774,8 @@ bn
 bn
 bn
 fX
-fX
-fX
+kC
+Cs
 bn
 fX
 kr
@@ -7896,7 +8835,7 @@ bn
 bn
 bn
 bn
-fX
+Cv
 fX
 fX
 wN
@@ -7960,7 +8899,7 @@ bn
 bn
 fX
 ZJ
-ZJ
+MF
 bn
 fX
 vW
@@ -8021,7 +8960,7 @@ bn
 bn
 bn
 ZJ
-RG
+fD
 UE
 bn
 bn
@@ -8269,7 +9208,7 @@ bn
 bn
 bn
 fs
-ZJ
+MF
 ZJ
 bn
 bn
@@ -8563,16 +9502,16 @@ Wt
 Wt
 "}
 (18,1,1) = {"
-WW
-qv
-XS
+TE
+Ae
+IZ
 Rn
 Rn
 Rn
 Rn
 Rn
-gj
-gj
+vu
+ki
 VJ
 ZK
 ZK
@@ -8634,7 +9573,7 @@ gj
 XS
 gj
 se
-hp
+yh
 VJ
 sy
 ka
@@ -8657,7 +9596,7 @@ gM
 Dw
 Dw
 rT
-zp
+dT
 gI
 gJ
 Tm
@@ -8688,7 +9627,7 @@ Wt
 "}
 (20,1,1) = {"
 WW
-hp
+gj
 JA
 JA
 JA
@@ -8703,7 +9642,7 @@ lU
 vo
 rB
 VJ
-fX
+Ro
 fX
 bn
 bn
@@ -8750,13 +9689,13 @@ Wt
 "}
 (21,1,1) = {"
 WW
-hp
-JA
-EQ
-EQ
-EQ
-JA
 gj
+JA
+pg
+df
+hb
+JA
+Pf
 se
 hp
 AI
@@ -8812,18 +9751,18 @@ Wt
 "}
 (22,1,1) = {"
 WW
-hp
+gj
 JA
-EQ
-EQ
-EQ
+He
+xz
+Dr
 qG
-gj
-se
-gj
+ql
+tr
+hp
 AI
 gD
-gD
+ON
 gD
 gD
 gD
@@ -8846,7 +9785,7 @@ Gi
 Hq
 Oj
 nq
-uj
+pa
 Tq
 Sv
 Wt
@@ -8874,20 +9813,20 @@ Wt
 "}
 (23,1,1) = {"
 WW
+gj
+JA
+Xb
+AM
+EQ
+JA
+nk
+wW
 hp
-JA
-EQ
-EQ
-EQ
-JA
-gj
-gj
-gj
 AI
 gD
 gD
-gD
-gD
+Fz
+fA
 gD
 fX
 fX
@@ -8905,10 +9844,10 @@ bD
 ti
 Nt
 RP
-Tl
+Kh
 HV
-UF
-ku
+HV
+Ng
 Tq
 Sv
 Wt
@@ -8943,14 +9882,14 @@ JA
 JA
 JA
 gj
-gj
-gj
+wW
+pW
 AI
 gD
-gD
-gD
-gD
-gD
+yK
+yK
+yK
+Bt
 fX
 fX
 bn
@@ -8968,7 +9907,7 @@ Dw
 Nt
 pk
 UU
-lo
+NN
 Kw
 pa
 Tq
@@ -8999,22 +9938,22 @@ Wt
 (25,1,1) = {"
 WW
 gj
-gj
-gj
-gj
-gj
-gj
-gj
-gj
+eF
+Jo
+FT
+XC
+eF
+QV
+wW
 gj
 AI
-gD
-gD
-gD
-gD
-gD
+yK
+OE
+yK
+yK
+OE
 fX
-fX
+op
 bn
 bn
 mL
@@ -9029,8 +9968,8 @@ gM
 YA
 Qd
 ik
-rA
-ZC
+HV
+gI
 dT
 QL
 Tq
@@ -9061,21 +10000,21 @@ Wt
 (26,1,1) = {"
 WW
 gj
+eF
+oL
+dC
+eY
+eF
 gj
-gj
-gj
-gj
-gj
-gj
-gj
+wW
 gj
 AI
-gD
-gD
-gD
-gD
-gD
-fX
+yK
+OE
+yK
+yK
+yK
+TB
 fX
 bn
 bn
@@ -9091,7 +10030,7 @@ gM
 yt
 YA
 rT
-zp
+dT
 wo
 dT
 pa
@@ -9123,21 +10062,21 @@ Wt
 (27,1,1) = {"
 WW
 gj
-gj
-gj
-gj
-gj
-QV
-gj
-se
-gj
+eF
+rG
+Eb
+Dr
+xd
+ql
+JF
+pW
 AI
+Fz
+Fz
+Fz
 gD
 gD
-gD
-gD
-gD
-fX
+op
 fX
 bn
 bn
@@ -9185,16 +10124,16 @@ Wt
 (28,1,1) = {"
 WW
 gj
+eF
+Va
+CY
+gw
+eF
+iX
+qA
 hp
-gj
-gj
-gj
-gj
-gj
-se
-gj
 AI
-gD
+Yo
 gD
 gD
 gD
@@ -9215,7 +10154,7 @@ Dw
 eG
 Dw
 Dk
-zp
+dT
 vY
 dT
 QL
@@ -9247,18 +10186,18 @@ Wt
 (29,1,1) = {"
 ge
 gj
-vQ
+je
+du
+rF
+vL
+eF
 gj
-gj
-gj
-XS
-gj
-gj
+ZP
 hp
 AI
 DI
 Mv
-DI
+ob
 Mv
 DI
 fX
@@ -9309,13 +10248,13 @@ Wt
 (30,1,1) = {"
 WW
 gj
-vQ
+je
+eF
+eF
+eF
+eF
 gj
-gj
-qv
-XS
-gj
-gj
+vM
 hp
 bn
 Rn
@@ -9369,11 +10308,11 @@ Wt
 Wt
 "}
 (31,1,1) = {"
-WW
+Mq
+IJ
+br
+vQ
 gj
-vQ
-vQ
-hp
 gj
 gj
 gj
@@ -9959,7 +10898,7 @@ gM
 ll
 ti
 yG
-AN
+TY
 NN
 HV
 pa
@@ -10039,7 +10978,7 @@ YP
 YP
 zo
 TU
-Ji
+YP
 YP
 it
 YP
@@ -10083,7 +11022,7 @@ gM
 gM
 ti
 rT
-ZC
+gI
 RQ
 dT
 pa
@@ -10091,7 +11030,7 @@ kE
 Ji
 YP
 YP
-YP
+Ji
 YP
 cW
 YP
@@ -10163,7 +11102,7 @@ JZ
 YP
 qW
 TU
-wY
+vR
 vR
 vR
 YP
@@ -10208,7 +11147,7 @@ Qt
 Qt
 Dk
 dT
-lo
+NN
 dT
 QL
 wK
@@ -10270,7 +11209,7 @@ gm
 Qt
 rT
 dT
-zp
+dT
 HV
 QL
 nN
@@ -10333,8 +11272,8 @@ Qt
 rT
 dT
 vY
-jR
-yK
+Km
+pa
 il
 wV
 lK
@@ -10394,8 +11333,8 @@ uq
 Qt
 Dk
 pZ
-ea
-ql
+HV
+QP
 QL
 nN
 wV
@@ -10456,7 +11395,7 @@ Tb
 Qt
 Bv
 UF
-kN
+vY
 dT
 uj
 wK
@@ -10602,7 +11541,7 @@ wV
 lK
 wV
 Qt
-Ji
+YP
 it
 YP
 Qt
@@ -11276,7 +12215,7 @@ ti
 ti
 ti
 ti
-ti
+Ac
 jG
 wV
 lK
@@ -11338,7 +12277,7 @@ Uj
 Uj
 Uj
 Uj
-Uj
+MU
 iw
 wV
 lK
@@ -11400,7 +12339,7 @@ NH
 NH
 NH
 NH
-NH
+zB
 Qt
 wV
 lK
@@ -11462,7 +12401,7 @@ tJ
 tJ
 tJ
 Su
-tJ
+ww
 Qt
 wV
 wV
@@ -11906,7 +12845,7 @@ Qt
 Qt
 Qt
 YP
-Ma
+YP
 Qt
 wV
 "}
@@ -11968,7 +12907,7 @@ vR
 vR
 HJ
 vR
-hg
+vR
 mL
 wV
 "}
@@ -12030,7 +12969,7 @@ vR
 vR
 Kh
 vR
-hg
+vR
 mL
 wV
 "}
@@ -12092,7 +13031,7 @@ gd
 JZ
 YP
 Ji
-Ma
+YP
 mL
 wV
 "}
@@ -12153,8 +13092,8 @@ Ep
 tO
 tO
 YP
+YP
 xl
-Ma
 mL
 wV
 "}
@@ -12444,7 +13383,7 @@ iq
 Fd
 vR
 in
-vR
+cq
 Lt
 RP
 FA
@@ -12455,7 +13394,7 @@ gN
 vR
 nW
 vR
-vR
+cq
 mL
 uz
 iU
@@ -12942,7 +13881,7 @@ dT
 Fa
 mL
 vR
-vR
+cq
 vR
 iq
 vR
@@ -13061,8 +14000,8 @@ GU
 Na
 rT
 HV
-kN
-rA
+vY
+HV
 pa
 ti
 ti
@@ -13184,7 +14123,7 @@ PZ
 XT
 Rn
 rT
-rA
+HV
 vY
 HV
 pa
@@ -13311,7 +14250,7 @@ rT
 dT
 iO
 dT
-uj
+pa
 ti
 ti
 ti
@@ -13369,13 +14308,13 @@ GU
 Qx
 LH
 Rn
-rT
-HV
+Mz
+CS
 dT
-pZ
-uj
-ti
-ti
+XV
+fi
+BP
+BP
 ti
 ti
 ti
@@ -13437,9 +14376,9 @@ kl
 dT
 QL
 ti
-ti
-ti
-ti
+BP
+BP
+BP
 ti
 vR
 vR
@@ -13496,7 +14435,7 @@ Rn
 rT
 dT
 rA
-HV
+Wp
 QL
 ti
 ti
@@ -13621,7 +14560,7 @@ Dk
 dT
 zp
 dT
-QL
+Pk
 ti
 ti
 ti
@@ -13742,7 +14681,7 @@ Bg
 YP
 YP
 ik
-HV
+AW
 dT
 HV
 QL
@@ -13806,7 +14745,7 @@ YP
 rT
 dT
 NN
-dT
+yR
 pa
 ti
 ti
@@ -13928,9 +14867,9 @@ iM
 YP
 YP
 Dk
-dT
+ez
 NN
-dT
+ez
 QL
 ti
 ti
@@ -13992,8 +14931,8 @@ YP
 rT
 dT
 dT
-rA
-QL
+HV
+LS
 ti
 ti
 Qt
@@ -14114,9 +15053,9 @@ Bg
 YP
 YP
 Dk
+ez
 dT
-dT
-HV
+AW
 QL
 ti
 ti
@@ -14174,13 +15113,13 @@ lK
 wV
 Bg
 YP
-YP
+wa
 rT
-rA
+HV
 vY
 dT
-uj
-rc
+pa
+ed
 ti
 ti
 gM
@@ -14239,9 +15178,9 @@ YP
 YP
 ik
 HV
-dT
+yR
 HV
-QL
+Pk
 ti
 ti
 Qt
@@ -14299,12 +15238,12 @@ wV
 Bg
 YP
 YP
-rT
-zp
+KP
+dT
 NN
 dT
 pa
-ti
+ct
 ti
 jG
 XG
@@ -14362,10 +15301,10 @@ Bg
 YP
 YP
 rT
+Vw
+ez
 dT
-dT
-dT
-uj
+pa
 ti
 ti
 Qt
@@ -14427,8 +15366,8 @@ Dk
 dT
 vY
 dT
-QL
-Ux
+Pk
+ti
 ti
 Qt
 XG
@@ -14484,8 +15423,8 @@ lK
 wV
 Bg
 YP
-YP
-rT
+fV
+py
 dT
 HV
 ok
@@ -14545,13 +15484,13 @@ lK
 lK
 wV
 Bg
-YP
-YP
-rT
-dT
-NN
+Ov
+NW
+lL
+Oc
+UZ
 HV
-pa
+pU
 ti
 ti
 Qt
@@ -14607,11 +15546,11 @@ lK
 lK
 wV
 Bg
-YP
-YP
-Dk
-dT
-rA
+gd
+gd
+Ap
+Ct
+TG
 zp
 QL
 ti
@@ -14673,10 +15612,10 @@ YP
 YP
 rT
 HV
-vY
+TL
 dT
-uj
-rc
+iz
+ed
 ti
 Qt
 ti
@@ -14733,13 +15672,13 @@ wV
 jG
 vR
 YP
-ik
+vd
+LY
 HV
-HV
-dT
+PX
 ue
-ti
-ti
+Bu
+YA
 Qt
 XG
 Xa
@@ -14797,11 +15736,11 @@ RP
 YP
 rT
 zp
-vY
+gB
 dT
-pa
-ti
-ti
+ZI
+Bu
+LQ
 Qt
 lu
 OR
@@ -14855,15 +15794,15 @@ lK
 lK
 wV
 mL
-vR
-YP
+ZV
+lc
 rT
 zp
 dT
-dT
-pa
-ti
-ti
+PX
+ZI
+tO
+tO
 Qt
 Qt
 Qt
@@ -14918,12 +15857,12 @@ lK
 wV
 mL
 RP
-YP
+lc
 Dk
-zp
-vY
+Ol
+Tn
 QP
-ue
+so
 ti
 ti
 lu
@@ -14980,14 +15919,14 @@ wV
 wV
 mL
 RP
-vR
+ZV
 rT
-zp
+dT
 HV
 Km
 QL
 ti
-ti
+YA
 lu
 ll
 gM
@@ -15043,8 +15982,8 @@ mL
 mL
 Zj
 Zj
-rT
-zp
+Vo
+dT
 RQ
 Km
 pa
@@ -15105,8 +16044,8 @@ RP
 vR
 RP
 vR
-Dk
-dT
+yD
+yS
 dT
 dT
 QL
@@ -15169,8 +16108,8 @@ Cb
 Cb
 rT
 HV
-vY
-jR
+TL
+Km
 pa
 ti
 ti
@@ -15229,12 +16168,12 @@ vR
 qp
 vR
 vR
-ik
-HV
-dT
+tR
+lo
+wI
 dT
 QL
-ti
+yZ
 ti
 ys
 lu
@@ -15291,9 +16230,9 @@ Qb
 Qb
 Qb
 Qb
-ik
-HV
-vY
+xI
+Es
+xJ
 HV
 QL
 Qb
@@ -15354,9 +16293,9 @@ id
 id
 Qb
 Hv
-Dk
+is
 RQ
-bQ
+ZC
 RY
 Qb
 id
@@ -15603,7 +16542,7 @@ Qb
 gy
 Xs
 Sq
-vY
+TL
 pa
 AJ
 Gu
@@ -15662,8 +16601,8 @@ PI
 PI
 oi
 de
-WX
-wJ
+yB
+ix
 Sq
 dT
 Io
@@ -15726,10 +16665,10 @@ PI
 rp
 wJ
 Mm
-Sq
-mE
+YL
+TN
 pa
-Mm
+kT
 WX
 de
 XW
@@ -15787,10 +16726,10 @@ PI
 XW
 de
 SX
-wJ
+ix
 Sq
-dT
-pa
+PX
+pU
 wJ
 SX
 Cl
@@ -15849,11 +16788,11 @@ Lj
 XW
 ZU
 wJ
-wJ
+ix
 Sq
-NN
-bQ
-wJ
+Tl
+ZC
+ix
 rl
 de
 Du
@@ -15913,7 +16852,7 @@ ZU
 WX
 Mm
 Qj
-dT
+PX
 bQ
 Mm
 wJ
@@ -15973,11 +16912,11 @@ YE
 XW
 de
 wJ
-wJ
+ix
 Sq
 mE
 bQ
-wJ
+ix
 SX
 ZU
 XW
@@ -16035,10 +16974,10 @@ XW
 XW
 rp
 SX
-wJ
-Sq
-Km
-bQ
+ix
+YL
+LJ
+ZC
 ra
 pi
 wL
@@ -16097,7 +17036,7 @@ XW
 Du
 de
 wJ
-Mm
+kT
 Sq
 CZ
 bQ
@@ -16159,12 +17098,12 @@ Du
 XW
 ZU
 wJ
-wJ
+ix
 Sq
 hr
 ij
 wJ
-SX
+Ea
 rp
 XW
 PI
@@ -16224,7 +17163,7 @@ wJ
 wQ
 Sq
 JV
-bQ
+ZC
 wJ
 wJ
 ZU
@@ -16347,7 +17286,7 @@ Qb
 JP
 JP
 eO
-JP
+lG
 JP
 JP
 JP
@@ -16408,7 +17347,7 @@ id
 pr
 fM
 fM
-fM
+lt
 In
 In
 ZN
@@ -16530,7 +17469,7 @@ rL
 rL
 id
 pr
-fM
+lt
 In
 fM
 ZE
@@ -16598,7 +17537,7 @@ gX
 dp
 dp
 JI
-KD
+HW
 pr
 id
 id
@@ -16780,13 +17719,13 @@ bi
 ak
 zx
 bi
-zx
+sf
 EJ
 Fw
 hf
 ZN
 Pp
-In
+qg
 zy
 zu
 ah
@@ -16835,25 +17774,25 @@ AC
 bL
 bL
 fM
-fM
-Pp
+lt
+Xh
 BK
-bZ
+re
 bZ
 ak
-bZ
+rD
 bi
 Sb
 Kf
 oo
+lH
+uu
 bZ
-Kf
-bZ
-fM
-bZ
+lt
+Ss
 bZ
 oo
-ah
+bb
 oo
 hf
 EJ
@@ -16902,23 +17841,23 @@ bi
 ak
 Sj
 bi
-fM
+uH
 ll
 gM
 gM
 gM
 ll
+Uy
+ll
+ll
+ea
 ll
 ll
 ll
+ea
 ll
 ll
-ll
-ll
-ll
-ll
-ll
-ll
+ea
 gM
 gM
 gM
@@ -16955,11 +17894,11 @@ pr
 Jc
 MD
 bL
-Kf
-Kf
+ph
+uu
 vf
-fM
-fM
+lt
+uH
 ll
 ll
 ll
@@ -17018,7 +17957,7 @@ fM
 oo
 oo
 rr
-ZN
+Sp
 fM
 gM
 gM
@@ -17032,7 +17971,7 @@ gM
 gM
 gM
 gM
-ll
+ea
 gM
 gM
 gM
@@ -17077,9 +18016,9 @@ rL
 id
 pr
 MM
-Kf
+ph
 fq
-fM
+lt
 gM
 gM
 gM
@@ -17140,7 +18079,7 @@ id
 pr
 fM
 ah
-fM
+uH
 ll
 OO
 gM
@@ -17200,10 +18139,10 @@ rL
 rL
 id
 pr
-bi
+aY
 fM
 bi
-zx
+sf
 bk
 gM
 gM
@@ -17267,7 +18206,7 @@ ga
 FB
 zu
 ZN
-fM
+Vy
 ll
 gM
 gM
@@ -17331,7 +18270,7 @@ WI
 MD
 sV
 ay
-zx
+hM
 HN
 gM
 gM
@@ -17397,26 +18336,26 @@ rY
 KD
 In
 ah
-fM
+uH
 Oh
 ll
+ea
+ll
+ll
+ea
 ll
 ll
 ll
 ll
 ll
+ea
+ll
+ea
 ll
 ll
 ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
+ea
+ea
 AL
 vi
 Rn
@@ -17459,22 +18398,22 @@ gX
 rY
 hf
 NU
-wG
-ah
+DX
+As
 Kf
-bi
+IU
 bi
 bi
 Kf
-bi
+IU
 Oh
+IU
+bi
+aY
+IU
 bi
 bi
-bi
-bi
-bi
-bi
-bi
+aY
 bi
 ga
 zx
@@ -17525,19 +18464,19 @@ bM
 ak
 bZ
 ah
-Oh
+fJ
 iD
 In
 fM
 Kf
 Xd
+hM
 zx
-zx
-aH
+DU
 bi
 nT
 Vn
-zx
+hM
 Nl
 dS
 ym
@@ -17585,13 +18524,13 @@ Bi
 Mu
 yj
 Lv
-bi
+ku
 eR
 Zx
 Pp
-Pp
-fM
-Oh
+Xh
+Vy
+cb
 bi
 Kf
 Kf
@@ -17644,12 +18583,12 @@ by
 AP
 dz
 AP
-AP
+gc
 AP
 bN
 bi
 fM
-fM
+lt
 MZ
 Ip
 fM
@@ -17710,9 +18649,9 @@ pr
 pr
 Gs
 bi
-bi
+FC
 ak
-fM
+lt
 bi
 nE
 pr
@@ -17960,9 +18899,9 @@ oX
 MD
 bL
 oo
+lt
 fM
-fM
-Oh
+cb
 oc
 zU
 Eu
