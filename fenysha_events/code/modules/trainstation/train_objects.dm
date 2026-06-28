@@ -390,37 +390,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/auto_detect, 24)
 	return GLOB.conscious_state
 
 /obj/machinery/computer/train_control_terminal/ui_data(mob/user)
-	var/datum/controller/subsystem/train_controller/TC = SStrain_controller
-	var/list/data = list()
-
-	data["read_only"] = read_only
-	data["is_moving"] = TC.is_moving()
-	data["train_engine_active"] = TC.train_engine?.is_active() || FALSE
-	data["current_station"] = TC.loaded_station?.name || "Unknown"
-	data["planned_station"] = TC.planned_to_load?.name || "Not selected"
-	data["is_blocked"] = TC.loaded_station?.blocking_moving || FALSE
-	data["progress"] = TC.is_moving() && TC.total_travel_time > 0 ? 1 - (TC.time_to_next_station / TC.total_travel_time) : 0
-	data["time_remaining"] = TC.time_to_next_station || 0
-	data["time_per_map_unit"] = TC.time_per_map_unit
-
-	data["possible_next"] = list()
-	if(!TC.is_moving() && TC.loaded_station)
-		for(var/datum/train_station/next in TC.loaded_station.possible_next)
-			data["possible_next"] += list(list(
-				"name" = next.name,
-				"type" = "[next.type]"
-			))
-
-	if(TC.global_map)
-		TC.global_map.update_train_position()
-
-	data["map_data"] = TC.global_map?.get_ui_data() || list(
-		"objects" = list(),
-		"paths" = list(),
-		"train" = list("x" = 500, "y" = 500, "angle" = 0)
-	)
-
-	return data
+	// In-world terminals are always player-side, even for admins.
+	return SStrain_controller.build_terminal_data(read_only = read_only, admin_mode = FALSE)
 
 /obj/machinery/computer/train_control_terminal/ui_act(action, list/params)
 	. = ..()

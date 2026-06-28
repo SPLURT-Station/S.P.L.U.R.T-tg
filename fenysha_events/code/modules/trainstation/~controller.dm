@@ -158,6 +158,9 @@ SUBSYSTEM_DEF(train_controller)
 
 /datum/controller/subsystem/train_controller/proc/load_stations()
 	for(var/path in subtypesof(/datum/train_station))
+		// Custom stations need constructor args; never auto-instantiate them.
+		if(path == /datum/train_station/cargo_station/custom)
+			continue
 		known_stations += new path
 
 /datum/controller/subsystem/train_controller/proc/connect_stations()
@@ -533,36 +536,120 @@ SUBSYSTEM_DEF(train_controller)
 			load_station(planned_to_load, stop_moving = TRUE, hide_for_players = TRUE, announce = TRUE)
 			planned_to_load = null
 
+/// Full editable variable set for one station, keyed by its datum ref so the
+/// admin editor can target it precisely. INFINITY visits are sent as a flag.
+/datum/controller/subsystem/train_controller/proc/get_station_edit_data(datum/train_station/S)
+	var/list/conns = list()
+	for(var/datum/train_station/N in S.possible_next)
+		if(istype(N))
+			conns += REF(N)
+	var/list/nears = list()
+	if(islist(S.possible_nearstations))
+		for(var/thing in S.possible_nearstations)
+			if(istype(thing, /datum/train_station))
+				nears += REF(thing)
+	return list(
+		"ref" = REF(S),
+		"name" = S.name,
+		"desc" = S.desc,
+		"creator" = S.creator,
+		"region" = S.region,
+		"station_type" = S.station_type,
+		"threat_level" = S.threat_level,
+		"required_password" = S.required_password,
+		"required_stations" = S.required_stations,
+		"maximum_visits_unlimited" = (S.maximum_visits == INFINITY),
+		"maximum_visits" = (S.maximum_visits == INFINITY) ? 1 : S.maximum_visits,
+		"visible" = S.visible,
+		"station_flags" = S.station_flags,
+		"is_custom" = istype(S, /datum/train_station/cargo_station/custom),
+		"connections" = conns,
+		"nearstations" = nears,
+	)
+
+/// Data for the shared TrainControlTerminal UI, used by both the in-world
+/// terminals and the admin verb. admin_mode adds the admin-only tooling.
+/datum/controller/subsystem/train_controller/proc/build_terminal_data(read_only = FALSE, admin_mode = FALSE)
+	var/list/data = list()
+	data["read_only"] = read_only
+	data["admin_mode"] = admin_mode
+	data["is_moving"] = is_moving()
+	data["train_engine_active"] = train_engine?.is_active() || FALSE
+	data["current_station"] = loaded_station?.name || "Unknown"
+	data["planned_station"] = planned_to_load?.name || "Not selected"
+	data["is_blocked"] = loaded_station?.blocking_moving || FALSE
+	data["progress"] = (is_moving() && total_travel_time > 0) ? 1 - (time_to_next_station / total_travel_time) : 0
+	data["time_remaining"] = time_to_next_station || 0
+	data["time_per_map_unit"] = time_per_map_unit
+
+	// Train speed: real distance of the current leg over its travel time.
+	var/leg_distance = 0
+	var/datum/train_station/from_station = last_departed_station || loaded_station
+	if(is_moving() && from_station?.map_object && planned_to_load?.map_object)
+		var/dx = planned_to_load.map_object.position_x - from_station.map_object.position_x
+		var/dy = planned_to_load.map_object.position_y - from_station.map_object.position_y
+		leg_distance = sqrt(dx * dx + dy * dy)
+	var/units_per_second = (is_moving() && total_travel_time > 0) ? (leg_distance / (total_travel_time / 10)) : 0
+	data["speed"] = units_per_second
+	// Flavour readout; map units are abstract so scale into a train-ish km/h.
+	data["speed_kmh"] = round(units_per_second * 480, 1)
+
+	data["possible_next"] = list()
+	if(!is_moving() && loaded_station)
+		for(var/datum/train_station/next in loaded_station.possible_next)
+			data["possible_next"] += list(list(
+				"name" = next.name,
+				"type" = "[next.type]"
+			))
+
+	if(admin_mode)
+		var/list/all_stations = list()
+		var/list/editable_stations = list()
+		var/list/nearstation_options = list()
+		for(var/datum/train_station/station in known_stations)
+			if(istype(station, /datum/train_station/near_station))
+				nearstation_options += list(list(
+					"ref" = REF(station),
+					"name" = station.name,
+				))
+				continue
+			// Abstract stations (e.g. the moving backstage) have no real node.
+			if(station.station_flags & TRAINSTATION_ABSCTRACT)
+				continue
+			editable_stations += list(get_station_edit_data(station))
+			if(!station.visible)
+				continue
+			all_stations += list(list(
+				"name" = station.name,
+				"type" = "[station.type]",
+				"loaded" = (station == loaded_station)
+			))
+		data["all_stations"] = all_stations
+		data["editable_stations"] = editable_stations
+		data["nearstation_options"] = nearstation_options
+
+	if(global_map)
+		global_map.update_train_position()
+
+	data["map_data"] = global_map?.get_ui_data() || list(
+		"objects" = list(),
+		"paths" = list(),
+		"train" = list("x" = 500, "y" = 500, "angle" = 0)
+	)
+	return data
+
 /datum/controller/subsystem/train_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "TrainMovementController")
+		ui = new(user, src, "TrainControlTerminal")
 		ui.open()
 
 /datum/controller/subsystem/train_controller/ui_state(mob/user)
 	return ADMIN_STATE(R_ADMIN)
 
 /datum/controller/subsystem/train_controller/ui_data(mob/user)
-	var/list/data = list()
-	data["moving"] = moving
-	data["num_turfs"] = length(SSmoving_turfs.to_process)
-	data["stations"] = list()
-	data["planned_station"] = planned_to_load?.name || "None"
-	data["time_to_next_station"] = time_to_next_station
-	data["total_travel_time"] = total_travel_time
-	data["possible_next"] = list()
-	for(var/datum/train_station/station in known_stations)
-		if(!station.visible)
-			continue
-		data["stations"] += list(
-			list(
-				"name" = station.name,
-				"type" = station.type,
-			)
-		)
-	data["current_station"] = loaded_station?.name || "None"
-	data["blocking"] = loaded_station?.blocking_moving || FALSE
-	return data
+	// Only reachable via the admin verb, so always admin mode.
+	return build_terminal_data(read_only = FALSE, admin_mode = TRUE)
 
 /datum/controller/subsystem/train_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -632,6 +719,152 @@ SUBSYSTEM_DEF(train_controller)
 				INVOKE_ASYNC(src, PROC_REF(unload_station), loaded_station)
 				loaded_station = null
 				return TRUE
+		if("move_object")
+			if(!check_rights(R_ADMIN))
+				return
+			var/raw_id = params["id"]
+			if(!istext(raw_id))
+				return
+			var/nx = params["x"]
+			var/ny = params["y"]
+			if(!isnum(nx) || !isnum(ny))
+				return
+			if(!global_map)
+				return
+			var/hash_pos = findtext(raw_id, "#")
+			if(!hash_pos)
+				return
+			var/idx = text2num(copytext(raw_id, hash_pos + 1))
+			if(isnull(idx))
+				return
+			idx = round(idx)
+			if(idx < 1 || idx > length(global_map.objects))
+				return
+			var/datum/trainmap_object/O = global_map.objects[idx]
+			if(!O)
+				return
+			O.set_position(round(nx), round(ny))
+			return TRUE
+		if("create_cargo_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/cx = params["x"]
+			var/cy = params["y"]
+			INVOKE_ASYNC(src, PROC_REF(admin_create_cargo_station), usr, isnum(cx) ? cx : null, isnum(cy) ? cy : null)
+			return TRUE
+		if("save_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/edit_target = locate(params["ref"])
+			if(!istype(edit_target) || !(edit_target in known_stations))
+				return
+			apply_station_edits(edit_target, params)
+			return TRUE
+		if("delete_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/del_target = locate(params["ref"])
+			if(!istype(del_target) || !(del_target in known_stations))
+				return
+			admin_delete_station(del_target, usr)
+			return TRUE
+
+/// Admin: upload a .dmm (via BYOND file input), build a runtime cargo station
+/// from it, and drop it at the given map coords (the editor's viewport center).
+/datum/controller/subsystem/train_controller/proc/admin_create_cargo_station(mob/user, place_x, place_y)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!global_map)
+		to_chat(user, span_warning("The train global map is not initialized."))
+		return
+
+	var/map = input(user, "Choose a .dmm map template for the new cargo station", "Upload Station Map") as null|file
+	if(!map)
+		return
+	if(copytext("[map]", -4) != ".dmm")
+		to_chat(user, span_warning("Filename must end in '.dmm': [map]"))
+		return
+
+	var/station_name = input(user, "Name for the new cargo station", "Station Name", "Custom Cargo Terminal") as null|text
+	if(!station_name)
+		return
+
+	var/datum/train_station/cargo_station/custom/new_station = new(map, station_name)
+	if(!new_station.has_valid_template())
+		to_chat(user, span_warning("Map template '[map]' failed to parse - aborting."))
+		qdel(new_station)
+		return
+
+	known_stations += new_station
+	new_station.connect_stations()
+
+	var/px = isnum(place_x) ? place_x : global_map.center_x
+	var/py = isnum(place_y) ? place_y : global_map.center_y
+	global_map.admin_place_station(new_station, px, py)
+
+	message_admins("[key_name_admin(user)] created a custom cargo station '[station_name]' from uploaded map '[map]'.")
+	to_chat(user, span_notice("Created cargo station '[station_name]'."))
+
+/// Applies an editor payload of variables (and connection/nearstation sets) to a station.
+/datum/controller/subsystem/train_controller/proc/apply_station_edits(datum/train_station/S, list/params)
+	if(istext(params["name"]))
+		S.name = params["name"]
+		if(S.map_object)
+			S.map_object.name = S.name
+	if(istext(params["desc"]))
+		S.desc = params["desc"]
+		if(S.map_object)
+			S.map_object.desc = S.desc
+	if(istext(params["creator"]))
+		S.creator = params["creator"]
+	if(istext(params["region"]))
+		S.region = params["region"]
+	if(istext(params["station_type"]))
+		S.station_type = params["station_type"]
+	if(istext(params["threat_level"]))
+		S.threat_level = params["threat_level"]
+	S.required_password = !!params["required_password"]
+	S.visible = !!params["visible"]
+	if(isnum(params["required_stations"]))
+		S.required_stations = max(0, round(params["required_stations"]))
+	if(params["maximum_visits_unlimited"])
+		S.maximum_visits = INFINITY
+	else if(isnum(params["maximum_visits"]))
+		S.maximum_visits = max(1, round(params["maximum_visits"]))
+	if(isnum(params["station_flags"]))
+		var/mask = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_BLOCKING | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION | TRAINSTATION_NO_SPAWNING | TRAINSTATION_LOCAL_CENTER | TRAINSTATION_START_STATION | TRAINSTATION_FINAL_STATION
+		S.station_flags = round(params["station_flags"]) & mask
+
+	if(islist(params["connections"]) && global_map)
+		var/list/desired = list()
+		for(var/conn_ref in params["connections"])
+			var/datum/train_station/N = locate(conn_ref)
+			if(istype(N) && N != S && (N in known_stations))
+				desired += N
+		global_map.admin_set_connections(S, desired)
+
+	if(islist(params["nearstations"]))
+		var/list/desired_near = list()
+		for(var/near_ref in params["nearstations"])
+			var/datum/train_station/N = locate(near_ref)
+			if(istype(N) && (N in known_stations))
+				desired_near += N
+		S.possible_nearstations = desired_near
+
+/// Admin: remove a station entirely - links, map markers and the datum.
+/datum/controller/subsystem/train_controller/proc/admin_delete_station(datum/train_station/S, mob/user)
+	if(S == loaded_station || S == planned_to_load)
+		to_chat(user, span_warning("Can't delete the current or next station - move the train first."))
+		return
+	for(var/datum/train_station/other in known_stations)
+		if(other != S)
+			other.possible_next -= S
+	if(global_map)
+		global_map.remove_station_fully(S)
+	known_stations -= S
+	if(user)
+		message_admins("[key_name_admin(user)] deleted train station '[S.name]'.")
+	qdel(S)
 
 ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active train controller.", ADMIN_CATEGORY_EVENTS)
 	SStrain_controller.ui_interact(usr)

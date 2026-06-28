@@ -78,6 +78,10 @@
 	map_object.associated_station = src
 	map_object.set_position(0, 0)
 
+/// TRUE if the map template parsed into a loadable size. Validates uploads.
+/datum/train_station/proc/has_valid_template()
+	return template && template.width > 0 && template.height > 0
+
 /datum/train_station/proc/create_ambience()
 	station_loop_soound = new(start_immediately = FALSE)
 	station_loop_soound.create_from_list(ambience_sounds)

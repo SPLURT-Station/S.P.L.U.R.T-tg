@@ -27,6 +27,11 @@
 #define BRANCH_TOO_CLOSE_DIST 160
 #define BRANCH_MAX_CANDIDATES_TRIES 100
 
+// Final tidy-up pass: minimum spacing between any two markers and how many
+// relaxation passes to run while pushing overlapping ones apart.
+#define DECLUMP_MIN_DIST 60
+#define DECLUMP_ITERATIONS 80
+
 
 /datum/trainmap_path
 	var/datum/trainmap_object/start
@@ -119,6 +124,93 @@
 	paths.Cut()
 	train_position.set_position(center_x, center_y)
 	train_position.angle = 0
+
+
+/// Places an admin-created station at (x, y) and links it to nearby stations.
+/datum/train_global_map/proc/admin_place_station(datum/train_station/S, x, y)
+	if(!S || !S.map_object)
+		return FALSE
+
+	S.map_object.set_position(round(x), round(y))
+	if(!(S.map_object in objects))
+		objects += S.map_object
+	station_to_object[S] = S.map_object
+
+	if(istype(S, /datum/train_station/cargo_station))
+		connect_cargo_to_nearby(S)
+	else
+		connect_stations()
+	return TRUE
+
+
+/// Removes any visual path drawn between two map objects (either direction).
+/datum/train_global_map/proc/remove_paths_between(datum/trainmap_object/A, datum/trainmap_object/B)
+	if(!A || !B)
+		return
+	for(var/datum/trainmap_path/P in paths.Copy())
+		if((P.start == A && P.end == B) || (P.start == B && P.end == A))
+			paths -= P
+
+/// Admin: force station S's connections to exactly `desired`, syncing the
+/// bidirectional possible_next links and the visual rails to match.
+/datum/train_global_map/proc/admin_set_connections(datum/train_station/S, list/desired)
+	if(!S)
+		return
+	for(var/datum/train_station/old in S.possible_next.Copy())
+		if(!istype(old) || (old in desired))
+			continue
+		S.possible_next -= old
+		old.possible_next -= S
+		remove_paths_between(S.map_object, old.map_object)
+	for(var/datum/train_station/want in desired)
+		if(!(want in S.possible_next))
+			S.possible_next += want
+		if(!(S in want.possible_next))
+			want.possible_next += S
+		if(S.map_object && want.map_object && !has_path_between(S.map_object, want.map_object))
+			var/datum/trainmap_path/P = new
+			P.start = S.map_object
+			P.end = want.map_object
+			paths += P
+
+/// Admin: strip a station and all of its markers/rails from the map.
+/datum/train_global_map/proc/remove_station_fully(datum/train_station/S)
+	if(!S)
+		return
+	var/list/to_remove = list()
+	for(var/datum/trainmap_object/O in objects)
+		if(O == S.map_object || O.associated_station == S)
+			to_remove += O
+	for(var/datum/trainmap_object/O in to_remove)
+		objects -= O
+		for(var/datum/trainmap_path/P in paths.Copy())
+			if(P.start == O || P.end == O)
+				paths -= P
+	station_to_object -= S
+
+
+/// TRUE if segment A->B crosses an existing path (shared endpoints excluded).
+/datum/train_global_map/proc/segments_intersect(ax, ay, bx, by, cx, cy, dx, dy)
+	var/d1 = (dx - cx) * (ay - cy) - (dy - cy) * (ax - cx)
+	var/d2 = (dx - cx) * (by - cy) - (dy - cy) * (bx - cx)
+	var/d3 = (bx - ax) * (cy - ay) - (by - ay) * (cx - ax)
+	var/d4 = (bx - ax) * (dy - ay) - (by - ay) * (dx - ax)
+	if(((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0)))
+		return TRUE
+	return FALSE
+
+/datum/train_global_map/proc/path_crosses_existing(datum/trainmap_object/A, datum/trainmap_object/B)
+	if(!A || !B)
+		return FALSE
+	for(var/datum/trainmap_path/P in paths)
+		if(!P.start || !P.end)
+			continue
+		// Lines that meet at a shared node are fine, only true crossings matter.
+		if(P.start == A || P.start == B || P.end == A || P.end == B)
+			continue
+		if(segments_intersect(A.position_x, A.position_y, B.position_x, B.position_y, P.start.position_x, P.start.position_y, P.end.position_x, P.end.position_y))
+			return TRUE
+	return FALSE
 
 
 /datum/train_global_map/proc/generate()
@@ -306,6 +398,57 @@
 
 		if(is_placed_on_map(the_final_station))
 			connect_stations(valid_stations + the_final_station)
+
+	// Final tidy-up: un-stack overlapping markers and drop duplicate rails.
+	spread_out_objects()
+	dedupe_paths()
+
+
+/// Pushes apart any markers that ended up too close so nothing stacks. Pairwise
+/// relaxation over a few passes - cheap, since the marker count is small.
+/datum/train_global_map/proc/spread_out_objects()
+	var/list/all = objects
+	if(length(all) < 2)
+		return
+	for(var/iter in 1 to DECLUMP_ITERATIONS)
+		var/any_moved = FALSE
+		for(var/i in 1 to length(all) - 1)
+			var/datum/trainmap_object/A = all[i]
+			for(var/j in (i + 1) to length(all))
+				var/datum/trainmap_object/B = all[j]
+				var/dx = B.position_x - A.position_x
+				var/dy = B.position_y - A.position_y
+				var/dist = sqrt(dx * dx + dy * dy)
+				if(dist >= DECLUMP_MIN_DIST)
+					continue
+				any_moved = TRUE
+				if(dist < 0.5)
+					// Exactly stacked - shove apart along a deterministic angle.
+					var/ang = (i * 53 + j * 97 + iter * 13) % 360
+					dx = cos(ang)
+					dy = sin(ang)
+					dist = 1
+				var/push = (DECLUMP_MIN_DIST - dist) * 0.5
+				var/ux = dx / dist
+				var/uy = dy / dist
+				A.set_position(A.position_x - ux * push, A.position_y - uy * push)
+				B.set_position(B.position_x + ux * push, B.position_y + uy * push)
+		if(!any_moved)
+			break
+
+/// Removes duplicate or degenerate rails left over from generation.
+/datum/train_global_map/proc/dedupe_paths()
+	var/list/seen = list()
+	for(var/datum/trainmap_path/P in paths.Copy())
+		if(!P.start || !P.end || P.start == P.end)
+			paths -= P
+			continue
+		var/key = "\ref[P.start]|\ref[P.end]"
+		var/key_rev = "\ref[P.end]|\ref[P.start]"
+		if(seen[key] || seen[key_rev])
+			paths -= P
+			continue
+		seen[key] = TRUE
 
 
 /datum/train_global_map/proc/place_branch(datum/train_station/start, datum/train_station/end, list/available_stations)
@@ -583,6 +726,8 @@
 			continue
 		if(S.station_flags & TRAINSTATION_ABSCTRACT)
 			continue
+		if(!has_path_between(cargo_station.map_object, S.map_object) && path_crosses_existing(cargo_station.map_object, S.map_object))
+			continue
 		if(add_connection(cargo_station, S, SStrain_controller.known_stations, max_degree = 6))
 			if(!has_path_between(cargo_station.map_object, S.map_object))
 				var/datum/trainmap_path/P = new
@@ -679,6 +824,10 @@
 			if(d_current > base_dist * dist_factor)
 				break
 
+			// Skip neighbour links that cross another rail; orphans reconnect later.
+			if(!has_path_between(S.map_object, T.map_object) && path_crosses_existing(S.map_object, T.map_object))
+				continue
+
 			if(add_connection(S, T, valid, max_degree = 6))
 				if(!has_path_between(S.map_object, T.map_object))
 					var/datum/trainmap_path/P = new
@@ -711,6 +860,10 @@
 		var/datum/train_station/bestA = null
 		var/datum/train_station/bestB = null
 		var/best = INFINITY
+		// Crossing pairs are only used as a last resort, so we track them apart.
+		var/datum/train_station/crossA = null
+		var/datum/train_station/crossB = null
+		var/crossBest = INFINITY
 
 		for(var/i in 1 to length(valid) - 1)
 			var/datum/train_station/S1 = valid[i]
@@ -726,10 +879,22 @@
 					continue
 
 				var/d = get_distance_to_station(S1.map_object, S2.map_object)
-				if(d > 0 && d < best)
+				if(d <= 0)
+					continue
+				if(path_crosses_existing(S1.map_object, S2.map_object))
+					if(d < crossBest)
+						crossBest = d
+						crossA = S1
+						crossB = S2
+				else if(d < best)
 					best = d
 					bestA = S1
 					bestB = S2
+
+		// Prefer a clean link; only resort to a crossing one to stay connected.
+		if(!bestA || !bestB)
+			bestA = crossA
+			bestB = crossB
 
 		if(!bestA || !bestB)
 			break
@@ -752,13 +917,25 @@
 
 		var/datum/train_station/nearest2 = null
 		var/best2 = INFINITY
+		var/datum/train_station/nearest_cross = null
+		var/best_cross = INFINITY
 		for(var/datum/train_station/T in valid)
 			if(T == S)
 				continue
 			var/d2 = get_distance_to_station(S.map_object, T.map_object)
-			if(d2 > 0 && d2 < best2)
+			if(d2 <= 0)
+				continue
+			if(path_crosses_existing(S.map_object, T.map_object))
+				if(d2 < best_cross)
+					best_cross = d2
+					nearest_cross = T
+			else if(d2 < best2)
 				best2 = d2
 				nearest2 = T
+
+		// Prefer the nearest non-crossing link; fall back to crossing if none.
+		if(!nearest2)
+			nearest2 = nearest_cross
 
 		if(!nearest2)
 			continue
@@ -925,6 +1102,7 @@
 		id_counter++
 		obj_list += list(list(
 			"id" = "[O.associated_station?.type || "unknown"]#[id_counter]",
+			"station_ref" = O.associated_station ? REF(O.associated_station) : null,
 			"name" = O.name,
 			"desc" = O.desc,
 			"station_type" = O.associated_station?.station_type || "unknown",
@@ -949,11 +1127,24 @@
 		))
 	data["paths"] = path_list
 
-	data["train"] = list(
+	var/list/train_list = list(
 		"x" = train_position.position_x,
 		"y" = train_position.position_y,
-		"angle" = train_position.angle
+		"angle" = train_position.angle,
+		"moving" = SStrain_controller.is_moving(),
 	)
+	// Active-leg geometry lets the UI ride the train along the drawn rail and
+	// highlight the current segment instead of a straight station-to-station line.
+	var/datum/train_station/from_station = SStrain_controller.last_departed_station || SStrain_controller.loaded_station
+	var/datum/trainmap_object/from_obj = from_station?.map_object
+	var/datum/trainmap_object/to_obj = SStrain_controller.planned_to_load?.map_object
+	if(SStrain_controller.is_moving() && from_obj && to_obj)
+		train_list["from_x"] = from_obj.position_x
+		train_list["from_y"] = from_obj.position_y
+		train_list["to_x"] = to_obj.position_x
+		train_list["to_y"] = to_obj.position_y
+		train_list["progress"] = clamp(1 - (SStrain_controller.time_to_next_station / max(SStrain_controller.total_travel_time, 1)), 0, 1)
+	data["train"] = train_list
 
 	data["width"] = 1000
 	data["height"] = 1000
@@ -979,3 +1170,5 @@
 #undef NEAR_STATION_SIDE_COUNT_THRESHOLD
 #undef BRANCH_TOO_CLOSE_DIST
 #undef BRANCH_MAX_CANDIDATES_TRIES
+#undef DECLUMP_MIN_DIST
+#undef DECLUMP_ITERATIONS
