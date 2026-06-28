@@ -87,6 +87,7 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 
 /datum/train_object_spawner_theme/near_river_top
+	allow_selection = FALSE
 	options = list(
 		TRANSITION_BOTTOM_SIDE = list(
 			SPAWNER_GROUP_NEAR_RAILS = list(
@@ -123,8 +124,11 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		),
 	)
 
+	spawn_side = TRANSITION_BOTTOM_SIDE
+
 
 /datum/train_object_spawner_theme/near_river_bottom
+	allow_selection = FALSE
 	options = list(
 		TRANSITION_TOP_SIDE = list(
 			SPAWNER_GROUP_NEAR_RAILS = list(
@@ -159,6 +163,92 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 				)
 			),
 		),
+	)
+
+	spawn_side = TRANSITION_TOP_SIDE
+
+/datum/train_object_spawner_theme/near_road_bottom
+	allow_selection = FALSE
+	options = list(
+		TRANSITION_TOP_SIDE = list(
+			SPAWNER_GROUP_NEAR_RAILS = list(
+				GROUP_SPAWN_CHANCE = 80,
+				GROUP_SPAWN_RANGE = 1,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 80,
+					/obj/structure/flora/tree/dead/style_random = 20,
+				)
+			),
+			SPAWNER_GROUP_CENTER = list(
+				GROUP_SPAWN_CHANCE = 50,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 65,
+					/obj/structure/flora/tree/dead/style_random = 20,
+					/obj/structure/flora/bush/snow/style_random = 5,
+					/obj/structure/flora/grass/both/style_random = 15,
+				)
+			),
+			SPAWNER_GROUP_BACKDROP = list(
+				GROUP_SPAWN_CHANCE = 75,
+				GROUP_SPAWN_RANGE = 2,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 3 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/grass/both/style_random = 100,
+				)
+			),
+		),
+		TRANSITION_BOTTOM_SIDE = list(
+			SPAWNER_GROUP_NEAR_RAILS = list(
+				GROUP_SPAWN_CHANCE = 100,
+				GROUP_SPAWN_RANGE = 0,
+				GROUP_SPAWN_MIN_DELAY = 2 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 2 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/prop/city/street_on = 100,
+				)
+			),
+			SPAWNER_GROUP_NEAR_RAILS_2 = list(
+				GROUP_SPAWN_CHANCE = 100,
+				GROUP_SPAWN_RANGE = 1,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/grass/both/style_random = 100,
+				)
+			),
+			SPAWNER_GROUP_CENTER = list(
+				GROUP_SPAWN_CHANCE = 10,
+				GROUP_SPAWN_RANGE = 0,
+				GROUP_SPAWN_MIN_DELAY = 5 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 20 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/prop/vehicle/hyperdynevan = 5,
+					/obj/structure/prop/vehicle/marshalls = 1,
+					/obj/structure/prop/vehicle/marshalls2 = 2,
+					/obj/structure/prop/vehicle/meridiancar_5 = 5,
+					/obj/structure/prop/vehicle/miningcrawler1 = 5,
+					/obj/structure/prop/vehicle/pizzavan = 2,
+					/obj/structure/prop/vehicle/truck_mining = 5,
+					/obj/structure/prop/vehicle/wysuv3 = 5,
+				)
+			),
+			SPAWNER_GROUP_FOREIGN_SPECIAL = list(
+				GROUP_SPAWN_CHANCE = 80,
+				GROUP_SPAWN_RANGE = 1,
+				GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+				GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+				GROUP_WEIGHTED_SPAWNLIST = list(
+					/obj/structure/flora/tree/pine/style_random = 80,
+					/obj/structure/flora/tree/dead/style_random = 20,
+				)
+			)
+		)
 	)
 
 /datum/train_object_spawner_theme/tunnel
@@ -238,6 +328,9 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 
 /obj/effect/landmark/trainstation/object_spawner/proc/set_theme(datum/train_object_spawner_theme/new_theme)
 	theme = new_theme
+	spawn_chance = 0
+	spawn_list = null
+	spawn_range = 0
 
 	var/list/group_options
 
@@ -255,9 +348,6 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 		group_options = new_theme.options[group]
 
 	if(!group_options || !islist(group_options))
-		spawn_chance = 0
-		spawn_list = null
-		spawn_range = 0
 		return
 
 	spawn_chance = group_options[GROUP_SPAWN_CHANCE] || new_theme.general_spawn_chance
@@ -319,6 +409,9 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 /obj/effect/landmark/trainstation/object_spawner/center
 	group = SPAWNER_GROUP_CENTER
 
+/obj/effect/landmark/trainstation/object_spawner/center_special
+	group = SPAWNER_GROUP_CENTER_SPECIAL
+
 /obj/effect/landmark/trainstation/object_spawner/near_rails
 	group = SPAWNER_GROUP_NEAR_RAILS
 
@@ -328,3 +421,5 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 /obj/effect/landmark/trainstation/object_spawner/foreign
 	group = SPAWNER_GROUP_FOREIGN
 
+/obj/effect/landmark/trainstation/object_spawner/foreign_special
+	group = SPAWNER_GROUP_FOREIGN_SPECIAL

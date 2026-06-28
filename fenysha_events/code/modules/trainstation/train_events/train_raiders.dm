@@ -455,8 +455,8 @@
 		sleep(3 TICKS)
 		CHECK_TICK
 
-	if(station_time() > 18 HOURS)
-		raider_bike.set_light_on(TRUE)
+
+	raider_bike.set_light_on(TRUE)
 	raider_bike.last_real_move = world.time + 10 SECONDS
 
 	var/reminder = span_big(span_boldnotice("Don't forget to use your jump jetpack! The icon is in the upper left corner!"))

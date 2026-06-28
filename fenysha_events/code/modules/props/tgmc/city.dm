@@ -230,6 +230,11 @@
 	desc = "A street light that is on."
 	icon_state = "street_on"
 
+	anchored = TRUE
+	light_range = 4
+	light_power = 3
+	light_system = OVERLAY_LIGHT
+
 /obj/structure/prop/city/street_off
 	name = "Street Light Off"
 	desc = "A street light that is off."

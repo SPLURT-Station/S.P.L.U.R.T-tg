@@ -46,6 +46,10 @@
 "r" = (
 /turf/open/moving/auto_icon/groups/group_2,
 /area/trainstation/outdoor/rails)
+"s" = (
+/obj/effect/landmark/trainstation/object_spawner/near_rails_secondnary,
+/turf/open/moving/auto_icon/groups/group_2,
+/area/trainstation/outdoor/rails)
 "t" = (
 /turf/open/moving/auto_icon/groups/group_1,
 /area/trainstation/outdoor/rails)
@@ -75,12 +79,12 @@
 "D" = (
 /turf/open/moving/auto_icon/groups/group_4,
 /area/trainstation/outdoor/rails)
+"G" = (
+/obj/effect/landmark/trainstation/object_spawner/foreign_special,
+/turf/open/moving/auto_icon/groups/group_10,
+/area/trainstation/outdoor/rails)
 "H" = (
 /turf/open/moving/auto_icon/groups/group_9,
-/area/trainstation/outdoor/rails)
-"I" = (
-/obj/effect/landmark/trainstation/object_spawner/foreign,
-/turf/open/moving/auto_icon/groups/group_10,
 /area/trainstation/outdoor/rails)
 "J" = (
 /turf/open/moving/auto_icon/groups/group_14{
@@ -92,6 +96,10 @@
 /area/trainstation/outdoor/rails)
 "O" = (
 /turf/open/moving/auto_icon/groups/group_11,
+/area/trainstation/outdoor/rails)
+"V" = (
+/obj/effect/landmark/trainstation/object_spawner/center_special,
+/turf/open/moving/auto_icon/groups/group_7,
 /area/trainstation/outdoor/rails)
 "X" = (
 /obj/effect/landmark/trainstation/object_spawner/foreign,
@@ -6917,10 +6925,10 @@ i
 D
 x
 l
-y
+V
 L
 H
-a
+G
 O
 O
 f
@@ -6939,7 +6947,7 @@ B
 "}
 (254,1,1) = {"
 t
-r
+s
 C
 D
 Y
@@ -6947,7 +6955,7 @@ u
 e
 L
 X
-I
+G
 O
 O
 f

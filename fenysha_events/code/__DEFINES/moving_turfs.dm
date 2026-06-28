@@ -262,6 +262,23 @@
 	SET_TURF_OPACITY = FALSE, \
 )
 
+#define TRANSITION_OPTION_ASPHALT_TOP list( \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/asphalt_turfs.dmi', \
+	MOVING_TURF_ICON_STATE = "asphalt_top", \
+	MOVING_TURF_NAME = "Asphalt", \
+	MOVING_TURF_DESC = "It looks robust!", \
+	SET_TURF_DENSITY = FALSE, \
+	SET_TURF_OPACITY = FALSE, \
+)
+
+#define TRANSITION_OPTION_ASPHALT_BOTTOM list( \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/asphalt_turfs.dmi', \
+	MOVING_TURF_ICON_STATE = "asphalt_bottom", \
+	MOVING_TURF_NAME = "Asphalt", \
+	MOVING_TURF_DESC = "It looks robust!", \
+	SET_TURF_DENSITY = FALSE, \
+	SET_TURF_OPACITY = FALSE, \
+)
 
 #define TRANSITION_OPTION_ASPHALT_DENSE list( \
 	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/road_turfs.dmi', \

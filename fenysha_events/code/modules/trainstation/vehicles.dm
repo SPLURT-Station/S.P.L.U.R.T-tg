@@ -47,6 +47,7 @@
 	light_on = FALSE
 	light_range = 5
 	light_angle = 90
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_color = COLOR_WHITE
 
 	var/riding_component_type = /datum/component/riding/vehicle/train_bike
@@ -111,6 +112,9 @@
 	name = "Bike"
 	icon_state = "bike"
 	cover_iconstate = "bike_cover"
+
+	light_range = 4
+	light_power = 3
 
 /obj/vehicle/ridden/trainstation/bike/red
 	icon_state = "bike_scrambler"

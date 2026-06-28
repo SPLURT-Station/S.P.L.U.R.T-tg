@@ -79,9 +79,14 @@
 #define GROUP_SPAWN_MAX_DELAY "maxdelay"
 
 #define SPAWNER_GROUP_CENTER "spawners_center"
+#define SPAWNER_GROUP_CENTER_SPECIAL "spawners_center_special"
+
 #define SPAWNER_GROUP_NEAR_RAILS "spawners_nearrails"
 #define SPAWNER_GROUP_NEAR_RAILS_2 "spawners_nearrails_second"
+
 #define SPAWNER_GROUP_FOREIGN "spawners_foreign"
+#define SPAWNER_GROUP_FOREIGN_SPECIAL "spawners_foreign_special"
+
 #define SPAWNER_GROUP_BACKDROP "spawners_backdrop"
 
 // It's pretty shitty, but it's works
