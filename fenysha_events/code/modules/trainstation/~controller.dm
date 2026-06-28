@@ -159,7 +159,7 @@ SUBSYSTEM_DEF(train_controller)
 /datum/controller/subsystem/train_controller/proc/load_stations()
 	for(var/path in subtypesof(/datum/train_station))
 		// Custom stations need constructor args; never auto-instantiate them.
-		if(path == /datum/train_station/cargo_station/custom)
+		if(path == /datum/train_station/custom)
 			continue
 		known_stations += new path
 
@@ -548,6 +548,13 @@ SUBSYSTEM_DEF(train_controller)
 		for(var/thing in S.possible_nearstations)
 			if(istype(thing, /datum/train_station))
 				nears += REF(thing)
+	var/list/ambience = list()
+	if(islist(S.ambience_sounds))
+		for(var/snd in S.ambience_sounds)
+			ambience += list(list(
+				"name" = "[snd]",
+				"duration" = round(S.ambience_sounds[snd] / 10, 1),
+			))
 	return list(
 		"ref" = REF(S),
 		"name" = S.name,
@@ -558,13 +565,18 @@ SUBSYSTEM_DEF(train_controller)
 		"threat_level" = S.threat_level,
 		"required_password" = S.required_password,
 		"required_stations" = S.required_stations,
-		"maximum_visits_unlimited" = (S.maximum_visits == INFINITY),
-		"maximum_visits" = (S.maximum_visits == INFINITY) ? 1 : S.maximum_visits,
+		"maximum_visits" = (S.maximum_visits == INFINITY) ? -1 : S.maximum_visits,
 		"visible" = S.visible,
 		"station_flags" = S.station_flags,
-		"is_custom" = istype(S, /datum/train_station/cargo_station/custom),
+		"is_custom" = istype(S, /datum/train_station/custom),
 		"connections" = conns,
 		"nearstations" = nears,
+		"enter_transition" = S.enter_transition ? "[S.enter_transition]" : "",
+		"exit_transition" = S.exit_transition ? "[S.exit_transition]" : "",
+		"enter_transition_time" = round(S.enter_transition_time / 10, 1),
+		"exit_transition_time_persist" = (S.exit_transition_time < 0),
+		"exit_transition_time" = (S.exit_transition_time < 0) ? 0 : round(S.exit_transition_time / 10, 1),
+		"ambience_sounds" = ambience,
 	)
 
 /// Data for the shared TrainControlTerminal UI, used by both the in-world
@@ -627,6 +639,12 @@ SUBSYSTEM_DEF(train_controller)
 		data["all_stations"] = all_stations
 		data["editable_stations"] = editable_stations
 		data["nearstation_options"] = nearstation_options
+
+		var/list/transition_options = list()
+		for(var/transition_path in subtypesof(/datum/moving_turf_transition))
+			transition_options += "[transition_path]"
+		data["transition_options"] = transition_options
+		data["current_transition"] = transition_theme ? "[transition_theme.type]" : ""
 
 	if(global_map)
 		global_map.update_train_position()
@@ -745,12 +763,12 @@ SUBSYSTEM_DEF(train_controller)
 				return
 			O.set_position(round(nx), round(ny))
 			return TRUE
-		if("create_cargo_station")
+		if("create_station")
 			if(!check_rights(R_ADMIN))
 				return
 			var/cx = params["x"]
 			var/cy = params["y"]
-			INVOKE_ASYNC(src, PROC_REF(admin_create_cargo_station), usr, isnum(cx) ? cx : null, isnum(cy) ? cy : null)
+			INVOKE_ASYNC(src, PROC_REF(admin_create_station), usr, isnum(cx) ? cx : null, isnum(cy) ? cy : null)
 			return TRUE
 		if("save_station")
 			if(!check_rights(R_ADMIN))
@@ -768,28 +786,105 @@ SUBSYSTEM_DEF(train_controller)
 				return
 			admin_delete_station(del_target, usr)
 			return TRUE
+		if("vv_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/vv_target = locate(params["ref"])
+			if(!istype(vv_target) || !(vv_target in known_stations))
+				return
+			usr.client.debug_variables(vv_target)
+			return TRUE
+		if("add_ambience")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/amb_target = locate(params["ref"])
+			if(!istype(amb_target) || !(amb_target in known_stations))
+				return
+			INVOKE_ASYNC(src, PROC_REF(admin_upload_ambience), usr, amb_target)
+			return TRUE
+		if("remove_ambience")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/amb_target = locate(params["ref"])
+			if(!istype(amb_target) || !(amb_target in known_stations))
+				return
+			var/idx = params["index"]
+			if(!isnum(idx))
+				return
+			amb_target.admin_remove_ambience(round(idx))
+			return TRUE
+		if("export_preset")
+			if(!check_rights(R_ADMIN))
+				return
+			INVOKE_ASYNC(src, PROC_REF(export_map_preset), usr)
+			return TRUE
+		if("import_preset")
+			if(!check_rights(R_ADMIN))
+				return
+			INVOKE_ASYNC(src, PROC_REF(import_map_preset), usr)
+			return TRUE
+		if("change_transition")
+			if(!check_rights(R_ADMIN))
+				return
+			var/raw_transition = params["transition"]
+			if(!istext(raw_transition))
+				return
+			var/transition_path = text2path(raw_transition)
+			if(!ispath(transition_path, /datum/moving_turf_transition))
+				return
+			change_transition(transition_path, !!params["instant"])
+			return TRUE
+		if("reset_transition")
+			if(!check_rights(R_ADMIN))
+				return
+			reset_transition()
+			return TRUE
 
-/// Admin: upload a .dmm (via BYOND file input), build a runtime cargo station
-/// from it, and drop it at the given map coords (the editor's viewport center).
-/datum/controller/subsystem/train_controller/proc/admin_create_cargo_station(mob/user, place_x, place_y)
+/// Admin: build a runtime station from either an uploaded .dmm or an existing
+/// station template's map, and drop it at the given map coords (viewport center).
+/datum/controller/subsystem/train_controller/proc/admin_create_station(mob/user, place_x, place_y)
 	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
 		return
 	if(!global_map)
 		to_chat(user, span_warning("The train global map is not initialized."))
 		return
 
-	var/map = input(user, "Choose a .dmm map template for the new cargo station", "Upload Station Map") as null|file
-	if(!map)
-		return
-	if(copytext("[map]", -4) != ".dmm")
-		to_chat(user, span_warning("Filename must end in '.dmm': [map]"))
-		return
+	var/map = null
+	var/datum/train_station/template_source = null
+	var/default_name = "Custom Station"
+	switch(tgui_alert(user, "How do you want to provide the station map?", "New Station Map", list("Upload .dmm", "Existing template", "Cancel")))
+		if("Upload .dmm")
+			map = input(user, "Choose a .dmm map template for the new station", "Upload Station Map") as null|file
+			if(!map)
+				return
+			if(copytext("[map]", -4) != ".dmm")
+				to_chat(user, span_warning("Filename must end in '.dmm': [map]"))
+				return
+		if("Existing template")
+			// Reuse the .dmm of an existing, compile-time station template.
+			var/list/template_choices = list()
+			for(var/datum/train_station/existing in known_stations)
+				if(istype(existing, /datum/train_station/custom) || !is_preset_station(existing) || !existing.map_path)
+					continue
+				if(!template_choices[existing.name])
+					template_choices[existing.name] = existing
+			if(!length(template_choices))
+				to_chat(user, span_warning("No existing station templates available."))
+				return
+			var/picked = tgui_input_list(user, "Pick a station template to copy", "Station Template", template_choices)
+			if(!picked)
+				return
+			template_source = template_choices[picked]
+			map = template_source.map_path
+			default_name = template_source.name
+		else
+			return
 
-	var/station_name = input(user, "Name for the new cargo station", "Station Name", "Custom Cargo Terminal") as null|text
+	var/station_name = input(user, "Name for the new station", "Station Name", default_name) as null|text
 	if(!station_name)
 		return
 
-	var/datum/train_station/cargo_station/custom/new_station = new(map, station_name)
+	var/datum/train_station/custom/new_station = new(map, station_name)
 	if(!new_station.has_valid_template())
 		to_chat(user, span_warning("Map template '[map]' failed to parse - aborting."))
 		qdel(new_station)
@@ -797,13 +892,43 @@ SUBSYSTEM_DEF(train_controller)
 
 	known_stations += new_station
 	new_station.connect_stations()
+	// Seed the new station's fields from the template it was copied from.
+	if(template_source)
+		copy_template_fields(new_station, template_source)
 
 	var/px = isnum(place_x) ? place_x : global_map.center_x
 	var/py = isnum(place_y) ? place_y : global_map.center_y
 	global_map.admin_place_station(new_station, px, py)
 
-	message_admins("[key_name_admin(user)] created a custom cargo station '[station_name]' from uploaded map '[map]'.")
-	to_chat(user, span_notice("Created cargo station '[station_name]'."))
+	message_admins("[key_name_admin(user)] created a custom station '[station_name]' from map '[map]'.")
+	to_chat(user, span_notice("Created station '[station_name]'."))
+
+/// Copies a template station's editable fields onto a freshly-created custom
+/// station, so creating from a template autofills sensible defaults. Identity
+/// and graph data (name, map, connections) are intentionally left alone.
+/datum/controller/subsystem/train_controller/proc/copy_template_fields(datum/train_station/dest, datum/train_station/source)
+	dest.desc = source.desc
+	dest.creator = source.creator
+	dest.region = source.region
+	dest.station_type = source.station_type
+	dest.threat_level = source.threat_level
+	dest.required_password = source.required_password
+	dest.required_stations = source.required_stations
+	dest.maximum_visits = source.maximum_visits
+	dest.visible = source.visible
+	dest.station_flags = source.station_flags
+	dest.enter_transition = source.enter_transition
+	dest.exit_transition = source.exit_transition
+	dest.enter_transition_time = source.enter_transition_time
+	dest.exit_transition_time = source.exit_transition_time
+	if(dest.map_object)
+		dest.map_object.desc = dest.desc
+	// Copy the already-resolved near-station list directly (skip re-resolution).
+	if(islist(source.possible_nearstations))
+		dest.possible_nearstations = source.possible_nearstations.Copy()
+	if(islist(source.ambience_sounds))
+		dest.ambience_sounds = source.ambience_sounds.Copy()
+		dest.rebuild_ambience()
 
 /// Applies an editor payload of variables (and connection/nearstation sets) to a station.
 /datum/controller/subsystem/train_controller/proc/apply_station_edits(datum/train_station/S, list/params)
@@ -827,13 +952,26 @@ SUBSYSTEM_DEF(train_controller)
 	S.visible = !!params["visible"]
 	if(isnum(params["required_stations"]))
 		S.required_stations = max(0, round(params["required_stations"]))
-	if(params["maximum_visits_unlimited"])
-		S.maximum_visits = INFINITY
-	else if(isnum(params["maximum_visits"]))
-		S.maximum_visits = max(1, round(params["maximum_visits"]))
+	// -1 means unlimited - a single self-describing value, so a stray finite
+	// number can never silently cap an unlimited station.
+	if(isnum(params["maximum_visits"]))
+		S.maximum_visits = (params["maximum_visits"] < 0) ? INFINITY : round(params["maximum_visits"])
 	if(isnum(params["station_flags"]))
 		var/mask = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_BLOCKING | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION | TRAINSTATION_NO_SPAWNING | TRAINSTATION_LOCAL_CENTER | TRAINSTATION_START_STATION | TRAINSTATION_FINAL_STATION
 		S.station_flags = round(params["station_flags"]) & mask
+
+	if(istext(params["enter_transition"]))
+		var/enter_path = text2path(params["enter_transition"])
+		S.enter_transition = ispath(enter_path, /datum/moving_turf_transition) ? enter_path : null
+	if(istext(params["exit_transition"]))
+		var/exit_path = text2path(params["exit_transition"])
+		S.exit_transition = ispath(exit_path, /datum/moving_turf_transition) ? exit_path : null
+	if(isnum(params["enter_transition_time"]))
+		S.enter_transition_time = max(0, round(params["enter_transition_time"] * 10))
+	if(params["exit_transition_time_persist"])
+		S.exit_transition_time = -1
+	else if(isnum(params["exit_transition_time"]))
+		S.exit_transition_time = max(0, round(params["exit_transition_time"] * 10))
 
 	if(islist(params["connections"]) && global_map)
 		var/list/desired = list()
@@ -865,6 +1003,267 @@ SUBSYSTEM_DEF(train_controller)
 	if(user)
 		message_admins("[key_name_admin(user)] deleted train station '[S.name]'.")
 	qdel(S)
+
+/// Admin: upload a sound file (BYOND file input) and add it to a station's
+/// looping ambience at the given loop length.
+/datum/controller/subsystem/train_controller/proc/admin_upload_ambience(mob/user, datum/train_station/S)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!istype(S) || !(S in known_stations))
+		return
+	var/sound_file = input(user, "Choose an ambience sound file (.ogg/.wav)", "Upload Ambience") as null|file
+	if(!sound_file)
+		return
+	if(!isfile(sound_file))
+		to_chat(user, span_warning("That isn't a usable file."))
+		return
+	// Basic validation: only accept recognised sound file extensions.
+	var/sound_name = "[sound_file]"
+	var/dot_pos = findlasttext(sound_name, ".")
+	var/ext = dot_pos ? lowertext(copytext(sound_name, dot_pos + 1)) : ""
+	if(!(ext in list("ogg", "wav", "mid", "midi", "mod", "raw")))
+		to_chat(user, span_warning("'[sound_name]' isn't a supported sound file (use .ogg or .wav)."))
+		return
+	var/dur = input(user, "Loop length in seconds (how long before it repeats)", "Ambience Length", 30) as null|num
+	if(isnull(dur) || dur <= 0)
+		return
+	if(S.admin_add_ambience(sound_file, round(dur * 10)))
+		to_chat(user, span_notice("Added ambience sound to '[S.name]'."))
+		message_admins("[key_name_admin(user)] uploaded an ambience sound to train station '[S.name]'.")
+
+/// TRUE for stations a preset can round-trip. Compile-time stations qualify;
+/// custom stations qualify only if their map_path is a plain resource path
+/// (i.e. they came from an existing template) - uploaded .dmm files can't be
+/// reconstructed, so those are skipped.
+/datum/controller/subsystem/train_controller/proc/is_preset_station(datum/train_station/S)
+	if(!istype(S))
+		return FALSE
+	if(istype(S, /datum/train_station/near_station))
+		return FALSE
+	if(S.station_flags & TRAINSTATION_ABSCTRACT)
+		return FALSE
+	if(istype(S, /datum/train_station/custom))
+		return istext(S.map_path)
+	return TRUE
+
+/// Serializes one station into a preset entry. Stations are referenced by a
+/// per-preset id (custom stations share a type path, so a type key won't do).
+/datum/controller/subsystem/train_controller/proc/serialize_station_for_preset(datum/train_station/S, id, list/station_to_id)
+	var/list/conns = list()
+	for(var/datum/train_station/N in S.possible_next)
+		if(N in station_to_id)
+			conns |= station_to_id[N]
+	var/list/nears = list()
+	if(islist(S.possible_nearstations))
+		for(var/thing in S.possible_nearstations)
+			if(istype(thing, /datum/train_station))
+				var/datum/train_station/near_inst = thing
+				nears |= "[near_inst.type]"
+	return list(
+		"id" = id,
+		"is_custom" = istype(S, /datum/train_station/custom),
+		"type" = "[S.type]",
+		"map_path" = istext(S.map_path) ? S.map_path : "",
+		"placed" = (global_map && global_map.is_placed_on_map(S)),
+		"x" = S.map_object ? S.map_object.position_x : 0,
+		"y" = S.map_object ? S.map_object.position_y : 0,
+		"name" = S.name,
+		"desc" = S.desc,
+		"creator" = S.creator,
+		"region" = S.region,
+		"station_type" = S.station_type,
+		"threat_level" = S.threat_level,
+		"required_password" = S.required_password,
+		"required_stations" = S.required_stations,
+		"maximum_visits" = (S.maximum_visits == INFINITY) ? -1 : S.maximum_visits,
+		"visible" = S.visible,
+		"station_flags" = S.station_flags,
+		"connections" = conns,
+		"nearstations" = nears,
+	)
+
+/// Admin: export the current map layout as a downloadable .json.
+/datum/controller/subsystem/train_controller/proc/export_map_preset(mob/user)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	var/preset_name = input(user, "Name for this map preset", "Export Map Preset", "trainmap_preset") as null|text
+	if(!preset_name)
+		return
+
+	// Collect qualifying stations and give each a stable (text) id for refs.
+	var/list/qualifying = list()
+	for(var/datum/train_station/S in known_stations)
+		if(is_preset_station(S))
+			qualifying += S
+	var/list/station_to_id = list()
+	for(var/i in 1 to length(qualifying))
+		station_to_id[qualifying[i]] = "[i]"
+
+	var/list/stations_data = list()
+	for(var/i in 1 to length(qualifying))
+		var/datum/train_station/S = qualifying[i]
+		stations_data += list(serialize_station_for_preset(S, "[i]", station_to_id))
+
+	var/list/preset = list(
+		"name" = preset_name,
+		"stations" = stations_data,
+	)
+
+	var/file_handle = file("data/trainmap_preset_temp.json")
+	fdel(file_handle)
+	WRITE_FILE(file_handle, json_encode(preset))
+	user << ftp(file_handle, "[preset_name].json")
+	message_admins("[key_name_admin(user)] exported train map preset '[preset_name]' ([length(stations_data)] stations).")
+
+/// Admin: import a previously exported map preset and apply it.
+/datum/controller/subsystem/train_controller/proc/import_map_preset(mob/user)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!global_map)
+		to_chat(user, span_warning("The train global map is not initialized."))
+		return
+
+	var/preset_file = input(user, "Pick a train map preset (.json)", "Load Map Preset") as null|file
+	if(!preset_file)
+		return
+	var/filedata = file2text(preset_file)
+	if(!filedata)
+		to_chat(user, span_warning("Could not read the preset file."))
+		return
+	var/list/preset = json_decode(filedata)
+	if(!islist(preset) || !islist(preset["stations"]))
+		to_chat(user, span_warning("Invalid or malformed preset file."))
+		return
+
+	apply_map_preset(preset, user)
+
+/// Applies a decoded preset: positions, variables and connections. Compile-time
+/// stations are matched by type; template-based custom stations are recreated.
+/datum/controller/subsystem/train_controller/proc/apply_map_preset(list/preset, mob/user)
+	var/list/entries = preset["stations"]
+	if(!islist(entries) || !length(entries))
+		return
+
+	// Clear out template-based custom stations first so a re-import is idempotent
+	// (uploaded-file custom stations are left untouched).
+	for(var/datum/train_station/S in known_stations.Copy())
+		if(istype(S, /datum/train_station/custom) && istext(S.map_path))
+			if(S == loaded_station || S == planned_to_load)
+				continue
+			admin_delete_station(S, null)
+
+	var/list/by_type = list()
+	for(var/datum/train_station/S in known_stations)
+		by_type["[S.type]"] = S
+
+	// Pass 1: resolve each entry to a station. `resolved` is parallel to `entries`
+	// by index, so entries can never collide on a shared id. `id_to_index` is only
+	// for wiring connections back to entries.
+	var/list/resolved = list()
+	resolved.len = length(entries)
+	var/list/id_to_index = list()
+	for(var/idx in 1 to length(entries))
+		var/list/entry = entries[idx]
+		if(!islist(entry))
+			continue
+		if(entry["id"] != null)
+			id_to_index["[entry["id"]]"] = idx
+		if(entry["is_custom"])
+			var/map_path = entry["map_path"]
+			if(!istext(map_path) || !map_path)
+				continue
+			var/datum/train_station/custom/created = new(map_path, entry["name"])
+			if(!created.has_valid_template())
+				qdel(created)
+				continue
+			known_stations += created
+			created.connect_stations()
+			resolved[idx] = created
+		else
+			var/datum/train_station/target = by_type["[entry["type"]]"]
+			if(!target)
+				// Compile-time station was deleted earlier; recreate it from its
+				// type path so a preset can restore stations removed from
+				// known_stations (the by-type lookup alone can't bring them back).
+				var/station_path = text2path(entry["type"])
+				if(ispath(station_path, /datum/train_station) && station_path != /datum/train_station/custom)
+					var/datum/train_station/recreated = new station_path()
+					if(is_preset_station(recreated))
+						known_stations += recreated
+						recreated.connect_stations()
+						by_type["[entry["type"]]"] = recreated
+						target = recreated
+					else
+						qdel(recreated)
+			if(is_preset_station(target))
+				resolved[idx] = target
+
+	var/applied = 0
+	// Pass 2: positions, variables and near-stations.
+	for(var/idx in 1 to length(entries))
+		var/datum/train_station/S = resolved[idx]
+		if(!istype(S))
+			continue
+		var/list/entry = entries[idx]
+		apply_preset_vars(S, entry)
+		if(entry["placed"])
+			global_map.place_station_on_map(S, round(entry["x"]), round(entry["y"]), ignore_overlap = TRUE)
+		if(islist(entry["nearstations"]))
+			var/list/desired_near = list()
+			for(var/near_text in entry["nearstations"])
+				var/datum/train_station/N = by_type["[near_text]"]
+				if(istype(N))
+					desired_near += N
+			S.possible_nearstations = desired_near
+		applied++
+
+	// Pass 3: connections (every target exists by now).
+	for(var/idx in 1 to length(entries))
+		var/datum/train_station/S = resolved[idx]
+		if(!istype(S))
+			continue
+		var/list/entry = entries[idx]
+		if(!islist(entry["connections"]))
+			continue
+		var/list/desired = list()
+		for(var/conn_ref in entry["connections"])
+			var/conn_index = id_to_index["[conn_ref]"]
+			var/datum/train_station/N = conn_index ? resolved[conn_index] : by_type["[conn_ref]"]
+			if(istype(N) && N != S)
+				desired |= N
+		global_map.admin_set_connections(S, desired)
+
+	global_map.dedupe_paths()
+	to_chat(user, span_notice("Loaded map preset '[preset["name"]]' ([applied] stations)."))
+	message_admins("[key_name_admin(user)] loaded train map preset '[preset["name"]]'.")
+
+/// Applies the scalar variables from a preset entry to a station.
+/datum/controller/subsystem/train_controller/proc/apply_preset_vars(datum/train_station/S, list/entry)
+	if(istext(entry["name"]))
+		S.name = entry["name"]
+		if(S.map_object)
+			S.map_object.name = S.name
+	if(istext(entry["desc"]))
+		S.desc = entry["desc"]
+		if(S.map_object)
+			S.map_object.desc = S.desc
+	if(istext(entry["creator"]))
+		S.creator = entry["creator"]
+	if(istext(entry["region"]))
+		S.region = entry["region"]
+	if(istext(entry["station_type"]))
+		S.station_type = entry["station_type"]
+	if(istext(entry["threat_level"]))
+		S.threat_level = entry["threat_level"]
+	S.required_password = !!entry["required_password"]
+	S.visible = !!entry["visible"]
+	if(isnum(entry["required_stations"]))
+		S.required_stations = max(0, round(entry["required_stations"]))
+	if(isnum(entry["maximum_visits"]))
+		S.maximum_visits = (entry["maximum_visits"] < 0) ? INFINITY : round(entry["maximum_visits"])
+	if(isnum(entry["station_flags"]))
+		var/mask = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_BLOCKING | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION | TRAINSTATION_NO_SPAWNING | TRAINSTATION_LOCAL_CENTER | TRAINSTATION_START_STATION | TRAINSTATION_FINAL_STATION
+		S.station_flags = round(entry["station_flags"]) & mask
 
 ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active train controller.", ADMIN_CATEGORY_EVENTS)
 	SStrain_controller.ui_interact(usr)

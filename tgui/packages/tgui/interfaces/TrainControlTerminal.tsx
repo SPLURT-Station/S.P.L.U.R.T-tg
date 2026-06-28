@@ -98,18 +98,35 @@ export interface EditableStation {
   threat_level: string;
   required_password: BooleanLike;
   required_stations: number;
-  maximum_visits_unlimited: BooleanLike;
   maximum_visits: number;
   visible: BooleanLike;
   station_flags: number;
   is_custom: BooleanLike;
   connections: string[];
   nearstations: string[];
+  enter_transition: string;
+  exit_transition: string;
+  enter_transition_time: number;
+  exit_transition_time: number;
+  exit_transition_time_persist: BooleanLike;
+  ambience_sounds: AmbienceSound[];
+}
+
+export interface AmbienceSound {
+  name: string;
+  duration: number;
 }
 
 export interface NearStationOption {
   ref: string;
   name: string;
+}
+
+/** "/datum/moving_turf_transition/tunnel" → "Tunnel" */
+function transitionLabel(path: string): string {
+  if (!path) return 'None';
+  const seg = path.split('/').filter(Boolean).pop() || path;
+  return seg.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 const REGION_OPTIONS = ['None', 'Thundra', 'Temperate', 'Desert'];
@@ -144,6 +161,8 @@ export interface TrainControlData {
   all_stations?: AdminStation[];
   editable_stations?: EditableStation[];
   nearstation_options?: NearStationOption[];
+  transition_options?: string[];
+  current_transition?: string;
   map_data: MapData;
 }
 
@@ -1040,66 +1059,129 @@ const StatusPanel = (props: StatusPanelProps) => {
 type AdminPanelProps = {
   current_station: string;
   all_stations: AdminStation[];
+  transitionOptions: string[];
+  currentTransition: string;
   onForceStart: () => void;
   onForceStop: () => void;
   onUnload: () => void;
   onLoad: (type: string) => void;
-  onCreateCargo: () => void;
+  onCreateStation: () => void;
   onVV: () => void;
+  onExportPreset: () => void;
+  onImportPreset: () => void;
+  onChangeTransition: (path: string, instant: boolean) => void;
+  onResetTransition: () => void;
 };
 
-const AdminPanel = (props: AdminPanelProps) => (
-  <Section title="Admin Tools">
-    <Box italic color="label" mb={1}>
-      Drag any station node to reposition it on the map.
-    </Box>
-    <Stack mb={1} wrap>
-      <Button icon="play" color="good" onClick={props.onForceStart}>
-        Force Start
-      </Button>
-      <Button icon="stop" color="bad" onClick={props.onForceStop}>
-        Force Stop
-      </Button>
-      <Button
-        icon="eject"
-        color="bad"
-        disabled={!props.current_station}
-        onClick={props.onUnload}
-      >
-        Unload
-      </Button>
-    </Stack>
-    <Stack mb={1} wrap>
-      <Button icon="box" color="teal" onClick={props.onCreateCargo}>
-        Create Cargo Station
-      </Button>
-      <Button icon="bug" onClick={props.onVV}>
-        VV
-      </Button>
-    </Stack>
-    <Box bold mt={1} mb={0.5}>
-      Force Load Station:
-    </Box>
-    <Box style={{ maxHeight: '180px', overflowY: 'auto' }}>
-      {props.all_stations.length === 0 ? (
-        <Box color="average">No stations registered.</Box>
-      ) : (
-        props.all_stations.map((st) => (
-          <Button
-            key={st.type}
-            fluid
-            icon="train"
-            color={st.loaded ? 'good' : 'default'}
-            onClick={() => props.onLoad(st.type)}
+const AdminPanel = (props: AdminPanelProps) => {
+  const [instant, setInstant] = useState(false);
+
+  const transitionLabels = props.transitionOptions.map(transitionLabel);
+  const labelToTransition: Record<string, string> = {};
+  props.transitionOptions.forEach((p, i) => {
+    labelToTransition[transitionLabels[i]] = p;
+  });
+
+  return (
+    <Section title="Admin Tools">
+      <Box italic color="label" mb={1}>
+        Drag any station node to reposition it on the map.
+      </Box>
+      <Stack mb={1} wrap>
+        <Button icon="play" color="good" onClick={props.onForceStart}>
+          Force Start
+        </Button>
+        <Button icon="stop" color="bad" onClick={props.onForceStop}>
+          Force Stop
+        </Button>
+        <Button
+          icon="eject"
+          color="bad"
+          disabled={!props.current_station}
+          onClick={props.onUnload}
+        >
+          Unload
+        </Button>
+      </Stack>
+      <Stack mb={1} wrap>
+        <Button icon="circle-plus" color="teal" onClick={props.onCreateStation}>
+          Create Station
+        </Button>
+        <Button icon="bug" onClick={props.onVV}>
+          VV
+        </Button>
+      </Stack>
+      <Stack mb={1} wrap>
+        <Button
+          icon="floppy-disk"
+          onClick={props.onExportPreset}
+          tooltip="Download the current layout as a preset (non-custom stations only)"
+        >
+          Save Preset
+        </Button>
+        <Button
+          icon="upload"
+          onClick={props.onImportPreset}
+          tooltip="Load a layout from a preset file"
+        >
+          Load Preset
+        </Button>
+      </Stack>
+
+      <Box bold mt={1} mb={0.5}>
+        Active Transition:
+      </Box>
+      <Stack mb={1} align="center">
+        <Stack.Item grow>
+          <Dropdown
+            width="100%"
+            selected={transitionLabel(props.currentTransition)}
+            options={transitionLabels}
+            onSelected={(label) =>
+              props.onChangeTransition(labelToTransition[label] ?? '', instant)
+            }
+          />
+        </Stack.Item>
+        <Stack.Item>
+          <Button.Checkbox
+            checked={instant}
+            tooltip="Apply instantly instead of animating the change"
+            onClick={() => setInstant(!instant)}
           >
-            {st.name}
-            {st.loaded ? ' (Loaded)' : ''}
+            Instant
+          </Button.Checkbox>
+        </Stack.Item>
+        <Stack.Item>
+          <Button icon="rotate-left" onClick={props.onResetTransition}>
+            Reset
           </Button>
-        ))
-      )}
-    </Box>
-  </Section>
-);
+        </Stack.Item>
+      </Stack>
+
+      <Box bold mt={1} mb={0.5}>
+        Force Load Station:
+      </Box>
+      <Box style={{ maxHeight: '180px', overflowY: 'auto' }}>
+        {props.all_stations.length === 0 ? (
+          <Box color="average">No stations registered.</Box>
+        ) : (
+          props.all_stations.map((st) => (
+            <Button
+              key={st.type}
+              fluid
+              icon="train"
+              color={st.loaded ? 'good' : 'default'}
+              onClick={() => props.onLoad(st.type)}
+            >
+              {st.name}
+              {st.loaded ? ' (Loaded)' : ''}
+            </Button>
+          ))
+        )}
+      </Box>
+    </Section>
+  );
+};
 
 type SelectedStationPanelProps = {
   selectedObject: TrainMapObject;
@@ -1186,13 +1268,36 @@ type StationEditorModalProps = {
   station: EditableStation;
   allStations: EditableStation[];
   nearOptions: NearStationOption[];
+  transitionOptions: string[];
   onSave: (draft: EditableStation) => void;
   onDelete: (ref: string) => void;
   onClose: () => void;
+  onVV: (ref: string) => void;
+  onAddAmbience: (ref: string) => void;
+  onRemoveAmbience: (ref: string, index: number) => void;
 };
 
 const StationEditorModal = (props: StationEditorModalProps) => {
-  const { station, allStations, nearOptions, onSave, onDelete, onClose } = props;
+  const {
+    station,
+    allStations,
+    nearOptions,
+    transitionOptions,
+    onSave,
+    onDelete,
+    onClose,
+    onVV,
+    onAddAmbience,
+    onRemoveAmbience,
+  } = props;
+
+  // None + every transition typepath, mapped to friendly labels.
+  const transitionChoices = ['', ...transitionOptions];
+  const transitionLabels = transitionChoices.map(transitionLabel);
+  const labelToPath: Record<string, string> = {};
+  transitionChoices.forEach((p, i) => {
+    labelToPath[transitionLabels[i]] = p;
+  });
   const [draft, setDraft] = useState<EditableStation>(() => ({
     ...station,
     connections: [...station.connections],
@@ -1230,6 +1335,11 @@ const StationEditorModal = (props: StationEditorModalProps) => {
           <Stack.Item grow bold fontSize="14px">
             {station.is_custom ? '🛠 ' : ''}
             Edit Station: {draft.name || 'Unnamed'}
+          </Stack.Item>
+          <Stack.Item>
+            <Button icon="bug" onClick={() => onVV(station.ref)}>
+              VV
+            </Button>
           </Stack.Item>
           <Stack.Item>
             <Button icon="times" color="transparent" onClick={onClose} />
@@ -1310,18 +1420,14 @@ const StationEditorModal = (props: StationEditorModalProps) => {
               </LabeledList.Item>
               <LabeledList.Item label="Max Visits">
                 <Button.Checkbox
-                  checked={!!draft.maximum_visits_unlimited}
+                  checked={draft.maximum_visits < 0}
                   onClick={() =>
-                    set({
-                      maximum_visits_unlimited: draft.maximum_visits_unlimited
-                        ? 0
-                        : 1,
-                    })
+                    set({ maximum_visits: draft.maximum_visits < 0 ? 1 : -1 })
                   }
                 >
                   Unlimited
                 </Button.Checkbox>
-                {!draft.maximum_visits_unlimited && (
+                {draft.maximum_visits >= 0 && (
                   <NumberInput
                     width="60px"
                     step={1}
@@ -1403,6 +1509,89 @@ const StationEditorModal = (props: StationEditorModalProps) => {
               ))
             )}
           </Section>
+
+          <Section title="Transitions">
+            <LabeledList>
+              <LabeledList.Item label="Enter Transition">
+                <Dropdown
+                  selected={transitionLabel(draft.enter_transition)}
+                  options={transitionLabels}
+                  onSelected={(label) =>
+                    set({ enter_transition: labelToPath[label] ?? '' })
+                  }
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Enter Time (s)">
+                <NumberInput
+                  width="60px"
+                  step={1}
+                  minValue={0}
+                  maxValue={3600}
+                  value={draft.enter_transition_time}
+                  onChange={(v) => set({ enter_transition_time: v })}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Exit Transition">
+                <Dropdown
+                  selected={transitionLabel(draft.exit_transition)}
+                  options={transitionLabels}
+                  onSelected={(label) =>
+                    set({ exit_transition: labelToPath[label] ?? '' })
+                  }
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Exit Time">
+                <Button.Checkbox
+                  checked={!!draft.exit_transition_time_persist}
+                  onClick={() =>
+                    set({
+                      exit_transition_time_persist:
+                        draft.exit_transition_time_persist ? 0 : 1,
+                    })
+                  }
+                >
+                  Keep until next change
+                </Button.Checkbox>
+                {!draft.exit_transition_time_persist && (
+                  <NumberInput
+                    width="60px"
+                    step={1}
+                    minValue={0}
+                    maxValue={3600}
+                    value={draft.exit_transition_time}
+                    onChange={(v) => set({ exit_transition_time: v })}
+                  />
+                )}
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+
+          <Section title="Ambience Sounds">
+            {station.ambience_sounds.length === 0 ? (
+              <Box color="label" italic mb={1}>
+                No ambience sounds.
+              </Box>
+            ) : (
+              station.ambience_sounds.map((snd, i) => (
+                <Box key={`${snd.name}-${i}`} mb={0.5}>
+                  <Button
+                    icon="times"
+                    color="bad"
+                    onClick={() => onRemoveAmbience(station.ref, i + 1)}
+                  />{' '}
+                  {snd.name} — {snd.duration}s loop
+                </Box>
+              ))
+            )}
+            <Button
+              mt={1}
+              icon="upload"
+              color="teal"
+              onClick={() => onAddAmbience(station.ref)}
+            >
+              Upload Sound
+            </Button>
+          </Section>
         </Box>
 
         <Stack mt={1}>
@@ -1456,6 +1645,8 @@ export const TrainControlTerminal = () => {
     all_stations = [],
     editable_stations = [],
     nearstation_options = [],
+    transition_options = [],
+    current_transition = '',
     map_data = { objects: [], paths: [], train: { x: 500, y: 500, angle: 0 } },
   } = data;
 
@@ -1476,7 +1667,9 @@ export const TrainControlTerminal = () => {
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
-  const didInitView = useRef(false);
+  // Stays centered on the train until the user first moves the view themselves,
+  // so the initial framing self-corrects across the first data/layout ticks.
+  const hasUserMovedView = useRef(false);
 
   // Active node drag (admin). In a ref so the mousemove handler stays stable.
   const nodeDragRef = useRef<{
@@ -1508,8 +1701,11 @@ export const TrainControlTerminal = () => {
   const centerOnTrain = useCallback(
     (targetScale: number = DEFAULT_SCALE) => {
       const t = getTrainTarget(map_data.train);
-      const w = viewport.width || 800;
-      const h = viewport.height || 600;
+      // Measure the pane synchronously - the `viewport` state can lag the real
+      // layout (e.g. before the side panel is sized), which throws off centering.
+      const rect = viewportRef.current?.getBoundingClientRect();
+      const w = rect?.width || viewport.width || 800;
+      const h = rect?.height || viewport.height || 600;
       setScale(targetScale);
       setOffsetX(w / 2 - t.x * targetScale);
       setOffsetY(h / 2 - t.y * targetScale);
@@ -1517,14 +1713,25 @@ export const TrainControlTerminal = () => {
     [map_data.train, viewport.width, viewport.height],
   );
 
-  // Auto-center on the train the first time we know the viewport size.
+  // Keep the view centered on the train until the user takes control. This
+  // re-runs as the viewport settles and data arrives, so the first framing is
+  // always correct (setState bails on identical values, so it doesn't thrash).
   useEffect(() => {
-    if (didInitView.current) return;
-    if (viewport.width > 0 && viewport.height > 0) {
-      didInitView.current = true;
+    if (hasUserMovedView.current) return;
+    if (
+      viewport.width > 0 &&
+      viewport.height > 0 &&
+      map_data.objects.length > 0
+    ) {
       centerOnTrain();
     }
-  }, [viewport.width, viewport.height, centerOnTrain]);
+  }, [
+    viewport.width,
+    viewport.height,
+    map_data.objects.length,
+    map_data.train,
+    centerOnTrain,
+  ]);
 
   // Follow-cam: keep the train centered as it moves.
   useEffect(() => {
@@ -1541,12 +1748,14 @@ export const TrainControlTerminal = () => {
     newOffsetX: number,
     newOffsetY: number,
   ) => {
+    hasUserMovedView.current = true;
     setScale(newScale);
     setOffsetX(newOffsetX);
     setOffsetY(newOffsetY);
   };
 
   const handleDragStart = (clientX: number, clientY: number) => {
+    hasUserMovedView.current = true;
     if (followTrain) setFollowTrain(false); // manual pan releases follow-cam
     setDragStart({ x: clientX - offsetX, y: clientY - offsetY });
   };
@@ -1660,8 +1869,10 @@ export const TrainControlTerminal = () => {
 
   // Zoom by a factor, keeping the viewport center pinned (used by +/- buttons).
   const zoomAtCenter = (factor: number) => {
-    const px = (viewport.width || 800) / 2;
-    const py = (viewport.height || 600) / 2;
+    hasUserMovedView.current = true;
+    const rect = viewportRef.current?.getBoundingClientRect();
+    const px = (rect?.width || viewport.width || 800) / 2;
+    const py = (rect?.height || viewport.height || 600) / 2;
     const newScale = Math.max(0.25, Math.min(4, scale * factor));
     setOffsetX(px - ((px - offsetX) / scale) * newScale);
     setOffsetY(py - ((py - offsetY) / scale) * newScale);
@@ -1692,11 +1903,14 @@ export const TrainControlTerminal = () => {
     prevRefsRef.current = cur;
   }, [editable_stations, pendingCreate]);
 
-  const createCargoStation = () => {
+  const createStation = () => {
     // Spawn at the world point currently under the viewport center.
-    const worldX = ((viewport.width || 800) / 2 - offsetX) / scale;
-    const worldY = ((viewport.height || 600) / 2 - offsetY) / scale;
-    act('create_cargo_station', {
+    const rect = viewportRef.current?.getBoundingClientRect();
+    const w = rect?.width || viewport.width || 800;
+    const h = rect?.height || viewport.height || 600;
+    const worldX = (w / 2 - offsetX) / scale;
+    const worldY = (h / 2 - offsetY) / scale;
+    act('create_station', {
       x: Math.round(worldX),
       y: Math.round(worldY),
     });
@@ -1715,11 +1929,15 @@ export const TrainControlTerminal = () => {
       required_password: draft.required_password ? 1 : 0,
       visible: draft.visible ? 1 : 0,
       required_stations: draft.required_stations,
-      maximum_visits_unlimited: draft.maximum_visits_unlimited ? 1 : 0,
       maximum_visits: draft.maximum_visits,
       station_flags: draft.station_flags,
       connections: draft.connections,
       nearstations: draft.nearstations,
+      enter_transition: draft.enter_transition,
+      exit_transition: draft.exit_transition,
+      enter_transition_time: draft.enter_transition_time,
+      exit_transition_time: draft.exit_transition_time,
+      exit_transition_time_persist: draft.exit_transition_time_persist ? 1 : 0,
     });
     setEditingRef(null);
   };
@@ -1851,8 +2069,19 @@ export const TrainControlTerminal = () => {
                   onForceStop={() => act('stop_moving')}
                   onUnload={() => act('unload_station')}
                   onLoad={(type) => act('load_station', { station_type: type })}
-                  onCreateCargo={createCargoStation}
+                  onCreateStation={createStation}
                   onVV={() => act('open_vv')}
+                  onExportPreset={() => act('export_preset')}
+                  onImportPreset={() => act('import_preset')}
+                  transitionOptions={transition_options}
+                  currentTransition={current_transition}
+                  onChangeTransition={(path, instant) =>
+                    act('change_transition', {
+                      transition: path,
+                      instant: instant ? 1 : 0,
+                    })
+                  }
+                  onResetTransition={() => act('reset_transition')}
                 />
               </>
             )}
@@ -1897,9 +2126,15 @@ export const TrainControlTerminal = () => {
             station={editingStation}
             allStations={editable_stations}
             nearOptions={nearstation_options}
+            transitionOptions={transition_options}
             onSave={saveStation}
             onDelete={deleteStation}
             onClose={() => setEditingRef(null)}
+            onVV={(ref) => act('vv_station', { ref })}
+            onAddAmbience={(ref) => act('add_ambience', { ref })}
+            onRemoveAmbience={(ref, index) =>
+              act('remove_ambience', { ref, index })
+            }
           />
         )}
       </Window.Content>
