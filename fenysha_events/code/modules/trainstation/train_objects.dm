@@ -130,6 +130,9 @@
 	canSmoothWith = NONE
 	can_flip = FALSE
 
+/obj/structure/table/train_shelf/make_climbable()
+	return
+
 /obj/structure/table/train_shelf/wood
 	name = "Wooden Train Car Shelf"
 	icon_state = "shelf_wood"
