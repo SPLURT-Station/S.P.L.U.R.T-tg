@@ -41,7 +41,7 @@
 
 /datum/trigger_type/hand_punch/proc/do_activate(mob/living/user)
 	parent.balloon_alert_to_viewers(balloon_text)
-	activate_immediate(list(user))
+	activate_immediate(list(user), user)
 
 
 /datum/trigger_type/hand_punch/right_click
@@ -73,7 +73,7 @@
 /datum/trigger_type/hand_punch/password/proc/finish_activate(mob/living/user)
 	if(QDELETED(src))
 		return
-	activate_immediate(list(user))
+	activate_immediate(list(user), user)
 
 
 /obj/effect/mapping_helpers/trigger_helper/hand_punch

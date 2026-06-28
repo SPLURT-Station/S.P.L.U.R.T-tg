@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(all_elevators, list())
 		var/list/turf_list = elevator_turfs_by_floor[floor]
 		for(var/turf/ET in turf_list)
 			if(T == ET)
-				return floor
+				return floor_to_num(floor)
 
 
 /datum/elevator/proc/unregister_door(obj/machinery/door/poddoor/story/elevator/D)
@@ -169,6 +169,7 @@ GLOBAL_LIST_INIT(all_elevators, list())
 
 /datum/elevator/proc/move_to_floor(target_floor)
 	if(target_floor == current_floor)
+		open_floor(current_floor)
 		return
 
 	if(!is_valid_floor(target_floor))
@@ -368,8 +369,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 		return TRUE
 
 	else if(!should_advanced_view && is_inside_elevator)
-		if(control.floor_amount() == control.is_elevatot_turf(get_turf(src)))
-			control.move_to_floor(control.floor_amount() - 1)
+		if(control.is_elevatot_turf(get_turf(src)) == control.current_floor)
+			control.move_to_floor(1)
 		else
 			control.move_to_floor(control.floor_amount())
 

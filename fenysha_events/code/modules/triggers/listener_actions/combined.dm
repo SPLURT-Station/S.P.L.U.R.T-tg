@@ -30,7 +30,7 @@
 		return (length(fired_signals) == length(signals))
 
 /datum/listener_type/combined/check_ready(mob/user, key)
-	if(main_trigger && key != main_trigger)
+	if(main_trigger && (key != main_trigger))
 		return TRUE
 
 	if(main_trigger && !(all_recived()))
@@ -46,7 +46,7 @@
 	if(!all_recived())
 		return
 
-	if(main_trigger && key != main_trigger)
+	if(main_trigger && (key != main_trigger))
 		return
 
 	real_action.apply_action(trigger, addiction_args_for_other, key)

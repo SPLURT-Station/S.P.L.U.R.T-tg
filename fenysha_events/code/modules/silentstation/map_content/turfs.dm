@@ -24,9 +24,38 @@
 	sheet_amount = 3
 	girder_type = null
 
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	flags_1 = SUPERMATTER_IGNORES_1
+
 
 /turf/closed/wall/city/Initialize(mapload)
 	. = ..()
+
+/turf/closed/wall/city/TerraformTurf(path, new_baseturf, flags, defer_change = FALSE, ignore_air = FALSE)
+	return
+
+/turf/closed/wall/city/acid_act(acidpwr, acid_volume, acid_id)
+	return FALSE
+
+/turf/closed/wall/city/Melt()
+	to_be_destroyed = FALSE
+	return src
+
+/turf/closed/wall/city/singularity_act()
+	return
+
+/turf/closed/wall/city/dismantle_wall()
+	return
+
+/turf/closed/wall/city/devastate_wall()
+	return
+
+/turf/closed/wall/city/ex_act(severity, target)
+	return
+
+
+/turf/closed/wall/city
+
 
 /turf/closed/wall/city/lower
 	icon_state = "low-0"

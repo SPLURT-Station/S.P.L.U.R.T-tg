@@ -54,7 +54,10 @@
 /datum/trigger_type/proc/check_ready(mob/user)
 	return TRUE
 
-/datum/trigger_type/proc/activate_immediate(list/arguments)
+/datum/trigger_type/proc/activate_immediate(list/arguments, datum/source)
+	if(!SStriggers.check_ready(trigger_key, source))
+		return
+
 	SStriggers.activate_trigger(trigger_key, src, arguments)
 	var/datum/component/trigger/C = trigger_component.resolve()
 	if(C)

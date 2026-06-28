@@ -37,13 +37,14 @@
 	var/disease_path = /datum/disease/khara
 	VAR_PRIVATE/used = FALSE
 
-/obj/item/khara_express_test/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(!is_reagent_container(attacking_item))
+
+/obj/item/khara_express_test/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!is_reagent_container(tool))
 		return ..()
 	if(used)
 		balloon_alert_to_viewers("Tester already used!")
 		return
-	perform_test(attacking_item, user)
+	perform_test(tool, user)
 
 /obj/item/khara_express_test/proc/perform_test(obj/item/reagent_containers/container, mob/living/user)
 	if(container.reagents.total_volume == 0)

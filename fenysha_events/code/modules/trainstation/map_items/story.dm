@@ -22,7 +22,15 @@
 	appearance_flags = LONG_GLIDE
 
 
+/obj/effect/decal/fakelattice/passthru
+	density = FALSE
+
+/obj/effect/decal/fakelattice/passthru/Initialize(mapload)
+	. = ..()
+	density = FALSE
+
 /obj/effect/decal/fakelattice/passthru/roof
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
 	layer = ABOVE_ALL_MOB_LAYER
+	density = FALSE

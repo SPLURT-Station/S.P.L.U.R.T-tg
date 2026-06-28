@@ -22,6 +22,7 @@
 			The voice on the air sounds tired and cracked, as if the recording has been re-recorded many times already."
 	creator = "Fenysha"
 	possible_nearstations = list(/datum/train_station/near_station/static_undeground)
+	ambience_sounds = list('fenysha_events/sounds/ambience/cityscape_hum.ogg' = 47 SECONDS)
 
 	station_type = TRAINSTATION_TYPE_CITY
 	threat_level = THREAT_LEVEL_DANGEROUS
@@ -151,12 +152,14 @@
 /datum/train_station/habitation
 	name = "Undeground Habitation"
 	creator = "Mold"
-	map_path = "_maps/modular_events/trainstation/warehouse.dmm"
+	map_path = "_maps/modular_events/trainstation/rapedungeon.dmm"
 	desc = "Unknown location"
 	threat_level = THREAT_LEVEL_DEADLY
 	region = TRAINSTATION_REGION_THUNDRA
 	station_flags = TRAINSTATION_NO_FORKS | TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING
+	environment_flags = ENVIRONMENT_UNDERGROUND
 
+	ambience_sounds = list('fenysha_events/sounds/ambience/rapedungeon_hum.ogg' = 44 SECONDS)
 	possible_nearstations = list(/datum/train_station/near_station/static_habitation)
 
 
