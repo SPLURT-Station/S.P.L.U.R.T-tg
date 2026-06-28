@@ -113,6 +113,13 @@ GLOBAL_LIST_INIT(all_elevators, list())
 		doors_by_floor[floor_key] = list()
 	doors_by_floor[floor_key] |= D
 
+/datum/elevator/proc/is_elevatot_turf(turf/T)
+	for(var/floor in elevator_turfs_by_floor)
+		var/list/turf_list = elevator_turfs_by_floor[floor]
+		for(var/turf/ET in turf_list)
+			if(T == ET)
+				return floor
+
 
 /datum/elevator/proc/unregister_door(obj/machinery/door/poddoor/story/elevator/D)
 	if(!D)
@@ -335,6 +342,7 @@ GLOBAL_LIST_INIT(all_elevators, list())
 	control = get_or_create_elevator(elevator_id)
 	control.register_button(src)
 	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Use elevator")
+	qdel(GetComponent(/datum/component/atom_mounted))
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 
@@ -345,16 +353,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 
 	return ..()
 
-
 /obj/machinery/button/elevator_control/interact(mob/user)
 	if(!control)
 		return FALSE
 
-	var/is_inside_elevator = FALSE
-	var/list/floor_turfs = control.get_floor_turfs(floor)
-	if(length(floor_turfs) && (get_turf(src) in floor_turfs))
-		is_inside_elevator = TRUE
 
+	var/is_inside_elevator = control.is_elevatot_turf(get_turf(src)) ? TRUE : FALSE
 	var/should_advanced_view = control.floor_amount() > 2
 
 	if(!is_inside_elevator)
@@ -364,7 +368,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 		return TRUE
 
 	else if(!should_advanced_view && is_inside_elevator)
-		if(control.floor_amount() == floor)
+		if(control.floor_amount() == control.is_elevatot_turf(get_turf(src)))
 			control.move_to_floor(control.floor_amount() - 1)
 		else
 			control.move_to_floor(control.floor_amount())
@@ -413,6 +417,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
 		control.unregister_door(src)
 
 	return ..()
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible/open(forced)
+	. = ..()
+	opacity = FALSE
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible/close(forced)
+	. = ..()
+	opacity = FALSE
 
 /obj/effect/mapping_helpers/elevator_turf_marker
 	name = "Elevator Turf Marker"

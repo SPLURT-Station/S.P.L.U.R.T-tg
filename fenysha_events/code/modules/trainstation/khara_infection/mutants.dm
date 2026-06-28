@@ -636,6 +636,9 @@
 
 /mob/living/basic/khara_mutant/spreader/Initialize(mapload)
 	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(start_spread)), 10 SECONDS)
+
+/mob/living/basic/khara_mutant/spreader/proc/start_spread()
 	SSweather.run_weather(/datum/weather/khara_infection)
 
 /mob/living/basic/khara_mutant/spreader/Destroy()

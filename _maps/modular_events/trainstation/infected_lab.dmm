@@ -41,6 +41,11 @@
 /obj/item/stack/sheet/mineral/diamond/five,
 /turf/open/floor/iron/shuttle/cargo,
 /area/trainstation/indoors/station/powered)
+"ao" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "ap" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 2;
@@ -429,9 +434,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
+"cI" = (
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "cL" = (
 /obj/structure/barricade/security,
 /turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
+"cN" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "cO" = (
 /obj/effect/turf_decal/siding/dark{
@@ -544,6 +561,9 @@
 "dr" = (
 /obj/structure/elevator_platfrom,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2"
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
 "du" = (
@@ -705,6 +725,11 @@
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/white/side,
 /area/trainstation/indoors/station/powered)
+"eo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "eq" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/smooth_large,
@@ -810,6 +835,9 @@
 /area/trainstation/outdoor/station/no_build)
 "fk" = (
 /obj/structure/elevator_platfrom,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st1"
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
 "fq" = (
@@ -1178,6 +1206,10 @@
 /obj/structure/ore_box,
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"hl" = (
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/floor/iron/white/small,
+/area/trainstation/indoors/station/powered)
 "hm" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/white/side,
@@ -1436,14 +1468,19 @@
 /area/trainstation/outdoor/station/no_build)
 "iW" = (
 /obj/structure/elevator_platfrom,
-/obj/machinery/button/elevator_control/directional/north,
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "gz_st1"
+	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st1"
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
 "iX" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/gun/ballistic/automatic/sol_rifle/no_mag,
-/turf/open/indestructible/train_platform,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "jc" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1479,6 +1516,13 @@
 /obj/effect/gibspawner/human,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"jk" = (
+/obj/structure/elevator_platfrom,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2"
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors)
 "jn" = (
 /obj/effect/spawner/structure/window/hollow/middle{
 	dir = 1
@@ -1508,7 +1552,9 @@
 	elevator_id = "gz_lab";
 	floor = 4
 	},
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/south{
+	can_elevate = 0
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/station/powered)
 "jt" = (
@@ -1696,7 +1742,10 @@
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
 "kr" = (
-/obj/machinery/button/elevator_control/directional/west,
+/obj/machinery/button/elevator_control/directional/west{
+	elevator_id = "gz_st2";
+	floor = 2
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
@@ -1706,6 +1755,17 @@
 /obj/item/shard,
 /turf/open/floor/plating,
 /area/trainstation/outdoor/station/no_build)
+"kt" = (
+/obj/structure/elevator_platfrom,
+/obj/machinery/button/elevator_control/directional/north{
+	elevator_id = "gz_st2"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2"
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors)
 "ku" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1793,7 +1853,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/story/elevator,
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "gz_st1"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors)
 "kR" = (
@@ -1998,6 +2060,16 @@
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
+"lT" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_lab";
+	floor = 2
+	},
+/obj/machinery/light/red/directional/south{
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
 "lU" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/right/directional/east,
@@ -2043,8 +2115,14 @@
 	pixel_x = -11;
 	pixel_y = 1
 	},
+/mob/living/basic/khara_mutant/flesh_human,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"mg" = (
+/obj/structure/meateor_fluff/eyeball,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "mj" = (
 /obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
 /turf/open/misc/asphalt,
@@ -2080,15 +2158,12 @@
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
 "mr" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab";
-	floor = 2
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab";
-	floor = 3
-	},
-/turf/open/floor/plating/elevatorshaft,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
+"ms" = (
+/mob/living/basic/khara_mutant/crusher,
+/turf/open/floor/iron/white/small,
 /area/trainstation/indoors/station/powered)
 "mu" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2098,13 +2173,15 @@
 /area/trainstation/outdoor/station/no_build)
 "mA" = (
 /obj/item/shard,
+/mob/living/basic/khara_mutant/crusher,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "mB" = (
-/obj/structure/elevator_platfrom,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/station/powered)
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/glass,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "mC" = (
 /obj/effect/decal/fakelattice,
 /turf/open/misc/asphalt/no_border,
@@ -2160,6 +2237,20 @@
 	},
 /turf/open/indestructible/plating,
 /area/trainstation/indoors/station/powered)
+"na" = (
+/obj/effect/turf_decal/tile/neutral/tram,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"ng" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "nk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood,
@@ -2189,8 +2280,14 @@
 	pixel_x = 7;
 	pixel_y = 3
 	},
+/mob/living/basic/khara_mutant/flesh_human,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors)
+"no" = (
+/obj/effect/gibspawner/human,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "np" = (
 /obj/item/stack/sheet/mineral/wood/fifty,
 /turf/open/misc/asphalt/no_border,
@@ -2204,7 +2301,9 @@
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "nt" = (
-/obj/machinery/button/elevator_control/directional/west,
+/obj/machinery/button/elevator_control/directional/west{
+	elevator_id = "gz_st2"
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors)
@@ -2392,6 +2491,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"om" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
 "oo" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/trash_pile,
@@ -2411,6 +2517,12 @@
 /obj/item/melee/baton,
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors/station/powered)
+"ow" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "oA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille/broken,
@@ -2474,6 +2586,11 @@
 	dir = 1
 	},
 /area/trainstation/outdoor/station/no_build)
+"pb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "pc" = (
 /obj/effect/decal/fakelattice,
 /turf/open/indestructible/white/textured,
@@ -2481,6 +2598,12 @@
 "pd" = (
 /turf/closed/wall/city/siding/red/style/style_2,
 /area/trainstation/outdoor/station/no_build)
+"pe" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "pf" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
@@ -2558,6 +2681,11 @@
 	dir = 1
 	},
 /area/trainstation/indoors/station/powered)
+"pC" = (
+/obj/structure/meateor_fluff/eyeball,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors)
 "pH" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/glass,
@@ -2777,6 +2905,10 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"qO" = (
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "qR" = (
 /obj/structure/railing/unbreakable{
 	dir = 5
@@ -2934,6 +3066,11 @@
 /obj/structure/barricade/sandbags,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
+"ry" = (
+/obj/effect/decal/cleanable/glass,
+/mob/living/basic/khara_mutant/crusher,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "rA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
@@ -2966,6 +3103,10 @@
 /obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/indoors/station/powered)
+"rI" = (
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "rL" = (
 /turf/open/space/basic,
 /area/trainstation/indoors/station/powered)
@@ -3286,7 +3427,6 @@
 /obj/effect/decal/cleanable/blood/trail{
 	dir = 10
 	},
-/obj/item/gun/ballistic/automatic/sol_rifle,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "ts" = (
@@ -3461,6 +3601,11 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"un" = (
+/obj/structure/meateor_fluff/eyeball,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "uq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3477,6 +3622,7 @@
 /obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 9
 	},
+/mob/living/basic/khara_mutant/flesh_spider,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "uz" = (
@@ -3518,6 +3664,13 @@
 /obj/item/stack/rods,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"uM" = (
+/obj/effect/decal/cleanable/blood/old{
+	icon_state = "splatter6"
+	},
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "uN" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "splatter3"
@@ -3619,7 +3772,6 @@
 /obj/structure/deployable_barricade/metal{
 	dir = 8
 	},
-/obj/item/gun/ballistic/automatic/sol_rifle/machinegun,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "vv" = (
@@ -3724,8 +3876,15 @@
 "vR" = (
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"vS" = (
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "vW" = (
-/obj/machinery/button/elevator_control/directional/east,
+/obj/machinery/button/elevator_control/directional/east{
+	elevator_id = "gz_st1";
+	floor = 2
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
@@ -3778,6 +3937,15 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
+"wu" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_lab"
+	},
+/obj/machinery/light/red/directional/south{
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
 "ww" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -4048,6 +4216,11 @@
 /obj/structure/prop/general/multimonitormedium_on,
 /turf/closed/indestructible/reinforced/titanium/nodiagonal,
 /area/trainstation/indoors/station/powered)
+"xD" = (
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/basic/khara_mutant/flesh_spider,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "xE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4056,6 +4229,11 @@
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
+/area/trainstation/outdoor/station/no_build)
+"xH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "xI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4069,7 +4247,9 @@
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "xO" = (
-/obj/machinery/button/elevator_control/directional/east,
+/obj/machinery/button/elevator_control/directional/east{
+	elevator_id = "gz_st1"
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/glass,
@@ -4084,6 +4264,11 @@
 /obj/item/ammo_box/magazine/c40sol_rifle/drum/starts_empty,
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
+"xV" = (
+/obj/effect/decal/cleanable/blood,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "xW" = (
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/iron/white/small,
@@ -4235,15 +4420,13 @@
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "yN" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab";
-	floor = 2
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
 	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab"
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/trainstation/indoors/station/powered)
+/area/trainstation/outdoor/station/no_build)
 "yP" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -4270,6 +4453,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"yU" = (
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 9
+	},
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "yW" = (
 /obj/structure/statue/bone/rib{
@@ -4438,7 +4628,12 @@
 /area/trainstation/indoors/station/controll)
 "zO" = (
 /obj/structure/elevator_platfrom,
-/obj/machinery/light/small/dim/directional/north,
+/obj/machinery/light/small/dim/directional/north{
+	can_elevate = 0
+	},
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st1"
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors)
 "zQ" = (
@@ -4453,15 +4648,9 @@
 /turf/open/indestructible/dark/textured,
 /area/trainstation/indoors/station/controll)
 "zU" = (
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab";
-	floor = 2
-	},
-/obj/effect/mapping_helpers/elevator_turf_marker{
-	elevator_id = "gz_lab";
-	floor = 2
-	},
-/turf/open/floor/plating/elevatorshaft,
+/obj/effect/decal/cleanable/blood,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/white/small,
 /area/trainstation/indoors/station/powered)
 "zV" = (
 /obj/effect/turf_decal/stripes/line{
@@ -4470,7 +4659,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/story/elevator,
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "gz_st2";
+	floor = 2
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
 "zW" = (
@@ -4930,6 +5122,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
+"CF" = (
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/floor/iron/white/small,
+/area/trainstation/indoors/station/powered)
 "CN" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/iron/shuttle/exploration/side{
@@ -5057,9 +5253,10 @@
 /turf/open/floor/iron/white/small,
 /area/trainstation/indoors/station/powered)
 "Dv" = (
-/obj/structure/elevator_platfrom,
-/obj/machinery/button/elevator_control/directional/north,
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2";
+	floor = 2
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/station/powered)
 "Dw" = (
@@ -5076,6 +5273,11 @@
 /obj/structure/closet/cardboard,
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
+"DG" = (
+/obj/structure/marker_beacon/burgundy,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
 "DI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_half,
@@ -5299,6 +5501,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
+"EW" = (
+/obj/effect/decal/cleanable/glass,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/misc/asphalt,
+/area/trainstation/outdoor/station/no_build)
 "Fa" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5434,6 +5641,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors)
+"Gl" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2";
+	floor = 2
+	},
+/obj/machinery/light/small/dim/directional/north{
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
 "Gm" = (
 /obj/structure/table/optable,
 /obj/effect/decal/cleanable/blood,
@@ -5697,6 +5914,16 @@
 	dir = 1
 	},
 /area/trainstation/outdoor/station/no_build)
+"Id" = (
+/obj/structure/elevator_platfrom,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st2"
+	},
+/obj/machinery/light/small/dim/directional/north{
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors)
 "Ie" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/meat,
@@ -6005,6 +6232,11 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
+"Ka" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/reaper,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "Kc" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 4
@@ -6149,6 +6381,11 @@
 	color = "#d66569"
 	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
+/area/trainstation/outdoor/station/no_build)
+"KW" = (
+/obj/effect/mapping_helpers/broken_floor,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
 "KY" = (
 /obj/effect/decal/cleanable/blood/splatter{
@@ -6319,7 +6556,10 @@
 /turf/open/floor/iron/white,
 /area/trainstation/indoors/station/powered)
 "Mk" = (
-/obj/structure/elevator_platfrom,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st1";
+	floor = 2
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/station/powered)
 "Mm" = (
@@ -6435,6 +6675,10 @@
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"MX" = (
+/mob/living/basic/khara_mutant/flesh_spider,
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/outdoor/station/no_build)
 "MZ" = (
 /obj/effect/decal/cleanable/glass,
 /turf/open/indestructible/white/textured,
@@ -6506,6 +6750,13 @@
 /obj/effect/mapping_helpers/turf_cracks/heavy,
 /turf/closed/wall/city/siding/red,
 /area/trainstation/outdoor/station/no_build)
+"Nu" = (
+/obj/structure/statue/bone/rib{
+	dir = 4
+	},
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "Nx" = (
 /obj/item/stack/sheet/mineral/sandbags/fifty,
 /turf/open/misc/asphalt,
@@ -6585,6 +6836,8 @@
 	pixel_x = 6;
 	pixel_y = 7
 	},
+/mob/living/basic/khara_mutant/flesh_human,
+/mob/living/basic/khara_mutant/flesh_human,
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
 "Oh" = (
@@ -6769,6 +7022,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
+"Pt" = (
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_lab";
+	floor = 3
+	},
+/obj/machinery/light/red/directional/south{
+	can_elevate = 0
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
 "PA" = (
 /obj/structure/closet/preopen,
 /turf/open/floor/iron/white/corner{
@@ -6922,7 +7185,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/story/elevator,
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "gz_st2"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors)
 "QI" = (
@@ -7009,6 +7274,15 @@
 	},
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"Rf" = (
+/obj/machinery/door/poddoor/story,
+/obj/effect/mapping_helpers/listener_helper/open_door{
+	listener_key = "gaz_centraol";
+	name = "lab_maindoors";
+	EDITOR_TARGET = /obj/machinery/door/poddoor/story
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/outdoor/station/no_build)
 "Rg" = (
 /obj/structure/barricade/wooden,
 /turf/open/indestructible/meat,
@@ -7061,6 +7335,11 @@
 /obj/structure/closet/cardboard,
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
+"Rv" = (
+/mob/living/basic/khara_mutant/flesh_human,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "Rw" = (
 /obj/structure/decorative{
 	anchored = 1;
@@ -7077,6 +7356,25 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors)
+"Ry" = (
+/mob/living/basic/khara_mutant/flesh_spider,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
+"RA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_use_time = 15;
+	EDITOR_balloon = "The security doors were successfully opened. Have a nice day.";
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "gaz_centraol"
+	},
+/obj/machinery/computer{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/trainstation/outdoor/station/no_build)
 "RB" = (
 /obj/structure/prop/general/barrel_tan,
 /turf/open/floor/iron/white/side{
@@ -7262,7 +7560,7 @@
 	EDITOR_use_time = 15;
 	EDITOR_balloon = "The security doors were successfully opened. Have a nice day.";
 	EDITOR_TARGET = /obj/machinery/computer;
-	trigger_key = "lab_maindoors"
+	trigger_key = "gaz_central"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7312,6 +7610,11 @@
 	dir = 1
 	},
 /area/trainstation/indoors/station/powered)
+"SG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/misc/asphalt/no_border,
+/area/trainstation/indoors/station/powered)
 "SJ" = (
 /obj/structure/barricade/sandbags,
 /obj/effect/decal/fakelattice,
@@ -7328,6 +7631,7 @@
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "vomit_2"
 	},
+/mob/living/basic/khara_mutant/arachnid,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "SV" = (
@@ -7417,6 +7721,11 @@
 /obj/item/ammo_box/magazine/m9mm,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"Tv" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
 "TA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7451,6 +7760,25 @@
 /obj/structure/barricade/sandbags,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
+"TH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 1
+	},
+/mob/living/basic/khara_mutant/flesh_spider,
+/turf/open/floor/iron/shuttle/exploration/side{
+	dir = 1
+	},
+/area/trainstation/outdoor/station/no_build)
+"TI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/paper/stack{
+	dir = 9
+	},
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/white/textured,
+/area/trainstation/indoors/station/powered)
 "TK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7563,6 +7891,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/smooth_large,
 /area/trainstation/outdoor/station/no_build)
+"Up" = (
+/mob/living/basic/khara_mutant/crusher,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "Uq" = (
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /turf/open/misc/asphalt/no_border,
@@ -7922,6 +8254,10 @@
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
+"WK" = (
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/outdoor/station/no_build)
 "WL" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
@@ -8138,9 +8474,20 @@
 	},
 /area/trainstation/indoors/station/controll)
 "Yj" = (
-/obj/structure/elevator_platfrom,
-/obj/machinery/light/small/dim/directional/north,
+/obj/effect/mapping_helpers/elevator_turf_marker{
+	elevator_id = "gz_st1";
+	floor = 2
+	},
+/obj/machinery/light/small/dim/directional/north{
+	can_elevate = 0
+	},
 /turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
+"Yk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Yo" = (
 /obj/effect/turf_decal/stripes/line,
@@ -8195,6 +8542,11 @@
 	},
 /turf/open/indestructible/meat,
 /area/trainstation/indoors/station/powered)
+"YG" = (
+/obj/effect/gibspawner/human,
+/mob/living/basic/khara_mutant/flesh_human,
+/turf/open/indestructible/meat,
+/area/trainstation/indoors/station/powered)
 "YH" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
@@ -8208,6 +8560,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/exploration/side,
+/area/trainstation/outdoor/station/no_build)
+"YN" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/mob/living/basic/khara_mutant/arachnid,
+/turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "YO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8376,7 +8735,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/story/elevator,
+/obj/machinery/door/poddoor/story/elevator{
+	elevator_id = "gz_st1";
+	floor = 2
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/trainstation/indoors/station/powered)
 "ZI" = (
@@ -8593,8 +8955,8 @@ fX
 bn
 bn
 sh
-Yj
-mB
+Gl
+Dv
 sh
 bn
 bn
@@ -8628,7 +8990,7 @@ qF
 HK
 cr
 GC
-zO
+Id
 dr
 GC
 cr
@@ -8656,7 +9018,7 @@ bn
 bn
 sh
 Dv
-Mk
+Dv
 sh
 bn
 bn
@@ -8690,8 +9052,8 @@ VM
 cr
 cr
 GC
-iW
-fk
+kt
+jk
 GC
 cr
 "}
@@ -9027,7 +9389,7 @@ RG
 bn
 bn
 sh
-Dv
+Mk
 Mk
 sh
 bn
@@ -9350,7 +9712,7 @@ jQ
 vR
 jQ
 jQ
-vR
+WK
 NT
 Vt
 Ie
@@ -10031,7 +10393,7 @@ yt
 YA
 rT
 dT
-wo
+na
 dT
 pa
 BP
@@ -10039,7 +10401,7 @@ BP
 bq
 ti
 NT
-hI
+pC
 NT
 yb
 NT
@@ -10129,7 +10491,7 @@ Va
 CY
 gw
 eF
-iX
+gj
 qA
 hp
 AI
@@ -10527,7 +10889,7 @@ ti
 rc
 rT
 dT
-vY
+ao
 Hq
 uY
 Tq
@@ -10773,7 +11135,7 @@ gM
 gM
 ll
 ti
-rT
+eo
 HV
 kR
 Nz
@@ -11098,7 +11460,7 @@ cW
 YP
 YP
 YP
-JZ
+xD
 YP
 qW
 TU
@@ -11145,7 +11507,7 @@ gM
 ll
 Qt
 Qt
-Dk
+Ry
 dT
 NN
 dT
@@ -11158,9 +11520,9 @@ Qt
 Qt
 Qt
 np
+MX
 ti
-ti
-ti
+MX
 ti
 mL
 mL
@@ -11211,7 +11573,7 @@ rT
 dT
 dT
 HV
-QL
+yN
 nN
 wV
 wV
@@ -11273,7 +11635,7 @@ rT
 dT
 vY
 Km
-pa
+om
 il
 wV
 lK
@@ -11583,7 +11945,7 @@ rT
 zp
 Rm
 nm
-RD
+TH
 Qt
 wV
 lK
@@ -11604,7 +11966,7 @@ lK
 wV
 Qt
 YP
-it
+uM
 YP
 vD
 wV
@@ -11642,7 +12004,7 @@ xt
 jG
 ti
 Dk
-pZ
+mB
 kN
 Nz
 Dq
@@ -12027,7 +12389,7 @@ RP
 BP
 MQ
 ti
-uy
+yU
 oj
 Ek
 BP
@@ -12214,7 +12576,7 @@ jG
 ti
 ti
 ti
-ti
+MX
 Ac
 jG
 wV
@@ -12264,7 +12626,7 @@ rc
 rT
 dT
 vY
-HV
+xH
 pa
 Qt
 wV
@@ -12273,7 +12635,7 @@ lK
 lK
 wV
 Qt
-Uj
+RA
 Uj
 Uj
 Uj
@@ -12335,7 +12697,7 @@ lK
 lK
 wV
 wK
-NH
+Rf
 NH
 NH
 NH
@@ -12822,7 +13184,7 @@ sm
 ZX
 Ut
 Ze
-tE
+Ka
 jQ
 mL
 mL
@@ -12900,7 +13262,7 @@ vR
 vR
 vR
 vR
-vR
+mr
 vR
 vR
 vR
@@ -13012,7 +13374,7 @@ GN
 GN
 uz
 vR
-vR
+mr
 Ih
 tE
 rP
@@ -13194,7 +13556,7 @@ lK
 wV
 Ni
 vR
-iq
+cI
 Vi
 RP
 RP
@@ -13262,7 +13624,7 @@ yr
 yr
 bp
 vR
-vR
+rI
 bp
 sY
 AO
@@ -13275,7 +13637,7 @@ gN
 vR
 Dw
 Uo
-Uo
+KW
 Ep
 YP
 JZ
@@ -13333,7 +13695,7 @@ mL
 mL
 mL
 vR
-bp
+mg
 nW
 vR
 Dw
@@ -13390,7 +13752,7 @@ FA
 mL
 mL
 Zo
-gN
+no
 vR
 nW
 vR
@@ -13571,7 +13933,7 @@ vR
 mL
 mL
 vR
-vR
+rI
 mL
 mL
 RP
@@ -13619,7 +13981,7 @@ ll
 ll
 vR
 vR
-vR
+mr
 vR
 vR
 iq
@@ -13627,7 +13989,7 @@ Wk
 vR
 iq
 vR
-tE
+Ka
 bp
 vR
 tE
@@ -13764,7 +14126,7 @@ mL
 vR
 vR
 vR
-bp
+mg
 vR
 gN
 vR
@@ -13775,7 +14137,7 @@ ke
 Dw
 YP
 YP
-Ma
+YN
 mL
 wV
 "}
@@ -13833,7 +14195,7 @@ GN
 GN
 EU
 EU
-EU
+cN
 Pl
 gG
 AE
@@ -13937,7 +14299,7 @@ Sk
 oi
 Rn
 rT
-HV
+pb
 dT
 HV
 QL
@@ -15735,7 +16097,7 @@ mL
 RP
 YP
 rT
-zp
+ry
 gB
 dT
 ZI
@@ -15861,7 +16223,7 @@ lc
 Dk
 Ol
 Tn
-QP
+DG
 so
 ti
 ti
@@ -15920,7 +16282,7 @@ wV
 mL
 RP
 ZV
-rT
+Tv
 dT
 HV
 Km
@@ -16723,7 +17085,7 @@ id
 hP
 jj
 PI
-XW
+ms
 de
 SX
 ix
@@ -16734,8 +17096,8 @@ wJ
 SX
 Cl
 XW
-PI
-oi
+vS
+un
 hP
 id
 rL
@@ -16795,9 +17157,9 @@ ZC
 ix
 rl
 de
-Du
+zU
 XW
-Lj
+xV
 hP
 id
 rL
@@ -16859,7 +17221,7 @@ wJ
 ZU
 XW
 Og
-PI
+Rv
 hP
 id
 rL
@@ -16921,7 +17283,7 @@ SX
 ZU
 XW
 me
-jj
+YG
 hP
 id
 rL
@@ -16970,8 +17332,8 @@ rL
 id
 hP
 PI
-XW
-XW
+CF
+hl
 rp
 SX
 ix
@@ -16983,7 +17345,7 @@ pi
 wL
 XW
 Lj
-PI
+Up
 hP
 id
 rL
@@ -17045,7 +17407,7 @@ SX
 rp
 XW
 oi
-PI
+vS
 hP
 id
 rL
@@ -17094,7 +17456,7 @@ rL
 id
 Qb
 xW
-Du
+zU
 XW
 ZU
 wJ
@@ -17107,7 +17469,7 @@ Ea
 rp
 XW
 PI
-bc
+Nu
 hP
 id
 rL
@@ -17168,7 +17530,7 @@ wJ
 wJ
 ZU
 XW
-PI
+qO
 PI
 hP
 id
@@ -17345,12 +17707,12 @@ id
 id
 id
 pr
+iX
 fM
-fM
-lt
+Yk
 In
 In
-ZN
+TI
 ZN
 pr
 id
@@ -17408,12 +17770,12 @@ rL
 id
 pr
 fM
+iX
 fM
-fM
-fM
+iX
 gX
 uA
-fM
+iX
 pr
 id
 rL
@@ -17532,7 +17894,7 @@ id
 id
 pr
 fM
-gX
+SG
 gX
 dp
 dp
@@ -18903,7 +19265,7 @@ lt
 fM
 cb
 oc
-zU
+Eu
 Eu
 Eu
 pr
@@ -18967,7 +19329,7 @@ Oh
 oc
 Eu
 Eu
-Eu
+lT
 pr
 id
 rL
@@ -19352,7 +19714,7 @@ IT
 aZ
 IT
 Js
-mr
+Fh
 Fh
 Fh
 pr
@@ -19411,12 +19773,12 @@ rL
 id
 Rn
 fE
-aZ
+pe
 PI
 Js
 Fh
 Fh
-Fh
+Pt
 pr
 Rn
 id
@@ -21563,7 +21925,7 @@ vR
 jQ
 YP
 dm
-UN
+ng
 zn
 NV
 Ok
@@ -21614,7 +21976,7 @@ rN
 hv
 kd
 kd
-bH
+EW
 YP
 bH
 UN
@@ -21927,7 +22289,7 @@ kd
 YP
 bH
 vR
-Zk
+ow
 vR
 vR
 vR
@@ -21936,7 +22298,7 @@ YP
 vR
 vR
 Zk
-vR
+rI
 YP
 UN
 kd
@@ -22330,7 +22692,7 @@ jZ
 Cm
 Oh
 hh
-yN
+ZZ
 ZZ
 ZZ
 pr
@@ -22394,7 +22756,7 @@ Oh
 hh
 ZZ
 ZZ
-ZZ
+wu
 pr
 "}
 (226,1,1) = {"

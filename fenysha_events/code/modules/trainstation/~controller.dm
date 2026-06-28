@@ -132,6 +132,7 @@ SUBSYSTEM_DEF(train_controller)
 	global_map.generate()
 
 	transition_theme = new /datum/moving_turf_transition/plain_snow() /// TODO: Make it normaly
+	transition_theme.process_instant()
 
 	load_map()
 
@@ -310,6 +311,7 @@ SUBSYSTEM_DEF(train_controller)
 
 	var/result = to_load.load_station(CALLBACK(src, PROC_REF(on_station_loaded)))
 	SSdaylight.reapply_lighting()
+	loaded_station.setup_environment()
 
 	if(screens && islist(screens) && length(screens))
 		for(var/mob/living/L in screens)

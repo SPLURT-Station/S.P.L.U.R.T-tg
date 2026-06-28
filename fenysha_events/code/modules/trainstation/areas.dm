@@ -2,6 +2,8 @@
 	icon = 'fenysha_events/icons/area/trainareas.dmi'
 	icon_state = "trainstation13"
 
+	var/affected_by_environment = FALSE
+
 /* OUTDOOR AREAS */
 
 /area/trainstation/outdoor
@@ -29,7 +31,7 @@
 /area/trainstation/outdoor/rails
 	name = "Railways"
 	icon_state = "rails"
-
+	affected_by_environment = TRUE
 
 /area/trainstation/outdoor/station
 	name = "Station"

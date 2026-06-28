@@ -20,11 +20,13 @@
 			The scientific center of the region: dozens of research institutes belonging to the largest corporations. \
 			Now the radio beacon broadcasts a looped evacuation message that began three days ago. \
 			The voice on the air sounds tired and cracked, as if the recording has been re-recorded many times already."
-	creator = "Fenysha & v1s1ti"
+	creator = "Fenysha"
+	possible_nearstations = list(/datum/train_station/near_station/static_undeground)
 
 	station_type = TRAINSTATION_TYPE_CITY
 	threat_level = THREAT_LEVEL_DANGEROUS
 	region = TRAINSTATION_REGION_THUNDRA
+	environment_flags = ENVIRONMENT_UNDERGROUND
 	station_flags = TRAINSTATION_NO_SELECTION | TRAINSTATION_BLOCKING | TRAINSTATION_LOCAL_CENTER
 
 

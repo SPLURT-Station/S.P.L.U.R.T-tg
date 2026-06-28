@@ -29,6 +29,8 @@
 	var/station_type = "unknown"
 
 
+	var/environment_flags = NONE
+
 	/// Overmap object representing this station
 	var/datum/trainmap_object/map_object
 	/// Path to the station map, automatically creates a template for it
@@ -251,8 +253,32 @@
 	if(station_loop_sound)
 		station_loop_sound.start()
 
+/datum/train_station/proc/setup_environment()
+	if(environment_flags & ENVIRONMENT_UNDERGROUND)
+		for(var/area/trainstation/TA in GLOB.areas)
+			if(QDELETED(TA) || !TA.affected_by_environment)
+				continue
+
+			TA.daylight = FALSE
+			TA.outdoors = FALSE
+			TA.remove_daylight()
+		var/datum/moving_turf_transition/undeground/TT = new()
+		TT.process_instant()
+		qdel(TT)
+
+/datum/train_station/proc/clear_environment()
+	if(environment_flags & ENVIRONMENT_UNDERGROUND)
+		for(var/area/trainstation/TA in GLOB.areas)
+			if(QDELETED(TA) || !TA.affected_by_environment)
+				continue
+
+			TA.daylight = initial(TA.daylight)
+			if(TA.daylight)
+				TA.initialize_daylight()
+			TA.outdoors = initial(TA.outdoors)
+
 /datum/train_station/proc/pre_unload()
-	return
+	clear_environment()
 
 /datum/train_station/proc/unload_station(datum/callback/unload_callback)
 	SHOULD_NOT_OVERRIDE(TRUE)
