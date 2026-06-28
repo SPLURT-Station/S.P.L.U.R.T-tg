@@ -407,7 +407,7 @@
 
 
 /datum/component/plumbing/steam_turbine
-	supply_connects = EAST | WEST
+	supply_connects = NORTH | SOUTH
 
 
 /obj/machinery/computer/train_turbine_computer
