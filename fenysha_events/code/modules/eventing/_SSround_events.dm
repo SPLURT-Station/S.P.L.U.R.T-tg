@@ -93,6 +93,7 @@ SUBSYSTEM_DEF(round_events)
 /datum/controller/subsystem/round_events/fire(resumed)
 	if(!active_event)
 		flags |= SS_NO_FIRE
+		return
 	active_event.event_process(resumed)
 
 
