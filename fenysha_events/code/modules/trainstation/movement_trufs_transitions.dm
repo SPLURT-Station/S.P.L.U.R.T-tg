@@ -740,7 +740,8 @@
 
 
 /datum/moving_turf_transition/void
-	change_spawn_theme = /obj/structure/prop/big/khara_capsule
+	change_spawn_theme = /datum/train_object_spawner_theme/khara_capsules
+	rail_theme = RAIL_THEME_VOID
 	transition_options = list(
 		TRANSITION_GROUP_1  = TRANSITION_OPTION_VOID_DENSE,
 		TRANSITION_GROUP_2  = TRANSITION_OPTION_VOID,

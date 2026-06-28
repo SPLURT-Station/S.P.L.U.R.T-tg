@@ -84,7 +84,7 @@
 	typepath = /datum/round_event/train_event/temporary_change_theme/they
 
 	selected_theme = /datum/train_object_spawner_theme/they
-	duration = 120
+	duration = 50
 
 /datum/round_event/train_event/temporary_change_theme/they
 	var/datum/looping_sound/global_sound/their_sound = null
@@ -122,3 +122,7 @@
 	their_sound.stop()
 	QDEL_NULL(their_sound)
 	. = ..()
+
+/datum/round_event_control/train_event/temporary_change_theme/they/khara
+	name = "Setup khara bunker theme"
+	selected_theme = /datum/train_object_spawner_theme/khara_capsules
