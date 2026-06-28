@@ -182,6 +182,8 @@
 
 
 /datum/action/cooldown/mob_cooldown/aoe_slash/proc/do_slash(turf/target)
+	if(get_dist(target, owner) > 1)
+		return
 	owner.do_attack_animation(target, ATTACK_EFFECT_SLASH)
 	new /obj/effect/temp_visual/huge_slash(target, target, world.icon_size / 2, world.icon_size / 2, slash_color)
 
@@ -259,7 +261,11 @@
 	max_range = 6
 	charge_delay = 1 SECONDS
 
-
+/datum/action/cooldown/mob_cooldown/aoe_slash/extreme
+	damage = 100
+	obj_damage_mult = 10
+	wound_bonus = 100
+	armour_penetration = 100
 
 /datum/component/khara_hivemind
 	VAR_PRIVATE/static/list/all_minds = list()

@@ -44,7 +44,7 @@
 /turf/closed/wall/city/singularity_act()
 	return
 
-/turf/closed/wall/city/dismantle_wall()
+/turf/closed/wall/city/dismantle_wall(devastated, explode)
 	return
 
 /turf/closed/wall/city/devastate_wall()

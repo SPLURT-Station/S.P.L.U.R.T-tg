@@ -34,3 +34,15 @@
 	flags_1 = SUPERMATTER_IGNORES_1
 	layer = ABOVE_ALL_MOB_LAYER
 	density = FALSE
+
+/obj/structure/prop/big/khara_capsule
+	name = "???"
+	desc = "What the fuck is that!"
+
+	icon = 'fenysha_events/icons/structures/stracture256x256.dmi'
+	icon_state = "capsule"
+
+	density = TRUE
+	uses_integrity = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	flags_1 = SUPERMATTER_IGNORES_1

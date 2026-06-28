@@ -371,3 +371,31 @@
 	SET_TURF_DENSITY = TRUE, \
 	SET_TURF_OPACITY = FALSE, \
 )
+
+
+#define TRANSITION_OPTION_VOID list( \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+	MOVING_TURF_ICON_STATE = "rail_connector_bottom", \
+	MOVING_TURF_NAME = "Void", \
+	MOVING_TURF_DESC = "Nothing really there!", \
+	SET_TURF_DENSITY = FALSE, \
+	SET_TURF_OPACITY = FALSE, \
+)
+
+#define TRANSITION_OPTION_VOID_DENSE list( \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+	MOVING_TURF_ICON_STATE = "rail_connector_bottom", \
+	MOVING_TURF_NAME = "Void", \
+	MOVING_TURF_DESC = "Nothing really there!", \
+	SET_TURF_DENSITY = TRUE, \
+	SET_TURF_OPACITY = FALSE, \
+)
+
+#define TRANSITION_OPTION_VOID_BORDER list( \
+	MOVING_TURF_ICON = 'fenysha_events/icons/turf/moving/rails/rails_void.dmi', \
+	MOVING_TURF_ICON_STATE = "rail_connector_bottom", \
+	MOVING_TURF_NAME = "Void", \
+	MOVING_TURF_DESC = "Nothing really there!", \
+	SET_TURF_DENSITY = TRUE, \
+	SET_TURF_OPACITY = TRUE, \
+)

@@ -266,6 +266,30 @@ GLOBAL_LIST_EMPTY(train_object_spawners)
 	)
 
 
+/datum/train_object_spawner_theme/khara_capsules
+	allow_selection = FALSE
+	options = list(
+		SPAWNER_GROUP_CENTER = list(
+			GROUP_SPAWN_CHANCE = 100,
+			GROUP_SPAWN_RANGE = 0,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/prop/big/khara_capsule = 100,
+			)
+		),
+		SPAWNER_GROUP_BACKDROP = list(
+			GROUP_SPAWN_CHANCE = 100,
+			GROUP_SPAWN_RANGE = 0,
+			GROUP_SPAWN_MIN_DELAY = 1 SECONDS,
+			GROUP_SPAWN_MAX_DELAY = 1 SECONDS,
+			GROUP_WEIGHTED_SPAWNLIST = list(
+				/obj/structure/prop/big/khara_capsule = 100,
+			)
+		),
+	)
+
+
 /datum/train_object_spawner_theme/war
 	weighted_spawnlist = list(
 		/obj/structure/flora/tree/dead/style_random = 60,

@@ -37,7 +37,7 @@
 		return
 
 	to_load = evt.emergy_station
-	RegisterSignal(SStrain_controller, COMSIG_TRAINSTATION_LOADED, PROC_REF(on_emergency_loaded), TRUE)
+	RegisterSignal(SStrain_controller, COMSIG_TRAINSTATION_LOADED, PROC_REF(on_emergency_loaded))
 
 /datum/round_event/train_event/emergency_stop/announce(fake)
 	priority_announce("Due to unforeseen circumstances along the route, the train will make an emergency stop at station [to_load.name]. \
@@ -75,3 +75,7 @@
 /datum/round_event_control/train_event/emergency_stop/station_a13
 	name = "Emergency Stop - station A13"
 	emergy_station = /datum/train_station/emergency_station_a13
+
+/datum/round_event_control/train_event/emergency_stop/habitation
+	name = "Emergency Stop - Undeground Habitation"
+	emergy_station = /datum/train_station/habitation

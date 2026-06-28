@@ -31,6 +31,7 @@
 
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/noclip)
 	owner.visible_message(span_notice("[owner.name], dissolves in air. Becoming non-physical."), span_notice("You going noclip."))
+	owner.movement_type = FLYING
 
 	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(owner_dead), TRUE)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved), TRUE)
@@ -41,6 +42,7 @@
 
 /datum/action/cooldown/noclip/proc/disable_noclip()
 	owner.pass_flags = initial_pass_flags
+	owner.movement_type = GROUND
 
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/noclip)
 	owner.visible_message(span_notice("[owner.name], becomes physical again."), span_notice("You back to normal again."))

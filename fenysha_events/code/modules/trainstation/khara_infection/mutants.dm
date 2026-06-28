@@ -226,6 +226,7 @@
 		/datum/action/cooldown/mob_cooldown/consume = BB_MOB_ABILITY_CONSUME
 	)
 
+	var/apply_filter = TRUE
 	var/spread_minimal_cooldown = 5 SECONDS
 	COOLDOWN_DECLARE(spread_cd)
 
@@ -263,7 +264,8 @@
 		/datum/component/khara_hivemind, \
 		cast = src.cast, \
 	)
-	apply_wibbly_filters(src)
+	if(apply_filter)
+		apply_wibbly_filters(src)
 	give_powers()
 
 	if(innate_actions && islist(innate_actions))
@@ -531,6 +533,29 @@
 	to_cut.dismember(silent=FALSE)
 
 
+/mob/living/basic/khara_mutant/reaper/ghost
+	name = "???"
+	desc = "???"
+
+	icon = 'fenysha_events/icons/mob/ebaka.dmi'
+	icon_state = "ebaka"
+
+	apply_filter = FALSE
+	melee_damage_lower = 50
+	melee_damage_upper = 50
+	armour_penetration = 100
+	alpha = 200
+
+	maxHealth = 50000
+	health = 50000
+	ai_controller = null
+
+	innate_actions = list(
+		/datum/action/cooldown/noclip = null,
+		/datum/action/cooldown/mob_cooldown/aoe_slash/extreme = BB_MOB_AILITY_SLASH,
+		/datum/action/cooldown/mob_cooldown/boss_charge = BB_MOB_ABILITY_FAST_CHARGE,
+	)
+
 
 /mob/living/basic/khara_mutant/crusher
 	name = "Scorpion"
@@ -647,3 +672,6 @@
 			weather.wind_down()
 			break
 	. = ..()
+
+
+
