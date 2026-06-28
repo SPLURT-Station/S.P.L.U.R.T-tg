@@ -108,6 +108,7 @@ img.bg {
 /* ===== MENU PANEL ===== */
 .container_nav {
     position: relative;
+    top: 8vh;
     z-index: 1;
     background: transparent;
     border: none;
@@ -117,6 +118,7 @@ img.bg {
     flex-direction: column;
     align-items: center;
     gap: 1.2vmin;
+	transform: translateY(10vh);
 }
 
 .container_nav hr {
@@ -139,15 +141,14 @@ img.bg {
     white-space: nowrap;
     transition: all 0.18s ease;
     border: 2px solid transparent;
-    background: rgba(20, 22, 40, 0.4);
+    background: transparent;
     image-rendering: crisp-edges;
 }
 
 .menu_button:hover {
     color: #ffff88;
     text-shadow: 0 0 10px #ffdd55, 2px 2px 0 #000;
-    background: rgba(40, 35, 60, 0.7);
-    border: 2px solid #ffcc44;
+    background: transparent;
     transform: translateX(8px);
     letter-spacing: 2.2px;
 }
@@ -166,6 +167,7 @@ img.bg {
 /* ===== NOTICE ===== */
 .container_notice {
     position: relative;
+    top: 8vh;
     z-index: 1;
     margin: 2vmin auto;
     padding: 1.5vmin 3vmin;
@@ -238,7 +240,7 @@ img.bg {
 
 
 /datum/controller/subsystem/train_controller/proc/set_lobby_screen()
-	SStitle.change_title_screen('fenysha_events/icons/lobby/trainstation_v2.png')
+	SStitle.change_title_screen('fenysha_events/icons/lobby/trainstation_v3.png')
 	return
 
 /*
