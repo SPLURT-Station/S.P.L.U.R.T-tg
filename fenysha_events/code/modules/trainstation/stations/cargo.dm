@@ -28,22 +28,6 @@
 			This particular one is located inside a mountain range."
 
 
-/// Cargo station built at runtime from an admin-uploaded map. Not auto-loaded;
-/// created by admin_create_cargo_station() with map file + name as args.
-/datum/train_station/cargo_station/custom
-	name = "Custom Cargo Terminal"
-	map_path = null
-	creator = "Admin"
-	station_type = TRAINSTATION_TYPE_CARGO
-
-/datum/train_station/cargo_station/custom/New(map_file, new_name)
-	if(new_name)
-		name = new_name
-	if(map_file)
-		map_path = map_file
-	. = ..()
-
-
 /datum/train_station/cargo_station/after_load()
 	. = ..()
 	if(!SSshuttle.supply)

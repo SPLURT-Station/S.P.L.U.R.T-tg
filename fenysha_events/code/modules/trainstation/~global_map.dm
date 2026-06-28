@@ -136,10 +136,8 @@
 		objects += S.map_object
 	station_to_object[S] = S.map_object
 
-	if(istype(S, /datum/train_station/cargo_station))
-		connect_cargo_to_nearby(S)
-	else
-		connect_stations()
+	// Link just this new station to its nearest neighbours (not a global rebuild).
+	connect_cargo_to_nearby(S)
 	return TRUE
 
 

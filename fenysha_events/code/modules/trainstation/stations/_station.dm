@@ -34,7 +34,7 @@
 	/// Path to the station map, automatically creates a template for it
 	var/map_path
 	/// list() - ambient sounds that play at this station
-	var/ambience_sounds = null
+	var/list/ambience_sounds = null
 	/// List of possible station surroundings (generated above the train)
 	var/list/possible_nearstations = list(
 		/datum/train_station/near_station/static_default,
@@ -56,7 +56,7 @@
 	// Whether this station blocks the train's movement, will be set automatically if the station has the TRAINSTATION_BLOCKING flag
 	var/blocking_moving = FALSE
 
-	VAR_PRIVATE/datum/looping_sound/global_sound/station_loop_soound = null
+	VAR_PRIVATE/datum/looping_sound/global_sound/station_loop_sound = null
 	VAR_PRIVATE/datum/map_template/template = null
 	VAR_PRIVATE/list/docking_turfs = list()
 	VAR_PRIVATE/datum/train_station/near_station/loaded_nearstation = null
@@ -83,8 +83,37 @@
 	return template && template.width > 0 && template.height > 0
 
 /datum/train_station/proc/create_ambience()
-	station_loop_soound = new(start_immediately = FALSE)
-	station_loop_soound.create_from_list(ambience_sounds)
+	station_loop_sound = new(start_immediately = FALSE)
+	station_loop_sound.create_from_list(ambience_sounds)
+
+/// Admin: add an uploaded sound (file + loop length in ds) to the ambience and
+/// rebuild the loop, restarting it if this station is currently loaded.
+/datum/train_station/proc/admin_add_ambience(sound_file, duration_ds)
+	if(!isfile(sound_file) || duration_ds <= 0)
+		return FALSE
+	if(!islist(ambience_sounds))
+		ambience_sounds = list()
+	ambience_sounds[sound_file] = duration_ds
+	rebuild_ambience()
+	return TRUE
+
+/// Admin: remove the ambience entry at the given 1-based index.
+/datum/train_station/proc/admin_remove_ambience(index)
+	if(!islist(ambience_sounds) || index < 1 || index > length(ambience_sounds))
+		return FALSE
+	ambience_sounds -= ambience_sounds[index]
+	rebuild_ambience()
+	return TRUE
+
+/datum/train_station/proc/rebuild_ambience()
+	var/was_playing = (SStrain_controller.loaded_station == src)
+	if(station_loop_sound)
+		station_loop_sound.stop()
+		QDEL_NULL(station_loop_sound)
+	if(islist(ambience_sounds) && length(ambience_sounds))
+		create_ambience()
+		if(was_playing && station_loop_sound)
+			station_loop_sound.start()
 
 /datum/train_station/proc/connect_stations()
 	for(var/i in 1 to length(possible_next))
@@ -219,8 +248,8 @@
 /datum/train_station/proc/after_load()
 	if(station_flags & TRAINSTATION_BLOCKING)
 		blocking_moving = TRUE
-	if(station_loop_soound)
-		station_loop_soound.start()
+	if(station_loop_sound)
+		station_loop_sound.start()
 
 /datum/train_station/proc/pre_unload()
 	return
@@ -259,8 +288,24 @@
 	after_unload()
 
 /datum/train_station/proc/after_unload()
-	if(station_loop_soound)
-		station_loop_soound.stop()
+	if(station_loop_sound)
+		station_loop_sound.stop()
+
+
+/// Generic station built at runtime from an admin-supplied map (uploaded file
+/// or an existing template's path). Not auto-loaded; constructed by
+/// SStrain_controller.admin_create_station() with a map + name.
+/datum/train_station/custom
+	name = "Custom Station"
+	map_path = null
+	creator = "Admin"
+
+/datum/train_station/custom/New(map_file, new_name)
+	if(new_name)
+		name = new_name
+	if(map_file)
+		map_path = map_file
+	. = ..()
 
 
 /datum/train_station/near_station
