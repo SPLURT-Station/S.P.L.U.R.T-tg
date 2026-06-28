@@ -27,6 +27,7 @@ interface TurbineData {
   compressor_pressure: number;
   rotor_pressure: number;
   outlet_water_volume: number;
+  water_output_rate: number;
   compressor_too_cold: boolean;
   regulator: number;
   steam_consumption: number;
@@ -50,6 +51,7 @@ export const TrainTurbineComputer = () => {
     compressor_too_cold,
     compressor_pressure,
     rotor_pressure,
+    water_output_rate,
     regulator,
     steam_consumption,
     target_rpm,
@@ -320,9 +322,17 @@ export const TrainTurbineComputer = () => {
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item label="Water Output">
-                  <ProgressBar value={outlet_water_volume} color="blue">
-                    <AnimatedNumber value={outlet_water_volume} /> u.
-                  </ProgressBar>
+                  <Box fontSize="1.1rem" color={water_output_rate > 0 ? 'good' : undefined}>
+                    <Icon name="droplet" mr={1} />
+                    <AnimatedNumber
+                      value={water_output_rate}
+                      format={(v) => v.toFixed(2)}
+                    />{' '}
+                    u/s
+                  </Box>
+                  <Box fontSize="0.8rem" opacity={0.7}>
+                    Buffered: <AnimatedNumber value={outlet_water_volume} /> u.
+                  </Box>
                 </LabeledList.Item>
               </LabeledList>
             </Section>

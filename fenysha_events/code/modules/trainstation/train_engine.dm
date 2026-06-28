@@ -157,6 +157,8 @@
 	var/steam_flow_scale = 400
 	/// RPM produced per (mole/sec of steam × K of superheat above the minimum). (Tune for balance.)
 	var/power_per_throughput = 1
+	/// Water reagent pushed to the outlet this tick, in units/second. Diagnostic readout only.
+	var/water_output_rate = 0
 
 	/// Target RPM as % of maximum (0–1). Set from the control panel.
 	var/target_rpm = 0
@@ -240,6 +242,7 @@
 	if(!inlet_temperature || inlet_temperature < MIN_STEAM_TEMPERATURE)
 		rpm = max(rpm - 50 * seconds_per_tick, 0)
 		produced_energy = 0
+		water_output_rate = 0
 		return
 
 	var/datum/gas_mixture/compressor_gas = compressor.machine_gasmix
@@ -248,6 +251,7 @@
 	if(available_steam < 0.05)
 		rpm = max(rpm - 500 * seconds_per_tick, 0)
 		produced_energy = 0
+		water_output_rate = 0
 		return
 
 	// Steam we want to pull this tick (regulator knob × RPM throttle) vs. what's actually in the compressor.
@@ -273,7 +277,9 @@
 	// Output power depends only on the current RPM
 	produced_energy = rpm * efficiency_rate * total_efficiency
 
-	turbine.produce_water(steam_consumed * water_production_rate * 0.9)
+	var/water_produced = steam_consumed * water_production_rate * 0.9
+	turbine.produce_water(water_produced)
+	water_output_rate = water_produced / seconds_per_tick
 	machine_gasmix.temperature = lerp(machine_gasmix.temperature, inlet_temperature * 0.8 + T20C * 0.2, 0.05)
 
 	var/overheat = max(machine_gasmix.temperature - max_temperature, 0)
@@ -487,6 +493,7 @@
 	.["compressor_pressure"] = main_control.compressor?.compressor_pressure || MINIMUM_TURBINE_PRESSURE
 	.["rotor_pressure"] = main_control.machine_gasmix?.return_pressure() || MINIMUM_TURBINE_PRESSURE
 	.["outlet_water_volume"] = main_control.turbine?.reagents.total_volume || 0
+	.["water_output_rate"] = main_control.water_output_rate
 
 	.["regulator"] = main_control.compressor?.intake_regulator || 0.5
 	.["target_rpm"] = main_control.target_rpm
@@ -682,7 +689,7 @@
 		balloon_alert(user, "no plasma fuel!")
 		return
 	if(!reagents.has_reagent(/datum/reagent/water, 10))
-		balloon_alert(user, "no water to heat!")
+		balloon_alert(user, "no water to heat! (min 10u)")
 		return
 	active = !active
 	if(active)
