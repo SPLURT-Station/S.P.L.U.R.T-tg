@@ -39,10 +39,11 @@
 	name = "???"
 	desc = "What the fuck is that!"
 
-	icon = 'fenysha_events/icons/structures/stracture256x256.dmi'
-	icon_state = "capsule"
+	icon = 'fenysha_events/icons/_prefabs/artifacts_64x32.dmi'
+	icon_state = "autocloner_process"
 
 	density = TRUE
+	opacity = FALSE
 	uses_integrity = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
