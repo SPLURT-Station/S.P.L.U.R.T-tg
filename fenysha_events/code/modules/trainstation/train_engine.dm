@@ -150,7 +150,13 @@
 	var/all_parts_connected = FALSE
 
 	var/steam_consumption_rate = 0.1
-	var/water_production_rate = 0.6
+	/// Water reagent recovered per mole of steam consumed. Set to 1/(heater moles-per-unit) so the
+	/// steam→water→steam loop conserves mass; the 0.9 multiplier at the call site is the 10% loop loss.
+	var/water_production_rate = 0.1
+	/// Moles of steam pulled per second at full regulator + full target RPM. Sets the looped water volume. (Tune for balance.)
+	var/steam_flow_scale = 400
+	/// RPM produced per (mole/sec of steam × K of superheat above the minimum). (Tune for balance.)
+	var/power_per_throughput = 1
 
 	/// Target RPM as % of maximum (0–1). Set from the control panel.
 	var/target_rpm = 0
@@ -244,29 +250,26 @@
 		produced_energy = 0
 		return
 
-	var/max_flow = steam_consumption_rate * compressor.intake_regulator * 10
-	var/steam_consumed = min(available_steam, (max_flow * seconds_per_tick * target_flow_multiplier) * steam_consumption_rate)
+	// Steam we want to pull this tick (regulator knob × RPM throttle) vs. what's actually in the compressor.
+	// Power is gated by the steam we ACTUALLY consume, so you can't spin up without real throughput.
+	var/steam_demand = steam_consumption_rate * compressor.intake_regulator * steam_flow_scale * target_flow_multiplier * seconds_per_tick
+	var/steam_consumed = min(available_steam, steam_demand)
 
 	compressor_gas.gases[/datum/gas/water_vapor][MOLES] -= steam_consumed
 	compressor_gas.garbage_collect()
 
-	var/base_power = 0
-
-	var/temp_bonus = max(inlet_temperature - MIN_STEAM_TEMPERATURE, 0)
-	var/flow_bonus = max_flow * 600
-	var/steam_bonus = steam_consumed * 150
-	base_power += temp_bonus
-	base_power += flow_bonus
-	base_power += steam_bonus
-
 	var/total_efficiency = (compressor.efficiency + efficiency + turbine.efficiency) / 3
-	base_power *= total_efficiency
 
-	// Increase RPM depending on pressure and target
-	var/rpm_change = base_power - rpm
-	rpm += rpm_change * 0.1
-	// Smooth approach toward the target RPM
-	rpm = lerp(rpm, target_rpm, 0.05)
+	// Enthalpy-flux model: power scales with the steam mass flow × how superheated it is.
+	// steam_consumed is per-tick, so divide back out to a per-second rate to stay tick-length independent.
+	var/steam_rate = steam_consumed / seconds_per_tick
+	var/temp_factor = max(inlet_temperature - MIN_STEAM_TEMPERATURE, 0)
+	var/base_power = steam_rate * temp_factor * power_per_throughput * total_efficiency
+
+	// target_rpm is an upper throttle limit set on the console, NOT a free power source: the turbine
+	// can only spin up to what the current steam throughput sustains. Trickle steam => base_power ~0 => no power.
+	var/rpm_ceiling = min(base_power, target_rpm)
+	rpm = lerp(rpm, rpm_ceiling, 0.1)
 	// Output power depends only on the current RPM
 	produced_energy = rpm * efficiency_rate * total_efficiency
 
@@ -404,20 +407,13 @@
 
 
 /datum/component/plumbing/steam_turbine
-	supply_connects = NORTH | SOUTH
-
-/datum/component/plumbing/steam_turbine/Initialize(start, ducting_layer, turn_connects, datum/reagents/custom_receiver, extend_pipe_to_edge)
-	if(!istype(parent, /obj/machinery/power/train_turbine/turbine_outlet))
-		return COMPONENT_INCOMPATIBLE
-	var/obj/machinery/power/train_turbine/turbine_outlet/turbine = parent
-	reagents = turbine.reagents
-	return ..()
+	supply_connects = EAST | WEST
 
 
 /obj/machinery/computer/train_turbine_computer
 	name = "train turbine control console"
 	desc = "A computer for controlling the train's steam turbine. Tracks RPM, temperature, pressure, and integrity - like a nuclear reactor from Barotrauma, only steam-powered."
-	icon_screen = "train_turbine_comp"
+	icon_screen = "turbinecomp"
 	icon_keyboard = "tech_key"
 	var/datum/weakref/rotor_ref
 	var/mapping_id
@@ -576,16 +572,14 @@
 #define PLASMA_SHEET_CONSUMPTION_RATE 0.01 // Slow "burning" of a sheet
 
 // Train heater: burns plasma sheets to turn water into steam
-/obj/machinery/power/train_heater
+/obj/machinery/plumbing/train_heater
 	name = "train plasma heater"
 	desc = "A device that burns plasma sheets to boil water into steam, which is then fed into the train's turbine. Insert plasma, connect liquid pipes for the water supply and gas pipes for the steam outlet."
 	icon = 'fenysha_events/icons/machinery/thermomachine.dmi'
 	icon_state = "thermo_base"
 	base_icon_state = "thermo_base"
-	density = TRUE
-	resistance_flags = FIRE_PROOF
 	can_atmos_pass = ATMOS_PASS_DENSITY
-	processing_flags = START_PROCESSING_MANUALLY
+	buffer = HEATER_WATER_VOLUME
 
 	/// Whether the heater is active
 	var/active = FALSE
@@ -601,19 +595,17 @@
 	var/datum/component/plumbing/heater_plumbing
 	/// Stack of plasma sheets inside
 	var/obj/item/stack/sheet/mineral/plasma/plasma_stack
+	/// Maximum number of plasma sheets the heater can hold
+	var/max_plasma_sheets = 50
 
-/obj/machinery/power/train_heater/Initialize(mapload)
-	. = ..()
+/obj/machinery/plumbing/train_heater/Initialize(mapload)
+	. = ..() // /obj/machinery/plumbing handles reagent creation (buffer), anchoring and context
 	internal_gasmix = new
 	internal_gasmix.volume = 500 // For steam
-
-	reagents = new(HEATER_WATER_VOLUME)
-	reagents.my_atom = src
 
 	// Plumbing - water inlet
 	heater_plumbing = AddComponent( \
 		/datum/component/plumbing/heater_plumbing, \
-		custom_receiver = reagents, \
 		ducting_layer = THIRD_DUCT_LAYER, \
 	)
 	heater_plumbing.enable()
@@ -623,11 +615,9 @@
 
 	air_update_turf(TRUE)
 	update_appearance(UPDATE_OVERLAYS)
-	register_context()
 
-/obj/machinery/power/train_heater/Destroy()
+/obj/machinery/plumbing/train_heater/Destroy()
 	QDEL_NULL(internal_gasmix)
-	QDEL_NULL(reagents)
 	QDEL_NULL(steam_output)
 	QDEL_NULL(heater_plumbing)
 	if(plasma_stack)
@@ -635,7 +625,7 @@
 		plasma_stack = null
 	return ..()
 
-/obj/machinery/power/train_heater/examine(mob/user)
+/obj/machinery/plumbing/train_heater/examine(mob/user)
 	. = ..()
 	if(plasma_stack)
 		. += span_notice("Inside are [plasma_stack.amount] sheets.")
@@ -643,28 +633,51 @@
 		. += span_notice("No plasma sheets loaded. Insert fuel to operate.")
 	. += span_notice("The device is [active ? "active" : "off"].")
 	. += span_notice("The thermostat reads: [round(temperature, 1)] K ([round(temperature - T0C, 1)]°C).")
+	. += span_notice("Steam output is [steam_output.gas_connector?.airs[1]?.total_moles() || 0] moles.")
 
 
-/obj/machinery/power/train_heater/attackby(obj/item/item, mob/user, params)
+/obj/machinery/plumbing/train_heater/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/stack/sheet/mineral/plasma))
+		var/obj/item/stack/sheet/mineral/plasma/incoming = item
+		var/current_amount = plasma_stack?.amount || 0
+		var/free_space = max_plasma_sheets - current_amount
+		if(free_space <= 0)
+			balloon_alert(user, "heater full!")
+			return TRUE
+
+		var/to_load = min(incoming.amount, free_space)
 		if(plasma_stack)
-			balloon_alert(user, "plasma already loaded!")
-			return TRUE
-		if(!user.transferItemToLoc(item, src))
-			return TRUE
-		plasma_stack = item
-		balloon_alert(user, "plasma sheets loaded")
+			// Top up the existing stack and consume the inserted sheets.
+			plasma_stack.add(to_load)
+			incoming.use(to_load)
+			balloon_alert(user, "loaded [to_load] sheet\s ([plasma_stack.amount]/[max_plasma_sheets])")
+		else if(to_load >= incoming.amount)
+			// The whole stack fits - just move it in.
+			if(!user.transferItemToLoc(incoming, src))
+				return TRUE
+			plasma_stack = incoming
+			balloon_alert(user, "loaded [plasma_stack.amount] sheet\s ([plasma_stack.amount]/[max_plasma_sheets])")
+		else
+			// Only part of the stack fits - split off what we can hold.
+			var/obj/item/stack/sheet/mineral/plasma/loaded = incoming.split_stack(to_load)
+			loaded.forceMove(src)
+			plasma_stack = loaded
+			balloon_alert(user, "loaded [to_load] sheet\s ([plasma_stack.amount]/[max_plasma_sheets])")
+
 		update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	return ..()
 
 
-/obj/machinery/power/train_heater/attack_hand(mob/living/user, list/modifiers)
+/obj/machinery/plumbing/train_heater/attack_hand(mob/living/user, list/modifiers)
 	toggle_active(user)
 	return TRUE
 
 
-/obj/machinery/power/train_heater/proc/toggle_active(mob/user)
+/obj/machinery/plumbing/train_heater/proc/toggle_active(mob/user)
+	if(!anchored)
+		balloon_alert(user, "anchor first!")
+		return
 	if(!plasma_stack || plasma_stack.amount <= 0)
 		balloon_alert(user, "no plasma fuel!")
 		return
@@ -680,7 +693,7 @@
 	update_appearance(UPDATE_OVERLAYS)
 
 
-/obj/machinery/power/train_heater/process(seconds_per_tick)
+/obj/machinery/plumbing/train_heater/process(seconds_per_tick)
 	if(!active && temperature > T20C)
 		temperature = max(temperature - 1 * seconds_per_tick, T20C)
 		if(temperature <= T20C)
@@ -721,9 +734,9 @@
 	demand_connects = NORTH | SOUTH
 
 
-/datum/component/plumbing/heater_plumbing/Initialize(start = TRUE, ducting_layer, turn_connects = TRUE, datum/reagents/custom_receiver, extend_pipe_to_edge)
+/datum/component/plumbing/heater_plumbing/Initialize(ducting_layer)
 	. = ..()
-	if(!istype(parent, /obj/machinery/power/train_heater))
+	if(!istype(parent, /obj/machinery/plumbing/train_heater))
 		return COMPONENT_INCOMPATIBLE
 
 

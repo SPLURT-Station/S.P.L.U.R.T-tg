@@ -127,7 +127,6 @@ export const TrainTurbineComputer = () => {
                       value={integrity}
                       format={(v) => `${Math.round(v)}%`}
                     />{' '}
-                    %
                   </ProgressBar>
                 </LabeledList.Item>
 
