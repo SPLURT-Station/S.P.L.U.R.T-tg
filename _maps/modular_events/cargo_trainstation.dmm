@@ -128,8 +128,8 @@
 	},
 /area/shuttle/supply)
 "mM" = (
-/obj/machinery/door/airlock/multi_tile/metal,
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/survival_pod,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/supply)
 "mQ" = (
@@ -298,8 +298,7 @@
 	dir = 1
 	},
 /obj/structure/railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_edge,
@@ -384,8 +383,7 @@
 	dir = 1
 	},
 /obj/structure/railing{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/shuttle/supply)
@@ -1003,9 +1001,9 @@ qG
 qG
 qG
 qG
-qG
+Ta
 wF
-qG
+Ta
 xm
 Qs
 Fk
@@ -1021,9 +1019,9 @@ yM
 qG
 Wy
 nk
+Ta
 qG
-qG
-qG
+Ta
 xm
 Qs
 qo

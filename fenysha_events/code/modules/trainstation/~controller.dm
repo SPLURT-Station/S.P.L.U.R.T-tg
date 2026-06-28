@@ -17,6 +17,9 @@ SUBSYSTEM_DEF(train_controller)
 	VAR_FINAL/datum/train_global_map/global_map = null
 	/// List of all known and loaded stations
 	VAR_FINAL/list/known_stations = list()
+	/// Snapshot of every compile-time station's name/type/map taken at init, so the
+	/// "create from existing template" menu still offers them after deletion.
+	VAR_FINAL/list/station_templates = list()
 	/// Stations sorted by region (only visible and non-abstract)
 	VAR_FINAL/list/stations_by_regions = list()
 	/// Order of regions for traversal (shuffled each time stations are connected)
@@ -162,7 +165,15 @@ SUBSYSTEM_DEF(train_controller)
 		// Custom stations need constructor args; never auto-instantiate them.
 		if(path == /datum/train_station/custom)
 			continue
-		known_stations += new path
+		var/datum/train_station/S = new path
+		known_stations += S
+		// Remember this station's map as a template; survives later deletion.
+		if(is_preset_station(S) && S.map_path)
+			station_templates += list(list(
+				"name" = S.name,
+				"type" = "[S.type]",
+				"map_path" = S.map_path,
+			))
 
 /datum/controller/subsystem/train_controller/proc/connect_stations()
 	if(!length(known_stations))
@@ -863,22 +874,23 @@ SUBSYSTEM_DEF(train_controller)
 				to_chat(user, span_warning("Filename must end in '.dmm': [map]"))
 				return
 		if("Existing template")
-			// Reuse the .dmm of an existing, compile-time station template.
-			var/list/template_choices = list()
-			for(var/datum/train_station/existing in known_stations)
-				if(istype(existing, /datum/train_station/custom) || !is_preset_station(existing) || !existing.map_path)
-					continue
-				if(!template_choices[existing.name])
-					template_choices[existing.name] = existing
-			if(!length(template_choices))
-				to_chat(user, span_warning("No existing station templates available."))
+			// Pull from the init-time registry so templates remain available even
+			// after their station was deleted from known_stations.
+			if(!length(station_templates))
+				to_chat(user, span_warning("No station templates available."))
 				return
+			var/list/template_choices = list()
+			for(var/list/tmpl in station_templates)
+				if(!template_choices[tmpl["name"]])
+					template_choices[tmpl["name"]] = tmpl
 			var/picked = tgui_input_list(user, "Pick a station template to copy", "Station Template", template_choices)
 			if(!picked)
 				return
-			template_source = template_choices[picked]
-			map = template_source.map_path
-			default_name = template_source.name
+			var/list/chosen = template_choices[picked]
+			map = chosen["map_path"]
+			default_name = chosen["name"]
+			// Autofill from the live station if it still exists; else just the map.
+			template_source = locate(text2path(chosen["type"])) in known_stations
 		else
 			return
 

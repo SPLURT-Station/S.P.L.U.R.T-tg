@@ -30,13 +30,17 @@
 
 /datum/train_station/cargo_station/after_load()
 	. = ..()
-	if(!SSshuttle.supply)
-		if(SSshuttle.load_template(new /datum/map_template/shuttle/cargo/cargo_train()))
-			SSshuttle.moveShuttle(SSshuttle.supply, "cargo_away", TRUE)
-	else if(SSshuttle.supply && !istype(SSshuttle.supply, /obj/docking_port/mobile/supply/cargo_train))
+	// Already our train, nothing to do.
+	if(SSshuttle.supply && istype(SSshuttle.supply, /obj/docking_port/mobile/supply/cargo_train))
+		return
+	// Drop the old supply shuttle so it doesn't orphan in mobile_docking_ports.
+	if(SSshuttle.supply)
 		SSshuttle.supply.jumpToNullSpace()
-		if(SSshuttle.load_template(new /datum/map_template/shuttle/cargo/cargo_train()))
-			SSshuttle.moveShuttle(SSshuttle.supply, "cargo_away", TRUE)
+	// action_load() (not load_template) registers the port - sets SSshuttle.supply - and frees the
+	// transit reservation; load_template leaves supply null and leaks reservations. replace = TRUE
+	// keeps shuttle_id "cargo" so consoles stay linked.
+	if(SSshuttle.action_load(new /datum/map_template/shuttle/cargo/cargo_train(), replace = TRUE))
+		SSshuttle.moveShuttle(SSshuttle.supply, "cargo_away", TRUE)
 
 
 /datum/train_station/cargo_station/pre_unload()
@@ -59,7 +63,7 @@
 
 /obj/machinery/computer/cargo/interact(mob/user, special_state)
 	if(SStrain_controller.mode_active && !is_train_cargo)
-		balloon_alert_to_viewers("Cargo shuttle does not work on this planet!")
+		balloon_alert_to_viewers("Nonfunctional cargo computer, use external cargo train consoles at cargo stations instead.")
 		return
 	return ..()
 
@@ -162,6 +166,7 @@
 
 
 /datum/map_template/shuttle/cargo/cargo_train
+	// mappath = "[prefix][port_id]_[suffix].dmm"; port_id "cargo" + suffix -> cargo_trainstation.dmm
 	prefix = "_maps/modular_events/"
 	suffix = "trainstation"
 	name = "Cargo train"
@@ -173,8 +178,14 @@
 
 	var/fake_car_count = 3
 	var/fake_step_delay = 0.1 SECONDS
-	var/arrival_pre_tiles = 20
-	var/arrival_post_tiles = 255
+	/// Tiles the lead car travels in from off-screen before reaching the dock.
+	var/arrival_pre_tiles = 15
+	/// Tiles the lead car coasts past the dock before stopping. Keep small - the train should land, not pass through.
+	var/arrival_post_tiles = 0
+	/// Extra step delay multiplier at the ends of the run; higher = gentler accelerate-in / brake-to-stop.
+	var/arrival_ease_strength = 3
+	/// How long the spawning cars fade in over, so they don't pop into existence.
+	var/arrival_fade_time = 0.5 SECONDS
 
 
 /obj/docking_port/mobile/supply/cargo_train/proc/get_forward_dir_for_dock(obj/docking_port/stationary/dock)
@@ -197,6 +208,16 @@
 			break
 	return current
 
+/// Step delay for the arrival animation: ease-in-out across the whole run - gentle accelerate from
+/// the off-screen spawn, full speed mid-run, then brake to a stop as the lead car reaches the dock.
+/obj/docking_port/mobile/supply/cargo_train/proc/get_arrival_step_delay(step_index)
+	var/total = arrival_pre_tiles + arrival_post_tiles
+	if(total <= 0)
+		return fake_step_delay
+	var/p = clamp(step_index / total, 0, 1)
+	var/slowness = 1 - 4 * p * (1 - p) // parabola: 1 at the ends, 0 at mid-run
+	return fake_step_delay * (1 + arrival_ease_strength * slowness)
+
 /obj/docking_port/mobile/supply/cargo_train/proc/play_arrival_train(obj/docking_port/stationary/cargo_station/dock)
 	if(!dock)
 		return
@@ -214,12 +235,16 @@
 	var/list/cars = list()
 
 	for(var/i = 0, i < fake_car_count, i++)
+		// Spawn behind the dock (arrive_dir), but the train drives forward into the station.
 		var/dist = arrival_pre_tiles + i * spacing
 		var/turf/spawn_loc = get_offset_turf(anchor, arrive_dir, dist)
 		if(!spawn_loc)
 			continue
 		var/obj/structure/train_car_blank/C = new(spawn_loc)
-		C.dir = arrive_dir
+		C.dir = forward_dir
+		// Fade in so the car doesn't pop in along with the turfs it clears.
+		C.alpha = 0
+		animate(C, alpha = 255, time = arrival_fade_time)
 		cars += C
 
 	var/total_steps = arrival_pre_tiles + arrival_post_tiles
@@ -229,11 +254,11 @@
 			if(QDELETED(C))
 				continue
 			any = TRUE
-			if(!C.step_and_crush(arrive_dir))
+			if(!C.step_and_crush(forward_dir))
 				continue
 		if(!any)
 			break
-		sleep(fake_step_delay)
+		sleep(get_arrival_step_delay(step_index))
 
 	for(var/obj/structure/train_car_blank/C as anything in cars)
 		if(!QDELETED(C))
