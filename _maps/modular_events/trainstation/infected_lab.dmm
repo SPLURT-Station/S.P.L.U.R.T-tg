@@ -209,7 +209,9 @@
 /area/trainstation/indoors/station/powered)
 "bk" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
 "bl" = (
@@ -285,7 +287,9 @@
 "bD" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/grille/broken,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "bF" = (
@@ -320,8 +324,12 @@
 /area/trainstation/indoors/station/powered)
 "bL" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "bM" = (
@@ -648,7 +656,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "dT" = (
@@ -667,7 +677,9 @@
 /turf/open/indestructible/meat,
 /area/trainstation/indoors)
 "ea" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/item/stack/rods,
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
@@ -950,7 +962,9 @@
 /area/trainstation/outdoor/station/no_build)
 "fP" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
@@ -1063,7 +1077,9 @@
 /area/trainstation/indoors/station/powered)
 "gv" = (
 /obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "gw" = (
@@ -1184,7 +1200,9 @@
 "hf" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "hg" = (
@@ -1604,8 +1622,12 @@
 /area/trainstation/indoors/station/powered)
 "jB" = (
 /obj/structure/marker_beacon/burgundy,
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
@@ -1658,7 +1680,9 @@
 /turf/open/indestructible/train_platform/bottom,
 /area/trainstation/indoors/station/powered)
 "jT" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "jU" = (
@@ -1863,7 +1887,9 @@
 /area/trainstation/indoors)
 "kR" = (
 /obj/effect/turf_decal/tile/neutral/tram,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "kT" = (
@@ -1882,12 +1908,16 @@
 /area/trainstation/indoors/station/controll)
 "kZ" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "la" = (
 /obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
@@ -1902,7 +1932,9 @@
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
 "ll" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
 "ln" = (
@@ -2175,7 +2207,9 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/trainstation/indoors/station/powered)
 "mC" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors)
 "mE" = (
@@ -2245,7 +2279,9 @@
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "nn" = (
@@ -2292,7 +2328,9 @@
 	},
 /area/trainstation/indoors/station/powered)
 "nB" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
@@ -2401,7 +2439,9 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "nW" = (
@@ -2501,7 +2541,9 @@
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "oF" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
@@ -2563,7 +2605,9 @@
 	},
 /area/trainstation/outdoor/station/no_build)
 "pc" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "pd" = (
@@ -2706,7 +2750,9 @@
 "qb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
@@ -2794,7 +2840,9 @@
 /area/trainstation/indoors)
 "qx" = (
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "qA" = (
@@ -2814,7 +2862,9 @@
 	},
 /area/trainstation/outdoor/station/no_build)
 "qF" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/asphalt/no_border,
@@ -2906,7 +2956,9 @@
 /area/trainstation/outdoor/station/no_build)
 "qX" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/machinery/light/red/directional/south,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
@@ -3100,14 +3152,18 @@
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "rU" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
 "rY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "rZ" = (
@@ -3320,11 +3376,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "sW" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3887,6 +3947,22 @@
 /obj/effect/turf_decal/tile/dark_red/diagonal_edge,
 /turf/open/floor/iron/textured,
 /area/trainstation/indoors/station/powered)
+"wk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer{
+	name = "Security Lockdown Computer";
+	dir = 2
+	},
+/obj/effect/mapping_helpers/trigger_helper/hand_punch{
+	EDITOR_use_time = 70;
+	EDITOR_balloon = "The security doors were successfully opened. Have a nice day.";
+	EDITOR_TARGET = /obj/machinery/computer;
+	trigger_key = "lab_boss"
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/trainstation/indoors/station/powered)
 "wo" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/structure/fluff/paper/stack{
@@ -4156,7 +4232,9 @@
 "xq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/closed/indestructible/grille,
 /area/trainstation/outdoor/station/no_build)
 "xt" = (
@@ -4327,7 +4405,9 @@
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "yC" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/smooth,
 /area/trainstation/indoors)
 "yD" = (
@@ -4336,8 +4416,12 @@
 /area/trainstation/outdoor/station/no_build)
 "yF" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "yG" = (
@@ -4345,7 +4429,9 @@
 /obj/structure/fluff/paper/stack{
 	dir = 1
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "yI" = (
@@ -4711,7 +4797,9 @@
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "AD" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4736,7 +4824,9 @@
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "AL" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/chasm/icy_planet,
 /area/trainstation/indoors/station/powered)
 "AM" = (
@@ -4894,7 +4984,9 @@
 /area/trainstation/outdoor/station/no_build)
 "Bv" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "Bw" = (
@@ -5096,7 +5188,9 @@
 	},
 /area/trainstation/outdoor/station/no_build)
 "CP" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
@@ -5199,7 +5293,9 @@
 "Dq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
@@ -5268,7 +5364,9 @@
 "DN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
@@ -5532,7 +5630,9 @@
 "Fo" = (
 /obj/item/gun/ballistic/automatic/sol_rifle/no_mag,
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "Fp" = (
@@ -5558,7 +5658,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Fx" = (
@@ -5591,7 +5693,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/fluff/paper/stack{
 	dir = 1
 	},
@@ -5641,7 +5745,9 @@
 "Gh" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "Gi" = (
@@ -5844,7 +5950,9 @@
 /area/trainstation/outdoor/station/no_build)
 "HB" = (
 /obj/structure/mecha_wreckage/durand,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "HD" = (
@@ -5908,7 +6016,9 @@
 /area/trainstation/outdoor/station/no_build)
 "HW" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
@@ -6084,7 +6194,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
@@ -6179,7 +6291,9 @@
 /area/trainstation/indoors/station/powered)
 "JI" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "JK" = (
@@ -6211,7 +6325,9 @@
 "JU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "JV" = (
@@ -6320,9 +6436,15 @@
 /turf/closed/indestructible/grille,
 /area/trainstation/outdoor/station/no_build)
 "Ky" = (
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
 "Kz" = (
@@ -6337,7 +6459,9 @@
 /area/trainstation/indoors/station/powered)
 "KD" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "KG" = (
@@ -6635,7 +6759,9 @@
 "MD" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "MF" = (
@@ -6663,7 +6789,9 @@
 "ML" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "MM" = (
@@ -6736,7 +6864,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/item/stack/rods,
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
@@ -6774,7 +6904,9 @@
 /area/trainstation/outdoor/station/no_build)
 "Nz" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "NH" = (
@@ -6826,7 +6958,9 @@
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "Oa" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
@@ -6947,7 +7081,9 @@
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
 "OR" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "OT" = (
@@ -7054,8 +7190,12 @@
 	},
 /area/trainstation/indoors/station/powered)
 "PB" = (
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "PC" = (
@@ -7215,7 +7355,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/side{
 	dir = 1
 	},
@@ -7243,7 +7385,9 @@
 /area/trainstation/outdoor/station/no_build)
 "QU" = (
 /obj/effect/turf_decal/tile/neutral/tram,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
@@ -7300,7 +7444,9 @@
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
 "Rm" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/trainstation/outdoor/station/no_build)
 "Rn" = (
@@ -7616,7 +7762,9 @@
 /area/trainstation/outdoor/station/no_build)
 "SJ" = (
 /obj/structure/barricade/sandbags,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "SM" = (
@@ -7636,8 +7784,12 @@
 "SV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
 "SW" = (
@@ -7909,7 +8061,9 @@
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "Uy" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/item/stack/sheet/iron,
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
@@ -7940,7 +8094,9 @@
 /area/trainstation/outdoor/station/no_build)
 "UI" = (
 /obj/item/ammo_box/magazine/c40sol_rifle/drum/starts_empty,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "UM" = (
@@ -8004,7 +8160,9 @@
 /area/trainstation/indoors/station/powered)
 "Vl" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/fluff/paper/stack{
 	dir = 9
 	},
@@ -8108,7 +8266,9 @@
 /turf/open/floor/iron/shuttle/exploration/side,
 /area/trainstation/outdoor/station/no_build)
 "VM" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors)
@@ -8144,8 +8304,12 @@
 /turf/open/floor/iron/white/corner,
 /area/trainstation/indoors/station/powered)
 "VX" = (
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "Wb" = (
@@ -8205,7 +8369,9 @@
 /turf/closed/wall/city/siding/style,
 /area/trainstation/indoors/station/powered)
 "Wx" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
@@ -8268,7 +8434,9 @@
 /area/trainstation/outdoor/station/no_build)
 "WI" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/structure/trash_pile,
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/indoors/station/powered)
@@ -8320,8 +8488,12 @@
 /turf/open/indestructible/meat,
 /area/trainstation/outdoor/station/no_build)
 "Xa" = (
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/chasm/icy_planet,
 /area/trainstation/outdoor/station/no_build)
 "Xb" = (
@@ -8364,7 +8536,9 @@
 /turf/open/floor/iron/smooth,
 /area/trainstation/outdoor/station/no_build)
 "Xy" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/asphalt/no_border,
@@ -8428,7 +8602,9 @@
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "XO" = (
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -8520,6 +8696,11 @@
 /area/trainstation/outdoor/station/no_build)
 "Yw" = (
 /obj/machinery/door/poddoor/story,
+/obj/effect/mapping_helpers/listener_helper/open_door{
+	listener_key = "lab_boss";
+	name = "lab_maindoors";
+	EDITOR_TARGET = /obj/machinery/door/poddoor/story
+	},
 /turf/open/indestructible/white/textured,
 /area/trainstation/indoors/station/powered)
 "YA" = (
@@ -8766,8 +8947,12 @@
 /turf/open/indestructible/train_platform,
 /area/trainstation/indoors/station/powered)
 "ZR" = (
-/obj/effect/decal/fakelattice,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt/no_border,
 /area/trainstation/outdoor/station/no_build)
 "ZS" = (
@@ -8776,7 +8961,9 @@
 /area/trainstation/outdoor/station/no_build)
 "ZT" = (
 /obj/item/clothing/suit/armor/sf_peacekeeper/debranded,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/misc/asphalt,
 /area/trainstation/outdoor/station/no_build)
 "ZU" = (
@@ -21113,7 +21300,7 @@ rL
 rL
 id
 Rn
-zx
+wk
 fM
 fM
 Rn
