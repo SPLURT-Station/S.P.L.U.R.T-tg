@@ -24,5 +24,4 @@
 	extended_desc = "Deprecated for this expedition. Will not work."
 
 /datum/computer_file/program/budgetorders/can_run(mob/user, loud, access_to_check, downloading, list/access)
-	to_chat(user, span_warning("Budget Ordering is disabled for this expedition."))
 	return FALSE
