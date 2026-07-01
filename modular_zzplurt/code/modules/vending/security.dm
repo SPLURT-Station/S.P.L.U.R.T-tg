@@ -30,3 +30,8 @@
 		/obj/item/watertank/pepperspray = 2,
 		/obj/item/storage/belt/holster/energy = 4,
 	)
+
+/obj/machinery/vending/security
+	zzplurt_contraband = list(
+		/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne = 2,
+	)

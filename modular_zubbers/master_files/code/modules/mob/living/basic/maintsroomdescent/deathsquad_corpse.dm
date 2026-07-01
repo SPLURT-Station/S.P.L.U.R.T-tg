@@ -1,3 +1,4 @@
+/* // Removes this, this is kinda dumb.
 /obj/effect/mob_spawn/corpse/human/nanotrasensoldier/deathsquad
 	name = "NT asset protection corpse"
 	outfit = /datum/outfit/nanotrasensoldiercorpse/deathsquad
@@ -13,3 +14,4 @@
 	head = /obj/item/clothing/head/helmet/space/beret
 	back = /obj/item/mod/control/pre_equipped/apocryphal
 	id = /obj/item/card/id/advanced/black/deathsquad
+*/
