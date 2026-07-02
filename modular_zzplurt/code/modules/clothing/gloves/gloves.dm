@@ -46,6 +46,11 @@
 	name = "tactical maid sleeves"
 	desc = "'Tactical' cleaning gloves modified to fit certain shadekins."
 
+/obj/item/clothing/gloves/tackler/combat/black
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "combat"
+
 /obj/item/clothing/gloves/combat/donor
 	name = "Modifed Combat Gloves"
 	desc = "These seem to be modified combat gloves to fit the legal requirements by NT standards by L.Y.D.I.A herself"
