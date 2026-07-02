@@ -272,7 +272,7 @@
 				if(create_cum_decal)
 					if(HAS_TRAIT(src, TRAIT_MESSY))
 						// Transfer reagents to the turf uisng liquids system
-						var/datum/reagents/R = new(testicles.internal_fluid_maximum)
+						var/datum/reagents/R = new(testicles.cumshot_size)
 						testicles.reagents.trans_to(R, testicles.cumshot_size, transferred_by = src)
 						if(partner && partner != src)
 							// Get turf between src and partner for directional splatter
@@ -289,7 +289,7 @@
 					// Transfer reagents directly to partner
 					var/mob/living/target_mob = partner || interactable_inrange_mobs[target_choice]
 
-					var/datum/reagents/R = new(testicles.internal_fluid_maximum)
+					var/datum/reagents/R = new(testicles.cumshot_size)
 
 					//Check if the target has custom genital fluids enabled
 					if(!(target_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp/custom_genital_fluids) || nonhuman_bypass_partner))

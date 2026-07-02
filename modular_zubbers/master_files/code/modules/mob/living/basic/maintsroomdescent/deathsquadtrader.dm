@@ -20,7 +20,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/trader
 	sell_sound = 'sound/effects/cashregister.ogg'
 	currency_name = "credits"
-	spawner_path = /obj/effect/mob_spawn/corpse/human/nanotrasensoldier/deathsquad
+	spawner_path = /obj/effect/mob_spawn/corpse/human/nanotrasendeathsquad // SPLURT edit, using a new deathsquad outfit.
 	species_path = /datum/species/human
 	loot = list(/obj/effect/mob_spawn/corpse/human/charredskeleton)
 	ranged_attack_casing = /obj/item/ammo_casing/energy/laser/pulse

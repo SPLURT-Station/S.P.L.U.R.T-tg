@@ -124,3 +124,37 @@
 
 /obj/projectile/bullet/c46x30mm/ap
 	armour_penetration = 45
+
+// PRIVATE SECURITY AR AMMO CODE
+
+/obj/item/ammo_box/magazine/c68
+	name = "Bulwark rifle magazine (6.8mm Caseless)"
+	desc = "A magazine loaded with 6.8mm caseless rounds, specifically used for modern Nanotrasen rifles."
+	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballisticmags.dmi'
+	icon_state = "ar68mm"
+	base_icon_state = "ar68mm"
+	ammo_type = /obj/item/ammo_casing/c68
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	multiple_sprite_use_base = TRUE
+	caliber = CALIBER_68MM
+	max_ammo = 30
+	multitype = FALSE
+
+/obj/item/ammo_casing/c68
+	name = "6.8mm caseless round"
+	desc = "A high-velocity caseless round used in modern Nanotrasen rifles."
+	icon_state = "223-casing"
+	caliber = CALIBER_68MM
+	projectile_type = /obj/projectile/bullet/c68
+	advanced_print_req = TRUE
+
+/obj/item/ammo_casing/c68/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/caseless)
+
+/obj/projectile/bullet/c68
+	name = "6.8mm caseless bullet"
+	damage = 27
+	armour_penetration = 20
+	wound_bonus = -15
+	wound_falloff_tile = 0

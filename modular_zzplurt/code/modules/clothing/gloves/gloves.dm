@@ -51,3 +51,8 @@
 	desc = "These seem to be modified combat gloves to fit the legal requirements by NT standards by L.Y.D.I.A herself"
 	armor_type = /datum/armor/none
 	clothing_traits = null
+
+/obj/item/clothing/gloves/tackler/combat/black
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "combat"
