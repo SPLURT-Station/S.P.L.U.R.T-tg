@@ -547,10 +547,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/kitchen/small,
 /area/ruin/space/has_grav/allamericandiner)
-"gT" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
 "gU" = (
 /obj/effect/decal/cleanable/food/pie_smudge,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -661,6 +657,11 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/allamericandiner)
+"ic" = (
+/obj/structure/lattice,
+/obj/structure/sign/flag/usa/directional/north,
+/turf/template_noop,
+/area/space/nearstation)
 "ie" = (
 /obj/structure/cable,
 /obj/structure/sign/poster/contraband/tools/directional/north,
@@ -1105,6 +1106,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/allamericandiner)
+"pr" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "pV" = (
 /obj/effect/decal/cleanable/confetti,
 /obj/effect/decal/cleanable/vomit,
@@ -1228,10 +1233,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/allamericandiner)
-"rI" = (
-/obj/structure/marker_beacon/cerulean,
-/turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
 "rJ" = (
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 1
@@ -1466,11 +1467,6 @@
 /obj/structure/railing/wooden_fencing,
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/allamericandiner)
-"vj" = (
-/obj/structure/lattice,
-/obj/structure/marker_beacon/cerulean,
-/turf/template_noop,
-/area/space/nearstation)
 "vp" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -1865,6 +1861,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/kitchen/small,
 /area/ruin/space/has_grav/allamericandiner)
+"zt" = (
+/obj/structure/marker_beacon/cerulean,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "zx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/directional/south,
@@ -2306,6 +2306,11 @@
 /obj/machinery/oven/range,
 /turf/open/floor/iron/kitchen/small,
 /area/ruin/space/has_grav/allamericandiner)
+"FB" = (
+/obj/structure/lattice,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/space/nearstation)
 "FG" = (
 /obj/effect/spawner/random/food_or_drink/booze{
 	pixel_y = 3;
@@ -2739,7 +2744,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/allamericandiner)
@@ -2830,11 +2834,6 @@
 /obj/structure/table/glass,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/allamericandiner)
-"NK" = (
-/obj/structure/lattice,
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/space/nearstation)
 "NY" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -3431,6 +3430,11 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/allamericandiner)
+"Va" = (
+/obj/structure/lattice,
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/space/nearstation)
 "Vc" = (
 /obj/structure/cable,
 /obj/machinery/power/rtg,
@@ -3793,11 +3797,6 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/allamericandiner)
-"YR" = (
-/obj/structure/lattice,
-/obj/structure/sign/flag/usa/directional/north,
-/turf/template_noop,
-/area/space/nearstation)
 "YS" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -4071,7 +4070,7 @@ tG
 tc
 tc
 tc
-YR
+ic
 vp
 vp
 vp
@@ -4223,7 +4222,7 @@ de
 tc
 tc
 tc
-YR
+ic
 vp
 vp
 vp
@@ -4680,7 +4679,7 @@ qI
 No
 No
 qb
-gT
+pr
 qI
 qI
 qI
@@ -4756,7 +4755,7 @@ bl
 bl
 No
 No
-rI
+zt
 No
 qI
 qI
@@ -5383,7 +5382,7 @@ qI
 qI
 qI
 Zx
-vj
+FB
 il
 il
 il
@@ -5397,7 +5396,7 @@ il
 il
 il
 il
-NK
+Va
 Zx
 qI
 qI
@@ -5535,7 +5534,7 @@ qI
 qI
 qI
 Zx
-NK
+Va
 il
 il
 il
@@ -5549,7 +5548,7 @@ il
 il
 il
 il
-vj
+FB
 Zx
 qI
 qI
@@ -5687,7 +5686,7 @@ qI
 qI
 qI
 Zx
-vj
+FB
 il
 il
 il
@@ -5701,7 +5700,7 @@ il
 il
 il
 il
-NK
+Va
 Zx
 qI
 qI
@@ -5807,9 +5806,9 @@ Zx
 Zx
 Zx
 Zx
-NK
+Va
 bc
-vj
+FB
 Zx
 Zx
 Zx
