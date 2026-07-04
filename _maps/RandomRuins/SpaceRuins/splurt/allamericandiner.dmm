@@ -3615,9 +3615,12 @@
 /area/ruin/space/has_grav/allamericandiner)
 "Xa" = (
 /obj/structure/sign/flag/usa/directional/north,
-/obj/item/device/traitor_announcer,
-/obj/item/device/traitor_announcer,
-/obj/item/device/traitor_announcer,
+/obj/item/device/traitor_announcer/infinite{
+	desc = "A portable device that transmits announcements to nearby stations and facilities.. Kinda illegal if you think about it.";
+	icon = 'icons/obj/devices/voice.dmi';
+	icon_state = "radio";
+	name = "advertisement device"
+	},
 /obj/item/megaphone/sec{
 	name = "manager's megaphone"
 	},
