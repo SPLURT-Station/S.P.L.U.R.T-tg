@@ -196,6 +196,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "dj" = (
@@ -211,6 +212,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "Cubicle 1"
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria)
 "dx" = (
@@ -236,6 +238,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/duct,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria)
 "dV" = (
@@ -740,6 +743,7 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/spider/stickyweb,
+/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/wood/large,
 /area/ruin/pizzeria/kitchen)
 "lH" = (
@@ -837,6 +841,7 @@
 /obj/effect/mapping_helpers/airlock_note_placer{
 	note_path = /obj/item/paper/fluff/ruins/moffuchis_pizza
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "mq" = (
@@ -902,6 +907,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "na" = (
@@ -976,6 +982,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "oi" = (
@@ -1068,8 +1075,6 @@
 /obj/item/choice_beacon/ingredient,
 /obj/item/choice_beacon/ingredient,
 /obj/item/choice_beacon/ingredient,
-/obj/item/storage/box/ingredients/italian,
-/obj/item/storage/box/ingredients/italian,
 /obj/item/storage/box/ingredients/italian,
 /obj/item/storage/box/ingredients/italian,
 /obj/item/storage/box/ingredients/italian,
@@ -1417,8 +1422,6 @@
 /obj/structure/rack/shelf,
 /obj/item/clothing/shoes/winterboots/ice_boots,
 /obj/item/clothing/shoes/winterboots/ice_boots,
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender,
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/button/door/directional/north{
@@ -1435,6 +1438,12 @@
 	id = "moffuchis_close";
 	name = "Closing Shutters Control";
 	req_access = list("away_general")
+	},
+/obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender{
+	name = "chef's winter coat"
+	},
+/obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender{
+	name = "chef's winter coat"
 	},
 /turf/open/floor/iron/cafeteria,
 /area/ruin/pizzeria/kitchen)
@@ -1877,6 +1886,7 @@
 /obj/machinery/duct,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "Aq" = (
@@ -2488,6 +2498,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria)
 "Hb" = (
@@ -2612,17 +2623,29 @@
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
 /obj/machinery/light/directional/south,
+/obj/item/food/cheese/firm_cheese,
+/obj/item/food/cheese/firm_cheese,
+/obj/item/food/cheese/wheel,
+/obj/item/food/cheese/wheel,
+/obj/item/food/cheese/mozzarella,
+/obj/item/food/cheese/mozzarella,
+/obj/item/food/herby_cheese,
+/obj/item/food/herby_cheese,
+/obj/item/food/cheese/cheese_curds,
+/obj/item/food/cheese/cheese_curds,
+/obj/item/food/cheese/curd_cheese,
+/obj/item/food/cheese/curd_cheese,
+/obj/item/food/tomato_sauce,
+/obj/item/food/tomato_sauce,
+/obj/item/food/tomato_sauce,
+/obj/item/food/tomato_sauce,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
 /turf/open/floor/iron/kitchen,
 /area/ruin/pizzeria/kitchen)
 "JB" = (
@@ -2708,6 +2731,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Recharging Cubicle"
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria)
 "Kz" = (
@@ -3031,6 +3055,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "Cubicle 2"
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria)
 "Ob" = (
@@ -3632,6 +3657,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/pizzeria/kitchen)
 "UI" = (
@@ -3835,12 +3861,16 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/item/food/cake/mothmallow{
+	pixel_y = -1;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/condiment/moth_milk{
+	pixel_x = 9;
+	pixel_y = 15
+	},
 /obj/item/food/cakeslice/mothmallow{
 	pixel_x = 10
-	},
-/obj/item/trash/vendor_trash/mothmallow{
-	pixel_y = -2;
-	pixel_x = -7
 	},
 /turf/open/floor/iron/kitchen,
 /area/ruin/pizzeria/kitchen)
