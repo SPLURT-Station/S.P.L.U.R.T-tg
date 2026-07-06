@@ -45,3 +45,8 @@
 /obj/item/clothing/gloves/tactical_maid/donor
 	name = "tactical maid sleeves"
 	desc = "'Tactical' cleaning gloves modified to fit certain shadekins."
+
+/obj/item/clothing/gloves/tackler/combat/black
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "combat"

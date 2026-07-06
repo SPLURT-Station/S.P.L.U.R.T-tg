@@ -230,3 +230,57 @@
 	icon = 'icons/obj/clothing/head/hats.dmi'
 	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "policehelm"
+
+/obj/item/clothing/head/security_garrison/ntps
+	name = "\improper Nanotrasen private security garrison cap"
+	desc = "A gray garrison cap dawned with classic security red insigna on the front, it looks formal AND fashionable! \
+		Sometimes. At least it has some armor plating in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "ntps_garrison"
+	armor_type = /datum/armor/head_helmet
+
+/obj/item/clothing/head/soft/sec/ntps
+	name = "\improper Nanotrasen private security cap"
+	desc = "A gray cap with a classic security red Nanotrasen logo on the front, it looks fashionable! At least it has \
+		some armor plating in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "ntpssoft"
+	soft_type = "ntps"
+	armor_type = /datum/armor/head_helmet
+
+/obj/item/clothing/head/beret/sec/ntps
+	name = "\improper Nanotrasen private security beret"
+	desc = "A gray beret dawned with classic security red insigna on the front, it looks formal AND fashionable! \
+		Sometimes. At least it has some armor plating in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "ntps_beret"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+	armor_type = /datum/armor/head_helmet
+
+/obj/item/clothing/head/beret/sec/ntps/captain
+	name = "\improper Nanotrasen private security captain beret"
+	desc = "A gray beret dawned with a golden badge on the front, it looks formal, protective AND fashionable! \
+		Sometimes. At least it has some heavy armor plating in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "ntps_beret_cpt"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+	armor_type = /datum/armor/hats_hos
+
+/obj/item/clothing/head/hats/hos/cap/captain
+	name = "\improper Nanotrasen private security captain cap"
+	desc = "A gray peaked cap dawned with a golden badge on the front, it looks formal, protective AND fashionable! \
+		Sometimes. At least it has some heavy armor plating in it."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "ntps_cap"
+	armor_type = /datum/armor/hats_hos
