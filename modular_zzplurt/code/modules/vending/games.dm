@@ -5,7 +5,6 @@
 			"icon" = "hat-wizard",
 			"products" = list(
 				/obj/item/toy/figure/willico = 3,
-				/obj/item/toy/plush/fox_protogen = 3,
 				/obj/item/toy/plush/mossy = 3,
 				/obj/item/toy/plush/panic = 3,
 				/obj/item/toy/plush/tree_ferret = 3,

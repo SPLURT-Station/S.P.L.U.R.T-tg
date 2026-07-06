@@ -60,11 +60,6 @@
 	item_path = /obj/item/toy/plush/doctoraddy
 	ckeywhitelist = null
 
-/datum/loadout_item/toys/fox_protogen
-	name = "Silly Protogen Plushie"
-	item_path = /obj/item/toy/plush/fox_protogen
-	ckeywhitelist = null
-
 /datum/loadout_item/toys/fuckassrabit
 	name = "a fuck ass rabbit plushie"
 	item_path = /obj/item/toy/plush/fuckassrabit
