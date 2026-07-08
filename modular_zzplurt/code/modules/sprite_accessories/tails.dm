@@ -74,6 +74,11 @@ Tails
 	name = "Leopard (Splurt)"
 	icon_state = "leopard"
 
+/datum/sprite_accessory/tails/splurt/mantled_beast
+	name = "Mantled Beast (Splurt)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_tail.dmi'
+	icon_state = "mantledbeast"
+
 /*
 Teshari // BRUH
 */

@@ -637,3 +637,21 @@ MARKINGS - HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RI
 	name = "Khanivore"
 	icon_state = "khanivore"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+/// Mantled Beast
+/datum/body_marking_set/mantled_beast
+	name = "Mantled Beast"
+	body_marking_list = list("Mantled Beast", "Mantled Beast Diamond Color")
+
+/datum/body_marking/other/splurt/mantled_beast
+	name = "Mantled Beast"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_markings.dmi'
+	icon_state = "mantled_beast"
+	affected_bodyparts = HEAD | CHEST
+	gendered = FALSE
+
+/datum/body_marking/secondary/splurt/mantled_beast_diamond_color
+	name = "Mantled Beast Diamond Color"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_markings.dmi'
+	icon_state = "mantled_beast_diamond_color"
+	affected_bodyparts = HEAD
