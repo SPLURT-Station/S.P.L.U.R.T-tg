@@ -87,13 +87,13 @@
 	gag_size = possible_gag_sizes[size_list_position]
 	balloon_alert(user, "size set to [gag_size]")
 
-// SPLURT ADDITION - Moved ring-gag here
+// SPLURT ADDITION - Moved ringgag here
 // A ringgag to allow constant oral
 /obj/item/clothing/mask/ballgag/ring
 	name = "ring gag"
 	desc = "A mouth wrap seemingly designed to hold the mouth open."
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	icon_state = "/obj/item/clothing/mask/ballgag/ring"
+	icon_state = "ringgag"
 	post_init_icon_state = "ringgag"
 	inhand_icon_state = "blindfold"
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
@@ -105,7 +105,7 @@
 	greyscale_config_worn = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
-	greyscale_colors = "#AD66BE"
+	greyscale_colors = null
 	flags_cover = NONE
 // END SPLURT ADDITION
 
