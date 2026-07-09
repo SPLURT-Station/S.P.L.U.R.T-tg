@@ -96,7 +96,6 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
 "j" = (
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/coffeemaker/impressa{
 	pixel_y = 9
 	},
@@ -112,6 +111,7 @@
 	pixel_x = 10;
 	pixel_y = -7
 	},
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "k" = (
@@ -319,11 +319,11 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax{
 	fax_name = "Nanotrasen Consultant's Office";
 	name = "Nanotrasen Consultant's Fax Machine"
 	},
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "K" = (
@@ -368,8 +368,10 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "R" = (

@@ -59,7 +59,9 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aP" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)

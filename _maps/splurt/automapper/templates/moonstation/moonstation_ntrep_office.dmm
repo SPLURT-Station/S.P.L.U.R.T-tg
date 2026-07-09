@@ -66,7 +66,13 @@
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
 	req_access = list("cent_general");
-	pixel_y = 26
+	pixel_y = 24;
+	pixel_x = -6
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = 6;
+	id = "ntrep_privacy_shutters_external";
+	name = "External Privacy Shutters Control"
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -250,6 +256,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/preopen,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "E" = (
@@ -299,13 +306,9 @@
 "L" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bathroom-open";
-	icon_type = "bathroom";
-	id = "ntc_privatecurtains";
-	name = "expensive curtain";
-	color = "#2E7DA5";
-	desc = "An expensive set of excellent cloth drapes."
+/obj/machinery/door/poddoor/preopen{
+	id = "ntrep_privacy_shutters_external";
+	name = "External Privacy Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -341,15 +344,11 @@
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/curtain/cloth/fancy/mechanical{
-	icon_state = "bathroom-open";
-	icon_type = "bathroom";
-	id = "ntc_privatecurtains";
-	name = "expensive curtain";
-	color = "#2E7DA5";
-	desc = "An expensive set of excellent cloth drapes."
-	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/preopen{
+	id = "ntrep_privacy_shutters_external";
+	name = "External Privacy Shutters"
+	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
@@ -392,11 +391,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/nt_rep)
 "W" = (
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax{
 	fax_name = "Nanotrasen Consultant's Office";
 	name = "Nanotrasen Consultant's Fax Machine"
 	},
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "X" = (

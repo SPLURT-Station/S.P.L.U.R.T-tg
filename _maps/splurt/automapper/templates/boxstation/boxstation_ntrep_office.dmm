@@ -93,7 +93,8 @@
 	},
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/bot_blue,
-/obj/structure/sign/flag/nanotrasen/directional/west,
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/machinery/modular_computer/preset/time_clock/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/central)
 "j" = (
@@ -263,7 +264,9 @@
 	},
 /obj/machinery/newscaster/directional/north,
 /obj/structure/table/wood,
-/obj/item/storage/lunchbox/nanotrasen,
+/obj/item/storage/lunchbox/nanotrasen{
+	pixel_y = 6
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "C" = (
@@ -333,12 +336,12 @@
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax{
 	fax_name = "Nanotrasen Consultant's Office";
 	name = "Nanotrasen Consultant's Fax Machine"
 	},
 /obj/machinery/light/warm/dim/directional/north,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -360,6 +363,7 @@
 "T" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/turf_decal/bot_blue,
+/obj/structure/sign/flag/nanotrasen/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/central)
 "V" = (
@@ -425,7 +429,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Z" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -433,6 +436,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 

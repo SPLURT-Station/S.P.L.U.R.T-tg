@@ -28,6 +28,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
+"d" = (
+/turf/closed/wall,
+/area/station/command/heads_quarters/nt_rep)
 "e" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/flashlight/lamp/green{
@@ -384,11 +387,13 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "U" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "V" = (
@@ -529,12 +534,12 @@ i
 i
 "}
 (9,1,1) = {"
-a
+d
 I
 Y
 Y
 o
 M
 Z
-a
+d
 "}
