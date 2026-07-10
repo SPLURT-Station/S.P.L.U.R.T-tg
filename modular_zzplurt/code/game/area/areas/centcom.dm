@@ -3,7 +3,6 @@
 	ambience_index = AMBIENCE_MINING
 	sound_environment = SOUND_AREA_ICEMOON
 	airlock_wires = /datum/wires/airlock/centcom
-	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /datum/wires/airlock/centcom
 	dictionary_key = /datum/wires/airlock/centcom
@@ -13,12 +12,19 @@
 	name = "CentCom Central Hallway"
 	icon_state = "centcom"
 	ambience_index = AMBIENCE_GENERIC
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/control/main
 	name = "CentCom Central Control Office"
 	icon_state = "centcom_control"
 	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+
+/area/centcom/central_command_areas/control/closet
+	name = "CentCom Auxiliary Announcement Closet"
+	icon_state = "centcom_control"
+	ambience_index = AMBIENCE_DANGER
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/centcom/central_command_areas/evacuation/lounge
 	name = "CentCom Recovery Wing Lounge"
@@ -50,6 +56,35 @@
 	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
+/area/centcom/tdome
+	name = "CentCom Thunderdome"
+	icon_state = "thunder"
+	ambience_index = AMBIENCE_GENERIC
+	airlock_wires = /datum/wires/airlock/centcom
+	sound_environment = SOUND_AREA_STANDARD_STATION
+
+/area/centcom/tdome/arena
+	name = "CentCom Thunderdome Arena"
+	icon_state = "thunder"
+	area_flags = parent_type::area_flags | UNLIMITED_FISHING //for possible testing purposes
+
+/area/centcom/tdome/administration
+	name = "CentCom Thunderdome Administrative Observation"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
+
+/area/centcom/tdome/observation
+	name = "CentCom Thunderdome Wing"
+
+/area/centcom/tdome/observation/observation
+	name = "CentCom Thunderdome Observation"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+
+/area/centcom/tdome/observation/bar
+	name = "CentCom Thunderdome Bar"
+
+/area/centcom/tdome/observation/kitchen
+	name = "CentCom Thunderdome kitchen"
+
 /area/centcom/central_command_areas/morgue
 	name = "CentCom Morgue"
 	icon_state = "centcom"
@@ -71,13 +106,14 @@
 /area/centcom/central_command_areas/supplypod
 	name = "CentCom Supplypod Loading Bay"
 	icon_state = "supplypod"
-	ambience_index = AMBIENCE_GENERIC
 	ambience_index = AMBIENCE_ENGI
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/ferry
 	name = "CentCom Executive Operations Wing"
 	icon_state = "centcom_ferry"
 	ambience_index = AMBIENCE_GENERIC
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/ferry/dock
 	name = "CentCom Executive Operations Docking Bay"
@@ -117,11 +153,13 @@
 	name = "CentCom Emergency Reponse Team Briefing Room"
 	icon_state = "centcom_briefing"
 	ambience_index = AMBIENCE_DANGER
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/supply
 	name = "CentCom Logistics Office"
 	icon_state = "centcom_supply"
 	ambience_index = AMBIENCE_ENGI
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/supply/bay
 	name = "CentCom Logistics Bay"
@@ -135,11 +173,13 @@
 	name = "CentCom Corporate Security & Logistics Wing"
 	icon_state = "centcom_fore"
 	ambience_index = AMBIENCE_GENERIC
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/prison
 	name = "CentCom Corporate Security Prison Wing"
 	icon_state = "centcom_prison"
 	ambience_index = AMBIENCE_DANGER
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/centcom/central_command_areas/prison/security
 	name = "CentCom Corporate Security Center"
@@ -164,3 +204,16 @@
 	name = "CentCom Pod Recovery Outpost"
 	icon_state = "centcom_evacuation_ship"
 	ambience_index = AMBIENCE_GENERIC
+	sound_environment = SOUND_AREA_STANDARD_STATION
+
+/area/centcom/central_command_areas/evacuation/ship/med
+	name = "CentCom Pod Recovery Infirmary"
+	ambience_index = AMBIENCE_MEDICAL
+
+/area/centcom/central_command_areas/evacuation/ship/bar
+	name = "CentCom Pod Recovery Lounge"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+
+/area/centcom/central_command_areas/evacuation/ship/lobby
+	name = "CentCom Pod Recovery Lobby"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
