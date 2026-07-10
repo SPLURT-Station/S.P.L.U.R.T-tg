@@ -110,11 +110,11 @@ required_map = "moonstation.dmm"
 coordinates = [101, 154, 3]
 trait_name = "Station"
 
-[templates.nebulastation_blueshield_office]
-map_files = ["nebulastation_blueshield_office.dmm"]
+[templates.nebulastation_ntrep_blueshield_offices]
+map_files = ["nebulastation_ntrep_blueshield_offices.dmm"]
 directory = "_maps/splurt/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
-coordinates = [117, 113, 2]
+coordinates = [110, 113, 2]
 trait_name = "Station"
 
 # Biodome NTR Office
@@ -401,10 +401,6 @@ directory = "_maps/splurt/automapper/templates/iceboxstation/"
 [template_overrides.metastation_ntrep_office]
 map_files = ["metastation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/metastation/"
-
-[template_overrides.nebulastation_ntrep_office]
-map_files = ["nebulastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/nebulastation/"
 
 [template_overrides.tramstation_ntrep_office]
 map_files = ["tramstation_ntrep_office.dmm"]
