@@ -94,3 +94,10 @@ Teshari // BRUH
 /datum/sprite_accessory/tails/splurt/teshari/featherscolorable
 	name = "Teshari Feathers Colorable (Splurt)"
 	icon_state = "tesharifeatherscolorable"
+
+// Mantled Beast tail - bounty #1066
+/datum/sprite_accessory/tails/splurt/mantled_beast
+	name = "Mantled Beast (Splurt)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_tail.dmi'
+	icon_state = "mantled_beast"
+	color_src = USE_ONE_COLOR
