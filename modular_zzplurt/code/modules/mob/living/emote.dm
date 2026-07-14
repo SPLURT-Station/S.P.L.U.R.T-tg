@@ -1448,15 +1448,15 @@
 	drift = generator(GEN_SPHERE, 0, 1, NORMAL_RAND)
 
 /particles/smoke/steam/billow/north
-	position = list(-1, 10, 0)
+	position = list(1, 10, 0)
 	velocity = list(0, 2, 0)
 
 /particles/smoke/steam/billow/east
-	position = list(6, 6, 0)
+	position = list(8, 6, 0)
 	velocity = list(2, 0, 0)
 
 /particles/smoke/steam/billow/south
-	position = list(-1, 5, 0)
+	position = list(1, 5, 0)
 	velocity = list(0, -2, 0)
 
 /particles/smoke/steam/billow/west
@@ -1484,6 +1484,7 @@
 		particle_effect = new(user, /particles/smoke/steam/billow/west)
 	if(particle_effect)
 		QDEL_IN(particle_effect, particle_effect.particles.lifespan)
-		if(isliving(user))
-			var/mob/living/smoker = user
+		if(ishuman(user))
+			var/mob/living/carbon/human/smoker = user
 			smoker.adjust_oxy_loss(1)
+			particle_effect.particles.position[1] += smoker.mob_height - HUMAN_HEIGHT_MEDIUM
