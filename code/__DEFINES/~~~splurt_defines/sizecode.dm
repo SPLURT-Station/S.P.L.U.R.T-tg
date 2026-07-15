@@ -34,6 +34,25 @@
 		return target.size_multiplier
 
 /*
+ * # get_size_modified(mob/living/target)
+ * Grabs the size of your critter. Same as above, but applies a reduction of 40% if both legs are missing
+*/
+/proc/get_size_modified(mob/living/target)
+	if(!target)
+		CRASH("get_size(NULL) was called")
+	if(!istype(target))
+		CRASH("get_size() called with an invalid target, only use this for /mob/living!")
+	var/datum/dna/has_dna = target.has_dna()
+	if(ishuman(target) && has_dna)
+		if(get_legs_missing(target))
+			return has_dna.features["body_size"] * 0.6
+		else
+			return has_dna.features["body_size"]
+	else
+		return target.size_multiplier
+
+
+/*
  * # COMPARE_SIZES(mob/living/user, mob/living/target)
  * Returns how bigger or smaller the target is in comparison to user
  * Example:
@@ -44,3 +63,15 @@
  * - target = /mob/living
 */
 #define COMPARE_SIZES(user, target) abs((get_size(user) / get_size(target)))
+
+/*
+ * # COMPARE_SIZES_MODIFIED(mob/living/user, mob/living/target)
+ * Returns how bigger or smaller the target is in comparison to user keeping missing legs in mind
+ * Example:
+ * - user = 2, target = 1, result = 0.5
+ * - user = 1, target = 2, result = 2
+ * Args:
+ * - user = /mob/living
+ * - target = /mob/living
+*/
+#define COMPARE_SIZES_MODIFIED(user, target) abs((get_size_modified(user) / get_size_modified(target)))

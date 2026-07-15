@@ -4,11 +4,12 @@
 	var/t_He = p_They()
 
 	//Approximate character height based on current sprite scale
-	var/dispSize = round(12*get_size(src)) // gets the character's sprite size percent and converts it to the nearest half foot
+	var/dispSize = round(12*get_size_modified(src)) // gets the character's sprite size percent and converts it to the nearest half foot
+	var/dispSizeMetric = round(183*get_size_modified(src)); // gets the character's sprite size percent and converts it to the nearest cm
 	if(dispSize % 2) // returns 1 or 0. 1 meaning the height is not exact and the code below will execute, 0 meaning the height is exact and the else will trigger.
 		dispSize = dispSize - 1 //makes it even
 		dispSize = dispSize / 2 //rounds it out
-		. += "[t_He] appear\s to be around [dispSize] and a half feet tall."
+		. += "[t_He] appear\s to be around [dispSize] and a half feet ([dispSizeMetric]cm) tall."
 	else
 		dispSize = dispSize / 2
-		. += "[t_He] appear\s to be around [dispSize] feet tall."
+		. += "[t_He] appear\s to be around [dispSize] feet ([dispSizeMetric]cm) tall."

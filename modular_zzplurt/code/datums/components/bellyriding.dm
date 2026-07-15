@@ -155,7 +155,7 @@
 	if(current_victim)
 		to_chat(user, span_warning("There's someone already strapped to your belly!"))
 		return FALSE
-	if(!victim.handcuffed || !victim.legcuffed)
+	if((!victim.handcuffed && !get_arms_missing(victim)) || (!victim.legcuffed && !get_legs_missing(victim)))
 		to_chat(user, span_warning("[victim] needs to be both handcuffed and legcuffed!"))
 		return FALSE
 
