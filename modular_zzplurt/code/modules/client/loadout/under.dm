@@ -199,6 +199,22 @@
 	name = "fashionable sheer miniskirt"
 	item_path = /obj/item/clothing/under/misc/miniskirt_sheer
 
+/datum/loadout_item/uniform/turtleneck
+	name = "Turtleneck w/ Pants"
+	item_path = /obj/item/clothing/under/misc/turtleneck
+
+/datum/loadout_item/uniform/skirtleneck
+	name = "Turtleneck w/ Skirt"
+	item_path = /obj/item/clothing/under/misc/turtleneck/skirt
+
+/datum/loadout_item/uniform/overalls
+	name = "Turtleneck w/ Overalls"
+	item_path = /obj/item/clothing/under/misc/turtleneckoveralls
+
+/datum/loadout_item/uniform/overalls_skirt
+	name = "Turtleneck w/ Overalls Skirt"
+	item_path = /obj/item/clothing/under/misc/turtleneckoveralls/skirt
+
 /datum/loadout_item/uniform/miscellaneous/bathrobe
 	name = "Bathrobe"
 	item_path = /obj/item/clothing/under/costume/skyrat/bathrobe
