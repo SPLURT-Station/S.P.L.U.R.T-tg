@@ -5,3 +5,4 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN "Nanotrasen Private Security Captain"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
 #define JOB_NANOTRASEN_LIEUTENANT "Nanotrasen Lieutenant"
+#define JOB_NANOTRASEN_CYBORG "Nanotrasen Cyborg"

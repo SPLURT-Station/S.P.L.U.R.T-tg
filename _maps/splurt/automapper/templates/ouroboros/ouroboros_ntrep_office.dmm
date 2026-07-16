@@ -92,6 +92,52 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
+"g" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"h" = (
+/obj/structure/table/wood,
+/obj/item/taperecorder{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/obj/item/tape{
+	pixel_x = 4
+	},
+/obj/machinery/vending/boozeomat{
+	density = 0;
+	req_access = list("cent_general");
+	pixel_x = -32
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"i" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
 "j" = (
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
@@ -135,18 +181,19 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
-/obj/machinery/modular_computer/preset/command{
-	dir = 1
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
 	},
-/obj/machinery/requests_console/directional/south{
-	name = "Nanotrasen Consultant's Requests Console";
-	department = "Nanotrasen Consultant's Desk"
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
 	},
-/obj/effect/mapping_helpers/requests_console/assistance,
-/obj/effect/mapping_helpers/requests_console/announcement,
-/obj/effect/mapping_helpers/requests_console/information,
-/turf/open/floor/carpet/executive,
-/area/station/command/heads_quarters/nt_rep)
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
 "o" = (
 /obj/effect/turf_decal/siding/wood/end,
 /obj/structure/hedge,
@@ -216,6 +263,20 @@
 /obj/structure/bed/dogbed/luxury,
 /obj/effect/spawner/random/ntc_pet,
 /turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"u" = (
+/obj/machinery/modular_computer/preset/command{
+	dir = 1
+	},
+/obj/machinery/requests_console/directional/south{
+	name = "Nanotrasen Consultant's Requests Console";
+	department = "Nanotrasen Consultant's Desk"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/announcement,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
 /obj/machinery/fax{
@@ -371,16 +432,20 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "K" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
 	},
-/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/obj/item/clipboard,
-/obj/item/folder/nanotrasen,
-/turf/open/floor/wood/large,
-/area/station/command/heads_quarters/nt_rep)
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
 "M" = (
 /obj/structure/chair/comfy/brown{
 	dir = 1
@@ -395,6 +460,22 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
+"Q" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
 "R" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -435,44 +516,233 @@
 "U" = (
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
-"Y" = (
-/obj/structure/table/wood,
-/obj/item/taperecorder{
-	pixel_y = 2;
-	pixel_x = -5
+"V" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
 	},
-/obj/item/tape{
-	pixel_x = 4
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
 	},
-/obj/machinery/vending/boozeomat{
-	density = 0;
-	req_access = list("cent_general");
-	pixel_x = -32
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/floor/carpet/cyan,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"W" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/item/clipboard,
+/obj/item/folder/nanotrasen,
+/obj/machinery/light/directional/north,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
+"Y" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"Z" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
 
 (1,1,1) = {"
 a
-T
-T
-T
-T
-T
-T
 a
+a
+a
+a
+a
+a
+a
+i
+a
+n
 "}
 (2,1,1) = {"
 a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+K
+a
+Y
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+T
+T
+T
+T
+T
+T
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
 T
 A
-Y
+h
 G
 f
 T
 a
+a
+a
+a
 "}
-(3,1,1) = {"
+(14,1,1) = {"
 a
 T
 y
@@ -481,8 +751,11 @@ c
 C
 j
 a
+a
+a
+a
 "}
-(4,1,1) = {"
+(15,1,1) = {"
 T
 T
 D
@@ -491,8 +764,11 @@ I
 B
 T
 T
+Q
+a
+g
 "}
-(5,1,1) = {"
+(16,1,1) = {"
 T
 R
 s
@@ -501,28 +777,37 @@ e
 b
 d
 T
+a
+a
+a
 "}
-(6,1,1) = {"
+(17,1,1) = {"
 T
-K
+W
 F
 N
 q
 M
 S
 T
+V
+a
+Z
 "}
-(7,1,1) = {"
+(18,1,1) = {"
 p
 p
 t
 E
 l
 J
-n
+u
 T
+a
+a
+a
 "}
-(8,1,1) = {"
+(19,1,1) = {"
 a
 p
 p
@@ -531,8 +816,11 @@ U
 U
 k
 T
+a
+a
+a
 "}
-(9,1,1) = {"
+(20,1,1) = {"
 a
 a
 p
@@ -541,8 +829,11 @@ x
 w
 o
 T
+a
+a
+a
 "}
-(10,1,1) = {"
+(21,1,1) = {"
 a
 a
 a
@@ -551,4 +842,7 @@ T
 T
 T
 T
+a
+a
+a
 "}
