@@ -13,7 +13,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 		Be the HR you always wanted to be. Sit in your office and get drunk."
 	supervisors = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	head_announce = list("Internal Affairs")
+	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
