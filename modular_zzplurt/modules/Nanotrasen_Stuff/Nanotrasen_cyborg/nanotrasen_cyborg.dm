@@ -40,7 +40,6 @@
 
 /obj/item/pen/fountain/nanotrasen/cyborg
 	name = "integrated nanotrasen fountain pen"
-	font = CYBORG_FONT
 	desc = "How fancy! A nanotrasen pen that you can't exactly enjoy, it's quite expensive. Like you! I think.."
 
 /mob/living/silicon/robot/proc/start_iaaborg_ai_calibration(calibration_time = 5 SECONDS)
