@@ -31,7 +31,7 @@ As of our recent split from Skyrat, a lot of codedocs/modularization guides need
 
 **1. Do Not Be A Dick**
 
-- The S.P.L.U.R.T. main repository is run by and contributed by volunteers and hobbiests. Please be considerate with the people who help maintain our codebase. We reserve the right to permanently remove anyone who does not show both our contributors and maintainers common decency.
+- The S.P.L.U.R.T. main repository is run by and contributed by volunteers and hobbyists. Please be considerate with the people who help maintain our codebase. We reserve the right to permanently remove anyone who does not show both our contributors and maintainers common decency.
 - S.P.L.U.R.T. does not operate a strict "goodboy" points system or have defined goals, and anyone is welcome to contribute to this project. That being said, the maintainers of this project are free to curate comments as seen fit to uphold a respectful environment.
 
 **2. Modularization Standards Will be Upheld**

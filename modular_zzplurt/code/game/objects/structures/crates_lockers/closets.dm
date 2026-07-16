@@ -59,15 +59,15 @@
 
 /obj/structure/closet/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(W, /obj/item/stack/packing_peanuts) && opened && packable && !packing_overlay)
-		try_packing(W, user)
-		take_contents()
+		if(try_packing(W, user))
+			take_contents()
 		return TRUE //no afterattack
 	else if(opened && packing_overlay && !iscyborg(user)) //Don't let cyborgs pack things, they lose their modules like that
 		balloon_alert(user, "packing item...")
 		if(do_after(user, 1 SECONDS, target = src))
 			insert(W)
 			balloon_alert(user, "packed!")
-			return TRUE
+		return TRUE
 	return ..()
 
 /obj/structure/closet/dump_contents()
