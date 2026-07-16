@@ -629,8 +629,8 @@
 /obj/item/clothing/under/misc/turtleneck
 	name = "turtleneck with pants"
 	desc = "A rather comfortable turtleneck worn with pants. Talk about robust threads."
-	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	icon_state = "turtleneck_nova"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/turtleneck"
 	post_init_icon_state = "turtleneck_nova"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
@@ -646,8 +646,8 @@
 /obj/item/clothing/under/misc/turtleneck/skirt
 	name = "turtleneck with skirt"
 	desc = "A rather comfortable turtleneck worn with a skirt. A skirtleneck, if you would."
-	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	icon_state = "turtleneck_nova"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/turtleneck/skirt"
 	post_init_icon_state = "skirtleneck_nova"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
@@ -662,8 +662,8 @@
 /obj/item/clothing/under/misc/turtleneckoveralls
 	name = "turtleneck with overalls"
 	desc = "Overalls worn over a turtleneck. A combination providing comfort and coverage... or, at the least, the coverage."
-	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	icon_state = "overalls_nova"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/turtleneckoveralls"
 	post_init_icon_state = "overalls_nova"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
@@ -679,8 +679,8 @@
 /obj/item/clothing/under/misc/turtleneckoveralls/skirt
 	name = "turtleneck with overalls-skirt"
 	desc = "An overalls-skirt worn over a turtleneck. A combination providing comfort and coverage... or, at the least- no, wait, this doesn't really provide either."
-	icon = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	icon_state = "overalls_skirt_nova"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/turtleneckoveralls/skirt"
 	post_init_icon_state = "overalls_skirt_nova"
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
