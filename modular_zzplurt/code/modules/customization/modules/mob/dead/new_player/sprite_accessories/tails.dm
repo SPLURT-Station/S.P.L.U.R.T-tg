@@ -8,3 +8,9 @@
 	name = "Kitsune (Ann)"
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/tail.dmi'
 	icon_state = "kitsuann"
+
+/datum/sprite_accessory/tails/mammal/mantled_beast
+	name = "Mantled Beast"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_tail.dmi'
+	icon_state = "mantled_beast"
+	relevent_layers = list(BODY_BEHIND_LAYER)
