@@ -28,10 +28,6 @@
 	. = ..()
 	restricted_roles |= JOB_IAA_CYBORG
 
-/obj/effect/landmark/start/cyborg/Initialize(mapload)
-	. = ..()
-	new /obj/effect/landmark/start/iaa_cyborg(get_turf(src))
-
 /obj/effect/landmark/start/iaa_cyborg
 	name = "Internal Affairs Cyborg"
 	icon_state = "Cyborg"
