@@ -105,7 +105,7 @@
 	var/mob/living/carbon/human/action_owner = owner
 
 	// Check if owner has eye protection
-	if(action_owner.get_eye_protection())
+	if(action_owner.get_eye_protection() > 0)
 		// Warn the user, then return
 		to_chat(action_owner, span_warning("Your eyes need to be visible for this ability to work."))
 		return FALSE
