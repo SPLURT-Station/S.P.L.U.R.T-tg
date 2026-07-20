@@ -242,22 +242,6 @@
 				actually_an_egg.base_icon_state = egg_icon_state
 				actually_an_egg.update_appearance(UPDATE_ICON)
 
-	if(pregnancy_flags & PREGNANCY_FLAG_INERT)
-		return
-
-	var/mob/living/bouncing_baby_boy = new baby_type(location)
-	if(ishuman(bouncing_baby_boy))
-		var/mob/living/carbon/human/real_boy = bouncing_baby_boy
-		determine_baby_dna(real_boy, src.mother_dna, src.father_dna, src.pregnancy_genetic_distribution)
-		if(baby_name)
-			real_boy.real_name = baby_name
-			real_boy.name = baby_name
-			real_boy.updateappearance()
-		real_boy.set_resting(new_resting = TRUE, silent = TRUE, instant = TRUE)
-	bouncing_baby_boy.AdjustUnconscious(30 SECONDS)
-
-	egg.AddComponent(/datum/component/pregnant, bouncing_baby_boy, mother_name, father_name, baby_name, mother_dna, father_dna, pregnancy_genetic_distribution)
-
 /atom/movable/screen/alert/status_effect/pregnancy
 	name = "Pregnant"
 	desc = "Something grows inside you."
