@@ -41,6 +41,13 @@
 	icon_state = "determ"
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt = 20, /datum/reagent/determination = 5, /datum/reagent/consumable/ethanol/skullfucker_deluxe = 5)
 
+/obj/item/reagent_containers/cup/soda_cans/bun_drink
+	name = "Bonum cacas"
+	desc = "Yeah this one is going to keep you awake for a LOOONG while"
+	icon = 'modular_zzplurt/icons/obj/drinks/drinks.dmi'
+	icon_state = "bun_full"
+	list_reagents = list(/datum/reagent/consumable/ethanol/atomicbomb = 10, /datum/reagent/consumable/coffee = 10)
+
 /obj/item/reagent_containers/cup/soda_cans/gem_grape_juice
 	name = "Gem Brand Grape Juice"
 	desc = "A purple can of Gem Brand grape juice. On the front, it has a cute orange heart that seems to be wearing goggles. On the back of the can there's a written slogan that says 'The benefits of a short rest, all in a can!' with a label warning the consumer of slight alcoholic contents."
