@@ -1467,6 +1467,7 @@
 	key = "bsmoke"
 	key_third_person = "bellows smoke"
 	message = "bellows smoke."
+	sound = 'modular_zzplurt/sound/voice/bsmoke.ogg'
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
 /datum/emote/living/bsmoke/run_emote(mob/user, type_override = null, intentional = FALSE)
