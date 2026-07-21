@@ -71,6 +71,20 @@
 	inhand_icon_state = "balaclava"
 
 // SPLURT EDIT - Delete unused muzzle/ball and muzzle/ring
+// /obj/item/clothing/mask/muzzle/ball
+// 	name = "ballgag"
+// 	desc = "I'm pretty fuckin far from okay."
+// 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+// 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+// 	icon_state = "ballgag"
+//
+// /obj/item/clothing/mask/muzzle/ring
+// 	name = "ring gag"
+// 	desc = "A mouth wrap seemingly designed to hold the mouth open."
+// 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+// 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+// 	icon_state = "ringgag"
+// SPLURT EDIT END
 
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'icons/map_icons/clothing/mask.dmi'
