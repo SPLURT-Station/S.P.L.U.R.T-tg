@@ -374,3 +374,24 @@
 		return
 
 	model.transform_to(selected_model)
+
+/datum/job/cyborg/after_spawn(mob/living/spawned, client/player_client)
+	if(iscyborg(spawned))
+		var/mob/living/silicon/robot/robot_spawn = spawned
+		if(robot_spawn.is_iaa_cyborg_role())
+			if(player_client)
+				robot_spawn.set_gender(player_client)
+			ADD_TRAIT(robot_spawn, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
+			if(SSticker.current_state == GAME_STATE_SETTING_UP)
+				robot_spawn.start_secborg_ai_calibration()
+			else
+				robot_spawn.set_connected_ai(null)
+			robot_spawn.lawupdate = FALSE
+			robot_spawn.laws = new /datum/ai_laws/iaa_cyborg()
+			robot_spawn.laws.associate(robot_spawn)
+			if(robot_spawn.model?.ensure_security_canine_modules())
+				robot_spawn.model.rebuild_modules()
+			robot_spawn.show_laws()
+			robot_spawn.log_current_laws()
+			return
+	return ..()
