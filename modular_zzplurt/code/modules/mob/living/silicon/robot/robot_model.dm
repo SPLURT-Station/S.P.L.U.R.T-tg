@@ -8,11 +8,11 @@
 		/obj/item/pen/fountain/nanotrasen/cyborg,
 		/obj/item/clipboard/cyborg,
 		/obj/item/borg/apparatus/bureaucratic_manipulator,
-		/obj/item/rsf,
+		/obj/item/rpf,
 		/obj/item/hand_labeler/cyborg,
 		/obj/item/megaphone/command,
 		/obj/item/extinguisher/mini,
-		/obj/item/weldingtool/electric,
+		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/crowbar/cyborg,
 	)
 	radio_channels = list(RADIO_CHANNEL_IAA)
