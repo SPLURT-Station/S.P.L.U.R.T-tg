@@ -70,7 +70,7 @@
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
 
-// SPLURT EDIT - Delete unused muzzle/ball and muzzle/ring
+// SPLURT EDIT - Delete unused muzzle/ball and muzzle/ring moved to /obj/item/clothing/mask/ballgag/ring
 // /obj/item/clothing/mask/muzzle/ball
 // 	name = "ballgag"
 // 	desc = "I'm pretty fuckin far from okay."
