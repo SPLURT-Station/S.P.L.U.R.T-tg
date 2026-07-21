@@ -4,11 +4,11 @@
 	name = "alien drone"
 	desc = "As plain looking as you could call an alien with armored black chitin and large claws."
 	caste = "drone"
-	maxHealth = 200
-	health = 200
+	maxHealth = 125 //Splurt Edit
+	health = 125 //Splurt Edit
 	icon_state = "aliendrone"
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	melee_damage_lower = 10 //Splurt Edit
+	melee_damage_upper = 15 //Splurt Edit
 	next_evolution = /mob/living/carbon/alien/adult/skyrat/praetorian
 	default_organ_types_by_slot = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/alien,

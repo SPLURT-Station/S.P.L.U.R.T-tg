@@ -4,8 +4,8 @@
 	name = "alien sentinel"
 	desc = "An alien that'd be unremarkable if not for the bright coloring and visible acid glands that cover it."
 	caste = "sentinel"
-	maxHealth = 200
-	health = 200
+	maxHealth = 150 //Splurt Edit
+	health = 150 //Splurt Edit
 	icon_state = "aliensentinel"
 	melee_damage_lower = 10
 	melee_damage_upper = 15

@@ -7,13 +7,13 @@
 	name = "alien runner"
 	desc = "A short alien with sleek red chitin, clearly abiding by the 'red ones go faster' theorem and almost always running on all fours."
 	caste = "runner"
-	maxHealth = 150
-	health = 150
+	maxHealth = 100 //Splurt Edit
+	health = 100 //Splurt Edit
 	icon_state = "alienrunner"
 	/// Holds the evade ability to be granted to the runner later
 	var/datum/action/cooldown/alien/skyrat/evade/evade_ability
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	melee_damage_lower = 10 //Splurt Edit
+	melee_damage_upper = 15 //Splurt Edit
 	next_evolution = /mob/living/carbon/alien/adult/skyrat/ravager
 	on_fire_pixel_y = 0
 	default_organ_types_by_slot = list(

@@ -4,11 +4,11 @@
 	name = "alien defender"
 	desc = "A heavy looking alien with a wrecking ball-like tail that'd probably hurt to get hit by."
 	caste = "defender"
-	maxHealth = 300
-	health = 300
+	maxHealth = 250 //Splurt Edit
+	health = 250 //Splurt Edit
 	icon_state = "aliendefender"
-	melee_damage_lower = 25
-	melee_damage_upper = 30
+	melee_damage_lower = 20 //Splurt Edit
+	melee_damage_upper = 25 //Splurt Edit
 	next_evolution = /mob/living/carbon/alien/adult/skyrat/warrior
 	default_organ_types_by_slot = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/alien,
