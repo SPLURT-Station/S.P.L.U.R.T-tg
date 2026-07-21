@@ -1148,3 +1148,11 @@ GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/follow,
 	/datum/pet_command/attack/mouse
 ))
+
+/// utillity function to check is both legs are missing from a mob
+/proc/get_legs_missing(mob/living/target)
+	return target.get_bodypart(BODY_ZONE_L_LEG) == null && target.get_bodypart(BODY_ZONE_R_LEG) == null
+
+/// utillity function to check is both arms are missing from a mob
+/proc/get_arms_missing(mob/living/target)
+	return target.get_bodypart(BODY_ZONE_L_ARM) == null && target.get_bodypart(BODY_ZONE_R_ARM) == null

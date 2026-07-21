@@ -62,7 +62,7 @@
 		to_chat(user, span_warning("You can't pick yourself up."))
 		source.balloon_alert(user, "cannot pick yourself!")
 		return FALSE
-	if(COMPARE_SIZES(user, source) < 2.0)
+	if(COMPARE_SIZES_MODIFIED(user, source) < 2.0)
 		to_chat(user, span_warning("They're too big to pick up!"))
 		source.balloon_alert(user, "too big to pick up!")
 		return FALSE
@@ -77,7 +77,7 @@
 	source.visible_message(span_warning("[user] starts picking up [source]."), \
 					span_userdanger("[user] starts picking you up!"))
 	source.balloon_alert(user, "picking up")
-	var/time_required = COMPARE_SIZES(source, user) * 4 SECONDS //Scale how fast the pickup will be depending on size difference
+	var/time_required = COMPARE_SIZES_MODIFIED(source, user) * 4 SECONDS //Scale how fast the pickup will be depending on size difference
 	if(!do_after(user, time_required, source))
 		return FALSE
 
