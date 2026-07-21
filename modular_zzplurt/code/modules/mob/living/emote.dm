@@ -1433,3 +1433,59 @@
 		return
 	var/obj/item/organ/bladder/bladder = user.get_organ_slot(ORGAN_SLOT_BLADDER)
 	bladder.urinate()
+
+/particles/smoke/steam/billow
+	icon = 'icons/effects/particles/smoke.dmi'
+	icon_state = list("steam_1" = 1)
+	width = 100
+	height = 100
+	count = 1
+	spawning = 1
+	friction = 0.25
+	fade = 1 SECONDS
+	lifespan = 1 SECONDS
+	gravity = list(0, 0.3)
+	drift = generator(GEN_SPHERE, 0, 1, NORMAL_RAND)
+
+/particles/smoke/steam/billow/north
+	position = list(1, 10, 0)
+	velocity = list(0, 2, 0)
+
+/particles/smoke/steam/billow/east
+	position = list(8, 6, 0)
+	velocity = list(2, 0, 0)
+
+/particles/smoke/steam/billow/south
+	position = list(1, 5, 0)
+	velocity = list(0, -2, 0)
+
+/particles/smoke/steam/billow/west
+	position = list(-6, 6, 0)
+	velocity = list(-2, 0, 0)
+
+/datum/emote/living/bsmoke
+	key = "bsmoke"
+	key_third_person = "bellows smoke"
+	message = "bellows smoke."
+	sound = 'modular_zzplurt/sound/voice/bsmoke.ogg'
+	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
+
+/datum/emote/living/bsmoke/run_emote(mob/user, type_override = null, intentional = FALSE)
+	. = ..()
+	var/obj/effect/abstract/particle_holder/particle_effect = null
+	if(user.dir & NORTH)
+		particle_effect = new(user, /particles/smoke/steam/billow/north)
+		if(particle_effect)
+			particle_effect.layer = BELOW_MOB_LAYER
+	else if(user.dir & EAST)
+		particle_effect = new(user, /particles/smoke/steam/billow/east)
+	else if(user.dir & SOUTH)
+		particle_effect = new(user, /particles/smoke/steam/billow/south)
+	else if(user.dir & WEST)
+		particle_effect = new(user, /particles/smoke/steam/billow/west)
+	if(particle_effect)
+		QDEL_IN(particle_effect, particle_effect.particles.lifespan)
+		if(ishuman(user))
+			var/mob/living/carbon/human/smoker = user
+			smoker.adjust_oxy_loss(1)
+			particle_effect.particles.position[1] += smoker.mob_height - HUMAN_HEIGHT_MEDIUM
