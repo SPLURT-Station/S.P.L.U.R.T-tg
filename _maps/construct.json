@@ -1,0 +1,30 @@
+{
+	"version": 1,
+	"map_name": "SS13 Construct",
+	"map_path": "modular_events",
+	"map_file": "construct.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"planetary": 1,
+	"main_floor": 2,
+	"traits": [
+		{
+			"Mining": false,
+			"Linkage": null,
+			"Gravity": true,
+			"Secret": true,
+			"No Parallax": true,
+			"Debug construct": true,
+			"Baseturf": "/turf/open/indestructible/backrooms"
+		},
+		{
+			"Mining": false,
+			"Linkage": null,
+			"Gravity": true,
+			"No Parallax": true,
+			"Debug construct": true,
+			"Baseturf": "/turf/open/indestructible/rockyground"
+		}
+	],
+	"minetype": "none"
+}
