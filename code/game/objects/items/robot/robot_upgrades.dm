@@ -243,6 +243,10 @@
 	. = ..()
 	if(!.)
 		return .
+	if(borg.is_security_cyborg_role())
+		to_chat(borg, span_alert("Upgrade mounting error! Security firmware rejected unauthorized hardware."))
+		to_chat(user, span_warning("The security chassis rejects the illegal upgrade module."))
+		return FALSE
 	if(borg.emagged)
 		return FALSE
 

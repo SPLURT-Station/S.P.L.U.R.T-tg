@@ -1,5 +1,5 @@
 /datum/preference/choiced/brain_type
-	category = PREFERENCE_CATEGORY_SILICON_PREFS
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_key = "brain_type"
 	savefile_identifier = PREFERENCE_CHARACTER
 	priority = PREFERENCE_PRIORITY_NAMES // Apply after species, cause that's super important.

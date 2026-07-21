@@ -22,6 +22,8 @@
 
 	/// If this spritesheet exists in a completed state.
 	var/fully_generated = FALSE
+	/// If this spritesheet is currently being realized by another caller.
+	var/generation_in_progress = FALSE
 
 	/// If this asset should be fully loaded on new
 	/// Defaults to false so we can process this stuff nicely
@@ -165,6 +167,12 @@
 /datum/asset/spritesheet_batched/proc/realize_spritesheets(yield)
 	if(fully_generated)
 		return
+	if(generation_in_progress)
+		UNTIL(!generation_in_progress)
+		if(fully_generated)
+			return
+
+	generation_in_progress = TRUE
 	if(!length(entries))
 		CRASH("Spritesheet [name] ([type]) is empty! What are you doing?")
 
@@ -175,12 +183,14 @@
 		cache_result = should_refresh(yield)
 		if(cache_result == CACHE_WAIT) // sleep interrupted by MC. We'll get queried again later.
 			cache_result = null
+			generation_in_progress = FALSE
 			return
 
 	// read_from_cache returns false if config is disabled, otherwise it fully loads the spritesheet.
 	if (cache_result == CACHE_VALID && read_from_cache())
 		SSasset_loading.dequeue_asset(src)
 		fully_generated = TRUE
+		generation_in_progress = FALSE
 		return
 	// Remove the cache, since it's invalid if we get to this point.
 	fdel("[ASSET_CROSS_ROUND_SMART_CACHE_DIRECTORY]/spritesheet_cache.[name].json")
@@ -228,6 +238,7 @@
 	if (do_cache)
 		write_cache_meta(input_hash, dmi_hashes)
 	fully_generated = TRUE
+	generation_in_progress = FALSE
 	// If we were ever in there, remove ourselves
 	SSasset_loading.dequeue_asset(src)
 	if(data["error"] && !(ignore_dir_errors && findtext(data["error"], "is not in the set of valid dirs")))

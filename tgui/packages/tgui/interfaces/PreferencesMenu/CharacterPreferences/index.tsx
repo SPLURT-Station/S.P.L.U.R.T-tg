@@ -10,6 +10,7 @@ import { LimbsPage } from '../LimbsPage'; // BUBBER EDIT ADDITION
 import type { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
+import { CyborgCharacterPage } from './CyborgCharacterPage';
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
 import { QuirkPersonalityPage } from './QuirksPage';
@@ -18,6 +19,7 @@ import { SpeciesPage } from './SpeciesPage';
 enum Page {
   Antags,
   Main,
+  CyborgCharacter,
   Jobs,
   Species,
   Quirks,
@@ -93,6 +95,9 @@ export function CharacterPreferenceWindow(props) {
         <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
       );
 
+      break;
+    case Page.CyborgCharacter:
+      pageContents = <CyborgCharacterPage />;
       break;
     case Page.Species:
       pageContents = (
@@ -174,6 +179,16 @@ export function CharacterPreferenceWindow(props) {
               otherActivePages={[Page.Species]}
             >
               Character
+            </PageButton>
+          </Stack.Item>
+
+          <Stack.Item grow>
+            <PageButton
+              currentPage={currentPage}
+              page={Page.CyborgCharacter}
+              setPage={setCurrentPage}
+            >
+              Cyborg Character
             </PageButton>
           </Stack.Item>
 

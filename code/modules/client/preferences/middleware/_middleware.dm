@@ -51,6 +51,10 @@
 /datum/preference_middleware/proc/on_new_character(mob/user)
 	return
 
+/// Called when a pending middleware draft should be merged into the current save data.
+/datum/preference_middleware/proc/flush_ui_state(mob/user)
+	return
+
 // SKYRAT EDIT
 /// Called after every update_preference, returns TRUE if this handled it.
 /datum/preference_middleware/proc/post_set_preference(mob/user, preference, value)

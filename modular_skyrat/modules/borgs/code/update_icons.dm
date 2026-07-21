@@ -86,4 +86,4 @@
 		icon_state = "[model.cyborg_base_icon]-wreck"
 
 
-	update_appearance(UPDATE_OVERLAYS)
+	update_cyborg_genital_appearance()

@@ -63,7 +63,7 @@
 
 /datum/bodypart_overlay/mutant/genital/belly
 	feature_key = ORGAN_SLOT_BELLY
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/genital/belly/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BELLY]

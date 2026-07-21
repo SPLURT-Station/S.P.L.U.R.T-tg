@@ -4,6 +4,9 @@
 		robot_resting = FALSE
 		on_standing_up()
 		update_icons()
+	if(!movement_dir)
+		return
+	animate_cyborg_genital_movement(FALSE, null, "Moved movement_dir=[movement_dir] forced=[forced] momentum_change=[momentum_change]")
 
 /mob/living/silicon/robot/toggle_resting()
 	robot_lay_down()

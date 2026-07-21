@@ -40,23 +40,64 @@ export const GenitalTab = ({ searchText }: GenitalTabProps) => {
       <LabeledList>
         {filteredGenitals.map((genital) => (
           <LabeledList.Item
-            key={genital.slot}
+            key={genital.slot || genital.name}
             label={genital.name}
             buttons={
               <Stack>
                 {genital.is_simple ? (
-                  <Stack.Item>
-                    <Button
-                      icon={genital.active ? 'check' : 'times'}
-                      color={genital.active ? 'good' : 'bad'}
-                      tooltip={genital.active ? 'Active' : 'Inactive'}
-                      onClick={() =>
-                        act('toggle_genital_active', {
-                          genital: genital.name,
-                        })
-                      }
-                    />
-                  </Stack.Item>
+                  <>
+                    <Stack.Item>
+                      <Button
+                        icon={genital.active ? 'check' : 'times'}
+                        color={genital.active ? 'good' : 'bad'}
+                        tooltip={genital.active ? 'Active' : 'Inactive'}
+                        onClick={() =>
+                          act('toggle_genital_active', {
+                            genital: genital.slot || genital.name,
+                          })
+                        }
+                      />
+                    </Stack.Item>
+                    {genital.can_arouse ? (
+                      <Stack.Item>
+                        <Button
+                          icon={
+                            genital.aroused === AROUSAL_NONE
+                              ? 'heart'
+                              : genital.aroused === AROUSAL_PARTIAL
+                                ? 'heartbeat'
+                                : 'heart-circle-bolt'
+                          }
+                          color={
+                            genital.aroused === AROUSAL_NONE
+                              ? 'red'
+                              : genital.aroused === AROUSAL_PARTIAL
+                                ? 'good'
+                                : 'pink'
+                          }
+                          tooltip={
+                            genital.aroused === AROUSAL_NONE
+                              ? 'Not aroused'
+                              : genital.aroused === AROUSAL_PARTIAL
+                                ? 'Partially aroused'
+                                : 'Fully aroused'
+                          }
+                          onClick={() => {
+                            const nextArousal =
+                              genital.aroused === AROUSAL_NONE
+                                ? AROUSAL_PARTIAL
+                                : genital.aroused === AROUSAL_PARTIAL
+                                  ? AROUSAL_FULL
+                                  : AROUSAL_NONE;
+                            act('toggle_genital_arousal', {
+                              genital: genital.slot || genital.name,
+                              arousal: nextArousal,
+                            });
+                          }}
+                        />
+                      </Stack.Item>
+                    ) : null}
+                  </>
                 ) : (
                   <>
                     <Stack.Item>
