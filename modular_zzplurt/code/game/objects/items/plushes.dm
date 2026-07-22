@@ -209,14 +209,6 @@
 	attack_verb_continuous = list("performs", "heals", "cheeses")
 	squeak_override = list('modular_zzplurt/sound/voice/yip.ogg' = 19, 'modular_zubbers/sound/alerts/violet.ogg' = 1)
 
-/obj/item/toy/plush/fox_protogen
-	name = "\improper Silly Protogen Plushie"
-	desc = "A silly looking fox protogen made to be extremly squishable with folding tails, the inside being fluffier then the outside, seems to pair wonderfully with the Suspicious Protogen Plushie."
-	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
-	icon_state = "foxproot"
-	gender = FEMALE
-	squeak_override = list('modular_zzplurt/sound/voice/yap.ogg' = 1)
-
 /obj/item/toy/plush/fuckassrabit
 	name = "\improper Wabbit of Gier"
 	desc = "You get the unbridled sense of superiority and vanity from this plushie"
@@ -224,3 +216,19 @@
 	icon_state = "dumbrabbit"
 	gender = MALE
 	squeak_override = list('modular_zzplurt/sound/items/donorplushsound.ogg' = 1)
+
+/obj/item/toy/plush/zenplush
+	name = "\improper Fluffy plushie"
+	desc = "A warm fluffy plushie, it seems very cuddleable"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "zenplush"
+	gender = FEMALE
+	squeak_override = list('modular_zzplurt/sound/items/donorawoo.ogg' = 1)
+
+/obj/item/toy/plush/novaplush
+	name = "\improper Marketable Nova Plushie"
+	desc = "even when I am not here, I will always be here."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "novaplush"
+	gender = FEMALE
+	squeak_override = list('modular_zubbers/sound/emotes/sound_voice_mar.ogg' = 1)
