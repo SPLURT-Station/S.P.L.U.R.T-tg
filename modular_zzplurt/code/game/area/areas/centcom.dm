@@ -175,6 +175,12 @@
 	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
+/area/centcom/central_command_areas/asset
+	name = "CentCom Asset Protection Office"
+	icon_state = "centcom"
+	ambience_index = AMBIENCE_DANGER
+	sound_environment = SOUND_AREA_STANDARD_STATION
+
 /area/centcom/central_command_areas/prison
 	name = "CentCom Corporate Security Prison Wing"
 	icon_state = "centcom_prison"
