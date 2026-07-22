@@ -57,19 +57,19 @@ RSF
 	///How long should the minimum period between this RSF's item dispensings be?
 	var/cooldowndelay = 0 SECONDS
 
-/obj/item/rsf/Initialize(mapload)
+/obj/item/rpf/Initialize(mapload)
 	. = ..()
 	to_dispense = cost_by_item[1]
 	dispense_cost = cost_by_item[to_dispense]
 
-/obj/item/rsf/examine(mob/user)
+/obj/item/rpf/examine(mob/user)
 	. = ..()
 	. += span_notice("It currently holds [matter]/[max_matter] [discriptor].")
 
-/obj/item/rsf/cyborg
+/obj/item/rpf/cyborg
 	matter = 30
 
-/obj/item/rsf/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/rpf/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(is_type_in_list(W,matter_by_item))//If the thing we got hit by is in our matter list
 		var/tempMatter = matter_by_item[W.type] + matter
 		if(tempMatter > max_matter)
@@ -87,7 +87,7 @@ RSF
 	else
 		return ..()
 
-/obj/item/rsf/attack_self(mob/user)
+/obj/item/rpf/attack_self(mob/user)
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, FALSE)
 	var/target = cost_by_item
 	var/cost = 0
@@ -109,7 +109,7 @@ RSF
 	// Change mode
 
 ///Forms a radial menu based off an object in a list, or a list's associated object
-/obj/item/rsf/proc/formRadial(from)
+/obj/item/rpf/proc/formRadial(from)
 	var/list/radial_list = list()
 	for(var/meme in from)//We iterate through all of targets entrys
 		var/atom/temp = OBJECT_OR_LIST_ELEMENT(from, meme)
@@ -117,12 +117,12 @@ RSF
 		radial_list[initial(temp.name)] = image(icon = initial(temp.icon), icon_state = initial(temp.icon_state))
 	return radial_list
 
-/obj/item/rsf/proc/check_menu(mob/user)
+/obj/item/rpf/proc/check_menu(mob/user)
 	if(user.incapacitated || !user.Adjacent(src))
 		return FALSE
 	return TRUE
 
-/obj/item/rsf/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+/obj/item/rpf/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(cooldown > world.time)
 		return NONE
 	if (!is_allowed(interacting_with))
@@ -136,7 +136,7 @@ RSF
 	return ITEM_INTERACT_BLOCKING
 
 ///A helper proc. checks to see if we can afford the amount of charge that is passed, and if we can docs the charge from our base, and returns TRUE. If we can't we return FALSE
-/obj/item/rsf/proc/use_matter(charge, mob/user)
+/obj/item/rpf/proc/use_matter(charge, mob/user)
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/R = user
 		var/end_charge = R.cell.charge - charge
@@ -156,43 +156,5 @@ RSF
 		return TRUE
 
 ///Helper proc that iterates through all the things we are allowed to spawn on, and sees if the passed atom is one of them
-/obj/item/rsf/proc/is_allowed(atom/to_check)
+/obj/item/rpf/proc/is_allowed(atom/to_check)
 	return is_type_in_list(to_check, allowed_surfaces)
-
-/obj/item/rsf/cookiesynth
-	name = "Cookie Synthesizer"
-	desc = "A self-recharging device used to rapidly deploy cookies."
-	icon_state = "rcd"
-	base_icon_state = "rcd"
-	spent_icon_state = "rcd"
-	max_matter = 10
-	cost_by_item = list(/obj/item/food/cookie = 100)
-	dispense_cost = 100
-	discriptor = "cookie-units"
-	action_type = "Fabricates"
-	cooldowndelay = 10 SECONDS
-	///Tracks whether or not the cookiesynth is about to print a poisoned cookie
-	var/toxin = FALSE //This might be better suited to some initialize fuckery, but I don't have a good "poisoned" sprite
-
-/obj/item/rsf/cookiesynth/emag_act(mob/user, obj/item/card/emag/emag_card)
-	obj_flags ^= EMAGGED
-	if(obj_flags & EMAGGED)
-		balloon_alert(user, "reagent safety checker shorted out")
-	else
-		balloon_alert(user, "reagent safety checker reset")
-	return TRUE
-
-/obj/item/rsf/cookiesynth/attack_self(mob/user)
-	var/mob/living/silicon/robot/P = null
-	if(iscyborg(user))
-		P = user
-	if(((obj_flags & EMAGGED) || (P?.emagged)) && !toxin)
-		toxin = TRUE
-		to_dispense = /obj/item/food/cookie/sleepy
-		to_chat(user, span_alert("Cookie Synthesizer hacked."))
-	else
-		toxin = FALSE
-		to_dispense = /obj/item/food/cookie
-		to_chat(user, span_notice("Cookie Synthesizer reset."))
-
-#undef OBJECT_OR_LIST_ELEMENT
