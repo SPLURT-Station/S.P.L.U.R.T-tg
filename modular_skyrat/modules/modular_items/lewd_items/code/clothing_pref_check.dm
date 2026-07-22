@@ -1,6 +1,7 @@
 /// Global list containing all the clothing we'd want to check prefs for before we put on someone.
 GLOBAL_LIST_INIT(pref_checked_clothes, list(
 	/obj/item/clothing/mask/ballgag,
+	/obj/item/clothing/mask/ballgag/ring, // SPLURT EDIT - Add missing gag
 	/obj/item/clothing/mask/ballgag/choking,
 	/obj/item/clothing/mask/gas/bdsm_mask,
 	/obj/item/clothing/suit/corset,

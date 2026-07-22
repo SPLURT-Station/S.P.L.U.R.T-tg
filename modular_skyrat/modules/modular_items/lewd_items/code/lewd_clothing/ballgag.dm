@@ -87,6 +87,28 @@
 	gag_size = possible_gag_sizes[size_list_position]
 	balloon_alert(user, "size set to [gag_size]")
 
+// SPLURT ADDITION - Moved ringgag here
+// A ringgag to allow constant oral
+/obj/item/clothing/mask/ballgag/ring
+	name = "ring gag"
+	desc = "A mouth wrap seemingly designed to hold the mouth open."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+	icon_state = "ringgag"
+	post_init_icon_state = "ringgag"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	worn_icon_muzzled = null
+	worn_icon_state = "ringgag"
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_colors = null
+	flags_cover = NONE
+// END SPLURT ADDITION
+
 // A ballgag that can choke the wearer
 /obj/item/clothing/mask/ballgag/choking
 	name = "phallic ball gag"

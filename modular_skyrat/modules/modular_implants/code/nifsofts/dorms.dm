@@ -33,7 +33,7 @@
 					// Head / Mask /Neck Items
 					/obj/item/clothing/mask/ballgag,
 					/obj/item/clothing/mask/ballgag/choking,
-					/obj/item/clothing/mask/muzzle/ring,
+					/obj/item/clothing/mask/ballgag/ring, // SPLURT EDIT - Use new ring class
 					/obj/item/clothing/head/deprivation_helmet,
 					/obj/item/clothing/glasses/blindfold/kinky,
 					/obj/item/clothing/ears/kinky_headphones,
