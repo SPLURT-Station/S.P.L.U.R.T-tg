@@ -1,0 +1,688 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bd" = (
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/status_display/ai/directional/west,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"bR" = (
+/obj/item/reagent_containers/cup/glass/trophy/silver_cup{
+	name = "Head of shitcurity competition 2nd place";
+	pixel_y = 20;
+	pixel_x = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/structure/table/wood/fancy/blue,
+/obj/item/reagent_containers/cup/glass/trophy/bronze_cup{
+	name = "Foam force security team competition 3rd place";
+	pixel_x = -7;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/trophy{
+	desc = "You did good in the worst way possible.";
+	name = "Redshield 1st prize";
+	pixel_x = 7;
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"cI" = (
+/obj/machinery/newscaster/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/dresser,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"df" = (
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"dB" = (
+/obj/machinery/suit_storage_unit/security,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/red/directional/north,
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"hi" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"iI" = (
+/mob/living/basic/pet/dog/bullterrier{
+	desc = "It's Walter, he bites criminals just as well as he bites toddlers";
+	name = "Walter";
+	real_name = "Walter"
+	},
+/obj/machinery/status_display/evac/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/structure/bed/dogbed/ian{
+	name = "Walter's bed";
+	desc = "Lisa's bed! Looks comfy."
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"iT" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "blueshield_priv";
+	name = "Privacy Shutters";
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/blueshield)
+"lh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"lI" = (
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"mE" = (
+/obj/machinery/button/door/directional/south{
+	name = "Privacy Shutters Control";
+	id = "blueshield_priv";
+	req_access = list("cent_officer")
+	},
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"mJ" = (
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"mV" = (
+/obj/effect/landmark/start/blueshield,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"oi" = (
+/turf/template_noop,
+/area/template_noop)
+"ow" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/hedge,
+/obj/structure/sign/picture_frame/showroom/four{
+	pixel_y = -33
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"pG" = (
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"rv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"rO" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"sn" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/nanotrasen/double,
+/obj/machinery/light_switch/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"sq" = (
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/firealarm/directional/east,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"tp" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 1
+	},
+/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/structure/rack/shelf,
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"ty" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"vW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad/secure,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"wf" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/folder/blue{
+	pixel_x = 10;
+	pixel_y = 5
+	},
+/obj/item/storage/fancy/donut_box{
+	pixel_x = -10;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"wq" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/tactical/blueshield{
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/sign/poster/official/carwo_magazine/directional/south,
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"wJ" = (
+/obj/machinery/firealarm/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"xt" = (
+/obj/structure/sign/poster/official/carwo_grenade/directional/south,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"zj" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"zo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"An" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Blueshield's Armory"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"AQ" = (
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/obj/structure/sink/directional/west,
+/obj/machinery/light/small/directional/west,
+/obj/structure/mirror/directional/east,
+/turf/open/floor/iron/freezer,
+/area/station/command/heads_quarters/blueshield)
+"CQ" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/stamp/granted{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/pen/fountain/nanotrasen{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"Di" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/machinery/status_display/evac/directional/west,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"Du" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/computer/security,
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Es" = (
+/obj/machinery/computer/crew,
+/obj/structure/plaque/static_plaque/golden{
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Ex" = (
+/obj/structure/sign/clock/directional/south,
+/obj/structure/bookcase/random,
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Fy" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end,
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire{
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"FA" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Command - Blueshield's Office";
+	name = "command camera"
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/modular_computer/preset/command,
+/obj/machinery/status_display/evac/directional/north,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Gi" = (
+/obj/structure/closet/secure_closet/tac{
+	req_access = list("cent_officer")
+	},
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/toggleable/riot{
+	pixel_y = 6
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"GN" = (
+/obj/machinery/door/airlock/corporate{
+	id_tag = "BSdoor";
+	name = "Blueshield's Office"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/navigate_destination/autoname,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"IM" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/bush/flowers_br,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "blueshield_priv";
+	name = "Privacy Shutters";
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/station/command/heads_quarters/blueshield)
+"IX" = (
+/obj/machinery/status_display/ai/directional/south,
+/obj/item/radio/intercom/directional/west,
+/obj/structure/grandfatherclock,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"Kh" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/noticeboard/directional/north,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"KN" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/blueshield,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"LD" = (
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Nw" = (
+/turf/closed/wall/r_wall,
+/area/station/command/heads_quarters/blueshield)
+"NJ" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"NS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"Ph" = (
+/turf/closed/wall,
+/area/station/command/heads_quarters/blueshield)
+"Qx" = (
+/obj/structure/closet/secure_closet/blueshield,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/sign/poster/official/enlist/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+"Rj" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"RT" = (
+/obj/effect/landmark/start/blueshield,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/heads_quarters/blueshield)
+"Sh" = (
+/obj/machinery/duct,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"SA" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/flora/bush/sparsegrass,
+/obj/structure/flora/bush/jungle/a/style_3,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "blueshield_priv";
+	name = "Privacy Shutters";
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/station/command/heads_quarters/blueshield)
+"SJ" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Blueshield's Armory"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"Th" = (
+/obj/structure/sign/calendar/directional/north,
+/obj/structure/aquarium/prefilled,
+/obj/item/reagent_containers/cup/fish_feed{
+	pixel_y = 17;
+	pixel_x = -3
+	},
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"TK" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/duct,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/light/directional/north,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"UK" = (
+/obj/machinery/door/airlock/bathroom{
+	name = "Restroom"
+	},
+/obj/machinery/duct,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"UU" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/recharger{
+	pixel_y = 3;
+	pixel_x = -6
+	},
+/obj/item/flashlight/lamp/green{
+	pixel_y = 14;
+	pixel_x = 5
+	},
+/obj/item/phone{
+	pixel_x = 8;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"Vv" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/drain,
+/turf/open/floor/iron/freezer,
+/area/station/command/heads_quarters/blueshield)
+"WZ" = (
+/obj/effect/landmark/start/blueshield,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
+"Xs" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/wood/parquet,
+/area/station/command/heads_quarters/blueshield)
+"Yu" = (
+/obj/machinery/door/airlock/corporate{
+	name = "Blueshield's Quarters"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/blueshield)
+"ZY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/camera/directional/south{
+	c_tag = "Command - Blueshield's Gear Room";
+	name = "command camera"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/light/red/directional/south,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/south,
+/obj/structure/statue/bronze/marx{
+	pixel_y = 10
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/command/heads_quarters/blueshield)
+
+(1,1,1) = {"
+oi
+Nw
+Nw
+Nw
+Nw
+oi
+"}
+(2,1,1) = {"
+oi
+Nw
+AQ
+Vv
+Nw
+oi
+"}
+(3,1,1) = {"
+oi
+Nw
+Ph
+UK
+Nw
+Nw
+"}
+(4,1,1) = {"
+oi
+Nw
+TK
+Sh
+Ex
+Nw
+"}
+(5,1,1) = {"
+oi
+Nw
+cI
+WZ
+sn
+Nw
+"}
+(6,1,1) = {"
+Nw
+Nw
+Ph
+Yu
+Ph
+Nw
+"}
+(7,1,1) = {"
+Gi
+Di
+zo
+pG
+bd
+wq
+"}
+(8,1,1) = {"
+dB
+mV
+tp
+Fy
+RT
+ZY
+"}
+(9,1,1) = {"
+Qx
+df
+mJ
+sq
+Rj
+xt
+"}
+(10,1,1) = {"
+Nw
+An
+Nw
+Nw
+SJ
+Nw
+"}
+(11,1,1) = {"
+Kh
+LD
+Ph
+wJ
+NS
+IX
+"}
+(12,1,1) = {"
+Du
+zj
+CQ
+NJ
+hi
+ow
+"}
+(13,1,1) = {"
+FA
+KN
+wf
+ty
+vW
+bR
+"}
+(14,1,1) = {"
+Es
+lI
+UU
+lh
+rv
+ow
+"}
+(15,1,1) = {"
+Th
+mE
+Ph
+Xs
+rO
+iI
+"}
+(16,1,1) = {"
+SA
+IM
+Nw
+iT
+GN
+iT
+"}

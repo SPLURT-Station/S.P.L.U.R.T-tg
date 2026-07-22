@@ -36,7 +36,6 @@
 
 		//Centcom on-station
 		JOB_NT_REP = 40,
-		JOB_NT_TRN = 41, //Splurt Edit
 		JOB_BLUESHIELD = 42,
 
 		//Heads
@@ -107,6 +106,7 @@
 		JOB_ASSISTANT = 801,
 		//UNKNOWN_JOB_ID is 802,
 		JOB_PRISONER = 803,
+		JOB_NT_TRN = 804,
 
 		//Off-station,
 		JOB_SPACE_POLICE = 901,

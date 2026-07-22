@@ -298,7 +298,8 @@ type DepartmentProps = {
 
 function Department(props: DepartmentProps) {
   const { children, department: name } = props;
-  const className = `PreferencesMenu__Jobs__departments--${name}`;
+  const cssName = name.replace(/\s+/g, ''); // SPLURT EDIT
+const className = `PreferencesMenu__Jobs__departments--${cssName}`;
 
   const data = useServerPrefs();
   if (!data) return;
@@ -444,6 +445,7 @@ function JoblessRoleDropdown(props) {
 //                 <PriorityHeaders />
 //                 <Department department="Security" />
 //                 <Department department="Medical" />
+//                 <Department department="Internal Affairs" />
 //               </Stack>
 //             </Stack.Item>
 //           </Stack>
@@ -495,7 +497,11 @@ function JoblessRoleDropdown(props) {
 //                 <Gap amount={6} />
 //               </Department>
 
-//               <Department department="Cargo" />
+//               <Department department="Cargo">
+//                 <Gap amount={6} />
+//               </Department>
+
+//               <Department department="Internal Affairs" />
 //             </Stack.Item>
 //           </Stack>
 //           {/* BUBBER EDIT CHANGE END */}
@@ -534,6 +540,7 @@ export function JobsPage() {
                 <PriorityHeaders />
                 <Department department="Security" />
                 <Department department="Medical" />
+                <Department department="Internal Affairs" />
               </Stack>
             </Stack.Item>
           </Stack>

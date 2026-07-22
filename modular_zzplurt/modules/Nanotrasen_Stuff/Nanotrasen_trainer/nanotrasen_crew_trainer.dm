@@ -8,15 +8,16 @@
 	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
+	exp_required_type = EXP_TYPE_ADMIN
+	exp_required_type_department = EXP_TYPE_ADMIN
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CREW_TRAINER"
 
 	outfit = /datum/outfit/job/nanotrasen_crew_trainer
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
-
-	department_for_prefs = /datum/job_department/assistant
+	departments_list = list(
+		/datum/job_department/central,
+	)
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_CIV
@@ -86,10 +87,10 @@
 	new /obj/item/clothing/under/rank/nanotrasen/official(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
@@ -107,8 +108,7 @@
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
 	name = "nanotrasen crew trainer's locker"
-	req_access = list()
-	req_one_access = list(ACCESS_CENT_GENERAL)
+	req_access = list(ACCESS_CENT_GENERAL)
 	icon_state = "ntt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 

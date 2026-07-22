@@ -22,3 +22,22 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
 	)
+
+/obj/item/borg/apparatus/bureaucratic_manipulator
+	name = "bureaucratic manipulation apparatus"
+	desc = "An apparatus for carrying, deploying, and manipulating paperwork, and documentation."
+	icon_state = "borg_service_apparatus"
+	storable = list(/obj/item/paper,
+					/obj/item/paper_bin,
+					/obj/item/folder,
+					/obj/item/stamp,
+					/obj/item/clipboard,
+					/obj/item/paperplane,
+					/obj/item/paperwork,
+					/obj/item/disk,
+					/obj/item/storage/briefcase,
+					/obj/item/pen)
+
+/obj/item/borg/apparatus/bureaucratic_manipulator/Initialize(mapload)
+	update_appearance()
+	return ..()

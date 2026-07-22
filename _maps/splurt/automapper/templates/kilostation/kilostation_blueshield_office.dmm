@@ -115,6 +115,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "v" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "w" = (
@@ -126,9 +127,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "x" = (
 /obj/machinery/light/directional/north,
@@ -146,7 +147,7 @@
 	},
 /obj/machinery/firealarm/directional/south,
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/machinery/newscaster/directional/west,
 /obj/item/clothing/suit/armor/riot,
@@ -161,7 +162,7 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -171,6 +172,10 @@
 	},
 /obj/structure/table/wood/fancy/blue,
 /obj/machinery/airalarm/directional/east,
+/obj/item/pen/fountain/nanotrasen{
+	pixel_y = 5;
+	pixel_x = -4
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "C" = (
@@ -202,12 +207,12 @@
 "K" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "L" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -241,16 +246,16 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "U" = (
 /obj/machinery/computer/crew,
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control"
 	},
 /obj/structure/sign/calendar/directional/north,

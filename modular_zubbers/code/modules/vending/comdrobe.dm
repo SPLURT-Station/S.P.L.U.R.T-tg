@@ -247,24 +247,31 @@
 		/obj/item/clothing/neck/tie/bunnytie/cargo = 1,
 	)
 	//Splurt Edit Start, shit vendor code, don't know how to modularize it
-	access_lists["[ACCESS_CENT_GENERAL]"] = list( // NTC Rep stuff
+	access_lists["[ACCESS_CENT_CAPTAIN]"] = list( // NTC Rep stuff
 		/obj/item/clothing/under/rank/nanotrasen/commander = 1,
 		/obj/item/clothing/under/rank/nanotrasen/commander/skirt = 1,
 		/obj/item/clothing/under/rank/nanotrasen/commander/turtleneck = 1,
+		/obj/item/clothing/under/rank/nanotrasen/commander/turtleneck/skirt = 1,
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold = 1,
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt = 1,
+		/obj/item/clothing/under/rank/nanotrasen/classic = 1,
+		/obj/item/clothing/under/rank/nanotrasen/classic/skirt = 1,
 		/obj/item/clothing/under/costume/playbunny/nanotrasen = 1,
 		/obj/item/clothing/suit/jacket/tailcoat/nanotrasen = 1,
 		/obj/item/clothing/head/beret/nanotrasen_formal/gold = 1,
 		/obj/item/clothing/head/hats/nanotrasen_cap = 1,
 		/obj/item/clothing/head/hats/nanotrasenhat = 1,
+		/obj/item/clothing/head/hats/nanotrasen_cap/classic = 1,
 		/obj/item/clothing/head/hats/warden/drill/nanotrasen/nt = 1,
 		/obj/item/clothing/neck/mantle/ntcmantle = 1,
-		/obj/item/clothing/suit/armor/nanotrasen_formal = 1,
-		/obj/item/clothing/suit/hooded/wintercoat/nanotrasen = 1,
-		/obj/item/clothing/suit/space/officer/nanotrasen = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/nanotrasen/gold = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_overcoat = 1,
 		/obj/item/clothing/suit/armor/nanotrasen_greatcoat = 1,
-		/obj/item/clothing/suit/armor/vest/nt_officerfake = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_furred_greatcoat = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_trenchcoat = 1,
+		/obj/item/clothing/suit/armor/vest/classic_jacket = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_formal = 1,
+		/obj/item/clothing/suit/armor/nanotrasen_winter = 1,
 		/obj/item/clothing/suit/armor/vest/capcarapace/nanotrasen = 1,
 )
 //Splurt Edit End

@@ -42,7 +42,7 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -64,7 +64,7 @@
 	},
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control"
 	},
 /obj/item/folder/blue{
@@ -103,7 +103,7 @@
 /area/station/security/brig/entrance)
 "m" = (
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/west,
@@ -222,6 +222,11 @@
 "E" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/blueshield)
+"F" = (
+/obj/structure/cable,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
 "G" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -241,13 +246,13 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/landmark/navigate_destination/autoname,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "K" = (
 /obj/effect/turf_decal/tile/blue/diagonal_centre,
@@ -314,20 +319,6 @@
 /obj/machinery/newscaster/directional/east,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
-"R" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/machinery/button/door/directional/north{
-	id = "riot";
-	name = "Anti-Riot Shutters";
-	req_access = list("security")
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/primary/fore)
 "S" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -348,12 +339,12 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "V" = (
 /obj/effect/turf_decal/siding/wood{
@@ -458,7 +449,7 @@ b
 A
 s
 C
-a
+F
 V
 I
 Y
@@ -479,7 +470,7 @@ E
 E
 E
 E
-R
+w
 "}
 (10,1,1) = {"
 l
