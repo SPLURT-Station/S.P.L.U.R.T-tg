@@ -203,6 +203,7 @@
 /datum/action/item_action/mask_inhale
 	name = "Inhale oxygen"
 	desc = "You must inhale oxygen!"
+	check_flags = AB_CHECK_CONSCIOUS // SPLURT EDIT - You don't need hands to breath
 
 // Open the valve when press the button
 /datum/action/item_action/mask_inhale/Trigger(trigger_flags)
