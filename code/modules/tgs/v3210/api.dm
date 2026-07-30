@@ -96,6 +96,9 @@
 
 /datum/tgs_api/v3210/proc/ExportService(command, skip_compat_check = FALSE)
 	. = FALSE
+#ifdef NO_EXTERNAL_LIBS
+	return
+#else
 	if(skip_compat_check && !fexists(SERVICE_INTERFACE_DLL))
 		TGS_ERROR_LOG("Service parameter present but no interface DLL detected. This is symptomatic of running a service less than version 3.1! Please upgrade.")
 		return
@@ -105,6 +108,7 @@
 	call(SERVICE_INTERFACE_DLL, SERVICE_INTERFACE_FUNCTION)(instance_name, command) //trust no retval
 	#endif
 	return TRUE
+#endif
 
 /datum/tgs_api/v3210/OnTopic(T)
 	var/list/params = params2list(T)

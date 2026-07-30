@@ -18,7 +18,7 @@ GLOBAL_REAL(Tracy, /datum/tracy)
 	Tracy = src
 
 /datum/tracy/Destroy()
-#ifndef OPENDREAM_REAL
+#if !defined(OPENDREAM_REAL) && !defined(NO_EXTERNAL_LIBS)
 	if(enabled)
 		call_ext(TRACY_DLL_PATH, "destroy")()
 #endif
@@ -26,7 +26,7 @@ GLOBAL_REAL(Tracy, /datum/tracy)
 
 /// Tries to initialize byond-tracy.
 /datum/tracy/proc/enable(init_reason)
-#ifndef OPENDREAM_REAL
+#if !defined(OPENDREAM_REAL) && !defined(NO_EXTERNAL_LIBS)
 	if(enabled)
 		return TRUE
 	src.init_reason = init_reason
@@ -54,7 +54,7 @@ GLOBAL_REAL(Tracy, /datum/tracy)
 		SEND_TEXT(world.log, "byond-tracy initialized (no logfile)")
 		return TRUE
 #else
-	error = "OpenDream not supported"
+	error = "External libraries disabled"
 	return FALSE
 #endif
 

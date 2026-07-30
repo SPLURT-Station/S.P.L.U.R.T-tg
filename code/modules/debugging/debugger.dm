@@ -17,13 +17,13 @@ GLOBAL_REAL(Debugger, /datum/debugger)
 	if(!isnull(Debugger))
 		CRASH("Attempted to initialize /datum/debugger when global.Debugger is already set!")
 	Debugger = src
-#ifndef OPENDREAM_REAL
+#if !defined(OPENDREAM_REAL) && !defined(NO_EXTERNAL_LIBS)
 	src.dll_path = dll_path || world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	enable()
 #endif
 
 /datum/debugger/Destroy()
-#ifndef OPENDREAM_REAL
+#if !defined(OPENDREAM_REAL) && !defined(NO_EXTERNAL_LIBS)
 	if(enabled)
 		call_ext(dll_path, "auxtools_shutdown")()
 #endif
@@ -31,7 +31,7 @@ GLOBAL_REAL(Debugger, /datum/debugger)
 
 /// Attempt to enable the debugger.
 /datum/debugger/proc/enable()
-#ifndef OPENDREAM_REAL
+#if !defined(OPENDREAM_REAL) && !defined(NO_EXTERNAL_LIBS)
 	if(enabled)
 		CRASH("Attempted to enable debugger while its already enabled, somehow.")
 	if(!dll_path)
