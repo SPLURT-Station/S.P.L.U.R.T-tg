@@ -120,8 +120,18 @@
 /// If this is uncommented, will profile mapload atom initializations
 // #define PROFILE_MAPLOAD_INIT_ATOM
 
+/// If uncommented, all external library calls (rust_g, dreamluau, byond-tracy,
+/// auxtools debugger, TGS bridge) will be stubbed out, allowing compilation
+/// without any .dll/.so files present. The code will compile but these
+/// features will return null/no-op at runtime.
+#define NO_EXTERNAL_LIBS
+
 /// If uncommented, Dreamluau will be fully disabled.
 // #define DISABLE_DREAMLUAU
+
+#ifdef NO_EXTERNAL_LIBS
+#define DISABLE_DREAMLUAU
+#endif
 
 // OpenDream currently doesn't support byondapi, so automatically disable it on OD,
 // unless CIBUILDING is defined - we still want to lint dreamluau-related code.
@@ -219,4 +229,6 @@
 /// Disable to use builtin DM-based generation.
 /// IconForge is 250x times faster but requires storing the icons in tmp/ and may result in higher asset transport.
 /// Note that the builtin GAGS editor still uses the 'legacy' generation to allow for debugging.
+#ifndef NO_EXTERNAL_LIBS
 #define USE_RUSTG_ICONFORGE_GAGS
+#endif

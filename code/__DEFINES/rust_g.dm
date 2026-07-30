@@ -10,6 +10,16 @@
 // #define RUSTG_OVERRIDE_BUILTINS
 // Enable replacement rust-g functions for certain builtins. Off by default.
 
+#ifdef NO_EXTERNAL_LIBS
+
+/proc/__rustg_noop()
+	return null
+
+#define RUSTG_CALL(lib, func) __rustg_noop
+#define RUST_G null
+
+#else // NO_EXTERNAL_LIBS
+
 #ifndef RUST_G
 // Default automatic RUST_G detection.
 // On Windows, looks in the standard places for `rust_g.dll`.
@@ -48,6 +58,8 @@
 #else
 #define RUSTG_CALL call
 #endif
+
+#endif // NO_EXTERNAL_LIBS
 
 /// Gets the version of rust_g
 /proc/rustg_get_version() return RUSTG_CALL(RUST_G, "get_version")()
