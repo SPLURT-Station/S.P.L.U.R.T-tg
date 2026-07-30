@@ -114,10 +114,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "t" = (
-/obj/structure/rack/shelf,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "w" = (
@@ -148,6 +147,8 @@
 /obj/machinery/status_display/ai/directional/south,
 /obj/machinery/light/red/directional/south,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/west,
+/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/mod/module/pepper_shoulders,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "A" = (
@@ -215,6 +216,7 @@
 	},
 /obj/machinery/status_display/ai/directional/south,
 /obj/machinery/light/red/directional/south,
+/obj/item/storage/medkit/robotic_repair/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "N" = (

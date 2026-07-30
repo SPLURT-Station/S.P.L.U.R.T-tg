@@ -51,6 +51,9 @@
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/structure/sign/poster/official/enlist/directional/south,
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/robotic_repair/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "i" = (
@@ -92,20 +95,12 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "o" = (
-/obj/structure/table/reinforced,
-/obj/item/gun_maintenance_supplies{
-	pixel_x = -4;
-	pixel_y = 10
-	},
 /obj/machinery/airalarm/directional/east,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
 	},
-/obj/item/storage/medkit/brute,
-/obj/item/storage/medkit/fire{
-	pixel_y = 4
-	},
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "q" = (

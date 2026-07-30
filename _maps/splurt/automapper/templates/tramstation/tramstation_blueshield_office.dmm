@@ -29,6 +29,7 @@
 /obj/item/storage/medkit/fire{
 	pixel_y = 4
 	},
+/obj/item/storage/medkit/robotic_repair/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "d" = (
@@ -108,7 +109,7 @@
 /obj/machinery/computer/crew{
 	dir = 8
 	},
-/obj/structure/sign/calendar/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "n" = (
@@ -116,7 +117,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/newscaster/directional/north,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "o" = (
@@ -159,6 +160,7 @@
 /obj/item/sign/flag/nanotrasen{
 	pixel_y = 11
 	},
+/obj/structure/sign/calendar/directional/south,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "u" = (
@@ -167,8 +169,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/obj/structure/rack/shelf,
-/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "v" = (
@@ -431,6 +432,9 @@
 /obj/machinery/airalarm/directional/north,
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/mod/module/pepper_shoulders,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 

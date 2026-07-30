@@ -91,15 +91,11 @@
 "n" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/camera/autoname/directional/south,
-/obj/structure/rack/shelf,
-/obj/item/storage/medkit/brute,
-/obj/item/storage/medkit/fire{
-	pixel_y = 4
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
 /obj/machinery/status_display/ai/directional/south,
+/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "o" = (
@@ -201,6 +197,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/mod/module/pepper_shoulders,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "B" = (
@@ -209,6 +206,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/robotic_repair/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "C" = (
