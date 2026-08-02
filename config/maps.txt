@@ -15,83 +15,88 @@ Format:
 	webmap_url (link to the a webmap to see the map in the user's browser)
 endmap
 
-# Production-level maps.
+## Production-level maps.
 
-map deltastation
+map ministation
+	default
 	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/deltastation/
 endmap
 
-map icebox
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/icebox/
-endmap
-
-map catwalkstation
+#map deltastation
 #	votable
-endmap
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/deltastation/
+#endmap
 
-map metastation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/metastation/
-endmap
+#map icebox
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/icebox/
+#endmap
 
-map tramstation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/tramstation/
-endmap
+#map catwalkstation
+##	votable
+#endmap
 
-map nebulastation
-	votable
-endmap
+#map metastation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/metastation/
+#endmap
 
-map wawastation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/wawastation/
-endmap
+#map tramstation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/tramstation/
+#endmap
 
-# Bubberstation maps.
+#map nebulastation
+#	votable
+#endmap
 
-map biodome
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/biodome/
-endmap
+#map wawastation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/wawastation/
+#endmap
 
-map blueshift
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/blueshift/
-endmap
+## Bubberstation maps.
 
-map boxstation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/boxstation/
-endmap
+#map biodome
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/biodome/
+#endmap
 
-map kilostation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/kilostation/
-endmap
+#map blueshift
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/blueshift/
+#endmap
 
-map moonstation
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/moonstation/
-endmap
+#map boxstation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/boxstation/
+#endmap
 
-map voidraptor
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/voidraptor/
-endmap
+#map kilostation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/kilostation/
+#endmap
 
-# Debug-only maps.
+#map moonstation
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/moonstation/
+#endmap
 
-map gateway_test
-endmap
+#map voidraptor
+#	votable
+#	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/voidraptor/
+#endmap
 
-map multiz_debug
-endmap
+## Debug-only maps.
 
-map runtimestation
-endmap
+#map gateway_test
+#endmap
 
-map eventmap
-endmap
+#map multiz_debug
+#endmap
+
+#map runtimestation
+#endmap
+
+#map eventmap
+#endmap

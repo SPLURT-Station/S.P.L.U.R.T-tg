@@ -66,56 +66,58 @@
 	return ..()
 
 /datum/status_effect/pregnancy/on_creation(mob/living/new_owner, mob/living/mother, mob/living/father, baby_type, egg_type)
-	if(ispath(baby_type, /mob/living))
-		src.baby_type = baby_type
+	qdel(src)
+	// if(ispath(baby_type, /mob/living))
+	// 	src.baby_type = baby_type
 
-	if(ispath(egg_type, /atom/movable))
-		src.egg_type = egg_type
+	// if(ispath(egg_type, /atom/movable))
+	// 	src.egg_type = egg_type
 
-	mother_dna = new()
-	if(ishuman(mother))
-		var/mob/living/carbon/human/baby_momma = mother
-		baby_momma.dna.update_dna_identity()
-		baby_momma.dna.copy_dna(mother_dna)
-		mother_name = baby_momma.real_name
-	else
-		mother_dna.initialize_dna(random_human_blood_type())
+	// mother_dna = new()
+	// if(ishuman(mother))
+	// 	var/mob/living/carbon/human/baby_momma = mother
+	// 	baby_momma.dna.update_dna_identity()
+	// 	baby_momma.dna.copy_dna(mother_dna)
+	// 	mother_name = baby_momma.real_name
+	// else
+	// 	mother_dna.initialize_dna(random_human_blood_type())
 
-	father_dna = new()
-	if(ishuman(father))
-		var/mob/living/carbon/human/baby_daddy = father
-		baby_daddy.dna.update_dna_identity()
-		baby_daddy.dna.copy_dna(father_dna)
-		father_name = baby_daddy.real_name
-	else
-		father_dna.initialize_dna(random_human_blood_type())
+	// father_dna = new()
+	// if(ishuman(father))
+	// 	var/mob/living/carbon/human/baby_daddy = father
+	// 	baby_daddy.dna.update_dna_identity()
+	// 	baby_daddy.dna.copy_dna(father_dna)
+	// 	father_name = baby_daddy.real_name
+	// else
+	// 	father_dna.initialize_dna(random_human_blood_type())
 
-	inherit_preferences(new_owner)
-	. = ..()
-	if(QDELETED(src))
-		return
+	// inherit_preferences(new_owner)
+	// . = ..()
+	// if(QDELETED(src))
+	// 	return
 
-	RegisterSignal(new_owner, SIGNAL_ADDTRAIT(TRAIT_INFERTILE), PROC_REF(on_infertile))
-	RegisterSignal(new_owner, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attacked_by))
-	RegisterSignal(new_owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
-	RegisterSignal(new_owner, COMSIG_LIVING_HEALTHSCAN, PROC_REF(on_health_scan))
+	// RegisterSignal(new_owner, SIGNAL_ADDTRAIT(TRAIT_INFERTILE), PROC_REF(on_infertile))
+	// RegisterSignal(new_owner, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attacked_by))
+	// RegisterSignal(new_owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+	// RegisterSignal(new_owner, COMSIG_LIVING_HEALTHSCAN, PROC_REF(on_health_scan))
 
 /datum/status_effect/pregnancy/proc/inherit_preferences(mob/living/gestator)
-	var/client/preference_source = GET_CLIENT(gestator)
-	if(!preference_source)
-		return FALSE
+	return FALSE
+	// var/client/preference_source = GET_CLIENT(gestator)
+	// if(!preference_source)
+	// 	return FALSE
 
-	pregnancy_flags = NONE
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/cryptic))
-		pregnancy_flags |= PREGNANCY_FLAG_CRYPTIC
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/belly_inflation))
-		pregnancy_flags |= PREGNANCY_FLAG_BELLY_INFLATION
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/inert))
-		pregnancy_flags |= PREGNANCY_FLAG_INERT
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/nausea))
-		pregnancy_flags |= PREGNANCY_FLAG_NAUSEA
+	// pregnancy_flags = NONE
+	// if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/cryptic))
+	// 	pregnancy_flags |= PREGNANCY_FLAG_CRYPTIC
+	// if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/belly_inflation))
+	// 	pregnancy_flags |= PREGNANCY_FLAG_BELLY_INFLATION
+	// if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/inert))
+	// 	pregnancy_flags |= PREGNANCY_FLAG_INERT
+	// if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/nausea))
+	// 	pregnancy_flags |= PREGNANCY_FLAG_NAUSEA
 
-	pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_MULTIPLIER
+	// pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_MULTIPLIER
 
 /datum/status_effect/pregnancy/proc/try_rename_baby(mob/user)
 	var/target_name = reject_bad_name(tgui_input_text(src, "What will the name of [mother_name || "someone"]'s offspring?", "The miracle of birth"))

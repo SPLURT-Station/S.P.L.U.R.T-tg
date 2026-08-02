@@ -6650,16 +6650,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/service/bar)
-"aMk" = (
-/obj/machinery/food_cart,
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
-/area/station/service/kitchen)
 "aMl" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "Bridge Blast Door"
 	},
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
-/area/station/service/kitchen)
+/obj/machinery/vending/coffee,
+/turf/open/floor/plating,
+/area/station/command/bridge)
 "aMo" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/edge{
@@ -7939,15 +7939,6 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblue,
-/area/station/command/bridge)
-"aSz" = (
-/obj/machinery/computer/shuttle/labor{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "aSA" = (
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -32489,11 +32480,18 @@
 	},
 /area/station/security/prison)
 "fka" = (
-/obj/machinery/griddle,
-/obj/structure/cable,
-/obj/machinery/light/directional/north,
-/obj/machinery/firealarm/directional/north,
-/turf/open/floor/iron/cafeteria,
+/obj/item/shovel/spade,
+/obj/item/wrench,
+/obj/item/reagent_containers/cup/bucket,
+/obj/item/wirecutters,
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/spray/plantbgone{
+	pixel_y = 3
+	},
+/obj/item/grenade/chem_grenade/antiweed,
+/obj/structure/closet/crate/hydroponics,
+/obj/effect/turf_decal/tile/green/fourcorners,
+/turf/open/floor/iron,
 /area/station/service/kitchen)
 "fkf" = (
 /obj/machinery/door/airlock/maintenance,
@@ -38299,13 +38297,6 @@
 	dir = 4
 	},
 /area/station/science/xenobiology)
-"htG" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wideplating,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
 "htP" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 4
@@ -38584,17 +38575,9 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/science/research)
 "hzL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/trimline/brown/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/brown/mid_joiner{
-	dir = 8
-	},
-/turf/open/floor/iron/half{
-	dir = 1
-	},
-/area/station/cargo/storage)
+/obj/effect/landmark/start/hangover,
+/turf/open/space/basic,
+/area/space)
 "hzQ" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -42150,11 +42133,12 @@
 /turf/open/floor/iron/dark/small,
 /area/station/medical/morgue)
 "iNn" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Kitchen Cold Room"
+/obj/structure/beebox,
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 8
 	},
-/obj/structure/reagent_dispensers/cooking_oil,
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/obj/structure/window/spawner/directional/west,
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "iNo" = (
 /obj/structure/closet/emcloset,
@@ -48620,12 +48604,17 @@
 /turf/open/floor/iron/textured_large,
 /area/station/cargo/warehouse)
 "lfE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/food/flour,
-/obj/effect/turf_decal/siding/wideplating,
-/turf/open/floor/iron/cafeteria,
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/machinery/light/directional/east,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/plant_tank,
+/obj/item/stack/ore/glass,
+/obj/item/stack/ore/glass,
+/obj/item/stack/ore/glass,
+/obj/item/stack/ore/glass,
+/obj/item/stack/ore/glass,
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "lfF" = (
 /obj/effect/landmark/start/hangover,
@@ -50809,12 +50798,24 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
 "lQK" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 10
 	},
-/obj/structure/platform/pizza,
-/mob/living/basic/goat/pete,
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/west,
+/obj/item/clothing/head/utility/beekeeper_head,
+/obj/item/clothing/suit/hooded/bee_costume,
+/obj/item/clothing/mask/animal/small/bee,
+/obj/item/clothing/suit/utility/beekeeper_suit,
+/obj/item/melee/flyswatter,
+/obj/structure/closet/crate/hydroponics,
+/obj/item/honey_frame,
+/obj/item/honey_frame,
+/obj/item/queen_bee/bought,
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "lQR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -70291,13 +70292,14 @@
 	},
 /area/station/hallway/primary/starboard)
 "tjM" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Kitchen"
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 8
 	},
-/obj/structure/cable,
-/obj/item/radio/intercom/directional/north,
-/obj/structure/closet/secure_closet/freezer/kitchen,
-/turf/open/floor/iron/cafeteria,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("hydroponics")
+	},
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "tjO" = (
 /obj/machinery/status_display/evac/directional/east,
@@ -71740,8 +71742,8 @@
 /turf/open/floor/plating,
 /area/station/security/prison)
 "tMl" = (
-/obj/effect/turf_decal/loading_area,
-/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/mob/living/basic/pet/bumbles,
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "tMq" = (
 /turf/open/floor/wood,
@@ -78418,14 +78420,9 @@
 	},
 /area/station/hallway/primary/central)
 "wkw" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery";
-	req_access = list("kitchen")
-	},
-/obj/effect/turf_decal/delivery,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/effect/spawner/random/trash/mess,
-/turf/open/floor/iron,
+/obj/machinery/hydroponics/soil/soilbin,
+/obj/item/toy/plush/beeplushie,
+/turf/open/floor/grass,
 /area/station/service/kitchen)
 "wkz" = (
 /obj/machinery/light/directional/south,
@@ -103005,7 +103002,7 @@ xzh
 xzh
 xzh
 xzh
-xzh
+hzL
 sUX
 bCq
 bCq
@@ -104525,7 +104522,7 @@ rsc
 wXN
 qlT
 agQ
-hzL
+sEX
 ilY
 nzN
 fAm
@@ -111959,7 +111956,7 @@ aJn
 aMg
 bBi
 xZL
-aPS
+aMl
 aRi
 aSu
 hID
@@ -112732,8 +112729,8 @@ gfO
 xZL
 aPS
 aRn
-aSz
-dtJ
+aUc
+aUc
 ycR
 cGF
 bfv
@@ -121983,7 +121980,7 @@ aJI
 aJI
 aJI
 aJI
-aRC
+fka
 uhR
 uSF
 uSF
@@ -122750,12 +122747,12 @@ eAT
 aHY
 aJI
 iNn
-aMk
+tjM
 lQK
 aOM
-aJI
+iNn
 tjM
-htG
+lQK
 rYN
 jPp
 wOf
@@ -123008,10 +123005,10 @@ xfm
 aJK
 wkw
 tMl
-aMl
+lfE
 aMF
-aJI
-fka
+wkw
+tMl
 lfE
 sAs
 jPp

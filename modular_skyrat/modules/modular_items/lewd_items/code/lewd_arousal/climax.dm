@@ -248,23 +248,23 @@
 						var/datum/component/interactable/interactable = target_mob.GetComponent(/datum/component/interactable)
 						if(interactable)
 							interactable.climax_inflate_genital(src, "testicles", climax_into_choice)
-						var/client/preference_source = GET_CLIENT(target_mob)
-						#ifdef TESTING
-						if(!preference_source)
-							preference_source = GET_CLIENT(src)
-						#endif
-						if(ishuman(target_mob) && preference_source && \
-							!HAS_TRAIT(src, TRAIT_INFERTILE) && !HAS_TRAIT(target_mob, TRAIT_INFERTILE))
-							var/genital_pass = FALSE
-							switch(interaction_inside)
-								if(ORGAN_SLOT_ANUS)
-									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/anal_insemination)
-								if(ORGAN_SLOT_VAGINA)
-									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/vaginal_insemination)
-								if(CLIMAX_TARGET_MOUTH)
-									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
-							if(genital_pass && prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
-								target_mob.apply_status_effect(/datum/status_effect/pregnancy, target_mob, src)
+						// var/client/preference_source = GET_CLIENT(target_mob)
+						// #ifdef TESTING
+						// if(!preference_source)
+						// 	preference_source = GET_CLIENT(src)
+						// #endif
+						// if(ishuman(target_mob) && preference_source &&
+						// 	!HAS_TRAIT(src, TRAIT_INFERTILE) && !HAS_TRAIT(target_mob, TRAIT_INFERTILE))
+						// 	var/genital_pass = FALSE
+						// 	switch(interaction_inside)
+						// 		if(ORGAN_SLOT_ANUS)
+						// 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/anal_insemination)
+						// 		if(ORGAN_SLOT_VAGINA)
+						// 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/vaginal_insemination)
+						// 		if(CLIMAX_TARGET_MOUTH)
+						// 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
+						// 	if(genital_pass && prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
+						// 		target_mob.apply_status_effect(/datum/status_effect/pregnancy, target_mob, src)
 						//SPLURT EDIT ADDITION END
 
 			//SPLURT EDIT CHANGE BEGIN - Interactions
