@@ -4,8 +4,8 @@
 	description = "Protect the Heads of Staff and get your hands dirty so they can keep theirs clean."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "All Command Staff and Central Command when applicable"
 	minimal_player_age = 7
 	exp_requirements = 2400
@@ -40,7 +40,8 @@
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 	)
 
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splort edit: it off
 
 /datum/outfit/job/blueshield
 	name = "Blueshield"

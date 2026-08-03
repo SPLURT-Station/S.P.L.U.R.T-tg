@@ -4,8 +4,8 @@
 		why he can't just field execute people for petty theft, get drunk in your office."
 	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 600
@@ -38,7 +38,8 @@
 	)
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
 	rpg_title = "Guild Advisor"
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+	// job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splote edit: it off
 
 	human_authority = JOB_AUTHORITY_HUMANS_ONLY
 

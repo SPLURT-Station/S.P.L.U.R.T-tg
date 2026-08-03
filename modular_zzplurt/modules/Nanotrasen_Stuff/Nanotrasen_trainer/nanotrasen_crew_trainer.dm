@@ -3,8 +3,8 @@
 	description = "Train and educate crew on how to do their job, be the guide they need."
 	//department_head = list(JOB_NT_REP) //bubber bullshit
 	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
 	exp_requirements = 600
@@ -33,7 +33,8 @@
 	)
 	rpg_title = "Guild Mentor"
 	allow_bureaucratic_error = FALSE
-	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	// job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splote edit: it off
 	human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED
 
 /obj/effect/landmark/start/nanotrasen_crew_trainer

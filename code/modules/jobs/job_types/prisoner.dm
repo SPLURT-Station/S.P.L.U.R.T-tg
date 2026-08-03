@@ -2,8 +2,8 @@
 	title = JOB_PRISONER
 	description = "Keep yourself occupied in permabrig."
 	faction = FACTION_STATION
-	total_positions = 0		// SKYRAT EDIT: Original value (0)
-	spawn_positions = 0
+	total_positions = 12		// SKYRAT EDIT: Original value (0)
+	spawn_positions = 2
 	supervisors = "the security team"
 	exp_granted_type = EXP_TYPE_CREW
 	bounty_types = CIV_JOB_PRISONER
@@ -23,7 +23,8 @@
 
 	family_heirlooms = list(/obj/item/pen/blue)
 	rpg_title = "Defeated Miniboss"
-	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS | JOB_ANTAG_PROTECTED & ~JOB_REOPEN_ON_ROUNDSTART_LOSS
+	// job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS | JOB_ANTAG_PROTECTED & ~JOB_REOPEN_ON_ROUNDSTART_LOSS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splote edit: it off
 
 /datum/job/prisoner/New()
 	. = ..()
