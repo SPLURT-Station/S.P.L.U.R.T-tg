@@ -48,21 +48,21 @@
 
 // MILKER
 
-/obj/item/construction_kit/milker
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
-	icon_state = "milkbuild_pink"
-	base_icon_state = "milkbuild"
-	current_color = "pink"
-	resulting_structure = /obj/structure/chair/milking_machine
+// /obj/item/construction_kit/milker
+// 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
+// 	icon_state = "milkbuild_pink"
+// 	base_icon_state = "milkbuild"
+// 	current_color = "pink"
+// 	resulting_structure = /obj/structure/chair/milking_machine
 
-/obj/item/construction_kit/milker/Initialize(mapload)
-	. = ..()
-	update_icon_state()
-	update_icon()
+// /obj/item/construction_kit/milker/Initialize(mapload)
+// 	. = ..()
+// 	update_icon_state()
+// 	update_icon()
 
-/obj/item/construction_kit/milker/update_icon_state()
-	icon_state = "[initial(base_icon_state)]_[current_color]"
-	return ..()
+// /obj/item/construction_kit/milker/update_icon_state()
+// 	icon_state = "[initial(base_icon_state)]_[current_color]"
+// 	return ..()
 
 
 /obj/item/construction_kit/pole

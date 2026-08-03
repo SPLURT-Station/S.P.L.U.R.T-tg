@@ -146,26 +146,15 @@
 					testicles?.reagents.remove_all(testicles.cumshot_size)
 				else
 					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice] || climax_interaction.fluid_transfer_objects[REF(src)] // SPLURT EDIT - Interactions - Added support for fluid transfer objects
-					if(target_open_container.is_refillable() && target_open_container.is_drainable())
-						// here's where we actually do the cumming(?)
-						var/cum_volume = testicles.cumshot_size
-						var/total_volume_w_cum = cum_volume + target_open_container.reagents.total_volume
-						conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
-						if(target_open_container.reagents.holder_full())
-							// its full already
-							add_cum_splatter_floor(get_turf(target_open_container))
-							visible_message(span_userlove("[src] tries to cum into the [target_open_container], but it's already full, spilling their hot load onto the floor!"), \
-								span_userlove("You try to cum into the [target_open_container], but it's already full, so it all hits the floor instead!"))
-						else
-							testicles?.reagents.trans_to(target_open_container, testicles.cumshot_size, transferred_by = src)
-							if(total_volume_w_cum > target_open_container.volume)
-								// overflow, make the decal
-								add_cum_splatter_floor(get_turf(target_open_container))
-								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container], it's so full that it overflows!"), \
-									span_userlove("You shoot string after string of hot cum into the [target_open_container], making it overflow!"))
-							else
-								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container]!"), \
-									span_userlove("You shoot string after string of hot cum into the [target_open_container]!"))
+					// here's where we actually do the cumming(?)
+					var/cum_volume = testicles.cumshot_size
+					// var/total_volume_w_cum = cum_volume + target_open_container.reagents.total_volume
+					conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
+					if(!target_open_container.reagents.holder_full())
+						// its full already
+						add_cum_splatter_floor(get_turf(target_open_container))
+						visible_message(span_userlove("[src] cums into the [target_open_container]!"), \
+							span_userlove("You cum into the [target_open_container]! (no reagents were added, just pretend it did!)"))
 					else
 						// cum fail
 						create_cum_decal = TRUE
@@ -270,21 +259,8 @@
 			//SPLURT EDIT CHANGE BEGIN - Interactions
 			if(!(climax_interaction?.interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER) && ishuman(src))
 				if(create_cum_decal)
-					if(HAS_TRAIT(src, TRAIT_MESSY))
-						// Transfer reagents to the turf uisng liquids system
-						var/datum/reagents/R = new(testicles.cumshot_size)
-						testicles.reagents.trans_to(R, testicles.cumshot_size, transferred_by = src)
-						if(partner && partner != src)
-							// Get turf between src and partner for directional splatter
-							var/turf/T = get_turf(partner)
-							T.add_liquid_from_reagents(R, FALSE, 1, get_turf(src), partner)
-						else
-							var/turf/T = get_turf(src)
-							T.add_liquid_from_reagents(R, FALSE, 1)
-						qdel(R)
-					else
-						testicles.reagents.remove_all(testicles.cumshot_size)
-						add_cum_splatter_floor(get_turf(src), cum_reagent = testicles.internal_fluid_datum)
+					testicles.reagents.remove_all(testicles.cumshot_size)
+					add_cum_splatter_floor(get_turf(src), cum_reagent = testicles.internal_fluid_datum)
 				else if(partner || interactable_inrange_mobs[target_choice])
 					// Transfer reagents directly to partner
 					var/mob/living/target_mob = partner || interactable_inrange_mobs[target_choice]
@@ -368,22 +344,21 @@
 				else
 					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice] || climax_interaction.fluid_transfer_objects[REF(src)] // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 					if(target_open_container.is_refillable() && target_open_container.is_drainable())
-						var/squirt_volume = vagina?.reagents.total_volume
-						var/total_volume_w_squirt = squirt_volume + target_open_container.reagents.total_volume
+						// var/total_volume_w_squirt = squirt_volume + target_open_container.reagents.total_volume
 						conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 						if(target_open_container.reagents.holder_full())
 							add_cum_splatter_floor(get_turf(target_open_container), female = TRUE)
 							visible_message(span_userlove("[src] tries to squirt into the [target_open_container], but it's already full, spilling onto the floor!"), \
 								span_userlove("You try to squirt into the [target_open_container], but it's already full, so it all hits the floor instead!"))
 						else
-							vagina?.reagents.trans_to(target_open_container, vagina?.reagents.total_volume, transferred_by = src)
-							if(total_volume_w_squirt > target_open_container.volume)
-								add_cum_splatter_floor(get_turf(target_open_container), female = TRUE)
-								visible_message(span_userlove("[src] squirts into the [target_open_container], it's so full that it overflows!"), \
-									span_userlove("You squirt into the [target_open_container], making it overflow!"))
-							else
-								visible_message(span_userlove("[src] squirts into the [target_open_container]!"), \
-									span_userlove("You squirt into the [target_open_container]!"))
+							// vagina?.reagents.trans_to(target_open_container, vagina?.reagents.total_volume, transferred_by = src)
+							// if(total_volume_w_squirt > target_open_container.volume)
+							// 	add_cum_splatter_floor(get_turf(target_open_container), female = TRUE)
+							// 	visible_message(span_userlove("[src] squirts into the [target_open_container], it's so full that it overflows!"),
+							// 		span_userlove("You squirt into the [target_open_container], making it overflow!"))
+							// else
+							visible_message(span_userlove("[src] squirts into the [target_open_container]!"), \
+								span_userlove("You squirt into the [target_open_container]! (no reagents were added, just pretend it did!)"))
 					else
 						create_cum_decal = TRUE
 						visible_message(span_userlove("[src] squirts onto the floor!"), \
@@ -464,19 +439,8 @@
 						//SPLURT EDIT ADDITION END
 			if(!(climax_interaction?.interaction_modifier_flags & INTERACTION_OVERRIDE_FLUID_TRANSFER))
 				if(create_cum_decal)
-					if(HAS_TRAIT(src, TRAIT_MESSY))
-						var/datum/reagents/R = new(vagina?.internal_fluid_maximum)
-						vagina?.reagents.trans_to(R, vagina?.reagents.total_volume)
-						if(partner && partner != src)
-							var/turf/T = get_turf(partner)
-							T.add_liquid_from_reagents(R, FALSE, 1, get_turf(src), partner)
-						else
-							var/turf/T = get_turf(src)
-							T.add_liquid_from_reagents(R, FALSE, 1)
-						qdel(R)
-					else
-						vagina?.reagents.remove_all(vagina?.reagents.total_volume)
-						add_cum_splatter_floor(get_turf(src), female = TRUE, cum_reagent = vagina?.internal_fluid_datum)
+					vagina?.reagents.remove_all(vagina?.reagents.total_volume)
+					add_cum_splatter_floor(get_turf(src), female = TRUE, cum_reagent = vagina?.internal_fluid_datum)
 				else if(partner || interactable_inrange_mobs[target_choice])
 					var/mob/living/target_mob = partner || interactable_inrange_mobs[target_choice]
 

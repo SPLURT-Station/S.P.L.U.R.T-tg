@@ -1,7 +1,7 @@
-/obj/item/storage/box/milking_kit/Initialize(mapload)
-	. = ..()
-	if(CONFIG_GET(flag/disable_lewd_items))
-		return INITIALIZE_HINT_QDEL
+// /obj/item/storage/box/milking_kit/Initialize(mapload)
+// 	. = ..()
+// 	if(CONFIG_GET(flag/disable_lewd_items))
+// 		return INITIALIZE_HINT_QDEL
 
 /obj/item/storage/box/xstand_kit/Initialize(mapload)
 	. = ..()
@@ -160,8 +160,8 @@
 
 /obj/structure/chair/milking_machine/Initialize(mapload)
 	. = ..()
-	if(CONFIG_GET(flag/disable_lewd_items))
-		return INITIALIZE_HINT_QDEL
+	// if(CONFIG_GET(flag/disable_lewd_items))
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/milking_machine/constructionkit/Initialize(mapload)
 	. = ..()

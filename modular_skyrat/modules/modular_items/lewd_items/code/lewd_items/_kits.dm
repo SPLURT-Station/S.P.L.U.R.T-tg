@@ -1,13 +1,13 @@
 
 // Milking machine
-/obj/item/storage/box/milking_kit
-	name = "DIY milking machine kit"
-	desc = "Contains everything you need to build your own milking machine!"
+// /obj/item/storage/box/milking_kit
+// 	name = "DIY milking machine kit"
+// 	desc = "Contains everything you need to build your own milking machine!"
 
-/obj/item/storage/box/milking_kit/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/construction_kit/milker = 1)
-	generate_items_inside(items_inside, src)
+// /obj/item/storage/box/milking_kit/PopulateContents()
+// 	var/static/items_inside = list(
+// 		/obj/item/construction_kit/milker = 1)
+// 	generate_items_inside(items_inside, src)
 
 // X-Stand
 /obj/item/storage/box/xstand_kit
