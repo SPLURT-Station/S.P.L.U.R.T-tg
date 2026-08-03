@@ -4,8 +4,8 @@
 		why he can't just field execute people for petty theft, get drunk in your office."
 	head_announce = list(RADIO_CHANNEL_IAA)
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 600

@@ -3,8 +3,8 @@
 	description = "Train and educate crew on how to do their job, be the guide they need."
 	//department_head = list(JOB_NT_REP) //bubber bullshit
 	faction = FACTION_STATION
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
 	exp_requirements = 600

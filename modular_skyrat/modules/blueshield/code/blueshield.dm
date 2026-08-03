@@ -4,8 +4,8 @@
 	description = "Protect the Heads of Staff and get your hands dirty so they can keep theirs clean."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "All Command Staff and Central Command when applicable"
 	minimal_player_age = 7
 	exp_requirements = 2400

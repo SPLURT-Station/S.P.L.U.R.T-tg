@@ -2,8 +2,8 @@
 	title = JOB_BITRUNNER
 	description = "Surf the virtual domain for gear and loot, decrypt your rewards on station."
 	faction = FACTION_STATION
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = SUPERVISOR_QM
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BITRUNNER"
