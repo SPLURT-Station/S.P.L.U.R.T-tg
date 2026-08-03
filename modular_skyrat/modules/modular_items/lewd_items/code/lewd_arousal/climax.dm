@@ -147,7 +147,6 @@
 				else
 					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice] || climax_interaction.fluid_transfer_objects[REF(src)] // SPLURT EDIT - Interactions - Added support for fluid transfer objects
 					// here's where we actually do the cumming(?)
-					var/cum_volume = testicles.cumshot_size
 					// var/total_volume_w_cum = cum_volume + target_open_container.reagents.total_volume
 					conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 					if(!target_open_container.reagents.holder_full())
