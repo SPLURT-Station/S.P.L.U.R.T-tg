@@ -53,6 +53,11 @@
 	icon_state = "pool_tile"
 	liquid_height = -30
 	turf_height = -30
+	flags_1 = parent_type::flags_1 & ~CAN_BE_DIRTY_1
+
+/turf/open/floor/iron/pool/Initialize(mapload)
+	add_lazy_fishing(/datum/fish_source/river)
+	. = ..()
 
 /turf/open/floor/iron/pool/rust_heretic_act()
 	return

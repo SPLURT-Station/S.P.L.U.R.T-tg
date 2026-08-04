@@ -47,7 +47,10 @@
 	jobtype = /datum/job/security_medic
 
 	backpack_contents = list(
-		/obj/item/security_voucher/primary = 1,
+		// /obj/item/security_voucher/primary = 1,
+		/obj/item/clothing/head/helmet/sec = 1,
+		/obj/item/storage/belt/security/full = 1,
+		/obj/item/gun/energy/e_gun/advtaser = 1,
 		/obj/item/security_voucher/utility = 1
 		)
 	suit_store = /obj/item/flashlight/seclite

@@ -10,7 +10,7 @@
 /datum/round_event_control/sandstorm
 	name = "Sandstorm: Directional"
 	typepath = /datum/round_event/sandstorm
-	max_occurrences = 3
+	max_occurrences = 10
 	min_players = 35
 	earliest_start = 35 MINUTES
 	category = EVENT_CATEGORY_SPACE
@@ -67,8 +67,8 @@
 /datum/round_event_control/sandstorm_classic
 	name = "Sandstorm: Classic"
 	typepath = /datum/round_event/sandstorm_classic
-	weight = 0
-	max_occurrences = 0
+	weight = 2
+	max_occurrences = 10
 	earliest_start = 0 MINUTES
 	category = EVENT_CATEGORY_SPACE
 	description = "The station is pelted by an extreme amount of dust, from all sides, for several minutes. Very destructive and likely to cause lag. Use at own risk."

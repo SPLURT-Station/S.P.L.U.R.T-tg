@@ -1,0 +1,21 @@
+{
+	"version": 1,
+	"map_name": "MiniStation",
+	"map_path": "splote/ministation-reborn",
+	"map_file": "MiniStation.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": [
+				"/area/station/service/bar",
+				"/area/station/commons/lounge"
+			]
+		}
+	},
+	"minetype": "none"
+}

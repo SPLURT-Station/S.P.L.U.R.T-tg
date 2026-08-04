@@ -5,7 +5,7 @@
 	typepath = /datum/round_event/meteor_wave
 	weight = 4
 	min_players = 20
-	max_occurrences = 3
+	max_occurrences = 0
 	earliest_start = 25 MINUTES
 	category = EVENT_CATEGORY_SPACE
 	description = "A regular meteor wave."
@@ -61,7 +61,7 @@
 	typepath = /datum/round_event/meteor_wave/threatening
 	weight = 5
 	min_players = 25
-	max_occurrences = 3
+	max_occurrences = 0
 	earliest_start = 35 MINUTES
 	description = "A meteor wave with higher chance of big meteors."
 
@@ -73,7 +73,7 @@
 	typepath = /datum/round_event/meteor_wave/catastrophic
 	weight = 7
 	min_players = 30
-	max_occurrences = 3
+	max_occurrences = 0
 	earliest_start = 45 MINUTES
 	description = "A meteor wave that might summon a tunguska class meteor."
 
@@ -84,7 +84,7 @@
 	name = "Meteor Wave: Meaty"
 	typepath = /datum/round_event/meteor_wave/meaty
 	weight = 2
-	max_occurrences = 1
+	max_occurrences = 10
 	description = "A meteor wave made of meat."
 
 /datum/round_event/meteor_wave/meaty
@@ -100,6 +100,7 @@
 	typepath = /datum/round_event/meteor_wave/dust_storm
 	weight = 14
 	description = "The station is pelted by sand."
+	max_occurrences = 10
 	earliest_start = 15 MINUTES
 	min_wizard_trigger_potency = 4
 	max_wizard_trigger_potency = 7

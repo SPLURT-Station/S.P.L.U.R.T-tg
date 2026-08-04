@@ -33,7 +33,8 @@
 	)
 	rpg_title = "Guild Mentor"
 	allow_bureaucratic_error = FALSE
-	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	// job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splote edit: it off
 	human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED
 
 /obj/effect/landmark/start/nanotrasen_crew_trainer

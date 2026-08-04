@@ -210,3 +210,14 @@
 	var/mob/living/simple_animal/hostile/megafauna/fauna = owner
 	fauna.chosen_attack = chosen_attack_num
 	to_chat(fauna, chosen_message)
+
+/mob/living/simple_animal/skunk/eunice
+	name = "Eunice"
+	desc = "In memory of a most wonderful player who played on our server. Thank you for being an amazing person. We hope you rest in peace."
+	icon = 'modular_coyote/icons/mob/skunk.dmi'
+	icon_state = "skunk"
+	icon_living = "skunk"
+	icon_dead = "skunk_dead"
+	maxHealth = 100000
+	health = 100000
+

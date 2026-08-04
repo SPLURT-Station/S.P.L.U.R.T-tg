@@ -94,6 +94,12 @@
 /area/station/cargo/power_station/upper
 	name = "Upper Cargo Power Station"
 
+/area/station/cargo/power_station/upper/upperer
+	name = "Upper Cargo Power Station L-2"
+
+/area/station/cargo/power_station/upper/upperer/upperest
+	name = "Upper Cargo Power Station L-3"
+
 /area/station/engineering/power_station
 	name = "Engineering Power Station"
 	icon = 'modular_skyrat/modules/mapping/icons/areas/areas_station.dmi'
@@ -104,6 +110,24 @@
 
 /area/station/engineering/power_station/upper
 	name = "Upper Engineering Power Station"
+
+/area/station/engineering/power_station/upper/secondary
+	name = "Upper Engineering Secondary Power Station"
+
+/area/station/engineering/power_station/upper/tertiary
+	name = "Upper Engineering Tertiary Power Station"
+
+/area/station/engineering/power_station/upper/upperer
+	name = "Upper Engineering Power Station L2"
+
+/area/station/engineering/power_station/upperer/secondary
+	name = "Upper Engineering Secondary Power Station L2"
+
+/area/station/engineering/power_station/upperer/tertiary
+	name = "Upper Engineering Tertiary Power Station L2"
+
+/area/station/engineering/power_station/upper/upperer/upperest
+	name = "Upper Engineering Power Station L3"
 
 /area/station/medical/power_station
 	name = "Medical Power Station"

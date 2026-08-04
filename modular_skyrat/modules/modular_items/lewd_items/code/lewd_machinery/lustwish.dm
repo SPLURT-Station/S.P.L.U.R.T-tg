@@ -159,7 +159,7 @@
 			"products" = list(
 				//fur niture //haha you got it
 				/obj/item/storage/box/bdsmbed_kit = 4,
-				/obj/item/storage/box/milking_kit = 4,
+				// /obj/item/storage/box/milking_kit = 4,
 				/obj/item/storage/box/shibari_stand = 4,
 				/obj/item/storage/box/strippole_kit = 4,
 				/obj/item/storage/box/xstand_kit = 4,

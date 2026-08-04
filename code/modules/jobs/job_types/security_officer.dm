@@ -236,11 +236,12 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	suit_store = /obj/item/gun/energy/disabler
 	backpack_contents = list(
 		/obj/item/evidencebag = 1,
+		/obj/item/clothing/head/helmet/sec = 1,
 		)
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black/security
-	head = /obj/item/clothing/head/helmet/sec
+	head = /obj/item/clothing/head/beret/sec
 	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld

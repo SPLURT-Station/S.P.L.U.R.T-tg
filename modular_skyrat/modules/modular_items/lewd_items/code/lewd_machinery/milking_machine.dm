@@ -420,16 +420,16 @@
 
 // Machine deconstruction process handler
 /obj/structure/chair/milking_machine/atom_deconstruct(disassembled)
-	if(beaker)
-		beaker.forceMove(drop_location())
-		adjust_item_drop_location(beaker)
-		beaker = null
-		update_all_visuals()
+	// if(beaker)
+	// 	beaker.forceMove(drop_location())
+	// 	adjust_item_drop_location(beaker)
+	// 	beaker = null
+	// 	update_all_visuals()
 
-	var/obj/item/construction_kit/milker/construction_kit = new(src.loc)
-	construction_kit.current_color = machine_color
-	construction_kit.update_icon_state()
-	construction_kit.update_icon()
+	// var/obj/item/construction_kit/milker/construction_kit = new(src.loc)
+	// construction_kit.current_color = machine_color
+	// construction_kit.update_icon_state()
+	// construction_kit.update_icon()
 
 	return ..()
 

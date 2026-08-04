@@ -2,8 +2,8 @@
 	title = JOB_BLACKSMITH
 	description = "Smith wares, Sell them."
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = SUPERVISOR_QM
 	config_tag = "BLACKSMITH"
 	exp_granted_type = EXP_TYPE_CREW
@@ -28,7 +28,9 @@
 
 	family_heirlooms = list(/obj/item/pen/fountain, /obj/item/forging/hammer, /obj/item/forging/tongs)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	// job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_DISABLED_FLAGS // splote edit: it off
+
 
 	job_spawn_title = JOB_ASSISTANT
 

@@ -631,7 +631,7 @@
 	pref_flag = ROLE_REVENANT
 	ruleset_flags = RULESET_INVADER
 	weight = 5
-	min_pop = 10
+	min_pop = 10000
 	max_antag_cap = 1
 	repeatable = FALSE
 	signup_atom_appearance = /mob/living/basic/revenant

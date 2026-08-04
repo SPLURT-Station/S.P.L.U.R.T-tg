@@ -40,7 +40,8 @@
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 	)
 
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	job_flags = STATION_JOB_DISABLED_FLAGS // splort edit: it off
 
 /datum/outfit/job/blueshield
 	name = "Blueshield"
