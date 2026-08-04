@@ -27,10 +27,10 @@
 	mode = AREA_SPAWN_MODE_HUG_WALL
 */
 
-/datum/area_spawn/command_drobe
-	target_areas = list(/area/station/command/meeting_room, /area/station/command/meeting_room/council, /area/station/command/bridge)
-	desired_atom = /obj/machinery/vending/access/command
-	mode = AREA_SPAWN_MODE_HUG_WALL
+// /datum/area_spawn/command_drobe
+// 	target_areas = list(/area/station/command/meeting_room, /area/station/command/meeting_room/council, /area/station/command/bridge)
+// 	desired_atom = /obj/machinery/vending/access/command
+// 	mode = AREA_SPAWN_MODE_HUG_WALL
 
 /datum/area_spawn/ammo_workbench
 	target_areas = list(/area/station/security/lockers, /area/station/security/office)
