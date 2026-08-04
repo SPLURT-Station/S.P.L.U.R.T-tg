@@ -292,6 +292,7 @@
 	desc = "A large tree."
 	density = TRUE
 	max_integrity = 150
+	opacity = 1
 	pixel_x = -16
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE

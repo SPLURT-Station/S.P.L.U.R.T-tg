@@ -54,6 +54,10 @@
 	liquid_height = -30
 	turf_height = -30
 
+/turf/open/floor/iron/pool/Initialize(mapload)
+	add_lazy_fishing(/datum/fish_source/river)
+	. = ..()
+
 /turf/open/floor/iron/pool/rust_heretic_act()
 	return
 

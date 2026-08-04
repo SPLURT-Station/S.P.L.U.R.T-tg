@@ -111,19 +111,19 @@
 /area/station/engineering/power_station/upper
 	name = "Upper Engineering Power Station"
 
-area/station/engineering/power_station/upper/secondary
+/area/station/engineering/power_station/upper/secondary
 	name = "Upper Engineering Secondary Power Station"
 
-area/station/engineering/power_station/upper/tertiary
+/area/station/engineering/power_station/upper/tertiary
 	name = "Upper Engineering Tertiary Power Station"
 
 /area/station/engineering/power_station/upper/upperer
 	name = "Upper Engineering Power Station L2"
 
-area/station/engineering/power_station/upperer/secondary
+/area/station/engineering/power_station/upperer/secondary
 	name = "Upper Engineering Secondary Power Station L2"
 
-area/station/engineering/power_station/upperer/tertiary
+/area/station/engineering/power_station/upperer/tertiary
 	name = "Upper Engineering Tertiary Power Station L2"
 
 /area/station/engineering/power_station/upper/upperer/upperest

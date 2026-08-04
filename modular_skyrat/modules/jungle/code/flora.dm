@@ -56,3 +56,14 @@
 
 /obj/structure/flora/biolumi/lamp/weaklight
 	light_power = 0.3
+
+//Coyote Lamp
+/obj/structure/flora/biolumi/lamp/natural
+	name = "plant lamp"
+	desc = "Bioluminescent plant much in a shape of a street lamp."
+	icon_state = "lamp"
+	light_range = 15
+	light_power = 0.5
+	max_integrity = 50
+	variants = 2
+	random_light = list("#F4E99B")
