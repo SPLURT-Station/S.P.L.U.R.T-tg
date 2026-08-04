@@ -189,7 +189,7 @@
 	name = "space sand"
 	icon_state = "dust"
 	hits = 2
-	hitpwr = EXPLODE_LIGHT
+	hitpwr = EXPLODE_NONE
 	meteorsound = 'sound/items/dodgeball.ogg'
 	threat = 1
 
@@ -217,7 +217,7 @@
 	icon_state = "dust"
 	pass_flags = PASSTABLE | PASSGRILLE
 	hits = 1
-	hitpwr = EXPLODE_LIGHT
+	hitpwr = EXPLODE_NONE
 	meteorsound = 'sound/items/weapons/gun/smg/shot.ogg'
 	meteordrop = list(/obj/item/stack/ore/glass)
 	threat = 1
@@ -392,6 +392,7 @@
 	icon_state = "meateor"
 	desc = "Just... don't think too hard about where this thing came from."
 	hits = 2
+	hitpwr = EXPLODE_NONE
 	heavy = TRUE
 	meteorsound = 'sound/effects/blob/blobattack.ogg'
 	meteordrop = list(/obj/item/food/meat/slab/human, /obj/item/food/meat/slab/human/mutant, /obj/item/organ/heart, /obj/item/organ/lungs, /obj/item/organ/tongue, /obj/item/organ/appendix/)
@@ -421,7 +422,8 @@
 		new /obj/effect/decal/cleanable/blood(T)
 
 /obj/effect/meteor/meaty/Bump(atom/A)
-	EX_ACT(A, hitpwr)
+	if(hitpwr)
+		EX_ACT(A, hitpwr)
 	get_hit()
 
 //Meaty Ore Xeno edition

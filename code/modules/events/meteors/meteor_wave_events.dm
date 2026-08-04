@@ -84,7 +84,7 @@
 	name = "Meteor Wave: Meaty"
 	typepath = /datum/round_event/meteor_wave/meaty
 	weight = 2
-	max_occurrences = 0
+	max_occurrences = 10
 	description = "A meteor wave made of meat."
 
 /datum/round_event/meteor_wave/meaty
@@ -100,6 +100,7 @@
 	typepath = /datum/round_event/meteor_wave/dust_storm
 	weight = 14
 	description = "The station is pelted by sand."
+	max_occurrences = 10
 	earliest_start = 15 MINUTES
 	min_wizard_trigger_potency = 4
 	max_wizard_trigger_potency = 7
