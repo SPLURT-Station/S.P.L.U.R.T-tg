@@ -215,7 +215,7 @@ GLOBAL_LIST_EMPTY(starlight)
 
 /turf/open/space/openspace
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("pure_white", "invisible")
+	icon_state = MAP_SWITCH("pure_white", "spaceopen")
 	plane = TRANSPARENT_FLOOR_PLANE
 
 /turf/open/space/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
