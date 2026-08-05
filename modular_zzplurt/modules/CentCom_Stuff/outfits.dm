@@ -65,31 +65,7 @@
 	id_trim = /datum/id_trim/centcom/official
 	uniform = /obj/item/clothing/under/rank/centcom/official
 	suit = /obj/item/clothing/suit/armor/centcom_jacket
-	back = /obj/item/storage/backpack/satchel
-	backpack_contents = list(
-		/obj/item/stamp/centcom = 1,
-		/obj/item/pen/fountain/centcom/silver = 1,
-	)
-	belt = /obj/item/gun/energy/e_gun/asterion
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/color/black
-	l_pocket = /obj/item/melee/baton/telescopic/silver
-	l_hand = /obj/item/clipboard/centcom
-	r_pocket = /obj/item/modular_computer/pda/centcom
-
-/datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
-	pda.imprint_id(H.real_name, "CentCom Official")
-
-/datum/outfit/centcom/centcom_inspector
-	name = "CentCom Inspector"
-
-	id_trim = /datum/id_trim/centcom/inspector
-	uniform = /obj/item/clothing/under/rank/centcom/
-	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	head = /obj/item/clothing/head/beret/centcom_officer
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/stamp/centcom = 1,
@@ -113,6 +89,32 @@
 	name = "CentCom Official - Turtleneck"
 
 	uniform = /obj/item/clothing/under/rank/centcom/official/turtleneck
+
+/datum/outfit/centcom/centcom_inspector
+	name = "CentCom Inspector"
+
+	id_trim = /datum/id_trim/centcom/inspector
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
+	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	head = /obj/item/clothing/head/utility/hardhat/white
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/stamp/centcom = 1,
+		/obj/item/pen/fountain/centcom/silver = 1,
+	)
+	belt = /obj/item/gun/energy/e_gun/asterion
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/combat
+	l_pocket = /obj/item/melee/baton/telescopic/silver
+	l_hand = /obj/item/clipboard/centcom
+	r_pocket = /obj/item/modular_computer/pda/centcom
+
+/datum/outfit/centcom/centcom_inspector/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Inspector")
 
 /datum/outfit/centcom/centcom_intern
 	name = "CentCom Intern"

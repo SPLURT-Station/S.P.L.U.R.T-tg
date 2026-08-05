@@ -214,7 +214,7 @@
 		/obj/item/clothing/under/costume/jabroni = 3,
 		/obj/item/clothing/under/costume/geisha = 3,
 		/obj/item/clothing/under/rank/centcom/officer/replica = 2,
-		/obj/item/clothing/under/rank/centcom/officer_skirt/replica = 2,
+		/obj/item/clothing/under/rank/centcom/officer/skirt/replica = 2,
 	)
 	premium = list(/obj/item/clothing/under/suit/checkered = 3,
 		/obj/item/clothing/head/costume/mailman = 3,

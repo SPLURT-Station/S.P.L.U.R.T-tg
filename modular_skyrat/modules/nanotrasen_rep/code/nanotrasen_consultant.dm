@@ -126,7 +126,7 @@
 	new /obj/item/clothing/under/rank/centcom/consultant(src)
 	new /obj/item/clothing/under/rank/centcom/consultant/skirt(src)
 	new /obj/item/clothing/under/rank/centcom/officer(src)
-	new /obj/item/clothing/under/rank/centcom/officer_skirt(src)
+	new /obj/item/clothing/under/rank/centcom/officer/skirt(src)
 	new /obj/item/clothing/under/rank/centcom/official(src)
 	new /obj/item/clothing/under/rank/centcom/official/turtleneck(src)
 	new /obj/item/clothing/head/nanotrasen_consultant(src)

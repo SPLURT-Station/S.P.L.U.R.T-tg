@@ -43,7 +43,7 @@
 	new /obj/item/clothing/gloves/tackler/combat(src)
 	new /obj/item/clothing/head/helmet/space/beret(src)
 	new /obj/item/clothing/under/rank/centcom/officer(src)
-	new /obj/item/clothing/under/rank/centcom/officer_skirt(src)
+	new /obj/item/clothing/under/rank/centcom/officer/skirt(src)
 	new /obj/item/clothing/suit/space/officer(src)
 	new /obj/item/radio/headset/headset_cent/alt(src)
 	new /obj/item/storage/belt/sheath/sabre(src)

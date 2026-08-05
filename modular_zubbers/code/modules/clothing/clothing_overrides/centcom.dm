@@ -74,7 +74,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer_skirt
+/obj/item/clothing/under/rank/centcom/officer/skirt
 	name = "\improper CentCom tactical skirtleneck"
 	desc = "A CentCom uniform worn by Emergency Response Teams, added with a generic black skirt. Though, more used as an undersuit for MOD suits."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'
@@ -93,7 +93,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer_skirt/replica
+/obj/item/clothing/under/rank/centcom/officer/skirt/replica
 	name = "\improper CentCom turtleneck skirt replica"
 	desc = "A uniform made from cheap materials, manufactured to resemble what most CentCom officers wear, it has a quite obvious Donk Co. logo on the collar."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'

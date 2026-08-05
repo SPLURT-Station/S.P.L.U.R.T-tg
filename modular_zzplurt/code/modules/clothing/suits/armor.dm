@@ -145,7 +145,7 @@
 		design is adorned with golden shoulder stripes denoting supreme corporate authority, while a warm fur collar \
 		adds a distinguished touch. A finely embroidered golden Nanotrasen emblem decorates the back, ensuring its \
 		wearer is recognized wherever they walk."
-	icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	icon = 'modular_zzplurt/icons/obj/clothing/suit/jacket.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
 	icon_state = "commander_coat"
 	inhand_icon_state = "centcom"
@@ -157,7 +157,7 @@
 	desc = "A refined black suit jacket worn by Nanotrasen Central Command officials. Sleek green command stripes \
 		adorn the shoulders, while a silver Nanotrasen insignia is embroidered across the back, signifying the wearer's \
 		loyalty to the corporation. Its clean, professional design is suited for both formal ceremonies and executive duty."
-	icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	icon = 'modular_zzplurt/icons/obj/clothing/suit/jacket.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
 	icon_state = "cc_formal_jacket"
 	inhand_icon_state = "centcom"
