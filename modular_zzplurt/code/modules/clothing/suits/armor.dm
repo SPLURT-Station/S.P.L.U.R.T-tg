@@ -138,3 +138,28 @@
 	name = "press helmet"
 	desc = "A blue helmet used to distinguish <i>non-combatant</i> \"PRESS\" members, like if anyone cares."
 	armor_type = /datum/armor/none
+
+/obj/item/clothing/suit/armor/centcom_commander
+	name = "\improper CentCom commander's coat"
+	desc = "A prestigious command overcoat reserved for Nanotrasen Central Command Commanders. Its dark tailored \
+		design is adorned with golden shoulder stripes denoting supreme corporate authority, while a warm fur collar \
+		adds a distinguished touch. A finely embroidered golden Nanotrasen emblem decorates the back, ensuring its \
+		wearer is recognized wherever they walk."
+	icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	icon_state = "commander_coat"
+	inhand_icon_state = "centcom"
+	body_parts_covered = CHEST|GROIN|ARMS
+	armor_type = /datum/armor/armor_centcom_formal
+
+/obj/item/clothing/suit/armor/centcom_jacket
+	name = "\improper CentCom formal jacket"
+	desc = "A refined black suit jacket worn by Nanotrasen Central Command officials. Sleek green command stripes \
+		adorn the shoulders, while a silver Nanotrasen insignia is embroidered across the back, signifying the wearer's \
+		loyalty to the corporation. Its clean, professional design is suited for both formal ceremonies and executive duty."
+	icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/jacket.dmi'
+	icon_state = "cc_formal_jacket"
+	inhand_icon_state = "centcom"
+	body_parts_covered = CHEST|ARMS
+	armor_type = /datum/armor/armor_centcom_formal_nt_consultant

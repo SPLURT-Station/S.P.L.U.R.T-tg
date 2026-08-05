@@ -26,14 +26,14 @@
 
 	id_trim = /datum/id_trim/centcom/commander
 	uniform = /obj/item/clothing/under/rank/centcom/commander
-	suit = /obj/item/clothing/suit/armor/centcom_formal
+	suit = /obj/item/clothing/suit/armor/centcom_commander
 	suit_store = /obj/item/gun/ballistic/revolver/mateba
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/stamp/centcom/commander = 1,
 		/obj/item/ammo_box/speedloader/c357 = 2,
 	)
-	belt = /obj/item/storage/belt/sheath/sabre
+	belt = /obj/item/storage/belt/sheath/sabre/centcom
 	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -64,17 +64,43 @@
 
 	id_trim = /datum/id_trim/centcom/official
 	uniform = /obj/item/clothing/under/rank/centcom/official
+	suit = /obj/item/clothing/suit/armor/centcom_jacket
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/stamp/centcom = 1,
 		/obj/item/pen/fountain/centcom/silver = 1,
 	)
-	belt = /obj/item/gun/energy/e_gun
+	belt = /obj/item/gun/energy/e_gun/asterion
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black
 	l_pocket = /obj/item/melee/baton/telescopic/silver
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
 	l_hand = /obj/item/clipboard/centcom
+	r_pocket = /obj/item/modular_computer/pda/centcom
+
+/datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Official")
+
+/datum/outfit/centcom/centcom_inspector
+	name = "CentCom Inspector"
+
+	id_trim = /datum/id_trim/centcom/inspector
+	uniform = /obj/item/clothing/under/rank/centcom/
+	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/stamp/centcom = 1,
+		/obj/item/pen/fountain/centcom/silver = 1,
+	)
+	belt = /obj/item/gun/energy/e_gun/asterion
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/color/black
+	l_pocket = /obj/item/melee/baton/telescopic/silver
+	l_hand = /obj/item/clipboard/centcom
+	r_pocket = /obj/item/modular_computer/pda/centcom
 
 /datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
@@ -168,6 +194,14 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	l_pocket = /obj/item/switchblade
 	additional_radio = /obj/item/encryptionkey/heads/captain
+	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+
+/datum/outfit/centcom/ert/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "Emergency Response Team Commander")
 
 /datum/outfit/centcom/ert/commander/alert
 	name = "ERT Commander - High Alert"
@@ -196,6 +230,14 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	additional_radio = /obj/item/encryptionkey/heads/hos
+	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+
+/datum/outfit/centcom/ert/security/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "Security Response Officer")
 
 /datum/outfit/centcom/ert/security/alert
 	name = "ERT Security - High Alert"
@@ -224,8 +266,16 @@
 	r_hand = /obj/item/gun/energy/e_gun
 	l_pocket = /obj/item/healthanalyzer/advanced
 	additional_radio = /obj/item/encryptionkey/heads/cmo
+	r_pocket = /obj/item/modular_computer/pda/centcom/ert
 
 	skillchips = list(/obj/item/skillchip/entrails_reader)
+
+/datum/outfit/centcom/ert/medic/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "Medical Response Officer")
 
 /datum/outfit/centcom/ert/medic/alert
 	name = "ERT Medic - High Alert"
@@ -255,9 +305,16 @@
 	glasses = /obj/item/clothing/glasses/meson/engine
 	l_pocket = /obj/item/rcd_ammo/large
 	additional_radio = /obj/item/encryptionkey/heads/ce
-
+	r_pocket = /obj/item/modular_computer/pda/centcom/ert
 
 	skillchips = list(/obj/item/skillchip/job/engineer)
+
+/datum/outfit/centcom/ert/engineer/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "Engineering Response Officer")
 
 /datum/outfit/centcom/ert/engineer/alert
 	name = "ERT Engineer - High Alert"

@@ -48,7 +48,7 @@
 	slowdown = 1
 	armor_type = /datum/armor/space_surplus_centcom
 	cell = /obj/item/stock_parts/power_store/cell/high
-	var/helmet_type = /obj/item/clothing/head/helmet/space/centcom/surplus
+	helmet_type = /obj/item/clothing/head/helmet/space/centcom/surplus
 
 /datum/armor/space_surplus_centcom
 	melee = 20
@@ -72,7 +72,7 @@
 	icon_state = "centcom_combat_spacesuit"
 	slowdown = 1
 	armor_type = /datum/armor/space_combat_centcom
-	var/helmet_type = /obj/item/clothing/head/helmet/space/centcom/combat
+	helmet_type = /obj/item/clothing/head/helmet/space/centcom/combat
 
 /datum/armor/space_combat_centcom
 	melee = 40
@@ -96,4 +96,4 @@
 	icon_state = "centcom_command_spacesuit"
 	armor_type = /datum/armor/space_combat_centcom
 	cell = /obj/item/stock_parts/power_store/cell/bluespace
-	var/helmet_type = /obj/item/clothing/head/helmet/space/centcom/combat
+	helmet_type = /obj/item/clothing/head/helmet/space/centcom/combat

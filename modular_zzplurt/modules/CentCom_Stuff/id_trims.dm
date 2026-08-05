@@ -42,7 +42,7 @@
 
 /// Trim for Centcom Officials.
 /datum/id_trim/centcom/official
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_OFFICER, ACCESS_WEAPONS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
 	assignment = JOB_CENTCOM_OFFICIAL
 
 // If Head Interns get this, at least let Officials get it too, since they're quite literally higher in rank.
@@ -104,8 +104,20 @@
 	honorifics = list("Doctor", "Dr.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
+/datum/id_trim/centcom/officer
+	access = list(ACCESS_CENT_OFFICER, ACCESS_CENT_GENERAL, ACCESS_CENT_STORAGE, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
+	assignment = JOB_CENTCOM_SPECIAL_OFFICER
+	honorifics = list("Lieutenant", "Lt.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/officer/New()
+	. = ..()
+
+	access = SSid_access.get_region_access_list(REGION_ALL_STATION)
+
 /// Trim for Centcom Specops Officers. All Centcom and Station Access.
 /datum/id_trim/centcom/specops_officer
+	access = list(ACCESS_CENT_SPECOPS, ACCESS_CENT_OFFICER, ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
 	assignment = JOB_CENTCOM_SPECIAL_OFFICER
 	honorifics = list("Officer", "Off.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
@@ -113,7 +125,7 @@
 /datum/id_trim/centcom/specops_officer/New()
 	. = ..()
 
-	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+	access = SSid_access.get_region_access_list(REGION_ALL_STATION)
 
 /// Trim for Centcom Commanders. All Centcom and Station Access.
 /datum/id_trim/centcom/commander
@@ -127,15 +139,13 @@
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
 /// Trim for NSRA Inspectors. All Centcom and Station Access. No high centcom access.
-/datum/id_trim/centcom/safetyinspector
-	assignment = "CentCom Safety Inspector"
-	trim_state = "trim_stationengineer"
+/datum/id_trim/centcom/inspector
+	assignment = "CentCom Inspector"
 	subdepartment_color = COLOR_GREEN
-	sechud_icon_state = SECHUD_ENGINEERING_RESPONSE_OFFICER
-	honorifics = list("Inspector")
+	honorifics = list("Inspector", "Insp.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
-/datum/id_trim/centcom/safetyinspector/New()
+/datum/id_trim/centcom/inspector/New()
 	. = ..()
 
 	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
@@ -188,7 +198,7 @@
 /datum/id_trim/centcom/ert/security/New()
 	. = ..()
 
-	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_SECURITY) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
 
 /// Trim for generic ERT engineers. No universal ID card changing access.
 /datum/id_trim/centcom/ert/engineer

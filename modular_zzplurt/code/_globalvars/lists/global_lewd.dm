@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(skirt_peekable, typecacheof(list(
 
 			/* Centcom */
 			/obj/item/clothing/under/rank/centcom/officer_skirt,
-			/obj/item/clothing/under/rank/centcom/centcom_skirt,
+			/obj/item/clothing/under/rank/centcom/commander/skirt,
 
 			/*  Heads  */
 			// Captain

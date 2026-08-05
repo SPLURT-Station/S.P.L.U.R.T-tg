@@ -26,20 +26,20 @@
 
 /obj/item/storage/box/centcom_kit/emps
 	name = "box of emp grenades"
-	desc = "A box with 8 emp grenades."
+	desc = "A box with 7 emp grenades."
 	illustration = "emp"
 
 /obj/item/storage/box/centcom_kit/emps/PopulateContents()
-	for(var/i in 1 to 8)
+	for(var/i in 1 to 7)
 		new /obj/item/grenade/empgrenade(src)
 
 /obj/item/storage/box/centcom_kit/grenades
 	name = "box of frag grenades"
-	desc = "A box with 8 frag grenades."
+	desc = "A box with 7 frag grenades."
 	illustration = "grenade"
 
 /obj/item/storage/box/centcom_kit/grenades/PopulateContents()
-	for(var/i in 1 to 8)
+	for(var/i in 1 to 7)
 		new /obj/item/grenade/frag(src)
 
 /obj/item/storage/box/centcom_kit/advmeds

@@ -2472,6 +2472,16 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/evacuation/ship/bar)
+"fK" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/admin/logistics,
+/obj/machinery/door/airlock/centcom/cargo{
+	name = "CentCom Supplypod Loading Bay"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/central_command_areas/supplypod)
 "fL" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
@@ -3904,7 +3914,7 @@
 /area/centcom/central_command_areas/fore)
 "iY" = (
 /obj/machinery/firealarm/directional/west,
-/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
 	dir = 10
 	},
 /turf/open/floor/iron/dark,
@@ -5553,6 +5563,7 @@
 	dir = 1
 	},
 /obj/machinery/newscaster/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "mw" = (
@@ -8983,6 +8994,7 @@
 /obj/structure/chair/comfy/brown{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/courtroom)
 "um" = (
@@ -9490,6 +9502,12 @@
 /obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/asset)
+"vv" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/prison/security)
 "vw" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -11797,6 +11815,11 @@
 "Az" = (
 /turf/open/floor/circuit/green,
 /area/centcom/central_command_areas/briefing)
+"AA" = (
+/obj/item/soap/nanotrasen,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/white/herringbone,
+/area/centcom/tdome/observation)
 "AB" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /turf/open/floor/iron/dark/side,
@@ -13596,6 +13619,7 @@
 /area/centcom/central_command_areas/evacuation/ship)
 "EO" = (
 /obj/item/soap/nanotrasen,
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/white/herringbone,
 /area/centcom/tdome/observation)
 "EP" = (
@@ -16639,6 +16663,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
 /obj/machinery/suit_storage_unit/asset_protection,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/asset)
 "Lq" = (
@@ -16794,9 +16819,9 @@
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/evacuation/lounge)
 "LM" = (
-/obj/structure/closet/secure_closet/ert_com,
 /obj/structure/sign/calendar/directional/west,
 /obj/structure/sign/poster/official/obey/directional/north,
+/obj/structure/closet/secure_closet/centcom/ert/commander,
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "LN" = (
@@ -17986,7 +18011,7 @@
 	},
 /area/centcom/tdome/observation)
 "Or" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -19464,7 +19489,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
-/obj/machinery/light/small/directional/north,
 /obj/machinery/suit_storage_unit/asset_protection,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/asset)
@@ -20916,13 +20940,8 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
 /obj/machinery/status_display/evac/directional/west,
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/secpost)
 "UQ" = (
@@ -21704,6 +21723,7 @@
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/courtroom)
 "Wu" = (
@@ -22616,7 +22636,6 @@
 /area/centcom/tdome/observation/kitchen)
 "Yo" = (
 /obj/structure/drain/big,
-/obj/machinery/light/floor,
 /turf/open/floor/iron/white/herringbone,
 /area/centcom/tdome/observation)
 "Yp" = (
@@ -23209,7 +23228,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/courtroom)
 "ZN" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
@@ -65934,7 +65953,7 @@ Hv
 fn
 ph
 Yo
-EO
+AA
 fn
 Al
 yb
@@ -74109,7 +74128,7 @@ YM
 Ic
 vg
 ap
-RK
+vv
 Bq
 Kd
 Dw
@@ -74665,7 +74684,7 @@ bq
 bP
 Ph
 EF
-xy
+fK
 mB
 aX
 ZY

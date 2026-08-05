@@ -19,7 +19,7 @@
 	new /obj/item/clothing/head/hats/centcom_cap(src)
 	new /obj/item/clothing/head/hats/centhat(src)
 	new /obj/item/clothing/under/rank/centcom/commander(src)
-	new /obj/item/clothing/under/rank/centcom/centcom_skirt(src)
+	new /obj/item/clothing/under/rank/centcom/commander/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/centcom(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/centcom(src)
 	new /obj/item/clothing/suit/armor/centcom_formal(src)

@@ -24,7 +24,7 @@
 /obj/item/modular_computer/pda/centcom
 	name = "central command official PDA"
 	icon_state = "/obj/item/modular_computer/pda/centcom"
-	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
+	greyscale_config = /datum/greyscale_config/tablet/stripe_split
 	greyscale_colors = "#359048#B4B9C6#90979B"
 	inserted_disk = /obj/item/disk/computer/command/hop
 	inserted_item = /obj/item/pen/fountain/centcom/silver
