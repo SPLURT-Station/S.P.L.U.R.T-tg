@@ -124,6 +124,7 @@
 /area/shuttle/arrival
 	name = "Arrival Shuttle"
 	area_flags_mapping = UNIQUE_AREA // SSjob refers to this area for latejoiners
+	base_lighting_alpha = 255
 
 /area/shuttle/arrival/on_joining_game(mob/living/boarder)
 	if(SSshuttle.arrivals?.mode == SHUTTLE_CALL)
