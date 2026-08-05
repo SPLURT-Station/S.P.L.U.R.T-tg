@@ -298,17 +298,21 @@
 "aJ" = (
 /obj/structure/sign/departments/court/directional/north,
 /obj/structure/rack/gunrack,
-/obj/item/gun/energy/e_gun{
-	pixel_x = -6
-	},
-/obj/item/gun/energy/e_gun{
-	pixel_x = -2
-	},
-/obj/item/gun/energy/e_gun{
-	pixel_x = 3
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	req_access = list("cent_captain");
+	name = "CentCom ERT Commander's Equipment"
+	},
+/obj/item/gun/energy/modular_laser_rifle/carbine{
+	pixel_x = -8
+	},
+/obj/item/gun/energy/modular_laser_rifle/carbine{
+	pixel_x = 1
+	},
+/obj/item/gun/energy/modular_laser_rifle/carbine{
+	pixel_x = 8
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "aK" = (
@@ -1024,7 +1028,6 @@
 /area/centcom/central_command_areas/evacuation)
 "ci" = (
 /obj/machinery/newscaster/directional/north,
-/obj/structure/closet/secure_closet/centcom_officer,
 /obj/effect/turf_decal/siding/wideplating_new/dark/end{
 	dir = 8
 	},
@@ -1032,6 +1035,7 @@
 	dir = 8
 	},
 /obj/item/storage/box/centcom_kit/spacesuit/armored,
+/obj/structure/closet/secure_closet/centcom/officer,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/admin/front)
 "cj" = (
@@ -2472,14 +2476,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "fM" = (
@@ -2635,7 +2634,6 @@
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/courtroom)
 "gf" = (
-/obj/structure/closet/secure_closet/ert_med,
 /obj/structure/sign/departments/med/directional/south,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -2643,9 +2641,11 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/item/storage/box/centcom_kit/advmeds,
-/obj/item/storage/box/syringes,
-/obj/item/gun/syringe/rapidsyringe,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "CentCom ERT Medic's Equipment";
+	req_access = list("cent_medical")
+	},
+/obj/structure/closet/secure_closet/centcom/ert/medical,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "gg" = (
@@ -3272,13 +3272,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/south,
 /obj/machinery/status_display/ai/directional/south,
-/obj/item/modular_computer/pda/heads/centcom,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/item/modular_computer/pda/centcom,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/control/main)
 "hC" = (
@@ -3368,7 +3368,7 @@
 	name = "CentCom Recovery Wing Security Checkpoint Desk"
 	},
 /obj/machinery/door/window/brigdoor/right/directional/north{
-	req_access = list("cent_officer");
+	req_access = list("cent_security");
 	name = "CentCom Recovery Wing Security Checkpoint Desk"
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -3408,12 +3408,7 @@
 /area/centcom/central_command_areas/secpost)
 "hP" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/sec)
 "hQ" = (
@@ -4705,16 +4700,17 @@
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/fore)
 "kD" = (
-/obj/structure/closet/secure_closet/ert_med,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/item/storage/box/centcom_kit/advmeds,
-/obj/item/storage/box/syringes,
-/obj/item/gun/syringe/rapidsyringe,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "CentCom ERT Medic's Equipment";
+	req_access = list("cent_medical")
+	},
+/obj/structure/closet/secure_closet/centcom/ert/medical,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "kE" = (
@@ -5116,7 +5112,6 @@
 	},
 /area/centcom/central_command_areas/control)
 "lx" = (
-/obj/structure/closet/secure_closet/ert_sec,
 /obj/structure/sign/departments/security/directional/south,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -5124,7 +5119,11 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911,
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "CentCom ERT Security Officer's Equipment";
+	req_access = list("cent_security")
+	},
+/obj/structure/closet/secure_closet/centcom/ert,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "ly" = (
@@ -6659,14 +6658,14 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
-/obj/item/bodybag/environmental/nanotrasen{
-	pixel_y = 11;
-	pixel_x = -3
+/obj/item/construction/rcd/ce{
+	pixel_y = 9;
+	pixel_x = 2
 	},
-/obj/item/bodybag/environmental/nanotrasen{
-	pixel_y = 5;
-	pixel_x = 5
+/obj/item/rcd_ammo/large{
+	pixel_x = -8
 	},
+/obj/item/rcd_ammo/large,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "oL" = (
@@ -7020,7 +7019,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/morgue)
 "pD" = (
-/obj/structure/closet/secure_closet/ert_sec,
 /obj/structure/sign/warning/secure_area/directional/east,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -7028,7 +7026,11 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911,
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "CentCom ERT Security Officer's Equipment";
+	req_access = list("cent_security")
+	},
+/obj/structure/closet/secure_closet/centcom/ert,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "pE" = (
@@ -7097,22 +7099,19 @@
 	},
 /area/centcom/tdome/observation)
 "pO" = (
-/obj/structure/table/reinforced,
-/obj/machinery/wall_healer/directional/south{
-	use_power = 0
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/item/storage/medkit/tactical_lite{
-	pixel_y = 3
+/obj/machinery/vending/medical,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "CentCom ERT Medic's Equipment";
+	req_access = list("cent_medical")
 	},
-/obj/item/storage/medkit/tactical_lite{
-	pixel_y = 9
-	},
+/obj/machinery/wall_healer/free/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "pQ" = (
@@ -7595,17 +7594,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/camera/preset/centcom/directional/east{
 	c_tag = "CentCom Corporate Security Center - Equipment Room"
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/structure/cable,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "qZ" = (
@@ -7850,13 +7844,13 @@
 /area/centcom/central_command_areas/supply)
 "rD" = (
 /obj/machinery/status_display/ai/directional/west,
-/obj/structure/dresser,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
+/obj/structure/dresser,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/commander)
 "rE" = (
@@ -8470,11 +8464,13 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
-/obj/item/storage/medkit/fire{
-	pixel_y = 3
+/obj/item/bodybag/environmental/nanotrasen{
+	pixel_y = 11;
+	pixel_x = -3
 	},
-/obj/item/storage/medkit/brute{
-	pixel_y = 9
+/obj/item/bodybag/environmental/nanotrasen{
+	pixel_y = 5;
+	pixel_x = 5
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -10210,25 +10206,18 @@
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
-/obj/item/flashlight/seclite{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = -1
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	req_access = list("cent_captain");
+	name = "CentCom ERT Commander's Equipment"
 	},
-/obj/item/flashlight/seclite{
-	dir = 8;
-	pixel_y = 1;
-	pixel_x = -1
+/obj/item/storage/lockbox/loyalty{
+	pixel_y = 11;
+	pixel_x = 1
 	},
-/obj/item/flashlight/seclite{
-	dir = 8;
-	pixel_y = -4;
-	pixel_x = -1
-	},
-/obj/item/flashlight/seclite{
-	dir = 8;
-	pixel_y = 1;
-	pixel_x = -1
+/obj/item/storage/lockbox/loyalty{
+	pixel_y = 4;
+	pixel_x = -2
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -11480,10 +11469,14 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/supply/bay)
 "zL" = (
-/obj/structure/closet/secure_closet/ert_engi,
 /obj/structure/sign/departments/engineering/directional/north,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	req_access = list("cent_storage");
+	name = "CentCom ERT Engineer's Equipment"
+	},
+/obj/structure/closet/secure_closet/centcom/ert/engineer,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "zM" = (
@@ -11964,7 +11957,7 @@
 	name = "CentCom Recovery Wing Security Checkpoint Desk"
 	},
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	req_access = list("cent_officer");
+	req_access = list("cent_security");
 	name = "CentCom Recovery Wing Security Checkpoint Desk"
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -13645,18 +13638,10 @@
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/storage/box/centcom_kit/spacesuit{
 	pixel_y = 10;
-	pixel_x = -6
+	pixel_x = 5
 	},
 /obj/item/storage/box/centcom_kit/spacesuit{
-	pixel_y = 10;
-	pixel_x = 9
-	},
-/obj/item/storage/box/centcom_kit/spacesuit{
-	pixel_x = 9;
-	pixel_y = 1
-	},
-/obj/item/storage/box/centcom_kit/spacesuit{
-	pixel_x = -6;
+	pixel_x = -4;
 	pixel_y = 1
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -13946,10 +13931,6 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/south,
-/obj/structure/closet/secure_closet/hos{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_captain")
-	},
 /obj/structure/sign/flag/nanotrasen/directional/west,
 /obj/machinery/camera/preset/centcom/directional/west{
 	c_tag = "CentCom Corporate Security Center - Commander's Office"
@@ -13958,6 +13939,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/cell_10k,
+/obj/structure/closet/secure_closet/centcom/security/captain,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/commander)
 "Fz" = (
@@ -15156,17 +15138,14 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/control/main)
 "Ie" = (
-/obj/structure/table/reinforced,
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/item/construction/rcd/ce{
-	pixel_y = 9;
-	pixel_x = 2
-	},
-/obj/item/rcd_ammo/large,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
-/obj/item/rcd_ammo/large{
-	pixel_x = -8
+/obj/machinery/vending/engivend,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	req_access = list("cent_storage");
+	name = "CentCom ERT Engineer's Equipment"
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -15581,7 +15560,6 @@
 "IU" = (
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/light/directional/south,
-/obj/structure/closet/secure_closet/centcom_commander,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 5
 	},
@@ -15589,6 +15567,7 @@
 	dir = 5
 	},
 /obj/item/storage/box/centcom_kit/spacesuit/command,
+/obj/structure/closet/secure_closet/centcom/commander,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/commander)
 "IV" = (
@@ -16657,12 +16636,9 @@
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/evacuation/ship/bar)
 "Lp" = (
-/obj/machinery/suit_storage_unit/centcom{
-	mod_type = /obj/item/mod/control/pre_equipped/asset_protection;
-	storage_type = /obj/item/tank/internals/oxygen/yellow
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/suit_storage_unit/asset_protection,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/asset)
 "Lq" = (
@@ -16792,13 +16768,8 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/airalarm/directional/west,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "LL" = (
@@ -16955,34 +16926,26 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/cell_10k,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "Mh" = (
-/obj/structure/table/reinforced,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/south,
-/obj/item/storage/toolbox/ammobox/wt550m9,
-/obj/item/storage/toolbox/ammobox/wt550m9,
-/obj/item/gun/ballistic/automatic/wt550{
-	pixel_y = 6
-	},
-/obj/item/gun/ballistic/automatic/wt550{
-	pixel_y = 2
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
+	},
+/obj/machinery/vending/security,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "CentCom ERT Security Officer's Equipment";
+	req_access = list("cent_security")
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -17627,16 +17590,6 @@
 	dir = 1
 	},
 /area/centcom/tdome/arena)
-"NA" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
-/turf/open/floor/iron/dark/small,
-/area/centcom/central_command_areas/evacuation/sec)
 "NB" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -18725,14 +18678,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/status_display/ai/directional/north,
 /obj/structure/sign/clock/directional/east,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "PY" = (
@@ -19510,10 +19458,6 @@
 /area/centcom/central_command_areas/supply/bay)
 "RJ" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/suit_storage_unit/centcom{
-	mod_type = /obj/item/mod/control/pre_equipped/asset_protection;
-	storage_type = /obj/item/tank/internals/oxygen/yellow
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 10
 	},
@@ -19521,6 +19465,7 @@
 	dir = 10
 	},
 /obj/machinery/light/small/directional/north,
+/obj/machinery/suit_storage_unit/asset_protection,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/asset)
 "RK" = (
@@ -20494,13 +20439,8 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/security{
-	icon = 'icons/obj/storage/closet.dmi';
-	req_access = list("cent_security")
-	},
-/obj/item/clothing/head/helmet/swat/nanotrasen,
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/machinery/light_switch/directional/west,
+/obj/structure/closet/secure_closet/centcom/security,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/equipment)
 "TW" = (
@@ -20864,19 +20804,17 @@
 /area/centcom/central_command_areas/evacuation/ship/bar)
 "UF" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/lockbox/loyalty{
-	pixel_y = 11;
-	pixel_x = 1
-	},
-/obj/item/storage/lockbox/loyalty{
-	pixel_y = 4;
-	pixel_x = -2
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
+	},
+/obj/item/storage/medkit/regular{
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/regular{
+	pixel_y = 8
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -21518,10 +21456,14 @@
 /turf/open/floor/iron/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "VU" = (
-/obj/structure/closet/secure_closet/ert_com,
 /obj/structure/sign/warning/secure_area/directional/east,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	req_access = list("cent_captain");
+	name = "CentCom ERT Commander's Equipment"
+	},
+/obj/structure/closet/secure_closet/centcom/ert/commander,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "VV" = (
@@ -22540,9 +22482,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/courtroom)
 "XY" = (
-/obj/structure/closet/secure_closet/ert_engi,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	req_access = list("cent_storage");
+	name = "CentCom ERT Engineer's Equipment"
+	},
+/obj/structure/closet/secure_closet/centcom/ert/engineer,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "XZ" = (
@@ -75230,7 +75176,7 @@ GL
 FL
 hg
 th
-NA
+hP
 pg
 Kz
 sp
