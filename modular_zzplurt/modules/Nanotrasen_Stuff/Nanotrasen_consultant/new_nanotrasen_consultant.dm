@@ -34,7 +34,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	)
 
 	paycheck = PAYCHECK_COMMAND
-	paycheck_department = ACCOUNT_CMD
+	paycheck_department = ACCOUNT_NTA
 
 	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
@@ -79,7 +79,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	icon = 'modular_zzplurt/icons/mob/effects/landmarks.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
-	name = "nanotrasen consultant's locker"
+	name = "Nanotrasen consultant's locker"
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	req_one_access = list()
 	icon_state = "nt"
@@ -102,18 +102,15 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/bedsheet/ntc(src)
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/briefcase/central_command(src)
-	new /obj/item/camera_film(src)
-	new /obj/item/camera_film(src)
+	new /obj/item/card/id/departmental_budget/nta(src)
 	new /obj/item/camera(src)
-	new /obj/item/tape(src)
-	new /obj/item/tape(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/hand_labeler(src)
 	new /obj/item/inspector(src)
 	new /obj/item/laser_pointer/blue(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
-	name = "nanotrasen consultant's garment bag"
+	name = "Nanotrasen consultant's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Consultant."
 
 /obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
@@ -289,7 +286,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "Nanotrasen Internal Affairs Office"
 
 /obj/item/storage/lockbox/medal/ntc
-	name = "Nanotrasen Consultant medal box"
+	name = "Nanotrasen consultant medal box"
 	desc = "A locked box used to store medals to be given to those exhibiting excellence in affairs."
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	icon = 'modular_zzplurt/icons/obj/case.dmi'
@@ -334,6 +331,12 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "folder"
 	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
 	icon_state = "folder_nanotrasen"
+
+/obj/item/card/id/departmental_budget/nta
+	department_ID = ACCOUNT_NTA
+	department_name = ACCOUNT_NTA_NAME
+	icon = 'modular_zzplurt/icons/obj/card.dmi'
+	icon_state = "nta_budget"
 
 /obj/structure/safe/floor/ntc
 	name = "Nanotrasen-brand gold-plated floor safe"

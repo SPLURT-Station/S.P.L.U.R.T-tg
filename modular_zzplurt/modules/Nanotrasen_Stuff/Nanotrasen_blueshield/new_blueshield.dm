@@ -22,7 +22,7 @@
 	)
 
 	paycheck = PAYCHECK_COMMAND
-	paycheck_department = ACCOUNT_CMD
+	paycheck_department = ACCOUNT_NTA
 
 	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
 	desensitized_base = DESENSITIZED_THRESHOLD

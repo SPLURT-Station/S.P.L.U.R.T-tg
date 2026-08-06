@@ -20,7 +20,7 @@
 	)
 
 	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_CIV
+	paycheck_department = ACCOUNT_NTA
 
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
@@ -71,7 +71,7 @@
 	id_trim = /datum/id_trim/job/nanotrasen_crew_trainer
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer
-	name = "nanotrasen crew trainers's garment bag"
+	name = "Nanotrasen crew trainers's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Crew Trainer."
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer/PopulateContents()
@@ -107,7 +107,7 @@
 	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
-	name = "nanotrasen crew trainer's locker"
+	name = "Nanotrasen crew trainer's locker"
 	req_access = list(ACCESS_CENT_GENERAL)
 	icon_state = "ntt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
@@ -124,7 +124,7 @@
 	new /obj/item/clipboard(src)
 
 /obj/item/modular_computer/pda/nanotrasen_trainer
-	name = "nanotrasen PDA"
+	name = "Nanotrasen PDA"
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
 	greyscale_colors = "#42B5A6#B4B9C6"
 	inserted_item = /obj/item/pen/fountain

@@ -16,7 +16,7 @@
 	return add_item_to_steal(src, /obj/item/documents/nanotrasen_consultant)
 
 /obj/item/folder/ntc_documents
-	name = "folder - 'TOP SECRET'"
+	name = "folder -'TOP SECRET'"
 	desc = "A folder stamped \"Top Secret - Property of Nanotrasen Corporation Internal Affairs. Unauthorized distribution is punishable by death.\""
 	icon = 'modular_zzplurt/icons/obj/service/bureaucracy.dmi'
 	icon_state = "folder_ntgold"
