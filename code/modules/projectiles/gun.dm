@@ -195,6 +195,9 @@
 		else
 			. += "It doesn't have a <b>firing pin</b> installed, and won't fire."
 
+	if(item_flags & NEEDS_PERMIT)
+		. += span_notice("Legal status: Green/Blue alert requires a valid permit or Security authorization to openly possess or carry this weapon; Amber/Red/Delta alert requires following current Security or Command orders.")
+
 	var/healthpercent = (atom_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(60 to 95)
