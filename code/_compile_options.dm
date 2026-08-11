@@ -124,7 +124,7 @@
 /// auxtools debugger, TGS bridge) will be stubbed out, allowing compilation
 /// without any .dll/.so files present. The code will compile but these
 /// features will return null/no-op at runtime.
-#define NO_EXTERNAL_LIBS
+// #define NO_EXTERNAL_LIBS
 
 /// If uncommented, Dreamluau will be fully disabled.
 // #define DISABLE_DREAMLUAU
