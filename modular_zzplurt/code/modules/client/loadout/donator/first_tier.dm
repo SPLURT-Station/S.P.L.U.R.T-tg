@@ -26,11 +26,6 @@
 	item_path = /obj/item/choice_beacon/box/plushie/deluxe
 	donator_tier = DONATOR_TIER_1
 
-/datum/loadout_item/inhand/donator/backpack/bdsm_whip
-	name = "Leather Whip"
-	item_path = /obj/item/clothing/mask/leatherwhip
-	donator_tier = DONATOR_TIER_1
-
 //Uniform
 /*
 /datum/loadout_item/uniform/donator/chameleon

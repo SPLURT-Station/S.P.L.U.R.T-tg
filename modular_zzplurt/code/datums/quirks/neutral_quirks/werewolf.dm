@@ -66,9 +66,9 @@
 	// Record features
 	old_features["species"] = action_owner.dna.species.type
 	old_features["custom_species"] = action_owner.dna.features["custom_species"]
-	//old_features["size"] = get_size(action_owner) // Temporarily disabled
-	old_features["bark"] = action_owner.blooper_id
-	old_features["taur"] = action_owner.dna.features["taur"]
+	//old_features["size"] = get_size(action_owner) //  Disabled for upstream sync, feel free to fix this later
+	//old_features["bark"] = action_owner.blooper.id
+	//old_features["taur"] = action_owner.dna.features["taur"]
 
 	// Set species gendered name
 	switch(action_owner.gender)
@@ -143,7 +143,7 @@
 		//action_owner.dna.features["legs"] = "Digitigrade" // Temporarily disabled
 		//action_owner.dna.features["fluff"] = "Plain" // No "Hyena" fluff
 		//action_owner.update_size(clamp(get_size(action_owner) + 0.5, RESIZE_MICRO, RESIZE_MACRO)) // Temporarily disabled
-		action_owner.set_blooper("Pugg") // No "bark" blooper
+		action_owner.blooper = SSblooper.blooper_list["Pugg"] // No "bark" blooper
 		/* Temporarily disabled
 		if(old_features["taur"] != "None")
 			action_owner.dna.features["taur"] = "Canine"
@@ -188,7 +188,7 @@
 			species_changed = FALSE
 
 		// Revert species trait
-		action_owner.set_blooper(old_features["bark"])
+		action_owner.blooper = SSblooper.blooper_list[old_features["bark"]]
 		action_owner.dna.features["custom_species"] = old_features["custom_species"]
 		action_owner.dna.features["ears"] = old_features["ears"]
 		action_owner.dna.features["snout"] = old_features["snout"]

@@ -1,0 +1,1235 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"ag" = (
+/obj/machinery/light/broken/directional/north,
+/obj/structure/showcase/fakeid{
+	name = "research console"
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"ai" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/closed/indestructible/hoteldoor{
+	icon_state = "closed";
+	icon = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/station2/glass.dmi';
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"aW" = (
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/structure/cable,
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"bp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"bM" = (
+/obj/structure/grille/broken,
+/turf/open/space/basic,
+/area/misc/condo)
+"cm" = (
+/obj/item/wallframe/light_fixture{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/stack/cable_coil/cut,
+/obj/item/light/tube/broken,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"cr" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/effect/mapping_helpers/damaged_window,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"de" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/portable_atmospherics/scrubber,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"dw" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"dH" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"dP" = (
+/turf/closed/indestructible/hoteldoor{
+	icon_state = "closed";
+	icon = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/station2/glass.dmi';
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"el" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"es" = (
+/obj/item/wallframe/intercom,
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"eN" = (
+/obj/effect/spawner/random/trash/grime,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"fv" = (
+/obj/structure/girder/reinforced,
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"fG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/open/floor/wood/tile{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"fK" = (
+/obj/structure/showcase{
+	icon = 'icons/obj/machines/research.dmi';
+	icon_state = "protolathe";
+	name = "Science Protolathe";
+	desc = "A special protolathe with a built in interface meant for departmental usage, with built in ExoSync receivers allowing it to print designs researched that match its ROM-encoded department type."
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"fZ" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/light/broken/directional/north,
+/obj/machinery/vending/hydronutrients,
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"gF" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/hydroponics/constructable,
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"hm" = (
+/obj/machinery/firealarm/directional/west{
+	soundloop = /datum/looping_sound/firealarm;
+	appearance_power_state = 0;
+	is_operational = 0
+	},
+/obj/item/flashlight/flare{
+	start_on = 1
+	},
+/obj/item/crowbar/large,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"ho" = (
+/obj/machinery/gulag_teleporter{
+	is_operational = 0;
+	name = "Cloning Chamber";
+	desc = "A deactivated Cloning Pod designed for the Hydroponics Research Wing."
+	},
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"hu" = (
+/obj/structure/closet/l3closet/scientist{
+	anchored = 1
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"hW" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/grille/broken,
+/obj/structure/cable,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"ip" = (
+/obj/item/paperwork,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"iA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"jk" = (
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"jq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"jR" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"lD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"lO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"lP" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/effect/mapping_helpers/damaged_window,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"mb" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"mf" = (
+/obj/structure/sign/departments/engineering/directional/west,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"mo" = (
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"mS" = (
+/obj/structure/table/wood/shuttle_bar,
+/obj/machinery/light/very_dim/directional/east,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"nf" = (
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"ng" = (
+/obj/item/flashlight,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"nI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"ok" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"pt" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"qq" = (
+/obj/structure/showcase/machinery/oldpod/used{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"qt" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/structure/table/wood/shuttle_bar,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/cup/glass/flask/gold{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"qY" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"rc" = (
+/obj/item/wallframe/firecloset,
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"rS" = (
+/obj/item/stack/rods{
+	amount = 12
+	},
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/damaged_window,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"sc" = (
+/obj/structure/closet/emcloset{
+	anchored = 1
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"ts" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/tank/air/layer2,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"un" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"uu" = (
+/obj/structure/closet/firecloset{
+	anchored = 1
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"uv" = (
+/obj/machinery/room_controller/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"vg" = (
+/obj/structure/cable,
+/obj/structure/closet,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"vj" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"vs" = (
+/obj/structure/sign/poster/official/safety_internals/directional/north,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"vv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"vw" = (
+/obj/effect/decal/cleanable/glass/plasma,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"vD" = (
+/obj/machinery/door/airlock/research,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"wd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"wt" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/floor/wood/tile{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"wL" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"xg" = (
+/obj/structure/filingcabinet,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"xh" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/closed/indestructible/hoteldoor{
+	icon_state = "closed";
+	icon = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/station2/glass.dmi';
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"xN" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/damaged_window,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"yz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/effect/turf_decal/vg_decals/atmos/air,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"zH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/open/floor/wood/tile{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"AC" = (
+/obj/structure/dresser,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Bp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"BY" = (
+/obj/structure/trash_pile,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Cz" = (
+/obj/machinery/hydroponics/constructable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"CU" = (
+/obj/item/crowbar/large,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"Dq" = (
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"DD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/vending/dorms,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Fv" = (
+/obj/structure/table/reinforced/plasmarglass,
+/obj/machinery/recharger,
+/obj/item/paper_bin/carbon{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/south,
+/obj/item/paper{
+	pixel_x = 7;
+	pixel_y = 8;
+	name = "ATTENTION!";
+	default_raw_text = "<B>ATTENTION!</B><BR><BR>This is a hand-typed letter from Research Director D. Warner. The Hydroponics-Cloning Farm has been engulfed by an unknown Anomaly simply referred to as a 'Void flux'. If you are reading this, and this portion of the station has yet not been safely recovered from whatever depths of presumably the void it resides in, proceed to the Bluespace Network pad down the Eastern Corridor.<BR><BR>-Signed, Research Director D. Warner"
+	},
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"FO" = (
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"Gm" = (
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/glass/plasma,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Go" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"Gv" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Hj" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"Hl" = (
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"Ii" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"JF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/turf/closed/indestructible/titanium,
+/area/misc/condo)
+"JJ" = (
+/obj/structure/cable,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"KM" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/effect/mapping_helpers/damaged_window,
+/obj/structure/cable,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"Lx" = (
+/obj/structure/cable,
+/turf/closed/indestructible/titanium{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/misc/condo)
+"LK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/sign/departments/maint/directional/south,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"LZ" = (
+/obj/item/stack/rods{
+	amount = 8
+	},
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/damaged_window,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Mg" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/hop/double,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"MF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/structure/closet_maintenance,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"MM" = (
+/obj/machinery/vending/hydroseeds,
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"MS" = (
+/obj/machinery/power/smes,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"MV" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/spawner/random/trash/moisture_trap,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"NN" = (
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Od" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/directional/west{
+	soundloop = /datum/looping_sound/firealarm;
+	appearance_power_state = 0;
+	is_operational = 0
+	},
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"OB" = (
+/obj/machinery/door/airlock/rd,
+/obj/machinery/door/firedoor/closed,
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Px" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/hydroponics/constructable,
+/obj/effect/mapping_helpers/broken_machine,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"PN" = (
+/obj/structure/broken_flooring/plating/always_floorplane/directional,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"PO" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"QL" = (
+/obj/machinery/firealarm/directional/north{
+	soundloop = /datum/looping_sound/firealarm;
+	appearance_power_state = 0;
+	is_operational = 0
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"QT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/closed/indestructible/titanium,
+/area/misc/condo)
+"Rf" = (
+/turf/open/indestructible/dark/textured{
+	icon = 'modular_zubbers/icons/space/space.dmi';
+	icon_state = "space";
+	name = "space"
+	},
+/area/misc/condo)
+"Rz" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"RD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"RN" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/hydroponics/constructable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"Sr" = (
+/turf/open/space/basic,
+/area/misc/condo)
+"Tp" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/item/flashlight,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"TC" = (
+/obj/structure/table/wood/shuttle_bar,
+/obj/item/storage/box/matches,
+/obj/item/cigarette/cigar{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/machinery/firealarm/directional/west{
+	soundloop = /datum/looping_sound/firealarm;
+	appearance_power_state = 0;
+	is_operational = 0
+	},
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"TI" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"TJ" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/restraints/handcuffs/cable/yellow,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"TM" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/damaged_window,
+/obj/effect/mapping_helpers/damaged_window,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"Ve" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/glass/plasma,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"VI" = (
+/turf/closed/indestructible/titanium,
+/area/misc/condo)
+"VX" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/floor/wood/tile{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"WY" = (
+/obj/structure/closet/crate/internals,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"XE" = (
+/obj/structure/girder/reinforced,
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"XF" = (
+/obj/machinery/door/airlock/multi_tile/metal,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer2,
+/obj/structure/cable,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"XH" = (
+/obj/structure/cable,
+/turf/closed/indestructible/reinforced,
+/area/misc/condo)
+"XU" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet,
+/turf/open/indestructible/plating{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"YA" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/indestructible/dark/textured{
+	force_no_gravity = 1;
+	name = "Dark Tiling"
+	},
+/area/misc/condo)
+"YY" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/glass/plasma,
+/obj/structure/frame/machine/secured,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+"Zt" = (
+/obj/structure/chair/comfy/brown{
+	dir = 8
+	},
+/turf/open/indestructible/hotelwood{
+	force_no_gravity = 1
+	},
+/area/misc/condo)
+"ZZ" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/structure/cable,
+/turf/open/indestructible/plating,
+/area/misc/condo)
+
+(1,1,1) = {"
+KM
+KM
+ZZ
+Lx
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Sr
+Sr
+"}
+(2,1,1) = {"
+KM
+ho
+jk
+xg
+hm
+WY
+hu
+Hl
+MS
+Od
+TI
+de
+JF
+xh
+Hl
+"}
+(3,1,1) = {"
+ZZ
+fK
+ng
+CU
+ip
+nI
+qq
+Hl
+XU
+aa
+lD
+yz
+iA
+vv
+Hl
+"}
+(4,1,1) = {"
+Lx
+ag
+jk
+TJ
+Hj
+Tp
+Fv
+Lx
+vg
+JJ
+JJ
+ts
+Lx
+vv
+PO
+"}
+(5,1,1) = {"
+XH
+Lx
+fv
+XE
+vD
+QT
+Hl
+Hl
+Hl
+jq
+Hl
+Hl
+Hl
+vv
+cr
+"}
+(6,1,1) = {"
+Sr
+vj
+cm
+Ii
+Ii
+Bp
+jk
+jk
+Dq
+jk
+mf
+uu
+Hl
+vv
+PO
+"}
+(7,1,1) = {"
+Sr
+lP
+jk
+PN
+RD
+Bp
+jk
+jk
+jk
+jk
+Go
+sc
+Hl
+vv
+Hl
+"}
+(8,1,1) = {"
+XH
+Lx
+Gm
+cr
+ok
+VI
+VI
+jk
+jk
+Hl
+Hl
+Hl
+Hl
+vv
+Hl
+"}
+(9,1,1) = {"
+es
+jk
+vw
+jk
+RD
+jk
+VI
+jR
+pt
+wL
+vv
+vv
+dH
+qY
+Hl
+"}
+(10,1,1) = {"
+rc
+MM
+Cz
+jR
+un
+jk
+VI
+QL
+LK
+Hl
+MF
+eN
+MV
+BY
+Hl
+"}
+(11,1,1) = {"
+Hl
+fZ
+gF
+Hj
+un
+nf
+VI
+lO
+RD
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+"}
+(12,1,1) = {"
+aW
+Ve
+dw
+YA
+Rz
+RD
+XF
+RD
+wd
+el
+DD
+bp
+qt
+TC
+Hl
+"}
+(13,1,1) = {"
+Gv
+hW
+YY
+Ii
+RN
+YA
+YA
+jk
+jk
+OB
+NN
+VX
+fG
+Zt
+Hl
+"}
+(14,1,1) = {"
+bM
+rS
+xN
+Ii
+Px
+mb
+VI
+vs
+uv
+Hl
+NN
+wt
+zH
+NN
+Hl
+"}
+(15,1,1) = {"
+Sr
+Rf
+TM
+LZ
+Ve
+FO
+Hl
+dP
+ai
+Hl
+mo
+AC
+Mg
+mS
+Hl
+"}
+(16,1,1) = {"
+Sr
+Sr
+Sr
+Gv
+Gv
+Lx
+Hl
+Sr
+Sr
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+"}

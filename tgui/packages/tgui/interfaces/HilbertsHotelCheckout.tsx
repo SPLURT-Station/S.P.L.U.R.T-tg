@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
   Icon,
+  Input,
   NoticeBox,
   NumberInput,
   Section,
@@ -25,8 +26,77 @@ type RoomsData = {
   hotel_map_list: any[];
 };
 
+const CATEGORY_ORDER = [
+  'Misc',
+  'Apartment',
+  'Beach',
+  'Station',
+  'Winter',
+  'Special',
+];
+
+const CATEGORY_ICONS = {
+  apartment: 'building',
+  beach: 'umbrella-beach',
+  misc: 'shuffle',
+  station: 'satellite',
+  winter: 'snowflake',
+  special: 'heart',
+};
+
+const sortCategories = (categories: string[]) =>
+  categories.sort((a, b) => {
+    const aIndex = CATEGORY_ORDER.indexOf(a);
+    const bIndex = CATEGORY_ORDER.indexOf(b);
+    if (aIndex !== -1 || bIndex !== -1) {
+      return (
+        (aIndex === -1 ? CATEGORY_ORDER.length : aIndex) -
+        (bIndex === -1 ? CATEGORY_ORDER.length : bIndex)
+      );
+    }
+    return a.localeCompare(b);
+  });
+
+const ROOM_STATUS = {
+  1: {
+    color: 'green',
+    icon: 'door-open',
+    label: 'Open',
+    tooltip: 'Anyone can join',
+  },
+  2: {
+    color: 'blue',
+    icon: 'user-check',
+    label: 'Guests',
+    tooltip: 'Only trusted guests can join',
+  },
+  3: {
+    color: 'red',
+    icon: 'lock',
+    label: 'Closed',
+    tooltip: 'Only the owner can join',
+  },
+};
+
+const RoomStatus = ({ room }) => {
+  const status = ROOM_STATUS[room.room_preferences?.status] || ROOM_STATUS[3];
+  return (
+    <Tooltip content={status.tooltip}>
+      <Button
+        compact
+        color={status.color}
+        icon={status.icon}
+        style={{ pointerEvents: 'none' }}
+      >
+        {status.label}
+      </Button>
+    </Tooltip>
+  );
+};
+
 const OpenRooms = ({ data, act, selected_template }) => {
-  const visibleRooms = data.active_rooms.filter(
+  const activeRooms = data.active_rooms || [];
+  const visibleRooms = activeRooms.filter(
     (room) => room.room_preferences.visibility,
   );
 
@@ -79,6 +149,12 @@ const OpenRooms = ({ data, act, selected_template }) => {
                     }}
                     confirmContent={'Join?'}
                     confirmColor="green"
+                    disabled={!room.can_join}
+                    tooltip={
+                      room.can_join
+                        ? 'Join this room'
+                        : 'You do not have access to this room'
+                    }
                     onClick={() =>
                       act('checkin', {
                         room: Number(room.number),
@@ -119,6 +195,14 @@ const OpenRooms = ({ data, act, selected_template }) => {
                         }}
                       >
                         {room.name}
+                      </span>
+                      <span
+                        style={{
+                          marginLeft: '8px',
+                          lineHeight: '24px',
+                        }}
+                      >
+                        <RoomStatus room={room} />
                       </span>
                       <span
                         style={{
@@ -174,66 +258,50 @@ const OpenRooms = ({ data, act, selected_template }) => {
 const RoomCheckIn = ({
   data,
   act,
-  selectedTab,
-  setSelectedTab,
-  tabContent,
+  selectedTemplate,
+  setSelectedTemplate,
+  selectedCategory,
+  setSelectedCategory,
+  categories,
+  searchText,
+  setSearchText,
 }) => {
-  const { current_room = 1, selected_template = 'Standard' } = data;
+  const { current_room = 1 } = data;
   return (
     <Section title="Room Check-In">
       <Stack>
         <Stack.Item grow>
           <Tabs>
-            <Tabs.Tab
-              key={0}
-              selected={selectedTab === 0}
-              onClick={() => setSelectedTab(0)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="shuffle" /> Misc
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={1}
-              selected={selectedTab === 1}
-              onClick={() => setSelectedTab(1)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="building" /> Apartment
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={2}
-              selected={selectedTab === 2}
-              onClick={() => setSelectedTab(2)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="umbrella-beach" /> Beach
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={3}
-              selected={selectedTab === 3}
-              onClick={() => setSelectedTab(3)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="satellite" /> Station
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={4}
-              selected={selectedTab === 4}
-              onClick={() => setSelectedTab(4)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="snowflake" /> Winter
-            </Tabs.Tab>
-            <Tabs.Tab
-              key={5}
-              selected={selectedTab === 5}
-              onClick={() => setSelectedTab(5)}
-              style={{ cursor: 'pointer' }}
-            >
-              <Icon name="heart" /> Special
-            </Tabs.Tab>
+            {categories.map((category) => (
+              <Tabs.Tab
+                key={category}
+                selected={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+                style={{ cursor: 'pointer' }}
+              >
+                <Icon
+                  name={CATEGORY_ICONS[category.toLowerCase()] || 'door-open'}
+                />{' '}
+                {category}
+              </Tabs.Tab>
+            ))}
           </Tabs>
-          <Box mt={1}>{tabContent[selectedTab]}</Box>
+          <Box mt={1}>
+            <Input
+              fluid
+              placeholder="Search templates..."
+              value={searchText}
+              onChange={(value) => setSearchText(value)}
+            />
+          </Box>
+          <Box mt={1}>
+            <RoomsTab
+              category={selectedCategory}
+              searchText={searchText}
+              selected_template={selectedTemplate}
+              setSelectedTemplate={setSelectedTemplate}
+            />
+          </Box>
         </Stack.Item>
         <Stack.Item width="120px">
           <NumberInput
@@ -261,7 +329,7 @@ const RoomCheckIn = ({
             onClick={() =>
               act('checkin', {
                 room: current_room,
-                template: selected_template,
+                template: selectedTemplate,
               })
             }
             lineHeight={2}
@@ -275,18 +343,62 @@ const RoomCheckIn = ({
   );
 };
 
-const ReservedRooms = ({ data }) => {
+const ReservedRooms = ({ data, act }) => {
+  const conservatedRooms = data.conservated_rooms || [];
   return (
     <Section title="Reserved Rooms">
-      {data.conservated_rooms.length ? (
+      {conservatedRooms.length ? (
         <Table>
-          {data.conservated_rooms?.map((room) => (
+          {conservatedRooms.map((room) => (
             <Table.Row key={room.number}>
               <Table.Cell width="1.8em">
-                <Icon name={room.room_preferences.icon} />
+                <Icon name={room.room_preferences.icon || 'door-open'} />
               </Table.Cell>
               <Table.Cell>Room {room.number}</Table.Cell>
               <Table.Cell>{room.room_preferences.name}</Table.Cell>
+              <Table.Cell collapsing>
+                <RoomStatus room={room} />
+              </Table.Cell>
+              <Table.Cell collapsing>
+                {room.is_owner && (
+                  <Button.Confirm
+                    compact
+                    color="red"
+                    icon="trash"
+                    confirmContent="Delete?"
+                    tooltip="Delete this reserved room"
+                    onClick={() =>
+                      act('delete_reserved_room', {
+                        room: Number(room.number),
+                      })
+                    }
+                  >
+                    Delete
+                  </Button.Confirm>
+                )}
+              </Table.Cell>
+              <Table.Cell collapsing>
+                <Button.Confirm
+                  compact
+                  icon="right-to-bracket"
+                  confirmContent="Restore?"
+                  confirmColor="green"
+                  disabled={!room.can_join}
+                  tooltip={
+                    room.can_join
+                      ? 'Restore and join this reserved room'
+                      : 'You do not have access to this room'
+                  }
+                  onClick={() =>
+                    act('checkin', {
+                      room: Number(room.number),
+                      template: data.selected_template,
+                    })
+                  }
+                >
+                  Join
+                </Button.Confirm>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table>
@@ -299,39 +411,38 @@ const ReservedRooms = ({ data }) => {
 
 export const CheckoutMenu = (props) => {
   const { act, data } = useBackend<RoomsData>();
-  const [selectedTab, setSelectedTab] = useState(0);
-  const tabContent = [
-    <RoomsTab
-      key="misc"
-      category="Misc"
-      selected_template={data?.selected_template}
-    />,
-    <RoomsTab
-      key="apartment"
-      category="Apartment"
-      selected_template={data?.selected_template}
-    />,
-    <RoomsTab
-      key="beach"
-      category="Beach"
-      selected_template={data?.selected_template}
-    />,
-    <RoomsTab
-      key="station"
-      category="Station"
-      selected_template={data?.selected_template}
-    />,
-    <RoomsTab
-      key="winter"
-      category="Winter"
-      selected_template={data?.selected_template}
-    />,
-    <RoomsTab
-      key="special"
-      category="Special"
-      selected_template={data?.selected_template}
-    />,
-  ];
+  const checkoutData = {
+    ...data,
+    current_room: data.current_room ?? 1,
+    selected_template: data.selected_template ?? 'Standard',
+    user_donator_tier: data.user_donator_tier ?? 0,
+    user_ckey: data.user_ckey ?? '',
+    active_rooms: data.active_rooms || [],
+    conservated_rooms: data.conservated_rooms || [],
+    hotel_map_list: data.hotel_map_list || [],
+  };
+  const [selectedTemplate, setSelectedTemplate] = useState(
+    checkoutData.selected_template,
+  );
+  useEffect(() => {
+    setSelectedTemplate(checkoutData.selected_template);
+  }, [checkoutData.selected_template]);
+  const categories = sortCategories(
+    Array.from(
+      new Set(
+        checkoutData.hotel_map_list.map((room) => room.category || 'Misc'),
+      ),
+    ),
+  );
+  const [selectedCategory, setSelectedCategory] = useState(
+    categories[0] || 'Misc',
+  );
+  const [searchText, setSearchText] = useState('');
+  useEffect(() => {
+    if (categories.length && !categories.includes(selectedCategory)) {
+      setSelectedCategory(categories[0]);
+    }
+  }, [categories, selectedCategory]);
 
   return (
     <Box
@@ -342,11 +453,15 @@ export const CheckoutMenu = (props) => {
       }}
     >
       <RoomCheckIn
-        data={data}
+        data={checkoutData}
         act={act}
-        selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
-        tabContent={tabContent}
+        selectedTemplate={selectedTemplate}
+        setSelectedTemplate={setSelectedTemplate}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        categories={categories}
+        searchText={searchText}
+        setSearchText={setSearchText}
       />
       <Box
         style={{
@@ -358,38 +473,36 @@ export const CheckoutMenu = (props) => {
         }}
       >
         <OpenRooms
-          data={data}
+          data={checkoutData}
           act={act}
-          selected_template={data.selected_template}
+          selected_template={selectedTemplate}
         />
-        <ReservedRooms data={data} />
+        <ReservedRooms data={checkoutData} act={act} />
       </Box>
     </Box>
   );
 };
 
 const RoomsTab = (props) => {
-  const { category, selected_template } = props;
+  const { category, searchText, selected_template, setSelectedTemplate } =
+    props;
   const { act, data } = useBackend<RoomsData>();
-  const { hotel_map_list = [] } = data;
-  const [selectedRoom, setSelectedRoom] = useState(null);
+  const { hotel_map_list = [], user_ckey = '', user_donator_tier = 0 } = data;
 
   const targetCategory = category.toLowerCase();
+  const searchQuery = searchText.trim().toLowerCase();
   const filteredRooms = hotel_map_list.filter(
-    (room) =>
-      room.category?.toLowerCase() === targetCategory &&
-      (!room.ckeywhitelist?.length ||
-        room.ckeywhitelist.includes(data.user_ckey)),
+    (room) => {
+      const roomCategory = room.category || 'Misc';
+      const canSeeRoom =
+        !room.ckeywhitelist?.length || room.ckeywhitelist.includes(user_ckey);
+      const matchesCategory = roomCategory.toLowerCase() === targetCategory;
+      const matchesSearch =
+        !searchQuery ||
+        [room.name, roomCategory].join(' ').toLowerCase().includes(searchQuery);
+      return canSeeRoom && matchesSearch && (searchQuery || matchesCategory);
+    },
   );
-
-  const categoryIcons = {
-    apartment: 'building',
-    beach: 'umbrella-beach',
-    station: 'satellite',
-    winter: 'snowflake',
-    special: 'heart',
-    misc: 'shuffle',
-  };
 
   return (
     <Box
@@ -401,7 +514,11 @@ const RoomsTab = (props) => {
       }}
     >
       {filteredRooms.length === 0 && (
-        <NoticeBox>No {category} rooms found!</NoticeBox>
+        <NoticeBox>
+          {searchQuery
+            ? 'No room templates match your search.'
+            : `No ${category} rooms found!`}
+        </NoticeBox>
       )}
       <Stack vertical fill>
         {filteredRooms.map((room, index) => (
@@ -414,7 +531,7 @@ const RoomsTab = (props) => {
                 room.name === selected_template ? 'selected' : undefined
               }
               onClick={() => {
-                setSelectedRoom(room.name);
+                setSelectedTemplate(room.name);
                 act('select_room', { room: room.name });
               }}
               style={{
@@ -434,7 +551,7 @@ const RoomsTab = (props) => {
                 {' '}
                 <Icon
                   name={
-                    categoryIcons[room.category?.toLowerCase()] || 'door-open'
+                    CATEGORY_ICONS[room.category?.toLowerCase()] || 'door-open'
                   }
                   mr={2}
                   style={{ marginLeft: '5px', marginRight: '5px' }}
@@ -443,7 +560,7 @@ const RoomsTab = (props) => {
               <Stack.Item grow>
                 <Stack>
                   <Stack.Item>{room.name}</Stack.Item>
-                  {room.donator_tier > data.user_donator_tier && (
+                  {room.donator_tier > user_donator_tier && (
                     <Stack.Item grow textAlign="right" color="red">
                       {' | Donator tier ' +
                         room.donator_tier +

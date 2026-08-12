@@ -1,5 +1,6 @@
 /datum/sprite_accessory/ears/mutant/big/splurt
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/32x64_mam_ears.dmi'
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/mutant/big/splurt/long_rabbit
 	name = "Rabbit (Long)"
@@ -30,3 +31,28 @@
 /datum/sprite_accessory/ears/mutant/big/splurt/jackalope_tall
 	name = "Jackalope (Tall)"
 	icon_state = "jackalope"
+
+/datum/sprite_accessory/ears/mutant/big/splurt/pichu
+	name = "Pichu (Tall)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_32x64_ears.dmi'
+	icon_state = "pichu"
+
+/datum/sprite_accessory/ears/mutant/big/splurt/pikachu
+	name = "Pikachu (Tall)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_32x64_ears.dmi'
+	icon_state = "pika"
+
+/datum/sprite_accessory/ears/mutant/big/splurt/pokebunny
+	name = "Pokebunny (Tall)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_32x64_ears.dmi'
+	icon_state = "pokebunny"
+
+/datum/sprite_accessory/ears/mutant/big/splurt/lopunny
+	name = "Lopunny (Tall)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_32x64_ears.dmi'
+	icon_state = "lopunny"
+
+/datum/sprite_accessory/ears/mutant/big/splurt/spinda
+	name = "Spinda (Tall)"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/pokemon_32x64_ears.dmi'
+	icon_state = "spinda"

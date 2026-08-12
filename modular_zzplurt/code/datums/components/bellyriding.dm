@@ -292,6 +292,204 @@
 		comp.unbuckle_victim(skip_unbuckle = TRUE) // we make do with the tools we have.
 	return ..()
 
+/datum/component/bellyriding/borg
+	enable_interactions = FALSE
+	var/static/borg_offset_source = "bellyriding_borg_source"
+
+/datum/component/bellyriding/borg/Initialize(atom/movable/buckle_relay)
+	. = ..()
+	if(. == COMPONENT_INCOMPATIBLE)
+		return .
+
+	// Borg users naturally drag targets onto the borg sprite, so listen on the parent too.
+	RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
+
+/datum/component/bellyriding/borg/on_mousedropped_onto(datum/_source, mob/living/carbon/human/victim, mob/living/user, params)
+	var/mob/living/silicon/robot/parent_borg = parent
+	if(!istype(parent_borg) || user != parent_borg)
+		return
+
+	try_buckle_victim(victim, user)
+	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
+
+/datum/component/bellyriding/borg/on_attack_hand(datum/_source, mob/living/user, list/modifiers)
+	return try_unbuckle_victim(user)
+
+/datum/component/bellyriding/borg/try_buckle_victim(mob/living/carbon/human/victim, mob/user)
+	set waitfor = FALSE
+
+	var/mob/living/silicon/robot/parent = src.parent
+	if(!istype(parent))
+		return
+
+	old_can_buckle = parent.can_buckle
+	old_buckle_requires_restraints = parent.buckle_requires_restraints
+	old_can_buckle_to = victim.can_buckle_to
+
+	parent.can_buckle = TRUE
+	parent.buckle_requires_restraints = TRUE
+	parent.max_buckled_mobs += 1
+
+	if(!can_buckle(victim, user))
+		parent.can_buckle = old_can_buckle
+		parent.buckle_requires_restraints = old_buckle_requires_restraints
+		parent.max_buckled_mobs -= 1
+		return
+
+	var/torturer_message = span_warning("You begin fastening [victim] to your harness..")
+	var/victim_message = span_warning("[parent] begins fastening you to [parent.p_their()] harness!")
+	var/observer_message = span_warning("[parent] begins fastening [victim] to [parent.p_their()] harness!")
+
+	user.visible_message(observer_message, torturer_message, ignored_mobs = list(victim))
+	to_chat(victim, victim_message)
+
+	if(!do_after(user, 3 SECONDS, victim) || !can_buckle(victim, user) || !parent.buckle_mob(victim, TRUE, TRUE))
+		parent.can_buckle = old_can_buckle
+		parent.buckle_requires_restraints = old_buckle_requires_restraints
+		parent.max_buckled_mobs -= 1
+		return
+
+	current_victim = victim
+	current_victim.can_buckle_to = FALSE
+	RegisterSignal(current_victim, COMSIG_QDELETING, PROC_REF(unbuckle_victim))
+	update_visuals()
+
+/datum/component/bellyriding/borg/try_unbuckle_victim(mob/living/user)
+	set waitfor = FALSE
+
+	var/atom/movable/parent = src.parent
+	if(isnull(current_victim) || DOING_INTERACTION_WITH_TARGET(user, parent))
+		return
+
+	. = COMPONENT_CANCEL_ATTACK_CHAIN
+
+	var/torturer_message = span_warning("You start unstrapping [current_victim] from your harness..")
+	var/victim_message = span_warning("[parent] starts freeing you from [parent.p_their()] harness..")
+	var/observer_message = span_warning("[parent] starts unstrapping [current_victim] from [parent.p_their()] harness..")
+
+	user.visible_message(observer_message, torturer_message, ignored_mobs = list(current_victim))
+	to_chat(current_victim, victim_message)
+
+	if(!do_after(user, 3 SECONDS, current_victim))
+		return
+
+	unbuckle_victim()
+
+/datum/component/bellyriding/borg/unbuckle_victim(skip_unbuckle = FALSE)
+	var/mob/living/silicon/robot/parent = src.parent
+	if(!istype(parent))
+		return
+
+	var/mob/living/carbon/human/current_victim = src.current_victim
+	if(isnull(current_victim))
+		return
+
+	src.current_victim = null
+
+	if(!skip_unbuckle)
+		parent.unbuckle_mob(current_victim, TRUE)
+	parent.can_buckle = old_can_buckle
+	parent.buckle_requires_restraints = old_buckle_requires_restraints
+	parent.max_buckled_mobs -= 1
+	last_interaction = null
+
+	UnregisterSignal(current_victim, COMSIG_QDELETING)
+	current_victim.can_buckle_to = old_can_buckle_to
+	current_victim.remove_offsets(borg_offset_source, TRUE)
+	current_victim.transform = null
+	current_victim.dna.current_body_size = 1
+	current_victim.dna.update_body_size()
+	current_victim.Knockdown(0.1 SECONDS, TRUE)
+
+/datum/component/bellyriding/borg/can_buckle(mob/living/carbon/human/victim, mob/user)
+	var/mob/living/silicon/robot/parent = src.parent
+	if(!istype(parent) || !istype(victim) || DOING_INTERACTION_WITH_TARGET(user, parent))
+		return FALSE
+
+	if(current_victim)
+		to_chat(user, span_warning("There's someone already strapped to your belly!"))
+		return FALSE
+	if(!victim.handcuffed || !victim.legcuffed)
+		to_chat(user, span_warning("[victim] needs to be both handcuffed and legcuffed!"))
+		return FALSE
+
+	if(victim.mob_size > parent.mob_size)
+		to_chat(user, span_warning("[victim] is bigger than you, how would that even work?"))
+		return FALSE
+
+	return parent.is_buckle_possible(victim, TRUE, TRUE)
+
+/datum/component/bellyriding/borg/update_visuals()
+	if(isnull(current_victim))
+		return
+
+	var/mob/living/silicon/robot/parent = src.parent
+	if(!istype(parent))
+		return
+
+	current_victim.transform = null
+	current_victim.dna.current_body_size = 1
+	current_victim.dna.update_body_size()
+	var/list/model_features = parent.model?.model_features
+	var/is_quad_chassis = HAS_TRAIT(parent, TRAIT_R_DOGBORG) || HAS_TRAIT(parent, TRAIT_R_SQUADRUPED)
+	is_quad_chassis ||= (TRAIT_R_DOGBORG in model_features) || (TRAIT_R_SQUADRUPED in model_features)
+	// Some lizard/drake-style chassis are represented as wide without explicit quadruped traits.
+	if(!is_quad_chassis && (TRAIT_R_WIDE in model_features) && !(TRAIT_R_SMALL in model_features))
+		is_quad_chassis = TRUE
+
+	var/x_offset = parent.pixel_x
+	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f
+	var/layer = parent.layer + 0.001
+
+	if(is_quad_chassis)
+		layer = parent.layer - 0.001
+		switch(parent.dir)
+			if(EAST)
+				current_victim.setDir(SOUTH)
+				current_victim.transform = current_victim.transform.Turn(80)
+				x_offset += 5
+				y_offset -= 9
+			if(WEST)
+				current_victim.setDir(SOUTH)
+				current_victim.transform = current_victim.transform.Turn(-80)
+				x_offset -= 5
+				y_offset -= 9
+			if(NORTH)
+				current_victim.setDir(NORTH)
+				current_victim.transform = current_victim.transform.Turn(0)
+			if(SOUTH)
+				current_victim.setDir(NORTH)
+				current_victim.transform = current_victim.transform.Turn(180)
+				y_offset -= 7
+	else
+		current_victim.setDir(parent.dir)
+		if(TRAIT_R_TALL in model_features)
+			y_offset += 2
+		switch(parent.dir)
+			if(EAST)
+				x_offset += 11
+				y_offset -= 1
+			if(WEST)
+				x_offset -= 11
+				y_offset -= 1
+			if(NORTH)
+				y_offset += 6
+				layer = parent.layer - 0.001
+			if(SOUTH)
+				y_offset += 4
+
+	current_victim.add_offsets(borg_offset_source, x_add = x_offset, y_add = y_offset, animate = FALSE)
+	current_victim.layer = layer
+
+/datum/component/bellyriding/borg/heehoo_pp()
+	return
+
+/mob/living/silicon/robot/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
+	var/datum/component/bellyriding/borg/comp = GetComponent(/datum/component/bellyriding/borg)
+	if(force && comp?.current_victim == buckled_mob)
+		comp.unbuckle_victim(skip_unbuckle = TRUE)
+	return ..()
+
 
 /datum/movespeed_modifier/bellyriding_nontaur
 	multiplicative_slowdown = 0.8 // completely arbitrary
@@ -321,3 +519,8 @@
 	to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
 	to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
 
+/datum/techweb_node/augmentation/New()
+	. = ..()
+	design_ids += list(
+		"borg_upgrade_bellyriding_harness"
+	)

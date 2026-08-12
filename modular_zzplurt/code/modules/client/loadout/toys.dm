@@ -39,3 +39,44 @@
 	name = "Marketable Mutt Plushie"
 	item_path = /obj/item/toy/plush/red_mut
 	ckeywhitelist = null
+
+/datum/loadout_item/toys/willico
+	name = "Snarky Bnyunn Action Figure"
+	item_path = /obj/item/toy/figure/willico
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/mutt
+	name = "A advanced sauna pod"
+	item_path = /obj/item/survivalcapsule/advanced_sauna
+	ckeywhitelist = list("charlesterrah")
+
+/datum/loadout_item/toys/fentalynn
+	name = "Yapping Fox Plushie"
+	item_path = /obj/item/toy/plush/fentalynn
+	ckeywhitelist = list("fenduphox")
+
+/datum/loadout_item/toys/doctoraddy
+	name = "Doctor Addy Plushie"
+	item_path = /obj/item/toy/plush/doctoraddy
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/fuckassrabit
+	name = "a fuck ass rabbit plushie"
+	item_path = /obj/item/toy/plush/fuckassrabit
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/zenplush
+	name = "Fluffy plushie"
+	item_path = /obj/item/toy/plush/zenplush
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/novaplush
+	name = "Marketable Nova Plushie"
+	item_path = /obj/item/toy/plush/novaplush
+	ckeywhitelist = null
+
+/datum/loadout_item/toys/toy_mace
+	name = "Balloon Mace"
+	item_path = /obj/item/balloon_mallet/mace
+	ckeywhitelist = list("fenrir2116")
+

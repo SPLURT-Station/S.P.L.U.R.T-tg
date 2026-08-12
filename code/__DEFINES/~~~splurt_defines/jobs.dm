@@ -1,0 +1,7 @@
+#define JOB_CENTCOM_PRIVATE_SECURITY_PRIVATE "Nanotrasen Private Security Private"
+#define JOB_CENTCOM_PRIVATE_SECURITY_SPECIALIST "Nanotrasen Private Security Specialist"
+#define JOB_CENTCOM_PRIVATE_SECURITY_CORPORAL "Nanotrasen Private Security Corporal"
+#define JOB_CENTCOM_PRIVATE_SECURITY_SERGEANT "Nanotrasen Private Security Sergeant"
+#define JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN "Nanotrasen Private Security Captain"
+#define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
+#define JOB_NANOTRASEN_LIEUTENANT "Nanotrasen Lieutenant"

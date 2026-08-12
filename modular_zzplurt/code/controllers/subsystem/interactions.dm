@@ -129,7 +129,7 @@ PROCESSING_SUBSYSTEM_DEF(interactions)
 		/datum/reagent/consumable/ethanol/hellfire,
 		/datum/reagent/consumable/ethanol/hotlime_miami,
 		/datum/reagent/consumable/ethanol/crevice_spike,
-		/datum/reagent/consumable/ethanol/isloation_cell/morphine,
+		/datum/reagent/consumable/ethanol/isolation_cell/morphine,
 		/datum/reagent/consumable/ethanol/chemical_ex,
 		/datum/reagent/consumable/ethanol/heart_of_gold,
 		/datum/reagent/consumable/ethanol/moth_in_chief,

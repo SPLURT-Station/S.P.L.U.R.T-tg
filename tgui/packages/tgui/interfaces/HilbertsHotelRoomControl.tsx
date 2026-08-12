@@ -33,6 +33,38 @@ type RoomData = {
   };
 };
 
+const DEFAULT_ROOM_PREFERENCES: RoomData['room_preferences'] = {
+  status: 0,
+  visibility: 0,
+  privacy: 0,
+  description: '',
+  name: '',
+  icon: 'snowflake',
+};
+
+const DEFAULT_ACCESS_RESTRICTIONS: RoomData['access_restrictions'] = {
+  room_owner: '',
+  trusted_guests: [],
+};
+
+const normalizeRoomData = (data: Partial<RoomData>): RoomData => ({
+  room_number: data.room_number ?? 0,
+  bluespace_box: data.bluespace_box ?? false,
+  id_card: data.id_card ?? '',
+  user: data.user ?? '',
+  room_preferences: {
+    ...DEFAULT_ROOM_PREFERENCES,
+    ...data.room_preferences,
+  },
+  access_restrictions: {
+    ...DEFAULT_ACCESS_RESTRICTIONS,
+    ...data.access_restrictions,
+    trusted_guests:
+      data.access_restrictions?.trusted_guests ??
+      DEFAULT_ACCESS_RESTRICTIONS.trusted_guests,
+  },
+});
+
 const AVAILABLE_ICONS = [
   'door-open',
   'bed',
@@ -55,7 +87,8 @@ const AVAILABLE_ICONS = [
 ] as const;
 
 export const HilbertsHotelRoomControl = (props) => {
-  const { act, data } = useBackend<RoomData>();
+  const { act, data: backendData } = useBackend<RoomData>();
+  const data = normalizeRoomData(backendData);
   const [iconPickerOpen, setIconPickerOpen] = useSharedState(
     'iconPicker',
     false,
@@ -302,10 +335,6 @@ export const HilbertsHotelRoomControl = (props) => {
             overflowY: 'auto',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
-            // // @ts-ignore
-            // '&::-webkit-scrollbar': {
-            //   display: 'none',
-            // },
           }}
         >
           <Section>
@@ -732,7 +761,8 @@ type GuestRowProps = {
 
 const GuestRow = (props: GuestRowProps) => {
   const { guest_name, key } = props;
-  const { act, data } = useBackend<RoomData>();
+  const { act, data: backendData } = useBackend<RoomData>();
+  const data = normalizeRoomData(backendData);
 
   return (
     <Table.Row

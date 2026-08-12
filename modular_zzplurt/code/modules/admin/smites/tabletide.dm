@@ -8,9 +8,9 @@
 	for(var/area/A in GLOB.areas)
 		if(A.z == SSmapping.station_start)
 			areas += A
+	var/datum/element/table_smash/table_smash = SSdcs.GetElement(list(/datum/element/table_smash))
 	SEND_SOUND(target, sound('modular_zzplurt/sound/misc/slamofthenorthstar.ogg', volume=60))
 	for(var/area/A in areas)
 		for(var/obj/structure/table/T in A)
-			var/datum/component/table_smash/table_smash = T.GetComponent(/datum/component/table_smash)
-			table_smash.tablepush(target, target)
+			table_smash.tablepush(null, target, T)
 			sleep(1)

@@ -215,7 +215,7 @@
 /obj/item/disk/holodisk
 	name = "holorecord disk"
 	desc = "Stores recorder holocalls."
-	icon_state = "holodisk"
+	sticker_icon_state = "o_holo"
 	obj_flags = UNIQUE_RENAME
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 	var/datum/holorecord/record
@@ -346,7 +346,7 @@
 	outfit_type = /datum/outfit/job/captain
 
 /datum/preset_holoimage/nanotrasenprivatesecurity
-	outfit_type = /datum/outfit/nanotrasensoldiercorpse
+	outfit_type = /datum/outfit/nanotrasenprivate // Splurt edit
 
 /datum/preset_holoimage/syndicatebattlecruisercaptain
 	outfit_type = /datum/outfit/syndicate_empty/battlecruiser

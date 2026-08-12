@@ -12,7 +12,7 @@
 	worn_icon_taur_paw = 'modular_zzplurt/icons/mob/clothing/suit/misc_paw.dmi'
 	worn_icon_taur_snake = null
 	worn_icon_state = "bellyriding_harness"
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 	slot_flags = ITEM_SLOT_OCLOTHING
 
@@ -48,3 +48,25 @@
 /obj/item/clothing/suit/bellyriding_harness/dropped(mob/user, silent)
 	. = ..()
 	qdel(user.GetComponent(/datum/component/bellyriding)) // qdel accepts null
+
+/obj/item/borg/bellyriding_harness
+	name = "bellyriding restraint module"
+	desc = "A cyborg-mounted restraint harness module for securing a detainee beneath the chassis."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/misc.dmi'
+	icon_state = "gear_harness"
+
+/obj/item/borg/bellyriding_harness/equipped(mob/user, slot, initial)
+	. = ..()
+	if(!iscyborg(user))
+		return
+
+	qdel(user.GetComponent(/datum/component/bellyriding/borg))
+	user.AddComponent(/datum/component/bellyriding/borg, src)
+
+/obj/item/borg/bellyriding_harness/dropped(mob/user, silent)
+	. = ..()
+	qdel(user.GetComponent(/datum/component/bellyriding/borg)) // qdel accepts null
+
+/obj/item/borg/bellyriding_harness/cyborg_unequip(mob/user)
+	qdel(user.GetComponent(/datum/component/bellyriding/borg)) // qdel accepts null
+	return ..()

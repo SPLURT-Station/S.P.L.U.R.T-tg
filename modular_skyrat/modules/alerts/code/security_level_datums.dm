@@ -5,7 +5,6 @@
 	looping_sound = 'modular_skyrat/modules/alerts/sound/misc/alarm_delta.ogg'
 	looping_sound_interval = 8 SECONDS
 
-
 /**
  * Violet
  *

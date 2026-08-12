@@ -241,9 +241,19 @@ SUBSYSTEM_DEF(ticker)
 		return TRUE
 	return FALSE
 
+/// Gets a list of players with their readied state so we can post it as a log
+/datum/controller/subsystem/ticker/proc/get_player_ready_states()
+	var/list/player_states = list()
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
+		player_states[player.ckey] = player.ready
+	return player_states
+
 /datum/controller/subsystem/ticker/proc/setup()
 	to_chat(world, span_boldannounce("Starting game..."))
 	var/init_start = world.timeofday
+
+	var/list/players_and_readiness = get_player_ready_states()
+	log_game("Players and Readiness: [json_encode(players_and_readiness)]", players_and_readiness)
 
 	CHECK_TICK
 	//Configure mode and assign player to antagonists
@@ -304,8 +314,25 @@ SUBSYSTEM_DEF(ticker)
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
-	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
+	// SPLURT EDIT CHANGE - announcer preferences
+	var/no_preferred_override = FALSE
+	for(var/datum/station_trait/trait in SSstation.station_traits)
+		// have to do this here again because of fucking bullshit
+		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth)
+		)
+			no_preferred_override = TRUE
+			break
+
+	for(var/mob/target in GLOB.player_list)
+		var/datum/centcom_announcer/preferred_announcer = GLOB.announcer_type_keys[target.client?.prefs.read_preference(/datum/preference/choiced/announcer)]
+		if(preferred_announcer && !no_preferred_override)
+			preferred_announcer = SSstation.announcers[preferred_announcer]
+		else
+			preferred_announcer = SSstation.announcer
+
+		SEND_SOUND(target, sound(preferred_announcer.get_rand_welcome_sound()))
+	// SPLURT EDIT CHANGE END
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
@@ -325,7 +352,7 @@ SUBSYSTEM_DEF(ticker)
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)
 		ruleset.execute()
-		SSdynamic.queued_rulesets -= ruleset
+		SSdynamic.unqueue_ruleset(ruleset)
 		SSdynamic.executed_rulesets += ruleset
 	// Queue roundstart intercept report
 	/* BUBBER EDIT REMOVAL BEGIN - Storyteller
@@ -348,7 +375,7 @@ SUBSYSTEM_DEF(ticker)
 		var/arguments = list()
 		if(GLOB.revdata.originmastercommit)
 			to_set += "commit_hash = :commit_hash"
-			arguments["commit_hash"] = GLOB.revdata.originmastercommit
+			arguments["commit_hash"] = GLOB.revdata.GetDatabaseCommitSha()
 		if(to_set.len)
 			arguments["round_id"] = GLOB.round_id
 			var/datum/db_query/query_round_game_mode = SSdbcore.NewQuery(

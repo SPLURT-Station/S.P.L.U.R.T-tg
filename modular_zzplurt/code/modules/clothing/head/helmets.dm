@@ -49,7 +49,12 @@
 	name = "crusader helmet"
 	desc = "Helfen, Wehren, Heilen."
 	icon_state = "knight_horned"
-	unique_reskin = null
+
+/obj/item/clothing/head/helmet/chaplain/bland/hospitaller/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
 
 /obj/item/clothing/head/helmet/chaplain/bland/hospitaller/no_armor
 	armor_type = /datum/armor/none
@@ -78,39 +83,33 @@
 	name = "trencher helmet replica"
 	desc = "A plastic helmet with purple paint applied. Protects as best as cardboard box labeled 'Bomb Shelter'."
 	armor_type = /datum/armor/none
-	uses_advanced_reskins = TRUE // Since polychromic no longer available at least allow us to reskin it after GWTB armies colors.
-	unique_reskin = list(
-		"Default (Purple)" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_helmet",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_helmet"
-		),
-		"Red" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_helmet_r",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_helmet_r"
-		),
-		"Green" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_helmet_g",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_helmet_g"
-		),
-		"Blue" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_helmet_b",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_helmet_b"
-		),
-		"Yellow" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_helmet_y",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_helmet_y"
-		)
-	)
+
+/obj/item/clothing/head/helmet/goner/fake/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/goner_helmet)
+
+/datum/atom_skin/goner_helmet
+	abstract_type = /datum/atom_skin/goner_helmet
+
+/datum/atom_skin/goner_helmet/default
+	preview_name = "Default (Purple)"
+	new_icon_state = "goner_helmet"
+
+/datum/atom_skin/goner_helmet/red
+	preview_name = "Red"
+	new_icon_state = "goner_helmet_r"
+
+/datum/atom_skin/goner_helmet/green
+	preview_name = "Green"
+	new_icon_state = "goner_helmet_g"
+
+/datum/atom_skin/goner_helmet/blue
+	preview_name = "Blue"
+	new_icon_state = "goner_helmet_b"
+
+/datum/atom_skin/goner_helmet/yellow
+	preview_name = "Yellow"
+	new_icon_state = "goner_helmet_y"
 
 /// Original Colors
 /obj/item/clothing/head/helmet/goner/red
@@ -144,39 +143,33 @@
 	name = "trencher officer cap replica"
 	desc = "A cheap officer cap. Great for people with Napoleon complex."
 	armor_type = /datum/armor/none
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Default (Purple)" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_offcap",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_offcap"
-		),
-		"Red" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_offcap_r",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_offcap_r"
-		),
-		"Green" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_offcap_g",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_offcap_g"
-		),
-		"Blue" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_offcap_b",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_offcap_b"
-		),
-		"Yellow" = list(
-			RESKIN_ICON = 'modular_zzplurt/icons/obj/clothing/head.dmi',
-			RESKIN_ICON_STATE = "goner_offcap_y",
-			RESKIN_WORN_ICON = 'modular_zzplurt/icons/mob/clothing/head.dmi',
-			RESKIN_WORN_ICON_STATE = "goner_offcap_y"
-		)
-	)
+
+/obj/item/clothing/head/helmet/goner/officer/fake/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/goner_officer_cap)
+
+/datum/atom_skin/goner_officer_cap
+	abstract_type = /datum/atom_skin/goner_officer_cap
+
+/datum/atom_skin/goner_officer_cap/default
+	preview_name = "Default (Purple)"
+	new_icon_state = "goner_offcap"
+
+/datum/atom_skin/goner_officer_cap/red
+	preview_name = "Red"
+	new_icon_state = "goner_offcap_r"
+
+/datum/atom_skin/goner_officer_cap/green
+	preview_name = "Green"
+	new_icon_state = "goner_offcap_g"
+
+/datum/atom_skin/goner_officer_cap/blue
+	preview_name = "Blue"
+	new_icon_state = "goner_offcap_b"
+
+/datum/atom_skin/goner_officer_cap/yellow
+	preview_name = "Yellow"
+	new_icon_state = "goner_offcap_y"
 
 /// Officer Colors
 /obj/item/clothing/head/helmet/goner/officer/red
@@ -198,3 +191,22 @@
 	name = "yellow trencher officer cap"
 	desc = "An army officer cap with yellow pin."
 	icon_state = "goner_offcap_y"
+
+/obj/item/clothing/head/helmet/novisor
+	desc = "Standard Security gear. Protects the head from impacts, this one lacks a visor over the eyes."
+	icon_state = "helmet-novisor"
+	flags_cover = EARS_COVERED
+
+/obj/item/clothing/head/helmet/swat/nanotrasen/ntps
+	name = "\improper Nanotrasen SWAT helmet"
+	desc = "A heavy-looking helmet with heavy armor plating within, it's dawned with a cyan visor to protect the eyes and has a large \
+	silver Nanotrasen logo on the front of the helmet. Usually worn by Nanotrasen Private Security."
+	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon_state = "swat_ntps"
+
+/obj/item/clothing/head/helmet/swat/nanotrasen/ntps/sergeant
+	name = "\improper Nanotrasen SWAT officer helmet"
+	desc = "A heavy-looking helmet with heavy armor plating within, it's dawned with a cyan visor to protect the eyes and has a large \
+	golden Nanotrasen logo on the front of the helmet. Usually worn by Nanotrasen Private Security's NCOs."
+	icon_state = "swat_ntps_sgt"

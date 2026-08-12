@@ -135,7 +135,7 @@ const validateRegExp = (str: string) => {
 const LogEntriesViewer = (props: LogEntriesViewerProps) => {
   const [search, setSearch] = useState('');
   let [searchRegex, setSearchRegex] = useState(false);
-  let [caseSensitive, setCaseSensitive] = useState(false);
+  const [caseSensitive, setCaseSensitive] = useState(false);
   const [sortAscending, setSortAscending] = useState(false);
 
   if (!search && searchRegex) {

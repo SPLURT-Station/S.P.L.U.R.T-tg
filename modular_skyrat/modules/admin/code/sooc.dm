@@ -22,12 +22,16 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 		JOB_SECURITY_OFFICER=TRUE,
 		JOB_CORRECTIONS_OFFICER=TRUE,
 		JOB_SECURITY_MEDIC=TRUE,
+		JOB_SECURITY_CYBORG=TRUE, //SPLURT ADDITION
 		)
 	if(!holder)
 		var/job = mob?.mind.assigned_role.title
 		if(!job || !job_lookup[job])
 			to_chat(src, span_danger("You're not a security role!"))
 			return
+		if(job == JOB_SECURITY_CYBORG && !secborg_sooc_eligible(mob)) //SPLURT ADDITION: fired secborgs lose SOOC access
+			to_chat(src, span_danger("You're not a security role!")) //SPLURT ADDITION
+			return //SPLURT ADDITION
 		if(!GLOB.sooc_allowed)
 			to_chat(src, span_danger("SOOC is globally muted."))
 			return
@@ -75,6 +79,8 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 			if(iterated_mob.mind)
 				var/datum/mind/mob_mind = iterated_mob.mind
 				if(job_lookup[mob_mind.assigned_role?.title])
+					if(mob_mind.assigned_role?.title == JOB_SECURITY_CYBORG && !secborg_sooc_eligible(iterated_mob)) //SPLURT ADDITION: exclude fired secborgs from listening
+						continue //SPLURT ADDITION
 					listeners[iterated_mob.client] = SOOC_LISTEN_PLAYER
 
 	for(var/iterated_listener in listeners)
@@ -106,6 +112,8 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 				var/datum/mind/mob_mind = iterated_mob.mind
 				if(job_lookup[mob_mind.assigned_role])
 					listeners[iterated_mob.client] = TRUE
+				else if(mob_mind.assigned_role?.title == JOB_SECURITY_CYBORG && secborg_sooc_eligible(iterated_mob)) //SPLURT ADDITION: notify active secborgs of toggle
+					listeners[iterated_mob.client] = TRUE //SPLURT ADDITION
 	for(var/iterated_listener in listeners)
 		var/client/iterated_client = iterated_listener
 		to_chat(iterated_client, span_oocplain("<b>The SOOC channel has been globally [GLOB.sooc_allowed ? "enabled" : "disabled"].</b>"))

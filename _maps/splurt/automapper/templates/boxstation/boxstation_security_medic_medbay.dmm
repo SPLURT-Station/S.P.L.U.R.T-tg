@@ -1,0 +1,435 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aq" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/red/real_red,
+/obj/effect/turf_decal/tile/red/real_red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red/real_red{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"at" = (
+/obj/effect/landmark/start/security_medic,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"aL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/window/left/directional/south{
+	name = "Secure Evidence"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/security/evidence)
+"dh" = (
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"hj" = (
+/turf/template_noop,
+/area/template_noop)
+"ho" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/security/brig)
+"hZ" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 1
+	},
+/area/station/security/brig)
+"pH" = (
+/turf/closed/wall,
+/area/station/security/medical)
+"qy" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/security/brig)
+"qN" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/machinery/vending/wallmed/directional/north,
+/obj/structure/table/glass,
+/obj/item/storage/medkit/surgery{
+	pixel_x = -1;
+	pixel_y = 0
+	},
+/obj/item/clothing/gloves/latex,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/clothing/mask/surgical,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"tc" = (
+/obj/effect/landmark/event_spawn,
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/security/brig)
+"uG" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/closet/secure_closet/security_medic,
+/obj/item/healthanalyzer,
+/obj/item/radio/intercom/directional/north,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 5
+	},
+/obj/item/wallframe/defib_mount,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"uJ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/security/brig)
+"uW" = (
+/turf/closed/wall{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/area/station/security/medical)
+"vT" = (
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 8
+	},
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"yb" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/station/security/brig)
+"zm" = (
+/obj/machinery/light/directional/north,
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/power/apc/auto_name/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/station/security/evidence)
+"Be" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/wall_healer/directional/west,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/station/security/brig)
+"Bw" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"BW" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/trimline/red/real_red/end{
+	dir = 8;
+	alpha = 160
+	},
+/obj/structure/bodycontainer/morgue,
+/obj/structure/sign/poster/timeclock_psa/directional/west,
+/obj/structure/sign/poster/official/work_for_a_future/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Cn" = (
+/obj/machinery/status_display/ai/directional/north,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/structure/table/optable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Du" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/bed,
+/obj/machinery/iv_drip,
+/obj/item/bedsheet/medical,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/item/toy/plush/toaste_plushy{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Eb" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red/real_red,
+/obj/effect/decal/cleanable/blood,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ie" = (
+/obj/machinery/door/window/left/directional/east{
+	name = "Brig Infirmary"
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"IJ" = (
+/turf/closed/wall,
+/area/station/security/evidence)
+"Jo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning,
+/turf/open/floor/iron/dark,
+/area/station/security/evidence)
+"Nq" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/structure/bed/medical/anchored{
+	dir = 4
+	},
+/obj/item/bodybag,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Pt" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/machinery/door/window/right/directional/east{
+	name = "Brig Infirmary"
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 6
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"PJ" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/door/window/left/directional/south{
+	name = "Brig Infirmary"
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Qf" = (
+/obj/machinery/airalarm/directional/north,
+/obj/structure/table/glass,
+/obj/machinery/computer/records/medical/laptop,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ra" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/station/security/brig)
+"Ri" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"RV" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/obj/effect/turf_decal/tile/red/real_red{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Tl" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/camera/directional/east{
+	c_tag = "Evidence Storage";
+	network = list("interrogation");
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/security/evidence)
+"Vo" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"Wf" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/machinery/computer/operating,
+/obj/structure/sign/poster/official/space_cops/directional/north,
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Ye" = (
+/obj/machinery/camera/directional/west{
+	c_tag = "Brig Infirmary"
+	},
+/obj/structure/table/glass,
+/obj/item/reagent_containers/syringe,
+/obj/item/storage/medkit/emergency{
+	pixel_y = 9;
+	pixel_x = 0
+	},
+/obj/item/reagent_containers/cup/bottle/multiver,
+/obj/effect/spawner/random/medical/minor_healing,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 10
+	},
+/obj/item/storage/portable_chem_mixer{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/wallframe/frontier_medstation{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/cup/tube,
+/obj/item/reagent_containers/cup/tube,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/toxin{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/brute{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/white,
+/area/station/security/medical)
+"Yl" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/red/real_red/end{
+	dir = 4;
+	alpha = 160
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+"ZJ" = (
+/obj/structure/rack,
+/obj/item/restraints/handcuffs/cable/zipties,
+/obj/item/clothing/suit/jacket/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/gloves/ball_mittens,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_red,
+/turf/open/floor/iron/dark,
+/area/station/security/medical)
+
+(1,1,1) = {"
+IJ
+zm
+aL
+Tl
+Jo
+hj
+hj
+"}
+(2,1,1) = {"
+pH
+pH
+pH
+uW
+pH
+pH
+hj
+"}
+(3,1,1) = {"
+pH
+Qf
+vT
+Ye
+BW
+pH
+hj
+"}
+(4,1,1) = {"
+pH
+Wf
+dh
+Bw
+Yl
+Nq
+tc
+"}
+(5,1,1) = {"
+pH
+Cn
+Eb
+at
+Ri
+PJ
+ho
+"}
+(6,1,1) = {"
+pH
+qN
+aq
+RV
+ZJ
+Vo
+ho
+"}
+(7,1,1) = {"
+pH
+uG
+Ie
+Pt
+Du
+pH
+qy
+"}
+(8,1,1) = {"
+hj
+uJ
+Ra
+Ra
+yb
+Be
+hZ
+"}
