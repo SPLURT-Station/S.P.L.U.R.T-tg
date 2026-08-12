@@ -3639,6 +3639,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron/white,
 /area/awaymission/station/medical/booth)
 "aYv" = (
@@ -62043,7 +62044,9 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/dark_red,
+/obj/effect/turf_decal/tile/dark_red{
+	pixel_y = 2
+	},
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -84787,6 +84790,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
+/mob/living/basic/goat/pete,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "wrE" = (
@@ -121553,7 +121557,7 @@ urU
 bIq
 iJK
 bMr
-eLd
+jMb
 qrs
 eLk
 dvO
