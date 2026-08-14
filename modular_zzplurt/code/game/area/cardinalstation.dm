@@ -14,3 +14,11 @@
 	name = "\improper Nanite Lab"
 	icon = 'modular_zzplurt/icons/area/areas_station.dmi'
 	icon_state = "nanite"
+
+/area/station/security/checkpoint/engineering/engicargo
+	name = "Security Post - Engicargo"
+	icon_state = "checkpoint_engi"
+
+/area/station/service/coffeeshop
+	name = "\improper Coffee Shop"
+	icon_state = "cafeteria"
