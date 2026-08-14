@@ -7,7 +7,7 @@
 /area/station/holodeck/prison
 	name = "\improper Workshop Holodeck"
 
-/area/awaymission/station/medical/booth
+/area/station/medical/booth
 	name = "\improper Medical Booth"
 
 /area/station/science/nanite
@@ -22,3 +22,6 @@
 /area/station/service/coffeeshop
 	name = "\improper Coffee Shop"
 	icon_state = "cafeteria"
+
+/area/station/command/bridge/hallway
+	name = "\improper Bridge Hallway"
