@@ -10,7 +10,7 @@
 	shoes = /obj/item/clothing/shoes/combat/mercenary
 	gloves = /obj/item/clothing/gloves/combat/mercenary/fingerless
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/mercenary
-	mask = /obj/item/clothing/mask/gas
+	mask = /obj/item/clothing/mask/gas/atmos/mercenary
 	head = /obj/item/clothing/head/helmet/mercenary
 	back = /obj/item/storage/backpack/satchel/mercenary
 	ears = /obj/item/radio/headset

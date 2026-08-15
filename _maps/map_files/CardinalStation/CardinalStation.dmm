@@ -10709,7 +10709,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "ctO" = (
-/obj/machinery/materials_market,
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/storage)
 "ctQ" = (
@@ -21887,13 +21886,14 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
-	dir = 8
-	},
 /obj/structure/cable,
-/turf/open/floor/iron/white/corner{
-	dir = 4
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 10
 	},
+/obj/effect/turf_decal/trimline/purple/warning{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "fcM" = (
 /obj/effect/turf_decal/siding/thinplating_new,
@@ -34918,16 +34918,19 @@
 /turf/open/floor/vault/rock,
 /area/station/cargo/miningoffice)
 "iaX" = (
-/obj/effect/turf_decal/tile/purple/half/contrasted{
-	dir = 1
-	},
 /obj/machinery/requests_console/directional/north{
 	name = "Genetics Requests Console";
 	department = "Genetics"
 	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/computer/dna_console,
-/turf/open/floor/iron/white/side,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "iaY" = (
 /obj/machinery/conveyor/inverted{
@@ -35720,10 +35723,9 @@
 /turf/open/floor/plating,
 /area/station/common/night_club)
 "iln" = (
-/obj/effect/turf_decal/tile/purple,
-/turf/open/floor/iron/white/side{
-	dir = 9
-	},
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/purple/corner,
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "ilA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -35945,8 +35947,6 @@
 	dir = 1;
 	id = "QMLoad"
 	},
-/obj/item/flatpack/export_gate,
-/obj/item/paper/fluff/export_gate,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "ipo" = (
@@ -38747,10 +38747,13 @@
 "iWn" = (
 /obj/machinery/firealarm/directional/east,
 /obj/structure/closet/wardrobe/genetics_white,
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted,
-/turf/open/floor/iron/white/corner{
-	dir = 1
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
 	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 6
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "iWp" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
@@ -40082,10 +40085,9 @@
 /area/station/hallway/primary/aft)
 "jnL" = (
 /obj/machinery/light_switch/directional/south,
-/obj/effect/turf_decal/tile/purple/half/contrasted,
-/turf/open/floor/iron/white/side{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/purple/line,
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "joc" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -42121,10 +42123,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/purple/half/contrasted,
-/turf/open/floor/iron/white/side{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/effect/turf_decal/trimline/purple/warning,
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "jPf" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -45683,12 +45684,16 @@
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 8
 	},
-/obj/machinery/computer/experimental_cloner{
-	dir = 4
-	},
 /obj/machinery/camera/directional/west{
 	network = list("ss13","medbay");
 	c_tag = "Medical - Cloning"
+	},
+/obj/machinery/computer{
+	icon_keyboard = "med_key";
+	icon_screen = "crew";
+	desc = "It's an old cloning console, to scan DNA and replicate someone, sadly Nanotrasen has decommissioned it, all the parts in it have been scrapped.";
+	name = "decommissioned cloner control console";
+	dir = 4
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -52333,10 +52338,13 @@
 "mgO" = (
 /obj/machinery/dna_scannernew,
 /obj/machinery/airalarm/directional/north,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
+/obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/turf/open/floor/iron/white/side,
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "mgR" = (
 /turf/open/floor/iron/dark/textured_corner,
@@ -52652,11 +52660,14 @@
 "mkA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/structure/cable,
-/turf/open/floor/iron/white/side,
+/obj/effect/turf_decal/trimline/purple/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "mkG" = (
 /obj/effect/turf_decal/siding/thinplating_new{
@@ -54834,9 +54845,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
-	dir = 8
-	},
 /obj/item/storage/box/monkeycubes{
 	pixel_x = -6;
 	pixel_y = 5
@@ -54846,9 +54854,13 @@
 	pixel_y = 7
 	},
 /obj/structure/cable,
-/turf/open/floor/iron/white/side{
-	dir = 4
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
 	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "mLg" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -55166,13 +55178,14 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
-/obj/structure/cable,
-/turf/open/floor/iron/white/side{
-	dir = 4
+/obj/effect/turf_decal/trimline/purple/warning{
+	dir = 8
 	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "mOP" = (
 /obj/structure/railing/corner{
@@ -56099,7 +56112,11 @@
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 10
 	},
-/obj/machinery/experimental_cloner_scanner,
+/obj/structure/showcase/machinery/cloning_pod{
+	desc = "An old decommissioned scanner, permanently scuttled.";
+	icon_state = "scanner";
+	name = "decommissioned cloning scanner"
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "nak" = (
@@ -63909,9 +63926,6 @@
 /area/station/cargo/lobby)
 "oQA" = (
 /obj/structure/table/glass,
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
-	dir = 1
-	},
 /obj/item/storage/box/masks{
 	pixel_x = -5;
 	pixel_y = 2
@@ -63924,7 +63938,13 @@
 	pixel_x = -3;
 	pixel_y = -12
 	},
-/turf/open/floor/iron/white/corner,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "oQG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -67963,7 +67983,10 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/experimental_cloner,
+/obj/structure/showcase/machinery/cloning_pod{
+	desc = "An old prototype cloning pod, permanently decommissioned following the incident.";
+	name = "decommissioned cloner"
+	},
 /turf/open/floor/pod/light,
 /area/station/medical/medbay/central)
 "pKg" = (
@@ -71068,10 +71091,13 @@
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "qvj" = (
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted,
-/turf/open/floor/iron/white/corner{
-	dir = 1
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
 	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 6
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "qvo" = (
 /obj/structure/disposalpipe/segment{
@@ -74617,15 +74643,18 @@
 /obj/item/kirbyplants/random,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
-	dir = 1
-	},
 /obj/structure/cable,
 /obj/machinery/camera/directional/north{
 	c_tag = "Medical - Genetics";
 	network = list("ss13","medbay")
 	},
-/turf/open/floor/iron/white/side,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "rmm" = (
 /obj/structure/disposalpipe/segment{
@@ -83112,9 +83141,6 @@
 "thb" = (
 /obj/structure/table/glass,
 /obj/item/radio/intercom/directional/east,
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
-	dir = 4
-	},
 /obj/item/paper_bin{
 	pixel_x = -5;
 	pixel_y = 4
@@ -83123,9 +83149,16 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/turf/open/floor/iron/white/corner{
-	dir = 8
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 5
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "thc" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
@@ -98318,10 +98351,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/purple/half/contrasted,
-/turf/open/floor/iron/white/side{
-	dir = 1
-	},
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/purple/line,
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "wDl" = (
 /obj/structure/disposalpipe/segment{
@@ -105173,14 +105205,15 @@
 /area/station/maintenance/department/eva)
 "yhG" = (
 /obj/machinery/light/directional/east,
-/obj/effect/turf_decal/tile/purple/half/contrasted{
-	dir = 4
-	},
 /obj/machinery/dna_infuser,
 /obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/iron/white/side{
-	dir = 8
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
 	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
 /area/station/science/genetics)
 "yhZ" = (
 /obj/machinery/requests_console/directional/east{
