@@ -9,6 +9,12 @@
 /obj/machinery/power/supermatter_crystal/engine
 	is_main_engine = TRUE
 
+// SPLURT EDIT ADDITION START
+/obj/machinery/power/supermatter_crystal/cardinal_station // I need this to be a specific type since they replace them with the beacon now.
+	is_main_engine = TRUE
+	anchored = FALSE
+// SPLURT EDIT ADDITION END
+
 /// Shard SM.
 /obj/machinery/power/supermatter_crystal/shard
 	name = "supermatter shard"

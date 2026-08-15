@@ -29,6 +29,9 @@
 		#include "map_files\KiloStation\KiloStation.dmm"
 		// SKYRAT EDIT END
 		//#include "map_files\wawastation\wawastation.dmm" BUBBER EDIT - UNUSED
+		// SPLURT EDIT ADDITION START
+		#include "map_files\CardinalStation\CardinalStation.dmm"
+		// SPLURT EDIT ADDITION END
 		// BUBBER EDIT ADDITION START
 		#include "map_files\biodome\biodome.dmm"
 		#include "map_files\moonstation\moonstation.dmm"
