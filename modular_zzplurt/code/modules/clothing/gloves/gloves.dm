@@ -61,3 +61,17 @@
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
+
+/obj/item/clothing/gloves/combat/mercenary
+	name = "mercenary gloves"
+	desc = "High-quality combat gloves to protect hands from mechanical damage during combat."
+	icon = 'modular_zzplurt/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/gloves.dmi'
+	icon_state = "mercenary_gloves"
+
+/obj/item/clothing/gloves/combat/mercenary/fingerless
+	name = "mercenary fingerless gloves"
+	desc = "Gloves that may not protect you from finger burns, but will make you cooler."
+	icon_state = "mercenary_gloves_cut"
+	siemens_coefficient = 1
+	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)

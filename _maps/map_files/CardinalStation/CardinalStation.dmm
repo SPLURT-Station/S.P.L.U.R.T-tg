@@ -1497,8 +1497,8 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Restroom Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva)
 "ate" = (
@@ -3132,6 +3132,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/structure/cable,
+/obj/effect/landmark/navigate_destination/autoname,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -4545,6 +4546,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/welded,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "bbD" = (
@@ -5073,9 +5075,6 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "bgR" = (
@@ -9067,7 +9066,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "cbf" = (
 /obj/structure/bookcase,
@@ -10710,7 +10709,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "ctO" = (
-/obj/machinery/suit_storage_unit/industrial/loader,
+/obj/machinery/materials_market,
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/storage)
 "ctQ" = (
@@ -11051,7 +11050,7 @@
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "cxX" = (
 /obj/machinery/smartfridge,
@@ -14251,7 +14250,7 @@
 "dhF" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "dhH" = (
 /obj/effect/turf_decal/stripes/line,
@@ -15755,7 +15754,7 @@
 	},
 /obj/machinery/light/small/directional/east,
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "dAa" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -20860,7 +20859,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "eOK" = (
 /obj/structure/lattice,
@@ -22703,9 +22702,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 8
-	},
 /turf/open/floor/iron,
 /area/station/maintenance/department/eva)
 "fnH" = (
@@ -29688,10 +29684,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/research/glass{
-	name = "Ordnance Mix Chamber 1"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior{
+	name = "Mix Chamber 1 Interior Airlock"
+	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -35717,7 +35713,7 @@
 	},
 /obj/machinery/light/small/directional/west,
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "ilf" = (
 /obj/effect/spawner/structure/window/plasma,
@@ -35949,6 +35945,8 @@
 	dir = 1;
 	id = "QMLoad"
 	},
+/obj/item/flatpack/export_gate,
+/obj/item/paper/fluff/export_gate,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "ipo" = (
@@ -39133,7 +39131,7 @@
 /obj/effect/turf_decal/box/corners,
 /obj/machinery/light/small/directional/east,
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "jbY" = (
 /obj/machinery/light_switch/directional/west,
@@ -39285,6 +39283,7 @@
 	name = "Arrivals Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "jeE" = (
@@ -43157,9 +43156,6 @@
 "jZJ" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "jZR" = (
@@ -44168,8 +44164,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva)
 "kkL" = (
-/obj/machinery/vending/wardrobe/cargo_wardrobe,
 /obj/machinery/airalarm/directional/south,
+/obj/machinery/suit_storage_unit/industrial/loader,
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/storage)
 "kkN" = (
@@ -44939,17 +44935,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/escape)
-"kvb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/port/central)
 "kvj" = (
 /obj/structure/railing,
 /turf/open/floor/catwalk_floor/iron,
@@ -45621,7 +45606,10 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/cargo/bitrunning/den)
 "kDO" = (
-/obj/machinery/door/window/brigdoor/left/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/east{
+	req_access = list("engineering");
+	name = "Supermatter Ejection Port"
+	},
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "kEc" = (
@@ -49749,7 +49737,6 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 5
 	},
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/server)
 "lBQ" = (
@@ -51547,6 +51534,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "lXq" = (
@@ -51763,10 +51751,10 @@
 /area/station/engineering/atmos/storage/gas)
 "lZY" = (
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass{
-	name = "Ordnance Mix Chamber 1"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_exterior{
+	name = "Mix Chamber 1 Exterior Airlock"
+	},
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/testlab)
 "mar" = (
@@ -51796,11 +51784,6 @@
 /area/station/ai/satellite/maintenance)
 "maC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
-	name = "Creature Pen";
-	req_access_txt = "47"
-	},
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/door/firedoor,
@@ -51818,6 +51801,10 @@
 /obj/machinery/door/poddoor/preopen{
 	id = "xeno_blastdoor";
 	name = "Biohazard Containment Door"
+	},
+/obj/machinery/door/window/brigdoor/right/directional/east{
+	name = "Xenobiology Desk";
+	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
@@ -53753,7 +53740,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/dead_body_placer,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
@@ -54662,7 +54648,7 @@
 	},
 /area/station/hallway/primary/starboard)
 "mIX" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/station/cargo/bitrunning/den)
 "mIZ" = (
@@ -59346,14 +59332,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/medical)
-"nNR" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/port/central)
 "nNT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -61386,6 +61364,9 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "omq" = (
@@ -66579,7 +66560,6 @@
 /area/station/security/office)
 "ptW" = (
 /obj/machinery/mineral/stacking_unit_console{
-	machinedir = 8;
 	pixel_x = -32
 	},
 /obj/effect/turf_decal/siding/dark{
@@ -74202,7 +74182,10 @@
 /area/station/engineering/atmos)
 "rfn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/obj/machinery/door/window/brigdoor/left/directional/west,
+/obj/machinery/door/window/brigdoor/left/directional/west{
+	req_access = list("engineering");
+	name = "Supermatter Ejection Port"
+	},
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "rfx" = (
@@ -76616,7 +76599,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/structure/cable,
-/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/science/server)
 "rIM" = (
@@ -76710,7 +76692,7 @@
 /area/station/commons/storage/art)
 "rKG" = (
 /obj/effect/turf_decal/delivery,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "rKX" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
@@ -77102,9 +77084,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva)
 "rOS" = (
@@ -79839,7 +79818,7 @@
 /turf/open/floor/plating,
 /area/station/common/cryopods)
 "stU" = (
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "sui" = (
 /obj/structure/disposalpipe/segment{
@@ -85435,7 +85414,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "tIe" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -88849,7 +88828,7 @@
 "uuZ" = (
 /obj/docking_port/stationary{
 	dir = 4;
-	dwidth = 8;
+	dwidth = 5;
 	height = 7;
 	name = "Cargo Bay";
 	shuttle_id = "cargo_home";
@@ -91514,7 +91493,8 @@
 "vbF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/door/window/brigdoor/right/directional/east{
-	name = "Supermatter Ejection Port"
+	name = "Supermatter Ejection Port";
+	req_access = list("engineering")
 	},
 /turf/open/floor/engine,
 /area/station/engineering/main)
@@ -91886,7 +91866,7 @@
 "vgn" = (
 /obj/machinery/rnd/experimentor,
 /obj/effect/turf_decal/delivery,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "vgq" = (
 /obj/structure/bookcase/random/religion,
@@ -95551,14 +95531,6 @@
 "vUf" = (
 /turf/open/water/jungle,
 /area/station/service/hydroponics/park)
-"vUi" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/department/eva)
 "vUm" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -95664,7 +95636,6 @@
 /obj/effect/turf_decal/trimline/red/line,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=1";
-	freq = 1400;
 	location = "Security"
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted{
@@ -98818,7 +98789,10 @@
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/central)
 "wIM" = (
-/obj/machinery/door/window/brigdoor/right/directional/west,
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	req_access = list("engineering");
+	name = "Supermatter Ejection Port"
+	},
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "wJa" = (
@@ -99270,14 +99244,20 @@
 /obj/item/clothing/head/collectable/captain{
 	name = "worn out captain's hat";
 	desc = "It's good being the king, but this hat has been worn out way too much to actually be useful..";
-	pixel_y = 4
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/fake_captains,
+/obj/item/clothing/suit/armor/vest/old{
+	icon_state = "capcarapace";
+	pixel_y = -5;
+	desc = "A standard-issue Captain's carapace, it looks vintage.. The material is worn and it is quite heavy, is it really worth it?";
+	name = "worn out captain's carapace"
 	},
 /obj/item/toy/figure/captain{
 	pixel_x = 4;
 	pixel_y = -6
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/fake_captains,
 /turf/open/floor/carpet/blue,
 /area/station/maintenance/department/engine/atmos)
 "wOU" = (
@@ -101151,6 +101131,7 @@
 "xlH" = (
 /obj/machinery/light_switch/directional/west,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/science/server)
 "xlT" = (
@@ -101363,7 +101344,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/engine,
+/turf/open/floor/engine/air,
 /area/station/science/explab)
 "xpf" = (
 /obj/structure/closet/bombcloset,
@@ -104232,6 +104213,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "xVY" = (
@@ -128508,13 +128492,13 @@ esA
 diA
 jdZ
 vXW
-vUi
+spx
 fxw
 fxw
 vyL
 cnD
 vyL
-spx
+snY
 lov
 vyL
 vyL
@@ -130846,7 +130830,7 @@ tNY
 dvo
 kqU
 iAE
-kvb
+gKf
 xJT
 hNz
 emM
@@ -132627,7 +132611,7 @@ rTI
 buw
 rxJ
 jTX
-cwf
+jZJ
 ddh
 eWr
 cDQ
@@ -133930,7 +133914,7 @@ hyG
 rCi
 hyG
 tiB
-nNR
+cwf
 hka
 rPL
 qSA
@@ -154512,7 +154496,7 @@ lWt
 lWt
 xfR
 lWt
-xfR
+lWt
 neQ
 vEl
 laU

@@ -25,3 +25,28 @@
 
 /area/station/command/bridge/hallway
 	name = "\improper Bridge Hallway"
+
+/area/shuttle/abandoned/hallway
+	name = "Abandoned Ship Hallway"
+
+/area/shuttle/abandoned/restroom
+	name = "Abandoned Ship Restroom"
+
+/area/shuttle/abandoned/external
+	name = "Abandoned Ship External Hull"
+	icon = 'icons/area/areas_misc.dmi'
+	icon_state = "space_near"
+	requires_power = TRUE
+	always_unpowered = TRUE
+	static_lighting = TRUE
+	base_lighting_alpha = 0
+	base_lighting_color = null
+	power_light = FALSE
+	power_equip = FALSE
+	power_environ = FALSE
+	area_flags = NO_GRAVITY
+	outdoors = TRUE
+	ambience_index = AMBIENCE_SPACE
+	flags_1 = CAN_BE_DIRTY_1
+	sound_environment = SOUND_AREA_SPACE
+	ambient_buzz = null //Space is deafeningly quiet
