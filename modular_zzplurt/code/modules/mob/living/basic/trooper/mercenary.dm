@@ -1,6 +1,6 @@
 /mob/living/basic/trooper/mercenary
 	name = "\improper Mercenary"
-	desc = "A mercenary trooper, they follow where the paycheck leads."
+	desc = "A unaffiliated mercenary, they follow where the paycheck leads."
 	speed = 1
 	maxHealth = 120
 	health = 120
