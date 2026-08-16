@@ -11,6 +11,7 @@
 	name = "docile funwolf"
 	desc = "A large, social wolf that can be befriended and cared for."
 	gold_core_spawnable = FRIENDLY_SPAWN
+	faction = list(FACTION_NEUTRAL)
 
 /mob/living/basic/mining/wolf/funwolf/female
 	name = "docile she-wolf"
@@ -26,6 +27,7 @@
 /mob/living/simple_animal/hostile/megafauna/wendigo/funwendigo
 	name = "docile wendigo"
 	desc = "A powerful wendigo variant configured as a friendly event spawn."
+	faction = list(FACTION_NEUTRAL)
 	gold_core_spawnable = FRIENDLY_SPAWN
 
 /mob/living/simple_animal/hostile/megafauna/wendigo/funwendigo/female
