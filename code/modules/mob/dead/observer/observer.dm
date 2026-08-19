@@ -266,6 +266,9 @@ Works together with spawning an observer, noted above.
 		return
 	if(IS_FAKE_KEY(key)) // Skip aghosts.
 		return
+	if(HAS_TRAIT(src, TRAIT_NO_GHOSTIZE))
+		to_chat(src, span_warning("You cannot left your body yet..."))
+		return
 
 	if(HAS_TRAIT(src, TRAIT_CORPSELOCKED) && !admin_ghost)
 		if(can_reenter_corpse) //If you can re-enter the corpse you can't leave when corpselocked
