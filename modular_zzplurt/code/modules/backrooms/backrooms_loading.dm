@@ -84,6 +84,28 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	// Sight flags each concealed body had before clamp_sight() took them over, keyed by REF(body)
 	VAR_PRIVATE/list/pre_conceal_sight = list()
 
+	// Distortions the exiled wears for as long as they are down here.
+	//
+	// Order matters, and matches the CRT trap's: each apply_status_effect adds a filter, which
+	// reassigns the plane's filter list and cuts short any animation already running on it. The two
+	// animated distortions therefore go last, with the endlessly looping rolling bar dead last so
+	// nothing can stop it rolling.
+	var/list/stay_distortions = list(
+		/datum/status_effect/backrooms_distortion/bloom,
+		/datum/status_effect/backrooms_distortion/colour_shift,
+		/datum/status_effect/backrooms_distortion/blur,
+		/datum/status_effect/backrooms_distortion/scanlines,
+		/datum/status_effect/backrooms_distortion/crt_border,
+		/datum/status_effect/backrooms_distortion/fisheye,
+		/datum/status_effect/backrooms_distortion/rolling_bar,
+	)
+
+	// The camera push in and pull back out live on GLOB.backrooms_transfer, alongside the distortion
+	// settings, so the whole look of the place is tunable from one place for the round.
+
+	// Whether to go without the shake and the warning that lead into the transfer
+	VAR_PRIVATE/skip_intro = FALSE
+
 	COOLDOWN_DECLARE(say_hallucination_cd)
 
 /datum/component/backrooms_exile/Initialize(exile_time, instant, pre_exile_time = 90 SECONDS, skip_intro = FALSE)
@@ -98,16 +120,35 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	time_to_spend_in_backrooms = exile_time
 	time_to_exile = pre_exile_time
+	// Held on the component rather than handed to exile(), which only ever got it on the instant
+	// path - a delayed exile dropped the argument on the floor and played the intro regardless.
+	src.skip_intro = skip_intro
 
 	if(instant)
-		addtimer(CALLBACK(src, PROC_REF(exile), skip_intro), 1)
+		addtimer(CALLBACK(src, PROC_REF(exile)), 1)
 
 	GLOB.backrooms_exile_components += src
 
 /datum/component/backrooms_exile/Destroy(force)
 	. = ..()
-	original_body.SetSleeping(0)
-	saved_mind.transfer_to(original_body, TRUE)
+
+	if(!QDELETED(original_body))
+		original_body.SetSleeping(0)
+		// saved_mind is only set once the transfer has actually happened, so a component torn down
+		// during the countdown - which process() does the moment the original body dies - has nothing
+		// to hand back, and the mind is still sitting on the original body anyway.
+		saved_mind?.transfer_to(original_body, TRUE)
+
+		// Both need the client, so they wait until it is back on this body.
+		unmute_mob(original_body)
+		restore_ambience(original_body)
+
+		// The push in was done on this body's own plane masters and was never undone anywhere: the
+		// pull back out happens on the body in the backrooms, not on this one. Left alone they come
+		// back to the waking world still zoomed all the way in, which is what leaving the dreamviewer
+		// looked like. Mirrors the arrival, so they surface as the camera settles.
+		if(exiling || in_backrooms)
+			zoom_planes(original_body, 1, GLOB.backrooms_transfer.zoom_time)
 
 	GLOB.backrooms_exile_components -= src
 
@@ -120,7 +161,9 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 /datum/component/backrooms_exile/UnregisterFromParent()
 	STOP_PROCESSING(SSprocessing, src)
 	REMOVE_TRAIT(original_body, TRAIT_NO_CRYOSLEEP, REF(src))
-	unmute_mob(original_body)
+	// Unmuting and handing the ambience preference back both need the client, and it is not here yet
+	// - this runs from Destroy() before the mind is moved home, so original_body.client is still
+	// null and both would quietly do nothing. Done there instead, once the client is actually back.
 
 	UnregisterSignal(original_body, list(COMSIG_LIVING_DEATH))
 	if(current_body && current_body != original_body)
@@ -222,7 +265,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 			to_chat(original_body, span_warning("Something brushes against your mind, but you can't see it."))
 
 
-/datum/component/backrooms_exile/proc/exile(skip_intro)
+/datum/component/backrooms_exile/proc/exile()
 	if(exiling || in_backrooms)
 		return
 
@@ -233,17 +276,20 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	mute_mob(original_body)
 	exiling = TRUE
 
-	if(skip_intro)
+	// Was inverted, so the flag did the opposite of its name: the smite, which asks for the intro,
+	// was the one going without it. The wait stays outside either way, so both read at one pace.
+	if(!skip_intro)
 		to_chat(original_body, span_userdanger("You feel as though the earth shakes under your feet, and you are being pulled into the void!"))
 		original_body.Shake()
 		shake_camera(original_body, 2 SECONDS, 1)
-	original_body.client.view_size.setTo(1)
 	sleep(2 SECONDS)
 
 	if(QDELETED(src) || QDELETED(original_body))
 		return
 
 	original_body.SetSleeping(INFINITY)
+	// Push in on the body they are about to leave, so the swap happens at the tightest point.
+	zoom_planes(original_body, GLOB.backrooms_transfer.zoom, GLOB.backrooms_transfer.zoom_time)
 
 	var/mob/living/new_body = create_body(original_body)
 	if(QDELETED(new_body))
@@ -257,7 +303,6 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	subscribe_to_body(new_body)
 
-	shake_camera(original_body, 3 SECONDS, 1)
 	sleep(3 SECONDS)
 
 	if(QDELETED(src) || QDELETED(new_body))
@@ -273,14 +318,22 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 		saved_mind = M
 		saved_mind.transfer_to(new_body, TRUE)
 
-	spawn_equipment(new_body)
-	transfering_mind = FALSE
-	current_body.client.view_size.resetToDefault()
-	shake_camera(new_body, 2 SECONDS, 1)
-	sleep(2 SECONDS)
+	// The new body picks up exactly where the old one was left: already pushed in, out cold, on the
+	// floor and lying the same way round. Doing the swap at the tightest point is what stops it
+	// reading as a cut, and matching the pose is what stops the body itself giving it away.
+	wake_into_backrooms(new_body, original_body.dir, original_body.lying_angle)
 
+	// Held until they are actually awake rather than dropped the moment the mind moves, so nothing
+	// can decide to pull them back out of the backrooms halfway through the arrival.
+	transfering_mind = FALSE
 	exiling = FALSE
 	message_admins("[ADMIN_LOOKUPFLW(new_body)] was transferred into the backrooms!")
+
+/// The exiled's client, wherever it happens to be sitting at the time of asking.
+/datum/component/backrooms_exile/proc/get_exiled_client()
+	PRIVATE_PROC(TRUE)
+
+	return original_body?.client || current_body?.client || saved_mind?.current?.client
 
 /datum/component/backrooms_exile/proc/create_body(mob/living/original, copy_prefs = TRUE, copy_items = TRUE)
 	if(QDELETED(original))
@@ -288,8 +341,15 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	var/mob/living/new_body = new original.type(null)
 
-	if(ishuman(original) && copy_prefs && original.client)
-		original.client.prefs.apply_prefs_to(new_body)
+	// Deliberately not original.client. Once the first transfer has happened the client lives on
+	// current_body, so gating on the original body's client meant every replacement body after the
+	// first was built from bare defaults - default species, default everything.
+	var/client/exiled_client = get_exiled_client()
+
+	if(ishuman(original) && copy_prefs && exiled_client)
+		// Applies every PREFERENCE_CHARACTER pref, species included, so a body respawned down here
+		// comes back as whoever the player actually is.
+		exiled_client.prefs.apply_prefs_to(new_body)
 	else if(!ishuman(original))
 		new_body.name = original.name
 		new_body.desc = original.desc
@@ -332,9 +392,123 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	if(QDELETED(user) || !length(to_spawn))
 		return
 
+	// The bag is a copy of whatever the original body was wearing, so there is not always one to put
+	// anything in. Anyone who arrives without one finds their kit at their feet, as all of it used to.
+	var/datum/storage/bag
+	if(iscarbon(user))
+		var/mob/living/carbon/carbon_user = user
+		bag = carbon_user.back?.atom_storage
+
+	var/turf/arrival = get_turf(user)
 	for(var/item_path in to_spawn)
 		for(var/i = 1 to to_spawn[item_path])
-			new item_path(get_turf(user))
+			var/obj/item/supply = new item_path(arrival)
+			// Handed the wearer as the inserter, which is what suppresses the item-flies-into-the-bag
+			// animation, and silent besides: they are unconscious on the floor while this happens and
+			// have no business being told they just packed their own bag.
+			bag?.attempt_insert(supply, user, override = TRUE, messages = FALSE)
+
+/**
+ * Scales a body's game planes, which reads as the camera pushing in or pulling back out.
+ *
+ * Plane masters are what render the world, so scaling their transform zooms the picture without
+ * touching what the client actually has loaded - unlike view_size, which snaps instantly and changes
+ * what gets sent. A time of 0 lands on the scale immediately, which is how the body on the far side
+ * of the transfer starts already pushed in.
+ */
+/datum/component/backrooms_exile/proc/zoom_planes(mob/living/body, scale, time, easing = CUBIC_EASING|EASE_OUT)
+	PRIVATE_PROC(TRUE)
+
+	var/datum/hud/body_hud = body?.hud_used
+	if(isnull(body_hud))
+		return
+
+	for(var/atom/movable/screen/plane_master/game_plane as anything in body_hud.get_true_plane_masters(RENDER_PLANE_GAME))
+		animate(game_plane, transform = matrix().Scale(scale), time = time, easing = easing)
+
+/**
+ * Hands a body the distortions the exiled see the whole time they are down here.
+ *
+ * Doubles as a reassert. A distortion the body is already carrying has its filter rebuilt rather
+ * than being skipped, because applying one is not the same as it being on screen - everything around
+ * the transfer tears the screen down and puts it back, and an effect that was applied to a body that
+ * had no HUD yet is still sitting there with nothing behind it.
+ */
+/datum/component/backrooms_exile/proc/apply_stay_distortions(mob/living/body)
+	PRIVATE_PROC(TRUE)
+
+	if(QDELETED(body))
+		return
+
+	for(var/distortion_type as anything in stay_distortions)
+		// Guarded because the cost of a wrong entry here is out of all proportion to the mistake.
+		// apply_status_effect() reads status_type off whatever it is handed, so anything that is not
+		// a status effect runtimes inside it - and a runtime here takes the whole exile down with it,
+		// mid-arrival, leaving the victim asleep and zoomed in on a body they cannot get out of.
+		if(!ispath(distortion_type, /datum/status_effect/backrooms_distortion))
+			stack_trace("stay_distortions holds [distortion_type], which is not a backrooms distortion status effect - skipped")
+			continue
+
+		var/datum/status_effect/backrooms_distortion/worn = body.has_status_effect(distortion_type)
+		if(worn)
+			worn.refresh_distortion()
+			continue
+
+		body.apply_status_effect(distortion_type)
+
+/**
+ * The arrival: already pushed all the way in, out cold on the floor, camera pulling back out as they
+ * come round.
+ *
+ * Shared by the first transfer and by every body handed out after something down here kills them, so
+ * a death reads as waking up somewhere else rather than as being cut straight to it.
+ *
+ * resting_dir and resting_angle are the pose of the body being left behind. Lying down picks both at
+ * random on its own - a floored mob is thrown onto one of NORTH/SOUTH and rotated east or west - so
+ * left alone the body they wake up in is as likely as not to be lying the opposite way round to the
+ * one they left, which is a flip at exactly the moment this sequence exists to hide one.
+ *
+ * Sleeps for as long as the pull back out takes, so callers have to be able to sleep.
+ */
+/datum/component/backrooms_exile/proc/wake_into_backrooms(mob/living/body, resting_dir, resting_angle)
+	PRIVATE_PROC(TRUE)
+
+	if(QDELETED(body))
+		return
+
+	// Landed on rather than animated: this body has to start already pushed in, at the point the one
+	// they came from was pushed to.
+	zoom_planes(body, GLOB.backrooms_transfer.zoom, 0)
+	body.SetSleeping(INFINITY)
+	body.set_body_position(LYING_DOWN)
+
+	// After set_body_position(), which is what randomised them in the first place.
+	if(resting_dir)
+		body.setDir(resting_dir)
+	if(resting_angle)
+		body.set_lying_angle(resting_angle)
+
+	apply_stay_distortions(body)
+	spawn_equipment(body)
+
+	// Pull back out, and let them come round as the camera settles.
+	zoom_planes(body, 1, GLOB.backrooms_transfer.zoom_time)
+	sleep(GLOB.backrooms_transfer.zoom_time)
+
+	if(QDELETED(body))
+		return
+
+	body.SetSleeping(0)
+
+	// Waking rebuilds enough of the screen to lose what was hung on it above, so the distortions are
+	// reasserted once everything has settled rather than only on the way in.
+	apply_stay_distortions(body)
+
+	// The body was moved down here before the mind was put in it, so the area's own hook ran while
+	// there was nobody home to sign up for ambience. There is now.
+	var/area/awaymission/secret/powered/backrooms/arrived_in = get_area(body)
+	if(istype(arrived_in))
+		arrived_in.force_ambience_on(body)
 
 /datum/component/backrooms_exile/proc/return_to_original()
 	if(transfering_mind)
@@ -382,7 +556,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 		qdel(src)
 		return
 
-	var/old_body = current_body
+	var/mob/living/old_body = current_body
 	var/datum/mind/M = current_body.mind
 	if(!M)
 		qdel(src)
@@ -402,10 +576,18 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	subscribe_to_body(new_body)
 
 	saved_mind.transfer_to(new_body, TRUE)
-	spawn_equipment(new_body)
+
+	// Read off the corpse before it goes, so the body they wake up in is lying the same way round as
+	// the one they died in.
+	var/resting_dir = old_body.dir
+	var/resting_angle = old_body.lying_angle
+	qdel(old_body)
+
+	// Dying down here gets the same arrival as being sent here did, rather than simply appearing
+	// somewhere else mid-stride.
+	wake_into_backrooms(new_body, resting_dir, resting_angle)
 
 	transfering_mind = FALSE
-	qdel(old_body)
 
 /datum/component/backrooms_exile/proc/on_owner_death(mob/living/owner, gibbed)
 	SIGNAL_HANDLER
@@ -522,6 +704,20 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 /datum/component/backrooms_exile/proc/unmute_mob(mob/living/living)
 	if(living?.client)
 		living.client.prefs.muted = original_muted
+
+/**
+ * Takes the exiled back off the ambience listener list the backrooms forced them onto.
+ *
+ * The area's own Exited() hook cannot cover the way out that matters: the body down here is deleted
+ * rather than walked out of, and by the time that fires the mind - and the client with it - has
+ * already gone back to the original body, so there is nothing left there to hand back.
+ */
+/datum/component/backrooms_exile/proc/restore_ambience(mob/living/living)
+	var/client/listener = living?.client
+	if(isnull(listener))
+		return
+
+	listener.update_ambience_pref(listener.prefs?.read_preference(/datum/preference/numeric/volume/sound_ambience_volume))
 
 
 /datum/smite/send_into_backrooms

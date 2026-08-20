@@ -267,7 +267,7 @@ Works together with spawning an observer, noted above.
 	if(IS_FAKE_KEY(key)) // Skip aghosts.
 		return
 	if(HAS_TRAIT(src, TRAIT_NO_GHOSTIZE))
-		to_chat(src, span_warning("You cannot left your body yet..."))
+		to_chat(src, span_warning("You cannot leave your body yet..."))
 		return
 
 	if(HAS_TRAIT(src, TRAIT_CORPSELOCKED) && !admin_ghost)

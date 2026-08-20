@@ -123,7 +123,9 @@
 	user.visible_message(span_notice("[src] activates, and a strange sensation washes over [user]."))
 	to_chat(user, span_warning("You feel a strange sensation as the DreamViewer activates. Your consciousness begins to drift into a dream state."))
 
-	var/successful = user.AddComponent(/datum/component/backrooms_exile, exile_time = -1, instant = TRUE, skip_intro = TRUE)
+	// Left to take the intro, same as the smite does. Dropping into the dream should shake and warn
+	// the same way being thrown down there does - it is the same trip, whatever sent them on it.
+	var/successful = user.AddComponent(/datum/component/backrooms_exile, exile_time = -1, instant = TRUE)
 	if(!successful)
 		user.visible_message(span_warning("The DreamViewer fails to establish a connection to the Dream Gate network."))
 		to_chat(user, span_warning("The DreamViewer fails to establish a connection to the Dream Gate network. You feel your consciousness returning to the waking world."))

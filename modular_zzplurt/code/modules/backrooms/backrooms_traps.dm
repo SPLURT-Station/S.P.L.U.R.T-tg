@@ -85,7 +85,9 @@
 #ifdef TESTING
 	var/turf/trapped_turf = parent
 	testing_marker = new(trapped_turf)
-	testing_marker.maptext = MAPTEXT_TINY_UNICODE("[trap_label] [chance]%")
+	// The maptext box is centred over the turf, but text inside it is left aligned by default,
+	// which parks the label a box-width to the left. Centre it inside the box too.
+	testing_marker.maptext = MAPTEXT_TINY_UNICODE("<span style='text-align: center; display: block'>[trap_label] [chance]%</span>")
 #endif
 	return
 
@@ -208,15 +210,26 @@
 	trap_label = "rolling bar"
 	distortion_types = list(/datum/status_effect/backrooms_distortion/rolling_bar)
 
-/// The whole stack at once - everything the level can do to a screen.
+/datum/component/backrooms_trap/distortion/crt_border
+	trap_label = "CRT border"
+	distortion_types = list(/datum/status_effect/backrooms_distortion/crt_border)
+
+/**
+ * The whole stack at once - everything the level can do to a screen.
+ *
+ * Order matters: each apply_status_effect adds a filter, which reassigns the plane's filter list and
+ * cuts short any animation already running on it. The two animated distortions therefore go last,
+ * with the endlessly looping rolling bar dead last so nothing can stop it rolling.
+ */
 /datum/component/backrooms_trap/distortion/crt
 	trap_label = "CRT"
 	distortion_types = list(
-		/datum/status_effect/backrooms_distortion/fisheye,
 		/datum/status_effect/backrooms_distortion/bloom,
 		/datum/status_effect/backrooms_distortion/colour_shift,
 		/datum/status_effect/backrooms_distortion/blur,
 		/datum/status_effect/backrooms_distortion/scanlines,
+		/datum/status_effect/backrooms_distortion/crt_border,
+		/datum/status_effect/backrooms_distortion/fisheye,
 		/datum/status_effect/backrooms_distortion/rolling_bar,
 	)
 
@@ -408,6 +421,10 @@
 /obj/effect/mapping_helpers/backrooms_trap/rolling_bar
 	name = "backrooms rolling bar trap"
 	trap_type = /datum/component/backrooms_trap/distortion/rolling_bar
+
+/obj/effect/mapping_helpers/backrooms_trap/crt_border
+	name = "backrooms CRT border trap"
+	trap_type = /datum/component/backrooms_trap/distortion/crt_border
 
 /obj/effect/mapping_helpers/backrooms_trap/crt
 	name = "backrooms CRT trap"
