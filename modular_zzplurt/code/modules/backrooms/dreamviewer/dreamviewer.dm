@@ -33,20 +33,29 @@
 	. += span_warning("<b>WARNING</b>: Do not attempt to remove the DreamViewer while the device is active. \
 						Unauthorized interruption of the connection may result in severe neurological complications and permanent death.")
 
-/obj/item/clothing/head/dreamviewer/equipped(mob/living/user, slot)
+/obj/item/clothing/head/dreamviewer/equipped(mob/user, slot, initial = FALSE)
 	. = ..()
+
+	if(!(slot & ITEM_SLOT_HEAD) || !ishuman(user))
+		return
+
 	src.user = user
 	RegisterSignal(user, COMSIG_LIVING_STATUS_SLEEP, PROC_REF(on_sleep_state_changed))
 	strip_delay = 60 SECONDS
 
-/obj/item/clothing/head/dreamviewer/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/head/dreamviewer/dropped(mob/user, silent = FALSE)
 	. = ..()
-	if(src.user)
-		UnregisterSignal(user, COMSIG_LIVING_STATUS_SLEEP)
+
+	if(user != src.user)
+		return
+
+	UnregisterSignal(user, COMSIG_LIVING_STATUS_SLEEP)
+
 	if(dreamgate_opened)
 		close_dreamgate(user)
 		punish(user)
-	user = null
+
+	src.user = null
 	strip_delay = initial(strip_delay)
 
 /obj/item/clothing/head/dreamviewer/proc/punish(mob/living/carbon/human/user)
@@ -80,7 +89,7 @@
 
 		heart?.apply_organ_damage(rand(25, 70))
 		brain?.apply_organ_damage(rand(25, 50))
-		heart.Stop()
+		heart?.Stop()
 
 		user.Stun(40)
 		user.Paralyze(20)
@@ -104,6 +113,10 @@
 
 /obj/item/clothing/head/dreamviewer/proc/on_sleep_state_changed(mob/living/carbon/human/user, amount)
 	SIGNAL_HANDLER
+
+	if(amount <= 0 || dreamgate_opened)
+		return
+
 	try_fell_dream(user)
 
 /obj/item/clothing/head/dreamviewer/proc/try_fell_dream(mob/living/carbon/human/user)
@@ -139,6 +152,8 @@
 	comp.last_visit_time = world.time
 	comp.times_visited += 1
 	last_scramble_time = world.time
+
+	sleep_time = world.time
 
 
 /obj/item/clothing/head/dreamviewer/proc/close_dreamgate(mob/living/carbon/human/user)
@@ -261,14 +276,17 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/dream_reaper/proc/try_scramle(mob/living/carbon/human/target, mob/living/carbon/human/user, obj/item/clothing/head/dreamviewer/DV)
-	if(!target || !user)
+	if(QDELETED(target) || QDELETED(user))
 		return
 
 	user.visible_message(span_notice("[user] inserts a long needle [src] into the eye [target], driving it into the skull and beginning to extract the dream crystal."))
 	if(!do_after(user, 10 SECONDS, target, max_interact_count = 1))
 		user.visible_message(span_warning("[user] fails to extract the dream crystal from [target]."))
 		var/obj/item/organ/eyes/eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-		eyes.apply_organ_damage(rand(5, 15))
+		eyes?.apply_organ_damage(rand(5, 15))
+		return
+
+	if(QDELETED(target) || QDELETED(user) || QDELETED(DV))
 		return
 
 	var/obj/item/stack/dreamcrystal_refined/new_crystal = new /obj/item/stack/dreamcrystal_refined(get_turf(src))

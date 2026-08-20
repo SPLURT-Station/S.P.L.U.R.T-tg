@@ -1,5 +1,5 @@
 /datum/design/dreamviewer_prototype
-	name = "Dreamviewer ptototype frame"
+	name = "Dreamviewer prototype frame"
 	desc = "The Dreamviewer prototype; to ensure the device functions properly, you must insert a Raw Dreamcrystal into it."
 	id = "dv_frame"
 	build_type = PROTOLATHE | AWAY_LATHE
