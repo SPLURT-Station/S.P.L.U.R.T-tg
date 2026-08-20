@@ -33,10 +33,6 @@
 	. += span_warning("<b>WARNING</b>: Do not attempt to remove the DreamViewer while the device is active. \
 						Unauthorized interruption of the connection may result in severe neurological complications and permanent death.")
 
-/obj/item/clothing/head/dreamviewer/doStrip(mob/stripper, mob/owner)
-	. = ..()
-
-
 /obj/item/clothing/head/dreamviewer/equipped(mob/living/user, slot)
 	. = ..()
 	src.user = user
@@ -104,12 +100,17 @@
 		user.Paralyze(100)
 		user.Unconscious(100)
 		user.death()
+		ADD_TRAIT(user, TRAIT_DNR, INNATE_TRAIT)
 
 /obj/item/clothing/head/dreamviewer/proc/on_sleep_state_changed(mob/living/carbon/human/user, amount)
-	addtimer(CALLBACK(src, PROC_REF(fell_into_dream), user), 2 SECONDS)
+	SIGNAL_HANDLER
+	try_fell_dream(user)
+
+/obj/item/clothing/head/dreamviewer/proc/try_fell_dream(mob/living/carbon/human/user)
 	playsound(get_turf(src), 'sound/effects/alert.ogg', 20)
 	user.visible_message(span_notice("[src], secures itself to the [user] head, fitting tightly against [user.p_their()] skull."))
 	to_chat(user, span_warning("The DreamViewer secures itself to your head, fitting tightly against your skull. You feel a strange pressure as the device activates."))
+	addtimer(CALLBACK(src, PROC_REF(fell_into_dream), user), 2 SECONDS)
 
 /obj/item/clothing/head/dreamviewer/proc/fell_into_dream(mob/living/carbon/human/user)
 	if(!user)
@@ -154,6 +155,45 @@
 	var/datum/component/backrooms_exile/exile = user.GetComponent(/datum/component/backrooms_exile)
 	if(exile && !QDELETED(exile))
 		qdel(exile)
+
+
+
+/obj/item/clothing/head/dreamviewer/prototype
+	name = "Dreamviewer Prototype"
+	desc = "A prototype version of the Dreamviewer. It is designed to establish a controlled connection between a sleeping subject and the Dream Gate network. \
+			The device allows the wearer to enter a stable, artificially maintained dream state while remaining connected to external monitoring equipment. \
+			While active, the DreamViewer cannot be removed by conventional means and the wearer cannot be awakened through normal methods."
+
+	icon_state = "dreamviewer_prototype"
+	var/dreamcrystal_inserted = FALSE
+
+/obj/item/clothing/head/dreamviewer/prototype/examine(mob/user)
+	. = ..()
+	if(!dreamcrystal_inserted)
+		. += span_warning("<b>WARNING</b>: No Dream Crystal has been inserted into the device. The DreamViewer will not function without a Dream Crystal.")
+	else
+		. += span_green("A Dream Crystal has been inserted into the device. The DreamViewer is ready for use.")
+
+/obj/item/clothing/head/dreamviewer/prototype/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/stack/dreamcrystal))
+		return ..()
+	if(dreamcrystal_inserted)
+		user.visible_message(span_warning("[src] already has a Dream Crystal inserted."))
+		to_chat(user, span_warning("The DreamViewer already has a Dream Crystal inserted."))
+		return ITEM_INTERACT_SUCCESS
+	var/obj/item/stack/dreamcrystal/crystal = attacking_item
+	if(crystal.use(1))
+		dreamcrystal_inserted = TRUE
+		user.visible_message(span_notice("[user] inserts a Dream Crystal into [src]."))
+		to_chat(user, span_notice("You insert a Dream Crystal into the DreamViewer. The device is now ready for use."))
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/clothing/head/dreamviewer/prototype/try_fell_dream(mob/living/carbon/human/user)
+	if(!dreamcrystal_inserted)
+		user.visible_message(span_warning("[src] fails to activate, as no Dream Crystal has been inserted into the device."))
+		to_chat(user, span_warning("The DreamViewer fails to activate, as no Dream Crystal has been inserted into the device."))
+		return
+	..()
 
 /datum/component/dreamgate_visitor
 	var/mob/living/visitor

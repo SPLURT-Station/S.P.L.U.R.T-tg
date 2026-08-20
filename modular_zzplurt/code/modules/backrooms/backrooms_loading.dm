@@ -425,7 +425,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 				var/mob/living/carbon/human/H = original_body
 				var/obj/item/clothing/head/dreamviewer/DV = H.head
 				if(istype(DV, /obj/item/clothing/head/dreamviewer))
-					return_to_original()
+					addtimer(CALLBACK(src, PROC_REF(return_to_original)), 1)
 					DV.close_dreamgate(H)
 					SEND_SOUND(H, sound('sound/effects/health/fastbeat.ogg', channel = CHANNEL_HEARTBEAT, volume = 40))
 
