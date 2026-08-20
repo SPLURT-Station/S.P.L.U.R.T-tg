@@ -21,16 +21,10 @@
 		living.remove_fov_trait(REF(src), FOV_180_DEGREES)
 		restore_ambience_pref(living)
 
-/**
- * Signs a client up for ambience while they are down here, whatever their preferences say.
- *
- * SSambience only ever looks at clients in its listening list, and a player who has turned their
- * ambience volume down to zero has been taken out of it entirely - so overriding play_ambience()
- * below is not on its own enough to reach them. Undone by restore_ambience_pref() on the way out.
- *
- * Safe to call more than once, and called again once the exiled actually has a client: a body is
- * moved down here before the mind is put in it, so Entered() alone fires while there is nobody home.
- */
+/// Signs a client up for ambience whatever their preferences say. SSambience only looks at clients in
+/// its listening list, and a zero ambience volume takes them out of it entirely, so the
+/// play_ambience() override below cannot reach them on its own. Idempotent; also called once the
+/// exiled has a client, since the body is moved down here before the mind is put in it.
 /area/awaymission/secret/powered/backrooms/proc/force_ambience_on(mob/living/living)
 	var/client/listener = living?.client
 	if(isnull(listener))
@@ -49,13 +43,8 @@
 
 	listener.update_ambience_pref(listener.prefs?.read_preference(/datum/preference/numeric/volume/sound_ambience_volume))
 
-/**
- * Played at a flat volume, deliberately ignoring the ambience volume preference.
- *
- * The hum down here is not set dressing. It is most of what tells anyone they are still in the
- * backrooms rather than anywhere else, and someone who turned station ambience off months ago should
- * not be exiled into silence for it. Nothing else about their sound settings is touched.
- */
+/// Flat volume, deliberately ignoring the ambience volume preference - the hum is most of what tells
+/// anyone they are still down here. Nothing else about their sound settings is touched.
 /area/awaymission/secret/powered/backrooms/play_ambience(mob/listening_mob, sound/override_sound, volume = 27)
 	var/sound/new_sound = override_sound || pick(ambientsounds)
 	if(!new_sound)

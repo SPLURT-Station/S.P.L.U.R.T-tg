@@ -4,27 +4,13 @@
 /// How long to wait before another go at a distortion that had nothing to attach itself to yet.
 #define BACKROOMS_DISTORTION_RETRY (1 SECONDS)
 
-/**
- * Source the opt-out trait is added under.
- *
- * A constant rather than REF(src). The action deletes itself the moment it fires, so a ref source
- * could never be matched again by anything - leaving a trait that is unremovable by construction
- * rather than by intent. It stays permanent for players either way, since nothing in code lifts it,
- * but an admin undoing a misclick and anyone testing the distortions now have something to remove.
- */
+/// Source for the opt-out trait. A constant, not REF(src): the action deletes itself as it fires, so
+/// a ref source could never be matched again to lift the trait.
 #define BACKROOMS_OPT_OUT_TRAIT "backrooms_opt_out"
 
 
-/**
- * Every number behind one of the backrooms' screen effects, held somewhere an admin can reach it.
- *
- * These used to live on the status effects themselves, which made them close to untunable: an edit
- * meant finding a victim who happened to be wearing that distortion, VVing their copy of it, and
- * watching the change die with the effect. One of these exists per distortion for the whole round
- * instead, so an edit lands on everyone already wearing it and on everyone who gets it afterwards.
- *
- * Reach them through their globals - GLOB.backrooms_bloom, GLOB.backrooms_fisheye and so on.
- */
+/// Tunables for one distortion, one per effect, reached through GLOB.backrooms_bloom and friends.
+/// An edit here lands on everyone already wearing it as well as everyone who gets it later.
 /datum/backrooms_distortion_settings
 	/// Sort priority handed to add_filter, deciding the order the filters stack in
 	var/filter_priority = 1
@@ -37,15 +23,10 @@
 /datum/backrooms_distortion_settings/proc/unregister_listener(datum/status_effect/backrooms_distortion/distortion)
 	listeners -= distortion
 
-/**
- * Rebuilds every live distortion reading from this.
- *
- * A filter's parameters are baked in at the moment it is added, so changing a number here does
- * nothing on its own - the filter has to be torn down and put back. Doing that for every listener is
- * what makes an edit land on the people already wearing it rather than only on the next one to get it.
- */
+/// Rebuilds every live distortion reading from this. A filter bakes its params in when added, so an
+/// edit only shows up if the filter is torn down and put back.
 /datum/backrooms_distortion_settings/proc/refresh_listeners()
-	// Copied: a listener that has been deleted out from under us is dropped as we go.
+	// Copied so deleted listeners can be dropped as we go.
 	for(var/datum/status_effect/backrooms_distortion/distortion as anything in listeners.Copy())
 		if(QDELETED(distortion))
 			listeners -= distortion
@@ -141,23 +122,28 @@ GLOBAL_DATUM_INIT(backrooms_crt_border, /datum/backrooms_distortion_settings/crt
 GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 
 
-/**
- * Emergency off switch for the backrooms' screen effects.
- *
- * The warping, glare, drifting colour and rolling tear can genuinely make people unwell - migraine,
- * photosensitivity, motion sickness - so anyone handed one of these effects is handed this button
- * alongside it. Pressing it strips every distortion they have and stops any more being applied for
- * the rest of the round. Nothing else about being down here changes; only the visuals stop.
- *
- * check_flags is deliberately NONE. The exiled spend much of this asleep, lying down or otherwise
- * incapacitated, and a safety valve that only works while you are healthy is not a safety valve.
- */
+/// Distortion types the off switch stripped, so turning it back on can put them back. Keyed by REF of
+/// whatever holds the trait. Stores typepaths, not effects, so nothing here can hold a datum alive.
+GLOBAL_LIST_EMPTY(backrooms_suppressed_distortions)
+
+/// Accessibility toggle: strips every distortion and blocks more while it is on.
+/// check_flags is NONE on purpose - the exiled spend much of this incapacitated, and a safety valve
+/// that only works while you are healthy is not one.
 /datum/action/backrooms_stop_distortions
 	name = "Stop Screen Effects"
-	desc = "Immediately turns off the backrooms' visual distortions. Use this if they are making you unwell. This lasts the rest of the round and cannot be undone."
+	desc = "Turns the backrooms' visual distortions off. Use this if they are making you unwell. Press again to turn them back on."
 	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "adjust_vision"
 	check_flags = NONE
+
+/// The mind, not the body - this module swaps bodies constantly and the setting has to survive that.
+/// Resolved into a plain var because ADD_TRAIT pastes its target in several times over.
+/datum/action/backrooms_stop_distortions/proc/get_trait_holder()
+	PRIVATE_PROC(TRUE)
+
+	var/mob/living/victim = owner
+	var/datum/trait_holder = victim?.mind
+	return trait_holder || victim
 
 /datum/action/backrooms_stop_distortions/Trigger(mob/clicker, trigger_flags)
 	. = ..()
@@ -168,42 +154,71 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	if(!isliving(victim))
 		return
 
-	// Recorded on the mind rather than the body. This module swaps bodies constantly - on arrival, and
-	// again every time something down here kills you - and the opt-out has to survive all of that.
-	// Resolved into its own var first: ADD_TRAIT pastes its target straight into target._status_traits
-	// several times over, so handing it an expression rather than a plain reference does not compile.
-	var/datum/trait_holder = victim.mind
-	if(isnull(trait_holder))
-		trait_holder = victim
+	var/datum/trait_holder = get_trait_holder()
+	if(HAS_TRAIT(trait_holder, TRAIT_BACKROOMS_NO_DISTORTION))
+		resume_distortions(victim, trait_holder)
+	else
+		suppress_distortions(victim, trait_holder)
 
+	refresh_button()
+
+/datum/action/backrooms_stop_distortions/proc/suppress_distortions(mob/living/victim, datum/trait_holder)
+	PRIVATE_PROC(TRUE)
+
+	// Trait first: clear_stop_button() checks it, and without it in place the last removal below would
+	// take this action away and leave no way back.
 	ADD_TRAIT(trait_holder, TRAIT_BACKROOMS_NO_DISTORTION, BACKROOMS_OPT_OUT_TRAIT)
 
-	// Copied first: each removal can take this very action away once it is the last one left.
+	var/list/stripped = list()
 	for(var/datum/status_effect/backrooms_distortion/distortion in victim.status_effects?.Copy())
+		stripped += distortion.type
 		qdel(distortion)
 
+	GLOB.backrooms_suppressed_distortions[REF(trait_holder)] = stripped
 	to_chat(victim, span_notice("The crawling on your eyes stops. Whatever this place was doing to your sight, it is not doing it any more."))
 
-	if(!QDELETED(src))
-		qdel(src)
+/datum/action/backrooms_stop_distortions/proc/resume_distortions(mob/living/victim, datum/trait_holder)
+	PRIVATE_PROC(TRUE)
 
-/**
- * Base for the backrooms' screen distortions.
- *
- * Each subtype owns exactly one named filter on the victim's game plane masters and nothing else,
- * so they stack freely - a victim can be warped, tinted and blooming at once, and dropping any one
- * of them leaves the other two untouched.
- *
- * Every number one of these draws with comes off its /datum/backrooms_distortion_settings global
- * rather than off the effect, so all of them are tunable in one place for the whole round.
- *
- * Plane masters are rebuilt from scratch whenever the HUD is, which throws our filters away with
- * them, so every distortion reapplies itself on COMSIG_MOB_HUD_CREATED.
- */
+	REMOVE_TRAIT(trait_holder, TRAIT_BACKROOMS_NO_DISTORTION, BACKROOMS_OPT_OUT_TRAIT)
+
+	var/list/stripped = GLOB.backrooms_suppressed_distortions[REF(trait_holder)]
+	GLOB.backrooms_suppressed_distortions -= REF(trait_holder)
+
+	// Reapplied at their default duration - what was left of a timed one is not worth tracking.
+	for(var/distortion_type as anything in stripped)
+		victim.apply_status_effect(distortion_type)
+
+	to_chat(victim, span_warning("Your sight crawls again."))
+
+/datum/action/backrooms_stop_distortions/proc/refresh_button()
+	PRIVATE_PROC(TRUE)
+
+	if(HAS_TRAIT(get_trait_holder(), TRAIT_BACKROOMS_NO_DISTORTION))
+		name = "Resume Screen Effects"
+		desc = "Turns the backrooms' visual distortions back on."
+	else
+		name = initial(name)
+		desc = initial(desc)
+
+	build_all_button_icons()
+
+/// Picks up the current state, for a button granted to a body that arrived already suppressed.
+/datum/action/backrooms_stop_distortions/Grant(mob/grant_to)
+	. = ..()
+	refresh_button()
+
+/// Base for the backrooms' screen distortions. Each subtype owns exactly one named filter on the
+/// victim's game plane masters, so they stack freely. Numbers come off the settings global, not the
+/// effect. Reapplies on COMSIG_MOB_HUD_CREATED, since a HUD rebuild throws the filters away.
 /datum/status_effect/backrooms_distortion
 	duration = STATUS_EFFECT_PERMANENT
 	tick_interval = STATUS_EFFECT_NO_TICK
 	alert_type = null
+	/// Otherwise a deleted owner takes be_replaced(), which nulls owner before qdel, and
+	/// /datum/status_effect/Destroy() only calls on_remove() while there is one. This module deletes
+	/// bodies constantly, so that path leaked the whole stack every time.
+	on_remove_on_mob_delete = TRUE
 
 	/// Name of the filter this effect owns. Has to be unique per subtype or they overwrite each other.
 	var/filter_key
@@ -224,9 +239,7 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	return ..()
 
 /datum/status_effect/backrooms_distortion/on_apply()
-	// Refused rather than thrown. These get applied from the middle of the exile transfer, and a
-	// runtime there unwinds the whole arrival with it - leaving the victim asleep on the floor in a
-	// body they cannot get out of. A misconfigured subtype should cost its own effect, nothing more.
+	// Refused, not thrown: these apply mid-exile-transfer, where a runtime unwinds the whole arrival.
 	if(isnull(filter_key))
 		stack_trace("[type] was applied without a filter_key")
 		return FALSE
@@ -236,16 +249,16 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 		stack_trace("[type] was applied without a settings global to read from")
 		return FALSE
 
-	// Anyone who has hit the off switch is done with these for the round, no matter what applies them.
+	// Suppressed: refuse the effect, but hand over the toggle anyway - a body that arrives already
+	// switched off would otherwise have no button to switch back on with.
 	if(HAS_MIND_TRAIT(owner, TRAIT_BACKROOMS_NO_DISTORTION))
+		grant_stop_button()
 		return FALSE
 
 	settings.register_listener(src)
 
-	// HUD_CREATED covers the plane masters being rebuilt under us. LOGIN matters just as much:
-	// /mob/Login() calls client.clear_screen(), which throws away the render sources the fisheye,
-	// scanlines and border keep on client.screen, and it only rebuilds the HUD when there is not one
-	// already - so a reconnect wipes them and fires no HUD signal at all.
+	// LOGIN as well as HUD_CREATED: Login() clear_screen()s the render sources but only rebuilds the
+	// HUD when there isn't one, so a reconnect wipes them without firing a HUD signal.
 	RegisterSignals(owner, list(COMSIG_MOB_HUD_CREATED, COMSIG_MOB_LOGIN), PROC_REF(on_screen_rebuilt))
 	apply_distortion()
 	grant_stop_button()
@@ -258,19 +271,24 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	remove_distortion()
 	clear_stop_button()
 
-/**
- * Queues another attempt at a distortion that had nothing to hang itself on.
- *
- * Whatever applies one of these is not guaranteed to be doing it at a moment when the victim has a
- * client and a built HUD - the exile hands out its stay distortions in the middle of a mind
- * transfer, when the new body may have neither yet. Without a retry the effect then sits on them for
- * the rest of the round showing nothing at all, because the only things that ever rebuild it are a
- * HUD rebuild and a reconnect, and on that path neither is coming.
- */
+/// Drops what can outlive us whatever route the deletion took. The listener list hangs off a
+/// round-long global, so a missed unregister is a permanent ref and a hard delete.
+/datum/status_effect/backrooms_distortion/Destroy()
+	settings?.unregister_listener(src)
+	settings = null
+	cancel_retry()
+
+	return ..()
+
+/// Queues another go at a distortion applied before the victim had a client and HUD - as the exile
+/// does mid-transfer. Without it the effect sits there showing nothing, with no signal coming.
 /datum/status_effect/backrooms_distortion/proc/schedule_retry()
 	PROTECTED_PROC(TRUE)
 
-	if(retry_timer)
+	// An ownerless effect has nothing to build against and nothing coming that would change it.
+	// Queueing anyway is how this datum makes itself immortal: the callback holds a reference, the
+	// retry finds no HUD because there is no owner, and it queues itself again, forever.
+	if(retry_timer || QDELETED(src) || isnull(owner))
 		return
 
 	retry_timer = addtimer(CALLBACK(src, PROC_REF(retry_distortion)), BACKROOMS_DISTORTION_RETRY, TIMER_STOPPABLE)
@@ -289,6 +307,9 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	PRIVATE_PROC(TRUE)
 
 	retry_timer = null
+	if(QDELETED(src) || isnull(owner))
+		return
+
 	apply_distortion()
 
 /// Hands the owner the off switch, unless they are already holding one.
@@ -304,6 +325,10 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 /// Takes the off switch back once there is nothing left for it to switch off.
 /datum/status_effect/backrooms_distortion/proc/clear_stop_button()
 	PRIVATE_PROC(TRUE)
+
+	// Kept while suppressed: it is the only way back on, and there are no distortions left to hold it.
+	if(HAS_MIND_TRAIT(owner, TRAIT_BACKROOMS_NO_DISTORTION))
+		return
 
 	for(var/datum/status_effect/backrooms_distortion/other in owner.status_effects)
 		if(other != src)
@@ -349,14 +374,9 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	apply_distortion()
 
 
-/**
- * Bends the world around the centre of the screen.
- *
- * A displacement filter shifts each pixel by however far the red and green channels of its
- * displacement map say to, so the effect needs the map on screen as something to sample. That is
- * what warp_source is: a fullscreen screen object whose render_target starts with a "*", which
- * renders it for sampling without ever drawing it.
- */
+/// Bends the world around the centre of the screen. The displacement filter needs its map on screen
+/// to sample, hence warp_source - a fullscreen object whose render_target starts with "*" so it is
+/// rendered for sampling but never drawn.
 /datum/status_effect/backrooms_distortion/fisheye
 	id = "backrooms_fisheye"
 	filter_key = "backrooms_fisheye"
@@ -507,14 +527,8 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	game_plane.add_filter(filter_key, focus.filter_priority, gauss_blur_filter(focus.blur_size))
 
 
-/**
- * Lays a grille of dark rows over the picture.
- *
- * Handed a small icon, a layering filter tiles it across the plane master's own 32x32 icon space
- * rather than across the viewport, which is no use for a screen full of scanlines. So this does what
- * the fisheye does and samples a render_target that is already the size of the view, which sidesteps
- * tiling completely - the grille is drawn at full size once and read straight off.
- */
+/// Lays a grille of dark rows over the picture. Sampled off a viewport-sized render_target because a
+/// layering filter handed a raw icon tiles it across the plane's 32x32 icon space instead.
 /datum/status_effect/backrooms_distortion/scanlines
 	id = "backrooms_scanlines"
 	filter_key = "backrooms_scanlines"
@@ -569,14 +583,9 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	game_plane.add_filter(filter_key, grille.filter_priority, layering_filter(render_source = scanline_source.render_target, blend_mode = grille.scanline_blend))
 
 
-/**
- * Drags a band of tearing up the screen, like a tube that has lost vertical hold.
- *
- * wave_filter displaces along one axis as a function of the other, so a wave given only a vertical
- * wavelength shears the picture sideways in a band. Walking the offset through one full wavelength
- * on a loop is what makes that band travel. Sits last so it shears the finished picture, scanlines
- * and all, the way a real tube would.
- */
+/// Drags a band of tearing up the screen, like a tube that has lost vertical hold. A wave_filter
+/// given only a vertical wavelength shears sideways; walking its offset through one wavelength on a
+/// loop is what makes the band travel.
 /datum/status_effect/backrooms_distortion/rolling_bar
 	id = "backrooms_rolling_bar"
 	filter_key = "backrooms_rolling_bar"
@@ -602,13 +611,8 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	animate(offset = 1, time = tear.roll_time)
 
 
-/**
- * Frames the view in a tube: rounded black corners closing in, vignetting hard into every edge.
- *
- * Sampled off a viewport-sized render_target for the same reason the scanlines are - a layering
- * filter handed a raw icon tiles it across the plane master's 32x32 icon space rather than the
- * screen.
- */
+/// Frames the view in a tube: rounded black corners, vignetting into every edge. Sampled off a
+/// viewport-sized render_target for the same reason the scanlines are.
 /datum/status_effect/backrooms_distortion/crt_border
 	id = "backrooms_crt_border"
 	filter_key = "backrooms_crt_border"
@@ -663,21 +667,9 @@ GLOBAL_DATUM_INIT(backrooms_transfer, /datum/backrooms_transfer_settings, new)
 	game_plane.add_filter(filter_key, bezel.filter_priority, layering_filter(render_source = border_source.render_target, blend_mode = bezel.border_blend))
 
 
-/**
- * The three screen objects the sampled distortions read their maps off.
- *
- * clear_with_screen is the important one. A render_target only exists for as long as the object
- * carrying it is actually on screen, so the moment one of these is dropped from client.screen every
- * filter sourcing it is left pointing at a name that resolves to nothing - and BYOND fills that in
- * with the game's own icon, which is what the doubled, displaced image over the middle of the screen
- * was: the window icon being read as a displacement map.
- *
- * Dropping them is easy to do by accident. /datum/hud/show_hud() opens with client.clear_screen()
- * and rebuilds the screen from the HUD's own inventory lists, and it is called from all over the
- * codebase - mood updates, martial arts, going dextrous, a multitool. None of those fire
- * COMSIG_MOB_HUD_CREATED or COMSIG_MOB_LOGIN, so nothing here ever heard about it and nothing put
- * these back. clear_screen() honours this flag, which is precisely what it is for.
- */
+/// Screen objects the sampled distortions read their maps off.
+/// clear_with_screen is load-bearing: a render_target only exists while its object is on screen, and
+/// show_hud() clear_screen()s from all over the codebase without firing any signal we listen to.
 /atom/movable/screen/fullscreen/backrooms_render_source
 	plane = FULLSCREEN_PLANE
 	needs_offsetting = FALSE

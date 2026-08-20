@@ -408,14 +408,8 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 			// have no business being told they just packed their own bag.
 			bag?.attempt_insert(supply, user, override = TRUE, messages = FALSE)
 
-/**
- * Scales a body's game planes, which reads as the camera pushing in or pulling back out.
- *
- * Plane masters are what render the world, so scaling their transform zooms the picture without
- * touching what the client actually has loaded - unlike view_size, which snaps instantly and changes
- * what gets sent. A time of 0 lands on the scale immediately, which is how the body on the far side
- * of the transfer starts already pushed in.
- */
+/// Scales the game planes, which reads as the camera pushing in or pulling out. Unlike view_size this
+/// does not change what the client has loaded. time = 0 lands on the scale immediately.
 /datum/component/backrooms_exile/proc/zoom_planes(mob/living/body, scale, time, easing = CUBIC_EASING|EASE_OUT)
 	PRIVATE_PROC(TRUE)
 
@@ -426,14 +420,8 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	for(var/atom/movable/screen/plane_master/game_plane as anything in body_hud.get_true_plane_masters(RENDER_PLANE_GAME))
 		animate(game_plane, transform = matrix().Scale(scale), time = time, easing = easing)
 
-/**
- * Hands a body the distortions the exiled see the whole time they are down here.
- *
- * Doubles as a reassert. A distortion the body is already carrying has its filter rebuilt rather
- * than being skipped, because applying one is not the same as it being on screen - everything around
- * the transfer tears the screen down and puts it back, and an effect that was applied to a body that
- * had no HUD yet is still sitting there with nothing behind it.
- */
+/// Hands a body the distortions it wears the whole time it is down here. Doubles as a reassert: one
+/// already carried gets its filter rebuilt, since applied is not the same as on screen.
 /datum/component/backrooms_exile/proc/apply_stay_distortions(mob/living/body)
 	PRIVATE_PROC(TRUE)
 
@@ -456,20 +444,10 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 		body.apply_status_effect(distortion_type)
 
-/**
- * The arrival: already pushed all the way in, out cold on the floor, camera pulling back out as they
- * come round.
- *
- * Shared by the first transfer and by every body handed out after something down here kills them, so
- * a death reads as waking up somewhere else rather than as being cut straight to it.
- *
- * resting_dir and resting_angle are the pose of the body being left behind. Lying down picks both at
- * random on its own - a floored mob is thrown onto one of NORTH/SOUTH and rotated east or west - so
- * left alone the body they wake up in is as likely as not to be lying the opposite way round to the
- * one they left, which is a flip at exactly the moment this sequence exists to hide one.
- *
- * Sleeps for as long as the pull back out takes, so callers have to be able to sleep.
- */
+/// The arrival: already pushed in, out cold on the floor, camera pulling out as they come round.
+/// Shared by the first transfer and by every respawn after a death down here.
+/// resting_dir/resting_angle copy the pose of the body being left, since lying down picks both at
+/// random and the flip would give the swap away. Sleeps, so callers must be able to.
 /datum/component/backrooms_exile/proc/wake_into_backrooms(mob/living/body, resting_dir, resting_angle)
 	PRIVATE_PROC(TRUE)
 
@@ -705,13 +683,8 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	if(living?.client)
 		living.client.prefs.muted = original_muted
 
-/**
- * Takes the exiled back off the ambience listener list the backrooms forced them onto.
- *
- * The area's own Exited() hook cannot cover the way out that matters: the body down here is deleted
- * rather than walked out of, and by the time that fires the mind - and the client with it - has
- * already gone back to the original body, so there is nothing left there to hand back.
- */
+/// Takes the exiled back off the forced ambience listener list. The area's Exited() hook cannot do
+/// it: the body down here is deleted rather than walked out of, with the client already gone.
 /datum/component/backrooms_exile/proc/restore_ambience(mob/living/living)
 	var/client/listener = living?.client
 	if(isnull(listener))
