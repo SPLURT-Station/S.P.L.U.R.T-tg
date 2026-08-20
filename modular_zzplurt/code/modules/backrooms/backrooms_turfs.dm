@@ -19,18 +19,6 @@
 
 	baseturfs = /turf/open/indestructible/backrooms
 
-/obj/effect/mapping_helpers/backrooms_trap
-	name = "backrooms trap"
-	icon_state = "merge_conflict_marker"
-	late = TRUE
-	alpha = 0
-
-/obj/effect/mapping_helpers/backrooms_trap/LateInitialize()
-	var/turf/open/floor/floor = get_turf(src)
-	floor.AddComponent(/datum/component/backrooms_trap)
-	qdel(src)
-
-
 GLOBAL_LIST_EMPTY(backrooms_fall_points)
 
 /obj/effect/mapping_helpers/backrooms_fall_point
@@ -49,69 +37,6 @@ GLOBAL_LIST_EMPTY(backrooms_fall_points)
 /obj/effect/mapping_helpers/backrooms_fall_point/Destroy()
 	GLOB.backrooms_fall_points -= src
 	return ..()
-
-
-/datum/component/backrooms_trap
-
-	var/chance = 2
-	var/cooldown = 10 SECONDS
-	var/list/last_triggered_by_ref = list()
-
-/datum/component/backrooms_trap/Initialize(chance_percent = 2, cooldown_time = 10 SECONDS)
-	if(!isturf(parent))
-		return COMPONENT_INCOMPATIBLE
-	chance = max(0, chance_percent)
-	cooldown = max(0, cooldown_time)
-	return ..()
-
-/datum/component/backrooms_trap/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
-
-/datum/component/backrooms_trap/UnregisterFromParent()
-	. = ..()
-	UnregisterSignal(parent, COMSIG_ATOM_ENTERED)
-	last_triggered_by_ref = null
-
-/datum/component/backrooms_trap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-	if(!chance || !arrived || !isliving(arrived))
-		return
-	var/mob/living/living = arrived
-	if(living.stat & DEAD)
-		return
-	if(!living.client)
-		return
-
-	var/key = REF(living)
-	if(cooldown)
-		var/next_ok = last_triggered_by_ref?[key]
-		if(isnum(next_ok) && world.time < next_ok)
-			return
-
-	if(!prob(chance))
-		return
-
-	var/turf/target = get_backrooms_fall_turf()
-	if(!target)
-		return
-
-	if(cooldown)
-		if(!last_triggered_by_ref)
-			last_triggered_by_ref = list()
-		last_triggered_by_ref[key] = world.time + cooldown
-
-	living.visible_message(
-		span_warning("[living] suddenly slips and vanishes!"),
-		span_userdanger("The carpet gives way under your feet!")
-	)
-	living.forceMove(target)
-	living.Paralyze(1 SECONDS)
-
-/datum/component/backrooms_trap/proc/get_backrooms_fall_turf()
-	if(!length(GLOB.backrooms_fall_points))
-		return null
-	var/obj/effect/mapping_helpers/backrooms_fall_point/p = pick(GLOB.backrooms_fall_points)
-	return get_turf(p)
 
 
 /obj/machinery/light/backrooms
