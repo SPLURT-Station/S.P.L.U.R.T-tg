@@ -81,6 +81,9 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	// Original muted state of the exiled, to restore after unmuting
 	VAR_PRIVATE/original_muted = NONE
 
+	// Sight flags each concealed body had before clamp_sight() took them over, keyed by REF(body)
+	VAR_PRIVATE/list/pre_conceal_sight = list()
+
 	COOLDOWN_DECLARE(say_hallucination_cd)
 
 /datum/component/backrooms_exile/Initialize(exile_time, instant, pre_exile_time = 90 SECONDS)
@@ -121,7 +124,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	UnregisterSignal(original_body, list(COMSIG_LIVING_DEATH))
 	if(current_body && current_body != original_body)
-		UnregisterSignal(current_body, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED))
+		unsubscribe_from_body(current_body)
 
 
 /datum/component/backrooms_exile/proc/subscribe_to_body(mob/living/body)
@@ -134,7 +137,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	RegisterSignal(body, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	RegisterSignal(body, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_move))
 	RegisterSignal(body, COMSIG_MOVABLE_PRE_HEAR, PROC_REF(on_owner_pre_hear))
-	RegisterSignal(body, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(on_owner_client_login))
+	RegisterSignal(body, COMSIG_MOB_SIGHT_CHANGE, PROC_REF(on_owner_sight_change))
 
 /datum/component/backrooms_exile/proc/unsubscribe_from_body(mob/living/body)
 	PRIVATE_PROC(TRUE)
@@ -143,41 +146,39 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 		return
 
 	REMOVE_TRAIT(body, TRAIT_NO_GHOSTIZE, REF(src))
-	UnregisterSignal(body, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_PRE_HEAR, COMSIG_MOB_CLIENT_LOGIN))
+	UnregisterSignal(body, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_PRE_HEAR, COMSIG_MOB_SIGHT_CHANGE))
+	reveal_body(body)
 
+// Draws every mob in view no matter their invisibility, which would show the exiled the others.
+#define BACKROOMS_BLOCKED_SIGHT (SEE_MOBS)
+// Draws your own mob no matter your invisibility, which is how the exiled still see themselves.
+#define BACKROOMS_GRANTED_SIGHT (SEE_SELF)
+// Everything clamp_sight() is responsible for, and the only bits reveal_body() puts back.
+#define BACKROOMS_MANAGED_SIGHT (BACKROOMS_BLOCKED_SIGHT|BACKROOMS_GRANTED_SIGHT)
 
-/datum/component/backrooms_exile/proc/hide_other_bodies()
+/datum/component/backrooms_exile/proc/conceal_body(mob/living/body)
 	PRIVATE_PROC(TRUE)
 
-	var/client/owner_client = original_body.client
-	if(!owner_client)
+	if(QDELETED(body))
 		return
-	for(var/datum/component/backrooms_exile/comp as anything in GLOB.backrooms_exile_components)
-		if(comp == src)
-			continue
-		if(!comp.current_body || !comp.in_backrooms)
-			continue
-		if(comp.current_body in owner_client.screen)
-			owner_client.screen -= comp.current_body
 
-/datum/component/backrooms_exile/proc/hide_my_body()
+	pre_conceal_sight[REF(body)] = body.sight
+	body.SetInvisibility(INVISIBILITY_OBSERVER, id = REF(src))
+	body.pass_flags |= PASSMOB
+	clamp_sight(body)
+
+/datum/component/backrooms_exile/proc/reveal_body(mob/living/body)
 	PRIVATE_PROC(TRUE)
 
-	if(QDELETED(current_body))
+	if(QDELETED(body))
 		return
 
-	for(var/datum/component/backrooms_exile/comp as anything in GLOB.backrooms_exile_components)
-		if(comp == src)
-			continue
-		if(!comp.in_backrooms)
-			continue
-		if(!comp.current_body)
-			continue
-		var/client/owner_client = comp.current_body.client
-		if(!owner_client)
-			continue
-		if(current_body in owner_client.screen)
-			owner_client.screen -= current_body
+	body.RemoveInvisibility(REF(src))
+	body.pass_flags &= ~PASSMOB
+
+	var/original_sight = pre_conceal_sight[REF(body)] || NONE
+	pre_conceal_sight -= REF(body)
+	body.set_sight((body.sight & ~BACKROOMS_MANAGED_SIGHT) | (original_sight & BACKROOMS_MANAGED_SIGHT))
 
 /datum/component/backrooms_exile/process(seconds_per_tick)
 	if(exiling || transfering_mind)
@@ -276,9 +277,6 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	shake_camera(new_body, 2 SECONDS, 1)
 	sleep(2 SECONDS)
 
-	hide_other_bodies()
-	hide_my_body()
-
 	exiling = FALSE
 	message_admins("[ADMIN_LOOKUPFLW(new_body)] was transferred into the backrooms!")
 
@@ -310,6 +308,9 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 		copy_equipped_clothing(OH, H, OH.glasses, ITEM_SLOT_EYES)
 		copy_equipped_clothing(OH, H, OH.ears, ITEM_SLOT_EARS)
 		copy_equipped_clothing(OH, H, OH.back, ITEM_SLOT_BACK)
+
+	// Done here, while the body is still in nullspace, so it never renders for anyone.
+	conceal_body(new_body)
 
 	return new_body
 
@@ -401,9 +402,6 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	saved_mind.transfer_to(new_body, TRUE)
 	spawn_equipment(new_body)
 
-	hide_other_bodies()
-	hide_my_body()
-
 	transfering_mind = FALSE
 	qdel(old_body)
 
@@ -461,16 +459,26 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 		COOLDOWN_START(src, say_hallucination_cd, rand(10 SECONDS, 45 SECONDS))
 	return COMSIG_MOVABLE_CANCEL_HEARING
 
-/datum/component/backrooms_exile/proc/on_owner_client_login(mob/living/owner, client)
+/datum/component/backrooms_exile/proc/clamp_sight(mob/living/body)
+	PRIVATE_PROC(TRUE)
+
+	var/desired_sight = (body.sight & ~BACKROOMS_BLOCKED_SIGHT) | BACKROOMS_GRANTED_SIGHT
+	if(body.sight == desired_sight)
+		return
+
+	body.set_sight(desired_sight)
+
+/datum/component/backrooms_exile/proc/on_owner_sight_change(mob/living/owner, new_sight, old_sight)
 	SIGNAL_HANDLER
 
-	if(exiling || transfering_mind || !in_backrooms)
+	if(owner != current_body || !in_backrooms)
 		return
 
-	if(owner != current_body)
-		return
+	clamp_sight(owner)
 
-	hide_other_bodies()
+#undef BACKROOMS_BLOCKED_SIGHT
+#undef BACKROOMS_GRANTED_SIGHT
+#undef BACKROOMS_MANAGED_SIGHT
 
 
 /datum/component/backrooms_exile/proc/on_original_body_death(mob/living/body, gibbed)
