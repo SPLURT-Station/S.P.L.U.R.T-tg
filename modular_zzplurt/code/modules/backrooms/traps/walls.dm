@@ -4,8 +4,9 @@
 	icon = 'modular_zzplurt/icons/effects/backrooms.dmi'
 	icon_state = "wallgen"
 	late = TRUE
-	alpha = 0
-
+	alpha = 255
+	invisibility = INVISIBILITY_ABSTRACT
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/wall_type = /turf/closed/indestructible/backrooms
 	var/floor_type = /turf/open/indestructible/backrooms
@@ -112,6 +113,10 @@
 		return
 	if(our_turf.type == wall_type)
 		return
+	for(var/mob/living/L in view(8, src))
+		if(L && !QDELETED(L) && L.stat != DEAD)
+			addtimer(CALLBACK(src, PROC_REF(deploy_wall)), 1 SECONDS)
+			return
 	our_turf.ChangeTurf(wall_type)
 	deployed = TRUE
 	addtimer(CALLBACK(src, PROC_REF(remove_wall)), time_before_remove)

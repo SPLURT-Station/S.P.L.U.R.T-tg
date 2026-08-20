@@ -130,5 +130,18 @@
 	name = "Dreamgate research disk"
 
 /obj/item/disk/tech_disk/basic_dreamgate/Initialize(mapload)
-	stored_research = new /datum/techweb_node/dreamgate_basic()
+	stored_research = locate(/datum/techweb/dreamgate) in SSresearch.techwebs
+	if(!stored_research)
+		stored_research = new /datum/techweb/dreamgate()
 	. = ..()
+
+
+/datum/techweb/dreamgate
+	id = "DREAMGATE"
+	organization = "Somnium dream research"
+
+/datum/techweb/dreamgate/New()
+	. = ..()
+	var/datum/techweb_node/dreamgate_basic/TN = locate(/datum/techweb_node/dreamgate_basic) in SSresearch.techweb_nodes
+	research_node(TN, TRUE, TRUE, FALSE)
+
