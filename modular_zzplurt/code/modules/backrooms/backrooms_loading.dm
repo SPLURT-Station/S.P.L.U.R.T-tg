@@ -86,7 +86,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	COOLDOWN_DECLARE(say_hallucination_cd)
 
-/datum/component/backrooms_exile/Initialize(exile_time, instant, pre_exile_time = 90 SECONDS)
+/datum/component/backrooms_exile/Initialize(exile_time, instant, pre_exile_time = 90 SECONDS, skip_intro = FALSE)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -100,7 +100,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	time_to_exile = pre_exile_time
 
 	if(instant)
-		addtimer(CALLBACK(src, PROC_REF(exile)), 1)
+		addtimer(CALLBACK(src, PROC_REF(exile), skip_intro), 1)
 
 	GLOB.backrooms_exile_components += src
 
@@ -222,7 +222,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 			to_chat(original_body, span_warning("Something brushes against your mind, but you can't see it."))
 
 
-/datum/component/backrooms_exile/proc/exile()
+/datum/component/backrooms_exile/proc/exile(skip_intro)
 	if(exiling || in_backrooms)
 		return
 
@@ -233,9 +233,11 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	mute_mob(original_body)
 	exiling = TRUE
 
-	to_chat(original_body, span_userdanger("You feel as though the earth shakes under your feet, and you are being pulled into the void!"))
-	original_body.Shake()
-	shake_camera(original_body, 2 SECONDS, 1)
+	if(skip_intro)
+		to_chat(original_body, span_userdanger("You feel as though the earth shakes under your feet, and you are being pulled into the void!"))
+		original_body.Shake()
+		shake_camera(original_body, 2 SECONDS, 1)
+	original_body.client.view_size.setTo(1)
 	sleep(2 SECONDS)
 
 	if(QDELETED(src) || QDELETED(original_body))
@@ -273,7 +275,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 	spawn_equipment(new_body)
 	transfering_mind = FALSE
-
+	current_body.client.view_size.resetToDefault()
 	shake_camera(new_body, 2 SECONDS, 1)
 	sleep(2 SECONDS)
 
@@ -316,7 +318,7 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 
 
 /datum/component/backrooms_exile/proc/copy_equipped_clothing(mob/living/carbon/human/source, mob/living/carbon/human/target, obj/item/I, slot)
-	if(!I || QDELETED(I) || QDELETED(target))
+	if(!I || QDELETED(I) || QDELETED(target) || HAS_TRAIT(I, TRAIT_NO_COPY_IN_BACKROOMS))
 		return
 
 	var/obj/item/copy = new I.type(target)
@@ -414,6 +416,20 @@ ADMIN_VERB(load_backrooms, R_FUN, "Load the backrooms", "Loads the backrooms map
 	if(owner != current_body || !in_backrooms)
 		return
 
+	var/datum/component/dreamgate_visitor/visit_comp = original_body.GetComponent(/datum/component/dreamgate_visitor)
+	if(visit_comp)
+		if(visit_comp.deaths_in_dream <= 0)
+			visit_comp.deaths_in_dream = 1
+
+			if(ishuman(original_body))
+				var/mob/living/carbon/human/H = original_body
+				var/obj/item/clothing/head/dreamviewer/DV = H.head
+				if(istype(DV, /obj/item/clothing/head/dreamviewer))
+					return_to_original()
+					DV.close_dreamgate(H)
+					SEND_SOUND(H, sound('sound/effects/health/fastbeat.ogg', channel = CHANNEL_HEARTBEAT, volume = 40))
+
+		visit_comp.deaths_in_dream += 1
 	addtimer(CALLBACK(src, PROC_REF(spawn_replacement_body)), 1)
 
 

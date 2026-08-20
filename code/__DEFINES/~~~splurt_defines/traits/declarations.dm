@@ -126,3 +126,5 @@
 #define TRAIT_NO_GHOSTIZE "no_ghostize"
 // Blocks mob/living from being put into cryosleep
 #define TRAIT_NO_CRYOSLEEP "no_cryosleep"
+// Prevent item from being copied into the backrooms
+#define TRAIT_NO_COPY_IN_BACKROOMS "no_copy_in_backrooms"
