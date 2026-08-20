@@ -796,7 +796,10 @@ function getCookie(cname) {
   return "";
 }
 
-function add_verb_list(payload) {
+// allow_duplicates lets a sender push several entries sharing one name, which the verb dedupe
+// below would otherwise collapse into a single button. Off unless asked for, so normal verb
+// pushes still get deduplicated.
+function add_verb_list(payload, allow_duplicates) {
   var to_add = payload; // list of a list with category and verb inside it
   to_add.sort(); // sort what we're adding
   for (var i = 0; i < to_add.length; i++) {
@@ -808,7 +811,7 @@ function add_verb_list(payload) {
       if (split_admin_tabs && splitName[0] === "Admin") category = splitName[1];
       else category = splitName[0];
     }
-    if (findVerbindex(part[1], verbs)) continue;
+    if (!allow_duplicates && findVerbindex(part[1], verbs)) continue;
     if (verb_tabs.includes(category)) {
       verbs.push(part);
       if (current_tab == category) {
@@ -889,13 +892,23 @@ Byond.subscribeTo("init_verbs", function (payload) {
     do_update = true;
   }
   if (payload.verblist) {
-    add_verb_list(payload.verblist);
+    add_verb_list(payload.verblist, payload.allow_duplicates);
     sortVerbs(); // sort them
     if (do_update) {
       draw_verbs(current_tab);
     }
   }
   SendTabsToByond();
+});
+
+// Lets BYOND drag the panel onto a tab of its choosing, rather than only ever following the user.
+// Ignores tabs that do not exist, so a stale or misspelled name cannot strand the panel on nothing.
+Byond.subscribeTo("set_tab", function (payload) {
+  var tab = payload.tab;
+  if (!tab || !(verb_tabs.includes(tab) || permanent_tabs.includes(tab))) {
+    return;
+  }
+  tab_change(tab);
 });
 
 Byond.subscribeTo("update_stat", function (payload) {
