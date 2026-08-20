@@ -142,6 +142,12 @@
 
 /datum/techweb/dreamgate/New()
 	. = ..()
-	var/datum/techweb_node/dreamgate_basic/TN = locate(/datum/techweb_node/dreamgate_basic) in SSresearch.techweb_nodes
-	research_node(TN, TRUE, TRUE, FALSE)
+
+	var/node_id = /datum/techweb_node/dreamgate_basic::id
+
+	var/datum/techweb_node/dreamgate_node = SSresearch.techweb_nodes[node_id]
+	if(isnull(dreamgate_node))
+		stack_trace("dreamgate techweb built before SSresearch knew [node_id] - the disk will be blank")
+		return
+	research_node(dreamgate_node, TRUE, FALSE, FALSE)
 
