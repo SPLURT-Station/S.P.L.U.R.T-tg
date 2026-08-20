@@ -128,4 +128,7 @@
 
 /obj/item/disk/tech_disk/basic_dreamgate
 	name = "Dreamgate research disk"
-	stored_research = /datum/techweb_node/dreamgate_basic
+
+/obj/item/disk/tech_disk/basic_dreamgate/Initialize(mapload)
+	stored_research = new /datum/techweb_node/dreamgate_basic()
+	. = ..()

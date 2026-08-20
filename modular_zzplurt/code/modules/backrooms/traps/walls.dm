@@ -35,7 +35,6 @@
 
 
 /obj/effect/mapping_helpers/wall_generator/LateInitialize()
-	. = ..()
 	if(!group)
 		find_or_create_group()
 	subscribe_to_turf(get_turf(src))
