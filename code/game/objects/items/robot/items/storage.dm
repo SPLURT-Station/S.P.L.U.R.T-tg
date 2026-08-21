@@ -28,6 +28,7 @@
 /obj/item/borg/apparatus/Exited(atom/movable/gone, direction)
 	if(gone == stored) //sanity check
 		UnregisterSignal(stored, COMSIG_ATOM_UPDATED_ICON)
+		modify_appearance(stored, FALSE) // SPLURT EDIT - CYBORGS - Reverting to original appearance
 		stored = null
 	update_appearance()
 	return ..()

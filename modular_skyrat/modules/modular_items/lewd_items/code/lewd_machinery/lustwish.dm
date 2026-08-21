@@ -98,7 +98,7 @@
 				//clothing facial/head
 				/obj/item/clothing/mask/ballgag = 8,
 				/obj/item/clothing/mask/ballgag/choking = 8,
-				/obj/item/clothing/mask/muzzle/ring = 4,
+				/obj/item/clothing/mask/ballgag/ring = 8, // SPLURT EDIT - Use new ring class
 				/obj/item/clothing/head/deprivation_helmet = 5,
 				/obj/item/clothing/glasses/blindfold/kinky = 5,
 				/obj/item/clothing/ears/kinky_headphones = 5,

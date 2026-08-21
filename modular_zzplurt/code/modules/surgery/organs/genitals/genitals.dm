@@ -19,7 +19,7 @@
 	. -= layer_offset
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	layer += layer_offset
+	layer = round(layer + layer_offset)
 	. = ..()
 
 /datum/bodypart_overlay/mutant/genital/penis

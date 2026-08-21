@@ -169,9 +169,15 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(isnull(infile)) // sometimes this fails, thank you BYOND
 		to_chat(user, span_warning("Error, could not upload."))
 		return
+	if(length("[infile]") < length("a.ogg")) // minimum supported filename
+		to_chat(user, span_warning("Error, filename too short."))
+		return
+	if(length("[infile]") > 256) // maximum supported filename
+		to_chat(user, span_warning("Error, filename too long."))
+		return
 	var/file_extension = LOWER_TEXT(copytext("[infile]", -4))
 	if(!(file_extension == ".ogg" || file_extension == ".mp3"))
-		to_chat(user, span_warning("File type must be OGG or MP3: [infile]"))
+		to_chat(user, span_warning("File type must be OGG or MP3: [sanitize("[infile]")]"))
 		return
 	var/filelength = length(infile)
 	if(radio_mode && filelength > 3242880) // radio broadcasting has a tighter file size limit
@@ -179,6 +185,9 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		return
 	if(filelength > 6485760)
 		to_chat(user, span_warning("Error: Too big, 6MB or less!"))
+		return
+	if(filelength < 4096)
+		to_chat(user, span_warning("Error: Not a valid OOG or MP3!"))
 		return
 
 	GLOB.ipod_last_upload = world.time
@@ -195,6 +204,13 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		return
 
 	lastfilechange = world.time
+	var/sound_length = SSsounds.get_sound_length(logged_filename) // this uses the rust-g library to check if file is valid
+	if(isnull(sound_length) || sound_length <= 20) // either an invalid file or 2 seconds or less, abort
+		to_chat(user, span_warning("The song codec was invalid, aborting!"))
+		user.log_message("uploaded an invalid song: [logged_filename]", LOG_GAME)
+		log_admin("[key_name(user)] attempted to upload an corrupted song to their headphones. The source filename was '[sanitize("[infile]")]'.")
+		fdel(logged_filename)
+		return
 	var/uploaded_song = file(logged_filename)
 	if(!uploaded_song || !fexists(uploaded_song))
 		to_chat(user, span_warning("Upload failed to finish, aborting!"))
@@ -203,12 +219,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(length(uploaded_song) != filelength)
 		to_chat(user, span_warning("Upload failed to finish, aborting!"))
 		user.log_message("attempted to upload a song: [logged_filename]", LOG_GAME)
-		fdel(logged_filename)
-		return
-	var/sound_length = SSsounds.get_sound_length(uploaded_song) // this uses the rust-g library to check if file is valid
-	if(isnull(sound_length) || sound_length <= 20) // either an invalid file or 2 seconds or less, abort
-		to_chat(user, span_warning("The song codec was invalid, aborting!"))
-		user.log_message("uploaded an invalid song: [logged_filename]", LOG_GAME)
+		log_admin("[key_name(user)] attempted to upload an incomplete song to their headphones. The source filename was '[sanitize("[infile]")]'.")
 		fdel(logged_filename)
 		return
 	if(loc != user) // headphones no longer on mob, abort
@@ -227,6 +238,10 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		to_chat(user, span_warning("The song is now broadcasting on [get_radio_name()]!"))
 		user.log_message("uploaded a song to headphones broadcast [get_radio_name()]: [logged_filename]", LOG_GAME)
 
+	if(playing && !isnull(music_player.active_song_sound)) // check again after uploading
+		music_player.unlisten_all()
+		playing = FALSE
+
 	curfile = uploaded_song
 	var/datum/track/new_song = new()
 	new_song.song_name = "custom track"
@@ -239,7 +254,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(other_ipod_ref)
 		var/obj/item/clothing/ears/ipod/other_ipod = other_ipod_ref.resolve()
 		if(!QDELETED(other_ipod) && istype(other_ipod)) // other headphones ref is valid, stop playing and update their song info
-			other_ipod.stop_other_headphones()
+			stop_other_headphones()
 			var/datum/track/new_song_other = new()
 			new_song_other.song_name = current_song.song_name
 			new_song_other.song_path = current_song.song_path
@@ -282,7 +297,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 			if(other_ipod.is_worn)
 				var/mob/living/carbon/human/wearer = other_ipod.loc
 				if(istype(wearer))
-					if(isnull(wearer?.mind))
+					if(isnull(wearer?.mind) || wearer.stat != CONSCIOUS)
 						continue
 					other_ipod.playing = TRUE
 					other_ipod.music_player.start_music(wearer)
@@ -351,7 +366,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!istype(wearer))
 		return
 	wearer.log_message("was shared a song by [user] on headphones: [curfile]", LOG_GAME)
-	if(isnull(wearer?.mind))
+	if(isnull(wearer?.mind) || wearer.stat != CONSCIOUS)
 		return
 	if(other_ipod.playing && !isnull(other_ipod.music_player.active_song_sound))
 		other_ipod.music_player.unlisten_all()

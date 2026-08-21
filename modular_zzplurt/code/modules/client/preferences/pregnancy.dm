@@ -74,13 +74,6 @@
 	savefile_key = "pregnancy_cryptic"
 	default_value = FALSE
 
-/// If enabled, eggs from pregnancy will be inert
-/datum/preference/toggle/pregnancy/inert
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_inert"
-	default_value = TRUE
-
 /// If enabled, pregnancy makes your belly become bigger
 /datum/preference/toggle/pregnancy/belly_inflation
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES

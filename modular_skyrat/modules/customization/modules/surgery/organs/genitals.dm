@@ -110,8 +110,9 @@
 
 
 /datum/bodypart_overlay/mutant/genital/get_color_layer_names(icon_state_to_lookup)
-	if(length(sprite_datum.color_layer_names))
-		return sprite_datum.color_layer_names
+	// SPLURT EDIT - Fix bad caching causing layers to sometimes not work
+	// if(length(sprite_datum.color_layer_names))
+	//	return sprite_datum.color_layer_names
 
 	sprite_datum.color_layer_names = list()
 	if (!SSaccessories.cached_mutant_icon_files[sprite_datum.icon])

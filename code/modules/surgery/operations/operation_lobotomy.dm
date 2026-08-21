@@ -52,6 +52,16 @@
 	else if (organ.brainmob)
 		organ.brainmob.mind?.remove_antag_datum(/datum/antagonist/brainwashed)
 
+	// SPLURT EDIT START
+
+	// the idea behind this is to add a version of neurectomies to the system because in the update they were completely removed
+	if (organ.owner?.reagents?.has_reagent(/datum/reagent/medicine/neurine)) // if neurine exists, it simulates the neurectomy by removing the chance of gaining a trauma from a lobotomy
+		if(organ.owner?.reagents?.has_reagent(/datum/reagent/water/holywater)) // if holy water + neurine exists, it heals soulbound traumas
+			organ.cure_all_traumas(TRAUMA_RESILIENCE_MAGIC)
+		return
+
+	// SPLURT EDIT END
+
 	if(!prob(75))
 		return
 

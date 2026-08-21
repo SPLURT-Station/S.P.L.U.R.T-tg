@@ -65,6 +65,7 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/head/hats/warden(src)
 	new /obj/item/clothing/head/hats/warden/red(src)
+	new /obj/item/clothing/head/beret/sec/splurt/warden(src)
 	new /obj/item/clothing/head/hats/warden/drill(src)
 	new /obj/item/clothing/head/security_garrison/warden(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)

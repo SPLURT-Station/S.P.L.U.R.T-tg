@@ -10,3 +10,10 @@
 	donator_only = FALSE
 	restricted_roles = list(ALL_JOBS_ENGINEERING)
 	ckeywhitelist = list("fabricatorgeneral")
+
+/datum/loadout_item/gloves/combat_gloves/donor
+	name = "Modified Combat Gloves"
+	item_path = /obj/item/clothing/gloves/combat/donor
+	donator_only = FALSE
+	restricted_roles = list(ALL_JOBS_ENGINEERING, JOB_ROBOTICIST)
+	ckeywhitelist = list("vanilla1040")
