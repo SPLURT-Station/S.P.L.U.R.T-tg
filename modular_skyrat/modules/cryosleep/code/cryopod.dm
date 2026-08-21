@@ -214,6 +214,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/close_machine(atom/movable/target, density_to_set = TRUE)
 	if(!control_computer_weakref)
 		find_control_computer(TRUE)
+	if(HAS_TRAIT(target, TRAIT_NO_CRYOSLEEP))
+		target.visible_message(span_userdanger("[target] cannot enter cryo sleep!"))
+		return
 	if((isnull(target) || isliving(target)) && state_open && !panel_open)
 		state_open = FALSE
 		set_density(density_to_set)

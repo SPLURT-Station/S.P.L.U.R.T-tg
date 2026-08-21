@@ -119,3 +119,11 @@
 
 /// Trait that makes you unable to get pregnant, make people pregnant, and triggers abortions too
 #define TRAIT_INFERTILE "pregnancy_infertile"
+
+/// Backrooms realted traits
+// Block client from being ghostized in any possible way
+#define TRAIT_NO_GHOSTIZE "no_ghostize"
+// Blocks mob/living from being put into cryosleep
+#define TRAIT_NO_CRYOSLEEP "no_cryosleep"
+// Prevent item from being copied into the backrooms
+#define TRAIT_NO_COPY_IN_BACKROOMS "no_copy_in_backrooms"
