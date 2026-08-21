@@ -19,5 +19,3 @@
 #define PREFERENCE_CATEGORY_CHARACTER_BASICS "character_basics"
 /// OOC per-character preferences e.g. character advert, ERP status
 #define PREFERENCE_CATEGORY_OOC_PREFS "ooc_preferences"
-/// Preferences that only apply to AI and cyborgs
-#define PREFERENCE_CATEGORY_SILICON_PREFS "silicon_preferences"

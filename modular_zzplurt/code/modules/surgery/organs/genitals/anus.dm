@@ -17,3 +17,17 @@
 
 /datum/bodypart_overlay/mutant/genital/anus
 	layers = EXTERNAL_FRONT
+
+/datum/bodypart_overlay/mutant/genital/anus/get_image(image_layer, obj/item/bodypart/limb)
+	if(!sprite_datum)
+		CRASH("Trying to call get_image() on [type] while it didn't have a sprite_datum. This shouldn't happen, report it as soon as possible.")
+
+	var/gender = limb?.limb_gender || "m"
+	var/list/icon_state_builder = list()
+	icon_state_builder += sprite_datum.gender_specific ? gender : "m"
+	icon_state_builder += feature_key
+	icon_state_builder += get_base_icon_state()
+	icon_state_builder += mutant_bodyparts_layertext(image_layer)
+	icon_state_builder += "primary"
+
+	return mutable_appearance(sprite_datum.icon, icon_state_builder.Join("_"), layer = image_layer)

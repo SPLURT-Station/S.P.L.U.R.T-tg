@@ -367,26 +367,35 @@
 			return TRUE
 
 		if("toggle_genital_arousal")
-			if(!ishuman(user))
-				return FALSE
-			var/obj/item/organ/genital/genital = user.get_organ_slot(params["genital"])
-			if(!genital || !istype(genital) || genital.aroused == AROUSAL_CANT)
-				return FALSE
-
-			//SPLURT ADDITION START
-			if(genital.slot == ORGAN_SLOT_PENIS)
-				var/lock_mode = GLOB.mkultra_arousal_locks[user]
-				if(lock_mode == "hard" || lock_mode == "limp")
-					return FALSE
-			//SPLURT ADDITION END
 			var/arousal = params["arousal"]
 			if(!(arousal in list(AROUSAL_NONE, AROUSAL_PARTIAL, AROUSAL_FULL)))
 				return FALSE
 
-			genital.aroused = arousal
-			genital.update_sprite_suffix()
-			user.update_body()
-			return TRUE
+			if(ishuman(user))
+				var/obj/item/organ/genital/genital = user.get_organ_slot(params["genital"])
+				if(!genital || !istype(genital) || genital.aroused == AROUSAL_CANT)
+					return FALSE
+
+				//SPLURT ADDITION START
+				if(genital.slot == ORGAN_SLOT_PENIS)
+					var/lock_mode = GLOB.mkultra_arousal_locks[user]
+					if(lock_mode == "hard" || lock_mode == "limp")
+						return FALSE
+				//SPLURT ADDITION END
+
+				genital.aroused = arousal
+				genital.update_sprite_suffix()
+				user.update_body()
+				return TRUE
+
+			if(iscyborg(user))
+				var/mob/living/silicon/robot/cyborg_user = user
+				var/organ_slot = params["genital"]
+				if(!(organ_slot in cyborg_user.get_toggleable_cyborg_genitals()))
+					return FALSE
+				return cyborg_user.set_cyborg_genital_arousal_state(organ_slot, arousal)
+
+			return FALSE
 
 		if("toggle_genital_accessibility")
 			if(!ishuman(user))
@@ -399,11 +408,17 @@
 			return TRUE
 
 		if("toggle_genital_active")
-			if(ishuman(user))
-				return FALSE
 			var/genital_name = params["genital"]
 			if(!genital_name)
 				return FALSE
+
+			if(iscyborg(user))
+				var/mob/living/silicon/robot/cyborg_user = user
+				return cyborg_user.toggle_cyborg_genital_visibility(genital_name)
+
+			if(ishuman(user))
+				return FALSE
+
 			user.simulated_genitals[genital_name] = !user.simulated_genitals[genital_name]
 			return TRUE
 

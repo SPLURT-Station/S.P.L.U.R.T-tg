@@ -4,6 +4,12 @@
  */
 /mob/living/silicon/proc/get_silicon_flavortext()
 	. = list()
+	//SPLURT ADDITION START
+	if(iscyborg(src))
+		var/mob/living/silicon/robot/cyborg = src
+		if(cyborg.has_visible_cyborg_genitals())
+			. += span_notice("[p_They()] [p_have()] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a>")
+	//SPLURT ADDITION END
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's client's silicon_flavor_text preference datum. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
 	var/silicon_preview_text = copytext_char((client?.prefs.read_preference(/datum/preference/text/silicon_flavor_text)), 1, FLAVOR_PREVIEW_LIMIT)

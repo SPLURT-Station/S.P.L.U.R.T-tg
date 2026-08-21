@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const resilient_traumas_permanent_traumas: FeatureToggle = {
   name: 'Permanent Traumas',

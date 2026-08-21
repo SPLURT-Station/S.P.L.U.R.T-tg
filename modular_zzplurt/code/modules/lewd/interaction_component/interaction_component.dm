@@ -195,13 +195,28 @@
 				)
 				genital_list += list(genital_data)
 	else
-		for(var/organ in user.simulated_genitals)
-			var/list/genital_data = list(
-				"name" = organ,
-				"active" = user.simulated_genitals[organ],
-				"is_simple" = TRUE  // New flag to indicate simple active/inactive display
-			)
-			genital_list += list(genital_data)
+		if(iscyborg(user))
+			var/mob/living/silicon/robot/cyborg_user = user
+			for(var/organ in cyborg_user.get_toggleable_cyborg_genitals())
+				var/can_arouse = cyborg_user.can_cyborg_genital_arouse(organ)
+				var/arousal_state = cyborg_user.get_cyborg_genital_arousal_state(organ)
+				var/list/genital_data = list(
+					"name" = organ,
+					"slot" = organ,
+					"active" = !!user.simulated_genitals[organ],
+					"is_simple" = TRUE,
+					"can_arouse" = can_arouse,
+					"aroused" = arousal_state,
+				)
+				genital_list += list(genital_data)
+		else
+			for(var/organ in user.simulated_genitals)
+				var/list/genital_data = list(
+					"name" = organ,
+					"active" = user.simulated_genitals[organ],
+					"is_simple" = TRUE  // New flag to indicate simple active/inactive display
+				)
+				genital_list += list(genital_data)
 	.["genitals"] = genital_list
 
 	// Auto interaction stuff

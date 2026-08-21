@@ -92,6 +92,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/Destroy(force)
 	QDEL_NULL(character_preview_view)
+	cyborg_character_cleanup_state()
 	QDEL_LIST(middleware)
 	value_cache = null
 	//SKYRAT EDIT ADDITION
@@ -240,6 +241,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	switch (action)
 		if ("change_slot")
+			commit_middleware_ui_state(usr)
 			// Save existing character
 			save_character()
 			// SKYRAT EDIT START - Sanitizing languages
@@ -253,6 +255,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			remove_current_slot()
 			return TRUE
 		if ("duplicate_current_slot") //BUBBER ADDITION START - Character duplication
+			commit_middleware_ui_state(usr)
 			save_character()
 			if(sanitize_languages())
 				save_character()
@@ -393,9 +396,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return FALSE
 
 /datum/preferences/ui_close(mob/user)
+	commit_middleware_ui_state(user)
 	save_character()
 	save_preferences()
 	QDEL_NULL(character_preview_view)
+	cyborg_character_cleanup_state()
 
 /datum/preferences/Topic(href, list/href_list)
 	. = ..()

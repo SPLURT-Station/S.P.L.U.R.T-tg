@@ -9,7 +9,6 @@ import {
   Floating,
   Input,
   LabeledList,
-  NoticeBox,
   Section,
   Stack,
 } from 'tgui-core/components';
@@ -18,6 +17,10 @@ import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
 import { SideDropdown } from '../../../bubber_components/SideDropdown'; // BUBBER EDIT ADDITION
+import {
+  CYBORG_CHARACTER_PREFS,
+  filterOutCyborgPrefs,
+} from '../../../splurt_components/character_preferences';
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { PageButton } from '../components/PageButton'; // BUBBER EDIT ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
@@ -491,23 +494,21 @@ export function MainPage(props: MainPageProps) {
   const currentSpeciesData =
     serverData?.species[data.character_preferences.misc.species];
 
-  const contextualPreferences =
-    data.character_preferences.secondary_features || [];
+  const contextualPreferences = filterOutCyborgPrefs(
+    data.character_preferences.secondary_features || {},
+  );
 
   // BUBBER EDIT ADDITION BEGIN: more character setup tabs
   const characterBasicsPreferences =
     data.character_preferences.character_basics || [];
 
   const oocPrefPreferences = data.character_preferences.ooc_preferences || [];
-
-  const siliconPreferences =
-    data.character_preferences.silicon_preferences || [];
   // BUBBER EDIT ADDITION END: more character setup tabs
 
   const mainFeatures = [
     ...Object.entries(data.character_preferences.clothing ?? {}),
     ...Object.entries(data.character_preferences.features ?? {}),
-  ];
+  ].filter(([key]) => !CYBORG_CHARACTER_PREFS.has(key));
 
   const randomBodyEnabled =
     data.character_preferences.non_contextual.random_body !==
@@ -519,9 +520,9 @@ export function MainPage(props: MainPageProps) {
     randomBodyEnabled,
   );
 
-  const nonContextualPreferences = {
+  const nonContextualPreferences = filterOutCyborgPrefs({
     ...data.character_preferences.non_contextual,
-  };
+  });
 
   if (randomBodyEnabled) {
     nonContextualPreferences.random_species =
@@ -538,7 +539,6 @@ export function MainPage(props: MainPageProps) {
     Visual, // The visual parts
     Lore, // Lore, Flavor Text, Age, Records
     OOCPref, // OOC preferences
-    Silicon, // Silicon prefs
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.CharBasics);
@@ -595,25 +595,6 @@ export function MainPage(props: MainPageProps) {
           preferences={oocPrefPreferences}
           maxHeight="auto"
         />
-      );
-      break;
-    case PrefPage.Silicon:
-      prefPageContents = (
-        <>
-          <NoticeBox info>
-            This tab is for preferences that only apply when playing the AI or
-            Cyborg jobs!
-          </NoticeBox>
-          <PreferenceList
-            randomizations={getRandomization(
-              siliconPreferences,
-              serverData,
-              randomBodyEnabled,
-            )}
-            preferences={siliconPreferences}
-            maxHeight="auto"
-          />
-        </>
       );
       break;
     default:
@@ -801,15 +782,6 @@ export function MainPage(props: MainPageProps) {
                   setPage={setCurrentPrefPage}
                 >
                   OOC Preferences
-                </PageButton>
-              </Stack.Item>
-              <Stack.Item grow={2}>
-                <PageButton
-                  currentPage={currentPrefPage}
-                  page={PrefPage.Silicon}
-                  setPage={setCurrentPrefPage}
-                >
-                  Silicon Preferences
                 </PageButton>
               </Stack.Item>
             </Stack>

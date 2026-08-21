@@ -690,6 +690,7 @@
 		/obj/item/holosign_creator/security,
 		/obj/item/extinguisher/mini,
 	)
+	emag_modules = null
 	radio_channels = list(RADIO_CHANNEL_SECURITY)
 	emag_modules = list()
 	cyborg_base_icon = "sec"

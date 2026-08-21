@@ -22,6 +22,8 @@ type NameWithKey = {
   name: Name;
 };
 
+const HIDDEN_MULTI_NAME_KEYS = new Set(['cyborg_name']);
+
 function binaryInsertName(
   collection: NameWithKey[],
   value: NameWithKey,
@@ -49,6 +51,10 @@ export function MultiNameInput(props: MultiNameProps) {
   const namesIntoGroups: Record<string, NameWithKey[]> = {};
 
   for (const [key, name] of Object.entries(data.names.types)) {
+    if (HIDDEN_MULTI_NAME_KEYS.has(key)) {
+      continue;
+    }
+
     namesIntoGroups[name.group] = binaryInsertName(
       namesIntoGroups[name.group] || [],
       {
