@@ -30,9 +30,7 @@
 #define PREGNANCY_FLAG_CRYPTIC (1 << 0)
 /// Pregnancy will inflate your belly
 #define PREGNANCY_FLAG_BELLY_INFLATION (1 << 1)
-/// Pregnancy will not create live eggs
-#define PREGNANCY_FLAG_INERT (1 << 2)
 /// Pregnancy will cause nausea effects
-#define PREGNANCY_FLAG_NAUSEA (1 << 3)
+#define PREGNANCY_FLAG_NAUSEA (1 << 2)
 
 #define PREGNANCY_FLAGS_DEFAULT (PREGNANCY_FLAG_BELLY_INFLATION)

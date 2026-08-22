@@ -15,7 +15,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Add new quirk verb
-	add_verb(quirk_mob,/mob/living/proc/alterlimbs)
+	ASSIGN_GAME_VERB(quirk_mob, /mob/living, alterlimbs)
 
 	// Add limb modification traits
 	quirk_mob.add_traits(list(
@@ -35,7 +35,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Remove quirk verb
-	remove_verb(quirk_mob,/mob/living/proc/alterlimbs)
+	UNASSIGN_GAME_VERB(quirk_mob, /mob/living, alterlimbs)
 
 	// Remove limb modification traits
 	quirk_mob.remove_traits(list(
@@ -95,13 +95,7 @@
 	playsound(cast_on, 'sound/effects/cartoon_sfx/cartoon_pop.ogg', 70)
 
 // New verb to alter limbs
-/mob/living/proc/alterlimbs()
-	// Verb definitions
-	set name = "Alter Limbs"
-	set desc = "Remove or attach a limb!"
-	set category = "IC"
-	set src in view(usr.client)
-
+GAME_VERB_PROC_SRC_DESC(/mob/living, alterlimbs, view(usr.client), "Alter Limbs", "Remove or attach a limb!", "IC")
 	// Define mobs involved
 	var/mob/living/carbon/human/mob_initiator = usr
 	var/mob/living/carbon/human/mob_target = src

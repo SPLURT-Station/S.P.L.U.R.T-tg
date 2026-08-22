@@ -332,3 +332,7 @@
 	)
 	return ..()
 
+#undef COLORMATE_TINT
+#undef COLORMATE_HSV
+#undef COLORMATE_MATRIX
+

@@ -5,3 +5,6 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN "Nanotrasen Private Security Captain"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
 #define JOB_NANOTRASEN_LIEUTENANT "Nanotrasen Lieutenant"
+
+#define SEC_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Paraplegic" = TRUE, "Hemiplegic" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Nerve Stapled" = TRUE, "Common Second Language" = TRUE, "Echolocation" = TRUE, "Clumsy" = TRUE
+#define HEAD_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Common Second Language" = TRUE, "Clumsy" = TRUE

@@ -115,11 +115,9 @@
 	return .
 
 //Some various overrides to allow for secborgs to have ammo counter huds for their tazer
-/datum/hud/robot/New(mob/owner)
+/datum/hud/robot/initialize_screen_objects()
 	. = ..()
-	if(!ammo_counter)
-		ammo_counter = new /atom/movable/screen/ammo_counter(null, src)
-		infodisplay += ammo_counter
+	add_screen_object(/atom/movable/screen/ammo_counter, HUD_MOB_AMMO_COUNTER, HUD_GROUP_INFO)
 
 /datum/component/secborg_ammo_hud
 	/// The ammo counter screen object itself.
@@ -149,14 +147,15 @@
 		secborg_turn_off()
 		return
 
-	if(robot_user.hud_used)
-		hud = robot_user.hud_used.ammo_counter
-		if(!hud.on)
-			current_hud_owner = WEAKREF(user)
-			RegisterSignal(user, COMSIG_QDELETING, PROC_REF(secborg_turn_off))
-			secborg_turn_on()
-			return
-		secborg_update_hud()
+	hud = robot_user.hud_used?.screen_objects[HUD_MOB_AMMO_COUNTER]
+	if(!hud)
+		return
+	if(!hud.on)
+		current_hud_owner = WEAKREF(user)
+		RegisterSignal(user, COMSIG_QDELETING, PROC_REF(secborg_turn_off))
+		secborg_turn_on()
+		return
+	secborg_update_hud()
 
 /datum/component/secborg_ammo_hud/proc/secborg_turn_on()
 	SIGNAL_HANDLER
@@ -249,6 +248,10 @@
 	name = "detective kit module"
 	desc = "A forensics module for security cyborgs. Integrates a detective scanner and evidence bag directly into the unit's toolkit."
 	icon_state = "module_security"
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+	)
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/security)
 	model_flags = BORG_MODEL_SECURITY
@@ -747,8 +750,6 @@
 	spawn_positions = 2
 	config_tag = "SECURITY_CYBORG"
 	display_order = JOB_DISPLAY_ORDER_SECURITY_CYBORG
-	antagonist_restricted = TRUE
-	restricted_antagonists = list("ALL")
 
 //Updates the alt job titles at runtime so we can still keep it in the nice place with the other ones
 /datum/job/cyborg/security/New()

@@ -6,8 +6,5 @@
 	if (isnull(plug13))
 		plug13 = new(src)
 
-/client/verb/plug13_menu()
-	set category = "OOC"
-	set name = "Plug13"
-
+GAME_VERB(/client, plug13_menu, "Plug13", "OOC")
 	plug13.ui_interact(usr)

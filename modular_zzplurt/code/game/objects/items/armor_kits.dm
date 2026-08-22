@@ -50,7 +50,7 @@
 		to_chat(user, "<span class = 'notice'>You can't reinforce MODsuit parts with [src].</span>")
 		return NONE
 
-	for(var/curr_stat in ARMOR_LIST_DAMAGE())
+	for(var/curr_stat in ARMOR_LIST_DAMAGE)
 		if(curr_armor.get_rating(curr_stat) < actual_armor.get_rating(curr_stat))
 			used = TRUE
 

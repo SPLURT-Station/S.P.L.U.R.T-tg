@@ -14,9 +14,9 @@ SUBSYSTEM_DEF(economy)
 										ACCOUNT_CAR = ACCOUNT_CAR_NAME,
 										ACCOUNT_CMD = ACCOUNT_CMD_NAME, // SKYRAT EDIT
 										ACCOUNT_INT = ACCOUNT_INT_NAME, // BUBBER EDIT
+										ACCOUNT_LIZ = ACCOUNT_LIZ_NAME,
 										ACCOUNT_TAR = ACCOUNT_TAR_NAME, // END BUBBER EDIT
 										ACCOUNT_AAD = ACCOUNT_AAD_NAME, // SPLURT EDIT
-										ACCOUNT_LZGAS = ACCOUNT_LZGAS_NAME, // SPLURT EDIT
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME)
 	var/list/departmental_accounts = list()
 
@@ -222,8 +222,8 @@ SUBSYSTEM_DEF(economy)
 	audit_log += list(list(
 		"account" = "[account.account_holder]",
 		"cost" = price_to_use,
-		"vendor" = "[vendor]",
-		"stationtime" = station_time_timestamp("hh:mm"),
+		"vendor" = "[astype(vendor, /atom)?.name || vendor]",
+		"stationtime" = round_timestamp("hh:mm"),
 	))
 
 /**

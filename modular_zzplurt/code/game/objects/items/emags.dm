@@ -11,8 +11,9 @@
 	icon = 'modular_zzplurt/icons/obj/card.dmi'
 	icon_state = "bloodmag"
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.9,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.66,
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2.9,
 	)
 	// List of allowed types - Unused!
 	//var/type_whitelist

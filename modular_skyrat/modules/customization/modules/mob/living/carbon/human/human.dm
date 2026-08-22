@@ -25,7 +25,7 @@
 					if(ORG.written_text)
 						bodywriting = ". It has \"[html_encode(ORG.written_text)]\" written on it."
 					if(HAS_TRAIT(usr, TRAIT_GFLUID_DETECT))
-						var/datum/reagent/cummies = find_reagent_object_from_type(ORG.internal_fluid_datum)
+						var/datum/reagent/cummies = GLOB.chemical_reagents_list[ORG.internal_fluid_datum]
 						genital_sniff = cummies ? ". You smell <span style='color:[cummies.color]';>[cummies.name]</span> brewing inside..." : ""
 					line += ORG.get_description_string(G) + genital_sniff + bodywriting
 					//SPLURT EDIT END
@@ -83,11 +83,7 @@
 /mob/living/carbon/human/species/serpentid
 	race = /datum/species/gas
 
-/mob/living/carbon/human/verb/toggle_undies()
-	set category = "IC"
-	set name = "Toggle underwear visibility"
-	set desc = "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals."
-
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_undies, "Toggle underwear visibility", "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals.", "IC")
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't toggle underwear visibility right now..."))
 		return
@@ -124,11 +120,7 @@
 		if(dna && dna.species)
 			dna.species.spec_revival(src)
 
-/mob/living/carbon/human/verb/toggle_mutant_part_visibility()
-	set category = "IC"
-	set name = "Show/Hide Mutant Parts"
-	set desc = "Allows you to choose to try and hide your mutant bodyparts under your clothes."
-
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_mutant_part_visibility, "Show/Hide Mutant Parts", "Allows you to choose to try and hide your mutant bodyparts under your clothes.", "IC")
 	mutant_part_visibility()
 
 /mob/living/carbon/human/proc/mutant_part_visibility(quick_toggle, re_do)
@@ -211,16 +203,11 @@
 	// automatically re-do the menu after making a selection
 	mutant_part_visibility(re_do = TRUE)
 
-
 // Feign impairment verb
 #define DEFAULT_TIME 30
 #define MAX_TIME 36000 // 10 hours
 
-/mob/living/carbon/human/verb/acting()
-	set category = "IC"
-	set name = "Feign Impairment"
-	set desc = "Pretend to be impaired for a defined duration."
-
+GAME_VERB_DESC(/mob/living/carbon/human, acting, "Feign Impairment", "Pretend to be impaired for a defined duration.", "IC")
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return

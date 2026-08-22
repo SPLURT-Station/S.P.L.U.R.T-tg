@@ -42,6 +42,7 @@
 
 						//clothing
 						/obj/item/clothing/mask/ballgag,
+						/obj/item/clothing/mask/ballgag/ring, // SPLURT EDIT - Add ringgag
 						/obj/item/clothing/mask/ballgag/choking,
 						/obj/item/clothing/head/domina_cap,
 						/obj/item/clothing/head/costume/skyrat/maid,

@@ -744,25 +744,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"arG" = (
-/obj/structure/table,
-/obj/item/disk/computer{
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/obj/item/disk/computer{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/disk/computer/ordnance{
-	pixel_x = 1
-	},
-/obj/machinery/light_switch/directional/west{
-	pixel_x = -20;
-	pixel_y = 10
-	},
-/turf/open/floor/wood,
-/area/station/science/ordnance/office)
 "arK" = (
 /obj/machinery/computer/mech_bay_power_console{
 	dir = 8
@@ -10875,19 +10856,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"esY" = (
-/obj/structure/table,
-/obj/item/binoculars,
-/obj/item/disk/computer{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/disk/computer,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/science/ordnance/testlab)
 "etn" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -12067,7 +12035,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/hop)
 "eOt" = (
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -23877,6 +23845,19 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
+"jla" = (
+/obj/structure/table,
+/obj/item/binoculars,
+/obj/item/disk/computer{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/disk/computer,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/science/ordnance/testlab)
 "jls" = (
 /obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
@@ -28265,6 +28246,27 @@
 	},
 /turf/open/floor/plating,
 /area/station/security/brig/upper)
+"kNu" = (
+/obj/structure/closet/secure_closet/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/machinery/firealarm/directional/east,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 5
+	},
+/obj/item/gun/ballistic/automatic/pistol/contraband{
+	name = "\improper Antique Makarov pistol";
+	fire_delay = 1
+	},
+/obj/item/clothing/under/costume/nri/captain{
+	name = "quartermaster imperial fatigues"
+	},
+/obj/item/storage/belt/military/nri/captain,
+/obj/item/gun/ballistic/shotgun/riot/sol,
+/obj/item/bdsm_bed_kit,
+/turf/open/floor/carpet/royalblue,
+/area/station/command/heads_quarters/qm)
 "kNQ" = (
 /obj/effect/landmark/start/paramedic,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -30679,6 +30681,24 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
+"lHQ" = (
+/obj/structure/table,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/melonlike/watermelon,
+/obj/item/food/grown/citrus/orange,
+/obj/item/food/grown/grapes,
+/obj/item/food/grown/cocoapod,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/chili,
+/obj/item/food/grown/cherries,
+/obj/item/food/grown/soybeans,
+/obj/item/food/grown/citrus/lime,
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/siding/green{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/service/hydroponics/garden)
 "lHU" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
@@ -31622,19 +31642,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
-"lZe" = (
-/obj/structure/rack,
-/obj/item/disk/computer/engineering,
-/obj/item/disk/computer/engineering,
-/obj/item/disk/computer/engineering,
-/obj/item/lighter,
-/obj/item/clothing/glasses/meson{
-	pixel_y = 4
-	},
-/obj/item/stock_parts/power_store/cell/high,
-/mob/living/basic/parrot/poly,
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/ce)
 "lZl" = (
 /obj/machinery/atmospherics/components/unary/portables_connector{
 	dir = 4
@@ -38030,7 +38037,7 @@
 /area/station/service/abandoned_gambling_den)
 "ooh" = (
 /obj/effect/decal/cleanable/generic,
-/mob/living/simple_animal/bot/secbot/beepsky{
+/mob/living/basic/bot/secbot/beepsky{
 	name = "Officer Beepsky"
 	},
 /turf/open/floor/plating,
@@ -47805,24 +47812,6 @@
 /obj/structure/flora/bush/grassy/style_random,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/park)
-"rSy" = (
-/obj/structure/table,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/watermelon,
-/obj/item/food/grown/citrus/orange,
-/obj/item/food/grown/grapes,
-/obj/item/food/grown/cocoapod,
-/obj/item/food/grown/apple,
-/obj/item/food/grown/chili,
-/obj/item/food/grown/cherries,
-/obj/item/food/grown/soybeans,
-/obj/item/food/grown/citrus/lime,
-/obj/machinery/light/directional/south,
-/obj/effect/turf_decal/siding/green{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/service/hydroponics/garden)
 "rSQ" = (
 /obj/structure/reagent_dispensers/plumbed{
 	dir = 1
@@ -48093,7 +48082,7 @@
 "rWM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/security/armory)
 "rWU" = (
@@ -48310,27 +48299,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
-"sbn" = (
-/obj/structure/closet/secure_closet/quartermaster,
-/obj/item/disk/computer/quartermaster,
-/obj/item/disk/computer/quartermaster,
-/obj/item/disk/computer/quartermaster,
-/obj/machinery/firealarm/directional/east,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/obj/item/gun/ballistic/automatic/pistol/contraband{
-	name = "\improper Antique Makarov pistol";
-	fire_delay = 1
-	},
-/obj/item/clothing/under/costume/nri/captain{
-	name = "quartermaster imperial fatigues"
-	},
-/obj/item/storage/belt/military/nri/captain,
-/obj/item/gun/ballistic/shotgun/riot/sol,
-/obj/item/bdsm_bed_kit,
-/turf/open/floor/carpet/royalblue,
-/area/station/command/heads_quarters/qm)
 "sbw" = (
 /obj/machinery/power/smes,
 /obj/structure/cable,
@@ -49180,16 +49148,6 @@
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmos/upper)
-"sqU" = (
-/obj/structure/closet/secure_closet/chief_medical,
-/obj/item/disk/computer/medical,
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/obj/item/gun/energy/e_gun/mini,
-/turf/open/floor/iron/showroomfloor,
-/area/station/command/heads_quarters/cmo)
 "sqX" = (
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
 	dir = 1
@@ -49999,6 +49957,19 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
+"sEE" = (
+/obj/structure/rack,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/disk/computer/engineering,
+/obj/item/lighter,
+/obj/item/clothing/glasses/meson{
+	pixel_y = 4
+	},
+/obj/item/stock_parts/power_store/cell/high,
+/mob/living/basic/parrot/poly,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/ce)
 "sES" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
@@ -51118,6 +51089,25 @@
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/satellite)
+"sXV" = (
+/obj/structure/table,
+/obj/item/disk/computer{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/disk/computer{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/disk/computer/ordnance{
+	pixel_x = 1
+	},
+/obj/machinery/light_switch/directional/west{
+	pixel_x = -20;
+	pixel_y = 10
+	},
+/turf/open/floor/wood,
+/area/station/science/ordnance/office)
 "sYf" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/black,
@@ -51981,25 +51971,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"toC" = (
-/obj/machinery/status_display/ai/directional/south,
-/obj/structure/closet/secure_closet/research_director,
-/obj/item/gun/energy/e_gun/mini,
-/obj/item/taperecorder{
-	pixel_x = -3
-	},
-/obj/item/disk/computer/ordnance,
-/obj/item/disk/computer/ordnance,
-/obj/item/disk/computer/ordnance,
-/obj/effect/turf_decal/siding/purple{
-	dir = 5
-	},
-/obj/item/circuitboard/aicore{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/rd)
 "toD" = (
 /obj/structure/chair/comfy/brown,
 /turf/open/floor/carpet/royalblue,
@@ -52086,6 +52057,25 @@
 	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
+"tpK" = (
+/obj/machinery/status_display/ai/directional/south,
+/obj/structure/closet/secure_closet/research_director,
+/obj/item/gun/energy/e_gun/mini,
+/obj/item/taperecorder{
+	pixel_x = -3
+	},
+/obj/item/disk/computer/ordnance,
+/obj/item/disk/computer/ordnance,
+/obj/item/disk/computer/ordnance,
+/obj/effect/turf_decal/siding/purple{
+	dir = 5
+	},
+/obj/item/circuitboard/aicore{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/rd)
 "tpM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -57775,6 +57765,16 @@
 	},
 /turf/open/floor/grass,
 /area/station/service/hydroponics/park)
+"vAU" = (
+/obj/structure/closet/secure_closet/chief_medical,
+/obj/item/disk/computer/medical,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/item/gun/energy/e_gun/mini,
+/turf/open/floor/iron/showroomfloor,
+/area/station/command/heads_quarters/cmo)
 "vBl" = (
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock";
@@ -57901,20 +57901,20 @@
 /area/station/cargo/storage)
 "vEt" = (
 /obj/structure/table,
-/obj/item/stack/sticky_tape{
+/obj/item/stack/medical/wrap/sticky_tape{
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/item/stack/sticky_tape{
+/obj/item/stack/medical/wrap/sticky_tape{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/stack/sticky_tape,
-/obj/item/stack/sticky_tape{
+/obj/item/stack/medical/wrap/sticky_tape,
+/obj/item/stack/medical/wrap/sticky_tape{
 	pixel_x = -4;
 	pixel_y = -4
 	},
-/obj/item/stack/sticky_tape{
+/obj/item/stack/medical/wrap/sticky_tape{
 	pixel_x = -7;
 	pixel_y = -7
 	},
@@ -148628,7 +148628,7 @@ lfw
 itY
 vir
 gwh
-lZe
+sEE
 duW
 kor
 urc
@@ -159971,7 +159971,7 @@ cgy
 rKu
 kZf
 sdD
-sbn
+kNu
 rkH
 igU
 jwI
@@ -161444,7 +161444,7 @@ pLM
 xml
 pLM
 jIX
-rSy
+lHQ
 aCi
 qja
 fgv
@@ -168153,7 +168153,7 @@ khk
 vyD
 lTq
 wEP
-sqU
+vAU
 wVr
 bQD
 xlQ
@@ -174830,7 +174830,7 @@ fVo
 lwW
 lKc
 qMI
-toC
+tpK
 fVo
 hvt
 qaU
@@ -175357,7 +175357,7 @@ qgK
 fVU
 xQq
 ceX
-arG
+sXV
 ecR
 kGX
 rSQ
@@ -181511,7 +181511,7 @@ xzK
 xzK
 qKB
 qKB
-esY
+jla
 gdH
 qKB
 qKB

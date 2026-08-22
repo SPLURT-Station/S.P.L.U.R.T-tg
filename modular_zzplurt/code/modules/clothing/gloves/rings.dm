@@ -11,9 +11,11 @@
 
 /obj/item/clothing/gloves/ring/reagent_clothing/rutt/Initialize(mapload)
 	. = ..()
-	var/datum/component/reagent_clothing/reagent_clothing = GetComponent(/datum/component/reagent_clothing)
+	var/datum/component/reagent_imbued/clothing/reagent_clothing = GetComponent(/datum/component/reagent_imbued/clothing)
 	if(!reagent_clothing)
 		return
 
-	reagent_clothing.imbued_reagent += /datum/reagent/drug/aphrodisiac/rutt
-	color = mix_color_from_reagents(reagent_clothing.imbued_reagent)
+	var/datum/reagents/pre_imbue = new(reagent_clothing.imbued_reagent.maximum_volume, NO_REACT)
+	pre_imbue.add_reagent(/datum/reagent/drug/aphrodisiac/rutt, pre_imbue.maximum_volume)
+	reagent_clothing.set_reagent_imbue(pre_imbue)
+	qdel(pre_imbue)

@@ -4,6 +4,7 @@
 /obj/machinery/computer/operating
 	name = "operating computer"
 	desc = "Monitors patient vitals and displays surgery steps. Can be loaded with surgery disks to perform experimental procedures. Automatically syncs to operating tables within its line of sight for surgical tech advancement."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/crew")
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/operating
@@ -101,7 +102,7 @@
 
 /obj/machinery/computer/operating/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
-	if(isliving(user))
+	if(isliving(user) && !issilicon(user))
 		. = min(., ui_check(user))
 
 /// Checks for special ui state conditions
@@ -148,7 +149,7 @@
 	if(!zone_found)
 		return
 
-	var/atom/movable/screen/zone_sel/selector = user.hud_used?.zone_select
+	var/atom/movable/screen/zone_sel/selector = user.hud_used?.screen_objects[HUD_MOB_ZONE_SELECTOR]
 	selector?.set_selected_zone(zone_found, user, FALSE)
 	LAZYREMOVE(zone_on_open, WEAKREF(user))
 	if(!LAZYLEN(zone_on_open))
@@ -167,7 +168,7 @@
 		return data
 
 	data["patient"] = list()
-	var/mob/living/carbon/patient = table.patient
+	var/mob/living/patient = table.patient
 
 	switch(patient.stat)
 		if(CONSCIOUS)
@@ -236,33 +237,14 @@
 			"mechanic" = operation.operation_flags & OPERATION_MECHANIC,
 		))
 
-	if(!any_recommended && table?.patient)
-		var/obj/item/part = table.patient.get_bodypart(deprecise_zone(target_zone))
-		var/just_drapes = FALSE
-		if(table.patient.has_limbs)
-			if(isnull(part))
-				data["surgeries"] += list(list(
-					"name" = "Prepare for [/datum/surgery_operation/prosthetic_replacement::name]",
-					"desc" = "Prepare the patient's chest for prosthetic limb attachment.",
-					"tool_rec" = "operate on chest",
-					"show_as_next" = TRUE,
-					"show_in_list" = FALSE,
-				))
-
-			else if(!HAS_TRAIT(part, TRAIT_READY_TO_OPERATE))
-				just_drapes = TRUE
-
-		else if(!HAS_TRAIT(table.patient, TRAIT_READY_TO_OPERATE))
-			just_drapes = TRUE
-
-		if(just_drapes)
-			data["surgeries"] += list(list(
-				"name" = "Prepare for surgery",
-				"desc" = "Begin surgery by applying surgical drapes to the patient.",
-				"tool_rec" = /obj/item/surgical_drapes::name,
-				"show_as_next" = TRUE,
-				"show_in_list" = FALSE,
-			))
+	if(!any_recommended && table?.patient && !HAS_TRAIT(table.patient, TRAIT_READY_TO_OPERATE))
+		data["surgeries"] += list(list(
+			"name" = "Prepare for surgery",
+			"desc" = "Begin surgery by applying surgical drapes to the patient or by buckling the patient to the surgical table.",
+			"tool_rec" = /obj/item/surgical_drapes::name,
+			"show_as_next" = TRUE,
+			"show_in_list" = FALSE,
+		))
 
 	return data
 
@@ -276,7 +258,7 @@
 		if("change_zone")
 			if(params["new_zone"] in (GLOB.all_body_zones + GLOB.all_precise_body_zones))
 				target_zone = params["new_zone"]
-				var/atom/movable/screen/zone_sel/selector = ui.user.hud_used?.zone_select
+				var/atom/movable/screen/zone_sel/selector = ui.user.hud_used?.screen_objects[HUD_MOB_ZONE_SELECTOR]
 				selector?.set_selected_zone(params["new_zone"], ui.user, FALSE)
 			update_static_data_for_all_viewers()
 	return TRUE

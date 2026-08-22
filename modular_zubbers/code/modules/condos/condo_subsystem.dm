@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(condos)
 	name = "Condos"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_LAST
 	/// All possible condo templates.
 	var/list/datum/map_template/condo/condo_templates = list() //SPLURT EDIT ADDITION BEGIN - CONDO_INFINIDORMS_MIGRATION - Store templates by name for faster lookup.

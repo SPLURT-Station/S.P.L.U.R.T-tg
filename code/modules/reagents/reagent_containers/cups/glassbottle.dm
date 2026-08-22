@@ -34,7 +34,6 @@
 	. = ..()
 	var/static/list/recipes =  list(/datum/crafting_recipe/molotov)
 	AddElement(/datum/element/slapcrafting, recipes)
-	register_context()
 	register_item_context()
 
 /obj/item/reagent_containers/cup/glass/bottle/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
@@ -874,6 +873,27 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/coconut_rum = 100)
 	drink_type = ALCOHOL
 
+/obj/item/reagent_containers/cup/glass/bottle/aperitivo
+	name = "Camillo Aperitivo Rosso"
+	desc = "The bottle that led to the creation of the modern Camillo Group beverage conglomerate. Despite what you might expect, there's a good chance that whoever makes your favorite liquor is at least in part owned by Camillo."
+	icon_state = "aperitivo_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/aperitivo = 100)
+	drink_type = ALCOHOL
+
+/obj/item/reagent_containers/cup/glass/bottle/herbal_liqueur
+	name = "Bellarmine D.O.P Herbal Liqueur"
+	desc = "An almost millenia old herbal liqueur made from a secret recipe passed down over generations of monks. It's not great to know that the herbs and spices used in this are a better-kept secret than the codes to Nanotrasen's nuclear arsenal."
+	icon_state = "herbal_liqueur_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/herbal_liqueur = 100)
+	drink_type = ALCOHOL
+
+/obj/item/reagent_containers/cup/glass/bottle/maraschino
+	name = "Dalmazia Originale Maraschino Liqueur"
+	desc = "A small note on the back of the bottle instructs all customers who complain about a lack of cherry flavor to direct their concerns to what appears to be a defunct phone number."
+	icon_state = "maraschino_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/maraschino = 100)
+	drink_type = ALCOHOL
+
 ////////////////////////// MOLOTOV ///////////////////////
 /obj/item/reagent_containers/cup/glass/bottle/molotov
 	name = "molotov cocktail"
@@ -921,8 +941,9 @@
 		new /obj/effect/hotspot(get_turf(target))
 
 /obj/item/reagent_containers/cup/glass/bottle/molotov/item_interaction(mob/living/user, obj/item/item, list/modifiers)
-	if(!item.get_temperature() || active)
+	if(item.get_temperature() < FIRE_MINIMUM_TEMPERATURE_TO_EXIST || active)
 		return NONE
+
 	active = TRUE
 	log_bomber(user, "has primed a", src, "for detonation")
 
@@ -961,6 +982,7 @@
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "trashbag"
 	list_reagents = list(/datum/reagent/consumable/prunomix = 50)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 	var/fermentation_time = 30 SECONDS /// time it takes to ferment
 	var/fermentation_time_remaining /// for partial fermentation
 	var/fermentation_timer /// store the timer id of fermentation

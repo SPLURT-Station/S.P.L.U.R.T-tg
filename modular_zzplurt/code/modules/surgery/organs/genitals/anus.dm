@@ -15,5 +15,6 @@
 
 	return ..()
 
+// SPLURT anus DMI uses FRONT. Overlay must be postfix -> draw layer, not the old EXTERNAL_* bitflag.
 /datum/bodypart_overlay/mutant/genital/anus
-	layers = EXTERNAL_FRONT
+	layers = list(EXTERNAL_FRONT = BODY_FRONT_LAYER)

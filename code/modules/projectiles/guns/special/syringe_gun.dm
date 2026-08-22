@@ -57,6 +57,8 @@
 	else
 		chambered.newshot()
 	//SKYRAT EDIT SMARTDARTS END
+	chambered.newshot()
+	return ..()
 
 /obj/item/gun/syringe/can_shoot()
 	return syringes.len
@@ -151,6 +153,7 @@
 	pixel_x = 0
 	max_syringes = 6
 	force = 4
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/gun/syringe/syndicate
 	name = "dart pistol"
@@ -230,6 +233,7 @@
 	force = 4
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 10)
+	about_to_shoot_inside_mail_text = "The air in the envelope is rushing out!"
 
 /obj/item/gun/syringe/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	. = ..()

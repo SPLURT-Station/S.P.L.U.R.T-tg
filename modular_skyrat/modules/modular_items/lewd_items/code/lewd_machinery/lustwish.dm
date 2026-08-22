@@ -98,7 +98,7 @@
 				//clothing facial/head
 				/obj/item/clothing/mask/ballgag = 8,
 				/obj/item/clothing/mask/ballgag/choking = 8,
-				/obj/item/clothing/mask/muzzle/ring = 4,
+				/obj/item/clothing/mask/ballgag/ring = 8, // SPLURT EDIT - Use new ring class
 				/obj/item/clothing/head/deprivation_helmet = 5,
 				/obj/item/clothing/glasses/blindfold/kinky = 5,
 				/obj/item/clothing/ears/kinky_headphones = 5,
@@ -124,6 +124,7 @@
 
 				//hands
 				/obj/item/clothing/gloves/ball_mittens = 8,
+				/obj/item/clothing/gloves/ball_mittens/loadout_paw = 5,
 			),
 		),
 			list(
@@ -173,6 +174,7 @@
 		/obj/item/clothing/neck/size_collar = 8,//It only works in the Interlink anyways
 		/obj/item/toy/plush/cescrewsplush = 1,
 		/obj/item/toy/plush/sinvox = 1,
+		/obj/item/skillchip/mkiiultra = 2,
 		)
 
 	contraband = list(

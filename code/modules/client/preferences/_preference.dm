@@ -24,7 +24,7 @@
 /// Used for preferences that rely on body setup being finalized.
 #define PREFERENCE_PRORITY_LATE_BODY_TYPE 7
 
-/// Equpping items based on preferences.
+/// Equipping items based on preferences.
 /// Should happen after species and body type to make sure it looks right.
 /// Mostly redundant, but a safety net for saving/loading.
 #define PREFERENCE_PRIORITY_LOADOUT 8
@@ -126,6 +126,10 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	/// If the selected species has this head_flag by default,
 	/// will show the feature as selectable.
 	var/relevant_head_flag = null
+
+	/// If this is a character preference, should we update the character preview
+	/// when this preference is updated?
+	var/should_update_preview = TRUE
 
 /// Called on the saved input when retrieving.
 /// Also called by the value sent from the user through UI. Do not trust it.
@@ -307,7 +311,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 
 	if (preference.savefile_identifier == PREFERENCE_PLAYER)
 		preference.apply_to_client_updated(parent, read_preference(preference.type))
-	else
+	else if (preference.should_update_preview)
 		character_preview_view?.update_body()
 
 	return TRUE

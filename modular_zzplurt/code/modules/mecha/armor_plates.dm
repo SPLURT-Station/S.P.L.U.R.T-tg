@@ -63,6 +63,10 @@
 	desc = "Special armoured ablative plate of metal, designed to increase survivability. Standard issue for military-grade exosuits"
 	icon = 'modular_zzplurt/icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "roundstartarmor"
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+	)
 
 /obj/item/mecha_parts/mecha_equipment/armor/roundstart/heavy
 	name = "Heavy Metal Plating"
@@ -108,4 +112,6 @@
 		if(!mech_armor.armor_operational)
 			continue
 		movedelay *= mech_armor.move_slowdown
+
+#undef MECHA_SNOWFLAKE_ID_ARMOR
 

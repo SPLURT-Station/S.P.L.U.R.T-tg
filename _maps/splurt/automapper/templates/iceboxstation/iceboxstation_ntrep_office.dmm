@@ -45,13 +45,8 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "f" = (
-/obj/structure/table/reinforced/titaniumglass,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
-/turf/open/floor/carpet/executive,
-/area/station/command/heads_quarters/nt_rep)
+/turf/template_noop,
+/area/template_noop)
 "g" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -325,6 +320,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
+"O" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/fax/heads/ntc,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
 "P" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
@@ -442,6 +442,36 @@
 /area/station/hallway/primary/central)
 
 (1,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(2,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(3,1,1) = {"
+f
+f
+f
+f
+f
+f
+f
+f
+"}
+(4,1,1) = {"
 a
 a
 a
@@ -451,7 +481,7 @@ U
 a
 a
 "}
-(2,1,1) = {"
+(5,1,1) = {"
 a
 b
 u
@@ -461,7 +491,7 @@ m
 n
 a
 "}
-(3,1,1) = {"
+(6,1,1) = {"
 a
 h
 C
@@ -471,17 +501,17 @@ g
 s
 a
 "}
-(4,1,1) = {"
+(7,1,1) = {"
 a
 H
-f
+O
 e
 T
 L
 l
 a
 "}
-(5,1,1) = {"
+(8,1,1) = {"
 a
 R
 w
@@ -491,7 +521,7 @@ D
 Q
 a
 "}
-(6,1,1) = {"
+(9,1,1) = {"
 a
 S
 K
@@ -501,7 +531,7 @@ X
 B
 a
 "}
-(7,1,1) = {"
+(10,1,1) = {"
 a
 V
 p
@@ -511,7 +541,7 @@ z
 x
 a
 "}
-(8,1,1) = {"
+(11,1,1) = {"
 a
 a
 J
@@ -521,7 +551,7 @@ c
 i
 i
 "}
-(9,1,1) = {"
+(12,1,1) = {"
 a
 I
 Y

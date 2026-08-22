@@ -24,6 +24,10 @@
 	name = "borg resizer"
 	desc = "A cyborg resizer, it makes a cyborg grow/shrink to different sizes." //Could probably use a different description
 	icon_state = "module_general"
+	custom_materials = list(
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+	)
 	// Standard resize percentage, makes the borg the same size an expander would have made them unless specified otherwise
 	var/resize_amount = 160
 

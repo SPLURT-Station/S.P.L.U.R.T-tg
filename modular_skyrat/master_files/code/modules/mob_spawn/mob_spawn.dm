@@ -16,7 +16,7 @@
 
 	var/mob/living/carbon/human/spawned_human = ..(mob_possessor, newname, apply_prefs)
 
-	if(!apply_prefs)
+	if(random_appearance && !apply_prefs)
 		var/datum/language_holder/holder = spawned_human.get_language_holder()
 		holder.get_selected_language() //we need this here so a language starts off selected
 

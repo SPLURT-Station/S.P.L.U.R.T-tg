@@ -233,7 +233,10 @@
 		add_shared_particles(particle_type)
 
 /obj/machinery/oven/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(tool, ignore_panel = TRUE)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/oven/can_crowbar_deconstruct()
+	return TRUE
 
 /obj/machinery/oven/wrench_act(mob/living/user, obj/item/tool)
 	default_unfasten_wrench(user, tool, time = 2 SECONDS)
@@ -265,6 +268,8 @@
 	sound_vary = TRUE
 	pickup_sound = SFX_TRAY_PICKUP
 	drop_sound = SFX_TRAY_DROP
+	fragile = FALSE //oven trays are metallic
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/plate/oven_tray/item_interaction_secondary(mob/living/user, obj/item/item, list/modifiers)
 	if(isnull(item.atom_storage))

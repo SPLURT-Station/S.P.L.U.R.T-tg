@@ -305,7 +305,10 @@
  * It lets you pick between a few options for DNA specifics
  */
 /datum/action/innate/alter_form/proc/alter_dna(mob/living/carbon/human/alterer)
+	//SPLURT EDIT CHANGE BEGIN - ALTER_FORM_GENDER
+	//var/list/key_list = list("Body Size", "Genitals", "Mutant Parts") - SPLURT EDIT - ORIGINAL
 	var/list/key_list = list("Body Size", "Gender", "Genitals", "Mutant Parts")
+	//SPLURT EDIT CHANGE END
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		key_list.Remove("Genitals")
 	var/dna_alteration = tgui_input_list(
@@ -324,14 +327,24 @@
 					alterer.add_quirk(/datum/quirk/oversized)
 					return
 
+			//SPLURT EDIT CHANGE BEGIN - SIZECODE - Use SPLURT body size range + update_size hooks
+			//var/new_body_size = tgui_input_number(
+			//	alterer,
+			//	"Choose your desired sprite size: ([(RESIZE_DEFAULT_SIZE * 0.8) * 100]% to [(RESIZE_DEFAULT_SIZE * 1.5) * 100]%). Warning: May make your character look distorted",
+			//	"Size Change",
+			//	default = min(alterer.current_size * 100, (RESIZE_DEFAULT_SIZE * 1.5) * 100),
+			//	max_value = (RESIZE_DEFAULT_SIZE * 1.5) * 100,
+			//	min_value = (RESIZE_DEFAULT_SIZE * 0.8) * 100,
+			//) - SPLURT EDIT - ORIGINAL
 			var/new_body_size = tgui_input_number(
 				alterer,
 				"Choose your desired sprite size: ([BODY_SIZE_MIN * 100]% to [BODY_SIZE_MAX * 100]%). Warning: May make your character look distorted",
 				"Size Change",
-				default = min(alterer.dna.features["body_size"] * 100, BODY_SIZE_MAX * 100),
+				default = min(alterer.current_size * 100, BODY_SIZE_MAX * 100),
 				max_value = BODY_SIZE_MAX * 100,
 				min_value = BODY_SIZE_MIN * 100,
 			)
+			//SPLURT EDIT CHANGE END
 			if(!new_body_size)
 				return
 
@@ -340,14 +353,14 @@
 				alterer.remove_quirk(/datum/quirk/oversized)
 
 			new_body_size = new_body_size * 0.01
-			//SPLURT EDIT CHANGE - Sizecode
-			/*
-			alterer.dna.features["body_size"] = new_body_size
-			alterer.dna.update_body_size()
-			*/
+			//SPLURT EDIT CHANGE BEGIN - SIZECODE - Prefer update_size over update_transform
+			//if(new_body_size == RESIZE_DEFAULT_SIZE)
+			//	alterer.update_transform(RESIZE_DEFAULT_SIZE / alterer.current_size)
+			//else
+			//	alterer.update_transform(new_body_size) - SPLURT EDIT - ORIGINAL
 			alterer.update_size(new_body_size)
 			//SPLURT EDIT CHANGE END
-		// SPLURT EDIT ADD
+		//SPLURT EDIT ADDITION BEGIN - ALTER_FORM_GENDER
 		if("Gender")
 			var/new_gender = tgui_input_list(
 				alterer,
@@ -372,9 +385,9 @@
 			// update this shit
 			alterer.dna.update_ui_block(/datum/dna_block/identity/gender)
 			alterer.update_body(is_creating = TRUE)
-			alterer.update_mutations_overlay()
+			alterer.update_appearance(UPDATE_OVERLAYS)
 			alterer.update_clothing(ITEM_SLOT_ICLOTHING)
-		// SPLURT EDIT ADD END
+		//SPLURT EDIT ADDITION END
 		if("Genitals")
 			alter_genitals(alterer)
 		if("Mutant Parts")
@@ -490,12 +503,10 @@
 		genital_list += list("Penis Girth", "Penis Length", "Penis Sheath", "Penis Taur Mode")
 	if(alterer.get_organ_slot(ORGAN_SLOT_TESTICLES))
 		genital_list += list("Testicles Size")
-	// SPLURT EDIT ADD
 	if(alterer.get_organ_slot(ORGAN_SLOT_BUTT))
 		genital_list += list("Butt Size")
 	if(alterer.get_organ_slot(ORGAN_SLOT_BELLY))
 		genital_list += list("Belly Size")
-	// SPLURT EDIT ADD END
 	if(!length(genital_list))
 		alterer.balloon_alert(alterer, "no genitals!")
 
@@ -526,38 +537,6 @@
 				return
 			alterer.dna.features["breasts_size"] = melons.breasts_cup_to_size(new_size)
 			melons.set_size(alterer.dna.features["breasts_size"])
-		// SPLURT EDIT ADD
-		// OK so why do we need to do this?
-		// GITHUB COMMIT HISTORY ALREADY SHOWS YOU THIS???
-		if("Butt Size")
-			var/obj/item/organ/genital/butt/buttocks = alterer.get_organ_slot(ORGAN_SLOT_BUTT)
-			var/new_size = tgui_input_number(
-				alterer,
-				"Choose your character's butt size:",
-				"DNA Alteration",
-				max_value = 8,
-				min_value = 1,
-				default = 1
-			)
-			if(!new_size)
-				return
-			alterer.dna.features["butt_size"] = new_size
-			buttocks.set_size(alterer.dna.features["butt_size"])
-		if("Belly Size")
-			var/obj/item/organ/genital/belly/melons = alterer.get_organ_slot(ORGAN_SLOT_BELLY)
-			var/new_size = tgui_input_number(
-				alterer,
-				"Choose your character's belly size:",
-				"DNA Alteration",
-				max_value = 10,
-				min_value = 1,
-				default = 1
-			)
-			if(!new_size)
-				return
-			alterer.dna.features["belly_size"] = new_size
-			melons.set_size(alterer.dna.features["belly_size"])
-		// SPLURT EDIT ADD END
 		if("Penis Girth")
 			var/obj/item/organ/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
@@ -618,6 +597,34 @@
 			if(new_size)
 				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
 				avocados.set_size(alterer.dna.features["balls_size"])
+
+		if("Butt Size")
+			var/obj/item/organ/genital/butt/buttocks = alterer.get_organ_slot(ORGAN_SLOT_BUTT)
+			var/new_size = tgui_input_number(
+				alterer,
+				"Choose your character's butt size:",
+				"Character Preference",
+				max_value = BUTT_MAX_SIZE,
+				min_value = BUTT_MIN_SIZE,
+			)
+			if(!new_size)
+				return
+			alterer.dna.features["butt_size"] = new_size
+			buttocks.set_size(alterer.dna.features["butt_size"])
+
+		if("Belly Size")
+			var/obj/item/organ/genital/belly/tummy = alterer.get_organ_slot(ORGAN_SLOT_BELLY)
+			var/new_size = tgui_input_number(
+				alterer,
+				"Choose your character's belly size:",
+				"Character Preference",
+				max_value = BELLY_MAX_SIZE,
+				min_value = BELLY_MIN_SIZE,
+			)
+			if(!new_size)
+				return
+			alterer.dna.features["belly_size"] = new_size
+			tummy.set_size(alterer.dna.features["belly_size"])
 
 /**
  * The beginning for character alteration. Handles all the settings and targetting. Leads into [do_char_alteration].
@@ -738,7 +745,7 @@
 	target.apply_status_effect(/datum/status_effect/shapeshift_transformed, original_name)
 	char_source.safe_transfer_prefs_to_with_damage(target)
 	target.dna.update_dna_identity()
-	SSquirks.OverrideQuirks(target, char_source.parent)
+	SSquirks.OverrideQuirks(target, char_source.parent, spawn_items = FALSE)
 
 	var/output = "[key_name(target)] has been transformed by [key_name(alterer)] using polymorph, at [loc_name(target)]. Original Name: [original_name], New Name: [target.dna.real_name]."
 	message_admins(output)

@@ -2,8 +2,13 @@
  * This file was used to edit the Hemophage species.
  * Due to community feedback, it has been disabled.
  * Please do not re-enable this file unless you know what you're doing.
+ *
+ * Upstream converted hemophages from a species into /datum/quirk/hemophage.
+ * Defining procs on /datum/species/hemophage here would still create that type
+ * and fail species_whitelist_check (no changesource_flags).
  */
 
+/*
 /datum/species/hemophage/New()
 	// Remove traits
 	inherent_traits -= list(
@@ -20,8 +25,6 @@
 	// Return original
 	. = ..()
 
-// Disabled due to community feedback
-/*
 // Called when a mob gains this species
 /datum/species/hemophage/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()

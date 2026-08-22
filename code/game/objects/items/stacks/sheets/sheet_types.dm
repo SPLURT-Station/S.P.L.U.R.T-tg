@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	obj_flags = CONDUCTS_ELECTRICITY
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/iron
-	gulag_valid = TRUE
+	gulag_value = 5
 	table_type = /obj/structure/table
 	material_type = /datum/material/iron
 	matter_amount = 4
@@ -196,9 +196,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
-
-/obj/item/stack/sheet/iron/grind_results()
-	return list(/datum/reagent/iron = 20)
 
 /obj/item/stack/sheet/iron/examine(mob/user)
 	. = ..()
@@ -222,7 +219,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	. = ..()
 	. += GLOB.metal_recipes
 
-/obj/item/stack/sheet/iron/suicide_act(mob/living/carbon/user)
+/obj/item/stack/sheet/iron/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] begins whacking [user.p_them()]self over the head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
@@ -298,7 +295,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	else
 		new/obj/structure/girder/displaced(build_on)
 		user.balloon_alert(user, "girder created")
-	user.mind.adjust_experience(/datum/skill/construction, 5) //SKYRAT EDIT: Construction Skill
+	user.mind?.adjust_experience(/datum/skill/construction, 5) //SKYRAT EDIT: Construction Skill
 	return ITEM_INTERACT_SUCCESS
 
 /*
@@ -331,7 +328,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	armor_type = /datum/armor/sheet_plasteel
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/plasteel
-	gulag_valid = TRUE
+	gulag_value = 10
 	table_type = /obj/structure/table/reinforced
 	material_flags = NONE
 	matter_amount = 12
@@ -339,9 +336,6 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 /datum/armor/sheet_plasteel
 	fire = 100
 	acid = 80
-
-/obj/item/stack/sheet/plasteel/grind_results()
-	return list(/datum/reagent/iron = 20, /datum/reagent/toxin/plasma = 20)
 
 /obj/item/stack/sheet/plasteel/get_main_recipes()
 	. = ..()
@@ -440,9 +434,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 /datum/armor/mineral_wood
 	fire = 50
 
-/obj/item/stack/sheet/mineral/wood/grind_results()
-	return list(/datum/reagent/cellulose = 20)
-
 /obj/item/stack/sheet/mineral/wood/get_main_recipes()
 	. = ..()
 	. += GLOB.wood_recipes
@@ -508,9 +499,6 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 /datum/armor/mineral_bamboo
 	fire = 50
 
-/obj/item/stack/sheet/mineral/bamboo/grind_results()
-	return list(/datum/reagent/cellulose = 10)
-
 /obj/item/stack/sheet/mineral/bamboo/get_main_recipes()
 	. = ..()
 	. += GLOB.bamboo_recipes
@@ -541,7 +529,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	new/datum/stack_recipe("science bag", /obj/item/storage/bag/xeno, 4, crafting_flags = NONE, category = CAT_CONTAINERS), \
 	new/datum/stack_recipe("construction bag", /obj/item/storage/bag/construction, 4, crafting_flags = NONE, category = CAT_CONTAINERS), \
 	null, \
-	new/datum/stack_recipe("improvised gauze", /obj/item/stack/medical/gauze/improvised, 1, 2, 6, crafting_flags = NONE, category = CAT_TOOLS), \
+	new/datum/stack_recipe("improvised gauze", /obj/item/stack/medical/wrap/gauze/improvised, 1, 2, 6, crafting_flags = NONE, category = CAT_TOOLS), \
 	new/datum/stack_recipe("rag", /obj/item/rag, 1, crafting_flags = NONE, category = CAT_CHEMISTRY), \
 	new/datum/stack_recipe("bedsheet", /obj/item/bedsheet, 3, crafting_flags = NONE, category = CAT_FURNITURE), \
 	new/datum/stack_recipe("double bedsheet", /obj/item/bedsheet/double, 6, crafting_flags = NONE, category = CAT_FURNITURE), \
@@ -691,6 +679,9 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes, crafting_flags = NONE, category = CAT_CONTAINERS),
 		new /datum/stack_recipe("nugget box", /obj/item/storage/fancy/nugget_box, crafting_flags = NONE, category = CAT_CONTAINERS), \
+		new /datum/stack_recipe("red nugget box", /obj/item/storage/fancy/nugget_box/red, crafting_flags = NONE, category = CAT_CONTAINERS), \
+		new /datum/stack_recipe("red wing box", /obj/item/storage/fancy/wing_box, crafting_flags = NONE, category = CAT_CONTAINERS), \
+		new /datum/stack_recipe("red fry box", /obj/item/storage/fancy/fry_box, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("drinking glasses box", /obj/item/storage/box/drinkingglasses, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("paper cups box", /obj/item/storage/box/cups, crafting_flags = NONE, category = CAT_CONTAINERS), \
 		new /datum/stack_recipe("cigar case", /obj/item/storage/fancy/cigarettes/cigars, crafting_flags = NONE, category = CAT_CONTAINERS), \
@@ -759,9 +750,6 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
 
-/obj/item/stack/sheet/cardboard/grind_results()
-	return list(/datum/reagent/cellulose = 10)
-
 /obj/item/stack/sheet/cardboard/get_main_recipes()
 	. = ..()
 	. += GLOB.cardboard_recipes
@@ -769,22 +757,25 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 /obj/item/stack/sheet/cardboard/fifty
 	amount = 50
 
-/obj/item/stack/sheet/cardboard/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(I, /obj/item/stamp/clown) && !istype(loc, /obj/item/storage))
+/obj/item/stack/sheet/cardboard/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stamp/clown) && !istype(loc, /obj/item/storage))
 		var/atom/droploc = drop_location()
-		if(use(1))
-			playsound(I, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
-			to_chat(user, span_notice("You stamp the cardboard! It's a clown box! Honk!"))
-			if (amount >= 0)
-				new/obj/item/storage/box/clown(droploc) //bugfix
-	if(istype(I, /obj/item/stamp/chameleon) && !istype(loc, /obj/item/storage))
+		if(!use(1))
+			return ITEM_INTERACT_BLOCKING
+		playsound(tool, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
+		to_chat(user, span_notice("You stamp the cardboard! It's a clown box! Honk!"))
+		new /obj/item/storage/box/clown(droploc) //bugfix
+		return ITEM_INTERACT_SUCCESS
+
+	if(istype(tool, /obj/item/stamp/chameleon) && !istype(loc, /obj/item/storage))
 		var/atom/droploc = drop_location()
-		if(use(1))
-			to_chat(user, span_notice("You stamp the cardboard in a sinister way."))
-			if (amount >= 0)
-				new/obj/item/storage/box/syndie_kit(droploc)
-	else
-		. = ..()
+		if(!use(1))
+			return ITEM_INTERACT_BLOCKING
+		to_chat(user, span_notice("You stamp the cardboard in a sinister way."))
+		new /obj/item/storage/box/syndie_kit(droploc)
+		return ITEM_INTERACT_SUCCESS
+
+	return ..()
 
 /*
  * Bronze
@@ -829,9 +820,6 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	material_type = /datum/material/bronze
 	walltype = /turf/closed/wall/mineral/bronze
 	has_unique_girder = TRUE
-
-/obj/item/stack/sheet/bronze/grind_results()
-	return list(/datum/reagent/iron = 20, /datum/reagent/copper = 12)
 
 /obj/item/stack/sheet/bronze/get_main_recipes()
 	. = ..()
@@ -904,9 +892,6 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
 
-/obj/item/stack/sheet/bone/grind_results()
-	return list(/datum/reagent/carbon = 10)
-
 GLOBAL_LIST_INIT(plastic_recipes, list(
 	new /datum/stack_recipe("plastic floor tile", /obj/item/stack/tile/plastic, 1, 4, 20, time = 2 SECONDS, crafting_flags = NONE, category = CAT_TILES), \
 	new /datum/stack_recipe("light tram tile", /obj/item/stack/thermoplastic/light, 1, 4, 20, time = 2 SECONDS, crafting_flags = NONE, category = CAT_TILES), \
@@ -917,7 +902,7 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	new /datum/stack_recipe("large water bottle", /obj/item/reagent_containers/cup/glass/waterbottle/large/empty, 3, crafting_flags = NONE, category = CAT_CONTAINERS), \
 	new /datum/stack_recipe("colo cups", /obj/item/reagent_containers/cup/glass/colocup, 1, crafting_flags = NONE, category = CAT_CONTAINERS, removed_mats = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT)), \
 	new /datum/stack_recipe("mannequin", /obj/structure/mannequin/plastic, 25, time = 5 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF, category = CAT_ENTERTAINMENT), \
-	new /datum/stack_recipe("wet floor sign", /obj/item/clothing/suit/caution, 2, crafting_flags = NONE, category = CAT_EQUIPMENT), \
+	new /datum/stack_recipe("wet floor sign", /obj/item/clothing/suit/caution, 2, crafting_flags = CRAFT_SKIP_MATERIALS_PARITY, category = CAT_EQUIPMENT), \
 	new /datum/stack_recipe("warning cone", /obj/item/clothing/head/cone, 2, crafting_flags = NONE, category = CAT_EQUIPMENT), \
 	new /datum/stack_recipe("blank wall sign", /obj/item/sign, 1, crafting_flags = NONE, category = CAT_FURNITURE), \
 	new /datum/stack_recipe("liquid cooler jug", /obj/item/reagent_containers/cooler_jug, 4, time = 5 SECONDS, crafting_flags = NONE, category = CAT_CONTAINERS), \
@@ -966,9 +951,6 @@ GLOBAL_LIST_INIT(paperframe_recipes, list(
 	drop_sound = null
 	pickup_sound = null
 
-/obj/item/stack/sheet/paperframes/grind_results()
-	return list(/datum/reagent/cellulose = 20)
-
 /obj/item/stack/sheet/paperframes/get_main_recipes()
 	. = ..()
 	. += GLOB.paperframe_recipes
@@ -984,7 +966,7 @@ GLOBAL_LIST_INIT(paperframe_recipes, list(
 	desc = "Something's bloody meat compressed into a nice solid sheet."
 	singular_name = "meat sheet"
 	icon_state = "sheet-meat"
-	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR | MATERIAL_NO_DESCRIPTORS
 	mats_per_unit = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/meat
 	material_type = /datum/material/meat
@@ -1031,14 +1013,11 @@ GLOBAL_LIST_INIT(pizza_sheet_recipes, list(
 	desc = "These sheets seem cursed."
 	singular_name = "haunted sheet"
 	icon_state = "sheet-meat"
-	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR | MATERIAL_NO_DESCRIPTORS
 	mats_per_unit = list(/datum/material/hauntium = SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/hauntium
 	material_type = /datum/material/hauntium
 	material_modifier = 1 //None of that wussy stuff
-
-/obj/item/stack/sheet/hauntium/grind_results()
-	return list(/datum/reagent/hauntium = 20)
 
 /obj/item/stack/sheet/hauntium/fifty
 	amount = 50

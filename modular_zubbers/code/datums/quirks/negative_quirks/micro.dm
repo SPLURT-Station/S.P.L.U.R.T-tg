@@ -36,12 +36,10 @@
 
 /datum/quirk/micro/post_add()
 	var/mob/living/carbon/living_as_carbon = quirk_holder
-	/* Splurt Edit - We do it our way
-	living_as_carbon.dna.features["body_size"] = size_reduced
-	living_as_carbon.maptext_height = 32 * living_as_carbon.dna.features["body_size"]
-	living_as_carbon.dna.update_body_size()
-	*/
-	living_as_carbon.update_size(size_reduced) //splurt edit - making it work with size hp
+	//SPLURT EDIT CHANGE BEGIN - SIZECODE - Prefer update_size so size HP/mob_size hooks apply
+	//living_as_carbon.update_transform(size_reduced) - SPLURT EDIT - ORIGINAL
+	living_as_carbon.update_size(size_reduced)
+	//SPLURT EDIT CHANGE END
 	living_as_carbon.AddComponent( \
 		/datum/component/squashable, \
 		squash_chance = squash_chance_, \
@@ -51,6 +49,5 @@
 
 /datum/quirk/micro/remove()
 	qdel(quirk_holder.GetComponent(/datum/component/squashable))
-
 
 

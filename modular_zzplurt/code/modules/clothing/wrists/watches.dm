@@ -8,8 +8,10 @@
 
 /obj/item/clothing/wrists/clockwork_watch/examine(mob/user)
 	. = ..()
-	. += "<span class='info'>Station Time: [station_time_timestamp("hh:mm:ss", world.time)]"
+	. += span_info("Station Time: [server_timestamp(ic_time = TRUE, twelve_hour_clock = user.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]")
+	if(user.is_literate())
+		. += span_info("That means it is currently [round_timestamp()] into the shift.")
 
 /obj/item/clothing/wrists/clockwork_watch/attack(mob/target, mob/user)
 	. = ..()
-	to_chat(target, "<span class='info'>Station Time: [station_time_timestamp("hh:mm:ss", world.time)]")
+	to_chat(target, span_info("Station Time: [server_timestamp(ic_time = TRUE, twelve_hour_clock = user.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]"))

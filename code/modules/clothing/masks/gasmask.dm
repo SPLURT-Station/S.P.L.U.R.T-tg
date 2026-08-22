@@ -58,10 +58,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		LAZYADD(gas_filters, inserted_filter)
 	has_filter = TRUE
 
-/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
+/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file, bodyshape = NONE)
 	. = ..()
 	if(!isinhands && cig)
-		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
+		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi', bodyshape = bodyshape)
 
 /obj/item/clothing/mask/gas/Destroy()
 	QDEL_LAZYLIST(gas_filters)
@@ -226,7 +226,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	desc = "A gas mask with built-in welding goggles and a face shield. Looks like a skull - clearly designed by a nerd."
 	icon_state = "weldingmask"
 	flash_protect = FLASH_PROTECTION_WELDER
-	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2, /datum/material/glass=SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.4, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	tint = 2
 	toggle_message = "You pull the visor down."
 	alt_toggle_message = "You push the visor up."
@@ -295,6 +295,16 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 
 /obj/item/clothing/mask/gas/syndicate/plasmaman
 	starting_filter_type = /obj/item/gas_filter/plasmaman
+
+/obj/item/clothing/mask/gas/syndicate/cybersun
+	name = "\improper Cybersun mask"
+	desc = "It's really more about making a statement than protecting you from environmental hazards."
+	icon_state = "cybersun"
+	flags_cover = MASKCOVERSMOUTH
+	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_cover = MASKCOVERSMOUTH
+	alternate_worn_layer = BENEATH_HAIR_LAYER
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
@@ -472,7 +482,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	icon_state = "carp_mask"
 	inhand_icon_state = null
 	flags_cover = MASKCOVERSEYES
-	clothing_flags = CARP_STYLE_FACTOR
+	clothing_flags = MASKINTERNALS | CARP_STYLE_FACTOR
 	fishing_modifier = -4
 
 /obj/item/clothing/mask/gas/tiki_mask

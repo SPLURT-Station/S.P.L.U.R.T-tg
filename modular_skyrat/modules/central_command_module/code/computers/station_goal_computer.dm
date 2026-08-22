@@ -1,6 +1,7 @@
 /obj/machinery/computer/station_goal
 	name = "station goal console"
 	desc = "A console used for setting the stations goal."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/communications")
 	icon_screen = "comm"
 	icon_keyboard = "tech_key"
 	req_access = list(ACCESS_CENT_CAPTAIN)

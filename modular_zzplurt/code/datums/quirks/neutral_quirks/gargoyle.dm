@@ -221,7 +221,7 @@
 		L.click_intercept = src
 		L.faction |= FACTION_MIMIC //Stops mimics from instaqdeling people in statues
 		old_max_health = L.maxHealth
-		old_size = H.dna.features["body_size"]
+		old_size = get_size(H)
 		atom_integrity = L.health + 100 //stoning damaged mobs will result in easier to shatter statues
 		max_integrity = atom_integrity
 
@@ -263,8 +263,7 @@
 		petrified_mob.faction -= FACTION_MIMIC
 		petrified_mob.click_intercept = null
 		petrified_mob.dir = dir
-		petrified_mob.dna.features["body_size"] = old_size
-		petrified_mob.dna.update_body_size()
+		petrified_mob.update_size(old_size)
 		var/damage = deconstructed ? petrified_mob.health : petrified_mob.health*(old_max_health/petrified_mob.maxHealth) - atom_integrity + 100
 		petrified_mob.take_overall_damage(damage) //any new damage the statue incurred is transferred to the mob
 		petrified_mob.transform = transform

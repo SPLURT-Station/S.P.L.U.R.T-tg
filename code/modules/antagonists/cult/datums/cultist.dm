@@ -67,7 +67,7 @@
 	if(cult_team.cult_risen)
 		current.AddElement(/datum/element/cult_eyes, initial_delay = 0 SECONDS)
 	if(cult_team.cult_ascendent)
-		current.AddElement(/datum/element/cult_halo, initial_delay = 0 SECONDS)
+		current.apply_status_effect(/datum/status_effect/cult_halo, 0 SECONDS)
 
 	ADD_TRAIT(current, TRAIT_HEALS_FROM_CULT_PYLONS, CULT_TRAIT)
 	add_team_hud(current)
@@ -85,8 +85,7 @@
 
 	if (HAS_TRAIT(current, TRAIT_UNNATURAL_RED_GLOWY_EYES))
 		current.RemoveElement(/datum/element/cult_eyes)
-	if (HAS_TRAIT(current, TRAIT_CULT_HALO))
-		current.RemoveElement(/datum/element/cult_halo)
+	current.remove_status_effect(/datum/status_effect/cult_halo)
 
 	REMOVE_TRAIT(current, TRAIT_HEALS_FROM_CULT_PYLONS, CULT_TRAIT)
 
@@ -255,21 +254,21 @@
 		to_chat(cult_mind, span_cult_large("The Cult's Master, [owner.current.name], has fallen in \the [current_area]!"))
 
 /datum/antagonist/cult/get_preview_icon()
-	var/icon/icon = render_preview_outfit(preview_outfit)
+	var/datum/universal_icon/icon = render_preview_outfit(preview_outfit)
 
 	// The longsword is 64x64, but getFlatIcon crunches to 32x32.
 	// So I'm just going to add it in post, screw it.
 
 	// Center the dude, because item icon states start from the center.
 	// This makes the image 64x64.
-	icon.Crop(-15, -15, 48, 48)
+	icon.crop(-15, -15, 48, 48)
 
-	var/obj/item/melee/cultblade/longsword = new
-	icon.Blend(icon(longsword.lefthand_file, longsword.inhand_icon_state), ICON_OVERLAY)
-	qdel(longsword)
+	var/obj/item/melee/cultblade/blade_type = /obj/item/melee/cultblade
+	var/datum/universal_icon/blade_icon = uni_icon(blade_type::lefthand_file, blade_type::inhand_icon_state)
+	icon.blend_icon(blade_icon, ICON_OVERLAY)
 
 	// Move the guy back to the bottom left, 32x32.
-	icon.Crop(17, 17, 48, 48)
+	icon.crop(17, 17, 48, 48)
 
 	return finish_preview_icon(icon)
 

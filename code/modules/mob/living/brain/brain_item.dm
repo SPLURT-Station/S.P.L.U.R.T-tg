@@ -130,9 +130,8 @@
 	if((!QDELETED(src) || !QDELETED(owner)) && !(movement_flags & NO_ID_TRANSFER))
 		transfer_identity(organ_owner)
 	if(!special)
-		if(!(organ_owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
-			organ_owner.update_body_parts()
 		organ_owner.clear_mood_event("brain_damage")
+		organ_owner.med_hud_set_status()
 
 /obj/item/organ/brain/update_icon_state()
 	icon_state = "[initial(icon_state)][smooth_brain ? "-smooth" : ""]"
@@ -242,8 +241,6 @@
 		. += span_notice("It is a bit on the smaller side...")
 	if(brain_size > 1)
 		. += span_notice("It is bigger than average...")
-	if(GetComponent(/datum/component/ghostrole_on_revive))
-		. += span_notice("Its soul might yet come back...")
 
 /// Needed so subtypes can override examine text while still calling parent
 /obj/item/organ/brain/proc/brain_damage_examine()
@@ -259,7 +256,7 @@
 	else
 		return span_info("This one is completely devoid of life.")
 
-/obj/item/organ/brain/get_status_appendix(advanced, add_tooltips)
+/obj/item/organ/brain/get_status_appendix(scanpower, add_tooltips)
 	var/list/trauma_text
 	for(var/datum/brain_trauma/trauma as anything in traumas)
 		var/trauma_desc = ""
@@ -269,13 +266,13 @@
 			if(TRAUMA_RESILIENCE_SURGERY)
 				trauma_desc = conditional_tooltip("Severe ", "Repair via brain surgery.", add_tooltips)
 			if(TRAUMA_RESILIENCE_LOBOTOMY)
-				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Lobotomy.", add_tooltips)
+				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via advanced brain surgery.", add_tooltips) // BUBBER EDIT CHANGE - Original: Repair via Lobotomy
 			if(TRAUMA_RESILIENCE_WOUND)
 				trauma_desc = conditional_tooltip("Fracture-derived ", "Repair via treatment of wounds afflicting the head.", add_tooltips)
 			if(TRAUMA_RESILIENCE_MAGIC)
-				// BUBBER EDIT CHANGE BEGIN - Blessed lobotomy
-				trauma_desc = conditional_tooltip("Soul-bound ", "Repair via Blessed Lobotomy.", add_tooltips)
-				// BUBBER EDIT CHANGE END - Blessed lobotomy
+				// BUBBER EDIT CHANGE BEGIN - Blessed neurectomy
+				trauma_desc = conditional_tooltip("Soul-bound ", "Repair via blessed brain surgery.", add_tooltips)
+				// BUBBER EDIT CHANGE END - Blessed neurectomy
 			if(TRAUMA_RESILIENCE_ABSOLUTE)
 				trauma_desc = conditional_tooltip("Permanent ", "Irreparable under normal circumstances.", add_tooltips)
 		trauma_desc += capitalize(trauma.scan_desc)
@@ -349,9 +346,21 @@
 		owner.investigate_log("has been killed by brain damage.", INVESTIGATE_DEATHS)
 		owner.death()
 
+/obj/item/organ/brain/on_bodypart_insert(obj/item/bodypart/limb)
+	. = ..()
+	if(ishuman(limb.owner))
+		limb.owner.update_hair()
+	else
+		limb.update_icon_dropped()
+
 /obj/item/organ/brain/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
 	. = ..()
-	update_brain_color(animate = FALSE) // once it's out in the world we need to make sure it's the right color
+	if(ishuman(limb.owner))
+		limb.owner.update_hair()
+	else
+		limb.update_icon_dropped()
+	// once it's out in the world we need to make sure it's the right color
+	update_brain_color(animate = FALSE)
 
 /obj/item/organ/brain/apply_organ_damage(damage_amount, maximum = maxHealth, required_organ_flag = NONE)
 	. = ..()

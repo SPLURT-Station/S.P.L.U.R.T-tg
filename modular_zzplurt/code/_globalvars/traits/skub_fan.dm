@@ -1,11 +1,3 @@
-#ifndef TRAIT_PRO_SKUB
-#define TRAIT_PRO_SKUB "pro_skub"
-#endif
-
-#ifndef TRAIT_ANTI_SKUB
-#define TRAIT_ANTI_SKUB "anti_skub"
-#endif
-
 GLOBAL_LIST_INIT(skub_fan_traits_modular, list(
 	"TRAIT_ANTI_SKUB" = TRAIT_ANTI_SKUB,
 	"TRAIT_PRO_SKUB" = TRAIT_PRO_SKUB,
