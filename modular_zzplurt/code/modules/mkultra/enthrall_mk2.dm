@@ -1,9 +1,4 @@
-// Mk.2 pet-chip specific enthrall setup; keeps upstream enthrall untouched.
-
-// Provide modular vars used by mkultra commands.
-/datum/status_effect/chem/enthrall
-	var/distance_mood_enabled = TRUE
-	var/ignore_mindshield = FALSE
+// Mk.2 pet-chip specific enthrall setup; keeps Bubber's /datum/status_effect/mkultra untouched.
 
 #ifndef FULLY_ENTHRALLED
 #define FULLY_ENTHRALLED 3
@@ -15,7 +10,7 @@
 	var/obj/item/organ/brain/neopet_brain = enthrall_victim?.get_organ_slot(ORGAN_SLOT_BRAIN)
 	var/obj/item/skillchip/mk2pet/mk2_chip
 	for(var/obj/item/skillchip/mk2pet/chip in neopet_brain?.skillchips)
-		if(istype(chip) && chip.active)
+		if(chip.active)
 			mk2_chip = chip
 			break
 
@@ -32,15 +27,16 @@
 
 		. = ..()
 	else
-		// Fallback to base chip if somehow a Mk.2 status was applied without the Mk.2 item.
+		// Fallback: base Mk.II chip imprint (enchanter/title after Bubber refactor).
 		for(var/obj/item/skillchip/mkiiultra/base_chip in neopet_brain?.skillchips)
-			if(istype(base_chip) && base_chip.active)
-				enthrall_ckey = base_chip.enthrall_ckey
-				enthrall_gender = base_chip.enthrall_gender
-				enthrall_mob = get_mob_by_key(enthrall_ckey)
-				lewd = TRUE
-				. = ..()
-				break
+			if(!base_chip.active || isnull(base_chip.enchanter))
+				continue
+			enthrall_mob = base_chip.enchanter
+			enthrall_ckey = base_chip.enchanter.ckey
+			enthrall_gender = base_chip.title || "Master"
+			lewd = TRUE
+			. = ..()
+			break
 
 	if(isnull(enthrall_mob))
 		stack_trace("Mk.2 pet chip enthrall has no linked enthrall mob. Removing status.")
@@ -117,3 +113,5 @@
 			break
 
 	return ..()
+
+#undef FULLY_ENTHRALLED

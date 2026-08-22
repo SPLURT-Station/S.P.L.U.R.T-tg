@@ -21,11 +21,9 @@
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/camera/autoname/directional/south,
 /obj/structure/table/wood/fancy/blue,
-/obj/item/storage/medkit/brute{
-	pixel_y = 4
-	},
-/obj/item/storage/medkit/fire{
-	pixel_y = 9
+/obj/machinery/fax{
+	name = "Blueshield's Fax Machine";
+	fax_name = "Blueshield's Office"
 	},
 /obj/item/storage/medkit/robotic_repair/stocked{
 	pixel_y = 5
@@ -44,10 +42,10 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "e" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/east,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "f" = (
@@ -76,7 +74,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "h" = (
@@ -89,13 +87,13 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "i" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/landmark/start/blueshield,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "j" = (
@@ -125,9 +123,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "m" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
-/obj/structure/sign/poster/official/enlist/directional/west,
 /obj/machinery/firealarm/directional/north,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
+/obj/machinery/vending/wallmed/directional/west,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "n" = (
@@ -139,7 +137,7 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/machinery/newscaster/directional/west,
+/obj/machinery/requests_console/auto_name/directional/west,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "p" = (
@@ -279,20 +277,26 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "z" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 1
-	},
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/closet/secure_closet/tac{
 	req_access = list("cent_officer")
 	},
-/obj/machinery/status_display/ai/directional/south,
-/obj/machinery/light/red/directional/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/gun_maintenance_supplies,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/head/helmet/toggleable/riot,
+/obj/item/clothing/head/helmet/toggleable/riot{
+	pixel_y = 6
+	},
+/obj/item/screwdriver,
 /obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/shield/riot,
 /obj/item/mod/module/pepper_shoulders,
-/turf/open/floor/iron/dark/small,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/status_display/evac/directional/south,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/dark/textured,
 /area/station/command/heads_quarters/blueshield)
 "A" = (
 /obj/structure/cable,
@@ -310,7 +314,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "C" = (
@@ -398,6 +402,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/item/radio/intercom/command/directional/south,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "M" = (
@@ -425,18 +430,30 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "O" = (
+/obj/structure/closet/secure_closet/blueshield,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/tactical/blueshield,
+/obj/item/dog_bone,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/blueshield,
+/obj/item/modular_computer/laptop/preset/security{
+	pixel_y = 5
+	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
+/obj/structure/sign/plaques/kiddie/perfect_man{
+	pixel_y = -32
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "P" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/camera/autoname/directional/north,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "Q" = (
@@ -450,12 +467,15 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "R" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/suit_storage_unit/blueshield,
-/obj/structure/reagent_dispensers/wall/peppertank/directional/south,
+/obj/structure/plaque/static_plaque/golden{
+	pixel_y = -32
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "S" = (
@@ -469,7 +489,17 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "T" = (
-/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "U" = (
@@ -486,8 +516,9 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "V" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "W" = (

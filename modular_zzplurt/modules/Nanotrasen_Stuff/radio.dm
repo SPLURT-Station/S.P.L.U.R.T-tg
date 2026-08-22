@@ -49,9 +49,11 @@
 
 /obj/item/radio/headset/heads/nanotrasen_consultant
 	parent_type = /obj/item/radio/headset/heads/nanotrasen
+	icon_state = "nano_headset"
 
 /obj/item/radio/headset/heads/nanotrasen_consultant/alt
 	parent_type = /obj/item/radio/headset/heads/nanotrasen/alt
+	icon_state = "nano_headset_alt"
 
 /obj/item/radio/headset/heads/nanotrasen/alt/Initialize(mapload)
 	. = ..()

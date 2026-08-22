@@ -1,5 +1,6 @@
 
 /atom/movable/screen/intent_toggle
+	parent_type = /atom/movable/screen/combattoggle
 	name = "intent"
 	icon_state = "help"
 	screen_loc = "EAST-4:22,SOUTH:5"

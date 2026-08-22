@@ -3,7 +3,7 @@
 
 /obj/item/clothing/suit/toggle/labcoat/Initialize(mapload)
 	. = ..()
-	allowed += list(/obj/item/flashlight, /obj/item/hypospray, /obj/item/storage/hypospraykit)
+	allowed += list(/obj/item/flashlight, /obj/item/handheld_soulcatcher, /obj/item/hypospray, /obj/item/storage/hypospraykit)
 
 /obj/item/clothing/suit/toggle/labcoat/skyrat
 	name = "SR LABCOAT SUIT DEBUG"
@@ -132,12 +132,6 @@
 
 /obj/item/clothing/suit/toggle/labcoat/interdyne
 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
-
-/obj/item/clothing/suit/toggle/labcoat/Initialize(mapload)
-	. = ..()
-	allowed += list(
-		/obj/item/handheld_soulcatcher,
-	)
 
 //SPLURT ADDITION START
 /obj/item/clothing/suit/toggle/labcoat/skyrat/fancy/pharmacist/Initialize(mapload)

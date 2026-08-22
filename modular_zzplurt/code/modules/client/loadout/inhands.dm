@@ -115,9 +115,9 @@
 // 	name = "Hypnotic Chastity Watch"
 // 	item_path = /obj/item/chastity_hypno/watch
 
-/datum/loadout_item/pocket_items/electropack/vibrator
-	name = "Vibrator"
-	item_path = /obj/item/clothing/sextoy/vibrator
+// /datum/loadout_item/pocket_items/electropack/vibrator
+// 	name = "Vibrator"
+// 	item_path = /obj/item/clothing/sextoy/vibrator
 
 /datum/loadout_item/pocket_items/electropack/vibrator/small
 	name = "Remote Vibroegg"

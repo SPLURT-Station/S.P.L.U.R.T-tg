@@ -20,6 +20,8 @@
 	var/list/laws = list()
 	/// Used to skip laws being checked (for reset & remove boards that have no laws)
 	var/bypass_law_amt_check = FALSE
+	/// Used for the Traitor Hacked Upload board to ignore access restrictions on the upload console.
+	var/bypass_access_check = FALSE
 
 /obj/item/ai_module/Initialize(mapload)
 	. = ..()
@@ -89,7 +91,7 @@
 	else
 		to_chat(user, span_notice("Upload complete."))
 
-	var/time = time2text(world.realtime,"hh:mm:ss", TIMEZONE_UTC)
+	var/time = round_timestamp()
 	var/ainame = law_datum.owner ? law_datum.owner.name : "empty AI core"
 	var/aikey = law_datum.owner ? law_datum.owner.ckey : "null"
 
@@ -135,6 +137,7 @@
 				law_datum.replace_random_law(templaw, list(LAW_INHERENT, LAW_SUPPLIED), LAW_INHERENT)
 
 /obj/item/ai_module/core/full
+	custom_materials = list(/datum/material/diamond = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 	var/law_id // if non-null, loads the laws from the ai_laws datums
 
 /obj/item/ai_module/core/full/Initialize(mapload)

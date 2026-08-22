@@ -67,8 +67,7 @@
 	action_owner.update_worn_back()
 
 // Runs on toggling the ability
-/datum/action/item_action/hide_backpack/Trigger(trigger_flags)
-	// Set owner
+/datum/action/item_action/hide_backpack/do_effect(trigger_flags)
 	var/mob/living/carbon/human/action_owner = owner
 
 	// Update active status
@@ -100,6 +99,7 @@
 
 	// Display a chat message
 	action_owner.visible_message(span_notice("The equipment worn on [action_owner]'s back-region flickers momentarily, before becoming [implant_toggle_text]."), span_notice("You [implant_toggle_text_2]engage the Storage Concealment Implant, causing your backpack to be [implant_toggle_text]."))
+	return TRUE
 
 /*
  * Implant items

@@ -2,14 +2,17 @@
 /datum/sprite_accessory/genital/breasts/pair
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/breasts_onmob.dmi'
 	color_src = USE_MATRIXED_COLORS
+	max_size = BREASTS_MAX_SIZE
 
 /datum/sprite_accessory/genital/breasts/quad
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/breasts_onmob.dmi'
 	color_src = USE_MATRIXED_COLORS
+	max_size = BREASTS_MAX_SIZE
 
 /datum/sprite_accessory/genital/breasts/sextuple
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/breasts_onmob.dmi'
 	color_src = USE_MATRIXED_COLORS
+	max_size = BREASTS_MAX_SIZE
 
 /datum/sprite_accessory/genital/breasts/pair_old
 	icon_state = /datum/sprite_accessory/genital/breasts/pair::icon_state
@@ -129,28 +132,7 @@
 	name = /datum/sprite_accessory/genital/testicles/sheath::name + " (Old)"
 	icon_state = /datum/sprite_accessory/genital/testicles/sheath::icon_state
 
-// Butt
-/datum/sprite_accessory/genital/butt
-	icon = 'modular_zzplurt/icons/mob/human/genitals/butt.dmi'
-	organ_type = /obj/item/organ/genital/butt
-	associated_organ_slot = ORGAN_SLOT_BUTT
-	key = ORGAN_SLOT_BUTT
-	color_src = USE_MATRIXED_COLORS
-	always_color_customizable = TRUE
-	has_skintone_shading = TRUE
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-
-/datum/sprite_accessory/genital/butt/none
-	icon_state = "none"
-	name = SPRITE_ACCESSORY_NONE
-	factual = FALSE
-	color_src = null
-
-/datum/sprite_accessory/genital/butt/pair
-	icon_state = "pair"
-	name = "Pair"
-
-// Anus
+// Anus - SPLURT extras on top of Skyrat base (butt/belly accessories live upstream in Bubber)
 /datum/sprite_accessory/genital/anus
 	icon = 'modular_zzplurt/icons/mob/human/genitals/anus.dmi'
 	color_src = USE_MATRIXED_COLORS
@@ -171,24 +153,3 @@
 /datum/sprite_accessory/genital/anus/squished
 	icon_state = "squished"
 	name = "Squished"
-
-// Belly
-/datum/sprite_accessory/genital/belly
-	icon = 'modular_zzplurt/icons/mob/human/genitals/belly.dmi'
-	organ_type = /obj/item/organ/genital/belly
-	associated_organ_slot = ORGAN_SLOT_BELLY
-	key = ORGAN_SLOT_BELLY
-	color_src = USE_ONE_COLOR
-	always_color_customizable = TRUE
-	has_skintone_shading = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
-
-/datum/sprite_accessory/genital/belly/none
-	icon_state = "none"
-	name = SPRITE_ACCESSORY_NONE
-	factual = FALSE
-	color_src = null
-
-/datum/sprite_accessory/genital/belly/normal
-	icon_state = "pair" //????
-	name = "Belly"

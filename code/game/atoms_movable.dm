@@ -36,9 +36,13 @@
 	var/speech_span
 	///Are we moving with inertia? Mostly used as an optimization
 	var/inertia_moving = FALSE
-	///Multiplier for inertia based movement in space
-	var/inertia_move_multiplier = 1
-	///Object "weight", higher weight reduces acceleration applied to the object
+	/// Multiplies speed the movable drifts when unaffected by gravity.
+	/// "Passive" is used for referring "base drift speed" - only the smaller of the two are used.
+	var/inertia_move_multiplier_passive = 1
+	/// Multiplies speed the movable drifts when unaffected by gravity.
+	/// "Active" is used for referring to things boosting our drift speed, like jetpacks - only the smaller of the two are used.
+	var/inertia_move_multiplier_active = 1
+	/// Object "weight", higher weight reduces acceleration applied to the object
 	var/inertia_force_weight = 1
 	///The last time we pushed off something
 	///This is a hack to get around dumb him him me scenarios
@@ -111,6 +115,12 @@
 
 	/// The pitch adjustment that this movable uses when speaking.
 	var/pitch = 0
+
+	/// The base set of blips to use for blip calculation.
+	var/blip_base = "male"
+
+	/// The blip variant to use for blip calculation.
+	var/blip_number = "1"
 
 	/// Datum that keeps all data related to zero-g drifting and handles related code/comsigs
 	var/datum/drift_handler/drift_handler
@@ -952,7 +962,7 @@
 	if(!bumped_atom)
 		CRASH("Bump was called with no argument.")
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, bumped_atom) & COMPONENT_INTERCEPT_BUMPED)
-		return
+		return TRUE
 	. = ..()
 	if(!QDELETED(throwing))
 		throwing.finalize(hit = TRUE, target = bumped_atom)
@@ -1299,15 +1309,12 @@
 	if(!isturf(loc) || Process_Spacemove(angle2dir(inertia_angle), continuous_move = TRUE))
 		return FALSE
 
-	if (!isnull(drift_handler))
-		if (drift_handler.newtonian_impulse(inertia_angle, start_delay, drift_force, controlled_cap, force_loop))
-			return TRUE
+	if (drift_handler?.newtonian_impulse(inertia_angle, start_delay, drift_force, controlled_cap, force_loop))
+		return TRUE
 
 	new /datum/drift_handler(src, inertia_angle, instant, start_delay, drift_force)
-	// Something went wrong and it failed to create itself, most likely we have a higher priority loop already
-	if (QDELETED(drift_handler))
-		return FALSE
-	return TRUE
+	// Qdeleted = failed to create itself = most likely we have a higher priority loop already
+	return !QDELETED(drift_handler)
 
 /atom/movable/set_explosion_block(explosion_block)
 	var/old_block = src.explosion_block
@@ -1316,6 +1323,9 @@
 	explosive_resistance += explosion_block
 	SEND_SIGNAL(src, COMSIG_MOVABLE_EXPLOSION_BLOCK_CHANGED, old_block, explosion_block)
 
+/**
+ * This proc is called when a thrown object makes contact with it's target. It then follows up by calling hitby below.
+ */
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	set waitfor = FALSE
 	var/hitpush = TRUE
@@ -1603,6 +1613,10 @@
 /atom/movable/proc/has_language(language, flags_to_check)
 	return get_language_holder().has_language(language, flags_to_check)
 
+/// Checks if atom has the language. If spoken is true, only checks if atom can speak the language.
+/atom/movable/proc/has_partial_language(language)
+	return get_language_holder().has_partial_language(language)
+
 /// Checks if atom can speak the language.
 /atom/movable/proc/can_speak_language(language)
 	return get_language_holder().can_speak_language(language)
@@ -1627,6 +1641,10 @@
 /// Gets a random spoken language, useful for forced speech and such.
 /atom/movable/proc/get_random_spoken_language()
 	return get_language_holder().get_random_spoken_language()
+
+/// Gets a list of all understood languages, excluding any blocked languages
+/atom/movable/proc/get_understood_languages() as /list
+	return get_language_holder().get_understood_languages() || list()
 
 /// Copies all languages into the supplied atom/language holder. Source should be overridden when you
 /// do not want the language overwritten by later atom updates or want to avoid blocked languages.
@@ -1735,7 +1753,7 @@
 
 /atom/movable/vv_get_dropdown()
 	. = ..()
-	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION("", "--- /movable ---")
 	VV_DROPDOWN_OPTION(VV_HK_OBSERVE_FOLLOW, "Observe Follow")
 	VV_DROPDOWN_OPTION(VV_HK_GET_MOVABLE, "Get Movable")
 	VV_DROPDOWN_OPTION(VV_HK_GET_FACTIONS, "Get Factions")
@@ -1743,6 +1761,8 @@
 	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 	VV_DROPDOWN_OPTION(VV_HK_ADD_FANTASY_AFFIX, "Add Fantasy Affix")
+	if(SStts.tts_enabled)
+		VV_DROPDOWN_OPTION(VV_HK_SET_TTS_VOICE, "Modify TTS Voice")
 
 /atom/movable/vv_do_topic(list/href_list)
 	. = ..()
@@ -1779,11 +1799,13 @@
 		var/list/factions_printout = faction_to_text()
 		to_chat(usr, span_notice(span_notice("Factions for [src]:[factions_printout]")))
 
-	if(href_list[VV_HK_EDIT_PARTICLES] && check_rights(R_VAREDIT))
+	if(href_list[VV_HK_EDIT_PARTICLES])
 		var/client/C = usr.client
 		C?.open_particle_editor(src)
 
-	if(href_list[VV_HK_DEADCHAT_PLAYS] && check_rights(R_FUN))
+	if(href_list[VV_HK_DEADCHAT_PLAYS])
+		if(!check_rights(R_FUN))
+			return
 		if(tgui_alert(usr, "Allow deadchat to control [src] via chat commands?", "Deadchat Plays [src]", list("Allow", "Cancel")) != "Allow")
 			return
 		// Alert is async, so quick sanity check to make sure we should still be doing this.
@@ -1796,6 +1818,14 @@
 		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
 		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
+
+	if(href_list[VV_HK_SET_TTS_VOICE])
+		var/chosen_voice = tgui_input_list(usr, "Choose a voice to use.", "Choose a voice.", SStts.available_speakers)
+		if(!chosen_voice)
+			return
+		voice = chosen_voice
+		log_admin("[key_name(usr)] has set [src]'s voice as [chosen_voice].")
+		message_admins(span_notice("[key_name(usr)] has set [src]'s voice as [chosen_voice]."))
 
 /**
 * A wrapper for setDir that should only be able to fail by living mobs.

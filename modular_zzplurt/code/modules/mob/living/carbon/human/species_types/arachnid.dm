@@ -196,3 +196,4 @@
 	remove_on_fullheal = TRUE
 
 #undef WEB_SPIN_NUTRITION_LOSS
+#undef COCOON_NUTRITION_LOSS

@@ -4,7 +4,6 @@
 	title = ROLE_MOFFUCHIS
 	policy_index = ROLE_MOFFUCHIS
 	akula_outfit = /datum/outfit/akula
-	antagonist_restricted = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/moffuchis
 	name = "Moffuchi's Pizzaria Employee"
@@ -178,3 +177,5 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/gloves/color/black(src)
 	new /obj/item/clothing/neck/scarf/cyan(src)
+
+#undef ROLE_MOFFUCHIS

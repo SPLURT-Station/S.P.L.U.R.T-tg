@@ -49,8 +49,6 @@
 #define TRAIT_UNDEAD			"Undead"
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW			"cosmetic_glow"
-/// Trait for quirk: Body Morpher
-#define TRAIT_BODY_MORPHER		"body_morpher"
 /// Trait for quirk: Hallowed
 #define TRAIT_HALLOWED			"hallowed"
 /// Trait for quirk: Messy
@@ -119,3 +117,8 @@
 
 /// Trait that makes you unable to get pregnant, make people pregnant, and triggers abortions too
 #define TRAIT_INFERTILE "pregnancy_infertile"
+
+/// Trait for quirk: Skub Fan (pro-skub)
+#define TRAIT_PRO_SKUB "pro_skub"
+/// Trait for quirk: Skub Fan (anti-skub)
+#define TRAIT_ANTI_SKUB "anti_skub"

@@ -112,10 +112,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/has_grav/crashedship/midship)
-"fc" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space)
 "fm" = (
 /obj/structure/door_assembly/door_assembly_mhatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -226,7 +222,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/space/nearstation)
 "lf" = (
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/west,
@@ -681,13 +677,6 @@
 	dir = 6
 	},
 /area/ruin/space/has_grav/crashedship/midship)
-"Au" = (
-/obj/structure/lattice,
-/obj/item/shard{
-	icon_state = "small"
-	},
-/turf/template_noop,
-/area/space)
 "AF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/burnt_floor,
@@ -1865,7 +1854,7 @@ EB
 WN
 WN
 EM
-fc
+WN
 AF
 uF
 kc
@@ -1951,7 +1940,7 @@ kc
 nI
 Zl
 KF
-fc
+WN
 kc
 kc
 uF
@@ -2025,7 +2014,7 @@ kc
 kc
 kc
 ID
-Au
+CB
 bc
 Cz
 Ho

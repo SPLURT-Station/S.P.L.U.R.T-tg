@@ -49,7 +49,7 @@
 	new /obj/item/clothing/suit/armor/hos/viro/trenchcoat/winter(src)
 	new /obj/item/clothing/suit/armor/hos/viro/trenchcoat(src)
 	new /obj/item/clothing/suit/armor/hos/viro(src)
-	new /obj/item/clothing/head/helmet/viro/hos(src)
+	new /obj/item/clothing/head/helmet/sec/viro/hos(src)
 
 /obj/item/storage/bag/garment/warden/PopulateContents()
 	new /obj/item/clothing/under/rank/security/splurt/warden(src)

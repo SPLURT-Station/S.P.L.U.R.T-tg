@@ -635,10 +635,9 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 	worn_icon_state = "turtleneck_nova"
-	worn_icon_digi = "turtleneck_nova"
-	greyscale_config = /datum/greyscale_config/turtlenecks
-	greyscale_config_worn = /datum/greyscale_config/turtlenecks/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/turtlenecks/worn/digi
+	greyscale_config = /datum/greyscale_config/turtlenecks_nova
+	greyscale_config_worn = /datum/greyscale_config/turtlenecks_nova/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/turtlenecks_nova/worn/digi
 	greyscale_colors = "#787878#252525"
 	can_adjust = TRUE
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -652,7 +651,6 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 	worn_icon_state = "skirtleneck_nova"
-	worn_icon_digi = "skirtleneck_nova"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -668,10 +666,9 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 	worn_icon_state = "overalls_nova"
-	worn_icon_digi = "overalls_nova"
-	greyscale_config = /datum/greyscale_config/sus_overalls
-	greyscale_config_worn = /datum/greyscale_config/sus_overalls/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/sus_overalls/worn/digi
+	greyscale_config = /datum/greyscale_config/sus_overalls_nova
+	greyscale_config_worn = /datum/greyscale_config/sus_overalls_nova/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/sus_overalls_nova/worn/digi
 	greyscale_colors = "#787878#252525#CCCED1"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	can_adjust = TRUE
@@ -685,7 +682,6 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 	worn_icon_state = "overalls_skirt_nova"
-	worn_icon_digi = "overalls_skirt_nova"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -810,34 +806,34 @@
 	name = "Sheer Miniskirt (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 
-/// Turtlenecks
-/datum/greyscale_config/turtlenecks
-	name = "Turtlenecks"
+/// Distinct from Zubbers' /datum/greyscale_config/turtlenecks, which uses non-nova icon states.
+/datum/greyscale_config/turtlenecks_nova
+	name = "Turtlenecks (Nova)"
 	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
 	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/turtlenecks.json'
 
-/datum/greyscale_config/turtlenecks/worn
-	name = "Turtlenecks (Worn)"
+/datum/greyscale_config/turtlenecks_nova/worn
+	name = "Turtlenecks (Nova, Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/turtlenecks_worn.json'
 
-/datum/greyscale_config/turtlenecks/worn/digi
-	name = "Turtlenecks (Worn, Digi)"
+/datum/greyscale_config/turtlenecks_nova/worn/digi
+	name = "Turtlenecks (Nova, Worn, Digi)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 
-/// Has to be named this to avoid problems
-/datum/greyscale_config/sus_overalls
-	name = "Gorkas"
+/// Distinct from Zubbers' /datum/greyscale_config/sus_overalls, which uses non-nova icon states.
+/datum/greyscale_config/sus_overalls_nova
+	name = "Overalls (Nova)"
 	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
 	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/overalls.json'
 
-/datum/greyscale_config/sus_overalls/worn
-	name = "Gorkas (Worn)"
+/datum/greyscale_config/sus_overalls_nova/worn
+	name = "Overalls (Nova, Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
 	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/overalls_worn.json'
 
-/datum/greyscale_config/sus_overalls/worn/digi
-	name = "Gorkas (Worn, Digi)"
+/datum/greyscale_config/sus_overalls_nova/worn/digi
+	name = "Overalls (Nova, Worn, Digi)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 
 //Urban Clothing

@@ -182,13 +182,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
 /obj/structure/disposalpipe/junction/flip{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/central)
 "s" = (
@@ -214,10 +215,16 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
-"w" = (
+"v" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "nt_rep_priv";
+	dir = 4;
+	name = "Privacy Shutters"
+	},
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/hallway/primary/central)
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/nt_rep)
 "x" = (
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/photocopier/prebuilt,
@@ -337,12 +344,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
-/obj/machinery/light/warm/dim/directional/north,
-/obj/structure/table/wood/fancy/cyan,
+/obj/structure/table/wood/fancy/blue,
+/obj/machinery/fax/heads/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -528,7 +531,7 @@ m
 T
 M
 M
-w
+M
 r
 h
 m

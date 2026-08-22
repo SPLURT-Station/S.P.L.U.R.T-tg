@@ -36,7 +36,7 @@
 
 /mob/living/carbon/proc/get_blood_prefix()
 	// Check for hemophage
-	if(ishemophage(src))
+	if(has_quirk(/datum/quirk/hemophage))
 		return "Hemo"
 
 	// Check for Synthetic

@@ -295,15 +295,19 @@
 	transform = null
 
 // And right here i throw all of those error sprites in the trash
-/obj/item/mob_holder/micro/build_worn_icon(default_layer, default_icon_file, isinhands, female_uniform, override_state, override_file, mutant_styles)
+/obj/item/mob_holder/micro/build_worn_icon(
+	default_layer = 0,
+	default_icon_file = null,
+	isinhands = FALSE,
+	female_uniform = NO_FEMALE_UNIFORM,
+	override_state = null,
+	override_file = null,
+	bodyshape = NONE,
+	mutant_styles = NONE,
+)
 	return null
 
-/obj/item/mob_holder/micro/verb/interact_with_held()
-	set name = "Interact With Held"
-	set desc = "Perform an interaction with the held mob."
-	set category = "IC"
-	set src in view(usr.client)
-
+GAME_VERB_SRC_DESC(/obj/item/mob_holder/micro, interact_with_held, view(usr.client), "Interact With Held", "Perform an interaction with the held mob.", "IC")
 	if(!held_mob)
 		to_chat(usr, span_warning("You're not holding anyone!"))
 		return

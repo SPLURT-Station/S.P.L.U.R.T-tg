@@ -20,6 +20,7 @@
 	icon = 'modular_zubbers/icons/obj/clothing/under/maidsec.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/under/maidsec.dmi'
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/maidsec_d.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/maidsec_teshari.dmi'
 
 //Metro Cops
 
@@ -91,6 +92,196 @@
 	inhand_icon_state = "r_suit"
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/datum/greyscale_component_style/security_uniform
+	output_icon_state = "rsecurity"
+	fallback_icon_state = "security_shirt"
+	default_accessories = list("security_shirt_accs_tie")
+	core_components = list(
+		list(
+			"name" = "Shirt",
+			"key" = "shirt",
+			"default" = "security",
+			"groups" = list(
+				"tie_compatible" = list("security", "viro", "suit"),
+				"arm_trim_compatible" = list("security", "viro", "turtleneck"),
+			),
+			"options" = list(
+				"security" = list(
+					"name" = "Security shirt",
+					"state" = "security_shirt",
+					"color_id" = 1,
+					"color_label" = "Shirt",
+					"default_color" = "#BA3B2E",
+				),
+				"viro" = list(
+					"name" = "Virosec shirt",
+					"state" = "security_shirt_viro",
+					"parent" = "security",
+					"color_id" = 1,
+					"color_label" = "Shirt",
+					"default_color" = "#BA3B2E",
+				),
+				"suit" = list(
+					"name" = "Security suit",
+					"state" = "security_shirt_suit",
+					"parent" = "security",
+					"color_id" = 1,
+					"color_label" = "Shirt",
+					"default_color" = "#BA3B2E",
+				),
+				"turtleneck" = list(
+					"name" = "Security turtleneck",
+					"state" = "security_shirt_turtleneck",
+					"parent" = "security",
+					"color_id" = 1,
+					"color_label" = "Shirt",
+					"default_color" = "#BA3B2E",
+				),
+			),
+		),
+		list(
+			"name" = "Pants",
+			"key" = "pants",
+			"default" = "security",
+			"options" = list(
+				"security" = list(
+					"name" = "Security pants",
+					"state" = "security_pants",
+					"color_id" = 2,
+					"color_label" = "Pants",
+					"default_color" = "#4B4C51",
+				),
+				"skirt" = list(
+					"name" = "Security skirt",
+					"state" = "security_pants_skirt",
+					"parent" = "security",
+					"color_id" = 2,
+					"color_label" = "Pants",
+					"default_color" = "#4B4C51",
+				),
+				"viro" = list(
+					"name" = "Virosec pants",
+					"state" = "security_pants_viro",
+					"parent" = "security",
+					"color_id" = 2,
+					"color_label" = "Pants",
+					"default_color" = "#4B4C51",
+				),
+			),
+		),
+	)
+	accessories = list(
+		"Tie" = list(
+			"state" = "security_shirt_accs_tie",
+			"applies_to" = list("shirt" = list(COMPONENT_CORE_GROUP = "tie_compatible")),
+			"color_id" = 3,
+			"color_label" = "Tie",
+			"default_color" = "#2D2D33",
+		),
+		"Arm trim one" = list(
+			"state" = "security_shirt_accs_arm_trim_one",
+			"applies_to" = list("shirt" = list(COMPONENT_CORE_EXACT = list("security", "viro"))),
+			"color_id" = 4,
+			"color_label" = "Arm trim one",
+			"default_color" = "#39393F",
+		),
+		"Arm trim two" = list(
+			"state" = "security_shirt_accs_arm_trim_two",
+			"applies_to" = list("shirt" = list(COMPONENT_CORE_GROUP = "arm_trim_compatible")),
+			"color_id" = 13,
+			"color_label" = "Arm trim two",
+			"default_color" = "#46464D",
+		),
+		"Arm trim three" = list(
+			"state" = "security_shirt_accs_arm_trim_three",
+			"applies_to" = list("shirt" = list(COMPONENT_CORE_GROUP = "arm_trim_compatible")),
+			"color_id" = 12,
+			"color_label" = "Arm trim three",
+			"default_color" = "#D0D0D0",
+		),
+		"Epaulettes" = list(
+			"state" = "security_shirt_accss_epaulettes",
+			"applies_to" = list("shirt" = list(COMPONENT_CORE_BRANCH = "security")),
+			"color_id" = 11,
+			"color_label" = "Epaulettes",
+			"default_color" = "#39393F",
+		),
+		"Viro shirt trim" = list(
+			"state" = "security_shirt_accs_trim_viro",
+			"applies_to" = list("shirt" = list("viro" = COMPONENT_CORE_EXACT)),
+			"color_id" = 8,
+			"color_label" = "Viro shirt trim",
+			"default_color" = "#46464D",
+		),
+		"Suit inner shirt" = list(
+			"state" = "security_shirt_suit_accs_inner",
+			"applies_to" = list("shirt" = list("suit" = COMPONENT_CORE_EXACT)),
+			"color_id" = 9,
+			"color_label" = "Suit inner shirt",
+			"default_color" = "#EBEBEB",
+		),
+		"Buckle" = list(
+			"state" = "security_pants_accs_buckle",
+			"applies_to" = list("pants" = COMPONENT_CORE_ALL),
+			"color_id" = 10,
+			"color_label" = "Buckle",
+			"default_color" = "#B5BBCF",
+		),
+		"Skirt outer trim" = list(
+			"state" = "security_pants_skirt_accs_outer_trim",
+			"applies_to" = list("pants" = list("skirt" = COMPONENT_CORE_EXACT)),
+			"color_id" = 5,
+			"color_label" = "Skirt outer trim",
+			"default_color" = "#46464D",
+		),
+		"Skirt inner trim" = list(
+			"state" = "security_pants_skirt_accs_inner_trim",
+			"applies_to" = list("pants" = list("skirt" = COMPONENT_CORE_EXACT)),
+			"color_id" = 6,
+			"color_label" = "Skirt inner trim",
+			"default_color" = "#46464D",
+		),
+		"Viro pants trim" = list(
+			"state" = "security_pants_viro_accs_trim",
+			"applies_to" = list("pants" = list("viro" = COMPONENT_CORE_EXACT)),
+			"color_id" = 7,
+			"color_label" = "Viro pants trim",
+			"default_color" = "#7D2A25",
+		),
+	)
+
+/obj/item/clothing/under/rank/security/officer/recolorable
+	name = "security uniform"
+	desc = "A tactical security jumpsuit for officers. This one seems to have a few custom modifications."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/officer/recolorable"
+	post_init_icon_state = "recolorable_security_uniform"
+	greyscale_config = /datum/greyscale_config/security_uniform
+	greyscale_config_worn = /datum/greyscale_config/security_uniform/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/security_uniform/worn/digi
+	greyscale_colors = "#BA3B2E#4B4C51#2D2D33#39393F#46464D#46464D#7D2A25#46464D#EBEBEB#B5BBCF#39393F#D0D0D0#46464D"
+	flags_1 = parent_type::flags_1 | IS_PLAYER_COLORABLE_1
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	greyscale_component_style_type = /datum/greyscale_component_style/security_uniform
+	greyscale_component_worn_icon_file = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	greyscale_component_worn_digi_icon_file = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	greyscale_component_digi_fallback_icon_file = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	greyscale_component_accessories = list("security_shirt_accs_tie")
+
+/obj/item/clothing/under/rank/security/officer/recolorable/Initialize(mapload)
+	initialize_greyscale_component_style()
+	return ..()
+
+/obj/item/clothing/under/rank/security/officer/recolorable/update_greyscale()
+	. = ..()
+	update_greyscale_component_icons()
+	icon = 'icons/obj/clothing/under/security.dmi'
+	icon_state = "rsecurity"
+	inhand_icon_state = "r_suit"
 
 // Virosec, sprites by axietheaxolotl
 
@@ -237,6 +428,8 @@
 	inhand_icon_state = null
 	alt_covers_chest = TRUE
 
+// Red versions of classic bluesec gear
+
 /obj/item/clothing/under/rank/security/viro/head_of_security/formal/skirt
 	desc = "The insignia on this uniform tells you that this uniform belongs to the Head of Security."
 	name = "head of security's formal uniform skirt"
@@ -246,3 +439,180 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/rank/security/officer/suit/red
+	name = "security officer's suit"
+	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with security insignia, not guaranteed to be good to run in!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "security_suit"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/officer/suit/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/warden/suit/red
+	name = "warden's suit"
+	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with security insignia, not guaranteed to be good to run in!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "warden_suit"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/warden/suit/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/head_of_security/suit/red
+	name = "head of security's suit"
+	desc = "A sleek, formal three-piece suit with a red suit jacket dawned with security insignia, not guaranteed to be good to run in!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "hos_suit"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/head_of_security/suit/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/officer/turtleneck/red
+	name = "security turtleneck"
+	desc = " comfortable turtleneck in the classic security red, dawned with security insignia. Paired with black cargo pants to look tactical!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "turtleneck"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/officer/turtleneck/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/officer/turtleneck/red/skirt
+	name = "security turtleneck skirt"
+	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with a black skirt to look tactical!"
+	icon_state = "turtleneck_skirt"
+
+/obj/item/clothing/under/rank/security/warden/turtleneck/red
+	name = "security turtleneck"
+	desc = " comfortable turtleneck in the classic security red, dawned with security insignia. Paired with black cargo pants to look tactical!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "turtleneck_warden"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/warden/turtleneck/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/warden/turtleneck/red/skirt
+	name = "warden's turtleneck skirt"
+	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with a black skirt to look tactical!"
+	icon_state = "turtleneck_warden_skirt"
+
+/obj/item/clothing/under/rank/security/head_of_security/turtleneck/red
+	name = "head of security's turtleneck"
+	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with black cargo pants to look tactical!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "turtleneck_hos"
+	inhand_icon_state = "r_suit"
+	can_adjust = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/head_of_security/turtleneck/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/head_of_security/turtleneck/red/skirt
+	name = "head of security's turtleneck skirt"
+	desc = "A comfortable turtleneck in the classic security red, dawned with security insignia. Paired with a black skirt to look tactical!"
+	icon_state = "turtleneck_hos_skirt"
+
+/obj/item/clothing/under/rank/security/warden/battledress/red
+	name = "warden's battle dress"
+	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt. This version is specifically designed for the warden!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "battledress_warden"
+	can_adjust = TRUE
+	alt_covers_chest = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/warden/battledress/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/head_of_security/battledress/red
+	name = "head of security's battle dress"
+	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt. This version is specifically designed for the head of security!"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/security_digi.dmi'
+	icon = 'modular_zubbers/icons/obj/clothing/under/security.dmi'
+	icon_state = "battledress_hos"
+	can_adjust = TRUE
+	alt_covers_chest = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/head_of_security/battledress/red/Initialize(mapload)
+	. = ..()
+	var/list/reskin_components = GetComponents(/datum/component/reskinable_item)
+	for(var/datum/component/reskinable_item/reskin_component as anything in reskin_components)
+		qdel(reskin_component)
+
+/obj/item/clothing/under/rank/security/peacekeeper/armadyne
+	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/uniform.dmi'
+
+/obj/item/clothing/under/rank/security/officer
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'
+
+/obj/item/clothing/under/rank/security/officer/skirt
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'
+
+/obj/item/clothing/under/rank/security/corrections_officer/sweater
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/detective
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'
+
+/obj/item/clothing/under/rank/security/detective/skirt
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'
+
+/obj/item/clothing/under/rank/prisoner
+	greyscale_config_worn_teshari = /datum/greyscale_config/jumpsuit/prison/worn/teshari
+
+/obj/item/clothing/under/rank/security/peacekeeper/miniskirt
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/security_teshari.dmi'

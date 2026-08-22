@@ -1,12 +1,5 @@
 #define RESOLVE_ICON_STATE(worn_item) (worn_item.worn_icon_state || worn_item.icon_state)
 
-#define UNDERWEAR_INDEX 1
-#define SOCKS_INDEX 2
-#define SHIRT_INDEX 3
-#define BRA_INDEX 4
-#define EARS_EXTRA_INDEX 5
-#define WRISTS_INDEX 6
-
 /mob/living/carbon/human/regenerate_icons()
 	. = ..()
 	if(.)
@@ -20,14 +13,10 @@
 
 /mob/living/carbon/human/update_worn_underwear()
 	remove_overlay(UNDERWEAR_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[UNDERWEAR_INDEX]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_UNDERWEAR)
 
 	if(w_underwear)
 		var/obj/item/clothing/underwear/briefs/undies = w_underwear
-		update_hud_underwear(undies)
 
 		if(underwear_visibility & UNDERWEAR_HIDE_UNDIES)
 			return
@@ -86,14 +75,10 @@
 
 /mob/living/carbon/human/update_worn_shirt()
 	remove_overlay(SHIRT_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[SHIRT_INDEX]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_SHIRT)
 
 	if(istype(w_shirt, /obj/item/clothing/underwear/shirt))
 		var/obj/item/clothing/underwear/shirt/undershirt = w_shirt
-		update_hud_shirt(undershirt)
 
 		if(underwear_visibility & UNDERWEAR_HIDE_SHIRT)
 			return
@@ -152,14 +137,10 @@
 
 /mob/living/carbon/human/update_worn_bra()
 	remove_overlay(BRA_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[BRA_INDEX]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_BRA)
 
 	if(istype(w_bra, /obj/item/clothing/underwear/shirt/bra))
 		var/obj/item/clothing/underwear/shirt/bra/bra = w_bra
-		update_hud_bra(bra)
 
 		if(underwear_visibility & UNDERWEAR_HIDE_BRA)
 			return
@@ -218,82 +199,61 @@
 
 /mob/living/carbon/human/update_worn_wrists()
 	remove_overlay(WRISTS_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[WRISTS_INDEX]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_WRISTS)
 
 	if(wrists)
-		var/obj/item/worn_item = wrists
-		update_hud_wrists(worn_item)
-
 		var/icon_file = 'modular_zzplurt/icons/mob/clothing/wrists.dmi'
 
-		// SKYRAT EDIT ADDITION
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(OFFSET_WRISTS, wrists, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// SKYRAT EDIT END
 
-		var/mutable_appearance/wrists_overlay = wrists.build_worn_icon(default_layer = WRISTS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+		var/mutable_appearance/wrists_overlay = wrists.build_worn_icon(default_layer = WRISTS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null)
 
 		overlays_standing[WRISTS_LAYER] = wrists_overlay
 	apply_overlay(WRISTS_LAYER)
 
 /mob/living/carbon/human/update_worn_ears_extra()
 	remove_overlay(EARS_EXTRA_LAYER)
+	hud_used?.update_inventory_slot(ITEM_SLOT_EARS_RIGHT)
 
 	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(my_head)) //decapitated
 		return
 
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[EARS_EXTRA_INDEX]
-		inv.update_icon()
-
 	if(ears_extra)
-		var/obj/item/worn_item = ears_extra
-		update_hud_ears_extra(worn_item)
-
 		if(obscured_slots & HIDEEARS)
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
 
-		// SKYRAT EDIT ADDITION
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(OFFSET_EARS, ears_extra, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// SKYRAT EDIT END
 
-		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_EXTRA_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // SKYRAT EDIT CHANGE
+		var/mutable_appearance/ears_overlay = ears_extra.build_worn_icon(default_layer = EARS_EXTRA_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null)
 
-		// SKYRAT EDIT ADDITION
 		if(!mutant_override)
 			my_head.worn_ears_offset?.apply_offset(ears_overlay)
-		// SKYRAT EDIT END
 		overlays_standing[EARS_EXTRA_LAYER] = ears_overlay
 	apply_overlay(EARS_EXTRA_LAYER)
 
 /mob/living/carbon/human/update_worn_socks()
 	remove_overlay(SOCKS_LAYER)
 
-	if(num_legs < 2)
+	if(num_legs < 2 || get_taur_mode())
 		return
 
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.extra_inventory[SOCKS_INDEX]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_SOCKS)
 
 	if(istype(w_socks, /obj/item/clothing/underwear/socks))
 		var/obj/item/clothing/underwear/socks/worn_item = w_socks
-		update_hud_socks(worn_item)
 
 		if(underwear_visibility & UNDERWEAR_HIDE_SOCKS)
 			return
@@ -368,42 +328,6 @@
 			// Remove overlays
 			remove_overlay(BACK_LAYER)
 
-/mob/living/carbon/human/proc/update_hud_shirt(obj/item/worn_item)
-	worn_item.screen_loc = ui_shirt
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_bra(obj/item/worn_item)
-	worn_item.screen_loc = ui_bra
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_underwear(obj/item/worn_item)
-	worn_item.screen_loc = ui_boxers
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_wrists(obj/item/worn_item)
-	worn_item.screen_loc = ui_wrists
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_ears_extra(obj/item/worn_item)
-	worn_item.screen_loc = ui_ears_extra
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_socks(obj/item/worn_item)
-	worn_item.screen_loc = ui_socks
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown && hud_used.extra_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
 /**
  * Helper functions to synchronize and update underwear when body types change
  */
@@ -450,47 +374,72 @@
 	update_nails()
 	. = ..()
 
-/mob/living/carbon/human/update_underwear()
-		//Underwear, Undershirts, & Socks
+/// Extra Inventory: never draw underwear prefs as BODY_LAYER accessory overlays.
+/mob/living/carbon/human/get_underwear_overlays()
+	return list()
 
-	var/dummy_test = istype(src, /mob/living/carbon/human/dummy) && (usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED || usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED_AROUSED) //hacky af but it works
+/**
+ * Syncs preference underwear strings into Extra Inventory worn items, then refreshes worn overlays.
+ * Preference names still live on the mob (underwear/undershirt/socks/bra); visuals come from w_* items.
+ */
+/mob/living/carbon/human/proc/update_underwear()
+	var/dummy_test = istype(src, /mob/living/carbon/human/dummy) && (usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED || usr?.client?.prefs.preview_pref == PREVIEW_PREF_NAKED_AROUSED)
+
+	if(HAS_TRAIT(src, TRAIT_NO_UNDERWEAR) || dummy_test)
+		dropItemToGround(w_underwear)
+		dropItemToGround(w_bra)
+		dropItemToGround(w_shirt)
+		dropItemToGround(w_socks)
+		return
+
 	var/list/obj/item/clothing/underwear/worn_underwear = list()
 
-	if(!HAS_TRAIT(src, TRAIT_NO_UNDERWEAR) && !dummy_test)
-		if(underwear && underwear != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-			var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
-			if(underwear_accessory && !w_underwear)
-				var/obj/item/clothing/underwear/briefs/briefs_obj = new underwear_accessory.briefs_obj(src)
-				equip_to_slot_or_del(briefs_obj, ITEM_SLOT_UNDERWEAR)
-				worn_underwear += briefs_obj
+	var/datum/sprite_accessory/clothing/underwear/underwear_accessory = (underwear && underwear != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) ? SSaccessories.underwear_list[underwear] : null
+	var/obj/item/briefs = sync_underwear_slot(ITEM_SLOT_UNDERWEAR, w_underwear, underwear_accessory?.briefs_obj)
+	if(briefs)
+		worn_underwear += briefs
 
-		if(bra && bra != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
-			var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
-			if(bra_accessory && !w_bra)
-				var/obj/item/clothing/underwear/shirt/bra/bra_obj = new bra_accessory.bra_obj(src)
-				equip_to_slot_or_del(bra_obj, ITEM_SLOT_BRA)
-				worn_underwear += bra_obj
+	var/datum/sprite_accessory/clothing/bra/bra_accessory = (bra && bra != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_BRA)) ? SSaccessories.bra_list[bra] : null
+	var/obj/item/bra_item = sync_underwear_slot(ITEM_SLOT_BRA, w_bra, bra_accessory?.bra_obj)
+	if(bra_item)
+		worn_underwear += bra_item
 
-		if(undershirt && !undershirt != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-			var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
-			if(undershirt_accessory && !w_shirt)
-				var/obj/item/clothing/underwear/shirt/shirt_obj = new undershirt_accessory.shirt_obj(src)
-				equip_to_slot_or_del(shirt_obj, ITEM_SLOT_SHIRT)
-				worn_underwear += shirt_obj
+	var/datum/sprite_accessory/clothing/undershirt/undershirt_accessory = (undershirt && undershirt != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) ? SSaccessories.undershirt_list[undershirt] : null
+	var/obj/item/shirt = sync_underwear_slot(ITEM_SLOT_SHIRT, w_shirt, undershirt_accessory?.shirt_obj)
+	if(shirt)
+		worn_underwear += shirt
 
-		if(socks && num_legs >= 2 && !(dna.features["taur"] && dna.features["taur"] != "None") && !socks != "Nude" && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-			var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
-			if(socks_accessory && !w_socks)
-				var/obj/item/clothing/underwear/socks/socks_obj = new socks_accessory.socks_obj(src)
-				equip_to_slot_or_del(socks_obj, ITEM_SLOT_SOCKS)
-				worn_underwear += socks_obj
+	var/can_wear_socks = socks && socks != "Nude" && num_legs >= 2 && !get_taur_mode() && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS)
+	var/datum/sprite_accessory/clothing/socks/socks_accessory = can_wear_socks ? SSaccessories.socks_list[socks] : null
+	var/obj/item/socks_item = sync_underwear_slot(ITEM_SLOT_SOCKS, w_socks, socks_accessory?.socks_obj)
+	if(socks_item)
+		worn_underwear += socks_item
 
-		//Make sure character creation knows it's an inventory object
-		if(istype(src, /mob/living/carbon/human/dummy))
-			for(var/obj/item/clothing/underwear/underwear_obj in worn_underwear)
-				if(QDELETED(underwear_obj))
-					continue
-				underwear_obj.item_flags |= IN_INVENTORY
+	// Character preview dummies need inventory flags for proper rendering
+	if(istype(src, /mob/living/carbon/human/dummy))
+		for(var/obj/item/clothing/underwear/underwear_obj as anything in worn_underwear)
+			if(QDELETED(underwear_obj))
+				continue
+			underwear_obj.item_flags |= IN_INVENTORY
+
+/**
+ * Ensures the given Extra Inventory slot matches the accessory's linked clothing typepath.
+ * Returns the equipped item (if any) for dummy bookkeeping.
+ */
+/mob/living/carbon/human/proc/sync_underwear_slot(slot, obj/item/clothing/underwear/current_item, desired_type)
+	if(!desired_type)
+		if(current_item)
+			dropItemToGround(current_item)
+		return null
+
+	if(current_item)
+		if(current_item.type == desired_type)
+			return current_item
+		dropItemToGround(current_item)
+
+	var/obj/item/clothing/underwear/new_item = new desired_type(src)
+	equip_to_slot_or_del(new_item, slot)
+	return new_item
 
 /mob/living/carbon/human/proc/update_nails()
 	if(!nail_style)
@@ -511,10 +460,3 @@
 	apply_overlay(BODY_LAYER)
 
 #undef RESOLVE_ICON_STATE
-
-#undef UNDERWEAR_INDEX
-#undef SOCKS_INDEX
-#undef SHIRT_INDEX
-#undef BRA_INDEX
-#undef EARS_EXTRA_INDEX
-#undef WRISTS_INDEX

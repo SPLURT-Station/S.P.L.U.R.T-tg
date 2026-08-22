@@ -617,12 +617,12 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	button_icon = 'modular_zzplurt/icons/obj/clothing/accessories.dmi'
 	button_icon_state = "ipod"
 
-/datum/action/item_action/upload_ipod/Trigger(trigger_flags)
+/datum/action/item_action/upload_ipod/do_effect(trigger_flags)
 	var/obj/item/clothing/ears/ipod/H = target
 	if(istype(H) && !QDELETED(owner) && istype(owner))
 		H.upload(owner)
 
-/datum/action/item_action/toggle_ipod/Trigger(trigger_flags)
+/datum/action/item_action/toggle_ipod/do_effect(trigger_flags)
 	var/obj/item/clothing/ears/ipod/H = target
 	if(istype(H) && !QDELETED(owner) && istype(owner))
 		H.toggle(owner)

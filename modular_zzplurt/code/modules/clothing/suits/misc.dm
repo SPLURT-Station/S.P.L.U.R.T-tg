@@ -250,11 +250,7 @@
 	armor_type = /datum/armor/none
 	var/unbuttoned = FALSE
 
-/obj/item/clothing/suit/storage/fluff/fedcoat/verb/toggle()
-	set name = "Toggle coat buttons"
-	set category = "Object"
-	set src in usr
-
+GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggle coat buttons", "Object")
 	var/mob/living/L = usr
 	if(!istype(L) || L.stat != CONSCIOUS)
 		return FALSE

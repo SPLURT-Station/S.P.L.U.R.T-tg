@@ -71,7 +71,7 @@
 	if(.) //Incompatible or redundant
 		return
 
-	add_verb(self, /mob/living/proc/interact_with)
+	ASSIGN_GAME_VERB(self, /mob/living, interact_with)
 
 	if(is_type_in_typecache(parent, should_be_genderized))
 		var/mob/living/mob = parent
@@ -477,12 +477,7 @@
 	for(var/obj/item/organ/genital/genital in to_update)
 		call(/datum/reagent/drug/aphrodisiac::update_appearance())(human_self, genital)
 
-/mob/living/proc/interact_with()
-	set name = "Interact With"
-	set desc = "Perform an interaction with someone."
-	set category = "IC"
-	set src in view(usr.client)
-
+GAME_VERB_PROC_SRC_DESC(/mob/living, interact_with, view(usr.client), "Interact With", "Perform an interaction with someone.", "IC")
 	var/datum/component/interactable/menu = GetComponent(/datum/component/interactable)
 	if(!menu)
 		to_chat(src, span_warning("You must have done something really bad to not have an interaction component."))

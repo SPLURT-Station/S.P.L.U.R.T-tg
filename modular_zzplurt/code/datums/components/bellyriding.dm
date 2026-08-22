@@ -140,9 +140,7 @@
 	UnregisterSignal(current_victim, COMSIG_QDELETING)
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(BELLYRIDING_SOURCE, TRUE)
-	current_victim.transform = null
-	current_victim.dna.current_body_size = 1 // cache var, breaks if we dont reset it
-	current_victim.dna.update_body_size() // apply it AFTER transform = null, because yeah
+	current_victim.refresh_size_transform()
 	current_victim.Knockdown(0.1 SECONDS, TRUE)
 
 
@@ -185,12 +183,10 @@
 		current_victim.setDir(taur_accessory ? REVERSE_DIR(parent.dir) : parent.dir)
 
 	// reset any potential stupids
-	current_victim.transform = null
-	current_victim.dna.current_body_size = 1 // cache var, breaks if we dont reset it
-	current_victim.dna.update_body_size()
+	current_victim.refresh_size_transform()
 
 	var/x_offset = parent.pixel_x + parent.pixel_w
-	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f // cancel the vertical transform applied by update_body_size()
+	var/y_offset = parent.pixel_y + parent.pixel_z - current_victim.transform.f // cancel the vertical transform applied by size
 
 	var/layer = parent.layer + 0.001 //arbitrary
 	if(taur_accessory) // torturer is taur
@@ -199,13 +195,13 @@
 		if(isteshari(current_victim))
 			// 200 size	- pixel_x = -10,  pixel_y = -8
 			// regular	- pixel_x = -2,   pixel_y = -10
-			taur_x_offset = 2 + (parent.dna.current_body_size - 1) * 8
-			taur_y_offset = 10 + (parent.dna.current_body_size - 1) * -2
+			taur_x_offset = 2 + (parent.current_size - 1) * 8
+			taur_y_offset = 10 + (parent.current_size - 1) * -2
 		else
 			// 200 size	- pixel_x = 14, pixel_y = -9
 			// regular	- pixel_x = 4, pixel_y = -12
-			taur_x_offset = 4 + (parent.dna.current_body_size - 1) * 10
-			taur_y_offset = 12 + (parent.dna.current_body_size - 1) * -3
+			taur_x_offset = 4 + (parent.current_size - 1) * 10
+			taur_y_offset = 12 + (parent.current_size - 1) * -3
 
 		layer = parent.layer - 0.001
 		current_victim.transform = current_victim.transform.Scale(0.8)
@@ -222,8 +218,8 @@
 	else // torturer is biped
 		// 200 size on 100 victim: pixel_x = -13, pixel_y = 18
 		// regular 			 	   pixel_x = -6,  pixel_y = 4
-		var/biped_x_offset = 7 * parent.dna.current_body_size - 1
-		y_offset += 14 * parent.dna.current_body_size - 10
+		var/biped_x_offset = 7 * parent.current_size - 1
+		y_offset += 14 * parent.current_size - 10
 
 		switch(parent.dir)
 			if(EAST)
@@ -396,9 +392,7 @@
 	UnregisterSignal(current_victim, COMSIG_QDELETING)
 	current_victim.can_buckle_to = old_can_buckle_to
 	current_victim.remove_offsets(borg_offset_source, TRUE)
-	current_victim.transform = null
-	current_victim.dna.current_body_size = 1
-	current_victim.dna.update_body_size()
+	current_victim.refresh_size_transform()
 	current_victim.Knockdown(0.1 SECONDS, TRUE)
 
 /datum/component/bellyriding/borg/can_buckle(mob/living/carbon/human/victim, mob/user)
@@ -427,9 +421,7 @@
 	if(!istype(parent))
 		return
 
-	current_victim.transform = null
-	current_victim.dna.current_body_size = 1
-	current_victim.dna.update_body_size()
+	current_victim.refresh_size_transform()
 	var/list/model_features = parent.model?.model_features
 	var/is_quad_chassis = HAS_TRAIT(parent, TRAIT_R_DOGBORG) || HAS_TRAIT(parent, TRAIT_R_SQUADRUPED)
 	is_quad_chassis ||= (TRAIT_R_DOGBORG in model_features) || (TRAIT_R_SQUADRUPED in model_features)

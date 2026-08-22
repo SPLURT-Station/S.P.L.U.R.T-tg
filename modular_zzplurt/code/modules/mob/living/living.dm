@@ -8,21 +8,40 @@
 		return FALSE
 	if(!cur_size)
 		cur_size = get_size(src)
+	if(new_size == cur_size)
+		return FALSE
+
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(new_size == cur_size)
+		var/mob/living/carbon/human/human_owner = src
+		if(human_owner.dna?.species?.body_size_restricted)
 			return FALSE
-		H.dna.features["body_size"] = new_size
-		H.dna.update_body_size(cur_size)
+		remove_movespeed_modifier(/datum/movespeed_modifier/small_stride)
+		update_transform(new_size / cur_size)
+
+		if(get_size(src) >= (RESIZE_A_BIGNORMAL + RESIZE_NORMAL) / 2)
+			small_sprite.Grant(src)
+		else
+			small_sprite.Remove(src)
+
+		var/new_slowdown = (abs(get_size(src) - 1) * CONFIG_GET(number/body_size_slowdown_multiplier))
+		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/small_stride, TRUE, new_slowdown)
 	else
-		if(new_size == cur_size)
-			return FALSE
 		size_multiplier = new_size
-		current_size = new_size / cur_size
-		update_transform()
+		update_transform(new_size / cur_size)
+
 	adjust_mobsize(new_size)
 	SEND_SIGNAL(src, COMSIG_MOB_RESIZED, new_size, cur_size)
 	return TRUE
+
+/// Resets visual transform and reapplies current_size cleanly (for temporary visual overrides).
+/mob/living/proc/refresh_size_transform()
+	var/desired_size = get_size(src)
+	current_size = RESIZE_DEFAULT_SIZE
+	body_maptext_height_offset = 0
+	maptext_height = initial(maptext_height)
+	transform = matrix()
+	if(desired_size != RESIZE_DEFAULT_SIZE)
+		update_transform(desired_size)
 
 /mob/living/proc/adjust_mobsize(size)
 	switch(size)
@@ -99,10 +118,7 @@
 
 	return ..()
 
-/mob/living/verb/switch_scaling()
-	set name = "Switch scaling mode"
-	set category = "IC"
-	set desc = "Switch sharp/fuzzy scaling for current mob."
+GAME_VERB_DESC(/mob/living, switch_scaling, "Switch scaling mode", "Switch sharp/fuzzy scaling for current mob.", "IC")
 	fuzzy = !fuzzy
 	regenerate_icons()
 

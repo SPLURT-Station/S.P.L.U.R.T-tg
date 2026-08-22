@@ -11,7 +11,10 @@
 	return passed_initial_check
 
 /datum/preference/numeric/body_size/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["body_size"] = value
+	//SPLURT EDIT CHANGE BEGIN - SIZECODE - Prefer update_size so size HP/mob_size/slowdown hooks apply
+	//target.update_transform(value / target.current_size) - SPLURT EDIT - ORIGINAL
+	target.update_size(value)
+	//SPLURT EDIT CHANGE END
 
 /datum/preference/numeric/body_size/create_default_value()
-	return BODY_SIZE_NORMAL
+	return RESIZE_DEFAULT_SIZE

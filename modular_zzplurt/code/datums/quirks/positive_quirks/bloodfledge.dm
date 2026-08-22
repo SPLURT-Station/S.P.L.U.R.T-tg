@@ -145,7 +145,7 @@
 	 * Hemophage Filter
 	 * Anything past this point should NOT be used by Hemophage hybrids
 	 */
-	if(ishemophage(quirk_mob))
+	if(quirk_mob.has_quirk(/datum/quirk/hemophage))
 		// Ignore proceeding code
 		return
 
@@ -187,7 +187,7 @@
 
 	// Redundant Hemophage check
 	// Placed here to preserve ability icon ordering
-	if(!ishemophage(quirk_mob))
+	if(!quirk_mob.has_quirk(/datum/quirk/hemophage))
 		// Define and grant ability Bite
 		var/datum/action/cooldown/bloodfledge/bite/act_bite = new
 		act_bite.Grant(quirk_mob)
@@ -222,7 +222,7 @@
 	 * Hemophage Filter
 	 * Anything past this point should NOT be used by Hemophage hybrids
 	 */
-	if(ishemophage(quirk_mob))
+	if(quirk_mob.has_quirk(/datum/quirk/hemophage))
 		// Warn user about feature overlap
 		to_chat(quirk_mob, span_boldwarning(BLOODFLEDGE_WARNING_HEMOPHAGE))
 
@@ -344,7 +344,7 @@
 	 * Hemophage Filter
 	 * Anything past this point should NOT be used by Hemophage hybrids
 	 */
-	if(ishemophage(quirk_mob))
+	if(quirk_mob.has_quirk(/datum/quirk/hemophage))
 		return
 
 	// Remove bite ability action datum
@@ -645,7 +645,7 @@
 	add_dna(blood_DNA)
 
 	// Hemophage filter
-	if(ishemophage(quirk_mob))
+	if(quirk_mob.has_quirk(/datum/quirk/hemophage))
 		// Ignore proceeding code
 		return
 
@@ -1730,7 +1730,7 @@
 	playsound(action_owner, 'sound/effects/pope_entry.ogg', 30, 1, -2)
 
 	// Check if hemophage
-	if(ishemophage(action_owner))
+	if(action_owner.has_quirk(/datum/quirk/hemophage))
 		// Set blood volume level
 		// Value increased to prevent instant death for hemophages
 		action_owner.blood_volume = min(action_owner.blood_volume, BLOODFLEDGE_REVIVE_MINIMUM_VOLUME)

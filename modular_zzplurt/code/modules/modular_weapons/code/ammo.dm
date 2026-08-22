@@ -11,30 +11,52 @@
 	caliber = CALIBER_9X17MM
 	max_ammo = 30
 	multitype = FALSE
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 9,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4,
+	)
 
 /obj/item/ammo_box/magazine/mps5/ap
 	name = "\improper MP-S5 magazine (9x17mm AP)"
 	icon_state = "smg9x17mmAP"
 	base_icon_state = "smg9x17mmAP"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/ap
+	custom_materials = list(
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 8,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4,
+	)
 
 /obj/item/ammo_box/magazine/mps5/hp
 	name = "\improper MP-S5 magazine (9x17mm HP)"
 	icon_state = "smg9x17mmHP"
 	base_icon_state = "smg9x17mmHP"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/hp
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3,
+	)
 
 /obj/item/ammo_box/magazine/mps5/ihdf
 	name = "\improper MP-S5 magazine (9x17mm Intelligent Dispersal Foam)"
 	icon_state = "smg9x17mmDF"
 	base_icon_state = "smg9x17mmDF"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/ihdf
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+	)
 
 /obj/item/ammo_box/magazine/mps5/rubber
 	name = "\improper MP-S5 magazine (9x17mm Rubber)"
 	icon_state = "smg9x17mmR"
 	base_icon_state = "smg9x17mmR"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/rubber
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+	)
 
 // M45A5 MAGAZINES
 

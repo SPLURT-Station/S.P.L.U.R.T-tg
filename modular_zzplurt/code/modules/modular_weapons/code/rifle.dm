@@ -163,8 +163,7 @@
 	if(user)
 		to_chat(user, span_notice("The weapon has recovered from taser discharge."))
 
-/obj/item/gun/ballistic/automatic/bulwark/taser/process_fire(atom/target, mob/living/user, params)
-
+/obj/item/gun/ballistic/automatic/bulwark/taser/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(is_tasing())
 		if(world.time > last_warning + 10)
 			last_warning = world.time

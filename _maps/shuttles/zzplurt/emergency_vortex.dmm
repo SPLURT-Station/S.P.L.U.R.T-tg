@@ -356,7 +356,7 @@
 /obj/structure/sign/nanotrasen{
 	pixel_x = -32
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "ep" = (
 /obj/structure/table/reinforced/titaniumglass,
@@ -804,7 +804,7 @@
 	codes_txt = "patrol;next_patrol=evac-5";
 	location = "evac-4"
 	},
-/mob/living/basic/bot/honkbot{
+/mob/living/basic/bot/secbot/honkbot{
 	name = "Jester Jingles"
 	},
 /turf/open/floor/wood/parquet,
@@ -1049,7 +1049,7 @@
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "jP" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -1426,7 +1426,7 @@
 "mU" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky{
+/mob/living/basic/bot/secbot/beepsky/armsky{
 	name = "Lieutenant Olesky";
 	desc = "It's Lieutenant Olesky! He's a disgruntled security lieutenant that would probably shoot you if he had hands."
 	},
@@ -2111,7 +2111,7 @@
 /obj/machinery/camera/directional/south{
 	c_tag = "Evacuation Shuttle External - Forward"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "rS" = (
 /obj/machinery/newscaster/directional/north,
@@ -2946,7 +2946,7 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Evacuation Shuttle External - Starboard"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "Ay" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -3290,7 +3290,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Evacuation Shuttle External - Port Quarter"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "DV" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -3895,7 +3895,7 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Evacuation Shuttle External - Starboard Bow"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "Kd" = (
 /obj/machinery/space_heater/wall_mounted/directional/north,
@@ -3986,7 +3986,7 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Evacuation Shuttle External - Starboard Quarter"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "KF" = (
 /obj/machinery/button/door{
@@ -4567,7 +4567,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Evacuation Shuttle External - Port Bow"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "QO" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -4786,7 +4786,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Evacuation Shuttle External - Port"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape)
 "SR" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{

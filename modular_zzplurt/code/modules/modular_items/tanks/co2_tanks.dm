@@ -14,12 +14,10 @@
 	distribute_pressure = 16
 
 /obj/item/tank/internals/co2/populate_gas()
-	air_contents.assert_gas(/datum/gas/carbon_dioxide)
-	air_contents.gases[/datum/gas/carbon_dioxide][MOLES] = (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/carbon_dioxide, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/co2/full/populate_gas()
-	air_contents.assert_gas(/datum/gas/carbon_dioxide)
-	air_contents.gases[/datum/gas/carbon_dioxide][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/carbon_dioxide, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/co2/belt // little guy, 12l, beltsize, spawns on exoresp-havers
 	desc = "A small tank of CO2, for crew who don't breathe the standard air mix."
@@ -30,8 +28,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/tank/internals/co2/belt/full/populate_gas()
-	air_contents.assert_gas(/datum/gas/carbon_dioxide)
-	air_contents.gases[/datum/gas/carbon_dioxide][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/carbon_dioxide, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/co2/belt/emergency // littlest guy, 3l, beltsize, doesn't spawn
 	name = "emergency CO2 tank"
@@ -40,5 +37,4 @@
 	volume = 3
 
 /obj/item/tank/internals/co2/belt/emergency/populate_gas()
-	air_contents.assert_gas(/datum/gas/carbon_dioxide)
-	air_contents.gases[/datum/gas/carbon_dioxide][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/carbon_dioxide, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))

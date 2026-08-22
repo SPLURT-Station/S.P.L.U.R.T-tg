@@ -330,3 +330,9 @@
 	atom_storage.max_total_storage = 30
 	atom_storage.max_slots = 1
 	atom_storage.set_holdable(cant_hold_list = list(/obj/item/disk/nuclear))
+
+#undef STATUS_IDLE
+#undef STATUS_ENERGIZED
+#undef BASIC_CLEANSPEED
+#undef SCRUBPUP_CLEANSPEED
+#undef EMAGGED_CLEANSPEED

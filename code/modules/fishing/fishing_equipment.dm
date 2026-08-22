@@ -95,6 +95,7 @@
 	wiki_desc = "Automatically starts the minigame and helps guide the bait a little. It also spin fishing lures for you without need of an input. \
 		It can also be used to snag in objects from a distance and throw them in your direction.<br>\
 		<b>It requires the Advanced Fishing Technology Node to be researched to be printed.</b>"
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 3)
 
 /obj/item/fishing_line/auto_reel/Initialize(mapload)
 	. = ..()
@@ -153,6 +154,7 @@
 	cast_range = 6
 	wiki_desc = "It can be used to reach distant fishing spots as well as other things that a normal fishing line cannot, with the exception of reinforced walls. <br>\
 		<b>It requires the Marine Utility Node to be researched to be printed.</b>"
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3)
 
 // Hooks
 
@@ -314,6 +316,7 @@
 	rod_overlay_icon_state = "hook_gyro_overlay"
 	wiki_desc = "It allows you to move both up (left-click) and down (right-click) during the minigame while negating gravity.<br>\
 		<b>It requires the Advanced Fishing Technology Node to be researched to be printed.</b>"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/fishing_hook/stabilized/examine(mob/user)
 	. = ..()
@@ -383,9 +386,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CONTRABAND, INNATE_TRAIT)
 	register_context()
-
-	if(SStts.tts_enabled) //This capsule informs you on why it cannot be deployed in a sliiiiightly different way.
-		voice = pick(SStts.available_speakers)
+	voice = SStts.random_tts_voice()
 
 /obj/item/survivalcapsule/fishing/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(!held_item || held_item == src)
@@ -510,6 +511,7 @@
 	attack_verb_continuous = list("pricked", "stabbed", "poked")
 	attack_verb_simple = list("prick", "stab", "poke")
 	hitsound = 'sound/items/hypospray.ogg'
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 4, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 2)
 	//This can be an empty syringe or a gene injector
 	var/obj/item/loaded_injector
 
@@ -556,7 +558,7 @@
 
 /obj/item/fish_genegun/item_interaction(mob/living/user, obj/item/item, list/modifiers)
 	var/is_syringe = istype(item, /obj/item/reagent_containers/syringe)
-	if(!is_syringe && istype(item, /obj/item/fish_gene))
+	if(!is_syringe && !istype(item, /obj/item/fish_gene))
 		return NONE
 	if(loaded_injector)
 		to_chat(user, span_warning("[src] already has [loaded_injector] loaded in it."))
@@ -666,7 +668,7 @@
 
 /obj/item/fish_gene/proc/inject_into_fish(obj/item/fish/fish, mob/living/user, obj/item/tool = src)
 	var/datum/fish_trait/trait = GLOB.fish_traits[trait_type]
-	if(!trait.apply_to_fish(fish))
+	if(!trait.apply_to_fish(fish, initial = FALSE))
 		to_chat(user, span_warning("You can't inject the \"[trait_type::name]\" trait into [fish]. [fish.p_they(TRUE)] either [fish.p_have()] it or [fish.p_are()] incompatible with it."))
 		return ITEM_INTERACT_BLOCKING
 	user.visible_message(span_notice("[user] injects [fish] with [tool]."), span_notice("You inject the \"[trait_type::name]\" trait into [fish]."))

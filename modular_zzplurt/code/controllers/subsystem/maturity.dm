@@ -9,7 +9,7 @@
 
 SUBSYSTEM_DEF(maturity_guard)
 	name = "Maturity guard"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_LAST
 	/// A list of currently active prompts.
 	var/list/prompt_cache = list()

@@ -1,13 +1,11 @@
 // Peanuts!
-/obj/item/seeds/peanut/Initialize(mapload, nogenes)
-	. = ..()
-	mutatelist ||= list()
-	mutatelist += /obj/item/seeds/peanut/packing
+/obj/item/seeds/peanut
+	mutatelist = list(/obj/item/seeds/peanut/packing)
 
 /obj/item/seeds/peanut/packing
 	name = "package peanut seed pack"
 	desc = "These seeds grow into package peanut plants."
-	icon = 'modular_zzplurt/icons/obj/service/hydroponics/seeds.dmi'
+	icon = 'icons/obj/service/hydroponics/seeds.dmi'
 	icon_state = "seed-peanut"
 	species = "package peanut"
 	plantname = "Package Peanut Plant"
@@ -18,6 +16,8 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing.dmi'
 	icon_grow = "peanut-grow"
 	icon_dead = "peanut-dead"
+	icon_harvest = "peanut-harvest"
+	mutatelist = null
 	genes = list(/datum/plant_gene/trait/one_bite)
 	// very bad nutritional profile
 	reagents_add = list(/datum/reagent/consumable/corn_starch = 0.1, /datum/reagent/consumable/nutriment/fat/oil/corn = 0.05)
@@ -29,10 +29,12 @@
 	icon = 'modular_zzplurt/icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "package_peanut"
 	foodtypes = GRAIN | NUTS | CLOTH
-	grind_results = list(/datum/reagent/consumable/peanut_butter/packing = 0)
 	tastes = list("starchy peanuts" = 1)
 	var/packing_type = /obj/item/stack/packing_peanuts
 	var/packing_name = "packing peanuts"
+
+/obj/item/food/grown/peanut/packing/grind_results()
+	return list(/datum/reagent/consumable/peanut_butter/packing = 0)
 
 // Copypasta from cotton, bite me
 /obj/item/food/grown/peanut/packing/attack_self(mob/user)
@@ -45,7 +47,7 @@
 	qdel(src)
 
 // Override to make it so cargo techs love package peanuts
-/obj/item/food/grown/peanut/packing/proc/make_edible()
+/obj/item/food/grown/peanut/packing/make_edible()
 	AddComponentFrom(
 		SOURCE_EDIBLE_INNATE,\
 		/datum/component/edible,\

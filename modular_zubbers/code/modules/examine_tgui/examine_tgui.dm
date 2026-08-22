@@ -72,6 +72,8 @@
 	var/art_ref_nsfw = preferences?.read_preference(/datum/preference/toggle/art_ref_nsfw)
 	var/character_ad = ""
 
+	var/attraction = preferences?.read_preference(/datum/preference/choiced/attraction)
+	var/display_gender = preferences?.read_preference(/datum/preference/choiced/display_gender)
 	var/emote_length = preferences?.read_preference(/datum/preference/choiced/emote_length)
 	var/approach = preferences?.read_preference(/datum/preference/choiced/approach_pref)
 	var/furries = preferences?.read_preference(/datum/preference/choiced/directory_character_prefs/furry_pref)
@@ -85,6 +87,7 @@
 	if(preferences)
 		if(preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
 			var/e_prefs = preferences.read_preference(/datum/preference/choiced/erp_status)
+			var/e_prefs_free_use = preferences.read_preference(/datum/preference/toggle/erp_free_use)
 			var/e_prefs_hypno = preferences.read_preference(/datum/preference/choiced/erp_status_hypno)
 			var/e_prefs_v = preferences.read_preference(/datum/preference/choiced/erp_status_v)
 			var/e_prefs_nc = preferences.read_preference(/datum/preference/choiced/erp_status_nc)
@@ -94,7 +97,7 @@
 			var/e_prefs_extmharm = preferences.read_preference(/datum/preference/choiced/erp_status_extmharm)
 			var/e_prefs_unholy = preferences.read_preference(/datum/preference/choiced/erp_status_unholy)
 			// SPLURT EDIT END
-			ooc_notes += "ERP: [e_prefs]\n"
+			ooc_notes += "ERP: [e_prefs][e_prefs_free_use ? " - Free Use" : ""]\n"
 			ooc_notes += "Hypnosis: [e_prefs_hypno]\n"
 			ooc_notes += "Vore: [e_prefs_v]\n"
 			ooc_notes += "Non-Con: [e_prefs_nc]\n"
@@ -106,6 +109,10 @@
 			ooc_notes += "ERP Mechanics: [e_prefs_mechanical]\n"
 			ooc_notes += "\n"
 
+		if(display_gender != "Unset")
+			character_ad += "Gender: [display_gender]\n"
+		if(attraction != "Unset")
+			character_ad += "Sexuality: [attraction]\n"
 		character_ad += "Preferred Emote Length: [emote_length]\n"
 		character_ad += "How to Approach: [approach]\n"
 		character_ad += "Furries: [furries] | Scalies: [scalies] | Other: [others]\n"

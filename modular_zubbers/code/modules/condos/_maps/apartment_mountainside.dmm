@@ -533,6 +533,24 @@
 	},
 /turf/open/floor/carpet/neon/simple/purple,
 /area/misc/condo)
+"dj" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/machinery/light/floor{
+	pixel_y = 16;
+	bulb_colour = "#66ccff";
+	pixel_x = 16
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/room_controller/directional/west,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
 "dn" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/black{
@@ -1795,6 +1813,44 @@
 	},
 /turf/open/floor/wood,
 /area/misc/condo)
+"km" = (
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	use_holiday_colors = 0;
+	color = "#914886"
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 9;
+	color = "#914886"
+	},
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	color = "#914886"
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 9;
+	color = "#914886"
+	},
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 17;
+	pixel_y = 25
+	},
+/obj/item/stack/medical/wrap/sticky_tape{
+	pixel_x = -6;
+	pixel_y = 9;
+	desc = "This and hopes and dreams keeps everything together.";
+	icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical";
+	name = "blue insulating tape";
+	base_icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical"
+	},
+/obj/item/stack/medical/wrap/sticky_tape{
+	pixel_x = -6;
+	pixel_y = 16;
+	desc = "Всё примотаем... На синюю изоленту! Ах-ха-ха-хах!";
+	icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical";
+	name = "blue insulating tape";
+	base_icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/condo)
 "kA" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon = 'modular_skyrat/master_files/icons/obj/skyscraper/curtains_apartments.dmi';
@@ -2313,44 +2369,6 @@
 	icon = 'modular_skyrat/master_files/icons/obj/medieval/background_mountainside.dmi';
 	icon_state = "28,9"
 	},
-/area/misc/condo)
-"nU" = (
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	use_holiday_colors = 0;
-	color = "#914886"
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 9;
-	color = "#914886"
-	},
-/obj/effect/turf_decal/siding/dark_blue/corner{
-	color = "#914886"
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 9;
-	color = "#914886"
-	},
-/obj/structure/marker_beacon/burgundy{
-	pixel_x = 17;
-	pixel_y = 25
-	},
-/obj/item/stack/sticky_tape{
-	pixel_x = -6;
-	pixel_y = 9;
-	desc = "This and hopes and dreams keeps everything together.";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
-/obj/item/stack/sticky_tape{
-	pixel_x = -6;
-	pixel_y = 16;
-	desc = "Всё примотаем... На синюю изоленту! Ах-ха-ха-хах!";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
-/turf/open/floor/iron/dark/smooth_large,
 /area/misc/condo)
 "nY" = (
 /turf/open/floor/black{
@@ -4411,6 +4429,23 @@
 	icon_state = "21,22"
 	},
 /area/misc/condo)
+"zw" = (
+/obj/structure/fake_stairs/directional/south{
+	icon_state = "flattexture";
+	icon = 'modular_skyrat/modules/advanced_shuttles/icons/exploration_floor.dmi';
+	pixel_y = 1
+	},
+/obj/structure/railing,
+/obj/item/stack/medical/wrap/sticky_tape{
+	pixel_x = 7;
+	pixel_y = 6;
+	desc = "This and hopes and dreams keeps everything together.";
+	icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical";
+	name = "blue insulating tape";
+	base_icon_state = "/obj/item/stack/medical/wrap/sticky_tape/surgical"
+	},
+/turf/open/floor/plating,
+/area/misc/condo)
 "zy" = (
 /obj/structure/table/bronze,
 /obj/structure/decorative{
@@ -5346,6 +5381,28 @@
 	icon_state = "13,24"
 	},
 /area/misc/condo)
+"GB" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	use_holiday_colors = 0;
+	dir = 8;
+	color = "#914886"
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	use_holiday_colors = 0;
+	dir = 4;
+	color = "#914886"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8;
+	color = "#914886"
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4;
+	color = "#914886"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/condo)
 "GG" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/black{
@@ -6269,32 +6326,6 @@
 	},
 /turf/open/floor/carpet/neon/simple/purple,
 /area/misc/condo)
-"ML" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	use_holiday_colors = 0;
-	dir = 8;
-	color = "#914886"
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	use_holiday_colors = 0;
-	dir = 4;
-	color = "#914886"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 8;
-	color = "#914886"
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 4;
-	color = "#914886"
-	},
-/obj/structure/sign/delam_procedure/directional/west{
-	name = "Safety Moth - Server OOM Emergency Procedure";
-	desc = "This informational sign uses Safety Moth™ to tell the viewer how to use the emergency stop button if the server decides to crash due to OOM again."
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/misc/condo)
 "MO" = (
 /turf/closed/wall/mineral/stone,
 /area/misc/condo)
@@ -7053,24 +7084,6 @@
 	name = "Server Room"
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/condo)
-"QA" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/obj/machinery/light/floor{
-	pixel_y = 16;
-	bulb_colour = "#66ccff";
-	pixel_x = 16
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 4
-	},
-/obj/machinery/room_controller/directional/west,
-/turf/open/floor/wood/parquet,
 /area/misc/condo)
 "QB" = (
 /obj/structure/railing,
@@ -8292,23 +8305,6 @@
 	icon_state = "30,9"
 	},
 /area/misc/condo)
-"XV" = (
-/obj/structure/fake_stairs/directional/south{
-	icon_state = "flattexture";
-	icon = 'modular_skyrat/modules/advanced_shuttles/icons/exploration_floor.dmi';
-	pixel_y = 1
-	},
-/obj/structure/railing,
-/obj/item/stack/sticky_tape{
-	pixel_x = 7;
-	pixel_y = 6;
-	desc = "This and hopes and dreams keeps everything together.";
-	icon_state = "/obj/item/stack/sticky_tape/surgical";
-	name = "blue insulating tape";
-	base_icon_state = "/obj/item/stack/sticky_tape/surgical"
-	},
-/turf/open/floor/plating,
-/area/misc/condo)
 "XZ" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /turf/open/floor/black{
@@ -8828,8 +8824,8 @@ MO
 AY
 AY
 MO
-nU
-ML
+km
+GB
 fg
 wl
 Jv
@@ -8890,7 +8886,7 @@ eG
 Qz
 ey
 QB
-XV
+zw
 wn
 PH
 mh
@@ -9134,7 +9130,7 @@ fN
 yH
 UW
 uu
-QA
+dj
 hE
 ql
 ql
