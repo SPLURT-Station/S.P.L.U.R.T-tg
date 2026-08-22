@@ -550,7 +550,8 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 
 /datum/objective_item/steal/supermatter/target_exists()
 	return GLOB.main_supermatter_engine != null
-
+// Begin SPLURT edit removal - Stealing the AI is borderline RR
+/*
 // Doesn't need item_owner = (JOB_AI) because this handily functions as a murder objective if there isn't one
 /datum/objective_item/steal/functionalai
 	name = "a functional AI"
@@ -582,7 +583,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 		return TRUE
 
 	return FALSE
-
+*/ //SPLURT edit removal end
 /datum/objective_item/steal/blueprints
 	name = "the station blueprints"
 	targetitem = /obj/item/blueprints

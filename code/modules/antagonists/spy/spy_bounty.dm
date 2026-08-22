@@ -235,7 +235,7 @@
 	VAR_FINAL/datum/objective_item/desired_item
 	/// Typecache of objective items that should not be selected.
 	var/static/list/blacklisted_item_types = typecacheof(list(
-		/datum/objective_item/steal/functionalai,
+		// /datum/objective_item/steal/functionalai, -- Splurt edit, removes blacklist because steal/functionalai as a whole is being deleted.
 		/datum/objective_item/steal/nukedisc,
 	))
 
