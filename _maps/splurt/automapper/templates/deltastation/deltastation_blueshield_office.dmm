@@ -34,6 +34,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/blueshield,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "i" = (
@@ -42,9 +43,9 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
-	pixel_y = 10;
-	pixel_x = 8
+/obj/item/stamp/granted{
+	pixel_x = 8;
+	pixel_y = 9
 	},
 /obj/item/stamp/denied{
 	pixel_x = 8;
@@ -71,6 +72,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/status_display/ai/directional/south,
+/obj/item/storage/medkit/robotic_repair/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "k" = (
@@ -88,7 +90,7 @@
 	},
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control"
 	},
 /obj/item/radio/intercom/directional/south,
@@ -149,7 +151,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "A" = (
@@ -212,10 +214,10 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/effect/landmark/navigate_destination/autoname,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "F" = (
@@ -276,9 +278,9 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "P" = (
@@ -287,9 +289,8 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/structure/rack/shelf,
-/obj/item/storage/toolbox/ammobox/wt550m9,
 /obj/machinery/camera/autoname/directional/south,
+/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "Q" = (
@@ -305,6 +306,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "T" = (
@@ -361,9 +363,15 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/machinery/status_display/evac/directional/south,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/toggleable/riot{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/mod/module/pepper_shoulders,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "Z" = (

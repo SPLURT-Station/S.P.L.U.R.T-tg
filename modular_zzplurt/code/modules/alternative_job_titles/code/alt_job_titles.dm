@@ -595,3 +595,10 @@
 		"Safeguard Model",
 		"Synthetic Auxiliary Officer",
 	)
+
+/proc/get_iaa_cyborg_alt_titles()
+	return list(
+		"Internal Affairs Cyborg",
+		"Corporate Model",
+		"Synthetic Executive Officer",
+	)

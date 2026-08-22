@@ -68,7 +68,7 @@
 	},
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control"
 	},
 /obj/item/folder/blue{
@@ -107,7 +107,7 @@
 /area/station/security/brig/entrance)
 "m" = (
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/shield/riot,
 /obj/item/gun_maintenance_supplies,
@@ -243,6 +243,11 @@
 "E" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/blueshield)
+"F" = (
+/obj/structure/cable,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/carpet/blue,
+/area/station/command/heads_quarters/blueshield)
 "G" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -374,12 +379,12 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "V" = (
 /obj/effect/turf_decal/siding/wood{
@@ -509,7 +514,7 @@ E
 E
 E
 E
-R
+w
 "}
 (10,1,1) = {"
 l

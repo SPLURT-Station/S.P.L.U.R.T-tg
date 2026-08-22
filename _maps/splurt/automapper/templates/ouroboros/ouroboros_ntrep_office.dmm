@@ -1,0 +1,851 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/reagent_containers/cup/glass/bottle/champagne{
+	pixel_y = 24;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/coin/gold{
+	pixel_x = 2;
+	pixel_y = -3
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"c" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/chair/sofa/right/brown{
+	dir = 1;
+	color = "#462f1c"
+	},
+/obj/effect/landmark/start/nanotrasen_crew_trainer,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"d" = (
+/obj/structure/filingcabinet/medical{
+	pixel_x = -10;
+	icon_state = "employmentcabinet";
+	name = "medical records filing cabinet"
+	},
+/obj/structure/filingcabinet/employment{
+	name = "employment forms filing cabinet"
+	},
+/obj/structure/filingcabinet/security{
+	pixel_x = 10;
+	icon_state = "employmentcabinet";
+	name = "security records filing cabinet"
+	},
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
+	pixel_y = -4
+	},
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = 5;
+	req_access = list("cent_general");
+	pixel_y = -24
+	},
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -5;
+	pixel_y = -24
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"e" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/pen/fountain/nanotrasen{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/stamp/granted{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"f" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"g" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"h" = (
+/obj/structure/table/wood,
+/obj/item/taperecorder{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/obj/item/tape{
+	pixel_x = 4
+	},
+/obj/machinery/vending/boozeomat{
+	density = 0;
+	req_access = list("cent_general");
+	pixel_x = -32
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"i" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"j" = (
+/obj/machinery/door/airlock/corporate{
+	name = "Nanotrasen Internal Affairs Office"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
+/obj/effect/landmark/navigate_destination/autoname,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/nt_rep)
+"k" = (
+/obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/machinery/status_display/evac/directional/south,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"l" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 13;
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/phone{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"m" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"n" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"o" = (
+/obj/effect/turf_decal/siding/wood/end,
+/obj/structure/hedge,
+/obj/structure/sign/clock/directional/east,
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"p" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
+	},
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/nt_rep)
+"q" = (
+/obj/structure/table/reinforced/titaniumglass,
+/obj/item/clipboard{
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/obj/item/folder/nanotrasen{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/mug/nanotrasen{
+	pixel_y = 4;
+	pixel_x = 14
+	},
+/obj/item/sign/flag/nanotrasen{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"r" = (
+/obj/structure/table/wood,
+/obj/item/folder/blue{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/folder/yellow{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/folder/nanotrasen,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"s" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"t" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/bed/dogbed/luxury,
+/obj/effect/spawner/random/ntc_pet,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"u" = (
+/obj/machinery/modular_computer/preset/command{
+	dir = 1
+	},
+/obj/machinery/requests_console/directional/south{
+	name = "Nanotrasen Consultant's Requests Console";
+	department = "Nanotrasen Consultant's Desk"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/announcement,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"w" = (
+/obj/machinery/fax{
+	fax_name = "Nanotrasen Consultant's Office";
+	name = "Nanotrasen Consultant's Fax Machine"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/noticeboard/directional/east,
+/obj/structure/table/wood/fancy/cyan,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"x" = (
+/obj/structure/aquarium/prefilled,
+/obj/item/reagent_containers/cup/fish_feed{
+	pixel_y = 17;
+	pixel_x = -3
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
+	},
+/obj/structure/sign/calendar/directional/east,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"y" = (
+/obj/structure/chair/sofa/left/brown{
+	color = "#462f1c"
+	},
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"z" = (
+/obj/structure/window/reinforced/survival_pod{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"A" = (
+/obj/structure/chair/sofa/right/brown{
+	color = "#462f1c"
+	},
+/obj/item/radio/intercom/directional/west,
+/obj/effect/landmark/start/nanotrasen_consultant,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"B" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/machinery/light_switch/directional/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"C" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"D" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"E" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"F" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/landmark/start/nanotrasen_crew_trainer,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"G" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/chair/sofa/left/brown{
+	dir = 1;
+	color = "#462f1c"
+	},
+/obj/structure/sign/poster/official/enlist/directional/west,
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/nt_rep)
+"H" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	name = "Nanotrasen Consultant's Desk";
+	req_access = list("cent_captain")
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"I" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"J" = (
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
+/obj/item/encryptionkey/headset_cent,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"K" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"M" = (
+/obj/structure/chair/comfy/brown{
+	dir = 1
+	},
+/obj/effect/landmark/start/nanotrasen_consultant,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"N" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/wood,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"Q" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"R" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/pen{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/stamp/granted{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"S" = (
+/obj/machinery/computer/station_goal{
+	dir = 1
+	},
+/obj/machinery/status_display/ai/directional/south,
+/obj/machinery/camera/directional/south{
+	c_tag = "Bridge - Nanotrasen Internal Affairs' Office"
+	},
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"T" = (
+/turf/closed/wall/r_wall,
+/area/station/command/heads_quarters/nt_rep)
+"U" = (
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"V" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"W" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/item/clipboard,
+/obj/item/folder/nanotrasen,
+/obj/machinery/light/directional/north,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/nt_rep)
+"Y" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+"Z" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/nanotrasenstaff,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/command/bridge)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+i
+a
+n
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+K
+a
+Y
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+T
+T
+T
+T
+T
+T
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+T
+A
+h
+G
+f
+T
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+T
+y
+r
+c
+C
+j
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+T
+T
+D
+z
+I
+B
+T
+T
+Q
+a
+g
+"}
+(16,1,1) = {"
+T
+R
+s
+m
+e
+b
+d
+T
+a
+a
+a
+"}
+(17,1,1) = {"
+T
+W
+F
+N
+q
+M
+S
+T
+V
+a
+Z
+"}
+(18,1,1) = {"
+p
+p
+t
+E
+l
+J
+u
+T
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+p
+p
+H
+U
+U
+k
+T
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+p
+T
+x
+w
+o
+T
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+T
+T
+T
+T
+T
+a
+a
+a
+"}

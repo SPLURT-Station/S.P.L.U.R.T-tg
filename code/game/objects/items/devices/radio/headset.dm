@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		var/channel_token = GLOB.channel_tokens[channel_name]
 		var/channel_span_class = get_radio_span(GLOB.default_radio_channels[channel_name])
 
-		if(i == 1)
+		if(i == 1 && channel_name != RADIO_CHANNEL_IAA) // Splurt Edit, STOP GIVING THE FALLBACK KEY.
 			available_channels += "<li><b>[span_class(channel_span_class, MODE_TOKEN_DEPARTMENT)]</b> or <b>[span_class(channel_span_class, channel_token)]</b> for <b>[span_class(channel_span_class, channel_name)]</b></li>"
 		else
 			available_channels += "<li><b>[span_class(channel_span_class, channel_token)]</b> for <b>[span_class(channel_span_class, channel_name)]</b></li>"

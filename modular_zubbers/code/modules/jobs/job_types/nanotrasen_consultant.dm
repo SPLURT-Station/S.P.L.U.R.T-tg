@@ -1,3 +1,4 @@
+/*
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
 	rpg_title = "Guild Adviser"
@@ -316,3 +317,4 @@
 	if(!redeemer.Adjacent(src))
 		return FALSE
 	return TRUE
+*/

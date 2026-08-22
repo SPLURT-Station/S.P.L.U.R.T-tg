@@ -25,6 +25,9 @@
 	name = "Blueshield's Fax Machine";
 	fax_name = "Blueshield's Office"
 	},
+/obj/item/storage/medkit/robotic_repair/stocked{
+	pixel_y = 5
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "d" = (
@@ -35,7 +38,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "e" = (
@@ -159,7 +162,7 @@
 	},
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control";
 	pixel_y = -6
 	},
@@ -276,7 +279,7 @@
 "z" = (
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/gun_maintenance_supplies,
 /obj/item/clothing/suit/armor/riot,
@@ -383,7 +386,7 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -545,7 +548,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "Y" = (

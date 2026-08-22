@@ -385,6 +385,7 @@ type DepartmentProps = {
 
 function Department(props: DepartmentProps) {
   const { children, department: name, dragging, setDragging } = props;
+  const cssName = name.replace(/\s+/g, ''); // SPLURT EDIT
   const className = `PreferencesMenu__Jobs__departments--${name}`;
 
   const data = useServerPrefs();
@@ -634,6 +635,13 @@ export function JobsPage() {
                 />
                 <Department
                   department="Medical"
+                  dragging={dragging}
+                  setDragging={setDragging}
+                  hoveringOver={hoveringOver}
+                  setHoveringOver={setHoveringOver}
+                />
+                <Department
+                  department="Interal Affairs"
                   dragging={dragging}
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}

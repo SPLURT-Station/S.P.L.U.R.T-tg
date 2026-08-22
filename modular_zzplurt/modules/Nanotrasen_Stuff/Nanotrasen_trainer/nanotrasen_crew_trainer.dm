@@ -8,18 +8,19 @@
 	supervisors = SUPERVISOR_NTC
 	minimal_player_age = 14
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
+	exp_required_type = EXP_TYPE_ADMIN
+	exp_required_type_department = EXP_TYPE_ADMIN
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CREW_TRAINER"
 
 	outfit = /datum/outfit/job/nanotrasen_crew_trainer
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant
-
-	department_for_prefs = /datum/job_department/assistant
+	departments_list = list(
+		/datum/job_department/central,
+	)
 
 	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_CIV
+	paycheck_department = ACCOUNT_NTA
 
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
@@ -70,7 +71,7 @@
 	id_trim = /datum/id_trim/job/nanotrasen_crew_trainer
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer
-	name = "nanotrasen crew trainers's garment bag"
+	name = "Nanotrasen crew trainers's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Crew Trainer."
 
 /obj/item/storage/bag/garment/nanotrasen_crew_trainer/PopulateContents()
@@ -86,10 +87,10 @@
 	new /obj/item/clothing/under/rank/nanotrasen/official(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
 	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
+	new /obj/item/clothing/under/rank/nanotrasen/official/turtleneck/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
 	new /obj/item/clothing/under/rank/nanotrasen/tactical(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/neck/large_scarf/nanotrasen(src)
@@ -106,9 +107,8 @@
 	new /obj/item/clothing/mask/gas/atmos/nanotrasen(src)
 
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer
-	name = "nanotrasen crew trainer's locker"
-	req_access = list()
-	req_one_access = list(ACCESS_CENT_GENERAL)
+	name = "Nanotrasen crew trainer's locker"
+	req_access = list(ACCESS_CENT_GENERAL)
 	icon_state = "ntt"
 	icon = 'modular_zzplurt/icons/obj/closet.dmi'
 
@@ -124,7 +124,7 @@
 	new /obj/item/clipboard(src)
 
 /obj/item/modular_computer/pda/nanotrasen_trainer
-	name = "nanotrasen PDA"
+	name = "Nanotrasen PDA"
 	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
 	greyscale_colors = "#42B5A6#B4B9C6"
 	inserted_item = /obj/item/pen/fountain
