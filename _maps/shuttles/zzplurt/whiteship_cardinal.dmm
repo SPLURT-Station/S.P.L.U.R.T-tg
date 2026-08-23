@@ -46,6 +46,7 @@
 	id = "whiteship_kitchen"
 	},
 /obj/machinery/light/small/directional/west,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -57,6 +58,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/blood,
+/obj/item/stack/medical/wrap/gauze{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/mob/living/basic/trooper/russian,
 /turf/open/floor/iron/textured,
 /area/shuttle/abandoned/restroom)
 "aM" = (
@@ -70,6 +77,7 @@
 "bc" = (
 /obj/effect/turf_decal/loading_area,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -231,6 +239,7 @@
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/engine)
 "fD" = (
@@ -270,8 +279,13 @@
 "gd" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/bot,
-/obj/item/gun/energy/laser/retro,
+/obj/item/gun/energy/laser/retro{
+	pixel_x = -4
+	},
 /obj/structure/rack/gunrack,
+/obj/item/gun/ballistic/rifle/boltaction{
+	pixel_x = -3
+	},
 /turf/open/floor/iron/textured,
 /area/shuttle/abandoned/cargo)
 "gA" = (
@@ -307,6 +321,8 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/gun/ballistic/revolver/nagant,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "hC" = (
@@ -335,6 +351,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/hallway)
 "iG" = (
@@ -402,6 +419,13 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
+"jU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/trooper/mercenary/melee,
+/turf/open/floor/catwalk_floor/iron/rust,
+/area/shuttle/abandoned/hallway)
 "kt" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/table/reinforced,
@@ -725,6 +749,7 @@
 /area/shuttle/abandoned/bridge)
 "sn" = (
 /obj/effect/decal/cleanable/wrapping,
+/mob/living/basic/trooper/mercenary/ranged/smg/commander,
 /turf/open/floor/iron/dark/side,
 /area/shuttle/abandoned/cargo)
 "sy" = (
@@ -735,6 +760,8 @@
 	dir = 1;
 	name = "Supply Pump"
 	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian/ranged/trooper,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/abandoned/engine)
 "sU" = (
@@ -920,6 +947,7 @@
 /area/shuttle/abandoned/cargo)
 "xV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/catwalk_floor/iron/rust,
 /area/shuttle/abandoned/cargo)
 "ya" = (
@@ -1171,7 +1199,7 @@
 /turf/open/floor/engine/hull,
 /area/shuttle/abandoned/cargo)
 "CM" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/effect/spawner/structure/window/plasma,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "CZ" = (
@@ -1187,6 +1215,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/dark/textured_half,
 /area/shuttle/abandoned/restroom)
 "Dn" = (
@@ -1205,6 +1234,7 @@
 	},
 /obj/machinery/light/floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -1214,6 +1244,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/trooper/mercenary/melee/sword,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "DD" = (
@@ -1297,6 +1328,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mob_spawn/corpse/human/miner,
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/abandoned/cargo)
 "GC" = (
@@ -1345,6 +1378,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/hallway)
 "HB" = (
@@ -1364,6 +1398,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/confetti,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
 "Ic" = (
@@ -1386,6 +1421,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron/rust,
 /area/shuttle/abandoned/hallway)
+"IV" = (
+/mob/living/basic/trooper/mercenary/melee,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/shuttle/abandoned/cargo)
 "Jm" = (
 /turf/closed/wall/r_wall/rust,
 /area/shuttle/abandoned/cargo)
@@ -1401,6 +1442,8 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian/ranged,
 /turf/open/floor/iron/dark/side,
 /area/shuttle/abandoned/hallway)
 "JW" = (
@@ -1458,6 +1501,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron/textured,
 /area/shuttle/abandoned/restroom)
 "Mu" = (
@@ -1536,6 +1580,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/abandoned/engine)
+"Ox" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/trooper/mercenary/ranged/smg,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/abandoned/cargo)
 "PC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1547,6 +1597,15 @@
 	dir = 4
 	},
 /turf/open/floor/engine/hull,
+/area/shuttle/abandoned/cargo)
+"PO" = (
+/obj/effect/turf_decal/loading_area,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian/ranged,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
 /area/shuttle/abandoned/cargo)
 "PY" = (
 /obj/machinery/firealarm/directional/north{
@@ -1576,6 +1635,7 @@
 /area/shuttle/abandoned/restroom)
 "QB" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -1655,6 +1715,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/trooper/mercenary/ranged/shotgun,
 /turf/open/floor/catwalk_floor/iron_dark/rust,
 /area/shuttle/abandoned/engine)
 "Tc" = (
@@ -1812,6 +1873,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian/ranged/officer,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -1830,12 +1893,16 @@
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 9
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/abandoned/engine)
 "XC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/hallway)
 "XF" = (
@@ -1868,6 +1935,8 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -2123,7 +2192,7 @@ ta
 ZJ
 iC
 ZR
-IF
+jU
 QB
 sU
 XF
@@ -2223,7 +2292,7 @@ xV
 bu
 lM
 qx
-kZ
+Ox
 ua
 Es
 rX
@@ -2265,7 +2334,7 @@ mk
 mk
 Jm
 qN
-yW
+IV
 io
 zF
 GH
@@ -2315,7 +2384,7 @@ FR
 mt
 yW
 LO
-bc
+PO
 Ic
 Xm
 yV

@@ -30,7 +30,7 @@
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 	pointer_color = "#353518"
 
-/obj/effect/mob_spawn/corpse/human/mercenary
+/obj/effect/mob_spawn/corpse/human/mercenary/commander
 	name = "Mercenary Commander"
 	outfit = /datum/outfit/mercenary/commander
 
