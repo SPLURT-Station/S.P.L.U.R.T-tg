@@ -570,6 +570,10 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/catwalk_floor/iron/rust,
 /area/shuttle/abandoned/cargo)
+"mL" = (
+/obj/structure/sign/number/one,
+/turf/closed/wall/r_wall/rust,
+/area/shuttle/abandoned/cargo)
 "mV" = (
 /turf/closed/wall/rust,
 /area/shuttle/abandoned/cargo)
@@ -1316,7 +1320,7 @@
 /turf/closed/wall/r_wall,
 /area/shuttle/abandoned/hallway)
 "FR" = (
-/obj/structure/sign/number/random,
+/obj/structure/sign/number/four,
 /turf/closed/wall/r_wall/rust,
 /area/shuttle/abandoned/cargo)
 "FW" = (
@@ -1623,7 +1627,7 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/abandoned/cargo)
 "Qd" = (
-/obj/structure/sign/number/random,
+/obj/structure/sign/number/six,
 /turf/closed/wall/r_wall,
 /area/shuttle/abandoned/cargo)
 "Qe" = (
@@ -1854,6 +1858,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/textured,
 /area/shuttle/abandoned/hallway)
+"Xc" = (
+/obj/structure/sign/number/two,
+/turf/closed/wall/r_wall,
+/area/shuttle/abandoned/cargo)
 "Xk" = (
 /turf/open/floor/carpet,
 /area/shuttle/abandoned/crew)
@@ -2332,7 +2340,7 @@ UZ
 (21,1,1) = {"
 mk
 mk
-Jm
+mL
 qN
 IV
 io
@@ -2364,7 +2372,7 @@ mk
 (23,1,1) = {"
 mk
 mk
-Qd
+Xc
 wR
 yW
 Za
@@ -2396,7 +2404,7 @@ mk
 (25,1,1) = {"
 mk
 mk
-FR
+Jm
 BR
 eJ
 Dn
