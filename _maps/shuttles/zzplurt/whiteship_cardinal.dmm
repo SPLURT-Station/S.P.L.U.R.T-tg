@@ -147,6 +147,9 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "whiteship"
+	},
 /obj/docking_port/mobile{
 	callTime = 250;
 	can_move_docking_ports = 1;
@@ -157,9 +160,6 @@
 	name = "Salvage Ship";
 	port_direction = 8;
 	preferred_direction = 4
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "whiteship"
 	},
 /turf/open/floor/iron/dark/textured_half,
 /area/shuttle/abandoned/hallway)
@@ -802,11 +802,13 @@
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
 "tS" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/computer/camera_advanced/shuttle_docker/whiteship{
 	dir = 8;
-	view_range = 14
+	view_range = 14;
+	x_offset = -4;
+	y_offset = -8
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "ua" = (
@@ -911,10 +913,10 @@
 	},
 /area/shuttle/abandoned/bridge)
 "wC" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/computer/shuttle/white_ship/bridge{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "wR" = (
@@ -1328,8 +1330,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mob_spawn/corpse/human/miner,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/russian,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/abandoned/cargo)
 "GC" = (
@@ -1696,9 +1698,7 @@
 /area/shuttle/abandoned/crew)
 "Sb" = (
 /obj/structure/bed/dogbed,
-/mob/living/basic/pet/cat/original{
-	name = "Scav"
-	},
+/mob/living/basic/pet/cat/original/cardinal,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
 "Sx" = (
@@ -1936,7 +1936,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/corpse/human/russian,
+/obj/effect/mob_spawn/corpse/human/russian/ranged,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},

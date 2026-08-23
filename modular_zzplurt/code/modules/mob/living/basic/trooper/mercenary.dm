@@ -16,6 +16,7 @@
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	r_hand = /obj/item/knife/combat
+	loot = list(/obj/item/knife/combat)
 	var/projectile_deflect_chance = 0
 
 /mob/living/basic/trooper/mercenary/melee/projectile_hit(obj/projectile/hitting_projectile, def_zone, piercing_hit, blocked)
@@ -71,18 +72,20 @@
 	burst_shots = 2
 	ranged_cooldown = 2 SECONDS
 	r_hand = /obj/item/gun/ballistic/automatic/wt458
-	loot = /obj/item/gun/ballistic/automatic/wt458
+	loot = list(/obj/item/gun/ballistic/automatic/wt458)
 
 /mob/living/basic/trooper/mercenary/ranged/shotgun
 	casingtype = /obj/item/ammo_casing/shotgun/buckshot //buckshot (up to 72.5 brute) fired in a two-round burst
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/shotgunner
-	ranged_cooldown = 2 SECONDS
+	ranged_cooldown = 1 SECONDS
 	r_hand = /obj/item/gun/ballistic/shotgun/lethal
-	loot = /obj/item/gun/ballistic/shotgun/lethal
+	loot = list(/obj/item/gun/ballistic/shotgun/lethal)
 
 /mob/living/basic/trooper/mercenary/ranged/smg/commander
 	name = "\improper Mercenary Commander"
 	desc = "A unaffiliated mercenary commanding officer, they follow, and lead where the paycheck goes."
-	maxHealth = 180
-	health = 180
+	maxHealth = 200
+	health = 200
+	ranged_cooldown = 1 SECONDS
+	corpse = /obj/effect/mob_spawn/corpse/human/mercenary/commander
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/mercenary/commander
