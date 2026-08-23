@@ -7,7 +7,7 @@
 	mapped_start_area = /area/station/holodeck/prison
 
 	/// Only prison workshop programs
-	program_type = /datum/map_template/holodeck/prison
+	program_type = /datum/map_template/holodeck_prison
 
 	/// What loads when powered off / shutdown
 	offline_program = "workshop-offline"

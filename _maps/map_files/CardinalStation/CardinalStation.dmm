@@ -24691,10 +24691,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
-"fJQ" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall,
-/area/station/maintenance/starboard/central)
 "fJT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -44367,9 +44363,6 @@
 "kkO" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
-	},
-/obj/machinery/computer/security/telescreen/ordnance{
-	pixel_y = 3
 	},
 /obj/structure/table,
 /obj/machinery/computer/security/telescreen/ordnance/directional/west,
@@ -68397,6 +68390,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
 /turf/open/floor/iron/dark/textured_half,
 /area/station/engineering/circuit_workshop)
 "pKK" = (
@@ -83572,7 +83568,6 @@
 	name = "Virology Lab"
 	},
 /obj/structure/cable,
-/obj/structure/cable,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -86866,6 +86861,16 @@
 /obj/machinery/digital_clock/directional/west,
 /turf/open/misc/grass,
 /area/station/security/prison/garden)
+"tSL" = (
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/engineering/hallway)
 "tSW" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/blue{
@@ -93020,6 +93025,9 @@
 	dir = 6
 	},
 /obj/machinery/light_switch/directional/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/circuit_workshop)
 "vnv" = (
@@ -99389,6 +99397,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/circuit_workshop)
 "wJk" = (
@@ -103554,6 +103565,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -141550,7 +141564,7 @@ umg
 cOY
 qNL
 fVX
-jhB
+tSL
 xIM
 pKH
 wJf
@@ -148180,7 +148194,7 @@ aLh
 upT
 upT
 sSb
-fJQ
+fEW
 hyT
 nzj
 nzj
