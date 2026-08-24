@@ -563,7 +563,7 @@
 /datum/job/blueshield/New()
 	var/list/extra_titles = list(
 		"Bottomshield",
-		"Blueshield",
+		"Bluemaid",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -573,6 +573,7 @@
 	var/list/extra_honorific = list(
 		"Blueshield",
 		"Bottomshield",
+		"Bluemaid",
 	)
 	LAZYADD(honorifics, extra_honorific)
 	. = ..()
