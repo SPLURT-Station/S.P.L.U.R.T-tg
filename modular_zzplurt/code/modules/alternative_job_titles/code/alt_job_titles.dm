@@ -563,6 +563,7 @@
 /datum/job/blueshield/New()
 	var/list/extra_titles = list(
 		"Bottomshield",
+		"Blueshield",
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
