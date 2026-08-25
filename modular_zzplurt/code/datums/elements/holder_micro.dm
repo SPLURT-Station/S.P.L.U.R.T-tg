@@ -15,7 +15,7 @@
 	var/obj/item/mob_holder/holder = micro.loc
 	if(istype(holder))
 		var/mob/living/living = get_atom_on_turf(micro.loc, /mob/living)
-		if(living && (COMPARE_SIZES(living, micro)) < 2.0)
+		if(living && (COMPARE_SIZES_WITH_LIMBLOSS(living, micro)) < 2.0)
 			living.visible_message(span_warning("\The [living] drops [micro] as [micro.p_they()] grow\s too big to carry."),
 								span_warning("You drop \The [living] as [living.p_they()] grow\s too big to carry."))
 			holder.release()
@@ -23,7 +23,7 @@
 			holder.release()
 
 /datum/element/mob_holder/micro/on_examine(mob/living/source, mob/user, list/examine_list)
-	if(ishuman(user) && !istype(source.loc, /obj/item/mob_holder) && (COMPARE_SIZES(user, source)) >= 2.0)
+	if(ishuman(user) && !istype(source.loc, /obj/item/mob_holder) && (COMPARE_SIZES_WITH_LIMBLOSS(user, source)) >= 2.0)
 		examine_list += span_notice("Looks like [source.p_they(FALSE)] can be picked up using <b>Alt+Click and grab intent</b>!")
 
 /// Do not inherit from /mob_holder, interactions are different.
@@ -62,7 +62,7 @@
 		to_chat(user, span_warning("You can't pick yourself up."))
 		source.balloon_alert(user, "cannot pick yourself!")
 		return FALSE
-	if(COMPARE_SIZES(user, source) < 2.0)
+	if(COMPARE_SIZES_WITH_LIMBLOSS(user, source) < 2.0)
 		to_chat(user, span_warning("They're too big to pick up!"))
 		source.balloon_alert(user, "too big to pick up!")
 		return FALSE
@@ -77,7 +77,7 @@
 	source.visible_message(span_warning("[user] starts picking up [source]."), \
 					span_userdanger("[user] starts picking you up!"))
 	source.balloon_alert(user, "picking up")
-	var/time_required = COMPARE_SIZES(source, user) * 4 SECONDS //Scale how fast the pickup will be depending on size difference
+	var/time_required = COMPARE_SIZES_WITH_LIMBLOSS(source, user) * 4 SECONDS //Scale how fast the pickup will be depending on size difference
 	if(!do_after(user, time_required, source))
 		return FALSE
 
@@ -295,15 +295,19 @@
 	transform = null
 
 // And right here i throw all of those error sprites in the trash
-/obj/item/mob_holder/micro/build_worn_icon(default_layer, default_icon_file, isinhands, female_uniform, override_state, override_file, mutant_styles)
+/obj/item/mob_holder/micro/build_worn_icon(
+	default_layer = 0,
+	default_icon_file = null,
+	isinhands = FALSE,
+	female_uniform = NO_FEMALE_UNIFORM,
+	override_state = null,
+	override_file = null,
+	bodyshape = NONE,
+	mutant_styles = NONE,
+)
 	return null
 
-/obj/item/mob_holder/micro/verb/interact_with_held()
-	set name = "Interact With Held"
-	set desc = "Perform an interaction with the held mob."
-	set category = "IC"
-	set src in view(usr.client)
-
+GAME_VERB_SRC_DESC(/obj/item/mob_holder/micro, interact_with_held, view(usr.client), "Interact With Held", "Perform an interaction with the held mob.", "IC")
 	if(!held_mob)
 		to_chat(usr, span_warning("You're not holding anyone!"))
 		return

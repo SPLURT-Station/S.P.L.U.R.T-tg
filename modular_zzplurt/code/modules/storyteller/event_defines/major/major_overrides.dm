@@ -52,3 +52,5 @@
 /datum/round_event_control/morph
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM, TAG_OPFOR_ONLY)
 
+/datum/round_event_control/fleshmind
+	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_CHAOTIC, TAG_MEDIUM)

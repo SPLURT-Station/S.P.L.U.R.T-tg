@@ -1,11 +1,3 @@
-/datum/controller/subsystem/ticker/declare_completion(was_forced)
-	if(!CONFIG_GET(flag/roundend_embeds)) // SPLURT EDIT - Discord rounded embeds.
-		return ..()
-
-	generate_roundend_embed()
-
-	. = ..()
-
 /datum/controller/subsystem/ticker/generate_quote_of_the_round(embed = FALSE)
 	if(!embed)
 		return ..()
@@ -30,6 +22,12 @@
 			log_runtime("A quote of the round could not be found. Perhaps the filters are too strict?")
 
 	return data
+
+/datum/controller/subsystem/ticker/handle_quote_of_the_round()
+	if(!CONFIG_GET(flag/roundend_embeds)) // SPLURT EDIT - Discord rounded embeds.
+		return ..()
+
+	generate_roundend_embed()
 
 /datum/controller/subsystem/ticker/proc/generate_roundend_embed()
 	var/list/quote_of_the_round_data = generate_quote_of_the_round(TRUE)

@@ -11,6 +11,7 @@
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Which mode is the scanner currently on?
 	var/scanning_mode = SCAN_EXPORTS
 	/// A list of all available export scanner modes.
@@ -228,13 +229,14 @@
 				to_chat(user, span_warning("Bank account for handling tip already registered!"))
 
 			else if(scanner_account)
-				cube.AddComponent(/datum/component/pricetag, scanner_account, cube.handler_tip, FALSE)
+				cube.AddComponent(/datum/component/pricetag, list(scanner_account), cube.handler_tip, FALSE)
 
 				cube.bounty_handler_account = scanner_account
 				cube.bounty_handler_account.bank_card_talk("Bank account for [price ? "<b>[price * cube.handler_tip]</b> [MONEY_NAME_SINGULAR] " : ""]handling tip successfully registered.")
 
-				if(cube.bounty_holder_account != cube.bounty_handler_account) //No need to send a tracking update to the person scanning it
-					cube.bounty_holder_account.bank_card_talk("<b>[cube]</b> was scanned in \the <b>[get_area(cube)]</b> by <b>[scan_human] ([scan_human.job])</b>.")
+				for(var/datum/bank_account/shareholder in cube.bounty_holder_accounts)
+					if(shareholder != cube.bounty_handler_account) //No need to send a tracking update to the person scanning it
+						shareholder.bank_card_talk("<b>[cube]</b> was scanned in \the <b>[get_area(cube)]</b> by <b>[scan_human] ([scan_human.job])</b>.")
 
 			else
 				to_chat(user, span_warning("Bank account not detected. Handling tip not registered."))

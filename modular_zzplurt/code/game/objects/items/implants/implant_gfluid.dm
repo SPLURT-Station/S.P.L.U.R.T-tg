@@ -45,17 +45,19 @@
 
 	// List their current reagents if they're valid
 	for(var/datum/reagent/genital_reagent in genital_owner.reagents.reagent_list)
-		if((find_reagent_object_from_type(genital_reagent.type)) && ((SSinteractions.genital_fluids_paths.Find(genital_reagent.name)) || !should_use_blacklist))
+		var/datum/reagent/reagent_singleton = GLOB.chemical_reagents_list[genital_reagent.type]
+		if(reagent_singleton && ((SSinteractions.genital_fluids_paths.Find(genital_reagent.name)) || !should_use_blacklist))
 			// Add valid reagents to the list
-			LAZYADD(fluid_list, find_reagent_object_from_type(genital_reagent.type))
+			LAZYADD(fluid_list, reagent_singleton)
 
 	// List any reagents they may be holding in their hands
 	for(var/obj/item/container in genital_owner.held_items)
 		if(container.is_open_container() || istype(container, /obj/item/food))
 			for(var/datum/reagent/genital_reagent in container.reagents.reagent_list)
-				if((find_reagent_object_from_type(genital_reagent.type)) && ((SSinteractions.genital_fluids_paths.Find(genital_reagent.name)) || !should_use_blacklist))
+				var/datum/reagent/reagent_singleton = GLOB.chemical_reagents_list[genital_reagent.type]
+				if(reagent_singleton && ((SSinteractions.genital_fluids_paths.Find(genital_reagent.name)) || !should_use_blacklist))
 					// Add valid reagents to the list
-					LAZYADD(fluid_list, find_reagent_object_from_type(genital_reagent.type))
+					LAZYADD(fluid_list, reagent_singleton)
 
 	// Return if genitals list is void/null
 	if(!genitals_list)
@@ -75,7 +77,7 @@
 		return
 
 	// Update list of possible fluids
-	fluid_list = list(find_reagent_object_from_type(initial(genital_input.internal_fluid_datum))) + fluid_list
+	fluid_list = list(GLOB.chemical_reagents_list[initial(genital_input.internal_fluid_datum)]) + fluid_list
 
 	// Prompt user to select a new fluid
 	var/datum/reagent/reagent_selection = tgui_input_list(genital_owner, "Choose your new reagent", "Genital Fluid Infuser", fluid_list)

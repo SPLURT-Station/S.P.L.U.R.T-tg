@@ -23,7 +23,7 @@
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	throw_speed = 3
 	throw_range = 7
-	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 4)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 	var/tracking_range = 35
 
 /obj/item/locator/ui_interact(mob/user, datum/tgui/ui)
@@ -239,7 +239,7 @@
 	if (!can_teleport_notifies(user))
 		return
 
-	var/list/obj/effect/portal/created = create_portal_pair(get_turf(user), get_teleport_turf(get_turf(teleport_target)), 300, 1, null)
+	var/list/obj/effect/portal/created = create_portal_pair(get_turf(user), get_turf(teleport_target), 300, 1, null)
 	if(LAZYLEN(created) != 2)
 		return
 
@@ -406,11 +406,9 @@
 	var/teleport_distance = rand(minimum_teleport_distance, maximum_teleport_distance)
 	var/turf/destination = get_teleport_loc(current_location, user, teleport_distance)
 	var/bagholdingcheck = FALSE
-	if(iscarbon(user))
-		var/mob/living/carbon/teleporting_guy = user
-		if(locate(/obj/item/storage/backpack/holding) in teleporting_guy.get_all_gear(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT|INCLUDE_ACCESSORIES))
+	for(var/obj/item/check as anything in user.get_all_contents_type(/obj/item))
+		if(check.item_flags & BLUESPACE_INTERFERENCE)
 			bagholdingcheck = TRUE
-
 	if(isclosedturf(destination))
 		if(!triggered_by_emp && !bagholdingcheck)
 			panic_teleport(user, destination) //We're in a wall, engage emergency parallel teleport.
@@ -501,7 +499,7 @@
 
 ///Bleed and make blood splatters at tele start and end points
 /obj/item/syndicate_teleporter/proc/make_bloods(turf/old_location, turf/new_location, mob/living/user)
-	if(!user.can_bleed(BLOOD_COVER_TURFS) != BLEED_SPLATTER)
+	if(user.can_bleed(BLOOD_COVER_TURFS) != BLEED_SPLATTER)
 		return FALSE
 	user.add_splatter_floor(old_location)
 	user.add_splatter_floor(new_location)

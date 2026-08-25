@@ -1,6 +1,6 @@
 PROCESSING_SUBSYSTEM_DEF(interactions)
 	name = "Interactions"
-	flags = SS_BACKGROUND | SS_POST_FIRE_TIMING
+	ss_flags = SS_BACKGROUND | SS_POST_FIRE_TIMING
 	init_order = INIT_ORDER_INTERACTIONS
 	wait = INTERACTION_SPEED_MIN
 	stat_tag = "ACT"

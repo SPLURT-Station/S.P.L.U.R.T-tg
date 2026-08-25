@@ -70,6 +70,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	var/list/blacklisted_roles
 	/// If set, is a list of species which can get the loadout item
 	var/list/restricted_species
+	/// If set, is a list of species which can't get the loadout item
+	var/list/blacklisted_species
 	/// Whether the item is restricted to supporters
 	var/donator_only
 	/// Whether the item requires a specific season in order to be available
@@ -153,6 +155,45 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 			if(reskin_datum)
 				return set_skin(manager, user, params)
 
+		if("select_color_simple")
+			return item_color_painting(manager, user)
+
+		if("set_color_mode")
+			return item_color_mode(manager, user)
+
+	return TRUE
+
+/datum/loadout_item/proc/item_color_painting(datum/preference_middleware/loadout/manager, mob/user)
+	if(manager.menu)
+		return FALSE
+
+	var/list/loadout = manager.get_current_loadout()
+	if(!loadout?[item_path])
+		return FALSE
+
+	var/chosen_color = tgui_color_picker(user, "Pick new color. Setting color to pitch black will remove the existing color.", "Repaint item", "#000000")
+	if(isnull(chosen_color))
+		return FALSE
+
+	var/hsl = rgb2num(chosen_color, COLORSPACE_HSL)
+	if(hsl[3] == 0)
+		loadout[item_path][INFO_CUSTOM_COLOR] = null
+	else
+		loadout[item_path][INFO_CUSTOM_COLOR] = chosen_color
+
+	manager.save_current_loadout(loadout)
+	return TRUE
+
+/datum/loadout_item/proc/item_color_mode(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.get_current_loadout()
+	if(!loadout?[item_path])
+		return FALSE
+
+	if(isnull(loadout[item_path][INFO_COLOR_MODE]))
+		loadout[item_path][INFO_COLOR_MODE] = FALSE
+
+	loadout[item_path][INFO_COLOR_MODE] = !loadout[item_path][INFO_COLOR_MODE]
+	manager.save_current_loadout(loadout)
 	return TRUE
 
 /// Opens up the GAGS editing menu.
@@ -305,6 +346,9 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		equipped_item.set_greyscale(item_color)
 		update_flag |= equipped_item.slot_flags
 
+	if(item_details?[INFO_CUSTOM_COLOR] && !istype(equipper, /mob/living/carbon/human/dummy)) //the dummy check makes it not color the item in the loadout because that causes runtimes, joining into the game colors the item as intended. If you want to fix it, start here
+		equipped_item.add_atom_colour(color_transition_filter(item_details[INFO_CUSTOM_COLOR], item_details[INFO_COLOR_MODE] ? SATURATION_OVERRIDE : SATURATION_MULTIPLY), FIXED_COLOUR_PRIORITY)
+
 	// BUBBER EDIT CHANGE BEGIN - Descriptions
 	if((loadout_flags & LOADOUT_FLAG_ALLOW_NAMING) && !visuals_only)
 		var/renamed = FALSE
@@ -333,9 +377,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 			if(istype(equipped_item, /obj/item/clothing/accessory))
 				// Snowflake handing for accessories, because we need to update the thing it's attached to instead
 				if(isclothing(equipped_item.loc))
-					var/obj/item/clothing/under/attached_to = equipped_item.loc
-					attached_to.update_accessory_overlay()
-					update_flag |= (ITEM_SLOT_OCLOTHING|ITEM_SLOT_ICLOTHING)
+					var/obj/item/clothing/attached_to = equipped_item.loc
+					update_flag |= attached_to.slot_flags
 			else
 				update_flag |= equipped_item.slot_flags
 			break
@@ -365,7 +408,11 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	formatted_item["reskins"] = get_reskin_options()
 	formatted_item["icon"] = ui_icon
 	formatted_item["icon_state"] = ui_icon_state
-	formatted_item["ckey_whitelist"] = ckeywhitelist // BUBBER EDIT ADDITION: Filter ckey-locked items
+	//BUBBER EDIT ADDITION START - Dynamic Uniforms + ckey lock filter
+	if(initial(item_path.greyscale_component_style_type))
+		add_component_style_preview_to_ui_data(formatted_item)
+	formatted_item["ckey_whitelist"] = ckeywhitelist
+	//BUBBER EDIT ADDITION END
 
 	return formatted_item
 
@@ -443,6 +490,20 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 			"act_key" = "select_color",
 			"button_icon" = FA_ICON_PALETTE,
 			"active_key" = INFO_GREYSCALE,
+		))
+	else
+		UNTYPED_LIST_ADD(button_list, list(
+			"label" = "Repaint",
+			"act_key" = "select_color_simple",
+			"button_icon" = FA_ICON_PALETTE,
+			"active_key" = INFO_CUSTOM_COLOR,
+		))
+		UNTYPED_LIST_ADD(button_list, list(
+			"label" = "Repainting mode",
+			"act_key" = "set_color_mode",
+			"active_key" = INFO_COLOR_MODE,
+			"active_text" = "Override Color",
+			"inactive_text" = "Multiply Color",
 		))
 
 	if(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING)

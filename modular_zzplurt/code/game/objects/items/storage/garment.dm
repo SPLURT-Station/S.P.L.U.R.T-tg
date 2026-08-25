@@ -49,7 +49,7 @@
 	new /obj/item/clothing/suit/armor/hos/viro/trenchcoat/winter(src)
 	new /obj/item/clothing/suit/armor/hos/viro/trenchcoat(src)
 	new /obj/item/clothing/suit/armor/hos/viro(src)
-	new /obj/item/clothing/head/helmet/viro/hos(src)
+	new /obj/item/clothing/head/helmet/sec/viro/hos(src)
 
 /obj/item/storage/bag/garment/warden/PopulateContents()
 	new /obj/item/clothing/under/rank/security/splurt/warden(src)
@@ -65,6 +65,7 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/head/hats/warden(src)
 	new /obj/item/clothing/head/hats/warden/red(src)
+	new /obj/item/clothing/head/beret/sec/splurt/warden(src)
 	new /obj/item/clothing/head/hats/warden/drill(src)
 	new /obj/item/clothing/head/security_garrison/warden(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)

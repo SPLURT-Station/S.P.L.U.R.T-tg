@@ -1,4 +1,4 @@
-#define PATH_REGEX regex("\\/datum\\/sprite_accessory\\/(underwear|undershirt|socks|bra)\\/")
+#define PATH_REGEX regex("\\/datum\\/sprite_accessory\\/clothing\\/(underwear|undershirt|socks|bra)\\/")
 
 /**
  * This unit test tests underwear items in the game, and makes sure each legacy sprite item corresponds to an underwear item.
@@ -6,10 +6,10 @@
 /datum/unit_test/underwear_items
 
 	var/list/sprites_to_items_names = list(
-		/datum/sprite_accessory/underwear = "BRIEFS",
-		/datum/sprite_accessory/undershirt = "SHIRT",
-		/datum/sprite_accessory/bra = "BRA",
-		/datum/sprite_accessory/socks = "SOCKS"
+		/datum/sprite_accessory/clothing/underwear = "BRIEFS",
+		/datum/sprite_accessory/clothing/undershirt = "SHIRT",
+		/datum/sprite_accessory/clothing/bra = "BRA",
+		/datum/sprite_accessory/clothing/socks = "SOCKS"
 	)
 
 	var/list/outputs = list(
@@ -25,9 +25,9 @@
 	)
 
 /datum/unit_test/underwear_items/Run()
-	outputs["briefs"] = generate_objects_file(/datum/sprite_accessory/underwear)
-	outputs["shirt"] = generate_objects_file(/datum/sprite_accessory/undershirt) + generate_objects_file(/datum/sprite_accessory/bra, FALSE)
-	outputs["socks"] = generate_objects_file(/datum/sprite_accessory/socks)
+	outputs["briefs"] = generate_objects_file(/datum/sprite_accessory/clothing/underwear)
+	outputs["shirt"] = generate_objects_file(/datum/sprite_accessory/clothing/undershirt) + generate_objects_file(/datum/sprite_accessory/clothing/bra, FALSE)
+	outputs["socks"] = generate_objects_file(/datum/sprite_accessory/clothing/socks)
 
 	var/fail = FALSE
 	for(var/object_type in outputs)

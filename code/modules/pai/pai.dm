@@ -1,5 +1,4 @@
 /mob/living/silicon/pai
-	can_be_held = TRUE
 	can_buckle_to = FALSE
 	density = FALSE
 	desc = "A generic pAI hard-light holographics emitter."
@@ -25,7 +24,7 @@
 	move_resist = 0
 	name = "pAI"
 	pass_flags = PASSTABLE | PASSMOB
-	pull_force = 0
+	pull_force = MOVE_FORCE_NONE
 	radio = /obj/item/radio/headset/silicon/pai
 	worn_slot_flags = ITEM_SLOT_HEAD
 
@@ -132,6 +131,9 @@
 
 // See software.dm for Topic()
 /mob/living/silicon/pai/can_perform_action(atom/target, action_bitflags)
+	if(!(action_bitflags & ALLOW_PAI))
+		to_chat(src, span_warning("Your holochasis does not allow you to do this!"))
+		return FALSE
 	action_bitflags |= ALLOW_RESTING // Resting is just an aesthetic feature for them
 	action_bitflags &= ~ALLOW_SILICON_REACH // They don't get long reach like the rest of silicons
 	return ..(target, action_bitflags)
@@ -203,6 +205,7 @@
 /mob/living/silicon/pai/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/holographic_nature)
+	AddElement(/datum/element/can_be_held)
 	if(istype(loc, /obj/item/modular_computer))
 		give_messenger_ability()
 	START_PROCESSING(SSfastprocess, src)
@@ -318,12 +321,8 @@
  * 	or FALSE if the pAI is not being carried.
  */
 /mob/living/silicon/pai/proc/get_holder()
-	var/mob/living/carbon/holder
-	if(!holoform && iscarbon(card.loc))
-		holder = card.loc
-	if(holoform && ispickedupmob(loc) && iscarbon(loc.loc))
-		holder = loc.loc
-	if(!holder || !iscarbon(holder))
+	var/mob/holder = recursive_loc_check(card, /mob/living/carbon)
+	if(isnull(holder))
 		return FALSE
 	return holder
 

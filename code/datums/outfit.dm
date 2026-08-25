@@ -125,10 +125,10 @@
 	var/preload = FALSE
 
 	/// Any undershirt. While on humans it is a string, here we use paths to stay consistent with the rest of the equips.
-	// SPLURT EDIT - Extra Inventory - use the correct paths
-	var/datum/sprite_accessory/undershirt/undershirt = null
-	var/datum/sprite_accessory/underwear/underwear = null
-	var/datum/sprite_accessory/socks/socks = null
+	// SPLURT EDIT - Undershirt, underwear, and socks are now separate slots
+	var/datum/sprite_accessory/clothing/undershirt/undershirt = null
+	var/datum/sprite_accessory/clothing/underwear/underwear = null
+	var/datum/sprite_accessory/clothing/socks/socks = null
 	// SPLURT EDIT END
 
 /**
@@ -294,6 +294,7 @@
 				for(var/i in 1 to number)
 					user.equip_to_storage(SSwardrobe.provide_type(path, user), ITEM_SLOT_BELT, indirect_action = TRUE, del_on_fail = TRUE)
 
+	SEND_SIGNAL(user.dna.species, COMSIG_OUTFIT_EQUIP, src, visuals_only) // BUBBER EDIT: Proteans. See /datum/species/protean/proc/outfit_handling
 	post_equip(user, visuals_only)
 
 	if(!visuals_only)
@@ -324,7 +325,6 @@
 				if(activate_msg)
 					CRASH("Failed to activate [user]'s [skillchip_instance], on job [src]. Failure message: [activate_msg]")
 
-	SEND_SIGNAL(user.dna.species, COMSIG_OUTFIT_EQUIP, src, visuals_only) // BUBBER EDIT: Proteans. See /datum/species/protean/proc/outfit_handling
 	user.update_body()
 	return TRUE
 
@@ -548,7 +548,7 @@
 
 /datum/outfit/vv_get_dropdown()
 	. = ..()
-	VV_DROPDOWN_OPTION("", "---")
+	VV_DROPDOWN_OPTION("", "--- /outfit ---")
 	VV_DROPDOWN_OPTION(VV_HK_TO_OUTFIT_EDITOR, "Outfit Editor")
 
 /datum/outfit/vv_do_topic(list/href_list)
@@ -558,6 +558,4 @@
 		return
 
 	if(href_list[VV_HK_TO_OUTFIT_EDITOR])
-		if(!check_rights(NONE))
-			return
 		usr.client.open_outfit_editor(src)

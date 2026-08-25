@@ -4,3 +4,7 @@
 	icon = 'modular_skyrat/modules/aesthetics/guns/icons/magazine.dmi'
 	icon_state = "9x19p"
 	ammo_type = /obj/item/ammo_casing/security/rubber
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.5,
+	)

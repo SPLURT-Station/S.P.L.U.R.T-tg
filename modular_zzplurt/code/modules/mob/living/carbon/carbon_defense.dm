@@ -78,7 +78,7 @@
 	// Run original
 	. = ..()
 
-/mob/living/carbon/adjust_oxy_loss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL, required_respiration_type = ALL)
+/mob/living/carbon/adjust_oxy_loss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL)
 	. = ..()
 
 	// Check parent return

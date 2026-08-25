@@ -45,12 +45,8 @@
 /obj/item/clothing/mask/balaclavaadjust/attack_self(mob/user)
 	adjust_mask(user)
 
-/obj/item/clothing/mask/balaclavaadjust/verb/toggle()
-		set category = "Object"
-		set name = "Adjust Balaclava"
-		set src in usr
+GAME_VERB_SRC(/obj/item/clothing/mask/balaclavaadjust, toggle, usr, "Adjust Balaclava", "Object")
 		adjust_mask(usr)
-
 
 /obj/item/clothing/mask/balaclava/threehole
 	name = "three hole balaclava"
@@ -70,22 +66,21 @@
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
 
-/obj/item/clothing/mask/muzzle/ball
-	name = "ballgag"
-	desc = "I'm pretty fuckin far from okay."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ballgag"
-
-/obj/item/clothing/mask/muzzle/ring
-	name = "ring gag"
-	desc = "A mouth wrap seemingly designed to hold the mouth open."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ringgag"
-	// SPLURT EDIT - Make ring gag not block mouth
-	flags_cover = NONE
-	// SPLURT EDIT END
+// SPLURT EDIT - Delete unused muzzle/ball and muzzle/ring moved to /obj/item/clothing/mask/ballgag/ring
+// /obj/item/clothing/mask/muzzle/ball
+// 	name = "ballgag"
+// 	desc = "I'm pretty fuckin far from okay."
+// 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+// 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+// 	icon_state = "ballgag"
+//
+// /obj/item/clothing/mask/muzzle/ring
+// 	name = "ring gag"
+// 	desc = "A mouth wrap seemingly designed to hold the mouth open."
+// 	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+// 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+// 	icon_state = "ringgag"
+// SPLURT EDIT END
 
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'icons/map_icons/clothing/mask.dmi'

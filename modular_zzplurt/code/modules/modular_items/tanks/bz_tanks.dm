@@ -14,12 +14,10 @@
 	distribute_pressure = 6 // adheres to the needed pressure for bz breathers
 
 /obj/item/tank/internals/bz/populate_gas()
-	air_contents.assert_gas(/datum/gas/bz)
-	air_contents.gases[/datum/gas/bz][MOLES] = (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/bz, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/bz/full/populate_gas()
-	air_contents.assert_gas(/datum/gas/bz)
-	air_contents.gases[/datum/gas/bz][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/bz, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/bz/belt // little guy, 12l, beltsize, spawns on exoresp-havers
 	desc = "A small tank of BZ, for crew who don't breathe the standard air mix."
@@ -30,8 +28,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/tank/internals/bz/belt/full/populate_gas()
-	air_contents.assert_gas(/datum/gas/bz)
-	air_contents.gases[/datum/gas/bz][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/bz, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/internals/bz/belt/emergency // littlest guy, 3l, beltsize, doesn't spawn
 	name = "emergency BZ tank"
@@ -40,5 +37,4 @@
 	volume = 3
 
 /obj/item/tank/internals/bz/belt/emergency/populate_gas()
-	air_contents.assert_gas(/datum/gas/bz)
-	air_contents.gases[/datum/gas/bz][MOLES] = (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
+	air_contents.set_gas(/datum/gas/bz, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))

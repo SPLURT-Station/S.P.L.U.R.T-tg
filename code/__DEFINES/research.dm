@@ -1,6 +1,16 @@
 /// For instances where we don't want a design showing up due to it being for debug/sanity purposes
 #define DESIGN_ID_IGNORE "IGNORE_THIS_DESIGN"
 
+///The object printed from this design won't get the mats used to make it. Default setting for stacks unless specified otherwise
+#define DESIGN_DONT_INHERIT_MATS 0
+/**
+ * Default setting. The object printed from this design gets the mats used to make it.
+ * This will also be unit tested to ensure that that the mats of the printed object match with another object of the same type spawned in a generic way.
+ */
+#define DESIGN_INHERIT_MATS 1
+///The object printed from this design gets the mats used to make it but skips the unit test.
+#define DESIGN_INHERIT_MATS_SPECIAL 2
+
 //! Techweb names for new point types. Can be used to define specific point values for specific types of research (science, security, engineering, etc.)
 #define TECHWEB_POINT_TYPE_GENERIC "General Research"
 #define TECHWEB_POINT_TYPE_NANITE "Nanite Research" // BUBBER EDIT ADDITION - NANITES
@@ -56,6 +66,8 @@
 #define CELL_LINE_TABLE_QUEEN_BEE "cell_line_bee_queen_table"
 #define CELL_LINE_TABLE_BUTTERFLY "cell_line_butterfly_table"
 #define CELL_LINE_TABLE_MEGA_ARACHNID "cell_line_table_mega_arachnid"
+#define CELL_LINE_TABLE_GOAT "cell_line_table_goat"
+#define CELL_LINE_TABLE_PIG "cell_line_table_pig"
 
 //! Biopsy cell line organ types
 #define CELL_LINE_ORGAN_HEART "cell_line_organ_heart"

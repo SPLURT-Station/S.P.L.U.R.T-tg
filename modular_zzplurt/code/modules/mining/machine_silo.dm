@@ -204,10 +204,7 @@
 // OPTIONAL: DEBUG VERB
 // =========================
 
-/obj/machinery/ore_silo/away/preloaded/verb/set_material(mat as text, amount as num)
-	set name = "Set Material"
-	set category = "Debug"
-
+GAME_VERB(/obj/machinery/ore_silo/away/preloaded, set_material, "Set Material", "Debug", mat as text, amount as num)
 	var/datum/material_container/MC = materials
 	if(!MC)
 		to_chat(usr, "No material container found.")

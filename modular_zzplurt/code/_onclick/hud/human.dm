@@ -1,86 +1,112 @@
-/datum/hud/human/New(mob/living/carbon/human/owner)
+// SPLURT EDIT - Extra inventory slots & toggle, using the new HUD group / inventory_slot system
+
+/datum/hud/human/initialize_screen_objects()
 	. = ..()
-	var/atom/movable/screen/using
-	var/atom/movable/screen/inventory/inv_box
 
-	// SPLURT EDIT - Extra inventory
-	using = new /atom/movable/screen/human/toggle/extra(null, src)
-	using.icon = extra_inventory_ui_style(ui_style)
-	using.screen_loc = ui_inventory_extra
-	toggleable_inventory += using
+	var/extra_style = extra_inventory_ui_style(ui_style)
+	add_screen_object(/atom/movable/screen/human/toggle/extra, HUD_HUMAN_TOGGLE_EXTRA_INVENTORY, HUD_GROUP_TOGGLEABLE_INVENTORY, extra_style, ui_inventory_extra)
+	thirst = add_screen_object(/atom/movable/screen/thirst, HUD_MOB_THIRST, HUD_GROUP_INFO) // SPLURT ADDITION - THIRST
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "underwear"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "underwear"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "underwear"
-	inv_box.screen_loc = ui_boxers
-	inv_box.slot_id = ITEM_SLOT_UNDERWEAR
-	extra_inventory += inv_box
+	if(!mymob.client?.prefs?.read_preference(/datum/preference/toggle/intents))
+		var/atom/movable/screen/floor_change = screen_objects[HUD_MOB_FLOOR_CHANGER]
+		if(floor_change)
+			floor_change.screen_loc = "EAST-4:22,SOUTH:5"
+		return
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "socks"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "socks"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "socks"
-	inv_box.screen_loc = ui_socks
-	inv_box.slot_id = ITEM_SLOT_SOCKS
-	extra_inventory += inv_box
+	// Themed UI styles no longer ship help/disarm/grab/harm; those states live on screen_gen.dmi.
+	remove_screen_object(HUD_MOB_INTENTS, update = FALSE)
+	add_screen_object(/atom/movable/screen/intent_toggle, HUD_MOB_INTENTS, HUD_GROUP_INFO)
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "shirt"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "shirt"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "shirt"
-	inv_box.screen_loc = ui_shirt
-	inv_box.slot_id = ITEM_SLOT_SHIRT
-	extra_inventory += inv_box
+	focus_toggle = add_screen_object(/atom/movable/screen/focus_toggle, HUD_MOB_FOCUS_TOGGLE, HUD_GROUP_STATIC, ui_style)
+	focus_toggle.update_appearance()
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "bra"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "bra"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "bra"
-	inv_box.screen_loc = ui_bra
-	inv_box.slot_id = ITEM_SLOT_BRA
-	extra_inventory += inv_box
+/// Shared create helper for extra inventory slots that use the custom extra UI style
+/datum/inventory_slot/human/proc/create_extra_element(datum/hud/hud)
+	var/atom/movable/screen/inventory/inv_box = hud.add_screen_object(screen_type, HUD_KEY_ITEM_SLOT(slot_id), screen_group, extra_inventory_ui_style(hud.ui_style), screen_loc)
+	inv_box.name = name
+	inv_box.icon_state = icon_state
+	inv_box.icon_full = icon_full
+	inv_box.icon_empty = icon_state
+	inv_box.slot_id = slot_id
+	return inv_box
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "right ear"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "ears_extra"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "ears_extra"
-	inv_box.screen_loc = ui_ears_extra
-	inv_box.slot_id = ITEM_SLOT_EARS_RIGHT
-	extra_inventory += inv_box
+/datum/inventory_slot/human/underwear
+	name = "underwear"
+	slot_id = ITEM_SLOT_UNDERWEAR
+	icon_state = "underwear"
+	icon_full = "template"
+	screen_loc = ui_boxers
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
 
-	inv_box = new /atom/movable/screen/inventory(null, src)
-	inv_box.name = "wrists"
-	inv_box.icon = extra_inventory_ui_style(ui_style)
-	inv_box.icon_state = "wrists"
-	inv_box.icon_full = "template"
-	inv_box.icon_empty = "wrists"
-	inv_box.screen_loc = ui_wrists
-	inv_box.slot_id = ITEM_SLOT_WRISTS
-	extra_inventory += inv_box
-	//
+/datum/inventory_slot/human/underwear/create_element(datum/hud/hud)
+	return create_extra_element(hud)
 
-	thirst = new /atom/movable/screen/thirst(null, src) // SPLURT ADDITION - THIRST
-	infodisplay += thirst // SPLURT ADDITION - THIRST
+/datum/inventory_slot/human/socks
+	name = "socks"
+	slot_id = ITEM_SLOT_SOCKS
+	icon_state = "socks"
+	icon_full = "template"
+	screen_loc = ui_socks
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
 
-	for(var/atom/movable/screen/inventory/inv in extra_inventory)
-		if(inv.slot_id)
-			inv_slots.Add(inv) // Bit shift stuffs don't work for this situation
-			inv.update_appearance()
+/datum/inventory_slot/human/socks/create_element(datum/hud/hud)
+	return create_extra_element(hud)
+
+/datum/inventory_slot/human/shirt
+	name = "shirt"
+	slot_id = ITEM_SLOT_SHIRT
+	icon_state = "shirt"
+	icon_full = "template"
+	screen_loc = ui_shirt
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
+
+/datum/inventory_slot/human/shirt/create_element(datum/hud/hud)
+	return create_extra_element(hud)
+
+/datum/inventory_slot/human/bra
+	name = "bra"
+	slot_id = ITEM_SLOT_BRA
+	icon_state = "bra"
+	icon_full = "template"
+	screen_loc = ui_bra
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
+
+/datum/inventory_slot/human/bra/create_element(datum/hud/hud)
+	return create_extra_element(hud)
+
+/datum/inventory_slot/human/ears_extra
+	name = "right ear"
+	slot_id = ITEM_SLOT_EARS_RIGHT
+	icon_state = "ears_extra"
+	icon_full = "template"
+	screen_loc = ui_ears_extra
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
+
+/datum/inventory_slot/human/ears_extra/create_element(datum/hud/hud)
+	return create_extra_element(hud)
+
+/datum/inventory_slot/human/wrists
+	name = "wrists"
+	slot_id = ITEM_SLOT_WRISTS
+	icon_state = "wrists"
+	icon_full = "template"
+	screen_loc = ui_wrists
+	screen_group = HUD_GROUP_EXTRA_INVENTORY
+	inherit_style = FALSE
+
+/datum/inventory_slot/human/wrists/create_element(datum/hud/hud)
+	return create_extra_element(hud)
 
 /atom/movable/screen/human/toggle/extra
 	name = "toggle extra"
 	icon_state = "toggle_extra"
+	base_icon_state = "toggle_extra"
+	screen_loc = ui_inventory_extra
 
 /atom/movable/screen/human/toggle/extra/Click()
 	var/mob/targetmob = usr
@@ -90,51 +116,13 @@
 			var/mob/M = usr.client.eye
 			targetmob = M
 
-	if(usr.hud_used.extra_shown && targetmob.hud_used)
+	if(!targetmob.hud_used)
+		return
+
+	if(usr.hud_used.extra_shown)
 		usr.hud_used.extra_shown = FALSE
-		usr.client.screen -= targetmob.hud_used.extra_inventory
+		usr.client.screen -= targetmob.hud_used.screen_groups[HUD_GROUP_EXTRA_INVENTORY]
 	else
 		usr.hud_used.extra_shown = TRUE
-		usr.client.screen += targetmob.hud_used.extra_inventory
-
-	targetmob.hud_used.extra_inventory_update(usr)
-
-/datum/hud/human/extra_inventory_update(mob/viewer)
-	if(!mymob)
-		return
-	var/mob/living/carbon/human/H = mymob
-
-	var/mob/screenmob = viewer || H
-
-	if(screenmob.hud_used.extra_shown && screenmob.hud_used.inventory_shown && screenmob.hud_used.hud_shown)
-		if(H.ears_extra)
-			H.ears_extra.screen_loc = ui_ears_extra
-			screenmob.client.screen += H.ears_extra
-		if(H.w_underwear)
-			H.w_underwear.screen_loc = ui_boxers
-			screenmob.client.screen += H.w_underwear
-		if(H.w_socks)
-			H.w_socks.screen_loc = ui_socks
-			screenmob.client.screen += H.w_socks
-		if(H.w_shirt)
-			H.w_shirt.screen_loc = ui_shirt
-			screenmob.client.screen += H.w_shirt
-		if(H.w_bra)
-			H.w_bra.screen_loc = ui_bra
-			screenmob.client.screen += H.w_bra
-		if(H.wrists)
-			H.wrists.screen_loc = ui_wrists
-			screenmob.client.screen += H.wrists
-	else
-		if(H.ears_extra)
-			screenmob.client.screen -= H.ears_extra
-		if(H.w_underwear)
-			screenmob.client.screen -= H.w_underwear
-		if(H.w_socks)
-			screenmob.client.screen -= H.w_socks
-		if(H.w_shirt)
-			screenmob.client.screen -= H.w_shirt
-		if(H.w_bra)
-			screenmob.client.screen -= H.w_bra
-		if(H.wrists)
-			screenmob.client.screen -= H.wrists
+		if(usr.hud_used.inventory_shown)
+			usr.client.screen += targetmob.hud_used.screen_groups[HUD_GROUP_EXTRA_INVENTORY]

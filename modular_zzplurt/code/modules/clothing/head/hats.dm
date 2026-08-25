@@ -101,6 +101,15 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
 
+/obj/item/clothing/head/soft/moffuchis
+	name = "moffuchi's pizzaria employee cap"
+	desc = "It's a baseball hat in deep blue colors, with a white front, dawned with Moffuchi's Pizzaria branding, usually worn by Moffuchi's Pizzaria employees."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "moffuchissoft"
+	soft_type = "moffuchis"
+	dog_fashion = null
+
 //donor thing for fabricator
 /obj/item/clothing/head/costume/maid_headband/syndicate/donor
 	name = "tactical maid headband"

@@ -3,6 +3,10 @@
 	desc = "An augmentation that equips compatible cyborgs with a bellyriding restraint harness module."
 	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
 	icon_state = "module_lust"
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+	)
 	items_to_add = list(/obj/item/borg/bellyriding_harness)
 
 /obj/item/borg/upgrade/bellyriding_harness/Initialize(mapload)

@@ -173,12 +173,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
 /obj/structure/disposalpipe/junction/flip{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/central)
 "s" = (
@@ -213,10 +215,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
-"w" = (
-/obj/structure/cable,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/hallway/primary/central)
 "x" = (
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/photocopier/prebuilt,
@@ -328,10 +326,7 @@
 "P" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/table/wood/fancy/blue,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
+/obj/machinery/fax/heads/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -512,7 +507,7 @@ G
 T
 M
 M
-w
+M
 r
 h
 G

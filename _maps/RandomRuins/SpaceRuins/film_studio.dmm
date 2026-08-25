@@ -30,7 +30,7 @@
 /area/ruin/space/has_grav/film_studio/stage)
 "aG" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space/nearstation)
 "aI" = (
 /obj/effect/turf_decal/siding/wood,
@@ -181,8 +181,8 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
 "dd" = (
-/turf/open/space/basic,
-/area/space/nearstation)
+/turf/template_noop,
+/area/template_noop)
 "dg" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio/starboard)
@@ -1064,8 +1064,8 @@
 "tD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/teal,
-/turf/open/space/basic,
-/area/ruin/space)
+/turf/template_noop,
+/area/space/nearstation)
 "tG" = (
 /obj/structure/railing{
 	dir = 6
@@ -2210,8 +2210,8 @@
 "Mt" = (
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/grille,
-/turf/open/space/basic,
-/area/ruin/space)
+/turf/template_noop,
+/area/space/nearstation)
 "MB" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -2620,8 +2620,8 @@
 "SY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
-/area/ruin/space)
+/turf/template_noop,
+/area/space/nearstation)
 "Te" = (
 /obj/structure/filingcabinet/white,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -3045,10 +3045,6 @@
 /obj/effect/turf_decal/tile/dark/full,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/film_studio/stage)
-"YG" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/ruin/space)
 "YK" = (
 /obj/structure/toilet{
 	pixel_y = 8;
@@ -4310,8 +4306,8 @@ dd
 dd
 dd
 dd
-YG
-YG
+aG
+aG
 dd
 dd
 dd
@@ -4495,7 +4491,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -4556,11 +4552,11 @@ dd
 dd
 dd
 dd
-YG
+aG
 Mt
 Mt
 Mt
-YG
+aG
 dd
 dd
 dd
@@ -4615,18 +4611,18 @@ Mt
 Mt
 Mt
 Mt
-YG
-YG
-YG
-YG
+aG
+aG
+aG
+aG
 dd
-YG
+aG
 dd
-YG
-YG
-YG
-YG
-YG
+aG
+aG
+aG
+aG
+aG
 Cp
 HF
 Yl
@@ -4672,17 +4668,17 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -4734,24 +4730,24 @@ dd
 dd
 dd
 Mt
-YG
+aG
 dd
 dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
 dd
 dd
 dd
-YG
+aG
 dd
 Cp
 dI
@@ -4802,18 +4798,18 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
 dd
 dd
 dd
-YG
+aG
 dd
 Cp
 Cp
@@ -4864,7 +4860,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 OI
@@ -4875,7 +4871,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 Ek
 ln
@@ -4937,7 +4933,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 Ek
 Dk
@@ -4999,7 +4995,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 Ek
 sf
@@ -5105,7 +5101,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -5168,9 +5164,9 @@ dd
 dd
 dd
 Mt
-YG
-YG
-YG
+aG
+aG
+aG
 Cy
 kq
 Gy
@@ -5484,7 +5480,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 OI
@@ -5546,11 +5542,11 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -5608,11 +5604,11 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -5663,18 +5659,18 @@ dd
 dd
 dd
 dd
-YG
-YG
+aG
+aG
 dd
 dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -5726,25 +5722,25 @@ dd
 dd
 dd
 dd
-YG
-YG
+aG
+aG
 Mt
 Mt
 Mt
 Mt
 Mt
-YG
-YG
-YG
+aG
+aG
+aG
 Mt
 Mt
 Mt
-YG
-YG
-YG
-YG
-YG
-YG
+aG
+aG
+aG
+aG
+aG
+aG
 dg
 dg
 dg
@@ -6244,7 +6240,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dg
 dg
 hw
@@ -6255,7 +6251,7 @@ dg
 hw
 dg
 dg
-YG
+aG
 dd
 dd
 dd
@@ -6306,7 +6302,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dg
 Rh
@@ -6317,7 +6313,7 @@ dg
 Rh
 dg
 dd
-YG
+aG
 dd
 dd
 dd
@@ -6368,7 +6364,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dg
 hw
@@ -6379,7 +6375,7 @@ dg
 hw
 dg
 dd
-YG
+aG
 dd
 dd
 dd
@@ -6430,7 +6426,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -6441,7 +6437,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -6492,7 +6488,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd
@@ -6503,7 +6499,7 @@ dd
 dd
 dd
 dd
-YG
+aG
 dd
 dd
 dd

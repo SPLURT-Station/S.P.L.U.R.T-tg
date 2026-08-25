@@ -126,19 +126,11 @@
 		return
 	open_machine()
 
-/obj/machinery/dna_scannernew/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/dna_scannernew/screwdriver_act(mob/living/user, obj/item/tool)
+	return occupant ? NONE : default_deconstruction_screwdriver(user, tool)
 
-	if(!occupant && default_deconstruction_screwdriver(user, icon_state, icon_state, item))//sent icon_state is irrelevant...
-		update_appearance()//..since we're updating the icon here, since the scanner can be unpowered when opened/closed
-		return
-
-	if(default_pry_open(item, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE))
-		return
-
-	if(default_deconstruction_crowbar(item))
-		return
-
-	return ..()
+/obj/machinery/dna_scannernew/crowbar_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
 
 /obj/machinery/dna_scannernew/interact(mob/user)
 	toggle_open(user)
@@ -164,6 +156,7 @@
 /obj/item/disk/data
 	name = "\improper DNA data disk"
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 0.5)
 	var/list/genetic_makeup_buffer = list()
 	var/list/mutations = list()
 	var/max_mutations = 10

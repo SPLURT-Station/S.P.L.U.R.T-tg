@@ -13,7 +13,7 @@
 	..()
 
 /datum/reagent/consumable/orange_creamsicle
-	name = "Orange Creamsicle"
+	name = "Orange Creamsicle (Non-alcoholic)"
 	description = "A Summer time drink that can be frozen and eaten or drunk from a glass!"
 	color = "#ffb46e" // rgb(255, 180, 110)
 	taste_description = "ice cream and orange soda"

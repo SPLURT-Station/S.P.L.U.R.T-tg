@@ -1043,7 +1043,7 @@
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "dC" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/solars/tarkon)
 "dE" = (
 /obj/machinery/firealarm/directional/west,
@@ -3701,7 +3701,7 @@
 /obj/structure/transit_tube/curved/flipped{
 	dir = 8
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "mZ" = (
 /obj/effect/turf_decal/sand,
@@ -3978,13 +3978,16 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/hackc{
-	pixel_x = 10
-	},
-/obj/item/hackc{
-	pixel_x = -10
-	},
-/obj/item/hackc,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "nY" = (
@@ -4241,13 +4244,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/preset/tarkon/directional/north,
-/obj/structure/table/reinforced,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
+/obj/effect/mob_spawn/ghost_role/human/tarkon/sec,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "oY" = (
@@ -6537,9 +6534,9 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/vault)
 "wZ" = (
-/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/wrap/sticky_tape/surgical,
 /obj/structure/table/glass,
-/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/wrap/sticky_tape/surgical,
 /obj/item/stack/medical/bone_gel,
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -8040,7 +8037,7 @@
 /obj/structure/transit_tube/curved{
 	dir = 8
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "BY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9222,11 +9219,6 @@
 /obj/machinery/door/firedoor/solid,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/porthall)
-"Gs" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space/basic,
-/area/solars/tarkon)
 "Gt" = (
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 4
@@ -10793,6 +10785,8 @@
 /obj/item/storage/box/nif_ghost_box/ghost_role{
 	pixel_x = -7
 	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Mc" = (
@@ -11048,9 +11042,9 @@
 /obj/item/clothing/under/tarkon/sec,
 /obj/item/clothing/under/tarkon/sec,
 /obj/item/clothing/under/tarkon/sec,
-/obj/item/storage/backpack/duffelbag/sec/redsec,
-/obj/item/storage/backpack/satchel/sec/redsec,
-/obj/item/storage/backpack/security/redsec,
+/obj/item/storage/backpack/duffelbag/sec,
+/obj/item/storage/backpack/satchel/sec,
+/obj/item/storage/backpack/security,
 /obj/item/clothing/head/utility/welding/hat,
 /obj/item/clothing/head/utility/welding/hat,
 /turf/open/floor/wood,
@@ -11692,7 +11686,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/layer3,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space/nearstation)
 "Ps" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -11708,7 +11702,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/engineering)
 "Pu" = (
-/obj/machinery/ammo_workbench/unlocked,
+/obj/machinery/ammo_workbench/prefilled/unlocked,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 1
 	},
@@ -11883,10 +11877,15 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
 "Qd" = (
+/obj/structure/table/reinforced,
+/obj/item/hackc{
+	pixel_x = 10
+	},
+/obj/item/hackc{
+	pixel_x = -10
+	},
+/obj/item/hackc,
 /obj/effect/turf_decal/tile/yellow/anticorner,
-/obj/structure/table,
-/obj/item/storage/belt/utility/full,
-/obj/item/storage/belt/utility/full,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Qe" = (
@@ -11958,7 +11957,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space/nearstation)
 "Qr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -11969,7 +11968,7 @@
 "Qt" = (
 /obj/structure/lattice/catwalk,
 /obj/item/stack/cable_coil/five,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/solars/tarkon)
 "Qu" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -12136,7 +12135,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/layer3,
 /obj/structure/cable,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space/nearstation)
 "QW" = (
 /obj/structure/closet/generic/wall{
@@ -12550,7 +12549,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 4
 	},
-/obj/effect/mob_spawn/ghost_role/human/tarkon,
+/obj/effect/mob_spawn/ghost_role/robot/tarkon,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Ss" = (
@@ -12603,7 +12602,7 @@
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "SA" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/solars/tarkon)
 "SB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -12640,7 +12639,7 @@
 "SG" = (
 /obj/structure/lattice,
 /obj/item/stack/cable_coil/five,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/solars/tarkon)
 "SH" = (
 /obj/machinery/quantumpad,
@@ -13699,7 +13698,7 @@
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
 	},
-/obj/effect/mob_spawn/ghost_role/human/tarkon/sec,
+/obj/effect/mob_spawn/ghost_role/human/tarkon,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "VZ" = (
@@ -13718,7 +13717,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/layer3,
 /obj/structure/cable,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space/nearstation)
 "Wc" = (
 /obj/structure/disposalpipe/segment{
@@ -21282,19 +21281,19 @@ za
 za
 za
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 za
 za
@@ -21404,7 +21403,7 @@ za
 za
 ZW
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
@@ -21530,7 +21529,7 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
@@ -21538,7 +21537,7 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 za
 za
@@ -21774,11 +21773,11 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
@@ -21892,7 +21891,7 @@ ZW
 za
 za
 SA
-Gs
+Xz
 SG
 pM
 SA
@@ -21900,7 +21899,7 @@ dC
 SA
 pM
 SA
-Gs
+Xz
 SA
 pM
 SG
@@ -22148,7 +22147,7 @@ dC
 SA
 pM
 SA
-Gs
+Xz
 SA
 fx
 Xz
@@ -22270,7 +22269,7 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 za
 Xz
@@ -22380,7 +22379,7 @@ za
 za
 za
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
@@ -22506,11 +22505,11 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
@@ -22632,11 +22631,11 @@ dC
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 za
 Xz
@@ -22746,11 +22745,11 @@ za
 za
 za
 Lq
-Gs
+Xz
 Lq
 pM
 Lq
-Gs
+Xz
 Lq
 pM
 Lq

@@ -193,3 +193,7 @@
 // Compatibility alias for any legacy references that still spawn /mkiiultra/mk2.
 /obj/item/skillchip/mkiiultra/mk2
 	parent_type = /obj/item/skillchip/mk2pet
+
+#undef DNA_BLANK
+#undef CHIP_EXPIRED
+#undef DNA_READY

@@ -1,23 +1,36 @@
-// Silver banes werewolves
-// Fun fact; Bubber already made this happen versus Bloodsuckers
+// Silver banes lycans and cursekin.
+// Bubber already applies a lycan silver bane on the same type path; this override replaces it
+// (zzplurt loads later) and adds the cursekin-specific weaker bane.
 
-// Also considered: Making silver items harm Lycanthropes when picked up. Had difficulty implementing, and after thought, decided against; you can literally bane them
-// with a bar of the stuff, and I think it would be kind of unintuitive and really annoying if there was an item technically made WITH silver you couldn't carry.
-
-/datum/material/silver/on_applied(atom/source, amount, material_flags)
+/datum/material/silver/on_applied(atom/source, mat_amount, multiplier, from_slot)
 	. = ..()
-	if (!isitem(source)) // and what are we going to do, bane a fucking operating table?
+	if (!isitem(source))
 		return
 
-	source.AddElement(/datum/element/bane, target_type = /datum/species/lycan, damage_multiplier = 1) // high bane; making up for natural armor
-	source.AddElement(/datum/element/bane, target_type = /datum/species/human/cursekin, damage_multiplier = 0.35)
+	source.AddComponent( \
+		/datum/component/bane, \
+		should_bane_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(is_viable_for_lycan_bane)), \
+		damage_multiplier = 1.25, \
+		label_text = "lycans", \
+	)
+	source.AddComponent( \
+		/datum/component/bane, \
+		should_bane_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(is_viable_for_cursekin_bane)), \
+		damage_multiplier = 0.35, \
+		label_text = "cursekin", \
+	)
 
-
-/datum/material/silver/on_removed(atom/source, amount, material_flags)
+/datum/material/silver/on_removed(atom/source, mat_amount, material_flags, from_slot)
 	. = ..()
-
-	if (!isitem(source)) // and what are we going to do, unbane a fucking operating table?
+	if (!isitem(source))
 		return
 
-	source.RemoveElement(/datum/element/bane, target_type = /datum/species/lycan, damage_multiplier = 1)
-	source.RemoveElement(/datum/element/bane, target_type = /datum/species/human/cursekin, damage_multiplier = 0.35)
+	for (var/datum/component/bane/bane_comp as anything in source.GetComponents(/datum/component/bane))
+		var/datum/callback/cb = bane_comp.should_bane_callback
+		if (!cb || cb.object != GLOBAL_PROC)
+			continue
+		if (cb.delegate == GLOBAL_PROC_REF(is_viable_for_lycan_bane) || cb.delegate == GLOBAL_PROC_REF(is_viable_for_cursekin_bane))
+			qdel(bane_comp)
+
+/proc/is_viable_for_cursekin_bane(atom/target)
+	return iscursekin(target)

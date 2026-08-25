@@ -11,7 +11,6 @@
 	density = FALSE
 	pass_flags = PASSTABLE|PASSGRILLE|PASSMOB
 	mob_size = MOB_SIZE_TINY
-	can_be_held = TRUE
 	held_w_class = WEIGHT_CLASS_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	gold_core_spawnable = FRIENDLY_SPAWN
@@ -28,8 +27,6 @@
 
 	ai_controller = /datum/ai_controller/basic_controller/mouse
 
-	/// Whether this rat is friendly to players
-	var/tame = FALSE
 	/// What color our mouse is. Brown, gray and white - leave blank for random.
 	var/body_color
 	/// Does this mouse contribute to the ratcap?
@@ -63,7 +60,8 @@
 		SSmobs.cheeserats |= src
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-	src.tame = tame
+	if(tame)
+		ADD_TRAIT(src, TRAIT_TAMED, INNATE_TRAIT)
 	if(!isnull(new_body_color))
 		body_color = new_body_color
 	if(isnull(body_color))
@@ -79,9 +77,10 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	make_tameable()
 	AddComponent(/datum/component/swarming, 16, 16) //max_x, max_y
+	AddElement(/datum/element/can_be_held)
 
 /mob/living/basic/mouse/proc/make_tameable()
-	if (tame)
+	if (HAS_TRAIT(src, TRAIT_TAMED))
 		add_faction(FACTION_NEUTRAL)
 	else
 		var/static/list/food_types = list(/obj/item/food/cheese)
@@ -196,9 +195,9 @@
 
 /// Called when a mouse is hand-fed some cheese, it will stop being afraid of humans
 /mob/living/basic/mouse/tamed(mob/living/tamer, obj/item/food/cheese/cheese)
+	. = ..()
 	new /obj/effect/temp_visual/heart(loc)
 	add_faction(FACTION_NEUTRAL)
-	tame = TRUE
 	try_consume_cheese(cheese)
 	ai_controller.CancelActions() // Interrupt any current fleeing
 
@@ -248,7 +247,7 @@
 
 /// Creates a new mouse based on this mouse's subtype.
 /mob/living/basic/mouse/proc/create_a_new_rat()
-	new /mob/living/basic/mouse(loc, /* tame = */ tame)
+	new /mob/living/basic/mouse(loc, HAS_TRAIT(src, TRAIT_TAMED))
 
 /// Biting into a cable will cause a mouse to get shocked and die if applicable. Or do nothing if they're lucky.
 /mob/living/basic/mouse/proc/try_bite_cable(obj/structure/cable/cable)
@@ -302,7 +301,7 @@
 	contributes_to_ratcap = FALSE
 
 /mob/living/basic/mouse/brown/tom/make_tameable()
-	tame = TRUE
+	ADD_TRAIT(src, TRAIT_TAMED, INNATE_TRAIT)
 	return ..()
 
 /mob/living/basic/mouse/brown/tom/Initialize(mapload)
@@ -312,7 +311,7 @@
 	AddElement(/datum/element/pet_bonus, "squeak")
 
 /mob/living/basic/mouse/brown/tom/create_a_new_rat()
-	new /mob/living/basic/mouse/brown(loc, /* tame = */ tame) // dominant gene
+	new /mob/living/basic/mouse/brown(loc, HAS_TRAIT(src, TRAIT_TAMED)) // dominant gene
 
 /mob/living/basic/mouse/rat
 	name = "rat"
@@ -382,24 +381,22 @@
 	qdel(src)
 	return LAZARUS_INJECTOR_USED
 
-/obj/item/food/deadmouse/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	var/mob/living/living_user = user
-	if(istype(living_user) && attacking_item.get_sharpness() && living_user.combat_mode)
-		if(!isturf(loc))
-			balloon_alert(user, "can't butcher here!")
-			return
+/obj/item/food/deadmouse/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!tool.get_sharpness() || !user.combat_mode)
+		return NONE
+	if(!isturf(loc))
+		balloon_alert(user, "can't butcher here!")
+		return ITEM_INTERACT_BLOCKING
 
-		balloon_alert(user, "butchering...")
-		if(!do_after(user, 0.75 SECONDS, src))
-			balloon_alert(user, "interrupted!")
-			return
+	balloon_alert(user, "butchering...")
+	if(!do_after(user, 0.75 SECONDS, src))
+		balloon_alert(user, "interrupted!")
+		return ITEM_INTERACT_BLOCKING
 
-		loc.balloon_alert(user, "butchered")
-		new /obj/item/food/meat/slab/mouse(loc)
-		qdel(src)
-		return
-
-	return ..()
+	loc.balloon_alert(user, "butchered")
+	new /obj/item/food/meat/slab/mouse(loc)
+	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/food/deadmouse/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(isnull(reagents) || !interacting_with.is_open_container())

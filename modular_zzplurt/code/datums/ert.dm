@@ -44,7 +44,7 @@
 	id_trim = /datum/id_trim/centcom/intern/privatesecurity
 	uniform = /obj/item/clothing/under/rank/security/splurt/ntps
 	suit = /obj/item/clothing/suit/armor/vest
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/security/redsec/full
 	ears = /obj/item/radio/headset/headset_cent/alt/privsec
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec

@@ -290,6 +290,7 @@
 		/obj/item/construction/rcd,
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/storage/bag/construction,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"engineering" = list(
@@ -357,6 +358,7 @@
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/pipe_dispenser,
 		/obj/item/t_scanner,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"atmospheric" = list(
@@ -429,6 +431,7 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/storage/bag/construction,
 		/obj/item/t_scanner,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"advanced" = list(
@@ -1553,9 +1556,10 @@
 	inbuilt_modules = list(/obj/item/mod/module/anti_magic/wizard)
 	hearing_protection = EAR_PROTECTION_NORMAL
 	allowed_suit_storage = list(
-		/obj/item/teleportation_scroll,
-		/obj/item/highfrequencyblade/wizard,
 		/obj/item/gun/magic,
+		/obj/item/highfrequencyblade/wizard,
+		/obj/item/storage/belt/wand_bandolier,
+		/obj/item/teleportation_scroll,
 	)
 	variants = list(
 		"enchanted" = list(

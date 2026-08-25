@@ -146,7 +146,7 @@
 		"facial_hair_color" = alterer.facial_hair_color,
 	)
 	var/list/dna = list(
-		"body_size" = alterer.dna.features["body_size"],
+		"body_size" = get_size(alterer),
 		"gender" = alterer.gender,
 		"physique" = alterer.physique,
 	)
@@ -284,7 +284,7 @@
 
 	var/list/dna = preset["dna"]
 	if(islist(dna))
-		var/new_body_size = sanitize_float(dna["body_size"], BODY_SIZE_MIN, BODY_SIZE_MAX, 0.01, alterer.dna.features["body_size"])
+		var/new_body_size = sanitize_float(dna["body_size"], BODY_SIZE_MIN, BODY_SIZE_MAX, 0.01, get_size(alterer))
 		alterer.update_size(new_body_size)
 		if(dna["gender"] in list(MALE, FEMALE, PLURAL, NEUTER))
 			alterer.gender = dna["gender"]
@@ -302,7 +302,7 @@
 	alterer.mutant_renderkey = ""
 	alterer.update_body(is_creating = TRUE)
 	alterer.update_body_parts()
-	alterer.update_mutations_overlay()
+	alterer.update_appearance(UPDATE_OVERLAYS)
 	alterer.update_clothing(ALL)
 	return TRUE
 

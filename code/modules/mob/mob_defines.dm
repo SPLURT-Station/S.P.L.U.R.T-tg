@@ -194,7 +194,7 @@
 	var/list/client_colours = list()
 	/// List of filter names used in the past client color update for cleanup
 	var/list/color_filter_store = list()
-	var/hud_type = /datum/hud
+	var/datum/hud/hud_type = /datum/hud
 
 	var/datum/focus //What receives our keyboard inputs. src by default
 
@@ -219,3 +219,7 @@
 
 	/// A ref of the area we're taking our ambient loop from.
 	var/area/ambience_tracked_area
+
+	/// Sound tokens currently playing for this mob.
+	/// Managed by /datum/sound_token and the soundtoken subsystem
+	var/list/datum/sound_token/sound_tokens

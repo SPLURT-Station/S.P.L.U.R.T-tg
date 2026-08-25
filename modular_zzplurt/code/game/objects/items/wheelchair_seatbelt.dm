@@ -131,7 +131,10 @@
 	button_icon	= 'icons/mob/actions/actions_vehicle.dmi'
 	button_icon_state =	"seatbelt"
 
-/datum/action/seatbelt_toggle/Trigger(trigger_flags)
+/datum/action/seatbelt_toggle/Trigger(mob/clicker, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	if(istype(owner, /mob/living))
 		var/mob/living/L = owner
 		if(istype(L.buckled, /obj/vehicle/ridden/wheelchair))

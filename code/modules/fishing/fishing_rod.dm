@@ -11,6 +11,7 @@
 	inhand_y_dimension = 64
 	force = 8
 	w_class = WEIGHT_CLASS_HUGE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
 
 	/// How far can you cast this
 	var/cast_range = 3
@@ -31,7 +32,7 @@
 	var/atom/movable/currently_hooked
 
 	/// Fishing line visual for the hooked item
-	var/datum/beam/fishing_line/fishing_line
+	var/datum/beam/held/fishing_line
 
 	/// Are we currently casting
 	var/casting = FALSE
@@ -92,11 +93,12 @@
 		set_slot(new line(src), ROD_SLOT_LINE)
 
 	update_appearance()
-
-	//Bane effect that make it extra-effective against mobs with water adaptation (read: fish infusion)
-	AddElement(/datum/element/bane, target_type = /mob/living, damage_multiplier = 1.25)
-	RegisterSignal(src, COMSIG_OBJECT_PRE_BANING, PROC_REF(attempt_bane))
-	RegisterSignal(src, COMSIG_OBJECT_ON_BANING, PROC_REF(bane_effects))
+	AddComponent(/datum/component/bane, \
+		damage_multiplier = 2.25, \
+		should_bane_callback = CALLBACK(src, PROC_REF(should_bane_fish_infusions)), \
+		on_bane_callback = CALLBACK(src, PROC_REF(on_bane_fish_infusions)), \
+		label_text = "fishpeople", \
+	)
 
 /obj/item/fishing_rod/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(src == held_item)
@@ -161,13 +163,7 @@
 	. += boxed_message(block.Join("\n"))
 
 	if(get_percent && (material_flags & MATERIAL_EFFECTS) && length(custom_materials))
-		block = list()
-		block += span_info("Right now, fish caught by this fishing rod have a [get_material_fish_chance(user)]% of being made of its same materials.")
-		var/datum/material/material = get_master_material()
-		if(material.fish_weight_modifier != 1)
-			var/heavier = material.fish_weight_modifier > 1 ? "heavier" : "lighter"
-			block += span_info("Fish made of the same material as this rod tend to be [abs(material.fish_weight_modifier - 1) * 100]% [heavier].")
-		. += boxed_message(block.Join("\n"))
+		. += boxed_message(span_info("Right now, fish caught by this fishing rod have a [get_material_fish_chance(user)]% of being made of its same materials."))
 
 	block = list()
 	if(HAS_TRAIT(src, TRAIT_ROD_ATTRACT_SHINY_LOVERS))
@@ -196,32 +192,19 @@
 
 /obj/item/fishing_rod/apply_single_mat_effect(datum/material/custom_material, amount, multiplier)
 	. = ..()
-	difficulty_modifier += custom_material.fishing_difficulty_modifier * multiplier
-	cast_range += custom_material.fishing_cast_range * multiplier
-	experience_multiplier *= GET_MATERIAL_MODIFIER(custom_material.fishing_experience_multiplier, multiplier)
-	completion_speed_mult *= GET_MATERIAL_MODIFIER(custom_material.fishing_completion_speed, multiplier)
-	bait_speed_mult *= GET_MATERIAL_MODIFIER(custom_material.fishing_bait_speed_mult, multiplier)
-	deceleration_mult *= GET_MATERIAL_MODIFIER(custom_material.fishing_deceleration_mult, multiplier)
-	bounciness_mult *= GET_MATERIAL_MODIFIER(custom_material.fishing_bounciness_mult, multiplier)
-	gravity_mult *= GET_MATERIAL_MODIFIER(custom_material.fishing_gravity_mult, multiplier)
-	var/height_mod = GET_MATERIAL_MODIFIER(custom_material.strength_modifier, multiplier)
-	if(height_mod > 1)
-		bait_height_mult *= height_mod**0.75
-
+	cast_range += round(2 - custom_material.get_property(MATERIAL_DENSITY) / 2) * multiplier
+	bait_speed_mult *= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_REFLECTIVITY) - 4) * 0.1, multiplier)
+	deceleration_mult *= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_HARDNESS) - 4) * 0.1, multiplier)
+	bounciness_mult *= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_FLEXIBILITY) - 4) * 0.1, multiplier)
+	gravity_mult *= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_DENSITY) - 4) * 0.1, multiplier)
 
 /obj/item/fishing_rod/remove_single_mat_effect(datum/material/custom_material, amount, multiplier)
 	. = ..()
-	difficulty_modifier -= custom_material.fishing_difficulty_modifier * multiplier
-	cast_range -= custom_material.fishing_cast_range * multiplier
-	experience_multiplier /= GET_MATERIAL_MODIFIER(custom_material.fishing_experience_multiplier, multiplier)
-	completion_speed_mult /= GET_MATERIAL_MODIFIER(custom_material.fishing_completion_speed, multiplier)
-	bait_speed_mult /= GET_MATERIAL_MODIFIER(custom_material.fishing_bait_speed_mult, multiplier)
-	deceleration_mult /= GET_MATERIAL_MODIFIER(custom_material.fishing_deceleration_mult, multiplier)
-	bounciness_mult /= GET_MATERIAL_MODIFIER(custom_material.fishing_bounciness_mult, multiplier)
-	gravity_mult /= GET_MATERIAL_MODIFIER(custom_material.fishing_gravity_mult, multiplier)
-	var/height_mod = GET_MATERIAL_MODIFIER(custom_material.strength_modifier, multiplier)
-	if(height_mod > 1)
-		bait_height_mult *= 1/(height_mod**0.75)
+	cast_range -= round(2 - custom_material.get_property(MATERIAL_DENSITY) / 2) * multiplier
+	bait_speed_mult /= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_REFLECTIVITY) - 4) * 0.1, multiplier)
+	deceleration_mult /= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_HARDNESS) - 4) * 0.1, multiplier)
+	bounciness_mult /= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_FLEXIBILITY) - 4) * 0.1, multiplier)
+	gravity_mult /= GET_MATERIAL_MODIFIER(1 + (custom_material.get_property(MATERIAL_DENSITY) - 4) * 0.1, multiplier)
 
 /**
  * Is there a reason why this fishing rod couldn't fish in target_fish_source?
@@ -279,18 +262,13 @@
 	material_chance += user.mind?.get_skill_level(/datum/skill/fishing) * 1.5
 	return material_chance
 
-///Fishing rodss should only bane fish DNA-infused spessman
-/obj/item/fishing_rod/proc/attempt_bane(datum/source, mob/living/fish)
-	SIGNAL_HANDLER
-	if(!force || !HAS_TRAIT(fish, TRAIT_WATER_ADAPTATION))
-		return COMPONENT_CANCEL_BANING
+/obj/item/fishing_rod/proc/should_bane_fish_infusions(mob/living/target)
+	return force > 0 && HAS_TRAIT(target, TRAIT_WATER_ADAPTATION)
 
-///Fishing rods should hard-counter fish DNA-infused spessman
-/obj/item/fishing_rod/proc/bane_effects(datum/source, mob/living/fish)
-	SIGNAL_HANDLER
-	fish.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 4 SECONDS)
-	fish.adjust_confusion_up_to(1.5 SECONDS, 3 SECONDS)
-	fish.adjust_wet_stacks(-4)
+/obj/item/fishing_rod/proc/on_bane_fish_infusions(mob/living/target, mob/living/attacker)
+	target.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 4 SECONDS)
+	target.adjust_confusion_up_to(1.5 SECONDS, 3 SECONDS)
+	target.adjust_wet_stacks(-4)
 
 /obj/item/fishing_rod/interact(mob/user)
 	if(currently_hooked)
@@ -351,7 +329,7 @@
 	fishing_line.lefthand = IS_LEFT_INDEX(firer.get_held_index_of_item(src))
 	RegisterSignal(fishing_line, COMSIG_BEAM_BEFORE_DRAW, PROC_REF(check_los))
 	RegisterSignal(fishing_line, COMSIG_QDELETING, PROC_REF(clear_line))
-	INVOKE_ASYNC(fishing_line, TYPE_PROC_REF(/datum/beam/, Start))
+	INVOKE_ASYNC(fishing_line, TYPE_PROC_REF(/datum/beam, Start))
 	if(QDELETED(fishing_line))
 		return null
 	firer.update_held_items()
@@ -531,11 +509,11 @@
 			bait_state = "battery_overlay"
 		. += bait_state
 
-/obj/item/fishing_rod/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/fishing_rod/worn_overlays(mutable_appearance/standing, isinhands, icon_file, bodyshape = NONE)
 	. = ..()
-	. += get_fishing_worn_overlays(standing, isinhands, icon_file)
+	. += get_fishing_worn_overlays(standing, isinhands, icon_file, bodyshape)
 
-/obj/item/fishing_rod/proc/get_fishing_worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/fishing_rod/proc/get_fishing_worn_overlays(mutable_appearance/standing, isinhands, icon_file, bodyshape = NONE)
 	. = list()
 	var/line_color = line?.line_color || default_line_color
 	var/mutable_appearance/reel_overlay = mutable_appearance(icon_file, "reel_overlay", appearance_flags = RESET_COLOR|KEEP_APART)
@@ -763,7 +741,7 @@
 		return list()
 	return ..()
 
-/obj/item/fishing_rod/telescopic/get_fishing_worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/fishing_rod/telescopic/get_fishing_worn_overlays(mutable_appearance/standing, isinhands, icon_file, bodyshape = NONE)
 	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		return list()
 	return ..()
@@ -827,6 +805,7 @@
 	bait_speed_mult = 1.1
 	deceleration_mult = 1.1
 	gravity_mult = 1.2
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/fishing_rod/tech/Initialize(mapload)
 	. = ..()
@@ -940,64 +919,3 @@
 		QDEL_NULL(owner.fishing_line)
 	owner = null
 	return ..()
-
-/datum/beam/fishing_line
-	// Is the fishing rod held in left side hand
-	var/lefthand = FALSE
-
-	// Make these inline with final sprites
-	var/righthand_s_px = 13
-	var/righthand_s_py = 16
-
-	var/righthand_e_px = 18
-	var/righthand_e_py = 16
-
-	var/righthand_w_px = -20
-	var/righthand_w_py = 18
-
-	var/righthand_n_px = -14
-	var/righthand_n_py = 16
-
-	var/lefthand_s_px = -13
-	var/lefthand_s_py = 15
-
-	var/lefthand_e_px = 24
-	var/lefthand_e_py = 18
-
-	var/lefthand_w_px = -17
-	var/lefthand_w_py = 16
-
-	var/lefthand_n_px = 13
-	var/lefthand_n_py = 15
-
-/datum/beam/fishing_line/Start()
-	update_offsets(origin.dir)
-	. = ..()
-	RegisterSignal(origin, COMSIG_ATOM_DIR_CHANGE, PROC_REF(handle_dir_change))
-
-/datum/beam/fishing_line/Destroy()
-	UnregisterSignal(origin, COMSIG_ATOM_DIR_CHANGE)
-	. = ..()
-
-/datum/beam/fishing_line/proc/handle_dir_change(atom/movable/source, olddir, newdir)
-	SIGNAL_HANDLER
-	update_offsets(newdir)
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/beam, redrawing))
-
-/datum/beam/fishing_line/proc/update_offsets(user_dir)
-	switch(user_dir)
-		if(SOUTH)
-			override_origin_pixel_x = lefthand ? lefthand_s_px : righthand_s_px
-			override_origin_pixel_y = lefthand ? lefthand_s_py : righthand_s_py
-		if(EAST)
-			override_origin_pixel_x = lefthand ? lefthand_e_px : righthand_e_px
-			override_origin_pixel_y = lefthand ? lefthand_e_py : righthand_e_py
-		if(WEST)
-			override_origin_pixel_x = lefthand ? lefthand_w_px : righthand_w_px
-			override_origin_pixel_y = lefthand ? lefthand_w_py : righthand_w_py
-		if(NORTH)
-			override_origin_pixel_x = lefthand ? lefthand_n_px : righthand_n_px
-			override_origin_pixel_y = lefthand ? lefthand_n_py : righthand_n_py
-
-	override_origin_pixel_x += origin.pixel_x
-	override_origin_pixel_y += origin.pixel_y
