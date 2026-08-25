@@ -138,6 +138,17 @@
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
+/// Trim for CentCom Lieutenants. All Centcom and Station Access. No high centcom access.
+/datum/id_trim/centcom/lieutenant
+	assignment = JOB_CENTCOM_LIEUTENANT
+	honorifics = list("Lieutenant", "Lt.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/lieutenant/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_OFFICER, ACCESS_CENT_LOGISTICS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_CENT_SECURITY, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
+
 /// Trim for NSRA Inspectors. All Centcom and Station Access. No high centcom access.
 /datum/id_trim/centcom/inspector
 	assignment = "CentCom Inspector"
@@ -148,7 +159,7 @@
 /datum/id_trim/centcom/inspector/New()
 	. = ..()
 
-	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_OFFICER, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
 
 /// Trim for Deathsquad officers. All Centcom and Station Access. No high centcom access.
 /datum/id_trim/centcom/deathsquad
@@ -183,7 +194,7 @@
 /datum/id_trim/centcom/ert/commander/New()
 	. = ..()
 
-	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_OFFICER) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
+	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
 
 /// Trim for generic ERT seccies. No universal ID card changing access.
 /datum/id_trim/centcom/ert/security

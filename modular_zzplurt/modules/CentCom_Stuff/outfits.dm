@@ -24,6 +24,44 @@
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
+	id_trim = /datum/id_trim/centcom/lieutenant
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
+	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/m1911
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+		/obj/item/stamp/centcom/officer = 1,
+		/obj/item/ammo_box/c45 = 2,
+	)
+	belt = /obj/item/clipboard/centcom
+	ears = /obj/item/radio/headset/headset_cent
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/combat
+	head = /obj/item/clothing/head/beret/centcom_officer
+	shoes = /obj/item/clothing/shoes/combat
+	l_pocket = /obj/item/melee/baton/telescopic/silver
+	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+
+/datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Commander")
+
+/datum/outfit/centcom/commander/mod
+	name = "CentCom Commander (MODsuit)"
+
+	suit_store = /obj/item/tank/internals/oxygen
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	back = /obj/item/mod/control/pre_equipped/corporate
+	internals_slot = ITEM_SLOT_SUITSTORE
+
+/datum/outfit/centcom/lieutenant
+	name = "CentCom Lieutenant"
+
 	id_trim = /datum/id_trim/centcom/commander
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/centcom_commander
@@ -48,16 +86,6 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
-
-/datum/outfit/centcom/commander/mod
-	name = "CentCom Commander (MODsuit)"
-
-	suit_store = /obj/item/tank/internals/oxygen
-	suit = null
-	head = null
-	mask = /obj/item/clothing/mask/gas/sechailer
-	back = /obj/item/mod/control/pre_equipped/corporate
-	internals_slot = ITEM_SLOT_SUITSTORE
 
 /datum/outfit/centcom/centcom_official
 	name = "CentCom Official"
@@ -115,6 +143,37 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Inspector")
+
+/datum/outfit/centcom/spec_ops
+	name = "CentCom Special Ops Officer"
+
+	id = /obj/item/card/id/advanced/centcom
+	id_trim = /datum/id_trim/centcom/specops_officer
+	uniform = /obj/item/clothing/under/rank/centcom/commander/turtleneck
+	suit = /obj/item/clothing/suit/space/officer
+	back = /obj/item/storage/backpack/satchel/leather
+	belt = /obj/item/gun/energy/pulse/pistol/m1911
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/thermal/eyepatch
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	head = /obj/item/clothing/head/helmet/space/beret
+	mask = /obj/item/cigarette/cigar/havana
+	shoes = /obj/item/clothing/shoes/combat/swat
+	r_pocket = /obj/item/lighter
+
+/datum/outfit/centcom/spec_ops/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	W.registered_name = H.real_name
+	W.update_label()
+	W.update_icon()
+
+	var/obj/item/radio/headset/R = H.ears
+	R.set_frequency(FREQ_CENTCOM)
+	R.freqlock = RADIO_FREQENCY_LOCKED
+	..()
 
 /datum/outfit/centcom/centcom_intern
 	name = "CentCom Intern"
@@ -184,6 +243,7 @@
 /datum/outfit/centcom/ert/commander
 	name = "ERT Commander"
 
+	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	id = /obj/item/card/id/advanced/centcom/ert/commander
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
 	l_hand = /obj/item/gun/energy/e_gun
@@ -396,7 +456,7 @@
 	belt = /obj/item/storage/belt/janitor/full
 	glasses = /obj/item/clothing/glasses/night
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
-	r_pocket = /obj/item/grenade/chem_grenade/cleaner
+	r_pocket = /obj/item/modular_computer/pda/centcom/ert
 	l_hand = /obj/item/storage/bag/trash/bluespace
 	additional_radio = /obj/item/encryptionkey/heads/hop
 
@@ -426,8 +486,7 @@
 	glasses = /obj/item/clothing/glasses/trickblindfold
 	mask = /obj/item/clothing/mask/gas/clown_hat
 	shoes = /obj/item/clothing/shoes/clown_shoes/combat
-	l_pocket = /obj/item/food/grown/banana
-	r_pocket = /obj/item/bikehorn/golden
+	l_pocket = /obj/item/bikehorn/golden
 	additional_radio = /obj/item/encryptionkey/heads/hop
 
 /datum/outfit/centcom/ert/clown/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
@@ -453,7 +512,6 @@
 	glasses = /obj/item/clothing/glasses/meson
 	mask = /obj/item/clothing/mask/bandana/blue
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
-	r_pocket = /obj/item/grenade/chem_grenade/cleaner
 	l_hand = /obj/item/storage/bag/trash
 
 /datum/outfit/centcom/ert/security/party
@@ -469,7 +527,6 @@
 	)
 	belt = /obj/item/melee/baton/telescopic
 	l_pocket = /obj/item/assembly/flash
-	r_pocket = /obj/item/storage/wallet
 
 /datum/outfit/centcom/ert/engineer/party
 	name = "ERP Constructor"
@@ -525,7 +582,7 @@
 
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
-	uniform = /obj/item/clothing/under/rank/centcom/commander
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
 	back = /obj/item/mod/control/pre_equipped/apocryphal
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
@@ -565,6 +622,7 @@
 /datum/outfit/centcom/death_commando/officer
 	name = "Death Commando Officer"
 
+	uniform = /obj/item/clothing/under/rank/centcom/commander
 	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
 

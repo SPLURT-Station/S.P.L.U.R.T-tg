@@ -1,4 +1,4 @@
-/obj/machinery/vending/wardrobe/cent_wardrobe
+/obj/machinery/vending/wardrobe/cent_wardrobe/Initialize(mapload)
 	var/list/extra_products = list(
 		/obj/item/clothing/gloves/captain/centcom = 3,
 		/obj/item/clothing/head/beret/centcom_formal = 3,

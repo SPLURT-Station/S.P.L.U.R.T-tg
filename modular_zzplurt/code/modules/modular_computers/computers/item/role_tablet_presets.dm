@@ -2,7 +2,7 @@
 	name = "central command PDA"
 	icon_state = "/obj/item/modular_computer/pda/heads/centcom"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
-	greyscale_colors = "#227A26#B4B9C6#C19B2D"
+	greyscale_colors = "#227A26#000099#C19B2D"
 	inserted_disk = /obj/item/disk/computer/command/captain
 	inserted_item = /obj/item/pen/fountain/centcom
 	starting_programs = list(
@@ -24,8 +24,8 @@
 /obj/item/modular_computer/pda/centcom
 	name = "central command official PDA"
 	icon_state = "/obj/item/modular_computer/pda/centcom"
-	greyscale_config = /datum/greyscale_config/tablet/stripe_split
-	greyscale_colors = "#359048#B4B9C6#90979B"
+	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
+	greyscale_colors = "#359048#000099#DAE4EA"
 	inserted_disk = /obj/item/disk/computer/command/hop
 	inserted_item = /obj/item/pen/fountain/centcom/silver
 	starting_programs = list(

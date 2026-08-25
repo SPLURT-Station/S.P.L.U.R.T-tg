@@ -119,7 +119,7 @@
 /obj/structure/closet/secure_closet/centcom/ert/commander
 	name = "CentCom ERT commander's locker"
 	desc = "It's a very sturdy card-locked storage unit containing equipment for a Emergency Response Team Commander."
-	req_access = list(ACCESS_CENT_CAPTAIN)
+	req_access = list(ACCESS_CENT_OFFICER)
 	icon_state = "cccom"
 
 /obj/structure/closet/secure_closet/centcom/ert/commander/PopulateContents()
