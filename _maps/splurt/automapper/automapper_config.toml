@@ -400,16 +400,28 @@ required_map = "MetaStation.dmm"
 coordinates = [101, 115, 1]
 trait_name = "Station"
 
+# Deltastation Blueshield Office
+[templates.deltastation_blueshield_office]
+map_files = ["deltastation_blueshield_office_new.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [112, 122, 1]
+trait_name = "Station"
+
+# Deltastation NTR Office
+[template.deltastation_ntrep_office]
+map_files = ["deltastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [123, 143, 1]
+trait_name = "Station"
+
 # Override upstream templates without redefining them in [templates].
 # Useful when upstream keeps the same automap placement but Splurt wants to swap
 # the map file path or other template properties.
 [template_overrides.catwalk_ntrep_office]
 map_files = ["catwalk_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/CatwalkStation/"
-
-[template_overrides.deltastation_ntrep_office]
-map_files = ["deltastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
 
 [template_overrides.iceboxstation_ntc_bs]
 map_files = ["iceboxstation_ntrep_office.dmm"]
@@ -422,10 +434,6 @@ directory = "_maps/splurt/automapper/templates/tramstation/"
 [template_overrides.wawastation_ntrep_office]
 map_files = ["wawastation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/wawastation/"
-
-[template_overrides.deltastation_blueshield]
-map_files = ["deltastation_blueshield_office_new.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
 
 [template_overrides.kilostation_ntrep_office]
 map_files = ["kilostation_ntrep_office.dmm"]
