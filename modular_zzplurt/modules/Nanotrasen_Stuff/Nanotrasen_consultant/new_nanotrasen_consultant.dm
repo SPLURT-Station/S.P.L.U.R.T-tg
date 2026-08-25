@@ -83,7 +83,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	fax_name = "Nanotrasen Consultant's Office"
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
-	name = "Nanotrasen consultant's locker"
+	name = "nanotrasen consultant's locker"
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	req_one_access = list()
 	icon_state = "nt"
@@ -115,7 +115,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/laser_pointer/blue(src)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
-	name = "Nanotrasen consultant's garment bag"
+	name = "nanotrasen consultant's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Consultant."
 
 /obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
@@ -291,7 +291,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "Nanotrasen Internal Affairs Office"
 
 /obj/item/storage/lockbox/medal/ntc
-	name = "Nanotrasen consultant medal box"
+	name = "nanotrasen consultant medal box"
 	desc = "A locked box used to store medals to be given to those exhibiting excellence in affairs."
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	icon = 'modular_zzplurt/icons/obj/case.dmi'
@@ -315,6 +315,22 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/job_management,
 	)
+
+/obj/item/storage/belt/sheath/sabre/ntc
+	name = "nanotrasen consultant's sabre sheath"
+	desc = "An ornate sheathe bestowed to Nanotrasen executives, decorated in fine black-dyed leather, with ornate gold plating, engraved with the Nanotrasen logo. A weapon from a more elegant age, but no less deadly. While it may not have the same cutting power as the Captain's own sabre, this one practically exudes an aura of authority in and of itself. To wield this is to understand your role as an intimidating presence, but not a casual combatant."
+	icon = 'modular_zubbers/icons/obj/weapons/melee.dmi'
+	icon_state = "admiral-sheath"
+	worn_icon = 'modular_zubbers/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "admiral-sheath"
+	stored_blade = /obj/item/melee/sabre/ntc
+
+/obj/item/melee/sabre/ntc
+	name = "\improper consultant's sabre"
+	desc = "An elegant sabre, similar to those bestowed upon captains. The hilt is plated in gold with a Nanotrasen logo carved into it, the grip wrapped neatly in real leather. The blade shimmers with ripples in the light, polished almost to a gleam. It would seem a shame to sully such a beautiful blade, but that's part of the point. This is a weapon of intimidation, not a weapon of true combat. Despite that, it's still a formidable weapon in close-quarters, though not quite as deadly as the sabre bestowed to the Captain themselves."
+	block_chance = 30
+	armour_penetration = 25
+	force = 20
 
 /obj/item/bedsheet/ntc
 	name = "nanotrasen consultant's bedsheet"

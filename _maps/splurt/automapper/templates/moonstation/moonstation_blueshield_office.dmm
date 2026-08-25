@@ -38,7 +38,7 @@
 	dir = 4
 	},
 /obj/structure/sign/calendar/directional/north,
-/obj/machinery/newscaster/directional/west,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "i" = (
@@ -75,7 +75,14 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/status_display/evac/directional/west,
+/obj/machinery/requests_console/directional/west{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/announcement,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "m" = (
@@ -91,11 +98,12 @@
 "n" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/camera/autoname/directional/south,
+/obj/machinery/status_display/ai/directional/south,
+/obj/machinery/suit_storage_unit/blueshield,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/machinery/status_display/ai/directional/south,
-/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "o" = (
@@ -103,8 +111,9 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 8
 	},
-/obj/item/radio/intercom/directional/south,
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "p" = (
@@ -178,7 +187,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "z" = (
@@ -191,24 +199,34 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
+/obj/item/storage/toolbox/ammobox/wt550m9,
+/obj/item/mod/module/pepper_shoulders,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/directional/south,
-/obj/structure/cable,
-/obj/item/storage/toolbox/ammobox/wt550m9,
-/obj/item/mod/module/pepper_shoulders,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/south,
+/obj/item/shield/riot,
+/obj/item/gun_maintenance_supplies,
+/obj/item/screwdriver,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "B" = (
-/obj/machinery/airalarm/directional/south,
 /obj/structure/closet/secure_closet/blueshield,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/item/storage/medkit/brute,
-/obj/item/storage/medkit/fire,
-/obj/item/storage/medkit/robotic_repair/stocked,
+/obj/item/clothing/gloves/tackler/combat/insulated/blueshield,
+/obj/item/taperecorder{
+	name = "Captain's Log"
+	},
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/storage/medkit/tactical/blueshield,
+/obj/machinery/vending/wallmed/directional/south,
+/obj/item/modular_computer/laptop/preset/security,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "C" = (
@@ -221,14 +239,22 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
-"G" = (
-/turf/open/floor/carpet/blue,
-/area/station/command/heads_quarters/blueshield)
 "H" = (
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
+	},
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
 	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
@@ -312,6 +338,7 @@
 	icon_state = "employmentcabinet";
 	name = "security records filing cabinet"
 	},
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "X" = (
@@ -358,7 +385,7 @@ q
 C
 i
 R
-G
+X
 W
 a
 a

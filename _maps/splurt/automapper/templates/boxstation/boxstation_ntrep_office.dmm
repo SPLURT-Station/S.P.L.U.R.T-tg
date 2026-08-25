@@ -20,6 +20,7 @@
 /obj/item/toy/figure/dsquad,
 /obj/item/coin/adamantine,
 /obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
@@ -183,6 +184,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
@@ -214,16 +216,6 @@
 	dir = 1
 	},
 /turf/open/floor/wood/large,
-/area/station/command/heads_quarters/nt_rep)
-"v" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 4;
-	name = "Privacy Shutters"
-	},
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
 /obj/machinery/airalarm/directional/south,
@@ -344,8 +336,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax/heads/ntc,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -427,8 +419,9 @@
 	},
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
-	pixel_x = 26;
-	req_access = list("cent_general")
+	pixel_x = 24;
+	req_access = list("cent_general");
+	name = "curtain control"
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)

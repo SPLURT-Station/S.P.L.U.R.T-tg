@@ -23,8 +23,7 @@
 "d" = (
 /obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /obj/machinery/status_display/ai/directional/south,
-/obj/machinery/light/small/blacklight/directional/south,
-/obj/effect/spawner/random/loot/dignitary/blueshield,
+/obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "e" = (
@@ -32,11 +31,12 @@
 /obj/structure/rack/shelf,
 /obj/item/storage/medkit/combat_surgeon/stocked,
 /obj/item/storage/medkit/regular,
-/obj/item/storage/medkit/tactical/blueshield,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 9
+	dir = 8
 	},
-/obj/item/radio/intercom/command/directional/east,
+/obj/machinery/vending/wallmed/directional/east,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/storage/medkit/tactical/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "g" = (
@@ -77,7 +77,6 @@
 	pixel_x = 7;
 	pixel_y = 6
 	},
-/obj/machinery/requests_console/auto_name/directional/west,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
@@ -90,6 +89,10 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/requests_console/directional/west{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "l" = (
@@ -107,11 +110,11 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/machinery/vending/wallmed/directional/west,
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = -32
 	},
 /obj/machinery/suit_storage_unit/blueshield,
+/obj/structure/secure_safe/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "n" = (
@@ -142,7 +145,7 @@
 /area/station/hallway/primary/aft)
 "r" = (
 /obj/item/modular_computer/laptop/preset/security{
-	pixel_y = 8
+	pixel_y = 6
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -203,6 +206,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
+/obj/item/radio/intercom/command/directional/east,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "y" = (
@@ -214,7 +218,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 5
+	dir = 4
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
@@ -233,15 +237,21 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Blueshield's Office"
 	},
-/obj/machinery/fax{
-	name = "Blueshield's Fax Machine";
-	fax_name = "Blueshield's Office"
-	},
-/obj/item/radio/intercom/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/structure/table/reinforced/titaniumglass,
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/obj/structure/sign/calendar/directional/west,
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "E" = (

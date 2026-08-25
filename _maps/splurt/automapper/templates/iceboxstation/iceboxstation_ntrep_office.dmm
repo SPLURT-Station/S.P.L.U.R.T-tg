@@ -7,7 +7,11 @@
 	name = "Nanotrasen Consultant's Notice Board"
 	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
-/obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/structure/aquarium/prefilled,
+/obj/item/reagent_containers/cup/fish_feed{
+	pixel_y = 17;
+	pixel_x = -3
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
@@ -54,6 +58,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -61,25 +66,20 @@
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/machinery/light/warm/dim/directional/north,
-/obj/item/folder/ntc_documents,
-/obj/structure/safe/floor/ntc,
-/obj/item/reagent_containers/cup/glass/flask/gold,
-/obj/item/reagent_containers/applicator/pill/cyanide,
-/obj/item/photo{
-	name = "department group photo";
-	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
-	},
-/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
-/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
-/obj/item/toy/figure/dsquad,
-/obj/item/coin/adamantine,
-/obj/item/encryptionkey/headset_cent,
+/obj/machinery/fax/heads/ntc,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "i" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
+/area/station/command/heads_quarters/nt_rep)
+"j" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "k" = (
 /obj/effect/turf_decal/siding/wood{
@@ -105,6 +105,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
@@ -140,8 +141,8 @@
 	pixel_x = -4
 	},
 /obj/item/stamp/granted{
-	pixel_y = 12;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /obj/item/stamp/denied{
 	pixel_x = 8;
@@ -186,8 +187,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/structure/table/wood,
-/obj/item/storage/lunchbox/nanotrasen,
+/obj/structure/hedge,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
@@ -218,15 +218,14 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
@@ -236,7 +235,7 @@
 	pixel_x = -3
 	},
 /obj/item/folder/nanotrasen{
-	pixel_y = 2
+	pixel_y = 1
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
 	pixel_x = 12;
@@ -270,12 +269,11 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "G" = (
@@ -287,6 +285,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "H" = (
 /obj/structure/sign/clock/directional/north,
+/obj/structure/closet/secure_closet/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
@@ -297,19 +296,19 @@
 /area/station/hallway/primary/central)
 "K" = (
 /obj/structure/chair/office{
-	dir = 4
+	dir = 1
 	},
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "L" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/effect/landmark/start/iaa_cyborg,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "M" = (
@@ -325,8 +324,20 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "O" = (
-/obj/structure/table/reinforced/titaniumglass,
-/obj/machinery/fax/heads/ntc,
+/obj/item/folder/ntc_documents,
+/obj/structure/safe/floor/ntc,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
+/obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
@@ -347,6 +358,10 @@
 	dir = 9
 	},
 /obj/machinery/newscaster/directional/north,
+/obj/structure/table/wood,
+/obj/item/storage/lunchbox/nanotrasen{
+	pixel_y = 6
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "S" = (
@@ -363,8 +378,8 @@
 	pixel_x = -4
 	},
 /obj/item/stamp/granted{
-	pixel_y = 9;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /obj/item/stamp/denied{
 	pixel_x = 8;
@@ -399,15 +414,16 @@
 	pixel_y = 3;
 	pixel_x = 2
 	},
+/obj/structure/sign/poster/official/enlist/directional/north,
 /obj/item/folder/nanotrasen{
 	pixel_x = -2;
 	pixel_y = 1
 	},
-/obj/structure/sign/poster/official/enlist/directional/north,
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
-	pixel_x = 26;
-	req_access = list("cent_general")
+	pixel_x = 24;
+	req_access = list("cent_general");
+	name = "curtain control"
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -419,12 +435,11 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "X" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Y" = (
@@ -521,7 +536,7 @@ a
 a
 R
 w
-N
+j
 r
 D
 Q
@@ -541,8 +556,8 @@ a
 a
 V
 p
-v
 W
+v
 z
 x
 a

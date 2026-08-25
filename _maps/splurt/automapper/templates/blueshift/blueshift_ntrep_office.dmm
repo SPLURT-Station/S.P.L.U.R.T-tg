@@ -309,8 +309,9 @@
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
 	pixel_x = -6;
-	pixel_y = -26;
-	req_access = list("cent_captain")
+	pixel_y = -24;
+	req_access = list("cent_captain");
+	name = "curtain control"
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -785,6 +786,7 @@
 /obj/item/toy/figure/dsquad,
 /obj/item/coin/adamantine,
 /obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "KH" = (

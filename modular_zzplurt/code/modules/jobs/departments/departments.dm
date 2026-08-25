@@ -4,7 +4,6 @@
 	department_head = /datum/job/nanotrasen_consultant
 	department_experience_type = EXP_TYPE_INTERNAL
 	display_order = 9
-	label_class = "central"
 	ui_color = "#229784"
 	nation_prefixes = list("Corporate Ties")
 	primary_work_area = /area/station/command/heads_quarters/nt_rep

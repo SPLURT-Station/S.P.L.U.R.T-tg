@@ -53,11 +53,14 @@
 	pixel_x = 9;
 	pixel_y = 3
 	},
-/obj/machinery/requests_console/auto_name/directional/east,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/announcement,
+/obj/machinery/requests_console/directional/east{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "h" = (
@@ -183,13 +186,14 @@
 /obj/structure/rack/shelf,
 /obj/item/storage/medkit/combat_surgeon/stocked,
 /obj/item/storage/medkit/regular,
-/obj/item/storage/medkit/tactical/blueshield,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/south,
 /obj/machinery/newscaster/directional/east,
 /obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/storage/medkit/tactical/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "z" = (
@@ -244,10 +248,12 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/blueshield)
 "F" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
-/turf/open/floor/carpet/blue,
-/area/station/command/heads_quarters/blueshield)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/fore)
 "G" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -352,11 +358,10 @@
 "R" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/red{
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/cable,
-/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "S" = (
@@ -414,10 +419,10 @@
 "Y" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/red{
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "Z" = (
@@ -427,10 +432,16 @@
 /obj/structure/sign/clock/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/airalarm/directional/west,
-/obj/structure/table/wood/fancy/blue,
-/obj/machinery/fax{
-	name = "Blueshield's Fax Machine";
-	fax_name = "Blueshield's Office"
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
 	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
@@ -469,7 +480,7 @@ U
 E
 E
 E
-b
+F
 "}
 (5,1,1) = {"
 E
@@ -478,7 +489,7 @@ j
 B
 O
 G
-b
+F
 "}
 (6,1,1) = {"
 A
@@ -487,7 +498,7 @@ a
 M
 r
 G
-b
+F
 "}
 (7,1,1) = {"
 A
@@ -505,7 +516,7 @@ g
 h
 e
 G
-w
+R
 "}
 (9,1,1) = {"
 E
@@ -514,7 +525,7 @@ E
 E
 E
 E
-w
+R
 "}
 (10,1,1) = {"
 l

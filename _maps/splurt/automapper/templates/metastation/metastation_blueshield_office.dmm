@@ -21,12 +21,17 @@
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/camera/autoname/directional/south,
 /obj/structure/table/wood/fancy/blue,
-/obj/machinery/fax{
-	name = "Blueshield's Fax Machine";
-	fax_name = "Blueshield's Office"
+/obj/item/reagent_containers/cup/glass/bottle/champagne{
+	pixel_y = 19;
+	pixel_x = -4
 	},
-/obj/item/storage/medkit/robotic_repair/stocked{
-	pixel_y = 5
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 7;
+	pixel_x = 7
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -137,7 +142,14 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/machinery/requests_console/auto_name/directional/west,
+/obj/machinery/requests_console/directional/west{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/announcement,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "p" = (
@@ -439,13 +451,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/item/modular_computer/laptop/preset/security{
-	pixel_y = 5
-	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = -32
 	},
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/modular_computer/laptop/preset/security,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "P" = (
@@ -492,13 +503,13 @@
 /obj/structure/bed/dogbed{
 	name = "Walter's Dogbed"
 	},
-/mob/living/basic/pet/dog/dobermann/walter{
-	gender = "male"
-	},
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
 	pixel_y = -2;
 	name = "\improper chewed up Redsuit action figure"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)

@@ -105,7 +105,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "r" = (
@@ -136,9 +136,7 @@
 /obj/item/taperecorder{
 	name = "Captain's Log"
 	},
-/obj/item/modular_computer/laptop/preset/security{
-	pixel_y = 5
-	},
+/obj/item/modular_computer/laptop/preset/security,
 /obj/item/clothing/gloves/tackler/combat/insulated/blueshield,
 /obj/structure/sign/poster/official/obey/directional/east,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -190,7 +188,7 @@
 /area/station/command/heads_quarters/blueshield)
 "A" = (
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/shield/riot,
 /obj/item/gun_maintenance_supplies,
@@ -215,11 +213,14 @@
 /obj/machinery/modular_computer/preset/command{
 	dir = 8
 	},
-/obj/machinery/requests_console/auto_name/directional/east,
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/requests_console/directional/east{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "C" = (
@@ -258,8 +259,8 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "G" = (
@@ -329,6 +330,7 @@
 /obj/machinery/light_switch/directional/south,
 /obj/item/storage/medkit/combat_surgeon/stocked,
 /obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 /obj/item/storage/medkit/tactical/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
@@ -373,11 +375,17 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Blueshield's Office"
 	},
-/obj/machinery/fax{
-	name = "Blueshield's Fax Machine";
-	fax_name = "Blueshield's Office"
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
 	},
-/obj/structure/table/wood/fancy/blue,
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "X" = (

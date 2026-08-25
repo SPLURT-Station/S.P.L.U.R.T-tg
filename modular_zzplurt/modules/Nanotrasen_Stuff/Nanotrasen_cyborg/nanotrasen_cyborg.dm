@@ -10,8 +10,6 @@
 	exp_required_type_department = EXP_TYPE_ADMIN
 	config_tag = "INTERNAL_AFFAIRS_CYBORG"
 	display_order = JOB_DISPLAY_ORDER_IAA_CYBORG
-	antagonist_restricted = TRUE
-	restricted_antagonists = list("ALL")
 
 //Updates the alt job titles at runtime so we can still keep it in the nice place with the other ones
 /datum/job/cyborg/iaa/New()

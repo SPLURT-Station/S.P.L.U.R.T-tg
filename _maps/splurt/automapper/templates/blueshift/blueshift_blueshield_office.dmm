@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bd" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/status_display/ai/directional/west,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "bR" = (
@@ -35,14 +35,15 @@
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "df" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "dB" = (
+/obj/machinery/suit_storage_unit/blueshield,
+/obj/machinery/vending/wallmed/directional/north,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/machinery/light/red/directional/north,
-/obj/item/radio/intercom/directional/north,
-/obj/machinery/suit_storage_unit/blueshield,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "hi" = (
@@ -55,21 +56,23 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "iI" = (
-/mob/living/basic/pet/dog/bullterrier{
-	desc = "It's Walter, he bites criminals just as well as he bites toddlers";
-	name = "Walter";
-	real_name = "Walter"
-	},
 /obj/machinery/status_display/evac/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/structure/bed/dogbed/ian{
-	name = "Walter's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
 	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
@@ -96,23 +99,23 @@
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "mE" = (
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/button/door/directional/south{
 	name = "Privacy Shutters Control";
 	id = "blueshield_priv";
-	req_access = list("cent_officer")
+	req_access = list("captain")
 	},
-/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "mJ" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "mV" = (
 /obj/effect/landmark/start/blueshield,
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "oi" = (
@@ -127,9 +130,9 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "pG" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "rv" = (
@@ -163,17 +166,18 @@
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "sq" = (
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/firealarm/directional/east,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "tp" = (
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark/end{
 	dir = 1
 	},
-/obj/structure/rack/shelf,
-/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "ty" = (
@@ -197,24 +201,27 @@
 "wf" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/folder/blue{
-	pixel_x = 10;
+	pixel_x = 13;
 	pixel_y = 5
 	},
 /obj/item/storage/fancy/donut_box{
-	pixel_x = -10;
+	pixel_x = -6;
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "wq" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/medkit/tactical/blueshield{
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
 /obj/structure/sign/poster/official/carwo_magazine/directional/south,
+/obj/structure/plaque/static_plaque/golden{
+	pixel_x = -32
+	},
+/obj/structure/chair/sofa/left/brown{
+	dir = 1;
+	color = "#3d3c38"
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "wJ" = (
@@ -242,8 +249,8 @@
 /area/station/command/heads_quarters/blueshield)
 "zo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/airalarm/directional/west,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "An" = (
@@ -285,8 +292,8 @@
 /area/station/command/heads_quarters/blueshield)
 "Di" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/machinery/status_display/evac/directional/west,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "Du" = (
@@ -294,13 +301,18 @@
 	dir = 10
 	},
 /obj/machinery/computer/security,
-/obj/machinery/newscaster/directional/north,
+/obj/item/radio/intercom/command/directional/north,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "Es" = (
 /obj/machinery/computer/crew,
-/obj/structure/plaque/static_plaque/golden{
-	pixel_y = 32
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/announcement,
+/obj/machinery/requests_console/directional/north{
+	department = "Blueshield's Desk";
+	name = "Blueshield's Requests Console"
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -313,12 +325,12 @@
 "Fy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/siding/thinplating_new/dark/end,
 /obj/structure/rack/shelf,
-/obj/item/storage/medkit/brute,
-/obj/item/storage/medkit/fire{
-	pixel_y = 4
-	},
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/tactical/blueshield,
+/obj/effect/turf_decal/delivery/red,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "FA" = (
@@ -339,10 +351,17 @@
 /obj/item/clothing/head/helmet/toggleable/riot{
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/obj/structure/sign/plaques/kiddie/perfect_man{
+	pixel_x = -32
+	},
+/obj/effect/turf_decal/delivery/red,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/item/shield/riot,
 /obj/item/storage/toolbox/ammobox/wt550m9,
 /obj/item/mod/module/pepper_shoulders,
+/obj/item/screwdriver,
+/obj/item/gun_maintenance_supplies,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "GN" = (
@@ -358,7 +377,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "IM" = (
@@ -427,22 +446,30 @@
 /area/station/command/heads_quarters/blueshield)
 "Qx" = (
 /obj/structure/closet/secure_closet/blueshield,
-/obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/structure/sign/poster/official/enlist/directional/north,
+/obj/item/clothing/gloves/tackler/combat/insulated/blueshield,
+/obj/item/taperecorder{
+	name = "Captain's Log"
+	},
+/obj/effect/turf_decal/delivery/red,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/item/modular_computer/laptop/preset/security{
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "Rj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "RT" = (
 /obj/effect/landmark/start/blueshield,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/blue/diagonal_centre,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "Sh" = (
@@ -541,7 +568,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "ZY" = (
-/obj/structure/table/reinforced,
 /obj/machinery/camera/directional/south{
 	c_tag = "Command - Blueshield's Gear Room";
 	name = "command camera"
@@ -552,11 +578,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/machinery/light/red/directional/south,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/south,
-/obj/structure/statue/bronze/marx{
-	pixel_y = 10
+/obj/structure/chair/sofa/right/brown{
+	color = "#3d3c38";
+	dir = 1
 	},
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 
