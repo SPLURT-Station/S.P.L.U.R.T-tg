@@ -1,3 +1,36 @@
+/obj/item/toy/plush/Initialize(mapload)
+	. = ..()
+	create_storage(storage_type = /datum/storage/pockets/plush)
+
+/datum/storage/pockets/plush
+	max_slots = 1
+
+/datum/storage/pockets/plush/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(list(
+		/obj/item/clothing/sextoy/dildo,
+		/obj/item/clothing/sextoy/fleshlight,
+		/obj/item/clothing/sextoy/portal_fleshlight,
+	))
+
+/obj/item/toy/plush/examine(mob/user)
+	. = ..()
+	if(locate(/obj/item/clothing/sextoy/dildo) in src)
+		. += span_notice("There is a wet dildo attached to it!")
+	else if(locate(/obj/item/clothing/sextoy/fleshlight) in src)
+		. += span_notice("There is a wet fleshlight inserted in it!")
+	else if(locate(/obj/item/clothing/sextoy/portal_fleshlight) in src)
+		. += span_notice("There is real portal fleshlight inserted in it!")
+	else
+		. += span_notice("It looks like there's a slot for a sex toy.")
+
+/obj/item/toy/plush/attack_self(mob/user)
+	var/obj/item/clothing/sextoy/foundToy = (locate(/obj/item/clothing/sextoy/dildo) in src) || (locate(/obj/item/clothing/sextoy/fleshlight) in src) || (locate(/obj/item/clothing/sextoy/portal_fleshlight) in src)
+	if(foundToy)
+		foundToy.attack_self(user)
+	else
+		. = ..()
+
 /obj/item/toy/plush/chaotic_toaster
 	name = "Chaotic toaster"
 	desc = "You arent sure if this plushie want a hug, or harvest your organs, or both"
