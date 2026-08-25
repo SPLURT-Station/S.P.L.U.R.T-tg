@@ -24,44 +24,6 @@
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
-	id_trim = /datum/id_trim/centcom/lieutenant
-	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
-	suit = /obj/item/clothing/suit/armor/centcom_jacket
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/m1911
-	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list(
-		/obj/item/stamp/centcom/officer = 1,
-		/obj/item/ammo_box/c45 = 2,
-	)
-	belt = /obj/item/clipboard/centcom
-	ears = /obj/item/radio/headset/headset_cent
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = /obj/item/clothing/gloves/combat
-	head = /obj/item/clothing/head/beret/centcom_officer
-	shoes = /obj/item/clothing/shoes/combat
-	l_pocket = /obj/item/melee/baton/telescopic/silver
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
-
-/datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
-	pda.imprint_id(H.real_name, "CentCom Commander")
-
-/datum/outfit/centcom/commander/mod
-	name = "CentCom Commander (MODsuit)"
-
-	suit_store = /obj/item/tank/internals/oxygen
-	suit = null
-	head = null
-	mask = /obj/item/clothing/mask/gas/sechailer
-	back = /obj/item/mod/control/pre_equipped/corporate
-	internals_slot = ITEM_SLOT_SUITSTORE
-
-/datum/outfit/centcom/lieutenant
-	name = "CentCom Lieutenant"
-
 	id_trim = /datum/id_trim/centcom/commander
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/armor/centcom_commander
@@ -87,6 +49,54 @@
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
 
+/datum/outfit/centcom/commander/turtleneck
+	name = "CentCom Lieutenant - Turtleneck"
+
+	uniform = /obj/item/clothing/under/rank/centcom/commander/turtleneck
+
+/datum/outfit/centcom/commander/mod
+	name = "CentCom Commander (MODsuit)"
+
+	suit_store = /obj/item/tank/internals/oxygen
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	back = /obj/item/mod/control/pre_equipped/corporate
+	internals_slot = ITEM_SLOT_SUITSTORE
+
+/datum/outfit/centcom/lieutenant
+	name = "CentCom Lieutenant"
+
+	id_trim = /datum/id_trim/centcom/lieutenant
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
+	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/m1911
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+		/obj/item/stamp/centcom/officer = 1,
+		/obj/item/ammo_box/c45 = 2,
+	)
+	belt = /obj/item/clipboard/centcom
+	ears = /obj/item/radio/headset/headset_cent
+	glasses = /obj/item/clothing/glasses/sunglasses
+	gloves = /obj/item/clothing/gloves/combat
+	head = /obj/item/clothing/head/beret/centcom_officer
+	shoes = /obj/item/clothing/shoes/combat
+	l_pocket = /obj/item/melee/baton/telescopic/silver
+	r_pocket = /obj/item/modular_computer/pda/centcom
+
+/datum/outfit/centcom/lieutenant/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Lieutenant")
+
+/datum/outfit/centcom/lieutenant/turtleneck
+	name = "CentCom Lieutenant - Turtleneck"
+
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant/turtleneck
+
 /datum/outfit/centcom/centcom_official
 	name = "CentCom Official"
 
@@ -94,6 +104,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom/official
 	suit = /obj/item/clothing/suit/armor/centcom_jacket
 	head = /obj/item/clothing/head/beret/centcom_officer
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/stamp/centcom = 1,
@@ -123,8 +134,9 @@
 
 	id_trim = /datum/id_trim/centcom/inspector
 	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
-	suit = /obj/item/clothing/suit/armor/centcom_jacket
+	suit = /obj/item/clothing/suit/hazardvest/centcom
 	head = /obj/item/clothing/head/utility/hardhat/white
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/stamp/centcom = 1,

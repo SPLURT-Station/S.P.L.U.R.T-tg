@@ -726,6 +726,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 /obj/item/vending_refill/wardrobe/det_wardrobe
 	machine_name = "DetDrobe"
 
+/* // SPLURT REMOVAL - MOVED TO A NEW FOLDER "modular_zzplurt\code\modules\vending\cent_wardrobe.dm"
 /obj/machinery/vending/wardrobe/cent_wardrobe
 	name = "\improper CentDrobe"
 	desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
@@ -754,7 +755,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/clothing/shoes/sneakers/ba_cheerleader/centcom = 3,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/cent_wardrobe
-
+*/
 /obj/item/vending_refill/wardrobe/cent_wardrobe
 	machine_name = "CentDrobe"
 	icon_state = "refill_centdrobe"

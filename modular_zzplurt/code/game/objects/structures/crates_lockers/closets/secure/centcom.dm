@@ -22,9 +22,9 @@
 	new /obj/item/clothing/under/rank/centcom/commander/skirt(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/centcom(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/centcom(src)
-	new /obj/item/clothing/suit/armor/centcom_formal(src)
+	new /obj/item/clothing/suit/armor/centcom_commander(src)
 	new /obj/item/radio/headset/headset_cent/commander(src)
-	new /obj/item/storage/belt/sheath/sabre(src)
+	new /obj/item/storage/belt/sheath/sabre/centcom(src)
 	new /obj/item/clothing/glasses/thermal/eyepatch(src)
 	new /obj/item/door_remote/omni(src)
 	new /obj/item/ammo_box/speedloader/c357(src)
@@ -48,7 +48,7 @@
 	new /obj/item/radio/headset/headset_cent/alt(src)
 	new /obj/item/storage/belt/sheath/sabre(src)
 	new /obj/item/clothing/glasses/thermal/eyepatch(src)
-	new /obj/item/gun/energy/pulse/pistol/m1911(src)
+	new /obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911(src)
 
 /obj/structure/closet/secure_closet/centcom/ert
 	name = "CentCom ERT security officer's locker"

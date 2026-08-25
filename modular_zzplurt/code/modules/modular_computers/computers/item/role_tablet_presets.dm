@@ -44,7 +44,7 @@
 	return COMPONENT_TABLET_NO_DETONATE
 
 /obj/item/modular_computer/pda/centcom/ert
-	name = "central command ERT PDA"
+	name = "central command response PDA"
 	icon_state = "/obj/item/modular_computer/pda/centcom/ert"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#359048#B4B9C6#212B31"
