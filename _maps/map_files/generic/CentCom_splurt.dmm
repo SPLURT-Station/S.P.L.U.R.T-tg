@@ -1929,13 +1929,6 @@
 	dir = 4
 	},
 /area/centcom/tdome/observation)
-"ep" = (
-/obj/structure/flora/rock/pile/style_random,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "eq" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
@@ -2437,7 +2430,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/fore)
 "fD" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/ferry/dock)
@@ -2680,8 +2673,14 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/medpost)
+"gj" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "gk" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/tdome/observation/observation)
@@ -3203,7 +3202,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/tdome/administration)
 "hr" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/tdome/administration)
 "hs" = (
@@ -3740,10 +3739,6 @@
 /obj/effect/spawner/random/structure/closet_empty/crate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/supply/bay)
-"iD" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "iE" = (
 /obj/structure/hedge,
 /obj/machinery/light/directional/west,
@@ -6048,7 +6043,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/supply)
 "nt" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/tdome/observation)
@@ -6119,7 +6114,7 @@
 	},
 /area/centcom/tdome/observation)
 "nD" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/vacuum,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supply/bay)
@@ -6821,12 +6816,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
-"pb" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 8
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "pd" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
 /obj/structure/chair/sofa/corp{
@@ -7086,10 +7075,6 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
-"pH" = (
-/obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "pI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -7985,7 +7970,7 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
 "rT" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/doors,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -8185,7 +8170,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "sl" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/vacuum/external,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -8668,7 +8653,7 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/briefing)
 "tx" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/doors,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -9164,6 +9149,13 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation/bar)
+"uD" = (
+/obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "uE" = (
 /obj/machinery/button/elevator/directional/east{
 	pixel_y = 6;
@@ -9190,12 +9182,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/supplypod)
-"uH" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "uI" = (
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/delivery,
@@ -9375,7 +9361,7 @@
 	},
 /area/centcom/central_command_areas/control)
 "vg" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/prison/security)
@@ -9547,7 +9533,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
 "vw" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supply)
@@ -9601,7 +9587,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/kitchen)
 "vD" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/prison/equipment)
@@ -10009,7 +9995,7 @@
 	},
 /area/centcom/tdome/observation)
 "wu" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/tdome/administration)
@@ -10140,7 +10126,7 @@
 	},
 /area/centcom/central_command_areas/briefing)
 "wH" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/prison/commander)
@@ -11437,7 +11423,7 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/briefing)
 "zz" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "CC_central";
@@ -11642,7 +11628,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/ship/med)
 "zZ" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
@@ -11703,7 +11689,7 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/prison)
 "Ah" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/ferry)
@@ -11972,7 +11958,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
 "AQ" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supply/bay)
 "AR" = (
@@ -12513,10 +12499,6 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/evacuation/lounge)
-"Cf" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Cg" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 1
@@ -13208,7 +13190,7 @@
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/admin/commander)
 "DL" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supplypod)
@@ -13462,7 +13444,7 @@
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/admin/briefing)
 "Eo" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/doors,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -13648,6 +13630,10 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
+"EL" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "EM" = (
 /obj/machinery/vending/boozeomat,
 /obj/effect/turf_decal/siding/wood{
@@ -13872,6 +13858,10 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/tdome/observation)
+"Fk" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "Fl" = (
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 1
@@ -13948,7 +13938,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/tdome/arena)
 "Ft" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/preopen{
 	name = "CentCom Recovery Wing Security Post Shutters";
@@ -15121,7 +15111,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/secpost)
 "HT" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/doors,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -15560,7 +15550,7 @@
 	},
 /area/centcom/tdome/observation)
 "IM" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/evacuation/med)
@@ -15674,6 +15664,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/supply)
+"IX" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "IY" = (
 /obj/structure/sign/nanotrasen{
 	pixel_y = -32
@@ -16669,12 +16665,6 @@
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
-"Li" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 10
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Lj" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
@@ -16837,6 +16827,12 @@
 	dir = 6
 	},
 /area/centcom/central_command_areas/fore)
+"LF" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "LG" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -17475,7 +17471,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/tdome/administration)
 "Nb" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supplypod)
 "Nc" = (
@@ -18514,7 +18510,7 @@
 	},
 /area/centcom/central_command_areas/evacuation/ship/med)
 "Pw" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/admin/front)
@@ -18621,7 +18617,7 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/front)
 "PK" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/sign/warning/doors,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -18995,7 +18991,7 @@
 /turf/open/floor/wood/large,
 /area/centcom/tdome/administration)
 "Qv" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/ferry/control)
@@ -19089,7 +19085,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control/closet)
 "QI" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supply/bay)
@@ -19163,7 +19159,7 @@
 	},
 /area/centcom/central_command_areas/supply/bay)
 "QR" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/medpost)
@@ -19221,12 +19217,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation)
-"QX" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "QY" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
@@ -19400,6 +19390,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/supply/bay)
+"Rp" = (
+/obj/structure/flora/rock/pile/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "Rq" = (
 /obj/structure/chair,
 /obj/effect/landmark/thunderdome/observe,
@@ -19736,7 +19730,7 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/asset)
 "Se" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/supply/control)
@@ -19919,6 +19913,12 @@
 /obj/structure/sign/flag/nanotrasen/directional/north,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/evacuation)
+"Sy" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "Sz" = (
 /obj/structure/table/wood/fancy/green,
 /obj/machinery/coffeemaker/impressa{
@@ -21437,7 +21437,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/commander)
 "VH" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/curtain/cloth/fancy/mechanical{
 	id = "CC_briefing";
 	name = "curtain";
@@ -23079,7 +23079,7 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/pod_storage)
 "Zk" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/courtroom)
@@ -23093,7 +23093,7 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/prison/security)
 "Zn" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/preopen{
 	name = "CentCom Recovery Wing Security Checkpoint Shutters";
@@ -23134,7 +23134,7 @@
 	},
 /area/centcom/central_command_areas/prison)
 "Zr" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/secpost)
@@ -58038,7 +58038,7 @@ YG
 YG
 YG
 YG
-iD
+EL
 ht
 ht
 ht
@@ -58293,9 +58293,9 @@ YG
 YG
 YG
 YG
-pH
+Rp
 Yi
-iD
+EL
 ht
 ht
 ht
@@ -58551,9 +58551,9 @@ YG
 YG
 Yi
 Yi
-pH
+Rp
 Yi
-Li
+IX
 ht
 ht
 AY
@@ -58806,12 +58806,12 @@ YG
 YG
 YG
 YG
-pH
+Rp
 Yi
 Yi
-Cf
-pH
-pb
+Fk
+Rp
+gj
 YG
 YG
 ht
@@ -59063,7 +59063,7 @@ YG
 YG
 YG
 Yi
-Cf
+Fk
 Yi
 Yi
 Yi
@@ -59318,11 +59318,11 @@ YG
 YG
 YG
 YG
-QX
-ep
+LF
+uD
 Yi
 Yi
-pH
+Rp
 YG
 YG
 YG
@@ -59577,8 +59577,8 @@ YG
 ht
 ht
 ht
-uH
-QX
+Sy
+LF
 YG
 YG
 YG
