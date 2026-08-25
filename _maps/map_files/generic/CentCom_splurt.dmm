@@ -1850,6 +1850,12 @@
 	dir = 1
 	},
 /area/centcom/central_command_areas/ferry/dock)
+"ec" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "ed" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood/large,
@@ -2194,6 +2200,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/secpost)
+"eU" = (
+/obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "eV" = (
 /obj/machinery/status_display/ai/directional/west,
 /obj/machinery/light/cold/directional/west,
@@ -2549,6 +2562,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/asset)
+"fT" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "fU" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/north,
@@ -5420,6 +5439,12 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
+"mf" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "mg" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
 /turf/open/floor/iron/dark/side,
@@ -5864,6 +5889,10 @@
 	dir = 8
 	},
 /area/centcom/tdome/observation)
+"nb" = (
+/obj/structure/flora/rock/pile/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "nc" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -7069,6 +7098,12 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
+"pH" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "pI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -8259,6 +8294,10 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/fore)
+"sA" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "sB" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -8980,6 +9019,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "uk" = (
@@ -13137,6 +13177,10 @@
 	dir = 1
 	},
 /area/centcom/central_command_areas/evacuation/ship)
+"DE" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "DF" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -15261,6 +15305,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/cell_10k,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
 "In" = (
@@ -15949,10 +15994,6 @@
 /obj/structure/sign/poster/official/random/directional/east,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/evacuation/ship/bar)
-"JF" = (
-/obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "JG" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/warning{
 	dir = 1
@@ -21890,10 +21931,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/admin/front)
-"WI" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "WJ" = (
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
@@ -58001,7 +58038,7 @@ YG
 YG
 YG
 YG
-Yi
+sA
 ht
 ht
 ht
@@ -58256,9 +58293,9 @@ YG
 YG
 YG
 YG
-JF
+nb
 Yi
-Yi
+sA
 ht
 ht
 ht
@@ -58514,9 +58551,9 @@ YG
 YG
 Yi
 Yi
-JF
+nb
 Yi
-Yi
+ec
 ht
 ht
 AY
@@ -58769,12 +58806,12 @@ YG
 YG
 YG
 YG
-JF
+nb
 Yi
 Yi
-WI
-JF
-Yi
+DE
+nb
+mf
 YG
 YG
 ht
@@ -59026,7 +59063,7 @@ YG
 YG
 YG
 Yi
-WI
+DE
 Yi
 Yi
 Yi
@@ -59281,11 +59318,11 @@ YG
 YG
 YG
 YG
+pH
+eU
 Yi
-JF
 Yi
-Yi
-JF
+nb
 YG
 YG
 YG
@@ -59540,8 +59577,8 @@ YG
 ht
 ht
 ht
-Yi
-Yi
+fT
+pH
 YG
 YG
 YG
