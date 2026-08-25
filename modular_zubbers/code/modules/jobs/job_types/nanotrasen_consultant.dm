@@ -131,6 +131,7 @@
 		/datum/computer_file/program/faxbond,
 	)
 
+/* Just shut up.
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen consultant."
@@ -158,6 +159,7 @@
 	new /obj/item/clothing/suit/armor/vest/officerfake(src)
 	new /obj/item/clothing/under/rank/centcom/intern(src)
 	new /obj/item/clothing/head/hats/intern(src)
+*/
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"
