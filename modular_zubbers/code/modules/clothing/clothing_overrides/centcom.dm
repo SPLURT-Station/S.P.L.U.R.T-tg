@@ -156,6 +156,7 @@
 	icon = 'modular_zubbers/icons/obj/clothing/head/hats.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/head/hats.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/head/hats_teshari.dmi'
+	armor_type = /datum/armor/beret_centcom_formal
 
 /obj/item/clothing/head/hats/consultant_cap
 	name = "\improper CentCom representative's cap"
@@ -177,7 +178,8 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/head/hats_teshari.dmi'
 
 /obj/item/clothing/head/beret/centcom_formal
-	name = "\improper CentCom formal beret"
+	name = "\improper CentCom commander's beret"
+	desc = "A exotic beret made of durable fabric, protects the head whilst making you look fantastic! Comes with a golden Nanotrasen logo badge on the front for identification."
 	icon = 'modular_zubbers/icons/obj/clothing/head/hats.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/head/hats.dmi'
 	icon_state = "centcom_beret"

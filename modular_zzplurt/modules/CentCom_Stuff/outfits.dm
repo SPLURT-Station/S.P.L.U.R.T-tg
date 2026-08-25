@@ -50,7 +50,7 @@
 	pda.imprint_id(H.real_name, "CentCom Commander")
 
 /datum/outfit/centcom/commander/turtleneck
-	name = "CentCom Lieutenant - Turtleneck"
+	name = "CentCom Commander - Turtleneck"
 
 	uniform = /obj/item/clothing/under/rank/centcom/commander/turtleneck
 

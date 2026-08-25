@@ -1929,6 +1929,13 @@
 	dir = 4
 	},
 /area/centcom/tdome/observation)
+"ep" = (
+/obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "eq" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
@@ -2429,13 +2436,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/fore)
-"fC" = (
-/obj/structure/flora/rock/pile/style_random,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "fD" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -2644,10 +2644,6 @@
 	dir = 1
 	},
 /area/centcom/central_command_areas/evacuation)
-"gd" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "ge" = (
 /obj/structure/cable,
 /turf/open/floor/wood/tile,
@@ -3744,6 +3740,10 @@
 /obj/effect/spawner/random/structure/closet_empty/crate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/supply/bay)
+"iD" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "iE" = (
 /obj/structure/hedge,
 /obj/machinery/light/directional/west,
@@ -6821,6 +6821,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
+"pb" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "pd" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
 /obj/structure/chair/sofa/corp{
@@ -7080,6 +7086,10 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
+"pH" = (
+/obj/structure/flora/rock/pile/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "pI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -7133,7 +7143,7 @@
 	},
 /obj/machinery/wall_healer/free/directional/south,
 /obj/structure/window/reinforced/plasma/spawner/directional/east{
-	max_integrity = 800
+	max_integrity = 1500
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -9180,6 +9190,12 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/supplypod)
+"uH" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "uI" = (
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/delivery,
@@ -10259,7 +10275,7 @@
 	pixel_x = -2
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/west{
-	max_integrity = 800
+	max_integrity = 1500
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -11339,12 +11355,6 @@
 "zq" = (
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/front)
-"zr" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 10
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "zs" = (
 /obj/structure/filingcabinet/employment{
 	name = "employment forms filing cabinet"
@@ -11497,7 +11507,7 @@
 /obj/vehicle/sealed/mecha/marauder/seraph,
 /obj/machinery/door/window/survival_pod/left/directional/south{
 	name = "Command Mech Access";
-	max_integrity = 800;
+	max_integrity = 1500;
 	req_access = list("cent_captain")
 	},
 /turf/open/floor/iron/dark/small,
@@ -11889,12 +11899,6 @@
 /obj/effect/turf_decal/trimline/red/real_red/filled/corner,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
-"AH" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "AI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -12509,6 +12513,10 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/evacuation/lounge)
+"Cf" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "Cg" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 1
@@ -14262,10 +14270,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/supply/bay)
-"Ga" = (
-/obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Gb" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/warning{
 	dir = 1
@@ -15217,7 +15221,7 @@
 	name = "CentCom ERT Engineer's Equipment"
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/east{
-	max_integrity = 800
+	max_integrity = 1500
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -15686,7 +15690,7 @@
 /obj/vehicle/sealed/mecha/marauder/loaded/ert,
 /obj/machinery/door/window/survival_pod/left/directional/north{
 	name = "ERT Mech Access";
-	max_integrity = 800;
+	max_integrity = 1500;
 	req_access = list("cent_captain")
 	},
 /turf/open/floor/iron/dark/small,
@@ -16665,6 +16669,12 @@
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
+"Li" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "Lj" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
@@ -17026,7 +17036,7 @@
 	req_access = list("cent_security")
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/west{
-	max_integrity = 800
+	max_integrity = 1500
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
@@ -19211,6 +19221,12 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation)
+"QX" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/dirt/icemoon,
+/area/centcom/central_command_areas)
 "QY" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
@@ -20577,10 +20593,6 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
-"Ua" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Ub" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 10
@@ -21210,12 +21222,6 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/admin)
-"Vm" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 8
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Vn" = (
 /obj/structure/sign/departments/med/directional/west{
 	pixel_y = -32
@@ -23025,12 +23031,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
-"Ze" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/turf/open/misc/dirt/icemoon,
-/area/centcom/central_command_areas)
 "Zf" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/evacuation/med)
@@ -58038,7 +58038,7 @@ YG
 YG
 YG
 YG
-gd
+iD
 ht
 ht
 ht
@@ -58293,9 +58293,9 @@ YG
 YG
 YG
 YG
-Ga
+pH
 Yi
-gd
+iD
 ht
 ht
 ht
@@ -58551,9 +58551,9 @@ YG
 YG
 Yi
 Yi
-Ga
+pH
 Yi
-zr
+Li
 ht
 ht
 AY
@@ -58806,12 +58806,12 @@ YG
 YG
 YG
 YG
-Ga
+pH
 Yi
 Yi
-Ua
-Ga
-Vm
+Cf
+pH
+pb
 YG
 YG
 ht
@@ -59063,7 +59063,7 @@ YG
 YG
 YG
 Yi
-Ua
+Cf
 Yi
 Yi
 Yi
@@ -59318,11 +59318,11 @@ YG
 YG
 YG
 YG
-AH
-fC
+QX
+ep
 Yi
 Yi
-Ga
+pH
 YG
 YG
 YG
@@ -59577,8 +59577,8 @@ YG
 ht
 ht
 ht
-Ze
-AH
+uH
+QX
 YG
 YG
 YG
