@@ -10,9 +10,7 @@
 	inhand_icon_state = "arg"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/mps5
 	fire_sound = 'modular_zzplurt/sound/items/weapons/gun/mp5_shot.ogg'
-	burst_delay = 2
 	can_suppress = FALSE
-	burst_size = 1
 	actions_types = list()
 	mag_display = TRUE
 
@@ -32,7 +30,7 @@
 
 /obj/item/gun/ballistic/automatic/wt458
 	name = "\improper WT-458 Bullpup Rifle"
-	desc = "A 2-round burst rifle fielded by Nanotrasen Naval Infantry, taken out of service over time due to failing to meet EVA combat's rate of fire demands.\
+	desc = "A 3-round burst rifle fielded by Nanotrasen Naval Infantry, taken out of service over time due to failing to meet EVA combat's rate of fire demands.\
 		It is still incredibly useful for close range or tight quarters combat, such as on NT Station's infamous maintenance tunnels.<br>\
 		Lightweight and can be fired one-handed. Uses 4.6x30mm rounds."
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic.dmi'
@@ -42,12 +40,13 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	burst_delay = 2
 	can_suppress = FALSE
-	burst_size = 2
+	burst_size = 3
 	fire_delay = 5
 	mag_display = TRUE
 	mag_display_ammo = TRUE
 	empty_indicator = TRUE
-	spread = 10
+	spread = 4
+	recoil = 0.3
 	fire_sound = 'modular_zzplurt/sound/items/weapons/gun/wt458_shot.ogg'
 	fire_sound_volume = 70
 	custom_materials = list(
@@ -98,3 +97,9 @@
 
 /obj/item/gun/ballistic/automatic/wt458/nomag
 	spawnwithmagazine = FALSE
+
+//Overridden Bubber SMG Here
+//It is pretty good though why was the spread on it non-existent for a non-stocked gun?
+/obj/item/gun/ballistic/automatic/wt550/burst
+	desc = "Not so much of a rifle, being modified closer to a submachine gun. This subcompact rifle is outfitted with a modified frame and barrel and a two-shot burst trigger mechanism. Performs overall better than the average autorifle, but kicks a bit more. Has a threaded barrel for suppressors. Uses 4.6x30mm rounds."
+	spread = 6
