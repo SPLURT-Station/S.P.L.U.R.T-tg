@@ -1,5 +1,10 @@
+/obj/item/toy/plush
+	var/plappable = TRUE
+
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
+	if(!plappable)
+		return
 	create_storage(storage_type = /datum/storage/pockets/plush)
 
 /datum/storage/pockets/plush
@@ -15,6 +20,8 @@
 
 /obj/item/toy/plush/examine(mob/user)
 	. = ..()
+	if(!plappable)
+		return
 	if(locate(/obj/item/clothing/sextoy/dildo) in src)
 		. += span_notice("There is a wet dildo attached to it!")
 	else if(locate(/obj/item/clothing/sextoy/fleshlight) in src)
@@ -24,12 +31,15 @@
 	else
 		. += span_notice("It looks like there's a slot for a sex toy.")
 
-/obj/item/toy/plush/attack_self(mob/user)
+/obj/item/toy/plush/attack(mob/living/target_mob, mob/living/user, params)
+	if(!target_mob || !plappable)
+		return ..()
+
 	var/obj/item/clothing/sextoy/foundToy = (locate(/obj/item/clothing/sextoy/dildo) in src) || (locate(/obj/item/clothing/sextoy/fleshlight) in src) || (locate(/obj/item/clothing/sextoy/portal_fleshlight) in src)
 	if(foundToy)
-		foundToy.attack_self(user)
+		foundToy.attack(target_mob, user, params)
 	else
-		. = ..()
+		return ..()
 
 /obj/item/toy/plush/chaotic_toaster
 	name = "Chaotic toaster"
