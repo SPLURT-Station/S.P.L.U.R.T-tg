@@ -7,7 +7,7 @@
 	icon_screen = "holocontrol"
 
 	/// Prison holodeck loads into this area
-	mapped_start_area = /area/station/security/prison
+	mapped_start_area = /area/station/holodeck/prison
 
 	program = "workshop-offline"
 
