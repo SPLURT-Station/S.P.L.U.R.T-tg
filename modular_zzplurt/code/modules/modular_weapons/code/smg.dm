@@ -101,5 +101,5 @@
 //Overridden Bubber SMG Here
 //It is pretty good though why was the spread on it non-existent for a gun that is supposedly meant to be harder to control?
 /obj/item/gun/ballistic/automatic/wt550/burst
-	desc = "Not so much of a rifle, being modified closer to a submachine gun. This subcompact rifle is outfitted with a modified frame and barrel and a two-shot burst trigger mechanism. Performs overall better than the average autorifle, but kicks a bit more. Has a threaded barrel for suppressors. Uses 4.6x30mm rounds."
-	spread = 6
+	desc = "Not so much of a rifle, being modified closer to a submachine gun. This subcompact rifle is outfitted with a modified frame and barrel and a two-shot burst trigger mechanism. Performs overall better than the average autorifle, but kicks a bit more and the spread is noticeable at longer range. Has a threaded barrel for suppressors. Uses 4.6x30mm rounds."
+	spread = 8
