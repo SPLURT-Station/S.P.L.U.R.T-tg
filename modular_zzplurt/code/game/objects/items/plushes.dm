@@ -31,13 +31,13 @@
 	else
 		. += span_notice("It looks like there's a slot for a sex toy.")
 
-/obj/item/toy/plush/attack(mob/living/target_mob, mob/living/user, params)
-	if(!target_mob || !plappable)
+/obj/item/toy/plush/attack(mob/living/target, mob/living/user, params)
+	if(!target || !plappable)
 		return ..()
 
 	var/obj/item/clothing/sextoy/foundToy = (locate(/obj/item/clothing/sextoy/dildo) in src) || (locate(/obj/item/clothing/sextoy/fleshlight) in src) || (locate(/obj/item/clothing/sextoy/portal_fleshlight) in src)
 	if(foundToy)
-		foundToy.attack(target_mob, user, params)
+		foundToy.attack(target, user, params)
 	else
 		return ..()
 
