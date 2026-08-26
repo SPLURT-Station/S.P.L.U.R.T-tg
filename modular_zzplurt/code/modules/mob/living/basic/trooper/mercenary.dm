@@ -43,7 +43,7 @@
 /mob/living/basic/trooper/mercenary/ranged
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
 	r_hand = /obj/item/gun/ballistic/revolver/c38
-	loot = /obj/item/gun/ballistic/revolver/c38
+	loot = list(/obj/item/gun/ballistic/revolver/c38)
 	/// Type of bullet we use
 	var/casingtype = /obj/item/ammo_casing/c38
 	/// Sound to play when firing weapon
@@ -86,6 +86,9 @@
 	desc = "A unaffiliated mercenary commanding officer, they follow, and lead where the paycheck goes."
 	maxHealth = 200
 	health = 200
-	ranged_cooldown = 1 SECONDS
+	burst_shots = 4
+	ranged_cooldown = 3 SECONDS
 	corpse = /obj/effect/mob_spawn/corpse/human/mercenary/commander
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/mercenary/commander
+	r_hand = /obj/item/gun/ballistic/automatic/wt550
+	loot = list(/obj/item/gun/ballistic/automatic/wt550)

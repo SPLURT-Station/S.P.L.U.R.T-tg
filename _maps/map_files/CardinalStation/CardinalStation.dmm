@@ -3961,6 +3961,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "aUh" = (
+/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/station/maintenance/port/central)
@@ -4478,6 +4479,8 @@
 	},
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "bad" = (
@@ -6846,10 +6849,11 @@
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "bBW" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood,
-/area/station/maintenance/port/central)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/plating,
+/area/station/maintenance/port)
 "bBX" = (
 /obj/structure/girder/reinforced,
 /obj/structure/railing{
@@ -8444,14 +8448,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/main)
-"bUT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/spawner/random/engineering/tracking_beacon,
-/obj/effect/landmark/event_spawn,
-/turf/open/floor/iron/smooth_large,
-/area/station/command/gateway)
 "bUX" = (
 /obj/structure/sign/departments/chemistry/directional/south,
 /obj/effect/landmark/start/hangover,
@@ -17948,12 +17944,6 @@
 /obj/item/pen,
 /turf/open/floor/iron/dark,
 /area/station/engineering/circuit_workshop)
-"dZB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/trash/mess,
-/turf/open/floor/plating,
-/area/station/maintenance/port)
 "dZK" = (
 /obj/machinery/computer/teleporter,
 /obj/effect/turf_decal/bot,
@@ -18335,6 +18325,8 @@
 	pixel_y = -12;
 	anchored = 1
 	},
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "eeW" = (
@@ -19066,6 +19058,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
+"eoa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/plating,
+/area/station/maintenance/port)
 "eof" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fence/door/opened,
@@ -33566,6 +33563,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/service/kitchen)
+"hDl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood,
+/area/station/maintenance/port/central)
 "hDt" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -41879,8 +41880,12 @@
 	dir = 1
 	},
 /obj/structure/showcase/mecha/marauder/fakeout/command{
-	pixel_y = -12
+	pixel_y = -12;
+	name = "Seraph Display";
+	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel, this one has been stripped of all it's equipment and circuits, and is just a standing shell."
 	},
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "jEW" = (
@@ -46158,6 +46163,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
+"kDh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/maintenance/port)
 "kDl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -50632,11 +50643,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"lEm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/trash/mess,
-/turf/open/floor/plating,
-/area/station/maintenance/port)
 "lEn" = (
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -51079,12 +51085,6 @@
 "lJy" = (
 /turf/closed/wall,
 /area/station/science/cubicle)
-"lJH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/port)
 "lJI" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -60704,6 +60704,8 @@
 /obj/structure/plaque/static_plaque/golden/commission/cardinal{
 	pixel_y = -15
 	},
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "nTU" = (
@@ -65681,8 +65683,12 @@
 	dir = 1
 	},
 /obj/structure/showcase/mecha/marauder/fakeout{
-	pixel_y = -12
+	pixel_y = -12;
+	name = "Marauder Display";
+	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations. Its bleeding edge armour ensures maximum usability and protection at the cost of some modularity, this one has been stripped of all it's equipment and circuits, and is just a standing shell."
 	},
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "pau" = (
@@ -66217,6 +66223,14 @@
 	},
 /turf/open/floor/pod/dark,
 /area/station/engineering/atmos/office)
+"pfd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/iron/smooth_large,
+/area/station/command/gateway)
 "pfh" = (
 /obj/structure/transit_tube/curved/flipped{
 	dir = 4
@@ -98064,6 +98078,8 @@
 "wiA" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/effect/turf_decal/tile/blue/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/port)
 "wiI" = (
@@ -130308,10 +130324,10 @@ prE
 jPD
 eTu
 ijI
-dZB
-lJH
+bBW
+kDh
 xqq
-dZB
+bBW
 dXR
 jjF
 gss
@@ -130818,7 +130834,7 @@ wOp
 eTu
 mwf
 vIi
-lEm
+eoa
 lWB
 bXK
 bXK
@@ -135650,7 +135666,7 @@ tiB
 nEO
 oON
 ukI
-aUh
+hDl
 hwu
 cjO
 wDL
@@ -135907,7 +135923,7 @@ rAH
 mma
 kbF
 bwc
-bBW
+aUh
 jLe
 oit
 ufh
@@ -137762,7 +137778,7 @@ aUH
 lCB
 jki
 qDB
-bUT
+pfd
 tgg
 wzC
 uYW
