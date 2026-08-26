@@ -7,33 +7,46 @@
 	icon_screen = "holocontrol"
 
 	/// Prison holodeck loads into this area
-	mapped_start_area = /area/station/holodeck/prison
+	mapped_start_area = /area/station/security/prison
 
-	/// Only prison workshop programs
-	program_type = /datum/map_template/holodeck_prison
+	///the currently used map template
+	var/datum/map_template/holodeck_prison/template
+
+	program = "workshop-offline"
 
 	/// What loads when powered off / shutdown
 	offline_program = "workshop-offline"
 
-	req_access = list()
+	/// Only prison workshop programs
+	program_type = /datum/map_template/holodeck_prison
+
+///adds all programs that this holodeck has access to, and separates the restricted and unrestricted ones
+/obj/machinery/computer/holodeck/prison/proc/generate_program_list()
+	for(var/typekey in subtypesof(program_type))
+		var/datum/map_template/holodeck_prison/program = typekey
+		var/list/info_this = list("id" = initial(program.template_id), "name" = initial(program.name))
+		if(initial(program.restricted))
+			LAZYADD(emag_programs, list(info_this))
+		else
+			LAZYADD(program_cache, list(info_this))
 
 /obj/machinery/computer/holodeck/prison/post_machine_initialize()
 	. = ..()
 	linked = GLOB.areas_by_type[mapped_start_area]
 	if(!linked)
-		log_mapping("[src] at [AREACOORD(src)] has no matching holodeck area.")
+		log_mapping("[src] at [AREACOORD(src)] has no matching prison holodeck area.")
 		qdel(src)
 		return
 
 	bottom_left = locate(linked.x, linked.y, src.z)
 	if(!bottom_left)
-		log_mapping("[src] at [AREACOORD(src)] has an invalid holodeck area.")
+		log_mapping("[src] at [AREACOORD(src)] has an invalid prison holodeck area.")
 		qdel(src)
 		return
 
 	var/area/computer_area = get_area(src)
-	if(istype(computer_area, /area/station/holodeck))
-		log_mapping("Prison Holodeck computer cannot be in a holodeck, This would cause circular power dependency.")
+	if(istype(computer_area, /area/station/holodeck/prison))
+		log_mapping("Prison Holodeck computer cannot be in a prison holodeck, This would cause circular power dependency.")
 		qdel(src)
 		return
 
