@@ -9,9 +9,6 @@
 	/// Prison holodeck loads into this area
 	mapped_start_area = /area/station/security/prison
 
-	///the currently used map template
-	var/datum/map_template/holodeck_prison/template
-
 	program = "workshop-offline"
 
 	/// What loads when powered off / shutdown
@@ -19,16 +16,6 @@
 
 	/// Only prison workshop programs
 	program_type = /datum/map_template/holodeck_prison
-
-///adds all programs that this holodeck has access to, and separates the restricted and unrestricted ones
-/obj/machinery/computer/holodeck/prison/proc/generate_program_list()
-	for(var/typekey in subtypesof(program_type))
-		var/datum/map_template/holodeck_prison/program = typekey
-		var/list/info_this = list("id" = initial(program.template_id), "name" = initial(program.name))
-		if(initial(program.restricted))
-			LAZYADD(emag_programs, list(info_this))
-		else
-			LAZYADD(program_cache, list(info_this))
 
 /obj/machinery/computer/holodeck/prison/post_machine_initialize()
 	. = ..()
