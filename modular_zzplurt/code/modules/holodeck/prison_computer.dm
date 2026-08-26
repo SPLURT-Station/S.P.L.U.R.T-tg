@@ -1,3 +1,6 @@
+#define HOLODECK_CD (2 SECONDS)
+#define HOLODECK_DMG_CD (5 SECONDS)
+
 /obj/machinery/computer/holodeck/prison
 	name = "workshop control console"
 	desc = "A computer used to control the prison workshop."
@@ -50,3 +53,6 @@
 	COOLDOWN_START(src, holodeck_cooldown, HOLODECK_CD)
 	generate_program_list()
 	load_program(offline_program,TRUE)
+
+#undef HOLODECK_CD
+#undef HOLODECK_DMG_CD
