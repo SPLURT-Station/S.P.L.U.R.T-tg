@@ -1178,16 +1178,23 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/flashlight/seclite{
-	dir = 8;
-	pixel_y = -7;
-	pixel_x = -1
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
 /obj/structure/table/reinforced/titaniumglass,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/item/toy/figure/intern{
+	pixel_x = 9;
+	pixel_y = 3
+	},
+/obj/item/toy/figure/ert{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/obj/item/toy/figure/official{
+	pixel_y = -7;
+	pixel_x = -5
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/briefing)
 "cE" = (
@@ -3666,6 +3673,14 @@
 "iu" = (
 /obj/machinery/photocopier/gratis/prebuilt,
 /obj/structure/cable,
+/obj/item/toy/figure/commander/mod{
+	pixel_y = 11;
+	pixel_x = -3
+	},
+/obj/item/toy/figure/assetprotection{
+	pixel_y = 6;
+	pixel_x = 4
+	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/briefing)
 "iv" = (
@@ -4246,9 +4261,6 @@
 	pixel_x = 6;
 	pixel_y = 17
 	},
-/obj/item/detective_scanner{
-	pixel_y = 4
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -4264,6 +4276,13 @@
 	},
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
+	},
+/obj/item/toy/figure/commander{
+	pixel_y = 16;
+	pixel_x = -7
+	},
+/obj/item/detective_scanner{
+	pixel_y = 2
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/admin/front)
