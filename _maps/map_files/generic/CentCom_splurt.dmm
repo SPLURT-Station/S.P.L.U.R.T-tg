@@ -9163,9 +9163,12 @@
 /turf/open/misc/dirt/icemoon,
 /area/centcom/central_command_areas)
 "uE" = (
-/obj/machinery/button/elevator/directional/east{
+/obj/machinery/button/door/directional/east{
+	desc = "Go back. Go back. Go back. Can you operate the elevator.";
+	icon_state = "tram";
+	pixel_x = 27;
 	pixel_y = 6;
-	pixel_x = 27
+	name = "elevator button"
 	},
 /turf/open/floor/pod/light,
 /area/centcom/central_command_areas/fore)
@@ -10526,18 +10529,6 @@
 	},
 /turf/open/floor/circuit,
 /area/centcom/tdome/arena)
-"xE" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 4
-	},
-/obj/machinery/button/elevator/directional/east{
-	pixel_y = 6;
-	pixel_x = 27
-	},
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/centcom/central_command_areas/fore)
 "xF" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -21585,14 +21576,17 @@
 	},
 /area/centcom/central_command_areas/evacuation/ship/med)
 "VX" = (
-/obj/machinery/button/elevator/directional/east{
-	pixel_y = 6;
-	pixel_x = 27
-	},
 /obj/effect/turf_decal/trimline/dark_green/filled/corner{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/red/real_red/filled/corner,
+/obj/machinery/button/door/directional/east{
+	desc = "Go back. Go back. Go back. Can you operate the elevator.";
+	icon_state = "tram";
+	pixel_x = 27;
+	pixel_y = 6;
+	name = "elevator button"
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -69846,7 +69840,7 @@ hT
 Ae
 jr
 qB
-xE
+lD
 MC
 hy
 qB
