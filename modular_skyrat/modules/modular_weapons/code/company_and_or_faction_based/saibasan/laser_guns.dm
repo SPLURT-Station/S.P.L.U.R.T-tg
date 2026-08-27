@@ -254,6 +254,9 @@
 	max_mobs = 1
 	communicate_as_parent = TRUE
 
+/obj/item/gun/energy/modular_laser_rifle/ert
+	cell_type = /obj/item/stock_parts/power_store/cell/upgraded/plus
+
 //Short version of the above modular rifle, has less charge and different modes
 /obj/item/gun/energy/modular_laser_rifle/carbine
 	name = "\improper Hoshi modular laser carbine"
@@ -297,6 +300,18 @@
 		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by TerraGov \
 		to develop a portable weapon using the same modular weapon system as the Hyeseong, but unforunately lacking the plasma generator, but replaced with \
 		parts that make up the 'advanced' in an advanced energy gun. A lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts; though \
+		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
+		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
+		from users in wiping the intelligence's memory before resale or transport."
+
+/obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
+	cell_type = /obj/item/stock_parts/power_store/cell/upgraded
+	charge_sections = 3
+	default_selected_mode = "Incinerate"
+	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
+		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by TerraGov \
+		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. A \
+		lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts; though \
 		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
 		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."

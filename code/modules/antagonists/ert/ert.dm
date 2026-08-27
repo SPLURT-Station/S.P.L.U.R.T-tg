@@ -159,9 +159,10 @@
 	. = ..()
 	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
+// SPLURT EDIT START
 /datum/antagonist/ert/intern
 	name = "CentCom Intern"
-	outfit = /datum/outfit/centcom/centcom_intern
+	outfit = /datum/outfit/centcom/centcom_intern/armed
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = FALSE
 	role = "Intern"
@@ -169,15 +170,16 @@
 
 /datum/antagonist/ert/intern/leader
 	name = "CentCom Head Intern"
-	outfit = /datum/outfit/centcom/centcom_intern/leader
+	outfit = /datum/outfit/centcom/centcom_intern/leader/armed
 	random_names = FALSE
 	role = "Head Intern"
 
-/datum/antagonist/ert/intern/unarmed
-	outfit = /datum/outfit/centcom/centcom_intern/unarmed
+/datum/antagonist/ert/intern
+	outfit = /datum/outfit/centcom/centcom_intern
 
-/datum/antagonist/ert/intern/leader/unarmed
-	outfit = /datum/outfit/centcom/centcom_intern/leader/unarmed
+/datum/antagonist/ert/intern/leader
+	outfit = /datum/outfit/centcom/centcom_intern/leader
+// SPLURT EDIT END
 
 /datum/antagonist/ert/clown
 	role = "Clown"

@@ -193,36 +193,27 @@
 	id_trim = /datum/id_trim/centcom/intern
 	uniform = /obj/item/clothing/under/rank/centcom/intern
 	back = /obj/item/storage/backpack/satchel
-	belt = /obj/item/melee/baton
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black
-	l_pocket = /obj/item/ammo_box/speedloader/strilka310
-	r_pocket = /obj/item/ammo_box/speedloader/strilka310
-	l_hand = /obj/item/gun/ballistic/rifle/boltaction
 
-/datum/outfit/centcom/centcom_intern/unarmed
-	name = "CentCom Intern (Unarmed)"
+/datum/outfit/centcom/centcom_intern/armed
+	name = "CentCom Intern (Armed)"
 
-	belt = null
-	l_pocket = null
-	r_pocket = null
-	l_hand = null
+	belt = /obj/item/melee/baton
+	l_hand = /obj/item/gun/energy/laser/pistol
 
 /datum/outfit/centcom/centcom_intern/leader
 	name = "CentCom Head Intern"
 
 	suit = /obj/item/clothing/suit/armor/vest
-	suit_store = /obj/item/gun/ballistic/rifle/boltaction
 	belt = /obj/item/melee/baton/security/loaded
 	head = /obj/item/clothing/head/hats/intern
 	l_hand = /obj/item/megaphone
 
-/datum/outfit/centcom/centcom_intern/leader/unarmed // i'll be nice and let the leader keep their baton and vest
-	name = "CentCom Head Intern (Unarmed)"
+/datum/outfit/centcom/centcom_intern/leader/armed
+	name = "CentCom Head Intern (Armed)"
 
-	suit_store = null
-	l_pocket = null
-	r_pocket = null
+	suit_store = /obj/item/gun/energy/laser/assault
 
 /datum/outfit/centcom/ert
 	name = "ERT Common"
@@ -258,7 +249,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	id = /obj/item/card/id/advanced/centcom/ert/commander
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
-	l_hand = /obj/item/gun/energy/e_gun
+	l_hand = /obj/item/gun/energy/e_gun/nuclear
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded = 1,
@@ -280,7 +271,7 @@
 /datum/outfit/centcom/ert/commander/alert
 	name = "ERT Commander - High Alert"
 
-	l_hand = /obj/item/gun/energy/disabler/smg
+	l_hand = /obj/item/gun/energy/modular_laser_rifle/ert
 	backpack_contents = list(
 		/obj/item/gun/energy/e_gun/blueshield, // /obj/item/gun/energy/pulse/pistol/loyalpin = 1, BUBBER EDIT
 		/obj/item/melee/baton/security/loaded = 1,
@@ -316,10 +307,12 @@
 /datum/outfit/centcom/ert/security/alert
 	name = "ERT Security - High Alert"
 
-	l_hand = /obj/item/gun/energy/pulse/carbine/loyalpin
+	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
+	back =  /obj/item/mod/control/pre_equipped/responsory/security/alert
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/storage/box/handcuffs = 1,
+		/obj/item/ammo_box/magazine/smartgun_drum = 2,
 	)
 
 /datum/outfit/centcom/ert/medic
@@ -337,7 +330,7 @@
 	belt = /obj/item/storage/belt/medical/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_hand = /obj/item/storage/medkit/regular
-	r_hand = /obj/item/gun/energy/e_gun
+	r_hand = /obj/item/gun/energy/e_gun/stun
 	l_pocket = /obj/item/healthanalyzer/advanced
 	additional_radio = /obj/item/encryptionkey/heads/cmo
 	r_pocket = /obj/item/modular_computer/pda/centcom/ert
@@ -354,6 +347,7 @@
 /datum/outfit/centcom/ert/medic/alert
 	name = "ERT Medic - High Alert"
 
+	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	backpack_contents = list(
 		/obj/item/gun/energy/e_gun/mini, // /obj/item/gun/energy/pulse/pistol/loyalpin = 1, - BUBBER EDIT
 		/obj/item/gun/medbeam = 1,
@@ -368,7 +362,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/engineer
 	back = /obj/item/mod/control/pre_equipped/responsory/engineer
-	l_hand = /obj/item/gun/energy/e_gun
+	l_hand = /obj/item/gun/energy/e_gun/stun
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/construction/rcd/loaded/upgraded = 1,
@@ -393,6 +387,7 @@
 /datum/outfit/centcom/ert/engineer/alert
 	name = "ERT Engineer - High Alert"
 
+	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	backpack_contents = list(
 		/obj/item/construction/rcd/combat = 1,
 		/obj/item/gun/energy/e_gun/mini, // /obj/item/gun/energy/pulse/pistol/loyalpin = 1, - BUBBER EDIT
