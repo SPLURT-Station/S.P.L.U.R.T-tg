@@ -25,6 +25,8 @@
 
 		//SPLURT ADDITION: START - Splurt Stamp Icons
 		"stamp-nanotrasen" = 'icons/stamp_icons/large_stamp-nanotrasen.png',
+		"stamp-ntc" = 'icons/stamp_icons/large_stamp-ntc.png',
+		"stamp-ntborg" = 'icons/stamp_icons/large_stamp-ntborg.png',
 		"stamp-kiss" = 'modular_zzplurt/icons/effects/kissmark.png',
 		//SPLURT ADDITION: END - Splurt Stamp Icons
 

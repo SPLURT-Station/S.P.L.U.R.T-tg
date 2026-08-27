@@ -1,3 +1,4 @@
+/*
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
 	rpg_title = "Guild Adviser"
@@ -179,7 +180,7 @@
 	new /obj/item/storage/photo_album/personal(src)
 	new /obj/item/bedsheet/centcom(src)
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
-
+*/
 
 /obj/item/pen/fountain/green
 	name = "nanotrasen fountain pen"
@@ -188,7 +189,7 @@
 	icon_state = "pen-fountain-nt"
 	colour = "#18610D"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
-
+/*
 /obj/item/storage/belt/holster/consultant
 	name = "consultant's holster"
 	desc = "A familiar-looking leather holster, with black, leather straps and padded jackets painted in an iconic CentCom green. This one belongs to the Nanotrasen consultant."
@@ -316,3 +317,4 @@
 	if(!redeemer.Adjacent(src))
 		return FALSE
 	return TRUE
+*/

@@ -23,7 +23,7 @@
 	force = 15
 
 // NTC sabre
-
+/*
 /obj/item/storage/belt/sheath/sabre/ntc_commander
 	name = "consultant's commander sabre sheath"
 	desc = "An ornate sheathe bestowed to Nanotrasen officials, decorated in fine green-dyed leather, with ornate gold plating, engraved with the Nanotrasen logo. A weapon from a more elegant age, but no less deadly. While it may not have the same cutting power as the Captain's own sabre, this one practically exudes an aura of authority in and of itself. To wield this is to understand your role as an intimidating presence, but not a casual combatant."
@@ -60,7 +60,7 @@ What followed was months of revision, with Nanotrasen combing through ancient Te
 <br>\
 Such a weapon is distributed exclusively to Nanotrasen Officers who have shown distinguished conduct, appointed by the board of Central Command. Engraved upon its pommel is the bearer's Employee Identification Number, fixed at time of issuance and, per Corporate Regulations, not removable without voiding the bearer's pension. This one has yet to be assigned a number, but perhaps you'll be the one to earn it..."\
 	)
-
+*/
 // Centcom sabre. This one is unimplemented, it only exists for fun. It's a Centcom Commander sword, so it's effectively admin-only, hence why it's so powerful.
 
 /obj/item/storage/belt/sheath/sabre/centcom

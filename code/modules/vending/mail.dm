@@ -34,6 +34,7 @@
 		DEPARTMENT_CARGO,
 		DEPARTMENT_SERVICE,
 		DEPARTMENT_COMMAND,
+		DEPARTMENT_CENTRAL_COMMAND, // SPLURT EDIT
 	)
 	var/static/list/choices = list(
 		"Eject" = icon('icons/hud/radial.dmi', "radial_eject"),

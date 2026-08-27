@@ -118,6 +118,14 @@ required_map = "biodome.dmm"
 coordinates = [166, 113, 2]
 trait_name = "Station"
 
+# Biodome Blueshield Office
+[templates.biodome_blueshield_office]
+map_files = ["biodome_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/biodome/"
+required_map = "biodome.dmm"
+coordinates = [148, 131, 1]
+trait_name = "Station"
+
 # Metastation Blueshield Office
 [templates.metastation_blueshield_office]
 map_files = ["metastation_blueshield_office.dmm"]
@@ -166,6 +174,14 @@ required_map = "BoxStation.dmm"
 coordinates = [87, 128, 1]
 trait_name = "Station"
 
+# Boxstation Blueshield Office
+[templates.boxstation_blueshield_office]
+map_files = ["boxstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/boxstation/"
+required_map = "BoxStation.dmm"
+coordinates = [85, 143, 1]
+trait_name = "Station"
+
 # Boxstation Security Medical Expansion
 [templates.boxstation_security_medic_medbay]
 map_files = ["boxstation_security_medic_medbay.dmm"]
@@ -189,6 +205,14 @@ map_files = ["kilostation_security_medic_medbay.dmm"]
 directory = "_maps/splurt/automapper/templates/kilostation/"
 required_map = "KiloStation.dmm"
 coordinates = [69, 92, 1]
+trait_name = "Station"
+
+# Moonstation Blueshield Office
+[templates.moonstation_blueshield_office]
+map_files = ["moonstation_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/moonstation/"
+required_map = "moonstation.dmm"
+coordinates = [85, 148, 3]
 trait_name = "Station"
 
 # Moonstation Security Medical Expansion
@@ -263,6 +287,14 @@ required_map = "Blueshift.dmm"
 coordinates = [88, 160, 2]
 trait_name = "Station"
 
+# Blueshift Blueshield Office
+[templates.blueshift_blueshield_office]
+map_files = ["blueshift_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/blueshift/"
+required_map = "Blueshift.dmm"
+coordinates = [93, 156, 2]
+trait_name = "Station"
+
 # Blueshift Security Medical Expansion - Main
 [templates.blueshift_security_medic_medbay]
 map_files = ["blueshift_security_medic_medbay.dmm"]
@@ -285,6 +317,14 @@ map_files = ["voidraptor_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/voidraptor/"
 required_map = "VoidRaptor.dmm"
 coordinates = [136, 200, 1]
+trait_name = "Station"
+
+# VoidRaptor Blueshield Office
+[templates.voidraptor_blueshield_office]
+map_files = ["voidraptor_blueshield_office.dmm"]
+directory = "_maps/splurt/automapper/templates/voidraptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [117, 199, 1]
 trait_name = "Station"
 
 # VoidRaptor Security Medical Expansion
@@ -320,12 +360,12 @@ coordinates = [145, 91, 1]
 trait_name = "Station"
 
 # OUROBOROS MAP EDITS
-# Ouroboros NTC Office
-[templates.ouroboros_ntc_office]
-map_files = ["ouroboros_NTC_office.dmm"]
+# Ouroboros NTR Office
+[templates.ouroboros_ntrep_office]
+map_files = ["ouroboros_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/ouroboros/"
 required_map = "Ouroboros.dmm"
-coordinates = [131, 131, 2]
+coordinates = [120, 128, 2]
 trait_name = "Station"
 
 # NorthStar NTR Office
@@ -360,16 +400,28 @@ required_map = "MetaStation.dmm"
 coordinates = [101, 115, 1]
 trait_name = "Station"
 
+# Deltastation Blueshield Office
+[templates.deltastation_blueshield_office]
+map_files = ["deltastation_blueshield_office_new.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [112, 122, 1]
+trait_name = "Station"
+
+# Deltastation NTR Office
+[template.deltastation_ntrep_office]
+map_files = ["deltastation_ntrep_office.dmm"]
+directory = "_maps/splurt/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [123, 143, 1]
+trait_name = "Station"
+
 # Override upstream templates without redefining them in [templates].
 # Useful when upstream keeps the same automap placement but Splurt wants to swap
 # the map file path or other template properties.
 [template_overrides.catwalk_ntrep_office]
-map_files = ["catwalk_ntrep.dmm"]
+map_files = ["catwalk_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/CatwalkStation/"
-
-[template_overrides.deltastation_ntrep_office]
-map_files = ["deltastation_ntrep_office.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
 
 [template_overrides.iceboxstation_ntc_bs]
 map_files = ["iceboxstation_ntrep_office.dmm"]
@@ -382,10 +434,6 @@ directory = "_maps/splurt/automapper/templates/tramstation/"
 [template_overrides.wawastation_ntrep_office]
 map_files = ["wawastation_ntrep_office.dmm"]
 directory = "_maps/splurt/automapper/templates/wawastation/"
-
-[template_overrides.deltastation_blueshield]
-map_files = ["deltastation_blueshield_office_new.dmm"]
-directory = "_maps/splurt/automapper/templates/deltastation/"
 
 [template_overrides.kilostation_ntrep_office]
 map_files = ["kilostation_ntrep_office.dmm"]

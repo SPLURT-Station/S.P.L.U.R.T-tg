@@ -21,9 +21,17 @@
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/camera/autoname/directional/south,
 /obj/structure/table/wood/fancy/blue,
-/obj/machinery/fax{
-	name = "Blueshield's Fax Machine";
-	fax_name = "Blueshield's Office"
+/obj/item/reagent_containers/cup/glass/bottle/champagne{
+	pixel_y = 19;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 7;
+	pixel_x = 7
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -35,7 +43,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "e" = (
@@ -134,7 +142,14 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/machinery/requests_console/auto_name/directional/west,
+/obj/machinery/requests_console/directional/west{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/announcement,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "p" = (
@@ -159,7 +174,7 @@
 	},
 /obj/machinery/button/door/directional/east{
 	id = "blueshield_priv";
-	req_access = list("captain");
+	req_access = list("cent_officer");
 	name = "Privacy Shutters Control";
 	pixel_y = -6
 	},
@@ -276,7 +291,7 @@
 "z" = (
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/gun_maintenance_supplies,
 /obj/item/clothing/suit/armor/riot,
@@ -383,7 +398,7 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -436,13 +451,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/item/modular_computer/laptop/preset/security{
-	pixel_y = 5
-	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = -32
 	},
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/modular_computer/laptop/preset/security,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "P" = (
@@ -489,13 +503,13 @@
 /obj/structure/bed/dogbed{
 	name = "Walter's Dogbed"
 	},
-/mob/living/basic/pet/dog/dobermann/walter{
-	gender = "male"
-	},
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
 	pixel_y = -2;
 	name = "\improper chewed up Redsuit action figure"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -545,7 +559,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "Y" = (

@@ -11,7 +11,7 @@
 /obj/structure/table/wood,
 /obj/structure/sign/poster/official/random/directional/east,
 /obj/item/radio/intercom/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "bP" = (
 /obj/structure/filingcabinet/medical{
@@ -86,11 +86,16 @@
 /obj/structure/noticeboard/directional/north{
 	name = "Nanotrasen Consultant's Notice Board"
 	},
-/obj/machinery/button/door/directional/west{
-	name = "Privacy Shutters";
-	id = "nt_rep_shutters"
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = -24;
+	req_access = list("cent_general");
+	name = "curtain control"
 	},
 /turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/nt_rep)
+"gR" = (
+/turf/closed/wall,
 /area/station/command/heads_quarters/nt_rep)
 "hb" = (
 /obj/structure/table/wood,
@@ -163,10 +168,10 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "mT" = (
-/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "mU" = (
@@ -219,9 +224,9 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -5
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
 	pixel_y = 11;
@@ -266,18 +271,28 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "st" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/item/folder/ntc_documents,
+/obj/structure/safe/floor/ntc,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
+/obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "tt" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/nanotrasen/double,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/east,
 /obj/effect/landmark/start/nanotrasen_consultant,
-/turf/open/floor/carpet/royalblue,
+/obj/item/bedsheet/ntc/double,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "tz" = (
 /turf/closed/wall/r_wall,
@@ -336,7 +351,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "wN" = (
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "wW" = (
 /obj/machinery/photocopier/prebuilt,
@@ -388,11 +403,11 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/structure/sign/clock/directional/west,
 /obj/machinery/light/directional/west,
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "zd" = (
@@ -423,7 +438,7 @@
 	},
 /obj/structure/sign/poster/official/no_erp/directional/east,
 /obj/machinery/newscaster/directional/north,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "CU" = (
 /obj/effect/turf_decal/siding/wood{
@@ -442,7 +457,7 @@
 "DD" = (
 /obj/machinery/light/small/directional/south,
 /obj/structure/sign/clock/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "DJ" = (
 /obj/structure/dresser,
@@ -518,6 +533,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/effect/landmark/start/iaa_cyborg,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Jv" = (
@@ -545,12 +561,21 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Lw" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_door,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
+/area/station/command/heads_quarters/nt_rep)
+"Lz" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Md" = (
 /obj/structure/table/wood,
@@ -627,10 +652,10 @@
 	dir = 8
 	},
 /obj/effect/landmark/navigate_destination/autoname,
-/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_door,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "Qx" = (
@@ -640,13 +665,12 @@
 /area/station/maintenance/fore)
 "QD" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_door,
 /obj/machinery/door/airlock/corporate{
 	name = "Consultant's Quarters"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/consultant,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
 "QG" = (
@@ -718,6 +742,9 @@
 "TT" = (
 /turf/template_noop,
 /area/template_noop)
+"TX" = (
+/turf/closed/wall/rust,
+/area/station/command/heads_quarters/nt_rep)
 "Vf" = (
 /obj/structure/closet/crate,
 /obj/item/hand_labeler,
@@ -742,7 +769,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "VB" = (
 /obj/machinery/airalarm/directional/north,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "VV" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -756,9 +783,13 @@
 "Xo" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_shutters";
-	dir = 8
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -795,15 +826,12 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "YR" = (
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
 /obj/machinery/newscaster/directional/west,
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 8
 	},
+/obj/structure/bed/dogbed/luxury,
+/obj/effect/spawner/random/ntc_pet,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "YS" = (
@@ -921,7 +949,7 @@ st
 Fc
 RI
 VV
-Jq
+Lz
 Jq
 TH
 la
@@ -944,10 +972,10 @@ TT
 "}
 (10,1,1) = {"
 tz
-tz
+gR
 QD
-tz
-PX
+gR
+TX
 XA
 nr
 Vy
@@ -961,7 +989,7 @@ tz
 lP
 Dw
 gh
-tz
+gR
 Md
 hb
 lp

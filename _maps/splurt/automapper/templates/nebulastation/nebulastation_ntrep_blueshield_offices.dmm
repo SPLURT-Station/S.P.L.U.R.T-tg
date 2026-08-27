@@ -16,10 +16,23 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ac" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/item/folder/ntc_documents,
+/obj/structure/safe/floor/ntc,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/stack/sheet/mineral/silver{
+	amount = 25
+	},
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
+/obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "ad" = (
@@ -88,25 +101,14 @@
 	req_access = list("cent_general")
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "ak" = (
 /obj/item/paper_bin{
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
-	pixel_y = 12;
-	pixel_x = 8
-	},
-/obj/item/stamp/denied{
-	pixel_x = 8;
-	pixel_y = 6
-	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/item/pen/fountain/nanotrasen{
 	pixel_y = 5;
 	pixel_x = -4
@@ -118,6 +120,17 @@
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
+/obj/item/stamp/granted{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "al" = (
@@ -202,7 +215,7 @@
 /obj/effect/spawner/random/bureaucracy/folder{
 	spawn_random_offset = 1
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "av" = (
 /obj/structure/hedge,
@@ -222,7 +235,8 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/item/stamp/granted{
 	pixel_y = 9;
 	pixel_x = 8
 	},
@@ -230,7 +244,6 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
-/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ax" = (
@@ -291,14 +304,6 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp{
-	pixel_y = 10;
-	pixel_x = 8
-	},
-/obj/item/stamp/denied{
-	pixel_x = 8;
-	pixel_y = 3
-	},
 /obj/machinery/camera/directional/south{
 	c_tag = "Blueshield's Office"
 	},
@@ -306,6 +311,14 @@
 	name = "Privacy Shutters Control";
 	id = "blueshield_priv";
 	req_access = list("captain")
+	},
+/obj/item/stamp/granted{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 2
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
@@ -327,11 +340,10 @@
 	dir = 8;
 	color = "#462f1c"
 	},
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "aF" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/spawner/random/loot/dignitary/blueshield,
 /obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /turf/open/floor/iron/dark/diagonal,
@@ -350,7 +362,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /obj/machinery/door/airlock/corporate{
 	name = "Nanotrasen Internal Affairs Office"
 	},
@@ -362,6 +374,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aJ" = (
@@ -371,11 +384,13 @@
 	},
 /obj/structure/sign/poster/official/enlist/directional/south,
 /obj/machinery/camera/autoname/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "aK" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/obj/machinery/door/airlock/maintenance{
+	name = "Internal Affairs Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/nanotrasenstaff,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/nt_rep)
 "aL" = (
@@ -412,9 +427,9 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
-	pixel_y = 2;
-	pixel_x = -4
+/obj/item/folder/nanotrasen{
+	pixel_y = 1;
+	pixel_x = -2
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
 	pixel_y = 11;
@@ -427,8 +442,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "aP" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax/heads/ntc,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "aQ" = (
@@ -447,7 +462,8 @@
 	dir = 4;
 	color = "#462f1c"
 	},
-/turf/open/floor/carpet/royalblue,
+/obj/effect/landmark/start/iaa_cyborg,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "aT" = (
 /obj/effect/turf_decal/siding/wood/end,
@@ -464,7 +480,7 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/item/radio/intercom/directional/south,
-/turf/open/floor/carpet/royalblue,
+/turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "aV" = (
 /turf/closed/wall/r_wall,
@@ -493,6 +509,7 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aZ" = (
@@ -501,11 +518,8 @@
 	},
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/machinery/newscaster/directional/west,
-/obj/structure/bed/dogbed/ian{
-	name = "Lisa's bed";
-	desc = "Lisa's bed! Looks comfy."
-	},
-/mob/living/basic/pet/dog/corgi/lisa,
+/obj/structure/bed/dogbed/luxury,
+/obj/effect/spawner/random/ntc_pet,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "cv" = (
@@ -546,6 +560,17 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "kz" = (
@@ -558,7 +583,6 @@
 /area/station/command/heads_quarters/blueshield)
 "kZ" = (
 /obj/machinery/status_display/ai/directional/east,
-/obj/machinery/light/red/directional/east,
 /obj/machinery/suit_storage_unit/blueshield,
 /obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -567,6 +591,7 @@
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = 32
 	},
+/obj/machinery/light/red/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "mV" = (
@@ -641,11 +666,14 @@
 	dir = 4
 	},
 /obj/structure/sign/calendar/directional/west,
-/obj/machinery/requests_console/auto_name/directional/south,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/announcement,
+/obj/machinery/requests_console/directional/south{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/blueshield)
 "Ae" = (
@@ -683,7 +711,6 @@
 "Cz" = (
 /obj/structure/rack/shelf,
 /obj/machinery/status_display/evac/directional/east,
-/obj/machinery/light/red/directional/east,
 /obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -694,6 +721,7 @@
 /obj/structure/plaque/static_plaque/golden{
 	pixel_y = -32
 	},
+/obj/machinery/light/red/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "Hp" = (
@@ -801,11 +829,11 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Armory"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/blueshield,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/blueshield)
 "Px" = (
@@ -816,8 +844,8 @@
 /obj/machinery/door/airlock/corporate{
 	name = "Blueshield's Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /obj/effect/landmark/navigate_destination/autoname,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/blueshield)
 "Rt" = (

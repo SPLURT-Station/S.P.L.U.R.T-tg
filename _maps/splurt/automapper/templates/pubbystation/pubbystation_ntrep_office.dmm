@@ -6,6 +6,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/effect/landmark/start/iaa_cyborg,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
@@ -116,9 +117,6 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/stamp/nanotrasen{
-	pixel_x = 8
-	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
 /obj/machinery/requests_console/directional/south{
 	name = "Nanotrasen Consultant's Requests Console";
@@ -127,6 +125,9 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
+/obj/item/stamp/head/ntc{
+	pixel_x = 8
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "q" = (
@@ -168,11 +169,11 @@
 /obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
 /obj/item/storage/lunchbox/nanotrasen,
 /obj/item/clipboard,
-/obj/item/folder/yellow,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/item/folder/nanotrasen,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
@@ -186,10 +187,20 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
-/obj/structure/safe/floor,
-/obj/item/clothing/accessory/medal/gold/nanotrasen_consultant,
-/obj/item/clothing/accessory/medal/silver/bureaucracy,
-/obj/item/clothing/accessory/medal/gold/ordom,
+/obj/structure/safe/floor/ntc,
+/obj/item/folder/ntc_documents,
+/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/item/reagent_containers/applicator/pill/cyanide,
+/obj/item/photo{
+	name = "department group photo";
+	desc = "A recent photo of all the Internal Affairs staff, the Affairs Director, Assistant Director, and all the Executive Officers, and Crew Trainers. You almost miss the good days.."
+	},
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/obj/item/gun/energy/pulse/pistol/m1911/fake_ntc,
+/obj/item/toy/figure/dsquad,
+/obj/item/coin/adamantine,
+/obj/item/encryptionkey/headset_cent,
+/obj/item/storage/belt/sheath/sabre/ntc,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
@@ -263,16 +274,16 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/stamp/granted{
-	pixel_x = 9;
-	pixel_y = 10
-	},
-/obj/item/stamp/denied{
-	pixel_x = 9;
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
+	},
+/obj/item/stamp/granted{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 2
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -290,7 +301,7 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
-/obj/item/folder/blue{
+/obj/item/folder/nanotrasen{
 	pixel_y = 2;
 	pixel_x = -4
 	},
