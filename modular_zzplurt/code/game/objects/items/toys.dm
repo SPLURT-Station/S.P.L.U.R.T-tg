@@ -111,8 +111,8 @@
 	toysay = "14 dead in the clown's room."
 
 /obj/item/toy/figure/virologist
-	name = "\improper virologist figure"
-	desc = "A figurine depicting a arachnid Virologist donning a labcoat, one of the limited edition versions, they stopped producing these ones.."
+	name = "\improper limited edition virologist figure"
+	desc = "A figurine depicting a arachnid Virologist donning a labcoat, they stopped producing these ones.."
 	icon_state = "virologist"
 	toysay = "Oops! I think that was the Romerol virus..."
 
@@ -148,7 +148,12 @@
 /obj/item/toy/figure/engineer
 	name = "\improper station engineer figure"
 	desc = "A figurine depicting a Station Engineer holding a crowbar at-ready."
-	toysay = "Someone bombed the medbay... again..."
+	toysay = "Someone bombed the medbay... Again..."
+
+/obj/item/toy/figure/tcommspec
+	name = "\improper telecomms specialist figure"
+	desc = "A figurine depicting a Telecomms Specialist holding a handheld radio."
+	toysay = "Another exospheric bubble..."
 
 // Cargo Figures
 
@@ -285,7 +290,7 @@
 	name = "\improper centcom intern figure"
 	desc = "A figurine depicting a reptillian CentCom Intern, depressingly underpaid."
 	icon_state = "intern"
-	toysay = "W-Wait.. What am I arming up for again?"
+	toysay = "Wait... What am I arming up for again?"
 
 /obj/item/toy/figure/syndie
 	name = "\improper syndicate operative figure"
