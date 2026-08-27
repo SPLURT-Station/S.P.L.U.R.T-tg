@@ -96,7 +96,7 @@
 	polldesc = "a Nanotrasen Janitorial Response Team"
 
 /datum/ert/intern
-	roles = list(/datum/antagonist/ert/inter/armed)
+	roles = list(/datum/antagonist/ert/intern/armed)
 	leader_role = /datum/antagonist/ert/intern/leader/armed
 	teamsize = 7
 	opendoors = FALSE
