@@ -1,22 +1,8 @@
-/obj/item/toy/plush
-	var/plappable = TRUE
 
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
-	if(!plappable)
-		return
-	create_storage(storage_type = /datum/storage/pockets/plush)
-
-/datum/storage/pockets/plush
-	max_slots = 1
-
-/datum/storage/pockets/plush/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	set_holdable(list(
-		/obj/item/clothing/sextoy/dildo,
-		/obj/item/clothing/sextoy/fleshlight,
-		/obj/item/clothing/sextoy/portal_fleshlight,
-	))
+	if(plappable)
+		create_storage(max_slots = 1, max_specific_storage = WEIGHT_CLASS_SMALL, canhold = list(/obj/item/clothing/sextoy/dildo, /obj/item/clothing/sextoy/fleshlight, /obj/item/clothing/sextoy/portal_fleshlight))
 
 /obj/item/toy/plush/examine(mob/user)
 	. = ..()
@@ -35,7 +21,7 @@
 	if(!target || !plappable)
 		return ..()
 
-	var/obj/item/clothing/sextoy/foundToy = (locate(/obj/item/clothing/sextoy/dildo) in src) || (locate(/obj/item/clothing/sextoy/fleshlight) in src) || (locate(/obj/item/clothing/sextoy/portal_fleshlight) in src)
+	var/obj/item/clothing/sextoy/foundToy = locate(/obj/item/clothing/sextoy) in src
 	if(foundToy)
 		foundToy.attack(target, user, params)
 	else
@@ -176,6 +162,7 @@
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
 	icon_state = "glitchy_protogen"
 	worn_icon_state = "glitchy_protogen"
+	plappable = FALSE // Can already plap
 
 /obj/item/toy/plush/glitchy_protogen/Initialize(mapload)
 	. = ..()
@@ -242,6 +229,7 @@
 	attack_verb_simple = list("beat", "bully", "assault", "harass", "abuse", "yap")
 	attack_verb_continuous = list("beats", "bullies", "assaults", "harasses", "abuses", "yaps")
 	squeak_override = list('modular_zzplurt/sound/voice/yap.ogg' = 19, 'modular_skyrat/modules/alerts/sound/security_levels/delta.ogg' = 1)
+	plappable = FALSE // Doesn't want
 
 /obj/item/toy/plush/doctoraddy
 	name = "Doctor Addy Plushie"
