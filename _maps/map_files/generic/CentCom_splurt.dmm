@@ -2180,7 +2180,7 @@
 	max_integrity = 500
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced/indestructible,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/admin/briefing)
 "eR" = (
@@ -3154,19 +3154,13 @@
 /area/centcom/central_command_areas/evacuation/ai_storage)
 "hl" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/structure/table/reinforced/titaniumglass,
 /obj/structure/sign/nanotrasen{
 	pixel_y = 32
 	},
-/obj/item/clothing/gloves/tackler/combat/insulated,
-/obj/item/clothing/gloves/tackler/combat/insulated,
-/obj/item/clothing/shoes/combat/swat,
-/obj/item/clothing/shoes/combat/swat,
-/obj/item/clothing/mask/gas/sechailer/swat,
-/obj/item/clothing/mask/gas/sechailer/swat,
 /obj/machinery/camera/preset/centcom/directional/north{
 	c_tag = "CentCom Administrative Sector - Secure Storage"
 	},
+/obj/machinery/telecomms/allinone/nuclear,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/storage)
 "hm" = (
@@ -8986,7 +8980,7 @@
 	max_integrity = 500
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced/indestructible,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/admin/commander)
 "ui" = (
