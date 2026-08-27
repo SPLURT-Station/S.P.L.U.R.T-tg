@@ -96,8 +96,8 @@
 	polldesc = "a Nanotrasen Janitorial Response Team"
 
 /datum/ert/intern
-	roles = list(/datum/antagonist/ert/intern)
-	leader_role = /datum/antagonist/ert/intern/leader
+	roles = list(/datum/antagonist/ert/inter/armed)
+	leader_role = /datum/antagonist/ert/intern/leader/armed
 	teamsize = 7
 	opendoors = FALSE
 	rename_team = "Horde of Interns"
@@ -106,8 +106,8 @@
 	random_names = FALSE
 
 /datum/ert/intern/unarmed
-	roles = list(/datum/antagonist/ert/intern/unarmed)
-	leader_role = /datum/antagonist/ert/intern/leader/unarmed
+	roles = list(/datum/antagonist/ert/intern)
+	leader_role = /datum/antagonist/ert/intern/leader
 	rename_team = "Unarmed Horde of Interns"
 
 /datum/ert/erp
