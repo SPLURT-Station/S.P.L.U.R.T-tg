@@ -162,7 +162,7 @@
 // SPLURT EDIT START
 /datum/antagonist/ert/intern
 	name = "CentCom Intern"
-	outfit = /datum/outfit/centcom/centcom_intern/armed
+	outfit = /datum/outfit/centcom/centcom_intern
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = FALSE
 	role = "Intern"
@@ -170,15 +170,15 @@
 
 /datum/antagonist/ert/intern/leader
 	name = "CentCom Head Intern"
-	outfit = /datum/outfit/centcom/centcom_intern/leader/armed
+	outfit = /datum/outfit/centcom/centcom_intern/leader
 	random_names = FALSE
 	role = "Head Intern"
 
-/datum/antagonist/ert/intern
-	outfit = /datum/outfit/centcom/centcom_intern
+/datum/antagonist/ert/intern/armed
+	outfit = /datum/outfit/centcom/centcom_intern/armed
 
-/datum/antagonist/ert/intern/leader
-	outfit = /datum/outfit/centcom/centcom_intern/leader
+/datum/antagonist/ert/intern/leader/armed
+	outfit = /datum/outfit/centcom/centcom_intern/leader/armed
 // SPLURT EDIT END
 
 /datum/antagonist/ert/clown
