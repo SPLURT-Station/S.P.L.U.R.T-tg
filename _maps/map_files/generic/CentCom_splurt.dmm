@@ -10520,10 +10520,6 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "xD" = (
-/obj/machinery/flasher{
-	id = "tdomeflash";
-	name = "Thunderdome Flash"
-	},
 /obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/motion/thunderdome{
 	pixel_x = 10
@@ -18027,16 +18023,9 @@
 /area/centcom/central_command_areas/evacuation/med)
 "Om" = (
 /obj/structure/table/reinforced/titaniumglass,
-/obj/machinery/button/flasher/indestructible{
-	id = "tdomeflash";
-	pixel_y = 2;
-	pixel_x = 5;
-	req_access = list("cent_thunder")
-	},
 /obj/machinery/button/showtime{
 	req_access = list("cent_thunder");
-	pixel_y = 2;
-	pixel_x = -5
+	pixel_y = 2
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1

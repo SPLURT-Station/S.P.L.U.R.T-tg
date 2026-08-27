@@ -307,7 +307,6 @@
 /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	cell_type = /obj/item/stock_parts/power_store/cell/upgraded
 	charge_sections = 3
-	default_selected_mode = "Incinerate"
 	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
 		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by TerraGov \
 		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. A \
