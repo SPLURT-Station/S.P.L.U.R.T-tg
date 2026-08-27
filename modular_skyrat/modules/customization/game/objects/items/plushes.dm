@@ -140,12 +140,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/slime_squish.ogg' = 1)
 	young = TRUE //No.
+	plappable = FALSE //SPLURT EDIT - Has its own inventory thingy
 
-/* SPLURT EDIT - Path was broken anyway and conflicts with 'plappable'
-/obj/item/toy/plush/sharknet/Initialize(mapload)
+/obj/item/toy/plush/skyrat/sharknet/Initialize(mapload) //SPLURT EDIT - Fix the path
 	. = ..()
 	create_storage(max_slots = 2, max_specific_storage = WEIGHT_CLASS_SMALL, canhold = list(/obj/item/toy/plush/skyrat/pintaplush))
-*/
 
 /obj/item/toy/plush/skyrat/pintaplush
 	name = "smaller deer plushie"
