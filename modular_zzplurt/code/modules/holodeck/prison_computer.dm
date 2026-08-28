@@ -26,11 +26,11 @@
 	var/area/station/holodeck/prison/linked
 
 	///what program is loaded right now or is about to be loaded
-	var/program = "workshop-offline"
+	var/program = "workshop_offline"
 	var/last_program
 
 	///the default program loaded by this holodeck when spawned and when deactivated
-	var/offline_program = "workshop-offline"
+	var/offline_program = "workshop_offline"
 
 	///stores all of the unrestricted holodeck map templates that this computer has access to
 	var/list/program_cache
