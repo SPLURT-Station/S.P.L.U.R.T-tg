@@ -31,7 +31,7 @@
 /obj/item/gun/ballistic/automatic/wt458
 	name = "\improper WT-458 Bullpup Rifle"
 	desc = "A 3-round burst rifle fielded by Nanotrasen Naval Infantry, taken out of service over time due to failing to meet EVA combat's rate of fire demands.\
-		It is still incredibly useful for close range or tight quarters combat, such as on NT Station's infamous maintenance tunnels.<br>\
+		Has secondary magazine port, effectively doubling the ammunition capacity.<br>\
 		Lightweight and can be fired one-handed. Uses 4.6x30mm rounds."
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "wt458"
@@ -49,6 +49,10 @@
 	recoil = 0.3
 	fire_sound = 'modular_zzplurt/sound/items/weapons/gun/wt458_shot.ogg'
 	fire_sound_volume = 70
+	/// The type of secondary magazine for the bulldog
+	var/secondary_magazine_type
+	/// The secondary magazine
+	var/obj/item/ammo_box/magazine/secondary_magazine
 	custom_materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 20,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 16,
@@ -57,11 +61,85 @@
 //Gunshot is taken from this  https://github.com/ParadiseSS13/Paradise/tree/master/sound/weapons/gunshots#gunshot_rifle.ogg
 //However, I could not find who it was attributed to or where it comes from
 
+
+/obj/item/gun/ballistic/automatic/wt458/update_overlays()
+	. = ..()
+	if(secondary_magazine)
+		. += "[icon_state]_secondary_mag_[initial(secondary_magazine.icon_state)]"
+		if(!secondary_magazine.ammo_count())
+			. += "[icon_state]_secondary_mag_empty"
+
+/obj/item/gun/ballistic/automatic/wt458/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+	if(!secondary_magazine)
+		return ..()
+	var/secondary_shells_left = LAZYLEN(secondary_magazine.stored_ammo)
+	if(magazine)
+		var/shells_left = LAZYLEN(magazine.stored_ammo)
+		if(shells_left <= 0 && secondary_shells_left >= 1)
+			toggle_magazine()
+	else
+		toggle_magazine()
+	return ..()
+
+/obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
+	toggle_magazine()
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/gun/ballistic/automatic/wt458/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	if(secondary_magazine)
+		toggle_magazine()
+	return ..()
+
+/obj/item/gun/ballistic/automatic/wt458/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, secondary_magazine_type))
+		return ..()
+	if(!user.transferItemToLoc(tool, src))
+		return ITEM_INTERACT_BLOCKING
+	var/obj/item/ammo_box/magazine/old_mag = secondary_magazine
+	secondary_magazine = tool
+	if(old_mag)
+		user.put_in_hands(old_mag)
+	balloon_alert(user, "secondary [magazine_wording] loaded")
+	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
+
+/obj/item/gun/ballistic/automatic/wt458/click_alt_secondary(mob/user)
+	if(secondary_magazine)
+		var/obj/item/ammo_box/magazine/old_mag = secondary_magazine
+		secondary_magazine = null
+		user.put_in_hands(old_mag)
+		update_appearance()
+		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+
+/obj/item/gun/ballistic/automatic/wt458/proc/toggle_magazine()
+	var/primary_magazine = magazine
+	var/alternative_magazine = secondary_magazine
+	magazine = alternative_magazine
+	secondary_magazine = primary_magazine
+	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+	update_appearance()
+
+/obj/item/gun/ballistic/automatic/wt458/examine(mob/user)
+	. = ..()
+	if(secondary_magazine)
+		var/secondary_ammo_count = secondary_magazine.ammo_count()
+		. += "There is a secondary magazine."
+		. += "It has [secondary_ammo_count] round\s remaining."
+		. += "Shoot with right-click to swap to the secondary magazine after firing."
+		. += "If the magazine is empty, [src] will automatically swap to the secondary magazine."
+	. += "You can load a secondary magazine by right-clicking [src] with the magazine you want to load."
+	. += "You can remove a secondary magazine by alt-right-clicking [src]."
+	. += "Right-click to swap the magazine to the secondary position, and vice versa."
+
 /obj/item/gun/ballistic/automatic/wt458/Initialize(mapload)
 	. = ..()
+	secondary_magazine_type = secondary_magazine_type || spawn_magazine_type
+	secondary_magazine = new secondary_magazine_type(src)
+	update_appearance()
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("examine closer")] to learn a little more about [src]."), \
-		lore = "The WT-458 is a unique, select fire, 2 round burst firearm chambered in low power cartridges. Its burst mechanism was chosen for closer quarters station \
+		lore = "The WT-458 is a unique, select fire, 3 round burst firearm chambered in low power cartridges. Its burst mechanism was chosen for closer quarters station \
 		combat, from back when the capture and occupation of space stations was militarily <i>en vogue</i> rather than destroying them with a nuclear device. \
 		The weapon's small caliber makes it more of a carbine than any assault rifle, but long debates among the marketing team led to the name it holds today.\
 		<br>\
@@ -95,6 +173,10 @@
 		overlay_x = 10, \
 		overlay_y = 19)
 
+/obj/item/gun/ballistic/automatic/wt458/Destroy()
+	QDEL_NULL(secondary_magazine)
+	return ..()
+
 /obj/item/gun/ballistic/automatic/wt458/nomag
 	spawnwithmagazine = FALSE
 
@@ -102,4 +184,4 @@
 //It is pretty good though why was the spread on it non-existent for a gun that is supposedly meant to be harder to control?
 /obj/item/gun/ballistic/automatic/wt550/burst
 	desc = "Not so much of a rifle, being modified closer to a submachine gun. This subcompact rifle is outfitted with a modified frame and barrel and a two-shot burst trigger mechanism. Performs overall better than the average autorifle, but kicks a bit more and the spread is noticeable at longer range. Has a threaded barrel for suppressors. Uses 4.6x30mm rounds."
-	spread = 8
+	spread = 12
