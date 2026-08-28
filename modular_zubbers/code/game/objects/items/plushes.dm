@@ -148,6 +148,7 @@
 	attack_verb_simple = list("slap", "plap", "smear")
 	gender = FEMALE
 	squeak_override = list('sound/misc/soggy.ogg'=1)
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/cescrewsplush/examine(mob/user)
 	. = ..()
