@@ -18,7 +18,7 @@
 		. += span_notice("It looks like there's a slot for a sex toy.")
 
 /obj/item/toy/plush/attack(mob/living/target, mob/living/user, params)
-	if(!target || !plappable)
+	if(!istype(target) || !plappable)
 		return ..()
 
 	var/obj/item/clothing/sextoy/foundToy = locate(/obj/item/clothing/sextoy) in src
