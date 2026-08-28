@@ -32,12 +32,7 @@
 /datum/interaction/lewd/portal/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = get_held_fleshlight(user)
 
-	if(!istype(fleshlight))
-		return FALSE
-	if(!istype(fleshlight.linked_panties))
-		return FALSE
-
-	. = ..()
+	return istype(fleshlight) && istype(fleshlight.linked_panties)
 
 /datum/interaction/lewd/portal/act(mob/living/user, mob/living/target)
 	var/list/original_message = message.Copy()
