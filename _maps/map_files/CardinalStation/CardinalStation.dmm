@@ -1450,6 +1450,12 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/medical/morgue)
+"arr" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Commons - Night Club Reception"
+	},
+/turf/open/floor/iron/dark,
+/area/station/common/night_club)
 "aru" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -2633,6 +2639,9 @@
 /obj/machinery/airalarm/directional/south,
 /obj/structure/railing/corner/end{
 	dir = 4
+	},
+/obj/machinery/camera/directional/south{
+	c_tag = "Command - Teleporter Room"
 	},
 /turf/open/floor/iron/dark/textured_edge,
 /area/station/command/teleporter)
@@ -4839,6 +4848,10 @@
 /obj/effect/decal/cleanable/food/salt,
 /obj/effect/landmark/start/prisoner,
 /obj/item/bedsheet/orange,
+/obj/machinery/camera/directional/east{
+	c_tag = "Prison - Cell 3";
+	network = list("ss13","prison")
+	},
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
 "bdT" = (
@@ -6911,10 +6924,14 @@
 /turf/open/floor/iron/smooth,
 /area/station/security/holding_cell)
 "bCz" = (
-/obj/effect/turf_decal/loading_area,
-/obj/item/paper/fluff/export_gate,
-/turf/open/floor/iron/dark/textured,
-/area/station/cargo/storage)
+/obj/structure/chair/sofa/corp{
+	dir = 1
+	},
+/obj/machinery/camera/directional/south{
+	c_tag = "Commons - Night Club Port Quarter"
+	},
+/turf/open/floor/carpet/purple,
+/area/station/common/night_club)
 "bCA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
@@ -10618,6 +10635,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/belt/utility,
 /obj/machinery/newscaster/directional/east,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/pod/dark,
 /area/station/command/teleporter)
 "cqW" = (
@@ -25202,6 +25220,10 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/landmark/start/prisoner,
 /obj/item/bedsheet/orange,
+/obj/machinery/camera/directional/east{
+	c_tag = "Prison - Cell 1";
+	network = list("ss13","prison")
+	},
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
 "fKU" = (
@@ -33702,6 +33724,9 @@
 /obj/structure/table/glass/plasmaglass,
 /obj/machinery/chem_dispenser/drinks,
 /obj/structure/sign/poster/official/random/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Commons - Night Club Bar"
+	},
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
 "hCm" = (
@@ -36114,6 +36139,10 @@
 /obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
 	dir = 8
 	},
+/obj/machinery/camera/directional/west{
+	network = list("ss13","rd");
+	c_tag = "Science - Ordnance Port"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/ordnance)
 "igi" = (
@@ -36737,7 +36766,8 @@
 	dir = 1;
 	id = "QMLoad"
 	},
-/obj/machinery/export_gate,
+/obj/item/flatpack/export_gate,
+/obj/item/paper/fluff/export_gate,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "ipo" = (
@@ -40428,9 +40458,6 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
 	pixel_y = 5
-	},
-/obj/machinery/light/small/directional/north{
-	pixel_x = 16
 	},
 /turf/open/floor/pod/dark,
 /area/station/command/teleporter)
@@ -45846,6 +45873,10 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/start/prisoner,
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/east,
+/obj/machinery/camera/directional/east{
+	c_tag = "Prison - Cell 2";
+	network = list("ss13","prison")
+	},
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
 "ksa" = (
@@ -47393,6 +47424,9 @@
 	name = "captain pack"
 	},
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/camera/directional/north{
+	c_tag = "Commons - Night Club Dressing Room"
+	},
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
 "kLz" = (
@@ -69956,6 +69990,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Medical - Psychology";
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/wood/parquet,
 /area/station/medical/psychology)
 "pNX" = (
@@ -72117,6 +72155,10 @@
 /obj/machinery/washing_machine,
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/camera/directional/east{
+	c_tag = "Prison - Showers";
+	network = list("ss13","prison")
+	},
 /turf/open/floor/iron/white,
 /area/station/security/prison/toilet)
 "qlA" = (
@@ -76757,6 +76799,9 @@
 /obj/item/broken_bottle,
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 1
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Commons - Night Club Starboard Bow"
 	},
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
@@ -102923,6 +102968,9 @@
 /area/station/hallway/primary/port)
 "xem" = (
 /obj/structure/table/glass/plasmaglass,
+/obj/machinery/camera/directional/south{
+	c_tag = "Commons - Night Club Aft"
+	},
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
 "xeD" = (
@@ -104108,6 +104156,9 @@
 	pixel_x = -2
 	},
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/camera/directional/east{
+	c_tag = "Command - Teleporter Storage"
+	},
 /turf/open/floor/pod/dark,
 /area/station/command/teleporter)
 "xuk" = (
@@ -147321,7 +147372,7 @@ jVl
 ief
 vQW
 iks
-bCz
+mwY
 kYI
 qTi
 mlF
@@ -149832,7 +149883,7 @@ aGg
 kXw
 bXR
 aNF
-yfg
+arr
 rTY
 avk
 qoU
@@ -150867,7 +150918,7 @@ yfg
 tmZ
 ryN
 caM
-flI
+bCz
 ipg
 jQH
 dCa
