@@ -365,3 +365,6 @@ GLOBAL_LIST_INIT(vore_preference_entries_by_key, init_vore_preference_entries_by
 			belly.show_fullscreen(owner_mob)
 	else
 		owner_mob.clear_fullscreen("vore")
+
+/datum/vore_pref/toggle/spontaneous_vore
+	savefile_key = "spontaneous_vore"

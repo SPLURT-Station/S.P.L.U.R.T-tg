@@ -84,6 +84,11 @@
 	add_appearance_holder()
 	// Add the appearance holder back every time they login
 	RegisterSignal(parent, COMSIG_MOB_LOGIN, PROC_REF(add_appearance_holder))
+	
+	// Spontaneous Vore Element
+	var/datum/vore_preferences/prefs = get_parent_vore_prefs()
+	if(prefs && prefs.read_preference(/datum/vore_pref/toggle/spontaneous_vore))
+		parent.AddElement(/datum/element/spontaneous_vore)
 
 /datum/component/vore/proc/add_appearance_holder()
 	var/mob/living/L = parent
@@ -97,6 +102,7 @@
 	if(L.client && appearance_holder)
 		L.client.screen -= appearance_holder
 	UnregisterSignal(parent, COMSIG_MOB_LOGIN)
+	parent.RemoveElement(/datum/element/spontaneous_vore)
 
 /datum/component/vore/Destroy(force)
 	if(isliving(parent))

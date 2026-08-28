@@ -29,6 +29,7 @@
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
+	AddElement(/datum/element/electrovoreable)
 
 /obj/item/stock_parts/power_store/cell/grind_results()
 	return list(/datum/reagent/lithium = 15, /datum/reagent/iron = 5, /datum/reagent/silicon = 5)

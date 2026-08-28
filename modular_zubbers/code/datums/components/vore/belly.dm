@@ -29,6 +29,14 @@
 	var/insert_sound = "Gulp"
 	var/release_sound = "Splatter"
 
+	// Liquid Generation
+	var/reagent_belly_mode = FALSE
+	var/reagent_gen_cost = 5
+	var/reagent_gen_amount = 1
+	var/reagent_type_id = /datum/reagent/water
+	var/reagent_custom_max_volume = 100
+	var/reagent_splash_tick = 5
+
 /obj/vore_belly/Initialize(mapload, datum/component/vore/new_owner)
 	escape_time = DEFAULT_ESCAPE_TIME // expected a constant expression
 	. = ..()
@@ -37,6 +45,7 @@
 	owner = new_owner
 	LAZYADD(owner.vore_bellies, src)
 	digest_mode = GLOB.digest_modes[DIGEST_MODE_SAFE]
+	create_reagents(reagent_custom_max_volume, REAGENT_HOLDER_ALIVE)
 	START_PROCESSING(SSvore, src)
 	// Do our best not to get dropped
 	ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
@@ -55,6 +64,7 @@
 
 /// On process, bellies ask their digestion mode (if there is one) to process them
 /obj/vore_belly/process(seconds_per_tick)
+	HandleBellyReagents(seconds_per_tick)
 	digest_mode?.handle_belly(src, seconds_per_tick)
 	prey_loop()
 
@@ -105,6 +115,9 @@
 	data["fancy_sounds"] = fancy_sounds
 	data["insert_sound"] = insert_sound
 	data["release_sound"] = release_sound
+
+	data["reagent_belly_mode"] = reagent_belly_mode
+	data["reagent_type_id"] = reagent_type_id
 
 	// Messages
 	data["messages"] = list(
@@ -202,6 +215,22 @@
 			var/new_sound = tgui_input_list(usr, "Pick an release sound", "Release Sound", sounds_to_pick_from, release_sound)
 			if(new_sound)
 				release_sound = new_sound
+		if("reagent_belly_mode")
+			reagent_belly_mode = !reagent_belly_mode
+		if("reagent_type_id")
+			var/list/reagent_choices = list(
+				"Water" = /datum/reagent/water,
+				"Milk" = /datum/reagent/consumable/milk,
+				"Honey" = /datum/reagent/consumable/honey,
+				"Stomach Acid" = /datum/reagent/toxin/stomach_acid,
+				"Lube" = /datum/reagent/lube,
+				"Biomass" = /datum/reagent/consumable/nutriment,
+				"Tricordrazine" = /datum/reagent/medicine/tricordrazine,
+				"Ethanol" = /datum/reagent/consumable/ethanol
+			)
+			var/choice = tgui_input_list(usr, "Pick a belly liquid", "Belly Liquid", reagent_choices)
+			if(choice)
+				reagent_type_id = reagent_choices[choice]
 		// Messages
 		if("digest_messages_pred")
 			set_messages("digest_messages_pred", value)

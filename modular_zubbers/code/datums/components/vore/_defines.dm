@@ -43,6 +43,8 @@
 #define PREYLOOP_VOLUME 70
 
 #define TRAIT_SOURCE_VORE "vore"
+#define TRAIT_ELECTROVORE "electrovore"
+#define TRAIT_ELECTROVORE_OBLIGATE "electrovore_obligate"
 
 #define DIGEST_MODE_SAFE "Safe"
 #define DIGEST_MODE_DIGEST "Digest"
