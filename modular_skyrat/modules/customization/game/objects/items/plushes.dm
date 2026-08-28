@@ -6,7 +6,7 @@
 /obj/item/toy/plush/skyrat
 	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
 	inhand_icon_state = null
-	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in the plushie?!
+	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 
 /obj/item/toy/plush/skyrat/borbplushie
 	name = "borb plushie"

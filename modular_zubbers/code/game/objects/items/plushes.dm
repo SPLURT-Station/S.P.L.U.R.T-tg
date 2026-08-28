@@ -1,4 +1,4 @@
-/obj/item/toy/plush //SPLURT EDIT - What are you doing cutting a hole in the plushie?!
+/obj/item/toy/plush //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 	plappable = TRUE
 
 /obj/item/toy/plush/chaotic_toaster
