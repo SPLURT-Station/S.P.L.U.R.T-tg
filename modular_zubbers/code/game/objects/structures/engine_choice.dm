@@ -41,10 +41,6 @@
 	var/channel_to_use = RADIO_CHANNEL_ENGINEERING
 	var/deployment_time = 8 SECONDS
 
-	//SPLURT ADDITION START
-	var/replace_on_spawn = TRUE
-	//SPLURT ADDITION END
-
 	var/deployment_timer_id
 
 /obj/machinery/engine_choice/Initialize(mapload)

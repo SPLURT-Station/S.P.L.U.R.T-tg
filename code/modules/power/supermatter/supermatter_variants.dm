@@ -1,3 +1,6 @@
+/obj/machinery/power/supermatter_crystal
+	var/replace_on_spawn = TRUE
+
 /// Normal SM with it's processing disabled.
 /obj/machinery/power/supermatter_crystal/hugbox
 	disable_damage = TRUE
