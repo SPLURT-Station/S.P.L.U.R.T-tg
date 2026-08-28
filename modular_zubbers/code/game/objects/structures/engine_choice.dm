@@ -5,7 +5,7 @@
 
 	. = ..()
 
-	if(mapload && is_main_engine && isturf(src.loc))
+	if(mapload && is_main_engine && isturf(src.loc) && replace_on_spawn) // SPLURT EDIT, ORIGINAL = if(mapload && is_main_engine && isturf(src.loc))
 		new/obj/machinery/engine_choice(src.loc)
 		return INITIALIZE_HINT_QDEL
 
@@ -40,6 +40,10 @@
 	var/radio_key = /obj/item/encryptionkey/headset_eng
 	var/channel_to_use = RADIO_CHANNEL_ENGINEERING
 	var/deployment_time = 8 SECONDS
+
+	//SPLURT ADDITION START
+	var/replace_on_spawn = TRUE
+	//SPLURT ADDITION END
 
 	var/deployment_timer_id
 

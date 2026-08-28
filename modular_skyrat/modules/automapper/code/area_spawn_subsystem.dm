@@ -323,7 +323,7 @@ SUBSYSTEM_DEF(area_spawn)
 	/// The atom type that we want to spawn
 	var/desired_atom
 	/// Map blacklist, this is used to determine what maps we should not spawn on.
-	var/list/blacklisted_stations = list("Void Raptor", "Runtime Station", "Minimal Runtime Station", "MultiZ Debug", "Gateway Test", "Moon Station", "Box Station")
+	var/list/blacklisted_stations = list("Void Raptor", "Runtime Station", "Minimal Runtime Station", "MultiZ Debug", "Gateway Test", "Moon Station", "Box Station", "Cardinal Station")
 
 /**
  * Spawn the atoms.
