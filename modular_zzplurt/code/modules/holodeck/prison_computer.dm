@@ -97,7 +97,7 @@
 ///adds all programs that this holodeck has access to, and separates the restricted and unrestricted ones
 /obj/machinery/computer/holodeck_prison/proc/generate_program_list()
 	for(var/typekey in subtypesof(program_type))
-		var/datum/map_template/holodeck/program = typekey
+		var/datum/map_template/holodeck_prison/program = typekey
 		var/list/info_this = list("id" = initial(program.template_id), "name" = initial(program.name))
 		if(initial(program.restricted))
 			LAZYADD(emag_programs, list(info_this))
