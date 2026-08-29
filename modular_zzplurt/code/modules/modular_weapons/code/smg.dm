@@ -29,13 +29,15 @@
 		overlay_y = 12)
 
 /obj/item/gun/ballistic/automatic/wt458
-	name = "\improper WT-458 Bullpup Rifle"
+	name = "\improper WT-458 SAW"
 	desc = "A 3-round burst rifle fielded by Nanotrasen Naval Infantry, taken out of service over time due to failing to meet EVA combat's rate of fire demands.\
 		Has secondary magazine port, effectively doubling the ammunition capacity.<br>\
-		Lightweight and can be fired one-handed. Uses 4.6x30mm rounds."
+		Uses 4.6x30mm rounds."
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "wt458"
 	w_class = WEIGHT_CLASS_BULKY
+	tac_reloads = FALSE
+	weapon_weight = WEAPON_HEAVY
 	inhand_icon_state = "arg"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	burst_delay = 2
