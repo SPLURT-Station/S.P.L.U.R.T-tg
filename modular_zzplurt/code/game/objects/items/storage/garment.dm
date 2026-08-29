@@ -91,7 +91,7 @@
 		/obj/item/radio/headset/guard_bowman/service = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
 		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/bouncer = 2,
-		/obj/item/clothing/head/helmet/blueshirt/skyrat/guard = 2,
+		/obj/item/clothing/head/helmet/novisor = 2,
 		/obj/item/clothing/head/beret/sec/service = 2,
 		/obj/item/clothing/suit/armor/vest/alt = 2,
 		/obj/item/clothing/suit/toggle/labcoat/technical/service/guard = 1,
