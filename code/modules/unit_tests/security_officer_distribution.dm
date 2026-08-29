@@ -1,9 +1,10 @@
-#define SECURITY_OFFICER_DEPARTMENTS list("a", "b", "c", "d")
+#define SECURITY_OFFICER_DEPARTMENTS list("a", "b", "c", "d", "e")
 #define SECURITY_OFFICER_DEPARTMENTS_TO_NAMES (list( \
 	"a" = SEC_DEPT_ENGINEERING, \
 	"b" = SEC_DEPT_MEDICAL, \
 	"c" = SEC_DEPT_SCIENCE, \
 	"d" = SEC_DEPT_SUPPLY, \
+	"e" = SEC_DEPT_SERVICE, \
 ))
 
 // BUBBER EDIT BEGIN REMOVAL - We don't distribute in a special pairing system

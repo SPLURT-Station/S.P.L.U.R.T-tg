@@ -86,3 +86,22 @@
 		ACCESS_CHANGE_IDS,
 		)
 	job = /datum/job/nanotrasen_crew_trainer
+
+/datum/id_trim/job/security_officer/service
+	assignment = JOB_SECURITY_OFFICER_SERVICE
+	subdepartment_color = COLOR_SERVICE_LIME
+	department_access = list(
+		ACCESS_SERVICE,
+		ACCESS_BAR,
+	)
+	elevated_access = list(
+		ACCESS_AUX_BASE,
+		ACCESS_KITCHEN,
+		ACCESS_HYDROPONICS,
+		ACCESS_CHAPEL_OFFICE,
+		ACCESS_BARBER,
+		ACCESS_THEATRE,
+		ACCESS_LIBRARY,
+		ACCESS_JANITOR,
+	)
+	patrol_type = /datum/bounty/patrol/science

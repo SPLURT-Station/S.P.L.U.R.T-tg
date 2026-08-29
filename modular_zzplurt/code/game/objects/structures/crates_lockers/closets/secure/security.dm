@@ -26,3 +26,14 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
+
+/obj/structure/closet/secure_closet/security/service
+	name = "\proper service guard's locker"
+	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_SERVICE)
+	icon_state = "hydro"
+	icon = 'icons/obj/storage/closet.dmi'
+
+/obj/structure/closet/secure_closet/security/service/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/yellow(src)
+	new /obj/item/storage/bag/garment/service_guard(src)
+	new /obj/item/assembly/flash/handheld(src)
