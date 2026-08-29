@@ -54,7 +54,7 @@
 		),
 	)
 
-	premium = null
+	premium = list()
 	contraband = list(
 		/obj/item/kitchen/rollingpin/illegal = 2,
 		/obj/item/knife/kitchen = 2,

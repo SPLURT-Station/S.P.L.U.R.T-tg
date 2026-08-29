@@ -13797,6 +13797,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	pixel_x = -4
+	},
 /turf/open/floor/wood,
 /area/station/service/hydroponics)
 "cXv" = (
@@ -16114,6 +16117,9 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	pixel_y = -3
+	},
 /turf/open/floor/wood,
 /area/station/service/hydroponics)
 "dxD" = (
@@ -28535,9 +28541,7 @@
 	dir = 5
 	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -37335,9 +37339,7 @@
 	dir = 6
 	},
 /obj/machinery/firealarm/directional/south,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -43361,9 +43363,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 10
 	},
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -44791,6 +44791,9 @@
 	},
 /obj/machinery/camera/directional/east{
 	c_tag = "Service - Hydroponics Backroom"
+	},
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	pixel_y = -3
 	},
 /turf/open/floor/wood,
 /area/station/service/hydroponics)
@@ -48421,6 +48424,14 @@
 	dir = 1
 	},
 /area/station/hallway/secondary/entry)
+"kRs" = (
+/obj/machinery/hydroponics/constructable,
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	pixel_x = -4
+	},
+/turf/open/floor/wood,
+/area/station/service/hydroponics)
 "kRv" = (
 /obj/effect/turf_decal/stripes/white{
 	dir = 8
@@ -52349,8 +52360,6 @@
 	dir = 8;
 	color = "#9FED58"
 	},
-/obj/structure/reagent_dispensers/watertank/high,
-/obj/item/reagent_containers/cup/watering_can,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "lKp" = (
@@ -63256,9 +63265,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm/directional/north,
 /obj/structure/closet/secure_closet/security,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
 /obj/item/armorkit/helmet,
@@ -65293,9 +65300,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/digital_clock/directional/north,
 /obj/structure/closet/secure_closet/security,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
 /obj/item/armorkit/helmet,
@@ -66715,9 +66720,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -66913,9 +66916,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/structure/closet/secure_closet/security,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
 /obj/item/armorkit/helmet,
@@ -71933,9 +71934,7 @@
 	},
 /obj/structure/sign/poster/official/random/directional/south,
 /obj/effect/turf_decal/trimline/red/filled/line,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -85714,9 +85713,7 @@
 	dir = 9
 	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911{
-	name = "M1911 Pistol case"
-	},
+/obj/item/gun/energy/laser/pistol,
 /obj/structure/closet/secure_closet/security,
 /obj/item/storage/belt/security/full,
 /obj/item/armorkit,
@@ -88525,6 +88522,16 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet/orange,
 /area/station/commons/dorms)
+"tJC" = (
+/obj/machinery/hydroponics/constructable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	pixel_x = -4
+	},
+/turf/open/floor/wood,
+/area/station/service/hydroponics)
 "tJR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/corner{
@@ -93574,6 +93581,9 @@
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
+	},
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	pixel_x = -4
 	},
 /turf/open/floor/wood,
 /area/station/service/hydroponics)
@@ -143282,13 +143292,13 @@ vkG
 jjB
 daw
 olP
-tLb
+kRs
 uiv
-mDI
+tJC
 olP
-tLb
+kRs
 uiv
-mDI
+tJC
 iCU
 atv
 kpx
