@@ -142,7 +142,7 @@
 	magazine = alternative_magazine
 	secondary_magazine = primary_magazine
 	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
-	balloon_alert(user, "secondary [magazine_wording] loaded")
+	balloon_alert("secondary [magazine_wording] loaded")
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/wt458/examine(mob/user)
