@@ -25,62 +25,61 @@
 	faction = list("deathclaw")
 	unsuitable_atmos_damage = 5
 	gold_core_spawnable = HOSTILE_SPAWN
-	//Someone other than me is gonna have to give the mobs lewd stuff. -Evan
-	/*
-	var/charging = FALSE
-	var/has_penis = FALSE
-	var/has_butt = FALSE
-	var/has_breasts = FALSE
-	var/has_vagina = FALSE
-	*/
+	/// Resting sprite for deathclaw variants with a sheath animation.
+	var/sheathed_icon_state
+	/// Aroused sprite for deathclaw variants with a sheath animation.
+	var/aroused_icon_state
 
 /mob/living/basic/deathclaw/Initialize(mapload)
 	. = ..()
 
+/mob/living/basic/deathclaw/set_arousal(amount)
+	. = ..()
+	update_arousal_icon_state()
+
+/// Keeps the living icon in sync so revival and other appearance refreshes preserve the sheath state.
+/mob/living/basic/deathclaw/proc/update_arousal_icon_state()
+	if(!sheathed_icon_state || !aroused_icon_state || stat == DEAD)
+		return
+	var/desired_icon_state = arousal > AROUSAL_MINIMUM ? aroused_icon_state : sheathed_icon_state
+	if(icon_living == desired_icon_state)
+		return
+	icon_living = desired_icon_state
+	icon_state = desired_icon_state
+	if(arousal > AROUSAL_MINIMUM)
+		visible_message(span_lewd("[src]'s cock unsheathes."))
+	else
+		visible_message(span_lewd("[src]'s cock retracts into its sheath."))
+
 /mob/living/basic/deathclaw/hostile
 	icon_state = "newclaw"
+	icon_living = "newclaw"
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile
-	/*
-	var/base_state = "newclaw"
-	var/cock_state = "newclaw_cocked"
-	var/cock_shown = FALSE
-	*/
+	sheathed_icon_state = "newclaw"
+	aroused_icon_state = "newclaw_cocked"
+	simulated_genitals = list(
+		ORGAN_SLOT_PENIS = TRUE,
+		ORGAN_SLOT_ANUS = TRUE
+	)
 
 /mob/living/basic/deathclaw/hostile/alphaclaw
 	name = "Alpha Funclaw"
 	icon_state = "alphaclaw"
+	icon_living = "alphaclaw"
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
-	//base_state = "alphaclaw"
-	//cock_state = "alphaclaw_cocked"
+	sheathed_icon_state = "alphaclaw"
+	aroused_icon_state = "alphaclaw_cocked"
 
 /mob/living/basic/deathclaw/hostile/death()
 	..()
 	gib()
 
-/*
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/proc/show_cock()
-	if (cock_shown)
-		return
-	cock_shown = TRUE
-	icon_state = cock_state
-	visible_message("<font color=purple><b>\The [src]</b>'s cock unsheathes.</font>")
-
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/proc/hide_cock()
-	if (!cock_shown)
-		return
-	cock_shown = FALSE
-	icon_state = base_state
-	visible_message("<font color=purple><b>\The [src]</b>'s cock slowly retracts back into its sheath.</font>")
-
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/handle_post_sex(amount, orifice, mob/living/partner)
-	..()
-	if (lust > 0)
-		show_cock()
-	else
-		hide_cock()
-*/
 /mob/living/basic/deathclaw/funclaw/
 	name = "Docile Deathclaw"
+	icon_state = "newclaw"
+	icon_living = "newclaw"
+	sheathed_icon_state = "newclaw"
+	aroused_icon_state = "newclaw_cocked"
 	simulated_genitals = list(
 		ORGAN_SLOT_PENIS = TRUE,
 		ORGAN_SLOT_ANUS = TRUE
@@ -89,12 +88,15 @@
 
 /mob/living/basic/deathclaw/funclaw/femclaw
 	icon_state = "femclaw"
+	icon_living = "femclaw"
 	gender = FEMALE
 	name = "Docile Breasted Funclaw"
 	desc = "She's large and in charge."
 	maxHealth = 400
 	health = 400
 	armour_penetration = 45
+	sheathed_icon_state = null
+	aroused_icon_state = null
 	simulated_genitals = list(
 		ORGAN_SLOT_PENIS = FALSE,
 		ORGAN_SLOT_ANUS = TRUE,
@@ -104,6 +106,7 @@
 
 /mob/living/basic/deathclaw/funclaw/femclaw/mommyclaw
 	icon_state = "mommyclaw"
+	icon_living = "mommyclaw"
 	desc = "A machine that turns her victim's pelv<b>is</b> into pelv<b>was</b>."
 	name = "Mommy Funclaw"
 	maxHealth = 1000

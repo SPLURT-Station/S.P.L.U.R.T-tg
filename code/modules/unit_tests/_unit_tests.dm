@@ -376,6 +376,7 @@
 #include "~skyrat\proteans.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
+#include "~splurt\custom_mobs.dm"
 #include "~splurt\underwear_items.dm"
 // SPLURT EDIT END
 // END_INCLUDE
