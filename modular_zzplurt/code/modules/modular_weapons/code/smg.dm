@@ -39,7 +39,7 @@
 	weapon_weight = WEAPON_HEAVY
 	lefthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/left32x32.dmi'
 	righthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/right32x32.dmi'
-	worn_icon = 'modular_zzplurt/icons/obj/weapons/guns/worn.dmi'
+	worn_icon = 'modular_zzplurt/icons/obj/weapons/guns/worn/ranged.dmi'
 	worn_icon_state = "wt458"
 	inhand_icon_state = "wt458"
 	inhand_x_dimension = 32
@@ -96,7 +96,7 @@
 	button_icon = 'modular_zzplurt/icons/hud/actions.dmi'
 	button_icon_state = "swap_mag"
 
-/datum/action/switch_mag/Trigger()
+/datum/action/item_action/switch_mag/Trigger()
     . = ..()
     if(!.)
         return
