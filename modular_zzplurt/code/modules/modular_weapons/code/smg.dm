@@ -56,7 +56,7 @@
 	recoil = 0.3
 	fire_sound = 'modular_zzplurt/sound/items/weapons/gun/wt458_shot.ogg'
 	fire_sound_volume = 70
-	actions_types = list(/datum/action/switch_mag, /datum/action/item_action/toggle_firemode)
+	actions_types = list(/datum/action/item_action/switch_mag, /datum/action/item_action/toggle_firemode)
 	/// The type of secondary magazine for the bulldog
 	var/secondary_magazine_type
 	/// The secondary magazine
@@ -96,12 +96,12 @@
 	button_icon = 'modular_zzplurt/icons/hud/actions.dmi'
 	button_icon_state = "swap_mag"
 
-/datum/action/item_action/switch_mag/Trigger()
+/datum/action/item_action/switch_mag/Trigger(mob/clicker, trigger_flags)
     . = ..()
     if(!.)
         return
-    var/obj/item/gun/my_gun = target
-    gun.toggle_magazine(usr)
+    var/obj/item/gun/ballistic/automatic/wt458/my_gun = target
+    my_gun.toggle_magazine(usr)
 
 /* Commented out incase someone in the future is interested, this lets the gun use secondary mag directly!
 /obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
