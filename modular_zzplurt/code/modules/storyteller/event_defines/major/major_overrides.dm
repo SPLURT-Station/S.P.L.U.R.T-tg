@@ -53,4 +53,5 @@
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY, TAG_MEDIUM, TAG_OPFOR_ONLY)
 
 /datum/round_event_control/fleshmind
+	track = EVENT_TRACK_GHOSTSET // Makes it use the same track as wirepriest
 	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_CHAOTIC, TAG_MEDIUM)
