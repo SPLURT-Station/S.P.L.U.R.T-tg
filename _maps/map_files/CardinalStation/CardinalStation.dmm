@@ -9244,6 +9244,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
+"bZC" = (
+/obj/effect/spawner/structure/window,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/security/prison/library)
 "bZH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36673,6 +36678,7 @@
 /obj/item/food/meat/slab/monkey,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/prison/mess)
 "igp" = (
@@ -38383,7 +38389,6 @@
 /obj/structure/bed/medical/emergency,
 /obj/machinery/iv_drip,
 /obj/machinery/light/directional/east,
-/obj/structure/noticeboard/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "iDv" = (
@@ -43044,11 +43049,6 @@
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /turf/open/floor/iron/white,
 /area/station/commons/storage/art)
-"jHN" = (
-/obj/effect/spawner/structure/window,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/security/prison/library)
 "jHP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -48617,9 +48617,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/station/cargo/storage)
-"kSW" = (
-/turf/closed/wall/r_wall,
-/area/station/security/prison/library)
 "kTa" = (
 /obj/vehicle/ridden/janicart,
 /turf/open/floor/iron/smooth,
@@ -49397,6 +49394,7 @@
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/security/prison/library)
 "lbu" = (
@@ -53467,6 +53465,9 @@
 	dir = 8
 	},
 /area/station/medical/morgue)
+"lWu" = (
+/turf/closed/wall/r_wall,
+/area/station/security/prison/library)
 "lWx" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/effect/turf_decal/tile/blue/half{
@@ -154199,12 +154200,12 @@ jQS
 xXp
 gMg
 qRr
-jHN
+bZC
 lFG
-jHN
+bZC
 qRr
 qRr
-kSW
+lWu
 tIJ
 jBS
 tIJ
@@ -154461,7 +154462,7 @@ tPG
 vXR
 uGE
 dlr
-kSW
+lWu
 neI
 qAr
 tIJ
@@ -154718,7 +154719,7 @@ sAE
 bwl
 vDe
 uYu
-kSW
+lWu
 yhm
 nws
 tIJ
@@ -154975,7 +154976,7 @@ gdH
 lbr
 uUT
 xhC
-kSW
+lWu
 tIJ
 tIJ
 tIJ
@@ -155227,12 +155228,12 @@ rjq
 cnS
 gVe
 pvA
-kSW
-kSW
+lWu
+lWu
 dhF
-kSW
-kSW
-kSW
+lWu
+lWu
+lWu
 sJy
 hyT
 cuD
