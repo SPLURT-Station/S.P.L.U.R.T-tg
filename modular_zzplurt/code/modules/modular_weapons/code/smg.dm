@@ -36,13 +36,14 @@
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "wt458"
 	w_class = WEIGHT_CLASS_BULKY
-	tac_reloads = FALSE
 	weapon_weight = WEAPON_HEAVY
 	lefthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/left32x32.dmi'
 	righthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/right32x32.dmi'
+	worn_icon = 'modular_zzplurt/icons/obj/weapons/guns/worn.dmi'
+	worn_icon_state = "wt458"
 	inhand_icon_state = "wt458"
-	inhand_x_dimension = 64
-	inhand_y_dimension = 64
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	burst_delay = 2
 	can_suppress = FALSE
@@ -95,13 +96,14 @@
 	button_icon = 'modular_zzplurt/icons/hud/actions.dmi'
 	button_icon_state = "swap_mag"
 
-/obj/item/gun/ballistic/ui_action_click(mob/user, actiontype)
-	if(istype(actiontype, /datum/action/item_action/switch_mag))
-		toggle_magazine()
-	else
-		..()
+/datum/action/switch_mag/Trigger()
+    . = ..()
+    if(!.)
+        return
+    var/obj/item/gun/my_gun = target
+    gun.toggle_magazine(usr)
 
-/*
+/* Commented out incase someone in the future is interested, this lets the gun use secondary mag directly!
 /obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
 	toggle_magazine()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -159,7 +161,7 @@
 	update_appearance()
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("examine closer")] to learn a little more about [src]."), \
-		lore = "The WT-458 is a unique, select fire, 3 round burst firearm chambered in low power cartridges. Its burst mechanism was chosen for closer quarters station \
+		lore = "The WT-458 Squad Support Weapon is a select fire, 3 round burst firearm chambered in low power cartridges. Its burst mechanism was chosen for closer quarters station \
 		combat, from back when the capture and occupation of space stations was militarily <i>en vogue</i> rather than destroying them with a nuclear device. \
 		The weapon's small caliber makes it more of a carbine than any assault rifle, but long debates among the marketing team led to the name it holds today.\
 		<br>\
