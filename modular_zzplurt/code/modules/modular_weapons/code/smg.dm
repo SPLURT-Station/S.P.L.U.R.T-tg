@@ -61,11 +61,7 @@
 	var/secondary_magazine_type
 	/// The secondary magazine
 	var/obj/item/ammo_box/magazine/secondary_magazine
-	custom_materials = list(
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 30,
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 16,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 10,
-	)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 20, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 16, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4)
 //Gunshot is taken from this  https://github.com/ParadiseSS13/Paradise/tree/master/sound/weapons/gunshots#gunshot_rifle.ogg
 //However, I could not find who it was attributed to or where it comes from
 
