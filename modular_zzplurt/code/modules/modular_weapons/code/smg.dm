@@ -29,7 +29,7 @@
 		overlay_y = 12)
 
 /obj/item/gun/ballistic/automatic/wt458
-	name = "\improper WT-458 SAW"
+	name = "\improper WT-458 SSW"
 	desc = "A 3-round burst rifle fielded by Nanotrasen Naval Infantry, taken out of service over time due to failing to meet EVA combat's rate of fire demands.\
 		Has secondary magazine port, effectively doubling the ammunition capacity.<br>\
 		Uses 4.6x30mm rounds."
@@ -51,14 +51,15 @@
 	recoil = 0.3
 	fire_sound = 'modular_zzplurt/sound/items/weapons/gun/wt458_shot.ogg'
 	fire_sound_volume = 70
+	actions_types = list(/datum/action/switch_mag, /datum/action/item_action/toggle_firemode)
 	/// The type of secondary magazine for the bulldog
 	var/secondary_magazine_type
 	/// The secondary magazine
 	var/obj/item/ammo_box/magazine/secondary_magazine
 	custom_materials = list(
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 20,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 30,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 16,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 10,
 	)
 //Gunshot is taken from this  https://github.com/ParadiseSS13/Paradise/tree/master/sound/weapons/gunshots#gunshot_rifle.ogg
 //However, I could not find who it was attributed to or where it comes from
@@ -83,6 +84,20 @@
 		toggle_magazine()
 	return ..()
 
+//This is definitely a good idea.
+
+/datum/action/item_action/switch_mag
+	name = "Swap Magazine Port"
+	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_items.dmi'
+	button_icon_state = "fireselect_no"
+
+/obj/item/gun/ballistic/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, /datum/action/item_action/switch_mag))
+		toggle_magazine()
+	else
+		..()
+
+/*
 /obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
 	toggle_magazine()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -91,7 +106,7 @@
 	if(secondary_magazine)
 		toggle_magazine()
 	return ..()
-
+*/
 /obj/item/gun/ballistic/automatic/wt458/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, secondary_magazine_type))
 		return ..()
@@ -128,8 +143,7 @@
 		var/secondary_ammo_count = secondary_magazine.ammo_count()
 		. += "There is a secondary magazine."
 		. += "It has [secondary_ammo_count] round\s remaining."
-		. += "Shoot with right-click to swap to the secondary magazine after firing."
-		. += "If the magazine is empty, [src] will automatically swap to the secondary magazine."
+		. += "Press the UI Button to swap magazine."
 	. += "You can load a secondary magazine by right-clicking [src] with the magazine you want to load."
 	. += "You can remove a secondary magazine by alt-right-clicking [src]."
 	. += "Right-click to swap the magazine to the secondary position, and vice versa."
