@@ -97,13 +97,12 @@
 	button_icon_state = "swap_mag"
 
 /datum/action/item_action/switch_mag/Trigger(mob/clicker, trigger_flags)
-    . = ..()
-    if(!.)
-        return
-    var/obj/item/gun/ballistic/automatic/wt458/my_gun = target
-    my_gun.toggle_magazine(usr)
-	balloon_alert(user, "secondary [magazine_wording] loaded")
-	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/gun/ballistic/automatic/wt458/my_gun = target
+	my_gun.toggle_magazine(usr)
+	playsound(src, 'sound/items/weapons/gun/general/magazine_insert_empty.ogg' , 50, TRUE, -1)
 
 /* Commented out incase someone in the future is interested, this lets the gun use secondary mag directly!
 /obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
@@ -143,6 +142,7 @@
 	magazine = alternative_magazine
 	secondary_magazine = primary_magazine
 	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+	balloon_alert(user, "secondary [magazine_wording] loaded")
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/wt458/examine(mob/user)
