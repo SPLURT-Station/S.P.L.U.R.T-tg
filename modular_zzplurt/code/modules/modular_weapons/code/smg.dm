@@ -38,7 +38,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	tac_reloads = FALSE
 	weapon_weight = WEAPON_HEAVY
-	inhand_icon_state = "arg"
+	lefthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/left32x32.dmi'
+	righthand_file = 'modular_zzplurt/icons/obj/weapons/guns/inhands/right32x32.dmi'
+	inhand_icon_state = "wt458"
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	burst_delay = 2
 	can_suppress = FALSE
@@ -88,8 +92,8 @@
 
 /datum/action/item_action/switch_mag
 	name = "Swap Magazine Port"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_items.dmi'
-	button_icon_state = "fireselect_no"
+	button_icon = 'modular_zzplurt/icons/hud/actions.dmi'
+	button_icon_state = "swap_mag"
 
 /obj/item/gun/ballistic/ui_action_click(mob/user, actiontype)
 	if(istype(actiontype, /datum/action/item_action/switch_mag))
