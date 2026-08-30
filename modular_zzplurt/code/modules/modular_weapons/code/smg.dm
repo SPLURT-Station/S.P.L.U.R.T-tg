@@ -102,6 +102,8 @@
         return
     var/obj/item/gun/ballistic/automatic/wt458/my_gun = target
     my_gun.toggle_magazine(usr)
+	balloon_alert(user, "secondary [magazine_wording] loaded")
+	playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 
 /* Commented out incase someone in the future is interested, this lets the gun use secondary mag directly!
 /obj/item/gun/ballistic/automatic/wt458/attack_self_secondary(mob/user, modifiers)
