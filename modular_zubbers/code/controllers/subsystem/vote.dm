@@ -32,7 +32,7 @@
 	current_vote.reminder_fired = TRUE
 
 	for(var/client/late_voter as anything in GLOB.clients)
-		if(isnull(late_voter) || LAZYFIND(voted, late_voter.ckey)) // Skip people who already voted
+		if(!late_voter || LAZYFIND(voted, late_voter.ckey)) // Skip people who already voted
 			continue
 		if(!current_vote)
 			return
