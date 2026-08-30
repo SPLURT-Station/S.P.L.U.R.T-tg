@@ -4,8 +4,8 @@
 /area/station/commons/vacant_room/commissary/two
 	name = "\improper Vacant Commissary #2"
 
-/area/station/holodeck/prison
-	name = "\improper Workshop Holodeck"
+/area/station/security/prison/library
+	name = "\improper Prison Library"
 
 /area/station/medical/booth
 	name = "\improper Medical Booth"
