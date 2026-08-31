@@ -8,7 +8,7 @@
 	if(!(text2num(time2text(world.realtime, "DD")) % days_until_storyteller_votable == 0))
 		return FALSE
 
-	if(!(GLOB.round_id % rounds_until_storyteller_votable == 0))
+	if(!(text2num(GLOB.round_id) % rounds_until_storyteller_votable == 0))
 		return FALSE
-		
+
 	return TRUE
