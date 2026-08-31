@@ -44,6 +44,8 @@
 			continue
 		if(sync_target.connected_ai)
 			continue
+		if(sync_target.job == "Security Cyborg")
+			continue
 		sync_target.notify_ai(AI_NOTIFICATION_CYBORG_DISCONNECTED)
 		sync_target.set_connected_ai(ai_spawn)
 		log_combat(ai_spawn, sync_target, "synced cyborg [sync_target] to [ai_spawn] (AI spawn syncage)") // BUBBER EDIT - PUBLIC LOGS CLEANUP
