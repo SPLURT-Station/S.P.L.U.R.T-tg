@@ -321,6 +321,11 @@
 	desc = "A figurine depicting someone in a blood-red modsuit, similar to what someone on a nuclear operative team might wear."
 	toysay = "Death to Nanotrasen!"
 
+/obj/item/toy/figure/syndie/officer
+	name = "\improper syndicate officer figure"
+	desc = "A figurine depicting the outfit of a decorated syndicate officer."
+	toysay = "Okay, so, here's the plan. You go to the station, turn on the nuke.. And die with it, sound good?"
+
 /obj/item/toy/figure/syndie/elite
 	name = "\improper elite syndicate operative figure"
 	desc = "A figurine depicting someone in an elite modsuit, similar to what someone on a nuclear operative team might wear."
