@@ -63,7 +63,7 @@
 	name = "\improper blueshield figure"
 	desc = "A figurine depicting the Blueshield, in their trusty praetorian modsuit."
 	icon_state = "blueshield"
-	toysay = "EXCUSE ME!? How DARE you even think about LOOKING in the direction of the Captain, PUNK."
+	toysay = "CAPTAIN IS DEAD IN MAINTENANCE!!"
 
 // Security Figures
 
@@ -252,10 +252,34 @@
 	toysay = "Ack Ack!"
 
 /obj/item/toy/figure/ert
-	name = "\improper emergency response team figure"
-	desc = "A figurine depicting a Nanotrasen Emergency Response Team Officer in their responsory modsuit."
-	icon_state = "ert"
+	name = "\improper emergency response team security officer figure"
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Security Officer in their responsory modsuit."
+	icon_state = "ert_sec"
 	toysay = "Get behind me, doctor!"
+
+/obj/item/toy/figure/ert/commander
+	name = "\improper emergency response team commander figure"
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Commander in their responsory modsuit."
+	icon_state = "ert_cmd"
+	toysay = "WHERE IS MY TEAM?!"
+
+/obj/item/toy/figure/ert/medic
+	name = "\improper emergency response team medic figure"
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Medic in their responsory modsuit holding a medkit."
+	icon_state = "ert_med"
+	toysay = "Well, my squad just wiped, what do I do now?"
+
+/obj/item/toy/figure/ert/engineer
+	name = "\improper emergency response team engineer figure"
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Engineer in their responsory modsuit holding jaws of life."
+	icon_state = "ert_eng"
+	toysay = "Is there really a point to repairing a station that is half missing from a singularity?"
+
+/obj/item/toy/figure/ert/janitor
+	name = "\improper emergency response team janitor figure"
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Janitor in their responsory modsuit holding an advanced mop."
+	icon_state = "ert_jan"
+	toysay = "How the FUCK is there so much cum in dorms!?"
 
 /obj/item/toy/figure/dsquad
 	name = "\improper death squadron figure"
