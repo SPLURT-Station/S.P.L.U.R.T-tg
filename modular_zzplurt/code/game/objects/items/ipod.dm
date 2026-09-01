@@ -198,17 +198,22 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!fcopy(infile, logged_filename))
 		to_chat(user, span_warning("Could not upload song."))
 		return
-	if(QDELETED(user) || QDELETED(src)) // clean up uploaded file if object/user was deleted while upload was in progress
+	if(QDELETED(user) || QDELETED(src) || loc != user) // clean up uploaded file if object/user was deleted while upload was in progress/headphones were removed during upload
 		if(fexists(logged_filename))
 			fdel(logged_filename)
 		return
 
 	lastfilechange = world.time
 	var/sound_length = SSsounds.get_sound_length(logged_filename) // this uses the rust-g library to check if file is valid
-	if(isnull(sound_length) || sound_length <= 20) // either an invalid file or 2 seconds or less, abort
+	if(isnull(sound_length) || sound_length <= 0) // invalid file, abort
 		to_chat(user, span_warning("The song codec was invalid, aborting!"))
 		user.log_message("uploaded an invalid song: [logged_filename]", LOG_GAME)
 		log_admin("[key_name(user)] attempted to upload an corrupted song to their headphones. The source filename was '[sanitize("[infile]")]'.")
+		if(fexists(logged_filename))
+			fdel(logged_filename)
+		return
+	if(sound_length <= 20) // song length too short
+		to_chat(user, span_warning("The song length was too short, aborting!"))
 		fdel(logged_filename)
 		return
 	var/uploaded_song = file(logged_filename)
@@ -220,9 +225,6 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		to_chat(user, span_warning("Upload failed to finish, aborting!"))
 		user.log_message("attempted to upload a song: [logged_filename]", LOG_GAME)
 		log_admin("[key_name(user)] attempted to upload an incomplete song to their headphones. The source filename was '[sanitize("[infile]")]'.")
-		fdel(logged_filename)
-		return
-	if(loc != user) // headphones no longer on mob, abort
 		fdel(logged_filename)
 		return
 	if(radio_mode && !radio_dj_owner && !radio_dj_owner_allow_listen_upload) // check again after upload

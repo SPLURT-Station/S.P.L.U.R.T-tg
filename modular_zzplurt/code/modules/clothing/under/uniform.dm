@@ -626,68 +626,6 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/misc/turtleneck
-	name = "turtleneck with pants"
-	desc = "A rather comfortable turtleneck worn with pants. Talk about robust threads."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/misc/turtleneck"
-	post_init_icon_state = "turtleneck_nova"
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
-	worn_icon_state = "turtleneck_nova"
-	greyscale_config = /datum/greyscale_config/turtlenecks_nova
-	greyscale_config_worn = /datum/greyscale_config/turtlenecks_nova/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/turtlenecks_nova/worn/digi
-	greyscale_colors = "#787878#252525"
-	can_adjust = TRUE
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/misc/turtleneck/skirt
-	name = "turtleneck with skirt"
-	desc = "A rather comfortable turtleneck worn with a skirt. A skirtleneck, if you would."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/misc/turtleneck/skirt"
-	post_init_icon_state = "skirtleneck_nova"
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
-	worn_icon_state = "skirtleneck_nova"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	body_parts_covered = CHEST|GROIN
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	gets_cropped_on_taurs = FALSE
-	can_adjust = FALSE
-
-/obj/item/clothing/under/misc/turtleneckoveralls
-	name = "turtleneck with overalls"
-	desc = "Overalls worn over a turtleneck. A combination providing comfort and coverage... or, at the least, the coverage."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/misc/turtleneckoveralls"
-	post_init_icon_state = "overalls_nova"
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
-	worn_icon_state = "overalls_nova"
-	greyscale_config = /datum/greyscale_config/sus_overalls_nova
-	greyscale_config_worn = /datum/greyscale_config/sus_overalls_nova/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/sus_overalls_nova/worn/digi
-	greyscale_colors = "#787878#252525#CCCED1"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	can_adjust = TRUE
-
-/obj/item/clothing/under/misc/turtleneckoveralls/skirt
-	name = "turtleneck with overalls-skirt"
-	desc = "An overalls-skirt worn over a turtleneck. A combination providing comfort and coverage... or, at the least- no, wait, this doesn't really provide either."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/misc/turtleneckoveralls/skirt"
-	post_init_icon_state = "overalls_skirt_nova"
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
-	worn_icon_state = "overalls_skirt_nova"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	body_parts_covered = CHEST|GROIN
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	gets_cropped_on_taurs = FALSE
-	can_adjust = FALSE
-
 // Configs for Greyscale Dresses //
 /datum/greyscale_config/wench
 	name = "Wench Outfit"
@@ -805,36 +743,6 @@
 /datum/greyscale_config/miniskirt_sheer/worn
 	name = "Sheer Miniskirt (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-
-/// Distinct from Zubbers' /datum/greyscale_config/turtlenecks, which uses non-nova icon states.
-/datum/greyscale_config/turtlenecks_nova
-	name = "Turtlenecks (Nova)"
-	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/turtlenecks.json'
-
-/datum/greyscale_config/turtlenecks_nova/worn
-	name = "Turtlenecks (Nova, Worn)"
-	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/turtlenecks_worn.json'
-
-/datum/greyscale_config/turtlenecks_nova/worn/digi
-	name = "Turtlenecks (Nova, Worn, Digi)"
-	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
-
-/// Distinct from Zubbers' /datum/greyscale_config/sus_overalls, which uses non-nova icon states.
-/datum/greyscale_config/sus_overalls_nova
-	name = "Overalls (Nova)"
-	icon_file = 'modular_zzplurt/icons/obj/clothing/uniforms.dmi'
-	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/overalls.json'
-
-/datum/greyscale_config/sus_overalls_nova/worn
-	name = "Overalls (Nova, Worn)"
-	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
-	json_config = 'modular_zzplurt/code/datums/greyscale/json_configs/overalls_worn.json'
-
-/datum/greyscale_config/sus_overalls_nova/worn/digi
-	name = "Overalls (Nova, Worn, Digi)"
-	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 
 //Urban Clothing
 
