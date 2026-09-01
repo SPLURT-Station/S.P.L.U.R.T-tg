@@ -324,6 +324,7 @@
 /obj/item/toy/figure/syndie/officer
 	name = "\improper syndicate officer figure"
 	desc = "A figurine depicting the outfit of a decorated syndicate officer."
+	icon_state = "syndieofficer"
 	toysay = "Okay, so, here's the plan. You go to the station, turn on the nuke.. And die with it, sound good?"
 
 /obj/item/toy/figure/syndie/elite
