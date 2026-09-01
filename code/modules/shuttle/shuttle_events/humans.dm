@@ -39,7 +39,7 @@
 /datum/shuttle_event/simple_spawner/player_controlled/human/greytide/interns
 	name = "Intern Wave (Unarmed, 10 interns)"
 	event_probability = 0
-	outfit = /datum/outfit/centcom/centcom_intern/unarmed
+	outfit = /datum/outfit/centcom/centcom_intern
 
 	spawn_anyway_if_no_player = FALSE
 	ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"
@@ -53,7 +53,7 @@
 /datum/shuttle_event/simple_spawner/player_controlled/human/greytide/interns/armed
 	name = "Intern Wave (Armed, 10 interns)"
 	event_probability = 0
-	outfit = /datum/outfit/centcom/centcom_intern
+	outfit = /datum/outfit/centcom/centcom_intern/armed
 
 	spawn_anyway_if_no_player = FALSE
 	ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"

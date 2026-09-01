@@ -211,7 +211,7 @@
 
 /datum/loadout_item/uniform/miscellaneous/centcom_officer_skirt_replica
 	name = "CentCom skirtleneck replica"
-	item_path = /obj/item/clothing/under/rank/centcom/officer_skirt/replica
+	item_path = /obj/item/clothing/under/rank/centcom/officer/skirt/replica
 
 /datum/loadout_item/uniform/miscellaneous/latex_catsuit
 	name = "Latex Catsuit"

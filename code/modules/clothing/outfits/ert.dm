@@ -1,3 +1,5 @@
+// CENTCOM OVERRIDE - SPLURT EDIT. NEW LOCATION = "modular_zzplurt\modules\CentCom_Stuff\outfits.dm"
+/*
 /datum/outfit/centcom
 	name = "CentCom Base"
 
@@ -488,7 +490,8 @@
 	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
 	component.attach_hat(beret)
 	squaddie.update_clothing(helmet.slot_flags)
-
+*/
+// These can stay.
 /datum/outfit/centcom/ert/marine
 	name = "Marine Commander"
 

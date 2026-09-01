@@ -1,3 +1,5 @@
+// CENTCOM OVERRIDE, SEE NEW ID TRIMS IN "modular_zzplurt\modules\CentCom_Stuff\id_trims.dm"
+/*
 /// Trim for basic Centcom cards.
 /datum/id_trim/centcom
 	access = list(ACCESS_CENT_GENERAL)
@@ -234,7 +236,8 @@
 	. = ..()
 
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
-
+*/
+// These can stay.
 /datum/id_trim/centcom/ert/militia
 	assignment = "Frontier Militia"
 	big_pointer = FALSE

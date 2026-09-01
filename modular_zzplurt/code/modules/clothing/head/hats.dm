@@ -293,3 +293,16 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	icon_state = "ntps_cap"
 	armor_type = /datum/armor/hats_hos
+
+/obj/item/clothing/head/beret/centcom_officer
+	name = "\improper CentCom officer's beret"
+	desc = "A expensive beret made of durable fabric, protects the head whilst making you look fantastic! Comes with a silver Nanotrasen logo badge on the front for identification."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "centcom_silver_beret"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+	armor_type = /datum/armor/hats_centcom_cap
+	strip_delay = 10 SECONDS

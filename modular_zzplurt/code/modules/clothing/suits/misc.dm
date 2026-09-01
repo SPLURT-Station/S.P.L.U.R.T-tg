@@ -329,3 +329,14 @@ GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggl
 		/obj/item/knife/kitchen,
 		/obj/item/storage/bag/tray,
 	)
+
+/obj/item/clothing/suit/hazardvest/centcom
+	name = "CentCom hazard vest"
+	desc = "A durable dark green hazard vest issued to Central Command inspection and engineering personnel. High-visibility \
+		reflective trim and reinforced construction provide safety without sacrificing mobility, while embroidered Nanotrasen \
+		markings denote official corporate authority during inspections, maintenance, and emergency response operations."
+	icon = 'modular_zzplurt/icons/obj/clothing/suit/utility.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/utility.dmi'
+	icon_state = "cc_hazard_vest"
+	body_parts_covered = CHEST
+	armor_type = /datum/armor/armor_centcom_formal_nt_consultant

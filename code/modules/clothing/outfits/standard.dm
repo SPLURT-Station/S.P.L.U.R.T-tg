@@ -1,3 +1,5 @@
+// Who the fuck put the CentCom Specops Officer in here when we had "code\modules\clothing\outfits\ert.dm".
+/*
 /datum/outfit/centcom/spec_ops
 	name = "Special Ops Officer"
 
@@ -28,6 +30,7 @@
 	R.set_frequency(FREQ_CENTCOM)
 	R.freqlock = RADIO_FREQENCY_LOCKED
 	..()
+*/
 
 /datum/outfit/space
 	name = "Standard Space Gear"
@@ -232,6 +235,8 @@
 	W.update_label()
 	W.update_icon()
 
+// Who the fuck put the CentCom Commander in here when we had "code\modules\clothing\outfits\ert.dm".
+/*
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
@@ -269,6 +274,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer
 	back = /obj/item/mod/control/pre_equipped/corporate
 	internals_slot = ITEM_SLOT_SUITSTORE
+*/
 
 /datum/outfit/ghost_cultist
 	name = "Cultist Ghost"
@@ -347,6 +353,8 @@
 	head = /obj/item/clothing/head/wizard/red
 	backpack_contents = list()
 
+// Who the fuck invited the russians, also trim removal. - SPLURT REMOVAL
+/*
 /datum/outfit/centcom/soviet
 	name = "Soviet Admiral"
 
@@ -372,6 +380,7 @@
 	W.update_label()
 	W.update_icon()
 	..()
+*/
 
 /datum/outfit/mobster
 	name = "Mobster"
