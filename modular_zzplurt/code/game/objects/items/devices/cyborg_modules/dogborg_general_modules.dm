@@ -278,7 +278,7 @@
 	name = "combat jaws"
 	desc = "The jaws of the law. Very sharp."
 	icon_state = "jaws"
-	force = 10
+	force = 18
 	attack_verb_simple = list("chomped", "bit", "ripped", "mauled", "enforced")
 
 /obj/item/dogborg/jaws/small

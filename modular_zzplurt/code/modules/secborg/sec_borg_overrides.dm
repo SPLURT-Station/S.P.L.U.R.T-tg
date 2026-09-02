@@ -265,12 +265,16 @@
 	design_ids += "borg_upgrade_detective_kit"
 
 
-//Armor definitions and setting. getarmor is simply passed on to its parent with no modifications if it's not a secborg
+// Armor Values derived from /datum/armor/hazardvest_security_medic
 /datum/armor/armor_secborg
-	melee = 25
-	bullet = 25
-	laser = 25
-	energy = 35
+	melee = 35
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	wound = 10
 
 /mob/living/silicon/robot/getarmor(def_zone, type)
 	if(is_security_cyborg_role())
