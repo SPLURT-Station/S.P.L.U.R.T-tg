@@ -1,35 +1,20 @@
 #define GRACE_PERIOD 45 MINUTES
 #define LONEOP_DELAY 3
 
-/// SPLURT EDIT BEGIN
-/obj/item/disk/nuclear
-	var/admins_informed = FALSE // used to make sure the admins arent called repeatedly
-/// SPLURT EDIT END
-
 /obj/item/disk/nuclear/unsecured_process(last_move)
-	/// SPLURT EDIT BEGIN
 
 	//If there is no assigned captain, then don't run the event.
 	if(!SSjob || !SSjob.assigned_captain)
-		if(!admins_informed) /// SPLURT EDIT - adds a new one-time message to admins for this
-			message_admins("Lone Operative failed to spawn as there is no active Captain.")
-			admins_informed = TRUE
 		return
 
+	/// SPLURT EDIT BEGIN
 	// if the storyteller is extended, don't run the event
 	if(istype(SSgamemode.storyteller, /datum/storyteller/extended))
-		if(!admins_informed)
-			message_admins("Lone Operative failed to spawn as the storyteller is extended.")
-			admins_informed = TRUE
 		return
 
 	// if there's less than 50 active crew members, then don't run the event
 	if(SSgamemode.active_crew < 50)
-		if(!admins_informed)
-			message_admins("Lone Operative failed to spawn as there's less than 50 crew members.")
-			admins_informed = TRUE
 		return
-
 	/// SPLURT EDIT END
 
 	if(last_move < world.time - GRACE_PERIOD)
