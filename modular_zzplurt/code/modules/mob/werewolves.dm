@@ -30,6 +30,7 @@
 
 /mob/living/basic/werewolf/hostile
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile
+	faction = list("werewolves", "hostile")
 
 /mob/living/basic/werewolf/hostile/icewolf
 	name = "Ice-bound Werewolf"
@@ -42,7 +43,9 @@
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 
 /mob/living/basic/werewolf/hostile/death()
+	playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 	..()
+	gib()
 
 /mob/living/basic/werewolf/funwolf/
 	name = "Docile Werewolf"
@@ -88,6 +91,10 @@
 	desc = "A hellish red beast from the pits of tartarus, looking to desecrate any virgins it comes across."
 	icon_state = "Hell_Hound_idle"
 	icon_dead = "Hell_Hound_dead"
+	simulated_genitals = list(
+		ORGAN_SLOT_PENIS = TRUE,
+		ORGAN_SLOT_ANUS = TRUE
+	)
 
 /mob/living/basic/werewolf/funwolf/hellhound/loona
 	name = "Hellhound Bitch"

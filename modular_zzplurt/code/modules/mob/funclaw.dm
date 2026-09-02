@@ -25,14 +25,10 @@
 	faction = list("deathclaw")
 	unsuitable_atmos_damage = 5
 	gold_core_spawnable = HOSTILE_SPAWN
-	//Someone other than me is gonna have to give the mobs lewd stuff. -Evan
-	/*
-	var/charging = FALSE
-	var/has_penis = FALSE
-	var/has_butt = FALSE
-	var/has_breasts = FALSE
-	var/has_vagina = FALSE
-	*/
+	simulated_genitals = list(
+		ORGAN_SLOT_PENIS = TRUE,
+		ORGAN_SLOT_ANUS = TRUE
+	)
 
 /mob/living/basic/deathclaw/Initialize(mapload)
 	. = ..()
@@ -54,31 +50,11 @@
 	//cock_state = "alphaclaw_cocked"
 
 /mob/living/basic/deathclaw/hostile/death()
+	playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 	..()
 	gib()
 
-/*
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/proc/show_cock()
-	if (cock_shown)
-		return
-	cock_shown = TRUE
-	icon_state = cock_state
-	visible_message("<font color=purple><b>\The [src]</b>'s cock unsheathes.</font>")
 
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/proc/hide_cock()
-	if (!cock_shown)
-		return
-	cock_shown = FALSE
-	icon_state = base_state
-	visible_message("<font color=purple><b>\The [src]</b>'s cock slowly retracts back into its sheath.</font>")
-
-/mob/living/basic/hostile/deathclaw/funclaw/gentle/newclaw/handle_post_sex(amount, orifice, mob/living/partner)
-	..()
-	if (lust > 0)
-		show_cock()
-	else
-		hide_cock()
-*/
 /mob/living/basic/deathclaw/funclaw/
 	name = "Docile Deathclaw"
 	simulated_genitals = list(
