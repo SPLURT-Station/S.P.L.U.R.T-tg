@@ -9,7 +9,7 @@
 
 	/// SPLURT EDIT BEGIN
 	// if the storyteller is extended, don't run the event
-	if(istype(SSgamemode.storyteller, /datum/storyteller/extended))
+	if(!SSgamemode.can_inject_antags())
 		return
 
 	// if there's less than 50 active crew members, then don't run the event
