@@ -132,13 +132,13 @@ SUBSYSTEM_DEF(ticker)
 				// BUBBER EDIT CHANGE END - Replace with more rich message
 
 			current_state = GAME_STATE_PREGAME
-		// BUBBERSTATION EDIT START
-			var/storyteller = CONFIG_GET(string/default_storyteller)
-			if(storyteller && !SSgamemode.storyteller_vote_can_override()) // SPLURT EDIT - Original: if(storyteller)
-				SSgamemode.set_storyteller(text2path(storyteller), TRUE)
-			else
-				SSvote.initiate_vote(/datum/vote/storyteller, "Storyteller Vote", forced = TRUE)
-		// BUBBERSTATION EDIT END
+			// BUBBERSTATION EDIT START
+			//var/storyteller = CONFIG_GET(string/default_storyteller)
+			//if(storyteller && !SSgamemode.storyteller_vote_can_override()) // SPLURT EDIT - Original: if(storyteller)
+			//	SSgamemode.set_storyteller(text2path(storyteller), TRUE)
+			//else
+			SSvote.initiate_vote(/datum/vote/storyteller, "Storyteller Vote", forced = TRUE) // SPLURT EDIT - Always vote
+			// BUBBERSTATION EDIT END
 			SStitle.change_title_screen() //SKYRAT EDIT ADDITION - Title screen
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) //SKYRAT EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
