@@ -1,0 +1,564 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"b" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	color = "#535c5b";
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/supply)
+"c" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/vg_decals/numbers/five,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"d" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"e" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/supply)
+"f" = (
+/turf/template_noop,
+/area/template_noop)
+"g" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/supply)
+"i" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/obj/effect/turf_decal/arrows/white{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"j" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"l" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "cargowindows";
+	name = "NLV Consign Window Shutters";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"m" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	color = "#535c5b";
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/supply)
+"n" = (
+/obj/machinery/status_display/evac/directional/south,
+/obj/effect/turf_decal/stripes/end,
+/obj/machinery/conveyor{
+	id = "QMLoad2";
+	dir = 1
+	},
+/obj/structure/sign/departments/cargo/directional/east,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"o" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/vg_decals/numbers/one,
+/obj/machinery/status_display/ai/directional/south,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/sign/departments/cargo/directional/west,
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"p" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/six,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"q" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/machinery/button/door/directional/east{
+	pixel_y = -8;
+	id = "cargounload";
+	name = "Unloading Door Control"
+	},
+/obj/machinery/button/door/directional/east{
+	pixel_y = 8;
+	id = "cargoload";
+	name = "Loading Door Control"
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"r" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "cargowindows";
+	name = "NLV Consign Window Shutters"
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"s" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 1
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	color = "#535c5b"
+	},
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	name = "Engine Access"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/supply)
+"t" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"v" = (
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/stripes/end,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"w" = (
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/supply)
+"x" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/poddoor{
+	id = "cargoload";
+	name = "NLV Consign Loading Blast Door"
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/supply)
+"y" = (
+/obj/machinery/conveyor{
+	id = "QMLoad"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"z" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/supply)
+"A" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 1
+	},
+/obj/machinery/conveyor_switch/oneway{
+	id = "cargoload"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"B" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/conveyor/inverted{
+	dir = 5;
+	id = "QMLoad"
+	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"C" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/power/shuttle_engine/propulsion/left{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"D" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/vg_decals/numbers/two,
+/obj/machinery/light/directional/west,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/sign/clock/directional/west,
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"E" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"F" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/vg_decals/numbers/four,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"G" = (
+/obj/structure/table/reinforced,
+/obj/machinery/button/door{
+	pixel_y = 2;
+	name = "Shuttle Window Shutters Control";
+	id = "cargowindows"
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/supply)
+"H" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMLoad2"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/poddoor{
+	id = "cargounload";
+	name = "NLV Consign Unloading Blast Door"
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/supply)
+"I" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/docking_port/mobile/supply,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/shuttle/glass{
+	name = "NLV Consign Airlock"
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/supply)
+"J" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "cargounload"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"K" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/shuttle/glass{
+	name = "NLV Consign Airlock"
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/supply)
+"L" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/vg_decals/numbers/three,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/newscaster/directional/west,
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"M" = (
+/obj/machinery/conveyor{
+	id = "QMLoad2";
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"N" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/power/shuttle_engine/propulsion/right{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"Q" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/supply)
+"S" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/caution{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	color = "#535c5b";
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/supply)
+"T" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	color = "#535c5b";
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/supply)
+"U" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/supply)
+"V" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/seven,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+"W" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/supply)
+"X" = (
+/obj/machinery/conveyor{
+	id = "QMLoad2";
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
+"Y" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark/end{
+	dir = 4
+	},
+/obj/effect/turf_decal/arrows/white{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/shuttle/supply)
+
+(1,1,1) = {"
+U
+g
+g
+g
+W
+l
+l
+l
+W
+W
+W
+z
+f
+"}
+(2,1,1) = {"
+N
+g
+w
+T
+V
+p
+c
+F
+L
+D
+o
+W
+z
+"}
+(3,1,1) = {"
+a
+s
+w
+S
+Y
+Y
+i
+i
+i
+i
+i
+Q
+r
+"}
+(4,1,1) = {"
+a
+s
+w
+m
+B
+y
+y
+y
+y
+y
+v
+G
+r
+"}
+(5,1,1) = {"
+a
+s
+w
+S
+t
+A
+E
+d
+d
+J
+j
+Q
+r
+"}
+(6,1,1) = {"
+C
+g
+w
+b
+t
+e
+q
+e
+M
+X
+n
+W
+z
+"}
+(7,1,1) = {"
+U
+g
+g
+g
+x
+K
+W
+I
+H
+W
+W
+z
+f
+"}

@@ -55,3 +55,10 @@
 	resistance_flags = FIRE_PROOF
 	flags_inv = null
 	supports_variations_flags = NONE
+
+/obj/item/clothing/neck/mantle/mercenary
+	name = "\proper the mercenary commander's mantle"
+	desc = "Nothing's getting between me and a paycheck, not even you."
+	icon = 'modular_zzplurt/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/neck.dmi'
+	icon_state = "mercenary_mantle"

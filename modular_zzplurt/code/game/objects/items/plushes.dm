@@ -232,3 +232,12 @@
 	icon_state = "novaplush"
 	gender = FEMALE
 	squeak_override = list('modular_zubbers/sound/emotes/sound_voice_mar.ogg' = 1)
+
+/obj/item/toy/plush/aurumplush
+	name = "Gilded Synth"
+	desc = "A regal-looking synth that walks on all four, you can't tell if this plushie is made of real gold or painted that way.. It comes with built-in LED's!"
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "aurumplush"
+	attack_verb_simple = list("beep", "boop", "ping")
+	attack_verb_continuous = list("beeps", "boops", "pings")
+	squeak_override = list('modular_zzplurt/sound/machines/beep.ogg' = 1)

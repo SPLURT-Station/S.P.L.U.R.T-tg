@@ -43,11 +43,12 @@
 		JOB_SECURITY_OFFICER_ENGINEERING,
 		JOB_SECURITY_OFFICER_SUPPLY,
 		JOB_SECURITY_OFFICER_SCIENCE,
+		JOB_SECURITY_OFFICER_SERVICE, // SPLURT EDIT ADD
 	)
 	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 
-GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY))
+GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY, SEC_DEPT_SERVICE)) // SPLURT EDIT ADD
 
 /**
  * The department distribution of the security officers.
@@ -121,6 +122,13 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 			dep_trim = /datum/id_trim/job/security_officer/science
 			destination = /area/station/security/checkpoint/science
 			accessory = /obj/item/clothing/accessory/armband/science
+		// SPLURT ADDITION START
+		if(SEC_DEPT_SERVICE)
+			ears = /obj/item/radio/headset/headset_sec/alt/department/srv
+			dep_trim = /datum/id_trim/job/security_officer/service
+			destination = /area/station/security/checkpoint/service
+			accessory = /obj/item/clothing/accessory/armband/hydro
+		// SPLURT ADDITION END
 
 	if(accessory)
 		var/obj/item/clothing/under/worn_under = spawning.w_uniform
@@ -307,6 +315,12 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 /obj/item/radio/headset/headset_sec/alt/department/sci
 	keyslot = /obj/item/encryptionkey/headset_sec
 	keyslot2 = /obj/item/encryptionkey/headset_sci
+
+// SPLURT ADDITION START
+/obj/item/radio/headset/headset_sec/alt/department/srv
+	keyslot = /obj/item/encryptionkey/headset_sec
+	keyslot2 = /obj/item/encryptionkey/headset_service
+// SPLURT ADDITION END
 
 /// Returns the distribution of splitting the given security officers into departments.
 /// Return value is an assoc list of candidate => SEC_DEPT_*.
