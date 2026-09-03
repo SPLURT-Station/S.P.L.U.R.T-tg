@@ -1,0 +1,1435 @@
+#define DEFAULT_TRANSITION (/datum/moving_turf_transition/plain_snow)
+
+/datum/map_config
+	// Whether this map is a train map
+	var/trainstation = FALSE
+
+SUBSYSTEM_DEF(train_controller)
+	name = "Train Controller"
+	wait = 1 SECONDS
+
+	dependencies = list(
+		/datum/controller/subsystem/mapping,
+		/datum/controller/subsystem/daylight,
+	)
+
+	/// The global map along which the train moves
+	VAR_FINAL/datum/train_global_map/global_map = null
+	/// List of all known and loaded stations
+	VAR_FINAL/list/known_stations = list()
+	/// Snapshot of every compile-time station's name/type/map taken at init, so the
+	/// "create from existing template" menu still offers them after deletion.
+	VAR_FINAL/list/station_templates = list()
+	/// Stations sorted by region (only visible and non-abstract)
+	VAR_FINAL/list/stations_by_regions = list()
+	/// Order of regions for traversal (shuffled each time stations are connected)
+	VAR_FINAL/list/region_order = list()
+	/// Threat levels in numeric form for sorting
+	VAR_FINAL/threat_levels_by_number = list(
+		THREAT_LEVEL_SAFE = 0,
+		THREAT_LEVEL_RISKY = 1,
+		THREAT_LEVEL_DANGEROUS = 2,
+		THREAT_LEVEL_HAZARDOUS = 3,
+		THREAT_LEVEL_DEADLY = 4,
+	)
+	/// The station the train plans to arrive at next
+	var/datum/train_station/planned_to_load = null
+	/// The currently loaded station
+	var/datum/train_station/loaded_station = null
+
+	/// Direction of the train's movement (visual, for effects)
+	var/abstract_moving_direction = EAST
+	/// Whether movement is allowed without a working engine
+	VAR_PRIVATE/no_engine_mode = FALSE
+	VAR_PRIVATE/moving = FALSE
+	VAR_PRIVATE/datum/looping_sound/global_sound/train_sound_loop/soundloop
+
+	/// Whether train mode is active (turned off at round end, etc.)
+	var/mode_active = FALSE
+
+	/// List of active train events
+	var/list/running_events
+
+	/// List of station control terminals
+	var/list/station_terminals
+
+	/// Should we enforce planned_transition even if we station_enter_transition_loaded
+	var/enforce_transition = FALSE
+	/// Transition we plan to set at next_transition_time
+	var/planned_transition
+	/// How soon we want to change transition or reset it
+	var/next_transition_time = 0
+	/// Did we loaded station enter transition
+	var/station_enter_transition_loaded = FALSE
+	/// The currently selected theme for objects/effects while the train is moving
+	var/datum/train_object_spawner_theme/selected_theme = null
+	/// Current transition theme, for auto_icon moving turfs
+	var/datum/moving_turf_transition/transition_theme = null
+
+	/// Reference to the train engine (turbine core)
+	var/obj/machinery/power/train_turbine/core_rotor/train_engine = null
+	/// Flag: a station is currently being loaded or unloaded
+	var/loading = FALSE
+
+	var/tain_starting = FALSE
+	/// Minimum time between stations (even with a short distance on the map)
+	var/minimum_travel_time = 7 MINUTES
+	var/maximum_travel_time = 30 MINUTES
+	/// How long it takes to move 1 unit of distance on the global map
+	var/time_per_map_unit = 4 SECONDS
+	/// Time remaining until the next station
+	var/time_to_next_station
+	/// Total travel time to the next station
+	var/total_travel_time
+	/// How many stations have already been visited this round
+	var/stations_visited = 0
+	/// The last real station the train departed from (for correct display on the map)
+	var/datum/train_station/last_departed_station = null
+
+/**
+ * Getters
+ */
+
+/datum/controller/subsystem/train_controller/proc/is_moving()
+	return moving
+
+/datum/controller/subsystem/train_controller/proc/allow_spawning()
+	if(loading)
+		return FALSE
+	if(loaded_station?.station_flags & TRAINSTATION_NO_SPAWNING)
+		return FALSE
+	if(transition_theme && transition_theme.transition)
+		return FALSE
+
+	return TRUE
+
+/datum/controller/subsystem/train_controller/proc/check_trainstation()
+	if(!SSmapping.current_map)
+		return FALSE
+	if(!SSmapping.current_map.trainstation)
+		return FALSE
+	return TRUE
+
+/**
+ * Initialization and loading
+ */
+
+/datum/controller/subsystem/train_controller/Initialize()
+	var/list/map_traits = SSmapping.current_map.traits[1]
+	if(!map_traits || !islist(map_traits))
+		return
+	var/is_trainstation = map_traits[ZTRAIT_TRAINSTATION] || FALSE
+	if(!is_trainstation)
+		return SS_INIT_NO_NEED
+
+	mode_active = TRUE
+	global_map = new()
+	update_tittle_screen()
+	running_events = list()
+	soundloop = new(start_immediately = FALSE)
+	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(on_enter_pregame))
+	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(on_round_start))
+	RegisterSignal(SSdcs, COMSIG_GLOBAL_PLAYER_SETUP_FINISHED, PROC_REF(on_player_join))
+	load_stations()
+	connect_stations()
+	global_map.generate()
+
+	transition_theme = new /datum/moving_turf_transition/plain_snow() /// TODO: Make it normaly
+	transition_theme.process_instant()
+
+	load_map()
+
+
+/datum/controller/subsystem/train_controller/proc/on_player_join(datum/dcs, mob/living/joining)
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(teleport_to_train), joining)
+
+/datum/controller/subsystem/train_controller/proc/teleport_to_train(mob/living/joining)
+	var/job_spawn_title = joining?.mind?.assigned_role?.title
+	var/obj/effect/landmark/start/spawnpoint
+	var/obj/effect/landmark/reserv_spawnpoint = null
+	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
+		if(spawn_point.name == job_spawn_title)
+			spawnpoint = spawn_point
+	if(!spawnpoint)
+		reserv_spawnpoint = locate(/obj/effect/landmark/trainstation/crew_spawnpoint) in GLOB.landmarks_list
+	var/turf/target_turf = spawnpoint ? get_turf(spawnpoint) : get_turf(reserv_spawnpoint)
+	if(!target_turf)
+		message_admins("Failed to spawn new character for [ADMIN_LOOKUPFLW(joining)]")
+		return
+	joining.forceMove(target_turf)
+
+/datum/controller/subsystem/train_controller/proc/load_stations()
+	for(var/path in subtypesof(/datum/train_station))
+		// Custom stations need constructor args; never auto-instantiate them.
+		if(path == /datum/train_station/custom)
+			continue
+		var/datum/train_station/S = new path
+		known_stations += S
+		// Remember this station's map as a template; survives later deletion.
+		if(is_preset_station(S) && S.map_path)
+			station_templates += list(list(
+				"name" = S.name,
+				"type" = "[S.type]",
+				"map_path" = S.map_path,
+			))
+
+/datum/controller/subsystem/train_controller/proc/connect_stations()
+	if(!length(known_stations))
+		return
+
+	var/list/all_stations = known_stations.Copy()
+	var/list/sort_by_region = list()
+
+	for(var/datum/train_station/station in all_stations)
+		if(!station.visible || (station.station_flags & TRAINSTATION_ABSCTRACT))
+			continue
+		if(!sort_by_region[station.region])
+			sort_by_region[station.region] = list()
+		sort_by_region[station.region] += station
+
+	stations_by_regions.Cut()
+	for(var/region in sort_by_region)
+		var/list/sorted = sort_by_region[region]
+		stations_by_regions[region] = sorted.Copy()
+
+	for(var/region in stations_by_regions)
+		var/list/region_stations = stations_by_regions[region]
+		if(!length(region_stations))
+			continue
+
+		var/list/threat_groups = list()
+		for(var/datum/train_station/S in region_stations)
+			var/threat_num = threat_levels_by_number[S.threat_level] || 0
+			if(!threat_groups[num2text(threat_num)])
+				threat_groups[num2text(threat_num)] = list()
+			threat_groups[num2text(threat_num)] += S
+
+		var/list/ordered = list()
+		for(var/threat_num in 0 to 4)
+			if(threat_groups[num2text(threat_num)])
+				ordered += threat_groups[num2text(threat_num)]
+		stations_by_regions[region] = ordered
+
+	var/list/region_keys = list()
+	for(var/r in stations_by_regions)
+		region_keys += r
+	region_order = shuffle(region_keys)
+
+	for(var/datum/train_station/TS in known_stations)
+		TS.connect_stations()
+
+/datum/controller/subsystem/train_controller/proc/pick_final_station()
+	var/list/candidates = list()
+	for(var/datum/train_station/S in known_stations)
+		if(!S.visible)
+			continue
+		if(S.station_flags & TRAINSTATION_ABSCTRACT)
+			continue
+		if(!(S.station_flags & TRAINSTATION_FINAL_STATION))
+			continue
+		candidates += S
+
+	if(!length(candidates))
+		return null
+
+	return pick(candidates)
+
+/datum/controller/subsystem/train_controller/proc/load_map()
+	load_train()
+	load_startpoint()
+
+/datum/controller/subsystem/train_controller/proc/load_train()
+	var/datum/map_template/train/train_template = new()
+	var/obj/effect/landmark/trainstation/train_spawnpoint/spawnpoint = locate() in GLOB.landmarks_list
+	if(!spawnpoint || !istype(spawnpoint))
+		stack_trace("Failed to load train, no available spawnpoints!")
+		return
+	var/turf/actual_spawnpoint = get_turf(spawnpoint)
+	if(!actual_spawnpoint)
+		stack_trace("Failed to load train, spawnpoint out of bounds!")
+		return
+	train_template.load(actual_spawnpoint, centered = FALSE)
+
+/datum/controller/subsystem/train_controller/proc/load_startpoint()
+	load_station(/datum/train_station/abandoned_depo, stop_moving = FALSE, hide_for_players = FALSE, announce = FALSE)
+
+/datum/controller/subsystem/train_controller/proc/on_enter_pregame()
+	SIGNAL_HANDLER
+	// First announce the game rules
+	announce_game()
+	set_station_name("Trainstation 13")
+	addtimer(CALLBACK(src, PROC_REF(set_lobby_screen)), 5 SECONDS)
+
+/datum/controller/subsystem/train_controller/proc/on_round_start()
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(refresh_train_lights))
+	addtimer(CALLBACK(src, PROC_REF(show_current_station_logo)), 15 SECONDS)
+
+/datum/controller/subsystem/train_controller/proc/refresh_train_lights()
+	for(var/obj/machinery/light/light as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/light))
+		if(!light.light)
+			continue
+		var/range = light.light_range
+		light.set_light(0)
+		light.set_light(range)
+		CHECK_TICK
+
+/**
+ * Working with stations
+ */
+
+/datum/controller/subsystem/train_controller/proc/connect_terminals()
+	if(!station_terminals || !length(station_terminals))
+		return
+	for(var/obj/machinery/computer/trainstation_control/control in station_terminals)
+		control.set_station(loaded_station)
+
+/datum/controller/subsystem/train_controller/proc/on_station_unloaded()
+
+/datum/controller/subsystem/train_controller/proc/unload_station(datum/train_station/to_unload, hide_for_players = TRUE)
+	if(!to_unload)
+		return
+	to_unload.unload_station(CALLBACK(src, PROC_REF(on_station_unloaded)))
+
+/datum/controller/subsystem/train_controller/proc/on_station_loaded()
+
+/datum/controller/subsystem/train_controller/proc/load_station(path_or_instance, stop_moving = FALSE, hide_for_players = TRUE, announce = TRUE)
+	var/datum/train_station/to_load = null
+	if(ispath(path_or_instance, /datum/train_station))
+		to_load = locate(path_or_instance) in known_stations
+	else if(istype(path_or_instance, /datum/train_station))
+		to_load = path_or_instance
+
+	if(!to_load)
+		CRASH("Failed to load station [path_or_instance], invalid path!")
+	var/list/screens = null
+	if(hide_for_players)
+		for(var/mob/living/L in GLOB.alive_player_list)
+			var/atom/movable/screen/fullscreen/flash/black/station_loading/LS = L.overlay_fullscreen("station_loading", /atom/movable/screen/fullscreen/flash/black/station_loading)
+
+			LS.apply_to(L)
+			ADD_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
+			LAZYADD(screens, L)
+	if(loaded_station)
+		unload_station(loaded_station, hide_for_players)
+
+	loading = TRUE
+	loaded_station = to_load
+	loaded_station.pre_load()
+
+	var/result = to_load.load_station(CALLBACK(src, PROC_REF(on_station_loaded)))
+	SSdaylight.reapply_lighting()
+	loaded_station.setup_environment()
+
+	if(screens && islist(screens) && length(screens))
+		for(var/mob/living/L in screens)
+			REMOVE_TRAIT(L, TRAIT_NO_TRANSFORM, REF(src))
+			L.clear_fullscreen("station_loading")
+
+	if(!result)
+		loading = FALSE
+		return
+
+	if(stop_moving)
+		stop_moving()
+
+	if(announce && !(loaded_station.station_flags & TRAINSTATION_ABSCTRACT))
+		show_station_logo(to_load)
+
+	connect_terminals()
+	SEND_SIGNAL(src, COMSIG_TRAINSTATION_LOADED, loaded_station)
+	loading = FALSE
+	station_enter_transition_loaded = FALSE
+
+	if(loaded_station.station_flags & TRAINSTATION_NO_FORKS)
+		return
+
+/datum/controller/subsystem/train_controller/proc/show_current_station_logo(silent = FALSE)
+	if(loaded_station)
+		show_station_logo(loaded_station, silent)
+
+/datum/controller/subsystem/train_controller/proc/show_station_logo(datum/train_station/station, silent = FALSE)
+	for(var/mob/player in GLOB.player_list)
+		if(!silent)
+			SEND_SOUND(player, 'fenysha_events/sounds/effects/station_logo.ogg')
+		new /atom/movable/screen/station_logo(null, null, station.name, station.creator, player.client)
+
+
+/datum/controller/subsystem/train_controller/proc/set_movement_theme(datum/train_object_spawner_theme/new_theme)
+	var/datum/train_object_spawner_theme/selected = null
+	if(ispath(new_theme))
+		selected = GLOB.train_spwaner_themes[new_theme]
+	else if(istype(new_theme, /datum/train_object_spawner_theme))
+		selected = new_theme
+
+	if(!selected)
+		stack_trace("Trying set null movement theme!")
+		return
+
+	if(selected_theme)
+		selected_theme.on_deselected()
+
+	selected_theme = selected
+	selected_theme.on_selected()
+
+	for(var/obj/effect/landmark/trainstation/object_spawner/spawner in GLOB.train_object_spawners)
+		spawner.set_theme(selected)
+
+
+/datum/controller/subsystem/train_controller/proc/change_transition(type_or_instance, instant = FALSE)
+	var/datum/moving_turf_transition/transition = null
+
+	if(ispath(type_or_instance, /datum/moving_turf_transition))
+		if(transition_theme && (type_or_instance == transition_theme.type))
+			return
+		transition = new type_or_instance()
+	else if(istype(type_or_instance, /datum/moving_turf_transition))
+		transition = type_or_instance
+		if(transition_theme && (transition == transition_theme))
+			return // Why would it happen?
+		else if(transition_theme && (transition.type == transition_theme.type))
+			qdel(transition)
+			return //We already on it
+
+	if(!transition)
+		CRASH("Train controller try to change current transition with [type_or_instance] use instance or type instead!")
+	if(transition_theme)
+		transition_theme.transit_out()
+
+	transition_theme = transition
+	if(!instant)
+		transition.start_transition()
+	else
+		transition.process_instant()
+
+/datum/controller/subsystem/train_controller/proc/reset_transition()
+	change_transition(DEFAULT_TRANSITION)
+
+/**
+ * Movement control
+ */
+
+/datum/controller/subsystem/train_controller/proc/attempt_start(delay = 15 SECONDS)
+	if(moving || tain_starting)
+		return
+	if(loaded_station && loaded_station.blocking_moving)
+		return
+	if(!check_start())
+		return
+	if(!planned_to_load)
+		return
+
+	var/station_abstract = (loaded_station.station_flags & TRAINSTATION_ABSCTRACT) ? TRUE : FALSE
+	var/msg = "The train will start moving in [DisplayTimeText(delay)]! \
+			[station_abstract ? "" : "Prepare for departure from station [loaded_station.name]."]"
+	priority_announce(msg, "Train Departure")
+	tain_starting = TRUE
+	loaded_station.pre_unload()
+	addtimer(CALLBACK(src, PROC_REF(start_moving), FALSE, TRUE, 0), delay)
+
+/datum/controller/subsystem/train_controller/proc/check_start()
+	if(SEND_SIGNAL(src, COMSIG_TRAIN_TRY_MOVE) & COMPONENT_BLOCK_TRAIN_MOVEMENT)
+		return FALSE
+	if(!train_engine && !no_engine_mode)
+		return FALSE
+	if(!train_engine.is_active() && !no_engine_mode)
+		return FALSE
+	return TRUE
+
+/datum/controller/subsystem/train_controller/proc/pick_theme()
+	for(var/theme_type in shuffle(GLOB.train_spwaner_themes.Copy()))
+		var/datum/train_object_spawner_theme/theme = GLOB.train_spwaner_themes[theme_type]
+		if(!theme.allow_selection)
+			continue
+		return theme
+
+/datum/controller/subsystem/train_controller/proc/start_moving(force = FALSE, unload_station = TRUE)
+	if(moving)
+		return
+	if((loaded_station && loaded_station.blocking_moving) && !force)
+		return
+	if(!check_start() && !force)
+		return
+	if(!planned_to_load)
+		if(!force)
+			return
+		planned_to_load = pick(loaded_station.possible_next)
+
+	// Remember the last real departure station (for the global map)
+	if(loaded_station && !(loaded_station.station_flags & TRAINSTATION_ABSCTRACT) && !istype(loaded_station, /datum/train_station/train_backstage))
+		last_departed_station = loaded_station
+
+	if(!(loaded_station.station_flags & TRAINSTATION_ABSCTRACT))
+		var/time_to_next
+		if(global_map && planned_to_load?.map_object && loaded_station.map_object)
+			var/datum/trainmap_object/start_obj = loaded_station.map_object
+			var/datum/trainmap_object/end_obj = planned_to_load.map_object
+			var/dx = end_obj.position_x - start_obj.position_x
+			var/dy = end_obj.position_y - start_obj.position_y
+			var/dist = sqrt(dx*dx + dy*dy)
+			time_to_next = dist * time_per_map_unit
+			if(time_to_next < minimum_travel_time)
+				time_to_next = minimum_travel_time
+			if(time_to_next > maximum_travel_time)
+				time_to_next = maximum_travel_time
+		else
+			time_to_next = rand(minimum_travel_time, maximum_travel_time)
+		total_travel_time = time_to_next
+		time_to_next_station = time_to_next
+		stations_visited += 1
+
+	moving = TRUE
+
+	if(unload_station && !istype(loaded_station, /datum/train_station/train_backstage))
+		load_station(/datum/train_station/train_backstage, FALSE, TRUE, FALSE)
+
+	if(last_departed_station && last_departed_station.exit_transition)
+		change_transition(last_departed_station.exit_transition, TRUE)
+		if(last_departed_station.exit_transition_time > 0)
+			next_transition_time = world.time + last_departed_station.exit_transition_time
+		else
+			next_transition_time = INFINITY
+
+	if(!transition_theme)
+		change_transition(DEFAULT_TRANSITION, TRUE)
+		set_movement_theme(pick_theme())
+		next_transition_time = INFINITY
+	else
+		transition_theme.process_instant()
+		set_movement_theme(pick_theme())
+		next_transition_time = INFINITY
+
+	SSmoving_turfs.on_train_start()
+	soundloop.start()
+	sound_to_playing_players('fenysha_events/sounds/steam_short.ogg', volume = 60)
+	tain_starting = FALSE
+	SEND_SIGNAL(src, COMSIG_TRAIN_BEGIN_MOVING)
+
+/datum/controller/subsystem/train_controller/proc/stop_moving()
+	if(!moving)
+		return
+	moving = FALSE
+	SSmoving_turfs.on_train_stop()
+	soundloop.stop(FALSE)
+	sound_to_playing_players('fenysha_events/sounds/steam_long.ogg', volume = 60)
+	if(no_engine_mode)
+		no_engine_mode = FALSE
+	SEND_SIGNAL(src, COMSIG_TRAIN_STOP_MOVING)
+
+/datum/controller/subsystem/train_controller/fire(resumed)
+	if(length(running_events))
+		for(var/datum/round_event/evt in running_events)
+			evt.process()
+
+	if(!moving)
+		return
+
+	if((!train_engine || !train_engine.is_active()) && !no_engine_mode)
+		stop_moving()
+		return
+
+	if(next_transition_time && planned_transition && ((world.time - next_transition_time) >= 0) && (!station_enter_transition_loaded || enforce_transition))
+		change_transition(planned_transition)
+		next_transition_time = 0
+		planned_transition = null
+		enforce_transition = FALSE
+
+	if(planned_to_load && planned_to_load.enter_transition && (time_to_next_station <= planned_to_load.enter_transition_time) && !station_enter_transition_loaded)
+		change_transition(planned_to_load.enter_transition)
+		station_enter_transition_loaded = TRUE
+
+	if(moving && planned_to_load && time_to_next_station >= 0)
+		time_to_next_station -= wait
+		if(time_to_next_station <= 0)
+			time_to_next_station = 0
+			stop_moving()
+			load_station(planned_to_load, stop_moving = TRUE, hide_for_players = TRUE, announce = TRUE)
+			planned_to_load = null
+
+/// Full editable variable set for one station, keyed by its datum ref so the
+/// admin editor can target it precisely. INFINITY visits are sent as a flag.
+/datum/controller/subsystem/train_controller/proc/get_station_edit_data(datum/train_station/S)
+	var/list/conns = list()
+	for(var/datum/train_station/N in S.possible_next)
+		if(istype(N))
+			conns += REF(N)
+	var/list/nears = list()
+	if(islist(S.possible_nearstations))
+		for(var/thing in S.possible_nearstations)
+			if(istype(thing, /datum/train_station))
+				nears += REF(thing)
+	var/list/ambience = list()
+	if(islist(S.ambience_sounds))
+		for(var/snd in S.ambience_sounds)
+			ambience += list(list(
+				"name" = "[snd]",
+				"duration" = round(S.ambience_sounds[snd] / 10, 1),
+			))
+	return list(
+		"ref" = REF(S),
+		"name" = S.name,
+		"desc" = S.desc,
+		"creator" = S.creator,
+		"region" = S.region,
+		"station_type" = S.station_type,
+		"threat_level" = S.threat_level,
+		"required_password" = S.required_password,
+		"required_stations" = S.required_stations,
+		"maximum_visits" = (S.maximum_visits == INFINITY) ? -1 : S.maximum_visits,
+		"visible" = S.visible,
+		"station_flags" = S.station_flags,
+		"is_custom" = istype(S, /datum/train_station/custom),
+		"connections" = conns,
+		"nearstations" = nears,
+		"enter_transition" = S.enter_transition ? "[S.enter_transition]" : "",
+		"exit_transition" = S.exit_transition ? "[S.exit_transition]" : "",
+		"enter_transition_time" = round(S.enter_transition_time / 10, 1),
+		"exit_transition_time_persist" = (S.exit_transition_time < 0),
+		"exit_transition_time" = (S.exit_transition_time < 0) ? 0 : round(S.exit_transition_time / 10, 1),
+		"ambience_sounds" = ambience,
+	)
+
+/// Data for the shared TrainControlTerminal UI, used by both the in-world
+/// terminals and the admin verb. admin_mode adds the admin-only tooling.
+/datum/controller/subsystem/train_controller/proc/build_terminal_data(read_only = FALSE, admin_mode = FALSE)
+	var/list/data = list()
+	data["read_only"] = read_only
+	data["admin_mode"] = admin_mode
+	data["is_moving"] = is_moving()
+	data["train_engine_active"] = train_engine?.is_active() || FALSE
+	data["current_station"] = loaded_station?.name || "Unknown"
+	data["planned_station"] = planned_to_load?.name || "Not selected"
+	data["is_blocked"] = loaded_station?.blocking_moving || FALSE
+	data["progress"] = (is_moving() && total_travel_time > 0) ? 1 - (time_to_next_station / total_travel_time) : 0
+	data["time_remaining"] = time_to_next_station || 0
+	data["time_per_map_unit"] = time_per_map_unit
+
+	// Train speed: real distance of the current leg over its travel time.
+	var/leg_distance = 0
+	var/datum/train_station/from_station = last_departed_station || loaded_station
+	if(is_moving() && from_station?.map_object && planned_to_load?.map_object)
+		var/dx = planned_to_load.map_object.position_x - from_station.map_object.position_x
+		var/dy = planned_to_load.map_object.position_y - from_station.map_object.position_y
+		leg_distance = sqrt(dx * dx + dy * dy)
+	var/units_per_second = (is_moving() && total_travel_time > 0) ? (leg_distance / (total_travel_time / 10)) : 0
+	data["speed"] = units_per_second
+	// Flavour readout; map units are abstract so scale into a train-ish km/h.
+	data["speed_kmh"] = round(units_per_second * 480, 1)
+
+	data["possible_next"] = list()
+	if(!is_moving() && loaded_station)
+		for(var/datum/train_station/next in loaded_station.possible_next)
+			data["possible_next"] += list(list(
+				"name" = next.name,
+				"type" = "[next.type]"
+			))
+
+	if(admin_mode)
+		var/list/all_stations = list()
+		var/list/editable_stations = list()
+		var/list/nearstation_options = list()
+		for(var/datum/train_station/station in known_stations)
+			if(istype(station, /datum/train_station/near_station))
+				nearstation_options += list(list(
+					"ref" = REF(station),
+					"name" = station.name,
+				))
+				continue
+			// Abstract stations (e.g. the moving backstage) have no real node.
+			if(station.station_flags & TRAINSTATION_ABSCTRACT)
+				continue
+			editable_stations += list(get_station_edit_data(station))
+			if(!station.visible)
+				continue
+			all_stations += list(list(
+				"name" = station.name,
+				"type" = "[station.type]",
+				"loaded" = (station == loaded_station)
+			))
+		data["all_stations"] = all_stations
+		data["editable_stations"] = editable_stations
+		data["nearstation_options"] = nearstation_options
+
+		var/list/transition_options = list()
+		for(var/transition_path in subtypesof(/datum/moving_turf_transition))
+			transition_options += "[transition_path]"
+		data["transition_options"] = transition_options
+		data["current_transition"] = transition_theme ? "[transition_theme.type]" : ""
+
+	if(global_map)
+		global_map.update_train_position()
+
+	data["map_data"] = global_map?.get_ui_data() || list(
+		"objects" = list(),
+		"paths" = list(),
+		"train" = list("x" = 500, "y" = 500, "angle" = 0)
+	)
+	return data
+
+/datum/controller/subsystem/train_controller/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TrainControlTerminal")
+		ui.open()
+
+/datum/controller/subsystem/train_controller/ui_state(mob/user)
+	return ADMIN_STATE(R_ADMIN)
+
+/datum/controller/subsystem/train_controller/ui_data(mob/user)
+	// Only reachable via the admin verb, so always admin mode.
+	return build_terminal_data(read_only = FALSE, admin_mode = TRUE)
+
+/datum/controller/subsystem/train_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("open_vv")
+			if(!check_rights(R_ADMIN))
+				return
+			usr.client.debug_variables(src)
+		if("choose_next")
+			var/raw_id = params["station_type"]
+			if(!istext(raw_id))
+				return
+
+			var/station_path_text = raw_id
+			var/hash_pos = findtext(raw_id, "#")
+			if(hash_pos)
+				station_path_text = copytext(raw_id, 1, hash_pos)
+
+			var/station_type = text2path(station_path_text)
+			if(!station_type)
+				return
+
+			var/datum/train_station/next = locate(station_type) in known_stations
+			if(next && loaded_station && (next in loaded_station.possible_next))
+				planned_to_load = next
+			return TRUE
+		if("start_moving")
+			if(!train_engine || !train_engine.is_active())
+				no_engine_mode = TRUE
+			start_moving(force = TRUE)
+			return TRUE
+		if("stop_moving")
+			stop_moving()
+			return TRUE
+		if("set_speed")
+			var/new_speed = params["speed"]
+			if(isnum(new_speed) && new_speed > 0)
+				return TRUE
+		if("set_cooldown")
+			var/new_cd = params["cooldown"]
+			if(isnum(new_cd) && new_cd > 0)
+				return TRUE
+		if("load_station")
+			var/raw_id = params["station_type"]
+			if(!istext(raw_id))
+				return
+
+			var/station_path_text = raw_id
+			var/hash_pos = findtext(raw_id, "#")
+			if(hash_pos)
+				station_path_text = copytext(raw_id, 1, hash_pos)
+
+			var/station_type = text2path(station_path_text)
+			if(!station_type)
+				return
+
+			var/confirm = tgui_alert(usr, "Are you sure want to load station [raw_id]?", "Station loading", list("Yes", "Nevermind"))
+			if(confirm != "Yes")
+				return
+
+			INVOKE_ASYNC(src, PROC_REF(load_station), station_type)
+			return TRUE
+		if("unload_station")
+			if(loaded_station)
+				INVOKE_ASYNC(src, PROC_REF(unload_station), loaded_station)
+				loaded_station = null
+				return TRUE
+		if("move_object")
+			if(!check_rights(R_ADMIN))
+				return
+			var/raw_id = params["id"]
+			if(!istext(raw_id))
+				return
+			var/nx = params["x"]
+			var/ny = params["y"]
+			if(!isnum(nx) || !isnum(ny))
+				return
+			if(!global_map)
+				return
+			var/hash_pos = findtext(raw_id, "#")
+			if(!hash_pos)
+				return
+			var/idx = text2num(copytext(raw_id, hash_pos + 1))
+			if(isnull(idx))
+				return
+			idx = round(idx)
+			if(idx < 1 || idx > length(global_map.objects))
+				return
+			var/datum/trainmap_object/O = global_map.objects[idx]
+			if(!O)
+				return
+			O.set_position(round(nx), round(ny))
+			return TRUE
+		if("create_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/cx = params["x"]
+			var/cy = params["y"]
+			INVOKE_ASYNC(src, PROC_REF(admin_create_station), usr, isnum(cx) ? cx : null, isnum(cy) ? cy : null)
+			return TRUE
+		if("save_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/edit_target = locate(params["ref"])
+			if(!istype(edit_target) || !(edit_target in known_stations))
+				return
+			apply_station_edits(edit_target, params)
+			return TRUE
+		if("delete_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/del_target = locate(params["ref"])
+			if(!istype(del_target) || !(del_target in known_stations))
+				return
+			admin_delete_station(del_target, usr)
+			return TRUE
+		if("vv_station")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/vv_target = locate(params["ref"])
+			if(!istype(vv_target) || !(vv_target in known_stations))
+				return
+			usr.client.debug_variables(vv_target)
+			return TRUE
+		if("add_ambience")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/amb_target = locate(params["ref"])
+			if(!istype(amb_target) || !(amb_target in known_stations))
+				return
+			INVOKE_ASYNC(src, PROC_REF(admin_upload_ambience), usr, amb_target)
+			return TRUE
+		if("remove_ambience")
+			if(!check_rights(R_ADMIN))
+				return
+			var/datum/train_station/amb_target = locate(params["ref"])
+			if(!istype(amb_target) || !(amb_target in known_stations))
+				return
+			var/idx = params["index"]
+			if(!isnum(idx))
+				return
+			amb_target.admin_remove_ambience(round(idx))
+			return TRUE
+		if("export_preset")
+			if(!check_rights(R_ADMIN))
+				return
+			INVOKE_ASYNC(src, PROC_REF(export_map_preset), usr)
+			return TRUE
+		if("import_preset")
+			if(!check_rights(R_ADMIN))
+				return
+			INVOKE_ASYNC(src, PROC_REF(import_map_preset), usr)
+			return TRUE
+		if("change_transition")
+			if(!check_rights(R_ADMIN))
+				return
+			var/raw_transition = params["transition"]
+			if(!istext(raw_transition))
+				return
+			var/transition_path = text2path(raw_transition)
+			if(!ispath(transition_path, /datum/moving_turf_transition))
+				return
+			change_transition(transition_path, !!params["instant"])
+			return TRUE
+		if("reset_transition")
+			if(!check_rights(R_ADMIN))
+				return
+			reset_transition()
+			return TRUE
+
+/// Admin: build a runtime station from either an uploaded .dmm or an existing
+/// station template's map, and drop it at the given map coords (viewport center).
+/datum/controller/subsystem/train_controller/proc/admin_create_station(mob/user, place_x, place_y)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!global_map)
+		to_chat(user, span_warning("The train global map is not initialized."))
+		return
+
+	var/map = null
+	var/datum/train_station/template_source = null
+	var/default_name = "Custom Station"
+	switch(tgui_alert(user, "How do you want to provide the station map?", "New Station Map", list("Upload .dmm", "Existing template", "Cancel")))
+		if("Upload .dmm")
+			map = input(user, "Choose a .dmm map template for the new station", "Upload Station Map") as null|file
+			if(!map)
+				return
+			if(copytext("[map]", -4) != ".dmm")
+				to_chat(user, span_warning("Filename must end in '.dmm': [map]"))
+				return
+		if("Existing template")
+			// Pull from the init-time registry so templates remain available even
+			// after their station was deleted from known_stations.
+			if(!length(station_templates))
+				to_chat(user, span_warning("No station templates available."))
+				return
+			var/list/template_choices = list()
+			for(var/list/tmpl in station_templates)
+				if(!template_choices[tmpl["name"]])
+					template_choices[tmpl["name"]] = tmpl
+			var/picked = tgui_input_list(user, "Pick a station template to copy", "Station Template", template_choices)
+			if(!picked)
+				return
+			var/list/chosen = template_choices[picked]
+			map = chosen["map_path"]
+			default_name = chosen["name"]
+			// Autofill from the live station if it still exists; else just the map.
+			template_source = locate(text2path(chosen["type"])) in known_stations
+		else
+			return
+
+	var/station_name = input(user, "Name for the new station", "Station Name", default_name) as null|text
+	if(!station_name)
+		return
+
+	var/datum/train_station/custom/new_station = new(map, station_name)
+	if(!new_station.has_valid_template())
+		to_chat(user, span_warning("Map template '[map]' failed to parse - aborting."))
+		qdel(new_station)
+		return
+
+	known_stations += new_station
+	new_station.connect_stations()
+	// Seed the new station's fields from the template it was copied from.
+	if(template_source)
+		copy_template_fields(new_station, template_source)
+
+	var/px = isnum(place_x) ? place_x : global_map.center_x
+	var/py = isnum(place_y) ? place_y : global_map.center_y
+	global_map.admin_place_station(new_station, px, py)
+
+	message_admins("[key_name_admin(user)] created a custom station '[station_name]' from map '[map]'.")
+	to_chat(user, span_notice("Created station '[station_name]'."))
+
+/// Copies a template station's editable fields onto a freshly-created custom
+/// station, so creating from a template autofills sensible defaults. Identity
+/// and graph data (name, map, connections) are intentionally left alone.
+/datum/controller/subsystem/train_controller/proc/copy_template_fields(datum/train_station/dest, datum/train_station/source)
+	dest.desc = source.desc
+	dest.creator = source.creator
+	dest.region = source.region
+	dest.station_type = source.station_type
+	dest.threat_level = source.threat_level
+	dest.required_password = source.required_password
+	dest.required_stations = source.required_stations
+	dest.maximum_visits = source.maximum_visits
+	dest.visible = source.visible
+	dest.station_flags = source.station_flags
+	dest.enter_transition = source.enter_transition
+	dest.exit_transition = source.exit_transition
+	dest.enter_transition_time = source.enter_transition_time
+	dest.exit_transition_time = source.exit_transition_time
+	if(dest.map_object)
+		dest.map_object.desc = dest.desc
+	// Copy the already-resolved near-station list directly (skip re-resolution).
+	if(islist(source.possible_nearstations))
+		dest.possible_nearstations = source.possible_nearstations.Copy()
+	if(islist(source.ambience_sounds))
+		dest.ambience_sounds = source.ambience_sounds.Copy()
+		dest.rebuild_ambience()
+
+/// Applies an editor payload of variables (and connection/nearstation sets) to a station.
+/datum/controller/subsystem/train_controller/proc/apply_station_edits(datum/train_station/S, list/params)
+	if(istext(params["name"]))
+		S.name = params["name"]
+		if(S.map_object)
+			S.map_object.name = S.name
+	if(istext(params["desc"]))
+		S.desc = params["desc"]
+		if(S.map_object)
+			S.map_object.desc = S.desc
+	if(istext(params["creator"]))
+		S.creator = params["creator"]
+	if(istext(params["region"]))
+		S.region = params["region"]
+	if(istext(params["station_type"]))
+		S.station_type = params["station_type"]
+	if(istext(params["threat_level"]))
+		S.threat_level = params["threat_level"]
+	S.required_password = !!params["required_password"]
+	S.visible = !!params["visible"]
+	if(isnum(params["required_stations"]))
+		S.required_stations = max(0, round(params["required_stations"]))
+	// -1 means unlimited - a single self-describing value, so a stray finite
+	// number can never silently cap an unlimited station.
+	if(isnum(params["maximum_visits"]))
+		S.maximum_visits = (params["maximum_visits"] < 0) ? INFINITY : round(params["maximum_visits"])
+	if(isnum(params["station_flags"]))
+		var/mask = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_BLOCKING | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION | TRAINSTATION_NO_SPAWNING | TRAINSTATION_LOCAL_CENTER | TRAINSTATION_START_STATION | TRAINSTATION_FINAL_STATION
+		S.station_flags = round(params["station_flags"]) & mask
+
+	if(istext(params["enter_transition"]))
+		var/enter_path = text2path(params["enter_transition"])
+		S.enter_transition = ispath(enter_path, /datum/moving_turf_transition) ? enter_path : null
+	if(istext(params["exit_transition"]))
+		var/exit_path = text2path(params["exit_transition"])
+		S.exit_transition = ispath(exit_path, /datum/moving_turf_transition) ? exit_path : null
+	if(isnum(params["enter_transition_time"]))
+		S.enter_transition_time = max(0, round(params["enter_transition_time"] * 10))
+	if(params["exit_transition_time_persist"])
+		S.exit_transition_time = -1
+	else if(isnum(params["exit_transition_time"]))
+		S.exit_transition_time = max(0, round(params["exit_transition_time"] * 10))
+
+	if(islist(params["connections"]) && global_map)
+		var/list/desired = list()
+		for(var/conn_ref in params["connections"])
+			var/datum/train_station/N = locate(conn_ref)
+			if(istype(N) && N != S && (N in known_stations))
+				desired += N
+		global_map.admin_set_connections(S, desired)
+
+	if(islist(params["nearstations"]))
+		var/list/desired_near = list()
+		for(var/near_ref in params["nearstations"])
+			var/datum/train_station/N = locate(near_ref)
+			if(istype(N) && (N in known_stations))
+				desired_near += N
+		S.possible_nearstations = desired_near
+
+/// Admin: remove a station entirely - links, map markers and the datum.
+/datum/controller/subsystem/train_controller/proc/admin_delete_station(datum/train_station/S, mob/user)
+	if(S == loaded_station || S == planned_to_load)
+		to_chat(user, span_warning("Can't delete the current or next station - move the train first."))
+		return
+	for(var/datum/train_station/other in known_stations)
+		if(other != S)
+			other.possible_next -= S
+	if(global_map)
+		global_map.remove_station_fully(S)
+	known_stations -= S
+	if(user)
+		message_admins("[key_name_admin(user)] deleted train station '[S.name]'.")
+	qdel(S)
+
+/// Admin: upload a sound file (BYOND file input) and add it to a station's
+/// looping ambience at the given loop length.
+/datum/controller/subsystem/train_controller/proc/admin_upload_ambience(mob/user, datum/train_station/S)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!istype(S) || !(S in known_stations))
+		return
+	var/sound_file = input(user, "Choose an ambience sound file (.ogg/.wav)", "Upload Ambience") as null|file
+	if(!sound_file)
+		return
+	if(!isfile(sound_file))
+		to_chat(user, span_warning("That isn't a usable file."))
+		return
+	// Basic validation: only accept recognised sound file extensions.
+	var/sound_name = "[sound_file]"
+	var/dot_pos = findlasttext(sound_name, ".")
+	var/ext = dot_pos ? lowertext(copytext(sound_name, dot_pos + 1)) : ""
+	if(!(ext in list("ogg", "wav", "mid", "midi", "mod", "raw")))
+		to_chat(user, span_warning("'[sound_name]' isn't a supported sound file (use .ogg or .wav)."))
+		return
+	var/dur = input(user, "Loop length in seconds (how long before it repeats)", "Ambience Length", 30) as null|num
+	if(isnull(dur) || dur <= 0)
+		return
+	if(S.admin_add_ambience(sound_file, round(dur * 10)))
+		to_chat(user, span_notice("Added ambience sound to '[S.name]'."))
+		message_admins("[key_name_admin(user)] uploaded an ambience sound to train station '[S.name]'.")
+
+/// TRUE for stations a preset can round-trip. Compile-time stations qualify;
+/// custom stations qualify only if their map_path is a plain resource path
+/// (i.e. they came from an existing template) - uploaded .dmm files can't be
+/// reconstructed, so those are skipped.
+/datum/controller/subsystem/train_controller/proc/is_preset_station(datum/train_station/S)
+	if(!istype(S))
+		return FALSE
+	if(istype(S, /datum/train_station/near_station))
+		return FALSE
+	if(S.station_flags & TRAINSTATION_ABSCTRACT)
+		return FALSE
+	if(istype(S, /datum/train_station/custom))
+		return istext(S.map_path)
+	return TRUE
+
+/// Serializes one station into a preset entry. Stations are referenced by a
+/// per-preset id (custom stations share a type path, so a type key won't do).
+/datum/controller/subsystem/train_controller/proc/serialize_station_for_preset(datum/train_station/S, id, list/station_to_id)
+	var/list/conns = list()
+	for(var/datum/train_station/N in S.possible_next)
+		if(N in station_to_id)
+			conns |= station_to_id[N]
+	var/list/nears = list()
+	if(islist(S.possible_nearstations))
+		for(var/thing in S.possible_nearstations)
+			if(istype(thing, /datum/train_station))
+				var/datum/train_station/near_inst = thing
+				nears |= "[near_inst.type]"
+	return list(
+		"id" = id,
+		"is_custom" = istype(S, /datum/train_station/custom),
+		"type" = "[S.type]",
+		"map_path" = istext(S.map_path) ? S.map_path : "",
+		"placed" = (global_map && global_map.is_placed_on_map(S)),
+		"x" = S.map_object ? S.map_object.position_x : 0,
+		"y" = S.map_object ? S.map_object.position_y : 0,
+		"name" = S.name,
+		"desc" = S.desc,
+		"creator" = S.creator,
+		"region" = S.region,
+		"station_type" = S.station_type,
+		"threat_level" = S.threat_level,
+		"required_password" = S.required_password,
+		"required_stations" = S.required_stations,
+		"maximum_visits" = (S.maximum_visits == INFINITY) ? -1 : S.maximum_visits,
+		"visible" = S.visible,
+		"station_flags" = S.station_flags,
+		"connections" = conns,
+		"nearstations" = nears,
+	)
+
+/// Admin: export the current map layout as a downloadable .json.
+/datum/controller/subsystem/train_controller/proc/export_map_preset(mob/user)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	var/preset_name = input(user, "Name for this map preset", "Export Map Preset", "trainmap_preset") as null|text
+	if(!preset_name)
+		return
+
+	// Collect qualifying stations and give each a stable (text) id for refs.
+	var/list/qualifying = list()
+	for(var/datum/train_station/S in known_stations)
+		if(is_preset_station(S))
+			qualifying += S
+	var/list/station_to_id = list()
+	for(var/i in 1 to length(qualifying))
+		station_to_id[qualifying[i]] = "[i]"
+
+	var/list/stations_data = list()
+	for(var/i in 1 to length(qualifying))
+		var/datum/train_station/S = qualifying[i]
+		stations_data += list(serialize_station_for_preset(S, "[i]", station_to_id))
+
+	var/list/preset = list(
+		"name" = preset_name,
+		"stations" = stations_data,
+	)
+
+	var/file_handle = file("data/trainmap_preset_temp.json")
+	fdel(file_handle)
+	WRITE_FILE(file_handle, json_encode(preset))
+	user << ftp(file_handle, "[preset_name].json")
+	message_admins("[key_name_admin(user)] exported train map preset '[preset_name]' ([length(stations_data)] stations).")
+
+/// Admin: import a previously exported map preset and apply it.
+/datum/controller/subsystem/train_controller/proc/import_map_preset(mob/user)
+	if(!user || !user.client || !check_rights_for(user.client, R_ADMIN))
+		return
+	if(!global_map)
+		to_chat(user, span_warning("The train global map is not initialized."))
+		return
+
+	var/preset_file = input(user, "Pick a train map preset (.json)", "Load Map Preset") as null|file
+	if(!preset_file)
+		return
+	var/filedata = file2text(preset_file)
+	if(!filedata)
+		to_chat(user, span_warning("Could not read the preset file."))
+		return
+	var/list/preset = json_decode(filedata)
+	if(!islist(preset) || !islist(preset["stations"]))
+		to_chat(user, span_warning("Invalid or malformed preset file."))
+		return
+
+	apply_map_preset(preset, user)
+
+/// Applies a decoded preset: positions, variables and connections. Compile-time
+/// stations are matched by type; template-based custom stations are recreated.
+/datum/controller/subsystem/train_controller/proc/apply_map_preset(list/preset, mob/user)
+	var/list/entries = preset["stations"]
+	if(!islist(entries) || !length(entries))
+		return
+
+	// Clear out template-based custom stations first so a re-import is idempotent
+	// (uploaded-file custom stations are left untouched).
+	for(var/datum/train_station/S in known_stations.Copy())
+		if(istype(S, /datum/train_station/custom) && istext(S.map_path))
+			if(S == loaded_station || S == planned_to_load)
+				continue
+			admin_delete_station(S, null)
+
+	var/list/by_type = list()
+	for(var/datum/train_station/S in known_stations)
+		by_type["[S.type]"] = S
+
+	// Pass 1: resolve each entry to a station. `resolved` is parallel to `entries`
+	// by index, so entries can never collide on a shared id. `id_to_index` is only
+	// for wiring connections back to entries.
+	var/list/resolved = list()
+	resolved.len = length(entries)
+	var/list/id_to_index = list()
+	for(var/idx in 1 to length(entries))
+		var/list/entry = entries[idx]
+		if(!islist(entry))
+			continue
+		if(entry["id"] != null)
+			id_to_index["[entry["id"]]"] = idx
+		if(entry["is_custom"])
+			var/map_path = entry["map_path"]
+			if(!istext(map_path) || !map_path)
+				continue
+			var/datum/train_station/custom/created = new(map_path, entry["name"])
+			if(!created.has_valid_template())
+				qdel(created)
+				continue
+			known_stations += created
+			created.connect_stations()
+			resolved[idx] = created
+		else
+			var/datum/train_station/target = by_type["[entry["type"]]"]
+			if(!target)
+				// Compile-time station was deleted earlier; recreate it from its
+				// type path so a preset can restore stations removed from
+				// known_stations (the by-type lookup alone can't bring them back).
+				var/station_path = text2path(entry["type"])
+				if(ispath(station_path, /datum/train_station) && station_path != /datum/train_station/custom)
+					var/datum/train_station/recreated = new station_path()
+					if(is_preset_station(recreated))
+						known_stations += recreated
+						recreated.connect_stations()
+						by_type["[entry["type"]]"] = recreated
+						target = recreated
+					else
+						qdel(recreated)
+			if(is_preset_station(target))
+				resolved[idx] = target
+
+	var/applied = 0
+	// Pass 2: positions, variables and near-stations.
+	for(var/idx in 1 to length(entries))
+		var/datum/train_station/S = resolved[idx]
+		if(!istype(S))
+			continue
+		var/list/entry = entries[idx]
+		apply_preset_vars(S, entry)
+		if(entry["placed"])
+			global_map.place_station_on_map(S, round(entry["x"]), round(entry["y"]), ignore_overlap = TRUE)
+		if(islist(entry["nearstations"]))
+			var/list/desired_near = list()
+			for(var/near_text in entry["nearstations"])
+				var/datum/train_station/N = by_type["[near_text]"]
+				if(istype(N))
+					desired_near += N
+			S.possible_nearstations = desired_near
+		applied++
+
+	// Pass 3: connections (every target exists by now).
+	for(var/idx in 1 to length(entries))
+		var/datum/train_station/S = resolved[idx]
+		if(!istype(S))
+			continue
+		var/list/entry = entries[idx]
+		if(!islist(entry["connections"]))
+			continue
+		var/list/desired = list()
+		for(var/conn_ref in entry["connections"])
+			var/conn_index = id_to_index["[conn_ref]"]
+			var/datum/train_station/N = conn_index ? resolved[conn_index] : by_type["[conn_ref]"]
+			if(istype(N) && N != S)
+				desired |= N
+		global_map.admin_set_connections(S, desired)
+
+	global_map.dedupe_paths()
+	to_chat(user, span_notice("Loaded map preset '[preset["name"]]' ([applied] stations)."))
+	message_admins("[key_name_admin(user)] loaded train map preset '[preset["name"]]'.")
+
+/// Applies the scalar variables from a preset entry to a station.
+/datum/controller/subsystem/train_controller/proc/apply_preset_vars(datum/train_station/S, list/entry)
+	if(istext(entry["name"]))
+		S.name = entry["name"]
+		if(S.map_object)
+			S.map_object.name = S.name
+	if(istext(entry["desc"]))
+		S.desc = entry["desc"]
+		if(S.map_object)
+			S.map_object.desc = S.desc
+	if(istext(entry["creator"]))
+		S.creator = entry["creator"]
+	if(istext(entry["region"]))
+		S.region = entry["region"]
+	if(istext(entry["station_type"]))
+		S.station_type = entry["station_type"]
+	if(istext(entry["threat_level"]))
+		S.threat_level = entry["threat_level"]
+	S.required_password = !!entry["required_password"]
+	S.visible = !!entry["visible"]
+	if(isnum(entry["required_stations"]))
+		S.required_stations = max(0, round(entry["required_stations"]))
+	if(isnum(entry["maximum_visits"]))
+		S.maximum_visits = (entry["maximum_visits"] < 0) ? INFINITY : round(entry["maximum_visits"])
+	if(isnum(entry["station_flags"]))
+		var/mask = TRAINSTATION_ABSCTRACT | TRAINSTATION_NO_FORKS | TRAINSTATION_BLOCKING | TRAINSTATION_NO_SELECTION | TRAINSTATION_NO_NEARSTATION | TRAINSTATION_NO_SPAWNING | TRAINSTATION_LOCAL_CENTER | TRAINSTATION_START_STATION | TRAINSTATION_FINAL_STATION
+		S.station_flags = round(entry["station_flags"]) & mask
+
+ADMIN_VERB(open_train_controller, R_ADMIN, "Open train controller", "Open active train controller.", ADMIN_CATEGORY_EVENTS)
+	SStrain_controller.ui_interact(usr)
+
+/obj/effect/mapping_helpers/ztrait_injector/trainstation
+	traits_to_add = list(ZTRAIT_NOPARALLAX = TRUE, ZTRAIT_NOXRAY = TRUE, ZTRAIT_NOPHASE = TRUE, ZTRAT_TRAINSTATION = TRUE, ZTRAIT_BASETURF = /turf/open/space)
+
+
+/atom/movable/screen/station_logo
+	icon_state = "blank"
+	plane = HUD_PLANE
+	layer = ABOVE_ALL_MOB_LAYER
+	screen_loc = "CENTER-7,CENTER-7"
+
+	var/fade_delay = 7 SECONDS
+	var/client/parent = null
+
+/atom/movable/screen/station_logo/Initialize(mapload, datum/hud/hud_owner, station_name, creator, client/to_show)
+	. = ..()
+	parent = to_show
+	parent.screen += src
+	var/icon_size = world.icon_size
+	maptext = {"<div style="font:'Small Fonts'">[station_name]\ncreated by [creator]</div>"}
+	maptext_height = icon_size * 6
+	maptext_width = icon_size * 24
+	var/list/client_view = splittext(parent.view, "x")
+	var/view_y = 15
+	var/view_x = 21
+	if(LAZYLEN(client_view) == 2)
+		view_x = client_view[1]
+		view_y = client_view[2]
+	maptext_x = ((icon_size * view_x) + round(icon_size * 0.5)) * 13
+	maptext_y = ((icon_size * view_y) + round(icon_size * 0.5)) * 13
+	transform.Translate(10, 10)
+	ASYNC
+		rollem()
+
+/atom/movable/screen/station_logo/proc/rollem()
+	sleep(3 SECONDS)
+	animate(src, alpha = 0, time = fade_delay, flags = ANIMATION_PARALLEL)
+	addtimer(CALLBACK(src, PROC_REF(fadeout)), fade_delay + 0.1 SECONDS)
+
+/atom/movable/screen/station_logo/proc/fadeout()
+	parent.screen -= src
+	qdel(src)
+
+
+/atom/movable/screen/trainstation_icon
+	name = "Trainstation"
+	icon = 'fenysha_events/icons/hud/logos.dmi'
+	icon_state = "trainstation"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	screen_loc = "CENTER+3.8,CENTER-4"
+	maptext_height = 480
+	maptext_width = 480
+
+/atom/movable/screen/trainstation_icon/animated
+
+/atom/movable/screen/trainstation_icon/animated/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	animate(src, alpha = 130, time = 2 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
+	animate(alpha = 255, time = 2 SECONDS, flags = ANIMATION_RELATIVE)
+
+
+/atom/movable/screen/fullscreen/flash/black/station_loading
+	var/text_phrase = "Loading"
+	var/list/loading_phrases = list(
+		"Installing railways",
+		"Hugging tesharies",
+		"Fixing lights",
+		"Feeding coders",
+		"Placing turfs",
+		"Cleaning khara",
+		"Subscribing to signals",
+		"Updating turf atmos",
+		"Kissing avalis",
+		"Headpating avalis",
+		"Cleaning up qdel logs",
+		"Fixing turfs icons",
+		"Creating bounds",
+		"Picking up all raptors",
+	)
+
+	var/phrase_index = 1
+	var/dot_count = 0
+	var/timer_id
+	var/last_phrase_change = 0
+
+	var/update_interval = 1 SECONDS
+	var/atom/movable/screen/text/load_phrases
+	var/atom/movable/screen/trainstation_icon/animated/logo
+	var/datum/hud/owner_hud
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/apply_to(mob/living)
+	load_phrases = new(src)
+	logo = new(src)
+
+	owner_hud = living.hud_used
+	owner_hud.always_visible_inventory += load_phrases
+	owner_hud.always_visible_inventory += logo
+	owner_hud.hud_version = HUD_STYLE_NOHUD
+	owner_hud.show_hud(owner_hud.hud_version)
+
+	var/icon_size = world.icon_size
+
+	load_phrases.maptext_height = icon_size * 6
+	load_phrases.maptext_width = icon_size * 24
+	load_phrases.maptext_x = 380
+	load_phrases.maptext_y = 100
+
+	last_phrase_change = world.time
+	phrase_index = rand(1, length(loading_phrases))
+	text_phrase = loading_phrases[phrase_index]
+
+	update_loading_text(TRUE)
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/Destroy()
+	if(timer_id)
+		deltimer(timer_id)
+		timer_id = null
+
+	owner_hud.always_visible_inventory -= load_phrases
+	owner_hud.always_visible_inventory -= logo
+	owner_hud.hud_version = HUD_STYLE_STANDARD
+	owner_hud.show_hud(owner_hud.hud_version)
+
+	QDEL_NULL(load_phrases)
+	QDEL_NULL(logo)
+	. = ..()
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/get_next_phrase()
+	phrase_index++
+	if(phrase_index > length(loading_phrases))
+		phrase_index = 1
+
+	return loading_phrases[phrase_index]
+
+
+/atom/movable/screen/fullscreen/flash/black/station_loading/proc/update_loading_text(first = FALSE)
+	if(!first && (world.time - last_phrase_change) >= 4 SECONDS)
+		last_phrase_change = world.time
+		text_phrase = get_next_phrase()
+
+	dot_count = (dot_count + 1) % 5
+	var/dots = ""
+	for(var/i = 1, i <= dot_count, i++)
+		dots += "."
+
+	load_phrases.maptext = {"<div style="font:'Small Fonts'">[text_phrase][dots]</div>"}
+	timer_id = addtimer(CALLBACK(src, PROC_REF(update_loading_text), FALSE), update_interval, TIMER_STOPPABLE)
+
+/datum/looping_sound/global_sound/train_sound_loop
+	sounds_to_play = list(
+		'fenysha_events/sounds/loop_trainride.ogg' = 63 SECONDS,
+	)

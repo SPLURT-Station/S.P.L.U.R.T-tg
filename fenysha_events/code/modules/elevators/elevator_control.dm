@@ -1,0 +1,463 @@
+GLOBAL_LIST_INIT(all_elevators, list())
+
+#define SOUND_ELEVATOR_MOVE 'fenysha_events/sounds/effects/elevator_sounds.ogg'
+
+
+/atom
+	var/can_elevate = TRUE
+
+
+
+/proc/get_or_create_elevator(id)
+	var/datum/elevator/E = GLOB.all_elevators[id]
+
+	if(E)
+		return E
+
+	E = new
+	E.elevator_id = id
+
+	GLOB.all_elevators[id] = E
+
+	return E
+
+
+/datum/elevator
+	var/elevator_id
+	var/time_per_floor = 3 SECONDS
+	var/current_floor = 1
+	var/moving = FALSE
+	var/music_enabled = TRUE
+	var/music_channel = 2
+	var/sfx_channel = 1
+
+	var/list/elevator_turfs_by_floor = list()
+	var/list/buttons_by_floor = list()
+	var/list/doors_by_floor = list()
+
+	var/list/all_buttons = list()
+	var/list/request_queue = list()
+
+	var/static/list/blacklisted_atoms = list(
+		/obj/effect/mapping_helpers/elevator_turf_marker,
+		/obj/machinery/door/poddoor/story/elevator,
+	)
+
+/datum/elevator/proc/num_to_floor(num)
+	return "floor_[num]"
+
+/datum/elevator/proc/floor_to_num(floor)
+	return text2num(replacetext(floor, "floor_", ""))
+
+/datum/elevator/proc/is_valid_floor(floor)
+	var/floor_key = num_to_floor(floor)
+	return !!elevator_turfs_by_floor[floor_key]
+
+/datum/elevator/proc/floor_amount()
+	return length(buttons_by_floor)
+
+/datum/elevator/proc/register_turf(turf/T, floor)
+	if(!T)
+		return
+
+	var/floor_key = num_to_floor(floor)
+	if(!elevator_turfs_by_floor[floor_key])
+		elevator_turfs_by_floor[floor_key] = list()
+	elevator_turfs_by_floor[floor_key] += T
+
+
+/datum/elevator/proc/unregister_turf(turf/T, floor)
+	var/floor_key = num_to_floor(floor)
+	var/list/L = elevator_turfs_by_floor[floor_key]
+
+	if(!L)
+		return
+
+	L -= T
+	if(!length(L))
+		elevator_turfs_by_floor -= floor_key
+
+
+/datum/elevator/proc/register_button(obj/machinery/button/elevator_control/B)
+	if(!B)
+		return
+	B.control = src
+
+	all_buttons |= B
+
+	var/floor_key = num_to_floor(B.floor)
+	if(!buttons_by_floor[floor_key])
+		buttons_by_floor[floor_key] = list()
+	buttons_by_floor[floor_key] |= B
+
+
+/datum/elevator/proc/unregister_button(obj/machinery/button/elevator_control/B)
+	if(!B)
+		return
+
+	all_buttons -= B
+
+	var/floor_key = num_to_floor(B.floor)
+	var/list/L = buttons_by_floor[floor_key]
+
+	if(L)
+		L -= B
+
+
+/datum/elevator/proc/register_door(obj/machinery/door/poddoor/story/elevator/D)
+	if(!D)
+		return
+
+	var/floor_key = num_to_floor(D.floor)
+	if(!doors_by_floor[floor_key])
+		doors_by_floor[floor_key] = list()
+	doors_by_floor[floor_key] |= D
+
+/datum/elevator/proc/is_elevatot_turf(turf/T)
+	for(var/floor in elevator_turfs_by_floor)
+		var/list/turf_list = elevator_turfs_by_floor[floor]
+		for(var/turf/ET in turf_list)
+			if(T == ET)
+				return floor_to_num(floor)
+
+
+/datum/elevator/proc/unregister_door(obj/machinery/door/poddoor/story/elevator/D)
+	if(!D)
+		return
+
+	var/floor_key = num_to_floor(D.floor)
+	var/list/L = doors_by_floor[floor_key]
+	if(L)
+		L -= D
+
+
+/datum/elevator/proc/call_to_floor(floor)
+	if(!is_valid_floor(floor))
+		return
+
+	if(floor == current_floor)
+		return
+
+	var/floor_key = num_to_floor(floor)
+	if(floor_key in request_queue)
+		return
+
+	request_queue += floor_key
+
+	if(!moving)
+		process_queue()
+
+
+/datum/elevator/proc/request_floor(floor)
+	if(!is_valid_floor(floor))
+		return
+	if((floor == current_floor) || (num_to_floor(floor) in request_queue))
+		return
+	request_queue += num_to_floor(floor)
+
+
+/datum/elevator/proc/process_queue()
+	while(request_queue.len > 0)
+		moving = TRUE
+		var/target_floor = request_queue[1]
+		request_queue.Cut(1, 2)
+
+		var/target_floor_num = floor_to_num(target_floor)
+		move_to_floor(target_floor_num)
+		moving = FALSE
+
+
+/datum/elevator/proc/move_to_floor(target_floor)
+	if(target_floor == current_floor)
+		open_floor(current_floor)
+		return
+
+	if(!is_valid_floor(target_floor))
+		return
+
+	close_floor(current_floor)
+	broadcast_elevator_sound(SOUND_ELEVATOR_MOVE, sfx_channel, volume=70)
+
+	var/floor_delta = abs(target_floor - current_floor)
+	var/travel_time = floor_delta * time_per_floor
+
+	sleep(travel_time)
+
+	move_platform(current_floor, target_floor)
+	current_floor = target_floor
+
+	// announce_floor(current_floor)
+	open_floor(current_floor)
+
+
+/datum/elevator/proc/move_platform(old_floor, new_floor)
+	var/list/old_turfs = get_floor_turfs(old_floor)
+	var/list/new_turfs = get_floor_turfs(new_floor)
+
+	if(!old_turfs || !new_turfs)
+		return
+
+	if(length(old_turfs) != length(new_turfs))
+		CRASH("Elevator [elevator_id]: floor [old_floor] and [new_floor] have different platform sizes!")
+
+	for(var/i = 1, i <= old_turfs.len, i++)
+		var/turf/source = old_turfs[i]
+		var/turf/destination = new_turfs[i]
+
+		if(!source || !destination)
+			continue
+
+		var/list/movables = source.contents.Copy()
+
+		for(var/atom/movable/M in movables)
+			if(!should_move_atom(M, source))
+				continue
+
+			var/pixel_x = M.pixel_x
+			var/pixel_y = M.pixel_y
+			var/pixel_z = M.pixel_z
+
+			M.forceMove(destination)
+
+			M.pixel_x = pixel_x
+			M.pixel_y = pixel_y
+			M.pixel_z = pixel_z
+
+
+/datum/elevator/proc/should_move_atom(atom/A, turf/source_turf)
+	if(!A.can_elevate || QDELETED(A))
+		return FALSE
+	for(var/T in blacklisted_atoms)
+		if(istype(A, T))
+			return FALSE
+	return TRUE
+
+/datum/elevator/proc/close_floor(floor)
+	var/floor_key = num_to_floor(floor)
+	var/list/L = doors_by_floor[floor_key]
+
+	if(!L)
+		return
+
+	for(var/obj/machinery/door/poddoor/story/elevator/D in L)
+		D.close()
+
+
+/datum/elevator/proc/open_floor(floor)
+	var/floor_key = num_to_floor(floor)
+	var/list/L = doors_by_floor[floor_key]
+
+	if(!L)
+		return
+
+	for(var/obj/machinery/door/poddoor/story/elevator/D in L)
+		D.open()
+
+
+/datum/elevator/proc/has_floor(floor)
+	return is_valid_floor(floor)
+
+
+/datum/elevator/proc/get_floor_turfs(floor)
+	var/floor_key = num_to_floor(floor)
+	return elevator_turfs_by_floor[floor_key]
+
+
+/datum/elevator/proc/get_floor_doors(floor)
+	var/floor_key = num_to_floor(floor)
+	return doors_by_floor[floor_key]
+
+
+
+/datum/elevator/proc/broadcast_elevator_sound(sound_file, channel = 1, volume = 100, loop = 0)
+	if(!sound_file)
+		return
+
+	var/list/elevator_mobs = get_elevator_occupants()
+
+	for(var/mob/m in elevator_mobs)
+		if(m.client)
+			SEND_SOUND(m, sound(sound_file, repeat = loop, wait = 0, volume = volume, channel = channel))
+
+
+/datum/elevator/proc/announce_floor(floor)
+	var/list/elevator_mobs = get_elevator_occupants()
+	var/floor_name = get_floor_name(floor)
+
+	for(var/mob/m in elevator_mobs)
+		to_chat(m, span_notice("<b>DING!</b> Arriving at [floor_name]..."))
+
+
+/datum/elevator/proc/get_floor_name(floor)
+	switch(floor)
+		if(1)
+			return "Floor 1 - Lobby"
+		if(2)
+			return "Floor 2 - Office"
+		if(3)
+			return "Floor 3 - Storage"
+		else
+			return "Floor [floor]"
+
+
+/datum/elevator/proc/get_elevator_occupants()
+	var/list/occupants = list()
+	var/list/turfs = list()
+
+
+	for(var/floor_key in elevator_turfs_by_floor)
+		turfs += elevator_turfs_by_floor[floor_key]
+
+	for(var/turf/T in turfs)
+		for(var/mob/m in T.contents)
+			occupants += m
+
+	return occupants
+
+
+/datum/elevator/proc/start_music()
+	if(!music_enabled)
+		return
+
+/datum/elevator/proc/stop_music()
+	broadcast_elevator_sound(null, music_channel)
+
+
+/obj/machinery/button/elevator_control
+	name = "elevator call button"
+	desc = "Press this button to call the elevator"
+	base_icon_state = "tram"
+	icon_state = "tram"
+
+	var/floor = 1
+
+	var/elevator_id
+	var/datum/elevator/control
+
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	flags_1 = SUPERMATTER_IGNORES_1
+
+/obj/machinery/button/elevator_control/Initialize(mapload)
+	. = ..()
+
+	control = get_or_create_elevator(elevator_id)
+	control.register_button(src)
+	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Use elevator")
+	qdel(GetComponent(/datum/component/atom_mounted))
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator_control, 32)
+
+
+/obj/machinery/button/elevator_control/Destroy()
+	if(control)
+		control.unregister_button(src)
+
+	return ..()
+
+/obj/machinery/button/elevator_control/interact(mob/user)
+	if(!control)
+		return FALSE
+
+
+	var/is_inside_elevator = control.is_elevatot_turf(get_turf(src)) ? TRUE : FALSE
+	var/should_advanced_view = control.floor_amount() > 2
+
+	if(!is_inside_elevator)
+		control.call_to_floor(floor)
+		user.visible_message(span_notice("[user] presses the elevator button."),
+			span_notice("You press the elevator call button for [floor] floor."))
+		return TRUE
+
+	else if(!should_advanced_view && is_inside_elevator)
+		if(control.is_elevatot_turf(get_turf(src)) == control.current_floor)
+			control.move_to_floor(1)
+		else
+			control.move_to_floor(control.floor_amount())
+
+		user.visible_message(span_notice("[user] presses the elevator button."),
+			span_notice("You press the elevator call button for another floor."))
+		return TRUE
+
+	else if(should_advanced_view && is_inside_elevator)
+		var/list/available_floors = list()
+		for(var/floor in control.buttons_by_floor)
+			available_floors[floor] = control.floor_to_num(floor)
+		var/picked = tgui_input_list(user, "What floor?", "Elevator", available_floors)
+		control.move_to_floor(available_floors[picked])
+		return TRUE
+	return TRUE
+
+/obj/machinery/button/elevator_control/screwdriver_act(mob/living/user, obj/item/tool)
+	return
+
+/obj/machinery/button/elevator_control/wrench_act(mob/living/user, obj/item/tool)
+	return
+
+/obj/machinery/button/elevator_control/emag_act(mob/user, obj/item/card/emag/emag_card)
+	return
+
+
+/obj/machinery/door/poddoor/story/elevator
+	name = "elevator door"
+	desc = "Automated elevator door"
+
+	var/floor = 1
+	var/elevator_id
+	var/datum/elevator/control
+
+
+/obj/machinery/door/poddoor/story/elevator/Initialize(mapload)
+	. = ..()
+
+	control = get_or_create_elevator(elevator_id)
+	control.register_door(src)
+
+
+/obj/machinery/door/poddoor/story/elevator/Destroy()
+	if(control)
+		control.unregister_door(src)
+
+	return ..()
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible/open(forced)
+	. = ..()
+	opacity = FALSE
+
+/obj/machinery/door/poddoor/story/elevator/always_invisible/close(forced)
+	. = ..()
+	opacity = FALSE
+
+/obj/effect/mapping_helpers/elevator_turf_marker
+	name = "Elevator Turf Marker"
+	desc = "Marks a turf as part of an elevator shaft"
+
+	late = TRUE
+	invisibility = INVISIBILITY_ABSTRACT
+
+	var/floor = 1
+	var/elevator_id
+
+
+/obj/effect/mapping_helpers/elevator_turf_marker/LateInitialize()
+	var/datum/elevator/E = get_or_create_elevator(elevator_id)
+
+	E.register_turf(get_turf(src), floor)
+
+	qdel(src)
+
+/obj/structure/elevator_platfrom
+	name = "Elevator platform"
+
+	mouse_opacity = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	flags_1 = SUPERMATTER_IGNORES_1
+	anchored = TRUE
+
+	icon = 'fenysha_events/icons/turf/floors/floors.dmi'
+	icon_state = "dark_large"
+
+	layer = ABOVE_OPEN_TURF_LAYER - 12
+	plane = -6
