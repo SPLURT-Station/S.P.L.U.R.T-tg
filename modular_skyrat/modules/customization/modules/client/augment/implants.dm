@@ -31,7 +31,7 @@
 /* Splurt Edit Removal of it from loadout
 
 /datum/augment_item/implant/l_arm/power_cord
-	name = "Left Synth Charging Implant"
+	name = "Left Synth Interfacing Hardware"
 	path = /obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm
 
 /datum/augment_item/implant/l_arm/razor_claws
@@ -70,7 +70,7 @@
 /* Splurt Edit Removal of it from loadout
 
 /datum/augment_item/implant/r_arm/power_cord
-	name = "Right Synth Charging Implant"
+	name = "Right Synth Interfacing Hardware"
 	path = /obj/item/organ/cyberimp/arm/toolkit/power_cord/right_arm
 
 /datum/augment_item/implant/r_arm/razor_claws

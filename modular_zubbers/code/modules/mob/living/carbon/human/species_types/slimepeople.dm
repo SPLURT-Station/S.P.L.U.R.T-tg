@@ -357,7 +357,7 @@
 			//if(new_body_size == RESIZE_DEFAULT_SIZE)
 			//	alterer.update_transform(RESIZE_DEFAULT_SIZE / alterer.current_size)
 			//else
-			//	alterer.update_transform(new_body_size) - SPLURT EDIT - ORIGINAL
+			//	alterer.update_transform(new_body_size / alterer.current_size) - SPLURT EDIT - ORIGINAL
 			alterer.update_size(new_body_size)
 			//SPLURT EDIT CHANGE END
 		//SPLURT EDIT ADDITION BEGIN - ALTER_FORM_GENDER
