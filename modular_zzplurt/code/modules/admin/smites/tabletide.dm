@@ -12,5 +12,5 @@
 	SEND_SOUND(target, sound('modular_zzplurt/sound/misc/slamofthenorthstar.ogg', volume=60))
 	for(var/area/A in areas)
 		for(var/obj/structure/table/T in A)
-			table_smash.tablepush(null, target, T)
+			table_smash.tablepush(target, target, T)
 			sleep(1)
