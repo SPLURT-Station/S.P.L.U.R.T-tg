@@ -552,7 +552,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 	return GLOB.main_supermatter_engine != null
 
 // Doesn't need item_owner = (JOB_AI) because this handily functions as a murder objective if there isn't one
-/datum/objective_item/steal/functionalai
+/* /datum/objective_item/steal/functionalai
 	name = "a functional AI"
 	targetitem = /obj/item/aicard
 	difficulty = 5
@@ -582,7 +582,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 		return TRUE
 
 	return FALSE
-
+SPLURT Edit, Removes steal AI - as it is essentially soft RR for the AI. */
 /datum/objective_item/steal/blueprints
 	name = "the station blueprints"
 	targetitem = /obj/item/blueprints
