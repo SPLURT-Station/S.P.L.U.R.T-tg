@@ -1,3 +1,6 @@
+/obj/item/toy/plush //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
+	plappable = TRUE
+
 /obj/item/toy/plush/chaotic_toaster
 	name = "Chaotic toaster"
 	desc = "You arent sure if this plushie want a hug, or harvest your organs, or both."
@@ -45,6 +48,7 @@
 	lefthand_file = 'modular_zubbers/icons/mob/inhands/items/plushes_lefthand.dmi'
 	righthand_file = 'modular_zubbers/icons/mob/inhands/items/plushes_righthand.dmi'
 	inhand_icon_state = "bigdeer"
+	plappable = FALSE //SPLURT EDIT - Too real to plap
 
 /obj/item/toy/plush/bubbledragon
 	name = "bubbledragon plushie"
@@ -124,6 +128,7 @@
 	lefthand_file = 'modular_zubbers/icons/mob/inhands/items/plushes_lefthand.dmi'
 	righthand_file = 'modular_zubbers/icons/mob/inhands/items/plushes_righthand.dmi'
 	inhand_icon_state = "tunafish"
+	plappable = FALSE //SPLURT EDIT - Too real to plap
 
 /obj/item/toy/plush/secoff
 	name = "GalFed Secoff"
@@ -143,6 +148,7 @@
 	attack_verb_simple = list("slap", "plap", "smear")
 	gender = FEMALE
 	squeak_override = list('sound/misc/soggy.ogg'=1)
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/cescrewsplush/examine(mob/user)
 	. = ..()
@@ -188,6 +194,7 @@
 		'modular_skyrat/modules/emotes/sound/voice/scream_m1.ogg' = 1,
 		'modular_skyrat/modules/emotes/sound/voice/scream_m2.ogg' = 1,
 	)
+	plappable = FALSE //SPLURT EDIT - Too real to plap
 
 /obj/item/toy/plush/cat_annoying/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/toy/plush))
@@ -219,6 +226,7 @@
 	gender = FEMALE
 	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/dwoop.ogg' = 1)
 	var/lewd = FALSE
+	plappable = FALSE //SPLURT EDIT - Doesn't want
 
 /obj/item/toy/plush/suspicious_protogen/Initialize(mapload)
 	. = ..()
@@ -346,6 +354,7 @@
 	attack_verb_simple = list("mothroach", "moth", "roach")
 	gender = MALE
 	squeak_override = list( 'sound/mobs/humanoids/moth/scream_moth.ogg' = 1, )
+	plappable = FALSE //SPLURT EDIT - Too real to plap
 
 /obj/item/toy/plush/moth/lovers
 	name = "lovers moth plushie"
@@ -372,6 +381,7 @@
 	var/going_hard = FALSE
 	/// Whether or not this goat has been flattened like a funny pancake
 	var/splat = FALSE
+	plappable = FALSE //SPLURT EDIT - Underage maybe ovO
 
 /obj/item/toy/plush/goatplushie/Initialize(mapload)
 	. = ..()
@@ -991,6 +1001,7 @@
 	var/static/list/contained_item = list(
 		/obj/item/clothing/sextoy/dildo,
 	)
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/protective_protogen/Initialize(mapload)
 	. = ..()

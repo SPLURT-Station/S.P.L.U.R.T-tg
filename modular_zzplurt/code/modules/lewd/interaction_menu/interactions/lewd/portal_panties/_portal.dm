@@ -17,21 +17,29 @@
 	/// Hidden climax partner message overrides for anonymous interactions
 	var/list/hidden_cum_partner_text_overrides = list(CLIMAX_POSITION_USER = list(), CLIMAX_POSITION_TARGET = list())
 
+/datum/interaction/lewd/portal/proc/get_held_fleshlight(mob/living/carbon/human/user)
+	var/obj/item/activeItem = user.get_active_held_item()
+	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = activeItem
+
+	if(!istype(fleshlight))
+		// Check if it's in a plush we're holding
+		fleshlight = locate(/obj/item/clothing/sextoy/portal_fleshlight) in activeItem
+		if(!istype(fleshlight))
+			return null
+
+	return fleshlight
+
 /datum/interaction/lewd/portal/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = user.get_active_held_item()
-	var/obj/item/clothing/sextoy/portal_panties/panties = istype(fleshlight) ? fleshlight.linked_panties : null
+	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = get_held_fleshlight(user)
 
-	if(!istype(fleshlight) || !istype(panties))
-		return FALSE
-
-	. = ..()
+	return istype(fleshlight) && istype(fleshlight.linked_panties)
 
 /datum/interaction/lewd/portal/act(mob/living/user, mob/living/target)
 	var/list/original_message = message.Copy()
 	var/list/original_user_messages = user_messages?.Copy()
 	var/list/original_target_messages = target_messages?.Copy()
 
-	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = user.get_active_held_item()
+	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = get_held_fleshlight(user)
 	var/obj/item/clothing/sextoy/portal_panties/panties = istype(fleshlight) ? fleshlight.linked_panties : null
 
 	if(fleshlight.anonymous && length(hidden_target_messages))
@@ -58,9 +66,9 @@
 	var/list/original_cum_self = cum_self_text_overrides.Copy()
 	var/list/original_cum_partner = cum_partner_text_overrides.Copy()
 
-	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = cumming.get_active_held_item()
+	var/obj/item/clothing/sextoy/portal_fleshlight/fleshlight = get_held_fleshlight(cumming)
 	if(!istype(fleshlight))
-		fleshlight = came_in.get_active_held_item()
+		fleshlight = get_held_fleshlight(came_in)
 	var/obj/item/clothing/sextoy/portal_panties/panties = istype(fleshlight) ? fleshlight.linked_panties : null
 
 	// Replace with anonymous messages if needed
