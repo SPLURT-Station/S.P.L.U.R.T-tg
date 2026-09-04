@@ -6,6 +6,16 @@
 	if(!SSjob || !SSjob.assigned_captain)
 		return
 
+	/// SPLURT EDIT BEGIN
+	// if the storyteller is extended, don't run the event
+	if(!SSgamemode.can_inject_antags())
+		return
+
+	// if there's less than 50 active crew members, then don't run the event
+	if(SSgamemode.active_crew < 50)
+		return
+	/// SPLURT EDIT END
+
 	if(last_move < world.time - GRACE_PERIOD)
 		begin_nuclear_assault()
 
