@@ -267,9 +267,9 @@
 
 // Armor Values derived from /datum/armor/hazardvest_security_medic
 /datum/armor/armor_secborg
-	melee = 35
-	bullet = 30
-	laser = 30
+	melee = 30
+	bullet = 25
+	laser = 25
 	energy = 40
 	bomb = 25
 	fire = 50
