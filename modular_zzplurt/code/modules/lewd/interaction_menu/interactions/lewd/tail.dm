@@ -266,8 +266,7 @@
 /datum/interaction/lewd/tail/urethra
 	name = "Tail. Penetrate Urethra"
 	description = "Penetrate their urethra with your tail."
-	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
-	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
+	target_required_parts = list() // Not requiring exposed penis or vagina since the required_parts is 'and' instead of 'or'. A tail can probably worm its way into clothes anyway.
 	sound_possible = list('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg',
@@ -328,12 +327,9 @@
 	target_pain = 6
 
 /datum/interaction/lewd/extreme/harmful/tail_choke/act(mob/living/user, mob/living/target)
+	var/oxy_damage
 	message = null
-	var/oxy_damage = 3
-	target_pleasure = 0
-	target_arousal = 6
-	if(target.get_oxy_loss() > 40) // Prevent damage stacking - converts to pure RP when target already suffocating
-		oxy_damage = 0
+
 	switch(resolve_intent_name(user))
 		if("harm")
 			oxy_damage = rand(3, 6)
@@ -343,6 +339,7 @@
 				"sharply tightens their tail around %TARGET%'s neck, causing suffocation."
 			)
 		else
+			oxy_damage = (target.get_oxy_loss() > 40) ? 0 : 3  // Prevent damage stacking - converts to pure RP when target already suffocating
 			message = list(
 				"grips %TARGET%'s throat with their tail, trying to block access to air.",
 				"holds %TARGET%'s neck with their tail, squeezing it tighter and tighter.",
@@ -351,9 +348,14 @@
 
 	if(!HAS_TRAIT(target, TRAIT_NOBREATH) && oxy_damage)
 		target.apply_damage(oxy_damage, OXY)
+
 	if(HAS_TRAIT(target, TRAIT_CHOKE_SLUT))
-		target_arousal = 12
 		target_pleasure = 4
+		target_arousal = 12
+	else
+		target_pleasure = 0
+		target_arousal = 6
+
 	..()
 
 // Tail smothering interactions - smother target's face with tail
