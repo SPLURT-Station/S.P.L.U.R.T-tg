@@ -13,9 +13,9 @@
 	storyteller_type = STORYTELLER_TYPE_INTENSE
 
 /datum/storyteller/medium/opfor
-	name = "Freeform Chaos (OPFOR)"
-	desc = "Random events at a moderate pace and antagonists will be player generated."
-	welcome_text = span_bold(" (Open an OPFOR application if you're interested in becoming an antagonist for this round!)")
+	name = "Freeform Chaos (Events/No Antag Rolls)"
+	desc = "Random events at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from inside the crew.."
+	welcome_text = span_bold("We must set aside our differences, and work with our fellow nations, all united towards one goal: the complete and utter annihilation of the godless Belgians.")
 
 	track_data = /datum/storyteller_data/tracks/medium/opfor
 
