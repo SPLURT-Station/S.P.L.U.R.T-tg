@@ -328,6 +328,11 @@
 		if(robot_target.is_security_cyborg_role())
 			var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, stun_armour_penetration)
 			target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
+
+			// Contractor baton doesn't apply confusion so adding it here.
+			// Large time since confusion probability decays over time and borgs don't get stunned by baton. 40 = 100% probability, 20 = 50% probability
+			target.set_confusion_if_lower(20 SECONDS)
+
 			additional_effects_non_cyborg(target, user)
 			SEND_SIGNAL(target, COMSIG_MOB_BATONED, user, src)
 			return TRUE
