@@ -24,7 +24,7 @@
 	message = "yips like a fox!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_zzsplurt/sound/voice/foxyip.ogg'
+	sound = 'modular_zzplurt/sound/voice/foxyip.ogg'
 
 /datum/emote/living/fart
 	key = "fart"
