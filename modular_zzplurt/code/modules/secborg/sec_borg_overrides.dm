@@ -6,29 +6,6 @@
 	/// Persists whether a player with Security Cyborg assignment has been fired from that role.
 	var/was_fired_from_security_cyborg_role = FALSE
 
-// Fakes an AI being linked to the secborgs on roudnstart, so that they don't auto link to a real one. Removes the fake link after 5 seconds, just to be safe.
-/datum/secborg_calibrating_ai_link
-	var/name = "no one"
-	var/mind = null
-	var/aicamera = null
-	var/list/connected_robots = list()
-	var/doomsday_device = null
-	var/stat = CONSCIOUS
-	var/control_disabled = FALSE
-
-/mob/living/silicon/robot/proc/start_secborg_ai_calibration(calibration_time = 5 SECONDS)
-	if(!is_security_cyborg_role())
-		return
-	if(vars["connected_ai"])
-		return
-	vars["connected_ai"] = new /datum/secborg_calibrating_ai_link()
-	addtimer(CALLBACK(src, PROC_REF(finish_secborg_ai_calibration)), calibration_time)
-
-/mob/living/silicon/robot/proc/finish_secborg_ai_calibration()
-	var/current_link = vars["connected_ai"]
-	if(istype(current_link, /datum/secborg_calibrating_ai_link))
-		vars["connected_ai"] = null
-
 //A proc to check if this cyborg is a secborg. Used all over to determine borg behavior
 /mob/living/silicon/robot/proc/is_security_cyborg_role()
 	if(was_fired_from_security_role)
@@ -40,6 +17,22 @@
 	if(mind?.assigned_role?.title == JOB_SECURITY_CYBORG)
 		return TRUE
 	return FALSE
+
+/mob/living/silicon/robot/proc/setup_security_borg()
+	was_fired_from_security_role = FALSE
+	job = JOB_SECURITY_CYBORG
+	set_connected_ai(null)
+	ADD_TRAIT(src, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
+	laws = new /datum/ai_laws/security_cyborg()
+	laws.associate(src)
+	if(model?.ensure_security_canine_modules())
+		model.rebuild_modules()
+	lawupdate = FALSE
+
+/mob/living/silicon/robot/set_connected_ai(new_ai)
+	if(is_security_cyborg_role())
+		new_ai = null // Seccy borgs don't get an AI overlord (yes the parent proc receives this change, dm is funky)
+	. = ..()
 
 // Borg-specific zipties that don't consume the source module item when used by dispenser logic.
 /obj/item/restraints/handcuffs/cable/zipties/secborg/apply_cuffs(mob/living/carbon/target, mob/user, dispense = FALSE)
@@ -102,14 +95,7 @@
 		return .
 
 	var/mob/living/silicon/robot/new_borg = loc
-	new_borg.was_fired_from_security_role = FALSE
-	if(new_borg.job != JOB_SECURITY_CYBORG)
-		new_borg.job = JOB_SECURITY_CYBORG
-
-	new_borg.set_connected_ai(null)
-	new_borg.lawupdate = FALSE
-	new_borg.laws = new /datum/ai_laws/security_cyborg()
-	new_borg.laws.associate(new_borg)
+	new_borg.setup_security_borg()
 	new_borg.show_laws()
 	new_borg.log_current_laws()
 	return .
@@ -279,12 +265,16 @@
 	design_ids += "borg_upgrade_detective_kit"
 
 
-//Armor definitions and setting. getarmor is simply passed on to its parent with no modifications if it's not a secborg
+// Armor Values derived from /datum/armor/hazardvest_security_medic
 /datum/armor/armor_secborg
-	melee = 25
+	melee = 30
 	bullet = 25
 	laser = 25
-	energy = 35
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	wound = 10
 
 /mob/living/silicon/robot/getarmor(def_zone, type)
 	if(is_security_cyborg_role())
@@ -338,6 +328,11 @@
 		if(robot_target.is_security_cyborg_role())
 			var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, stun_armour_penetration)
 			target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
+
+			// Contractor baton doesn't apply confusion so adding it here.
+			// Large time since confusion probability decays over time and borgs don't get stunned by baton. 40 = 100% probability, 20 = 50% probability
+			target.set_confusion_if_lower(20 SECONDS)
+
 			additional_effects_non_cyborg(target, user)
 			SEND_SIGNAL(target, COMSIG_MOB_BATONED, user, src)
 			return TRUE
@@ -385,6 +380,15 @@
 		return
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(logevent),"Law update processed."), 0, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/mob/living/silicon/robot/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
+	if(is_security_cyborg_role())
+		if(ninja)
+			balloon_alert(ninja, "hacking protections active")
+		to_chat(src, span_warning("ALERT: Unauthorized hacking attempt blocked."))
+		log_silicon("HACK: [key_name(ninja)] attempted to hack protected security cyborg [key_name(src)]")
+		return FALSE
+	. = ..()
 
 /mob/living/silicon/robot/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user == src)
@@ -721,6 +725,10 @@
 	. = ..()
 	if(!.)
 		return
+	var/mob/living/silicon/robot/borg = loc
+	if(istype(borg))
+		borg.setup_security_borg()
+
 
 /obj/item/robot_model/security/do_transform_animation()
 	if(iscyborg(loc))
@@ -775,22 +783,8 @@
 	if(iscyborg(spawned))
 		var/mob/living/silicon/robot/robot_spawn = spawned
 		if(robot_spawn.is_security_cyborg_role())
-			if(player_client)
-				robot_spawn.set_gender(player_client)
-			ADD_TRAIT(robot_spawn, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
-			if(SSticker.current_state == GAME_STATE_SETTING_UP)
-				robot_spawn.start_secborg_ai_calibration()
-			else
-				robot_spawn.set_connected_ai(null)
-			robot_spawn.lawupdate = FALSE
-			robot_spawn.laws = new /datum/ai_laws/security_cyborg()
-			robot_spawn.laws.associate(robot_spawn)
-			if(robot_spawn.model?.ensure_security_canine_modules())
-				robot_spawn.model.rebuild_modules()
-			robot_spawn.show_laws()
-			robot_spawn.log_current_laws()
-			return
-	return ..()
+			robot_spawn.setup_security_borg()
+	. = ..()
 
 /datum/ai_laws/security_cyborg
 	name = "Security Cyborg Directives"
