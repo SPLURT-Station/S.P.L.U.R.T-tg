@@ -18,6 +18,14 @@
 	cooldown = 1 SECONDS
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/foxyip
+	key = "foxyip"
+	key_third_person = "yips like a fox"
+	message = "yips like a fox!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_zzsplurt/sound/voice/foxyip.ogg'
+
 /datum/emote/living/fart
 	key = "fart"
 	key_third_person = "farts"

@@ -153,14 +153,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
-/datum/emote/living/foxyip
-	key = "foxyip"
-	key_third_person = "yips like a fox"
-	message = "yips like a fox!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = 'modular_zubbers/code/modules/emotes/sound/voice/foxyip.ogg'
-
 /datum/emote/living/yip/get_sound(mob/living/user)
 	return pick('modular_zubbers/code/modules/emotes/sound/voice/yip1.ogg',
 				'modular_zubbers/code/modules/emotes/sound/voice/yip2.ogg',
