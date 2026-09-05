@@ -1,0 +1,229 @@
+#define MAPTEXT_PIXELLARI_SIZED(text, size) {"<span style='font-family: \"Pix Cyrillic\"; font-size: [##size]pt; -dm-text-outline: 1px black'>[##text]</span>"}
+
+/atom/movable/screen/boss_base
+	icon = 'fenysha_events/icons/hud/bossbar.dmi'
+	icon_state = "base"
+	layer = SCREENTIP_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	maptext_height = 46
+	maptext_width = 200
+	maptext_x = 30
+	maptext_y = 45
+	maptext = ""
+
+/atom/movable/screen/boss_fill
+	icon = 'fenysha_events/icons/hud/bossbar.dmi'
+	layer = SCREENTIP_LAYER + 0.05
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/boss_portrait
+	layer = SCREENTIP_LAYER + 0.1
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+
+/datum/component/bossbar
+	/// Icon and state for the portrait
+	var/icon/boss_portrait_icon = 'fenysha_events/icons/hud/boss_icons.dmi'
+	var/boss_portrait_state
+
+	/// Boss name (can be overridden)
+	var/override_name
+
+	/// Health
+	var/max_health
+	var/current_health
+
+	/// Who the bar is currently shown to
+	var/list/client_to_screens = list()
+
+	/// Visibility radius
+	var/view_range = 30
+
+	var/text_size = 12
+	var/bar_screen_loc = "EAST-5.5, SOUTH+3"
+	var/portrait_screen_loc = "EAST-5.5:1, SOUTH+3:16"
+
+
+/datum/component/bossbar/Initialize(icon/port_icon = 'fenysha_events/icons/hud/boss_icons.dmi', port_state, name_override, range = 30)
+	if(!isliving(parent))
+		return COMPONENT_INCOMPATIBLE
+
+	var/mob/living/boss = parent
+
+	boss_portrait_icon = port_icon || boss.icon
+	boss_portrait_state = port_state || boss.icon_state
+	override_name = name_override || boss.name
+	max_health = max(1, boss.maxHealth || 100)
+	current_health = clamp(boss.health, 0, max_health)
+	view_range = range
+
+	START_PROCESSING(SSdcs, src)
+
+
+/datum/component/bossbar/RegisterWithParent()
+	RegisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_damage))
+	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+
+
+/datum/component/bossbar/UnregisterFromParent()
+	UnregisterSignal(parent, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_DEATH))
+
+
+/datum/component/bossbar/Destroy(force)
+	hide_all()
+	STOP_PROCESSING(SSdcs, src)
+	return ..()
+
+
+/datum/component/bossbar/process(seconds_per_tick)
+	var/mob/living/boss = parent
+	if(QDELETED(boss) || boss.stat == DEAD || boss.health <= 0)
+		hide_all()
+		return
+
+	current_health = clamp(boss.health, 0, max_health)
+	update_all()
+
+	var/list/should_see = list()
+
+	for(var/mob/living/player in GLOB.player_list)
+		if(!player.client || player.stat == DEAD || player.z != boss.z)
+			continue
+
+		if(get_dist(boss, player) <= view_range)
+			should_see += player.client
+
+	for(var/mob/dead/observer/ghost in GLOB.current_observers_list)
+		if(!ghost.client || ghost.z != boss.z)
+			continue
+
+		if(get_dist(boss, ghost) <= view_range)
+			should_see += ghost.client
+
+	for(var/client/C in should_see)
+		if(!(C in client_to_screens))
+			show_to(C)
+
+	for(var/client/C in client_to_screens.Copy())
+		if(!(C in should_see))
+			hide_from(C)
+
+
+/datum/component/bossbar/proc/on_damage()
+	SIGNAL_HANDLER
+	update_health()
+
+
+/datum/component/bossbar/proc/on_death()
+	SIGNAL_HANDLER
+	hide_all()
+
+
+/datum/component/bossbar/proc/update_health()
+	var/mob/living/boss = parent
+	current_health = clamp(boss.health, 0, max_health)
+
+	if(current_health <= 0)
+		hide_all()
+	else
+		update_all()
+
+
+/datum/component/bossbar/proc/show_to(client/C)
+	if(!C || (C in client_to_screens))
+		return
+
+	var/mob/M = C.mob
+	if(!M?.hud_used)
+		return
+
+	var/atom/movable/screen/boss_base/base = new
+	base.screen_loc = bar_screen_loc
+	base.maptext = get_maptext()
+
+	var/atom/movable/screen/boss_fill/fill = new
+	fill.screen_loc = bar_screen_loc
+	fill.icon_state = get_bar_state()
+
+	var/atom/movable/screen/boss_portrait/portrait = new
+	portrait.icon = boss_portrait_icon
+	portrait.icon_state = boss_portrait_state
+	portrait.screen_loc = portrait_screen_loc
+
+	M.hud_used.static_inventory += base
+	M.hud_used.static_inventory += fill
+	M.hud_used.static_inventory += portrait
+	M.hud_used.show_hud(M.hud_used.hud_version)
+
+	client_to_screens[C] = list(base, fill, portrait, M.hud_used)
+
+
+/datum/component/bossbar/proc/hide_from(client/C)
+	var/list/screens = client_to_screens[C]
+	if(!screens)
+		return
+
+	var/mob/M = C?.mob
+	var/datum/hud/H = screens[4]
+
+	if(M?.hud_used)
+		H = M.hud_used
+
+	if(H)
+		H.static_inventory -= screens[1]
+		H.static_inventory -= screens[2]
+		H.static_inventory -= screens[3]
+		H.show_hud(H.hud_version)
+
+	qdel(screens[1])
+	qdel(screens[2])
+	qdel(screens[3])
+	client_to_screens -= C
+
+
+/datum/component/bossbar/proc/hide_all()
+	for(var/client/C in client_to_screens.Copy())
+		hide_from(C)
+
+
+/datum/component/bossbar/proc/update_all()
+	if(!length(client_to_screens))
+		return
+
+	var/new_bar_state = get_bar_state()
+	var/new_maptext = get_maptext()
+
+	for(var/client/C in client_to_screens.Copy())
+		var/list/screens = client_to_screens[C]
+		if(!screens)
+			continue
+
+		var/mob/M = C?.mob
+		if(!M?.hud_used || M.hud_used != screens[4] || !(screens[1] in M.hud_used.static_inventory))
+			hide_from(C)
+			show_to(C)
+			continue
+
+		var/atom/movable/screen/boss_base/base = screens[1]
+		var/atom/movable/screen/boss_fill/fill = screens[2]
+		var/atom/movable/screen/boss_portrait/portrait = screens[3]
+
+		fill.icon_state = new_bar_state
+		base.maptext = new_maptext
+		portrait.icon = boss_portrait_icon
+		portrait.icon_state = boss_portrait_state
+
+
+/datum/component/bossbar/proc/get_bar_state()
+	if(current_health <= 0)
+		return "bar_5"
+
+	var/percent = max(5, round((current_health / max_health) * 100 / 5) * 5)
+	return "bar_[percent]"
+
+
+/datum/component/bossbar/proc/get_maptext()
+	var/percent = round((current_health / max_health) * 100)
+	return MAPTEXT_PIXELLARI_SIZED("<font color='#aa6000'>[override_name]</font><br><font color='#e28a26'>[percent]% ([round(current_health)]/[max_health])</font>", text_size)
+
+#undef MAPTEXT_PIXELLARI_SIZED
