@@ -7,7 +7,7 @@
 		return
 
 	/// SPLURT EDIT BEGIN
-	// if the storyteller is extended, don't run the event
+	// if the storyteller can't have antags, don't run the event
 	if(!SSgamemode.can_inject_antags())
 		return
 
