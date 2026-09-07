@@ -95,7 +95,7 @@
 	playsound(cast_on, 'sound/effects/cartoon_sfx/cartoon_pop.ogg', 70)
 
 // New verb to alter limbs
-GAME_VERB_PROC_SRC_DESC(/mob/living, alterlimbs, view(usr.client), "Alter Limbs", "Remove or attach a limb!", "IC")
+GAME_VERB_PROC_SRC_DESC(/mob/living, alterlimbs, view(), "Alter Limbs", "Remove or attach a limb!", "IC")
 	// Define mobs involved
 	var/mob/living/carbon/human/mob_initiator = usr
 	var/mob/living/carbon/human/mob_target = src

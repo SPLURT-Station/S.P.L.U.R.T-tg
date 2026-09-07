@@ -7,9 +7,6 @@
 /area/station/security/prison/library
 	name = "\improper Prison Library"
 
-/area/station/medical/booth
-	name = "\improper Medical Booth"
-
 /area/station/science/nanite
 	name = "\improper Nanite Lab"
 	icon = 'modular_zzplurt/icons/area/areas_station.dmi'
@@ -25,6 +22,10 @@
 
 /area/station/command/bridge/hallway
 	name = "\improper Bridge Hallway"
+
+/area/station/engineering/monitoring
+	name = "Monitoring Room"
+	icon_state = "engine"
 
 /area/shuttle/abandoned/hallway
 	name = "Abandoned Ship Hallway"
