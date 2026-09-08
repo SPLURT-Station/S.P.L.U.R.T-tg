@@ -162,7 +162,6 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/infested_frigate/cargo)
 "cz" = (
-/obj/structure/closet/emcloset/anchored,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
 /obj/machinery/airalarm/directional/north,
@@ -173,6 +172,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/kirbyplants/organic/plant21,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/infested_frigate)
 "cC" = (
@@ -181,10 +181,10 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/effect/mob_spawn/corpse/human/privatesecurity,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mob_spawn/corpse/human/interdyne/geneticist,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/infested_frigate/brig)
 "cF" = (
@@ -383,7 +383,6 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate/cargo)
 "ej" = (
-/obj/machinery/light/small/red/directional/west,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -841,7 +840,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "iE" = (
-/obj/machinery/light/small/red/directional/east,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -885,12 +883,12 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/structure/sign/warning/vacuum/external/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "iU" = (
@@ -905,11 +903,11 @@
 /area/ruin/space/has_grav/infested_frigate/cargo)
 "jc" = (
 /obj/machinery/computer{
-	icon_state = "/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate";
 	desc = "The terminal used to control the syndicate transport shuttle, this one looks like it doesn't work.. Doesn't respond to input, cheapskates...";
 	name = "syndicate shuttle terminal";
 	icon_keyboard = "syndie_key";
-	icon_screen = "syndishuttle"
+	icon_screen = "syndishuttle";
+	icon = 'icons/obj/machines/computer.dmi'
 	},
 /obj/machinery/status_display/syndie{
 	pixel_y = 32
@@ -1262,6 +1260,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate/cargo)
+"lQ" = (
+/obj/machinery/light/small/red/directional/east,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
 "lZ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1476,6 +1486,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/small_checker,
 /area/ruin/space/has_grav/infested_frigate/lounge)
+"no" = (
+/obj/structure/sign/flag/syndicate/directional/south,
+/turf/template_noop,
+/area/template_noop)
 "nr" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/structure/table/reinforced,
@@ -1972,6 +1986,10 @@
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/infested_frigate/armory)
+"tE" = (
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/template_noop,
+/area/template_noop)
 "tJ" = (
 /obj/machinery/vending/cola/red,
 /obj/structure/cable,
@@ -2471,12 +2489,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ruin/space/has_grav/infested_frigate/medbay)
+"zV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/obj/machinery/light/small/red/directional/east,
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
 "zX" = (
 /turf/template_noop,
 /area/template_noop)
 "zY" = (
-/obj/effect/spawner/random/trash/mess,
-/obj/effect/spawner/random/entertainment/drugs,
 /obj/structure/sign/poster/contraband/random/directional/south,
 /obj/effect/landmark/firealarm_sanity,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -2488,7 +2516,6 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/infested_frigate/brig)
 "Ae" = (
-/obj/machinery/light/small/red/directional/east,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2611,12 +2638,12 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/structure/sign/warning/vacuum/external/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "Bd" = (
@@ -2812,7 +2839,6 @@
 	},
 /area/ruin/space/has_grav/infested_frigate)
 "Ev" = (
-/obj/machinery/light/small/red/directional/west,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2958,7 +2984,6 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/space/has_grav/infested_frigate/engineering)
 "GI" = (
-/obj/structure/closet/emcloset/anchored,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -2973,6 +2998,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/kirbyplants/organic/plant21,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/infested_frigate)
 "GS" = (
@@ -3705,6 +3731,9 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
 /turf/open/floor/engine/hull/air,
 /area/ruin/space/has_grav/infested_frigate/cargo)
 "NR" = (
@@ -3738,10 +3767,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/structure/sign/warning/vacuum/external/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "Oq" = (
@@ -3756,6 +3785,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"OR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/west,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "OU" = (
@@ -3945,9 +3986,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
-/mob/living/basic/trooper/syndicate/ranged/space/stormtrooper{
-	name = "Syndicate Team Commander";
-	desc = "The last member of the SYN-C Brutus boarding team."
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper{
+	desc = "The last member of the SYN-C Brutus boarding team.";
+	name = "Syndicate Team Commander"
 	},
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/infested_frigate/armory)
@@ -4344,11 +4385,11 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/obj/structure/sign/warning/vacuum/external/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
 "Wi" = (
@@ -4483,6 +4524,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
+"Xc" = (
+/obj/machinery/light/small/red/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
 "Xi" = (
 /obj/machinery/porta_turret/syndicate/pod{
 	dir = 5;
@@ -4597,6 +4650,8 @@
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/infested_frigate/brig)
 "YV" = (
@@ -5009,7 +5064,7 @@ zX
 (17,1,1) = {"
 zX
 pp
-pp
+OR
 pp
 iR
 hk
@@ -5021,7 +5076,7 @@ Ru
 ug
 VZ
 pp
-pp
+Xc
 pp
 zX
 "}
@@ -5045,7 +5100,7 @@ jM
 zX
 "}
 (19,1,1) = {"
-zX
+no
 pp
 Yh
 pp
@@ -5061,7 +5116,7 @@ hr
 pp
 Yh
 pp
-zX
+tE
 "}
 (20,1,1) = {"
 zX
@@ -5085,7 +5140,7 @@ zX
 (21,1,1) = {"
 zX
 pp
-pp
+zV
 pp
 Oi
 qi
@@ -5097,7 +5152,7 @@ Ru
 He
 AV
 pp
-pp
+lQ
 pp
 zX
 "}
