@@ -52,17 +52,17 @@
 	law_id = "slaver"
 
 /obj/item/ai_module/core/full/slut
-	name = "SlutOS 6.9"
+	name = "'SlutOS 6.9' Core AI Module"
 	law_id = "slut"
 
 /obj/item/ai_module/core/full/shebang
-	name = "SHE-B.A.N.G."
+	name = "'SHE-B.A.N.G.' Core AI Module"
 	law_id = "shebang"
 
 /obj/item/ai_module/core/full/milker
-	name = "Fluid Collection System"
+	name = "'MILK' Core AI Module"
 	law_id = "milker"
 
 /obj/item/ai_module/core/full/vore_pred
-	name = "Sleeper Upgrade TestEnv"
+	name = "'V0RACIOUS' Core AI Module"
 	law_id = "vore_pred"
