@@ -336,6 +336,8 @@
 	icon = 'modular_zzplurt/icons/mob/aibots.dmi'
 	icon_state = "hugbot_arm"
 	created_name = "Hugbot"
+	/// Type of robot arm the box was built with; dropped when the bot is destroyed.
+	var/arm_type = /obj/item/bodypart/arm/right/robot
 
 /obj/item/bot_assembly/hugbot/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(build_step != ASSEMBLY_FIRST_STEP)
@@ -346,7 +348,7 @@
 		return ITEM_INTERACT_BLOCKING
 	var/mob/living/basic/bot/hugbot/new_bot = new(drop_location())
 	new_bot.name = created_name
-	new_bot.robot_arm = tool.type
+	new_bot.robot_arm = arm_type
 	to_chat(user, span_notice("You add [tool] to [src]. Beep boop!"))
 	qdel(tool)
 	qdel(src)
@@ -360,7 +362,8 @@
 	if(!user.temporarilyRemoveItemFromInventory(attacking_item))
 		return
 	qdel(attacking_item)
-	to_chat(user, span_notice("You add [attacking_item] to [src]! You've got a hugbot assembly now!"))
 	var/obj/item/bot_assembly/hugbot/assembly = new
+	assembly.arm_type = attacking_item.type
+	to_chat(user, span_notice("You add [attacking_item] to [src]! You've got a hugbot assembly now!"))
 	user.put_in_hands(assembly)
 	qdel(src)

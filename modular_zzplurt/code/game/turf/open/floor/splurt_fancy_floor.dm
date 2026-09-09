@@ -4,7 +4,7 @@
 // static, non-smoothing turfs.
 
 /turf/open/floor/carpet/blackred
-	icon = 'modular_zzplurt/icons/turf/floors/carpet_blackred.dmi'
+	icon = 'modular_zzplurt/icons/turf/carpet_blackred.dmi'
 	icon_state = "carpet"
 	smoothing_flags = NONE
 	floor_tile = /obj/item/stack/tile/carpet/blackred
@@ -13,7 +13,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/floor/carpet/monochrome
-	icon = 'modular_zzplurt/icons/turf/floors/carpet_monochrome.dmi'
+	icon = 'modular_zzplurt/icons/turf/carpet_monochrome.dmi'
 	icon_state = "carpet"
 	smoothing_flags = NONE
 	floor_tile = /obj/item/stack/tile/carpet/monochrome

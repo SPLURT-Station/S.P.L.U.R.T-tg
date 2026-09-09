@@ -18,6 +18,9 @@
 	icon_state = "keggy"
 	desc = "A small wooden barrle with metal rings, untapped beer inside."
 
+/datum/export/booze //Like the kind you bottle!
+	abstract_type = /datum/export/booze
+
 /datum/export/booze/bottledkeg
 	cost = 250
 	unit_name = "exotic brews"

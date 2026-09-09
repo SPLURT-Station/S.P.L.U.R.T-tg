@@ -19,7 +19,7 @@
 		"green" = "#32CD32",
 		"red" = "#FF0000",
 		"blue" = "#0000FF",
-		"capuccino" = "#663300",
+		"cappucino" = "#663300",
 		"plum" = "#00A2FF",
 		"strawck" = "#ff88ff",
 		"metallic" = "#454545",
@@ -57,8 +57,8 @@
 				tastes = list(pick("kiwi", "lemon") = 1)
 			if("red")
 				tastes = list(pick("apple", "cherry") = 1)
-			if("capuccino")
-				tastes = list("capuccino" = 1)
+			if("cappucino")
+				tastes = list("cappuccino" = 1)
 			if("crocin", "strawck")
 				tastes = list("strawberry" = 1)
 			if("turd", "chocop")
@@ -103,23 +103,23 @@
 			food_reagents = list(/datum/reagent/consumable/nutriment = 1, pick(/datum/reagent/consumable/cum, /datum/reagent/consumable/femcum) = 3)
 		if("black", "metallic", "creamsoda", "tmallow")
 			tastes = list("dogborg balls" = 1)
-			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/salt = 3)
 		if("orange", "yellow", "carmcorn")
 			tastes = list(pick("piss", "smegma") = 1)
 		if("purple", "blackberry")
 			food_reagents = list(/datum/reagent/consumable/ethanol/lean = 4)
 		if("green", "margarita", "watermelon")
 			tastes = list(pick("sweat", "armpit", "feet") = 1)
-			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/salt = 3)
 		if("red", "raspberry", "scinnamon")
 			food_reagents = list(/datum/reagent/blood = 4)
-		if("capuccino", "turd", "chocop")
+		if("cappucino", "turd", "chocop")
 			tastes = list(pick("shit", "shart", "fart") = 1)
 		if("crocin", "strawck")
 			food_reagents = list(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = 4)
 		else
 			tastes = list("musk" = 1)
-			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sodiumchloride = 3)
+			food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/salt = 3)
 	. = ..()
 
 /obj/item/storage/fancy/jellybean_bowl

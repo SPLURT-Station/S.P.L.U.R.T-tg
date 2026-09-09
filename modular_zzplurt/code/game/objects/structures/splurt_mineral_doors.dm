@@ -11,8 +11,8 @@
 	max_integrity = 200
 	rad_insulation = RAD_VERY_LIGHT_INSULATION
 
-// Appended to the wood sheet recipe list at global init (this file is
-// included after the core sheet_types.dm).
-GLOB.wood_recipes += list( \
-	new /datum/stack_recipe("rustic wooden door", /obj/structure/mineral_door/woodrustic, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_DOORS), \
-)
+// Recipe appended to the wood sheet's recipe list (core registers wood recipes
+// via get_main_recipes(); we extend it modularly).
+/obj/item/stack/sheet/mineral/wood/get_main_recipes()
+	. = ..()
+	. += list(new /datum/stack_recipe("rustic wooden door", /obj/structure/mineral_door/woodrustic, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_DOORS))
