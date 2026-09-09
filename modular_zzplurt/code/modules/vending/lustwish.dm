@@ -13,7 +13,8 @@
 			"name" = "Consumables",
 			"products" = list(
 				/obj/item/reagent_containers/cup/bottle/belly_enlarger = 6,
-				/obj/item/reagent_containers/cup/bottle/butt_enlarger = 6
+				/obj/item/reagent_containers/cup/bottle/butt_enlarger = 6,
+				/obj/item/storage/fancy/jellybean_pack = 5,
 			)
 		),
 		list(
