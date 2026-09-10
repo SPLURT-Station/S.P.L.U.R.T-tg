@@ -8,11 +8,15 @@
 /datum/heretic_knowledge/New()
 	. = ..()
 
-	// replacing items with harder ones
-	for (var/atom/type as anything in required_atoms)
-		if (ispath(type, /obj/item/knife))
-			required_atoms -= type
-			required_atoms[/obj/item/knife/kitchen] = 1
+/*
+* SPLURT EDIT CHANGE - It's subjective, but people had complained it was annoying.
+*	// replacing items with harder ones
+*	for (var/atom/type as anything in required_atoms)
+*		if (ispath(type, /obj/item/knife))
+*			required_atoms -= type
+*			required_atoms[/obj/item/knife/kitchen] = 1
+* SPLURT EDIT END
+*/
 
 /datum/heretic_knowledge/recipe_snowflake_check(mob/living/user, list/atoms, list/selected_atoms, turf/loc)
 	. = ..()
