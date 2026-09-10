@@ -126,7 +126,8 @@
 /area/misc/condo)
 "pb" = (
 /obj/machinery/jukebox/disco{
-	anchored = 1
+	anchored = 1;
+    req_access = null
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/misc/condo)
@@ -203,7 +204,7 @@
 /area/misc/condo)
 "uS" = (
 /obj/structure/table/reinforced,
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /obj/structure/musician/piano/minimoog{
 	pixel_x = 15
 	},
