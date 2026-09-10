@@ -8,13 +8,11 @@
 /datum/heretic_knowledge/New()
 	. = ..()
 
-	/*
-*	SPLURT EDIT CHANGE - You can be a vampire, changeling chaplain and a traitor, so why not the one role that actually thematically fits with the whole religious stuff?
-*	/datum/round_event_control/antagonist/solo/heretic/New()
-*		protected_roles |= JOB_CHAPLAIN // Would be silly to get chaplain heretics
-*		. = ..()
-*	SPLURT EDIT END
-	*/
+	// replacing items with harder ones
+	for (var/atom/type as anything in required_atoms)
+		if (ispath(type, /obj/item/knife))
+			required_atoms -= type
+			required_atoms[/obj/item/knife/kitchen] = 1
 
 /datum/heretic_knowledge/recipe_snowflake_check(mob/living/user, list/atoms, list/selected_atoms, turf/loc)
 	. = ..()
