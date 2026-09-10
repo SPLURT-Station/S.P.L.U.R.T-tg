@@ -12,9 +12,13 @@
 
 	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CREW_ANTAG)
 
+/*
 /datum/round_event_control/antagonist/solo/heretic/New()
 	protected_roles |= JOB_CHAPLAIN // Would be silly to get chaplain heretics
 	. = ..()
+// You can be a vampire, changeling chaplain and a traitor, so why not the one role
+// that actually thematically fits with the whole religious stuff?
+*/
 
 #define TIME_CUTOFF 1.2 HOURS
 /datum/round_event_control/antagonist/solo/heretic/midround
