@@ -26,7 +26,7 @@
 /obj/item/mmi/Initialize(mapload)
 	. = ..()
 	radio = new(src) //Spawns a radio inside the MMI.
-	laws.set_laws_config()
+	//laws.set_laws_config() - Splurt edit - Remove this when lawracks are included with an upstream
 
 /obj/item/mmi/Destroy()
 	set_mecha(null)
