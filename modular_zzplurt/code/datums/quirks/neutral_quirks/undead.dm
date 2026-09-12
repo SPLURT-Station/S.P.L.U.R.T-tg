@@ -1,9 +1,10 @@
 #define QUIRK_HUNGER_UNDEAD 1.1
+#define QUIRK_TRAITS_UNDEAD list(TRAIT_BLOODY_MESS, TRAIT_EASILY_WOUNDED, TRAIT_EASYDISMEMBER, TRAIT_FAKEDEATH, TRAIT_NODEATH, TRAIT_NOCRITDAMAGE, TRAIT_NOHUNGER, TRAIT_SUCCUMB_OVERRIDE)
 
 /datum/quirk/undead
 	name = "Undeath"
 	desc = "You stand on the border between life and death, causing you to function similar to a zombie."
-	value = 0
+	value = 4
 	gain_text = span_notice("The life has left your body, but you haven't stopped moving yet.")
 	lose_text = span_notice("By some miracle, you've been brought back to life!")
 	medical_record_text = "Patient is listed as deceased in medical records."
@@ -29,7 +30,7 @@
 	// Add undead traits
 	// Based on the High-Functioning Zombie species
 	// Powergamer traits are in separate quirks
-	quirk_mob.add_traits(list(TRAIT_NOTHIRST) + /datum/species/zombie::inherent_traits, TRAIT_UNDEAD)
+	quirk_mob.add_traits(QUIRK_TRAITS_UNDEAD, TRAIT_UNDEAD)
 
 	// Add fake health HUD
 	quirk_holder.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
@@ -49,7 +50,7 @@
 	quirk_mob.mob_biotypes -= MOB_UNDEAD
 
 	// Remove undead traits
-	quirk_mob.remove_traits(list(TRAIT_NOTHIRST) + /datum/species/zombie::inherent_traits, TRAIT_UNDEAD)
+	quirk_mob.remove_traits(QUIRK_TRAITS_UNDEAD, TRAIT_UNDEAD)
 
 	// Remove fake health HUD
 	quirk_holder.remove_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
@@ -58,3 +59,4 @@
 	//quirk_mob.physiology.hunger_mod /= QUIRK_HUNGER_UNDEAD
 
 #undef QUIRK_HUNGER_UNDEAD
+#undef QUIRK_TRAITS_UNDEAD
