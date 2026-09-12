@@ -16,6 +16,7 @@
 	name = "Freeform Chaos (OPFOR)"
 	desc = "Random events at a moderate pace and antagonists will be player generated."
 	welcome_text = span_bold(" (Open an OPFOR application if you're interested in becoming an antagonist for this round!)")
+	antag_divisor = 0
 
 	track_data = /datum/storyteller_data/tracks/medium/opfor
 
