@@ -32,3 +32,6 @@
 	suffix = "foreclosed_warehouse.dmm"
 	name = "Foreclosed Warehouse"
 	description = "A derelict warehouse that has been abandoned and left to rot. It appears to have a complex internal structure."
+
+/datum/map_template/ruin/space/infested_frigate
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // TG Map Edit

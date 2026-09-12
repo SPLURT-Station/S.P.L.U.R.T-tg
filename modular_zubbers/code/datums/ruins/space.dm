@@ -11,8 +11,10 @@
 	name = "Space-Ruin DK Excavator 453"
 	description = "An old mining station, at least what's left of it. Despite it's age there's still scavengers picking at the wreckage."
 
+/* // Who's fucking stupid idea was it to make TWO frigate ruins that use the same area?
 /datum/map_template/ruin/space/bubber/infested_frigate //Modified from the original ruin. See PR 5983.
 	id = "infested_frigate"
 	suffix = "infested_frigate.dmm"
 	name = "Space Ruin SYN-C Brutus"
 	description = "This wasn't an outbreak, this was a repelled attack."
+*/

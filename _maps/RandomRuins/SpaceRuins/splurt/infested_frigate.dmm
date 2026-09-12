@@ -1,0 +1,5671 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/structure/alien/weeds/node,
+/obj/machinery/button/door/directional/north{
+	id = "brutus_bolt_port";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ab" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 3000
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"an" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ar" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"aw" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"aG" = (
+/obj/machinery/computer/operating,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/blue,
+/obj/structure/sign/flag/syndicate/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"aQ" = (
+/obj/machinery/firealarm/directional/west,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"aW" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/red/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"aX" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/entertainment/drugs,
+/obj/machinery/light_switch/directional/east,
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"bE" = (
+/obj/machinery/status_display/syndie{
+	pixel_y = -32
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/machinery/vending/tool,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"bP" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/bed/nest,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/mob/living/basic/alien/queen/large{
+	loot = list(/obj/effect/gibspawner/xeno,/obj/item/ammo_box/magazine/smartgun,/obj/effect/mob_spawn/corpse/human/syndicatecommando/soft_suit);
+	desc = "What you saw in your dreams last night.";
+	faction = list("syndicate","xenomorph")
+	},
+/turf/open/floor/iron/smooth_edge{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"bZ" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"co" = (
+/obj/machinery/mech_bay_recharge_port,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"cz" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/camera/directional/north{
+	c_tag = "Starboard Airlock Hallway";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/kirbyplants/organic/plant21,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"cC" = (
+/obj/structure/bed/maint,
+/obj/item/restraints/handcuffs/cable/zipties/used,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mob_spawn/corpse/human/interdyne/geneticist,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"cF" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"cN" = (
+/obj/structure/chair/sofa/right/brown{
+	dir = 8;
+	color = "#3d3c38"
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"cP" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 6
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"cS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"cV" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"dg" = (
+/obj/machinery/newscaster/directional/east,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/light/red/dim/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"dp" = (
+/obj/structure/mecha_wreckage/gygax/dark{
+	anchored = 1
+	},
+/obj/effect/turf_decal/recharge,
+/obj/machinery/newscaster/directional/south,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"dv" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/machinery/light/red/dim/directional/north,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"dC" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"dE" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"dF" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"dH" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on,
+/obj/item/storage/box/bodybags,
+/obj/item/storage/box/bodybags,
+/obj/item/storage/box/bodybags,
+/obj/item/tank/jetpack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/emptysandbags,
+/obj/item/storage/box/ids,
+/obj/item/storage/box/syndie_kit/chameleon,
+/obj/structure/closet/crate/large{
+	anchored = 1;
+	name = "mission supplies"
+	},
+/obj/item/clothing/head/collectable/xenom,
+/obj/item/xenos_claw,
+/obj/item/toy/toy_xeno,
+/obj/item/clothing/suit/costume/xenos,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/white/line,
+/obj/machinery/newscaster/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"dR" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_port"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"dS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/north,
+/obj/structure/closet/emcloset/wall{
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"dW" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 6;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"ej" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"em" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/decal/cleanable/blood/trail_holder,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_starboard"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"eo" = (
+/obj/machinery/vending/coffee,
+/obj/structure/sign/flag/syndicate/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"et" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/clothing/mask/facehugger/dead,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"eu" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/machinery/light_switch/directional/east,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"ev" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"eH" = (
+/obj/structure/cable,
+/obj/structure/closet/crate/large{
+	anchored = 1;
+	name = "mission payload"
+	},
+/obj/effect/spawner/random/aimodule/harmful,
+/obj/machinery/nuclearbomb/beer{
+	desc = "You probably shouldn't stick around to see if this is armed.";
+	name = "nuclear fission explosive"
+	},
+/obj/item/fuel_pellet,
+/obj/item/fuel_pellet,
+/obj/item/fuel_pellet,
+/obj/effect/spawner/random/exotic/languagebook,
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/sign/warning/electric_shock/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"eR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/radio{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/item/radio{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"eU" = (
+/obj/machinery/vending/medical/infested_frigate,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/blue,
+/obj/machinery/firealarm/directional/west,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"eX" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"eY" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/rack/gunrack,
+/obj/machinery/firealarm/directional/east,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"fp" = (
+/obj/machinery/power/smes/ship,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"fw" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/wood,
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/effect/spawner/random/contraband/narcotics{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/effect/spawner/random/food_or_drink{
+	pixel_x = 10
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"fX" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/wood,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"fY" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/c357/spent,
+/obj/item/clothing/mask/facehugger/dead,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"gg" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"gj" = (
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"gq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"gv" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate)
+"gz" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 10;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"gL" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "brutus_exterior";
+	name = "SYN-C Brutus Exterior Blast Door"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"gP" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Airlock Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"gW" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/effect/gibspawner/xeno/bodypartless,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"gZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_box/magazine/smgm45{
+	icon_state = "c20r45-0";
+	start_empty = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"hb" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 5
+	},
+/obj/structure/barricade/security,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"hc" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/storage/belt/bandolier,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"hk" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"hr" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/button/door/directional/south{
+	id = "brutus_bolt_starboard";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"hs" = (
+/obj/item/storage/fancy/donut_box{
+	pixel_y = 6
+	},
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"hE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 9
+	},
+/obj/machinery/autolathe/hacked,
+/obj/machinery/light/red/dim/directional/west,
+/obj/machinery/firealarm/directional/west,
+/obj/machinery/camera/directional/west{
+	network = list("brutus");
+	c_tag = "Cargo Bay"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"ih" = (
+/obj/effect/decal/cleanable/food/egg_smudge,
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/item/radio/intercom/directional/north,
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"ij" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"iE" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"iI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_box/magazine/smgm45{
+	icon_state = "c20r45-0";
+	start_empty = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"iR" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"iU" = (
+/obj/effect/turf_decal/syndicateemblem/top/right{
+	dir = 8
+	},
+/obj/effect/mob_spawn/corpse/human/syndicatepilot,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"jc" = (
+/obj/machinery/computer{
+	desc = "The terminal used to control the syndicate transport shuttle, this one looks like it doesn't work.. Doesn't respond to input, cheapskates...";
+	name = "syndicate shuttle terminal";
+	icon_keyboard = "syndie_key";
+	icon_screen = "syndishuttle";
+	icon = 'icons/obj/machines/computer.dmi'
+	},
+/obj/machinery/status_display/syndie{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"jt" = (
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"jx" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Lounge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"jC" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/cable,
+/obj/effect/gibspawner/human,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"jD" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"jK" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Port Airlock Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/brig)
+"jM" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_starboard"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"jR" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/machinery/firealarm/directional/west,
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"jS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"jX" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Port Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"kb" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"ki" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_y = 28
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/gibspawner/human/bodypartless,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"km" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/structure/sign/departments/med/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"ko" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"ks" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Port Bow Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"kF" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"kH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/machinery/light/small/red/directional/south,
+/obj/machinery/suit_storage_unit/open,
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"kL" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/weldingtool/mini/empty,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"kR" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/gibspawner/human/bodypartless,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"kT" = (
+/obj/structure/window/plasma/spawner/directional/west,
+/obj/structure/table/reinforced/plasmarglass,
+/obj/item/surgery_tray/full/advanced,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/blue,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"lt" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 10;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"lD" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/right{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/broken_missile,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"lE" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/freezer{
+	name = "Freezer"
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"lN" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"lQ" = (
+/obj/machinery/light/small/red/directional/east,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"lZ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/structure/alien/egg/burst,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_edge{
+	dir = 4
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"ma" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"mb" = (
+/obj/structure/window/plasma/spawner/directional/west,
+/obj/structure/table/reinforced/plasmarglass,
+/obj/effect/spawner/random/medical/minor_healing,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/blue{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Medbay"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"me" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/alien/egg/burst,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"ml" = (
+/obj/machinery/firealarm/directional/west,
+/obj/machinery/vending/cola/sodie,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"mq" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/light/red/dim/directional/north,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"mE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"mI" = (
+/obj/structure/closet/crate/trashcart,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"mK" = (
+/obj/machinery/digital_clock/directional/north,
+/obj/machinery/suit_storage_unit/open,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"mQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/flashlight/flare{
+	pixel_x = -3;
+	pixel_y = 10
+	},
+/obj/item/flashlight/flare{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/crowbar/red,
+/obj/item/ammo_casing/c45/spent,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"mS" = (
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"mX" = (
+/obj/machinery/stasis,
+/obj/machinery/vitals_reader/directional/south,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/blue{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"na" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"nf" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/light/small/red/directional/north,
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"nh" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Cargo Bay"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"nj" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/chair/wood{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/syndicatepilot,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"no" = (
+/obj/structure/sign/flag/syndicate/directional/south,
+/turf/template_noop,
+/area/template_noop)
+"nr" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/obj/effect/spawner/random/food_or_drink/donkpockets_single,
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"nA" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"nF" = (
+/obj/machinery/vending/hotdog,
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"nY" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Engineering"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"ol" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"oI" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north{
+	equipment = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/effect/spawner/random/structure/crate_loot,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/machinery/camera/directional/north{
+	c_tag = "Engineering";
+	network = list("brutus")
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"oK" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/chair/wood{
+	dir = 1;
+	pixel_y = -5;
+	pixel_x = -9
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"oL" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/cable,
+/obj/effect/mob_spawn/corpse/human/syndicateofficer,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"oO" = (
+/obj/machinery/shower/directional/east{
+	name = "emergency shower"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 9
+	},
+/obj/structure/sign/warning/secure_area/directional/west,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"oT" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"pi" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/effect/mob_spawn/corpse/human/interdyne,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"pl" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 5
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"pn" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/trashcart/filled,
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"pp" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate)
+"pr" = (
+/obj/machinery/airalarm/directional/east,
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"pH" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/machinery/camera/directional/east{
+	network = list("brutus");
+	c_tag = "Fore Central Hallway"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"qb" = (
+/obj/structure/sign/departments/engineering/directional/west,
+/obj/item/kirbyplants/organic/plant21,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"qi" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"qR" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ra" = (
+/obj/machinery/suit_storage_unit/syndicate/softsuit,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/light/small/red/directional/north,
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"rb" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/paper/crumpled/muddy/fluff/elephant_graveyard/rnd_notes{
+	default_raw_text = "<b>STERILIZATION ORDERS</b> <BR><BR><i>Detailed findings:</i><BR><BR>A biological research lab within the HD-10180 system has suffered from a complete containment failure. The SYN-C Brutus is to deliver a nuclear payload via strike team. Everything inside and outside the facility is to be killed on sight, including any research staff. Nuclear authentication codes have been sent via red phone, as have other detailed orders.<BR><BR><b>The rest of the documents are maps and mundane information regarding the crew's destination.</b>";
+	name = "STERILIZATION ORDERS";
+	desc = "These are particularly boring for what they entail.";
+	pixel_x = 2
+	},
+/obj/item/phone{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/applicator/pill/cyanide{
+	pixel_y = -2;
+	pixel_x = -5
+	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Bridge"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"rh" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/south,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/item/ammo_box/magazine/m12g/empty,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"rj" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/egg/burst,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"rp" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/egg/burst,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"rt" = (
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/sink/directional/west,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"rx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/c357/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"ry" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"rD" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -28
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"sb" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/left{
+	dir = 8
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/gibspawner/robot,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"so" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"ss" = (
+/obj/machinery/firealarm/directional/west,
+/obj/item/kirbyplants/organic/plant21,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Aft Central Hallway"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"sx" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/obj/machinery/light/red/dim/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"sz" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 6;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"sA" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/south,
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/barricade/security,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"sF" = (
+/obj/machinery/newscaster/directional/north,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/flashlight/lamp{
+	pixel_y = 10;
+	pixel_x = -2
+	},
+/obj/item/stack/spacecash/c50,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"tf" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/machinery/status_display/syndie{
+	pixel_x = 32
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"ts" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"tA" = (
+/obj/item/gun/ballistic/automatic/smartgun,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4;
+	welded = 1
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"tE" = (
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/template_noop,
+/area/template_noop)
+"tJ" = (
+/obj/machinery/vending/cola/red,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"tZ" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/door/poddoor/shutters/syndicate{
+	dir = 4;
+	id = "brutus_prisoner";
+	name = "Brig Cell Isolation Shutters"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"ua" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_y = -28
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ud" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Bow Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"ug" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"ul" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/camera/directional/north{
+	c_tag = "Starboard Hallway";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ut" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8;
+	max_integrity = 2000
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"uI" = (
+/obj/structure/closet/crate/bin,
+/obj/machinery/firealarm/directional/west,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/structure/sign/flag/syndicate/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"uT" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_port"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"uU" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_box/magazine/m10mm{
+	icon_state = "9x19p-empty";
+	start_empty = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"vc" = (
+/obj/structure/kitchenspike,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"vm" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 5;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"vq" = (
+/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/lighter{
+	pixel_x = -6
+	},
+/obj/structure/table,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"vs" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/chair/office/tactical{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"vA" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"vG" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/obj/structure/cable,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 9
+	},
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"vN" = (
+/obj/machinery/power/shuttle_engine/huge{
+	dir = 8;
+	max_integrity = 2000
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"wi" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"wp" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"wq" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/machinery/status_display/syndie{
+	pixel_y = 32
+	},
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"wv" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 4
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/spawner/random/medical/medkit_rare,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"wz" = (
+/obj/structure/closet/crate/secure/freezer/interdyne/blood,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/blue{
+	dir = 1
+	},
+/obj/machinery/newscaster/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"wG" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/atmospherics/components/binary/pump/on{
+	name = "Air Pump"
+	},
+/obj/structure/alien/egg/burst,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_edge{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"xb" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/east,
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -28
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"xj" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/spawner/random/maintenance,
+/obj/structure/bed/nest,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"xo" = (
+/obj/structure/rack/shelf,
+/obj/item/grenade/clusterbuster/cleaner,
+/obj/item/lightreplacer,
+/obj/item/clothing/suit/caution,
+/obj/item/clothing/suit/caution,
+/obj/item/storage/bag/trash,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"xr" = (
+/obj/machinery/vending/imported,
+/obj/structure/sign/flag/syndicate/directional/east,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"xB" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/ammo_casing/c357/spent,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"xK" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 8;
+	max_integrity = 2000
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"yA" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"yG" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Cargo Bay"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"yL" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -28
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 4
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"yO" = (
+/obj/effect/turf_decal/syndicateemblem/middle/middle{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"zc" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/effect/landmark/firealarm_sanity,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Lounge Freezer";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"zd" = (
+/obj/structure/closet/emcloset/wall{
+	pixel_y = -28
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/gibspawner/human/bodypartless,
+/obj/effect/decal/cleanable/blood,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Port Bow Hallway"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"zJ" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/button/door/directional/south{
+	id = "brutus_cargo";
+	req_access = list("syndicate");
+	name = "Cargo Blast Door Control"
+	},
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"zU" = (
+/obj/structure/table/reinforced/plasmarglass,
+/obj/item/reagent_containers/hypospray/medipen{
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray/medipen,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/blue{
+	dir = 1
+	},
+/obj/machinery/light_switch/directional/east,
+/obj/item/radio/intercom/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"zV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/obj/machinery/light/small/red/directional/east,
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"zX" = (
+/turf/template_noop,
+/area/template_noop)
+"zY" = (
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/landmark/firealarm_sanity,
+/obj/effect/decal/cleanable/blood/splatter,
+/mob/living/carbon/alien/larva{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Ae" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Ag" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/recharger,
+/obj/item/coin/antagtoken{
+	pixel_x = -5
+	},
+/obj/machinery/turretid{
+	pixel_y = 28;
+	lethal = 1;
+	system_id = "brutus_ship_turrets"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"Ai" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/structure/sign/warning/no_smoking/directional/south,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 3000
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Ax" = (
+/obj/effect/turf_decal/syndicateemblem/top/middle{
+	dir = 8
+	},
+/obj/structure/mecha_wreckage/mauler{
+	anchored = 1
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"AA" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"AK" = (
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_starboard"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"AQ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"AR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"AV" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Bd" = (
+/obj/effect/turf_decal/syndicateemblem/top/left{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Cs" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "brutus_exterior";
+	name = "SYN-C Brutus Exterior Blast Door"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"CC" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"CJ" = (
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/machinery/light_switch/directional/east,
+/obj/machinery/vending/toyliberationstation,
+/obj/machinery/button/door/directional/north{
+	id = "brutus_armory";
+	name = "Armory Lock Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	req_access = list("syndicate")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"CQ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/bed/nest,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/effect/mob_spawn/corpse/human/interdyne/engineer,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"CU" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/gibspawner/xeno/bodypartless,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"CW" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"Db" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"DD" = (
+/obj/machinery/iv_drip,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/blue{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"DG" = (
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/closet/emcloset/wall{
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"DI" = (
+/obj/effect/spawner/random/entertainment/arcade{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"DL" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Armory";
+	id_tag = "brutus_armory"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/welded,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/armory)
+"DY" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 1;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate)
+"Eb" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/hecu_rations{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/storage/box/hecu_rations{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Eo" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"Ev" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"EB" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Fj" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/storage/toolbox/ammobox/strilka310{
+	pixel_y = 10;
+	pixel_x = -4
+	},
+/obj/item/gun_maintenance_supplies{
+	pixel_y = 4;
+	pixel_x = 3
+	},
+/obj/item/storage/box/handcuffs{
+	pixel_y = 2;
+	pixel_x = -14
+	},
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"Fx" = (
+/obj/machinery/airalarm/directional/east,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/item/radio{
+	pixel_y = 13;
+	pixel_x = -5
+	},
+/obj/item/book/manual/wiki/engineering_hacking{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/structure/table,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"FD" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/gibspawner/xeno,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"FI" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Port Airlock Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"FQ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"FW" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/machinery/light/red/dim/directional/north,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Gz" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"GD" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"GI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Port Airlock Hallway"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/kirbyplants/organic/plant21,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"GS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"GT" = (
+/obj/machinery/vending/donksnack,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"GZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds/node,
+/obj/structure/alien/egg/burst,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Ha" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 9;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"He" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Hf" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"Hj" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/item/radio/intercom/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Hn" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/external/ruin{
+	name = "SYN-C Brutus Exterior Airlock";
+	id_tag = "brutus_bolt_port"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate)
+"HX" = (
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/obj/structure/sign/flag/syndicate/directional/south,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"HY" = (
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Ih" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Port Hallway"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Ii" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/bed/nest,
+/obj/effect/mob_spawn/corpse/human/syndicatepilot,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner{
+	dir = 8
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"It" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"Ix" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/light/red/dim/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"II" = (
+/obj/structure/chair/sofa/middle/brown{
+	dir = 8;
+	color = "#3d3c38"
+	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/east,
+/obj/machinery/light/red/dim/directional/east,
+/mob/living/basic/alien/sentinel{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/machinery/camera/directional/east{
+	network = list("brutus");
+	c_tag = "Central Hallway"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"IN" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_x = -28
+	},
+/obj/structure/alien/weeds/node,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"IV" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "brutus_exterior";
+	name = "SYN-C Brutus Exterior Blast Door"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate)
+"Jb" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Jo" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/alien/egg/burst,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"JD" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/spawner/random/exotic/antag_gear_weak{
+	pixel_y = 5
+	},
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/contraband/armory,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 1
+	},
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Armory"
+	},
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"JO" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"JX" = (
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/machinery/recharge_station,
+/obj/structure/sign/flag/syndicate/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"JZ" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 8;
+	max_integrity = 2000
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Ke" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Ko" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Starboard Airlock Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"Ky" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"KB" = (
+/obj/machinery/suit_storage_unit/syndicate/lavaland,
+/obj/effect/turf_decal/tile/dark_red/half,
+/obj/machinery/status_display/syndie{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"KF" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien/drone{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"KG" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/vending/boozeomat/syndicate{
+	pixel_y = 32;
+	density = 0
+	},
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"KO" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/obj/structure/sign/warning/cold_temp/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"KS" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"KU" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/computer/security{
+	name = "ship camera console";
+	network = list("brutus");
+	icon_keyboard = "syndie_key"
+	},
+/obj/machinery/status_display/syndie{
+	pixel_y = 32
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Brig";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"KX" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/dish_drive/bullet,
+/obj/machinery/newscaster/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Le" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Lf" = (
+/obj/structure/closet/crate/secure/weapon{
+	req_access = list("syndicate")
+	},
+/obj/item/grenade/smokebomb,
+/obj/item/grenade/smokebomb,
+/obj/item/suppressor,
+/obj/item/grenade/c4,
+/obj/item/gun/ballistic/automatic/pistol/clandestine,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 1
+	},
+/obj/item/gun/energy/e_gun/mini,
+/obj/item/ammo_box/magazine/smartgun,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"LA" = (
+/obj/item/kirbyplants/organic/plant21,
+/obj/machinery/newscaster/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"LL" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/button/door/directional/south{
+	id = "brutus_exterior";
+	req_access = list("syndicate_leader");
+	pixel_x = -6;
+	name = "Exterior Blast Door Control"
+	},
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/folder/syndicate/red{
+	pixel_x = -5
+	},
+/obj/machinery/light/red/dim/directional/south,
+/obj/machinery/button/door/directional/south{
+	id = "brutus_cargo";
+	req_access = list("syndicate_leader");
+	pixel_x = 6;
+	name = "Cargo Blast Door Control"
+	},
+/obj/machinery/button/door/directional/south{
+	id = "brutus_armory";
+	name = "Armory Bolt Override Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	pixel_y = -34;
+	req_access = list("syndicate_leader")
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"LP" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/clothing/mask/facehugger/dead,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"LV" = (
+/obj/machinery/firealarm/directional/west,
+/obj/structure/chair/sofa/bench/left{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"LW" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/grenade/barrier{
+	pixel_y = 15;
+	pixel_x = -5
+	},
+/obj/item/grenade/barrier{
+	pixel_y = 13;
+	pixel_x = 5
+	},
+/obj/item/grenade/barrier{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 1
+	},
+/obj/machinery/newscaster/directional/south,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"LY" = (
+/obj/item/storage/toolbox/syndicate,
+/obj/item/gun_maintenance_supplies,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/box/lights/bulbs,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
+/obj/structure/closet/crate/large{
+	anchored = 1;
+	name = "crew supplies"
+	},
+/obj/item/pickaxe/emergency,
+/obj/item/pickaxe/emergency,
+/obj/effect/spawner/random/decoration/carpet,
+/obj/effect/spawner/random/engineering/vending_restock,
+/obj/effect/spawner/random/engineering/vending_restock,
+/obj/item/bedsheet/syndie/double,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/item/radio/intercom/directional/south,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/item/storage/box/hecu_rations,
+/obj/item/storage/box/hecu_rations,
+/obj/item/storage/box/hecu_rations,
+/obj/item/storage/box/hecu_rations,
+/obj/item/storage/box/hecu_rations,
+/obj/item/bedsheet/syndie,
+/obj/effect/spawner/random/decoration,
+/obj/effect/spawner/random/decoration,
+/obj/effect/spawner/random/entertainment/plushie_delux,
+/obj/effect/spawner/random/decoration/paint,
+/obj/effect/spawner/random/entertainment/lighter,
+/obj/effect/spawner/random/entertainment/lighter,
+/obj/effect/spawner/random/special_lighter,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Mk" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Mq" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Ms" = (
+/obj/machinery/firealarm/directional/west,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Mt" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig Cell"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/poddoor/shutters/syndicate{
+	dir = 4;
+	id = "brutus_prisoner";
+	name = "Brig Cell Isolation Shutters"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Mz" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/structure/bed/nest,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/soft_suit,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner{
+	dir = 4
+	},
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"MA" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/spawner/random/maintenance,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/alien/egg/burst,
+/mob/living/basic/alien/sentinel{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_edge,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"MB" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/kirbyplants/organic/plant21,
+/obj/machinery/status_display/syndie{
+	pixel_y = -32
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/machinery/camera/directional/south{
+	network = list("brutus");
+	c_tag = "Lounge"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"MP" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"MV" = (
+/obj/machinery/vending/cigarette/syndicate,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Na" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/recharge_station,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Nq" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/machinery/recharger{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/folder/red{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Nt" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light_switch/directional/north,
+/obj/structure/sign/flag/syndicate/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Ny" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"Nz" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"NA" = (
+/obj/machinery/light/small/red/directional/south,
+/obj/structure/closet/crate/secure/freezer/pizza,
+/obj/item/storage/box/ingredients/american,
+/obj/item/storage/box/monkeycubes,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human,
+/obj/effect/mob_spawn/corpse/human/clown{
+	dir = 4
+	},
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"NE" = (
+/obj/effect/turf_decal/syndicateemblem/middle/left{
+	dir = 8
+	},
+/mob/living/basic/alien/sentinel{
+	loot = list(/obj/effect/gibspawner/xeno);
+	faction = list("syndicate","xenomorph")
+	},
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"NJ" = (
+/obj/machinery/door/poddoor{
+	id = "brutus_cargo";
+	name = "SYN-C Brutus Cargo Bay Blast Door"
+	},
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 4
+	},
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
+/turf/open/floor/engine/hull/air,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"NR" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Od" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Oi" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Oq" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_y = 28
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"OR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"OU" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Medbay"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"OW" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Pe" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/structure/sign/flag/syndicate/directional/east,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Pg" = (
+/obj/machinery/airalarm/directional/west,
+/obj/structure/closet/firecloset/full{
+	anchored = 1
+	},
+/obj/item/storage/toolbox/emergency,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 10
+	},
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Pm" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"Pp" = (
+/obj/structure/chair/sofa/left/brown{
+	dir = 8;
+	color = "#3d3c38"
+	},
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Pr" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/firecrackers{
+	pixel_y = 5
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"PC" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Port Hallway"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate)
+"PH" = (
+/obj/effect/turf_decal/syndicateemblem/middle/right{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"PM" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Qd" = (
+/mob/living/basic/bot/firebot{
+	faction = list("syndicate","xenomorph");
+	name = "Mr. Squirtsky";
+	desc = "He seems much happier with the new management!"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 10
+	},
+/obj/structure/sign/warning/fire/directional/west,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Qu" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"QB" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4;
+	welded = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper{
+	desc = "The last member of the SYN-C Brutus boarding team.";
+	name = "Syndicate Team Commander"
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"QH" = (
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Re" = (
+/obj/structure/chair/sofa/bench/right,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Rf" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/white/line,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/machinery/atmospherics/components/tank/air{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Rk" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/vomit/old,
+/obj/item/broken_bottle,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"Rl" = (
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/turf/open/floor/iron/dark/diagonal,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"Ro" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Ru" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"RS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/light_switch/directional/east,
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/obj/effect/spawner/random/maintenance,
+/obj/effect/spawner/random/exotic/antag_gear,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"RT" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_box/magazine/smgm45{
+	icon_state = "c20r45-0";
+	start_empty = 1
+	},
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"RV" = (
+/obj/machinery/vending/snack,
+/obj/machinery/firealarm/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Sl" = (
+/obj/item/reagent_containers/cup/bucket,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Sy" = (
+/obj/item/radio/intercom/directional/east,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/light/red/dim/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"SA" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/alien/weeds/node,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"SB" = (
+/obj/machinery/suit_storage_unit/syndicate/softsuit,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/machinery/light/small/red/directional/south,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"SV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"SY" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Medbay"
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"Td" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/ammo_workbench,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Tq" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/ammo_box/magazine/smgm45{
+	icon_state = "c20r45-0";
+	start_empty = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"TZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 6
+	},
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/obj/item/clothing/mask/facehugger/dead,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_box/magazine/m10mm{
+	icon_state = "9x19p-empty";
+	start_empty = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"Ui" = (
+/obj/structure/closet/syndicate{
+	desc = "It's a personal storage unit for syndicate medical supplies.";
+	name = "medical closet"
+	},
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/toxin,
+/obj/item/clothing/glasses/hud/health/night,
+/obj/item/storage/pill_bottle/stimulant,
+/obj/item/clothing/suit/apron/surgical,
+/obj/item/clothing/gloves/latex/nitrile/ntrauma,
+/obj/item/gun/syringe/syndicate,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/blue,
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"Un" = (
+/obj/machinery/firealarm/directional/west,
+/obj/item/mop,
+/obj/structure/mop_bucket/janitorialcart,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/sign/flag/syndicate/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"UQ" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"Vj" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/white/line,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/structure/sign/warning/no_smoking/directional/north,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 3000
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Vk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Vu" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/airlock/hatch{
+	name = "Brig"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_half,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Vv" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/machinery/button/door/directional/north{
+	name = "Isolation Control";
+	id = "brutus_prisoner"
+	},
+/obj/item/kirbyplants/organic/plant21,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Vy" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"VE" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/middle{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"VH" = (
+/obj/machinery/computer/security{
+	dir = 1;
+	name = "ship camera console";
+	network = list("brutus");
+	icon_keyboard = "syndie_key"
+	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"VQ" = (
+/obj/structure/closet/emcloset/wall{
+	pixel_x = -28
+	},
+/mob/living/basic/alien{
+	faction = list("syndicate","xenomorph")
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"VZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Wi" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/item/ammo_casing/c45/spent,
+/obj/structure/alien/weeds,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Ws" = (
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/closet/firecloset/full{
+	anchored = 1
+	},
+/obj/item/storage/toolbox/emergency,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 9
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"Wt" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 8
+	},
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Wv" = (
+/obj/machinery/light_switch/directional/west,
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light/red/dim/directional/north,
+/obj/machinery/digital_clock/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/infested_frigate/bridge)
+"Wx" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Wy" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/bed/nest,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/effect/mob_spawn/corpse/human/interdyne/cargo,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_edge,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"WG" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror/broken/directional/north,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 5
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Brig Cell";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"WH" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/closet/secure_closet/freezer/fridge{
+	req_access = list("syndicate")
+	},
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/rice,
+/obj/effect/spawner/random/food_or_drink/cake_ingredients,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/booze,
+/obj/effect/spawner/random/food_or_drink/booze,
+/obj/effect/spawner/random/food_or_drink/dinner,
+/obj/effect/spawner/random/food_or_drink/dinner,
+/obj/effect/spawner/random/food_or_drink/dinner,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/light/red/dim/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/white/small_checker,
+/area/ruin/space/has_grav/infested_frigate/lounge)
+"WS" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/blood/trail_holder{
+	dir = 4
+	},
+/obj/structure/barricade/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Xc" = (
+/obj/machinery/light/small/red/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/structure/closet/emcloset/anchored,
+/obj/structure/sign/warning/vacuum/external/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Xi" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 5;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Xq" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/item/ammo_casing/c357/spent,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"Xt" = (
+/obj/machinery/power/smes/ship,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/full,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"XF" = (
+/obj/structure/closet/emcloset/wall{
+	pixel_y = 28
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/camera/directional/north{
+	c_tag = "Starboard Bow Hallway";
+	network = list("brutus")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"XH" = (
+/obj/structure/closet/syndicate/personal{
+	name = "equipment closet"
+	},
+/obj/effect/turf_decal/tile/dark_red/half{
+	dir = 1
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/effect/spawner/random/exotic/syndie,
+/obj/effect/spawner/random/exotic/syndie,
+/obj/effect/spawner/random/exotic/syndie,
+/obj/effect/spawner/random/exotic/syndie,
+/obj/item/storage/belt/military,
+/obj/machinery/firealarm/directional/east,
+/obj/item/radio/intercom/directional/south,
+/obj/effect/spawner/random/clothing/syndie,
+/obj/effect/spawner/random/clothing/syndie,
+/obj/effect/spawner/random/clothing/syndie,
+/obj/effect/spawner/random/clothing/syndie,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark/half,
+/area/ruin/space/has_grav/infested_frigate/armory)
+"XX" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/light/small/red/directional/north,
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"Yh" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/infested_frigate)
+"Yi" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/small_checker,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"Yt" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/west,
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/spawner/random/entertainment/drugs,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/infested_frigate/brig)
+"YV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 10
+	},
+/obj/structure/closet/firecloset/full{
+	anchored = 1
+	},
+/obj/machinery/light/red/dim/directional/west,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"YW" = (
+/obj/structure/table/optable,
+/obj/machinery/defibrillator_mount/directional/north,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/blue,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/effect/decal/cleanable/blood,
+/obj/item/clothing/mask/facehugger/impregnated,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+"Zh" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/effect/turf_decal/tile/neutral/full,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 3000
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"Zv" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/cargo)
+"ZB" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	dir = 9;
+	max_integrity = 60;
+	faction = list("syndicate","xenomorph");
+	system_id = "brutus_ship_turrets";
+	lethal_projectile = /obj/projectile/bullet/c10mm;
+	stun_projectile = /obj/projectile/bullet/c10mm
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ZF" = (
+/obj/structure/sign/departments/med/directional/east,
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -28
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/infested_frigate)
+"ZM" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/alien/egg/burst,
+/obj/item/clothing/mask/facehugger/dead,
+/obj/effect/decal/cleanable/blood/splatter/xeno,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/infested_frigate/engineering)
+"ZP" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"ZT" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate/medbay)
+
+(1,1,1) = {"
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+"}
+(2,1,1) = {"
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+SV
+AR
+vN
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+"}
+(3,1,1) = {"
+zX
+zX
+zX
+zX
+zX
+SV
+xK
+Ky
+gj
+oT
+AR
+JZ
+zX
+zX
+zX
+zX
+zX
+"}
+(4,1,1) = {"
+zX
+zX
+zX
+Mk
+ut
+Ky
+gj
+gj
+mS
+gj
+gj
+oT
+ut
+Mk
+zX
+zX
+zX
+"}
+(5,1,1) = {"
+zX
+zX
+Ha
+CC
+CC
+CC
+Ke
+Ke
+kb
+Ke
+Ke
+gg
+gg
+gg
+gz
+zX
+zX
+"}
+(6,1,1) = {"
+zX
+zX
+CC
+cC
+Yt
+CC
+Zh
+Xt
+Vy
+fp
+ab
+gg
+ih
+vc
+gg
+zX
+zX
+"}
+(7,1,1) = {"
+zX
+zX
+CC
+WG
+zY
+CC
+Vj
+xj
+eH
+Mz
+Ai
+gg
+zc
+NA
+gg
+zX
+zX
+"}
+(8,1,1) = {"
+zX
+zX
+CC
+tZ
+Mt
+CC
+dH
+bP
+ZM
+MA
+bE
+gg
+lE
+gg
+gg
+zX
+zX
+"}
+(9,1,1) = {"
+zX
+zX
+CC
+Vv
+Yi
+CC
+oI
+wG
+Jo
+Wy
+pn
+gg
+KG
+KO
+Cs
+zX
+zX
+"}
+(10,1,1) = {"
+zX
+zX
+gL
+Na
+nA
+CC
+Rf
+Ii
+lZ
+CQ
+LY
+gg
+mq
+fw
+Cs
+zX
+zX
+"}
+(11,1,1) = {"
+zX
+zX
+gL
+Eb
+Od
+CC
+CC
+RS
+Wt
+xb
+gg
+gg
+vG
+nj
+Cs
+zX
+zX
+"}
+(12,1,1) = {"
+zX
+zX
+CC
+KU
+cF
+KX
+CC
+GD
+nY
+GD
+gg
+nr
+UQ
+MB
+gg
+zX
+zX
+"}
+(13,1,1) = {"
+zX
+zX
+gL
+Nq
+yA
+Td
+CC
+qb
+ij
+ss
+gg
+WH
+oK
+aw
+Cs
+zX
+zX
+"}
+(14,1,1) = {"
+zX
+zX
+gL
+Pr
+so
+SA
+Vu
+AA
+RT
+Qu
+jx
+vA
+AQ
+fX
+Cs
+zX
+zX
+"}
+(15,1,1) = {"
+zX
+zX
+CC
+eY
+MP
+eu
+CC
+DG
+hb
+ZF
+gg
+aX
+ar
+It
+Cs
+zX
+zX
+"}
+(16,1,1) = {"
+zX
+ZB
+CC
+CC
+jK
+CC
+Ru
+Ru
+OU
+Ru
+Ru
+gg
+Ko
+gg
+gg
+lt
+zX
+"}
+(17,1,1) = {"
+zX
+pp
+OR
+pp
+iR
+hk
+Ru
+eU
+ZT
+DD
+Ru
+ug
+VZ
+pp
+Xc
+pp
+zX
+"}
+(18,1,1) = {"
+zX
+dR
+Ev
+Hn
+Nz
+SB
+Ru
+Ui
+ko
+wz
+Ru
+nf
+dE
+em
+ej
+jM
+zX
+"}
+(19,1,1) = {"
+no
+pp
+Yh
+pp
+aa
+GI
+Ru
+kT
+wv
+mb
+Ru
+cz
+hr
+pp
+Yh
+pp
+tE
+"}
+(20,1,1) = {"
+zX
+dR
+Ae
+uT
+hc
+kH
+Ru
+YW
+TZ
+mX
+Ru
+ra
+OW
+AK
+iE
+jM
+zX
+"}
+(21,1,1) = {"
+zX
+pp
+zV
+pp
+Oi
+qi
+Ru
+aG
+pi
+zU
+Ru
+He
+AV
+pp
+lQ
+pp
+zX
+"}
+(22,1,1) = {"
+zX
+vm
+pp
+pp
+FI
+pp
+Ru
+Ru
+SY
+Ru
+Ru
+pp
+gP
+pp
+pp
+sz
+zX
+"}
+(23,1,1) = {"
+zX
+zX
+IV
+GT
+cV
+jR
+DI
+km
+ts
+VQ
+IN
+Ix
+cV
+MV
+IV
+zX
+zX
+"}
+(24,1,1) = {"
+zX
+zX
+IV
+KS
+KF
+jS
+GZ
+gZ
+et
+FQ
+qR
+PM
+ZP
+bZ
+IV
+zX
+zX
+"}
+(25,1,1) = {"
+zX
+zX
+IV
+xr
+pl
+WS
+LA
+cN
+II
+Pp
+tf
+rj
+cP
+eo
+IV
+zX
+zX
+"}
+(26,1,1) = {"
+zX
+zX
+pp
+pp
+pp
+jX
+Ny
+Ny
+Ny
+Ny
+Ny
+Eo
+pp
+pp
+pp
+zX
+zX
+"}
+(27,1,1) = {"
+zX
+zX
+vm
+pp
+Un
+Ro
+Ny
+wp
+Rl
+Lf
+Ny
+Mq
+LV
+pp
+sz
+zX
+zX
+"}
+(28,1,1) = {"
+zX
+zX
+zX
+IV
+mI
+yL
+Ny
+Hf
+tA
+LW
+Ny
+ki
+EB
+IV
+zX
+zX
+zX
+"}
+(29,1,1) = {"
+zX
+zX
+zX
+IV
+xo
+Ih
+Ny
+KB
+Rk
+JD
+Ny
+ul
+vq
+IV
+zX
+zX
+zX
+"}
+(30,1,1) = {"
+zX
+zX
+zX
+IV
+Sl
+ua
+Ny
+dv
+QB
+Fj
+Ny
+dS
+ry
+IV
+zX
+zX
+zX
+"}
+(31,1,1) = {"
+zX
+zX
+zX
+pp
+rt
+an
+Ny
+CJ
+kL
+XH
+Ny
+na
+HX
+pp
+zX
+zX
+zX
+"}
+(32,1,1) = {"
+zX
+zX
+zX
+pp
+pp
+PC
+Ny
+Ny
+DL
+Ny
+Ny
+ev
+pp
+pp
+zX
+zX
+zX
+"}
+(33,1,1) = {"
+zX
+zX
+zX
+IV
+RV
+Le
+Pg
+oO
+kF
+Qd
+Ws
+cV
+ml
+IV
+zX
+zX
+zX
+"}
+(34,1,1) = {"
+zX
+zX
+zX
+IV
+nF
+eX
+Sy
+pH
+uU
+Pe
+dg
+ol
+tJ
+IV
+zX
+zX
+zX
+"}
+(35,1,1) = {"
+zX
+zX
+zX
+DY
+pp
+ks
+Pm
+Pm
+jD
+Pm
+Pm
+ud
+pp
+gv
+zX
+zX
+zX
+"}
+(36,1,1) = {"
+zX
+zX
+zX
+pp
+Ms
+rh
+Pm
+Wv
+xB
+uI
+Pm
+HY
+aQ
+pp
+zX
+zX
+zX
+"}
+(37,1,1) = {"
+zX
+zX
+zX
+IV
+Re
+zd
+Pm
+sF
+dF
+rb
+Pm
+Oq
+JO
+IV
+zX
+zX
+zX
+"}
+(38,1,1) = {"
+zX
+zX
+zX
+IV
+jt
+rD
+Pm
+jc
+vs
+VH
+Pm
+XF
+hs
+IV
+zX
+zX
+zX
+"}
+(39,1,1) = {"
+zX
+zX
+zX
+pp
+Fx
+sA
+Pm
+Ag
+oL
+LL
+Pm
+XX
+pr
+pp
+zX
+zX
+zX
+"}
+(40,1,1) = {"
+zX
+zX
+zX
+dC
+dC
+yG
+Pm
+CW
+CW
+CW
+Pm
+nh
+dC
+dC
+zX
+zX
+zX
+"}
+(41,1,1) = {"
+zX
+zX
+zX
+dC
+Nt
+GS
+YV
+eR
+Vk
+mQ
+hE
+Wi
+JX
+dC
+zX
+zX
+zX
+"}
+(42,1,1) = {"
+zX
+zX
+zX
+dC
+Hj
+kR
+fY
+Tq
+gW
+Db
+FD
+rp
+co
+dC
+zX
+zX
+zX
+"}
+(43,1,1) = {"
+zX
+zX
+zX
+dC
+wq
+me
+Gz
+sb
+VE
+lD
+NR
+LP
+dp
+dC
+zX
+zX
+zX
+"}
+(44,1,1) = {"
+zX
+zX
+zX
+dC
+mK
+wi
+Xq
+NE
+yO
+PH
+lN
+jC
+QH
+dC
+zX
+zX
+zX
+"}
+(45,1,1) = {"
+zX
+zX
+zX
+dC
+FW
+CU
+cS
+Bd
+Ax
+iU
+Wx
+Zv
+sx
+dC
+zX
+zX
+zX
+"}
+(46,1,1) = {"
+zX
+zX
+zX
+Jb
+dC
+aW
+rx
+ma
+gq
+iI
+mE
+zJ
+dC
+Jb
+zX
+zX
+zX
+"}
+(47,1,1) = {"
+zX
+zX
+zX
+zX
+Xi
+dC
+NJ
+NJ
+NJ
+NJ
+NJ
+dC
+dW
+zX
+zX
+zX
+zX
+"}
+(48,1,1) = {"
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+zX
+"}
