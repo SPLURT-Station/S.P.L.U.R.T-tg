@@ -11,6 +11,7 @@
 	floor_placeable = TRUE
 	var/list/squeak_override //Weighted list; If you want your plush to have different squeak sounds use this
 	var/stuffed = TRUE //If the plushie has stuffing in it
+	var/plappable = FALSE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 	var/obj/item/grenade/grenade //You can remove the stuffing from a plushie and add a grenade to it for *nefarious uses*
 	//--love ~<3--
 	gender = NEUTER
@@ -411,6 +412,7 @@
 	attack_verb_continuous = list("rents")
 	attack_verb_simple = list("rent")
 	squeak_override = list('sound/effects/magic/demon_attack1.ogg'=1)
+	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 
 /obj/item/toy/plush/ratplush
 	name = "\improper Ratvar plushie"
@@ -691,6 +693,7 @@
 	squeak_override = list('sound/mobs/humanoids/moth/scream_moth.ogg'=1)
 ///Used to track how many people killed themselves with item/toy/plush/moth
 	var/suicide_count = 0
+	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 
 /obj/item/toy/plush/moth/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] stares deeply into the eyes of [src] and it begins consuming [user.p_them()]!  It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -735,6 +738,7 @@
 	attack_verb_continuous = list("abducts", "probes")
 	attack_verb_continuous = list("abduct", "probe")
 	squeak_override = list('sound/ambience/weather/ashstorm/inside/weak_end.ogg' = 1) //very faint sound since abductors are silent as far as "speaking" is concerned.
+	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 
 /obj/item/toy/plush/abductor/agent
 	name = "abductor agent plushie"
@@ -747,6 +751,7 @@
 		'sound/items/weapons/egloves.ogg' = 2,
 		'sound/items/weapons/cablecuff.ogg' = 1,
 	)
+	plappable = TRUE //SPLURT EDIT - What are you doing cutting a hole in that plushie?!
 
 /obj/item/toy/plush/shark
 	name = "shark plushie"
