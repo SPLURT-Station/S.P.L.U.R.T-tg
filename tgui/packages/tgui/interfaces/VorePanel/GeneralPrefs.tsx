@@ -93,6 +93,10 @@ export const PREF_TYPE_MAP = {
   qdel_allowed: { component: PrefBinary, name: 'Deleted After Digestion' },
   // SPLURT MODULAR EDIT - CHOMPStation Drain mode preference
   drain_allowed: { component: PrefBinary, name: 'Drain Allowed' },
+  // SPLURT MODULAR EDIT START - CHOMPStation Shrink/Grow mode preferences
+  shrink_allowed: { component: PrefBinary, name: 'Shrink Allowed' },
+  grow_allowed: { component: PrefBinary, name: 'Grow Allowed' },
+  // SPLURT MODULAR EDIT END
   absorb_allowed: { component: PrefBinary, name: 'Absorption Allowed' },
   fullscreen_overlays_allowed: {
     component: PrefBinary,

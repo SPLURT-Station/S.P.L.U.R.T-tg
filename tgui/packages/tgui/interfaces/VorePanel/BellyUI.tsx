@@ -308,6 +308,31 @@ export const BellyUI = (props: {
               </Box>
             )}
           </LabeledList.Item>
+          {/* SPLURT MODULAR EDIT START - Shrink/Grow target size (CHOMPStation port) */}
+          <LabeledList.Item
+            label="Shrink/Grow Target Size"
+            tooltip="The target body size for the Shrink and Grow belly modes. Prey are gradually resized towards it (0.25x micro to 6x macro)."
+          >
+            {editing ? (
+              <NumberInput
+                value={belly.shrink_grow_size}
+                minValue={0.25}
+                maxValue={6}
+                step={0.05}
+                format={(val) => `${toFixed(val, 2)}x`}
+                onChange={(value) =>
+                  act('edit_belly', {
+                    ref: belly.ref,
+                    var: 'shrink_grow_size',
+                    value,
+                  })
+                }
+              />
+            ) : (
+              `${toFixed(belly.shrink_grow_size, 2)}x`
+            )}
+          </LabeledList.Item>
+          {/* SPLURT MODULAR EDIT END */}
           <LabeledList.Item label="Burn Damage">
             {editing ? (
               <NumberInput

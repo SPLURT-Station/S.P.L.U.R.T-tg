@@ -7,3 +7,8 @@
 
 #undef DIGEST_MODE_DRAIN
 #undef DIGEST_MODE_HEAL
+
+// CHOMPStation Shrink/Grow modes (issue #31, part 2)
+#undef DIGEST_MODE_SHRINK
+#undef DIGEST_MODE_GROW
+#undef VORE_RESIZE_RATE_PER_SECOND
