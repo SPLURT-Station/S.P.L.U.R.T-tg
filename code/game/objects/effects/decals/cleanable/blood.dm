@@ -301,6 +301,8 @@
 
 /obj/effect/decal/cleanable/blood/trail_holder/Initialize(mapload, list/datum/disease/diseases, list/blood_or_dna = get_default_blood_type())
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	icon_state = "nothing"
 	update_appearance() // Cut possible overlays
 	if(mapload)
@@ -534,6 +536,8 @@
 
 /obj/effect/decal/cleanable/blood/gibs/Initialize(mapload, list/datum/disease/diseases, list/blood_or_dna = get_default_blood_type())
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	leave_blood = has_blood_flag(GET_ATOM_BLOOD_DNA(src), BLOOD_COVER_TURFS)
 	if(squishy)
 		AddElement(/datum/element/squish_sound)
@@ -688,6 +692,8 @@
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload, list/datum/disease/diseases, list/blood_or_dna = get_default_blood_type())
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	icon_state = "" // All of the footprint visuals come from overlays
 	if(mapload)
 		entered_dirs |= dir // Keep the same appearance as in the map editor
@@ -814,6 +820,8 @@
 
 /obj/effect/decal/cleanable/blood/hitsplatter/Initialize(mapload, list/datum/disease/diseases, list/blood_or_dna = get_default_blood_type(), splatter_strength)
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	leave_blood = has_blood_flag(GET_ATOM_BLOOD_DNA(src), BLOOD_COVER_TURFS)
 	prev_loc = loc //Just so we are sure prev_loc exists
 	if(splatter_strength)
