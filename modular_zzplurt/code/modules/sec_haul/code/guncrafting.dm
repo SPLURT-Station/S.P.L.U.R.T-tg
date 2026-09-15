@@ -1,11 +1,7 @@
 /obj/item/weaponcrafting/gunkit/wt458_kit
 	name = "WT-458 conversion kit"
 	desc = "Contains all the necessary parts, components and disposable tools. Feels strangely lightweight despite some of the titanium bits."
-	custom_materials = list(
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 20,
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4,
-	)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 30, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 16, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 10)
 
 /datum/crafting_recipe/wt458
 	name = "WT-458 Conversion Kit"

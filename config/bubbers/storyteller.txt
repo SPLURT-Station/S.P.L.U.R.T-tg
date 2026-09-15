@@ -1,5 +1,5 @@
 ## Default Storyteller. Comment out to enable voting.
-DEFAULT_STORYTELLER /datum/storyteller/extended
+DEFAULT_STORYTELLER /datum/storyteller/high
 
 ## Gamemode configurations
 
@@ -37,7 +37,7 @@ DISALLOW_CREW_ANTAGS_TIME_THRESHOLD -1
 ## Storyteller types configs
 ## Uncomment any of these configs to adjust the point thresholds for any storyteller.
 ## The ones that don't have a track name attached to them adjust all tracks on the given storyteller.
-## These values are being multiplied by the points thresholds, meaning that the higher the numbers here, 
+## These values are being multiplied by the points thresholds, meaning that the higher the numbers here,
 ## the lower the frequency of events on that storyteller/track of a storyteller.
 ## Default value for all of those is 1, meaning that they do not affect the points thresholds.
 

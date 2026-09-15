@@ -89,3 +89,11 @@ Ears
 /datum/sprite_accessory/ears/mutant/splurt/renamon
 	name = "Renamon"
 	icon_state = "renamon"
+
+/datum/sprite_accessory/ears/mutant/splurt/spaniel
+	name = "Spaniel"
+	icon_state = "spaniel"
+
+/datum/sprite_accessory/ears/mutant/splurt/spanielleg
+	name = "Spaniel (Le Goom)"
+	icon_state = "spanielleg"

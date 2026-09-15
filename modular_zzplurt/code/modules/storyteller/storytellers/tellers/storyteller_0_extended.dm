@@ -2,3 +2,4 @@
 	population_max = null
 	votable = TRUE
 	storyteller_type = STORYTELLER_TYPE_CALM
+	antag_divisor = 0
