@@ -16,6 +16,10 @@ export enum DigestMode {
   Drain = 'Drain',
   Heal = 'Heal',
   // SPLURT MODULAR EDIT END
+  // SPLURT MODULAR EDIT START - Add Shrink/Grow digest modes (CHOMPStation port)
+  Shrink = 'Shrink',
+  Grow = 'Grow',
+  // SPLURT MODULAR EDIT END
 }
 
 export type Belly = {
@@ -25,6 +29,7 @@ export type Belly = {
   ref: string;
   contents: Prey[];
   digest_mode: DigestMode;
+  shrink_grow_size: number;
   burn_damage: number;
   brute_damage: number;
   can_taste: BooleanLike;
@@ -89,6 +94,10 @@ export const digestModeToPreyMode = {
   },
   [DigestMode.Heal]: { text: 'being healed.', color: 'good' },
   // SPLURT MODULAR EDIT END
+  // SPLURT MODULAR EDIT START - Add Shrink/Grow digest mode text
+  [DigestMode.Shrink]: { text: 'being shrunk down to size.', color: 'average' },
+  [DigestMode.Grow]: { text: 'being grown larger.', color: 'average' },
+  // SPLURT MODULAR EDIT END
 };
 
 export const bellyKeyToText = {
@@ -103,6 +112,12 @@ export const bellyKeyToText = {
   drain_messages_prey: 'Drain Messages (Prey)',
   heal_messages_owner: 'Heal Messages (Owner)',
   heal_messages_prey: 'Heal Messages (Prey)',
+  // SPLURT MODULAR EDIT END
+  // SPLURT MODULAR EDIT START - Add Shrink/Grow message labels
+  shrink_messages_owner: 'Shrink Messages (Owner)',
+  shrink_messages_prey: 'Shrink Messages (Prey)',
+  grow_messages_owner: 'Grow Messages (Owner)',
+  grow_messages_prey: 'Grow Messages (Prey)',
   // SPLURT MODULAR EDIT END
   struggle_messages_outside: 'Struggle Messages (Outside)',
   struggle_messages_inside: 'Struggle Messages (Inside)',

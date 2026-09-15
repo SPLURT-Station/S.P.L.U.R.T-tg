@@ -37,3 +37,38 @@ GLOBAL_LIST_INIT(heal_messages_prey, list(
 	"%pred's %belly pulses with restorative energy, closing your wounds.",
 	"You sense %pred's %belly working to repair the damage to your body."
 ))
+
+// CHOMPStation2 Shrink/Grow digest modes (issue #31, part 2)
+#define DIGEST_MODE_SHRINK "Shrink"
+#define DIGEST_MODE_GROW "Grow"
+
+/// How much body size (as a multiplier) changes per second while in Shrink/Grow modes
+#define VORE_RESIZE_RATE_PER_SECOND 0.01
+
+GLOBAL_LIST_INIT(shrink_messages_owner, list(
+	"Your %belly clenches down around %prey, and you feel them slowly shrink within you.",
+	"You feel %prey dwindling smaller and smaller inside your %belly.",
+	"Your %belly works over %prey, compressing them down to a more manageable size.",
+	"You feel the pleasant weight of %prey lighten in your %belly as they shrink."
+))
+
+GLOBAL_LIST_INIT(shrink_messages_prey, list(
+	"%pred's %belly clenches down around you, and you feel yourself slowly shrinking.",
+	"You feel yourself dwindling smaller and smaller inside %pred's %belly.",
+	"%pred's %belly works over your body, compressing you down to a more manageable size.",
+	"You shrink ever smaller within %pred's %belly."
+))
+
+GLOBAL_LIST_INIT(grow_messages_owner, list(
+	"Your %belly pulses warmly around %prey as you feel them growing larger inside you.",
+	"You feel %prey's expanding form press outward against your %belly.",
+	"Your %belly nourishes %prey's body, letting them swell to a grander size.",
+	"You feel %prey grow bigger and fuller within your %belly."
+))
+
+GLOBAL_LIST_INIT(grow_messages_prey, list(
+	"%pred's %belly pulses warmly around you as you feel yourself growing larger.",
+	"You feel your expanding form press outward against %pred's %belly.",
+	"%pred's %belly nourishes your body, letting you swell to a grander size.",
+	"You grow bigger and fuller within %pred's %belly."
+))

@@ -1,6 +1,9 @@
 /obj/vore_belly
 	var/list/message_timers = list() // Per-prey message cooldowns for digest modes
 
+	// CHOMPStation Shrink/Grow mode target size (multiplier: 0.25 micro - 6 macro)
+	var/shrink_grow_size = RESIZE_NORMAL
+
 	// Auto-transfer settings
 	var/autotransfer_enabled = FALSE
 	var/obj/vore_belly/autotransfer_target = null
@@ -20,16 +23,24 @@
 	.["autotransfer_target_name"] = autotransfer_target ? autotransfer_target.name : null
 	.["autotransfer_delay"] = autotransfer_delay / 10 // Convert to seconds for display
 
+	.["shrink_grow_size"] = shrink_grow_size
+
 	.["messages"] += list(
 		"drain_messages_owner" = drain_messages_owner || GLOB.drain_messages_owner,
 		"drain_messages_prey" = drain_messages_prey || GLOB.drain_messages_prey,
 		"heal_messages_owner" = heal_messages_owner || GLOB.heal_messages_owner,
 		"heal_messages_prey" = heal_messages_prey || GLOB.heal_messages_prey,
+		"shrink_messages_owner" = shrink_messages_owner || GLOB.shrink_messages_owner,
+		"shrink_messages_prey" = shrink_messages_prey || GLOB.shrink_messages_prey,
+		"grow_messages_owner" = grow_messages_owner || GLOB.grow_messages_owner,
+		"grow_messages_prey" = grow_messages_prey || GLOB.grow_messages_prey,
 	)
 
 /obj/vore_belly/ui_modify_var(var_name, value)
 	. = ..()
 	switch(var_name)
+		if("shrink_grow_size")
+			shrink_grow_size = clamp(value, RESIZE_MICRO, RESIZE_MACRO)
 		// Auto-transfer settings
 		if("autotransfer_enabled")
 			autotransfer_enabled = !autotransfer_enabled
