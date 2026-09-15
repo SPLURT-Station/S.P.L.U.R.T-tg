@@ -13,7 +13,6 @@
 	storyteller_type = STORYTELLER_TYPE_INTENSE
 
 /datum/storyteller/medium/opfor
-
 	name = "Freeform Chaos (Events/No Antag Rolls)"
 	desc = "Random events at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from random generation."
 	welcome_text = "We must set aside our differences, and work with our fellow nations, all united towards one goal: the complete and utter annihilation of the godless Belgians."
