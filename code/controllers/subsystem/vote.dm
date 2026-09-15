@@ -298,7 +298,9 @@ SUBSYSTEM_DEF(vote)
 
 /datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
 	// Tracks who is currently voting
-	voting |= user.client?.ckey
+	if(!user.client)
+		return
+	voting |= user.client.ckey
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "VotePanel")
