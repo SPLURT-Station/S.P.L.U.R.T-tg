@@ -43,7 +43,7 @@
 		var/robot_status = "Nominal"
 		if(connected_robot.shell)
 			robot_status = "AI SHELL"
-		else if(IS_UNCONSCIOUS_OR_CRIT(connected_robot) || !connected_robot.client)
+		else if(connected_robot.stat != CONSCIOUS || !connected_robot.client)
 			robot_status = "OFFLINE"
 		else if(!connected_robot.cell || connected_robot.cell.charge <= 0)
 			robot_status = "DEPOWERED"
