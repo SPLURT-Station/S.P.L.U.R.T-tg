@@ -2,7 +2,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwis
 GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 ///talking in OOC uses this
-GAME_VERB(/client, ooc, VERB_OOC, null, msg as text)
+GAME_VERB_DESC(/client, ooc, VERB_OOC, "OOC, seen by everyone.", "OOC", msg as text) // SPLURT EDIT - Fix OOC missing until next upstream
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
