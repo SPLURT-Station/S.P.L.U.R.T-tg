@@ -24,6 +24,7 @@
 	var/obj/item/clothing/sextoy/foundToy = locate(/obj/item/clothing/sextoy) in src
 	if(foundToy)
 		foundToy.attack(target, user, params)
+		src.GetComponent(/datum/component/squeak)?.play_squeak()
 	else
 		return ..()
 
