@@ -82,9 +82,9 @@ export const AntagInfoWizard = (props) => {
                     }
                   />
                 </Stack.Item>
-                <Stack.Item>
-                  <RitualPrintout ritual={ritual} />
-                </Stack.Item>
+{/*                <Stack.Item> // SPLURT EDIT: No rituals */}
+{/*                  <RitualPrintout ritual={ritual} /> // SPLURT EDIT: No rituals */}
+{/*                </Stack.Item> // SPLURT EDIT: No rituals */}
                 {/* SKYRAT EDIT ADDITION START */}
                 <Stack.Item>
                   <Rules />
