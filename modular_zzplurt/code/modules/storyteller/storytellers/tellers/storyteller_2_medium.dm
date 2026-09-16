@@ -14,8 +14,8 @@
 
 /datum/storyteller/medium/opfor
 	name = "Freeform Chaos (Events/No Antag Rolls)"
-	desc = "Random events at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from random generation."
-	welcome_text = "We must set aside our differences, and work with our fellow nations, all united towards one goal: the complete and utter annihilation of the godless Belgians."
+	desc = "Random events come at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from random generation."
+	welcome_text = "If I chopped you up in a meat grinder..."
 	antag_divisor = 0
 
 	track_data = /datum/storyteller_data/tracks/medium/opfor
