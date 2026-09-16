@@ -147,6 +147,11 @@
 /obj/projectile/bullet/c46x30mm/ap
 	armour_penetration = 45
 
+/obj/projectile/bullet/c38/match/true
+	damage = 20
+	ricochet_auto_aim_range = 4
+	armour_penetration = 35
+
 // PRIVATE SECURITY AR AMMO CODE
 
 /obj/item/ammo_box/magazine/c68
