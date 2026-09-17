@@ -15,7 +15,7 @@
 /datum/storyteller/medium/opfor
 	name = "Freeform Chaos (Events/No Antag Rolls)"
 	desc = "Random events come at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from random generation."
-	welcome_text = "If I chopped you up in a meat grinder..."
+	welcome_text = "Crew-based antagonists will not be randomly rolled this round, use the Opposing Force verb to work out an idea with online event admins."
 	antag_divisor = 0
 
 	track_data = /datum/storyteller_data/tracks/medium/opfor
