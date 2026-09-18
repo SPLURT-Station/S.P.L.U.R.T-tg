@@ -495,6 +495,7 @@
 	greyscale_colors = "#211919#4ce2ff"
 	greyscale_config = /datum/greyscale_config/rippedpunk
 	greyscale_config_worn = /datum/greyscale_config/rippedpunk/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/rippedpunk/worn/digi
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -671,6 +672,10 @@
 /datum/greyscale_config/rippedpunk/worn
 	name = "Ripped Punk Jeans (Worn)"
 	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform.dmi'
+
+/datum/greyscale_config/rippedpunk/worn/digi
+	name = "Ripped Punk Jeans (Worn, Digi)"
+	icon_file = 'modular_zzplurt/icons/mob/clothing/uniform_digi.dmi'
 
 /datum/greyscale_config/gothic
 	name = "Gothic Dress"
