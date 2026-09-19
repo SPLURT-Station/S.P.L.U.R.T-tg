@@ -252,7 +252,7 @@
 
 GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggle coat buttons", "Object")
 	var/mob/living/L = usr
-	if(!istype(L) || L.stat != CONSCIOUS)
+	if(!istype(L) || L.stat != STABLE)
 		return FALSE
 
 	switch(unbuttoned)

@@ -119,9 +119,3 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
-
-/datum/techweb_node/augmentation/New()
-	. = ..()
-	design_ids += list(
-		"hypnoticmodule",
-	)

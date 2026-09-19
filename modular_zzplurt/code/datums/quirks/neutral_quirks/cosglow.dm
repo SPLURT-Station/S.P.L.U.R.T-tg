@@ -135,7 +135,7 @@
 	// Remove status effect
 	action_mob.remove_status_effect(/datum/status_effect/quirk_examine/cosglow, TRAIT_COSGLOW)
 
-/datum/action/cosglow/update_glow/Trigger(trigger_flags)
+/datum/action/cosglow/update_glow/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 
 	// Check parent return

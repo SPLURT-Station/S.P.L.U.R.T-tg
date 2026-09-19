@@ -164,7 +164,7 @@
 	visible_message(span_warning("[resisting] begins to squirm in [carrier]'s grasp!"))
 	var/time_required = COMPARE_SIZES(carrier, resisting) / 4 SECONDS //Scale how fast the resisting will be depending on size difference
 	if(!do_after(resisting, time_required, carrier, IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM))
-		if(!resisting || resisting.stat != CONSCIOUS || resisting.loc != src)
+		if(!resisting || resisting.stat != STABLE || resisting.loc != src)
 			return
 		visible_message(span_warning("[src] stops resisting."))
 		return
