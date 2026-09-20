@@ -27,3 +27,24 @@
 
 /datum/job/detective
 	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/science_guard
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/orderly
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/engineering_guard
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/customs_agent
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/bouncer
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/captain
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/blueshield
+	species_blacklist = list(SPECIES_PROTEAN)
