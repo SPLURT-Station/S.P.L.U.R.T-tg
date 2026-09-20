@@ -7,20 +7,23 @@
 	. = ..()
 
 // Proteans unable to antag (bubber already has this restriction for bloodsucker and changling)
-/datum/round_event_control/antagonist/New()
-	. = ..()
-	restricted_species += SPECIES_PROTEAN
+/datum/round_event_control/antagonist
+	restricted_species = list(SPECIES_PROTEAN)
 
-// Proteans unable to do security
-/datum/job/security_officer/New()
-	. = ..()
-	species_blacklist += SPECIES_PROTEAN
+/datum/job/security_officer
+	species_blacklist = list(SPECIES_PROTEAN)
 
-/datum/job/security_medic/New()
-	. = ..()
-	species_blacklist += SPECIES_PROTEAN
+/datum/job/corrections_officer
+	species_blacklist = list(SPECIES_PROTEAN)
 
-/datum/job/warden/New()
-	. = ..()
-	species_blacklist += SPECIES_PROTEAN
+/datum/job/security_medic
+	species_blacklist = list(SPECIES_PROTEAN)
 
+/datum/job/warden
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/head_of_security
+	species_blacklist = list(SPECIES_PROTEAN)
+
+/datum/job/detective
+	species_blacklist = list(SPECIES_PROTEAN)
