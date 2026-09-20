@@ -89,8 +89,12 @@
 		if (LAZYACCESS(modifiers, ALT_CLICK))
 			alt_shift_click_on(A)
 			return
-		ShiftClickOn(A)
-		return
+		//SPLURT EDIT - Citadel-style controls: shift+click only examines while the context menu is enabled;
+		//in combat mode it falls through to act as a normal click, while shift+right click still examines.
+		if(client?.show_popup_menus || LAZYACCESS(modifiers, RIGHT_CLICK))
+			ShiftClickOn(A)
+			return
+		//SPLURT EDIT END
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		if(LAZYACCESS(modifiers, CTRL_CLICK))
 			CtrlMiddleClickOn(A)
@@ -104,6 +108,9 @@
 			AltClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, CTRL_CLICK))
+		//SPLURT EDIT - Citadel-style controls: ctrl+right click drops the held item at the clicked turf or rotates items
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			return CtrlRightClickOn(A, params)
 		CtrlClickOn(A)
 		return
 

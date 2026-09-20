@@ -229,6 +229,12 @@
 	SEND_SIGNAL(src, COMSIG_COMBAT_MODE_TOGGLED)
 	hud_used?.screen_objects[HUD_MOB_INTENTS]?.update_appearance()
 	//SPLURT EDIT START - Combat mode and intents
+	// Citadel-style controls: suppress the context menu and update the mouse pointer while in a combat state,
+	// and show the combat indicator when combat mode (rather than combat focus) is this mob's combat state.
+	update_popup_menus()
+	update_mouse_pointer()
+	if(!ishuman(src) || (client?.prefs && !client.prefs.read_preference(/datum/preference/toggle/intents)))
+		set_combat_indicator(combat_mode)
 	// Classic intent UI replaces combat-mode face-cursor / toggle sounds when the intents preference is on.
 	if(!client?.prefs?.read_preference(/datum/preference/toggle/intents))
 		face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // BUBBER EDIT

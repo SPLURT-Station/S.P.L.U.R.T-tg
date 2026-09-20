@@ -520,8 +520,8 @@
  * * animate - whether or not to animate the offsets
  */
 /mob/living/proc/set_pull_offsets(mob/living/mob_to_set, grab_state = GRAB_PASSIVE, animate = TRUE)
-	if(mob_to_set.buckled)
-		return //don't make them change direction or offset them if they're buckled into something.
+	if(mob_to_set.buckled || mob_to_set.combat_mode_active())
+		return //don't make them change direction or offset them if they're buckled into something or in combat mode. (SPLURT EDIT)
 	var/offset = 0
 	switch(grab_state)
 		if(GRAB_PASSIVE)

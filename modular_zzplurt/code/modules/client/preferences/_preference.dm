@@ -41,3 +41,13 @@
 
 	human.reload_huds()
 	human.reload_fullscreen()
+	// The mob's combat state source changed between combat mode and combat focus, resync the click state.
+	human.update_popup_menus()
+	human.update_mouse_pointer()
+
+
+/datum/preference/toggle/disable_combat_cursor
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	default_value = FALSE
+	savefile_key = "disable_combat_cursor"
+	savefile_identifier = PREFERENCE_PLAYER

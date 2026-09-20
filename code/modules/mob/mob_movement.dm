@@ -140,7 +140,8 @@ GAME_VERB_HIDDEN(/client, drop_item, "drop item")
 		SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_MOVED, direct, old_dir)
 
 	var/atom/movable/P = mob.pulling
-	if(P && !ismob(P) && P.density)
+	//SPLURT EDIT - Citadel-style controls: don't turn mobs that are in a combat state when pulling dense objects
+	if(P && !ismob(P) && P.density && !mob.combat_mode_active())
 		mob.setDir(REVERSE_DIR(mob.dir))
 
 /**
