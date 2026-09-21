@@ -910,6 +910,7 @@
 	icon_state = "nobl2"
 	squeak_override = list('modular_zubbers/sound/misc/dog_toy.ogg' = 1)
 	var/clothed = TRUE
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/noble/Initialize(mapload)
 	. = ..()
