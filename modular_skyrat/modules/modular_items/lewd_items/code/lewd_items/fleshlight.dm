@@ -16,7 +16,6 @@
 	var/static/list/fleshlight_designs
 	slot_flags = NONE
 	clothing_flags = INEDIBLE_CLOTHING
-	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /// Generates a list of toy colors (or designs) for use in the radial color choice menu
 /obj/item/clothing/sextoy/fleshlight/proc/populate_fleshlight_designs()
@@ -98,6 +97,7 @@
 	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
 	icon_state = "cescrewsplush"
 	base_icon_state = "cescrewsplush"
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/fleshlight/screws/examine(mob/user)
 	. = ..()
