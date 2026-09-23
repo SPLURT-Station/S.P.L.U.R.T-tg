@@ -110,9 +110,6 @@
 	if(!human_parent || !size_to_apply || (current_size == size_to_apply))
 		return FALSE
 
-	if(isteshari(human_parent) || isvoxprimalis(human_parent)) // We check if the human_parent is a Vox Primalis or Teshari & temporarily disable the bodysize restriction
-		human_parent.dna.species.body_size_restricted = FALSE
-
 	//SPLURT EDIT CHANGE BEGIN - SIZECODE - Prefer update_size so size HP/mob_size hooks apply
 	//human_parent.update_transform(size_to_apply / current_size) - SPLURT EDIT - ORIGINAL
 	human_parent.update_size(size_to_apply)
