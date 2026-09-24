@@ -259,7 +259,7 @@
  * Set to FALSE if you want to handle uses manually elsewhere.
  */
 /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/observer/user, apply_prefs, subtract_uses = TRUE)
-	SHOULD_NOT_OVERRIDE(TRUE)
+	SHOULD_NOT_OVERRIDE(FALSE) // SPLURT EDIT - Yes override
 	SHOULD_NOT_SLEEP(TRUE)
 	ASSERT(istype(user))
 
