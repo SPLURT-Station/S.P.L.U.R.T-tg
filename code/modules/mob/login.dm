@@ -41,6 +41,7 @@
 	client.clear_screen() //remove hud items just in case
 	client.images = list()
 	client.set_right_click_menu_mode(shift_to_open_context_menu)
+	update_popup_menus() //SPLURT EDIT - Citadel-style controls: restore the context menu state for this mob's combat state
 
 	if(!hud_used)
 		create_mob_hud() // creating a hud will add it to the client's screen, which can process a disconnect

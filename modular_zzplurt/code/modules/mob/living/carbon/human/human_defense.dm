@@ -6,6 +6,8 @@
 	. = combat_focus
 	combat_focus = new_mode
 	hud_used?.focus_toggle?.update_appearance()
+	update_popup_menus() // Citadel-style controls: suppress the context menu while combat focus is on
+	update_mouse_pointer()
 
 	var/focus_sound = client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)
 	if(combat_focus)

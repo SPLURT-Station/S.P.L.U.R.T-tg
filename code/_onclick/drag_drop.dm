@@ -32,6 +32,19 @@
 	if(SEND_SIGNAL(src, COMSIG_MOUSEDROP_ONTO, over, user) & COMPONENT_CANCEL_MOUSEDROP_ONTO)
 		return
 
+	//SPLURT EDIT BEGIN - Citadel-style controls: in a combat state, dragging an item onto something picks it up and attacks with it
+	var/mob/living/living_user = user
+	if(isitem(src) && istype(living_user) && living_user.combat_mode_active())
+		var/list/direct_access = living_user.DirectAccess()
+		if((src.IsReachableBy(living_user) || (src in direct_access)) && (over.IsReachableBy(living_user) || (over in direct_access)))
+			var/obj/item/dragged_item = src
+			if(!living_user.get_active_held_item())
+				living_user.UnarmedAttack(dragged_item, TRUE)
+				if(living_user.get_active_held_item() == dragged_item)
+					dragged_item.melee_attack_chain(living_user, over)
+				return
+	//SPLURT EDIT END
+
 	if(SEND_SIGNAL(over, COMSIG_MOUSEDROPPED_ONTO, src, user, params) & COMPONENT_CANCEL_MOUSEDROPPED_ONTO)
 		return
 
