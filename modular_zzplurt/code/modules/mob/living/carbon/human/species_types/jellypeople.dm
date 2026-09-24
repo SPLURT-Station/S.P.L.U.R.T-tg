@@ -1,4 +1,4 @@
-/obj/item/organ/tongue/jelly/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list) //speech bubble addition
+/obj/item/organ/tongue/jelly/Initialize(mapload) //speech bubble addition
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 

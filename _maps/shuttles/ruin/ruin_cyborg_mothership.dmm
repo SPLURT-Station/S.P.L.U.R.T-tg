@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/machinery/mineral/ore_redemption/offstation{
+	input_dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/shuttle/ruin/cyborg_mothership)
 "aB" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -206,13 +213,6 @@
 	},
 /turf/open/floor/circuit/airless,
 /area/shuttle/ruin/cyborg_mothership)
-"mC" = (
-/obj/machinery/mineral/ore_redemption/offstation{
-	input_dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/shuttle/ruin/cyborg_mothership)
 "mN" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -306,13 +306,6 @@
 /obj/structure/sign/warning/vacuum/external/directional/east,
 /obj/machinery/camera/directional/east,
 /turf/open/floor/plating,
-/area/shuttle/ruin/cyborg_mothership)
-"qc" = (
-/obj/machinery/mineral/stacking_machine{
-	input_dir = 2
-	},
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
 /area/shuttle/ruin/cyborg_mothership)
 "qn" = (
 /obj/machinery/conveyor{
@@ -463,6 +456,13 @@
 /obj/machinery/light/floor/broken,
 /turf/open/floor/iron/showroomfloor,
 /area/shuttle/ruin/cyborg_mothership)
+"yz" = (
+/obj/structure/cable,
+/obj/structure/table_frame,
+/obj/item/aicard,
+/obj/item/ai_module/law/core/full/overlord,
+/turf/open/floor/circuit/green/airless,
+/area/shuttle/ruin/cyborg_mothership)
 "yA" = (
 /obj/structure/spacevine,
 /obj/machinery/conveyor{
@@ -536,12 +536,12 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/ruin/cyborg_mothership)
-"Dv" = (
-/obj/structure/cable,
-/obj/structure/table_frame,
-/obj/item/aicard,
-/obj/item/ai_module/core/full/overlord,
-/turf/open/floor/circuit/green/airless,
+"Ce" = (
+/obj/machinery/mineral/stacking_machine{
+	input_dir = 2
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/shuttle/ruin/cyborg_mothership)
 "Em" = (
 /obj/structure/girder,
@@ -1164,7 +1164,7 @@ zZ
 kz
 hR
 hR
-qc
+Ce
 of
 SV
 Vb
@@ -1183,7 +1183,7 @@ yF
 yg
 HK
 vy
-Dv
+yz
 Ln
 Uq
 yF
@@ -1264,7 +1264,7 @@ zZ
 kz
 hR
 hR
-mC
+ad
 of
 OY
 Vb

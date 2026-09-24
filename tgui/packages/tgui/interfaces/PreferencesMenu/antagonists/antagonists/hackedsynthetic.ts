@@ -1,5 +1,5 @@
-// This is a splurt UI file
-import { type Antagonist, Category } from '../base';
+// This is a Bubber UI file
+import { Antagonist, Category } from '../base';
 
 const HackedSynthetic: Antagonist = {
   key: 'hackedsynthetic',

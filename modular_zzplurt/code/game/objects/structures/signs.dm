@@ -44,3 +44,13 @@
 /obj/structure/sign/number/nine
 	name = "nine"
 	icon_state = "9"
+
+/obj/structure/sign/syndicate
+	name = "\improper Syndicate logo sign"
+	sign_change_name = "Corporate Logo - Syndicate"
+	desc = "A sign with the Syndicate logo on it. Long live the Syndicate!"
+	icon = 'modular_zzplurt/icons/obj/sign.dmi'
+	icon_state = "syndicate"
+	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/syndicate, 32)

@@ -2,3 +2,4 @@
 	. = ..()
 	if(!(TAG_OPFOR_ONLY in tags))
 		LAZYADD(tags, TAG_OPFOR_ONLY)
+	restricted_roles |= JOB_SECURITY_CYBORG
