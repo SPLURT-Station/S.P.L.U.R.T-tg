@@ -344,9 +344,9 @@ ADMIN_VERB(log_viewer_new, R_ADMIN, "View Round Logs", "View the rounds logs.", 
 
 			data = recursive_jsonify(serialization_data, semvers)
 
-		if(islist(data) && !length(data))
-			stack_trace("recursive_jsonify got an empty list after serialization")
-			continue
+		// SPLURT EDIT - No reason to crash when empty list (caused by empty silicon mind 'memories' list), original: if(islist(data) && !length(data))
+		// SPLURT EDIT - No reason to crash when empty list (caused by empty silicon mind 'memories' list), original: 	stack_trace("recursive_jsonify got an empty list after serialization")
+		// SPLURT EDIT - No reason to crash when empty list (caused by empty silicon mind 'memories' list), original: 	continue
 
 		jsonified_list[key] = data
 
