@@ -101,80 +101,79 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	dat = replacetext(dat, "\t", "")
 	return dat
 
-// SPLURT EDIT START - Moved to modular_zzplurt\code\modules\silicons\manifest.dm (Copy changes here to there)
+
 /// Injects a record into the manifest.
 /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // SKYRAT EDIT - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
-// 	set waitfor = FALSE
-// 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
-// 		return
-//
-// 	// Attempt to get assignment from ID, otherwise default to mind.
-// 	var/obj/item/card/id/id_card = person.get_idcard(hand_first = FALSE)
-// 	var/assignment = id_card?.get_trim_assignment() || person.mind.assigned_role.title
-//
-// 	var/mutable_appearance/character_appearance = new(appearance_proxy?.appearance || person.appearance)
-// 	var/person_gender = "Other"
-// 	if(person.gender == "male")
-// 		person_gender = "Male"
-// 	if(person.gender == "female")
-// 		person_gender = "Female"
-// 	var/datum/dna/stored/record_dna = new()
-// 	person.dna.copy_dna(record_dna)
-//
-// 	// SKYRAT EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
-// 	// The alt job title, if user picked one, or the default
-// 	var/chosen_assignment = id_card?.get_job_title() || assignment //BUBBER EDIT: Intern Job Tags
-// 	// SKYRAT EDIT ADDITION END - ALTERNATIVE_JOB_TITLES
-//
-// 	var/datum/record/locked/lockfile = new(
-// 		age = person.age,
-// 		chrono_age = person.chrono_age, // SKYRAT EDIT ADDITION - Chronological age
-// 		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
-// 		character_appearance = character_appearance,
-// 		dna_string = record_dna.unique_enzymes,
-// 		fingerprint = md5(record_dna.unique_identity),
-// 		gender = person.gender,
-// 		initial_rank = assignment,
-// 		name = person.real_name,
-// 		rank = chosen_assignment, // SKYRAT EDIT - Alt job titles - ORIGINAL: rank = assignment,
-// 		species = record_dna.species.name,
-// 		trim = assignment,
-// 		// Locked specifics
-// 		locked_dna = record_dna,
-// 		mind_ref = person.mind,
-// 		// BUBBER EDIT ADDITION BEGIN - Records
-// 		exploitable_information = person_client?.prefs.read_preference(/datum/preference/text/exploitable) || "",
-// 		background_information = person_client?.prefs.read_preference(/datum/preference/text/background) || "",
-// 		// BUBBER EDIT END
-// 	)
-//
-// 	new /datum/record/crew(
-// 		age = person.age,
-// 		chrono_age = person.chrono_age, // SKYRAT EDIT ADDITION - Chronological age
-// 		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
-// 		character_appearance = character_appearance,
-// 		dna_string = record_dna.unique_enzymes,
-// 		fingerprint = md5(record_dna.unique_identity),
-// 		gender = person_gender,
-// 		initial_rank = assignment,
-// 		name = person.real_name,
-// 		rank = chosen_assignment, // SKYRAT EDIT - Alt job titles - ORIGINAL: rank = assignment,
-// 		species = record_dna.species.name,
-// 		trim = assignment,
-// 		// Crew specific
-// 		lock_ref = REF(lockfile),
-// 		major_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
-// 		major_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MAJOR_DISABILITY),
-// 		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, from_scan = TRUE),
-// 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
-// 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
-// 		// SKYRAT EDIT START - RP Records
-// 		past_general_records = person_client?.prefs.read_preference(/datum/preference/text/general) || "",
-// 		past_medical_records = person_client?.prefs.read_preference(/datum/preference/text/medical) || "",
-// 		past_security_records = person_client?.prefs.read_preference(/datum/preference/text/security) || "",
-// 		// SKYRAT EDIT END
-// 	)
-// SPLURT EDIT END
+	set waitfor = FALSE
+	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
+		return
+
+	// Attempt to get assignment from ID, otherwise default to mind.
+	var/obj/item/card/id/id_card = person.get_idcard(hand_first = FALSE)
+	var/assignment = id_card?.get_trim_assignment() || person.mind.assigned_role.title
+
+	var/mutable_appearance/character_appearance = new(appearance_proxy?.appearance || person.appearance)
+	var/person_gender = "Other"
+	if(person.gender == "male")
+		person_gender = "Male"
+	if(person.gender == "female")
+		person_gender = "Female"
+	var/datum/dna/stored/record_dna = new()
+	person.dna.copy_dna(record_dna)
+
+	// SKYRAT EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
+	// The alt job title, if user picked one, or the default
+	var/chosen_assignment = id_card?.get_job_title() || assignment //BUBBER EDIT: Intern Job Tags
+	// SKYRAT EDIT ADDITION END - ALTERNATIVE_JOB_TITLES
+
+	var/datum/record/locked/lockfile = new(
+		age = person.age,
+		chrono_age = person.chrono_age, // SKYRAT EDIT ADDITION - Chronological age
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
+		character_appearance = character_appearance,
+		dna_string = record_dna.unique_enzymes,
+		fingerprint = md5(record_dna.unique_identity),
+		gender = person.gender,
+		initial_rank = assignment,
+		name = person.real_name,
+		rank = chosen_assignment, // SKYRAT EDIT - Alt job titles - ORIGINAL: rank = assignment,
+		species = record_dna.species.name,
+		trim = assignment,
+		// Locked specifics
+		locked_dna = record_dna,
+		mind_ref = person.mind,
+		// BUBBER EDIT ADDITION BEGIN - Records
+		exploitable_information = person_client?.prefs.read_preference(/datum/preference/text/exploitable) || "",
+		background_information = person_client?.prefs.read_preference(/datum/preference/text/background) || "",
+		// BUBBER EDIT END
+	)
+
+	new /datum/record/crew(
+		age = person.age,
+		chrono_age = person.chrono_age, // SKYRAT EDIT ADDITION - Chronological age
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
+		character_appearance = character_appearance,
+		dna_string = record_dna.unique_enzymes,
+		fingerprint = md5(record_dna.unique_identity),
+		gender = person_gender,
+		initial_rank = assignment,
+		name = person.real_name,
+		rank = chosen_assignment, // SKYRAT EDIT - Alt job titles - ORIGINAL: rank = assignment,
+		species = record_dna.species.name,
+		trim = assignment,
+		// Crew specific
+		lock_ref = REF(lockfile),
+		major_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
+		major_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MAJOR_DISABILITY),
+		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, from_scan = TRUE),
+		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
+		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
+		// SKYRAT EDIT START - RP Records
+		past_general_records = person_client?.prefs.read_preference(/datum/preference/text/general) || "",
+		past_medical_records = person_client?.prefs.read_preference(/datum/preference/text/medical) || "",
+		past_security_records = person_client?.prefs.read_preference(/datum/preference/text/security) || "",
+		// SKYRAT EDIT END
+	)
 
 /// Edits the rank and trim of the found record.
 /datum/manifest/proc/modify(name, assignment, trim)
