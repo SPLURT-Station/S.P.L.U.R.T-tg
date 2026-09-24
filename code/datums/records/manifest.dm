@@ -103,7 +103,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 // SPLURT EDIT START - Moved to modular_zzplurt\code\modules\silicons\manifest.dm (Copy changes here to there)
 /// Injects a record into the manifest.
-// /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // SKYRAT EDIT - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
+/datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // SKYRAT EDIT - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
 // 	set waitfor = FALSE
 // 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 // 		return

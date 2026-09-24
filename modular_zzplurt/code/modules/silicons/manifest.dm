@@ -76,7 +76,7 @@
 
 	return manifest_out
 
-/datum/manifest/proc/inject(mob/living/user, atom/appearance_proxy, client/person_client) // SKYRAT EDIT - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
+/datum/manifest/inject(mob/living/user, atom/appearance_proxy, client/person_client)
 	set waitfor = FALSE
 
 	// Attempt to get assignment from ID, otherwise default to mind.
