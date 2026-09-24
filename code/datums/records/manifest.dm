@@ -17,7 +17,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
 			players_to_log[readied_player.ckey] = readied_player.new_character
-		if(ishuman(readied_player.new_character) || issilicon(readied_player.new_character) || isashwalker(readied_player.new_character)) // SPLURT EDIT - Add silicon and ashwalkers
+			// if(ishuman(readied_player.new_character)) SPLURT EDIT - Inject works for more than carbon humans now
 			inject(readied_player.new_character, null, readied_player.client) // SKYRAT EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
 	if(length(players_to_log))
