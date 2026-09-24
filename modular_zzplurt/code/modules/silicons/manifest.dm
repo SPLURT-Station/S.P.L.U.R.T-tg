@@ -55,24 +55,25 @@
 /datum/manifest/get_manifest()
 	var/list/manifest_out = ..()
 
-	manifest_out["Silicon"] = list()
-	manifest_out["Lavaland"] = list()
-
-	var/list/silicon_dept = manifest_out["Silicon"]
+	var/list/silicon_dept = list()
 	for(var/datum/record/silicon/target as anything in GLOB.manifest.silicon)
 		silicon_dept[++silicon_dept.len] = list(
 			"name" = target.name,
 			"rank" = target.rank,
 			"trim" = target.trim,
 		)
+	if(length(silicon_dept))
+		manifest_out["Silicon"] = silicon_dept
 
-	var/list/lavaland_dept = manifest_out["Lavaland"]
+	var/list/lavaland_dept = list()
 	for(var/datum/record/ashwalker/target as anything in GLOB.manifest.ashwalker)
 		lavaland_dept[++lavaland_dept.len] = list(
 			"name" = target.name,
 			"rank" = target.rank,
 			"trim" = target.trim,
 		)
+	if(length(lavaland_dept))
+		manifest_out["Lavaland"] = lavaland_dept
 
 	return manifest_out
 
