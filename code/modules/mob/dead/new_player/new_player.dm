@@ -288,9 +288,9 @@
 		else // clear any personalities the prefs added since our job clearly does not want them
 			humanc.clear_personalities()
 
-	GLOB.manifest.inject(character, null, character.client) // SPLURT EDIT - Moved above the if station so silicons get added
+	GLOB.manifest.inject(character, null, character.client) // SPLURT EDIT - Moved above the if statement so silicons get added
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
-		// GLOB.manifest.inject(humanc, null, humanc.client) // SPLURT EDIT - Moved above the if station so silicons get added
+		// GLOB.manifest.inject(humanc, null, humanc.client) // SPLURT EDIT - Moved above the if statement so silicons get added
 		SEND_SIGNAL(humanc, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered
