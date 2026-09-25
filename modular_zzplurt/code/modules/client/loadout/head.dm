@@ -119,3 +119,8 @@
 /datum/loadout_item/head/kabuto
 	name = "Kabuto helmet"
 	item_path = /obj/item/clothing/head/costume/kabuto
+
+/datum/loadout_item/head/tricorn_hat
+	name = "Tricorn Pirate Hat"
+	item_path = /obj/item/clothing/head/tricorn
+
