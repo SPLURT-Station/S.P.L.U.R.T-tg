@@ -156,3 +156,55 @@
 /datum/sprite_accessory/genital/anus/squished
 	icon_state = "squished"
 	name = "Squished"
+
+/datum/sprite_accessory/genital/anus/puffy
+	icon_state = "puffy"
+	name = "Puffy"
+
+/datum/sprite_accessory/genital/anus/star
+	icon_state = "star"
+	name = "Star"
+
+// Vagina - resprited like the other genitals, upstream sprites stay available as (Old)
+/datum/sprite_accessory/genital/vagina
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/vagina_onmob.dmi'
+
+/datum/sprite_accessory/genital/vagina/human_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "human"
+	name = "Human (Old)"
+
+/datum/sprite_accessory/genital/vagina/tentacles_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "tentacle"
+	name = "Tentacle (Old)"
+
+/datum/sprite_accessory/genital/vagina/dentata_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "dentata"
+	name = "Dentata (Old)"
+
+/datum/sprite_accessory/genital/vagina/hairy_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "hairy"
+	name = "Hairy (Old)"
+
+/datum/sprite_accessory/genital/vagina/spade_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "spade"
+	name = "Spade (Old)"
+
+/datum/sprite_accessory/genital/vagina/furred_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "furred"
+	name = "Furred (Old)"
+
+/datum/sprite_accessory/genital/vagina/gaping_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "gaping"
+	name = "Gaping (Old)"
+
+/datum/sprite_accessory/genital/vagina/cloaca_old
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon_state = "cloaca"
+	name = "Cloaca (Old)"
