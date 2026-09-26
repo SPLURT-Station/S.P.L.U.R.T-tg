@@ -252,7 +252,7 @@
 
 GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggle coat buttons", "Object")
 	var/mob/living/L = usr
-	if(!istype(L) || L.stat != CONSCIOUS)
+	if(!istype(L) || L.stat != STABLE)
 		return FALSE
 
 	switch(unbuttoned)
@@ -324,6 +324,7 @@ GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggl
 	blood_overlay_type = "coat"
 	armor_type = /datum/armor/toggle_chef
 	body_parts_covered = CHEST|GROIN|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	allowed = list(
 		/obj/item/kitchen,
 		/obj/item/knife/kitchen,

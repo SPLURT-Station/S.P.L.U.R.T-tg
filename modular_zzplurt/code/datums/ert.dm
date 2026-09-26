@@ -137,6 +137,16 @@
 
 	return ..()
 
+/obj/item/clothing/glasses/hud/medsechud/sunglasses
+	gender = PLURAL
+	name = "medical security HUDSunglasses"
+	desc = "Sunglasses with a combined medical and security HUD."
+	icon_state = "sunhudmed"
+	flash_protect = FLASH_PROTECTION_FLASH
+	flags_cover = GLASSESCOVERSEYES
+	tint = 1
+	glass_colour_type = /datum/client_colour/glass_colour/blue
+
 /datum/outfit/centcom/private_security/medic
 	name = "NT Private Security Specialist - ERT"
 

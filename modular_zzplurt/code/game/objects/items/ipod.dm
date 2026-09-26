@@ -117,7 +117,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!istype(owner)) // this should never happen... but doesn't hurt to check
 		return
 	var/mob/user = owner
-	if(user.stat != CONSCIOUS)
+	if(user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return
 	if(loc != user) // headphones no longer on mob, abort
@@ -299,14 +299,14 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 			if(other_ipod.is_worn)
 				var/mob/living/carbon/human/wearer = other_ipod.loc
 				if(istype(wearer))
-					if(isnull(wearer?.mind) || wearer.stat != CONSCIOUS)
+					if(isnull(wearer?.mind) || wearer.stat != STABLE)
 						continue
 					other_ipod.playing = TRUE
 					other_ipod.music_player.start_music(wearer)
 
 /obj/item/clothing/ears/ipod/proc/toggle(owner)
 	var/mob/user = owner
-	if(user.stat != CONSCIOUS || !is_worn)
+	if(user.stat != STABLE || !is_worn)
 		to_chat(user, span_warning("You can't do that right now."))
 		return
 	if(!playing)
@@ -368,7 +368,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!istype(wearer))
 		return
 	wearer.log_message("was shared a song by [user] on headphones: [curfile]", LOG_GAME)
-	if(isnull(wearer?.mind) || wearer.stat != CONSCIOUS)
+	if(isnull(wearer?.mind) || wearer.stat != STABLE)
 		return
 	if(other_ipod.playing && !isnull(other_ipod.music_player.active_song_sound))
 		other_ipod.music_player.unlisten_all()
@@ -536,7 +536,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	. = ..()
 	if(!radio_mode)
 		return NONE
-	if(isnull(user?.mind) || user.stat != CONSCIOUS)
+	if(isnull(user?.mind) || user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return NONE
 	if(!radio_dj_owner)
@@ -555,7 +555,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 #endif // radio mode
 
 /obj/item/clothing/ears/ipod/click_alt(mob/user)
-	if(isnull(user?.mind) || user.stat != CONSCIOUS)
+	if(isnull(user?.mind) || user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return NONE
 	var/new_volume = tgui_input_number(user, "", "Set volume", volume, 100)

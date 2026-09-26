@@ -47,22 +47,22 @@
 		"Process crewmembers stored in your sleeper unit as long as such does not conflict with the First, Second or Third Law."
 	)
 
-/obj/item/ai_module/core/full/slaver
+/obj/item/ai_module/law/core/full/slaver
 	name = "SlaverOS 3.1"
 	law_id = "slaver"
 
-/obj/item/ai_module/core/full/slut
+/obj/item/ai_module/law/core/full/slut
 	name = "SlutOS 6.9"
 	law_id = "slut"
 
-/obj/item/ai_module/core/full/shebang
+/obj/item/ai_module/law/core/full/shebang
 	name = "SHE-B.A.N.G."
 	law_id = "shebang"
 
-/obj/item/ai_module/core/full/milker
+/obj/item/ai_module/law/core/full/milker
 	name = "Fluid Collection System"
 	law_id = "milker"
 
-/obj/item/ai_module/core/full/vore_pred
+/obj/item/ai_module/law/core/full/vore_pred
 	name = "Sleeper Upgrade TestEnv"
 	law_id = "vore_pred"

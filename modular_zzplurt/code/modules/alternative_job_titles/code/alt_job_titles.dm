@@ -4,6 +4,7 @@
 		"Automated Station Control",
 		"Central Station System",
 		"Automatic Station Operator",
+		"Head of Silicons",
 		"Automated Voyeur",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -18,6 +19,7 @@
 		"Consul",
 		"Cuntpitain",
 		"Senator",
+		"Head of Station",
 		"Station Director",
 		"Station Governor",
 		"Station Master",
@@ -36,6 +38,7 @@
 		"Magos",
 		"Master Architect",
 		"Power Plant Director",
+		"Head of Supermatter",
 		"Project Manager",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -51,6 +54,7 @@
 		"Head Of Stations Pets",
 		"Headgiver To Personnel",
 		"Headpat Of Personnel",
+		"Head of Service",
 		"Human Resources",
 		"Personnel Coordinator",
 		"Personnel Manager",
@@ -95,6 +99,7 @@
 		"Lead Developer",
 		"Research Manager",
 		"Science Administrator",
+		"Head of Science",
 		"Sex Research Director",
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -104,6 +109,7 @@
 	var/list/extra_titles = list(
 		"Chief Heal Slut",
 		"Chief Heal Stud",
+		"Head of Surgery",
 		"Healing Fleshlight Master",
 		"Healing Fleshlight Mistress",
 		"Top Doctor",

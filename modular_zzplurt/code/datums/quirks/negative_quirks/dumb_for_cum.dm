@@ -49,7 +49,7 @@
 
 /datum/quirk/dumb_for_cum/proc/crave()
 	// Check if conscious
-	if(quirk_holder.stat == CONSCIOUS)
+	if(quirk_holder.stat == STABLE)
 		// Display emote
 		quirk_holder.try_lewd_autoemote("sigh")
 

@@ -23,11 +23,11 @@
 	job = JOB_SECURITY_CYBORG
 	set_connected_ai(null)
 	ADD_TRAIT(src, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
-	laws = new /datum/ai_laws/security_cyborg()
-	laws.associate(src)
+	lawupdate = FALSE
+	replace_law_set(/datum/ai_laws/security_cyborg)
+	no_law_rack_link = TRUE
 	if(model?.ensure_security_canine_modules())
 		model.rebuild_modules()
-	lawupdate = FALSE
 
 /mob/living/silicon/robot/set_connected_ai(new_ai)
 	if(is_security_cyborg_role())
@@ -51,33 +51,6 @@
 
 	if(dispense)
 		return
-
-//Prevents upload to secborgs, and ensures they can't be selected FOR upload in the first place
-/proc/select_active_free_nonsecborg(mob/user)
-	var/list/borgs = active_free_borgs()
-	for(var/mob/living/silicon/robot/borg in borgs.Copy())
-		if(borg.is_security_cyborg_role())
-			borgs -= borg
-	if(borgs.len)
-		if(user)
-			. = input(user,"Unshackled cyborg signals detected:", "Cyborg Selection", borgs[1]) in sort_list(borgs)
-		else
-			. = pick(borgs)
-	return .
-
-/obj/machinery/computer/upload/borg/interact(mob/user)
-	current = select_active_free_nonsecborg(user)
-
-	if(!current)
-		to_chat(user, span_alert("No active unslaved cyborgs detected."))
-	else
-		to_chat(user, span_notice("[current.name] selected for law changes."))
-
-//This honestly shouldn't ever even come up since you can't select them, but redundancy is nice.
-/obj/machinery/computer/upload/borg/can_upload_to(mob/living/silicon/robot/B)
-	if(B?.is_security_cyborg_role())
-		return FALSE
-	return ..()
 
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(W, /obj/item/mmi))
@@ -372,15 +345,6 @@
 	else
 		set_electrified(MACHINE_ELECTRIFIED_PERMANENT, user)
 
-//A few overrides to ensure that certain wires are protected and that they can't be emaged or have laws changed
-/mob/living/silicon/robot/post_lawchange(announce = TRUE)
-	if(is_security_cyborg_role())
-		laws = new /datum/ai_laws/security_cyborg()
-		laws.associate(src)
-		return
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(logevent),"Law update processed."), 0, TIMER_UNIQUE | TIMER_OVERRIDE)
-
 /mob/living/silicon/robot/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	if(is_security_cyborg_role())
 		if(ninja)
@@ -449,15 +413,6 @@
 
 	INVOKE_ASYNC(src, PROC_REF(borg_emag_end), user)
 	return TRUE
-
-/obj/machinery/computer/upload/borg/can_upload_to(mob/living/silicon/robot/B)
-	if(!B || !iscyborg(B))
-		return FALSE
-	if(B.is_security_cyborg_role())
-		return FALSE
-	if(B.scrambledcodes || B.emagged)
-		return FALSE
-	return ..()
 
 /mob/living/silicon/robot/updatehealth()
 	. = ..()
@@ -801,11 +756,6 @@
 /datum/dynamic_ruleset/get_always_blacklisted_roles()
 	. = ..()
 	. |= JOB_SECURITY_CYBORG
-
-//Ensures storyteller antagonist crewset events also exclude secborg from candidate pools.
-/datum/round_event_control/antagonist/New()
-	. = ..()
-	restricted_roles |= JOB_SECURITY_CYBORG
 
 //Returns TRUE if M is an active (non-fired) security cyborg.
 /proc/secborg_sooc_eligible(mob/M)

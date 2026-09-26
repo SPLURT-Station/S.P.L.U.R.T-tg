@@ -122,6 +122,7 @@
 	if(mind)
 		mind.was_fired_from_security_cyborg_role = TRUE
 	REMOVE_TRAIT(src, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
+	no_law_rack_link = FALSE
 	// Apply the same law behavior as a regular latejoin cyborg: sync to a priority AI when available,
 	// otherwise fall back to the standard configured silicon lawset for the round.
 	set_connected_ai(select_priority_ai())
@@ -151,8 +152,8 @@
 	// Security cyborgs should be unsynced from AI and use security cyborg directives.
 	set_connected_ai(null)
 	lawupdate = FALSE
-	laws = new /datum/ai_laws/security_cyborg()
-	laws.associate(src)
+	replace_law_set(/datum/ai_laws/security_cyborg)
+	no_law_rack_link = TRUE
 	show_laws()
 	log_current_laws()
 	to_chat(src, span_boldnotice("NOTICE: You have been reinstated as a security cyborg by [user.real_name]. Your security directives have been restored. Please reselect the Security module."))

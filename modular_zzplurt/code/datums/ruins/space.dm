@@ -35,3 +35,10 @@
 
 /datum/map_template/ruin/space/infested_frigate
 	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // TG Map Edit
+
+/datum/map_template/ruin/space/splurt/abandoned_pirate_ship
+	id = "abandoned_pirate_ship"
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/"
+	suffix = "abandoned_pirate_ship.dmm"
+	name = "Abandoned Pirate Ship"
+	description = "A derelict pirate vessel that has been abandoned and left to rot. Seems to be free of threats."

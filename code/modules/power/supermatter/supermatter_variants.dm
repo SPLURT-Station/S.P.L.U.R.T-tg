@@ -16,7 +16,7 @@
 /obj/machinery/power/supermatter_crystal/cardinal_station // I need this to be a specific type since they replace them with the beacon now.
 	is_main_engine = TRUE
 	anchored = FALSE
-	inertia_force_weight = 3
+	inertia_force_weight = 4
 	replace_on_spawn = FALSE
 // SPLURT EDIT ADDITION END
 

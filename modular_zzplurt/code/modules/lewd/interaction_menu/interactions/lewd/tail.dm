@@ -490,7 +490,7 @@
 		target.adjust_oxy_loss(oxy_damage)
 
 	// Check if target just passed out
-	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+	if(target.stat == HARD_CRIT && stat_before != HARD_CRIT)
 		if(resolve_intent_name(user) == "harm")
 			message = list("%TARGET% passes out wrapped tightly in %USER%'s tail.")
 		else

@@ -11,7 +11,8 @@ ADMIN_VERB(discordbunker, R_SERVER, "Toggle Discord Bunker", "Toggles the Discor
 	SSblackbox.record_feedback("nested tally", "discord_toggle", 1, list("Toggle Discord Bunker", "[new_dbun ? "Enabled" : "Disabled"]"))
 	send2adminchat("Discord Bunker", "[key_name(user)] has toggled the Discord Bunker, it is now [new_dbun ? "enabled" : "disabled"].")
 
-ADMIN_VERB(adddiscordbypass, R_SERVER, "Add Discord Bypass", "Allows a given ckey to connect through the discord bunker for the round even if they haven't verified yet.", ADMIN_CATEGORY_SERVER, ckeytobypass as text)
+ADMIN_VERB(adddiscordbypass, R_SERVER, "Add Discord Bypass", "Allows a given ckey to connect through the discord bunker for the round even if they haven't verified yet.", ADMIN_CATEGORY_SERVER)
+	VERB_ARG(ckeytobypass, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!SSdbcore.IsConnected())
 		to_chat(user, span_adminnotice("The Database is not connected!"))
 		return
@@ -28,7 +29,8 @@ ADMIN_VERB(adddiscordbypass, R_SERVER, "Add Discord Bypass", "Allows a given cke
 	message_admins("[key_name_admin(user)] has added [ckeytobypass] to the current round's discord bypass list.")
 	send2adminchat("Discord Bunker", "[key_name(user)] has added [ckeytobypass] to the current round's discord bypass list.")
 
-ADMIN_VERB(revokediscordbypass, R_SERVER, "Revoke Discord Bypass", "Revoke's a ckey's permission to bypass the discord bunker for a given round.", ADMIN_CATEGORY_SERVER, ckeytobypass as text)
+ADMIN_VERB(revokediscordbypass, R_SERVER, "Revoke Discord Bypass", "Revoke's a ckey's permission to bypass the discord bunker for a given round.", ADMIN_CATEGORY_SERVER)
+	VERB_ARG(ckeytobypass, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!SSdbcore.IsConnected())
 		to_chat(user, span_adminnotice("The Database is not connected!"))
 		return
