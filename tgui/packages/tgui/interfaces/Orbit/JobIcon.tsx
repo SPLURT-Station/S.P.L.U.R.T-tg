@@ -31,6 +31,11 @@ const customJobs = [
   'Tarkon Ensign',
 ];
 // BUBBER EDIT ADDITION END - Custom observe menu icons
+// SPLURT EDIT ADDITION BEGIN - Job Icon Fix
+const customSplurtJobs = [
+  'Nanotrasen Crew Trainer'
+]
+// SPLURT EDIT ADDITION END - Job Icon Fix
 
 type Props = {
   item: Observable | Antagonist;
@@ -54,10 +59,18 @@ const antagIcon: IconSettings = {
 
 // BUBBER EDIT ADDITION BEGIN - Custom observe menu icons
 const customIcon: IconSettings = {
-  dmi: 'modular_zubbers/icons/mob/huds/hud.dmi',
+  //dmi: 'modular_zubbers/icons/mob/huds/hud.dmi', //SPLURT EDIT - Icon Fix - Original
+  dmi: 'modular_zzplurt/icons/mob/huds/hud.dmi',
   transform: 'scale(2.3) translateX(9px) translateY(1px)',
 };
 // BUBBER EDIT ADDITION END - Custom observe menu icons
+
+// SPLURT EDIT ADDITION BEGIN - Job Icon Fix
+const customSplurtIcon: IconSettings = {
+  dmi: 'modular_zzplurt/icons/mob/huds/hud.dmi',
+  transform: 'scale(2.3) translateX(9px) translateY(1px)',
+};
+// SPLURT EDIT ADDITION END - Job Icon Fix
 
 export function JobIcon(props: Props) {
   const { item, realNameDisplay } = props;
@@ -72,6 +85,9 @@ export function JobIcon(props: Props) {
     iconSettings = antagIcon;
     usedJob = item.antag;
     usedIcon = item.antag_icon;
+    // SPLURT EDIT ADDITION BEGIN - Job Icon Fix
+  } else if (customSplurtJobs.includes(usedJob)) {
+    iconSettings = customSplurtIcon;
     // BUBBER EDIT ADDITION BEGIN - Custom observe menu icons
   } else if (customJobs.includes(usedJob)) {
     iconSettings = customIcon;
