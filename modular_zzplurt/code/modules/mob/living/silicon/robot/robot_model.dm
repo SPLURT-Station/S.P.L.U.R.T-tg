@@ -1,3 +1,4 @@
+/* Disabling for now.
 /obj/item/robot_model/affairs
 	name = "Internal Affairs"
 	basic_modules = list(
@@ -34,3 +35,4 @@
 	to_chat(loc, span_userdanger("While you have picked the internal affairs model, you still have to follow your laws, Special Operation Procedures and Space Law \
 	are apart of what you should concern yourself with. You prioritize corporate control of the station, you are not a Central Command-sent borg, nor do you have \
 	more authority than the Captain."))
+*/
