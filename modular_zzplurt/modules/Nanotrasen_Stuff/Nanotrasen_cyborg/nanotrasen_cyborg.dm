@@ -1,3 +1,4 @@
+/* Disabling for now.
 /datum/job/cyborg/iaa
 	title = JOB_IAA_CYBORG
 	job_spawn_title = JOB_NANOTRASEN_CYBORG
@@ -393,3 +394,4 @@
 			robot_spawn.log_current_laws()
 			return
 	return ..()
+*/

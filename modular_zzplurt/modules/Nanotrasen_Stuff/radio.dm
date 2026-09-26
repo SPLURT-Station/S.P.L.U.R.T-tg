@@ -7,7 +7,7 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
 	greyscale_colors = "#2597C4#D3D3D3"
 
-/obj/item/encryptionkey/head/ntc
+/obj/item/encryptionkey/heads/ntc
 	name = "\proper the Nanotrasen consultant's radio encryption key"
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/head/ntc"
