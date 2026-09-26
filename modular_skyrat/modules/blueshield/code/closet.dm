@@ -25,6 +25,7 @@
 	new /obj/item/clothing/glasses/sunglasses/chemical(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/guard/customs(src)
 
+/* SPLURT REMOVAL
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
 	icon_state = "bs"
@@ -45,4 +46,5 @@
 	new /obj/item/storage/bag/garment/blueshield(src)
 //	new /obj/item/mod/control/pre_equipped/blueshield(src)
 	new /obj/item/storage/box/glasseskit(src)
-//	new /obj/item/storage/medkit/brute(src)
+	new /obj/item/storage/medkit/brute(src)
+*/
