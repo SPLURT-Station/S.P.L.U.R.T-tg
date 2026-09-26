@@ -251,3 +251,45 @@
 	user_arousal = 8
 	target_arousal = 8
 	target_pain = 4
+
+/datum/interaction/lewd/urethrafuck
+	name = "Urethra Fuck (Vaginal)"
+	description = "Fuck their urethra."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_VAGINA = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(
+		CLIMAX_POSITION_USER = CLIMAX_PENIS,
+		CLIMAX_POSITION_TARGET = CLIMAX_VAGINA
+	)
+	cum_target = list(
+		CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS,
+		CLIMAX_POSITION_TARGET = ORGAN_SLOT_VAGINA
+	)
+	message = list(
+		"pushes their cock into %TARGET%'s urethra",
+		"penetrates %TARGET%'s pisshole with their own",
+		"thrusts deep into %TARGET%'s pisshole",
+		"fucks %TARGET%'s urethra from the inside"
+	)
+	user_messages = list(
+		"You feel %TARGET%'s pisshole squeezing extra tightly around your cock",
+		"The warmth of %TARGET%'s urethra clenches on your shaft",
+		"%TARGET%'s urethra throbs tightly as you thrust deeper"
+	)
+	target_messages = list(
+		"You feel %USER%'s cock stretching your urethra",
+		"%USER%'s shaft pushes deep inside your pisshole",
+		"The warmth of %USER%'s cock fills your pisshole tightly"
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/bang1.ogg',
+		'modular_zzplurt/sound/interactions/bang2.ogg',
+		'modular_zzplurt/sound/interactions/bang3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 6
+	target_pleasure = 6
+	user_arousal = 8
+	target_arousal = 8
+	target_pain = 4
