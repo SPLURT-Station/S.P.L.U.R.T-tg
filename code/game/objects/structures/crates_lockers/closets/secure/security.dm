@@ -101,6 +101,7 @@
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/door_remote/head_of_security(src)
 	new /obj/item/storage/belt/bandolier(src)
+	new /obj/item/megaphone/sec(src) /// SPLURT EDIT ADDITION, adding the sec megaphone to the wardens locker
 
 
 /obj/structure/closet/secure_closet/warden/populate_contents_immediate()
