@@ -36,7 +36,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/ears.dmi'
 	icon_state = "nano_headset"
 	worn_icon_state = "nano_headset"
-	keyslot = new /obj/item/encryptionkey/head/ntc
+	keyslot = new /obj/item/encryptionkey/heads/ntc
 	keyslot2 = new /obj/item/encryptionkey/headset_cent
 
 /obj/item/radio/headset/heads/ntc/alt
@@ -44,17 +44,5 @@
 	desc = "An official Nanotrasen affairs headset, this one is worn by an executive of the NTIA. Protects ears from flashbangs."
 	icon_state = "nano_headset_alt"
 	worn_icon_state = "nano_headset_alt"
-	keyslot = new /obj/item/encryptionkey/head/ntc
+	keyslot = new /obj/item/encryptionkey/heads/ntc
 	keyslot2 = new /obj/item/encryptionkey/headset_cent
-
-/obj/item/radio/headset/heads/nanotrasen_consultant
-	parent_type = /obj/item/radio/headset/heads/nanotrasen
-	icon_state = "nano_headset"
-
-/obj/item/radio/headset/heads/nanotrasen_consultant/alt
-	parent_type = /obj/item/radio/headset/heads/nanotrasen/alt
-	icon_state = "nano_headset_alt"
-
-/obj/item/radio/headset/heads/nanotrasen/alt/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection)
