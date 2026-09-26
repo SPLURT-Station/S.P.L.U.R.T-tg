@@ -70,9 +70,9 @@
 /obj/machinery/research_table/crowbar_act(mob/living/user, obj/item/I)
 	return default_deconstruction_crowbar(I, FALSE)
 
-/obj/machinery/research_table/mouse_drop_receive(mob/living/M, mob/living/user)
+/obj/machinery/research_table/mouse_drop_receive(mob/living/M, mob/living/user, params)
 	if(istype(M))
-		if(get_turf(M) != get_turf(src) && user.stat == CONSCIOUS)
+		if(get_turf(M) != get_turf(src) && user.stat == STABLE)
 			var/message = M == user ? "[M] climbs on the [src]." : "[user] puts [M] on the [src]."
 			var/self_message = M == user ? "You climb on the [src]." : "You put [M] on the [src]."
 			visible_message(message, self_message)

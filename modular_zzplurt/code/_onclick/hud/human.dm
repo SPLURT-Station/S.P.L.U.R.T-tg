@@ -7,6 +7,19 @@
 	add_screen_object(/atom/movable/screen/human/toggle/extra, HUD_HUMAN_TOGGLE_EXTRA_INVENTORY, HUD_GROUP_TOGGLEABLE_INVENTORY, extra_style, ui_inventory_extra)
 	thirst = add_screen_object(/atom/movable/screen/thirst, HUD_MOB_THIRST, HUD_GROUP_INFO) // SPLURT ADDITION - THIRST
 
+	if(!mymob.client?.prefs?.read_preference(/datum/preference/toggle/intents))
+		var/atom/movable/screen/floor_change = screen_objects[HUD_MOB_FLOOR_CHANGER]
+		if(floor_change)
+			floor_change.screen_loc = "EAST-4:22,SOUTH:5"
+		return
+
+	// Themed UI styles no longer ship help/disarm/grab/harm; those states live on screen_gen.dmi.
+	remove_screen_object(HUD_MOB_INTENTS, update = FALSE)
+	add_screen_object(/atom/movable/screen/intent_toggle, HUD_MOB_INTENTS, HUD_GROUP_INFO)
+
+	focus_toggle = add_screen_object(/atom/movable/screen/focus_toggle, HUD_MOB_FOCUS_TOGGLE, HUD_GROUP_STATIC, ui_style)
+	focus_toggle.update_appearance()
+
 /// Shared create helper for extra inventory slots that use the custom extra UI style
 /datum/inventory_slot/human/proc/create_extra_element(datum/hud/hud)
 	var/atom/movable/screen/inventory/inv_box = hud.add_screen_object(screen_type, HUD_KEY_ITEM_SLOT(slot_id), screen_group, extra_inventory_ui_style(hud.ui_style), screen_loc)

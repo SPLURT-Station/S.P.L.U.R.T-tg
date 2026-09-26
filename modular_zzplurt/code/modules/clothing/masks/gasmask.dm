@@ -34,3 +34,12 @@
 	name = "trencher gas mask"
 	desc = "A head-covering mask. This gas mask model is made by mooks and romantically apocalyptic people. Still might be not good for blocking gas flow."
 	armor_type = /datum/armor/none
+
+/obj/item/clothing/mask/gas/atmos/mercenary
+	name = "\improper mercenary gas mask"
+	desc = "Slightly outdated, but reliable military-style gas mask."
+	icon = 'modular_zzplurt/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/mask.dmi'
+	worn_icon_state = "gas_mercenary"
+	icon_state = "gas_mercenary"
+	resistance_flags = FIRE_PROOF | ACID_PROOF

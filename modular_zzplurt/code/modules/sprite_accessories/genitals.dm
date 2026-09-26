@@ -115,6 +115,9 @@
 	knotted = TRUE
 
 // Testicles
+/datum/sprite_accessory/genital/testicles
+	relevent_layers = list(EXTERNAL_BEHIND, EXTERNAL_ADJACENT, EXTERNAL_FRONT)
+
 /datum/sprite_accessory/genital/testicles/pair
 	icon = 'modular_zzplurt/icons/mob/sprite_accessories/genitals/testicles_onmob.dmi'
 
@@ -138,7 +141,7 @@
 	color_src = USE_MATRIXED_COLORS
 	has_skintone_shading = TRUE
 	always_color_customizable = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER)
+	relevent_layers = list(EXTERNAL_FRONT)
 
 /datum/sprite_accessory/genital/anus/is_hidden(mob/living/carbon/human/target_mob)
 	//TODO: make this check use the butt sprite accessory just for good measure

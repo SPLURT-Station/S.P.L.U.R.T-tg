@@ -116,3 +116,22 @@
 	pointer_color = COLOR_CENTCOM_BLUE
 	honorifics = list("Guardsman", "Gdsm.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/job/security_officer/service
+	assignment = JOB_SECURITY_OFFICER_SERVICE
+	subdepartment_color = COLOR_SERVICE_LIME
+	department_access = list(
+		ACCESS_SERVICE,
+		ACCESS_BAR,
+	)
+	elevated_access = list(
+		ACCESS_AUX_BASE,
+		ACCESS_KITCHEN,
+		ACCESS_HYDROPONICS,
+		ACCESS_CHAPEL_OFFICE,
+		ACCESS_BARBER,
+		ACCESS_THEATRE,
+		ACCESS_LIBRARY,
+		ACCESS_JANITOR,
+	)
+	patrol_type = /datum/bounty/patrol/science

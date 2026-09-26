@@ -81,3 +81,19 @@
 	new /obj/item/clothing/suit/armor/vest/viro/warden/wintercoat(src)
 	new /obj/item/clothing/suit/armor/vest/viro/warden/alt(src)
 	new /obj/item/clothing/suit/armor/vest/viro/warden(src)
+
+/obj/item/storage/bag/garment/service_guard
+	name = "service guard's garments"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
+
+/obj/item/storage/bag/garment/service_guard/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/radio/headset/guard_bowman/service = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/bouncer = 2,
+		/obj/item/clothing/head/helmet/novisor = 2,
+		/obj/item/clothing/head/beret/sec/service = 2,
+		/obj/item/clothing/suit/armor/vest/alt = 2,
+		/obj/item/clothing/suit/toggle/labcoat/technical/service/guard = 1,
+		/obj/item/clothing/glasses/hud/security = 2,
+	), src)

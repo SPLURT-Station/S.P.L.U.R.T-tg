@@ -110,3 +110,11 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
 	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/feet_digi.dmi'
 	icon_state = "combat"
+
+/obj/item/clothing/shoes/combat/mercenary
+	name = "mercenary boots"
+	desc = "Boots that have gone through many conflicts and that have proven their combat reliability."
+	icon = 'modular_zzplurt/icons/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/shoes.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/shoes_digi.dmi'
+	icon_state = "mercenary_boots"

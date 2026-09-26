@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"map_name": "Cardinal Station",
+	"map_path": "map_files/CardinalStation",
+	"map_file": "CardinalStation.dmm",
+	"shuttles": {
+		"emergency": "emergency_cardinal",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_cardinal",
+		"whiteship": "whiteship_cardinal"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/hallway/primary/central"]
+		}
+	}
+}

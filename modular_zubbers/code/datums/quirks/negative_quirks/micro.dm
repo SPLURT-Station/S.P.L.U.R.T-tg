@@ -37,7 +37,7 @@
 /datum/quirk/micro/post_add()
 	var/mob/living/carbon/living_as_carbon = quirk_holder
 	//SPLURT EDIT CHANGE BEGIN - SIZECODE - Prefer update_size so size HP/mob_size hooks apply
-	//living_as_carbon.update_transform(size_reduced) - SPLURT EDIT - ORIGINAL
+	//living_as_carbon.update_transform(size_reduced / quirk_holder.client?.prefs?.read_preference(/datum/preference/numeric/body_size)) - SPLURT EDIT - ORIGINAL
 	living_as_carbon.update_size(size_reduced)
 	//SPLURT EDIT CHANGE END
 	living_as_carbon.AddComponent( \

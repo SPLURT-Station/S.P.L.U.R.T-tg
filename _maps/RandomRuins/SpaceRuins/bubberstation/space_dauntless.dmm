@@ -366,6 +366,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering/dispolsals)
+"bZ" = (
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless/service/construct)
 "ca" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
@@ -468,6 +471,20 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/bubbers/dauntless/command/bridge)
+"cA" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5;
+	pixel_x = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("dauntless");
+	pixel_y = -24
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "cB" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
@@ -521,20 +538,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/cargo)
-"cJ" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 9;
-	pixel_x = 20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("dauntless");
-	pixel_y = 8
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "cN" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
@@ -805,6 +808,21 @@
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
+"dX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing/corner{
+	dir = 8;
+	pixel_y = 32
+	},
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/space/nearstation)
 "ea" = (
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1451,6 +1469,15 @@
 "gU" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/bubbers/dauntless/engineering/mining)
+"gV" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/vg_decals/numbers/five{
+	dir = 8
+	},
+/turf/open/floor/engine/hull{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/space/nearstation)
 "hb" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1459,26 +1486,26 @@
 	},
 /turf/open/floor/stone,
 /area/ruin/space/has_grav/bubbers/dauntless_space/service/hydro)
+"hc" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 1;
+	pixel_y = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("dauntless");
+	pixel_x = 31
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "hd" = (
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/xenobio)
-"he" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 6;
-	pixel_x = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("dauntless");
-	pixel_y = -22
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "hf" = (
 /obj/machinery/portable_atmospherics/scrubber,
 /turf/open/floor/plating,
@@ -1579,6 +1606,16 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/prison)
+"hw" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	pixel_x = 20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "hx" = (
 /obj/machinery/door/airlock/science/glass{
 	name = "Research Wing"
@@ -1812,6 +1849,20 @@
 /obj/structure/closet/secure_closet/interdynefob/brig_officer_locker,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/officer)
+"iw" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5;
+	pixel_y = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("dauntless");
+	pixel_x = -8
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "ix" = (
 /obj/structure/fans/tiny/forcefield{
 	dir = 4
@@ -2062,9 +2113,6 @@
 /obj/structure/aquarium/prefilled,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
-"jw" = (
-/turf/template_noop,
-/area/template_noop)
 "jx" = (
 /obj/machinery/door/window/survival_pod/left/directional/south{
 	name = "Slime Euthanization Chamber";
@@ -2279,14 +2327,6 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/officer)
-"kA" = (
-/obj/effect/turf_decal/vg_decals/numbers/six{
-	dir = 8
-	},
-/turf/open/floor/engine/hull{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/space/nearstation)
 "kB" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 6
@@ -2464,20 +2504,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless/service/construct)
-"lh" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 1;
-	pixel_y = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("dauntless");
-	pixel_x = -8
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "lj" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -2752,6 +2778,20 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/service)
+"mC" = (
+/obj/effect/turf_decal/trimline/dark_red/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark_red/line,
+/obj/structure/rack/shelf,
+/obj/item/ai_module/law/core/full/dauntless{
+	pixel_y = 3
+	},
+/obj/item/ai_module/law/supplied/freeform{
+	pixel_y = 11
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/bubbers/dauntless_space/sci/robotics)
 "mG" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -2879,20 +2919,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/service)
-"ni" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 1;
-	pixel_y = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("dauntless");
-	pixel_x = 31
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "nj" = (
 /obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate");
@@ -2955,6 +2981,14 @@
 "nz" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/bubbers/dauntless/service/sauna)
+"nA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("dauntless")
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "nB" = (
 /obj/machinery/skill_station,
 /turf/open/floor/wood/tile,
@@ -3044,10 +3078,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/officer)
-"nS" = (
-/obj/effect/decal/fakelattice,
-/turf/template_noop,
-/area/space/nearstation)
 "nU" = (
 /obj/item/storage/box/gas_miner_beacons/syndicate{
 	pixel_y = 11;
@@ -3082,11 +3112,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless/service/construct)
-"nY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing,
-/turf/template_noop,
-/area/space/nearstation)
 "oa" = (
 /obj/structure/frame/machine/secured{
 	anchored = 0
@@ -3238,6 +3263,11 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/ruin/space/has_grav/bubbers/dauntless_space/cargo)
+"oQ" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space/nearstation)
 "oS" = (
 /obj/machinery/door/window/survival_pod/left/directional/east{
 	name = "Subject B";
@@ -3469,14 +3499,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/prison)
-"pM" = (
-/obj/effect/turf_decal/vg_decals/numbers/one{
-	dir = 8
-	},
-/turf/open/floor/engine/hull{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/space/nearstation)
 "pO" = (
 /obj/machinery/power/shuttle_engine/heater{
 	pixel_y = 29
@@ -3531,19 +3553,6 @@
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/dauntless/service/sauna)
-"qd" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 9;
-	pixel_x = 20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("dauntless")
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "qg" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/structure/cable,
@@ -3831,6 +3840,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/prison)
+"rn" = (
+/turf/template_noop,
+/area/template_noop)
 "ro" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -4063,6 +4075,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/bubbers/dauntless_space/med/chem)
+"sE" = (
+/obj/machinery/power/shuttle_engine/huge,
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
 "sF" = (
 /obj/machinery/power/turbine/turbine_outlet{
 	dir = 8
@@ -4231,14 +4247,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
-"tn" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("dauntless")
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "tr" = (
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/airalarm/directional/west,
@@ -4451,21 +4459,6 @@
 	},
 /turf/open/floor/stone,
 /area/ruin/space/has_grav/bubbers/dauntless_space/service/hydro)
-"uc" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing/corner{
-	dir = 8;
-	pixel_y = 32
-	},
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/space/nearstation)
 "uf" = (
 /obj/structure/chair/sofa/bench/corner{
 	dir = 4
@@ -4753,11 +4746,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering)
-"vg" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
 "vi" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/skyrat_decals/syndicate/middle/middle,
@@ -4867,14 +4855,6 @@
 /obj/item/circuitboard/machine/module_duplicator,
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/robotics)
-"vJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("dauntless")
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "vL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/green/hidden,
@@ -4916,19 +4896,6 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/bubbers/dauntless_space/med)
-"vS" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 9;
-	pixel_x = 20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("dauntless")
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "vT" = (
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/airalarm/directional/south,
@@ -5070,6 +5037,14 @@
 "wo" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/xenobio)
+"wp" = (
+/obj/effect/turf_decal/vg_decals/numbers/six{
+	dir = 8
+	},
+/turf/open/floor/engine/hull{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/space/nearstation)
 "wq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -5408,6 +5383,20 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering)
+"xP" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6;
+	pixel_x = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("dauntless");
+	pixel_y = -22
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "xQ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/airalarm/directional/north,
@@ -5487,6 +5476,17 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/dauntless/service/sauna)
+"yl" = (
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/chair,
+/turf/template_noop,
+/area/space/nearstation)
 "yn" = (
 /obj/effect/turf_decal/stripes/red/corner{
 	dir = 8
@@ -5499,22 +5499,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/cargo)
-"yr" = (
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/siding/dark,
-/obj/machinery/button/door/directional/south{
-	specialfunctions = 4;
-	id = "syndiship_vault";
-	normaldoorcontrol = 1;
-	name = "Vault Bolt Control";
-	req_access = list("syndicate")
-	},
-/obj/structure/closet/crate/goldcrate/stocked,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "ys" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
 	dir = 10
@@ -5918,11 +5902,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/service)
-"zY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/corner,
-/turf/template_noop,
-/area/space/nearstation)
 "zZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/dark,
@@ -6102,6 +6081,20 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/interrogation)
+"AQ" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 1;
+	pixel_y = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("dauntless");
+	pixel_x = -8
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "AS" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Hanger"
@@ -6153,6 +6146,20 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/bubbers/dauntless/service/kitchen)
+"Be" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	pixel_x = 20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("dauntless");
+	pixel_y = 8
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Bg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6270,20 +6277,6 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/xenobio)
-"BP" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 5;
-	pixel_x = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("dauntless");
-	pixel_y = -24
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "BQ" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -6328,9 +6321,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless/service)
-"BU" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
 "BV" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
 	dir = 4
@@ -6424,6 +6414,13 @@
 	},
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/robotics)
+"Ch" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Ci" = (
 /obj/effect/turf_decal/trimline/dark_red/end,
 /obj/machinery/door/airlock/command{
@@ -6537,6 +6534,12 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/bubbers/dauntless/service/dorms)
+"CB" = (
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "CF" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 8
@@ -6810,13 +6813,6 @@
 /obj/item/mod/module/rad_protection,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering)
-"Dv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 6
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "Dy" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -7131,6 +7127,11 @@
 	},
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering)
+"EP" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing,
+/turf/template_noop,
+/area/space/nearstation)
 "ES" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/brig)
@@ -7232,6 +7233,19 @@
 /obj/item/disk/computer/ordnance,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/rnd)
+"Fm" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	pixel_x = 20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("dauntless")
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Fo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7294,6 +7308,17 @@
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
+"FB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/six{
+	dir = 8
+	},
+/turf/open/floor/engine/hull{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/space/nearstation)
 "FE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -7435,6 +7460,11 @@
 /obj/machinery/ecto_sniffer,
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/robotics)
+"Gk" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/corner,
+/turf/template_noop,
+/area/space/nearstation)
 "Gl" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/interrogation)
@@ -7472,6 +7502,10 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/interrogation)
+"Gv" = (
+/obj/effect/decal/fakelattice,
+/turf/template_noop,
+/area/space/nearstation)
 "Gw" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7587,6 +7621,14 @@
 	icon_state = "plastitanium"
 	},
 /area/ruin/space/has_grav/bubbers/dauntless/command/bridge)
+"GX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("dauntless")
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "GY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8150,6 +8192,9 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
+"Jd" = (
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
 "Je" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -8396,10 +8441,6 @@
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/interrogation)
-"Kd" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space/nearstation)
 "Ke" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 10
@@ -8463,10 +8504,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/bubbers/dauntless_space/sci/xenobio)
-"Km" = (
-/obj/machinery/power/shuttle_engine/huge,
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
 "Kn" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Cell 2"
@@ -8533,19 +8570,10 @@
 /obj/effect/turf_decal/siding,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
-"KB" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 9;
-	pixel_x = 20
-	},
+"KE" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/east{
-	network = list("dauntless");
-	pixel_y = -31
-	},
 /turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
+/area/space/nearstation)
 "KM" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -8849,19 +8877,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
-"Mu" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 4;
-	pixel_x = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("dauntless")
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Mv" = (
 /obj/effect/turf_decal/stripes/red/full,
 /obj/effect/turf_decal/box/white,
@@ -8968,17 +8983,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/bubbers/dauntless/service/kitchen)
-"MR" = (
-/obj/structure/railing/corner/end{
-	dir = 1
-	},
-/obj/structure/railing/corner/end/flip{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/chair,
-/turf/template_noop,
-/area/space/nearstation)
 "MT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
@@ -9308,6 +9312,22 @@
 /obj/machinery/computer/order_console/mining/interdyne,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/cargo)
+"Oq" = (
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/effect/turf_decal/siding/dark,
+/obj/machinery/button/door/directional/south{
+	specialfunctions = 4;
+	id = "syndiship_vault";
+	normaldoorcontrol = 1;
+	name = "Vault Bolt Control";
+	req_access = list("syndicate")
+	},
+/obj/structure/closet/crate/goldcrate/stocked,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Ot" = (
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
@@ -9431,6 +9451,19 @@
 "Pb" = (
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/bubbers/dauntless_space/med)
+"Pd" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	pixel_x = 20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("dauntless")
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Pf" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -9440,35 +9473,10 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
-"Pg" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/vg_decals/numbers/six{
-	dir = 8
-	},
-/turf/open/floor/engine/hull{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/space/nearstation)
 "Ph" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/bubbers/dauntless_space/cargo)
-"Pk" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 5;
-	pixel_y = -20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("dauntless");
-	pixel_x = -8
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Pm" = (
 /obj/effect/turf_decal/trimline/dark_red/corner{
 	dir = 4
@@ -9998,12 +10006,6 @@
 "Rv" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate,
 /area/ruin/space/has_grav/bubbers/dauntless_space/med/storage)
-"Rx" = (
-/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/space/nearstation)
 "Ry" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -10020,9 +10022,6 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/bubbers/dauntless/command/maa)
-"RH" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless/service/construct)
 "RK" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -10110,6 +10109,19 @@
 /obj/structure/cable,
 /turf/open/floor/wood/stairs,
 /area/ruin/space/has_grav/bubbers/dauntless/service/sauna)
+"Sa" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	pixel_x = 20
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("dauntless");
+	pixel_y = -31
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "Sd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -10118,6 +10130,14 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/bubbers/dauntless/service/kitchen)
+"Se" = (
+/obj/effect/turf_decal/vg_decals/numbers/one{
+	dir = 8
+	},
+/turf/open/floor/engine/hull{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/space/nearstation)
 "Sh" = (
 /obj/effect/turf_decal/skyrat_decals/syndicate/top/middle,
 /turf/open/floor/mineral/plastitanium/red,
@@ -10292,6 +10312,26 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/bubbers/dauntless_space/engineering/turbine)
+"SJ" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 4;
+	pixel_x = -20;
+	faction = list("Syndicate","neutral")
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("dauntless")
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
+"SL" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "SN" = (
 /obj/machinery/stasis{
 	dir = 8
@@ -10361,23 +10401,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/bubbers/dauntless/sec/holding)
-"Tb" = (
-/obj/effect/turf_decal/trimline/dark_red/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/dark_red/line,
-/obj/structure/rack/shelf,
-/obj/item/ai_module/core/full/dauntless{
-	pixel_y = 3
-	},
-/obj/item/ai_module/supplied/freeform{
-	pixel_y = 11
-	},
-/obj/item/ai_module/reset/purge{
-	pixel_y = -4
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/bubbers/dauntless_space/sci/robotics)
 "Tc" = (
 /obj/machinery/door/airlock/bathroom{
 	name = "Prison Showers"
@@ -10444,15 +10467,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/bubbers/dauntless/command/admiral)
-"Tl" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/vg_decals/numbers/five{
-	dir = 8
-	},
-/turf/open/floor/engine/hull{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/space/nearstation)
 "Tm" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -10777,16 +10791,6 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/bubbers/dauntless/service/diner)
-"Uw" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 9;
-	pixel_x = 20;
-	faction = list("Syndicate","neutral")
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/ruin/space/has_grav/bubbers/dauntless_space/command/vault)
 "UC" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
@@ -11618,13 +11622,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/bubbers/dauntless/command/liason)
-"Yg" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 10
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "Yh" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -12120,422 +12117,422 @@
 /area/ruin/space/has_grav/bubbers/dauntless/service)
 
 (1,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (2,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (3,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (4,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (5,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-nS
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Gv
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (6,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-qd
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-tn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Fm
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+GX
 Wm
-vJ
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-Uw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+nA
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+hw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 IY
-jw
-jw
-cJ
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+Be
+rn
+rn
+rn
+rn
+rn
 "}
 (7,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 nz
 jq
 qO
 KO
 KO
 qO
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-nS
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-KB
-jw
-jw
-jw
-jw
-jw
-jw
-Rx
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Gv
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Sa
+rn
+rn
+rn
+rn
+rn
+rn
+CB
 HK
-jw
-jw
+rn
+rn
 er
 fw
 fw
@@ -12547,17 +12544,17 @@ Zj
 yP
 yP
 yU
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 "}
 (8,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 nz
 jq
 GC
@@ -12572,21 +12569,21 @@ Qw
 Qw
 Qw
 Bh
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 PH
 lr
 pu
@@ -12609,17 +12606,17 @@ UY
 tE
 WR
 yP
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 "}
 (9,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 jq
 uf
 Kt
@@ -12638,17 +12635,17 @@ eo
 dQ
 dQ
 Bh
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 lr
 FS
 nU
@@ -12671,17 +12668,17 @@ BG
 nJ
 wZ
 yP
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 "}
 (10,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 GC
 bQ
 qv
@@ -12700,17 +12697,17 @@ df
 rt
 Jj
 dQ
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 lr
 KR
 dv
@@ -12733,17 +12730,17 @@ uL
 Fa
 Ty
 yP
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 "}
 (11,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 GC
 bQ
 qv
@@ -12762,17 +12759,17 @@ Jk
 Ry
 hX
 dQ
-Kd
-Kd
-Kd
-vg
-Pg
-pM
-kA
-Tl
-vg
-Kd
-Kd
+KE
+KE
+KE
+oQ
+FB
+Se
+wp
+gV
+oQ
+KE
+KE
 EB
 Ai
 xz
@@ -12796,16 +12793,16 @@ FK
 yP
 yP
 yP
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 "}
 (12,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 GC
 bQ
 qv
@@ -12859,15 +12856,15 @@ fw
 bb
 HW
 cO
-Km
-jw
-jw
+sE
+rn
+rn
 "}
 (13,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 GC
 Zb
 qv
@@ -12921,15 +12918,15 @@ fw
 bb
 HW
 cO
-BU
-jw
-jw
+Jd
+rn
+rn
 "}
 (14,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 jq
 nI
 qc
@@ -12983,15 +12980,15 @@ fw
 bb
 HW
 cO
-BU
-jw
-jw
+Jd
+rn
+rn
 "}
 (15,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 jq
 jq
 jq
@@ -13045,15 +13042,15 @@ fw
 bb
 HW
 cO
-Km
-jw
-jw
+sE
+rn
+rn
 "}
 (16,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 AW
 lV
 sT
@@ -13107,15 +13104,15 @@ fw
 bb
 HW
 cO
-BU
-jw
-jw
+Jd
+rn
+rn
 "}
 (17,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 AW
 OJ
 Xv
@@ -13169,15 +13166,15 @@ fw
 bb
 HW
 cO
-BU
-jw
-jw
+Jd
+rn
+rn
 "}
 (18,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 Ne
 AW
 eu
@@ -13230,17 +13227,17 @@ hf
 fw
 fw
 fw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 "}
 (19,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 AW
 Sx
 Qd
@@ -13293,16 +13290,16 @@ fw
 fw
 fw
 fw
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (20,1,1) = {"
-jw
-jw
-jw
-jw
-ni
+rn
+rn
+rn
+rn
+hc
 Ne
 xI
 Ad
@@ -13355,16 +13352,16 @@ Uj
 Ui
 DM
 VG
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (21,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 dL
 zF
 PZ
@@ -13417,16 +13414,16 @@ ih
 ih
 Ah
 VG
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (22,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 Aq
 AW
 AW
@@ -13479,15 +13476,15 @@ zT
 qo
 fz
 Rv
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (23,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 TI
 uZ
@@ -13542,14 +13539,14 @@ VG
 VG
 VG
 cH
-jw
-jw
+rn
+rn
 "}
 (24,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 An
 PN
@@ -13605,13 +13602,13 @@ oS
 Zz
 kq
 EG
-jw
+rn
 "}
 (25,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 VV
 OG
@@ -13667,13 +13664,13 @@ DQ
 kq
 kq
 kq
-jw
+rn
 "}
 (26,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 YT
 QU
@@ -13729,13 +13726,13 @@ lm
 Zz
 kq
 EG
-jw
+rn
 "}
 (27,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 Te
 WB
@@ -13790,14 +13787,14 @@ dR
 ZF
 Vn
 cH
-jw
-jw
+rn
+rn
 "}
 (28,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 IH
 NI
@@ -13851,15 +13848,15 @@ sD
 hO
 Am
 WN
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (29,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 TI
 TI
 RK
@@ -13913,16 +13910,16 @@ Ij
 UX
 Am
 tv
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (30,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 TI
 vb
 JT
@@ -13974,17 +13971,17 @@ II
 cF
 rX
 Am
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 "}
 (31,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 TI
 Tm
 sh
@@ -14005,7 +14002,7 @@ Fo
 Mh
 Fd
 NZ
-yr
+Oq
 Mh
 IA
 nh
@@ -14036,17 +14033,17 @@ ci
 hK
 cT
 Am
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 "}
 (32,1,1) = {"
-jw
-jw
-jw
-jw
-lh
+rn
+rn
+rn
+rn
+AQ
 UO
 Eb
 MC
@@ -14099,16 +14096,16 @@ gU
 gU
 gU
 cH
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (33,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 UO
 ug
 lT
@@ -14162,14 +14159,14 @@ eX
 Mw
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (34,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 La
 UO
 UO
@@ -14224,14 +14221,14 @@ SZ
 VH
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (35,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 kf
 wM
@@ -14286,14 +14283,14 @@ Zh
 Fs
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (36,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 ij
 lZ
@@ -14348,14 +14345,14 @@ KX
 Tp
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (37,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 PO
 lZ
@@ -14410,14 +14407,14 @@ uq
 jd
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (38,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 uu
 XO
@@ -14472,14 +14469,14 @@ dT
 Zq
 gU
 gU
-jw
-jw
+rn
+rn
 "}
 (39,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 sQ
 BZ
@@ -14534,14 +14531,14 @@ dT
 dT
 Wu
 gU
-jw
-jw
+rn
+rn
 "}
 (40,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 Za
 BZ
@@ -14595,15 +14592,15 @@ gU
 gU
 gU
 XF
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (41,1,1) = {"
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
 bc
 cv
 RE
@@ -14657,14 +14654,14 @@ oZ
 qk
 kt
 kt
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (42,1,1) = {"
-jw
-jw
-jw
+rn
+rn
+rn
 Wz
 LM
 JM
@@ -14719,14 +14716,14 @@ oZ
 Nw
 kt
 dg
-RH
-jw
-jw
+bZ
+rn
+rn
 "}
 (43,1,1) = {"
-jw
-jw
-jw
+rn
+rn
+rn
 LM
 hG
 Ev
@@ -14781,14 +14778,14 @@ oZ
 py
 kt
 pO
-RH
-jw
-jw
+bZ
+rn
+rn
 "}
 (44,1,1) = {"
-jw
-jw
-vS
+rn
+rn
+Pd
 LM
 PG
 VP
@@ -14821,7 +14818,7 @@ dz
 JD
 Cq
 WD
-Tb
+mC
 As
 cm
 Dn
@@ -14843,13 +14840,13 @@ oZ
 Cl
 kt
 kt
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (45,1,1) = {"
-jw
-jw
+rn
+rn
 uS
 LM
 LM
@@ -14905,13 +14902,13 @@ oZ
 hy
 kt
 dg
-RH
-jw
-jw
+bZ
+rn
+rn
 "}
 (46,1,1) = {"
-jw
-jw
+rn
+rn
 nV
 bF
 yh
@@ -14967,13 +14964,13 @@ oZ
 gM
 kt
 pO
-RH
-jw
-jw
+bZ
+rn
+rn
 "}
 (47,1,1) = {"
-jw
-jw
+rn
+rn
 nV
 eT
 pz
@@ -15029,13 +15026,13 @@ oZ
 Cl
 kt
 Qe
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (48,1,1) = {"
-jw
-jw
+rn
+rn
 nV
 Yq
 Gz
@@ -15091,13 +15088,13 @@ RW
 kQ
 kt
 kt
-jw
-jw
-jw
+rn
+rn
+rn
 "}
 (49,1,1) = {"
-jw
-jw
+rn
+rn
 uS
 nV
 nV
@@ -15120,10 +15117,10 @@ rg
 AO
 qh
 hg
-Yg
-jw
-jw
-jw
+SL
+rn
+rn
+rn
 AT
 Ov
 Ov
@@ -15136,13 +15133,13 @@ fy
 fy
 WD
 JX
-jw
-jw
-jw
-jw
-jw
-jw
-Mu
+rn
+rn
+rn
+rn
+rn
+rn
+SJ
 kt
 kt
 kt
@@ -15151,18 +15148,18 @@ kt
 kt
 kt
 kt
-he
-jw
-jw
-jw
-jw
+xP
+rn
+rn
+rn
+rn
 "}
 (50,1,1) = {"
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
 EH
 Cj
 jG
@@ -15182,50 +15179,50 @@ lc
 hr
 sV
 Gl
-nY
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-nS
-jw
-jw
-jw
-jw
-jw
-BP
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+EP
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Gv
+rn
+rn
+rn
+rn
+rn
+cA
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (51,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
 Cj
 tW
 JA
@@ -15235,8 +15232,8 @@ eR
 NX
 Cj
 EH
-jw
-jw
+rn
+rn
 FT
 bi
 Gs
@@ -15244,50 +15241,50 @@ Vy
 hr
 XH
 FT
-zY
-uc
-MR
-jw
-jw
-jw
-jw
-jw
-tn
+Gk
+dX
+yl
+rn
+rn
+rn
+rn
+rn
+GX
 AX
-vJ
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+nA
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (52,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-Pk
+rn
+rn
+rn
+rn
+rn
+iw
 EH
 Cj
 sB
@@ -15296,9 +15293,9 @@ sB
 sB
 Cj
 EH
-jw
-jw
-jw
+rn
+rn
+rn
 FT
 Ka
 qS
@@ -15306,61 +15303,61 @@ Ka
 Ss
 ru
 FT
-Dv
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-nS
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+Ch
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+Gv
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (53,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 WX
 FT
 FT
@@ -15368,226 +15365,226 @@ Gl
 FT
 FT
 WX
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (54,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (55,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}
 (56,1,1) = {"
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
-jw
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 "}

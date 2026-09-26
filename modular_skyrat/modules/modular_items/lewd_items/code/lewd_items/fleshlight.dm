@@ -97,6 +97,7 @@
 	icon = 'modular_zubbers/icons/obj/toys/plushes.dmi'
 	icon_state = "cescrewsplush"
 	base_icon_state = "cescrewsplush"
+	plappable = FALSE //SPLURT EDIT - Already can plap
 
 /obj/item/toy/plush/fleshlight/screws/examine(mob/user)
 	. = ..()

@@ -39,11 +39,30 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/crashedship/aft)
+"bB" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/ruin/space/has_grav/crashedship/aft)
 "ck" = (
 /obj/effect/turf_decal/trimline/neutral/line,
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/crashedship/midship)
+"cz" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/spawner/random/maintenance/two,
+/obj/machinery/light/small/broken/directional/south,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "cE" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/command{
@@ -78,6 +97,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/mineral/plastitanium/airless,
 /area/ruin/space/has_grav/crashedship/fore)
+"do" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/ruin/space/has_grav/crashedship/aft)
 "dD" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
@@ -86,16 +110,6 @@
 /obj/item/stack/ore/glass,
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav/crashedship/fore)
-"eh" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning,
-/obj/effect/turf_decal/trimline/blue/line{
-	dir = 1
-	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/crashedship/aft)
 "eC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -133,12 +147,6 @@
 "fQ" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/crashedship/aft)
-"fY" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/pod/dark,
-/area/ruin/space/has_grav/crashedship/aft)
 "gC" = (
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
 	pixel_x = 11;
@@ -159,19 +167,6 @@
 /obj/item/stack/ore/gold,
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav/crashedship/fore)
-"hI" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning,
-/obj/effect/turf_decal/trimline/blue/line{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/obj/effect/spawner/random/maintenance/two,
-/obj/machinery/light/small/broken/directional/south,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/crashedship/aft)
 "ip" = (
 /obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron,
@@ -197,9 +192,25 @@
 "ja" = (
 /turf/closed/mineral/random/high_chance,
 /area/ruin/space/has_grav/crashedship/big_asteroid)
+"jn" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/door_seal,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "kc" = (
 /turf/template_noop,
 /area/template_noop)
+"kf" = (
+/obj/structure/lattice,
+/obj/structure/disposalpipe/broken{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "km" = (
 /obj/structure/girder/displaced,
 /obj/effect/mapping_helpers/broken_floor,
@@ -216,13 +227,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/crashedship/fore)
-"le" = (
-/obj/structure/lattice,
-/obj/structure/disposalpipe/broken{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "lf" = (
 /obj/structure/cable,
 /obj/machinery/light/warm/directional/west,
@@ -317,6 +321,14 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/crashedship/fore)
+"ou" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/line,
+/obj/structure/closet/firecloset,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "oM" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 1
@@ -413,14 +425,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/crashedship/midship)
-"qB" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/line,
-/obj/structure/closet/firecloset,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/crashedship/aft)
 "qI" = (
 /obj/item/stack/ore/silver,
 /turf/open/misc/asteroid,
@@ -440,6 +444,14 @@
 /obj/item/chair,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/crashedship/fore)
+"rv" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/line,
+/obj/effect/spawner/random/structure/tank_holder,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "rX" = (
 /obj/item/stack/rods,
 /obj/structure/lattice,
@@ -568,6 +580,15 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/crashedship/midship)
+"xn" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/line,
+/obj/machinery/atmospherics/components/unary/portables_connector/layer4,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "xy" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/large,
@@ -583,6 +604,14 @@
 "xJ" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark/airless,
+/area/ruin/space/has_grav/crashedship/aft)
+"xL" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/line,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/crashedship/aft)
 "xU" = (
 /obj/effect/turf_decal/delivery,
@@ -794,6 +823,16 @@
 	dir = 5
 	},
 /area/ruin/space/has_grav/crashedship/aft)
+"DG" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/crashedship/aft)
 "DY" = (
 /obj/item/pen/fountain,
 /turf/open/misc/asteroid,
@@ -826,14 +865,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/crashedship/midship)
-"EW" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/obj/machinery/door/airlock/grunge{
-	name = "Emergency Supplies"
-	},
-/turf/open/floor/pod/dark,
-/area/ruin/space/has_grav/crashedship/aft)
 "Ff" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -854,15 +885,6 @@
 /turf/open/floor/iron/textured_edge{
 	dir = 1
 	},
-/area/ruin/space/has_grav/crashedship/aft)
-"Fy" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/line,
-/obj/machinery/atmospherics/components/unary/portables_connector/layer4,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/pod/light,
 /area/ruin/space/has_grav/crashedship/aft)
 "FP" = (
 /obj/effect/spawner/random/maintenance,
@@ -1145,15 +1167,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/crashedship/midship)
-"Pb" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning,
-/obj/effect/turf_decal/trimline/blue/line{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/door_seal,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/crashedship/aft)
 "Ph" = (
 /obj/effect/turf_decal/delivery/white{
 	color = "#52B4E9"
@@ -1211,28 +1224,12 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/crashedship/midship)
-"TP" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/line,
-/obj/effect/spawner/random/structure/tank_holder,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/crashedship/aft)
 "Uc" = (
 /obj/effect/turf_decal/trimline/yellow/filled/end{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/crashedship/aft)
-"Uk" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/line,
-/obj/structure/chair/comfy/shuttle,
-/turf/open/floor/pod/light,
 /area/ruin/space/has_grav/crashedship/aft)
 "Uz" = (
 /turf/closed/mineral/gibtonite,
@@ -1254,6 +1251,14 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/crashedship/midship)
+"UO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/door/airlock/grunge{
+	name = "Emergency Supplies"
+	},
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/ruin/space/has_grav/crashedship/aft)
 "US" = (
 /obj/machinery/light/broken/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
@@ -1337,11 +1342,6 @@
 	},
 /turf/open/floor/bamboo,
 /area/ruin/space/has_grav/crashedship/fore)
-"Yw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/turf/open/floor/pod/dark,
-/area/ruin/space/has_grav/crashedship/aft)
 "YU" = (
 /obj/item/stack/rods,
 /turf/open/misc/asteroid,
@@ -1625,9 +1625,9 @@ kc
 kc
 kc
 uF
-TP
-fY
-eh
+rv
+bB
+DG
 uF
 kc
 WN
@@ -1653,9 +1653,9 @@ kc
 av
 NM
 uF
-Fy
+xn
 zA
-hI
+cz
 uF
 qO
 lG
@@ -1681,9 +1681,9 @@ uF
 WN
 WN
 uF
-Uk
+xL
 mu
-Pb
+jn
 uF
 WN
 kc
@@ -1709,8 +1709,8 @@ uF
 Hb
 Hb
 uF
-qB
-Yw
+ou
+do
 uF
 uF
 qO
@@ -1738,7 +1738,7 @@ FY
 tn
 uF
 uF
-EW
+UO
 uF
 xJ
 lG
@@ -2073,7 +2073,7 @@ rm
 UC
 rb
 HT
-le
+kf
 pZ
 WN
 WN

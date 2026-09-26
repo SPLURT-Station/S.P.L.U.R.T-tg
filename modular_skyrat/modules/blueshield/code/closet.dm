@@ -23,7 +23,7 @@
 	new /obj/item/clothing/glasses/hud/health/sunglasses(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/glasses/sunglasses/chemical(src)
-	new /obj/item/clothing/glasses/hud/gun_permit/sunglasses(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses/guard/customs(src)
 
 /* SPLURT REMOVAL
 /obj/structure/closet/secure_closet/blueshield
@@ -35,6 +35,7 @@
 /obj/structure/closet/secure_closet/blueshield/New()
 	..()
 	new /obj/item/storage/briefcase/secure(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses/guard/blueshield(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/assembly/flash/handheld(src)

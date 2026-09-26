@@ -25,8 +25,6 @@
 #define TRAIT_FLUTTER			"flutter"
 /// Trait for quirk: Nudist
 #define TRAIT_NUDIST			"nudist"
-/// Trait for quirk: Clothes Eater
-#define TRAIT_CLOTH_EATER		"cloth_eater"
 /// Trait for quirk: Werewolf
 #define TRAIT_WEREWOLF			"werewolf"
 /// Trait for quirk: Buns of Steel

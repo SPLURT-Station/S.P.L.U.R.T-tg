@@ -1,3 +1,7 @@
+//Pistol as in anything that is compact and fired one handed
+/obj/item/gun/ballistic/revolver/protector_revolver
+	fire_delay = 4 //Remove this if the upstream ever bothers to address it.
+
 /obj/item/gun/ballistic/automatic/pistol/m1911/gold
 	name = "Gold-Trimmed M1911"
 	desc = "A classic .460 ceres handgun with a small magazine capacity. Now much more expensive for those antique collectors!"

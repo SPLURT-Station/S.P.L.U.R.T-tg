@@ -63,6 +63,7 @@
 #define SEC_DEPT_MEDICAL "Medical"
 #define SEC_DEPT_SCIENCE "Science"
 #define SEC_DEPT_SUPPLY "Supply"
+#define SEC_DEPT_SERVICE "Service" // SPLRUT EDIT ADD, Cause why not.
 
 // Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_LIVING "Living"
@@ -167,6 +168,11 @@
 #define LOADOUT_FLAG_GREYSCALING_ALLOWED (1<<2)
 /// Allows the item to be renamed by the player.
 #define LOADOUT_FLAG_ALLOW_NAMING (1<<3)
+// BUBBER EDIT ADDITION START - Automatic reskin detection
+/// Prevents automatic detection of reskin support on this loadout item.
+/// Use when the item inherits a reskin component whose skins don't suit it, or when its skins are deliberately gated in game.
+#define LOADOUT_FLAG_BLOCK_RESKIN (1<<4)
+// BUBBER EDIT ADDITION END
 
 // Loadout item info keys
 // Changing these will break existing loadouts

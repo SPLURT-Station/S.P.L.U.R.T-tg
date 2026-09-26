@@ -477,7 +477,7 @@
 	for(var/obj/item/organ/genital/genital in to_update)
 		call(/datum/reagent/drug/aphrodisiac::update_appearance())(human_self, genital)
 
-GAME_VERB_PROC_SRC_DESC(/mob/living, interact_with, view(usr.client), "Interact With", "Perform an interaction with someone.", "IC")
+GAME_VERB_PROC_SRC_DESC(/mob/living, interact_with, view(), "Interact With", "Perform an interaction with someone.", "IC")
 	var/datum/component/interactable/menu = GetComponent(/datum/component/interactable)
 	if(!menu)
 		to_chat(src, span_warning("You must have done something really bad to not have an interaction component."))

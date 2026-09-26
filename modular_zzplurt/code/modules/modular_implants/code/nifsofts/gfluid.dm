@@ -19,7 +19,7 @@
 	background_icon_state = "bg_tech"
 	desc = "Allows the user to induce their genitals into producing a specific reagent. Will prevent harmful liquids from being accepted as a genital fluid replacement."
 
-/datum/action/genital_fluid_infuse/Trigger(trigger_flags)
+/datum/action/genital_fluid_infuse/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	if(!.)
 		return

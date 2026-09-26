@@ -80,3 +80,7 @@
 	item_path = /obj/item/balloon_mallet/mace
 	ckeywhitelist = list("fenrir2116")
 
+/datum/loadout_item/toys/aurumplush
+	name = "Gilded Synth plushie"
+	item_path = /obj/item/toy/plush/aurumplush
+	ckeywhitelist = null

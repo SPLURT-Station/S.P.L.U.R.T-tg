@@ -82,7 +82,7 @@ GLOBAL_DATUM_INIT(saliith_plushie, /obj/item/toy/plush/lizard_plushie/saliith, n
 
 	return ..()
 
-/obj/item/toy/plush/lizard_plushie/saliith/attackby(obj/item/item_used, mob/living/user, params)
+/obj/item/toy/plush/lizard_plushie/saliith/attackby(obj/item/item_used, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(item_used.get_sharpness())
 		visible_message(span_warning("[src] knocks \the [item_used] out of [user]'s hands!"), span_warning("[src] knocks \the [item_used] out of your hands!"))
 		user.dropItemToGround(item_used)
@@ -101,7 +101,7 @@ GLOBAL_DATUM_INIT(saliith_plushie, /obj/item/toy/plush/lizard_plushie/saliith, n
 
 	return ..()
 
-/obj/item/toy/plush/lizard_plushie/saliith/ex_act(severity, target, origin)
+/obj/item/toy/plush/lizard_plushie/saliith/ex_act(severity, target)
 	return
 
 /obj/item/toy/plush/love(obj/item/toy/plush/Kisser, mob/living/user)
