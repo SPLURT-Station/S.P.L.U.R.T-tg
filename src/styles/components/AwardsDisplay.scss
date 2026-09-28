@@ -1,0 +1,38 @@
+.awards-container {
+  margin: 20px 0;
+  padding: 15px;
+  background: #1e1f22;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.awards-container h3 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.awards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.award-item {
+  display: flex;
+  align-items: center;
+  background: #2a2d33;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.award-emoji {
+  margin-right: 5px;
+  font-size: 1.1rem;
+}
+
+.award-count {
+  color: #a3a6aa;
+}
