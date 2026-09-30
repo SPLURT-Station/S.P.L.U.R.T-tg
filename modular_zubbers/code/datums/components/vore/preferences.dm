@@ -49,7 +49,8 @@
 /datum/vore_preferences/New(client/C)
 	owner = C
 	savefile = new("[get_player_save_folder(C.ckey)]/vore.json")
-	pref_map = savefile.get_entry("vore", list())
+	var/saved_pref_map = savefile.get_entry("vore", list())
+	pref_map = islist(saved_pref_map) ? saved_pref_map : list()
 	reset_belly_layout_slot()
 
 /datum/vore_preferences/proc/reset_belly_layout_slot()
@@ -78,7 +79,8 @@
 	return data
 
 /datum/vore_preferences/proc/get_slot_metadata()
-	return savefile.get_entry("slot_metadata", list())
+	var/slot_metadata = savefile.get_entry("slot_metadata", list())
+	return islist(slot_metadata) ? slot_metadata : list()
 
 /datum/vore_preferences/proc/set_slot_metadata(list/data)
 	savefile.set_entry("slot_metadata", data)
@@ -96,7 +98,8 @@
 	set_slot_metadata(slot_metadata)
 
 /datum/vore_preferences/proc/get_lookup_table()
-	return savefile.get_entry("slot_lookup_table", list())
+	var/lookup_table = savefile.get_entry("slot_lookup_table", list())
+	return islist(lookup_table) ? lookup_table : list()
 
 /datum/vore_preferences/proc/set_lookup_table(list/data)
 	savefile.set_entry("slot_lookup_table", data)
@@ -185,12 +188,16 @@
 	return value
 
 /datum/vore_preferences/proc/write_preference(datum/vore_pref/preference, preference_value)
+	if(!istype(preference))
+		return FALSE
 	var/new_value = preference.deserialize(preference_value, src)
-	var/success = preference.write(pref_map, new_value)
+	if(!preference.is_valid(new_value))
+		return FALSE
+	if(!preference.write(pref_map, new_value))
+		return FALSE
 	save()
-	if(success)
-		preference.on_change(src, new_value)
-	return success
+	preference.on_change(src, new_value)
+	return TRUE
 
 /datum/vore_preferences/proc/save()
 	savefile.set_entry("vore", pref_map)
@@ -301,13 +308,13 @@ GLOBAL_LIST_INIT(vore_preference_entries_by_key, init_vore_preference_entries_by
 	abstract_type = /datum/vore_pref/trinary
 
 /datum/vore_pref/trinary/is_valid(value)
-	return isnum(value) && value >= PREF_TRINARY_NEVER && value <= PREF_TRINARY_ALWAYS
+	return isnum(value) && (value == PREF_TRINARY_NEVER || value == PREF_TRINARY_PROMPT || value == PREF_TRINARY_ALWAYS)
 
 /datum/vore_pref/trinary/deserialize(input, datum/vore_preferences/preferences)
-	return clamp(input, PREF_TRINARY_NEVER, PREF_TRINARY_ALWAYS)
+	return is_valid(input) ? input : null
 
 /datum/vore_pref/trinary/serialize(input)
-	return clamp(input, PREF_TRINARY_NEVER, PREF_TRINARY_ALWAYS)
+	return input
 
 /datum/vore_pref/trinary/create_default_value()
 	return PREF_TRINARY_PROMPT
@@ -325,10 +332,10 @@ GLOBAL_LIST_INIT(vore_preference_entries_by_key, init_vore_preference_entries_by
 	return isnum(value) && (value == FALSE || value == TRUE)
 
 /datum/vore_pref/toggle/deserialize(input, datum/vore_preferences/preferences)
-	return !!input
+	return is_valid(input) ? input : null
 
 /datum/vore_pref/toggle/serialize(input)
-	return !!input
+	return input
 
 /datum/vore_pref/toggle/create_default_value()
 	return TRUE
