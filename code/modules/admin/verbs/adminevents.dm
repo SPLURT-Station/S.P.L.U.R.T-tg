@@ -34,7 +34,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(cmd_admin_headset_message, R_ADMIN, "Headset Messag
 
 	if(ishuman(target))
 		human_recipient = target
-		if(!istype(human_recipient.ears, /obj/item/radio/headset) && !istype(human_recipient.ears_extra, /obj/item/radio/headset)) //Splurt edit - allows admin headset messages to work when headset is in the right ear.
+		if(!istype(human_recipient.ears, /obj/item/radio/headset) && !istype(human_recipient.ears_extra, /obj/item/radio/headset)) //Splurt edit - works with both ears now
 			to_chat(usr, "The person you are trying to contact is not wearing a headset.", confidential = TRUE)
 			return
 	else if(issilicon(target))
