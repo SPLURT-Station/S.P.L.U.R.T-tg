@@ -163,7 +163,7 @@
 #include "container_sanity.dm"
 #include "crafting.dm"
 #include "crayons.dm"
-// #include "create_and_destroy.dm" // SPLURT EDIT - This fucking piece of shit never passes or provides useful failing info
+#include "create_and_destroy.dm"
 #include "damp_rag.dm"
 #include "dcs_check_list_arguments.dm"
 #include "dcs_get_id_from_elements.dm"
