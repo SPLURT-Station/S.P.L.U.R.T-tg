@@ -20,11 +20,7 @@
 	var/turf/holder_turf = get_turf(quirk_holder)
 	var/obj/structure/chair/spawn_chair = locate() in holder_turf
 
-	var/obj/vehicle/ridden/wheelchair/wheels
-	if(client_source?.get_award_status(/datum/award/score/hardcore_random) >= 5000) //More than 5k score? you unlock the gamer wheelchair.
-		wheels = new /obj/vehicle/ridden/wheelchair/gold(holder_turf)
-	else
-		wheels = new(holder_turf)
+	var/obj/vehicle/ridden/wheelchair/wheels = create_wheelchair(client_source, holder_turf) // SPLURT EDIT - Allow starting wheelchair quirks to supply the chair.
 	if(spawn_chair) // Makes spawning on the arrivals shuttle more consistent looking
 		wheels.setDir(spawn_chair.dir)
 
@@ -40,6 +36,13 @@
 	var/amputee = GLOB.paraplegic_choice[client_source?.prefs?.read_preference(/datum/preference/choiced/paraplegic)]
 	if(amputee)
 		delete_legs(quirk_holder)
+
+// SPLURT EDIT START - Starting wheelchair selection hook.
+/datum/quirk/paraplegic/proc/create_wheelchair(client/client_source, turf/spawn_turf)
+	if(client_source?.get_award_status(/datum/award/score/hardcore_random) >= 5000) //More than 5k score? you unlock the gamer wheelchair.
+		return new /obj/vehicle/ridden/wheelchair/gold(spawn_turf)
+	return new /obj/vehicle/ridden/wheelchair(spawn_turf)
+// SPLURT EDIT END
 
 /datum/quirk/paraplegic/proc/delete_legs(mob/living/carbon/human/human_holder)
 	qdel(human_holder.get_item_by_slot(ITEM_SLOT_FEET))
