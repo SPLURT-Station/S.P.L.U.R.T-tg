@@ -1,9 +1,10 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
 	// Since this unit test takes so damn long, we split it up across all runners
-	test_flags = 0 // SPLURT Edit - Disable this test. Original: parent_type::test_flags & ~UNIT_TEST_DEBUG_MAP_ONLY
+	test_flags = parent_type::test_flags & ~UNIT_TEST_DEBUG_MAP_ONLY
 	//You absolutely must run after (almost) everything else
 	priority = TEST_CREATE_AND_DESTROY
+	times_to_run = 0 // SPLURT EDIT - Don't run this test
 
 GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
