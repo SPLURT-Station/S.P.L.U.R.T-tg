@@ -30,6 +30,8 @@
 	)
 	// Standard resize percentage, makes the borg the same size an expander would have made them unless specified otherwise
 	var/resize_amount = 160
+	/// A starting preference supplies its size without a second prompt or installation animation.
+	var/use_preset_size = FALSE
 
 // Lets a roboticist pick the size for the borg itself if they know about the feature, will also let them make ai shells have a setting
 /obj/item/borg/upgrade/resize/attack_self(mob/user, modifiers)
@@ -69,7 +71,10 @@
 	// SKYRAT EDIT ADDITION END
 
 	// Let's the borg player themselves pick what size they want to be in percentage.
-	resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing (70-250)","Resizer size setting")
+	if(!use_preset_size)
+		resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing (70-250)","Resizer size setting")
+	else
+		resize_amount = sanitize_integer(resize_amount, 70, 250, 100)
 	// We do not trust the input given, no matter if it's ran through tgui first, so we are sanitizing it to prevent any possible malicious inputs
 	sanitize_integer(resize_amount, 70, 250, 160)
 
@@ -81,6 +86,10 @@
 	if(resize_amount <= 70)
 		resize_amount = 70
 	to_chat(borg, span_notice("Resize set to [resize_amount]%"))
+	if(use_preset_size)
+		borg.resized = TRUE
+		borg.update_transform(resize_amount / 100)
+		return TRUE
 
 	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	var/prev_lockcharge = borg.lockcharge
@@ -110,6 +119,8 @@
 	if(!.)
 		return .
 	if (borg.resized)
+		if(use_preset_size)
+			borg.update_transform(100 / resize_amount)
 		borg.resized = FALSE
 
 /mob/living/silicon/robot/ResetModel()
@@ -119,6 +130,32 @@
 		resized = FALSE
 
 	. = ..()
+
+/// Apply after the model's transformation animation releases TRAIT_NO_TRANSFORM.
+/obj/item/robot_model/do_transform_animation()
+	. = ..()
+	var/mob/living/silicon/robot/borg = loc
+	if(!QDELETED(borg) && borg.model == src)
+		borg.apply_preferred_cyborg_size()
+
+/// Install one ordinary resize upgrade so reset/removal uses the existing upgrade lifecycle.
+/mob/living/silicon/robot/proc/apply_preferred_cyborg_size(datum/preferences/preferences)
+	if(!preferences)
+		var/client/player = GET_CLIENT(src)
+		preferences = player?.prefs
+	if(!preferences || shell || !has_model() || resized)
+		return FALSE
+	var/preferred_size = preferences.read_preference(/datum/preference/numeric/cyborg_size)
+	if(preferred_size == 100)
+		return FALSE
+	var/obj/item/borg/upgrade/resize/resizer = new(src)
+	resizer.resize_amount = preferred_size
+	resizer.use_preset_size = TRUE
+	if(!resizer.action(src, src))
+		qdel(resizer)
+		return FALSE
+	add_to_upgrades(resizer)
+	return TRUE
 
 // Borg Resize Module Design
 /datum/design/borg_upgrade_resize

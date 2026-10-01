@@ -382,6 +382,7 @@
 #include "~skyrat\proteans.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
+#include "~splurt\cyborg_size.dm"
 #include "~splurt\underwear_items.dm"
 #include "~zubbers\vitezstvi_turret_flags.dm"
 // SPLURT EDIT END
