@@ -34,6 +34,12 @@
 	// Standard resize percentage, makes the borg the same size an expander would have made them unless specified otherwise
 	var/resize_amount = 160
 
+// Lets a roboticist pick the size for the borg itself if they know about the feature, will also let them make ai shells have a setting
+/obj/item/borg/upgrade/resize/attack_self(mob/user, modifiers)
+	resize_amount = tgui_input_number(user, "Choose the percentage size of Resizing ([CYBORG_SIZE_MIN]-[CYBORG_SIZE_MAX])","Resizer size setting")
+	resize_amount = isnum(resize_amount) ? clamp(resize_amount, CYBORG_SIZE_MIN, CYBORG_SIZE_MAX) : CYBORG_SIZE_DEFAULT
+	to_chat(user, span_notice("Expand set to [resize_amount]%."))
+
 /obj/item/borg/upgrade/resize/action(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
 	if(!. || HAS_TRAIT(borg, TRAIT_NO_TRANSFORM))
