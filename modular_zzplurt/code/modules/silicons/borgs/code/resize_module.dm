@@ -19,10 +19,6 @@
 #define CYBORG_SIZE_MAX 250
 #define CYBORG_SIZE_DEFAULT 160
 
-/mob/living/silicon/robot
-	// If the borg has been resized already, utilized to prevent people from inserting yet another borg resizer module and possibly causing sprite size issues.
-	var/resized = FALSE
-
 /obj/item/borg/upgrade/resize
 	name = "borg resizer"
 	desc = "A cyborg resizer, it makes a cyborg grow/shrink to different sizes." //Could probably use a different description
@@ -54,10 +50,6 @@
 		to_chat(usr, span_warning("This unit already has a shrink module installed!"))
 		return FALSE
 
-	if(borg.resized)
-		to_chat(usr, span_warning("This unit already has an resizing module installed!"))
-		return FALSE
-
 	if(TRAIT_R_EXPANDER_BLOCKED in borg.model.model_features)
 		to_chat(usr, span_warning("This unit is unable to equip an resize module!"))
 		return FALSE
@@ -87,23 +79,13 @@
 		borg.SetLockdown(FALSE)
 	borg.set_anchored(FALSE)
 	REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
-	borg.resized = TRUE
-	borg.update_transform(resize_amount/100) // Convert percent to ratio
+	borg.update_transform(borg.update_transform(borg.current_size > 0 ? (resize_amount*0.01 / borg.current_size) : 1))
 
 /obj/item/borg/upgrade/resize/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
 	if(!.)
 		return .
-	if (borg.resized)
-		borg.resized = FALSE
-
-/mob/living/silicon/robot/ResetModel()
-	if (resized)
-		// Resets the transformation, I do not FULLY understand how this works but this will make the robot ALWAYS return to original size, no matter the size inputted.
-		transform = null
-		resized = FALSE
-
-	. = ..()
+	borg.update_size_pref()
 
 // Borg Resize Module Design
 /datum/design/borg_upgrade_resize
