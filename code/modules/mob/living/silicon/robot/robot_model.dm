@@ -370,6 +370,8 @@
 	// SPLURT ADDITION START - Cyborg Size
 	var/cyborg_size = cyborg.client?.prefs?.read_preference(/datum/preference/numeric/cyborg_size)
 	if(cyborg_size && cyborg_size != 1)
+		if(cyborg.is_security_cyborg_role())
+			cyborg_size = max(cyborg_size, 1) // Don't let secborgs be small
 		cyborg.update_transform(cyborg_size)
 	// SPLURT ADDITION END - Cyborg Size
 

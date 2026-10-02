@@ -58,7 +58,7 @@
 
 	// Let's the borg player themselves pick what size they want to be in percentage.
 	resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing ([CYBORG_SIZE_MIN]-[CYBORG_SIZE_MAX])","Resizer size setting")
-	resize_amount = clamp(isnum(resize_amount) ? resize_amount : CYBORG_SIZE_DEFAULT, CYBORG_SIZE_MIN, CYBORG_SIZE_MAX)
+	resize_amount = isnum(resize_amount) ? clamp(resize_amount, CYBORG_SIZE_MIN, CYBORG_SIZE_MAX) : CYBORG_SIZE_DEFAULT
 	to_chat(borg, span_notice("Resize set to [resize_amount]%"))
 
 	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
