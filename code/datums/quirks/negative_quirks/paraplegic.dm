@@ -8,6 +8,7 @@
 	medical_record_text = "Patient has an untreatable impairment in motor function in the lower extremities."
 	hardcore_value = 15
 	mail_goodies = list(/obj/vehicle/ridden/wheelchair/motorized) //yes a fullsized unfolded motorized wheelchair does fit
+	var/wheel_chair_type = /obj/vehicle/ridden/wheelchair // SPLURT EDIT - Let chair type be overridden
 
 /datum/quirk_constant_data/paraplegic
 	associated_typepath = /datum/quirk/paraplegic
@@ -21,10 +22,10 @@
 	var/obj/structure/chair/spawn_chair = locate() in holder_turf
 
 	var/obj/vehicle/ridden/wheelchair/wheels
-	if(client_source?.get_award_status(/datum/award/score/hardcore_random) >= 5000) //More than 5k score? you unlock the gamer wheelchair.
+	if(wheel_chair_type == /obj/vehicle/ridden/wheelchair && client_source?.get_award_status(/datum/award/score/hardcore_random) >= 5000) //More than 5k score? you unlock the gamer wheelchair. SPLURT EDIT - Add check for default wheelchair path
 		wheels = new /obj/vehicle/ridden/wheelchair/gold(holder_turf)
 	else
-		wheels = new(holder_turf)
+		wheels = new wheel_chair_type(holder_turf) // SPLURT EDIT - Use path override
 	if(spawn_chair) // Makes spawning on the arrivals shuttle more consistent looking
 		wheels.setDir(spawn_chair.dir)
 
