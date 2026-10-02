@@ -31,6 +31,8 @@
 /datum/unit_test/motorized_wheelchair/standalone/Run()
 	var/mob/living/carbon/human/holder = allocate(/mob/living/carbon/human/consistent)
 	holder.add_quirk(/datum/quirk/motorized_wheelchair)
+	var/datum/quirk/motorized_wheelchair/quirk = holder.get_quirk(/datum/quirk/motorized_wheelchair)
+	TEST_ASSERT_EQUAL(quirk.value, 3, "The motorized wheelchair should cost three positive quirk points.")
 	var/obj/vehicle/ridden/wheelchair/motorized/wheels = check_wheelchair(holder)
 	TEST_ASSERT_NOTNULL(wheels, "The standalone quirk should supply a working wheelchair.")
 	TEST_ASSERT_EQUAL(wheels.power_cell.charge, wheels.power_cell.maxcharge, "The starting power cell should be fully charged.")

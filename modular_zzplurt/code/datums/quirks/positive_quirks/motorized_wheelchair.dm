@@ -2,7 +2,7 @@
 	name = "Motorized Wheelchair"
 	desc = "You start with a motorized wheelchair equipped with a charged cell and basic parts."
 	icon = FA_ICON_CAR_BATTERY
-	value = 2
+	value = 3
 	gain_text = span_notice("Your motorized wheelchair is ready.")
 	medical_record_text = "Patient uses a motorized wheelchair for mobility."
 	/// Reuse the starting wheelchair when Paraplegic is applied after this quirk.
