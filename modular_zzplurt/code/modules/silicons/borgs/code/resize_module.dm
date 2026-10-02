@@ -15,6 +15,9 @@
  */
 
 #define TECHWEB_NODE_BORG_OLD_SIZE "old_size"
+#define CYBORG_SIZE_MIN 70
+#define CYBORG_SIZE_MAX 250
+#define CYBORG_SIZE_DEFAULT 160
 
 /mob/living/silicon/robot
 	// If the borg has been resized already, utilized to prevent people from inserting yet another borg resizer module and possibly causing sprite size issues.
@@ -30,19 +33,6 @@
 	)
 	// Standard resize percentage, makes the borg the same size an expander would have made them unless specified otherwise
 	var/resize_amount = 160
-
-// Lets a roboticist pick the size for the borg itself if they know about the feature, will also let them make ai shells have a setting
-/obj/item/borg/upgrade/resize/attack_self(mob/user, modifiers)
-	if(src && !user.incapacitated && in_range(user,src))
-		resize_amount = resize_amount = tgui_input_number(user, "Choose the percentage size of Resizing (70-250)","Resizer size setting")
-		if(src && resize_amount && !user.incapacitated && in_range(user,src))
-			sanitize_integer(resize_amount, 70, 250, 160) //sanitize_integer won't work!
-			if(resize_amount >= 250 || !isnum(resize_amount) || resize_amount == null)
-				resize_amount = 250
-			if(resize_amount <= 70)
-				resize_amount = 70
-			to_chat(user, span_notice("Expand set to [resize_amount]%."))
-			return resize_amount
 
 /obj/item/borg/upgrade/resize/action(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
@@ -62,24 +52,13 @@
 		to_chat(usr, span_warning("This unit already has an resizing module installed!"))
 		return FALSE
 
-	// SKYRAT EDIT ADDITION BEGIN
 	if(TRAIT_R_EXPANDER_BLOCKED in borg.model.model_features)
 		to_chat(usr, span_warning("This unit is unable to equip an resize module!"))
 		return FALSE
-	// SKYRAT EDIT ADDITION END
 
 	// Let's the borg player themselves pick what size they want to be in percentage.
-	resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing (70-250)","Resizer size setting")
-	// We do not trust the input given, no matter if it's ran through tgui first, so we are sanitizing it to prevent any possible malicious inputs
-	sanitize_integer(resize_amount, 70, 250, 160)
-
-	// 250 is the current limit of what we allow for. A Drakeborg at such a size would be almost 5 tiles long.
-	if(resize_amount >= 250 || !isnum(resize_amount) || resize_amount == null || resize_amount <= 0)
-		resize_amount = 250
-
-	// Agreed upon limit to prevent power gaming or people utilizing smaller borg sizes to make themselves harder to hit.
-	if(resize_amount <= 70)
-		resize_amount = 70
+	resize_amount = tgui_input_number(borg, "Choose the percentage size of Resizing ([CYBORG_SIZE_MIN]-[CYBORG_SIZE_MAX])","Resizer size setting")
+	resize_amount = clamp(isnum(resize_amount) ? resize_amount : CYBORG_SIZE_DEFAULT, CYBORG_SIZE_MIN, CYBORG_SIZE_MAX)
 	to_chat(borg, span_notice("Resize set to [resize_amount]%"))
 
 	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
@@ -103,7 +82,7 @@
 	borg.set_anchored(FALSE)
 	REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	borg.resized = TRUE
-	borg.update_transform(resize_amount/100) // Divide by 100 to reach usable number so 160% / 100 will become 1.6 and 250% / 100 will be 2.5%
+	borg.update_transform(resize_amount/100) // Convert percent to ratio
 
 /obj/item/borg/upgrade/resize/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
@@ -160,3 +139,6 @@
 	hidden = TRUE
 
 #undef TECHWEB_NODE_BORG_OLD_SIZE
+#undef CYBORG_SIZE_MIN
+#undef CYBORG_SIZE_MAX
+#undef CYBORG_SIZE_DEFAULT

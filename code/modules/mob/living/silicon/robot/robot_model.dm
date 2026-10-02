@@ -337,7 +337,7 @@
 
 /obj/item/robot_model/proc/do_transform_delay()
 	var/mob/living/silicon/robot/cyborg = loc
-	do_smoke(1, 2, src, get_turf(src), /obj/effect/particle_effect/fluid/smoke) // SPLURT EDIT - CYBORGS - Some modules have no transformation animation and we need to hide that
+	do_smoke(1, src, get_turf(src), /obj/effect/particle_effect/fluid/smoke) // SPLURT EDIT - CYBORGS - Some modules have no transformation animation and we need to hide that
 	sleep(0.1 SECONDS)
 	// flick("[cyborg_base_icon]_transform", cyborg) // SPLURT EDIT - CYBORGS
 	ADD_TRAIT(cyborg, TRAIT_NO_TRANSFORM, REF(src))
@@ -366,6 +366,12 @@
 	cyborg.update_icons()
 	cyborg.notify_ai(AI_NOTIFICATION_NEW_MODEL)
 	SSblackbox.record_feedback("tally", "cyborg_modules", 1, cyborg.model)
+
+	// SPLURT ADDITION START - Cyborg Size
+	var/cyborg_size = cyborg.client?.prefs?.read_preference(/datum/preference/numeric/cyborg_size)
+	if(cyborg_size && cyborg_size != 1)
+		cyborg.update_transform(cyborg_size)
+	// SPLURT ADDITION END - Cyborg Size
 
 /**
  * Checks if we are allowed to interact with a radial menu

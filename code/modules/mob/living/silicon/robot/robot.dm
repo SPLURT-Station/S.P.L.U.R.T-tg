@@ -67,6 +67,7 @@
 		if(wires.is_cut(WIRE_CAMERA))
 			builtInCamera.camera_enabled = FALSE
 	update_icons()
+
 	. = ..()
 
 	LoadComponent(/datum/component/bloodysoles/bot)
