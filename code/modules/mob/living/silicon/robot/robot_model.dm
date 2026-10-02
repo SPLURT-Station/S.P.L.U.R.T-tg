@@ -364,16 +364,9 @@
 	REMOVE_TRAIT(cyborg, TRAIT_NO_TRANSFORM, REF(src))
 	cyborg.updatehealth()
 	cyborg.update_icons()
+	cyborg.update_size_pref() // SPLURT EDIT - Cyborg size pref
 	cyborg.notify_ai(AI_NOTIFICATION_NEW_MODEL)
 	SSblackbox.record_feedback("tally", "cyborg_modules", 1, cyborg.model)
-
-	// SPLURT ADDITION START - Cyborg Size
-	var/cyborg_size = cyborg.client?.prefs?.read_preference(/datum/preference/numeric/cyborg_size)
-	if(cyborg_size && cyborg_size != 1)
-		if(cyborg.is_security_cyborg_role())
-			cyborg_size = max(cyborg_size, 1) // Don't let secborgs be small
-		cyborg.update_transform(cyborg_size)
-	// SPLURT ADDITION END - Cyborg Size
 
 /**
  * Checks if we are allowed to interact with a radial menu
