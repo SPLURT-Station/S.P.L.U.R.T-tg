@@ -688,7 +688,6 @@
 /obj/item/robot_model/security/do_transform_animation()
 	if(iscyborg(loc))
 		var/mob/living/silicon/robot/current_borg = loc
-
 		if(current_borg.model?.ensure_security_canine_modules())
 			current_borg.model.rebuild_modules()
 		if(current_borg.is_security_cyborg_role())
