@@ -30,6 +30,7 @@
 
 // Buff tirizene
 /datum/reagent/toxin/staminatoxin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	SHOULD_CALL_PARENT(FALSE)
 	var/stam_damage = 0.5 * data * metabolization_ratio * seconds_per_tick
 	if(affected_mob.adjust_stamina_loss(stam_damage, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
