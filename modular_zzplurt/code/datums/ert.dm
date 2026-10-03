@@ -141,6 +141,7 @@
 	gender = PLURAL
 	name = "medical security HUDSunglasses"
 	desc = "Sunglasses with a combined medical and security HUD."
+	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "sunhudmed"
 	flash_protect = FLASH_PROTECTION_FLASH
 	flags_cover = GLASSESCOVERSEYES
