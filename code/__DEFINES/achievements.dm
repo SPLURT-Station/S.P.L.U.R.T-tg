@@ -155,6 +155,12 @@
 ///Database ID for unlockable PDA themes, purely costmetic
 #define PDA_THEMES_SCORE "PDA Themes"
 
+///Database IDs for player medal tallies.
+#define MEDAL_STANDARD_SCORE "Medals Standard"
+#define MEDAL_SILVER_SCORE "Medals Silver"
+#define MEDAL_GOLD_SCORE "Medals Gold"
+#define MEDAL_PLASMA_SCORE "Medals Plasma"
+
 // Tourist related achievements and scores
 
 //centcom grades (achievement)

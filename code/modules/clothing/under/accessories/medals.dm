@@ -37,6 +37,16 @@
 	message_admins("<b>[key_name_admin(distinguished)]</b> was given the following commendation by <b>[key_name_admin(attacher)]</b>: [commendation_message]")
 	GLOB.commendations += "[awarder] awarded <b>[awarded_to]</b> the <span class='medaltext'>[name]</span>! \n- [commendation_message]"
 	SSblackbox.record_feedback("associative", "commendation", 1, list("commender" = "[awarder]", "commendee" = "[awarded_to]", "medal" = "[src]", "reason" = commendation_message))
+	if(distinguished.client)
+		var/static/list/medal_score_by_type = list(
+			"medal" = /datum/award/score/medals/standard,
+			"medal-silver" = /datum/award/score/medals/silver,
+			"medal-gold" = /datum/award/score/medals/gold,
+			"medal-plasma" = /datum/award/score/medals/plasma,
+		)
+		var/score_type = medal_score_by_type[medaltype]
+		if(score_type)
+			distinguished.client.give_award(score_type, distinguished)
 
 	return ..()
 
