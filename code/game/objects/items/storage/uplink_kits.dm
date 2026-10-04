@@ -188,7 +188,7 @@
 		KIT_NINJA = 1,
 		KIT_DARK_LORD = 1,
 		KIT_WHITE_WHALE_HOLY_GRAIL = 2,
-		KIT_MAD_SCIENTIST = 2,
+		KIT_MAD_SCIENTIST = 0, /// SPLURT EDIT REMOVAL - Mad Scientist weight reduced from 2 to 0
 		KIT_BEES = 1,
 		KIT_MR_FREEZE = 2,
 		KIT_DEAD_MONEY = 2,
