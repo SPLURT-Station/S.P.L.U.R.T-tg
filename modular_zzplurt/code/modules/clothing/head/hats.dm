@@ -293,3 +293,26 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	icon_state = "ntps_cap"
 	armor_type = /datum/armor/hats_hos
+
+/obj/item/clothing/head/tricorn
+	name = "tricorn pirate hat"
+	desc = "A classic tricorn pirate hat with three triangular sides of its brim pinned to its crown. This one is black and features a blue feather."
+	icon = 'modular_zzplurt/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/hats.dmi'
+	icon_state = "tricorn"
+	dog_fashion = null
+
+/obj/item/clothing/head/tricorn/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tricorn)
+
+/datum/atom_skin/tricorn
+	abstract_type = /datum/atom_skin/tricorn
+
+/datum/atom_skin/tricorn/default
+	preview_name = "Blue Feather"
+	new_icon_state = "tricorn"
+
+/datum/atom_skin/tricorn/red
+	preview_name = "Red Feather"
+	new_icon_state = "tricorn_red"
