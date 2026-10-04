@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 					to_chat(admin_client, "The person you are trying to contact is not human. Unsent message: [msg]")
 					return FALSE
 
-				if(!istype(selected_mob.ears, /obj/item/radio/headset))
+				if(!istype(selected_mob.ears, /obj/item/radio/headset) && !istype(selected_mob.ears_extra, /obj/item/radio/headset)) //Splurt edit - works with both ears now
 					to_chat(admin_client, "The person you are trying to contact is not wearing a headset. Unsent message: [msg]")
 					return FALSE
 
