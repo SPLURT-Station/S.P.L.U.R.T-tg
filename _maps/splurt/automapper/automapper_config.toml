@@ -2,7 +2,7 @@
 [templates.interlink_infinidorm]
 map_files = ["infinidorm_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
-required_map = "CentCom_skyrat_z2.dmm"
+required_map = "CentCom_bubber_z2.dmm"
 coordinates = [51, 208, 2]
 trait_name = "CentCom"
 
@@ -86,12 +86,20 @@ required_map = "Ouroboros.dmm"
 coordinates = [127, 107, 2]
 trait_name = "Station"
 
-# tramStation Infinidorm
-[templates.tramstation_infinidorm]
+# NorthStar Infinidorm
+[templates.northstar_infinidorm]
 map_files = ["infinidorm_north.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
+required_map = "north_star.dmm"
+coordinates = [99, 126, 1]
+trait_name = "Station"
+
+# tramStation Infinidorm
+[templates.tramstation_infinidorm]
+map_files = ["infinidorm_west.dmm"]
+directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "tramStation.dmm"
-coordinates = [71, 95, 1]
+coordinates = [45, 120, 2]
 trait_name = "Station"
 
 # VoidRaptor Infinidorm
