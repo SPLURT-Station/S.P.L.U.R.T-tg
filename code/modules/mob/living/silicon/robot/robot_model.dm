@@ -337,7 +337,7 @@
 
 /obj/item/robot_model/proc/do_transform_delay()
 	var/mob/living/silicon/robot/cyborg = loc
-	do_smoke(1, 2, src, get_turf(src), /obj/effect/particle_effect/fluid/smoke) // SPLURT EDIT - CYBORGS - Some modules have no transformation animation and we need to hide that
+	do_smoke(1, src, get_turf(src), /obj/effect/particle_effect/fluid/smoke) // SPLURT EDIT - CYBORGS - Some modules have no transformation animation and we need to hide that
 	sleep(0.1 SECONDS)
 	// flick("[cyborg_base_icon]_transform", cyborg) // SPLURT EDIT - CYBORGS
 	ADD_TRAIT(cyborg, TRAIT_NO_TRANSFORM, REF(src))
@@ -364,6 +364,7 @@
 	REMOVE_TRAIT(cyborg, TRAIT_NO_TRANSFORM, REF(src))
 	cyborg.updatehealth()
 	cyborg.update_icons()
+	cyborg.update_size_pref() // SPLURT EDIT - Cyborg size pref
 	cyborg.notify_ai(AI_NOTIFICATION_NEW_MODEL)
 	SSblackbox.record_feedback("tally", "cyborg_modules", 1, cyborg.model)
 
