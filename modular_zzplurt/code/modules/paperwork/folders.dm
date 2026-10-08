@@ -24,7 +24,7 @@
 
 /obj/item/folder/centcom/medical
 	desc = "A emerald green folder stamped \"Central Command's Medical Division\""
-	icon_state = "folder_centcommed"
+	icon_state = "folder_centcomdoc"
 
 /obj/item/folder/centcom/engineering
 	desc = "A emerald green folder stamped \"Central Command's Engineering Division\""

@@ -301,7 +301,7 @@
 /obj/item/toy/figure/commander/mod
 	name = "\improper special edition centcom commander figure"
 	desc = "A figurine depicting a CentCom Commander in their corporate modsuit."
-	icon_state = "centcommod"
+	icon_state = "centcomcorp"
 	toysay = "It's time for you to try out our Thunderdome."
 
 /obj/item/toy/figure/official
