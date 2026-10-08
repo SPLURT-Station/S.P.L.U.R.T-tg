@@ -316,7 +316,7 @@
 /datum/atom_skin/tricorn/red
 	preview_name = "Red Feather"
 	new_icon_state = "tricorn_red"
-  
+
 /obj/item/clothing/head/beret/centcom_officer
 	name = "\improper CentCom officer's beret"
 	desc = "A expensive beret made of durable fabric, protects the head whilst making you look fantastic! Comes with a silver Nanotrasen logo badge on the front for identification."
