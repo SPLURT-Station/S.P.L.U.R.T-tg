@@ -46,9 +46,14 @@
 	new /obj/item/clothing/under/rank/centcom/officer/skirt(src)
 	new /obj/item/clothing/suit/space/officer(src)
 	new /obj/item/radio/headset/headset_cent/alt(src)
-	new /obj/item/storage/belt/sheath/sabre(src)
 	new /obj/item/clothing/glasses/thermal/eyepatch(src)
 	new /obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/m1911(src)
+
+/obj/structure/closet/secure_closet/centcom/officer/populate_contents_immediate()
+	. = ..()
+
+	// Traitor steal objective
+	new /obj/item/storage/belt/sheath/sabre(src)
 
 /obj/structure/closet/secure_closet/centcom/ert
 	name = "CentCom ERT security officer's locker"
@@ -112,9 +117,14 @@
 	new /obj/item/mod/control/pre_equipped/responsory/engineer(src)
 	new /obj/item/storage/belt/utility/full/powertools(src)
 	new /obj/item/construction/rcd/loaded/upgraded(src)
-	new /obj/item/pipe_dispenser(src)
 	for(var/i in 1 to 3)
 		new /obj/item/rcd_ammo/large(src)
+
+/obj/structure/closet/secure_closet/centcom/ert/engineer/populate_contents_immediate()
+	. = ..()
+
+	// Traitor steal objective
+	new /obj/item/pipe_dispenser(src)
 
 /obj/structure/closet/secure_closet/centcom/ert/commander
 	name = "CentCom ERT commander's locker"
@@ -173,8 +183,8 @@
 	new /obj/item/gun/ballistic/automatic/wt550(src)
 
 /obj/structure/closet/secure_closet/centcom/security/captain
-	name = "private security captain's locker"
-	desc = "It's a card-locked storage unit containing equipment for a Nanotrasen Private Security Captain."
+	name = "private security commander's locker"
+	desc = "It's a card-locked storage unit containing equipment for a Nanotrasen Private Security Commander."
 	req_access = list(ACCESS_CENT_CAPTAIN)
 	icon_state = "ntscap"
 	max_integrity = 350

@@ -18695,16 +18695,13 @@
 /obj/structure/hedge,
 /obj/machinery/light/directional/north,
 /obj/machinery/light_switch/directional/north{
-	pixel_x = -9;
-	pixel_y = 22
+	pixel_x = -12;
+	pixel_y = 25
 	},
 /obj/machinery/firealarm/directional/north{
-	pixel_x = -9;
-	pixel_y = 28
+	pixel_y = 35
 	},
-/obj/machinery/power/apc/auto_name/directional/north{
-	pixel_x = 4
-	},
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /turf/open/floor/carpet/green,
@@ -22035,7 +22032,7 @@
 "WS" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/admin/security,
-/obj/machinery/door/airlock/highsecurity{
+/obj/machinery/door/airlock/highsecurity/centcom{
 	name = "CentCom Corporate Security Equipment Room"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
