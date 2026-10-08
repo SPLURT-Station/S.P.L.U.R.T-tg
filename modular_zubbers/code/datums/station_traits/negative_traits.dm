@@ -27,6 +27,6 @@
 	name = "Background check budget cuts"
 	trait_type = STATION_TRAIT_NEGATIVE
 	trait_flags = parent_type::trait_flags
-	weight = 3
+	weight = 0 /// SPLURT EDIT - disabling this, weight was 3
 	show_in_report = FALSE
 	trait_to_give = STATION_TRAIT_HEAD_ANTAG
