@@ -5,6 +5,7 @@
 	id = /obj/item/card/id/advanced/centcom
 	uniform = /obj/item/clothing/under/rank/centcom/officer
 	box = /obj/item/storage/box/survival/centcom
+	back = /obj/item/storage/backpack/satchel
 	ears = /obj/item/radio/headset/headset_cent
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
@@ -219,6 +220,7 @@
 	name = "ERT Common"
 
 	uniform = /obj/item/clothing/under/rank/centcom/officer
+	back = /obj/item/mod/control/pre_equipped/responsory
 	ears = /obj/item/radio/headset/headset_cent/alt
 	gloves = /obj/item/clothing/gloves/combat
 	mask = /obj/item/clothing/mask/gas/sechailer
