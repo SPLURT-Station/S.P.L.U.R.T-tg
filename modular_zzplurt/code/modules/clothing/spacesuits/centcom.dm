@@ -1,8 +1,8 @@
 /obj/item/clothing/head/helmet/space/centcom
 	name = "CentCom space helmet"
 	desc = "A compact, uniquely designed space helmet, it has a golden-esc visor on the helmet, it's impressively strong, it's even weld-proof!"
-	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
+	icon = 'modular_zzplurt/icons/obj/clothing/head/spacehelm.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/head/spacehelm.dmi'
 	icon_state = "centcom_spacehelmet"
 	inhand_icon_state = "syndicate-helm-green"
 	armor_type = /datum/armor/space_centcom
@@ -10,8 +10,8 @@
 /obj/item/clothing/suit/space/centcom
 	name = "CentCom space suit"
 	desc = "A heavy, uniquely designed space suit colored in CentCom emerald green, and heavy boots and gloves, it's comfortable, and rather flexible, unlike most space suits this isn't too heavy."
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon = 'modular_zzplurt/icons/obj/clothing/suit/spacesuit.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/spacesuit.dmi'
 	icon_state = "centcom_spacesuit"
 	inhand_icon_state = "syndicate-green"
 	w_class = WEIGHT_CLASS_NORMAL

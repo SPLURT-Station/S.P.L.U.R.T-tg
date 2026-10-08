@@ -34,6 +34,7 @@
 				/obj/item/clothing/head/hats/centhat = 3,
 				/obj/item/clothing/head/beret/centcom_formal = 3,
 				/obj/item/clothing/head/beret/centcom_officer = 3,
+				/obj/item/clothing/head/soft/centcom = 3,
 				/obj/item/clothing/under/rank/centcom/commander = 3,
 				/obj/item/clothing/under/rank/centcom/commander/skirt = 3,
 				/obj/item/clothing/under/rank/centcom/commander/turtleneck = 3,
