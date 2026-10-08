@@ -106,6 +106,18 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/under/rank/centcom/attendant
+	name = "\improper CentCom attendant's uniform"
+	desc = "A practical emerald-green polo uniform worn by Central Command attendants, designed to maintain Nanotrasen's professional image \
+		while providing comfort during administrative and support duties. The lightweight polo and dark slacks offer a balance of corporate \
+		presentation and mobility, reflecting the role of junior personnel serving within the greater CentCom structure."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
+	icon_state = "attendant"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
 /obj/item/clothing/under/rank/centcom/officer
 	name = "\improper CentCom officer's tactical turtleneck"
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \

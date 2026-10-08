@@ -125,6 +125,16 @@
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Official")
 
+/datum/outfit/centcom/centcom_attendant
+	name = "CentCom Attendant"
+
+	id_trim = /datum/id_trim/centcom/attendant
+	uniform = /obj/item/clothing/under/rank/centcom/attendant
+	head = /obj/item/clothing/head/soft/centcom
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	gloves = /obj/item/clothing/gloves/fingerless
+	back = /obj/item/storage/backpack/satchel
+
 /datum/outfit/centcom/centcom_official/turtleneck
 	name = "CentCom Official - Turtleneck"
 

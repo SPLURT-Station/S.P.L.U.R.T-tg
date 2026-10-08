@@ -28,6 +28,14 @@
 	honorifics = list("Intern")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
+/// Trim for Centcom Attendants. Basically an assistant. Doesn't even get weapon permissions.
+/datum/id_trim/centcom/attendant
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING)
+	assignment = "CentCom Attendant"
+	big_pointer = FALSE
+	honorifics = list("Attendant")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
 /// Trim for Centcom Head Interns. Different assignment, common station access added on.
 /datum/id_trim/centcom/intern/head
 	assignment = "CentCom Head Intern"
