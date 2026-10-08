@@ -1991,15 +1991,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lower)
-"aRY" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/spawner/random/structure/barricade,
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lower)
 "aSn" = (
 /turf/open/openspace,
 /area/station/engineering/lobby)
@@ -2194,6 +2185,12 @@
 "aWY" = (
 /turf/closed/wall,
 /area/station/security/detectives_office)
+"aXb" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "aXi" = (
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -6300,6 +6297,27 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
+"cDa" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig Entrance"
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/brig/entrance)
 "cDb" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
@@ -7191,13 +7209,6 @@
 /obj/effect/turf_decal/trimline/white/filled/corner,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"cWn" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/station/maintenance/department/cargo)
 "cWu" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
@@ -9262,12 +9273,6 @@
 "dIP" = (
 /turf/open/openspace,
 /area/station/hallway/secondary/exit/departure_lounge)
-"dIY" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/spawner/random/structure/barricade,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "dJb" = (
 /obj/structure/closet/radiation,
 /turf/open/floor/iron,
@@ -15043,25 +15048,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/atmos,
 /turf/open/floor/iron/showroomfloor,
 /area/station/engineering/atmos/control_center)
-"fRo" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/trimline/red/filled/end{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "brig-enterance"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/security/entrance,
-/obj/machinery/door/airlock/security/glass{
-	name = "Brig Entrance"
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/brig/entrance)
 "fRu" = (
 /obj/machinery/computer/telecomms/server,
 /turf/open/floor/iron/showroomfloor,
@@ -19523,15 +19509,6 @@
 "hzy" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/electrical)
-"hzJ" = (
-/obj/structure/barricade/wooden,
-/obj/machinery/door/airlock/maintenance{
-	name = "Abandoned Diner"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/turf/open/floor/plating,
-/area/station/service/kitchen/abandoned)
 "hzO" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -25265,17 +25242,6 @@
 "jKs" = (
 /turf/closed/wall,
 /area/station/service/chapel/office)
-"jKw" = (
-/obj/structure/barricade/wooden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/door/airlock/maintenance{
-	name = "Abandoned Kitchen"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/turf/open/floor/plating,
-/area/station/service/kitchen/abandoned)
 "jKx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
@@ -25510,6 +25476,24 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/satellite)
+"jPt" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/trimline/red/filled/end{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig Entrance"
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/brig/entrance)
 "jPT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -25891,13 +25875,6 @@
 	},
 /obj/effect/decal/cleanable/plastic,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lower)
-"jXg" = (
-/obj/structure/cable,
-/obj/effect/spawner/random/structure/barricade,
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lower)
 "jXi" = (
@@ -26853,6 +26830,15 @@
 	},
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
+"kmU" = (
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/door/airlock/maintenance{
+	name = "Abandoned Diner"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/service/kitchen/abandoned)
 "kmZ" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -27713,28 +27699,6 @@
 	dir = 1
 	},
 /area/station/hallway/secondary/service)
-"kCj" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "brig-enterance"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/security/entrance,
-/obj/machinery/door/airlock/security/glass{
-	name = "Brig Entrance"
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/brig/entrance)
 "kCv" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners{
 	dir = 1
@@ -29288,12 +29252,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/grimy,
 /area/station/service/abandoned_gambling_den)
-"lgM" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/spawner/random/structure/barricade,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "lgT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30681,24 +30639,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
-"lHQ" = (
-/obj/structure/table,
-/obj/item/food/grown/wheat,
-/obj/item/food/grown/melonlike/watermelon,
-/obj/item/food/grown/citrus/orange,
-/obj/item/food/grown/grapes,
-/obj/item/food/grown/cocoapod,
-/obj/item/food/grown/apple,
-/obj/item/food/grown/chili,
-/obj/item/food/grown/cherries,
-/obj/item/food/grown/soybeans,
-/obj/item/food/grown/citrus/lime,
-/obj/machinery/light/directional/south,
-/obj/effect/turf_decal/siding/green{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/service/hydroponics/garden)
 "lHU" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
@@ -32501,6 +32441,17 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/research)
+"mom" = (
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/airlock/maintenance{
+	name = "Abandoned Kitchen"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/service/kitchen/abandoned)
 "moo" = (
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
@@ -32996,15 +32947,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
-"mxU" = (
-/obj/structure/grille/broken,
-/obj/structure/barricade/wooden,
-/obj/machinery/door/airlock/maintenance{
-	name = "Abandoned Bar"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/aft)
 "mye" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/plating,
@@ -40326,6 +40268,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/range)
+"pgq" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "pgv" = (
 /obj/structure/curtain/cloth/prison,
 /obj/structure/cable,
@@ -42775,14 +42723,6 @@
 /obj/effect/spawner/random/clothing/kittyears_or_rabbitears,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lower)
-"qat" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/spawner/random/structure/barricade,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "qaG" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
@@ -47812,6 +47752,24 @@
 /obj/structure/flora/bush/grassy/style_random,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/park)
+"rSy" = (
+/obj/structure/table,
+/obj/item/food/grown/wheat,
+/obj/item/food/grown/melonlike/watermelon,
+/obj/item/food/grown/citrus/orange,
+/obj/item/food/grown/grapes,
+/obj/item/food/grown/cocoapod,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/chili,
+/obj/item/food/grown/cherries,
+/obj/item/food/grown/soybeans,
+/obj/item/food/grown/citrus/lime,
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/siding/green{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/service/hydroponics/garden)
 "rSQ" = (
 /obj/structure/reagent_dispensers/plumbed{
 	dir = 1
@@ -51020,6 +50978,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/ordnance/storage)
+"sWH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lower)
 "sWI" = (
 /obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron,
@@ -54667,6 +54634,13 @@
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/lab)
+"uqr" = (
+/obj/structure/cable,
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lower)
 "uqy" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -57516,6 +57490,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/drone_bay)
+"vuU" = (
+/obj/structure/grille/broken,
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/door/airlock/maintenance{
+	name = "Abandoned Bar"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/aft)
 "vvd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
@@ -60871,6 +60854,14 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/research)
+"wMe" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "wMr" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -89264,7 +89255,7 @@ lcG
 oRR
 vhF
 hKR
-hzJ
+kmU
 rri
 owa
 iIH
@@ -89767,7 +89758,7 @@ xsG
 iIH
 nsO
 rbW
-jKw
+mom
 qnI
 pdb
 xfo
@@ -94670,7 +94661,7 @@ svG
 svG
 svG
 iIH
-jXg
+uqr
 iIH
 iIH
 pAf
@@ -96198,7 +96189,7 @@ jep
 jep
 vHk
 cSn
-aRY
+sWH
 vHk
 lCj
 wWl
@@ -152709,10 +152700,10 @@ bjl
 uMR
 uSg
 boS
-fRo
+jPt
 ybo
 ybo
-kCj
+cDa
 dbP
 ith
 cwu
@@ -153549,7 +153540,7 @@ kLO
 jkC
 jkC
 apa
-cWn
+apa
 apa
 bhp
 erX
@@ -161444,7 +161435,7 @@ pLM
 xml
 pLM
 jIX
-lHQ
+rSy
 aCi
 qja
 fgv
@@ -174297,7 +174288,7 @@ vta
 qRV
 qRV
 qRV
-dIY
+aXb
 qRV
 qRV
 qRV
@@ -176154,7 +176145,7 @@ eaw
 aDD
 aDD
 qEO
-mxU
+vuU
 qkO
 uwr
 ulk
@@ -176863,7 +176854,7 @@ bYt
 bYt
 qRV
 qRV
-lgM
+pgq
 qRV
 xzK
 xzK
@@ -179442,7 +179433,7 @@ atm
 lhp
 hmt
 wmW
-qat
+wMe
 pUj
 tch
 hlD

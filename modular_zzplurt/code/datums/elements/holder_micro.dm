@@ -164,7 +164,7 @@
 	visible_message(span_warning("[resisting] begins to squirm in [carrier]'s grasp!"))
 	var/time_required = COMPARE_SIZES(carrier, resisting) / 4 SECONDS //Scale how fast the resisting will be depending on size difference
 	if(!do_after(resisting, time_required, carrier, IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM))
-		if(!resisting || resisting.stat != CONSCIOUS || resisting.loc != src)
+		if(!resisting || resisting.stat != STABLE || resisting.loc != src)
 			return
 		visible_message(span_warning("[src] stops resisting."))
 		return
@@ -307,7 +307,7 @@
 )
 	return null
 
-GAME_VERB_SRC_DESC(/obj/item/mob_holder/micro, interact_with_held, view(usr.client), "Interact With Held", "Perform an interaction with the held mob.", "IC")
+GAME_VERB_SRC_DESC(/obj/item/mob_holder/micro, interact_with_held, view(), "Interact With Held", "Perform an interaction with the held mob.", "IC")
 	if(!held_mob)
 		to_chat(usr, span_warning("You're not holding anyone!"))
 		return

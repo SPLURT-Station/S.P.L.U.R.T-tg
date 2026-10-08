@@ -93,7 +93,7 @@
 	button_icon_state = "ling_camouflage"
 	var/obj/structure/statue/gargoyle/current = null
 
-/datum/action/gargoyle/transform/Trigger(trigger_flags)
+/datum/action/gargoyle/transform/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 
 	// Check parent return
@@ -135,7 +135,7 @@
 	button_icon = 'modular_skyrat/modules/clock_cult/icons/actions_clock.dmi'
 	button_icon_state = "Linked Vanguard"
 
-/datum/action/gargoyle/check/Trigger(trigger_flags)
+/datum/action/gargoyle/check/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 
 	// Check parent return
@@ -152,7 +152,7 @@
 	button_icon = 'modular_zzplurt/icons/mob/actions/actions_flightsuit.dmi'
 	button_icon_state = "flightsuit_lock"
 
-/datum/action/gargoyle/pause/Trigger(trigger_flags)
+/datum/action/gargoyle/pause/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 
 	// Check parent return
@@ -292,7 +292,7 @@
 	visible_message(span_danger("[src] shatters!"))
 	qdel(src)
 
-/obj/structure/statue/gargoyle/attackby(obj/item/W, mob/living/user, params)
+/obj/structure/statue/gargoyle/attackby(obj/item/W, mob/living/user, list/modifiers, list/attack_modifiers)
 	add_fingerprint(user)
 	//if(!(flags_1 & NODECONSTRUCT_1)) //Doesn't exist in this codebase?
 	if(default_unfasten_wrench(user, W))

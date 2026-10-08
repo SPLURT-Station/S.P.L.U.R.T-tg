@@ -104,7 +104,7 @@
 /datum/controller/subsystem/ticker/proc/opfor_report()
 	var/list/result = list()
 
-	result += "<span class='header'>Opposing Force Report - <span class='greentext header'>Approved: [LAZYLEN(SSopposing_force.approved_applications)]</span>, <span class='redtext header'>Denied: [LAZYLEN(SSopposing_force.submitted_applications)]</span></span><br>"
+	result += "<span class='header'>Opposing Force Report - <span class='greentext header'>Approved: [LAZYLEN(SSopposing_force.approved_applications)]</span>, <span class='redtext header'>Denied: [LAZYLEN(SSopposing_force.submitted_applications)+LAZYLEN(SSopposing_force.unsubmitted_applications)]</span></span><br>"
 
 	if(!SSopposing_force.approved_applications.len)
 		result += span_red("No applications were approved.")

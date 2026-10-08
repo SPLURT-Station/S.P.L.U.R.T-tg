@@ -100,7 +100,7 @@
 		new_spawn.transfer_emote_pref(new_spawn.client)
 		new_spawn.gender = NEUTER
 
-/obj/item/ai_module/core/full/allamerican
+/obj/item/ai_module/law/core/full/allamerican
 	name = "'American' Core Module"
 	law_id = "allamerican"
 

@@ -51,7 +51,7 @@
 	var/list/old_features
 	var/list/old_mutant_bodyparts
 
-/datum/action/cooldown/werewolf/transform/Grant()
+/datum/action/cooldown/werewolf/transform/Grant(mob/grant_to)
 	. = ..()
 
 	// Define action owner

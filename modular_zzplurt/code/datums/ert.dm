@@ -11,28 +11,24 @@
 
 /datum/antagonist/ert/private_security/operative
 	name = "NT Private Security Operative"
-	outfit = /datum/outfit/centcom/private_security
+	outfit = /datum/outfit/centcom/private_security/operative
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = FALSE
-	role = "Operative"
 
 /datum/antagonist/ert/private_security/medic
 	name = "NT Private Security Specialist"
 	outfit = /datum/outfit/centcom/private_security/medic
 	random_names = FALSE
-	role = "Specialist"
 
 /datum/antagonist/ert/private_security/sergeant
 	name = "NT Private Security Sergeant"
 	outfit = /datum/outfit/centcom/private_security/sergeant
 	random_names = FALSE
-	role = "Sergeant"
 
 /datum/antagonist/ert/private_security/leader
 	name = "NT Private Security Captain"
 	outfit = /datum/outfit/centcom/private_security/captain
 	random_names = FALSE
-	role = "Captain"
 
 // ERT OUTFITS
 /datum/outfit/centcom/private_security
@@ -140,6 +136,16 @@
 	apply_rank(H, src.rank_name)
 
 	return ..()
+
+/obj/item/clothing/glasses/hud/medsechud/sunglasses
+	gender = PLURAL
+	name = "medical security HUDSunglasses"
+	desc = "Sunglasses with a combined medical and security HUD."
+	icon_state = "sunhudmed"
+	flash_protect = FLASH_PROTECTION_FLASH
+	flags_cover = GLASSESCOVERSEYES
+	tint = 1
+	glass_colour_type = /datum/client_colour/glass_colour/blue
 
 /datum/outfit/centcom/private_security/medic
 	name = "NT Private Security Specialist - ERT"

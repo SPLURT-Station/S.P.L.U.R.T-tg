@@ -81,7 +81,7 @@
 /// Proc to apply roused status to holder
 /datum/quirk/hypersexual/proc/arouse()
 	// Check if not conscious
-	if(quirk_holder.stat != CONSCIOUS)
+	if(quirk_holder.stat != STABLE)
 		// Do nothing
 		return
 

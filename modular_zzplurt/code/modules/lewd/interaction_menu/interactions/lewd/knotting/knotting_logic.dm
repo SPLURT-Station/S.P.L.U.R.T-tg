@@ -793,7 +793,7 @@
 		return FALSE
 	var/mob/living/user = owner
 	last_loc = get_turf(user)
-	if(user.stat == CONSCIOUS && user.knotted_parts["mouth"] && !user.has_status_effect(/datum/status_effect/jaw_gaped))
+	if(user.stat == STABLE && user.knotted_parts["mouth"] && !user.has_status_effect(/datum/status_effect/jaw_gaped))
 		var/obj/item/bodypart/head = user.get_bodypart(BODY_ZONE_HEAD)
 		if(head) // only apply this effect if a head is found
 			user.apply_status_effect(/datum/status_effect/jaw_gaped)
@@ -877,5 +877,5 @@
 
 /datum/status_effect/jaw_gaped/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_UNINTELLIGIBLE_SPEECH, "jaw_gaped") // might want to make a new one to not risk interfering with an existing mutation
-	if(owner.stat == CONSCIOUS)
+	if(owner.stat == STABLE)
 		to_chat(owner, span_warning("I finally feel my jaw again."))

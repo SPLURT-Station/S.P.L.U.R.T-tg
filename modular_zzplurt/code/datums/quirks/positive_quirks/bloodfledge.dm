@@ -568,7 +568,7 @@
 	SIGNAL_HANDLER
 
 	// Check if unconscious
-	if(quirk_holder.IsSleeping() || quirk_holder.stat >= UNCONSCIOUS)
+	if(quirk_holder.IsSleeping() || quirk_holder.stat >= HARD_CRIT)
 		// Warn the user
 		to_chat(target, span_userdanger("You have been staked while unconscious!"))
 
@@ -673,7 +673,7 @@
 
 	// Check if currently conscious
 	// Desperation is less important if so
-	if(quirk_holder.stat != CONSCIOUS)
+	if(quirk_holder.stat != STABLE)
 		return
 
 	// Define current blood volume
@@ -863,7 +863,7 @@
 /datum/action/cooldown/bloodfledge/bite/corrupted_tongue
 	name = "Sanguine Bite"
 
-/datum/action/cooldown/bloodfledge/bite/Grant()
+/datum/action/cooldown/bloodfledge/bite/Grant(mob/grant_to)
 	. = ..()
 
 	// Create reagent holder
@@ -1921,7 +1921,7 @@
 		return
 
 	// Check if conscious
-	if(quirk_holder.stat == CONSCIOUS)
+	if(quirk_holder.stat == STABLE)
 		// Alert user in chat
 		to_chat(quirk_holder, span_warning("[BLOODFLEDGE_DESPERATE_MESSAGES]"))
 

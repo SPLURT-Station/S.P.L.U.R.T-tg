@@ -14,3 +14,4 @@
 	required_temp = 373
 	mix_message = "The solution bubbles into a colorless liquid..."
 	erp_reaction = TRUE
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_EASY | REACTION_TAG_DRUG

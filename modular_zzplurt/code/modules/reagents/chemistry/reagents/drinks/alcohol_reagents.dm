@@ -40,7 +40,7 @@
 			H.adjust_organ_loss(ORGAN_SLOT_BRAIN, 2)
 			if(!H.undergoing_cardiac_arrest() && H.can_heartattack() && prob(1))
 				H.set_heartattack(TRUE)
-				if(H.stat == CONSCIOUS)
+				if(H.stat == STABLE)
 					H.visible_message(span_userdanger("[H] clutches at [H.p_their()] chest as if [H.p_their()] heart stopped!")) // too much lean :(
 	..()
 

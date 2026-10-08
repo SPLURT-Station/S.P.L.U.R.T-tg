@@ -40,22 +40,9 @@
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "spider", BUBBLE_ICON_PRIORITY_ORGAN)
 
-/datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
-
-/datum/species/arachnid/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
-	. = ..()
-	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
-
-/datum/species/arachnid/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
-	SIGNAL_HANDLER
-
-	if(istype(attacking_item, /obj/item/melee/flyswatter))
-		damage_mods += 10 // 10x damage modifier, little less than flypeople
-
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
+	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
 	var/datum/action/innate/arachnid/spin_web/spin_web = new
 	var/datum/action/innate/arachnid/spin_cocoon/spin_cocoon = new
 	spin_web.Grant(human_who_gained_species)
@@ -63,10 +50,17 @@
 
 /datum/species/arachnid/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
+	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
 	var/datum/action/innate/arachnid/spin_web/spin_web = locate() in human.actions
 	var/datum/action/innate/arachnid/spin_cocoon/spin_cocoon = locate() in human.actions
 	spin_web?.Remove(human)
 	spin_cocoon?.Remove(human)
+
+/datum/species/arachnid/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
+	SIGNAL_HANDLER
+
+	if(istype(attacking_item, /obj/item/melee/flyswatter))
+		damage_mods += 10 // 10x damage modifier, little less than flypeople
 
 
 #define WEB_SPIN_NUTRITION_LOSS 25

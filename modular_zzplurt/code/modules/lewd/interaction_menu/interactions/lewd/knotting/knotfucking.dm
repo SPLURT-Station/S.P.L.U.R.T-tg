@@ -10,7 +10,7 @@
 		//knot_try(target, user, CLIMAX_POSITION_TARGET, knotfucking)
 		btm = user
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
-		if(btm.stat > UNCONSCIOUS) // Got damn, quit fucking yourself into a paste, top can keep going I guess
+		if(btm.stat > HARD_CRIT) // Got damn, quit fucking yourself into a paste, top can keep going I guess
 			btm.apply_damage(2, BRUTE)
 	..()
 
@@ -100,7 +100,7 @@
 	if(user.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No" || target.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_extmharm) != "No")
 		var/stat_before = target.stat
 		target.adjust_oxy_loss(3)
-		if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+		if(target.stat == HARD_CRIT && stat_before != HARD_CRIT)
 			message = list("%TARGET% passes out on %USER%'s %KNOT%.")
 
 /datum/interaction/lewd/knotting/knotfucking/knotfuck_nipple

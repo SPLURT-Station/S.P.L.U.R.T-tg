@@ -22,6 +22,10 @@
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood/large,
 /area/misc/condo)
+"fn" = (
+/obj/machinery/room_controller/directional/south,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
 "fB" = (
 /turf/closed/wall/mineral/stone,
 /area/misc/condo)
@@ -78,6 +82,10 @@
 "nk" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/green,
+/area/misc/condo)
+"nE" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy,
 /area/misc/condo)
 "qh" = (
 /obj/structure/window/green_glass_pane,
@@ -160,10 +168,6 @@
 	pixel_y = 8
 	},
 /turf/open/floor/carpet/green,
-/area/misc/condo)
-"Ar" = (
-/obj/machinery/room_controller/directional/south,
-/turf/open/floor/carpet/red,
 /area/misc/condo)
 "AI" = (
 /obj/effect/turf_decal/weather/dirt,
@@ -262,11 +266,6 @@
 	pixel_y = 2
 	},
 /turf/open/floor/carpet/green,
-/area/misc/condo)
-"Mw" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/cloth/fancy,
-/turf/closed/wall/mineral/stone,
 /area/misc/condo)
 "QG" = (
 /obj/effect/turf_decal/siding/wood{
@@ -399,7 +398,7 @@ zc
 EF
 "}
 (5,1,1) = {"
-Mw
+nE
 VL
 Zz
 FX
@@ -416,7 +415,7 @@ xt
 EF
 "}
 (6,1,1) = {"
-Mw
+nE
 UY
 Zz
 FX
@@ -446,7 +445,7 @@ bn
 bn
 bn
 rA
-Ar
+fn
 EF
 "}
 (8,1,1) = {"
@@ -501,7 +500,7 @@ Wu
 EF
 "}
 (11,1,1) = {"
-Mw
+nE
 VL
 Zz
 fN
@@ -518,7 +517,7 @@ xt
 EF
 "}
 (12,1,1) = {"
-Mw
+nE
 UY
 Zz
 FX

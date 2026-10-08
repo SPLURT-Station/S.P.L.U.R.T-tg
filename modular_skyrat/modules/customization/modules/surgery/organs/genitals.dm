@@ -662,6 +662,26 @@
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BUTT]
 
+/datum/bodypart_overlay/mutant/genital/butt/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	// the butt only draws when exposed, so it has to sit over whatever it is exposed through
+	var/mob/living/carbon/human/wearer = limb?.owner
+	if(istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+		if(layer_index == EXTERNAL_FRONT)
+			layer_real = -ASS_LAYER_ABOVE_SUIT
+		else if(layer_index == EXTERNAL_ADJACENT)
+			layer_real = -ASS_ADJ_LAYER_ABOVE_SUIT
+	else if(wearer?.w_uniform && layer_index == EXTERNAL_ADJACENT)
+		layer_real = -ASS_ADJ_LAYER_ABOVE_UNIFORM
+	return ..()
+
+/datum/bodypart_overlay/mutant/genital/butt/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	var/mob/living/carbon/human/wearer = limb?.owner
+	if(istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+		. += "above_modsuit"
+	else if(wearer?.w_uniform)
+		. += "above_uniform"
+
 /obj/item/organ/genital/belly
 	name = "belly"
 	desc = "You see a belly on their midsection."
@@ -734,7 +754,7 @@
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BELLY]
 
 GAME_VERB_DESC(/mob/living/carbon/human, toggle_genitals, "Expose/Hide genitals", "Change which genitals show through clothes and how they layer.", "IC")
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
 		return
 
@@ -773,7 +793,7 @@ GAME_VERB_DESC(/mob/living/carbon/human, toggle_genitals, "Expose/Hide genitals"
 		UNASSIGN_GAME_VERB(src, /mob/living/carbon/human, toggle_arousal)
 
 GAME_VERB_DESC(/mob/living/carbon/human, toggle_arousal, "Toggle Arousal", "Allows you to toggle how aroused your private parts are.", "IC")
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(usr))
 		to_chat(usr, span_warning("You can't toggle arousal right now..."))
 		return
 

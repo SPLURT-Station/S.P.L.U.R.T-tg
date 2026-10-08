@@ -74,6 +74,10 @@ Tails
 	name = "Leopard (Splurt)"
 	icon_state = "leopard"
 
+/datum/sprite_accessory/tails/splurt/experiment
+	name = "Experiment"
+	icon_state = "experiment"
+
 /*
 Teshari // BRUH
 */

@@ -142,9 +142,10 @@
 		"borg_upgrade_expand",
 		"borg_upgrade_shrink"
 	)
-	// Adds the borg_upgrade_resize to the design pool.
 	design_ids += list(
-		"borg_upgrade_resize"
+		"hypnoticmodule",
+		"borg_upgrade_bellyriding_harness",
+		"borg_upgrade_resize",
 	)
 
 /datum/techweb_node/old_resize

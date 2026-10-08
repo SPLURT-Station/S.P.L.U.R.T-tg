@@ -8,7 +8,7 @@
 	pixel_x = -16
 	gender = MALE
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
-	ai_controller = /datum/ai_controller/basic_controller/
+	ai_controller = /datum/ai_controller/basic_controller/creature/docile
 	speak_emote = list("growls", "roars")
 	speed = 1
 	see_in_dark = 8

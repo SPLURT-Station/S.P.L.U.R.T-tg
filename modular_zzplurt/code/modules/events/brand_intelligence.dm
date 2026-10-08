@@ -12,7 +12,8 @@
 		var/area/vendor_area = get_area(vendor)
 		if(vendor_area?.area_flags & HIDDEN_AREA)
 			continue
-		vending_machines.Add(vendor)
+		vending_machines += vendor
+		RegisterSignal(vendor, COMSIG_QDELETING, PROC_REF(clear_from_lists))
 	if(!length(vending_machines)) //If somehow there are still no elligible vendors, give up.
 		kill()
 		return

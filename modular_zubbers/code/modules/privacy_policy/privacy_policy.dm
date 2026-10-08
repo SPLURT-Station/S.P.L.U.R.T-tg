@@ -51,3 +51,8 @@
 
 	var/datum/privacy_policy_ui/ui = new(src)
 	ui.ui_interact(mob)
+
+// SPLURT START ADDITION - Don't show
+/client/show_privacy_policy()
+	return
+// SPLURT END ADDITION - Don't show

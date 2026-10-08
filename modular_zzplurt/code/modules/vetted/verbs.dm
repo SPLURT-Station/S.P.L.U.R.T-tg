@@ -11,7 +11,8 @@ ADMIN_VERB(agegatebunker, R_SERVER, "Toggle Age Gate Bunker", "Toggles the Age G
 	SSblackbox.record_feedback("nested tally", "age_gate_toggle", 1, list("Toggle Age Gate Bunker", "[new_agbun ? "Enabled" : "Disabled"]"))
 	send2adminchat("Age Gate Bunker", "[key_name(user)] has toggled the Age Gate Bunker, it is now [new_agbun ? "enabled" : "disabled"].")
 
-ADMIN_VERB(addvettedbypass, R_SERVER, "Add Vetted Bypass", "Allows a given ckey to bypass the age gate bunker for the round even if they aren't vetted yet.", ADMIN_CATEGORY_SERVER, ckeytobypass as text)
+ADMIN_VERB(addvettedbypass, R_SERVER, "Add Vetted Bypass", "Allows a given ckey to bypass the age gate bunker for the round even if they aren't vetted yet.", ADMIN_CATEGORY_SERVER)
+	VERB_ARG(ckeytobypass, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!SSplayer_ranks)
 		to_chat(user, span_adminnotice("The Player Ranks subsystem hasn't initialized yet!"))
 		return
@@ -25,7 +26,8 @@ ADMIN_VERB(addvettedbypass, R_SERVER, "Add Vetted Bypass", "Allows a given ckey 
 	message_admins("[key_name_admin(user)] has added [ckeytobypass] to the current round's vetted bypass list.")
 	send2adminchat("Age Gate Bunker", "[key_name(user)] has added [ckeytobypass] to the current round's vetted bypass list.")
 
-ADMIN_VERB(revokevettedbypass, R_SERVER, "Revoke Vetted Bypass", "Revoke's a ckey's permission to bypass the age gate bunker for a given round.", ADMIN_CATEGORY_SERVER, ckeytobypass as text)
+ADMIN_VERB(revokevettedbypass, R_SERVER, "Revoke Vetted Bypass", "Revoke's a ckey's permission to bypass the age gate bunker for a given round.", ADMIN_CATEGORY_SERVER)
+	VERB_ARG(ckeytobypass, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!SSplayer_ranks)
 		to_chat(user, span_adminnotice("The Player Ranks subsystem hasn't initialized yet!"))
 		return

@@ -189,9 +189,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/skyrat/scrapheap)
-"ff" = (
-/turf/closed/wall/mineral/titanium/survival,
-/area/ruin/space/has_grav/powered/skyrat/scrapheap)
 "fr" = (
 /obj/machinery/power/shuttle_engine/large{
 	dir = 8
@@ -495,6 +492,11 @@
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/looter/big,
 /turf/open/floor/wood,
+/area/ruin/space/has_grav/powered/skyrat/scrapheap)
+"nP" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/skyrat/scrapheap)
 "nR" = (
 /obj/machinery/light/red/directional/south,
@@ -1007,11 +1009,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered/skyrat/scrapheap)
-"Cl" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/skyrat/scrapheap)
 "Cs" = (
 /obj/structure/door_assembly/door_assembly_hatch,
@@ -1741,6 +1738,9 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/powered/skyrat/scrapheap)
+"Ti" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/has_grav/powered/skyrat/scrapheap)
 "Tk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
@@ -1963,25 +1963,25 @@
 fw
 fw
 fw
-ff
+Ti
 fw
 fw
-ff
+Ti
 FV
 fr
-ff
+Ti
 fw
 fw
 fw
 fw
 fw
-ff
+Ti
 FV
 fr
-ff
+Ti
 fw
 fw
-ff
+Ti
 fw
 fw
 fw
@@ -2045,23 +2045,23 @@ fw
 fw
 fw
 cA
-Cl
-Cl
+nP
+nP
 cA
-Cl
-Cl
+nP
+nP
 cA
-Cl
-Cl
-Cl
-Cl
-Cl
+nP
+nP
+nP
+nP
+nP
 cA
-Cl
-Cl
+nP
+nP
 cA
-Cl
-Cl
+nP
+nP
 cA
 fw
 fw

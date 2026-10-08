@@ -85,11 +85,6 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/misc/hilbertshotel)
-"s" = (
-/obj/structure/table/wood/fancy,
-/obj/item/food/grown/poppy,
-/turf/open/indestructible/hotelwood,
-/area/misc/hilbertshotel)
 "t" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/indestructible/hotelwood,
@@ -221,8 +216,13 @@
 /obj/effect/spawner/random/food_or_drink/three_course_meal,
 /turf/open/indestructible/hotelwood,
 /area/misc/hilbertshotel)
-"W" = (
+"X" = (
 /obj/machinery/room_controller/directional/west,
+/turf/open/indestructible/hotelwood,
+/area/misc/hilbertshotel)
+"Y" = (
+/obj/structure/table/wood/fancy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/indestructible/hotelwood,
 /area/misc/hilbertshotel)
 "Z" = (
@@ -271,7 +271,7 @@ b
 d
 d
 k
-W
+X
 d
 t
 d
@@ -459,7 +459,7 @@ d
 j
 q
 q
-s
+Y
 b
 w
 C

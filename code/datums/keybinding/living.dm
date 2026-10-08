@@ -6,7 +6,7 @@
 	return isliving(user.mob)
 
 /datum/keybinding/living/resist
-	hotkey_keys = list("B")
+	hotkey_keys = list(UNBOUND_KEY) // SPLURT EDIT - Make resist something else. 'B' is pixel shift
 	name = "resist"
 	full_name = "Resist"
 	description = "Break free of your current state. Handcuffed? on fire? Resist!"

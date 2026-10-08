@@ -78,5 +78,5 @@
 	. = ..()
 	var/stat_before = target.stat
 	target.adjust_oxy_loss(3)
-	if(target.stat == UNCONSCIOUS && stat_before != UNCONSCIOUS)
+	if(target.stat == HARD_CRIT && stat_before != HARD_CRIT)
 		message = list("%TARGET% passes out on %USER%'s cock.")

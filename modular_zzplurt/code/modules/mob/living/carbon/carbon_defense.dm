@@ -112,7 +112,7 @@
 
 /mob/living/carbon/proc/can_touch_retaliate()
 	// User must be conscious
-	if(src.stat != CONSCIOUS)
+	if(src.stat != STABLE)
 		// Do nothing
 		return FALSE
 

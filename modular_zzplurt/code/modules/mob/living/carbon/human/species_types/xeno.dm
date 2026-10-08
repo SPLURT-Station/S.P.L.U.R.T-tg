@@ -42,7 +42,7 @@
 	var/is_dead = FALSE
 	COOLDOWN_DECLARE(revive_cd)
 
-/datum/action/innate/reconstitute_form/Trigger(trigger_flags)
+/datum/action/innate/reconstitute_form/Trigger(mob/clicker, trigger_flags)
 	if(!..())
 		return FALSE
 
@@ -131,9 +131,10 @@
 	button_icon_state = "stasis"
 	build_all_button_icons()
 
-	if(isethereal(owner.dna.species))
-		var/datum/species/ethereal/ethereal = owner.dna.species
-		ethereal.refresh_light_color(owner)
+	if(isethereal(owner))
+		var/datum/status_effect/grouped/bodypart_effect/ethereal_glow/glow_status = owner.has_status_effect(/datum/status_effect/grouped/bodypart_effect/ethereal_glow)
+		if(!isnull(glow_status))
+			glow_status.refresh_light_color()
 
 	SSquirks.OverrideQuirks(owner, owner.client)
 

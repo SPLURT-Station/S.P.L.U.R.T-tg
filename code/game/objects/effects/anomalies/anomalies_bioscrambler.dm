@@ -70,9 +70,7 @@
 	for(var/mob/living/carbon/target in GLOB.player_list)
 		if (target.z != z)
 			continue
-		if (HAS_TRAIT(target, TRAIT_GODMODE))
-			continue
-		if (target.stat >= UNCONSCIOUS)
+		if (HAS_TRAIT(target, TRAIT_GODMODE) || IS_UNCONSCIOUS(target))
 			continue // Don't just haunt a corpse
 		//SPLURT ADDITION START - Prevent bioscrambler from targeting people in dorms
 		var/area/target_area = get_area(target)

@@ -381,6 +381,10 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/security.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/security_digi.dmi'
 
+/*
+// NT PRIVATE SECURITY, NTPS
+*/
+
 /obj/item/clothing/under/rank/security/splurt/ntps
 	name = "\improper Nanotrasen private security suit"
 	desc = "A gray Nanotrasen security-esc uniform with the classic security red on the shoulders and front, usually worn by Nanotrasen's \
@@ -445,3 +449,13 @@
 		nanotrasen logo etched into it. You feel incredibly expensive and comfortable wearing this, you're on top of the world! The rank that \
 		is designated on the uniform is \"Captain\"."
 	icon_state = "ntps_captain"
+
+/*
+// MERCENARIES
+*/
+
+/obj/item/clothing/under/rank/security/splurt/mercenary
+	name = "\improper mercenary uniform"
+	desc = "Clothing for real mercenaries who went through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned."
+	icon_state = "mercenary"
+	inhand_icon_state = "g_suit"

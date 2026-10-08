@@ -64,7 +64,7 @@
 	var/obj/item/clothing/under/worn_uniform = peeked.get_item_by_slot(ITEM_SLOT_ICLOTHING)
 	if(!istype(worn_uniform))
 		return
-	if(!(!peeked.client && (peeked.stat == CONSCIOUS) && peeked.has_status_effect(/datum/status_effect/grouped/blindness)))
+	if(!(!peeked.client && (peeked.stat == STABLE) && peeked.has_status_effect(/datum/status_effect/grouped/blindness)))
 		return
 	to_chat(peeked, span_warning("You notice [peeker] looking under your [worn_uniform.name]!"))
 	to_chat(peeker, span_warning("[peeked] notices you peeking under [peeked.p_their()] [worn_uniform.name]!"))

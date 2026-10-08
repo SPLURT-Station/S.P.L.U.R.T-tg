@@ -15,14 +15,14 @@
 	name = "Velvet chords"
 	var/obj/item/organ/vocal_cords/velvet/cords = null
 
-/datum/action/item_action/organ_action/velvet/New()
+/datum/action/item_action/organ_action/velvet/New(Target)
 	..()
 	cords = target
 
 /datum/action/item_action/organ_action/velvet/IsAvailable(feedback = TRUE)
 	return TRUE
 
-/datum/action/item_action/organ_action/velvet/Trigger(trigger_flags)
+/datum/action/item_action/organ_action/velvet/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	var/command = input(owner, "Speak in a sultry tone", "Command")
 	if(QDELETED(src) || QDELETED(owner))

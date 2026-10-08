@@ -139,6 +139,15 @@
 	desc = "A blue helmet used to distinguish <i>non-combatant</i> \"PRESS\" members, like if anyone cares."
 	armor_type = /datum/armor/none
 
+/obj/item/clothing/suit/armor/vest/mercenary
+	name = "mercenary web vest"
+	desc = "A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating."
+	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
+	icon_state = "mercenary_webvest"
+	worn_icon_state = "mercenary_webvest"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
 /obj/item/clothing/suit/armor/centcom_commander
 	name = "\improper CentCom commander's coat"
 	desc = "A prestigious command overcoat reserved for Nanotrasen Central Command Commanders. Its dark tailored \

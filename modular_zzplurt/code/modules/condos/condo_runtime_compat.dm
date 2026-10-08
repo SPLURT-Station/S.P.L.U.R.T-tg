@@ -1,11 +1,6 @@
 /// Runtime compatibility for legacy SPLURT condo templates loaded through the
 /// upstream condo reservation system.
 
-/turf/open/lava/fake/Initialize(mapload)
-	for(var/turf_trait in give_turf_traits)
-		ADD_TRAIT(src, turf_trait, INNATE_TRAIT)
-	. = ..()
-
 /turf/open/water/hot_spring/enter_hot_spring(atom/movable/movable)
 	if(is_type_in_typecache(movable, GLOB.immerse_ignored_movable))
 		return FALSE
