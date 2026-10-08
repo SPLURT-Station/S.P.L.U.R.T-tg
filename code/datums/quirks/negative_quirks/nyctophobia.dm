@@ -1,3 +1,4 @@
+// File: code/datums/quirks/negative_quirks/nyctophobia.dm
 /datum/quirk/nyctophobia
 	name = "Nyctophobia"
 	desc = "As far as you can remember, you've always been afraid of the dark. \
@@ -10,6 +11,7 @@
 	hardcore_value = 5
 	mail_goodies = list(/obj/effect/spawner/random/engineering/flashlight)
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_TRAUMALIKE
+	blacklist_categories = list()
 
 /datum/quirk/nyctophobia/add(client/client_source)
 	quirk_holder.AddComponentFrom(type, /datum/component/fearful, list(/datum/terror_handler/simple_source/nyctophobia))

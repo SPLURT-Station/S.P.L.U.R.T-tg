@@ -1,3 +1,4 @@
+// File: code/datums/quirks/negative_quirks/claustrophobia.dm
 /datum/quirk/claustrophobia
 	name = "Claustrophobia"
 	desc = "You are terrified of small spaces and certain jolly figures. If you are placed inside any container, locker, or machinery, a panic attack sets in and you struggle to breathe."
@@ -9,6 +10,8 @@
 	hardcore_value = 5
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_TRAUMALIKE
 	mail_goodies = list(/obj/item/reagent_containers/syringe/convermol) // to help breathing
+	// Allow multiple phobias by preventing strict mutual exclusion groups
+	blacklist_categories = list()
 
 /datum/quirk/claustrophobia/add(client/client_source)
 	quirk_holder.AddComponentFrom(type, /datum/component/fearful, list(/datum/terror_handler/simple_source/claustrophobia, /datum/terror_handler/simple_source/clausophobia))
