@@ -22,6 +22,7 @@
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/centcom_digi.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+*/
 
 /obj/item/clothing/under/rank/centcom/consultant
 	name = "\improper CentCom representative's suit"
@@ -43,6 +44,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/*
 /obj/item/clothing/under/rank/centcom/official
 	desc = "A formal suit worn by CentCom's paper pushers, a generic uniform usually used by Inspectors. The silver belt buckle denotes their rank with ease."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'

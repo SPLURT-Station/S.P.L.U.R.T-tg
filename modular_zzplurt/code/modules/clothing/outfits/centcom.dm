@@ -211,25 +211,6 @@
 	gloves = /obj/item/clothing/gloves/combat
 	mask = /obj/item/clothing/mask/gas/sechailer
 	shoes = /obj/item/clothing/shoes/combat/swat
-	var/additional_radio
-
-/datum/outfit/centcom/ert/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/radio/headset/R = H.ears
-	R.set_frequency(FREQ_CENTCOM)
-	R.freqlock = RADIO_FREQENCY_LOCKED
-	if(additional_radio)
-		R.keyslot2 = new additional_radio()
-		R.recalculateChannels()
-
-	var/obj/item/card/id/W = H.wear_id
-	if(W)
-		W.registered_name = H.real_name
-		W.update_label()
-		W.update_icon()
-	return ..()
 
 /datum/outfit/centcom/ert/commander
 	name = "ERT Commander"
@@ -378,7 +359,7 @@
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	backpack_contents = list(
 		/obj/item/construction/rcd/combat = 1,
-		/obj/item/gun/energy/e_gun/mini, = 1,
+		/obj/item/gun/energy/e_gun/mini = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/pipe_dispenser = 1,
 	)
