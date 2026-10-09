@@ -9,19 +9,6 @@
 	ears = /obj/item/radio/headset/headset_cent
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-/datum/outfit/centcom/post_equip(mob/living/carbon/human/centcom_member, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/implant/mindshield/mindshield = new /obj/item/implant/mindshield(centcom_member)//hmm lets have centcom officials become revs
-	mindshield.implant(centcom_member, null, silent = TRUE)
-
-	var/obj/item/card/id/W = centcom_member.wear_id
-	W.registered_name = centcom_member.real_name
-	W.update_label()
-	W.update_icon()
-	return ..()
-
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
@@ -183,20 +170,6 @@
 	mask = /obj/item/cigarette/cigar/havana
 	shoes = /obj/item/clothing/shoes/combat/swat
 	r_pocket = /obj/item/lighter
-
-/datum/outfit/centcom/spec_ops/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
-
-	var/obj/item/radio/headset/R = H.ears
-	R.set_frequency(FREQ_CENTCOM)
-	R.freqlock = RADIO_FREQENCY_LOCKED
-	..()
 
 /datum/outfit/centcom/centcom_intern
 	name = "CentCom Intern"
@@ -402,7 +375,7 @@
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	backpack_contents = list(
 		/obj/item/construction/rcd/combat = 1,
-		/obj/item/gun/energy/e_gun/mini, // /obj/item/gun/energy/pulse/pistol/loyalpin = 1, - BUBBER EDIT
+		/obj/item/gun/energy/e_gun/mini, = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/pipe_dispenser = 1,
 	)
@@ -625,33 +598,9 @@
 		/obj/item/skillchip/disk_verifier,
 	)
 
-/datum/outfit/centcom/death_commando/post_equip(mob/living/carbon/human/squaddie, visuals_only = FALSE)
-	if(visuals_only)
-		return
-
-	var/obj/item/radio/radio = squaddie.ears
-	radio.set_frequency(FREQ_CENTCOM)
-	radio.freqlock = RADIO_FREQENCY_LOCKED
-	var/obj/item/card/id/id = squaddie.wear_id
-	id.registered_name = squaddie.real_name
-	id.update_label()
-	id.update_icon()
-	return ..()
-
 /datum/outfit/centcom/death_commando/officer
 	name = "Death Commando Officer"
 
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
-
-/datum/outfit/centcom/death_commando/officer/post_equip(mob/living/carbon/human/squaddie, visuals_only = FALSE)
-	. = ..()
-	var/obj/item/mod/control/mod = squaddie.back
-	if(!istype(mod))
-		return
-	var/obj/item/clothing/helmet = mod.get_part_from_slot(ITEM_SLOT_HEAD)
-	var/obj/item/clothing/head/helmet/space/beret/beret = new(helmet)
-	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
-	component.attach_hat(beret)
-	squaddie.update_clothing(helmet.slot_flags)

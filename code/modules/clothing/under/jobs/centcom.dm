@@ -44,11 +44,11 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	bodyshapes_with_variations = NONE
 
-/obj/item/clothing/under/rank/centcom/officer/skirt/replica
+/obj/item/clothing/under/rank/centcom/officer_skirt/replica
 	name = "\improper CentCom turtleneck skirt replica"
 	desc = "A cheap copy of the CentCom turtleneck skirt! A Donk Co. logo can be seen on the collar."
 
-/obj/item/clothing/under/rank/centcom/commander/skirt
+/obj/item/clothing/under/rank/centcom/centcom_skirt
 	name = "\improper CentCom commander's suitskirt"
 	desc = "It's a suitskirt worn by CentCom's highest-tier Commanders."
 	icon_state = "centcom_skirt"

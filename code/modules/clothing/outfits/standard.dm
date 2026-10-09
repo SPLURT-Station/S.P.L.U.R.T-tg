@@ -1,5 +1,3 @@
-// Who the fuck put the CentCom Specops Officer in here when we had "code\modules\clothing\outfits\ert.dm".
-/*
 /datum/outfit/centcom/spec_ops
 	name = "Special Ops Officer"
 
@@ -30,7 +28,6 @@
 	R.set_frequency(FREQ_CENTCOM)
 	R.freqlock = RADIO_FREQENCY_LOCKED
 	..()
-*/
 
 /datum/outfit/space
 	name = "Standard Space Gear"

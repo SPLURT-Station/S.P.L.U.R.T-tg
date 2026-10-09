@@ -9,7 +9,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/commander/skirt
+/obj/item/clothing/under/rank/centcom/centcom_skirt
 	name = "\improper CentCom commander's suitskirt"
 	desc = "A distinguished emerald-green Central Command uniform paired with a matching formal skirt, tailored to reflect Nanotrasen's \
 		professionalism and authority. Gold accents on the cuffs and waistband complement the deep green fabric, creating a refined yet \
@@ -30,7 +30,7 @@
 	icon_state = "centcom_turtleneck"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/commander/skirt/turtleneck
+/obj/item/clothing/under/rank/centcom/centcom_skirt/turtleneck
 	name = "\improper CentCom commander's skirtleneck"
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command personnel paired with a matching formal skirt, \
 		combining comfort with Nanotrasen's unmistakable professional style. Gold accents along the cuffs and shoulders complement the \
@@ -166,7 +166,7 @@
 	icon_state = "fakecent"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer/skirt/replica
+/obj/item/clothing/under/rank/centcom/officer_skirt/replica
 	name = "\improper CentCom skirtleneck replica"
 	desc = "A low-cost imitation of Central Command's formal turtleneck uniform, this skirted variant uses cheap green fabric and synthetic \
 		materials to mimic the appearance of Nanotrasen authority while sacrificing quality and refinement. Intended for imitation officers or \
