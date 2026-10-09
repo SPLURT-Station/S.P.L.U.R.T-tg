@@ -179,12 +179,14 @@
 	back = /obj/item/storage/backpack/satchel
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black
-
-/datum/outfit/centcom/centcom_intern/armed
-	name = "CentCom Intern (Armed)"
-
 	belt = /obj/item/melee/baton
 	l_hand = /obj/item/gun/energy/laser/pistol
+
+/datum/outfit/centcom/centcom_intern/unarmed
+	name = "CentCom Intern (Unarmed)"
+
+	belt = null
+	l_hand = null
 
 /datum/outfit/centcom/centcom_intern/leader
 	name = "CentCom Head Intern"
@@ -193,11 +195,12 @@
 	belt = /obj/item/melee/baton/security/loaded
 	head = /obj/item/clothing/head/hats/intern
 	l_hand = /obj/item/megaphone
-
-/datum/outfit/centcom/centcom_intern/leader/armed
-	name = "CentCom Head Intern (Armed)"
-
 	suit_store = /obj/item/gun/energy/laser/assault
+
+/datum/outfit/centcom/centcom_intern/leader/unarmed
+	name = "CentCom Head Intern (Unarmed)"
+
+	suit_store = null
 
 /datum/outfit/centcom/ert
 	name = "ERT Common"
