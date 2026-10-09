@@ -1,0 +1,22 @@
+{
+  "title": "Borg Comms Control",
+  "options": [
+    {
+      "id": "toggle_comms",
+      "label": "Toggle All Comms",
+      "hint": "Disable/enable all communications. When disabled, borg will not send or receive any comms traffic.",
+      "action": "ToggleComms"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "comms_status",
+      "type": "status",
+      "binding": "CommsEnabled",
+      "labels": {
+        "true": "Comms: ON",
+        "false": "Comms: OFF"
+      }
+    }
+  ]
+}
