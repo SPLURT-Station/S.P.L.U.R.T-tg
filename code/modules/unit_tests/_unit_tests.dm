@@ -382,6 +382,7 @@
 #include "~skyrat\proteans.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
+#include "~splurt\gas_analyzer.dm"
 #include "~splurt\underwear_items.dm"
 #include "~zubbers\vitezstvi_turret_flags.dm"
 // SPLURT EDIT END
