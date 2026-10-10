@@ -74,6 +74,7 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/oversized_hood
+	auto_deploy_hood_on_outfit_equip = FALSE
 	cold_protection = CHEST|GROIN|ARMS
 	body_parts_covered = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -86,6 +87,16 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	flags_inv = HIDEHAIR
+
+// Theoretically these are the only loadout hoodies that need to have the hood auto deploy disabled.
+/obj/item/clothing/suit/hooded/big_hoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
+
+/obj/item/clothing/suit/hooded/twee_hoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
+
+/obj/item/clothing/suit/hooded/colorblockhoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
 
 /obj/item/clothing/suit/urban/shoulder_sweater
 	name = "off shoulder sweater"
