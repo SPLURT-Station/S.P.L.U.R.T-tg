@@ -159,6 +159,7 @@
 	. = ..()
 	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
+// SPLURT EDIT START
 /datum/antagonist/ert/intern
 	name = "CentCom Intern"
 	outfit = /datum/outfit/centcom/centcom_intern

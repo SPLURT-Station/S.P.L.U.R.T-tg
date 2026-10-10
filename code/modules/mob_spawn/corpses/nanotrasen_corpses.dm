@@ -53,7 +53,7 @@
 
 /obj/effect/mob_spawn/corpse/human/intern //this is specifically the comms intern from the event
 	name = "CentCom Intern"
-	outfit = /datum/outfit/centcom/centcom_intern/unarmed
+	outfit = /datum/outfit/centcom/centcom_intern
 	mob_name = "Nameless Intern"
 
 /obj/effect/mob_spawn/corpse/human/intern/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)

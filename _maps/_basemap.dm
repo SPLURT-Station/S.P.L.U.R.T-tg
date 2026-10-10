@@ -1,5 +1,5 @@
 #ifndef MINIMAL_CENTCOM
-#include "map_files\generic\CentCom.dmm"
+#include "map_files\generic\CentCom_splurt.dmm" //#include "map_files\generic\CentCom.dmm" SPLURT EDIT - ORIGINAL
 #else
 #include "map_files\generic\CentCom_minimal.dmm"
 #endif

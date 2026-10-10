@@ -33,7 +33,7 @@
 	name = "\improper CentCom turtleneck replica"
 	desc = "A cheap copy of the CentCom turtleneck! A Donk Co. logo can be seen on the collar."
 
-/obj/item/clothing/under/rank/centcom/officer_skirt
+/obj/item/clothing/under/rank/centcom/officer/skirt
 	name = "\improper CentCom turtleneck skirt"
 	desc = "A skirt version of the CentCom turtleneck, rarer and more sought after than the original."
 	icon_state = "officer_skirt"

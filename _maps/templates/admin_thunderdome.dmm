@@ -3,738 +3,1129 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
 /obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/centcom/tdome/arena)
+"ac" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner,
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"ac" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "ad" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#9FED58"
+	},
 /obj/machinery/door/poddoor{
 	id = "thunderdomehea";
 	name = "Heavy Supply"
 	},
-/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
 "ae" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
+/obj/effect/landmark/thunderdome/one,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"af" = (
-/turf/open/floor/circuit/green,
-/area/template_noop)
-"ag" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Red Team";
-	network = list("thunder");
-	pixel_x = 11;
-	pixel_y = -9;
-	resistance_flags = 64
+/turf/open/floor/iron/dark/side{
+	dir = 8
 	},
-/obj/effect/landmark/thunderdome/two,
+/area/centcom/tdome/arena)
+"af" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/circuit/red,
+/area/centcom/tdome/arena)
+"ag" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "ah" = (
-/obj/structure/rack,
+/obj/structure/rack/shelf,
 /obj/item/clothing/under/color/green,
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
 "ai" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
+/obj/effect/landmark/thunderdome/one,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side{
+	dir = 10
+	},
+/area/centcom/tdome/arena)
 "ak" = (
-/obj/effect/turf_decal/loading_area{
+/obj/effect/turf_decal/trimline/green/filled/warning{
 	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "al" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/effect/light_emitter/thunderdome,
-/turf/closed/indestructible/fakeglass,
-/area/template_noop)
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
 "am" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#DE3A3A"
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
 /obj/machinery/door/poddoor{
 	id = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
-/obj/effect/turf_decal/loading_area{
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
+"an" = (
+/obj/effect/turf_decal/trimline/green/filled/warning{
 	dir = 4
 	},
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"an" = (
-/obj/effect/turf_decal/loading_area{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "ao" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
 /obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side,
+/area/centcom/tdome/arena)
 "ap" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
+/obj/machinery/camera/directional/north{
+	c_tag = "Green Team";
+	network = list("thunder");
+	pixel_x = 12;
+	resistance_flags = 64
 	},
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aq" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
 /obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/tdome/arena)
+"aq" = (
+/obj/machinery/igniter/on,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "ar" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#9FED58"
+	},
 /obj/machinery/door/poddoor{
 	id = "thunderdomegen";
 	name = "General Supply"
 	},
-/obj/effect/turf_decal/loading_area{
+/obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
+"as" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/tile/red/real_red/opposingcorners{
+	dir = 1
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"as" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "at" = (
-/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "au" = (
+/obj/effect/turf_decal/trimline/green/filled/line,
 /obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side,
+/area/centcom/tdome/arena)
 "av" = (
 /turf/closed/indestructible/riveted,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "aw" = (
-/obj/structure/rack,
+/obj/structure/rack/shelf,
 /obj/item/clothing/under/color/red,
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
 "ax" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
 	},
+/obj/effect/landmark/thunderdome/one,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/centcom/tdome/arena)
 "az" = (
-/obj/structure/rack,
+/obj/structure/rack/shelf,
 /obj/item/clothing/under/color/red,
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/red,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/security/loaded,
 /obj/item/melee/energy/sword/saber/red,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
 "aA" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
+/obj/effect/turf_decal/delivery/white{
+	color = "#DE3A3A"
 	},
+/obj/machinery/recharger,
+/obj/effect/landmark/thunderdome/two,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "aB" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#9FED58"
+	},
 /obj/machinery/door/poddoor{
 	id = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
-/obj/effect/turf_decal/loading_area{
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
 "aC" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 8
 	},
+/obj/effect/landmark/thunderdome/two,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/centcom/tdome/arena)
 "aD" = (
-/obj/structure/rack,
+/obj/structure/rack/shelf,
 /obj/item/clothing/under/color/green,
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/green,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/security/loaded,
 /obj/item/melee/energy/sword/saber/green,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
+"aE" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#DE3A3A"
+	},
+/obj/machinery/door/poddoor{
+	id = "thunderdomehea";
+	name = "Heavy Supply"
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
+"aF" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/circuit/green,
+/area/centcom/tdome/arena)
+"aH" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aE" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
+/area/centcom/tdome/arena)
+"aI" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 10
 	},
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aF" = (
 /obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 10
+	},
+/area/centcom/tdome/arena)
+"aJ" = (
+/obj/effect/landmark/thunderdome/one,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aH" = (
-/obj/effect/turf_decal/tile/green{
+/area/centcom/tdome/arena)
+"aK" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#9FED58"
+	},
+/obj/machinery/recharger,
+/obj/effect/landmark/thunderdome/one,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"aL" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 4
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aI" = (
+/area/centcom/tdome/arena)
+"aN" = (
 /obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aJ" = (
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/delivery,
+/area/centcom/tdome/arena)
+"aO" = (
+/obj/machinery/igniter/on,
+/obj/effect/turf_decal/tile/red/real_red/fourcorners,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aK" = (
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/stripes/line{
+/area/centcom/tdome/arena)
+"aP" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#9FED58"
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
+"aQ" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/circuit,
+/area/centcom/tdome/arena)
+"aR" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aL" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aN" = (
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/delivery,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aO" = (
-/obj/machinery/igniter/on,
-/obj/effect/turf_decal/delivery,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aP" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aQ" = (
-/obj/machinery/camera/motion/thunderdome{
-	pixel_x = 10
-	},
-/turf/open/floor/circuit/green,
-/area/template_noop)
-"aR" = (
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "aS" = (
-/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/bot_white{
+	color = "#DE3A3A"
+	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
 "aT" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 6
 	},
+/obj/effect/landmark/thunderdome/two,
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/centcom/tdome/arena)
 "aU" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Green Team";
-	network = list("thunder");
-	pixel_x = 12;
-	pixel_y = -10;
-	resistance_flags = 64
-	},
-/obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
-"aV" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"aW" = (
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/stripes/line{
+/area/centcom/tdome/arena)
+"aV" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 4
 	},
+/obj/effect/landmark/thunderdome/two,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/centcom/tdome/arena)
+"aW" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/tile/green/opposingcorners,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "aX" = (
 /obj/machinery/flasher{
 	id = "tdomeflash";
 	name = "Thunderdome Flash"
 	},
-/turf/open/floor/circuit/green,
-/area/template_noop)
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/camera/motion/thunderdome{
+	pixel_x = 10
+	},
+/turf/open/floor/circuit,
+/area/centcom/tdome/arena)
 "aY" = (
+/obj/effect/turf_decal/delivery/white{
+	color = "#DE3A3A"
+	},
 /obj/machinery/door/poddoor{
 	id = "thunderdomegen";
 	name = "General Supply"
 	},
-/obj/effect/turf_decal/loading_area{
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
 /obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron,
-/area/template_noop)
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/tdome/arena)
 "aZ" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 8
+/obj/effect/turf_decal/delivery/white{
+	color = "#DE3A3A"
 	},
 /obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
+"do" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 1
+	},
+/obj/effect/landmark/thunderdome/one,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/tdome/arena)
+"gT" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
 "ib" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
 	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
+"iA" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"mp" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
 "nu" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"oU" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"sD" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 4
+	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"SV" = (
-/obj/effect/turf_decal/tile/green/half/contrasted{
+/area/centcom/tdome/arena)
+"uA" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"xv" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"zA" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
-"XQ" = (
-/obj/effect/turf_decal/tile/red/half/contrasted{
+/area/centcom/tdome/arena)
+"Al" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Ar" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 5
+	},
+/obj/effect/landmark/thunderdome/two,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/centcom/tdome/arena)
+"Bb" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Red Team";
+	network = list("thunder");
+	pixel_x = 11;
+	resistance_flags = 64
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/effect/landmark/thunderdome/two,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/tdome/arena)
+"Dq" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"DB" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
-/area/template_noop)
+/area/centcom/tdome/arena)
+"DM" = (
+/obj/effect/baseturf_helper/asteroid/snow,
+/turf/closed/indestructible/riveted,
+/area/centcom/tdome/arena)
+"Gv" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new/corner,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Hl" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Lh" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/obj/effect/landmark/thunderdome/two,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/tdome/arena)
+"Lj" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Mf" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/obj/effect/landmark/thunderdome/one,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/centcom/tdome/arena)
+"MN" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"NH" = (
+/obj/effect/turf_decal/bot_white{
+	color = "#9FED58"
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark,
+/area/centcom/tdome/arena)
+"NJ" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Op" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"SV" = (
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/line,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Tt" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/filled/warning{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"TT" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 9
+	},
+/obj/effect/landmark/thunderdome/two,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 9
+	},
+/area/centcom/tdome/arena)
+"Xm" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"XQ" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/warning{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"YJ" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 9
+	},
+/obj/effect/landmark/thunderdome/one,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/side{
+	dir = 9
+	},
+/area/centcom/tdome/arena)
 
 (1,1,1) = {"
 aa
-av
-av
-av
-av
-av
-av
-av
-av
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 "}
 (2,1,1) = {"
 aa
-av
 az
 az
 az
 az
 az
 az
-av
+az
+aa
 aa
 aa
 "}
 (3,1,1) = {"
 aa
-av
 aY
 aY
 aY
 aY
 aY
 aY
-av
-av
-av
+aY
+aa
+aa
+aa
 "}
 (4,1,1) = {"
 aa
-av
-aL
+TT
+aC
 aC
 aC
 aC
 aC
 aI
-ad
+aE
 aw
-av
+aa
 "}
 (5,1,1) = {"
 aa
-av
+Lh
 aA
 aN
-aF
-aF
 aN
+aN
+aA
 ao
-ad
+aE
 aw
-av
+aa
 "}
 (6,1,1) = {"
 aa
-av
-aA
-aF
-ag
-aF
-aF
+Bb
+aN
+aN
+aN
+aN
+aN
 ao
-ad
+aE
 aw
-av
+aa
 "}
 (7,1,1) = {"
 aa
-av
+Lh
 aA
 aN
-aF
-aF
 aN
+aN
+aA
 ao
-ad
+aE
 aw
-av
+aa
 "}
 (8,1,1) = {"
 aa
-av
+Ar
 aV
-aW
-aW
-aW
-aW
+aV
+aV
+aV
+aV
 aT
-ad
+aE
 aw
-av
+aa
 "}
 (9,1,1) = {"
-av
-av
+aa
 am
 am
 am
 am
 am
 am
-av
-av
-av
+am
+DM
+aa
+aa
 "}
 (10,1,1) = {"
-al
 aO
+oU
 XQ
-ac
-ak
-ak
-aZ
 XQ
+XQ
+XQ
+XQ
+zA
 aO
-al
+aa
 aa
 "}
 (11,1,1) = {"
-al
-aR
-aR
-aR
-aR
-aR
-aR
-aR
-aR
-al
+aH
+Lj
+DB
+DB
+DB
+DB
+DB
+NJ
+aH
+aa
 aa
 "}
 (12,1,1) = {"
-al
 aS
-aP
-aP
-aP
-aP
-aP
-aP
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
+aZ
 aS
-al
+aa
 aa
 "}
 (13,1,1) = {"
-al
-aR
+uA
+Al
 ib
 ib
 ib
 ib
 ib
 ib
-aR
-al
+mp
+aa
 aa
 "}
 (14,1,1) = {"
 al
+as
+as
+as
+as
+as
+as
+as
 aR
-as
-as
-as
-as
-as
-as
-aR
-al
+aa
 aa
 "}
 (15,1,1) = {"
 al
+as
+Gv
+at
+at
+at
+aL
+as
 aR
-as
-as
-as
-as
-as
-as
-aR
-al
+aa
 aa
 "}
 (16,1,1) = {"
 al
-aR
 as
-as
+Xm
 af
 af
-as
+af
+Dq
 as
 aR
-al
+aa
 aa
 "}
 (17,1,1) = {"
 al
-aR
-as
-as
+ag
+Xm
+aQ
 aX
 aQ
-as
-as
+Dq
+ag
 aR
-al
+aa
 aa
 "}
 (18,1,1) = {"
 al
+aW
+Xm
+aF
+aF
+aF
+Dq
+aW
 aR
-as
-as
-af
-af
-as
-as
-aR
-al
+aa
 aa
 "}
 (19,1,1) = {"
 al
+aW
+Op
+aU
+aU
+aU
+MN
+aW
 aR
-as
-as
-as
-as
-as
-as
-aR
-al
+aa
 aa
 "}
 (20,1,1) = {"
 al
+aW
+aW
+aW
+aW
+aW
+aW
+aW
 aR
-as
-as
-as
-as
-as
-as
-aR
-al
+aa
 aa
 "}
 (21,1,1) = {"
-al
-aR
+Tt
+sD
 nu
 nu
 nu
 nu
 nu
 nu
-aR
-al
+xv
+aa
 aa
 "}
 (22,1,1) = {"
-al
-aS
+NH
 aP
 aP
 aP
 aP
 aP
 aP
-aS
-al
+aP
+NH
+aa
 aa
 "}
 (23,1,1) = {"
-al
-aR
-aR
-aR
-aR
-aR
-aR
-aR
-aR
-al
+iA
+gT
+Hl
+Hl
+Hl
+Hl
+Hl
+ac
+iA
+aa
 aa
 "}
 (24,1,1) = {"
-al
-aO
-SV
-aH
+aq
+ak
 an
 an
-at
+an
+an
+an
 SV
-aO
-al
+aq
+aa
 aa
 "}
 (25,1,1) = {"
+aa
+aB
+aB
+aB
+aB
+aB
+aB
+aB
 av
-av
-aB
-aB
-aB
-aB
-aB
-aB
-av
-av
-av
+aa
+aa
 "}
 (26,1,1) = {"
 aa
-av
-ap
+YJ
+ae
 ae
 ae
 ae
@@ -742,51 +1133,51 @@ ae
 ai
 ad
 ah
-av
+aa
 "}
 (27,1,1) = {"
 aa
-av
+do
 aK
 aJ
-aq
-aq
 aJ
+aJ
+aK
 au
 ad
 ah
-av
+aa
 "}
 (28,1,1) = {"
 aa
-av
-aK
-aq
-aU
-aq
-aq
+ap
+aJ
+aJ
+aJ
+aJ
+aJ
 au
 ad
 ah
-av
+aa
 "}
 (29,1,1) = {"
 aa
-av
+do
 aK
 aJ
-aq
-aq
 aJ
+aJ
+aK
 au
 ad
 ah
-av
+aa
 "}
 (30,1,1) = {"
 aa
-av
-aE
+Mf
+ab
 ab
 ab
 ab
@@ -794,44 +1185,44 @@ ab
 ax
 ad
 ah
-av
+aa
 "}
 (31,1,1) = {"
 aa
-av
 ar
 ar
 ar
 ar
 ar
 ar
-av
-av
-av
+ar
+aa
+aa
+aa
 "}
 (32,1,1) = {"
 aa
-av
 aD
 aD
 aD
 aD
 aD
 aD
-av
+aD
+aa
 aa
 aa
 "}
 (33,1,1) = {"
 aa
-av
-av
-av
-av
-av
-av
-av
-av
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 "}

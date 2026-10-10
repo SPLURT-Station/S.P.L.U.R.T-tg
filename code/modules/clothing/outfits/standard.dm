@@ -232,6 +232,8 @@
 	W.update_label()
 	W.update_icon()
 
+// Who the fuck put the CentCom Commander in here when we had "code\modules\clothing\outfits\ert.dm".
+/*
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
@@ -269,6 +271,7 @@
 	mask = /obj/item/clothing/mask/gas/sechailer
 	back = /obj/item/mod/control/pre_equipped/corporate
 	internals_slot = ITEM_SLOT_SUITSTORE
+*/
 
 /datum/outfit/ghost_cultist
 	name = "Cultist Ghost"
@@ -347,6 +350,8 @@
 	head = /obj/item/clothing/head/wizard/red
 	backpack_contents = list()
 
+// Who the fuck invited the russians, also trim removal. - SPLURT REMOVAL
+/*
 /datum/outfit/centcom/soviet
 	name = "Soviet Admiral"
 
@@ -372,6 +377,7 @@
 	W.update_label()
 	W.update_icon()
 	..()
+*/
 
 /datum/outfit/mobster
 	name = "Mobster"

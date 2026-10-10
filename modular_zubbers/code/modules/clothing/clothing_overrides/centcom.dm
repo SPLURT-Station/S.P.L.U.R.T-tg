@@ -5,6 +5,8 @@
 /*
 * UNIFORMS
 */
+
+/* NEW OVERRIDES
 /obj/item/clothing/under/rank/centcom/commander
 	desc = "An elegant uniform worn by CentCom's finest, comfortable trousers and gold marking denoting the rank of \"Commander\"."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'
@@ -20,6 +22,7 @@
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/centcom_digi.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+*/
 
 /obj/item/clothing/under/rank/centcom/consultant
 	name = "\improper CentCom representative's suit"
@@ -41,6 +44,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/*
 /obj/item/clothing/under/rank/centcom/official
 	desc = "A formal suit worn by CentCom's paper pushers, a generic uniform usually used by Inspectors. The silver belt buckle denotes their rank with ease."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'
@@ -72,7 +76,7 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer_skirt
+/obj/item/clothing/under/rank/centcom/officer/skirt
 	name = "\improper CentCom tactical skirtleneck"
 	desc = "A CentCom uniform worn by Emergency Response Teams, added with a generic black skirt. Though, more used as an undersuit for MOD suits."
 	icon = 'modular_zubbers/icons/obj/clothing/under/centcom.dmi'
@@ -100,6 +104,7 @@
 	worn_icon_digi = 'modular_zubbers/icons/mob/clothing/under/centcom_digi.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+*/
 
 /*
 * SUITS
@@ -153,6 +158,7 @@
 	icon = 'modular_zubbers/icons/obj/clothing/head/hats.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/head/hats.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/head/hats_teshari.dmi'
+	armor_type = /datum/armor/beret_centcom_formal
 
 /obj/item/clothing/head/hats/consultant_cap
 	name = "\improper CentCom representative's cap"
@@ -174,7 +180,8 @@
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/head/hats_teshari.dmi'
 
 /obj/item/clothing/head/beret/centcom_formal
-	name = "\improper CentCom formal beret"
+	name = "\improper CentCom commander's beret"
+	desc = "A exotic beret made of durable fabric, protects the head whilst making you look fantastic! Comes with a golden Nanotrasen logo badge on the front for identification."
 	icon = 'modular_zubbers/icons/obj/clothing/head/hats.dmi'
 	worn_icon = 'modular_zubbers/icons/mob/clothing/head/hats.dmi'
 	icon_state = "centcom_beret"
