@@ -94,5 +94,4 @@
 			),
 		),
 	)
-	refill_canister = /obj/item/vending_refill/wardrobe/cent_wardrobe
 	light_color = LIGHT_COLOR_GREEN
