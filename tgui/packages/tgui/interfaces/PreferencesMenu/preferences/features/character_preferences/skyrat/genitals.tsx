@@ -299,6 +299,13 @@ export const body_size: FeatureNumeric = {
   component: FeatureNumberInput,
 };
 
+// SPLURT ADDITION START - Silicon body size
+export const cyborg_size: FeatureNumeric = {
+  name: 'Cyborg Body Size',
+  component: FeatureNumberInput,
+};
+// SPLURT ADDITION END - Silicon body size
+
 export const erp_status_pref: FeatureChoiced = {
   name: 'ERP Status',
   description:

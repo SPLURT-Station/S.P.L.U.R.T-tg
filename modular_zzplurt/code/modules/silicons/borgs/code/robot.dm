@@ -11,6 +11,12 @@
 		return TRUE
 	return ..()
 
+/mob/living/silicon/robot/proc/update_size_pref()
+	var/cyborg_size = client?.prefs?.read_preference(/datum/preference/numeric/cyborg_size)
+	if(cyborg_size && cyborg_size != current_size)
+		if(is_security_cyborg_role())
+			cyborg_size = max(cyborg_size, 0.8) // Don't let secborgs be smaller than 0.8
+		update_transform(current_size > 0 ? (cyborg_size / current_size) : 1)
 
 /mob/living/silicon/robot
 	var/sleeper_garbage

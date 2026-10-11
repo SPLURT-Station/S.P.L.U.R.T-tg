@@ -759,16 +759,9 @@
 		for(var/obj/item in bag)
 			item.forceMove(drop_location())
 
-	if (hasExpanded)
-		hasExpanded = FALSE
-		//update_transform(0.5) // Original
-		update_transform(0.6) // SKYRAT EDIT CHANGE
-
-	//SKYRAT EDIT ADDITION BEGIN - CYBORG
-	if (hasShrunk)
-		hasShrunk = FALSE
-		update_transform(4/3)
-	//SKYRAT EDIT ADDITION END
+	//SPLURT EDIT ADDITION BEGIN - Reset to original size
+	update_transform(current_size > 0 ? (1 / current_size) : 1)
+	//SPLURT EDIT ADDITION END
 
 	logevent("Chassis model has been reset.")
 	log_silicon("CYBORG: [key_name(src)] has reset their cyborg model.")
