@@ -265,6 +265,9 @@
 									genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
 							if(genital_pass && prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
 								target_mob.apply_status_effect(/datum/status_effect/pregnancy, target_mob, src)
+							var/datum/action/cooldown/spell/egg_production/egg_act = locate(/datum/action/cooldown/spell/egg_production) in target_mob.actions
+							if(egg_act)
+								egg_act.last_insemination_allowed = genital_pass
 						//SPLURT EDIT ADDITION END
 
 			//SPLURT EDIT CHANGE BEGIN - Interactions

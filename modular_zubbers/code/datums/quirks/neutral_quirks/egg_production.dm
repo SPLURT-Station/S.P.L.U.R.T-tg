@@ -40,6 +40,8 @@
 	var/eggs_stored = 0
 	// Whether we can produce another egg yet or not
 	var/can_produce = TRUE
+	/// Tracks whether the most recent fluid transfer was permitted by pregnancy settings
+	var/last_insemination_allowed = TRUE
 	// Max amount of eggs able to be stored
 	var/maximum_eggs = 100
 	// List of possible to_chat messages egg creation is able to trigger
@@ -94,9 +96,19 @@
 		if(!(target_reagent.name in egg_production_reagents)) // checks to ensure the target reagent is even correct, this was a pain in the ass
 			continue
 		if(target_reagent.volume >= egg_production_reagents[target_reagent.name][1])
+			if(target_reagent.name == "cum")
+				var/client/client_source = GET_CLIENT(egg_holder)
+				if(client_source?.prefs)
+					if(!last_insemination_allowed)
+						continue
+					var/preg_chance = client_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)
+					if(!prob(preg_chance))
+						continue
 			var/egg_thought = pick(possible_egg_thoughts)
 			to_chat(owner, span_notice("[egg_thought]"))
 			egg_update(1, egg_holder)
+			if(target_reagent.name == "cum")
+				egg_holder.reagents.remove_reagent(target_reagent.type, 10)
 			toggle_cooldown()
 			addtimer(CALLBACK(src, PROC_REF(toggle_cooldown)), egg_production_reagents[target_reagent.name][2])
 			return TRUE //completed once, now kill the entire proc
@@ -147,7 +159,7 @@
 		return FALSE
 
 	to_chat(owner, span_noticealien("You start laying an egg..."))
-	if(!do_after(owner, 10 SECONDS, cast_on, IGNORE_HELD_ITEM))
+	if(!do_after(owner, 2 SECONDS, cast_on, IGNORE_HELD_ITEM))
 		owner.balloon_alert(owner, "stopped attempting to lay an egg.")
 		return FALSE
 
