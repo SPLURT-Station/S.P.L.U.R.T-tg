@@ -119,6 +119,7 @@
 	accessory_type = /obj/item/lighter/greyscale
 	mob_trait = TRAIT_SMOKER
 	hardcore_value = 1
+	process_interval = 180 SECONDS
 	drug_flavour_text = "Make sure you get your favorite brand when you run out."
 	mail_goodies = list(
 		/obj/effect/spawner/random/entertainment/cigarette_pack,
