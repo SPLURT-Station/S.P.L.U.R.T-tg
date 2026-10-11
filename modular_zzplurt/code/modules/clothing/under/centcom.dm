@@ -130,7 +130,7 @@
 	icon_state = "officer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer/skirt
+/obj/item/clothing/under/rank/centcom/officer_skirt
 	name = "\improper CentCom officer's tactical skirtleneck"
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \
 		while providing a refined and adaptable field presence. Gold accents on the cuffs and trim complement the deep green fabric, while \
@@ -146,7 +146,7 @@
 	icon_state = "senior_officer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/rank/centcom/officer/skirt/senior
+/obj/item/clothing/under/rank/centcom/officer_skirt/senior
 	name = "\improper CentCom senior officer's tactical skirtleneck"
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \
 		while providing a refined and adaptable field presence. Gold accents on the cuffs and trim complement the deep green fabric, while \
