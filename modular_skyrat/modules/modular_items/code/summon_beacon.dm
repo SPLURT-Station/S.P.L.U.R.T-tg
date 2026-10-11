@@ -106,7 +106,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		if(istype(human_user.ears, /obj/item/radio/headset))
+		if(istype(human_user.ears, /obj/item/radio/headset) && !istype(human_user.ears_extra, /obj/item/radio/headset)) //Splurt edit - works with both ears now
 			to_chat(user, span_notice("You hear something crackle in your ears for a moment before a voice speaks. \
 				\"Please stand by for a message from Central Command.  Message as follows: \
 				[span_bold("Request received. Pod inbound, please stand back from the landing site.")] \
