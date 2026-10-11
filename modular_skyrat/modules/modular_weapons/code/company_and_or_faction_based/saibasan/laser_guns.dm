@@ -254,9 +254,6 @@
 	max_mobs = 1
 	communicate_as_parent = TRUE
 
-/obj/item/gun/energy/modular_laser_rifle/ert
-	cell_type = /obj/item/stock_parts/power_store/cell/upgraded/plus
-
 //Short version of the above modular rifle, has less charge and different modes
 /obj/item/gun/energy/modular_laser_rifle/carbine
 	name = "\improper Hoshi modular laser carbine"

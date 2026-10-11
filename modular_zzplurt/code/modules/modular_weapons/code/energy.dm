@@ -8,3 +8,6 @@
 		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
 		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."
+
+/obj/item/gun/energy/modular_laser_rifle/ert
+	cell_type = /obj/item/stock_parts/power_store/cell/upgraded/plus
