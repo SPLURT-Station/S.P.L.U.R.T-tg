@@ -101,9 +101,11 @@
 				if(client_source?.prefs)
 					if(!last_insemination_allowed)
 						continue
-					var/preg_chance = client_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)
-					if(!prob(preg_chance))
-						continue
+					var/preg_chance_type = text2path("/datum/preference/numeric/pregnancy/chance")
+					if(preg_chance_type)
+						var/preg_chance = client_source.prefs.read_preference(preg_chance_type)
+						if(!prob(preg_chance))
+							continue
 			var/egg_thought = pick(possible_egg_thoughts)
 			to_chat(owner, span_notice("[egg_thought]"))
 			egg_update(1, egg_holder)
