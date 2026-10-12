@@ -7,6 +7,7 @@
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
+	alt_covers_chest = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/centcom/centcom_skirt
@@ -58,6 +59,10 @@
 	desc = "A distinguished emerald-green Central Command uniform paired with a matching formal skirt, tailored to reflect Nanotrasen's \
 		professionalism and authority. Silver accents on the cuffs and waistband complement the deep green fabric, creating a refined yet \
 		practical appearance. Designed for officers serving beyond the frontier, it projects a commanding presence without sacrificing comfort."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "lieutenant_skirt"
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -69,6 +74,10 @@
 		unmistakable professional style. Silver accents along the cuffs and shoulders complement the rich green fabric, while its fitted \
 		design provides warmth and unrestricted movement. Ideal for duty aboard command vessels and installations, it offers a polished \
 		appearance suited to both office work and field inspections."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "lieutenant_turtleneck"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
@@ -78,6 +87,10 @@
 		combining comfort with Nanotrasen's unmistakable professional style. Silver accents along the cuffs and shoulders complement the \
 		rich green fabric, while its fitted design provides warmth and unrestricted movement. Ideal for duty aboard command vessels and \
 		installations, it offers a polished appearance suited to both office work and field inspections."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "lieutenant_turtleneck_skirt"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
@@ -97,6 +110,10 @@
 	desc = "A refined emerald-green turtleneck uniform worn by Nanotrasen Central Command officials, tailored to represent professionalism, \
 		authority, and executive command. The sleek high-collared design provides a modern, formal appearance, paired with dark reinforced \
 		trousers and subtle detailing that reflects the prestige and practicality expected of senior officers serving beyond the frontier."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "official_turtleneck"// Sprites by Ebin-Halcyon
 
 /obj/item/clothing/under/rank/centcom/intern
@@ -139,6 +156,10 @@
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \
 		while providing a refined and adaptable field presence. Gold accents on the cuffs and trim complement the deep green fabric, while \
 		a sleek black skirt provides a professional silhouette without sacrificing mobility or practicality for officers representing Central Command."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "officer_skirt"
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -149,6 +170,10 @@
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \
 		while providing a refined and adaptable field presence. Gold accents on the cuffs and trim complement the deep green fabric, while \
 		reinforced tactical cargo pants provide durability and utility for officers operating beyond the safety of corporate facilities."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "senior_officer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
@@ -157,6 +182,10 @@
 	desc = "A distinguished emerald-green turtleneck uniform worn by Central Command officers, tailored to embody Nanotrasen's authority \
 		while providing a refined and adaptable field presence. Gold accents on the cuffs and trim complement the deep green fabric, while \
 		a sleek black skirt provides a professional silhouette without sacrificing mobility or practicality for officers representing Central Command."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "senior_officer_skirt"
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -176,6 +205,10 @@
 /obj/item/clothing/under/rank/centcom/consultant/skirt
 	name = "\improper CentCom consultant's suitskirt"
 	desc = "A old emerald green uniform that used to be worn by Central Command's representative staff, comfortable beige skirt with a golden stripe, which itself is buckled on by a black belt with a golden buckle with the nanotrasen logo etched into it. It's dawned with golden insignia denoting the rank of \"CentCom Consultant\", you already feel nostalgic."
+	icon = 'modular_zzplurt/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/under/centcom.dmi'
+	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
+	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "centcom_consultant_skirt"
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -204,4 +237,6 @@
 	worn_icon_digi = 'modular_zzplurt/icons/mob/clothing/under/centcom_digi.dmi'
 	worn_icon_teshari = 'modular_zubbers/icons/mob/clothing/under/centcom_teshari.dmi'
 	icon_state = "fakecent_skirt"
+	alt_covers_chest = TRUE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
