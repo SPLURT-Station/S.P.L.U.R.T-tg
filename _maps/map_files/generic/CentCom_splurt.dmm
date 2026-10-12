@@ -10537,12 +10537,14 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "xD" = (
-/obj/effect/light_emitter/thunderdome,
-/obj/machinery/camera/motion/thunderdome{
-	pixel_x = 10
+/obj/structure/chair,
+/obj/effect/landmark/thunderdome/observe,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
 	},
-/turf/open/floor/circuit,
-/area/centcom/tdome/arena)
+/obj/structure/cable,
+/turf/open/floor/iron/dark/small,
+/area/centcom/tdome/observation/observation)
 "xF" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -20243,6 +20245,15 @@
 	dir = 4
 	},
 /area/centcom/central_command_areas/evacuation)
+"Tm" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/camera/motion/thunderdome{
+	pixel_x = 10;
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
 "Tn" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -69395,7 +69406,7 @@ Tu
 gk
 Rq
 qX
-Rn
+xD
 cL
 Iu
 ia
@@ -69653,12 +69664,12 @@ px
 AN
 mu
 or
-cL
-Iu
+dy
+Tm
 ED
 NM
 Yw
-xD
+Yw
 Yw
 St
 ED
@@ -69909,7 +69920,7 @@ JJ
 gk
 jd
 qX
-Rn
+xD
 cL
 Iu
 GA
