@@ -113,6 +113,7 @@
 /obj/item/toy/figure/virologist
 	name = "\improper limited edition virologist figure"
 	desc = "A figurine depicting a arachnid Virologist donning a labcoat, they stopped producing these ones.."
+	icon = 'modular_zzplurt/icons/obj/toys/toy.dmi'
 	icon_state = "virologist"
 	toysay = "Oops! I think that was the Romerol virus..."
 

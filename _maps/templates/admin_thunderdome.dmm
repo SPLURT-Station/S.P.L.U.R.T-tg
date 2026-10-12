@@ -575,16 +575,6 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
-"zB" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
-	},
-/obj/effect/light_emitter/thunderdome,
-/obj/machinery/camera/motion/thunderdome{
-	pixel_x = 10
-	},
-/turf/open/floor/iron,
-/area/centcom/tdome/arena)
 "Al" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
@@ -741,6 +731,16 @@
 	dir = 8
 	},
 /obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
+"Pa" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/camera/motion/thunderdome{
+	pixel_x = 10
+	},
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "SV" = (
@@ -1021,7 +1021,7 @@ aX
 aQ
 Dq
 ag
-zB
+Pa
 aa
 aa
 "}
