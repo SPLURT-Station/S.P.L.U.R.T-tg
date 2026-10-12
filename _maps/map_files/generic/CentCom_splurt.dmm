@@ -1237,6 +1237,7 @@
 "cL" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /obj/structure/cable,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
 /area/centcom/tdome/observation/observation)
 "cM" = (
@@ -1330,6 +1331,15 @@
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/supply/control)
+"cU" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/item/grown/log/tree,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "cV" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/green,
@@ -2015,6 +2025,17 @@
 	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/briefing)
+"eA" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "eB" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
@@ -2223,6 +2244,17 @@
 	dir = 6
 	},
 /area/centcom/central_command_areas/supply/bay)
+"eX" = (
+/obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant{
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/item/hatchet/wooden{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/area/centcom/central_command_areas)
 "eY" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line,
 /obj/structure/cable,
@@ -2336,6 +2368,14 @@
 "fn" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/tdome/observation)
+"fo" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "fp" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
@@ -2836,6 +2876,7 @@
 "gz" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /obj/structure/cable,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
 /area/centcom/tdome/observation)
 "gA" = (
@@ -3003,6 +3044,17 @@
 	},
 /turf/open/floor/iron/dark/side,
 /area/centcom/central_command_areas/evacuation/ship)
+"gT" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/centcom/central_command_areas/evacuation)
 "gV" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/structure/cable,
@@ -3362,10 +3414,13 @@
 /turf/open/floor/holofloor/hyperspace,
 /area/space)
 "hI" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/light/floor,
+/obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
@@ -3564,6 +3619,20 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
+/area/centcom/central_command_areas/evacuation)
+"ie" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shuttledock{
+	name = "CentCom Recovery Docking Blast Door"
+	},
+/obj/structure/sign/nanotrasen/directional/south,
+/turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "if" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -4609,7 +4678,7 @@
 	shuttle_id = "pod_6_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "ko" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
@@ -4783,7 +4852,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/briefing)
 "kG" = (
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "kH" = (
 /obj/effect/turf_decal/siding/wood{
@@ -5208,6 +5277,17 @@
 /obj/machinery/light/floor,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/control)
+"lC" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "lD" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 4
@@ -7153,6 +7233,16 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
+"pP" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/camera/motion/thunderdome{
+	pixel_x = 10
+	},
+/turf/open/floor/iron,
+/area/centcom/tdome/arena)
 "pQ" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line,
 /turf/open/floor/iron/dark/side,
@@ -8382,6 +8472,16 @@
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/kitchen)
+"sM" = (
+/obj/structure/flora/grass/both/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "sN" = (
 /obj/structure/marker_beacon/olive,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -9169,6 +9269,20 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation/bar)
+"uC" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shuttledock{
+	name = "CentCom Recovery Docking Blast Door"
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/central_command_areas/evacuation)
 "uD" = (
 /obj/structure/flora/rock/pile/style_random,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -9609,6 +9723,17 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/kitchen)
+"vC" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "vD" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
@@ -9662,6 +9787,17 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/admin)
+"vH" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "vI" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -9853,6 +9989,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/admin/commander)
+"wc" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas)
 "wd" = (
 /obj/machinery/light/directional/south,
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -9997,7 +10137,7 @@
 	shuttle_id = "pod_5_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "ws" = (
 /obj/structure/railing/corner/end{
@@ -10121,11 +10261,9 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/machinery/light/directional/south,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/centcom/central_command_areas/evacuation)
 "wF" = (
@@ -10537,14 +10675,12 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "xD" = (
-/obj/structure/chair,
-/obj/effect/landmark/thunderdome/observe,
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 1
+/obj/machinery/flasher{
+	id = "tdomeflash";
+	name = "Thunderdome Flash"
 	},
-/obj/structure/cable,
-/turf/open/floor/iron/dark/small,
-/area/centcom/tdome/observation/observation)
+/turf/closed/wall,
+/area/centcom/tdome/arena)
 "xF" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -11350,6 +11486,14 @@
 "zq" = (
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/front)
+"zr" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "zs" = (
 /obj/structure/filingcabinet/employment{
 	name = "employment forms filing cabinet"
@@ -11628,6 +11772,11 @@
 /obj/structure/sign/poster/official/random/directional/east,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/lounge)
+"zX" = (
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "zY" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -12075,6 +12224,13 @@
 "Be" = (
 /obj/machinery/light/cold/directional/east,
 /turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/area/centcom/central_command_areas)
+"Bf" = (
+/obj/structure/bonfire/prelit,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
 /area/centcom/central_command_areas)
 "Bg" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -13490,6 +13646,7 @@
 "Eu" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /obj/structure/cable,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
 /area/centcom/tdome/administration)
 "Ev" = (
@@ -13661,7 +13818,7 @@
 	shuttle_id = "pod_8_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "EO" = (
 /obj/item/soap/nanotrasen,
@@ -13723,6 +13880,10 @@
 	dir = 6
 	},
 /area/centcom/central_command_areas/briefing)
+"EV" = (
+/obj/structure/flora/tree/stump,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/area/centcom/central_command_areas)
 "EW" = (
 /obj/structure/bodycontainer/morgue,
 /obj/structure/window/spawner/directional/west,
@@ -16991,6 +17152,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "Me" = (
@@ -17784,7 +17948,7 @@
 	shuttle_id = "pod_away";
 	width = 5
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "NO" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -18152,6 +18316,19 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation)
+"OF" = (
+/obj/item/chair/wood{
+	dir = 1
+	},
+/obj/effect/mob_spawn/corpse/human/intern,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "OG" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -18791,7 +18968,7 @@
 	shuttle_id = "pod_7_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "Qb" = (
 /obj/structure/cable,
@@ -19256,11 +19433,9 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/structure/cable,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/centcom/central_command_areas/evacuation)
 "Rd" = (
@@ -19836,7 +20011,7 @@
 	shuttle_id = "pod_4_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "Sr" = (
 /obj/effect/turf_decal/delivery,
@@ -19887,6 +20062,9 @@
 	dir = 8
 	},
 /obj/structure/sign/departments/aisat/directional/north,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "Sw" = (
@@ -20246,14 +20424,9 @@
 	},
 /area/centcom/central_command_areas/evacuation)
 "Tm" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/effect/light_emitter/thunderdome,
-/obj/machinery/camera/motion/thunderdome{
-	pixel_x = 10;
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/centcom/tdome/arena)
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/iron/dark/textured_large,
+/area/centcom/central_command_areas/evacuation)
 "Tn" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -20599,6 +20772,10 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
+"Ua" = (
+/obj/item/grown/log/tree,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/area/centcom/central_command_areas)
 "Ub" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 10
@@ -21414,7 +21591,7 @@
 	shuttle_id = "pod_3_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "VE" = (
 /obj/machinery/firealarm/directional/west,
@@ -21759,7 +21936,7 @@
 	shuttle_id = "pod_2_away";
 	width = 3
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "Wn" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
@@ -22310,6 +22487,17 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
 /area/centcom/tdome/administration)
+"Xv" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "Xw" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -23237,6 +23425,18 @@
 	dir = 1
 	},
 /area/centcom/central_command_areas/ferry/control)
+"ZD" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/item/grown/log/tree,
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+	icon_state = "snow_dug"
+	},
+/area/centcom/central_command_areas)
 "ZE" = (
 /obj/effect/landmark/error,
 /turf/open/misc/ashplanet/wateryrock{
@@ -60912,8 +61112,8 @@ PA
 mb
 AR
 AY
-ht
-Hk
+Ua
+EV
 ht
 ht
 ht
@@ -61169,9 +61369,9 @@ ht
 mb
 AR
 ht
-ht
-ht
-AY
+vH
+eX
+OF
 ht
 ht
 Kh
@@ -61425,11 +61625,11 @@ ht
 Kh
 mb
 AR
-Kh
+eA
 AY
 ht
-ht
-ht
+fo
+ZD
 Ox
 ht
 YG
@@ -61683,11 +61883,11 @@ ht
 mb
 AR
 ht
-AY
+Xv
+zr
+Bf
 ht
-ht
-Kh
-ht
+vC
 AY
 ht
 YG
@@ -61941,9 +62141,9 @@ mb
 AR
 Ox
 ht
-ht
-ht
-ht
+cU
+zX
+lC
 ht
 ht
 Kh
@@ -62198,8 +62398,8 @@ mb
 AR
 ht
 ht
-Kh
-AY
+EV
+sM
 Hk
 ht
 Ox
@@ -69406,7 +69606,7 @@ Tu
 gk
 Rq
 qX
-xD
+Rn
 cL
 Iu
 ia
@@ -69664,16 +69864,16 @@ px
 AN
 mu
 or
-dy
-Tm
+cL
+Iu
 ED
 NM
 Yw
-Yw
+xD
 Yw
 St
 ED
-jV
+pP
 Eu
 Uq
 Mp
@@ -69920,7 +70120,7 @@ JJ
 gk
 jd
 qX
-xD
+Rn
 cL
 Iu
 GA
@@ -75500,15 +75700,15 @@ YG
 YG
 Bd
 oD
+wc
 oD
 oD
 oD
+wc
 oD
 oD
 oD
-oD
-oD
-oD
+wc
 oD
 oD
 xl
@@ -76271,15 +76471,15 @@ YG
 YG
 Bd
 oD
+wc
 oD
 oD
 oD
+wc
 oD
 oD
 oD
-oD
-oD
-oD
+wc
 oD
 xl
 xl
@@ -79394,6 +79594,7 @@ PC
 De
 dq
 oP
+gT
 QP
 QP
 QP
@@ -79403,8 +79604,7 @@ QP
 QP
 QP
 QP
-QP
-QP
+gT
 Tw
 Ti
 Zb
@@ -79907,19 +80107,19 @@ TN
 TN
 TN
 TN
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
 ga
 ga
 ga
@@ -80163,21 +80363,21 @@ ht
 ht
 ht
 ht
-ht
-ht
-ht
-ht
-Mu
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
+OA
+uC
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+ie
+OA
 ht
 ht
 ht
@@ -80424,7 +80624,7 @@ ht
 ht
 ht
 ht
-ht
+Mu
 ht
 ht
 ht
@@ -86033,7 +86233,7 @@ YG
 YG
 YG
 YG
-YG
+ht
 ht
 ht
 ht
@@ -86290,8 +86490,8 @@ YG
 YG
 YG
 YG
-YG
-YG
+ht
+ht
 ht
 ht
 ht
@@ -86548,8 +86748,8 @@ YG
 YG
 YG
 YG
-YG
-YG
+ht
+ht
 ht
 ht
 ht
@@ -86805,9 +87005,9 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
+ht
+ht
+ht
 ht
 ht
 ht
@@ -87063,9 +87263,9 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
+ht
+ht
+ht
 ht
 ht
 ht
@@ -87322,9 +87522,9 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
+ht
+ht
+ht
 ht
 ht
 ht
@@ -87580,11 +87780,11 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
-YG
-YG
+ht
+ht
+ht
+ht
+ht
 ht
 ht
 ht
@@ -87839,13 +88039,13 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
-YG
-YG
-YG
-YG
+ht
+ht
+ht
+ht
+ht
+ht
+ht
 ht
 ht
 ht
@@ -88103,11 +88303,11 @@ YG
 YG
 YG
 YG
-YG
-YG
-YG
-YG
-YG
+ht
+ht
+ht
+ht
+ht
 ht
 ht
 ht
