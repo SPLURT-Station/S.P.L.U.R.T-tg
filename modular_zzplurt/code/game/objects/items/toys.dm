@@ -333,6 +333,11 @@
 	icon_state = "intern"
 	toysay = "Wait... What am I arming up for again?"
 
+/obj/item/toy/figure/ninja
+	name = "\improper space ninja figure"
+	desc = "A figurine depicting someone in a black and green modsuit, nobody has any clue to what this is."
+	toysay = "You never saw the blade coming."
+
 /obj/item/toy/figure/syndie
 	name = "\improper syndicate operative figure"
 	desc = "A figurine depicting someone in a blood-red modsuit, similar to what someone on a nuclear operative team might wear."
