@@ -649,6 +649,7 @@
 
 /datum/outfit/centcom/asset_protection/leader/post_equip(mob/living/carbon/human/assetprot, visuals_only = FALSE)
 	. = ..()
+	var/obj/item/mod/control/mod = assetprot.back
 	if(!istype(mod))
 		return
 	var/obj/item/clothing/helmet = mod.get_part_from_slot(ITEM_SLOT_HEAD)

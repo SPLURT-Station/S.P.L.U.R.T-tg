@@ -121,6 +121,11 @@
 	icon_state = "virologist"
 	toysay = "Oops! I think that was the Romerol virus..."
 
+/obj/item/toy/figure/coroner
+	name = "\improper coroner figure"
+	desc = "A figurine depicting a mothic Coroner, donning a labcoat."
+	toysay = "What do you mean they aren't DNR!? I said so!"
+
 /obj/item/toy/figure/psychologist
 	name = "\improper psychologist figure"
 	desc = "A figurine depicting a mothic Psychologist donning a monocle."
