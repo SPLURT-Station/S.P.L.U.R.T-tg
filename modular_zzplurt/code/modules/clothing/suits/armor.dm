@@ -160,6 +160,7 @@
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|ARMS
 	armor_type = /datum/armor/armor_centcom_formal
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/armor/centcom_jacket
 	name = "\improper CentCom formal jacket"
@@ -172,3 +173,4 @@
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|ARMS
 	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

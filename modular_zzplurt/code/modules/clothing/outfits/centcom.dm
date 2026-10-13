@@ -9,6 +9,17 @@
 	ears = /obj/item/radio/headset/headset_cent
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
+/datum/outfit/centcom/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
+
 /datum/outfit/centcom/commander
 	name = "CentCom Commander"
 
@@ -26,6 +37,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	head = /obj/item/clothing/head/hats/centcom_cap
+	mask = null
 	shoes = /obj/item/clothing/shoes/combat/swat
 	l_pocket = /obj/item/melee/baton/telescopic/gold
 	r_pocket = /obj/item/modular_computer/pda/heads/centcom
@@ -91,7 +103,7 @@
 	id_trim = /datum/id_trim/centcom/official
 	uniform = /obj/item/clothing/under/rank/centcom/official
 	suit = /obj/item/clothing/suit/armor/centcom_jacket
-	head = /obj/item/clothing/head/beret/centcom_officer
+	head = null
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -112,6 +124,11 @@
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Official")
 
+/datum/outfit/centcom/centcom_official/turtleneck
+	name = "CentCom Official - Turtleneck"
+
+	uniform = /obj/item/clothing/under/rank/centcom/official/turtleneck
+
 /datum/outfit/centcom/centcom_attendant
 	name = "CentCom Attendant"
 
@@ -121,11 +138,6 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/fingerless
 	back = /obj/item/storage/backpack/satchel
-
-/datum/outfit/centcom/centcom_official/turtleneck
-	name = "CentCom Official - Turtleneck"
-
-	uniform = /obj/item/clothing/under/rank/centcom/official/turtleneck
 
 /datum/outfit/centcom/centcom_inspector
 	name = "CentCom Inspector"
@@ -560,7 +572,6 @@
 	id_trim = /datum/id_trim/centcom/deathsquad
 	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
 	back = /obj/item/mod/control/pre_equipped/apocryphal
-	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/ammo_box/speedloader/c357 = 1,
 		/obj/item/flashlight = 1,
@@ -588,3 +599,60 @@
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
+
+/datum/outfit/centcom/asset_protection
+	name = "Asset Protection"
+
+	uniform = /obj/item/clothing/under/rank/centcom/lieutenant/turtleneck
+	back = /obj/item/mod/control/pre_equipped/asset_protection
+	shoes = /obj/item/clothing/shoes/combat/swat
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	glasses = /obj/item/clothing/glasses/hud/toggle/thermal
+	l_pocket = /obj/item/shield/energy
+	r_pocket = /obj/item/sensor_device/blueshield
+	belt = /obj/item/storage/belt/security/webbing/privsec/full
+	l_hand = /obj/item/gun/energy/pulse/pistol/m1911/loyalpin
+	id = /obj/item/card/id/advanced/centcom/ert
+	ears = /obj/item/radio/headset/headset_cent/alt
+
+	skillchips = list(
+		/obj/item/skillchip/disk_verifier,
+	)
+
+	backpack_contents = list(
+		/obj/item/storage/medkit/regular = 1,
+		/obj/item/storage/box/handcuffs = 1,
+		/obj/item/crowbar/power = 1,
+		/obj/item/tank/internals/emergency_oxygen/double = 1,
+		)
+
+/obj/item/mod/control/pre_equipped/asset_protection/officer
+	applied_modules = list(
+		/obj/item/mod/module/storage/bluespace,
+		/obj/item/mod/module/hat_stabilizer,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/emp_shield/advanced,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/projectile_dampener,
+		/obj/item/mod/module/status_readout,
+	)
+
+/datum/outfit/centcom/asset_protection/leader
+	name = "Asset Protection Officer"
+	uniform = /obj/item/clothing/under/rank/centcom/commander/turtleneck
+	back = /obj/item/mod/control/pre_equipped/asset_protection/officer
+	head = null
+	ears = /obj/item/radio/headset/headset_cent/alt/leader
+	l_hand = /obj/item/gun/energy/pulse/carbine/loyalpin
+
+/datum/outfit/centcom/asset_protection/leader/post_equip(mob/living/carbon/human/assetprot, visuals_only = FALSE)
+	. = ..()
+	if(!istype(mod))
+		return
+	var/obj/item/clothing/helmet = mod.get_part_from_slot(ITEM_SLOT_HEAD)
+	var/obj/item/clothing/head/helmet/space/beret/beret = new(helmet)
+	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
+	component.attach_hat(beret)
+	assetprot.update_clothing(helmet.slot_flags)

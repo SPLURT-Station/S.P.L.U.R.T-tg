@@ -17,6 +17,10 @@
 /obj/item/toy/figure
 	icon = 'modular_zzplurt/icons/obj/toys/toy.dmi'
 
+/obj/item/toy/figure/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/toy_talk)
+
 // Head of Staff Figures
 /obj/item/toy/figure/captain
 	name = "\improper captain figure"
@@ -287,11 +291,22 @@
 	desc = "A figurine depicting someone in a mysterious black and red elite-looking modsuit, Nanotrasen denies it has anything to do with them.."
 	toysay = "Don't worry, we're only here to clean up after your mess."
 
+/obj/item/toy/figure/dsquad/lead
+	name = "\improper death squadron officer figure"
+	desc = "A figurine depicting someone in a mysterious black and red elite-looking modsuit with a green beret, Nanotrasen denies it has anything to do with them.."
+	toysay = "It's time to go hunting."
+
 /obj/item/toy/figure/assetprotection
 	name = "\improper asset protection figure"
 	desc = "A figurine depicting a Nanotrasen Asset Protection Specialist holding a M1911-P pistol."
 	icon_state = "assetprotection"
 	toysay = "STAND BACK FROM THE KING'S GUARD!!"
+
+/obj/item/toy/figure/assetprotection/lead
+	name = "\improper asset protection officer figure"
+	desc = "A figurine depicting a Nanotrasen Asset Protection Officer."
+	icon_state = "assetprotectionlead"
+	toysay = "You dare approach me?"
 
 /obj/item/toy/figure/commander
 	name = "\improper centcom commander figure"
