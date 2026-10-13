@@ -294,6 +294,7 @@
 /obj/item/toy/figure/dsquad/lead
 	name = "\improper death squadron officer figure"
 	desc = "A figurine depicting someone in a mysterious black and red elite-looking modsuit with a green beret, Nanotrasen denies it has anything to do with them.."
+	icon_state = "dsquadlead"
 	toysay = "It's time to go hunting."
 
 /obj/item/toy/figure/assetprotection
