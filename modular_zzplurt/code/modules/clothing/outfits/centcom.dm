@@ -8,6 +8,7 @@
 	back = /obj/item/storage/backpack/satchel
 	ears = /obj/item/radio/headset/headset_cent
 	shoes = /obj/item/clothing/shoes/sneakers/black
+	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/centcom/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
@@ -34,7 +35,7 @@
 	)
 	belt = /obj/item/storage/belt/sheath/sabre/centcom
 	ears = /obj/item/radio/headset/headset_cent/commander
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	head = /obj/item/clothing/head/hats/centcom_cap
 	mask = null
@@ -78,7 +79,7 @@
 	)
 	belt = /obj/item/clipboard/centcom
 	ears = /obj/item/radio/headset/headset_cent
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
 	gloves = /obj/item/clothing/gloves/combat
 	head = /obj/item/clothing/head/beret/centcom_officer
 	shoes = /obj/item/clothing/shoes/combat
@@ -113,7 +114,7 @@
 	belt = /obj/item/gun/energy/e_gun/asterion
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black
-	l_pocket = /obj/item/melee/baton/telescopic/silver
+	l_pocket = /obj/item/melee/baton/telescopic/bronze
 	l_hand = /obj/item/clipboard/centcom
 	r_pocket = /obj/item/modular_computer/pda/centcom
 
@@ -230,7 +231,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	id = /obj/item/card/id/advanced/centcom/ert/commander
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
-	l_hand = /obj/item/gun/energy/e_gun/nuclear
+	l_hand = /obj/item/gun/energy/modular_laser_rifle/ert
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded = 1,
@@ -259,14 +260,14 @@
 	)
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	l_pocket = /obj/item/melee/energy/sword/saber
-	suit_store = /obj/item/gun/energy/laser/assault
+	suit_store = null
 
 /datum/outfit/centcom/ert/security
 	name = "ERT Security"
 
 	id = /obj/item/card/id/advanced/centcom/ert/security
 	back = /obj/item/mod/control/pre_equipped/responsory/security
-	l_hand = /obj/item/gun/energy/e_gun/stun
+	l_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded = 1,
@@ -311,7 +312,7 @@
 	belt = /obj/item/storage/belt/medical/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_hand = /obj/item/storage/medkit/regular
-	r_hand = /obj/item/gun/energy/e_gun/stun
+	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	l_pocket = /obj/item/healthanalyzer/advanced
 	additional_radio = /obj/item/encryptionkey/heads/cmo
 	r_pocket = /obj/item/modular_computer/pda/centcom/ert
@@ -343,7 +344,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/engineer
 	back = /obj/item/mod/control/pre_equipped/responsory/engineer
-	l_hand = /obj/item/gun/energy/e_gun/stun
+	l_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
 		/obj/item/construction/rcd/loaded/upgraded = 1,
@@ -570,7 +571,7 @@
 
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
-	uniform = /obj/item/clothing/under/rank/centcom/lieutenant
+	uniform = /obj/item/clothing/under/rank/centcom/officer
 	back = /obj/item/mod/control/pre_equipped/apocryphal
 	backpack_contents = list(
 		/obj/item/ammo_box/speedloader/c357 = 1,
@@ -588,6 +589,7 @@
 	l_pocket = /obj/item/melee/energy/sword/saber
 	r_pocket = /obj/item/shield/energy/advanced
 	l_hand = /obj/item/gun/energy/pulse/loyalpin
+	implants = list(/obj/item/implant/mindshield,/obj/item/implant/explosive)
 
 	skillchips = list(
 		/obj/item/skillchip/disk_verifier,
@@ -596,14 +598,14 @@
 /datum/outfit/centcom/death_commando/officer
 	name = "Death Commando Officer"
 
-	uniform = /obj/item/clothing/under/rank/centcom/commander
+	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
 
 /datum/outfit/centcom/asset_protection
 	name = "Asset Protection"
 
-	uniform = /obj/item/clothing/under/rank/centcom/lieutenant/turtleneck
+	uniform = /obj/item/clothing/under/rank/centcom/officer
 	back = /obj/item/mod/control/pre_equipped/asset_protection
 	shoes = /obj/item/clothing/shoes/combat/swat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -641,7 +643,7 @@
 
 /datum/outfit/centcom/asset_protection/leader
 	name = "Asset Protection Officer"
-	uniform = /obj/item/clothing/under/rank/centcom/commander/turtleneck
+	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	back = /obj/item/mod/control/pre_equipped/asset_protection/officer
 	head = null
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
