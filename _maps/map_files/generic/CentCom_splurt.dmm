@@ -5072,15 +5072,6 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/admin/front)
-"lg" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/line{
-	dir = 1
-	},
-/mob/living/basic/trooper/nanotrasen/energy{
-	faction = "Deathsquad"
-	},
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/evacuation/sec)
 "lh" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/control/main)
@@ -5530,6 +5521,9 @@
 	name = "CentCom Recovery Docking Blast Door"
 	},
 /obj/structure/sign/nanotrasen/directional/north,
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "mg" = (
@@ -8742,6 +8736,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/medpost)
+"tp" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/mob/living/basic/trooper/nanotrasen/energy{
+	faction = "Deathsquad"
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/evacuation/sec)
 "tq" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/indestructible/riveted,
@@ -11894,14 +11897,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation)
-"Ak" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/line,
-/obj/effect/turf_decal/trimline/red/real_red/filled/line{
-	dir = 1
-	},
-/mob/living/basic/trooper/nanotrasen/melee,
-/turf/open/floor/iron/dark,
-/area/centcom/central_command_areas/evacuation/checkpoint)
 "Al" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 1
@@ -17770,6 +17765,9 @@
 /obj/machinery/door/poddoor/shuttledock{
 	name = "CentCom Recovery Docking Blast Door"
 	},
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "Nf" = (
@@ -17965,6 +17963,9 @@
 	name = "CentCom Recovery Docking Blast Door"
 	},
 /obj/structure/sign/nanotrasen/directional/south,
+/obj/structure/fans/tiny/forcefield{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "NB" = (
@@ -19906,6 +19907,14 @@
 	},
 /turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
+"RO" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/mob/living/basic/trooper/nanotrasen/melee,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/evacuation/checkpoint)
 "RP" = (
 /obj/structure/closet/wardrobe/cargotech,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -73790,7 +73799,7 @@ YG
 YG
 AL
 FA
-Ak
+RO
 vx
 kb
 AL
@@ -75861,7 +75870,7 @@ lQ
 ch
 th
 kq
-lg
+tp
 mK
 sp
 Ct
