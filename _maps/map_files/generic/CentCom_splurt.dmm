@@ -2022,15 +2022,13 @@
 /area/centcom/central_command_areas/prison/security)
 "ez" = (
 /obj/structure/table/wood,
-/obj/item/folder/centcom/gold{
-	pixel_x = -3;
-	pixel_y = -1
+/obj/item/clipboard/centcom{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/machinery/button/curtain/indestructible{
-	id = "CC_briefing";
-	name = "Curtain Control";
-	pixel_y = 12;
-	req_access = list("cent_general")
+/obj/item/folder/centcom/gold{
+	pixel_x = 2;
+	pixel_y = 2
 	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/briefing)
@@ -2211,7 +2209,6 @@
 /area/centcom/central_command_areas/admin/briefing)
 "eR" = (
 /obj/structure/table/reinforced/titaniumglass,
-/obj/machinery/fax/admin,
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/asset)
 "eS" = (
@@ -2817,16 +2814,11 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/ammo_box/speedloader/c357{
-	pixel_x = -10;
-	pixel_y = 4
-	},
-/obj/item/ammo_box/speedloader/c357{
-	pixel_x = 5;
-	pixel_y = 4
-	},
-/obj/item/gun/ballistic/revolver/mateba,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/south,
+/obj/item/storage/lockbox/loyalty{
+	pixel_y = 9
+	},
+/obj/item/gun/energy/pulse/carbine/loyalpin,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/storage)
 "gr" = (
@@ -6017,12 +6009,8 @@
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/south,
-/obj/structure/table/reinforced/titaniumglass,
-/obj/item/storage/lockbox/loyalty{
-	pixel_y = 9
-	},
-/obj/item/gun/energy/pulse/carbine/loyalpin,
 /obj/machinery/light/directional/south,
+/obj/machinery/telecomms/message_server,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/storage)
 "nf" = (
@@ -6141,7 +6129,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/ship/lobby)
 "nr" = (
-/obj/machinery/pdapainter,
+/obj/machinery/pdapainter/centcom,
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/control/main)
 "ns" = (
@@ -7271,11 +7259,11 @@
 /area/centcom/central_command_areas/control)
 "pT" = (
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/door/airlock/centcom/commander{
 	name = "CentCom Central Control Office"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/control/main)
 "pU" = (
@@ -8032,8 +8020,13 @@
 /area/centcom/central_command_areas/supply/bay)
 "rH" = (
 /obj/structure/table/wood,
-/obj/machinery/fax/admin,
 /obj/structure/cable,
+/obj/machinery/button/curtain/indestructible{
+	id = "CC_briefing";
+	name = "Curtain Control";
+	pixel_y = 2;
+	req_access = list("cent_general")
+	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/briefing)
 "rI" = (
@@ -8045,6 +8038,19 @@
 	},
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/control/main)
+"rJ" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "XCCQMLoad"
+	},
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/poddoor{
+	id = "XCCQMLoaddoor";
+	name = "CentCom Logistics Bay Loading Door"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/central_command_areas/supply/bay)
 "rK" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
@@ -9466,8 +9472,6 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/control/main)
 "uY" = (
-/obj/structure/table/wood/fancy/blue,
-/obj/machinery/fax/admin,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/carpet/executive,
 /area/centcom/central_command_areas/courtroom)
@@ -10440,9 +10444,7 @@
 	pixel_y = 4;
 	pixel_x = -2
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/west{
-	max_integrity = 1500
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "wY" = (
@@ -10571,12 +10573,14 @@
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 5
 	},
-/obj/machinery/fax/admin,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/cell_10k,
 /obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 3
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "xo" = (
@@ -10609,7 +10613,6 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/machinery/fax/admin,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/courtroom)
 "xt" = (
@@ -11667,13 +11670,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark,
-/obj/vehicle/sealed/mecha/marauder/seraph,
-/obj/machinery/door/window/survival_pod/left/directional/south{
-	name = "Command Mech Access";
-	max_integrity = 1500;
-	req_access = list("cent_captain")
-	},
-/obj/effect/turf_decal/recharge,
+/obj/structure/safe,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "zH" = (
@@ -13701,7 +13698,6 @@
 /area/centcom/central_command_areas/control/main)
 "Ey" = (
 /obj/structure/table/wood,
-/obj/machinery/fax/admin,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
@@ -13710,6 +13706,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/recharger{
+	pixel_y = 3
+	},
 /turf/open/floor/wood/large,
 /area/centcom/tdome/administration)
 "Ez" = (
@@ -15396,9 +15395,7 @@
 	req_access = list("cent_storage");
 	name = "CentCom ERT Engineer's Equipment"
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/east{
-	max_integrity = 1500
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/armory)
 "If" = (
@@ -16089,9 +16086,8 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
-/obj/machinery/fax/admin,
 /obj/structure/cable,
+/obj/machinery/vending/coffee,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/supply)
 "Jv" = (
@@ -17519,6 +17515,19 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/observation)
+"MH" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "XCCQMLoad2"
+	},
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/poddoor{
+	id = "XCCQMLoaddoor2";
+	name = "CentCom Logistics Bay Loading Door"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/central_command_areas/supply/bay)
 "MI" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -18056,13 +18065,13 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/fax/admin,
 /obj/machinery/newscaster/directional/north,
 /obj/machinery/light/directional/north,
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/camera/preset/centcom/directional/west{
 	c_tag = "CentCom Corporate Security Center - Office"
 	},
+/obj/item/papercutter,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/prison/security)
 "NP" = (
@@ -19555,8 +19564,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/secpost)
 "Re" = (
-/obj/structure/table/wood/fancy/green,
-/obj/machinery/fax/admin,
 /obj/machinery/requests_console/directional/west{
 	department = "CentCom Commander's Desk";
 	name = "CentCom Commander's Requests Console"
@@ -19569,6 +19576,11 @@
 /obj/structure/cable,
 /obj/machinery/camera/preset/centcom/directional/west{
 	c_tag = "CentCom Administrative Sector - Commander's Office"
+	},
+/obj/structure/aquarium/prefilled,
+/obj/item/reagent_containers/cup/fish_feed{
+	pixel_y = 17;
+	pixel_x = 6
 	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/commander)
@@ -20974,11 +20986,11 @@
 "Ui" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/door/airlock/centcom/commander{
 	name = "CentCom Central Control Office"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/control/main)
 "Uj" = (
@@ -66559,11 +66571,11 @@ WZ
 WZ
 WZ
 QI
-nk
+MH
 FY
 sW
 FY
-iP
+rJ
 QI
 WZ
 WZ

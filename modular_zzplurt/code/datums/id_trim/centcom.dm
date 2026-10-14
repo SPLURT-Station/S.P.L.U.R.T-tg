@@ -146,6 +146,16 @@
 
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
+/datum/id_trim/centcom/admiral
+	assignment = "CentCom Admiral"
+	honorifics = list("Admiral", "Adm.")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/admiral/New()
+	. = ..()
+
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
 /// Trim for CentCom Lieutenants. All Centcom and Station Access. No high centcom access.
 /datum/id_trim/centcom/lieutenant
 	assignment = JOB_CENTCOM_LIEUTENANT

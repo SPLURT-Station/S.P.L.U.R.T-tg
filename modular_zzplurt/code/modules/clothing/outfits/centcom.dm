@@ -50,6 +50,35 @@
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
 
+/datum/outfit/centcom/admiral
+	name = "CentCom Admiral"
+
+	id_trim = /datum/id_trim/centcom/admiral
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/centcom
+	suit_store = /obj/item/gun/ballistic/revolver/mateba
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+		/obj/item/stamp/centcom/commander = 1,
+		/obj/item/ammo_box/speedloader/c357 = 2,
+	)
+	belt = /obj/item/storage/belt/sheath/sabre/centcom
+	ears = /obj/item/radio/headset/headset_cent/commander
+	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
+	gloves = /obj/item/clothing/gloves/captain/centcom
+	head = /obj/item/clothing/head/hats/centhat
+	mask = null
+	shoes = /obj/item/clothing/shoes/combat/swat
+	l_pocket = /obj/item/melee/baton/telescopic/gold
+	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+
+/datum/outfit/centcom/admiral/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+	if(visuals_only)
+		return
+
+	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	pda.imprint_id(H.real_name, "CentCom Admiral")
+
 /datum/outfit/centcom/commander/turtleneck
 	name = "CentCom Commander - Turtleneck"
 
@@ -103,8 +132,7 @@
 
 	id_trim = /datum/id_trim/centcom/official
 	uniform = /obj/item/clothing/under/rank/centcom/official
-	suit = /obj/item/clothing/suit/armor/centcom_jacket
-	head = null
+	head = /obj/item/clothing/head/beret/centcom_officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
