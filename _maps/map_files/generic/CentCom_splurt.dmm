@@ -2073,9 +2073,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/mob/living/basic/trooper/nanotrasen/ranged/smg/sergeant{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/ranged/smg/sergeant,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "eE" = (
@@ -2489,6 +2487,10 @@
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=centcom_5";
 	location = "centcom_4"
+	},
+/mob/living/basic/bot/secbot/beepsky/officer{
+	name = "Lieutenant Morovsky";
+	desc = "It's Lieutenant Morovsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too."
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -5029,9 +5031,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/energy/assault{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/energy/assault,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "lc" = (
@@ -7426,8 +7426,7 @@
 	location = "centcom_7"
 	},
 /mob/living/basic/bot/firebot{
-	bot_mode_flags = 31;
-	faction = "Deathsquad"
+	bot_mode_flags = 31
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -7832,11 +7831,6 @@
 "rg" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
-	},
-/mob/living/basic/bot/secbot/beepsky/officer{
-	name = "Lieutenant Morovsky";
-	desc = "It's Lieutenant Morovsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too.";
-	faction = "Deathsquad"
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
@@ -8741,9 +8735,7 @@
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/energy{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/energy,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "tq" = (
@@ -16022,9 +16014,7 @@
 /area/centcom/central_command_areas/supply/control)
 "Jn" = (
 /obj/structure/chair/office,
-/mob/living/basic/trooper/nanotrasen/melee/shield/corporal{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/melee/shield/corporal,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/checkpoint)
 "Jo" = (
@@ -16092,9 +16082,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/energy/smg/corporal{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/energy/smg/corporal,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "Ju" = (
@@ -16192,9 +16180,7 @@
 /area/centcom/central_command_areas/fore)
 "JH" = (
 /obj/structure/chair/office,
-/mob/living/basic/trooper/nanotrasen/energy{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/energy,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/checkpoint)
 "JI" = (
@@ -16532,9 +16518,7 @@
 /obj/structure/chair/office{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/energy/corporal{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/trooper/nanotrasen/energy/corporal,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/sec)
 "Kt" = (
@@ -17080,9 +17064,7 @@
 	codes_txt = "patrol;next_patrol=centcom_4";
 	location = "centcom_3"
 	},
-/mob/living/basic/bot/cleanbot/autopatrol{
-	faction = "Deathsquad"
-	},
+/mob/living/basic/bot/cleanbot/autopatrol,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "LK" = (
@@ -19320,6 +19302,9 @@
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=centcom_1";
 	location = "centcom_8"
+	},
+/mob/living/basic/bot/repairbot{
+	bot_mode_flags = 31
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -80214,12 +80199,12 @@ nO
 iw
 xl
 xl
-zT
-zT
-zT
-zT
-zT
-zT
+xl
+xl
+xl
+xl
+xl
+xl
 TN
 TN
 TN
