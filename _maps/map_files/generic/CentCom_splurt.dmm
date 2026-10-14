@@ -997,7 +997,7 @@
 "cc" = (
 /obj/structure/bonfire/prelit,
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -1108,7 +1108,7 @@
 "cs" = (
 /obj/structure/flora/rock/pile/icy/style_random,
 /obj/machinery/light/cold/directional/south,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "ct" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
@@ -1622,7 +1622,7 @@
 	dir = 9
 	},
 /obj/structure/marker_beacon/olive,
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "dC" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/warning{
@@ -1878,7 +1878,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -2073,6 +2073,9 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/mob/living/basic/trooper/nanotrasen/ranged/smg/sergeant{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "eE" = (
@@ -2158,7 +2161,7 @@
 /obj/machinery/camera/preset/centcom/directional/east{
 	c_tag = "CentCom Logistics - External Fore"
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "eM" = (
 /obj/machinery/door/firedoor,
@@ -2315,7 +2318,7 @@
 	shuttle_id = "cargo_away";
 	width = 20
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "fi" = (
 /obj/machinery/shower/directional/west,
@@ -2734,7 +2737,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "gk" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -3267,7 +3270,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/ship/med)
 "ht" = (
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "hu" = (
 /obj/structure/chair/comfy/brown,
@@ -4213,7 +4216,7 @@
 "jv" = (
 /obj/structure/flora/tree/pine/style_random,
 /obj/structure/flora/grass/both/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "jw" = (
 /obj/machinery/light/cold/directional/east,
@@ -4297,7 +4300,7 @@
 /area/centcom/tdome/observation)
 "jF" = (
 /obj/machinery/light/cold/directional/south,
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "jG" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
@@ -5026,6 +5029,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
+/mob/living/basic/trooper/nanotrasen/energy/assault{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "lc" = (
@@ -5066,6 +5072,15 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/admin/front)
+"lg" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/mob/living/basic/trooper/nanotrasen/energy{
+	faction = "Deathsquad"
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/evacuation/sec)
 "lh" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/control/main)
@@ -5472,7 +5487,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "mc" = (
 /obj/structure/hedge,
@@ -5885,7 +5900,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -6669,7 +6684,7 @@
 "ox" = (
 /obj/structure/flora/grass/both/style_random,
 /obj/structure/flora/tree/dead/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "oy" = (
 /obj/machinery/door/firedoor,
@@ -7210,7 +7225,6 @@
 /obj/structure/chair/office{
 	dir = 4
 	},
-/mob/living/basic/trooper/nanotrasen/peaceful,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "pN" = (
@@ -7417,7 +7431,8 @@
 	location = "centcom_7"
 	},
 /mob/living/basic/bot/firebot{
-	bot_mode_flags = 31
+	bot_mode_flags = 31;
+	faction = "Deathsquad"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -7645,7 +7660,7 @@
 /area/centcom/central_command_areas/secpost)
 "qM" = (
 /obj/machinery/light/cold/directional/north,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "qN" = (
 /obj/structure/table/wood/fancy/green,
@@ -7717,7 +7732,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -7825,7 +7840,8 @@
 	},
 /mob/living/basic/bot/secbot/beepsky/officer{
 	name = "Lieutenant Morovsky";
-	desc = "It's Lieutenant Morovsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too."
+	desc = "It's Lieutenant Morovsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too.";
+	faction = "Deathsquad"
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
@@ -8283,7 +8299,7 @@
 	shuttle_id = "backup_away";
 	width = 8
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "sk" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line,
@@ -8503,7 +8519,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "sO" = (
 /obj/structure/chair/sofa/right{
@@ -8643,7 +8659,7 @@
 "tf" = (
 /obj/structure/flora/grass/both/style_random,
 /obj/machinery/light/cold/directional/east,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "tg" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -8914,7 +8930,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/courtroom)
 "tG" = (
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -9304,7 +9320,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "uE" = (
 /obj/machinery/button/door/directional/east{
@@ -9401,7 +9417,7 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -9885,7 +9901,6 @@
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 4
 	},
-/mob/living/basic/trooper/nanotrasen/peaceful,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -10393,7 +10408,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -10504,7 +10519,7 @@
 	dir = 6
 	},
 /obj/structure/marker_beacon/olive,
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "xh" = (
 /obj/effect/turf_decal/siding/wood{
@@ -10689,7 +10704,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -11505,9 +11520,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
-	icon_state = "snow_dug"
-	},
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "zs" = (
 /obj/structure/filingcabinet/employment{
@@ -11881,6 +11894,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation)
+"Ak" = (
+/obj/effect/turf_decal/trimline/red/real_red/filled/line,
+/obj/effect/turf_decal/trimline/red/real_red/filled/line{
+	dir = 1
+	},
+/mob/living/basic/trooper/nanotrasen/melee,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/evacuation/checkpoint)
 "Al" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 1
@@ -12056,7 +12077,7 @@
 /area/centcom/central_command_areas/prison/security)
 "AH" = (
 /obj/structure/flora/tree/stump,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "AI" = (
 /obj/effect/turf_decal/siding/wood{
@@ -12136,7 +12157,7 @@
 /area/centcom/central_command_areas/supply/bay)
 "AR" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "AS" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
@@ -12202,7 +12223,7 @@
 /area/centcom/central_command_areas/evacuation/checkpoint)
 "AY" = (
 /obj/structure/flora/grass/both/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "AZ" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -12248,7 +12269,7 @@
 /area/centcom/central_command_areas/fore)
 "Be" = (
 /obj/machinery/light/cold/directional/east,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Bg" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -12551,7 +12572,7 @@
 /obj/machinery/camera/preset/centcom/directional/east{
 	c_tag = "CentCom Executive Operations Wing - External Docking Bay"
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "BS" = (
 /turf/closed/indestructible/riveted,
@@ -12856,7 +12877,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "CB" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/line,
@@ -12912,7 +12933,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "CJ" = (
 /obj/structure/hedge,
@@ -13507,7 +13528,6 @@
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 8
 	},
-/mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
@@ -13580,7 +13600,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "Ej" = (
 /turf/closed/indestructible/riveted,
@@ -13817,7 +13837,7 @@
 /area/centcom/tdome/arena)
 "EL" = (
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "EM" = (
 /obj/machinery/vending/boozeomat,
@@ -14041,7 +14061,7 @@
 /area/centcom/tdome/observation)
 "Fk" = (
 /obj/structure/flora/rock/style_random,
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "Fl" = (
 /obj/effect/turf_decal/siding/dark_blue{
@@ -14771,7 +14791,7 @@
 /area/centcom/central_command_areas/prison)
 "GO" = (
 /obj/machinery/light/cold/directional/south,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "GQ" = (
 /obj/machinery/door/firedoor,
@@ -14956,7 +14976,7 @@
 /area/centcom/central_command_areas/admin/storage)
 "Hk" = (
 /obj/structure/flora/tree/dead/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Hm" = (
 /obj/effect/baseturf_helper/asteroid/snow,
@@ -15047,7 +15067,7 @@
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/front)
 "Hv" = (
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "Hw" = (
 /obj/machinery/door/firedoor,
@@ -15431,7 +15451,7 @@
 /area/centcom/central_command_areas/ferry/control)
 "Ik" = (
 /obj/machinery/light/cold/directional/west,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Il" = (
 /obj/machinery/firealarm/directional/south,
@@ -15846,7 +15866,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "IY" = (
 /obj/structure/sign/nanotrasen{
@@ -15935,7 +15955,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "Jh" = (
 /obj/structure/filingcabinet/medical{
@@ -16006,7 +16026,9 @@
 /area/centcom/central_command_areas/supply/control)
 "Jn" = (
 /obj/structure/chair/office,
-/mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
+/mob/living/basic/trooper/nanotrasen/melee/shield/corporal{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/checkpoint)
 "Jo" = (
@@ -16074,6 +16096,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
 	},
+/mob/living/basic/trooper/nanotrasen/energy/smg/corporal{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "Ju" = (
@@ -16118,7 +16143,7 @@
 /area/centcom/central_command_areas/supply/bay)
 "Jy" = (
 /obj/structure/flora/rock/icy/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Jz" = (
 /turf/closed/indestructible/riveted,
@@ -16171,7 +16196,9 @@
 /area/centcom/central_command_areas/fore)
 "JH" = (
 /obj/structure/chair/office,
-/mob/living/basic/trooper/nanotrasen/peaceful,
+/mob/living/basic/trooper/nanotrasen/energy{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/checkpoint)
 "JI" = (
@@ -16424,7 +16451,7 @@
 /area/centcom/central_command_areas/evacuation/ship/med)
 "Kh" = (
 /obj/structure/flora/tree/pine/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Ki" = (
 /obj/effect/turf_decal/trimline/blue/filled,
@@ -16509,7 +16536,9 @@
 /obj/structure/chair/office{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/peaceful,
+/mob/living/basic/trooper/nanotrasen/energy/corporal{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/sec)
 "Kt" = (
@@ -16709,7 +16738,7 @@
 	dir = 4
 	},
 /obj/item/grown/log/tree,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -16752,7 +16781,7 @@
 	dir = 5
 	},
 /obj/item/grown/log/tree,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -16950,7 +16979,7 @@
 "Lu" = (
 /obj/structure/flora/grass/both/style_random,
 /obj/structure/flora/tree/pine/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Lv" = (
 /obj/effect/baseturf_helper/asteroid/snow,
@@ -17032,7 +17061,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "LG" = (
 /obj/structure/hedge,
@@ -17055,7 +17084,9 @@
 	codes_txt = "patrol;next_patrol=centcom_4";
 	location = "centcom_3"
 	},
-/mob/living/basic/bot/cleanbot/autopatrol,
+/mob/living/basic/bot/cleanbot/autopatrol{
+	faction = "Deathsquad"
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "LK" = (
@@ -17122,7 +17153,7 @@
 	pixel_x = -6;
 	pixel_y = 7
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "LQ" = (
 /obj/effect/baseturf_helper/asteroid/snow,
@@ -17167,7 +17198,7 @@
 	dir = 10
 	},
 /obj/structure/marker_beacon/olive,
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "LZ" = (
 /obj/structure/cable,
@@ -17402,7 +17433,7 @@
 	shuttle_id = "emergency_away";
 	width = 50
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Mv" = (
 /obj/structure/table/reinforced,
@@ -17701,7 +17732,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -18366,7 +18397,7 @@
 /area/centcom/central_command_areas/supplypod/loading/three)
 "Ox" = (
 /obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "Oy" = (
 /obj/structure/table/wood,
@@ -18404,7 +18435,7 @@
 /area/centcom/central_command_areas/evacuation)
 "OF" = (
 /obj/item/grown/log/tree,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "OG" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -18787,7 +18818,7 @@
 "PA" = (
 /obj/structure/flora/grass/both/style_random,
 /obj/machinery/light/cold/directional/north,
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "PB" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -19480,7 +19511,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm{
+/turf/open/misc/asteroid/snow/standard_air{
 	icon_state = "snow_dug"
 	},
 /area/centcom/central_command_areas)
@@ -19657,7 +19688,7 @@
 /area/centcom/central_command_areas/supply/bay)
 "Rp" = (
 /obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "Rq" = (
 /obj/structure/chair,
@@ -19873,7 +19904,7 @@
 	roundstart_template = /datum/map_template/shuttle/ferry;
 	width = 20
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "RP" = (
 /obj/structure/closet/wardrobe/cargotech,
@@ -20189,7 +20220,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "Sz" = (
 /obj/structure/table/wood/fancy/green,
@@ -21511,7 +21542,6 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 4
 	},
-/mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "Vp" = (
@@ -22324,7 +22354,7 @@
 /obj/machinery/camera/preset/centcom/directional/east{
 	c_tag = "CentCom Logistics - External Aft"
 	},
-/turf/open/misc/asteroid/snow/icemoon/do_not_chasm,
+/turf/open/misc/asteroid/snow/standard_air,
 /area/centcom/central_command_areas)
 "WU" = (
 /obj/structure/chair,
@@ -22381,7 +22411,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/floor/stone/icemoon,
+/turf/open/floor/stone,
 /area/centcom/central_command_areas)
 "Xa" = (
 /obj/structure/cable,
@@ -22966,7 +22996,7 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/prison/security)
 "Yi" = (
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/dirt/station,
 /area/centcom/central_command_areas)
 "Yk" = (
 /obj/machinery/status_display/evac/directional/west,
@@ -73760,7 +73790,7 @@ YG
 YG
 AL
 FA
-Ny
+Ak
 vx
 kb
 AL
@@ -75831,7 +75861,7 @@ lQ
 ch
 th
 kq
-CY
+lg
 mK
 sp
 Ct
