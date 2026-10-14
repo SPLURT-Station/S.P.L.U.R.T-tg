@@ -20,12 +20,18 @@
 	return ..()
 
 /obj/item/analyzer/process(seconds_per_tick)
-	var/atom/target = tracked_scan_target?.resolve()
-	var/atom/air_source = get_air_source(target)
-	if(!LAZYLEN(open_uis) || QDELETED(target) || !air_source || !ismob(loc) || get_dist(get_turf(src), get_turf(air_source)) > ranged_scan_distance)
+	if(!LAZYLEN(open_uis) || !refresh_tracked_scan())
 		tracked_scan_target = null
 		return PROCESS_KILL
+
+/// Rescans the tracked target into the UI data. Returns FALSE once the target is gone or out of range.
+/obj/item/analyzer/proc/refresh_tracked_scan()
+	var/atom/target = tracked_scan_target?.resolve()
+	var/atom/air_source = get_air_source(target)
+	if(QDELETED(target) || !air_source || !ismob(loc) || get_dist(get_turf(src), get_turf(air_source)) > ranged_scan_distance)
+		return FALSE
 	on_analyze(src, air_source)
+	return TRUE
 
 /// Returns the atom whose air should be read for a tracked target. The analyzer itself stands for its surroundings.
 /obj/item/analyzer/proc/get_air_source(atom/target)
