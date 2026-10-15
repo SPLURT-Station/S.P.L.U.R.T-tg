@@ -52,3 +52,20 @@
 		ears_extra,
 	)
 	LAZYADD(., extra_head_slots)
+
+/mob/living/carbon/human/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial = FALSE, indirect_action = FALSE)
+	if(initial && (slot & ITEM_SLOT_HEAD))
+		lower_hood(W, indirect_action)
+	return ..()
+
+/mob/living/carbon/human/proc/lower_hood(obj/item/hat, indirect_action = FALSE)
+	if(!istype(hat) || QDELETED(hat) || isnull(head) || isnull(wear_suit))
+		return
+	var/datum/component/toggle_attached_clothing/hood_toggle = wear_suit.GetComponent(/datum/component/toggle_attached_clothing)
+	if(!hood_toggle?.currently_deployed || hood_toggle.deployable != head)
+		return
+	if(istype(hat, hood_toggle.deployable_type))
+		return
+	if(!hat.mob_can_equip(src, ITEM_SLOT_HEAD, disable_warning = TRUE, bypass_equip_delay_self = TRUE, ignore_equipped = TRUE, indirect_action = indirect_action))
+		return
+	hood_toggle.remove_deployable()
