@@ -22,6 +22,33 @@
 	var/sleeper_garbage
 	var/sleeper_occupant
 	var/sleeper_enviroment
+	/// Player-controlled disconnection from radio and binary communications.
+	var/communications_muted = FALSE
+
+GAME_VERB_DESC(/mob/living/silicon/robot, toggle_communications, "Toggle Communications", "Disconnect or reconnect your radio and binary communications.", "Robot Commands")
+	if(incapacitated)
+		return
+	communications_muted = !communications_muted
+	to_chat(src, span_notice("Radio and binary communications [communications_muted ? "disabled" : "enabled"]."))
+
+/mob/living/silicon/robot/binarycheck()
+	if(communications_muted)
+		return FALSE
+	return ..()
+
+/obj/item/radio/borg/can_receive(input_frequency, list/levels)
+	if(iscyborg(loc))
+		var/mob/living/silicon/robot/borg = loc
+		if(borg.communications_muted)
+			return FALSE
+	return ..()
+
+/obj/item/radio/borg/talk_into_impl(atom/movable/talking_movable, message, channel, list/spans, datum/language/language, list/message_mods)
+	if(iscyborg(loc))
+		var/mob/living/silicon/robot/borg = loc
+		if(borg.communications_muted)
+			return NONE
+	return ..()
 
 /mob/living/silicon/robot/Initialize(mapload)
 	. = ..()
