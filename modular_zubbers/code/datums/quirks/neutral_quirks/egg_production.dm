@@ -7,10 +7,48 @@
 	lose_text = span_warning("You no longer feel productive. Sad.")
 	medical_record_text = "Patient possesses the capability to produce eggs."
 
+/datum/quirk_constant_data/egg_production
+	associated_typepath = /datum/quirk/egg_production
+	customization_options = list(
+		/datum/preference/numeric/oviparity_max_eggs,
+		/datum/preference/numeric/oviparity_production_rate,
+	)
+
+/datum/preference/numeric/oviparity_max_eggs
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "oviparity_max_eggs"
+	savefile_identifier = PREFERENCE_CHARACTER
+	step = 5
+	minimum = 5
+	maximum = 100
+
+/datum/preference/numeric/oviparity_max_eggs/create_default_value()
+	return 100
+
+/datum/preference/numeric/oviparity_max_eggs/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return
+
+/datum/preference/numeric/oviparity_production_rate
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "oviparity_production_rate"
+	savefile_identifier = PREFERENCE_CHARACTER
+	step = 1
+	minimum = 5
+	maximum = 60
+
+/datum/preference/numeric/oviparity_production_rate/create_default_value()
+	return 10
+
+/datum/preference/numeric/oviparity_production_rate/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return
+
 //Quirk addition
 /datum/quirk/egg_production/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/action/cooldown/spell/egg_production/action = new /datum/action/cooldown/spell/egg_production()
+	if(client_source?.prefs)
+		action.maximum_eggs = client_source.prefs.read_preference(/datum/preference/numeric/oviparity_max_eggs)
+		action.production_rate = client_source.prefs.read_preference(/datum/preference/numeric/oviparity_production_rate) SECONDS
 	action.Grant(human_holder)
 
 //Quirk removal
@@ -40,8 +78,12 @@
 	var/eggs_stored = 0
 	// Whether we can produce another egg yet or not
 	var/can_produce = TRUE
+	/// Tracks whether the most recent fluid transfer was permitted by pregnancy settings
+	var/last_insemination_allowed = TRUE
 	// Max amount of eggs able to be stored
 	var/maximum_eggs = 100
+	/// Base cooldown between egg production ticks when using cum
+	var/production_rate = 10 SECONDS
 	// List of possible to_chat messages egg creation is able to trigger
 	var/list/possible_egg_thoughts = list(
 		"You feel a slight weight added to you.",
@@ -94,11 +136,22 @@
 		if(!(target_reagent.name in egg_production_reagents)) // checks to ensure the target reagent is even correct, this was a pain in the ass
 			continue
 		if(target_reagent.volume >= egg_production_reagents[target_reagent.name][1])
+			if(target_reagent.name == "cum")
+				var/client/client_source = GET_CLIENT(egg_holder)
+				if(client_source?.prefs)
+					if(!last_insemination_allowed)
+						continue
+					var/preg_chance_type = text2path("/datum/preference/numeric/pregnancy/chance")
+					if(preg_chance_type)
+						var/preg_chance = client_source.prefs.read_preference(preg_chance_type)
+						if(!prob(preg_chance))
+							continue
 			var/egg_thought = pick(possible_egg_thoughts)
 			to_chat(owner, span_notice("[egg_thought]"))
 			egg_update(1, egg_holder)
 			toggle_cooldown()
-			addtimer(CALLBACK(src, PROC_REF(toggle_cooldown)), egg_production_reagents[target_reagent.name][2])
+			var/cooldown = (target_reagent.name == "cum") ? production_rate : egg_production_reagents[target_reagent.name][2]
+			addtimer(CALLBACK(src, PROC_REF(toggle_cooldown)), cooldown)
 			return TRUE //completed once, now kill the entire proc
 	return
 // *** End of egg creation segment
@@ -147,7 +200,7 @@
 		return FALSE
 
 	to_chat(owner, span_noticealien("You start laying an egg..."))
-	if(!do_after(owner, 10 SECONDS, cast_on, IGNORE_HELD_ITEM))
+	if(!do_after(owner, 2 SECONDS, cast_on, IGNORE_HELD_ITEM))
 		owner.balloon_alert(owner, "stopped attempting to lay an egg.")
 		return FALSE
 
