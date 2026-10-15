@@ -41,7 +41,7 @@
 //Growthchem reaction
 /datum/chemical_reaction/growthchem
 	results = list(/datum/reagent/growthchem = 0.25)
-	required_reagents = list(/datum/reagent/sizechem = 0.15, /datum/reagent/consumable/condensedcapsaicin = 0.15, /datum/reagent/drug/aphrodisiac = 0.30)
+	required_reagents = list(/datum/reagent/sizechem = 0.15, /datum/reagent/consumable/condensedcapsaicin = 0.15, /datum/reagent/drug/aphrodisiac/crocin = 0.30)
 	required_temp = 1
 	mix_message = "the reaction appears to grow!"
 	optimal_temp = 730
