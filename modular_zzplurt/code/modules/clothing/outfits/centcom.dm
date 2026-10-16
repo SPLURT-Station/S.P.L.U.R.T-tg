@@ -49,6 +49,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/admiral
 	name = "CentCom Admiral"
@@ -78,6 +84,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Admiral")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/commander/turtleneck
 	name = "CentCom Commander - Turtleneck"
@@ -121,6 +133,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Lieutenant")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/lieutenant/turtleneck
 	name = "CentCom Lieutenant - Turtleneck"
@@ -152,6 +170,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Official")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/centcom_official/turtleneck
 	name = "CentCom Official - Turtleneck"
@@ -194,6 +218,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Inspector")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/spec_ops
 	name = "CentCom Special Ops Officer"
@@ -277,6 +307,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Emergency Response Team Commander")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/ert/commander/alert
 	name = "ERT Commander - High Alert"
@@ -313,6 +349,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Security Response Officer")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/ert/security/alert
 	name = "ERT Security - High Alert"
@@ -353,6 +395,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Medical Response Officer")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/ert/medic/alert
 	name = "ERT Medic - High Alert"
@@ -393,6 +441,12 @@
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Engineering Response Officer")
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/ert/engineer/alert
 	name = "ERT Engineer - High Alert"
@@ -512,6 +566,12 @@
 		return
 	ADD_TRAIT(H.mind, TRAIT_NAIVE, INNATE_TRAIT)
 	H.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
 
 /datum/outfit/centcom/ert/janitor/party
 	name = "ERP Cleaning Service"
@@ -641,7 +701,7 @@
 	glasses = /obj/item/clothing/glasses/hud/toggle/thermal
 	l_pocket = /obj/item/shield/energy
 	r_pocket = /obj/item/sensor_device/blueshield
-	belt = /obj/item/storage/belt/security/webbing/privsec/full
+	belt = /obj/item/storage/belt/security/webbing/assetprot
 	l_hand = /obj/item/gun/energy/pulse/pistol/m1911/loyalpin
 	id = /obj/item/card/id/advanced/centcom/ert
 	ears = /obj/item/radio/headset/headset_cent/alt
@@ -687,3 +747,9 @@
 	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
 	component.attach_hat(beret)
 	assetprot.update_clothing(helmet.slot_flags)
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
+		W.update_icon()
+	return ..()
