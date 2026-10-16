@@ -701,7 +701,7 @@
 	glasses = /obj/item/clothing/glasses/hud/toggle/thermal
 	l_pocket = /obj/item/shield/energy
 	r_pocket = /obj/item/sensor_device/blueshield
-	belt = /obj/item/storage/belt/security/webbing/assetprot
+	belt = /obj/item/storage/belt/security/webbing/assetprot/full
 	l_hand = /obj/item/gun/energy/pulse/pistol/m1911/loyalpin
 	id = /obj/item/card/id/advanced/centcom/ert
 	ears = /obj/item/radio/headset/headset_cent/alt
