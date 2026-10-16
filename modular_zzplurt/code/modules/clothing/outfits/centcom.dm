@@ -747,9 +747,3 @@
 	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
 	component.attach_hat(beret)
 	assetprot.update_clothing(helmet.slot_flags)
-	var/obj/item/card/id/W = H.wear_id
-	if(W)
-		W.registered_name = H.real_name
-		W.update_label()
-		W.update_icon()
-	return ..()
