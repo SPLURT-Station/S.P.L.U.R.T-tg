@@ -1,3 +1,4 @@
+/*
 /datum/quirk/vacuum_resistance
 	name = "Vacuum Adaptation"
 	desc = "Your body is specially adapted to temporarily withstand cold zero-pressure environments.\
@@ -54,4 +55,4 @@
 	desc = "Your body is fighting to resist the low pressure outside, it can't stay like this for long though."
 	icon = 'modular_zzplurt/icons/hud/screen_alert.dmi'
 	icon_state = "low_press_res"
-
+*/
