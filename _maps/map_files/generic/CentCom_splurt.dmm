@@ -295,6 +295,13 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/ferry/dock)
+"aI" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/supplypod)
 "aJ" = (
 /obj/structure/sign/departments/court/directional/north,
 /obj/structure/rack/gunrack,
@@ -942,6 +949,15 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/briefing)
+"bV" = (
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/mob/living/basic/bot/secbot/beepsky/armsky{
+	desc = "It's Sergeant Korin! He's a disgruntled protector of the pod outpost that would probably shoot you if he had hands.";
+	name = "Sergeant Korin"
+	},
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/evacuation/ship/lobby)
 "bW" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 9
@@ -2608,6 +2624,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/asset)
+"fT" = (
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 1
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/central_command_areas/ferry)
 "fU" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/north,
@@ -2747,6 +2772,7 @@
 	id = "tdomeflash";
 	name = "Thunderdome Flash"
 	},
+/obj/effect/light_emitter/thunderdome,
 /turf/closed/wall,
 /area/centcom/tdome/arena)
 "gj" = (
@@ -6699,13 +6725,11 @@
 /area/centcom/central_command_areas/supply/bay)
 "oB" = (
 /obj/structure/chair,
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -6988,12 +7012,10 @@
 "pk" = (
 /obj/structure/chair,
 /obj/machinery/light/directional/north,
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -10083,9 +10105,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
-/obj/structure/sign/nanotrasen{
-	pixel_x = -32
-	},
+/obj/structure/sign/nanotrasen/directional/west,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -10269,13 +10289,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship/bar)
 "wD" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
 /obj/structure/closet/crate/bin,
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/wood,
+/obj/structure/sign/nanotrasen/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/briefing)
 "wE" = (
@@ -14821,12 +14839,6 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/prison/security)
 "GU" = (
-/obj/machinery/computer/cryopod/directional/south{
-	pixel_x = 16;
-	req_one_access = list("cent_general");
-	announcement_channel = "CentCom";
-	radio = /obj/item/radio/headset/headset_cent
-	},
 /obj/machinery/cryopod{
 	dir = 1
 	},
@@ -14835,6 +14847,9 @@
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
+	},
+/obj/machinery/computer/cryopod/centcom/directional/south{
+	pixel_x = 16
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/briefing)
@@ -15610,9 +15625,6 @@
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/asset)
 "Iy" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = -32
-	},
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -15621,6 +15633,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/briefing)
 "Iz" = (
@@ -15671,6 +15684,9 @@
 	},
 /obj/effect/turf_decal/siding/thinplating_new/light,
 /obj/structure/cable,
+/mob/living/basic/bot/medbot/stationary{
+	name = "Senior Officer Heals-The-Pods"
+	},
 /turf/open/floor/iron/white/side,
 /area/centcom/central_command_areas/evacuation/ship/med)
 "IF" = (
@@ -16796,6 +16812,12 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
 /area/centcom/tdome/administration)
+"KV" = (
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/mob/living/basic/bot/cleanbot/autopatrol,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/evacuation/ship/lobby)
 "KW" = (
 /obj/machinery/chem_master/condimaster{
 	name = "CondiMaster Neo"
@@ -54035,7 +54057,7 @@ is
 Rb
 rz
 xZ
-gx
+bV
 gx
 pa
 FB
@@ -55063,7 +55085,7 @@ is
 SD
 Zs
 gx
-gx
+KV
 Ca
 qT
 Eh
@@ -60948,7 +60970,7 @@ zp
 zp
 zp
 zp
-sY
+fT
 ku
 Je
 OJ
@@ -72275,7 +72297,7 @@ cH
 Jw
 hi
 ro
-ro
+aI
 YY
 ro
 ro
