@@ -2405,6 +2405,14 @@
 "fn" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/tdome/observation)
+"fo" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/bookcase/random,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/cabin)
 "fp" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
@@ -2750,10 +2758,6 @@
 	dir = 1
 	},
 /area/centcom/central_command_areas/evacuation)
-"gd" = (
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/stone,
-/area/centcom/central_command_areas/cabin)
 "ge" = (
 /obj/structure/cable,
 /turf/open/floor/wood/tile,
@@ -3528,6 +3532,11 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/checkpoint)
+"hN" = (
+/turf/closed/indestructible/fakedoor/centcom/standard{
+	name = "CentCom Pod Recovery Bay"
+	},
+/area/centcom/central_command_areas/evacuation/ship)
 "hO" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
@@ -7277,13 +7286,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
-"pM" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/structure/bookcase/random,
-/turf/open/floor/wood/large,
-/area/centcom/central_command_areas/cabin)
 "pN" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 1
@@ -7470,7 +7472,9 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/lounge)
 "ql" = (
-/turf/closed/indestructible/wood,
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/wood/large,
 /area/centcom/central_command_areas/cabin)
 "qm" = (
 /obj/effect/turf_decal/trimline/blue/filled/end,
@@ -9084,12 +9088,6 @@
 	dir = 4
 	},
 /area/centcom/central_command_areas/fore)
-"tP" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/large,
-/area/centcom/central_command_areas/cabin)
 "tQ" = (
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/door/window/brigdoor/left/directional/south{
@@ -9399,7 +9397,6 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
 	},
-/obj/structure/hedge,
 /turf/open/floor/iron/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "uB" = (
@@ -9443,6 +9440,10 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/supplypod)
+"uH" = (
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/stone,
+/area/centcom/central_command_areas/cabin)
 "uI" = (
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/delivery,
@@ -15130,6 +15131,13 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
+"Hr" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/cabin)
 "Hs" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/stool/bar/directional/south,
@@ -16858,9 +16866,7 @@
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/kitchen)
 "KQ" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/wood/large,
+/turf/closed/indestructible/wood,
 /area/centcom/central_command_areas/cabin)
 "KR" = (
 /obj/structure/chair/sofa/left/brown{
@@ -19662,7 +19668,6 @@
 	dir = 1
 	},
 /obj/structure/bookcase/random,
-/obj/machinery/light/cold/directional/north,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/cabin)
 "Rc" = (
@@ -20392,7 +20397,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/light/cold/directional/north,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/cabin)
 "SE" = (
@@ -48546,8 +48550,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+YG
+YG
 YG
 Xp
 is
@@ -48802,10 +48806,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 YG
+YG
+Ox
+ht
 zZ
 BU
 Th
@@ -49059,10 +49063,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 YG
+AY
+Jy
+AY
 zZ
 vp
 OS
@@ -49315,11 +49319,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 YG
+YG
+Kh
+ht
+ht
 zZ
 Kc
 RU
@@ -49572,11 +49576,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 YG
+ht
+ht
+Hk
+Ox
 is
 zx
 rz
@@ -49829,11 +49833,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 YG
+AY
+AY
+ht
+AY
 zZ
 yH
 rz
@@ -50086,11 +50090,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 YG
+Jy
+ht
+ht
+ht
 zZ
 sc
 rz
@@ -50122,7 +50126,7 @@ nw
 nw
 nw
 uA
-CM
+hN
 YG
 aa
 "}
@@ -50343,11 +50347,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 YG
+YG
+ht
+Kh
+Ox
 zZ
 pZ
 Zs
@@ -50601,10 +50605,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 YG
+Ox
+AY
+ht
 is
 Bf
 Zs
@@ -50858,10 +50862,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 YG
+YG
+ht
+Jy
 zZ
 sZ
 Vg
@@ -51116,9 +51120,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 YG
+ht
+AY
 zZ
 fe
 MW
@@ -51373,9 +51377,9 @@ YG
 YG
 aa
 aa
-aa
-aa
 YG
+AY
+ht
 zZ
 sb
 bx
@@ -51630,8 +51634,8 @@ YG
 YG
 YG
 aa
-aa
-aa
+YG
+YG
 YG
 is
 is
@@ -53169,13 +53173,13 @@ ht
 AY
 ht
 AY
-ql
-ql
-ql
-ql
-ql
-ql
-ql
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
 YG
 aa
 aa
@@ -53426,13 +53430,13 @@ AY
 ht
 ht
 Kh
-ql
+KQ
 Vm
 Yj
 Yj
 gT
 cU
-ql
+KQ
 YG
 aa
 aa
@@ -53683,13 +53687,13 @@ ht
 Kh
 ht
 AY
-ql
-pM
+KQ
+Rb
 dp
 dp
 jC
 Ua
-ql
+KQ
 YG
 aa
 aa
@@ -53940,13 +53944,13 @@ ht
 ht
 AY
 Ox
-ql
-pM
+KQ
+Rb
 dp
 dp
 jC
 Px
-ql
+KQ
 YG
 aa
 aa
@@ -54197,13 +54201,13 @@ AY
 Ox
 ht
 ht
-ql
-Rb
+KQ
+fo
 dp
 dp
 dp
 ut
-ql
+KQ
 YG
 aa
 aa
@@ -54454,13 +54458,13 @@ Jg
 Jg
 Jg
 Jg
-ql
+KQ
 EJ
 dp
 dp
 dp
 ut
-ql
+KQ
 YG
 aa
 aa
@@ -54712,12 +54716,12 @@ Hv
 Hv
 Hv
 AP
-tP
+SD
 dp
 dp
 dp
 ut
-ql
+KQ
 YG
 aa
 aa
@@ -54968,13 +54972,13 @@ WZ
 WZ
 WZ
 WZ
-ql
+KQ
 EJ
 dp
 dp
 dp
 ut
-ql
+KQ
 YG
 YG
 YG
@@ -55225,17 +55229,17 @@ AY
 Kh
 ht
 ht
-ql
-SD
+KQ
+Hr
 dp
 dp
 dp
 ut
-ql
-ql
-ql
-ql
-ql
+KQ
+KQ
+KQ
+KQ
+KQ
 YG
 aa
 aa
@@ -55487,12 +55491,12 @@ Ci
 jC
 Oe
 dp
+ql
 KQ
-ql
 Qw
 Qw
 Qw
-ql
+KQ
 YG
 aa
 aa
@@ -55748,8 +55752,8 @@ ut
 Qn
 Qw
 Qw
-gd
-ql
+uH
+KQ
 YG
 aa
 aa
@@ -55996,17 +56000,17 @@ ht
 AY
 ht
 AY
-ql
+KQ
 wc
 wX
 wX
 wX
 tK
-ql
+KQ
 Qw
 Qw
 Qw
-ql
+KQ
 YG
 aa
 aa
@@ -56253,17 +56257,17 @@ ht
 ht
 Kh
 ht
-ql
-ql
-ql
-ql
-ql
-ql
-ql
-ql
-ql
-ql
-ql
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
 YG
 aa
 aa
