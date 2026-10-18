@@ -304,13 +304,13 @@
 
 /obj/item/toy/figure/assetprotection
 	name = "\improper asset protection figure"
-	desc = "A figurine depicting a Nanotrasen Asset Protection Specialist holding a M1911-P pistol."
+	desc = "A figurine depicting a Nanotrasen Asset Protection Specialist in their aegis modsuit holding a M1911-P pistol."
 	icon_state = "assetprotection"
 	toysay = "STAND BACK FROM THE KING'S GUARD!!"
 
 /obj/item/toy/figure/assetprotection/lead
 	name = "\improper asset protection officer figure"
-	desc = "A figurine depicting a Nanotrasen Asset Protection Officer."
+	desc = "A figurine depicting a Nanotrasen Asset Protection Officer in their aegis modsuit."
 	icon_state = "assetprotectionlead"
 	toysay = "You dare approach me?"
 

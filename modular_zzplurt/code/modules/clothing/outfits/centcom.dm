@@ -699,11 +699,11 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	glasses = /obj/item/clothing/glasses/hud/toggle/thermal
-	l_pocket = /obj/item/shield/energy
+	l_pocket = /obj/item/shield/energy/cheap
 	r_pocket = /obj/item/sensor_device/blueshield
 	belt = /obj/item/storage/belt/security/webbing/assetprot/full
 	l_hand = /obj/item/gun/energy/pulse/pistol/m1911/loyalpin
-	id = /obj/item/card/id/advanced/centcom/ert
+	id_trim = /datum/id_trim/centcom/asset_protection
 	ears = /obj/item/radio/headset/headset_cent/alt
 
 	skillchips = list(
@@ -717,23 +717,12 @@
 		/obj/item/tank/internals/emergency_oxygen/double = 1,
 		)
 
-/obj/item/mod/control/pre_equipped/asset_protection/officer
-	applied_modules = list(
-		/obj/item/mod/module/storage/bluespace,
-		/obj/item/mod/module/hat_stabilizer,
-		/obj/item/mod/module/welding,
-		/obj/item/mod/module/emp_shield/advanced,
-		/obj/item/mod/module/magnetic_harness,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/projectile_dampener,
-		/obj/item/mod/module/status_readout,
-	)
-
 /datum/outfit/centcom/asset_protection/leader
 	name = "Asset Protection Officer"
 	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	back = /obj/item/mod/control/pre_equipped/asset_protection/officer
 	head = null
+	id_trim = /datum/id_trim/centcom/asset_protection/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
 	l_hand = /obj/item/gun/energy/pulse/carbine/loyalpin
 

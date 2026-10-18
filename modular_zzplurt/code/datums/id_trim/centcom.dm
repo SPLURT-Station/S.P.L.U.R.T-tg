@@ -192,6 +192,31 @@
 
 	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
 
+/datum/id_trim/centcom/asset_protection
+	assignment = "Asset Protection Specialist"
+	trim_state = "trim_securityofficer"
+	subdepartment_color = COLOR_GREEN
+	sechud_icon_state = SECHUD_SECURITY_RESPONSE_OFFICER
+	honorifics = list("Specialist")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/asset_protection/New()
+	. = ..()
+
+	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_OFFICER, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_SECURITY) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
+
+/datum/id_trim/centcom/asset_protection/officer
+	assignment = "Asset Protection Officer"
+	trim_state = "trim_ert_commander"
+	sechud_icon_state = SECHUD_EMERGENCY_RESPONSE_TEAM_COMMANDER
+	honorifics = list("Officer")
+	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/centcom/asset_protection/officer/New()
+	. = ..()
+
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
 /// Trim for generic ERT interns. No universal ID card changing access.
 /datum/id_trim/centcom/ert
 	assignment = "Emergency Response Team Intern"
