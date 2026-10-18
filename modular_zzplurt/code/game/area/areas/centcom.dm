@@ -4,6 +4,11 @@
 	sound_environment = SOUND_AREA_ICEMOON
 	airlock_wires = /datum/wires/airlock/centcom
 
+/area/centcom/central_command_areas/cabin
+	name = "Empty Cabin"
+	icon_state = "centcom_admin"
+	sound_environment = SOUND_AREA_WOODFLOOR
+
 /datum/wires/airlock/centcom
 	dictionary_key = /datum/wires/airlock/centcom
 	proper_name = "CentCom Airlock"
