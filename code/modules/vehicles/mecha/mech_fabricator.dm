@@ -115,13 +115,13 @@
 	T = 1.15
 	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
 		T -= micro_laser.tier * 0.15
-	component_coeff = T
+	component_coeff = max(T, 0.1)
 
 	//building time adjustment coefficient (1 -> 0.8 -> 0.6)
 	T = -1
 	for(var/datum/stock_part/servo/servo in component_parts)
 		T += servo.tier
-	time_coeff = round(initial(time_coeff) - (initial(time_coeff)*(T))/5,0.01)
+	time_coeff = max(round(initial(time_coeff) - (initial(time_coeff)*(T))/5,0.01), 0.1)
 
 	// Adjust the build time of any item currently being built.
 	if(being_built)

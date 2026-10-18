@@ -3,6 +3,7 @@
 #define TECHWEB_NODE_ALIEN_ENGI "alien_engi"
 #define TECHWEB_NODE_ALIEN_SURGERY "alien_surgery"
 #define TECHWEB_NODE_ALIENTECH "alientech"
+#define TECHWEB_NODE_ALIEN_THEORY "alien_theory"
 #define TECHWEB_NODE_ANOMALY_RESEARCH "anomaly_research"
 #define TECHWEB_NODE_ANOMALY_SHELLS "anomaly_shells"
 #define TECHWEB_NODE_APPLIED_BLUESPACE "applied_bluespace"

@@ -28,3 +28,16 @@
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_3
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+// Abductor Beaker
+/datum/design/abductorbeaker
+	name = "Abductor Beaker"
+	desc = "A abductor beaker, powered by experimental alien technology and Element Cuban combined with the Compound Pete. Can hold up to 400 units."
+	id = "abductorbeaker"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/plastic =SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/alloy/alien =HALF_SHEET_MATERIAL_AMOUNT)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_CHEMISTRY
+	)
+	build_path = /obj/item/reagent_containers/cup/beaker/abductor
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
