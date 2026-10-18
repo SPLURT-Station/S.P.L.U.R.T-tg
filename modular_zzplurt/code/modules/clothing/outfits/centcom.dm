@@ -307,7 +307,7 @@
 	if(!istype(mod))
 		return
 	var/obj/item/clothing/helmet = mod.get_part_from_slot(ITEM_SLOT_HEAD)
-	var/obj/item/clothing/head/beret/centcom_formal = new(helmet)
+	var/obj/item/clothing/head/beret/centcom_formal/beret = new(helmet)
 	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
 	component.attach_hat(beret)
 	ertcomm.update_clothing(helmet.slot_flags)
