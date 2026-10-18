@@ -1,3 +1,6 @@
+/obj/vehicle/sealed/mecha/marauder
+	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Primarily used by Nanotrasen Emergency Response Teams with high budgets. Its bleeding edge armour ensures maximum usability and protection at the cost of some modularity."
+
 /obj/vehicle/sealed/mecha/marauder/loaded/ert
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/carbine,

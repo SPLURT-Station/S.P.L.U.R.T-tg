@@ -316,6 +316,7 @@
 	health = 185
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
 	projectiletype = /obj/projectile/bullet/c68
+	loot = null
 	burst_shots = 3
 	projectilesound = 'modular_zzplurt/sound/items/weapons/gun/bulwark_shot.ogg'
 	ranged_cooldown = 3 SECONDS
@@ -331,6 +332,7 @@
 	health = 175
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
 	casingtype = /obj/item/ammo_casing/a223
+	loot = null
 	burst_shots = 3
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	ranged_cooldown = 3 SECONDS
@@ -361,6 +363,7 @@
 	ranged_cooldown = 1 SECONDS
 	corpse = /obj/effect/gibspawner/human
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenertsecurity
+	loot = null
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine
 
 /mob/living/basic/trooper/nanotrasen/energy/assault/lead
