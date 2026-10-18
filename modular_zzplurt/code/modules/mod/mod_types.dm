@@ -36,3 +36,15 @@
 		/obj/item/mod/module/projectile_dampener,
 		/obj/item/mod/module/status_readout,
 	)
+
+/obj/item/mod/control/pre_equipped/responsory/commander
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/hat_stabilizer,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/jetpack
+	)

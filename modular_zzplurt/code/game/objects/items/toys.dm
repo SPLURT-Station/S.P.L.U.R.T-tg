@@ -269,7 +269,7 @@
 
 /obj/item/toy/figure/ert/commander
 	name = "\improper emergency response team commander figure"
-	desc = "A figurine depicting a Nanotrasen Emergency Response Team Commander in their responsory modsuit."
+	desc = "A figurine depicting a Nanotrasen Emergency Response Team Commander in their responsory modsuit bearing a green beret."
 	icon_state = "ert_cmd"
 	toysay = "WHERE IS MY TEAM?!"
 

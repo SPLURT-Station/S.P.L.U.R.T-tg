@@ -301,6 +301,17 @@
 	additional_radio = /obj/item/encryptionkey/heads/captain
 	r_pocket = /obj/item/modular_computer/pda/centcom/ert
 
+/datum/outfit/centcom/ert/commander/post_equip(mob/living/carbon/human/ertcomm, visuals_only = FALSE)
+	. = ..()
+	var/obj/item/mod/control/mod = ertcomm.back
+	if(!istype(mod))
+		return
+	var/obj/item/clothing/helmet = mod.get_part_from_slot(ITEM_SLOT_HEAD)
+	var/obj/item/clothing/head/beret/centcom_formal = new(helmet)
+	var/datum/component/hat_stabilizer/component = helmet.GetComponent(/datum/component/hat_stabilizer)
+	component.attach_hat(beret)
+	ertcomm.update_clothing(helmet.slot_flags)
+
 /datum/outfit/centcom/ert/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
