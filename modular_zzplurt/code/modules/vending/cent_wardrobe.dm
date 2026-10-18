@@ -34,7 +34,6 @@
 				/obj/item/clothing/head/hats/centhat = 3,
 				/obj/item/clothing/head/beret/centcom_formal = 3,
 				/obj/item/clothing/head/beret/centcom_officer = 3,
-				/obj/item/clothing/head/soft/centcom = 3,
 				/obj/item/clothing/under/rank/centcom/commander = 3,
 				/obj/item/clothing/under/rank/centcom/centcom_skirt = 3,
 				/obj/item/clothing/under/rank/centcom/commander/turtleneck = 3,
@@ -70,6 +69,7 @@
 			"icon" = "hat-cowboy",
 			"products" = list(
 				/obj/item/clothing/head/hats/intern = 3,
+				/obj/item/clothing/head/soft/centcom = 3,
 				/obj/item/clothing/head/utility/hardhat/white = 3,
 				/obj/item/clothing/under/rank/centcom/official = 3,
 				/obj/item/clothing/under/rank/centcom/official/turtleneck = 3,
