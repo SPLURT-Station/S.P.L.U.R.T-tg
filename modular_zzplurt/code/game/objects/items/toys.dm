@@ -350,7 +350,7 @@
 
 /obj/item/toy/figure/syndie/officer
 	name = "\improper syndicate officer figure"
-	desc = "A figurine depicting the outfit of a decorated syndicate officer."
+	desc = "A figurine depicting a reptilian in the outfit of a decorated syndicate officer."
 	icon_state = "syndieofficer"
 	toysay = "Okay, so, here's the plan. You go to the station, turn on the nuke.. And die with it, sound good?"
 
@@ -362,7 +362,7 @@
 
 /obj/item/toy/figure/syndie/footsoldier
 	name = "\improper syndicate footsoldier figure"
-	desc = "A figurine depicting the outfit of a syndicate footsoldier."
+	desc = "A figurine depicting someone in the outfit of a syndicate footsoldier."
 	icon_state = "footsoldier"
 	toysay = "I'm an evil boy. Less boy every day, more evil every day."
 
