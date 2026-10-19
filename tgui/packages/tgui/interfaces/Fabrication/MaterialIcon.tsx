@@ -48,6 +48,7 @@ const MATERIAL_ICONS: Record<string, [number, string][]> = {
     [34, 'sheet-titanium_3'],
   ],
   'bluespace crystal': [[0, 'bluespace_crystal']],
+  'alien alloy': [[0, 'sheet-abductor']],
   plastic: [
     [0, 'sheet-plastic'],
     [17, 'sheet-plastic_2'],

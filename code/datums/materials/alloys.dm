@@ -179,7 +179,7 @@
 	name = "alien alloy"
 	desc = "An extremely dense alloy similar to plasteel in composition. It requires exotic metallurgical processes to create."
 	color = "#6041aa"
-	mat_flags = MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL | MATERIAL_CLASS_RIGID
+	mat_flags = MATERIAL_SILO_STORED | MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL | MATERIAL_CLASS_RIGID
 	mat_properties = list(
 		MATERIAL_DENSITY = 8,
 		MATERIAL_HARDNESS = 8,
@@ -193,6 +193,9 @@
 	material_reagent = list(/datum/reagent/iron = 1, /datum/reagent/toxin/plasma = 1)
 	value_per_unit = 0.4
 	composition = list(/datum/material/iron = 2, /datum/material/plasma = 2)
+
+/datum/material/alloy/alien/return_composition(amount = 1, flags)
+	return list((src) = amount)
 
 /datum/material/alloy/alien/on_applied(atom/source, mat_amount, multiplier, from_slot)
 	. = ..()
