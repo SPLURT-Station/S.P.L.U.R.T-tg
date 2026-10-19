@@ -163,6 +163,7 @@
 /obj/item/toy/figure/tcommspec
 	name = "\improper telecomms specialist figure"
 	desc = "A figurine depicting a Telecomms Specialist holding a handheld radio."
+	icon_state = "tcommspec"
 	toysay = "Another exospheric bubble..."
 
 // Cargo Figures
