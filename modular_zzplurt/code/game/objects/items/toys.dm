@@ -384,7 +384,7 @@
 /obj/item/toy/figure/griffin
 	name = "\improper griffin figure"
 	desc = "A figurine depicting 'The Griffin', criminal mastermind."
-	icon_state = "owl"
+	icon_state = "griffin"
 	toysay = "The second I see Owlman, they are so dead!!"
 
 /obj/item/toy/figure/owl
