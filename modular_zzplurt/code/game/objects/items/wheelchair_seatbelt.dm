@@ -51,6 +51,8 @@
 		playsound(src, 'modular_zzplurt/sound/items/buckling_seatbelt.ogg', 50, TRUE)
 		for(var/mob/living/passenger in buckled_mobs)
 			to_chat(passenger, span_notice("[user] [seatbelt_engaged ? "engages" : "disengages"] your seatbelt."))
+			for(var/datum/action/seatbelt_toggle/seatbelt_action in passenger.actions)
+				seatbelt_action.update_button_icon()
 	else
 		to_chat(user, span_warning("You were interrupted while trying to [action] the seatbelt."))
 
@@ -135,8 +137,8 @@
 /datum/action/seatbelt_toggle
 	name = "Toggle Seatbelt"
 	desc = "Toggle the seatbelt keeping you secured to the wheelchair."
-	button_icon = 'icons/mob/actions/actions_vehicle.dmi'
-	button_icon_state = "seatbelt"
+	button_icon = 'modular_zzplurt/icons/mob/actions/actions_vehicle.dmi'
+	button_icon_state = "Seatbelt_buckle"
 
 /datum/action/seatbelt_toggle/Trigger(mob/clicker, trigger_flags)
 	. = ..()
@@ -147,6 +149,12 @@
 		if(istype(rider.buckled, /obj/vehicle/ridden/wheelchair))
 			var/obj/vehicle/ridden/wheelchair/chair = rider.buckled
 			chair.toggle_seatbelt(rider)
+
+/datum/action/seatbelt_toggle/proc/update_button_icon()
+	var/obj/vehicle/ridden/wheelchair/chair = target
+	if(istype(chair))
+		button_icon_state = chair.seatbelt_engaged ? "Seatbelt_unbuckle" : "Seatbelt_buckle"
+	build_all_button_icons(UPDATE_BUTTON_ICON, force = TRUE)
 
 /mob/living/examine(mob/user)
 	. = ..()
