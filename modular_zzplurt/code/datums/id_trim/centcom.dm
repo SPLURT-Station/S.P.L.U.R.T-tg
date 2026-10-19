@@ -147,7 +147,7 @@
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
 /datum/id_trim/centcom/admiral
-	assignment = JOB_CENTCOM_ADMIRAL
+	assignment = "CentCom Admiral"
 	honorifics = list("Admiral", "Adm.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 

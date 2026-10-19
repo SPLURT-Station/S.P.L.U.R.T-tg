@@ -5,7 +5,6 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY_CAPTAIN "Nanotrasen Private Security Captain"
 #define JOB_CENTCOM_LIEUTENANT "CentCom Lieutenant"
 #define JOB_CENTCOM_INSPECTOR "CentCom Inspector"
-#define JOB_CENTCOM_ADMIRAL "CentCom Admiral"
 #define JOB_CENTCOM_SUPPLY_OFFICER "Logistics Officer"
 #define JOB_CENTCOM_ENGINEERING_OFFICER "Technical Officer"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
