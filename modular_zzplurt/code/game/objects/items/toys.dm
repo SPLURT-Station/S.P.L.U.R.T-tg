@@ -111,7 +111,7 @@
 
 /obj/item/toy/figure/paramedic
 	name = "\improper paramedic figure"
-	desc = "A figurine depicting a Paramedic wearing their modsuit."
+	desc = "A figurine depicting a Paramedic wearing their medical modsuit."
 	toysay = "14 dead in the clown's room."
 
 /obj/item/toy/figure/virologist
