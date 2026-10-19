@@ -85,7 +85,7 @@
 
 /datum/id_trim/centcom/technical_officer
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_ENGINE_EQUIP, ACCESS_ENGINEERING, ACCESS_ATMOSPHERICS)
-	assignment = "Technical Officer"
+	assignment = JOB_CENTCOM_ENGINEERING_OFFICER
 	trim_state = "trim_stationengineer"
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	big_pointer = FALSE
@@ -95,7 +95,7 @@
 /// Trim for Centcom Medical Officers.
 /datum/id_trim/centcom/supply_officer
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_LOGISTICS, ACCESS_CARGO, ACCESS_SHIPPING)
-	assignment = "Supply Officer"
+	assignment = JOB_CENTCOM_SUPPLY_OFFICER
 	trim_state = "trim_cargotechnician"
 	subdepartment_color = COLOR_CARGO_BROWN
 	big_pointer = FALSE
@@ -147,7 +147,7 @@
 	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
 
 /datum/id_trim/centcom/admiral
-	assignment = "CentCom Admiral"
+	assignment = JOB_CENTCOM_ADMIRAL
 	honorifics = list("Admiral", "Adm.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
@@ -169,7 +169,7 @@
 
 /// Trim for NSRA Inspectors. All Centcom and Station Access. No high centcom access.
 /datum/id_trim/centcom/inspector
-	assignment = "CentCom Inspector"
+	assignment = JOB_CENTCOM_INSPECTOR
 	subdepartment_color = COLOR_GREEN
 	honorifics = list("Inspector", "Insp.")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
@@ -192,11 +192,21 @@
 
 	access = (SSid_access.get_region_access_list(list(REGION_CENTCOM)) - ACCESS_CENT_CAPTAIN) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)))
 
+/datum/id_trim/centcom/deathsquad/officer
+	assignment = JOB_ERT_DEATHSQUAD_OFFICER
+	honorifics = list("Officer")
+
+/datum/id_trim/centcom/deathsquad/officer/New()
+	. = ..()
+
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
 /datum/id_trim/centcom/asset_protection
-	assignment = "Asset Protection Specialist"
-	trim_state = "trim_securityofficer"
+	assignment = JOB_ASSET_PROTECTION
+	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_state = "trim_blueshield"
 	subdepartment_color = COLOR_GREEN
-	sechud_icon_state = SECHUD_SECURITY_RESPONSE_OFFICER
+	sechud_icon_state = SECHUD_ASSET_PROTECTION
 	honorifics = list("Specialist")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
@@ -206,11 +216,8 @@
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_OFFICER, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_SECURITY) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
 
 /datum/id_trim/centcom/asset_protection/officer
-	assignment = "Asset Protection Officer"
-	trim_state = "trim_ert_commander"
-	sechud_icon_state = SECHUD_EMERGENCY_RESPONSE_TEAM_COMMANDER
+	assignment = JOB_ASSET_PROTECTION_OFFICER
 	honorifics = list("Officer")
-	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/centcom/asset_protection/officer/New()
 	. = ..()

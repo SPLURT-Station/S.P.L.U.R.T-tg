@@ -700,9 +700,10 @@
 	uniform = /obj/item/clothing/under/rank/centcom/officer/senior
 	back = /obj/item/mod/control/pre_equipped/apocryphal/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
+	id_trim = /datum/id_trim/centcom/deathsquad/officer
 
 /datum/outfit/centcom/asset_protection
-	name = "Asset Protection"
+	name = "Asset Protection Specialist"
 
 	uniform = /obj/item/clothing/under/rank/centcom/officer
 	back = /obj/item/mod/control/pre_equipped/asset_protection
@@ -714,6 +715,7 @@
 	r_pocket = /obj/item/sensor_device/blueshield
 	belt = /obj/item/storage/belt/security/webbing/assetprot/full
 	l_hand = /obj/item/gun/energy/pulse/pistol/m1911/loyalpin
+	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/asset_protection
 	ears = /obj/item/radio/headset/headset_cent/alt
 
@@ -735,7 +737,6 @@
 	head = null
 	id_trim = /datum/id_trim/centcom/asset_protection/officer
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
-	l_hand = /obj/item/gun/energy/pulse/carbine/loyalpin
 
 /datum/outfit/centcom/asset_protection/leader/post_equip(mob/living/carbon/human/assetprot, visuals_only = FALSE)
 	. = ..()

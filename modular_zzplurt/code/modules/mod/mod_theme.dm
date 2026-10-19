@@ -22,3 +22,49 @@
 	acid = 100
 	wound = 25
 
+/datum/mod_theme/blueshield
+	desc = "A prototype armored MODsuit derived from the Magnate-class, repurposed for Nanotrasen station Blueshields."
+	extended_desc = "A bulky blue armored MODsuit issued to station Blueshields tasked with protecting Nanotrasen's command personnel. \
+		A predecessor to the more refined Magnate-class, this suit trades advanced features and module capacity for \
+		reliable, if somewhat outdated, protective systems. Its reinforced plating and insulated inner armor provide \
+		decent protection against corrosive liquids, explosive blasts, fires, and electrical shocks, though it falls \
+		short of the protection offered by its more expensive successors. The blue-tinted visor obscures the wearer's \
+		identity, adding an imposing presence to an already conspicuous suit. It may lack the sophistication of newer \
+		models, but when the Captain is getting shot at, nobody is going to complain about the budget. Well, almost nobody."
+	variants = list(
+		"praetorian" = list(
+			MOD_ICON_OVERRIDE = 'modular_zzplurt/icons/obj/clothing/modsuit/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_zzplurt/icons/mob/clothing/modsuit/mod_clothing.dmi',
+			/obj/item/clothing/head/mod = list(
+				UNSEALED_LAYER = null,
+				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
+				SEALED_CLOTHING = STOPSPRESSUREDAMAGE|HEADINTERNALS,
+				UNSEALED_INVISIBILITY = HIDEEARS|HIDEHAIR,
+				SEALED_INVISIBILITY = HIDEFACIALHAIR|HIDEMASK|HIDEEYES|HIDEFACE|HIDESNOUT,
+				SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+			),
+			/obj/item/clothing/suit/mod = list(
+				UNSEALED_CLOTHING = THICKMATERIAL,
+				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+				SEALED_INVISIBILITY = HIDEJUMPSUIT,
+				UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+			),
+			/obj/item/clothing/gloves/mod = list(
+				UNSEALED_CLOTHING = THICKMATERIAL,
+				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+				CAN_OVERSLOT = TRUE,
+				UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+			),
+			/obj/item/clothing/shoes/mod = list(
+				UNSEALED_CLOTHING = THICKMATERIAL,
+				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+				CAN_OVERSLOT = TRUE,
+				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+			),
+		),
+	)
