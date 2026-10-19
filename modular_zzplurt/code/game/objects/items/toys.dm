@@ -110,7 +110,7 @@
 	toysay = "Well, at least we have body bags."
 
 /obj/item/toy/figure/paramedic
-	name = "\improper chemist figure"
+	name = "\improper paramedic figure"
 	desc = "A figurine depicting a Paramedic wearing their modsuit."
 	toysay = "14 dead in the clown's room."
 
