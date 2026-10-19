@@ -204,23 +204,31 @@
 	if((obj_flags & EMAGGED) && (isclosedturf(bumped_atom) || isliving(bumped_atom)))
 		detonate_bomb()
 		return
-	// If the speed is higher than delay_multiplier throw the person on the wheelchair away
+	// If the speed is higher than delay_multiplier throw the person on the wheelchair away (unless the seatbelt keeps them in)
 	if(bumped_atom.density && speed > delay_multiplier && has_buckled_mobs())
 		var/mob/living/disabled = buckled_mobs[1]
-		var/atom/throw_target = get_edge_target_turf(disabled, pick(GLOB.cardinals))
-		unbuckle_mob(disabled)
-		disabled.throw_at(throw_target, 2, 3)
-		disabled.Knockdown(10 SECONDS)
-		disabled.adjust_stamina_loss(40)
-		if(isliving(bumped_atom))
+		if(!seatbelt_engaged)
+			var/atom/throw_target = get_edge_target_turf(disabled, pick(GLOB.cardinals))
+			unbuckle_mob(disabled)
+			disabled.throw_at(throw_target, 2, 3)
+			disabled.Knockdown(10 SECONDS)
+			disabled.adjust_stamina_loss(40)
+			if(isliving(bumped_atom))
+				var/mob/living/ramtarget = bumped_atom
+				throw_target = get_edge_target_turf(ramtarget, pick(GLOB.cardinals))
+				ramtarget.throw_at(throw_target, 2, 3)
+				ramtarget.Knockdown(8 SECONDS)
+				ramtarget.adjust_stamina_loss(35)
+				visible_message(span_danger("[src] crashes into [ramtarget], sending [disabled] and [ramtarget] flying!"))
+			else
+				visible_message(span_danger("[src] crashes into [bumped_atom], sending [disabled] flying!"))
+		else if(isliving(bumped_atom))
 			var/mob/living/ramtarget = bumped_atom
-			throw_target = get_edge_target_turf(ramtarget, pick(GLOB.cardinals))
+			var/atom/throw_target = get_edge_target_turf(ramtarget, pick(GLOB.cardinals))
 			ramtarget.throw_at(throw_target, 2, 3)
 			ramtarget.Knockdown(8 SECONDS)
 			ramtarget.adjust_stamina_loss(35)
-			visible_message(span_danger("[src] crashes into [ramtarget], sending [disabled] and [ramtarget] flying!"))
-		else
-			visible_message(span_danger("[src] crashes into [bumped_atom], sending [disabled] flying!"))
+			visible_message(span_danger("[src] crashes into [ramtarget], sending [ramtarget] flying!"))
 		playsound(src, 'sound/effects/bang.ogg', 50, 1)
 
 /obj/vehicle/ridden/wheelchair/motorized/emag_act(mob/user, obj/item/card/emag/emag_card)
