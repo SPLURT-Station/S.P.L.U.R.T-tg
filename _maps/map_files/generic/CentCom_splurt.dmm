@@ -1310,8 +1310,7 @@
 	name = "Shutters Control";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_access = list("cent_security");
-	silicon_access_disabled = 1
+	req_access = list("cent_security")
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -2628,12 +2627,12 @@
 /obj/effect/turf_decal/caution/stand_clear/white{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CC_recovery1";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
-	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "CC_recovery1";
+	name = "CentCom Recovery Wing Shutters"
+	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
 "fQ" = (
@@ -3305,6 +3304,9 @@
 	c_tag = "CentCom Administrative Sector - Secure Storage"
 	},
 /obj/machinery/telecomms/allinone/nuclear,
+/obj/item/toy/plush/suspicious_protogen{
+	pixel_y = 20
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/storage)
 "hm" = (
@@ -3469,10 +3471,10 @@
 "hF" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/south,
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "CC_recovery1";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
+	name = "CentCom Recovery Wing Shutters"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
@@ -4474,10 +4476,10 @@
 "jL" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/south,
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "CC_recovery2";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
+	name = "CentCom Recovery Wing Shutters"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
@@ -4605,16 +4607,14 @@
 	name = "Central Control Access Shutters Control";
 	pixel_x = -8;
 	pixel_y = -24;
-	req_access = list("cent_security");
-	silicon_access_disabled = 1
+	req_access = list("cent_security")
 	},
 /obj/machinery/button/door/indestructible{
 	id = "CC_recovery1";
 	name = "Recovery Wing Bay Access Control";
 	pixel_x = 8;
 	pixel_y = -24;
-	req_access = list("cent_security");
-	silicon_access_disabled = 1
+	req_access = list("cent_security")
 	},
 /obj/machinery/recharger{
 	pixel_y = 3
@@ -4623,8 +4623,7 @@
 	id = "CC_checkpoint";
 	name = "Shutters Control";
 	pixel_y = -35;
-	req_access = list("cent_security");
-	silicon_access_disabled = 1
+	req_access = list("cent_security")
 	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/evacuation/checkpoint)
@@ -6099,7 +6098,7 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/light/directional/south,
-/obj/machinery/telecomms/message_server,
+/obj/machinery/telecomms/relay/preset/auto,
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/admin/storage)
 "nf" = (
@@ -8846,8 +8845,8 @@
 /obj/effect/turf_decal/trimline/red/real_red/filled/line{
 	dir = 1
 	},
-/mob/living/basic/trooper/nanotrasen/energy,
 /obj/structure/cable,
+/mob/living/basic/trooper/nanotrasen/melee/shield,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/sec)
 "tq" = (
@@ -9586,12 +9585,12 @@
 /obj/effect/turf_decal/caution/stand_clear/white{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CC_recovery2";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
-	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "CC_recovery2";
+	name = "CentCom Recovery Wing Shutters"
+	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
 "va" = (
@@ -16464,10 +16463,10 @@
 "JW" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/north,
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "CC_recovery2";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
+	name = "CentCom Recovery Wing Shutters"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
@@ -18539,6 +18538,13 @@
 "Ov" = (
 /obj/structure/chair/office,
 /obj/structure/cable,
+/obj/item/toy/plush/protective_protogen{
+	pixel_y = 6
+	},
+/obj/item/clothing/head/hats/centcom_cap{
+	pixel_y = 13;
+	pixel_x = -2
+	},
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/control/main)
 "Ow" = (
@@ -23699,10 +23705,10 @@
 "Zv" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/light/small/directional/north,
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "CC_recovery1";
-	name = "CentCom Recovery Wing Shutters";
-	dir = 8
+	name = "CentCom Recovery Wing Shutters"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation)
@@ -74748,7 +74754,7 @@ ht
 ht
 ht
 ht
-ht
+YG
 YG
 xl
 vh
@@ -75005,7 +75011,7 @@ ht
 ht
 ht
 ht
-ht
+YG
 YG
 xl
 gD
@@ -75262,7 +75268,7 @@ ht
 ht
 ht
 ht
-ht
+YG
 YG
 xl
 np
@@ -75500,26 +75506,26 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
 YG
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
 YG
 xl
 WK
@@ -75757,6 +75763,7 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
 ht
@@ -75774,10 +75781,9 @@ ht
 ht
 ht
 ht
-ht
-ht
-ht
-ht
+YG
+YG
+YG
 xl
 YZ
 Wz
@@ -76014,8 +76020,10 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
+YG
 ht
 ht
 ht
@@ -76030,11 +76038,9 @@ ht
 ht
 ht
 ht
-ht
-ht
-ht
-ht
-ht
+YG
+YG
+YG
 xl
 aC
 xH
@@ -76271,27 +76277,27 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
 xl
 xl
 xh
@@ -76527,27 +76533,27 @@ aa
 aa
 aa
 aa
+aa
+aa
 YG
 YG
 YG
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
+YG
 ht
 ht
 xl
@@ -76784,12 +76790,12 @@ aa
 aa
 aa
 aa
+aa
+aa
 YG
 YG
-ht
-ht
-ht
-ht
+YG
+YG
 ht
 ht
 ht
@@ -77041,11 +77047,11 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
-ht
-ht
+YG
+YG
 ht
 ht
 ht
@@ -77298,10 +77304,10 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
-ht
+YG
 ht
 ht
 ht
@@ -77555,9 +77561,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -77811,10 +77817,10 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
 YG
-ht
 ht
 ht
 ht
@@ -78068,9 +78074,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -78325,9 +78331,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -78582,9 +78588,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -78839,9 +78845,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -79096,9 +79102,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -79353,9 +79359,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -79610,9 +79616,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -79867,9 +79873,9 @@ aa
 aa
 aa
 aa
+aa
 YG
 YG
-ht
 ht
 ht
 ht
@@ -80126,7 +80132,7 @@ aa
 aa
 YG
 YG
-ht
+YG
 ht
 ht
 ht
