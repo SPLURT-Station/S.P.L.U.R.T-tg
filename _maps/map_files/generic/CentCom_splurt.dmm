@@ -1049,7 +1049,6 @@
 /turf/open/floor/iron/dark/side,
 /area/centcom/central_command_areas/evacuation)
 "ci" = (
-/obj/machinery/newscaster/directional/north,
 /obj/effect/turf_decal/siding/wideplating_new/dark/end{
 	dir = 8
 	},
@@ -3132,6 +3131,23 @@
 	},
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/cabin)
+"gU" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/item/card/id/advanced/black/syndicate_command/captain_id/syndie_spare{
+	pixel_y = 9;
+	name = "dusty syndicate admiral's spare ID";
+	desc = "The spare ID of the Dark Lord himself stolen from the corpse of the DS-2 Admiral, for all to see, denoting the failure, and embracing the soon victory of Nanotrasen."
+	},
+/obj/item/sign/flag/syndicate{
+	pixel_x = -2;
+	pixel_y = -2;
+	name = "bloody folded flag of the Syndicate";
+	desc = "The folded flag of the Sothran Syndicate, coated in the blood of their own, nothing more you could ever want as Nanotrasen."
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "gV" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
 /obj/structure/cable,
@@ -5030,6 +5046,15 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/supplypod)
+"kS" = (
+/obj/effect/turf_decal/skyrat_decals/ds2/left,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/window/reinforced/plasma/spawner/directional/north{
+	resistance_flags = 115;
+	max_integrity = 1500
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "kT" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/siding/thinplating_new/corner,
@@ -9377,12 +9402,9 @@
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/fore)
 "uw" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/dark_green/filled/line,
-/turf/open/floor/iron/dark/side,
-/area/centcom/central_command_areas/ferry/dock)
+/obj/structure/flora/grass/both/style_random,
+/turf/closed/indestructible/rock/snow,
+/area/centcom/central_command_areas)
 "ux" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
@@ -9962,6 +9984,9 @@
 	},
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/camera/preset/centcom/directional/south{
+	c_tag = "CentCom Executive Operations Wing - Docking Bay"
+	},
 /turf/open/floor/iron/dark/small,
 /area/centcom/central_command_areas/ferry/dock)
 "vM" = (
@@ -11150,6 +11175,10 @@
 /obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/centcom/tdome/observation)
+"ym" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/closed/indestructible/rock/snow,
+/area/centcom/central_command_areas)
 "yn" = (
 /obj/machinery/door/airlock/service{
 	name = "CentCom Pod Recovery Bar"
@@ -11798,9 +11827,11 @@
 /obj/item/gun/ballistic/revolver/mateba,
 /obj/item/ammo_box/speedloader/c357,
 /obj/item/ammo_box/speedloader/c357,
-/obj/item/storage/box/syndie_kit/chameleon,
+/obj/item/storage/box/syndie_kit/chameleon{
+	icon = 'modular_zzplurt/icons/obj/storage.dmi';
+	icon_state = "centbox"
+	},
 /obj/item/door_remote/captain,
-/obj/item/storage/box/centcom_kit/spacesuit/command,
 /obj/item/storage/belt/sheath/sabre/centcom,
 /obj/item/pen/fountain/centcom,
 /obj/item/modular_computer/pda/heads/centcom,
@@ -12068,6 +12099,8 @@
 	dir = 10
 	},
 /obj/item/kirbyplants/synthetic/plant29,
+/obj/machinery/newscaster/directional/south,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
@@ -12365,14 +12398,8 @@
 	},
 /area/centcom/central_command_areas/evacuation)
 "Bc" = (
-/obj/structure/chair{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
-/obj/machinery/newscaster/directional/south,
-/obj/machinery/camera/preset/centcom/directional/south{
-	c_tag = "CentCom Executive Operations Wing - Docking Bay"
-	},
+/obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark/side,
 /area/centcom/central_command_areas/ferry/dock)
 "Bd" = (
@@ -17389,13 +17416,10 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation)
 "Me" = (
-/obj/structure/chair{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
 	},
-/obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
@@ -17462,6 +17486,14 @@
 	},
 /turf/open/floor/carpet/green,
 /area/centcom/central_command_areas/admin/commander)
+"Mj" = (
+/obj/effect/turf_decal/skyrat_decals/ds2/right,
+/obj/structure/window/reinforced/plasma/spawner/directional/north{
+	resistance_flags = 115;
+	max_integrity = 1500
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "Mk" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
@@ -22062,6 +22094,21 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark/small,
 /area/centcom/tdome/observation/bar)
+"VR" = (
+/obj/structure/plaque/static_plaque/golden{
+	pixel_y = -28;
+	name = "DS-2 Destruction Victory Plaque";
+	desc = "These are a few pieces of the recent DS-2 destruction, a memorial piece of Nanotrasen's victorious stride, we shall victor over this war, and show those anti-corporate scum who's the best. Glory to Nanotrasen!"
+	},
+/obj/machinery/light/red/dim/directional/south,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/showcase/mecha/marauder{
+	desc = "Heavy-duty, combat exosuit, developed off of the existing Marauder model, its hardened exterior prevents the use of add-on armor packages, this one has been stripped of all it's equipment, it is in bad shape, barely holding onto itself. It's caked in blood, presumably of it's former mech pilot, there's scrapes and dents all over the armor.";
+	icon_state = "mauler";
+	name = "damaged bloody Mauler"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "VS" = (
 /obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "CentCom Red Team Desk"
@@ -22460,6 +22507,16 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/admin/front)
+"WI" = (
+/obj/effect/turf_decal/skyrat_decals/ds2/middle,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/window/reinforced/plasma/spawner/directional/north{
+	resistance_flags = 115;
+	max_integrity = 1500
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "WJ" = (
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
@@ -22831,6 +22888,24 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
 /area/centcom/tdome/administration)
+"Xv" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/item/melee/energy/sword/saber/red{
+	pixel_x = 13;
+	pixel_y = 10;
+	name = "salvaged energy sword";
+	desc = "Looted from the DS-2 wreck, it still has the blood of a Syndicate on the grip, as if they were holding on for dear life. In the end, it didn't help them."
+	},
+/obj/item/clothing/head/hats/hos/cap/syndicate/worn{
+	pixel_y = 4;
+	name = "dusty damaged syndicate cap";
+	desc = "A black cap fit for a high ranking syndicate officer, this one has a hole in it with dried blood, a memorial piece of Nanotrasen's upper hand.";
+	pixel_x = -5
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/central_command_areas/ferry/dock)
 "Xw" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 1
@@ -23169,6 +23244,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/structure/plaque/static_plaque/golden/commission/central_command,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/control/main)
 "Yd" = (
@@ -54752,7 +54828,7 @@ Kh
 AY
 ht
 ht
-ht
+Hk
 ht
 ht
 AY
@@ -55005,8 +55081,8 @@ hX
 fD
 AY
 BR
-Ox
-ht
+ym
+YG
 Kh
 AY
 Ox
@@ -55263,8 +55339,8 @@ fD
 sl
 ta
 YG
-ht
-ht
+YG
+YG
 ht
 AY
 ht
@@ -55519,11 +55595,11 @@ BF
 yU
 Aq
 pY
+pY
+pY
 YG
 YG
-ht
-Kh
-ht
+Jy
 AY
 ht
 ht
@@ -55774,12 +55850,12 @@ bF
 aD
 aD
 Vf
-uw
+Bc
+kS
+Xv
 pY
 YG
-YG
-ht
-AY
+uw
 ht
 Kh
 Ox
@@ -56032,11 +56108,11 @@ Vf
 aD
 Vf
 Bc
+WI
+VR
 pY
 YG
 YG
-Ox
-Jy
 AY
 Ox
 ht
@@ -56289,11 +56365,11 @@ AE
 aD
 Kk
 Me
+Mj
+gU
 pY
 YG
-YG
-ht
-Lu
+Ox
 ht
 ht
 Lu
@@ -56547,9 +56623,9 @@ aD
 mg
 vL
 pY
+pY
+pY
 YG
-YG
-ht
 ht
 ht
 ox
