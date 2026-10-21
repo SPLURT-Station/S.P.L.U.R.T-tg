@@ -151,6 +151,9 @@ SUBSYSTEM_DEF(tts)
 		if(!ismob(hearer_atom))
 			continue
 		var/mob/listening_mob = hearer_atom.get_listening_mob()
+		// SPLURT ADDITION: Recheck queued radio audio after a communications toggle.
+		if(volume_signal == COMSIG_MOB_TTS_RADIO_VOLUME_PREFERENCE_APPLIED && !listening_mob.can_receive_radio_communications())
+			continue
 		/// volume modifier for TTS as set by the player in preferences.
 		var/volume_modifier = listening_mob.client?.prefs.read_preference(volume_preference)/100
 		var/tts_pref = listening_mob.client?.prefs.read_preference(/datum/preference/choiced/sound_tts)
@@ -665,6 +668,10 @@ SUBSYSTEM_DEF(tts)
  * * radio_frequency - The frequency of the radio TTS message
  */
 /proc/can_hear_radio_tts(mob/hearer, radio_frequency)
+	// SPLURT ADDITION: Borg communications switch also covers radio audio.
+	if(!hearer || !hearer.can_receive_radio_communications())
+		return FALSE
+
 	if(!SStts.tts_enabled)
 		return FALSE
 
