@@ -71,3 +71,15 @@ export const pregnancy_egg_skin: FeatureChoiced = {
   description: 'Type of egg used for oviposition pregnancy.',
   component: FeatureDropdownInput,
 };
+
+export const oviparity_max_eggs: Feature<number> = {
+  name: 'Oviparity: Max Eggs',
+  description: 'Maximum number of eggs your character can store at once.',
+  component: FeatureNumberInput,
+};
+
+export const oviparity_production_rate: Feature<number> = {
+  name: 'Oviparity: Production Rate',
+  description: 'Cooldown in seconds between egg production ticks.',
+  component: FeatureNumberInput,
+};
