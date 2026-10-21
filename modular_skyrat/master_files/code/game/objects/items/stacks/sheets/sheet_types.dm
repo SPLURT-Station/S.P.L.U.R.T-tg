@@ -70,6 +70,7 @@ GLOBAL_LIST_INIT(skyrat_rod_recipes, list(
 // Wood
 
 GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
+	new/datum/stack_recipe("large painting frame", /obj/item/wallframe/painting/large, 2, time = 1 SECONDS, crafting_flags = NONE, category = CAT_ENTERTAINMENT),
 	new/datum/stack_recipe("smithing quenching basin", /obj/structure/reagent_dispensers/reagent_smithing_basin, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forging work bench", /obj/structure/reagent_crafting_bench, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden half-barricade", /obj/structure/deployable_barricade/wooden, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
