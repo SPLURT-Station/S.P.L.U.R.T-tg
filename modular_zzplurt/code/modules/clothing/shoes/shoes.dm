@@ -1,3 +1,6 @@
+/obj/item/clothing/shoes
+	var/preserve_natural_footsteps = FALSE
+
 /obj/item/clothing/shoes/invisiboots
 	name = "invisifiber footwraps"
 	desc = "A set of transparent fibers used for wrapping claws or paws."
@@ -6,6 +9,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	icon_state = "foot_wraps_transparent"
 	worn_icon_state = "none"
+	preserve_natural_footsteps = TRUE
 	// No overlay, because they're invisible!
 
 /* Added upstream
