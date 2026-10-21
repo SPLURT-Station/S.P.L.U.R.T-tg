@@ -233,6 +233,9 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		.["conductive"] = "It appears to be a good conductor of electricity."
 
 /obj/analyzer_act(mob/living/user, obj/item/analyzer/tool)
+	// Handheld analyzers display live readings; other analyzer tools retain their chat scan.
+	if(istype(tool))
+		return tool.scan_target(user, src)
 	if(atmos_scan(user=user, target=src, silent=FALSE))
 		return TRUE
 	return ..()

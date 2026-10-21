@@ -25,8 +25,10 @@
 	var/cooldown_time = 25 SECONDS
 	/// 0 is best accuracy
 	var/barometer_accuracy
-	/// Cached gasmix data from ui_interact
-	var/list/last_gasmix_data
+	/// The selected target; readings are rebuilt from its current gas mixtures.
+	var/datum/weakref/scan_target_ref
+	/// Self-use follows the analyzer's environment; explicit turf scans stay on that turf.
+	var/scanning_environment = FALSE
 	/// Max scan distance
 	var/ranged_scan_distance = 1
 
@@ -133,15 +135,32 @@
 /obj/item/analyzer/ui_static_data(mob/user)
 	return return_atmos_handbooks()
 
+/obj/item/analyzer/ui_status(mob/user, datum/ui_state/state)
+	if(!can_use_live_scanner(user))
+		return UI_CLOSE
+	return ..()
+
 /obj/item/analyzer/ui_data(mob/user)
-	LAZYINITLIST(last_gasmix_data)
-	return list("gasmixes" = last_gasmix_data)
+	var/list/gasmixes = list()
+	var/atom/target = scanning_environment ? get_turf(src) : scan_target_ref?.resolve()
+	if(!can_scan_target(user, target))
+		return list("gasmixes" = gasmixes)
+	var/mixture = target.return_analyzable_air()
+	if(!mixture)
+		return list("gasmixes" = gasmixes)
+	var/list/airs = islist(mixture) ? mixture : list(mixture)
+	for(var/index = 1; index <= length(airs); index++)
+		var/datum/gas_mixture/air = airs[index]
+		var/mix_name = capitalize(LOWER_TEXT(target.name))
+		if(length(airs) != 1)
+			mix_name += " - Node [index]"
+		gasmixes += list(gas_mixture_parser(air, mix_name))
+	return list("gasmixes" = gasmixes)
 
 /obj/item/analyzer/attack_self(mob/user, modifiers)
 	if(IS_UNCONSCIOUS_OR_CRIT(user) || !user.can_read(src) || user.is_blind())
 		return
-	atmos_scan(user=user, target=get_turf(src), silent=FALSE)
-	on_analyze(source=src, target=get_turf(src))
+	scan_target(user, get_turf(src), follow_environment = TRUE)
 
 /obj/item/analyzer/attack_self_secondary(mob/user, modifiers)
 	if(IS_UNCONSCIOUS_OR_CRIT(user) || !user.can_read(src) || user.is_blind())
@@ -150,31 +169,57 @@
 	ui_interact(user)
 
 /obj/item/analyzer/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(istype(interacting_with, /obj/effect/anomaly) && can_see(user, interacting_with, ranged_scan_distance))
+	if(istype(interacting_with, /obj/effect/anomaly) && can_scan_target(user, interacting_with))
 		var/obj/effect/anomaly/ranged_anomaly = interacting_with
 		ranged_anomaly.analyzer_act(user, src)
 		return ITEM_INTERACT_SUCCESS
 	return interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/analyzer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_see(user, interacting_with, ranged_scan_distance))
-		atmos_scan(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
+	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_scan_target(user, interacting_with))
+		scan_target(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
 	return NONE // Non-blocking
 
-/// Called when our analyzer is used on something
+/// Called by the successful tool-action signal. Specialized diagnostics without air do not replace the gas target.
 /obj/item/analyzer/proc/on_analyze(datum/source, atom/target)
 	SIGNAL_HANDLER
-	var/mixture = target.return_analyzable_air()
-	if(!mixture)
+	if(QDELETED(target) || !target.return_analyzable_air())
 		return FALSE
-	var/list/airs = islist(mixture) ? mixture : list(mixture)
-	var/list/new_gasmix_data = list()
-	for(var/datum/gas_mixture/air as anything in airs)
-		var/mix_name = capitalize(LOWER_TEXT(target.name))
-		if(airs.len != 1) //not a unary gas mixture
-			mix_name += " - Node [airs.Find(air)]"
-		new_gasmix_data += list(gas_mixture_parser(air, mix_name))
-	last_gasmix_data = new_gasmix_data
+	scan_target_ref = WEAKREF(target)
+	scanning_environment = FALSE
+	return TRUE
+
+/// Check the viewer and device on every update, without repeatedly printing literacy/light warnings.
+/obj/item/analyzer/proc/can_use_live_scanner(mob/user)
+	if(QDELETED(user) || IS_UNCONSCIOUS_OR_CRIT(user) || user.is_blind() || !user.can_read(src, silent = TRUE))
+		return FALSE
+	var/turf/user_turf = get_turf(user)
+	var/turf/device_turf = get_turf(src)
+	if(!user_turf || !device_turf || user_turf.z != device_turf.z || get_dist(user_turf, device_turf) > 1)
+		return FALSE
+	return IsReachableBy(user)
+
+/// Keep ranged visibility, but reject different z-levels, nullspace and inaccessible contained targets.
+/obj/item/analyzer/proc/can_scan_target(mob/user, atom/target)
+	if(!can_use_live_scanner(user) || QDELETED(target))
+		return FALSE
+	var/turf/user_turf = get_turf(user)
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf || target_turf.z != user_turf.z)
+		return FALSE
+	if(!can_see(user, target, ranged_scan_distance))
+		return FALSE
+	if(!isturf(target) && !isturf(target.loc) && !target.IsReachableBy(user, ranged_scan_distance))
+		return FALSE
+	return TRUE
+
+/// Select a live reading and open/update the existing UI; no chat gas report is emitted.
+/obj/item/analyzer/proc/scan_target(mob/user, atom/target, follow_environment = FALSE)
+	if(!can_scan_target(user, target) || !on_analyze(src, target))
+		return FALSE
+	scanning_environment = follow_environment
+	ui_interact(user)
+	return TRUE
 
 /**
  * Outputs a message to the user describing the target's gasmixes.
