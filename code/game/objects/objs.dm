@@ -61,6 +61,9 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
 /obj/Initialize(mapload)
 	. = ..()
+	// SPLURT ADDITION: Mapper opt-in for objects that must stay in the ghost cafe/infinidorms.
+	if(ghost_cafe_only)
+		AddElement(/datum/element/ghost_cafe_only)
 
 	check_on_table()
 

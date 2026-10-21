@@ -72,7 +72,8 @@
 		return INITIALIZE_HINT_QDEL
 	while(amount > max_amount)
 		amount -= max_amount
-		new type(loc, max_amount, FALSE, mat_override, mat_amt)
+		var/obj/item/stack/overflow_stack = new type(loc, max_amount, FALSE, mat_override, mat_amt)
+		overflow_stack.inherit_ghost_cafe_restriction(src) // SPLURT ADDITION: Preserve mapped confinement.
 	if(!merge_type)
 		merge_type = type
 
@@ -653,6 +654,9 @@
 	// We don't only use istype here, since that will match subtypes, and stack things that shouldn't stack
 	if(!istype(check, merge_type) || check.merge_type != merge_type)
 		return FALSE
+	// SPLURT ADDITION: Restricted materials cannot be laundered into an unrestricted stack.
+	if(ghost_cafe_only != check.ghost_cafe_only)
+		return FALSE
 	if(mats_per_unit ~! check.mats_per_unit) // ~! in case of lists this operator checks only keys, but not values
 		return FALSE
 	if(is_cyborg) // No merging cyborg stacks into other stacks
@@ -683,6 +687,9 @@
 		CRASH("Stack merge attempted on qdeleted source stack.")
 	if(target_stack == src)
 		CRASH("Stack attempted to merge into itself.")
+	// SPLURT ADDITION: Machinery can merge directly without calling can_merge().
+	if(ghost_cafe_only != target_stack.ghost_cafe_only)
+		return 0
 
 	var/transfer = get_amount()
 	if(target_stack.is_cyborg)
@@ -777,6 +784,7 @@
 	if(!use(amount, TRUE, FALSE))
 		return null
 	var/obj/item/stack/new_stack = new type(null, amount, FALSE, mats_per_unit)
+	new_stack.inherit_ghost_cafe_restriction(src) // SPLURT ADDITION: Preserve mapped confinement.
 	new_stack.copy_evidences(src)
 	loc.atom_storage?.refresh_views()
 	is_zero_amount(delete_if_zero = TRUE)
