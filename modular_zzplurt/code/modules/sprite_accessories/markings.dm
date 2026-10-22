@@ -637,3 +637,19 @@ MARKINGS - HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RI
 	name = "Khanivore"
 	icon_state = "khanivore"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+/// Mantled Beast
+/datum/body_marking_set/mantled_beast
+	name = "Mantled Beast"
+	body_marking_list = list("Mantled Beast", "Mantled Beast 2 Layer")
+
+/datum/body_marking/other/splurt/mantled_beast
+	name = "Mantled Beast"
+	icon_state = "mantled_beast"
+	affected_bodyparts = HEAD | CHEST
+
+/datum/body_marking/secondary/splurt/mantled_beast
+	name = "Mantled Beast 2 Layer"
+	icon_state = "mantled_beast"
+	affected_bodyparts = CHEST
+
