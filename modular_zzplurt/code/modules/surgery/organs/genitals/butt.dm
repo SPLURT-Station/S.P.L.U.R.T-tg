@@ -26,3 +26,22 @@
 			size_name = "nonexistent"
 
 	return "You see a [butt_style] of [size_name] asscheeks."
+
+/datum/bodypart_overlay/mutant/genital/butt/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	. = ..()
+	var/mob/living/carbon/human/wearer = limb?.owner
+	var/is_tesh = (limb?.limb_id == SPECIES_TESHARI) || (wearer && isteshari(wearer))
+	if(!is_tesh || !islist(.))
+		return .
+
+	var/tesh_behind_layer = (layer_index == EXTERNAL_ADJACENT && !istype(wearer?.wear_suit, /obj/item/clothing/suit/mod)) ? -(BODY_BEHIND_LAYER + BUTT_LAYER_OFFSET) : null
+	for(var/mutable_appearance/butt_appearance as anything in .)
+		butt_appearance.pixel_z -= 3
+		if(!isnull(tesh_behind_layer))
+			butt_appearance.layer = tesh_behind_layer
+
+/datum/bodypart_overlay/mutant/genital/butt/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	if((limb?.limb_id == SPECIES_TESHARI) || (limb?.owner && isteshari(limb.owner)))
+		. += "teshari"
+
