@@ -21,6 +21,12 @@
 			"products" = list(
 				/obj/item/clothing/suit/bellyriding_harness = 2,
 			)
+		),
+		list(
+			"name" = "Structures",
+			"products" = list(
+				/obj/item/storage/box/breeding_mount_kit = 4,
+			)
 		)
 	)
 
