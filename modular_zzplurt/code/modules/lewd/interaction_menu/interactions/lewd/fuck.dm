@@ -293,3 +293,111 @@
 	user_arousal = 8
 	target_arousal = 8
 	target_pain = 4
+
+/datum/interaction/lewd/sheathfuck
+	name = "Sheath Fuck"
+	description = "Fuck their sheath."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(
+		CLIMAX_POSITION_USER = CLIMAX_PENIS
+	)
+	cum_target = list(
+		CLIMAX_POSITION_USER = CLIMAX_TARGET_SHEATH,
+		CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS
+	)
+	message = list(
+		"pushes their cock into %TARGET%'s sheath",
+		"docks their cock inside %TARGET%'s warm sheath",
+		"thrusts deep into %TARGET%'s sheath",
+		"fucks %TARGET%'s sheath, sliding against the shaft inside"
+	)
+	user_messages = list(
+		"You feel %TARGET%'s sheath squeezing tightly around your cock",
+		"The warmth of %TARGET%'s sheath envelops your shaft",
+		"%TARGET%'s sheath clenches around you as your cocks rub together inside"
+	)
+	target_messages = list(
+		"You feel %USER%'s cock stretching your sheath",
+		"%USER%'s shaft pushes deep inside your sheath, rubbing against your cock",
+		"The warmth of %USER%'s cock fills your sheath tightly"
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 7
+	target_pleasure = 7
+	user_arousal = 10
+	target_arousal = 10
+	target_pain = 2
+
+/datum/interaction/lewd/sheathfuck/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/target_penis = target?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return target_penis?.sheath == SHEATH_NORMAL
+
+/datum/interaction/lewd/slitfuck
+	name = "Slit Fuck"
+	description = "Fuck their slit."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(
+		CLIMAX_POSITION_USER = CLIMAX_PENIS
+	)
+	cum_target = list(
+		CLIMAX_POSITION_USER = CLIMAX_TARGET_SHEATH,
+		CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS
+	)
+	message = list(
+		"pushes their cock into %TARGET%'s genital slit",
+		"slides their cock between the folds of %TARGET%'s slit",
+		"thrusts deep into %TARGET%'s wet slit",
+		"fucks %TARGET%'s slit, rubbing against the shaft inside"
+	)
+	user_messages = list(
+		"You feel %TARGET%'s slit squeezing tightly around your cock",
+		"The slick warmth of %TARGET%'s slit envelops your shaft",
+		"%TARGET%'s slit clenches around you as you thrust deeper"
+	)
+	target_messages = list(
+		"You feel %USER%'s cock parting and stretching your slit",
+		"%USER%'s shaft slides deep inside your slit, pressing against your cock",
+		"The warmth of %USER%'s cock fills your slit tightly"
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 7
+	target_pleasure = 7
+	user_arousal = 10
+	target_arousal = 10
+	target_pain = 2
+
+/datum/interaction/lewd/slitfuck/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/target_penis = target?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return target_penis?.sheath == SHEATH_SLIT

@@ -29,7 +29,7 @@
 		ORGAN_SLOT_ANUS = null,
 		ORGAN_SLOT_VAGINA = null,
 		"mouth" = null, // ORGAN_SLOT_MOUTH dosen't exist, and might break things if it did
-		ORGAN_SLOT_SLIT = null, // Currently unused
+		ORGAN_SLOT_SLIT = null,
 		ORGAN_SLOT_EARS = null, // used via custom_slot
 		ORGAN_SLOT_EYES = null, // used via custom_slot
 		ORGAN_SLOT_NIPPLES = null // used via custom_slot

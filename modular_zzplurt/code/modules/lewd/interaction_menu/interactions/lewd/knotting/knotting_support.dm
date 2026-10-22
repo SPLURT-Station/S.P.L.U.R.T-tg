@@ -51,6 +51,22 @@
 /datum/interaction/lewd/mount_anus
 	knotting_supported = TRUE
 
+/datum/interaction/lewd/sheathfuck
+	knotting_supported = TRUE
+	target_knotting_require = list(ORGAN_SLOT_SLIT)
+
+/datum/interaction/lewd/slitfuck
+	knotting_supported = TRUE
+	target_knotting_require = list(ORGAN_SLOT_SLIT)
+
+/datum/interaction/lewd/mount_sheath
+	knotting_supported = TRUE
+	user_knotting_require = list(ORGAN_SLOT_SLIT)
+
+/datum/interaction/lewd/mount_slit
+	knotting_supported = TRUE
+	user_knotting_require = list(ORGAN_SLOT_SLIT)
+
 /datum/interaction/lewd/oral_penis
 	knotting_supported = TRUE
 

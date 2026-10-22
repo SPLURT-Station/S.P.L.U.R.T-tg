@@ -71,3 +71,67 @@
 	target_pleasure = 0
 	user_arousal = 5
 	target_arousal = 3
+
+/datum/interaction/lewd/mount_sheath
+	name = "Mount (Sheath)"
+	description = "Mount them with your sheath."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_TARGET_SHEATH)
+	message = list(
+		"rides %TARGET%'s cock with their sheath.",
+		"forces %TARGET%'s cock deep into their sheath.",
+		"slides their sheath down onto %TARGET%'s cock.",
+		"docks their sheath over %TARGET%'s cock."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/bang1.ogg',
+		'modular_zzplurt/sound/interactions/bang2.ogg',
+		'modular_zzplurt/sound/interactions/bang3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 7
+	target_pleasure = 7
+	user_arousal = 10
+	target_arousal = 10
+	user_pain = 2
+
+/datum/interaction/lewd/mount_sheath/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/user_penis = user?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return user_penis?.sheath == SHEATH_NORMAL
+
+/datum/interaction/lewd/mount_slit
+	name = "Mount (Slit)"
+	description = "Mount them with your slit."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_TARGET = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_TARGET_SHEATH)
+	message = list(
+		"rides %TARGET%'s cock with their slit.",
+		"forces %TARGET%'s cock deep into their slit.",
+		"slides their slit down onto %TARGET%'s cock.",
+		"sinks their genital slit over %TARGET%'s cock."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/bang1.ogg',
+		'modular_zzplurt/sound/interactions/bang2.ogg',
+		'modular_zzplurt/sound/interactions/bang3.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 7
+	target_pleasure = 7
+	user_arousal = 10
+	target_arousal = 10
+	user_pain = 2
+
+/datum/interaction/lewd/mount_slit/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/user_penis = user?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return user_penis?.sheath == SHEATH_SLIT

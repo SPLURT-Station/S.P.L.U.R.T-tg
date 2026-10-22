@@ -283,6 +283,11 @@
 	// Genital checks
 	if(target.has_penis(REQUIRE_GENITAL_EXPOSED))
 		attributes += "have a penis"
+		var/obj/item/organ/genital/penis/target_penis = target.get_organ_slot(ORGAN_SLOT_PENIS)
+		if(target_penis?.sheath == SHEATH_NORMAL)
+			attributes += "have a sheath"
+		else if(target_penis?.sheath == SHEATH_SLIT)
+			attributes += "have a slit"
 	/* Not implemented yet
 	if(target.has_strapon(REQUIRE_GENITAL_EXPOSED))
 		attributes += "have a strapon"
@@ -373,7 +378,7 @@
 					human_self.visible_message(span_lewd("\The <b>[human_self]</b>'s ass swells outwards as it gets pumped full of [LOWER_TEXT(initial(fluid_source.internal_fluid_datum:name))]!"))
 
 	// Handle penis and testicles inflation
-	else if(slot == ORGAN_SLOT_PENIS)
+	else if(slot == ORGAN_SLOT_PENIS || slot == CLIMAX_TARGET_SHEATH)
 		var/obj/item/organ/genital/penis/mob_penis = human_self.get_organ_slot(ORGAN_SLOT_PENIS)
 		if(!mob_penis && human_self.client?.prefs.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
 			// If the user has not defined their own prefs for their penis type, try to assign a default based on their species

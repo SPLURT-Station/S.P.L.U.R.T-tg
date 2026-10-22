@@ -157,3 +157,81 @@
 	user_arousal = 7
 	target_arousal = 4
 	target_pain = 3
+
+/datum/interaction/lewd/knotting/knotfucking/knotfuck_sheath
+	target_knotting_require = list(ORGAN_SLOT_SLIT)
+	name = "Sheath Knotfuck"
+	description = "Knotfuck their sheath."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_SHEATH, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
+	message = list(
+		"pounds %TARGET%'s sheath with their %KNOT%.",
+		"forces their %KNOT% deep into %TARGET%'s sheath.",
+		"slams their %KNOT% in and out of %TARGET%'s sheath."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 9
+	target_pleasure = 8
+	user_arousal = 13
+	target_arousal = 11
+	target_pain = 4
+
+/datum/interaction/lewd/knotting/knotfucking/knotfuck_sheath/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/target_penis = target?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return target_penis?.sheath == SHEATH_NORMAL
+
+/datum/interaction/lewd/knotting/knotfucking/knotfuck_slit
+	target_knotting_require = list(ORGAN_SLOT_SLIT)
+	name = "Slit Knotfuck"
+	description = "Knotfuck their slit."
+	user_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	target_required_parts = list(ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = CLIMAX_TARGET_SHEATH, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
+	message = list(
+		"pounds %TARGET%'s slit with their %KNOT%.",
+		"forces their %KNOT% deep into %TARGET%'s genital slit.",
+		"slams their %KNOT% in and out of %TARGET%'s slit."
+	)
+	sound_possible = list(
+		'modular_zzplurt/sound/interactions/WetPlap01.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap02.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap03.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap04.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap05.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap06.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap07.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap08.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap09.ogg',
+		'modular_zzplurt/sound/interactions/WetPlap10.ogg'
+	)
+	sound_range = 1
+	sound_use = TRUE
+	user_pleasure = 9
+	target_pleasure = 8
+	user_arousal = 13
+	target_arousal = 11
+	target_pain = 4
+
+/datum/interaction/lewd/knotting/knotfucking/knotfuck_slit/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/genital/penis/target_penis = target?.get_organ_slot(ORGAN_SLOT_PENIS)
+	return target_penis?.sheath == SHEATH_SLIT
