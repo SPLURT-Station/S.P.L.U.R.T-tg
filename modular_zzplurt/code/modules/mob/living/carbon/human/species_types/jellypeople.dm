@@ -8,6 +8,8 @@
 	if(istype(H))
 		var/datum/action/innate/slime_blobform/blobform = new
 		blobform.Grant(H)
+		var/datum/action/innate/slime_tentacles/tentacles = new
+		tentacles.Grant(H)
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	var/mob/living/carbon/human/H = former_jellyperson
@@ -15,6 +17,9 @@
 		var/datum/action/innate/slime_blobform/blobform = locate() in H.actions
 		if(blobform)
 			blobform.Remove(H)
+		var/datum/action/innate/slime_tentacles/tentacles = locate() in H.actions
+		if(tentacles)
+			tentacles.Remove(H)
 	. = ..()
 
 // Slime Blobform Action
@@ -61,6 +66,9 @@
 		var/mutcolor = H.dna.features["mcolor"]
 		if(!is_puddle)
 			if(H.mobility_flags & MOBILITY_USE)
+				var/datum/action/innate/slime_tentacles/tentacles = locate() in H.actions
+				if(tentacles?.tentacles_active)
+					tentacles.set_tentacles(FALSE, silent = TRUE)
 				transforming = TRUE
 				is_puddle = TRUE
 				owner.cut_overlays()
@@ -145,3 +153,78 @@
 /obj/effect/temp_visual/slime_puddle/reverse
 	icon_state = "from_puddle"
 	duration = /datum/action/innate/slime_blobform::out_transformation_duration
+
+// Slime Tentacles Action
+/datum/action/innate/slime_tentacles
+	name = "Toggle Slime Tentacles"
+	desc = "Extend or retract malleable slime tentacles from your body."
+	check_flags = AB_CHECK_CONSCIOUS
+	button_icon = 'modular_zzplurt/icons/mob/actions/actions_slime.dmi'
+	button_icon_state = "slimegrow"
+	background_icon_state = "bg_alien"
+	overlay_icon_state = "bg_alien_border"
+	var/tentacles_active = FALSE
+
+/datum/action/innate/slime_tentacles/Grant(mob/grant_to)
+	. = ..()
+	if(owner)
+		RegisterSignal(owner, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+
+/datum/action/innate/slime_tentacles/Remove(mob/removed_from)
+	if(removed_from)
+		UnregisterSignal(removed_from, COMSIG_ATOM_EXAMINE)
+	set_tentacles(FALSE, silent = TRUE)
+	return ..()
+
+/datum/action/innate/slime_tentacles/proc/on_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	if(tentacles_active && isliving(owner))
+		var/mob/living/living_owner = owner
+		examine_list += span_notice("Several slick, malleable slime tentacles writhe from [living_owner.p_their()] body.")
+
+/datum/action/innate/slime_tentacles/Activate()
+	var/mob/living/carbon/human/slime_owner = owner
+	if(!istype(slime_owner) || !isjellyperson(slime_owner))
+		return
+
+	var/datum/action/innate/slime_blobform/blobform = locate() in slime_owner.actions
+	if(blobform && (blobform.is_puddle || blobform.transforming))
+		slime_owner.balloon_alert(slime_owner, "can't use while in puddle form!")
+		return
+
+	if(!(slime_owner.mobility_flags & MOBILITY_USE))
+		slime_owner.balloon_alert(slime_owner, "can't form tentacles right now!")
+		return
+
+	set_tentacles(!tentacles_active)
+
+/datum/action/innate/slime_tentacles/proc/set_tentacles(active_state, silent = FALSE)
+	tentacles_active = active_state
+	button_icon_state = tentacles_active ? "slimeuse1" : "slimegrow"
+	build_all_button_icons(UPDATE_BUTTON_ICON)
+
+	if(silent || !isliving(owner))
+		return
+
+	var/mob/living/living_owner = owner
+	playsound(living_owner, 'modular_zzplurt/sound/interactions/squelch1.ogg', 40, TRUE)
+	if(tentacles_active)
+		living_owner.visible_message(
+			span_notice("Several slick, malleable tentacles extrude from [living_owner]'s slime body."),
+			span_notice("You extrude several malleable slime tentacles from your body.")
+		)
+	else
+		living_owner.visible_message(
+			span_notice("[living_owner]'s slime tentacles retract smoothly back into [living_owner.p_their()] body."),
+			span_notice("You reabsorb your slime tentacles back into your body.")
+		)
+
+/mob/living/proc/has_slime_tentacles()
+	return FALSE
+
+/mob/living/carbon/human/has_slime_tentacles()
+	if(!isjellyperson(src))
+		return FALSE
+	var/datum/action/innate/slime_tentacles/tentacles = locate() in actions
+	return !!(tentacles?.tentacles_active)
+
