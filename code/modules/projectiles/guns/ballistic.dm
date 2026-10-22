@@ -214,6 +214,21 @@
 /obj/item/gun/ballistic/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_ballistic))
 
+/obj/item/gun/ballistic/is_lethal_weapon()
+	if(..())
+		return TRUE
+	if(magazine)
+		for(var/ammo_entry in magazine.stored_ammo)
+			if(is_casing_lethal(ammo_entry))
+				return TRUE
+		if(!length(magazine.stored_ammo) && ispath(magazine.ammo_type) && is_casing_lethal(magazine.ammo_type))
+			return TRUE
+	else if(ispath(spawn_magazine_type))
+		var/obj/item/ammo_casing/casing_path = initial(spawn_magazine_type.ammo_type)
+		if(is_casing_lethal(casing_path))
+			return TRUE
+	return FALSE
+
 /obj/item/gun/ballistic/fire_sounds()
 	var/max_ammo = magazine?.max_ammo || initial(spawn_magazine_type.max_ammo)
 	var/current_ammo = get_ammo()

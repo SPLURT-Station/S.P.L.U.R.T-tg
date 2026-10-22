@@ -115,6 +115,14 @@
 /obj/item/gun/energy/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_energy))
 
+/obj/item/gun/energy/is_lethal_weapon()
+	if(..())
+		return TRUE
+	for(var/ammo_entry in ammo_type)
+		if(is_casing_lethal(ammo_entry))
+			return TRUE
+	return FALSE
+
 /**
  *
  * Outputs type-specific weapon stats for energy-based firearms based on its firing modes

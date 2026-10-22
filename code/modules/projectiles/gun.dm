@@ -213,6 +213,55 @@
 		if(0 to 25)
 			. += span_boldwarning("It's falling apart!")
 
+/obj/item/gun/get_legality_examine_text(mob/user)
+	var/chameleon_hidden = (locate(/datum/action/item_action/chameleon/change) in actions) && !(src in user)
+	if(!chameleon_hidden && (is_contraband() || istype(pin, /obj/item/firing_pin/implant/pindicate)))
+		return span_warning("This weapon is considered contraband and is illegal to possess at any security alert level.")
+	if(!(item_flags & NEEDS_PERMIT))
+		return null
+
+	var/current_level = SSsecurity_level?.get_current_level_as_number() || SEC_LEVEL_GREEN
+	var/level_name = capitalize(SSsecurity_level?.get_current_level_as_text() || "green")
+	var/required_level = SEC_LEVEL_GREEN
+	var/required_text = "Green Alert"
+	var/lethal = is_lethal_weapon()
+
+	if(istype(pin, /obj/item/firing_pin/alert_level))
+		var/obj/item/firing_pin/alert_level/alert_pin = pin
+		if(alert_pin.desired_minimium_alert <= SEC_LEVEL_BLUE)
+			required_level = max(required_level, SEC_LEVEL_BLUE)
+			required_text = "Blue Alert"
+		else
+			required_level = max(required_level, SEC_LEVEL_AMBER)
+			required_text = "Amber Alert"
+
+	if(lethal && required_level < SEC_LEVEL_AMBER)
+		required_level = SEC_LEVEL_AMBER
+		required_text = "Amber Alert"
+	else if(!lethal && required_level < SEC_LEVEL_BLUE && (weapon_weight >= WEAPON_MEDIUM || w_class >= WEIGHT_CLASS_BULKY || (slot_flags & ITEM_SLOT_BACK)))
+		required_level = SEC_LEVEL_BLUE
+		required_text = "Blue Alert"
+
+	if(current_level >= required_level)
+		return span_notice("Carrying this firearm requires weapons authorization or a permit. Authorized for security carry on <b>[required_text]</b> and above (current alert: <b>[level_name]</b>).")
+	return span_warning("Carrying this firearm requires weapons authorization or a permit. Restricted to <b>[required_text]</b> and above for security carry (not authorized on current alert: <b>[level_name]</b>).")
+
+/// Helper to check whether an ammo casing (or casing typepath) fires a lethal projectile.
+/obj/item/gun/proc/is_casing_lethal(obj/item/ammo_casing/casing)
+	if(!casing)
+		return FALSE
+	var/obj/projectile/proj = ispath(casing) ? initial(casing.projectile_type) : casing.projectile_type
+	var/is_harmful = ispath(casing) ? initial(casing.harmful) : casing.harmful
+	if(ispath(proj) && is_harmful && initial(proj.damage) > 0 && initial(proj.damage_type) != STAMINA && initial(proj.damage) >= initial(proj.stamina))
+		return TRUE
+	return FALSE
+
+/// Returns TRUE if this gun is currently configured or loaded with lethal ammunition.
+/obj/item/gun/proc/is_lethal_weapon()
+	if(is_casing_lethal(chambered))
+		return TRUE
+	return FALSE
+
 //called after the gun has successfully fired its chambered ammo.
 /obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	handle_chamber(empty_chamber, from_firing, chamber_next_round)

@@ -462,7 +462,24 @@ GAME_VERB_SRC(/obj/item, move_to_top, oview(1), "Move To Top", null)
 	if(!(item_flags & WEAPON_DESCRIPTION_INITIALIZED))
 		add_weapon_description()
 		item_flags |= WEAPON_DESCRIPTION_INITIALIZED
-	return ..()
+	. = ..()
+	var/legality_text = get_legality_examine_text(user)
+	if(legality_text)
+		. += legality_text
+
+/// Returns examine text indicating whether this item is contraband or restricted by security alert level.
+/obj/item/proc/get_legality_examine_text(mob/user)
+	if((locate(/datum/action/item_action/chameleon/change) in actions) && !(src in user))
+		return null
+	if(is_contraband())
+		return span_warning("This item is considered contraband and is illegal to possess at any security alert level.")
+	if(item_flags & NEEDS_PERMIT)
+		var/current_level = SSsecurity_level?.get_current_level_as_number() || SEC_LEVEL_GREEN
+		var/level_name = capitalize(SSsecurity_level?.get_current_level_as_text() || "green")
+		if(current_level >= SEC_LEVEL_AMBER)
+			return span_notice("Carrying this weapon openly requires weapons authorization or a permit (authorized for security on current alert: <b>[level_name]</b>).")
+		return span_warning("Carrying this weapon openly requires weapons authorization or a permit. Lethal weapons are restricted to <b>Amber Alert</b> and above (current alert: <b>[level_name]</b>).")
+	return null
 
 /obj/item/examine_more(mob/user)
 	. = ..()
@@ -1997,7 +2014,7 @@ GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 /obj/item/proc/is_contraband()
 	if(HAS_TRAIT(src, TRAIT_CONTRABAND))
 		return TRUE
-	for(var/datum/uplink_item/traitor_item as anything in SStraitor.uplink_items)
+	for(var/datum/uplink_item/traitor_item as anything in SStraitor?.uplink_items)
 		if(istype(src, traitor_item.item))
 			if(!(traitor_item.uplink_item_flags & SYNDIE_TRIPS_CONTRABAND))
 				return FALSE
