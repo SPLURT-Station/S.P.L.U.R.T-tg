@@ -10,7 +10,7 @@ import {
 } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
-import { Window } from '../layouts';
+import { NtosWindow, Window } from '../layouts';
 
 const erpTagColor = {
   Unset: '#000000',
@@ -36,7 +36,7 @@ const erpTagColor = {
 };
 
 export const ZubbersCharacterDirectory = (props) => {
-  const { data } = useBackend();
+  const { act, data } = useBackend();
 
   const {
     personalVisibility,
@@ -51,13 +51,33 @@ export const ZubbersCharacterDirectory = (props) => {
     personalExtremeHarmTag,
     personalUnholyTag,
     // SPLURT EDIT END: EXTRA TAGS
+    lookingForHookup,
+    hookupNote,
+    isHookupApp,
   } = data;
 
+  const LayoutWindow = isHookupApp ? NtosWindow : Window;
+
   return (
-    <Window width={900} height={640} resizeable>
-      <Window.Content scrollable>
+    <LayoutWindow width={900} height={640} resizeable>
+      <LayoutWindow.Content scrollable>
         <Section title="Controls">
           <LabeledList>
+            <LabeledList.Item label="Hookup Status">
+              <Button
+                fluid
+                icon={lookingForHookup ? 'heart' : 'heart-broken'}
+                color={lookingForHookup ? 'good' : 'default'}
+                onClick={() => act('toggle_hookup')}
+              >
+                {lookingForHookup ? 'Looking for Partner' : 'Not Looking'}
+              </Button>
+            </LabeledList.Item>
+            <LabeledList.Item label="Status / Location Note">
+              <Button fluid icon="pen" onClick={() => act('set_hookup_note')}>
+                {hookupNote || 'Set Status / Location Note...'}
+              </Button>
+            </LabeledList.Item>
             <LabeledList.Item label="Visibility">
               <Button fluid>
                 {personalVisibility ? 'Shown' : 'Not Shown'}
@@ -95,16 +115,17 @@ export const ZubbersCharacterDirectory = (props) => {
           </LabeledList>
         </Section>
         <CharacterDirectoryList />
-      </Window.Content>
-    </Window>
+      </LayoutWindow.Content>
+    </LayoutWindow>
   );
 };
 
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
 
-  const { directory, canOrbit } = data;
+  const { directory = [], canOrbit, isHookupApp } = data;
   const [searchTerm, setSearchTerm] = useState('');
+  const [onlyLooking, setOnlyLooking] = useState(false);
 
   const [sortId, setSortId] = useState('name');
   const [sortOrder, setSortOrder] = useState('asc');
@@ -126,9 +147,17 @@ const CharacterDirectoryList = (props) => {
     }
   };
 
-  const filteredDirectory = directory.filter((character) =>
-    character.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredDirectory = directory.filter((character) => {
+    if (onlyLooking && !character.looking_for_hookup) {
+      return false;
+    }
+    const query = searchTerm.toLowerCase();
+    return (
+      character.name.toLowerCase().includes(query) ||
+      character.species.toLowerCase().includes(query) ||
+      character.hookup_note?.toLowerCase().includes(query)
+    );
+  });
 
   const erpOrder = [
     'Top - Dom',
@@ -169,6 +198,13 @@ const CharacterDirectoryList = (props) => {
       title="Directory"
       buttons={
         <>
+          <Button
+            icon="heart"
+            selected={onlyLooking}
+            onClick={() => setOnlyLooking(!onlyLooking)}
+          >
+            {'Looking Only'}
+          </Button>
           <Button icon="sync" onClick={() => act('refresh')}>
             {'Refresh'}
           </Button>
@@ -181,7 +217,7 @@ const CharacterDirectoryList = (props) => {
       }
     >
       <Input
-        placeholder="Search name..."
+        placeholder="Search name, species, or status note..."
         onChange={setSearchTerm}
         value={searchTerm}
         mb={2}
@@ -278,6 +314,14 @@ const CharacterDirectoryList = (props) => {
             Unholy
           </SortButton>
           {/* SPLURT EDIT END: EXTRA TAGS */}
+          <SortButton
+            id="hookup_note"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Status Note
+          </SortButton>
           <Table.Cell collapsing textAlign="right">
             Advert
           </Table.Cell>
@@ -285,6 +329,9 @@ const CharacterDirectoryList = (props) => {
         {sortedDirectory.map((character, i) => (
           <Table.Row key={i} backgroundColor={erpTagColor[character.erp]}>
             <Table.Cell p={1}>
+              {character.looking_for_hookup && (
+                <Icon name="heart" color="pink" mr={1} />
+              )}
               {canOrbit ? (
                 <Button
                   color={erpTagColor[character.erp]}
@@ -310,7 +357,18 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell>{character.extremeharm}</Table.Cell>
             <Table.Cell>{character.unholy}</Table.Cell>
             {/* SPLURT EDIT END: EXTRA TAGS */}
+            <Table.Cell>{character.hookup_note}</Table.Cell>
             <Table.Cell collapsing textAlign="right">
+              {isHookupApp && (
+                <Button
+                  onClick={() => act('message', { ref: character.ref })}
+                  color="transparent"
+                  icon="comment"
+                  mr={1}
+                >
+                  {'Message'}
+                </Button>
+              )}
               <Button
                 onClick={() => act('view', { ref: character.ref })}
                 color="transparent"

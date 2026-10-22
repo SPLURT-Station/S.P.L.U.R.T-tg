@@ -49,6 +49,7 @@
 		// BUBBER EDIT ADDITION START
 		/datum/computer_file/program/maintenance/camera, // Adds camera to all base tablets
 		/datum/computer_file/program/crew_self_serve, // Crew Self Serve
+		/datum/computer_file/program/hookup,
 		// BUBBER EDIT ADDITION END
 	)
 	///List of items that can be stored in a PDA
