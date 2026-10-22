@@ -622,14 +622,6 @@
 	if(HAS_TRAIT(src, TRAIT_BRAIN_TRAUMA_IMMUNITY))
 		return FALSE
 
-	var/checking_phobia_type
-	if(istype(trauma, /datum/brain_trauma/mild/phobia))
-		var/datum/brain_trauma/mild/phobia/phobia_trauma = trauma
-		checking_phobia_type = phobia_trauma.phobia_type
-	else if(ispath(trauma, /datum/brain_trauma/mild/phobia))
-		var/datum/brain_trauma/mild/phobia/phobia_path = trauma
-		checking_phobia_type = initial(phobia_path.phobia_type)
-
 	if(!ispath(trauma))
 		trauma = trauma.type
 	if(!initial(trauma.can_gain))
@@ -639,11 +631,7 @@
 
 	var/resilience_tier_count = 0
 	for(var/X in traumas)
-		if(checking_phobia_type && istype(X, /datum/brain_trauma/mild/phobia))
-			var/datum/brain_trauma/mild/phobia/existing_phobia = X
-			if(existing_phobia.phobia_type == checking_phobia_type)
-				return FALSE
-		else if(istype(X, trauma))
+		if(istype(X, trauma))
 			return FALSE
 		var/datum/brain_trauma/T = X
 		if(resilience == T.resilience)
