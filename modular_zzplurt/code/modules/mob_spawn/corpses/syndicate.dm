@@ -38,7 +38,7 @@
 /datum/outfit/syndicateguardcorpse
 	name = "Syndicate Guard Corpse"
 	uniform = /obj/item/clothing/under/syndicate/sniper
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset

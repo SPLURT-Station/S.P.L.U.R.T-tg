@@ -8,29 +8,45 @@
 	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod"
 
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/splurt/special(mob/living/new_spawn, mob/mob_possessor, apply_prefs)
+	. = ..()
+	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
+	new_spawn.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
+
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/splurt/Destroy()
-	new /obj/machinery/cryopod(drop_location())
+	new/obj/machinery/cryopod(drop_location())
 	return ..()
 
 /datum/outfit/lavaland_syndicate/comms/mi13
 	name = "MI13 Communications Agent"
 	id = /obj/item/card/id/advanced/chameleon/elite/black
 	id_trim = /datum/id_trim/chameleon/operative/mi13/comms
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
-	suit = /obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/clandestine
+	uniform = /obj/item/clothing/under/syndicate
+	suit = /obj/item/clothing/suit/armor/vest/alt/sec
 	mask = /obj/item/clothing/mask/chameleon/gps
 	back = /obj/item/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicate/alt
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/melee/energy/sword/saber/red
+	r_pocket = /obj/item/gun/ballistic/automatic/pistol/clandestine
+	r_hand = null
+	l_hand = null
 	belt = /obj/item/storage/belt/utility/full/powertools
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/black
 	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/lavaland_syndicate/comms/mi13/post_equip(mob/living/carbon/human/syndicate, visuals_only = FALSE)
 	syndicate.add_faction(ROLE_SYNDICATE)
+
+	var/obj/item/card/id/outfit_id = syndicate.wear_id
+	if(outfit_id)
+		outfit_id.registered_name = syndicate.real_name
+		outfit_id.update_label()
+		outfit_id.update_icon()
+
+	handlebank(syndicate)
+	return ..()
 
 /datum/id_trim/chameleon/operative/mi13
 	assignment = "MI13 Operative"
