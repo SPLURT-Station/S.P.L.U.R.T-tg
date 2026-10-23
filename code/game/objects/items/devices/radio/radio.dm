@@ -554,7 +554,7 @@
 			if(subspace_switchable)
 				subspace_transmission = !subspace_transmission
 				if(!subspace_transmission)
-					channels = list()
+					resetChannels() // SPLURT EDIT - properly remove channel listeners when turning off subspace
 				else
 					recalculateChannels()
 				. = TRUE
@@ -700,6 +700,14 @@
 	var/mob/living/silicon/robot/borg = loc
 	for(var/ch_name in borg.model.radio_channels)
 		channels[ch_name] = TRUE
+
+// SPLURT EDIT START - sync borg radio speaker toggle with comms_enabled
+/obj/item/radio/borg/set_listening(new_listening, actual_setting = TRUE)
+	. = ..()
+	if(actual_setting && iscyborg(loc))
+		var/mob/living/silicon/robot/borg = loc
+		borg.comms_enabled = get_listening()
+// SPLURT EDIT END
 
 /obj/item/radio/borg/syndicate
 	special_channels = RADIO_SPECIAL_SYNDIE
