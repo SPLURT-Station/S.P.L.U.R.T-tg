@@ -265,6 +265,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	// Custom hotkeys
 	key_bindings = savefile.get_entry("key_bindings", key_bindings)
 
+	// SPLURT EDIT START: MEDAL HISTORY
+	medal_awards_received = savefile.get_entry("medal_awards_received", medal_awards_received)
+	medal_awards_given = savefile.get_entry("medal_awards_given", medal_awards_given)
+	// SPLURT EDIT END: MEDAL HISTORY
+
 	//try to fix any outdated data if necessary
 	if(SHOULD_UPDATE_DATA(data_validity_integer))
 		var/bacpath = PREFS_BACKUP_PATH(path) //todo: if the savefile version is higher then the server, check the backup, and give the player a prompt to load the backup
@@ -283,6 +288,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	key_bindings = sanitize_keybindings(key_bindings)
 	favorite_outfits = SANITIZE_LIST(favorite_outfits)
 	job_assigned_profiles = SANITIZE_LIST(job_assigned_profiles)
+	// SPLURT EDIT START: MEDAL HISTORY
+	medal_awards_received = SANITIZE_LIST(medal_awards_received)
+	medal_awards_given = SANITIZE_LIST(medal_awards_given)
+	// SPLURT EDIT END: MEDAL HISTORY
 
 	key_bindings_by_key = get_key_bindings_by_key(key_bindings)
 
@@ -338,6 +347,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	savefile.set_entry("hearted_until", (hearted_until > world.realtime ? hearted_until : null))
 	savefile.set_entry("favorite_outfits", favorite_outfits)
 	savefile.set_entry("job_assigned_profiles", job_assigned_profiles)
+	// SPLURT EDIT START: MEDAL HISTORY
+	savefile.set_entry("medal_awards_received", medal_awards_received)
+	savefile.set_entry("medal_awards_given", medal_awards_given)
+	// SPLURT EDIT END: MEDAL HISTORY
 	savefile.save()
 	return TRUE
 
