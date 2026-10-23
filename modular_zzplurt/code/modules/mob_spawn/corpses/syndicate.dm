@@ -33,6 +33,8 @@
 
 /obj/effect/mob_spawn/corpse/human/syndicateguard
 	name = "Syndicate Guard"
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
 	outfit = /datum/outfit/syndicateguardcorpse
 
 /datum/outfit/syndicateguardcorpse
@@ -44,7 +46,7 @@
 	ears = /obj/item/radio/headset
 	mask = /obj/item/clothing/mask/gas/syndicate
 	head = null
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/messenger
 	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
 	id_trim = /datum/id_trim/chameleon/operative/guard
 
