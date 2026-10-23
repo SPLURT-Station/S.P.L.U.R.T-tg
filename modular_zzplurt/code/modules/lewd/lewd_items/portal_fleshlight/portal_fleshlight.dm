@@ -128,7 +128,7 @@
 
 /obj/item/clothing/sextoy/portal_fleshlight/attack(mob/living/target, mob/living/user, params)
 	. = ..()
-	if(!istype(linked_panties?.loc, /mob/living/carbon/human))
+	if(!istype(linked_panties?.loc, /mob/living/carbon/human) || !linked_panties.equipped_slot)
 		to_chat(user, span_warning("The portal fleshlight isn't linked to any worn portal panties!"))
 		return
 
@@ -159,7 +159,7 @@
 			return
 
 		// Check if both panties are being worn
-		if(!istype(linked_panties.loc, /mob/living/carbon/human) || !istype(other_fleshlight.linked_panties.loc, /mob/living/carbon/human))
+		if(!istype(linked_panties.loc, /mob/living/carbon/human) || !linked_panties.equipped_slot || !istype(other_fleshlight.linked_panties.loc, /mob/living/carbon/human) || !other_fleshlight.linked_panties.equipped_slot)
 			to_chat(user, span_warning("Both portal panties need to be worn by someone!"))
 			return
 
@@ -207,6 +207,10 @@
 
 	if(panties.linked_fleshlight)
 		to_chat(user, span_warning("[panties] is already linked to another portal fleshlight!"))
+		return FALSE
+
+	if(panties.linked_panties)
+		to_chat(user, span_warning("[panties] is already linked to another pair of portal panties!"))
 		return FALSE
 
 	if(linked_panties)

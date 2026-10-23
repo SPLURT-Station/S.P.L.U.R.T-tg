@@ -20,8 +20,8 @@
 /obj/item/paper/fluff/portal_fleshlight
 	name = "Portal Fleshlight Instructions"
 	default_raw_text = {"Thank you for purchasing the Silver Love Portal Fleshlight!<br>\
-	To use, simply register your new portal fleshlight with the provided panties to link them together. Then ask your lover to wear the panties.<br>\
-	The portal fleshlight can be used to target different body parts by right-clicking it to cycle through available targets.<br>\
+	To use, simply register your new portal fleshlight with the provided panties to link them together, or link two pairs of portal panties directly to each other. Then ask your lover to wear the panties.<br>\
+	The portal fleshlight can be used to target different body parts by activating it in hand to cycle through available targets, while linked portal panties can be used directly while worn.<br>\
 	Both the fleshlight and panties can be toggled to anonymous mode by right-clicking them.<br>\
 	Have fun lovers,<br>\
 	<br>\
