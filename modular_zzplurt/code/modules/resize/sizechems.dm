@@ -27,6 +27,7 @@
 	rate_up_lim = 1
 	purity_min = 0.2
 	reaction_flags = REACTION_HEAT_ARBITARY
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_MODERATE | REACTION_TAG_OTHER
 
 //Growthchem reagent
 /datum/reagent/growthchem
@@ -55,6 +56,7 @@
 	rate_up_lim = 1
 	purity_min = 0.2
 	reaction_flags = REACTION_HEAT_ARBITARY
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_MODERATE | REACTION_TAG_OTHER
 
 //Growthchem effects
 /datum/reagent/growthchem/on_mob_add(mob/living/M)
@@ -96,6 +98,7 @@
 	rate_up_lim = 1
 	purity_min = 0.2
 	reaction_flags = REACTION_HEAT_ARBITARY
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_MODERATE | REACTION_TAG_OTHER
 
 //Shrinkchem effects
 /datum/reagent/shrinkchem/on_mob_add(mob/living/M)

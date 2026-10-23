@@ -345,8 +345,9 @@ ADMIN_VERB(log_viewer_new, R_ADMIN, "View Round Logs", "View the rounds logs.", 
 			data = recursive_jsonify(serialization_data, semvers)
 
 		if(islist(data) && !length(data))
-			stack_trace("recursive_jsonify got an empty list after serialization")
-			continue
+			// stack_trace("recursive_jsonify got an empty list after serialization") // SPLURT EDIT - No need to crash if empty
+			// continue // SPLURT EDIT - No need to crash if empty
+			data = "" // SPLURT EDIT - No need to crash if empty
 
 		jsonified_list[key] = data
 

@@ -1,4 +1,5 @@
 #define SECHUD_NT_CREWTRAINER "hudnanotrasencrewtrainer"
+#define SECHUD_ASSET_PROTECTION "hudassetprot"
 //Interdyne Research Base Ruin
 #define SECHUD_INTERDYNE_CHEMIST "hud_interdynechemist"
 #define SECHUD_INTERDYNE_GENETICIST "hud_interdynegeneticist"

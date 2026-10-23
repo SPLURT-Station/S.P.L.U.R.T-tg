@@ -16,7 +16,8 @@
 
 /obj/docking_port/mobile/emergency/register()
 	. = ..()
-	SSshuttle.emergency = src
+	if(!istype(src, /obj/docking_port/mobile/emergency/backup)) // Splurt Edit - Fix TG bug making init order cause backup shuttle to take over as emergency shuttle
+		SSshuttle.emergency = src  // Splurt Edit - Fix TG bug making init order cause backup shuttle to take over as emergency shuttle
 
 /obj/docking_port/mobile/emergency/Destroy(force)
 	if(force)

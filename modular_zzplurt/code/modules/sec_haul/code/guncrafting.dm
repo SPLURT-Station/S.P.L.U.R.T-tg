@@ -21,6 +21,7 @@
 	)
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 
 /datum/crafting_recipe/wt458/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/automatic/wt550/the_gun = collected_requirements[/obj/item/gun/ballistic/automatic/wt550][1]

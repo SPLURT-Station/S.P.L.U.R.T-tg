@@ -132,3 +132,7 @@
 	name = "Armored Harness"
 	item_path = /obj/item/clothing/suit/armor/vest/harness
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_CENTRAL, JOB_CAPTAIN, JOB_ORDERLY, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BOUNCER, JOB_SCIENCE_GUARD)
+
+/datum/loadout_item/suit/pirate_captain_coat
+	name = "Pirate Captain Coat"
+	item_path = /obj/item/clothing/suit/costume/pirate/captain

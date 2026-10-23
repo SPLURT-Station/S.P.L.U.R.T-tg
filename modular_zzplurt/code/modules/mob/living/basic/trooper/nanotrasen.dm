@@ -20,6 +20,10 @@
 /mob/living/basic/trooper/nanotrasen/assess_threat(judgement_criteria, lasercolor, datum/callback/weaponcheck)
 	return -10 // Respect our troops
 
+/// A variant that calls for reinforcements on spotting a target
+/mob/living/basic/trooper/nanotrasen/screaming
+	ai_controller = /datum/ai_controller/basic_controller/trooper/calls_reinforcements
+
 // --------------------
 // VARIANTS
 // --------------------
@@ -312,6 +316,7 @@
 	health = 185
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
 	projectiletype = /obj/projectile/bullet/c68
+	loot = null
 	burst_shots = 3
 	projectilesound = 'modular_zzplurt/sound/items/weapons/gun/bulwark_shot.ogg'
 	ranged_cooldown = 3 SECONDS
@@ -327,6 +332,7 @@
 	health = 175
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst
 	casingtype = /obj/item/ammo_casing/a223
+	loot = null
 	burst_shots = 3
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'
 	ranged_cooldown = 3 SECONDS
@@ -357,6 +363,7 @@
 	ranged_cooldown = 1 SECONDS
 	corpse = /obj/effect/gibspawner/human
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/nanotrasenertsecurity
+	loot = null
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine
 
 /mob/living/basic/trooper/nanotrasen/energy/assault/lead
@@ -424,7 +431,7 @@
 
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful
 	desc = "A member of Nanotrasen's private security, an underpaid security force. They are armed with an WT-550."
-	ai_controller = /datum/ai_controller/basic_controller/trooper/peaceful
+	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/burst/peaceful_burst
 
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful/Initialize(mapload)
 	. = ..()
@@ -435,4 +442,4 @@
 	if (!istype(attacker))
 		return
 	for (var/mob/living/basic/trooper/nanotrasen/potential_trooper in oview(src, 7))
-		potential_trooper.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
+		potential_trooper.ai_controller.set_blackboard_key_assoc_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker, world.time)
