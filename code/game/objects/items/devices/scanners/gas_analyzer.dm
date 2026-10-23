@@ -134,14 +134,16 @@
 	return return_atmos_handbooks()
 
 /obj/item/analyzer/ui_data(mob/user)
+	refresh_tracked_scan() // SPLURT EDIT - refresh live gas analyzer data on UI update
 	LAZYINITLIST(last_gasmix_data)
 	return list("gasmixes" = last_gasmix_data)
 
 /obj/item/analyzer/attack_self(mob/user, modifiers)
 	if(IS_UNCONSCIOUS_OR_CRIT(user) || !user.can_read(src) || user.is_blind())
 		return
-	atmos_scan(user=user, target=get_turf(src), silent=FALSE)
-	on_analyze(source=src, target=get_turf(src))
+	// SPLURT EDIT START - open live gas analyzer UI instead of spamming chat
+	scan_to_ui(user, src)
+	// SPLURT EDIT END
 
 /obj/item/analyzer/attack_self_secondary(mob/user, modifiers)
 	if(IS_UNCONSCIOUS_OR_CRIT(user) || !user.can_read(src) || user.is_blind())
@@ -158,7 +160,9 @@
 
 /obj/item/analyzer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_see(user, interacting_with, ranged_scan_distance))
-		atmos_scan(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
+		// SPLURT EDIT START - open live gas analyzer UI instead of spamming chat
+		scan_to_ui(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
+		// SPLURT EDIT END
 	return NONE // Non-blocking
 
 /// Called when our analyzer is used on something

@@ -233,6 +233,10 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		.["conductive"] = "It appears to be a good conductor of electricity."
 
 /obj/analyzer_act(mob/living/user, obj/item/analyzer/tool)
+	// SPLURT EDIT START - open live gas analyzer UI when using a handheld gas analyzer
+	if(istype(tool) && tool.scan_to_ui(user, src))
+		return TRUE
+	// SPLURT EDIT END
 	if(atmos_scan(user=user, target=src, silent=FALSE))
 		return TRUE
 	return ..()
