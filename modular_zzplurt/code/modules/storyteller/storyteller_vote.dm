@@ -3,3 +3,4 @@
 	winner_method = VOTE_WINNER_METHOD_RANKED
 	ranked_winner_threshold = 80 // 80% threshold for direct win
 	display_statistics = FALSE
+	print_results = FALSE // The vote prints its own result
