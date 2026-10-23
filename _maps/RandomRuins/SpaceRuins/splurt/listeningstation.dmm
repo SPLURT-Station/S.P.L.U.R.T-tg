@@ -149,6 +149,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "du" = (
@@ -294,6 +295,10 @@
 /obj/item/food/syndicake,
 /obj/item/food/syndicake,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/item/food/salad/caesar_salad,
+/obj/item/food/salad/caesar_salad,
+/obj/item/food/salad/caesar_salad,
+/obj/item/food/salad/caesar_salad,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/listeningstation)
 "gw" = (
@@ -561,17 +566,16 @@
 	},
 /obj/structure/table/wood,
 /obj/item/storage/briefcase/secure{
-	pixel_y = 12
+	pixel_y = 10
 	},
-/obj/item/storage/briefcase/secure{
-	pixel_y = 6
-	},
-/obj/item/storage/briefcase/secure,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sign/poster/contraband/random/directional/south,
+/obj/item/storage/briefcase/secure/white{
+	pixel_y = 2
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "kj" = (
@@ -936,8 +940,8 @@
 /area/ruin/space/has_grav/listeningstation)
 "qw" = (
 /obj/structure/table/wood,
-/obj/item/hand_labeler,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/laser/chameleon,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "qV" = (
@@ -1160,6 +1164,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/accessory/bubber/acc_medal/neckpin/syndicate,
 /obj/item/clothing/accessory/bubber/acc_medal/neckpin/syndicate,
+/obj/item/ammo_box/c10mm,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "uR" = (
@@ -1393,9 +1398,15 @@
 /area/ruin/space/has_grav/listeningstation)
 "zS" = (
 /obj/structure/table/wood,
-/obj/item/scissors,
+/obj/item/scissors{
+	pixel_x = -7
+	},
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/hand_labeler{
+	pixel_x = 6;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "Au" = (
@@ -1410,13 +1421,22 @@
 	pixel_x = -7
 	},
 /obj/item/stack/telecrystal/five{
-	pixel_y = -3
+	pixel_y = -3;
+	pixel_x = -5
 	},
 /obj/item/phone{
-	pixel_x = 10;
+	pixel_x = 6;
 	pixel_y = 6
 	},
 /obj/machinery/light/red/directional/north,
+/obj/item/ammo_box/magazine/m10mm{
+	pixel_x = 11;
+	pixel_y = 4
+	},
+/obj/item/ammo_box/magazine/m10mm{
+	pixel_x = 11;
+	pixel_y = 4
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "AF" = (
@@ -1578,11 +1598,20 @@
 /area/ruin/space/has_grav/listeningstation)
 "CT" = (
 /obj/structure/table/wood,
-/obj/item/card/id/advanced/chameleon,
 /obj/machinery/light/red/directional/north,
 /obj/structure/sign/poster/contraband/random/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/under/chameleon,
+/obj/item/radio/headset/chameleon,
+/obj/item/storage/belt/chameleon,
+/obj/item/storage/backpack/chameleon,
+/obj/item/clothing/shoes/chameleon,
+/obj/item/clothing/neck/chameleon,
+/obj/item/clothing/head/chameleon,
+/obj/item/clothing/gloves/chameleon,
+/obj/item/clothing/glasses/chameleon,
+/obj/item/clothing/suit/chameleon,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "Dd" = (
@@ -1760,9 +1789,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer/cryopod/interdyne/directional/west,
 /obj/machinery/light/cold/directional/west,
 /obj/effect/spawner/random/trash/mess,
+/obj/machinery/computer/cryopod/syndicate/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "GD" = (
@@ -2013,7 +2042,6 @@
 /obj/item/clothing/gloves/chameleon,
 /obj/item/clothing/glasses/chameleon,
 /obj/item/clothing/suit/chameleon,
-/obj/item/gun/energy/laser/chameleon,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "MV" = (
@@ -2336,6 +2364,7 @@
 "TM" = (
 /obj/structure/sign/poster/contraband/random/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "TQ" = (
@@ -2549,6 +2578,8 @@
 /obj/item/flashlight,
 /obj/item/flashlight,
 /obj/structure/sign/poster/contraband/random/directional/south,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "Yl" = (
