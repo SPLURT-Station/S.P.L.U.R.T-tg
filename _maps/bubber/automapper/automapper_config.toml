@@ -158,12 +158,14 @@ trait_name = "Station"
 
 # CENTRAL COMMAND MAP EDITS
 # CC Ferry Dock - Admin Shuttle
-[templates.centcom_ferry_dock]
-map_files = ["centcom_ferry_dock.dmm"]
-directory = "_maps/bubber/automapper/templates/centcom/"
-required_map = "builtin"
-coordinates = [128, 79, 1]
-trait_name = "CentCom"
+#SPLURT REMOVAL START - DISABLING, THESE ARE NO LONGER USEFUL
+#[templates.centcom_ferry_dock]
+#map_files = ["centcom_ferry_dock.dmm"]
+#directory = "_maps/bubber/automapper/templates/centcom/"
+#required_map = "builtin"
+#coordinates = [128, 79, 1]
+#trait_name = "CentCom"
+#SPLURT REMOVAL END
 
 # DELTASTATION MAP EDITS
 # Deltastation Armory

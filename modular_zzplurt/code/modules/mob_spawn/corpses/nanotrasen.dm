@@ -367,8 +367,8 @@
 
 /datum/outfit/nanotrasendeathsquadcorpse
 	name = "\improper NT Deathsquad Corpse"
-	uniform = /obj/item/clothing/under/rank/centcom/commander
-	belt = /obj/item/storage/belt/security/redsec
+	uniform = /obj/item/clothing/under/rank/centcom/officer
+	belt = /obj/item/gun/ballistic/revolver/mateba
 	shoes = /obj/item/clothing/shoes/combat/swat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
@@ -384,11 +384,11 @@
 
 /datum/outfit/nanotrasenassetprotectioncorpse
 	name = "\improper NT Asset Protection Corpse"
-	uniform = /obj/item/clothing/under/rank/centcom/commander
-	belt = /obj/item/storage/belt/security/redsec
+	uniform = /obj/item/clothing/under/rank/centcom/officer
 	shoes = /obj/item/clothing/shoes/combat/swat
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	back = /obj/item/mod/control/pre_equipped/asset_protection
+	belt = /obj/item/storage/belt/security/webbing/assetprot
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/ert
