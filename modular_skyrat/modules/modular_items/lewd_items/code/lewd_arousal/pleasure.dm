@@ -1,6 +1,8 @@
 /mob/living/proc/adjust_pleasure(pleas = 0, mob/living/partner, datum/interaction/interaction, position) // SPLURT EDIT - mobs interactable
+	#ifndef TESTING
 	if(stat >= DEAD || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || (!ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src)))) // SPLURT EDIT - mobs interactable
 		return
+	#endif
 
 	// SPLURT EDIT - Lust tolerance
 	var/lust_tolerance = 1
