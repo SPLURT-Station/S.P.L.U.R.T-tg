@@ -78,6 +78,11 @@ Tails
 	name = "Experiment"
 	icon_state = "experiment"
 
+/datum/sprite_accessory/tails/splurt/mantled_beast
+	name = "Mantled Beast"
+	icon_state = "mantled_beast"
+	icon = 'modular_zzplurt/icons/mob/sprite_accessories/mantled_beast_tail.dmi'
+
 /*
 Teshari // BRUH
 */
