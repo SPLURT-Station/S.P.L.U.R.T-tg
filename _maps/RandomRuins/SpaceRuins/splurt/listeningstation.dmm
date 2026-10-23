@@ -53,6 +53,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/flag/syndicate/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "bE" = (
@@ -108,23 +109,20 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/toy/figure/syndie{
-	pixel_x = -9;
-	pixel_y = 9
-	},
-/obj/item/toy/figure/syndie{
-	pixel_x = -9;
-	pixel_y = 9
-	},
-/obj/item/toy/figure/syndie{
-	pixel_x = -7;
-	pixel_y = 5
-	},
 /obj/machinery/light/red/directional/north,
-/obj/item/paper/fluff/ruins/listeningstation/briefing,
 /obj/item/radio/intercom/syndicate/freerange/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/toy/figure/syndie/footsoldier{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/paper/fluff/ruins/listeningstation/briefing{
+	pixel_x = 5
+	},
+/obj/item/clothing/accessory/medal/bubber/syndicate/intelligence{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "cM" = (
@@ -146,6 +144,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/listeningstation)
+"du" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "dA" = (
 /obj/effect/baseturf_helper/asteroid/airless,
@@ -191,6 +201,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "eG" = (
@@ -297,6 +308,9 @@
 /obj/item/folder/yellow,
 /obj/item/folder,
 /obj/item/folder/red,
+/obj/item/encryptionkey/headset_syndicate/cybersun,
+/obj/item/encryptionkey/headset_syndicate/interdyne,
+/obj/item/encryptionkey/syndicate,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "gI" = (
@@ -447,11 +461,11 @@
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "jg" = (
-/obj/machinery/door/airlock/security{
-	name = "Air Supply"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate{
+	name = "Air Supply"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "ji" = (
@@ -479,11 +493,12 @@
 /turf/closed/wall/r_wall/plastitanium/nodiagonal,
 /area/ruin/space/has_grav/listeningstation)
 "jx" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Engineering"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
+/obj/machinery/door/airlock/syndicate{
+	name = "Engineering"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "jF" = (
@@ -538,11 +553,6 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "kj" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms{
-	important_text = "DO NOT abandon the base, you are not a real antagonist but are allowed to act in self defense against intruders, do not seek out the station.";
-	outfit = /datum/outfit/lavaland_syndicate/comms/space;
-	dir = 4
-	},
 /obj/structure/bed{
 	dir = 4
 	},
@@ -553,6 +563,16 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/listeningstation)
+"kk" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/flag/syndicate/directional/west,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/splurt,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "kp" = (
@@ -634,23 +654,31 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/listeningstation)
 "ls" = (
-/obj/item/toy/plush/nukeplushie{
-	pixel_y = 9;
-	pixel_x = 6
-	},
-/obj/item/toy/nuke{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/disk/nuclear/fake{
-	pixel_y = -5;
-	pixel_x = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/toy/nuke{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/toy/figure/syndie/elite{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/item/disk/nuclear/fake{
+	pixel_y = -8;
+	pixel_x = -5
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
@@ -715,6 +743,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "oa" = (
@@ -795,32 +824,43 @@
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "pV" = (
-/obj/machinery/door/airlock/security{
-	name = "Storage Room"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
+/obj/machinery/door/airlock/syndicate{
+	name = "Storage Room"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "qa" = (
 /obj/structure/closet/generic/wall/empty{
 	pixel_x = 28;
-	name = "emergency supplies"
+	name = "cabinet"
 	},
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/flashlight,
-/obj/item/flashlight,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/item/clothing/under/syndicate/skyrat/tactical,
+/obj/item/clothing/under/syndicate/skyrat/tactical,
+/obj/item/clothing/under/syndicate/skyrat/tactical/skirt,
+/obj/item/clothing/under/syndicate/skyrat/tactical/skirt,
+/obj/item/clothing/under/syndicate/skyrat/overalls,
+/obj/item/clothing/under/syndicate/skyrat/overalls/skirt,
+/obj/item/clothing/under/syndicate/skyrat/baseball,
+/obj/item/clothing/suit/jacket/letterman_syndie,
+/obj/item/clothing/head/beret/sec/syndicate,
+/obj/item/clothing/head/beret/sec/syndicate,
+/obj/item/clothing/head/hair_tie/syndicate,
+/obj/item/clothing/head/soft/sec/syndicate,
+/obj/item/clothing/under/syndicate/bloodred,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "qo" = (
@@ -886,6 +926,14 @@
 	},
 /obj/machinery/rnd/production/colony_lathe,
 /turf/open/floor/iron,
+/area/ruin/space/has_grav/listeningstation)
+"rn" = (
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Cryogenics"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "rK" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1008,7 +1056,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/vending/clothing{
-	pixel_x = 5;
+	pixel_x = -11;
+	pixel_y = -32;
+	density = 0
+	},
+/obj/machinery/vending/wardrobe/syndie_wardrobe{
+	pixel_x = 11;
 	pixel_y = -32;
 	density = 0
 	},
@@ -1033,6 +1086,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/listeningstation)
 "uc" = (
@@ -1050,10 +1104,8 @@
 /obj/structure/closet/generic/wall/empty{
 	pixel_x = 28
 	},
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/clothing/under/syndicate/skirt,
+/obj/item/clothing/under/syndicate/sniper,
+/obj/item/clothing/under/syndicate/sniper,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/suit/jacket/letterman_syndie,
@@ -1061,6 +1113,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/accessory/bubber/acc_medal/neckpin/syndicate,
+/obj/item/clothing/accessory/bubber/acc_medal/neckpin/syndicate,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "uR" = (
@@ -1107,17 +1161,24 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/camera,
+/obj/item/camera{
+	pixel_y = 5;
+	pixel_x = -7
+	},
+/obj/item/toy/figure/syndie/officer{
+	pixel_x = 5
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "vS" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Dorms"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Dorms"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "wh" = (
@@ -1143,7 +1204,6 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/obj/machinery/light/directional/east,
 /obj/item/food/syndicake{
 	pixel_y = 8;
 	pixel_x = -4
@@ -1170,13 +1230,14 @@
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "wH" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Lounge"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Lounge"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "wZ" = (
@@ -1231,13 +1292,14 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "yO" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Kitchen"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Kitchen"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "zp" = (
@@ -1345,15 +1407,15 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
 "Bl" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "External Airlock"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "External Airlock"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "Bn" = (
@@ -1477,11 +1539,12 @@
 /area/ruin/space/has_grav/listeningstation)
 "Dd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security{
-	name = "Holopad Room"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/syndicate{
+	name = "Holopad Room"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "Dr" = (
@@ -1510,12 +1573,13 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/listeningstation)
 "DE" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Hallway"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Hallway"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "DF" = (
@@ -1637,6 +1701,21 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
+"Gs" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 9
+	},
+/obj/effect/turf_decal/tile/dark_green,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer/cryopod/interdyne/directional/west,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/listeningstation)
 "GD" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -1652,9 +1731,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/basic/trooper/syndicate/ranged/infiltrator{
-	name = "Syndicate Guard"
-	},
+/mob/living/basic/trooper/syndicate/ranged/guard,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "HC" = (
@@ -1681,13 +1758,14 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "HN" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Communications Office"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Communications Office"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "HS" = (
@@ -1789,7 +1867,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/sign/poster/contraband/random/directional/south,
-/obj/machinery/light/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
@@ -1805,6 +1882,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "Kx" = (
@@ -1830,11 +1908,16 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/listeningstation)
 "KX" = (
-/obj/structure/extinguisher_cabinet/directional/north,
+/obj/structure/extinguisher_cabinet/directional/north{
+	pixel_x = -8
+	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/firealarm/directional/north{
+	pixel_x = 7
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "LB" = (
@@ -1889,15 +1972,11 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/machinery/vending/wardrobe/syndie_wardrobe{
-	pixel_x = -5;
-	pixel_y = -32;
-	density = 0
-	},
 /obj/machinery/computer/libraryconsole/bookmanagement{
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/red,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "Np" = (
@@ -1910,6 +1989,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/trash/food_packaging,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "Nv" = (
@@ -1923,11 +2003,6 @@
 /turf/template_noop,
 /area/space/nearstation)
 "Nz" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms{
-	important_text = "DO NOT abandon the base, you are not a real antagonist but are allowed to act in self defense against intruders, do not seek out the station.";
-	outfit = /datum/outfit/lavaland_syndicate/comms/space;
-	dir = 4
-	},
 /obj/structure/bed{
 	dir = 4
 	},
@@ -1944,22 +2019,24 @@
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "Od" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Hydroponics"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate/glass{
+	name = "Hydroponics"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "OJ" = (
-/obj/machinery/door/airlock/security{
-	name = "Operative Quarters"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate{
+	name = "Operative Quarters"
+	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "OW" = (
@@ -2021,6 +2098,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
+"PZ" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/machinery/firealarm/directional/east,
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/splurt,
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/listeningstation)
 "Rc" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -2081,6 +2169,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/checker,
 /area/ruin/space/has_grav/listeningstation)
 "RV" = (
@@ -2132,22 +2221,23 @@
 "Te" = (
 /obj/machinery/disposal/bin/external,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/sign/poster/contraband/random/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 8
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/listeningstation)
 "Tm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/security{
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/syndicate{
 	name = "Guard Quarters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "Ts" = (
@@ -2169,6 +2259,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/trash/graffiti,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "TB" = (
@@ -2302,6 +2393,7 @@
 /obj/machinery/light/red/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/listeningstation)
 "WI" = (
@@ -2344,6 +2436,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "XA" = (
@@ -2367,9 +2460,7 @@
 	pixel_x = -7;
 	pixel_y = 9
 	},
-/mob/living/basic/trooper/syndicate/ranged/infiltrator{
-	name = "Syndicate Guard"
-	},
+/mob/living/basic/trooper/syndicate/ranged/guard,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "Yb" = (
@@ -2378,6 +2469,45 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/listeningstation)
+"Yf" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 6
+	},
+/obj/effect/turf_decal/tile/dark_green{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 28;
+	name = "emergency supplies"
+	},
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/listeningstation)
+"Yl" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/flag/syndicate/directional/west,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "Yx" = (
 /obj/structure/sink/directional/east,
@@ -2655,11 +2785,11 @@ sf
 sf
 sf
 sf
-sf
-sf
-sf
-sf
-sf
+lz
+lz
+lz
+lz
+lz
 sf
 sf
 sf
@@ -2690,10 +2820,10 @@ lz
 lz
 lz
 lz
-sf
-sf
-sf
-sf
+kk
+Gs
+Yl
+lz
 sf
 sf
 sf
@@ -2724,10 +2854,10 @@ lz
 Rd
 Yb
 lz
-sf
-sf
-sf
-sf
+PZ
+du
+Yf
+lz
 sf
 sf
 sf
@@ -2759,7 +2889,7 @@ Au
 Wq
 lz
 lz
-lz
+rn
 lz
 lz
 lz
