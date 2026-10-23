@@ -94,6 +94,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
+"bY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/listeningstation)
 "cd" = (
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
@@ -247,6 +253,15 @@
 /obj/item/stack/sheet/mineral/gold/fifty,
 /obj/structure/rack/shelf,
 /turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/listeningstation)
+"fS" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "fV" = (
 /obj/effect/spawner/random/food_or_drink/donkpockets,
@@ -418,6 +433,7 @@
 /obj/item/instrument/piano_synth,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "iN" = (
@@ -624,13 +640,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "kP" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/random/trash/garbage,
-/turf/open/floor/iron/dark,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/structure/trash_pile,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "kZ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -688,8 +702,17 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
+"ly" = (
+/obj/structure/falsewall/plastitanium,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/listeningstation)
 "lz" = (
 /turf/closed/wall/r_wall/plastitanium/nodiagonal,
+/area/ruin/space/has_grav/listeningstation)
+"mf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "nj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -772,6 +795,8 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sink/directional/east,
+/obj/structure/mirror/directional/west,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ruin/space/has_grav/listeningstation)
 "oD" = (
@@ -779,6 +804,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/trash/can,
 /turf/open/floor/carpet/royalblack,
+/area/ruin/space/has_grav/listeningstation)
+"oG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/south,
+/obj/effect/spawner/random/trash/moisture_trap,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "oN" = (
 /obj/effect/turf_decal/siding/wood{
@@ -881,7 +914,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
-/obj/machinery/washing_machine,
 /obj/structure/sign/poster/contraband/random/directional/east,
 /obj/machinery/light/red/directional/east,
 /obj/effect/decal/cleanable/dirt,
@@ -889,6 +921,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/plumbed/fuel,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
 "qp" = (
@@ -898,6 +931,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "qw" = (
@@ -1104,6 +1138,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "us" = (
@@ -1147,6 +1182,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/trash/graffiti,
 /turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/listeningstation)
+"ve" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/west,
+/obj/effect/spawner/random/structure/crate_abandoned,
+/obj/machinery/light/small/dim/directional/west,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "vj" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -1454,7 +1497,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random/directional/west,
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
 "Cc" = (
@@ -1719,6 +1762,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/computer/cryopod/interdyne/directional/west,
 /obj/machinery/light/cold/directional/west,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "GD" = (
@@ -1730,6 +1774,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/listeningstation)
 "GG" = (
@@ -1861,6 +1906,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/listeningstation)
+"Ka" = (
+/obj/structure/reagent_dispensers/keg/gold/irish,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "Kg" = (
 /obj/effect/turf_decal/siding/wood{
@@ -2132,8 +2182,10 @@
 /obj/item/organ/tongue/bone,
 /obj/item/organ/tongue/robot,
 /obj/item/organ/tongue/ethereal,
-/obj/item/autosurgeon/syndicate/commsagent,
+/obj/item/organ/tongue/lycan,
+/obj/item/organ/tongue/moth,
 /obj/item/book/granter/sign_language,
+/obj/item/autosurgeon/syndicate/commsagent,
 /obj/item/clothing/gloves/radio,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/listeningstation)
@@ -2394,7 +2446,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/random/trash/food_packaging,
+/obj/structure/closet/emcloset/wall{
+	pixel_y = -28
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "Wq" = (
@@ -2512,14 +2566,13 @@
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/listeningstation)
 "Yx" = (
-/obj/structure/sink/directional/east,
-/obj/structure/mirror/directional/west,
 /obj/structure/sign/poster/contraband/random/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/washing_machine,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ruin/space/has_grav/listeningstation)
 "YY" = (
@@ -2791,10 +2844,10 @@ lz
 lz
 lz
 lz
-sf
-sf
-sf
-sf
+lz
+lz
+lz
+lz
 sf
 sf
 sf
@@ -2825,10 +2878,10 @@ kk
 Gs
 Yl
 lz
-sf
-sf
-sf
-sf
+kP
+ve
+Ka
+lz
 sf
 sf
 sf
@@ -2859,10 +2912,10 @@ PZ
 du
 Yf
 lz
-sf
-sf
-sf
-sf
+mf
+bY
+oG
+lz
 sf
 sf
 sf
@@ -2893,7 +2946,7 @@ lz
 rn
 lz
 lz
-lz
+ly
 lz
 lz
 lz
@@ -2958,7 +3011,7 @@ lz
 lz
 lz
 bz
-CK
+fS
 lz
 rb
 tG
@@ -2992,7 +3045,7 @@ YY
 TM
 lz
 Cc
-kP
+CK
 OJ
 qa
 MV
