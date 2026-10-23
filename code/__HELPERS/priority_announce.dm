@@ -79,7 +79,14 @@
 	announcement_strings += ANNOUNCEMENT_HEADER(header)
 
 	///If the announcer overrides alert messages, use that message.
-	if(SSstation.announcer.custom_alert_message && !has_important_message)
+	var/custom_event_message = SSstation.announcer.get_event_message(sound)
+	if(custom_event_message)
+		announcement_strings += MAJOR_ANNOUNCEMENT_TEXT("[custom_event_message]<br><br>[text]")
+	else if(sound == ANNOUNCER_COMMAND_REPORT && length(SSstation.announcer.command_report_messages))
+		announcement_strings += MAJOR_ANNOUNCEMENT_TEXT("[SSstation.announcer.get_rand_report_message()]<br><br>[text]")
+	else if(length(SSstation.announcer.alert_messages) && !has_important_message)
+		announcement_strings += MAJOR_ANNOUNCEMENT_TEXT("[SSstation.announcer.get_rand_alert_message()]<br><br>[text]")
+	else if(SSstation.announcer.custom_alert_message && !has_important_message)
 		announcement_strings += MAJOR_ANNOUNCEMENT_TEXT(SSstation.announcer.custom_alert_message)
 	else
 		announcement_strings += MAJOR_ANNOUNCEMENT_TEXT(text)
@@ -231,7 +238,7 @@
 	for(var/datum/station_trait/trait in SSstation.station_traits)
 		// there is a trait we don't want
 		// they didnt bother making these subtypes so its gotta be stupid like this
-		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth)
+		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth) || istype(trait, /datum/station_trait/announcement_cave_johnson)
 		)
 			no_preferred_override = TRUE
 			break

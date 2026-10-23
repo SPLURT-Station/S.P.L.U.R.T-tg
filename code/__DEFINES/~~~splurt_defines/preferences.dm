@@ -9,6 +9,7 @@ GLOBAL_LIST_INIT(announcer_type_keys, list(
 		"Tibbets" = /datum/centcom_announcer/intern/tibbets,
 		"Lait" = /datum/centcom_announcer/default/lait,
 		"Dagoth Ur" = /datum/centcom_announcer/dagoth_ur,
+		"Cave Johnson" = /datum/centcom_announcer/cave_johnson,
 		"Bubber" = /datum/centcom_announcer/default,
 		"TG Intern" = /datum/centcom_announcer/intern,
 		"Medbot" = /datum/centcom_announcer/medbot

@@ -10,6 +10,14 @@
 	var/event_sounds = list()
 	///Override this to have a custom message to show instead of the normal priority announcement
 	var/custom_alert_message
+	///Roundshift start text messages, if the announcer provides custom welcome text
+	var/list/welcome_messages = list()
+	///Generic alert text messages, if the announcer provides custom alert text
+	var/list/alert_messages = list()
+	///Command report announcement text messages, if the announcer provides custom command report text
+	var/list/command_report_messages = list()
+	///Event text messages, assoc key (ANNOUNCER_*) - message string or list of message strings
+	var/list/event_messages = list()
 
 
 /datum/centcom_announcer/proc/get_rand_welcome_sound()
@@ -21,3 +29,26 @@
 
 /datum/centcom_announcer/proc/get_rand_report_sound()
 	return pick(command_report_sounds)
+
+/datum/centcom_announcer/proc/get_rand_welcome_message()
+	if(!length(welcome_messages))
+		return null
+	return pick(welcome_messages)
+
+/datum/centcom_announcer/proc/get_rand_alert_message()
+	if(!length(alert_messages))
+		return null
+	return pick(alert_messages)
+
+/datum/centcom_announcer/proc/get_rand_report_message()
+	if(!length(command_report_messages))
+		return null
+	return pick(command_report_messages)
+
+/datum/centcom_announcer/proc/get_event_message(sound_key)
+	if(!sound_key || !length(event_messages))
+		return null
+	var/entry = event_messages[sound_key]
+	if(islist(entry))
+		return length(entry) ? pick(entry) : null
+	return entry

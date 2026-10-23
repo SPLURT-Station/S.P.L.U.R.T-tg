@@ -165,6 +165,8 @@ GLOBAL_DATUM_INIT(communications_controller, /datum/communciations_controller, n
 /datum/communciations_controller/proc/get_main_report_content()
 	if(istype(SSstation.announcer, /datum/centcom_announcer/intern))
 		return pick_list_replacements("flavor_reports.json", "intern_reports")
+	if(istype(SSstation.announcer, /datum/centcom_announcer/cave_johnson))
+		return pick_list_replacements("flavor_reports.json", "cave_johnson_reports")
 	return pick_list_replacements("flavor_reports.json", "reports")
 
 #undef COMMUNICATION_COOLDOWN

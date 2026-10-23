@@ -298,10 +298,13 @@ SUBSYSTEM_DEF(ticker)
 	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
 
 	// SPLURT EDIT CHANGE - announcer preferences
+	if(length(SSstation.announcer.welcome_messages))
+		to_chat(world, span_notice(SSstation.announcer.get_rand_welcome_message()))
+
 	var/no_preferred_override = FALSE
 	for(var/datum/station_trait/trait in SSstation.station_traits)
 		// have to do this here again because of fucking bullshit
-		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth)
+		if(istype(trait, /datum/station_trait/announcement_intern) || istype(trait, /datum/station_trait/announcement_medbot) || istype(trait, /datum/station_trait/announcement_dagoth) || istype(trait, /datum/station_trait/announcement_cave_johnson)
 		)
 			no_preferred_override = TRUE
 			break

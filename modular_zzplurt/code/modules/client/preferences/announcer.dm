@@ -10,6 +10,7 @@
 		"Tibbets",
 		"Lait",
 		"Dagoth Ur",
+		"Cave Johnson",
 		"Bubber",
 		"TG Intern",
 		"Medbot"

@@ -3,12 +3,12 @@
 	report_message = "Don't forget to bring cheese!"
 
 /datum/station_trait/announcement_intern/New()
-	blacklist += list(/datum/station_trait/announcement_dagoth)
+	blacklist += list(/datum/station_trait/announcement_dagoth, /datum/station_trait/announcement_cave_johnson)
 	. = ..()
 	SSstation.announcer = /datum/centcom_announcer/intern/tibbets // it shouldn't cause any issues, right?
 
 /datum/station_trait/announcement_medbot/New()
-	blacklist += list(/datum/station_trait/announcement_dagoth)
+	blacklist += list(/datum/station_trait/announcement_dagoth, /datum/station_trait/announcement_cave_johnson)
 	. = ..()
 
 /datum/station_trait/announcement_dagoth
@@ -17,8 +17,20 @@
 	weight = 1
 	show_in_report = TRUE
 	report_message = "Come Nerevar, friend or traitor, come. Come and look upon the Heart, and Akulakhan."
-	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
+	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot, /datum/station_trait/announcement_cave_johnson, /datum/station_trait/birthday)
 
 /datum/station_trait/announcement_dagoth/New()
 	. = ..()
 	SSstation.announcer = /datum/centcom_announcer/dagoth_ur
+
+/datum/station_trait/announcement_cave_johnson
+	name = "Announcement CEO"
+	trait_type = STATION_TRAIT_NEUTRAL
+	weight = 1
+	show_in_report = TRUE
+	report_message = "Cave Johnson here. Just a heads up: I bought the communications relay for this sector, so you'll be hearing from me today. Keep testing."
+	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot, /datum/station_trait/announcement_dagoth, /datum/station_trait/birthday)
+
+/datum/station_trait/announcement_cave_johnson/New()
+	. = ..()
+	SSstation.announcer = /datum/centcom_announcer/cave_johnson
