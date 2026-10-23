@@ -111,6 +111,17 @@
 /datum/bodypart_overlay/mutant/genital/get_base_icon_state()
 	return sprite_suffix
 
+/datum/bodypart_overlay/mutant/genital/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	. = ..()
+	if((limb?.limb_id == SPECIES_TESHARI || isteshari(limb?.owner)) && islist(.))
+		for(var/mutable_appearance/genital_appearance as anything in .)
+			genital_appearance.pixel_z -= 3
+
+/datum/bodypart_overlay/mutant/genital/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	if(limb?.limb_id == SPECIES_TESHARI || isteshari(limb?.owner))
+		. += SPECIES_TESHARI
+
 /*
 /datum/bodypart_overlay/mutant/genital/get_color_layer_names(icon_state_to_lookup)
 	// SPLURT EDIT - Fix bad caching causing layers to sometimes not work
@@ -158,7 +169,7 @@
 	feature_key = ORGAN_SLOT_PENIS
 	layers = list(EXTERNAL_FRONT = PENIS_LAYER_FRONT, EXTERNAL_BEHIND = BODY_BEHIND_LAYER)
 	layer_offset = PENIS_LAYER_OFFSET
-	layer_offset = ENTIRE_BODY
+	offset_location = ENTIRE_BODY
 
 /obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = ""
@@ -481,8 +492,23 @@
 
 /datum/bodypart_overlay/mutant/genital/anus
 	feature_key = ORGAN_SLOT_ANUS
-	layers = list(EXTERNAL_FRONT = BODY_FRONT_LAYER)
+	layers = list(EXTERNAL_FRONT = ASS_LAYER_FRONT)
 	layer_offset = ANUS_LAYER_OFFSET
+
+/datum/bodypart_overlay/mutant/genital/anus/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	var/mob/living/carbon/human/wearer = limb?.owner
+	if(layer_index == EXTERNAL_FRONT)
+		if(istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+			layer_real = -(ASS_LAYER_ABOVE_SUIT - ANUS_LAYER_OFFSET)
+		else
+			layer_real = -(ASS_LAYER_FRONT - ANUS_LAYER_OFFSET)
+	return ..()
+
+/datum/bodypart_overlay/mutant/genital/anus/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	var/mob/living/carbon/human/wearer = limb?.owner
+	if(istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+		. += "above_modsuit"
 
 /obj/item/organ/genital/anus/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see an [LOWER_TEXT(genital_name)]."
@@ -665,11 +691,14 @@
 /datum/bodypart_overlay/mutant/genital/butt/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
 	// the butt only draws when exposed, so it has to sit over whatever it is exposed through
 	var/mob/living/carbon/human/wearer = limb?.owner
+	var/is_teshari = limb?.limb_id == SPECIES_TESHARI || isteshari(wearer)
 	if(istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
 		if(layer_index == EXTERNAL_FRONT)
 			layer_real = -ASS_LAYER_ABOVE_SUIT
 		else if(layer_index == EXTERNAL_ADJACENT)
-			layer_real = -ASS_ADJ_LAYER_ABOVE_SUIT
+			layer_real = is_teshari ? -(BODY_BEHIND_LAYER + BUTT_LAYER_OFFSET) : -ASS_ADJ_LAYER_ABOVE_SUIT
+	else if(is_teshari && layer_index == EXTERNAL_ADJACENT)
+		layer_real = -(BODY_BEHIND_LAYER + BUTT_LAYER_OFFSET)
 	else if(wearer?.w_uniform && layer_index == EXTERNAL_ADJACENT)
 		layer_real = -ASS_ADJ_LAYER_ABOVE_UNIFORM
 	return ..()
