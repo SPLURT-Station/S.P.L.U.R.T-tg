@@ -15,7 +15,8 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/storage/bag/trash/bluespace,
 /obj/structure/sign/warning/electric_shock/directional/west,
-/turf/open/floor/mineral/plastitanium/red,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/listeningstation)
 "au" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -70,6 +71,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
 "bV" = (
@@ -259,7 +268,8 @@
 /obj/item/food/syndicake,
 /obj/item/food/syndicake,
 /obj/item/food/syndicake,
-/turf/open/floor/mineral/plastitanium/red,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/listeningstation)
 "gw" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -478,6 +488,8 @@
 /area/ruin/space/has_grav/listeningstation)
 "jF" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/cable,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "jI" = (
@@ -637,6 +649,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "lz" = (
@@ -680,7 +695,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/machinery/autolathe/hacked,
+/obj/structure/rack/shelf,
+/obj/item/storage/toolbox/syndicate{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/syndicate{
+	pixel_y = -3
+	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/listeningstation)
 "nN" = (
@@ -858,16 +879,19 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
-/obj/structure/closet/crate/solarpanel_small,
 /obj/structure/sign/poster/contraband/random/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
+/obj/machinery/rnd/production/colony_lathe,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
 "rK" = (
 /obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
 	dir = 8
 	},
 /turf/open/misc/asteroid/airless,
@@ -883,11 +907,19 @@
 "sf" = (
 /turf/closed/mineral/random,
 /area/ruin/space/has_grav)
+"sp" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/red/line,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "su" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "sA" = (
@@ -961,6 +993,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "tG" = (
@@ -1031,6 +1066,8 @@
 "uR" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/stripes/red/line,
+/obj/structure/sign/syndicate/directional/south,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "uY" = (
@@ -1051,19 +1088,10 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
-/obj/machinery/door/window/brigdoor/left/directional/west{
-	req_access = list("syndicate");
-	name = "Tools Access"
-	},
-/obj/structure/rack/shelf,
-/obj/item/storage/toolbox/syndicate{
-	pixel_y = 6
-	},
-/obj/item/storage/toolbox/syndicate{
-	pixel_y = -3
-	},
 /obj/machinery/light/small/red/directional/east,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/tank_dispenser/oxygen,
+/obj/structure/sign/warning/vacuum/external/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/space/has_grav/listeningstation)
 "vH" = (
@@ -1136,6 +1164,9 @@
 	dir = 1
 	},
 /obj/structure/flora/rock/style_random,
+/obj/effect/turf_decal/stripes/red/corner{
+	dir = 1
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "wH" = (
@@ -1319,6 +1350,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "Bn" = (
@@ -1681,6 +1716,9 @@
 	dir = 8
 	},
 /obj/structure/flora/rock/pile/style_random,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "IH" = (
@@ -1810,12 +1848,15 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "Mi" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/highsecurity/syndicate{
 	name = "Suspicious Airlock";
 	id_tag = "listeningpost_ext_bolt"
 	},
-/obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/listeningstation)
 "MN" = (
@@ -1991,9 +2032,18 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/closet/crate/secure/freezer/commsagent{
-	req_access = list("syndicate")
-	},
+/obj/item/organ/tongue,
+/obj/structure/closet/crate/secure/freezer/interdyne,
+/obj/item/organ/tongue/lizard,
+/obj/item/organ/tongue/fly,
+/obj/item/organ/tongue/zombie,
+/obj/item/organ/tongue/cat,
+/obj/item/organ/tongue/bone,
+/obj/item/organ/tongue/robot,
+/obj/item/organ/tongue/ethereal,
+/obj/item/autosurgeon/syndicate/commsagent,
+/obj/item/book/granter/sign_language,
+/obj/item/clothing/gloves/radio,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/listeningstation)
 "Rg" = (
@@ -2033,6 +2083,10 @@
 	},
 /turf/open/floor/iron/checker,
 /area/ruin/space/has_grav/listeningstation)
+"RV" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "Sf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2143,6 +2197,9 @@
 	},
 /obj/structure/flora/rock/style_random,
 /obj/structure/sign/syndicate/directional/west,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "Uv" = (
@@ -2159,10 +2216,8 @@
 /area/ruin/space/has_grav/listeningstation)
 "Ux" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/sign/warning/vacuum/external/directional/north{
-	pixel_x = -32
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/listeningstation)
 "UD" = (
@@ -2277,7 +2332,7 @@
 "Xu" = (
 /obj/machinery/light/red/dim/directional/south,
 /obj/effect/turf_decal/stripes/line,
-/obj/structure/sign/syndicate/directional/south,
+/obj/effect/turf_decal/stripes/red/line,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "Xz" = (
@@ -2291,6 +2346,11 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/listeningstation)
+"XA" = (
+/obj/machinery/power/colony_ore_thumper,
+/obj/structure/cable,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "XW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2345,6 +2405,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/listeningstation)
 "Zi" = (
@@ -2961,7 +3022,7 @@ sf
 sf
 sf
 sf
-sf
+RV
 sf
 lz
 BF
@@ -2994,9 +3055,9 @@ VG
 VG
 sf
 sf
-sf
-sf
-sf
+Vr
+cd
+sp
 lz
 jg
 lz
@@ -3028,8 +3089,8 @@ VG
 sf
 sf
 sf
-sf
-sf
+cd
+XA
 jF
 Mi
 Ux
@@ -3062,8 +3123,8 @@ VG
 sf
 sf
 sf
-sf
-sf
+cd
+Vr
 Xu
 lz
 vj
@@ -3132,7 +3193,7 @@ VG
 sf
 sf
 sf
-jF
+sp
 Zu
 Bn
 jm
@@ -3299,10 +3360,10 @@ VG
 VG
 VG
 VG
-cd
+VG
 cd
 sf
-cd
+RV
 sf
 sf
 sf
@@ -3332,7 +3393,7 @@ VG
 VG
 VG
 VG
-VG
+sf
 sf
 sf
 sf
@@ -3367,7 +3428,7 @@ VG
 Nv
 VG
 VG
-VG
+sf
 sf
 sf
 sf
