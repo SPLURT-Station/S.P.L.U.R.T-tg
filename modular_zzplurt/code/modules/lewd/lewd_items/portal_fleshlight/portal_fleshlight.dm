@@ -17,7 +17,6 @@
 	var/current_target = ORGAN_SLOT_PENIS
 	/// Whether the fleshlight's user is anonymous
 	var/anonymous = FALSE
-
 	/// Dictionary mapping panty target and fleshlight target to interaction names
 	var/static/list/interaction_map = list(
 		ORGAN_SLOT_VAGINA = list(
@@ -70,20 +69,141 @@
 		)
 	)
 
+	/// Currently selected base-game plushie typepath for disguising the portal toy, or null for the default appearance
+	var/obj/item/toy/plush/plushie_type = null
+	/// Custom greyscale colors copied from a greyscale plushie instance, if any
+	var/custom_plushie_greyscale_colors = null
+	/// Static list of allowed base-game plushie typepaths
+	var/static/list/allowed_plushie_types = list(
+		/obj/item/toy/plush/abductor,
+		/obj/item/toy/plush/abductor/agent,
+		/obj/item/toy/plush/awakenedplushie,
+		/obj/item/toy/plush/beeplushie,
+		/obj/item/toy/plush/skyrat/borbplushie,
+		/obj/item/toy/plush/bubbleplush,
+		/obj/item/toy/plush/skyrat/cat,
+		/obj/item/toy/plush/skyrat/cat/tux,
+		/obj/item/toy/plush/skyrat/cat/white,
+		/obj/item/toy/plush/skyrat/ian,
+		/obj/item/toy/plush/skyrat/ian/lisa,
+		/obj/item/toy/plush/skyrat/ian/small,
+		/obj/item/toy/plush/skyrat/deer,
+		/obj/item/toy/plush/donkpocket,
+		/obj/item/toy/plush/skyrat/engihound,
+		/obj/item/toy/plush/skyrat/fox,
+		/obj/item/toy/plush/horse,
+		/obj/item/toy/plush/human,
+		/obj/item/toy/plush/lizard_plushie/green,
+		/obj/item/toy/plush/lizard_plushie/space/green,
+		/obj/item/toy/plush/skyrat/meddrake,
+		/obj/item/toy/plush/skyrat/medihound,
+		/obj/item/toy/plush/monkey,
+		/obj/item/toy/plush/moth,
+		/obj/item/toy/plush/narplush,
+		/obj/item/toy/plush/nukeplushie,
+		/obj/item/toy/plush/pkplush,
+		/obj/item/toy/plush/plasmamanplushie,
+		/obj/item/toy/plush/ratplush,
+		/obj/item/toy/plush/rouny,
+		/obj/item/toy/plush/skyrat/scrubpuppy,
+		/obj/item/toy/plush/skyrat/secdrake,
+		/obj/item/toy/plush/skyrat/sechound,
+		/obj/item/toy/plush/shark,
+		/obj/item/toy/plush/slimeplushie,
+		/obj/item/toy/plush/snakeplushie,
+		/obj/item/toy/plush/carpplushie,
+		/obj/item/toy/plush/unicorn,
+		/obj/item/toy/plush/whiny_plushie,
+	)
+	/// Static associative list mapping clean plushie names to their typepaths
+	var/static/list/name_to_plushie_type
+	/// Static associative list of radial menu choices for selecting a plushie appearance
+	var/static/list/plushie_designs
+
 /obj/item/clothing/sextoy/portal_fleshlight/Initialize(mapload)
 	. = ..()
+	if(!length(plushie_designs))
+		populate_plushie_designs()
 	update_appearance()
 	register_context()
+
+/// Populates the static list of plushie design choices for the radial appearance menu
+/obj/item/clothing/sextoy/portal_fleshlight/proc/populate_plushie_designs()
+	name_to_plushie_type = list()
+	plushie_designs = list(
+		"Default" = image(icon = initial(icon), icon_state = initial(icon_state)),
+	)
+	for(var/obj/item/toy/plush/plush_path as anything in allowed_plushie_types)
+		var/plush_name = replacetext(initial(plush_path.name), "\improper ", "")
+		name_to_plushie_type[plush_name] = plush_path
+		plushie_designs[plush_name] = image(icon = initial(plush_path.icon), icon_state = initial(plush_path.icon_state))
+
+/// Sets or resets the plushie disguise appearance for the portal fleshlight/dildo
+/obj/item/clothing/sextoy/portal_fleshlight/proc/set_plushie_appearance(new_plushie_type, custom_colors = null)
+	plushie_type = new_plushie_type
+	custom_plushie_greyscale_colors = custom_colors
+	if(plushie_type)
+		inhand_icon_state = initial(plushie_type.inhand_icon_state)
+		lefthand_file = initial(plushie_type.lefthand_file)
+		righthand_file = initial(plushie_type.righthand_file)
+	else
+		inhand_icon_state = initial(inhand_icon_state)
+		lefthand_file = initial(lefthand_file)
+		righthand_file = initial(righthand_file)
+	update_appearance()
+	if(ismob(loc))
+		var/mob/holder = loc
+		holder.update_held_items()
+
+/// Attempts to copy the appearance of an allowed base-game plushie onto this portal toy
+/obj/item/clothing/sextoy/portal_fleshlight/proc/try_copy_plushie(obj/item/toy/plush/plushie, mob/user)
+	if(!istype(plushie))
+		return FALSE
+	var/target_type = plushie.type
+	if(target_type == /obj/item/toy/plush/lizard_plushie || target_type == /obj/item/toy/plush/lizard_plushie/greyscale)
+		target_type = /obj/item/toy/plush/lizard_plushie/green
+	else if(target_type == /obj/item/toy/plush/lizard_plushie/space)
+		target_type = /obj/item/toy/plush/lizard_plushie/space/green
+
+	if(!(target_type in allowed_plushie_types))
+		balloon_alert(user, "can't copy this plushie!")
+		return TRUE
+
+	set_plushie_appearance(target_type, plushie.greyscale_colors)
+	balloon_alert(user, "copied plushie appearance")
+	return TRUE
+
+/obj/item/clothing/sextoy/portal_fleshlight/click_alt_secondary(mob/user)
+	if(!length(plushie_designs))
+		populate_plushie_designs()
+	var/choice = show_radial_menu(user, src, plushie_designs, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE, tooltips = TRUE)
+	if(!choice)
+		return CLICK_ACTION_BLOCKING
+	if(choice == "Default")
+		set_plushie_appearance(null)
+		balloon_alert(user, "appearance reset")
+	else
+		var/chosen_type = name_to_plushie_type[choice]
+		if(!chosen_type)
+			return CLICK_ACTION_BLOCKING
+		set_plushie_appearance(chosen_type)
+		balloon_alert(user, "appearance changed")
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/sextoy/portal_fleshlight/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = "Pick up"
 		context[SCREENTIP_CONTEXT_RMB] = "Toggle anonymous mode"
 		context[SCREENTIP_CONTEXT_ALT_LMB] = linked_panties ? "Unlink panties" : "No panties linked"
+		context[SCREENTIP_CONTEXT_ALT_RMB] = "Change plushie appearance"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(istype(held_item, /obj/item/clothing/sextoy/portal_panties))
 		context[SCREENTIP_CONTEXT_LMB] = "Link panties"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(istype(held_item, /obj/item/toy/plush))
+		context[SCREENTIP_CONTEXT_LMB] = "Copy plushie appearance"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(linked_panties?.loc && ishuman(linked_panties.loc))
@@ -93,15 +213,29 @@
 	return NONE
 
 /obj/item/clothing/sextoy/portal_fleshlight/update_appearance(updates)
-	if(linked_panties && linked_panties.current_target == ORGAN_SLOT_PENIS)
-		icon = 'modular_zzplurt/icons/obj/lewd/dildo.dmi'
+	if(plushie_type)
+		var/plush_greyscale_config = initial(plushie_type.greyscale_config)
+		var/plush_greyscale_colors = custom_plushie_greyscale_colors || initial(plushie_type.greyscale_colors)
+		if(plush_greyscale_config && plush_greyscale_colors)
+			icon_state = initial(plushie_type.post_init_icon_state) || initial(plushie_type.icon_state)
+			set_greyscale(plush_greyscale_colors, plush_greyscale_config)
+		else
+			set_greyscale("", null)
+			icon = initial(plushie_type.icon)
+			icon_state = initial(plushie_type.icon_state)
 	else
-		icon = 'modular_zzplurt/icons/obj/lewd/fleshlight.dmi'
+		set_greyscale("", null)
+		icon_state = linked_panties ? "paired" : "unpaired"
+		if(linked_panties && linked_panties.current_target == ORGAN_SLOT_PENIS)
+			icon = 'modular_zzplurt/icons/obj/lewd/dildo.dmi'
+		else
+			icon = 'modular_zzplurt/icons/obj/lewd/fleshlight.dmi'
 	. = ..()
 	updatesleeve()
 
 /obj/item/clothing/sextoy/portal_fleshlight/examine(mob/user)
 	. = ..()
+	. += span_notice("Alt-Right-click to change or reset its plushie appearance, or hit it with a base-game plushie.")
 	if(!linked_panties)
 		. += span_notice("The status light is off. The device needs to be paired with portal panties.")
 		return
@@ -126,6 +260,13 @@
 			current_target = ORGAN_SLOT_PENIS
 	to_chat(user, span_notice("Now targeting: [current_target]"))
 
+/obj/item/clothing/sextoy/portal_fleshlight/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(istype(target, /obj/item/toy/plush))
+		var/obj/item/toy/plush/plushie = target
+		if(try_copy_plushie(plushie, user))
+			return TRUE
+	return ..()
+
 /obj/item/clothing/sextoy/portal_fleshlight/attack(mob/living/target, mob/living/user, params)
 	. = ..()
 	if(!istype(linked_panties?.loc, /mob/living/carbon/human))
@@ -148,6 +289,11 @@
 
 /obj/item/clothing/sextoy/portal_fleshlight/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
+
+	if(istype(W, /obj/item/toy/plush))
+		var/obj/item/toy/plush/plushie = W
+		try_copy_plushie(plushie, user)
+		return
 
 	// Handle portal fleshlight interaction
 	if(istype(W, /obj/item/clothing/sextoy/portal_fleshlight))
@@ -262,6 +408,19 @@
 /obj/item/clothing/sextoy/portal_fleshlight/proc/updatesleeve()
 	cut_overlays() // Remove current overlays
 
+	var/clean_plush_name
+	if(plushie_type)
+		clean_plush_name = replacetext(initial(plushie_type.name), "\improper ", "")
+		name = "portal [clean_plush_name]"
+		desc = "[initial(plushie_type.desc)] It has a shimmering bluespace portal embedded in it."
+		var/mutable_appearance/portal_ring = mutable_appearance('modular_zzplurt/icons/obj/lewd/dildo.dmi', "portalring")
+		if(!linked_panties)
+			portal_ring.alpha = 128
+		add_overlay(portal_ring)
+	else
+		name = initial(name)
+		desc = initial(desc)
+
 	var/mob/living/carbon/human/target_wearer = null
 	if(linked_panties && ishuman(linked_panties.loc))
 		target_wearer = linked_panties.loc
@@ -295,7 +454,7 @@
 
 		// Add the appropriate sleeve overlay based on species
 		var/mutable_appearance/sleeve
-		if(linked_panties.current_target == ORGAN_SLOT_VAGINA || linked_panties.current_target == ORGAN_SLOT_ANUS || linked_panties.current_target == BODY_ZONE_PRECISE_MOUTH)
+		if(!plushie_type && (linked_panties.current_target == ORGAN_SLOT_VAGINA || linked_panties.current_target == ORGAN_SLOT_ANUS || linked_panties.current_target == BODY_ZONE_PRECISE_MOUTH))
 			sleeve = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_sleeve_normal")
 
 			if(islizard(target_wearer))
@@ -354,7 +513,11 @@
 				else
 					organ.color = vag.color
 				if(vag.aroused == AROUSAL_FULL)
-					add_overlay(mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_vag_drip"))
+					var/mutable_appearance/vag_drip = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_vag_drip")
+					if(plushie_type)
+						vag_drip.pixel_x = 7
+						vag_drip.pixel_y = -1
+					add_overlay(vag_drip)
 			if(ORGAN_SLOT_ANUS)
 				organ = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_anus")
 				organ.color = target_organ.color
@@ -381,14 +544,24 @@
 				if(penis.aroused == AROUSAL_FULL && penis.sheath != SHEATH_NONE)
 					add_overlay(mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_penis_drip"))
 			if(BODY_ZONE_PRECISE_MOUTH)
-				add_overlay(mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_mouth"))
+				var/mutable_appearance/mouth_bg = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_mouth")
+				if(plushie_type)
+					mouth_bg.pixel_x = 7
+					mouth_bg.pixel_y = -1
+				add_overlay(mouth_bg)
 				organ = mutable_appearance('modular_zzplurt/icons/obj/lewd/fleshlight.dmi', "portal_mouth_lips")
 				organ.color = target_wearer.lip_style == "lipstick" ? target_wearer.lip_color : "#[target_wearer.dna.features["mcolor"]]"
 
 		// Update name based on target
-		name = linked_panties.current_target == ORGAN_SLOT_PENIS ? "portal dildo" : "portal fleshlight"
+		if(plushie_type)
+			name = linked_panties.current_target == ORGAN_SLOT_PENIS ? "portal dildo [clean_plush_name]" : "portal [clean_plush_name]"
+		else
+			name = linked_panties.current_target == ORGAN_SLOT_PENIS ? "portal dildo" : "portal fleshlight"
 
 		useable = TRUE
+		if(plushie_type && linked_panties.current_target != ORGAN_SLOT_PENIS)
+			organ.pixel_x = 7
+			organ.pixel_y = -1
 		add_overlay(organ)
 	else
 		useable = FALSE

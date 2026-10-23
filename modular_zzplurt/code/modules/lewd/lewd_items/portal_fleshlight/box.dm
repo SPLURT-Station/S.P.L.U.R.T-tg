@@ -23,6 +23,7 @@
 	To use, simply register your new portal fleshlight with the provided panties to link them together. Then ask your lover to wear the panties.<br>\
 	The portal fleshlight can be used to target different body parts by right-clicking it to cycle through available targets.<br>\
 	Both the fleshlight and panties can be toggled to anonymous mode by right-clicking them.<br>\
+	You can also disguise your portal fleshlight or dildo as a base-game plushie by Alt-Right-clicking it or tapping it with a standard plushie!<br>\
 	Have fun lovers,<br>\
 	<br>\
 	Wilhelmina Steiner."}
