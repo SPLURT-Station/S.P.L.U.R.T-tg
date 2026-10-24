@@ -38,3 +38,10 @@
 	base_name = "centcom engineering airlock"
 	glass_type = /obj/machinery/door/airlock/centcom/engineering/glass
 	airlock_type = /obj/machinery/door/airlock/centcom/engineering
+
+/obj/structure/door_assembly/door_assembly_syndicate
+	name = "syndicate airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/syndicate/syndicate.dmi'
+	base_name = "syndicate airlock"
+	glass_type = /obj/machinery/door/airlock/syndicate/glass
+	airlock_type = /obj/machinery/door/airlock/syndicate
