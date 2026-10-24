@@ -380,6 +380,14 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
+"hM" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/sign/poster/greenscreen/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/listeningstation)
 "hX" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -493,13 +501,13 @@
 "jj" = (
 /obj/structure/sign/poster/contraband/random/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/spawner/random/trash/graffiti,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/effect/spawner/random/trash/graffiti,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "jm" = (
@@ -636,6 +644,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/food_packaging,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "ln" = (
@@ -906,15 +915,13 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "qw" = (
-/obj/structure/table/wood,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/gun/energy/laser/chameleon,
 /obj/effect/turf_decal/siding/wood{
-	dir = 5
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "qV" = (
@@ -1186,6 +1193,12 @@
 /obj/item/toy/figure/syndie/officer{
 	pixel_x = 5
 	},
+/obj/item/reagent_containers/cup/glass/flask/gold{
+	pixel_y = -9;
+	pixel_x = -5;
+	name = "gilded flask";
+	desc = "Every good spaceman knows it's a good idea to bring along a couple of pints of whiskey wherever they go."
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "vS" = (
@@ -1353,20 +1366,8 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "zS" = (
-/obj/structure/table/wood,
-/obj/item/scissors{
-	pixel_x = -7
-	},
-/obj/machinery/airalarm/directional/north,
-/obj/item/hand_labeler{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/machinery/light/evil/directional/north,
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "Au" = (
@@ -1559,23 +1560,12 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/listeningstation)
 "CT" = (
-/obj/structure/table/wood,
-/obj/structure/sign/poster/contraband/random/directional/north,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/chameleon,
-/obj/item/radio/headset/chameleon,
-/obj/item/storage/belt/chameleon,
-/obj/item/storage/backpack/chameleon,
-/obj/item/clothing/shoes/chameleon,
-/obj/item/clothing/neck/chameleon,
-/obj/item/clothing/head/chameleon,
-/obj/item/clothing/gloves/chameleon,
-/obj/item/clothing/glasses/chameleon,
-/obj/item/clothing/suit/chameleon,
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
+/obj/machinery/greenscreen_camera{
+	dir = 1;
+	name = "stolen captain-caster"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "Dd" = (
@@ -1583,7 +1573,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/syndicate{
-	name = "Holopad Room"
+	name = "Espionage Room"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
@@ -1823,6 +1813,28 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
+"IG" = (
+/obj/item/clothing/under/chameleon,
+/obj/item/radio/headset/chameleon,
+/obj/item/storage/belt/chameleon,
+/obj/item/storage/backpack/chameleon,
+/obj/item/clothing/shoes/chameleon,
+/obj/item/clothing/neck/chameleon,
+/obj/item/clothing/head/chameleon,
+/obj/item/clothing/gloves/chameleon,
+/obj/item/clothing/glasses/chameleon,
+/obj/item/clothing/suit/chameleon,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light/evil/directional/north,
+/obj/item/gun/energy/laser/chameleon,
+/obj/structure/closet/crate/secure/syndicate{
+	name = "Chameleon Kit shipment"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/listeningstation)
 "IH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1962,6 +1974,24 @@
 /obj/machinery/light/evil/directional/south,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
+"LE" = (
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/item/hand_labeler{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/razor{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/listeningstation)
 "Mi" = (
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -1979,22 +2009,11 @@
 /turf/open/floor/circuit/red,
 /area/ruin/space/has_grav/listeningstation)
 "MU" = (
-/obj/structure/table/wood,
-/obj/structure/sign/poster/contraband/random/directional/west,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/chameleon,
-/obj/item/radio/headset/chameleon,
-/obj/item/storage/belt/chameleon,
-/obj/item/storage/backpack/chameleon,
-/obj/item/clothing/shoes/chameleon,
-/obj/item/clothing/neck/chameleon,
-/obj/item/clothing/head/chameleon,
-/obj/item/clothing/gloves/chameleon,
-/obj/item/clothing/glasses/chameleon,
-/obj/item/clothing/suit/chameleon,
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
 	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/listeningstation)
 "MV" = (
@@ -2313,6 +2332,15 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
+"Ud" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/listeningstation)
 "Uv" = (
 /obj/structure/table/glass,
 /obj/machinery/microwave,
@@ -2962,7 +2990,7 @@ VG
 sf
 sf
 sf
-sf
+lz
 lz
 lz
 lz
@@ -2996,8 +3024,8 @@ sf
 sf
 sf
 sf
-sf
 lz
+Ud
 MU
 kZ
 YY
@@ -3030,8 +3058,8 @@ sf
 sf
 sf
 sf
-sf
 lz
+hM
 CT
 BE
 MN
@@ -3064,8 +3092,8 @@ sf
 sf
 sf
 sf
-sf
 lz
+IG
 zS
 pf
 dp
@@ -3098,8 +3126,8 @@ sf
 sf
 sf
 sf
-sf
 lz
+LE
 qw
 jj
 Cn
@@ -3132,7 +3160,7 @@ sf
 sf
 sf
 sf
-sf
+lz
 lz
 lz
 lz
