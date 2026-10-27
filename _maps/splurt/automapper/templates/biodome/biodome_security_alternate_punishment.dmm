@@ -1,14 +1,19 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"an" = (
+/obj/effect/spawner/random/food_or_drink/seed,
+/obj/item/cultivator,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
 "aq" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/machinery/light/small/directional/west,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/purple{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
 "at" = (
@@ -27,24 +32,53 @@
 	dir = 1
 	},
 /obj/structure/marker_beacon/purple,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/siding/purple{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
+"bz" = (
+/obj/machinery/hydroponics/soil,
+/obj/effect/spawner/random/food_or_drink/seed,
+/obj/item/shovel/spade,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
 "dh" = (
 /obj/structure/holosign/sexsign,
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
 /area/station/security/execution/transfer)
+"hL" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance Hatch"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/unres,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
+"oe" = (
+/obj/machinery/hydroponics/soil,
+/obj/effect/spawner/random/food_or_drink/seed,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
+"om" = (
+/obj/structure/water_source/puddle,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
 "qy" = (
 /obj/structure/marker_beacon/purple,
 /obj/structure/sign/poster/contraband/fun_police/directional/east,
@@ -205,6 +239,15 @@
 	dir = 1
 	},
 /area/station/security/execution/transfer)
+"GP" = (
+/turf/closed/wall,
+/area/station/maintenance/aft)
+"HQ" = (
+/obj/machinery/hydroponics/soil,
+/obj/effect/spawner/random/food_or_drink/seed,
+/obj/item/seeds/glowshroom,
+/turf/open/misc/asteroid,
+/area/station/maintenance/aft)
 "Li" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 1
@@ -225,8 +268,9 @@
 /turf/open/floor/glass/reinforced,
 /area/station/security/execution/transfer)
 "Nf" = (
-/turf/template_noop,
-/area/template_noop)
+/obj/item/plant_analyzer,
+/turf/open/misc/asteroid/dug,
+/area/station/maintenance/aft)
 "Pt" = (
 /obj/machinery/vending/dorms,
 /obj/item/toy/plush/toaste_plushy{
@@ -250,8 +294,13 @@
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
+"Pz" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/asteroid)
 "PR" = (
 /obj/structure/falsewall/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -269,6 +318,8 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
 "Rh" = (
@@ -282,7 +333,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/purple,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
@@ -300,6 +350,8 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
 "Vo" = (
@@ -316,6 +368,8 @@
 	},
 /obj/effect/turf_decal/siding/dark_red,
 /obj/effect/turf_decal/tile/purple,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
 "ZJ" = (
@@ -343,14 +397,14 @@
 (1,1,1) = {"
 Ba
 Ba
+PR
 Ba
 Ba
 Ba
 Ba
-Ba
-Nf
-Nf
-Nf
+GP
+GP
+GP
 "}
 (2,1,1) = {"
 Ba
@@ -360,9 +414,9 @@ Tt
 Qf
 Pt
 Ba
-Nf
-Nf
-Nf
+Pz
+Pz
+Pz
 "}
 (3,1,1) = {"
 Ba
@@ -372,7 +426,7 @@ xN
 Lx
 Yl
 Ba
-PR
+Ba
 Ba
 Ba
 "}
@@ -389,9 +443,9 @@ Be
 Ba
 "}
 (5,1,1) = {"
-Nf
-Nf
-Nf
+GP
+oe
+om
 Ba
 Am
 Vo
@@ -401,9 +455,9 @@ Bw
 Ba
 "}
 (6,1,1) = {"
+hL
 Nf
-Nf
-Nf
+an
 Ba
 Cn
 qy
@@ -413,9 +467,9 @@ qN
 Ba
 "}
 (7,1,1) = {"
-Nf
-Nf
-Nf
+GP
+bz
+HQ
 Ba
 Ba
 Ba
