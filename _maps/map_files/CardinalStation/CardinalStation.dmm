@@ -30155,14 +30155,6 @@
 	dir = 4
 	},
 /area/station/hallway/secondary/entry)
-"gEM" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/landmark/start/atmospheric_technician,
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron/smooth,
-/area/station/engineering/storage_shared)
 "gFe" = (
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/effect/landmark/start/coroner,
@@ -36670,6 +36662,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
+/obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/storage_shared)
 "iaz" = (
@@ -37001,9 +36994,8 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/white{
-	alpha = 255
-	},
+/obj/effect/turf_decal/trimline/white,
+/obj/effect/turf_decal/trimline/white,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "iez" = (
@@ -42138,8 +42130,8 @@
 /obj/machinery/light/cold/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible/layer2,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -52936,7 +52928,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/obj/machinery/meter/monitored/waste_loop,
+/obj/machinery/meter,
 /turf/open/floor/iron/smooth_edge{
 	dir = 8
 	},
@@ -55421,7 +55413,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/engine/air,
 /area/station/engineering/atmos)
 "mky" = (
@@ -61005,11 +60997,11 @@
 /area/station/service/bar)
 "nxb" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/atmos)
 "nxh" = (
@@ -69585,6 +69577,7 @@
 /area/station/command/bridge)
 "pox" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmos)
 "poL" = (
@@ -82327,7 +82320,7 @@
 /area/station/engineering/storage)
 "sbU" = (
 /obj/item/toy/figure/atmos{
-	pixel_y = 17;
+	pixel_y = 20;
 	pixel_x = 6
 	},
 /obj/machinery/computer/atmos_control/air_tank,
@@ -86084,14 +86077,14 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "sTE" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
 /obj/machinery/camera/directional/east{
 	c_tag = "Atmospherics - Distribution Output"
+	},
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/atmos)
@@ -86962,7 +86955,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /obj/structure/cable,
-/obj/machinery/meter,
+/obj/machinery/meter/monitored/waste_loop,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/atmos)
 "tdO" = (
@@ -92817,6 +92810,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "uqd" = (
@@ -93378,6 +93372,7 @@
 /obj/structure/cable,
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "uvJ" = (
@@ -101286,6 +101281,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "wgr" = (
@@ -110148,6 +110144,7 @@
 /area/station/cargo/storage)
 "ydx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmos)
 "ydA" = (
@@ -141629,7 +141626,7 @@ iFS
 wUL
 tqv
 uuJ
-gEM
+uuJ
 eUw
 bhi
 gce
