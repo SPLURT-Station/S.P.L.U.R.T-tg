@@ -12,9 +12,6 @@
 		return FALSE
 
 	if(ishuman(src))
-		var/mob/living/carbon/human/human_owner = src
-		if(human_owner.dna?.species?.body_size_restricted)
-			return FALSE
 		remove_movespeed_modifier(/datum/movespeed_modifier/small_stride)
 		update_transform(new_size / cur_size)
 
