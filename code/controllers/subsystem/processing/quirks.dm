@@ -97,6 +97,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/addict/alcoholic, /datum/quirk/concubus),
 	list(/datum/quirk/item_quirk/addict/junkie, /datum/quirk/concubus),
 	list(/datum/quirk/item_quirk/addict/smoker, /datum/quirk/concubus),
+	// aura farmer invalidates smoker completely
+	list(/datum/quirk/aura_farmer, /datum/quirk/item_quirk/addict/smoker),
 	list(/datum/quirk/hemophage, /datum/quirk/item_quirk/immunodeficiency),
 	list(/datum/quirk/paraplegic, /datum/quirk/paraplegic/motorized),
 	//SPLURT EDIT ADDITION END

@@ -1,6 +1,8 @@
 ///
 /// Quirk traits
 ///
+/// Trait for quirk: Aura Farmer
+#define TRAIT_AURA_FARMER "aura_farmer"
 /// Trait for quirk: Sodium Sensitivity
 #define TRAIT_SALT_SENSITIVE 	"salt_sensitive"
 /// Trait for quirk: Rad Fiend
