@@ -120,4 +120,4 @@ GAME_VERB(/client, emote_panel, "Emote Panel", "IC")
 	GLOB.emote_panel.ui_interact(mob)
 
 GAME_VERB(/client, view_skills, "View Skills", "IC")
-	mind?.print_levels(src)
+	mob.mind?.print_levels(src)
