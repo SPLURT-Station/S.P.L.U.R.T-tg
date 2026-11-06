@@ -24,6 +24,7 @@
 
 /datum/round_event_control/anomaly/anomaly_vortex
 	tags = list(TAG_DESTRUCTIVE, TAG_MEDIUM)
+	weight = 0
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	tags = list(TAG_DESTRUCTIVE, TAG_HIGH)

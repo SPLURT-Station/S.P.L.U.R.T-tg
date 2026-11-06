@@ -62,3 +62,9 @@
 
 /obj/item/clothing/accessory/pride/other/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/blank_pin)
+
+/obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom/executive
+	name = "\improper Central Command Executive neckpin"
+	icon_state = "/obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom"
+	post_init_icon_state = "ccpin"
+	greyscale_colors = "#FFD351#E09100"
