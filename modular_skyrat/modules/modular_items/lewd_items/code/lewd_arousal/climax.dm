@@ -23,11 +23,14 @@
 	if (CONFIG_GET(flag/disable_erp_preferences))
 		return
 
+	#ifndef TESTING
 	var/nonhuman_bypass_self = !ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 	var/nonhuman_bypass_partner = !ishuman(partner) && !partner?.client && !SSinteractions.is_blacklisted(partner) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 
 	if(!(client?.prefs?.read_preference(/datum/preference/toggle/erp/autocum) || nonhuman_bypass_self) && !manual)
 		return
+	#endif
+
 	if(refractory_period > REALTIMEOFDAY)
 		return
 	//SPLURT ADDITION START
@@ -37,8 +40,11 @@
 		return FALSE
 	//SPLURT ADDITION END
 	refractory_period = REALTIMEOFDAY + 30 SECONDS
+
+	#ifndef TESTING
 	if(has_status_effect(/datum/status_effect/climax_cooldown) || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || nonhuman_bypass_self))
 		return
+	#endif
 
 	if(HAS_TRAIT(src, TRAIT_NEVERBONER) || has_status_effect(/datum/status_effect/climax_cooldown) || (!has_vagina() && !has_penis()))
 		visible_message(span_purple("[src] twitches, trying to cum, but with no result."), \
