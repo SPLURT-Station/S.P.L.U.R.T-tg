@@ -187,6 +187,13 @@
 	current_mob.remove_overlay(BODY_LAYER)
 	current_mob.remove_overlay(HANDS_LAYER)
 	var/obj/item/bodypart/head/mob_head = current_mob.get_bodypart(BODY_ZONE_HEAD)
+	if(!mob_head)
+		return
+	// Body parts are rendered together on BODYPARTS_LAYER. Keep only the head
+	// instead of removing BODY_LAYER, which does not contain the character's limbs.
+	current_mob.remove_overlay(BODYPARTS_LAYER)
+	current_mob.overlays_standing[BODYPARTS_LAYER] = mob_head.get_limb_icon()
+	current_mob.apply_overlay(BODYPARTS_LAYER)
 	if(mob_head.head_flags & HEAD_EYESPRITES)
 		var/obj/item/organ/eyes/eye_organ = current_mob.get_organ_slot(ORGAN_SLOT_EYES)
 		if(eye_organ)
@@ -408,8 +415,14 @@
 /obj/lewd_portal_relay/proc/penis_only()
 	cut_overlays()
 	var/obj/item/organ/genital/penis/penis_reference = owner.get_organ_slot(ORGAN_SLOT_PENIS)
-	var/mutable_appearance/penis_image = penis_reference.bodypart_overlay.get_images(EXTERNAL_FRONT)
-	add_overlay(penis_image)
+	if(!penis_reference?.bodypart_overlay || !penis_reference.bodypart_owner)
+		return
+	var/list/penis_overlays = penis_reference.bodypart_overlay.get_overlay(
+		penis_reference.bodypart_owner,
+		EXTERNAL_FRONT,
+		-PENIS_LAYER_FRONT,
+	)
+	add_overlay(penis_overlays)
 
 /obj/lewd_portal_relay/proc/lower_body_only()
 	owner.update_body() //Suboptimal way for doing this but I couldn't figure out another way to maintain underwear when dropping items
