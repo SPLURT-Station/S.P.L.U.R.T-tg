@@ -45,3 +45,6 @@
 
 /datum/map_template/ruin/space/asteroid1
 	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // Skyrat Map edit.
+
+/datum/map_template/ruin/space/listeningstation
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // TG Map Edit

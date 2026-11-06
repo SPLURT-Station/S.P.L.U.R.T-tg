@@ -22,3 +22,7 @@
 /turf/closed/indestructible/fakedoor/centcom/engineering
 	name = "centcom engineering airlock"
 	icon = 'modular_zzplurt/icons/obj/doors/airlocks/centcom/engineering.dmi'
+
+/turf/closed/indestructible/fakedoor/syndicate
+	name = "syndicate airlock"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/syndicate/syndicate.dmi'
