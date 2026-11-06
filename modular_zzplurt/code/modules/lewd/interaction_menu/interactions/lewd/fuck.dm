@@ -34,8 +34,8 @@
 	name = "Anal Fuck"
 	description = "Fuck their ass."
 	target_required_parts = list(ORGAN_SLOT_ANUS = REQUIRE_GENITAL_EXPOSED)
-	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS, CLIMAX_POSITION_TARGET = CLIMAX_BOTH)
-	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_ANUS, CLIMAX_POSITION_TARGET = ORGAN_SLOT_PENIS)
+	cum_genital = list(CLIMAX_POSITION_USER = CLIMAX_PENIS)
+	cum_target = list(CLIMAX_POSITION_USER = ORGAN_SLOT_ANUS)
 	message = list(
 		"thrusts in and out of %TARGET%'s ass.",
 		"pounds %TARGET%'s ass.",
