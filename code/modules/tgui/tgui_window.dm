@@ -105,12 +105,14 @@
 	if (inline_css)
 		inline_css = "<style>\n[isfile(inline_css) ? file2text(inline_css) : inline_css]\n</style>"
 		html = replacetextEx(html, "<!-- tgui:inline-css -->", inline_css)
+	if(!client)
+		return
 	// Open the window
 	client << browse(html, "window=[id];[options]")
 	// Detect whether the control is a browser
 	is_browser = winexists(client, id) == "BROWSER"
 	// Instruct the client to signal UI when the window is closed.
-	if(!is_browser)
+	if(client && !is_browser)
 		winset(client, id, "on-close=\"uiclose [id]\"")
 
 /**
