@@ -187,6 +187,13 @@
 	current_mob.remove_overlay(BODY_LAYER)
 	current_mob.remove_overlay(HANDS_LAYER)
 	var/obj/item/bodypart/head/mob_head = current_mob.get_bodypart(BODY_ZONE_HEAD)
+	if(!mob_head)
+		return
+	// Body parts are rendered together on BODYPARTS_LAYER. Keep only the head
+	// instead of removing BODY_LAYER, which does not contain the character's limbs.
+	current_mob.remove_overlay(BODYPARTS_LAYER)
+	current_mob.overlays_standing[BODYPARTS_LAYER] = mob_head.get_limb_icon()
+	current_mob.apply_overlay(BODYPARTS_LAYER)
 	if(mob_head.head_flags & HEAD_EYESPRITES)
 		var/obj/item/organ/eyes/eye_organ = current_mob.get_organ_slot(ORGAN_SLOT_EYES)
 		if(eye_organ)
