@@ -25,3 +25,7 @@
 /area/station/command/nightclub_lounge
 	name = "\improper Nightclub Corporate Booth"
 	icon_state = "command"
+
+/area/station/command/corporate_lounge
+	name = "\improper Corporate Lounge"
+	icon_state = "command"
