@@ -417,11 +417,8 @@
 	var/obj/item/organ/genital/penis/penis_reference = owner.get_organ_slot(ORGAN_SLOT_PENIS)
 	if(!penis_reference?.bodypart_overlay || !penis_reference.bodypart_owner)
 		return
-	var/list/penis_overlays = penis_reference.bodypart_overlay.get_overlay(
-		penis_reference.bodypart_owner,
-		EXTERNAL_FRONT,
-		-PENIS_LAYER_FRONT,
-	)
+	// Use the public helper; get_overlay() is protected.
+	var/list/penis_overlays = penis_reference.bodypart_overlay.get_all_overlays(penis_reference.bodypart_owner)
 	add_overlay(penis_overlays)
 
 /obj/lewd_portal_relay/proc/lower_body_only()
