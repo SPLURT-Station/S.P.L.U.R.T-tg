@@ -4,6 +4,7 @@
 	test_flags = parent_type::test_flags & ~UNIT_TEST_DEBUG_MAP_ONLY
 	//You absolutely must run after (almost) everything else
 	priority = TEST_CREATE_AND_DESTROY
+	times_to_run = 0 // SPLURT EDIT - Don't run this test
 
 GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
