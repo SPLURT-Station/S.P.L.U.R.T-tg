@@ -10,7 +10,7 @@
 
 	// UNUSED: Enable by setting these values to TRUE
 	// The shame is unbearable
-	//quirk_flags = /datum/quirk::quirk_flags | QUIRK_MOODLET_BASED | QUIRK_PROCESSES
+	//quirk_flags = /datum/quirk::quirk_flags | QUIRK_PROCESSES
 
 /datum/quirk/storage_concealment/add_unique(client/client_source)
 	// Create a new augment item
