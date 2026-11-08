@@ -1,0 +1,22 @@
+"a" = (/turf/open/floor/plating,/area/shuttle/supply)
+"g" = (/obj/machinery/power/shuttle_engine/heater{dir = 8},/obj/structure/window/reinforced/spawner/directional/east,/turf/open/floor/plating/airless,/area/shuttle/supply)
+"m" = (/obj/machinery/power/shuttle_engine/propulsion{dir = 8},/turf/open/floor/plating/airless,/area/shuttle/supply)
+"q" = (/obj/machinery/button/door/directional/south{name = "Loading Doors"; id = "QMLoaddoor"; pixel_x = -7},/obj/machinery/button/door/directional/south{id = "QMLoaddoor2"; name = "Loading Doors"; pixel_x = 7},/turf/open/floor/plating,/area/shuttle/supply)
+"x" = (/obj/machinery/door/airlock/survival_pod,/obj/effect/mapping_helpers/airlock/access/all/supply/general,/turf/open/floor/plating,/area/shuttle/supply)
+"C" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/shuttle/supply)
+"E" = (/obj/machinery/conveyor{dir = 4; id = "QMLoad2"},/obj/machinery/door/poddoor{id = "QMLoaddoor2"; name = "Supply Dock Loading Door"},/obj/effect/landmark/flaps_install,/turf/open/floor/plating,/area/shuttle/supply)
+"I" = (/turf/template_noop,/area/template_noop)
+"K" = (/turf/template_noop,/area/shuttle/supply)
+"M" = (/turf/closed/wall/mineral/plastitanium,/area/shuttle/supply)
+"P" = (/obj/machinery/door/airlock/survival_pod,/obj/docking_port/mobile/supply{dir = 1},/obj/effect/mapping_helpers/airlock/access/all/supply/general,/turf/open/floor/plating,/area/shuttle/supply)
+"T" = (/obj/machinery/conveyor{dir = 8; id = "QMLoad"},/obj/machinery/door/poddoor{id = "QMLoaddoor"; name = "Supply Dock Loading Door"},/obj/effect/landmark/flaps_install,/turf/open/floor/plating,/area/shuttle/supply)
+
+(1,1,1) = {"
+ICMMMMMMMMMKK
+CCaaaaaaaaCMM
+mgaaaaaaaaaaM
+mgaaaaaaaaaaM
+mgaaaaaaaaaaM
+CCaaqaaaaaCMM
+ICTPMxEMMMMKK
+"}
