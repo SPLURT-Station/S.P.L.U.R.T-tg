@@ -14,7 +14,6 @@
  * * Code that disables the printing of expand/shrink modules.
  */
 
-#define TECHWEB_NODE_BORG_OLD_SIZE "old_size"
 #define CYBORG_SIZE_MIN 70
 #define CYBORG_SIZE_MAX 250
 #define CYBORG_SIZE_DEFAULT 160
@@ -90,7 +89,6 @@
 // Borg Resize Module Design
 /datum/design/borg_upgrade_resize
 	name = "Resize Module"
-	id = "borg_upgrade_resize"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/resize
 	materials = list(
@@ -105,28 +103,26 @@
 /datum/techweb_node/augmentation/New()
 	. = ..()
 	// Removes the shrink and expander from the pool of designs the crew can print, used so there's only one option to use for resizing rather than commenting out those lines of code
-	design_ids -= list(
-		"borg_upgrade_expand",
-		"borg_upgrade_shrink"
+	unlocked_designs -= list(
+		/datum/design/borg_upgrade_expand,
+		/datum/design/borg_upgrade_shrink
 	)
-	design_ids += list(
-		"hypnoticmodule",
-		"borg_upgrade_bellyriding_harness",
-		"borg_upgrade_resize",
+	unlocked_designs += list(
+		/datum/design/borg_hypnotic,
+		/datum/design/borg_upgrade_bellyriding_harness,
+		/datum/design/borg_upgrade_resize,
 	)
 
 /datum/techweb_node/old_resize
-	id = TECHWEB_NODE_BORG_OLD_SIZE
 	display_name = "Old Expander Tech"
 	description = "If you're seeing this, then something has gone horribly, horribly wrong"
-	design_ids = list(
-		"borg_upgrade_expand",
-		"borg_upgrade_shrink"
+	unlocked_designs = list(
+		/datum/design/borg_upgrade_expand,
+		/datum/design/borg_upgrade_shrink
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
-	hidden = TRUE
+	node_flags = TECHWEB_NODE_HIDDEN
 
-#undef TECHWEB_NODE_BORG_OLD_SIZE
 #undef CYBORG_SIZE_MIN
 #undef CYBORG_SIZE_MAX
 #undef CYBORG_SIZE_DEFAULT

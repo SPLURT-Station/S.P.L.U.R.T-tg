@@ -221,7 +221,6 @@
 
 /datum/design/borg_upgrade_detective_kit
 	name = "Detective Kit Module"
-	id = "borg_upgrade_detective_kit"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/detective_kit
 	materials = list(
@@ -235,7 +234,7 @@
 
 /datum/techweb_node/sec_equip/New()
 	. = ..()
-	design_ids += "borg_upgrade_detective_kit"
+	unlocked_designs += /datum/design/borg_upgrade_detective_kit
 
 
 // Armor Values derived from /datum/armor/hazardvest_security_medic
