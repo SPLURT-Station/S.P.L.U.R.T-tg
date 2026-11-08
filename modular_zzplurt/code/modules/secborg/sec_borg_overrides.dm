@@ -289,7 +289,7 @@
 		updatehealth()
 	return delta
 
-/mob/living/silicon/robot/received_stamina_damage(current_level, amount_actual, amount)
+/mob/living/silicon/robot/proc/received_stamina_damage(current_level, amount_actual, amount)
 	if(!is_security_cyborg_role())
 		return
 	addtimer(CALLBACK(src, PROC_REF(set_stamina_loss), 0, TRUE, TRUE), stamina_regen_time, TIMER_UNIQUE | TIMER_OVERRIDE)
