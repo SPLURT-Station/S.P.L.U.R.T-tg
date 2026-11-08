@@ -53,10 +53,10 @@
 		return
 
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(W, /obj/item/mmi))
+	if(!istype(W, /obj/item/brain_processor))
 		return ..()
 
-	var/obj/item/mmi/mmi = W
+	var/obj/item/brain_processor/mmi = W
 	var/datum/mind/borging_mind = mmi.brainmob?.mind
 	var/should_be_security_borg = (borging_mind?.assigned_role?.title == JOB_SECURITY_CYBORG) && !borging_mind?.was_fired_from_security_cyborg_role
 

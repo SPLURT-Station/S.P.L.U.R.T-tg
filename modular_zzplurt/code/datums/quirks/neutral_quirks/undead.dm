@@ -36,7 +36,7 @@
 	quirk_holder.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
 
 	// Increase hunger rate
-	//quirk_mob.physiology.hunger_mod *= QUIRK_HUNGER_UNDEAD
+	MODIFY_PHYSIOLOGY(quirk_mob, PHYS_COEFF_HUNGER_MOD, QUIRK_HUNGER_UNDEAD)
 
 /datum/quirk/undead/remove()
 	// Define quirk holder mob
@@ -56,7 +56,7 @@
 	quirk_holder.remove_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, TRAIT_UNDEAD)
 
 	// Decrease hunger rate
-	//quirk_mob.physiology.hunger_mod /= QUIRK_HUNGER_UNDEAD
+	MODIFY_PHYSIOLOGY(quirk_mob, PHYS_COEFF_HUNGER_MOD, 1/QUIRK_HUNGER_UNDEAD)
 
 #undef QUIRK_HUNGER_UNDEAD
 #undef QUIRK_TRAITS_UNDEAD

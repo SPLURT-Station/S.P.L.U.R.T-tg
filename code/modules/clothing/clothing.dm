@@ -106,7 +106,7 @@
 		qdel(src)
 
 /obj/item/clothing/attack(mob/living/target, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(user.combat_mode || !HAS_TRAIT(user, TRAIT_CLOTH_EATER) || (clothing_flags & INEDIBLE_CLOTHING) || (resistance_flags & INDESTRUCTIBLE))
+	if(user.combat_mode || !HAS_TRAIT(user, TRAIT_CLOTH_EATER) || (resistance_flags & INDESTRUCTIBLE))
 		return ..()
 	moth_snack ||= create_moth_snack()
 	if(isnull(moth_snack))
