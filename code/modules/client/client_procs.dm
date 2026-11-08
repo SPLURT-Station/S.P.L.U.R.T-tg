@@ -157,8 +157,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 			var/list/station_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 			var/station_z = station_levels.Find(mob.z)
 			if(station_z)
-				// Camera center in atlas pixels (32 per tile, y counted from the top) with a close zoom, plus the selected tile.
-				src << link("[SSmapping.current_map.mapping_url]&z=[station_z]&x=[(mob.x - 1) * 32 + 16]&y=[(world.maxy - mob.y) * 32 + 16]&s=1.5&t=[mob.x],[mob.y],[station_z]")
+				src << link("[SSmapping.current_map.mapping_url]&t=[mob.x],[mob.y],[station_z]")
 			else
 				src << link("[SSmapping.current_map.mapping_url]")
 	if (hsrc)
