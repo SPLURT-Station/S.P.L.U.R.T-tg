@@ -22,6 +22,7 @@
 	if(confetti_death)
 		RemoveElement(/datum/element/death_drops, /obj/effect/decal/cleanable/insectguts)
 		AddElement(/datum/element/death_drops, /obj/effect/decal/cleanable/confetti)
+		RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(play_confetti_death_sound))
 	if(has_pie_cannon)
 		AddComponent( \
 			/datum/component/ranged_attacks, \
@@ -29,6 +30,17 @@
 			projectile_sound = 'sound/items/weapons/sonic_jackhammer.ogg', \
 			cooldown_time = 2 SECONDS, \
 		)
+
+/mob/living/basic/cockroach/clownroach/proc/play_confetti_death_sound(mob/living/source, gibbed)
+	SIGNAL_HANDLER
+
+	var/static/list/whoopee_sounds = list(
+		'sound/effects/brap/brap1.ogg',
+		'sound/effects/brap/brap2.ogg',
+		'sound/effects/brap/brap3.ogg',
+		'sound/effects/brap/brap4.ogg',
+	)
+	playsound(source, pick(whoopee_sounds), 50, TRUE)
 
 /mob/living/basic/cockroach/clownroach/armed
 	name = "clownroach"
