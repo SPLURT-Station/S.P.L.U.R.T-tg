@@ -108,7 +108,7 @@
 	if(is_shifted)
 		var/mob/living/owner = parent
 		owner.remove_offsets(type)
-		owner.transform = turn(owner.transform, -how_tilted)
+		owner.update_transform(rotate = -how_tilted)
 	qdel(src)
 
 /// In-turf pixel movement which can allow things to pass through if the threshold is met.
