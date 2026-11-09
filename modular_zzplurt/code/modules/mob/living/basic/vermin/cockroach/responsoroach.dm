@@ -37,8 +37,9 @@
 	maxHealth = 15
 	armor_type = /datum/armor/mod_theme_responsory
 	responsory_armor_enabled = TRUE
-	laser_projectile_type = /obj/projectile/beam/laser/hellfire
-	laser_burst_shots = 3
+	laser_projectile_type = /obj/projectile/beam/cybersun_laser
+	laser_fire_sound = 'modular_zubbers/sound/weapons/laser.ogg'
+	laser_burst_shots = 2
 	laser_burst_interval = 0.2 SECONDS
 	ranged_cooldown = 2 SECONDS
 	minion_path = null
