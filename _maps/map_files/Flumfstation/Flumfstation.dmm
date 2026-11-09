@@ -24843,8 +24843,8 @@
 /area/station/maintenance/aft/lesser)
 "fPf" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
-/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/manifold/violet/visible{
+	dir = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
@@ -38292,6 +38292,12 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/secondary/entry)
+"iTH" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos)
 "iTJ" = (
 /obj/structure/fake_stairs/directional/east,
 /turf/open/floor/iron/smooth_edge,
@@ -69982,8 +69988,7 @@
 /area/station/service/theater/abandoned)
 "qkv" = (
 /obj/docking_port/stationary{
-	name = "Cargo Bay";
-	shuttle_id = "cargo_home"
+	shuttle_id = "cargo_flumf"
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/aft)
@@ -155796,7 +155801,7 @@ ipq
 fjJ
 eVm
 fPf
-hqA
+iTH
 vWu
 eEf
 dEY
