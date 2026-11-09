@@ -67,7 +67,7 @@
 	icon_state = "pie"
 	damage = 0
 	impact_effect_type = null
-	range = 7
+	range = 15
 	nondirectional_sprite = TRUE
 
 /obj/projectile/clownroach_pie/Initialize(mapload)
