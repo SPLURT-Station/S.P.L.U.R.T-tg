@@ -82,3 +82,14 @@
 	security_level = 6
 	explosion_block = 2
 	damage_deflection = 30
+
+/obj/machinery/door/airlock/syndicate
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/syndicate/syndicate.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_syndicate
+	normal_integrity = 650
+	security_level = 1
+
+/obj/machinery/door/airlock/syndicate/glass
+	normal_integrity = 600
+	opacity = FALSE
+	glass = TRUE
