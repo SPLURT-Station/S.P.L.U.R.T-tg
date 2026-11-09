@@ -18,3 +18,12 @@
 	credit_cost = 4000
 	description =  "A standard pattern exfiltration shuttle, equipped with a medbay, brig and an aft engineering section. It's upgraded engines ensure the smoothest and quickest ride."
 	occupancy_limit = "48"
+
+/datum/map_template/shuttle/emergency/rimpoint
+	prefix = "_maps/shuttles/"
+	suffix = "rimpoint"
+	name = "RimPoint Emergency Shuttle"
+	credit_cost = CARGO_CRATE_VALUE * 10
+	description = "A middling-sized evacuation shuttle, with an individualized floorplan for each department."
+	admin_notes = "Center room is as wide as Cere's shuttle and very, VERY comically easy for lasers to dominate in. Otherwise a standard fare shuttle as far as equipment's concerned."
+	occupancy_limit = "50"
