@@ -11,7 +11,11 @@ jobs:
       contents: write # for JamesIves/github-pages-deploy-action to push changes in repo
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     runs-on: ubuntu-24.04
-    concurrency: gen-docs
+    # Shared with the map diff viewer, which publishes to the same branch.
+    concurrency:
+      group: gen-docs
+      cancel-in-progress: false
+      queue: max
     steps:
       - uses: actions/checkout@v7
       - name: Setup cache
@@ -31,5 +35,7 @@ jobs:
         with:
           branch: gh-pages
           clean: true
+          # Map diffs of open pull requests, published by atlas_map_diff.yml.
+          clean-exclude: atlas-diff
           single-commit: true
           folder: dmdoc
