@@ -81,8 +81,13 @@
 	/// If defined, sets the camera's c_tag accordingly.
 	var/c_tag
 
+/obj/machinery/camera/solar
+	get_mountable_objects()
+		. = ..()
+		. += /obj/machinery/solarlight
+
 /obj/machinery/solarlight/camera_installed/Initialize(mapload)
 	. = ..()
-	solar_camera = new (src)
+	solar_camera = new /obj/machinery/camera/solar(src)
 	if(c_tag)
 		solar_camera.c_tag = c_tag
