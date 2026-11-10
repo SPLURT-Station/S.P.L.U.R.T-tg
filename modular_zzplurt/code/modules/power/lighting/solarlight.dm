@@ -77,14 +77,22 @@
 		I.play_tool_sound(src)
 
 /// Variant that starts with a camera installed, used on RimPoint
-/obj/machinery/solarlight/camera_installed
-	/// If defined, sets the camera's c_tag accordingly.
-	var/c_tag
-
 /obj/machinery/camera/solar
-	get_mountable_objects()
-		. = ..()
-		. += /obj/machinery/solarlight
+	/// Solar lamp this camera belongs to.
+	var/obj/machinery/solarlight/parent_light
+
+/obj/machinery/camera/solar/find_and_mount_on_atom(mark_for_late_init = FALSE, late_init = FALSE)
+	return TRUE
+
+/obj/machinery/camera/solar/Initialize(mapload)
+	. = ..()
+
+	// The parent camera Initialize() already ran find_and_mount_on_atom().
+	// Remove any mounting component it might have created.
+	qdel(GetComponent(/datum/component/atom_mounted))
+
+/obj/machinery/solarlight/camera_installed
+	var/c_tag
 
 /obj/machinery/solarlight/camera_installed/Initialize(mapload)
 	. = ..()
