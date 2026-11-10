@@ -16,7 +16,7 @@
 		QDEL_NULL(radio)
 	return ..()
 
-/obj/machinery/computer/security/telescreen/entertainment/update_shows(is_show_active, tv_show_id, announcement)
+/obj/machinery/computer/security/telescreen/entertainment/on_network_broadcast_updated(datum/source, tv_show_id, is_show_active, announcement)
 	. = ..()
 	if(!network.len || !is_show_active)
 		radio.set_listening(FALSE)

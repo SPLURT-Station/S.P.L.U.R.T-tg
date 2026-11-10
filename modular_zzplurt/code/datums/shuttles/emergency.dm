@@ -20,7 +20,7 @@
 	occupancy_limit = "48"
 
 /datum/map_template/shuttle/emergency/rimpoint
-	prefix = "_maps/shuttles/"
+	prefix = "_maps/shuttles/zzplurt/"
 	suffix = "rimpoint"
 	name = "RimPoint Emergency Shuttle"
 	credit_cost = CARGO_CRATE_VALUE * 10

@@ -66,3 +66,9 @@
 
 /turf/open/floor/glass/reinforced/rimpoint/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
 	return
+
+/turf/open/floor/iron/terracotta/diagonal/rimpoint
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/terracotta/diagonal/rimpoint/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
+	return
