@@ -63,8 +63,7 @@
 	return FALSE
 
 /obj/machinery/solarlight/proc/update_camera_chunk()
-	var/turf/our_turf = get_turf(src)
-	GLOB.cameranet.updateChunk(our_turf.x, our_turf.y, our_turf.z)
+	SScameras.update_visibility(src)
 
 /obj/machinery/solarlight/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()

@@ -114,3 +114,35 @@
 	base_name = "chemistry airlock"
 	glass_type = /obj/machinery/door/airlock/chemistry/glass
 	airlock_type = /obj/machinery/door/airlock/chemistry
+
+/obj/machinery/door/airlock/genetics
+	name = "genetics airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/genetics.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_gene
+
+/obj/machinery/door/airlock/genetics/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_gene
+	name = "genetics airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/genetics.dmi'
+	base_name = "genetics airlock"
+	glass_type = /obj/machinery/door/airlock/genetics/glass
+	airlock_type = /obj/machinery/door/airlock/genetics
+
+/obj/machinery/door/airlock/robotics
+	name = "robotics airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/robotics.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_robo
+
+/obj/machinery/door/airlock/robotics/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_robo
+	name = "robotics airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/robotics.dmi'
+	base_name = "robotics airlock"
+	glass_type = /obj/machinery/door/airlock/robotics/glass
+	airlock_type = /obj/machinery/door/airlock/robotics

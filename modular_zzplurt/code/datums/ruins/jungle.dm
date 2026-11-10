@@ -6,7 +6,7 @@
 /datum/map_template/ruin/jungle
 	ruin_type = ZTRAIT_JUNGLE_RUINS
 	prefix = "_maps/RandomRuins/JungleRuins/"
-	default_area = /area/taeloth/unexplored
+	default_area = /area/taeloth/outdoors/unexplored
 	cost = 1
 	allow_duplicates = FALSE
 

@@ -1,11 +1,12 @@
 {
 	"version": 1,
-	"map_name": "Effigy RimPoint",
+	"map_name": "RimPoint",
 	"map_path": "map_files/RimPoint",
 	"map_file": "RimPoint.dmm",
-	"space_ruin_levels": 0,
+	"space_ruin_levels": 4,
 	"space_empty_levels": 0,
 	"planetary": 1,
+	"height_autosetup": 0,
 	"shuttles": {
 		"cargo": "cargo_delta_skyrat",
 		"ferry": "ferry_kilo",
@@ -15,11 +16,10 @@
 	"traits": [
 		{
 			"Up": true,
-			"Mining": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/water",
-			"Weather_Rainstorm": true,
+			"Weather_Rainstorm_No_Thunder": true,
 			"No Parallax": true,
 			"Jungle Ruins": true,
 			"Jungle Cave Ruins": true
@@ -29,7 +29,7 @@
 			"Baseturf": "/turf/open/openspace",
 			"Linkage": null,
 			"Gravity": true,
-			"Weather_Rainstorm": true,
+			"Weather_Rainstorm_No_Thunder": true,
 			"No Parallax": true,
 			"Jungle Cave Ruins": true
 		}

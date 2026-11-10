@@ -1,6 +1,6 @@
 /// LUNA ///
 
-// EFFIGY PROMO SPECIFIC - Soft-replacing the OG SR version too. While you're here, why not check out Brandish 2? It's pretty good.
+/* // Cutting this out for now until we figure it out.
 /obj/item/melee/sabre/luna/Initialize(mapload)
 	. = ..()
 	new /obj/item/claymore/cutlass/luna(src.loc)
@@ -183,3 +183,4 @@
 	armour_penetration = initial(armour_penetration)
 	block_chance = initial(block_chance)
 	return ..()
+*/

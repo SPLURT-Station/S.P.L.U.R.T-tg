@@ -58,14 +58,6 @@
 	icon = 'modular_zzplurt/icons/turf/decals.dmi'
 	icon_state = "box_corners_purple"
 
-/obj/effect/turf_decal/delivery/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "delivery_blue"
-
-/obj/effect/turf_decal/bot_blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "bot_blue"
-
 /obj/effect/turf_decal/bot_blue/right
 	icon = 'modular_zzplurt/icons/turf/decals.dmi'
 	icon_state = "bot_right_blue"
@@ -73,32 +65,6 @@
 /obj/effect/turf_decal/bot_blue/left
 	icon = 'modular_zzplurt/icons/turf/decals.dmi'
 	icon_state = "bot_left_blue"
-
-/obj/effect/turf_decal/loading_area/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "loadingarea_blue"
-
-/obj/effect/turf_decal/caution/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "caution_blue"
-
-/obj/effect/turf_decal/caution/stand_clear/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "stand_clear_blue"
-
-/obj/effect/turf_decal/arrows/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "arrows_blue"
-
-/obj/effect/turf_decal/box/blue
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "box_blue"
-
-/obj/effect/turf_decal/box/blue/corners
-	icon = 'modular_zzplurt/icons/turf/decals.dmi'
-	icon_state = "box_corners_blue"
-
-
 
 /// DS-3 ///
 /obj/effect/turf_decal/deep_space_three
