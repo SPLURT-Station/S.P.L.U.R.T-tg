@@ -218,17 +218,23 @@ jobs:
           compression-level: 0
 
   publish:
-    name: Update the gh-pages branch
+    name: Update the gh-pages branch and deploy it
     needs: [plan, render]
     if: >-
       !cancelled() && (needs.plan.outputs.action == 'remove' ||
       (needs.plan.outputs.action == 'deploy' && needs.render.result == 'success'))
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 60
     permissions:
       contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     # Shared with generate_documentation.yml, which replaces the branch with a
-    # forced push; previews pushed while it runs would otherwise be lost.
+    # forced push; previews pushed while it runs would otherwise be lost. It also
+    # keeps the deployments of the whole branch in order.
     concurrency:
       group: gen-docs
       cancel-in-progress: false
@@ -273,6 +279,22 @@ jobs:
           done
           echo "::error::Could not update gh-pages after 5 attempts"
           exit 1
+      # Pages is deployed from this artifact (Settings > Pages > Source: GitHub
+      # Actions). The automatic build of a branch source times out after ten
+      # minutes on a site with this many files.
+      - uses: actions/configure-pages@v6
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+          include-hidden-files: true
+      - name: Deploy the complete gh-pages branch to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 2400000
+          error_count: 10
 
   comment:
     name: Link the map diff in the pull request
