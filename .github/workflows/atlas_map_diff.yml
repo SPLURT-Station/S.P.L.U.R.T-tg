@@ -1,0 +1,372 @@
+# Renders the stations a pull request changes, before and after, and publishes
+# them as a side by side map diff under atlas-diff/pr-<number>/ on GitHub Pages,
+# next to the code documentation. The main atlas is hosted elsewhere.
+#
+# Only stations whose map files changed are rendered, and both revisions render
+# in parallel. Pull requests that do not touch a station map stop after the
+# first job.
+#
+# This runs on pull_request_target so it can publish previews for forks. Files
+# from the pull request are only ever read as data: by jq in the first job and
+# by the atlas generator, which runs in a container without network access,
+# credentials or write access to the checkout. Never run scripts from the pull
+# request in this workflow.
+name: Map diff viewer
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-map-diff-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  ATLAS_IMAGE: ghcr.io/scolastico/splurt-atlas:latest
+  # Folder on the gh-pages branch. generate_documentation.yml keeps it when it
+  # replaces the documentation, so change both together.
+  SITE_DIR: atlas-diff
+  # A pull request touching more stations than this only gets the first ones.
+  MAX_STATIONS: 6
+  PR: ${{ github.event.pull_request.number }}
+
+jobs:
+  plan:
+    name: Find changed stations
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      action: ${{ steps.select.outputs.action }}
+      matrix: ${{ steps.select.outputs.matrix }}
+      maps: ${{ steps.select.outputs.maps }}
+      base_maps: ${{ steps.select.outputs.base_maps }}
+      skipped: ${{ steps.select.outputs.skipped }}
+      image: ${{ steps.select.outputs.image }}
+      head: ${{ steps.pr.outputs.head }}
+      merge_base: ${{ steps.pr.outputs.merge_base }}
+    steps:
+      - name: Check the live pull request state
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          read -r state head base < <(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR" --jq '[.state, .head.sha, .base.sha] | @tsv')
+          published=false
+          if gh api "repos/$GITHUB_REPOSITORY/contents/$SITE_DIR/pr-$PR?ref=gh-pages" >/dev/null 2>&1; then
+            published=true
+          fi
+          # A newer push has its own run; a closed pull request is never rendered.
+          inspect=false
+          if [ "$state" = open ] && [ "$head" = "$EXPECTED_SHA" ]; then
+            inspect=true
+            merge_base=$(gh api "repos/$GITHUB_REPOSITORY/compare/$base...$head" --jq .merge_base_commit.sha)
+            echo "merge_base=$merge_base" >> "$GITHUB_OUTPUT"
+          fi
+          {
+            echo "state=$state"
+            echo "head=$head"
+            echo "published=$published"
+            echo "inspect=$inspect"
+          } >> "$GITHUB_OUTPUT"
+      - name: Read the station configurations of the pull request
+        if: steps.pr.outputs.inspect == 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.pr.outputs.head }}
+          path: head
+          persist-credentials: false
+          sparse-checkout: /_maps/*.json
+          sparse-checkout-cone-mode: false
+          # Checkout v7 requires this for fork pull requests; the files are only read.
+          allow-unsafe-pr-checkout: true
+      - name: Read the station configurations of the merge base
+        if: steps.pr.outputs.inspect == 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.pr.outputs.merge_base }}
+          path: base
+          persist-credentials: false
+          sparse-checkout: /_maps/*.json
+          sparse-checkout-cone-mode: false
+      - name: Select the stations to render
+        id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STATE: ${{ steps.pr.outputs.state }}
+          INSPECT: ${{ steps.pr.outputs.inspect }}
+          PUBLISHED: ${{ steps.pr.outputs.published }}
+          HEAD_SHA: ${{ steps.pr.outputs.head }}
+          MERGE_BASE: ${{ steps.pr.outputs.merge_base }}
+        run: |
+          # The map files of a station configuration, one per line. Nothing for
+          # other JSON files, such as away missions.
+          map_files() {
+            if [ ! -f "$1" ] || [ -L "$1" ]; then return 0; fi
+            jq -r '
+              select(type == "object" and (.map_path | type) == "string" and .map_file != null)
+              | .map_path as $path
+              | [.map_file] | flatten | .[] | select(type == "string")
+              | "_maps/\($path)/\(.)"' "$1" 2>/dev/null || true
+          }
+          join() { local IFS=,; echo "$*"; }
+
+          head_maps=() base_maps=() skipped=()
+          if [ "$INSPECT" = true ]; then
+            gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR/files?per_page=100" \
+              --jq '.[] | .filename, (.previous_filename // empty)' > changed.txt
+            for config in head/_maps/*.json; do
+              id=$(basename "$config" .json)
+              [[ "$id" =~ ^[A-Za-z0-9_-]+$ ]] || continue
+              files=$(map_files "$config")
+              [ -n "$files" ] || continue
+              previous=$(map_files "base/_maps/$id.json")
+              # Unchanged: the same map files as before, none of them edited.
+              if [ "$files" = "$previous" ] && ! grep -qxFf <(printf '%s\n' "$files") changed.txt; then
+                continue
+              fi
+              if [ "${#head_maps[@]}" -ge "$MAX_STATIONS" ]; then
+                skipped+=("$id")
+                continue
+              fi
+              head_maps+=("$id")
+              # A new station has nothing to compare with.
+              if [ -n "$previous" ]; then base_maps+=("$id"); fi
+            done
+          fi
+
+          action=none
+          if [ "${#head_maps[@]}" -gt 0 ]; then
+            action=deploy
+          elif [ "$PUBLISHED" = true ] && { [ "$STATE" = closed ] || [ "$INSPECT" = true ]; }; then
+            # Closed, or the map changes were taken back out.
+            action=remove
+          fi
+
+          # Both revisions must come from one generator build, or its own changes
+          # would show up as map changes.
+          image=$ATLAS_IMAGE
+          if [ "$action" = deploy ] && [[ "$image" != *@* ]]; then
+            digest=$(docker buildx imagetools inspect "$image" --format '{{json .Manifest}}' | jq -r .digest)
+            [[ "$digest" == sha256:* ]]
+            image="${image%:*}@$digest"
+          fi
+
+          maps=$(join "${head_maps[@]}")
+          previous_maps=$(join "${base_maps[@]}")
+          matrix=$(jq -cn --arg head "$HEAD_SHA" --arg base "$MERGE_BASE" \
+            --arg maps "$maps" --arg base_maps "$previous_maps" '
+            [{side: "head", ref: $head, maps: $maps, flags: "--viewer"}]
+            + (if $base_maps == "" then [] else [{side: "base", ref: $base, maps: $base_maps, flags: ""}] end)')
+          {
+            echo "action=$action"
+            echo "maps=$maps"
+            echo "base_maps=$previous_maps"
+            echo "skipped=$(join "${skipped[@]}")"
+            echo "matrix=$matrix"
+            echo "image=$image"
+          } >> "$GITHUB_OUTPUT"
+          echo "Action: $action. Stations: ${maps:-none}." >> "$GITHUB_STEP_SUMMARY"
+
+  render:
+    name: Render ${{ matrix.side }} (${{ matrix.maps }})
+    needs: plan
+    if: needs.plan.outputs.action == 'deploy'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    strategy:
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ matrix.ref }}
+          persist-credentials: false
+          # Checkout v7 requires this for fork pull requests; the files are only read.
+          allow-unsafe-pr-checkout: true
+      - name: Render the changed stations in the atlas container
+        env:
+          MAPS: ${{ matrix.maps }}
+          FLAGS: ${{ matrix.flags }}
+          IMAGE: ${{ needs.plan.outputs.image }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/atlas-output"
+          chmod 777 "$RUNNER_TEMP/atlas-output"
+          docker pull --quiet "$IMAGE"
+          # Empty for the base render, which only needs the data.
+          read -ra flags <<< "$FLAGS"
+          docker run --rm --network none --cap-drop ALL \
+            --security-opt no-new-privileges \
+            -v "$GITHUB_WORKSPACE:/source:ro" \
+            -v "$RUNNER_TEMP/atlas-output:/output" \
+            "$IMAGE" --source /source --output /output --maps "$MAPS" "${flags[@]}"
+          # One file uploads far faster than hundreds of image strips.
+          tar -C "$RUNNER_TEMP/atlas-output" -cf "$RUNNER_TEMP/${{ matrix.side }}.tar" .
+      - uses: actions/upload-artifact@v7
+        with:
+          name: atlas-map-diff-${{ matrix.side }}
+          path: ${{ runner.temp }}/${{ matrix.side }}.tar
+          retention-days: 1
+          compression-level: 0
+
+  publish:
+    name: Update the gh-pages branch and deploy it
+    needs: [plan, render]
+    if: >-
+      !cancelled() && (needs.plan.outputs.action == 'remove' ||
+      (needs.plan.outputs.action == 'deploy' && needs.render.result == 'success'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Shared with generate_documentation.yml, which replaces the branch with a
+    # forced push; previews pushed while it runs would otherwise be lost. It also
+    # keeps the deployments of the whole branch in order.
+    concurrency:
+      group: gen-docs
+      cancel-in-progress: false
+      queue: max
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: site
+      - uses: actions/download-artifact@v8
+        if: needs.plan.outputs.action == 'deploy'
+        with:
+          pattern: atlas-map-diff-*
+          path: artifacts
+          merge-multiple: true
+      - name: Publish or remove the map diff of this pull request
+        working-directory: site
+        env:
+          ACTION: ${{ needs.plan.outputs.action }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          target="$SITE_DIR/pr-$PR"
+          for attempt in 1 2 3 4 5; do
+            git fetch --depth 1 origin gh-pages
+            git reset --hard FETCH_HEAD
+            rm -rf "$target"
+            if [ "$ACTION" = deploy ]; then
+              mkdir -p "$target"
+              tar -xf ../artifacts/head.tar -C "$target" --no-same-owner
+              # The viewer compares ./data/ with the old revision in ./base/.
+              if [ -f ../artifacts/base.tar ]; then
+                mkdir "$target/base"
+                tar -xf ../artifacts/base.tar -C "$target/base" --no-same-owner
+              fi
+            fi
+            git add --all -- "$SITE_DIR"
+            if git diff --cached --quiet; then exit 0; fi
+            git commit --quiet -m "Map diff viewer: $ACTION pull request #$PR"
+            if git push origin HEAD:gh-pages; then exit 0; fi
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not update gh-pages after 5 attempts"
+          exit 1
+      # Pages is deployed from this artifact (Settings > Pages > Source: GitHub
+      # Actions). The automatic build of a branch source times out after ten
+      # minutes on a site with this many files.
+      - uses: actions/configure-pages@v6
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+          include-hidden-files: true
+      - name: Deploy the complete gh-pages branch to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 2400000
+          error_count: 10
+
+  comment:
+    name: Link the map diff in the pull request
+    needs: [plan, publish]
+    if: "!cancelled() && needs.publish.result == 'success'"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      pull-requests: write
+      pages: read
+    steps:
+      - name: Wait for GitHub Pages and update the comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACTION: ${{ needs.plan.outputs.action }}
+          MAPS: ${{ needs.plan.outputs.maps }}
+          BASE_MAPS: ${{ needs.plan.outputs.base_maps }}
+          SKIPPED: ${{ needs.plan.outputs.skipped }}
+          HEAD_SHA: ${{ needs.plan.outputs.head }}
+          MERGE_BASE: ${{ needs.plan.outputs.merge_base }}
+        run: |
+          marker='<!-- atlas-map-diff -->'
+          if [ "$ACTION" = deploy ]; then
+            site=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .html_url 2>/dev/null) ||
+              site="https://${GITHUB_REPOSITORY_OWNER,,}.github.io/${GITHUB_REPOSITORY#*/}/"
+            url="${site%/}/$SITE_DIR/pr-$PR/"
+            note=
+            for attempt in $(seq 1 90); do
+              if curl -fsSL "${url}data/manifest.json?attempt=$attempt" 2>/dev/null | grep -q "$HEAD_SHA"; then
+                break
+              fi
+              if [ "$attempt" = 90 ]; then
+                note='GitHub Pages had not finished publishing when this comment was written, so the links may need a few more minutes.'
+              fi
+              sleep 10
+            done
+            {
+              echo "$marker"
+              echo '### Map diff viewer'
+              echo
+              echo "Changed stations, \`${MERGE_BASE:0:10}\` (old) next to \`${HEAD_SHA:0:10}\` (this pull request):"
+              echo
+              for id in ${MAPS//,/ }; do
+                if [[ ",$BASE_MAPS," == *",$id,"* ]]; then
+                  echo "- [$id]($url#m=$id&old=./base/)"
+                else
+                  echo "- [$id]($url#m=$id) (new station, nothing to compare with)"
+                fi
+              done
+              echo
+              if [ -n "$SKIPPED" ]; then
+                echo "Not rendered, because only $MAX_STATIONS stations are rendered for one pull request: ${SKIPPED//,/, }."
+                echo
+              fi
+              if [ -n "$note" ]; then
+                echo "$note"
+                echo
+              fi
+              echo 'Changed tiles are ringed: green added, red removed, amber modified, blue sprite only. The maps are a static reconstruction from the source files, not a running round.'
+            } > body.md
+          else
+            {
+              echo "$marker"
+              echo '### Map diff viewer'
+              echo
+              echo 'The map diff was removed because this pull request is closed or no longer changes a station map.'
+            } > body.md
+          fi
+          existing=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$PR/comments?per_page=100" \
+            --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- atlas-map-diff -->"))) | .id' | head -n 1)
+          if [ -n "$existing" ]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$existing" -F body=@body.md --silent
+          elif [ "$ACTION" = deploy ]; then
+            gh api --method POST "repos/$GITHUB_REPOSITORY/issues/$PR/comments" -F body=@body.md --silent
+          fi
