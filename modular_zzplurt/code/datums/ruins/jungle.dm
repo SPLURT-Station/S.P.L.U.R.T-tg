@@ -10,19 +10,17 @@
 	cost = 1
 	allow_duplicates = FALSE
 
-/datum/map_template/ruin/jungle/luna
-	id = "surface_luna"
-	suffix = "surface_luna.dmm"
-	name = "JungleSurface-Ruin LUNA"
-	description = "The dream of a dead dreamer."
-	cost = 0
-	always_place = TRUE
-
 /datum/map_template/ruin/jungle/deadorgone
 	id = "surface_deadorgone"
 	suffix = "surface_deadorgone.dmm"
 	name = "JungleSurface-Ruin Dead Or Gone"
 	description = "Everyone is dead or gone. The story is over."
+
+/datum/map_template/ruin/jungle/sbq_redoubt
+	id = "surface_ship"
+	suffix = "surface_ship.dmm"
+	name = "JungleSurface-Ruin Ship"
+	description = "What was a old Syndicate Barque, now an old, abandoned ship left empty, and crew-less. Now to be used as someone else's."
 
 /datum/map_template/ruin/jungle/trilogy
 	id = "surface_trilogy"

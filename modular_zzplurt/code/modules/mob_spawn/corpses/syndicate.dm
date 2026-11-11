@@ -30,3 +30,26 @@
 	subdepartment_color = COLOR_SYNDIE_RED
 	big_pointer = TRUE
 	pointer_color = COLOR_SYNDIE_RED
+
+/obj/effect/mob_spawn/corpse/human/skeleton/syndicate
+	name = "Syndicate Agent"
+	mob_species = /datum/species/skeleton
+	outfit = /datum/outfit/oldsyndicate
+
+/datum/outfit/oldsyndicate
+	name = "Skeleton Syndicate Agent"
+	id = /obj/item/card/id/advanced/chameleon/black
+	id_trim = /datum/id_trim/chameleon/operative
+	uniform = /obj/item/clothing/under/syndicate
+	mask = /obj/item/clothing/mask/gas/syndicate
+	ears = /obj/item/radio/headset/syndicateciv
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/color/black
+
+/obj/effect/mob_spawn/corpse/human/skeleton/syndicate/no_id
+	outfit = /datum/outfit/oldsyndicate/no_id
+
+/datum/outfit/oldsyndicate/no_id
+	name = "ID-Less Skeleton Syndicate Agent"
+	id = null
+	id_trim = null

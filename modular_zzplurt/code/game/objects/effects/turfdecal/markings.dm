@@ -67,12 +67,12 @@
 	icon_state = "bot_left_blue"
 
 /// DS-3 ///
-/obj/effect/turf_decal/deep_space_three
+/obj/effect/turf_decal/ds3
 	icon = 'modular_zzplurt/icons/turf/decals.dmi'
 	icon_state = "ds3_mid"
 
-/obj/effect/turf_decal/deep_space_three/left
+/obj/effect/turf_decal/ds3/left
 	icon_state = "ds3_left"
 
-/obj/effect/turf_decal/deep_space_three/right
+/obj/effect/turf_decal/ds3/right
 	icon_state = "ds3_right"
