@@ -1,0 +1,22 @@
+/datum/map_generator/cave_generator/rimpoint_jungle // The upstream version is so lush it blended too well with the outside. Not what we wanted!
+	noise_percent = 31
+	weighted_open_turf_types = list(/turf/open/misc/dirt/jungle = 19, /turf/open/misc/dirt/jungle/dark = 1)
+	weighted_closed_turf_types = list(/turf/closed/mineral/random/jungle = 1)
+
+	weighted_flora_spawn_list = list(
+		/obj/structure/flora/grass/jungle/a/style_random = 1,
+		/obj/structure/flora/grass/jungle/b/style_random = 2,
+		/obj/structure/flora/bush/jungle/a/style_random = 2,
+		/obj/structure/flora/bush/jungle/b/style_random = 2,
+		/obj/structure/flora/bush/jungle/c/style_random = 2,
+		/obj/structure/flora/bush/large/style_random = 2,
+		/obj/structure/flora/rock/pile/jungle/style_random = 2,
+	)
+
+	weighted_feature_spawn_list = list(
+			/obj/structure/geyser/random = 1,
+		) // Ore vents really shouldn't be out here. Chemists get a little treat though.
+
+	mob_spawn_chance = 0.4
+	weighted_mob_spawn_list = list(/mob/living/basic/bat = 99, /mob/living/basic/bear = 1, /mob/living/basic/butterfly = 15)
+	//smoothing_iterations = 50

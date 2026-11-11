@@ -29,6 +29,10 @@
 			"name" = RADIO_CHANNEL_SERVICE,
 			"color" = RADIO_COLOR_SERVICE
 		),
+		"[FREQ_BROADCAST]" = list(
+			"name" = RADIO_CHANNEL_BROADCAST,
+			"color" = RADIO_COLOR_GREEN
+		),
 		"[FREQ_ENTERTAINMENT]" = list(
 			"name" = RADIO_CHANNEL_ENTERTAINMENT,
 			"color" = RADIO_COLOR_ENTERTAIMENT
