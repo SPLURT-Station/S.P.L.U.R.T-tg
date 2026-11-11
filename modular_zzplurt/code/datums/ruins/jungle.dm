@@ -28,10 +28,10 @@
 	name = "JungleSurface-Ruin Trilogy"
 	description = "They have to sell out at some point, right? If the sequel does well, raise them a third, make a box set... bam. Millions."
 
-/datum/map_template/ruin/jungle/bloodzone
+/datum/map_template/ruin/jungle/clinic
 	id = "surface_bloodzone"
 	suffix = "surface_bloodzone.dmm"
-	name = "JungleSurface-Ruin Bloodworking Site"
+	name = "JungleSurface-Ruin Abandoned Clinic"
 	description = "For some asinine reason, a lot of blood donor clinics closed when cloning was outlawed. This is one of those."
 
 /datum/map_template/ruin/jungle/fountain

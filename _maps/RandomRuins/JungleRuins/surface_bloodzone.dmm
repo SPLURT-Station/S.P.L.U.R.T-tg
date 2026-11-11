@@ -2,200 +2,533 @@
 "a" = (
 /turf/open/misc/dirt/jungle,
 /area/taeloth/outdoors)
-"e" = (
-/obj/structure/light_puzzle{
-	puzzle_id = "lunahpa"
+"b" = (
+/obj/structure/chair{
+	dir = 4
 	},
-/turf/closed/wall/r_wall/rust,
+/turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
-"g" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
+"c" = (
 /obj/effect/turf_decal/weather/dirt{
-	dir = 1
+	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/concrete_dust,
 /turf/open/floor/iron/white,
 /area/ruin/unpowered/bloodzone)
-"l" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/rack,
-/obj/item/knife/envy,
-/turf/open/floor/plating/rust,
+"e" = (
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
-"p" = (
+"f" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Storage"
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/white/textured_large,
+/area/ruin/unpowered/bloodzone)
+"g" = (
+/obj/machinery/door/airlock/medical/glass{
+	name = "Clinic"
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/iron/white/textured_large,
+/area/ruin/unpowered/bloodzone)
+"h" = (
+/obj/structure/closet/crate/freezer/blood,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"i" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/chair{
+	dir = 1
+	},
+/obj/structure/sign/poster/ripped/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/unpowered/bloodzone)
-"q" = (
+"j" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/watertank,
-/turf/open/floor/iron/white,
+/obj/structure/girder/displaced,
+/obj/effect/decal/cleanable/concrete_dust,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/rust,
 /area/ruin/unpowered/bloodzone)
-"r" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
+"k" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/obj/structure/sign/poster/ripped/directional/north,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"l" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/diagonal,
+/area/ruin/unpowered/bloodzone)
+"m" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/concrete_dust,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/rust,
+/area/ruin/unpowered/bloodzone)
+"n" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table,
+/obj/structure/desk_bell{
+	pixel_y = 5;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"o" = (
+/obj/structure/rack,
+/obj/item/storage/medkit/toxin,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white/diagonal,
+/area/ruin/unpowered/bloodzone)
+"p" = (
+/obj/structure/grille/broken,
+/obj/item/shard,
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/plating/rust,
+/area/ruin/unpowered/bloodzone)
+"q" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/filingcabinet/chestdrawer,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"r" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"s" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
 /area/ruin/unpowered/bloodzone)
 "t" = (
 /turf/template_noop,
 /area/template_noop)
+"u" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
 "v" = (
 /turf/closed/wall,
 /area/ruin/unpowered/bloodzone)
+"w" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/table/glass,
+/obj/item/modular_computer/laptop/preset/civilian/closed{
+	pixel_y = 5
+	},
+/obj/structure/sign/poster/official/periodic_table/directional/north,
+/turf/open/floor/wood,
+/area/ruin/unpowered/bloodzone)
 "x" = (
-/obj/structure/door_assembly/door_assembly_med,
-/turf/open/misc/dirt/jungle,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/white,
 /area/ruin/unpowered/bloodzone)
 "y" = (
 /turf/closed/wall/r_wall/rust,
 /area/ruin/unpowered/bloodzone)
+"z" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/ruin/unpowered/bloodzone)
 "A" = (
-/obj/structure/bed/medical,
-/turf/open/misc/dirt/jungle,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
 /area/ruin/unpowered/bloodzone)
 "B" = (
 /turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
 "C" = (
-/obj/effect/decal/cleanable/cobweb,
-/obj/structure/closet/crate/freezer/blood,
+/obj/effect/decal/cleanable/glass,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"D" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/concrete_dust,
+/obj/effect/decal/cleanable/garbage,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"E" = (
+/obj/effect/decal/cleanable/glass,
+/obj/structure/chair/office{
+	dir = 4
+	},
 /turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
 "F" = (
-/obj/effect/turf_decal/siding/wideplating_new/light{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille,
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/puzzle/light{
-	puzzle_id = "lunahpa"
-	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered/bloodzone)
 "G" = (
 /turf/closed/wall/rust,
 /area/ruin/unpowered/bloodzone)
+"I" = (
+/obj/structure/table_frame,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
 "J" = (
-/obj/structure/girder,
-/obj/effect/turf_decal/weather/dirt,
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
+/obj/structure/table,
+/obj/item/photo/old{
+	pixel_x = -4;
+	pixel_y = 4
 	},
-/turf/open/floor/plating/rust,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"K" = (
+/obj/machinery/door/airlock/medical{
+	name = "Doctor's Office"
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/white/textured_large,
 /area/ruin/unpowered/bloodzone)
 "L" = (
 /turf/closed/wall/r_wall,
 /area/ruin/unpowered/bloodzone)
-"N" = (
-/obj/effect/decal/cleanable/dirt/dust,
+"M" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table_frame,
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood,
+/area/ruin/unpowered/bloodzone)
+"N" = (
 /obj/effect/turf_decal/weather/dirt{
-	dir = 6
+	dir = 10
 	},
 /obj/effect/turf_decal/weather/dirt{
-	dir = 8
+	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
 /area/ruin/unpowered/bloodzone)
+"O" = (
+/obj/structure/table_frame,
+/obj/item/shard,
+/obj/effect/decal/cleanable/glass,
+/obj/structure/sign/poster/ripped/directional/north,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
 "P" = (
-/obj/effect/spawner/random/structure/girder,
+/obj/effect/decal/cleanable/concrete_dust,
+/obj/structure/chair/comfy/brown{
+	dir = 8
+	},
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"Q" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/open/misc/dirt/jungle,
+/area/ruin/unpowered/bloodzone)
+"R" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/barricade/wooden,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating/rust,
+/area/ruin/unpowered/bloodzone)
+"S" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/official/work_for_a_future/directional/north,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"T" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"U" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"V" = (
+/obj/structure/rack,
+/obj/item/storage/medkit/ancient{
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/ancient{
+	pixel_y = -4;
+	pixel_x = 3
+	},
 /turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
 "W" = (
 /obj/machinery/iv_drip,
 /turf/open/misc/dirt/jungle,
 /area/ruin/unpowered/bloodzone)
+"X" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/chair/office/light,
+/turf/open/floor/iron/white,
+/area/ruin/unpowered/bloodzone)
+"Y" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/concrete_dust,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/unpowered/bloodzone)
+"Z" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/ruin/unpowered/bloodzone)
 
 (1,1,1) = {"
 t
-t
-t
-L
+y
 y
 L
+L
+G
+v
+G
+G
+t
+t
 t
 "}
 (2,1,1) = {"
-t
+y
+L
+V
+o
+y
+q
+b
+i
 v
 G
-y
-l
-L
+a
 t
 "}
 (3,1,1) = {"
-t
-G
+L
+h
+l
+B
+L
+B
+B
 C
 e
 F
-y
-v
+a
+a
 "}
 (4,1,1) = {"
-a
-v
-B
-B
+y
+L
+f
+y
+L
+S
+I
+T
+C
 p
-q
-v
+a
+a
 "}
 (5,1,1) = {"
-a
 v
-B
-B
-B
-p
+O
+z
+Q
 G
+X
+n
+B
+B
+g
+a
+t
 "}
 (6,1,1) = {"
-a
+G
+M
+E
+Z
+v
+k
 J
 N
-A
 B
-B
-v
+s
+a
+t
 "}
 (7,1,1) = {"
-t
-G
+v
+w
+A
 B
+K
+u
+B
+U
 r
-W
-B
-G
+s
+t
+t
 "}
 (8,1,1) = {"
-t
-a
-x
-g
-N
-B
 v
+G
+W
+P
+G
+D
+c
+x
+v
+G
+t
+t
 "}
 (9,1,1) = {"
 t
+G
+v
+R
+G
+Y
+m
+j
+v
 t
-G
-G
-P
-v
-v
+t
+t
+"}
+(10,1,1) = {"
+t
+t
+a
+a
+t
+a
+a
+a
+a
+t
+t
+t
+"}
+(11,1,1) = {"
+t
+t
+t
+t
+t
+t
+a
+a
+t
+t
+t
+t
 "}
