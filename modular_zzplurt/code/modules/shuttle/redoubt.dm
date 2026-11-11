@@ -29,9 +29,7 @@
 	lock_override = NONE
 	shuttlePortId = "redoubt_custom"
 	jump_to_ports = list("redoubt_home" = 1, "whiteship_waystation" = 1)
-	view_range = 10
-	x_offset = -6
-	y_offset = -10
+	view_range = 15
 	designate_time = 100
 
 /obj/item/circuitboard/computer/redoubt_shuttle_docker

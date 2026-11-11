@@ -22,6 +22,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/wood/parquet,
 /area/shuttle/syndicate/old/cockpit)
 "aJ" = (
@@ -38,7 +41,9 @@
 /obj/machinery/porta_turret/syndicate/energy/ruin{
 	dir = 10;
 	system_id = "redoubt_turrets";
-	max_integrity = 40
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/syndicate/old/living)
@@ -90,10 +95,23 @@
 /obj/machinery/light/small/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/west,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/edge{
 	dir = 8
 	},
 /area/shuttle/syndicate/old/cargo)
+"bQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/cable/layer3,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/syndicate/old/hallway)
 "ce" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
@@ -130,6 +148,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/large,
 /area/shuttle/syndicate/old/living)
+"cr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/shuttle/syndicate/old/cryo)
 "cz" = (
 /obj/effect/turf_decal/trimline/dark/arrow_ccw{
 	dir = 8
@@ -145,6 +174,7 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -168,6 +198,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/parquet,
 /area/shuttle/syndicate/old/cockpit)
 "cF" = (
@@ -204,6 +235,7 @@
 /obj/item/clothing/under/rank/engineering/engineer/skyrat/utility/syndicate,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
 "cT" = (
@@ -255,12 +287,14 @@
 /obj/machinery/newscaster/directional/west,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/engine)
 "dd" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "dm" = (
@@ -276,10 +310,10 @@
 /obj/structure/cable,
 /obj/structure/cable/layer3,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/explore)
 "dp" = (
-/obj/machinery/light_switch/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden/layer5,
 /obj/machinery/light/small/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -292,6 +326,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
@@ -303,6 +338,8 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/engine)
 "du" = (
@@ -318,6 +355,7 @@
 /obj/effect/spawner/random/exotic/technology,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/cargo)
 "dC" = (
@@ -336,6 +374,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 1
 	},
@@ -356,10 +395,21 @@
 	},
 /obj/machinery/light/small/directional/east,
 /obj/structure/table/reinforced,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
 /area/shuttle/syndicate/old/explore)
+"dZ" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 9;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/engine)
 "ec" = (
 /obj/structure/railing{
 	dir = 1
@@ -388,7 +438,8 @@
 	port_direction = 8;
 	preferred_direction = 4
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "eM" = (
 /obj/effect/turf_decal/tile/bar/half,
@@ -426,6 +477,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -456,14 +510,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
 /area/shuttle/syndicate/old/living)
-"gb" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 5;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/cockpit)
 "gk" = (
 /obj/machinery/light_switch/directional/north{
 	pixel_x = -5
@@ -493,19 +539,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
-"gs" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 10;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/tech_hallway)
 "gt" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced/air,
 /area/shuttle/syndicate/old/external)
 "gu" = (
 /obj/structure/railing{
@@ -516,6 +553,7 @@
 	},
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured_edge,
 /area/shuttle/syndicate/old/cockpit)
 "gG" = (
@@ -594,6 +632,7 @@
 /obj/structure/cable,
 /obj/structure/cable/layer3,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/hallway)
 "hn" = (
@@ -612,9 +651,10 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
-/obj/machinery/power/smes/full,
 /obj/structure/cable,
 /obj/structure/sign/warning/electric_shock/directional/north,
+/obj/machinery/power/smes,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/engine)
 "hE" = (
@@ -631,11 +671,10 @@
 	pixel_y = 6;
 	pixel_x = 3
 	},
-/obj/machinery/light_switch/directional/south,
 /obj/machinery/light/small/directional/west,
-/obj/machinery/mining_weather_monitor/directional/west,
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/edge{
 	dir = 8
 	},
@@ -688,6 +727,7 @@
 /obj/machinery/light/small/directional/east,
 /obj/structure/sign/flag/syndicate/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "iO" = (
@@ -700,6 +740,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/old/cockpit)
+"iT" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 10;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/tech_hallway)
 "iU" = (
 /obj/effect/turf_decal/tile/bar/half,
 /obj/machinery/suit_storage_unit/industrial,
@@ -732,15 +782,8 @@
 /obj/structure/cable/layer3,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/syndicate/old/engine)
-"jy" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 9;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/old/engine)
 "jB" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -755,6 +798,7 @@
 /obj/structure/cable,
 /obj/structure/cable/layer3,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/cargo)
 "jH" = (
@@ -768,6 +812,9 @@
 	dir = 1
 	},
 /area/shuttle/syndicate/old/explore)
+"jK" = (
+/turf/open/floor/engine/hull/air,
+/area/shuttle/syndicate/old/external)
 "jO" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -784,6 +831,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/tech_hallway)
 "jQ" = (
@@ -819,6 +867,7 @@
 /obj/machinery/computer/atmos_alert{
 	dir = 8
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/cockpit)
 "kb" = (
@@ -840,6 +889,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/tech_hallway)
 "kH" = (
@@ -875,6 +925,7 @@
 /obj/effect/decal/cleanable/generic,
 /mob/living/basic/spider/giant/tarantula,
 /obj/structure/spider/stickyweb,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/syndicate/old/cmd_quarters)
 "kU" = (
@@ -926,6 +977,7 @@
 /obj/machinery/airalarm/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/garbage,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/textured,
 /area/shuttle/syndicate/old/explore)
 "my" = (
@@ -942,6 +994,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/spikes,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/wood/large,
 /area/shuttle/syndicate/old/cmd_quarters)
 "mB" = (
@@ -951,6 +1006,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -965,7 +1021,8 @@
 /area/shuttle/syndicate/old/coldroom)
 "mF" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "mN" = (
 /obj/effect/turf_decal/trimline/dark/arrow_ccw{
@@ -993,6 +1050,7 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/living)
 "ny" = (
@@ -1007,6 +1065,8 @@
 /obj/machinery/iv_drip,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/spider/giant/tarantula,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/smooth_large,
 /area/shuttle/syndicate/old/medbay)
 "os" = (
@@ -1037,6 +1097,11 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/mob/living/basic/spider/giant/guard,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/smooth_large,
 /area/shuttle/syndicate/old/medbay)
 "po" = (
@@ -1044,9 +1109,6 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset/wall/directional/south,
-/obj/machinery/atmospherics/components/unary/airlock_pump{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/tech_hallway)
@@ -1065,15 +1127,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/shuttle/syndicate/old/cockpit)
-"pz" = (
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 6
-	},
-/obj/structure/sign/syndicate/directional/north,
-/turf/open/floor/engine/hull,
-/area/shuttle/syndicate/old/external)
 "pB" = (
 /obj/machinery/coffeemaker{
 	pixel_y = 5
@@ -1097,6 +1153,13 @@
 	dir = 8
 	},
 /area/shuttle/syndicate/old/living)
+"pH" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/syndicate/old/engine)
 "pN" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor/shutters{
@@ -1113,6 +1176,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/hallway)
 "qc" = (
@@ -1122,6 +1190,8 @@
 /obj/structure/chair/office/light,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/tile,
 /area/shuttle/syndicate/old/medbay)
 "qg" = (
@@ -1149,6 +1219,17 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/wood/parquet,
 /area/shuttle/syndicate/old/cockpit)
+"qs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/cable/layer3,
+/obj/item/ammo_casing/c45/spent,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/syndicate/old/hallway)
 "qv" = (
 /obj/effect/turf_decal/box/white/corners,
 /obj/effect/turf_decal/box/white/corners{
@@ -1159,6 +1240,7 @@
 /obj/machinery/airalarm/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/cargo)
 "qE" = (
@@ -1177,17 +1259,22 @@
 "qJ" = (
 /obj/machinery/smartfridge/food,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/small,
 /area/shuttle/syndicate/old/coldroom)
 "qY" = (
 /obj/effect/mob_spawn/corpse/human/skeleton/syndicate,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "rb" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "ri" = (
@@ -1208,6 +1295,7 @@
 /obj/machinery/status_display/ai/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/shuttle/syndicate/old/coldroom)
 "rP" = (
@@ -1242,6 +1330,8 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cum,
 /obj/effect/decal/cleanable/glass/plastitanium,
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/small,
 /area/shuttle/syndicate/old/living)
 "sA" = (
@@ -1265,7 +1355,8 @@
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/hallway)
 "sM" = (
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "sN" = (
 /turf/template_noop,
@@ -1278,19 +1369,20 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/tech_hallway)
 "sX" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/n2{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden/layer5,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/o2{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/engine)
 "tc" = (
@@ -1301,6 +1393,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/engine)
 "ti" = (
@@ -1320,6 +1415,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/cockpit)
 "tH" = (
@@ -1328,12 +1424,13 @@
 	},
 /obj/structure/table/glass,
 /obj/machinery/fax{
-	fax_name = "Medical";
-	name = "Medical Fax Machine"
+	fax_name = "SBQ Redoubt";
+	name = "SBQ Redoubt Fax Machine"
 	},
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
@@ -1361,6 +1458,7 @@
 	},
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/east,
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/engine)
 "tQ" = (
@@ -1388,12 +1486,14 @@
 /obj/machinery/light_switch/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/shuttle/syndicate/old/coldroom)
 "tZ" = (
 /obj/effect/turf_decal/tile/dark_red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/corner,
 /area/shuttle/syndicate/old/hallway)
 "uk" = (
@@ -1403,6 +1503,7 @@
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/hallway)
 "ur" = (
@@ -1415,7 +1516,7 @@
 /area/shuttle/syndicate/old/cargo)
 "uw" = (
 /obj/structure/lattice/catwalk,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "uK" = (
 /obj/machinery/power/solar,
@@ -1441,6 +1542,7 @@
 /obj/effect/spawner/random/exotic/technology,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "uT" = (
@@ -1453,6 +1555,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured_edge,
 /area/shuttle/syndicate/old/cockpit)
 "vk" = (
@@ -1468,6 +1571,8 @@
 /obj/structure/hedge,
 /obj/machinery/light/small/directional/west,
 /obj/machinery/status_display/ai/directional/south,
+/obj/structure/sign/poster/contraband/random/directional/west,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/large,
 /area/shuttle/syndicate/old/living)
 "vM" = (
@@ -1482,6 +1587,7 @@
 /obj/structure/cable/layer3,
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/cargo)
 "wi" = (
@@ -1500,6 +1606,7 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -1525,6 +1632,8 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/tech_hallway)
 "xf" = (
@@ -1548,6 +1657,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/stairs{
 	dir = 1
 	},
@@ -1597,7 +1707,10 @@
 /area/shuttle/syndicate/old/quarters)
 "ye" = (
 /obj/effect/turf_decal/siding/wideplating_new/corner,
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/obj/item/wrench,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "yj" = (
 /obj/structure/chair/sofa/left/brown{
@@ -1606,6 +1719,7 @@
 /obj/item/radio/intercom/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "yp" = (
@@ -1615,19 +1729,22 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/shuttle/syndicate/old/cockpit)
 "yt" = (
 /obj/effect/turf_decal/siding/wideplating_new/corner{
 	dir = 4
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "yy" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 5
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "yD" = (
 /obj/effect/turf_decal/siding/wood/end{
@@ -1638,6 +1755,7 @@
 /obj/machinery/light/small/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
 "yE" = (
@@ -1653,9 +1771,6 @@
 "yI" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
-	},
-/obj/machinery/atmospherics/components/unary/airlock_pump{
-	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1702,6 +1817,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/parquet,
 /area/shuttle/syndicate/old/cockpit)
 "ze" = (
@@ -1720,6 +1836,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/cargo)
 "zC" = (
@@ -1761,8 +1880,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/spider/giant/nurse,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/smooth_large,
 /area/shuttle/syndicate/old/medbay)
+"zY" = (
+/obj/structure/sign/syndicate/directional/west,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
+/area/shuttle/syndicate/old/external)
 "Aa" = (
 /obj/structure/chair/sofa/bench/solo{
 	dir = 4
@@ -1774,6 +1900,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron,
 /area/shuttle/syndicate/old/cryo)
 "Au" = (
@@ -1824,6 +1952,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
 "AE" = (
@@ -1836,13 +1965,13 @@
 /turf/open/floor/wood/parquet,
 /area/shuttle/syndicate/old/cockpit)
 "AO" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 6;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 5
 	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/cockpit)
+/obj/structure/sign/syndicate/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
+/area/shuttle/syndicate/old/external)
 "AS" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
@@ -1867,6 +1996,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/living)
 "Bv" = (
@@ -1897,12 +2027,14 @@
 /obj/machinery/airalarm/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/spider/stickyweb,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/wood/large,
 /area/shuttle/syndicate/old/cmd_quarters)
 "BA" = (
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/garbage,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/tech_hallway)
 "BS" = (
@@ -1918,6 +2050,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
 "Ca" = (
@@ -1933,15 +2068,17 @@
 "Ce" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman/pre_loaded,
+/obj/machinery/power/port_gen/pacman/pre_loaded{
+	anchored = 1
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/fuel_pool,
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/engine)
 "Cq" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/lattice,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/reinforced/air,
 /area/shuttle/syndicate/old/external)
 "Cr" = (
 /obj/effect/turf_decal/trimline/dark/arrow_ccw{
@@ -1962,12 +2099,12 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/old/quarters)
 "CH" = (
-/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/o2{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden/layer5,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/n2{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/engine)
 "CS" = (
@@ -2004,6 +2141,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -2020,6 +2158,7 @@
 /obj/item/clothing/suit/toggle/jacket/zubber/bomber/syndicate/fake,
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
 "Di" = (
@@ -2034,6 +2173,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
@@ -2066,7 +2206,7 @@
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/engine)
 "DJ" = (
 /obj/machinery/power/shuttle_engine/heater{
@@ -2083,15 +2223,18 @@
 	name = "SBQ Redoubt Engine Blast Door";
 	id = "redoubt_eng_engine"
 	},
-/turf/open/floor/engine/hull/reinforced,
+/turf/open/floor/engine/hull/reinforced/air,
 /area/shuttle/syndicate/old/engine)
 "DO" = (
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 5
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 10;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
 	},
-/obj/structure/sign/syndicate/directional/south,
-/turf/open/floor/engine/hull,
-/area/shuttle/syndicate/old/external)
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/engine)
 "Ej" = (
 /obj/machinery/gibber,
 /obj/machinery/digital_clock/directional/north,
@@ -2108,6 +2251,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/red,
 /area/shuttle/syndicate/old/quarters)
 "Eq" = (
@@ -2194,7 +2338,7 @@
 /obj/machinery/power/shuttle_engine/propulsion/right{
 	dir = 8
 	},
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/engine)
 "ES" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -2210,6 +2354,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/quarters)
 "EU" = (
@@ -2234,12 +2379,22 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/hallway)
 "FA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/old/engine)
+"FK" = (
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 6
+	},
+/obj/structure/sign/syndicate/directional/north,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
+/area/shuttle/syndicate/old/external)
 "FW" = (
 /obj/machinery/power/solar,
 /obj/structure/railing{
@@ -2300,6 +2455,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/tech_hallway)
 "Gy" = (
@@ -2318,9 +2474,20 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/engine)
+"GH" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 6;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/cockpit)
 "GR" = (
 /obj/structure/cable/multilayer/connected,
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "GU" = (
 /obj/structure/chair/comfy/shuttle{
@@ -2330,6 +2497,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
 "GV" = (
@@ -2359,6 +2527,8 @@
 	pixel_x = -5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/syndicate_medical/directional/south,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/tile,
 /area/shuttle/syndicate/old/medbay)
 "Hf" = (
@@ -2387,6 +2557,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/coldroom)
 "Hy" = (
@@ -2416,12 +2589,9 @@
 "HR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/suit_storage_unit/open,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
-"HW" = (
-/obj/structure/sign/syndicate/directional/west,
-/turf/open/floor/engine/hull,
-/area/shuttle/syndicate/old/external)
 "Ij" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
@@ -2433,8 +2603,10 @@
 /turf/open/floor/iron/textured,
 /area/shuttle/syndicate/old/explore)
 "Ik" = (
-/obj/machinery/power/solar,
-/turf/open/floor/iron/solarpanel,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman/pre_loaded,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "Im" = (
 /obj/structure/railing{
@@ -2461,6 +2633,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch/directional/north{
+	pixel_y = 35
+	},
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/engine)
 "Iu" = (
@@ -2476,17 +2651,21 @@
 /obj/structure/cable,
 /obj/structure/cable/layer3,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/living)
 "Iw" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/machinery/atmospherics/components/unary/airlock_pump{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/tech_hallway)
 "II" = (
@@ -2511,13 +2690,16 @@
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/cargo)
 "IL" = (
 /obj/machinery/porta_turret/syndicate/energy/ruin{
 	dir = 9;
 	system_id = "redoubt_turrets";
-	max_integrity = 40
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/syndicate/old/coldroom)
@@ -2530,6 +2712,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/old/cockpit)
+"IU" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 5;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/cargo)
 "Jd" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/machinery/door/window/right/directional/north{
@@ -2543,6 +2735,16 @@
 /obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/shuttle/syndicate/old/living)
+"Jh" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 9;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/cmd_quarters)
 "Jl" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/machinery/light/small/directional/west,
@@ -2552,11 +2754,12 @@
 /obj/item/stack/sheet/mineral/plasma/thirty{
 	pixel_y = 2
 	},
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
 "Jv" = (
 /obj/machinery/atmospherics/components/unary/passive_vent,
-/turf/open/floor/engine/hull,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "JG" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -2574,6 +2777,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -2590,6 +2794,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/coldroom)
 "Ka" = (
@@ -2616,6 +2821,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/mask/gas/syndicate,
 /obj/item/storage/belt/military,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/wood/large,
 /area/shuttle/syndicate/old/cmd_quarters)
 "Kh" = (
@@ -2644,6 +2850,9 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
 "Kt" = (
@@ -2697,12 +2906,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
 /area/shuttle/syndicate/old/coldroom)
 "Lt" = (
-/obj/machinery/newscaster/directional/south,
 /obj/machinery/light/directional/south,
 /obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 4
@@ -2714,6 +2923,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/departments/med/directional/south,
 /turf/open/floor/iron/corner{
 	dir = 8
 	},
@@ -2728,14 +2938,26 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/trail_holder,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/tech_hallway)
+"LC" = (
+/obj/machinery/porta_turret/syndicate/energy/ruin{
+	dir = 6;
+	system_id = "redoubt_turrets";
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/syndicate/old/medbay)
 "LI" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/cargo)
 "LJ" = (
@@ -2751,6 +2973,7 @@
 /obj/machinery/door/airlock/freezer{
 	name = "Cold Room Storage"
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/coldroom)
 "LL" = (
@@ -2825,14 +3048,6 @@
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/syndicate/old/engine)
-"Mt" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 10;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/engine)
 "Mu" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/old/tech_hallway)
@@ -2849,6 +3064,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/living)
 "MP" = (
@@ -2881,12 +3097,14 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/cargo)
 "Ni" = (
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/cryopod/quiet,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/iron/dark,
 /area/shuttle/syndicate/old/cryo)
 "Ny" = (
@@ -2901,6 +3119,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/living)
 "NK" = (
@@ -2909,6 +3128,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
@@ -2928,6 +3149,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/syndicate_recruitment/directional/north,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/hallway)
 "Op" = (
@@ -2945,6 +3167,7 @@
 /obj/structure/cable/layer3,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/tech_hallway)
 "Oq" = (
@@ -2965,10 +3188,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/spider/stickyweb/sealed/tough,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/medbay)
 "OA" = (
 /obj/structure/cable/layer3,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/external)
 "OG" = (
@@ -2995,6 +3221,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/syndicate/old/tech_hallway)
 "OR" = (
@@ -3023,6 +3250,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/generic,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron,
 /area/shuttle/syndicate/old/cryo)
 "Pa" = (
@@ -3036,6 +3266,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/mob_spawn/corpse/human/skeleton/syndicate,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/iron/textured,
 /area/shuttle/syndicate/old/explore)
 "Pd" = (
@@ -3106,6 +3337,7 @@
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron/stairs{
 	dir = 8
 	},
@@ -3122,6 +3354,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/tech_hallway)
 "Re" = (
@@ -3210,6 +3443,7 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/wood/tile,
 /area/shuttle/syndicate/old/medbay)
 "RP" = (
@@ -3269,6 +3503,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/edge{
 	dir = 8
 	},
@@ -3298,6 +3533,7 @@
 /obj/effect/turf_decal/tile/dark_red/half,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/iron/half,
 /area/shuttle/syndicate/old/hallway)
 "Tx" = (
@@ -3310,6 +3546,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/corner{
 	dir = 4
 	},
@@ -3326,17 +3563,20 @@
 /area/shuttle/syndicate/old/cargo)
 "TC" = (
 /obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 6;
+	dir = 5;
 	system_id = "redoubt_turrets";
-	max_integrity = 40
+	max_integrity = 40;
+	desc = "An energy blaster auto-turret, this one is extremely old and in bad shape.";
+	name = "old laser turret"
 	},
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/syndicate/old/medbay)
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/syndicate/old/cockpit)
 "TH" = (
 /obj/effect/turf_decal/siding/thinplating_new,
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/open/floor/iron/textured,
 /area/shuttle/syndicate/old/explore)
 "TO" = (
@@ -3352,6 +3592,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/white/smooth_corner,
 /area/shuttle/syndicate/old/medbay)
 "TZ" = (
@@ -3380,6 +3621,7 @@
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/living)
 "Ui" = (
@@ -3408,6 +3650,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/tech_hallway)
 "UL" = (
@@ -3423,6 +3666,7 @@
 /area/shuttle/syndicate/old/cmd_quarters)
 "UR" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/spider/stickyweb/sealed/tough,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/old/medbay)
 "UV" = (
@@ -3448,7 +3692,8 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "Vt" = (
 /obj/structure/railing{
@@ -3466,6 +3711,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/quarters)
 "VI" = (
@@ -3479,13 +3725,16 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 6
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "VN" = (
 /obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 10
 	},
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "VS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3495,6 +3744,7 @@
 /obj/structure/cable/multilayer/connected,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/syndicate/old/engine)
 "VU" = (
@@ -3503,6 +3753,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/shuttle/syndicate/old/hallway)
 "Wc" = (
@@ -3540,6 +3791,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/corner{
 	dir = 8
 	},
@@ -3561,16 +3813,9 @@
 /obj/item/ammo_casing/c45/spent,
 /obj/item/ammo_casing/c45/spent,
 /obj/item/ammo_casing/c45/spent,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/syndicate/old/living)
-"XB" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 9;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/cmd_quarters)
 "XG" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck/kotahi{
@@ -3597,6 +3842,8 @@
 /obj/effect/turf_decal/tile/bar/half,
 /obj/machinery/suit_storage_unit/industrial/syndicatemining,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/syndicate_pistol/directional/south,
+/obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/iron/edge,
 /area/shuttle/syndicate/old/explore)
 "Ya" = (
@@ -3631,6 +3878,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/suit/toggle/labcoat/interdyne,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood/tile,
 /area/shuttle/syndicate/old/medbay)
 "Yc" = (
@@ -3649,19 +3897,15 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/white,
 /area/shuttle/syndicate/old/living)
-"Yq" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin{
-	dir = 5;
-	system_id = "redoubt_turrets";
-	max_integrity = 40
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/syndicate/old/cargo)
 "Yt" = (
 /obj/effect/turf_decal/siding/wideplating_new,
-/turf/open/floor/engine/hull,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull/air,
 /area/shuttle/syndicate/old/external)
 "Yw" = (
 /obj/item/radio/intercom/directional/south,
@@ -3675,13 +3919,13 @@
 	},
 /area/shuttle/syndicate/old/hallway)
 "YV" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/spider/stickyweb,
+/obj/structure/sign/departments/cargo/directional/north,
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
@@ -3749,7 +3993,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
-/obj/structure/spider/stickyweb/sealed,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/spider/stickyweb/sealed/tough,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/syndicate/old/cmd_quarters)
 "Zx" = (
@@ -3760,6 +4005,7 @@
 /obj/machinery/status_display/ai/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 1
 	},
@@ -3792,6 +4038,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/white/small,
 /area/shuttle/syndicate/old/living)
 "ZL" = (
@@ -3804,6 +4051,7 @@
 /obj/structure/cable/layer3,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/shuttle/syndicate/old/living)
 "ZO" = (
@@ -3815,6 +4063,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/garbage,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -3826,14 +4075,14 @@ sN
 sN
 sN
 sN
-jy
+dZ
 DH
 ER
 uw
 uw
 DH
 ER
-Mt
+DO
 sN
 sN
 sN
@@ -3871,7 +4120,7 @@ Mo
 fU
 cV
 dq
-Gy
+pH
 WE
 Zf
 dP
@@ -3944,7 +4193,7 @@ sN
 sN
 sN
 sN
-XB
+Jh
 Cq
 Jv
 gt
@@ -3953,9 +4202,9 @@ dp
 GB
 SO
 Cq
-sM
+jK
 Cq
-gs
+iT
 sN
 sN
 sN
@@ -4066,7 +4315,7 @@ yt
 sM
 fH
 Ni
-Zb
+cr
 Aa
 Mu
 Gx
@@ -4076,7 +4325,7 @@ ZG
 Au
 Jd
 zM
-sM
+Ik
 ye
 VM
 "}
@@ -4102,7 +4351,7 @@ sN
 "}
 (15,1,1) = {"
 sN
-DO
+AO
 CD
 CD
 CD
@@ -4117,7 +4366,7 @@ zM
 zM
 zM
 zM
-pz
+FK
 sN
 "}
 (16,1,1) = {"
@@ -4142,7 +4391,7 @@ sN
 "}
 (17,1,1) = {"
 sN
-Ik
+Wc
 Ca
 Dc
 ya
@@ -4162,7 +4411,7 @@ sN
 "}
 (18,1,1) = {"
 sN
-Ik
+Wc
 pN
 HG
 KJ
@@ -4182,7 +4431,7 @@ sN
 "}
 (19,1,1) = {"
 sN
-Ik
+Wc
 pN
 EN
 rb
@@ -4202,7 +4451,7 @@ sN
 "}
 (20,1,1) = {"
 sN
-Ik
+Wc
 pN
 yD
 PD
@@ -4310,7 +4559,7 @@ Rg
 Rg
 vk
 sJ
-yW
+bQ
 ac
 dm
 Dy
@@ -4350,7 +4599,7 @@ IJ
 ur
 jB
 dC
-yW
+qs
 Lt
 os
 os
@@ -4382,7 +4631,7 @@ sM
 "}
 (29,1,1) = {"
 sN
-Yq
+IU
 vk
 CS
 TB
@@ -4397,7 +4646,7 @@ zX
 qc
 GV
 os
-TC
+LC
 sN
 "}
 (30,1,1) = {"
@@ -4525,7 +4774,7 @@ sN
 sN
 sN
 sN
-HW
+zY
 iO
 MP
 dK
@@ -4534,7 +4783,7 @@ Pk
 uT
 gV
 IT
-HW
+zY
 sN
 sN
 sN
@@ -4566,14 +4815,14 @@ sN
 sN
 sN
 sN
-gb
+TC
 MZ
 Bv
 Bv
 Bv
 Bv
 MZ
-AO
+GH
 sN
 sN
 sN

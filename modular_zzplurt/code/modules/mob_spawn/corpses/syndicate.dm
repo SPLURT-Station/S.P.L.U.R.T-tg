@@ -33,6 +33,7 @@
 
 /obj/effect/mob_spawn/corpse/human/skeleton/syndicate
 	name = "Syndicate Agent"
+	mob_name = "old dusty skeleton"
 	mob_species = /datum/species/skeleton
 	outfit = /datum/outfit/oldsyndicate
 

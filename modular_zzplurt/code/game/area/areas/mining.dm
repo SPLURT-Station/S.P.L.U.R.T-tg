@@ -15,7 +15,7 @@
 	use_mapgen = FALSE
 
 /area/taeloth/outdoors
-	name = "Taeloth Central Grounds"
+	name = "Taeloth"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE

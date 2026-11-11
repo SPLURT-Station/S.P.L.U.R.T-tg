@@ -17,9 +17,9 @@
 	description = "Everyone is dead or gone. The story is over."
 
 /datum/map_template/ruin/jungle/sbq_redoubt
-	id = "surface_ship"
-	suffix = "surface_ship.dmm"
-	name = "JungleSurface-Ruin Ship"
+	id = "sbq_redoubt"
+	suffix = "sbq_redoubt.dmm"
+	name = "JungleSurface-Ruin SBQ Redoubt"
 	description = "What was a old Syndicate Barque, now an old, abandoned ship left empty, and crew-less. Now to be used as someone else's."
 
 /datum/map_template/ruin/jungle/trilogy
