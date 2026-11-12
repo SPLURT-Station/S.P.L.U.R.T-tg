@@ -3,7 +3,9 @@
  *
  * tgui-panel forwards every message the server sends it to the player's optional
  * websocket relay (chat settings -> Websocket), so a periodic "player/position"
- * message is all a local map tool needs. No client-side changes are involved.
+ * message is all a local map tool needs. The panel reports when that relay
+ * connects and disconnects, and the updates only run while it is connected:
+ * players without a relay never get a timer.
  */
 
 /datum/tgui_panel
@@ -12,8 +14,18 @@
 
 /datum/tgui_panel/on_message(type, payload)
 	. = ..()
-	if(type == "ready")
-		start_position_updates()
+	switch(type)
+		if("websocket/open")
+			start_position_updates()
+			return TRUE
+		if("websocket/closed")
+			stop_position_updates()
+			return TRUE
+
+// A reloaded panel ("Fix chat") starts without a relay and reports it again once it reconnects.
+/datum/tgui_panel/initialize(force = FALSE)
+	stop_position_updates()
+	return ..()
 
 /datum/tgui_panel/Del()
 	stop_position_updates()
