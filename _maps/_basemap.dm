@@ -22,6 +22,7 @@
 	//#include "map_files\wawastation\wawastation.dmm" BUBBER EDIT - UNUSED
 	// SPLURT EDIT ADDITION START
 	#include "map_files\CardinalStation\CardinalStation.dmm"
+	#include "map_files\Flumfstation\Flumfstation.dmm"
 	// SPLURT EDIT ADDITION END
 	// BUBBER EDIT ADDITION START
 	#include "map_files\biodome\biodome.dmm"
