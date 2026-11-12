@@ -1,3 +1,6 @@
+/datum/station_trait/job/stowaway
+	weight = 0
+
 /datum/job/assistant/stowaway
 	allow_bureaucratic_error = FALSE
 
