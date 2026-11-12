@@ -15,7 +15,6 @@
 
 /datum/design/borg_upgrade_bellyriding_harness
 	name = "Bellyriding Harness Module"
-	id = "borg_upgrade_bellyriding_harness"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/bellyriding_harness
 	materials = list(

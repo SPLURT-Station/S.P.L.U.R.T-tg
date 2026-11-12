@@ -319,7 +319,6 @@
 /datum/design/board/colormate
 	name = "ColorMate"
 	desc = "This machine lets you paint your gear."
-	id = "colormate"
 	build_path = /obj/item/circuitboard/machine/colormate
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_CARGO
@@ -327,9 +326,7 @@
 	//departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/techweb_node/construction/New()
-	design_ids += list(
-		"colormate",
-	)
+	unlocked_designs += /datum/design/board/colormate
 	return ..()
 
 #undef COLORMATE_TINT

@@ -2,7 +2,6 @@
 	name = "Buns of Thunder"
 	desc = "That pants-stretching, seat-creaking, undie-devouring butt of yours is as satisfying as it is difficult to keep balanced when smacked!"
 	value = 0
-	quirk_flags = QUIRK_MOODLET_BASED
 	gain_text = span_purple("Your butt feels extremely smackable.")
 	lose_text = span_purple("Your butt no longer feels like it needs smacking.")
 	medical_record_text = "Patient is endowed with a superior posterior."
