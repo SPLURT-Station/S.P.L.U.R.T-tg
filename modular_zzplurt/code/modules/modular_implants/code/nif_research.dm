@@ -1,5 +1,5 @@
 // Add NIFs to alien surgery node
-/datum/techweb_node/alien_surgery/New()
+/datum/techweb_node/alien/surgery/New()
 	unlocked_designs += /datum/design/nifsoft_hud/nifsoft_hypno_brainwash
 	return ..()
 
