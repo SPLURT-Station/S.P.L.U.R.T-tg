@@ -2318,13 +2318,13 @@
 /turf/open/space/basic,
 /area/space)
 "aBH" = (
-/obj/structure/table/reinforced,
 /obj/item/reagent_containers/hypospray/medipen{
 	pixel_y = 9;
 	pixel_x = 18
 	},
 /obj/machinery/wall_healer/directional/north,
 /obj/item/storage/medkit/regular,
+/obj/structure/table,
 /turf/open/floor/iron/textured_large,
 /area/station/medical/medbay/lobby)
 "aBI" = (
@@ -7667,6 +7667,13 @@
 /obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/security/prison/garden)
+"bIt" = (
+/obj/item/stack/sheet/mineral/wood{
+	amount = 25
+	},
+/obj/structure/rack/wooden,
+/turf/open/floor/iron/sepia,
+/area/station/common/pool)
 "bIA" = (
 /obj/machinery/power/shieldwallgen/xenobiologyaccess,
 /obj/effect/turf_decal/stripes/line{
@@ -16035,8 +16042,10 @@
 /turf/open/floor/wood,
 /area/station/commons/vacant_room/office)
 "dvQ" = (
-/obj/item/stack/sheet/mineral/wood,
 /obj/structure/rack/wooden,
+/obj/item/stack/sheet/mineral/wood{
+	amount = 25
+	},
 /turf/open/floor/iron/sepia,
 /area/station/common/pool)
 "dvX" = (
@@ -16474,7 +16483,6 @@
 /turf/open/floor/plating,
 /area/station/cargo/sorting)
 "dzA" = (
-/obj/structure/table/reinforced,
 /obj/item/reagent_containers/syringe{
 	pixel_y = 9;
 	pixel_x = -3
@@ -16484,6 +16492,7 @@
 	pixel_y = 3;
 	pixel_x = 4
 	},
+/obj/structure/table,
 /turf/open/floor/iron/textured_large,
 /area/station/medical/medbay/lobby)
 "dzD" = (
@@ -20208,7 +20217,6 @@
 /turf/open/floor/iron/smooth,
 /area/station/commons/storage/primary)
 "etv" = (
-/obj/structure/table/reinforced,
 /obj/machinery/light/directional/north,
 /obj/structure/sign/departments/medbay/alt/directional/north,
 /obj/item/stack/medical/mesh{
@@ -20221,6 +20229,7 @@
 /obj/item/storage/box/bodybags{
 	pixel_x = 19
 	},
+/obj/structure/table,
 /turf/open/floor/iron/textured_large,
 /area/station/medical/medbay/lobby)
 "etD" = (
@@ -41928,7 +41937,6 @@
 "jmk" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/disposal/bin,
-/obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
@@ -75182,10 +75190,10 @@
 /area/station/medical/virology)
 "qAw" = (
 /obj/effect/turf_decal/tile/brown,
-/obj/structure/reagent_dispensers/reagent_smithing_basin,
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/structure/reagent_dispensers/reagent_smithing_basin/prefilled,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
 "qAB" = (
@@ -78686,9 +78694,6 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/tcommsat/server)
 "rol" = (
-/obj/item/storage/box{
-	desc = "Station."
-	},
 /obj/structure/bonfire/prelit{
 	desc = "Box's rightful place."
 	},
@@ -79380,9 +79385,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/small/directional/west,
-/obj/structure/rack,
-/obj/item/storage/toolbox/electrical,
-/obj/item/clothing/gloves/color/yellow,
 /obj/machinery/camera/directional/west{
 	c_tag = "Solars - Port Quarter"
 	},
@@ -80247,6 +80249,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/item/storage/belt/utility,
 /obj/machinery/power/apc/auto_name/directional/west,
+/obj/item/storage/toolbox/electrical,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/solars/port/aft)
 "rDQ" = (
@@ -81650,7 +81653,6 @@
 	},
 /obj/structure/closet/toolcloset,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/clothing/gloves/color/yellow,
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -100295,7 +100297,6 @@
 /area/station/hallway/primary/fore)
 "vWk" = (
 /obj/structure/closet/toolcloset,
-/obj/item/clothing/gloves/color/yellow,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -100578,7 +100579,7 @@
 "vYT" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/structure/closet/crate/bin,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "vZg" = (
@@ -102133,7 +102134,6 @@
 	},
 /obj/structure/closet/toolcloset,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/clothing/gloves/color/yellow,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/item/multitool,
 /obj/item/storage/toolbox/electrical,
@@ -134225,9 +134225,9 @@ nzj
 nzj
 nzj
 nzj
-hzj
-hzj
-hzj
+kFe
+kFe
+kFe
 nzj
 nzj
 nzj
@@ -134744,7 +134744,7 @@ hyT
 nzj
 nzj
 nzj
-hzj
+nzj
 nzj
 nzj
 nzj
@@ -135000,9 +135000,9 @@ qhR
 qUj
 qhR
 hyT
-hyT
-hzj
-cwQ
+nzj
+nzj
+nzj
 nzj
 nzj
 nzj
@@ -135258,7 +135258,7 @@ qUj
 qhR
 nzj
 nzj
-hzj
+nzj
 nzj
 nzj
 nzj
@@ -139466,7 +139466,7 @@ hAm
 ezf
 rgD
 dvQ
-dvQ
+bIt
 lVR
 rig
 uBk
