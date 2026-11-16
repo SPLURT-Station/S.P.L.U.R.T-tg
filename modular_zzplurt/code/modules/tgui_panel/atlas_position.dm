@@ -8,6 +8,15 @@
  * players without a relay never get a timer.
  */
 
+/**
+ * The z within the station for a world z: the 1-based index among the station's levels
+ * (SSmapping.levels_by_trait(ZTRAIT_STATION)), the frame the atlas addresses tiles in.
+ * Null off the station (CentCom, lavaland, space ruins, reserved levels).
+ */
+/proc/atlas_station_z(z)
+	var/list/station_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+	return station_levels.Find(z) || null
+
 /datum/tgui_panel
 	/// Looping timer behind the position updates, TIMER_ID_NULL while they are not running.
 	var/position_timer_id = TIMER_ID_NULL
@@ -61,11 +70,14 @@
 	// The reported tile is deliberately offset by a random amount inside the configured radius.
 	// Whatever listens on the websocket (map tools, but also any automation or bot) only ever gets
 	// a rough estimate of where the player is, never exact coordinates.
+	// "z" is the z of the whole world, "station_z" the z within the station levels as the atlas
+	// counts them (null off the station).
 	var/radius = CONFIG_GET(number/atlas_position_fuzz_radius)
 	window.send_message("player/position", list(
 		"x" = clamp(location.x + rand(-radius, radius), 1, world.maxx),
 		"y" = clamp(location.y + rand(-radius, radius), 1, world.maxy),
 		"z" = location.z,
+		"station_z" = atlas_station_z(location.z),
 		"radius" = radius,
 		"map" = SSmapping.current_map?.map_name,
 		"round_id" = GLOB.round_id,
