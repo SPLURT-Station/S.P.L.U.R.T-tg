@@ -218,10 +218,13 @@
 	return data
 
 /obj/machinery/room_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
 	var/area/current_area = get_area(src)
 	if(!istype(current_area, /area/misc/condo) || !SScondos.splurt_room_data["[room_number]"])
-		return ..()
-	. = FALSE
+		return
 
 	switch(action)
 		if("eject_id")
