@@ -182,13 +182,13 @@
 /obj/item/ammo_box/magazine/security/splurt_ap
 	name = "pistol magazine (9x17mm Armour Piercing)"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/ap
-	ammo_band_color = "#a7aab5"
+	ammo_band_color = "#f8f8f8"
 	ammo_band_icon = "+hpistol_ammo_band"
 
 /obj/item/ammo_box/magazine/security/splurt_hp
 	name = "pistol magazine (9x17mm Hollow Point)"
 	ammo_type = /obj/item/ammo_casing/c9x17mm/hp
-	ammo_band_color = "#c3474d"
+	ammo_band_color = "#df0a14"
 	ammo_band_icon = "+hpistol_ammo_band"
 
 /obj/item/ammo_box/magazine/security/splurt_rubber
@@ -206,7 +206,7 @@
 //Holo targetting, override Rocket Eject
 /obj/item/ammo_box/magazine/security/rocket
 	name = "pistol magazine (9x17mm Holo Targetting)"
-	desc = parent_type::desc + "Contains specialised holo-targetting round that burns on impact.  With a small charge inside that sparks on ejection, this one has less room for ammo and a lethal velocity to it's ejections."
+	desc = "Contains specialised holo-targetting round that burns on impact.  With a small charge inside that sparks on ejection, this one has less room for ammo and a lethal velocity to it's ejections."
 	ammo_type = /obj/item/ammo_casing/c9x17mm/holo_targetting
 	max_ammo = 12
 	base_icon_state = "hpistol_ht"
