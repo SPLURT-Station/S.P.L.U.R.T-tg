@@ -167,39 +167,22 @@
 	wallstuck_offset_amount = clamp(round(wallstuck_offset_amount), 0, 18)
 
 
-///Hides the buckled mob's penis
+/// Hides the buckled mob's penis while keeping it available to the portal relay.
 /obj/structure/lewd_portal/proc/hide_penis()
 	SIGNAL_HANDLER
-	var/obj/item/organ/genital/penis/affected_penis = current_mob.get_organ_slot(ORGAN_SLOT_PENIS) //Stolen from Strapon code, this is bad we should probably have a cleaner way
-	affected_penis?.visibility_preference = GENITAL_NEVER_SHOW
-	current_mob.update_body()
-	affected_penis?.visibility_preference = initial_genital_visibility //These seems weird but I need to hide the penis when people use the gloryhole while maintaining its visability so it can be interacted with.
+	var/obj/item/organ/genital/penis/affected_penis = current_mob.get_organ_slot(ORGAN_SLOT_PENIS)
+	if(!affected_penis)
+		return
 
-///Removes everything besides the head for the buckled mob, used in wallstuck mode
+	affected_penis.visibility_preference = GENITAL_NEVER_SHOW
+	current_mob.update_body()
+
+/// Renders only the head and its associated overlays for wallstuck mode.
 /obj/structure/lewd_portal/proc/head_only()
 	SIGNAL_HANDLER
-	current_mob.cut_overlays()
-	current_mob.update_body_parts()
-	var/obj/item/clothing/glasses = current_mob.glasses
-	if(glasses)
-		current_mob.update_worn_glasses()
-	current_mob.remove_overlay(BODY_ADJ_LAYER)
-	current_mob.remove_overlay(BODY_LAYER)
-	current_mob.remove_overlay(HANDS_LAYER)
-	var/obj/item/bodypart/head/mob_head = current_mob.get_bodypart(BODY_ZONE_HEAD)
-	if(!mob_head)
-		return
-	// Body parts are rendered together on BODYPARTS_LAYER. Keep only the head
-	// instead of removing BODY_LAYER, which does not contain the character's limbs.
-	current_mob.remove_overlay(BODYPARTS_LAYER)
-	current_mob.overlays_standing[BODYPARTS_LAYER] = mob_head.get_limb_icon()
-	current_mob.apply_overlay(BODYPARTS_LAYER)
-	if(mob_head.head_flags & HEAD_EYESPRITES)
-		var/obj/item/organ/eyes/eye_organ = current_mob.get_organ_slot(ORGAN_SLOT_EYES)
-		if(eye_organ)
-			eye_organ.refresh(call_update = FALSE)
-			current_mob.overlays_standing[BODY_LAYER] += eye_organ.generate_body_overlay(current_mob)
-			current_mob.apply_overlay(BODY_LAYER)
+	current_mob.render_only_head()
+	current_mob.update_worn_glasses()
+	current_mob.update_worn_ears()
 
 /obj/structure/lewd_portal/post_unbuckle_mob(mob/living/unbuckled_mob)
 	UnregisterSignal(current_mob, PORTAL_SIGNAL_LIST)
