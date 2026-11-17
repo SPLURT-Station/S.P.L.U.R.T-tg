@@ -2387,7 +2387,7 @@ GLOBAL_LIST_INIT(mkultra_strip_slot_lookup, list(
 					continue
 				if(ishuman(enthrall_listener))
 					var/mob/living/carbon/human/humanoid = enthrall_listener
-					if(istype(humanoid.ears, /obj/item/clothing/ears/earmuffs))
+					if(istype(humanoid.ears, /obj/item/clothing/ears/earmuffs) || istype(humanoid.ears_extra, /obj/item/clothing/ears/earmuffs))
 						continue
 
 				if (enthrall_chem.cooldown > 0)//If they're on cooldown you can't give them more commands.

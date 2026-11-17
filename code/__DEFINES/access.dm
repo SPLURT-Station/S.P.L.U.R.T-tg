@@ -397,6 +397,8 @@
 	ACCESS_CENT_TELEPORTER, \
 	ACCESS_CENT_THUNDER, \
 	ACCESS_CENT_OFFICER, \
+	ACCESS_CENT_SECURITY, \
+	ACCESS_CENT_LOGISTICS, \
 )
 
 /// Syndicate areas off station. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_SYNDICATE)
