@@ -17,6 +17,7 @@ let websocket: WebSocket | null = null;
 let reconnectTimer: number | null = null;
 let retryCount = 0;
 let manuallyClosed = false;
+let reportedOpen = false;
 
 function sendWSNotice(message, small = false) {
   chatRenderer.processBatch([
@@ -26,6 +27,16 @@ function sendWSNotice(message, small = false) {
         : `<div class="boxed_message"><center><span class='alertwarning'>${message}</span></center></div>`,
     },
   ]);
+}
+
+/**
+ * Tells the server whether the relay is connected, so it only produces
+ * relay-only data (such as position updates) while something listens.
+ */
+function reportOpen(open: boolean) {
+  if (open === reportedOpen) return;
+  reportedOpen = open;
+  Byond.sendMessage(open ? 'websocket/open' : 'websocket/closed');
 }
 
 function clearReconnectTimer() {
@@ -85,6 +96,7 @@ function setupWebsocket(force = false) {
     clearReconnectTimer();
     safeClose(WEBSOCKET_DISABLED);
     websocket = null;
+    reportOpen(false);
     return;
   }
 
@@ -103,12 +115,14 @@ function setupWebsocket(force = false) {
         /* ignore */
       }
       websocket = null;
+      reportOpen(false);
     }
   }
 
+  let socket: WebSocket;
   try {
     manuallyClosed = false;
-    websocket = new WebSocket(`ws://${websocketServer}`);
+    socket = new WebSocket(`ws://${websocketServer}`);
   } catch (e: any) {
     if (e.name === 'SyntaxError') {
       sendWSNotice(
@@ -121,22 +135,31 @@ function setupWebsocket(force = false) {
     startReconnectLoop();
     return;
   }
+  websocket = socket;
+  // A socket that a forced reconnect replaced still fires its close/error
+  // events afterwards; those must not touch its successor.
+  const isCurrent = () => socket === websocket;
 
-  websocket.addEventListener('open', () => {
+  socket.addEventListener('open', () => {
+    if (!isCurrent()) return;
     clearReconnectTimer();
+    reportOpen(true);
     sendWSNotice('Websocket connected!', true);
     Byond.sendMessage('requestMetadata'); // let's be nice and request metadata
     retryCount = 0;
   });
 
-  websocket.addEventListener('message', (event) => {
+  socket.addEventListener('message', (event) => {
+    if (!isCurrent()) return;
     if (event.data === 'requestMetadata') {
       Byond.sendMessage('requestMetadata');
     }
   });
 
-  websocket.addEventListener('close', (ev) => {
+  socket.addEventListener('close', (ev) => {
+    if (!isCurrent()) return;
     websocket = null;
+    reportOpen(false);
 
     if (manuallyClosed || ev.code === WEBSOCKET_DISABLED) return;
 
@@ -148,7 +171,8 @@ function setupWebsocket(force = false) {
     startReconnectLoop();
   });
 
-  websocket.addEventListener('error', (ev) => {
+  socket.addEventListener('error', (ev) => {
+    if (!isCurrent()) return;
     logger.error('got websocket error', ev);
     safeClose(WEBSOCKET_REATTEMPT, 'got error from server');
   });
@@ -167,6 +191,7 @@ export function wsUpdate(enabled: boolean): void {
   clearReconnectTimer();
   safeClose(WEBSOCKET_DISABLED);
   websocket = null;
+  reportOpen(false);
 }
 
 export function wsReconnect(): void {
@@ -179,6 +204,7 @@ export function wsDisconnect(): void {
   clearReconnectTimer();
   safeClose(WEBSOCKET_DISABLED);
   websocket = null;
+  reportOpen(false);
   retryCount = 0;
   sendWSNotice('Websocket forcefully disconnected. (Retry count reset)', true);
 }
