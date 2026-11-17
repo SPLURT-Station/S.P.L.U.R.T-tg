@@ -167,13 +167,16 @@
 /obj/item/ammo_box/magazine/security
 	name = "pistol magazine (9x17mm)"
 	ammo_type = /obj/item/ammo_casing/c9x17mm
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	multiple_sprite_use_base = TRUE
 	caliber = CALIBER_9X17MM
-	max_ammo = 17
+	max_ammo = 16
 	multitype = FALSE
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballisticmags.dmi'
 	base_icon_state = "hpistol"
+	icon_state = "hpistol"
+
+/obj/item/ammo_box/magazine/security/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[round(ammo_count(), 2)]"
 
 //In the rare edgecase fuckery bubber decides to add more ammo for the pistol, these exists to make it easier to override or remove
 /obj/item/ammo_box/magazine/security/splurt_ap

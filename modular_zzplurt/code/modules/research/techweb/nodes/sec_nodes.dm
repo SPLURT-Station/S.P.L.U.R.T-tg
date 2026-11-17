@@ -20,6 +20,6 @@
 	. = ..()
 
 /datum/techweb_node/syndicate_basic/New()
-	. = ..()
 	design_ids += "rt45c_hv_sl"
 	design_ids += "rt45c_sl"
+	. = ..()
