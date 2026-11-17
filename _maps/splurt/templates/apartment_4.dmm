@@ -1,0 +1,996 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted/frosted,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"b" = (
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/east{
+	dir = 4
+	},
+/obj/structure/chair/pew,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"c" = (
+/obj/structure/table,
+/obj/machinery/microwave{
+	pixel_y = 6
+	},
+/obj/structure/window/reinforced/spawner/directional/east{
+	dir = 1;
+	layer = 2.9
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"d" = (
+/obj/machinery/door/window/right/directional/south{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"e" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"f" = (
+/obj/structure/sign/poster/contraband/random/directional/east{
+	pixel_x = 29
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"g" = (
+/obj/structure/sign/poster/contraband/random/directional/south{
+	pixel_x = 29
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"h" = (
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"i" = (
+/obj/structure/table,
+/obj/item/reagent_containers/condiment/peppermill,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_y = 9
+	},
+/obj/item/sharpener{
+	pixel_x = 10
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"j" = (
+/obj/machinery/shower/directional/east{
+	desc = "Despite their age, they seem clean and capable of providing hot water just as well as their modern counterparts. Hopefully Nanotrasen cleaned the water pipes this well...";
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"k" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"l" = (
+/obj/structure/chair/comfy/black{
+	pixel_y = 6;
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"m" = (
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/catwalk_floor,
+/area/misc/condo)
+"n" = (
+/obj/structure/mineral_door/transparent,
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/misc/condo)
+"o" = (
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"p" = (
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"q" = (
+/obj/structure/sign/poster/contraband/random/directional/west{
+	pixel_x = -31
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"r" = (
+/obj/machinery/light/directional/east{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"s" = (
+/obj/structure/mineral_door/wood,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"t" = (
+/obj/structure/table,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"u" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"v" = (
+/obj/structure/falsewall,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"w" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"x" = (
+/obj/structure/fireplace{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"y" = (
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/misc/condo)
+"z" = (
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"A" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"B" = (
+/obj/machinery/light/directional/west{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/ash,
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"C" = (
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"D" = (
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"E" = (
+/obj/machinery/light/directional/east{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"F" = (
+/obj/machinery/light/floor{
+	bulb_colour = "#F27D0C"
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"G" = (
+/obj/structure/showcase/machinery/tv,
+/obj/structure/table,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"H" = (
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"I" = (
+/obj/machinery/light/directional/north{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"J" = (
+/obj/structure/chair/sofa/corp{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"K" = (
+/obj/structure/closet/cabinet{
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"L" = (
+/obj/machinery/door/window/left/directional/east{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"M" = (
+/turf/closed/wall,
+/area/misc/condo)
+"N" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"O" = (
+/obj/machinery/vending/dinnerware{
+	contraband = list(/obj/item/kitchen/rollingpin=2,/obj/item/kitchen/knife/butcher=2,/obj/item/reagent_containers/food/condiment/flour=4);
+	shut_up = 1
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"P" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"Q" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"R" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"S" = (
+/obj/machinery/door/morgue,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"T" = (
+/obj/structure/closet/crate/wooden,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"U" = (
+/obj/structure/chair/sofa/corp{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"V" = (
+/obj/machinery/smartfridge/food,
+/turf/closed/indestructible/steel,
+/area/misc/condo)
+"W" = (
+/obj/structure/chair/pew/left,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"X" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"Y" = (
+/obj/structure/window/reinforced/spawner/directional/west{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Z" = (
+/obj/structure/lattice,
+/turf/open/space/bluespace,
+/area/misc/condo)
+"ab" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/item/storage/fancy/heart_box,
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"bb" = (
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/east{
+	dir = 4
+	},
+/obj/structure/chair/pew{
+	dir = 1
+	},
+/obj/structure/window/reinforced/tinted/frosted,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"cb" = (
+/obj/machinery/button{
+	pixel_y = 26;
+	id = "elevator"
+	},
+/obj/machinery/button{
+	pixel_y = 37;
+	id = "elevator"
+	},
+/obj/structure/extinguisher_cabinet/directional/north{
+	pixel_x = 30
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"db" = (
+/obj/structure/sink/kitchen/directional/east{
+	dir = 8;
+	pixel_x = 11
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"eb" = (
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"fb" = (
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"gb" = (
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"hb" = (
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/machinery/reagentgrinder{
+	pixel_y = 8
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"ib" = (
+/turf/closed/indestructible/hoteldoor{
+	icon_state = "door_closed";
+	icon = 'icons/obj/doors/puzzledoor/default.dmi'
+	},
+/area/misc/condo)
+"jb" = (
+/obj/machinery/light/directional/south{
+	bulb_colour = "FFB43A"
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"kb" = (
+/obj/machinery/light/directional/north{
+	dir = 1
+	},
+/obj/structure/closet/crate/wooden,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"lb" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/reagent_containers/cup/bucket{
+	pixel_y = 7
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"mb" = (
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"nb" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/tiled/blue,
+/area/misc/condo)
+"ob" = (
+/obj/structure/towel_bin,
+/obj/structure/table,
+/obj/machinery/light/directional/north{
+	dir = 1;
+	bulb_colour = "FFB43A"
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"pb" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"qb" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"rb" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"sb" = (
+/obj/structure/table,
+/obj/item/electropack/shockcollar,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"tb" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"ub" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced/spawner/directional/west{
+	dir = 8
+	},
+/obj/structure/flora/bush/jungle/a/style_random,
+/turf/open/floor/grass,
+/area/misc/condo)
+"vb" = (
+/obj/machinery/vending/coffee{
+	shut_up = 1
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"wb" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/black/double,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"xb" = (
+/obj/machinery/vending/boozeomat{
+	onstation = 0;
+	shut_up = 1
+	},
+/turf/closed/indestructible/steel,
+/area/misc/condo)
+"yb" = (
+/obj/item/newspaper{
+	pixel_x = 4
+	},
+/turf/open/floor/carpet{
+	icon_state = "carpetsymbol";
+	dir = 1
+	},
+/area/misc/condo)
+"zb" = (
+/obj/structure/sauna_oven,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Ab" = (
+/obj/structure/table,
+/obj/item/reagent_containers/cup/bottle/hexacrocin{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = -5;
+	pixel_y = 14
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"Bb" = (
+/obj/structure/sign/poster/contraband/random/directional/east{
+	pixel_x = 29
+	},
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"Cb" = (
+/obj/machinery/vending/dorms{
+	onstation = 0;
+	shut_up = 1
+	},
+/obj/machinery/light/directional/south{
+	dir = 8;
+	color = "#fc2847"
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"Db" = (
+/obj/structure/window/reinforced/spawner/directional/south{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/condiment/flour,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/open/floor/iron/cafeteria,
+/area/misc/condo)
+"Eb" = (
+/obj/machinery/light/directional/north{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/misc/condo)
+"Fb" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"Gb" = (
+/obj/machinery/jukebox/no_access{
+	req_one_access = null;
+	area_limited = 1
+	},
+/obj/machinery/light/directional/north{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Hb" = (
+/obj/structure/closet/crate/bin{
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"Ib" = (
+/obj/machinery/button{
+	pixel_y = -25;
+	id = "elevator"
+	},
+/obj/machinery/button{
+	pixel_y = -35;
+	id = "elevator"
+	},
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/misc/condo)
+"Jb" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Kb" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"Lb" = (
+/obj/item/pizzabox/margherita{
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/table,
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"Mb" = (
+/obj/machinery/vending/cigarette{
+	shut_up = 1
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"Nb" = (
+/obj/structure/dresser,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"Ob" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"Pb" = (
+/obj/structure/table/wood,
+/obj/item/choice_beacon/box/plushie,
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"Qb" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"Sb" = (
+/obj/structure/closet/crate/bin{
+	pixel_x = 9
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"Tb" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/flora/bush/large/style_random{
+	pixel_y = -1
+	},
+/turf/open/floor/grass,
+/area/misc/condo)
+"Ub" = (
+/obj/structure/chair/comfy/black{
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Vb" = (
+/obj/structure/closet/crate/bin{
+	pixel_x = -6
+	},
+/obj/structure/sign/poster/contraband/random/directional/west{
+	pixel_x = -31
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Wb" = (
+/obj/structure/table,
+/obj/item/lighter,
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"Xb" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Yb" = (
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Zb" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/closet/crate/wooden,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"ac" = (
+/obj/structure/table,
+/obj/item/reagent_containers/blood/b_plus{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/blood/b_plus{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/blood/b_plus{
+	pixel_x = 9
+	},
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/misc/condo)
+"bc" = (
+/obj/machinery/light/directional/west{
+	dir = 8
+	},
+/obj/machinery/vending/games{
+	shut_up = 1
+	},
+/turf/open/floor/carpet/black,
+/area/misc/condo)
+"cc" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/carpet/royalblue,
+/area/misc/condo)
+"dc" = (
+/obj/machinery/light_switch/directional/north,
+/obj/structure/rack,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"ec" = (
+/obj/machinery/computer{
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/open/floor/carpet/royalblack,
+/area/misc/condo)
+"fc" = (
+/turf/closed/indestructible/steel,
+/area/misc/condo)
+"gc" = (
+/obj/machinery/light/directional/north{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+
+
+(1,1,1) = {"
+fc
+fc
+fc
+fc
+fc
+ib
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+"}
+(2,1,1) = {"
+fc
+sb
+X
+Cb
+M
+y
+y
+Ib
+M
+Qb
+B
+Mb
+vb
+bc
+Qb
+fc
+"}
+(3,1,1) = {"
+fc
+Ab
+fb
+t
+M
+Eb
+y
+y
+n
+D
+D
+D
+D
+D
+D
+fc
+"}
+(4,1,1) = {"
+fc
+t
+fb
+ac
+M
+y
+y
+y
+M
+cb
+f
+Sb
+yb
+D
+g
+fc
+"}
+(5,1,1) = {"
+fc
+M
+v
+M
+M
+M
+M
+M
+M
+fc
+fc
+M
+s
+M
+fc
+fc
+"}
+(6,1,1) = {"
+fc
+ec
+K
+Hb
+M
+tb
+q
+Jb
+U
+Xb
+fc
+dc
+o
+w
+fc
+m
+"}
+(7,1,1) = {"
+fc
+l
+mb
+Kb
+M
+gc
+Q
+ab
+pb
+J
+fc
+Zb
+e
+e
+fc
+Z
+"}
+(8,1,1) = {"
+fc
+Nb
+mb
+mb
+s
+h
+P
+Wb
+Lb
+A
+fc
+kb
+h
+h
+fc
+Z
+"}
+(9,1,1) = {"
+fc
+rb
+mb
+k
+M
+G
+P
+H
+eb
+h
+fc
+tb
+h
+R
+fc
+Z
+"}
+(10,1,1) = {"
+fc
+Ob
+wb
+Pb
+M
+Gb
+Fb
+cc
+u
+qb
+fc
+M
+s
+M
+fc
+Z
+"}
+(11,1,1) = {"
+fc
+M
+M
+M
+M
+M
+T
+x
+h
+h
+Tb
+Vb
+h
+h
+fc
+fc
+"}
+(12,1,1) = {"
+fc
+zb
+lb
+C
+j
+M
+M
+M
+h
+h
+h
+h
+h
+h
+tb
+fc
+"}
+(13,1,1) = {"
+fc
+W
+F
+a
+jb
+M
+nb
+M
+I
+Yb
+Yb
+Yb
+Yb
+Yb
+Ub
+fc
+"}
+(14,1,1) = {"
+fc
+b
+d
+bb
+N
+M
+S
+M
+L
+Y
+ub
+hb
+i
+z
+Db
+fc
+"}
+(15,1,1) = {"
+fc
+ob
+p
+gb
+gb
+S
+h
+h
+E
+h
+c
+db
+r
+Bb
+O
+fc
+"}
+(16,1,1) = {"
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+fc
+xb
+V
+fc
+fc
+fc
+"}
