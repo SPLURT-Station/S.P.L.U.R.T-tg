@@ -51327,9 +51327,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/effect/turf_decal/caution/red{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/effect/turf_decal/trimline/neutral/line,
 /obj/machinery/light/directional/south,
@@ -83558,6 +83555,7 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Central Primary Hallway - Starboard Bow"
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -84516,7 +84514,6 @@
 /area/station/hallway/primary/port)
 "sBF" = (
 /obj/effect/landmark/start/assistant,
-/obj/item/radio/intercom/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
