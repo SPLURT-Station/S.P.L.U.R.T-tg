@@ -64,7 +64,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law,/obj/item/sign/flag/nanotrasen)
 	rpg_title = "Guild Advisor"
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+	job_flags = JOB_ANTAG_PROTECTED | STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | HEAD_OF_STAFF_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
+	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	is_hand_required = TRUE
 
 	human_authority = JOB_AUTHORITY_HUMANS_ONLY
 
@@ -317,20 +319,32 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	)
 
 /obj/item/storage/belt/sheath/sabre/ntc
-	name = "nanotrasen consultant's sabre sheath"
-	desc = "An ornate sheathe bestowed to Nanotrasen executives, decorated in fine black-dyed leather, with ornate gold plating, engraved with the Nanotrasen logo. A weapon from a more elegant age, but no less deadly. While it may not have the same cutting power as the Captain's own sabre, this one practically exudes an aura of authority in and of itself. To wield this is to understand your role as an intimidating presence, but not a casual combatant."
-	icon = 'modular_zubbers/icons/obj/weapons/melee.dmi'
-	icon_state = "admiral-sheath"
-	worn_icon = 'modular_zubbers/icons/mob/clothing/belt.dmi'
-	worn_icon_state = "admiral-sheath"
+	name = "consultant's sabre sheath"
+	desc = "A finely crafted dark cyan scabbard trimmed in polished gold, its elegant ornamentation and white ceremonial \
+		band near the tip marking it as the exclusive sheath of a Nanotrasen Consultant's sabre."
+	icon = 'modular_zzplurt/icons/obj/storage.dmi'
+	icon_state = "ntc_sheath"
+	inhand_icon_state = "ntc_sheath"
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "ntc_sheath"
+	lefthand_file = 'modular_zzplurt/icons/mob/inhands/equipment/belt_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/icons/mob/inhands/equipment/belt_righthand.dmi'
 	stored_blade = /obj/item/melee/sabre/ntc
 
 /obj/item/melee/sabre/ntc
-	name = "\improper consultant's sabre"
-	desc = "An elegant sabre, similar to those bestowed upon captains. The hilt is plated in gold with a Nanotrasen logo carved into it, the grip wrapped neatly in real leather. The blade shimmers with ripples in the light, polished almost to a gleam. It would seem a shame to sully such a beautiful blade, but that's part of the point. This is a weapon of intimidation, not a weapon of true combat. Despite that, it's still a formidable weapon in close-quarters, though not quite as deadly as the sabre bestowed to the Captain themselves."
+	name = "consultant's sabre"
+	desc = "An exquisite Nanotrasen Consultant's sabre featuring a polished gold guard, a finely carved wooden grip, and a \
+		gold-infused steel blade honed to a sharp edge, capable of self defense to those who bestow it."
+	icon = 'modular_zzplurt/icons/obj/weapons/sword.dmi'
+	icon_state = "ntc_sabre"
+	inhand_icon_state = "ntc_sabre"
+	lefthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/icons/mob/inhands/weapons/swords_righthand.dmi'
 	block_chance = 30
 	armour_penetration = 25
 	force = 20
+	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = list(/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/bedsheet/ntc
 	name = "nanotrasen consultant's bedsheet"
