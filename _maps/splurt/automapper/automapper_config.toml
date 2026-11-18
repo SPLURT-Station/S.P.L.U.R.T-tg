@@ -8,7 +8,7 @@ trait_name = "CentCom"
 
 # Biodome Infinidorm
 [templates.biodome_infinidorm]
-map_files = ["infinidorm_south.dmm"]
+map_files = ["infinidorm_relay_south.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "biodome.dmm"
 coordinates = [73, 143, 2]
@@ -16,7 +16,7 @@ trait_name = "Station"
 
 # Blueshift Infinidorm
 [templates.blueshift_infinidorm]
-map_files = ["infinidorm_east.dmm"]
+map_files = ["infinidorm_relay_east.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "Blueshift.dmm"
 coordinates = [96, 139, 2]
@@ -24,7 +24,7 @@ trait_name = "Station"
 
 # BoxStation Infinidorm
 [templates.boxstation_infinidorm]
-map_files = ["infinidorm_east.dmm"]
+map_files = ["infinidorm_relay_east.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "BoxStation.dmm"
 coordinates = [46, 133, 1]
@@ -32,7 +32,7 @@ trait_name = "Station"
 
 # DetlaStation Infinidorm
 [templates.deltastation2_infinidorm]
-map_files = ["infinidorm_south.dmm"]
+map_files = ["infinidorm_relay_south.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "DeltaStation2.dmm"
 coordinates = [139, 183, 1]
@@ -40,7 +40,7 @@ trait_name = "Station"
 
 # IceBoxStation Infinidorm
 [templates.iceboxstation_infinidorm]
-map_files = ["infinidorm_west.dmm"]
+map_files = ["infinidorm_relay_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "IceBoxStation.dmm"
 coordinates = [52, 140, 3]
@@ -48,7 +48,7 @@ trait_name = "Station"
 
 # KiloStation Infinidorm
 [templates.kilostation_infinidorm]
-map_files = ["infinidorm_west.dmm"]
+map_files = ["infinidorm_relay_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "KiloStation.dmm"
 coordinates = [167, 94, 1]
@@ -56,7 +56,7 @@ trait_name = "Station"
 
 # MetaStation Infinidorm
 [templates.metastation_infinidorm]
-map_files = ["infinidorm_west.dmm"]
+map_files = ["infinidorm_relay_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "MetaStation.dmm"
 coordinates = [54, 131, 1]
@@ -64,7 +64,7 @@ trait_name = "Station"
 
 # MoonStation Infinidorm
 [templates.moonstation_infinidorm]
-map_files = ["infinidorm_south.dmm"]
+map_files = ["infinidorm_relay_south.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "moonstation.dmm"
 coordinates = [189, 128, 3]
@@ -72,7 +72,7 @@ trait_name = "Station"
 
 # NebulaStation Infinidorm
 [templates.nebulastation_infinidorm]
-map_files = ["infinidorm_west.dmm"]
+map_files = ["infinidorm_relay_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "NebulaStation.dmm"
 coordinates = [81, 127, 1]
@@ -80,7 +80,7 @@ trait_name = "Station"
 
 # Ouroboros Infinidorm
 [templates.ouroboros_infinidorm]
-map_files = ["infinidorm_south.dmm"]
+map_files = ["infinidorm_relay_south.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "Ouroboros.dmm"
 coordinates = [127, 107, 2]
@@ -88,7 +88,7 @@ trait_name = "Station"
 
 # NorthStar Infinidorm
 [templates.northstar_infinidorm]
-map_files = ["infinidorm_north.dmm"]
+map_files = ["infinidorm_relay_north.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "north_star.dmm"
 coordinates = [99, 126, 1]
@@ -96,18 +96,34 @@ trait_name = "Station"
 
 # tramStation Infinidorm
 [templates.tramstation_infinidorm]
-map_files = ["infinidorm_west.dmm"]
+map_files = ["infinidorm_relay_west.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
-required_map = "tramStation.dmm"
+required_map = "tramstation.dmm"
 coordinates = [45, 120, 2]
 trait_name = "Station"
 
 # VoidRaptor Infinidorm
 [templates.voidraptor_infinidorm]
-map_files = ["infinidorm_north.dmm"]
+map_files = ["infinidorm_relay_north.dmm"]
 directory = "_maps/splurt/automapper/templates/dormsentrance/"
 required_map = "VoidRaptor.dmm"
 coordinates = [77, 141, 1]
+trait_name = "Station"
+
+# PubbyStation Infinidorm
+[templates.pubbystation_infinidorm]
+map_files = ["infinidorm_relay_east.dmm"]
+directory = "_maps/splurt/automapper/templates/dormsentrance/"
+required_map = "PubbyStation.dmm"
+coordinates = [83, 126, 1]
+trait_name = "Station"
+
+# CatwalkStation Infinidorm
+[templates.catwalkstation_infinidorm]
+map_files = ["infinidorm_relay_east.dmm"]
+directory = "_maps/splurt/automapper/templates/dormsentrance/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [122, 76, 1]
 trait_name = "Station"
 
 # Moonstation NTR Office
