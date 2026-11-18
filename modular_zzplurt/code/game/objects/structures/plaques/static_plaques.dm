@@ -5,3 +5,7 @@
 // Central Command: remodeled Oct, 21 2026
 /obj/structure/plaque/static_plaque/golden/commission/central_command
 	desc = "Nanotrasen Central Command Headquarters\nSpinward Sector Administrative Command\nCommissioned 6/14/2508\n\"Frosthold\" Central Command Station"
+
+// Rimpoint: added September 19th, 2023
+/obj/structure/plaque/static_plaque/golden/commission/rimpoint
+	desc = "Spinward Sector Station SS-13\n'RimPoint' Colonial Site\nCommissioned 19/09/2563\n'Taking Flight'"

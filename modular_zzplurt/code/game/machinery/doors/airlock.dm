@@ -82,3 +82,67 @@
 	security_level = 6
 	explosion_block = 2
 	damage_deflection = 30
+
+/obj/machinery/door/airlock/service/studio
+	name = "studio airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/studio.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_studio
+
+/obj/machinery/door/airlock/service/studio/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_studio
+	name = "studio airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/studio.dmi'
+	base_name = "studio airlock"
+	glass_type = /obj/machinery/door/airlock/service/studio/glass
+	airlock_type = /obj/machinery/door/airlock/service/studio
+
+/obj/machinery/door/airlock/chemistry
+	name = "chemistry airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/chemistry.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_chem
+
+/obj/machinery/door/airlock/chemistry/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_chem
+	name = "chemistry airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/chemistry.dmi'
+	base_name = "chemistry airlock"
+	glass_type = /obj/machinery/door/airlock/chemistry/glass
+	airlock_type = /obj/machinery/door/airlock/chemistry
+
+/obj/machinery/door/airlock/genetics
+	name = "genetics airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/genetics.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_gene
+
+/obj/machinery/door/airlock/genetics/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_gene
+	name = "genetics airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/genetics.dmi'
+	base_name = "genetics airlock"
+	glass_type = /obj/machinery/door/airlock/genetics/glass
+	airlock_type = /obj/machinery/door/airlock/genetics
+
+/obj/machinery/door/airlock/robotics
+	name = "robotics airlock"
+	icon = 'modular_zzplurt//icons/obj/doors/airlocks/station/robotics.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_robo
+
+/obj/machinery/door/airlock/robotics/glass
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/door_assembly_robo
+	name = "robotics airlock assembly"
+	icon = 'modular_zzplurt/icons/obj/doors/airlocks/station/robotics.dmi'
+	base_name = "robotics airlock"
+	glass_type = /obj/machinery/door/airlock/robotics/glass
+	airlock_type = /obj/machinery/door/airlock/robotics
