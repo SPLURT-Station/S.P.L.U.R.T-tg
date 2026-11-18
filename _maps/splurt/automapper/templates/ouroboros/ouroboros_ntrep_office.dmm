@@ -282,10 +282,6 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
@@ -296,6 +292,7 @@
 /obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
 	pixel_x = 32
 	},
+/obj/machinery/fax/heads/ntc,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
