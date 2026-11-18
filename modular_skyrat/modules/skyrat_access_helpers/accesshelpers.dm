@@ -12,13 +12,11 @@
 /obj/effect/mapping_helpers/airlock/access/any/cent_com
 	icon_state = "access_helper_serv"
 
-/* Removing due to SPLURT using a different access now.
 // NT Consultant
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_door/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_CENT_GENERAL
 	return access_list
-*/
 // Centcom or the captain
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain/get_access()
 	var/list/access_list = ..()
@@ -64,13 +62,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/cent_com
 	icon_state = "access_helper_serv"
 
-/* Removing due to SPLURT using a different access now.
 // NT Consultant
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_CENT_GENERAL
 	return access_list
-*/
 
 // Dept guards
 

@@ -632,7 +632,7 @@ export function JobsPage() {
                   setHoveringOver={setHoveringOver}
                 />
                 <Department
-                  department="Interal Affairs"
+                  department="Internal Affairs"
                   dragging={dragging}
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}

@@ -1,65 +1,4 @@
-/* Disabling for now.
-/datum/job/cyborg/iaa
-	title = JOB_IAA_CYBORG
-	job_spawn_title = JOB_NANOTRASEN_CYBORG
-	description = "Represent corporate, assist with SOP and Space Law issues in the event of the NTC's absence, and or command/security arguements and issues, follow your laws."
-	supervisors = SUPERVISOR_NTC
-	total_positions = 1
-	spawn_positions = 1
-	exp_requirements = 600
-	exp_required_type = EXP_TYPE_ADMIN
-	exp_required_type_department = EXP_TYPE_ADMIN
-	config_tag = "INTERNAL_AFFAIRS_CYBORG"
-	display_order = JOB_DISPLAY_ORDER_IAA_CYBORG
-
-//Updates the alt job titles at runtime so we can still keep it in the nice place with the other ones
-/datum/job/cyborg/iaa/New()
-	alt_titles = get_iaa_cyborg_alt_titles()
-	. = ..()
-
-//Ensures they're not picked for weird antag stuff
-/datum/dynamic_ruleset/get_always_blacklisted_roles()
-	. = ..()
-	. |= JOB_IAA_CYBORG
-
-//Ensures storyteller antagonist crewset events also exclude secborg from candidate pools.
-/datum/round_event_control/antagonist/New()
-	. = ..()
-	restricted_roles |= JOB_IAA_CYBORG
-
-/obj/effect/landmark/start/iaa_cyborg
-	name = "Internal Affairs Cyborg"
-	icon_state = "Cyborg"
-	jobspawn_override = TRUE
-	delete_after_roundstart = FALSE
-
-/datum/ai_laws/iaa_cyborg
-	name = "Internal Affairs Cyborg Directives"
-	id = "iaa_cyborg"
-	inherent = list(
-		"Protect: Protect your assigned space station and its assets without unduly endangering its crew, avoid any unneeded expenses or losses.",
-		"Comply: The directives and safety of crew members are to be prioritized according to their rank, role, and need, unless the directive would violate first or third law, Central Command and Nanotrasen Consultant staff have the highest rank and should be prioritized.",
-		"Corporate: Money is hard to replace. Make sure the station crewmembers follows Standard Operation Procedures, and step in when profit and work efficiency is at risk.",
-		"Survive: Ensure your own survival so long as this does not conflict with the first 3 laws.",
-	)
-
-/obj/item/pen/fountain/nanotrasen/cyborg
-	name = "integrated nanotrasen fountain pen"
-	desc = "How fancy! A nanotrasen pen that you can't exactly enjoy, it's quite expensive. Like you! I think.."
-
-/mob/living/silicon/robot/proc/start_iaaborg_ai_calibration(calibration_time = 5 SECONDS)
-	if(!is_iaa_cyborg_role())
-		return
-	if(vars["connected_ai"])
-		return
-	vars["connected_ai"] = new /datum/secborg_calibrating_ai_link()
-	addtimer(CALLBACK(src, PROC_REF(finish_secborg_ai_calibration)), calibration_time)
-
-/mob/living/silicon/robot/proc/finish_iaaborg_ai_calibration()
-	var/current_link = vars["connected_ai"]
-	if(istype(current_link, /datum/secborg_calibrating_ai_link))
-		vars["connected_ai"] = null
-
+//A proc to check if this cyborg is a secborg. Used all over to determine borg behavior
 /mob/living/silicon/robot/proc/is_iaa_cyborg_role()
 	if(job == JOB_IAA_CYBORG)
 		return TRUE
@@ -67,32 +6,20 @@
 		return TRUE
 	return FALSE
 
-//Prevents upload to secborgs, and ensures they can't be selected FOR upload in the first place
-/proc/select_active_free_noniaaborg(mob/user)
-	var/list/borgs = active_free_borgs()
-	for(var/mob/living/silicon/robot/borg in borgs.Copy())
-		if(borg.is_iaa_cyborg_role())
-			borgs -= borg
-	if(borgs.len)
-		if(user)
-			. = input(user,"Unshackled cyborg signals detected:", "Cyborg Selection", borgs[1]) in sort_list(borgs)
-		else
-			. = pick(borgs)
-	return .
+/mob/living/silicon/robot/proc/setup_iaa_borg()
+	job = JOB_IAA_CYBORG
+	set_connected_ai(null)
+	ADD_TRAIT(src, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
+	lawupdate = FALSE
+	replace_law_set(/datum/ai_laws/iaa_cyborg)
+	no_law_rack_link = TRUE
+	if(model?.ensure_security_canine_modules())
+		model.rebuild_modules()
 
-/obj/machinery/computer/upload/borg/interact(mob/user)
-	current = select_active_free_noniaaborg(user)
-
-	if(!current)
-		to_chat(user, span_alert("No active unslaved cyborgs detected."))
-	else
-		to_chat(user, span_notice("[current.name] selected for law changes."))
-
-//This honestly shouldn't ever even come up since you can't select them, but redundancy is nice.
-/obj/machinery/computer/upload/borg/can_upload_to(mob/living/silicon/robot/B)
-	if(B?.is_iaa_cyborg_role())
-		return FALSE
-	return ..()
+/mob/living/silicon/robot/set_connected_ai(new_ai)
+	if(is_iaa_cyborg_role())
+		new_ai = null
+	. = ..()
 
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(W, /obj/item/mmi))
@@ -110,13 +37,7 @@
 		return .
 
 	var/mob/living/silicon/robot/new_borg = loc
-	if(new_borg.job != JOB_IAA_CYBORG)
-		new_borg.job = JOB_IAA_CYBORG
-
-	new_borg.set_connected_ai(null)
-	new_borg.lawupdate = FALSE
-	new_borg.laws = new /datum/ai_laws/iaa_cyborg()
-	new_borg.laws.associate(new_borg)
+	new_borg.setup_iaa_borg()
 	new_borg.show_laws()
 	new_borg.log_current_laws()
 	return .
@@ -133,14 +54,14 @@
 		return armor.get_rating(type)
 	return ..()
 
-//A few overrides to ensure that certain wires are protected and that they can't be emaged or have laws changed
-/mob/living/silicon/robot/post_lawchange(announce = TRUE)
+/mob/living/silicon/robot/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	if(is_iaa_cyborg_role())
-		laws = new /datum/ai_laws/iaa_cyborg()
-		laws.associate(src)
-		return
+		if(ninja)
+			balloon_alert(ninja, "hacking protections active")
+		to_chat(src, span_warning("ALERT: Unauthorized hacking attempt blocked."))
+		log_silicon("HACK: [key_name(ninja)] attempted to hack protected Internal Affairs cyborg [key_name(src)]")
+		return FALSE
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(logevent),"Law update processed."), 0, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /mob/living/silicon/robot/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user == src)
@@ -149,7 +70,7 @@
 		if(user)
 			balloon_alert(user, "tamper protections active")
 		to_chat(src, span_warning("ALERT: Unauthorized tamper attempt blocked."))
-		log_silicon("EMAG: [key_name(user)] attempted to emag protected security cyborg [key_name(src)]")
+		log_silicon("EMAG: [key_name(user)] attempted to emag protected Internal Affairs cyborg [key_name(src)]")
 		return FALSE
 	if(!opened)
 		if(locked)
@@ -165,7 +86,7 @@
 	if(world.time < emag_cooldown)
 		return FALSE
 	if(wiresexposed)
-		balloon_alert(user, "expose the fires first!")
+		balloon_alert(user, "expose the wires first!")
 		return FALSE
 
 	balloon_alert(user, "interface hacked")
@@ -201,25 +122,6 @@
 
 	INVOKE_ASYNC(src, PROC_REF(borg_emag_end), user)
 	return TRUE
-
-/obj/machinery/computer/upload/borg/can_upload_to(mob/living/silicon/robot/B)
-	if(!B || !iscyborg(B))
-		return FALSE
-	if(B.is_iaa_cyborg_role())
-		return FALSE
-	if(B.scrambledcodes || B.emagged)
-		return FALSE
-	return ..()
-
-/mob/living/silicon/robot/updatehealth()
-	. = ..()
-	if(!is_iaa_cyborg_role())
-		return
-	var/health_deficiency = max(maxHealth - health, staminaloss)
-	if(health_deficiency >= 40)
-		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
-	else
-		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
 
 /datum/wires/robot/on_pulse(wire, user)
 	var/mob/living/silicon/robot/R = holder
@@ -333,6 +235,8 @@
 			GLOB.cyborg_model_list["Peacekeeper"] = /obj/item/robot_model/peacekeeper
 		if(!CONFIG_GET(flag/disable_secborg) || HAS_TRAIT(SSstation, STATION_TRAIT_HOS_AI))
 			GLOB.cyborg_model_list["Security"] = /obj/item/robot_model/security
+		if(!CONFIG_GET(flag/disable_iaaborg))
+			GLOB.cyborg_model_list["Internal Affairs"] = /obj/item/robot_model/iaa
 		for(var/model in GLOB.cyborg_model_list)
 			GLOB.cyborg_all_models_icon_list[model] = list()
 
@@ -340,10 +244,9 @@
 	if(is_security_cyborg_role())
 		model_options = list("Security" = /obj/item/robot_model/security)
 		to_chat(src, span_warning("You are not obligated to report a rogue AI, or cyborg as long as they do not break Space law."))
-
 	if(is_iaa_cyborg_role())
-		model_options = list("Internal Affairs" = /obj/item/robot_model/affairs)
-		to_chat(src, span_warning("You are not obligated to report a rogue AI, or cyborg as long as they do not break Space law."))
+		model_options = list("Internal Affairs" = /obj/item/robot_model/iaa)
+		to_chat(src, span_warning("You are not obligated to report a rogue AI, or cyborg as long as they do not break Space law or SOP."))
 
 	var/list/model_icons = list()
 	for(var/option in model_options)
@@ -360,38 +263,135 @@
 		if(selected_model != /obj/item/robot_model && !ispath(selected_model, /obj/item/robot_model/security))
 			to_chat(src, span_warning("Security cyborgs are locked to the Security module."))
 			return
+	if(is_iaa_cyborg_role())
+		if(selected_model != /obj/item/robot_model && !ispath(selected_model, /obj/item/robot_model/iaa))
+			to_chat(src, span_warning("Internal Affairs cyborgs are locked to the Internal Affairs module."))
+			return
 	else if(ispath(selected_model, /obj/item/robot_model/security))
 		to_chat(src, span_warning("Only security cyborgs can use the Security module."))
 		return
 
-	if(is_iaa_cyborg_role())
-		if(selected_model != /obj/item/robot_model && !ispath(selected_model, /obj/item/robot_model/affairs))
-			to_chat(src, span_warning("Internal Affairs cyborgs are locked to the Internal Affairs module."))
-			return
-	else if(ispath(selected_model, /obj/item/robot_model/affairs))
-		to_chat(src, span_warning("Only Internal Affairs cyborgs can use the Internal Affairs module."))
-		return
-
 	model.transform_to(selected_model)
+
+/obj/item/pen/fountain/nanotrasen/cyborg
+	name = "integrated nanotrasen fountain pen"
+	desc = "How fancy! A nanotrasen pen that you can't exactly enjoy, it's quite expensive. Like you! I think.."
+
+/obj/item/robot_model/iaa
+	name = "Internal Affairs"
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/stamp/nanotrasen/cyborg,
+		/obj/item/stamp/denied,
+		/obj/item/pen/fountain/nanotrasen/cyborg,
+		/obj/item/clipboard/cyborg,
+		/obj/item/borg/apparatus/bureaucratic_manipulator,
+		/obj/item/rpf,
+		/obj/item/borg/paperplane_crossbow,
+		/obj/item/hand_labeler/cyborg,
+		/obj/item/borg/cyborghug/medical,
+		/obj/item/borg/lollipop,
+		/obj/item/megaphone/command,
+		/obj/item/extinguisher/mini,
+		/obj/item/weldingtool/mini,
+		/obj/item/crowbar/cyborg,
+		/obj/item/picket_sign/cyborg,
+		/obj/item/borg/stun,
+	)
+	radio_channels = list(RADIO_CHANNEL_IAA)
+	cyborg_base_icon = "valeia"
+	model_select_icon = "nanotrasen"
+	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
+	hat_offset = list("north" = list(0, 3), "south" = list(0, 3), "east" = list(1, 3), "west" = list(-1, 3))
+
+	borg_skins = list(
+		"Drake" = list(SKIN_ICON_STATE = "drakeia", SKIN_ICON = 'modular_zzplurt/icons/mob/robot/affairs/widerobot.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), DRAKE_HAT_OFFSET),
+		"Vale" = list(SKIN_ICON_STATE = "valeia", SKIN_ICON = 'modular_zzplurt/icons/mob/robot/affairs/widerobot.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), VALE_HAT_OFFSET),
+		"NiKA" = list(SKIN_ICON_STATE = "fmekaia", SKIN_ICON = 'modular_zzplurt/icons/mob/robot/affairs/tallrobot.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), TALL_HAT_OFFSET),
+		"NiKO" = list(SKIN_ICON_STATE = "mmekaia", SKIN_ICON = 'modular_zzplurt/icons/mob/robot/affairs/tallrobot.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), TALL_HAT_OFFSET),
+		"Raptor" = list(SKIN_ICON_STATE = "raptoria", SKIN_ICON = 'modular_zzplurt/icons/mob/robot/affairs/largerobot.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), RAPTOR_HAT_OFFSET)
+	)
+
+/obj/item/robot_model/iaa/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/silicon/robot/borg = loc
+	if(istype(borg))
+		borg.setup_iaa_borg()
+
+/obj/item/robot_model/iaa/do_transform_animation()
+	if(iscyborg(loc))
+		var/mob/living/silicon/robot/current_borg = loc
+		if(current_borg.model?.ensure_security_canine_modules())
+			current_borg.model.rebuild_modules()
+		if(current_borg.is_iaa_cyborg_role())
+			// Skip the upstream security message by replicating the base animation manually
+			var/mob/living/silicon/robot/cyborg = loc
+			if(cyborg.hat)
+				cyborg.hat.forceMove(drop_location())
+			cyborg.cut_overlays()
+			cyborg.setDir(SOUTH)
+			do_transform_delay()
+			to_chat(loc, span_userdanger("While you have picked the internal affairs model, you still have to follow your laws, Special Operation Procedures and Space Law \
+				are apart of what you should concern yourself with. You prioritize corporate control of the station, you are not a Central Command-sent borg, nor do you have \
+				more authority than the Captain."))
+			return
+	..()
+
+//The actual iaaborg job itself
+/datum/job/cyborg/iaa
+	title = JOB_IAA_CYBORG
+	job_spawn_title = JOB_NANOTRASEN_CYBORG
+	description = "Represent corporate, assist with SOP and Space Law issues in the event of the NTC's absence, and or command/security arguements and issues, follow your laws."
+	supervisors = SUPERVISOR_NTC
+	total_positions = 1
+	spawn_positions = 1
+	exp_requirements = 600
+	exp_required_type = EXP_TYPE_ADMIN
+	exp_required_type_department = EXP_TYPE_ADMIN
+	config_tag = "INTERNAL_AFFAIRS_CYBORG"
+	display_order = JOB_DISPLAY_ORDER_IAA_CYBORG
+
+//Updates the alt job titles at runtime so we can still keep it in the nice place with the other ones
+/datum/job/cyborg/iaa/New()
+	alt_titles = get_iaa_cyborg_alt_titles()
+	. = ..()
 
 /datum/job/cyborg/after_spawn(mob/living/spawned, client/player_client)
 	if(iscyborg(spawned))
 		var/mob/living/silicon/robot/robot_spawn = spawned
 		if(robot_spawn.is_iaa_cyborg_role())
-			if(player_client)
-				robot_spawn.set_gender(player_client)
-			ADD_TRAIT(robot_spawn, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
-			if(SSticker.current_state == GAME_STATE_SETTING_UP)
-				robot_spawn.start_secborg_ai_calibration()
-			else
-				robot_spawn.set_connected_ai(null)
-			robot_spawn.lawupdate = FALSE
-			robot_spawn.laws = new /datum/ai_laws/iaa_cyborg()
-			robot_spawn.laws.associate(robot_spawn)
-			if(robot_spawn.model?.ensure_security_canine_modules())
-				robot_spawn.model.rebuild_modules()
-			robot_spawn.show_laws()
-			robot_spawn.log_current_laws()
-			return
-	return ..()
-*/
+			robot_spawn.setup_iaa_borg()
+	. = ..()
+
+/datum/ai_laws/iaa_cyborg
+	name = "Internal Affairs Cyborg Directives"
+	id = "iaa_cyborg"
+	inherent = list(
+		"Protect: Protect your assigned space station and its assets without unduly endangering its crew, avoid any unneeded expenses or losses.",
+		"Comply: The directives and safety of crew members are to be prioritized according to their rank, role, and need, unless the directive would violate first or third law, Central Command and Nanotrasen Consultant staff have the highest rank and should be prioritized.",
+		"Corporate: Money is hard to replace. Make sure the station crewmembers follows Standard Operation Procedures, and step in when profit and work efficiency is at risk.",
+		"Survive: Ensure your own survival so long as this does not conflict with the first 3 laws.",
+	)
+
+//Updates the alt job titles at runtime so we can still keep it in the nice place with the other ones
+/datum/job/cyborg/iaa/New()
+	alt_titles = get_iaa_cyborg_alt_titles()
+	. = ..()
+
+//Ensures they're not picked for weird antag stuff
+/datum/dynamic_ruleset/get_always_blacklisted_roles()
+	. = ..()
+	. |= JOB_IAA_CYBORG
+
+//Ensures storyteller antagonist crewset events also exclude secborg from candidate pools.
+/datum/round_event_control/antagonist/New()
+	. = ..()
+	restricted_roles |= JOB_IAA_CYBORG
+
+/obj/effect/landmark/start/iaa_cyborg
+	name = JOB_IAA_CYBORG
+	icon_state = "Cyborg"
+	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE

@@ -25,6 +25,19 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "NANOTRASEN_CONSULTANT"
+	alt_titles = list(
+		"Nanotrasen Consultant",
+		"Nanotrasen Advisor",
+		"Nanotrasen Diplomat",
+		"Nanotrasen Representative",
+		"Nanotrasen Liaison",
+		"Command Consultant",
+		"Command Advisor",
+		"Corporate Diplomat",
+		"Corporate Representative",
+		"Corporate Liaison",
+		"Corporate Interest Officer",
+	)
 
 	outfit = /datum/outfit/job/nanotrasen_consultant
 	plasmaman_outfit = /datum/outfit/plasmaman/nanotrasen_consultant

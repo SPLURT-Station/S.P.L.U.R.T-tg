@@ -34,11 +34,9 @@ RSF
 	///The RSF item list below shows in the player facing ui in this order, this is why it isn't in alphabetical order, but instead sorted by category
 	var/list/cost_by_item = list(
 		/obj/item/paper = 10,
-		/obj/item/folder = 30,
-		/obj/item/folder/red = 30,
-		/obj/item/folder/blue = 30,
-		/obj/item/folder/white = 30,
-		/obj/item/folder/yellow = 30,
+		/obj/item/paper/paperslip = 5,
+		/obj/item/paper/paperslip/corporate = 5,
+		/obj/item/folder/nanotrasen = 30,
 		/obj/item/pen = 50,
 		/obj/item/pen/fountain = 50,
 		/obj/item/cigarette = 10,
