@@ -382,11 +382,11 @@
 #include "~skyrat\nanite_designs.dm"
 #include "~skyrat\opposing_force.dm"
 #include "~skyrat\proteans.dm"
-#include "~zubbers\antag_prompt_timing.dm"
-#include "~zubbers\vitezstvi_turret_flags.dm"
 // SKYRAT EDIT END
 // SPLURT EDIT START
 #include "~splurt\underwear_items.dm"
+#include "~zubbers\antag_prompt_timing.dm"
+#include "~zubbers\vitezstvi_turret_flags.dm"
 // SPLURT EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
