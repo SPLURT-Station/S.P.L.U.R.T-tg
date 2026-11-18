@@ -75,11 +75,19 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ah" = (
-/obj/machinery/keycard_auth/wall_mounted/directional/north,
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
+	pixel_x = 8
+	},
 /obj/structure/aquarium/prefilled,
 /obj/item/reagent_containers/cup/fish_feed{
 	pixel_y = 17;
 	pixel_x = -3
+	},
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	req_access = list("cent_general");
+	pixel_y = 24;
+	pixel_x = -6
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -142,16 +150,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
-"am" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 4;
-	name = "Privacy Shutters"
-	},
-/turf/open/floor/plating,
-/area/station/command/heads_quarters/nt_rep)
 "an" = (
 /obj/structure/sign/calendar/directional/south,
 /obj/machinery/light/warm/directional/south,
@@ -161,18 +159,13 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ao" = (
-/obj/structure/sign/clock/directional/north,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "aq" = (
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
-	},
-/obj/machinery/button/door/directional/west{
-	id = "nt_rep_priv";
-	name = "Privacy Shutters Control";
-	req_access = list("cent_general")
 	},
 /obj/structure/filingcabinet/employment{
 	name = "employment forms filing cabinet"
@@ -187,6 +180,8 @@
 	icon_state = "employmentcabinet";
 	name = "security records filing cabinet"
 	},
+/obj/structure/sign/clock/directional/north,
+/obj/structure/sign/poster/official/help_others/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ar" = (
@@ -212,9 +207,15 @@
 /area/station/command/heads_quarters/nt_rep)
 "au" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/random/bureaucracy/folder{
-	spawn_random_offset = 1
+/obj/item/folder/blue{
+	pixel_x = -7;
+	pixel_y = 3
 	},
+/obj/item/folder/yellow{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/folder/nanotrasen,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "av" = (
@@ -235,7 +236,6 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/stamp/granted{
 	pixel_y = 9;
 	pixel_x = 8
@@ -244,6 +244,7 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ax" = (
@@ -260,7 +261,7 @@
 	pixel_y = 1;
 	pixel_x = -2
 	},
-/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ay" = (
@@ -415,10 +416,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/noticeboard/directional/west{
-	name = "Nanotrasen Consultant's Notice Board"
-	},
 /obj/machinery/light/directional/west,
+/obj/structure/noticeboard/ntc{
+	pixel_x = -32
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aO" = (
@@ -441,9 +442,11 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "aP" = (
-/obj/machinery/status_display/evac/directional/north,
 /obj/machinery/fax/heads/ntc,
 /obj/structure/table/wood/fancy/cyan,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "aQ" = (
@@ -497,10 +500,13 @@
 "aX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_priv";
-	dir = 1;
-	name = "Privacy Shutters"
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -969,8 +975,8 @@ ai
 (6,1,1) = {"
 ai
 at
-am
-am
+aX
+aX
 at
 af
 aW

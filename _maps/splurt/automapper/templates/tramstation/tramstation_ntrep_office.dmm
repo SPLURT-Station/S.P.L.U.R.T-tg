@@ -73,7 +73,9 @@
 /obj/machinery/modular_computer/preset/command{
 	dir = 1
 	},
-/obj/machinery/keycard_auth/wall_mounted/directional/south,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = -32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
@@ -250,10 +252,10 @@
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
 /obj/structure/hedge,
-/obj/structure/noticeboard/directional/west{
-	name = "Nanotrasen Consultant's Notice Board"
-	},
 /obj/structure/sign/calendar/directional/north,
+/obj/structure/noticeboard/ntc{
+	pixel_x = -32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
@@ -416,7 +418,11 @@
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
 	pixel_x = -26;
-	req_access = list("cent_captain")
+	req_access = list("cent_general");
+	pixel_y = 5
+	},
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
+	pixel_y = -6
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)

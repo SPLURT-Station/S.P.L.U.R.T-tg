@@ -153,7 +153,12 @@
 	department = "Nanotrasen Consultant's Desk";
 	name = "Nanotrasen Consultant's Requests Console"
 	},
-/obj/machinery/keycard_auth/wall_mounted/directional/east,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_x = 32
+	},
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
+	pixel_x = 26
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
@@ -326,12 +331,11 @@
 	pixel_x = -4;
 	pixel_y = -1
 	},
-/obj/structure/noticeboard/directional/west{
-	name = "Nanotrasen Consultant's Notice Board";
-	pixel_x = 32
-	},
 /obj/machinery/light/directional/east,
 /obj/structure/cable,
+/obj/structure/noticeboard/ntc{
+	pixel_x = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "N" = (

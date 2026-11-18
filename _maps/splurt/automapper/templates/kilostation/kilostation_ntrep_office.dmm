@@ -8,9 +8,9 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "bv" = (
-/obj/structure/table/wood,
 /obj/structure/sign/poster/official/random/directional/east,
 /obj/item/radio/intercom/directional/south,
+/obj/structure/dresser,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "bP" = (
@@ -30,6 +30,7 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
+/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "cs" = (
@@ -56,13 +57,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "gh" = (
-/obj/structure/chair/comfy/black{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/effect/landmark/start/nanotrasen_consultant,
+/obj/structure/chair/sofa/left{
+	dir = 1;
+	color = "#462f1c"
+	},
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/nt_rep)
 "gu" = (
@@ -83,14 +84,14 @@
 	pixel_y = 17;
 	pixel_x = -3
 	},
-/obj/structure/noticeboard/directional/north{
-	name = "Nanotrasen Consultant's Notice Board"
-	},
 /obj/machinery/button/curtain{
 	id = "ntc_privatecurtains";
 	pixel_x = -24;
 	req_access = list("cent_general");
 	name = "curtain control"
+	},
+/obj/structure/noticeboard/ntc{
+	pixel_y = 32
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -116,7 +117,9 @@
 "hq" = (
 /obj/structure/table/wood/fancy/cyan,
 /obj/machinery/fax/heads/ntc,
-/obj/machinery/status_display/evac/directional/north,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "jN" = (
@@ -154,12 +157,12 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "lP" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/light_switch/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/structure/bookcase/random,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/nt_rep)
 "lR" = (
@@ -212,9 +215,7 @@
 /obj/structure/chair/office{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
@@ -434,10 +435,22 @@
 "BO" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
-	pixel_y = 4
+	pixel_y = 12;
+	pixel_x = 3
 	},
 /obj/structure/sign/poster/official/no_erp/directional/east,
 /obj/machinery/newscaster/directional/north,
+/obj/item/reagent_containers/cup/glass/waterbottle{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/applicator/pill/morphine{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/applicator/pill/morphine{
+	pixel_x = 9
+	},
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "CU" = (
@@ -457,22 +470,23 @@
 "DD" = (
 /obj/machinery/light/small/directional/south,
 /obj/structure/sign/clock/directional/south,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "DJ" = (
-/obj/structure/dresser,
 /obj/machinery/light/small/directional/north,
 /obj/machinery/status_display/ai/directional/north,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/bookcase/random,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/nt_rep)
 "ES" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
@@ -594,7 +608,6 @@
 	pixel_x = 9;
 	pixel_y = 3
 	},
-/obj/item/radio/intercom/directional/north,
 /obj/structure/sign/calendar/directional/east,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -623,16 +636,16 @@
 	},
 /area/station/hallway/primary/fore)
 "PQ" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/civilian{
-	pixel_y = 3
-	},
 /obj/machinery/status_display/evac/directional/south,
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
+	},
+/obj/structure/chair/sofa/right{
+	dir = 1;
+	color = "#462f1c"
 	},
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/nt_rep)
@@ -768,6 +781,11 @@
 /area/station/command/heads_quarters/nt_rep)
 "VB" = (
 /obj/machinery/airalarm/directional/north,
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian/closed{
+	pixel_y = 4
+	},
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "VV" = (
@@ -1018,7 +1036,7 @@ wN
 DD
 tz
 SX
-ES
+cs
 yy
 dt
 yx

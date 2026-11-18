@@ -63,6 +63,9 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/keycard_auth/wall_mounted/directional/east{
+	pixel_x = 39
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
@@ -71,8 +74,8 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/folder/blue{
-	pixel_y = 1
+/obj/item/folder/nanotrasen{
+	pixel_y = 2
 	},
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
 	pixel_x = 12;
@@ -151,8 +154,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/structure/bed/dogbed/luxury,
-/obj/effect/spawner/random/ntc_pet,
+/obj/structure/closet/secure_closet/nanotrasen_crew_trainer,
+/obj/item/storage/lunchbox/nanotrasen,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
@@ -182,17 +185,19 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
-/obj/structure/noticeboard/directional/north{
-	name = "Nanotrasen Consultant's Notice Board"
-	},
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/structure/noticeboard/ntc{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "B" = (
 /obj/machinery/modular_computer/preset/command{
 	dir = 8
 	},
-/obj/machinery/keycard_auth/wall_mounted/directional/east,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_x = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
@@ -202,6 +207,8 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/south,
+/obj/structure/bed/dogbed/luxury,
+/obj/effect/spawner/random/ntc_pet,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "F" = (
@@ -209,8 +216,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "G" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/structure/table/wood/fancy/blue,
 /obj/machinery/fax/heads/ntc,
+/obj/structure/table/wood/fancy/cyan,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "K" = (

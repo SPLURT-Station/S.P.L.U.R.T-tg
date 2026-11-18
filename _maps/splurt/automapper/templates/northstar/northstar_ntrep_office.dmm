@@ -4,10 +4,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
-/obj/machinery/button/door/directional/south{
-	id = "nt_rep_shutters";
-	name = "Privacy Shutters"
-	},
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
@@ -16,15 +13,6 @@
 	dir = 10
 	},
 /turf/open/floor/wood/tile,
-/area/station/command/heads_quarters/nt_rep)
-"d" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_shutters";
-	dir = 8
-	},
-/turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "e" = (
 /obj/effect/turf_decal/siding/wood,
@@ -134,13 +122,23 @@
 /obj/structure/noticeboard/directional/east{
 	name = "Nanotrasen Consultant's Notice Board"
 	},
-/obj/machinery/keycard_auth/wall_mounted/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
+	pixel_x = 8
+	},
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	req_access = list("cent_general");
+	pixel_y = -24;
+	pixel_x = -6
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
 /obj/structure/table/wood/fancy/cyan,
-/obj/machinery/status_display/evac/directional/south,
 /obj/machinery/fax/heads/ntc,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = -32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
@@ -335,9 +333,13 @@
 "K" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "nt_rep_shutters";
-	dir = 1
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bathroom-open";
+	icon_type = "bathroom";
+	id = "ntc_privatecurtains";
+	name = "expensive curtain";
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes."
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -480,7 +482,7 @@
 (1,1,1) = {"
 a
 a
-d
+K
 a
 l
 a

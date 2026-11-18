@@ -37,14 +37,14 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
-/obj/structure/noticeboard/directional/north{
-	name = "Nanotrasen Consultant's Notice Board"
-	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
 /obj/structure/aquarium/prefilled,
 /obj/item/reagent_containers/cup/fish_feed{
 	pixel_y = 17;
 	pixel_x = -3
+	},
+/obj/structure/noticeboard/ntc{
+	pixel_y = 32
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -234,8 +234,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "z" = (
-/obj/structure/sign/clock/directional/north,
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
+/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
@@ -273,6 +273,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/structure/sign/clock/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
@@ -334,9 +335,11 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
-/obj/machinery/status_display/evac/directional/north,
 /obj/machinery/fax/heads/ntc,
 /obj/structure/table/wood/fancy/cyan,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (

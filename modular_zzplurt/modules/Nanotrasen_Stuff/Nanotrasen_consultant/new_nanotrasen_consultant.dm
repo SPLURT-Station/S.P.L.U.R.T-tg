@@ -13,16 +13,16 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 		Be the HR you always wanted to be. Sit in your office and get drunk."
 	supervisors = list("Nanotrasen High Command")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	head_announce = list(RADIO_CHANNEL_IAA)
+	head_announce = RADIO_CHANNEL_IAA
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Nanotrasen High Command"
 	req_admin_notify = 1
 	minimal_player_age = 14
+	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_INTERNAL
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
-	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_INTERNAL
 	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "NANOTRASEN_CONSULTANT"
 
@@ -83,6 +83,15 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 /obj/machinery/fax/heads/ntc
 	name = "Nanotrasen Consultant's Fax Machine"
 	fax_name = "Nanotrasen Consultant's Office"
+
+/obj/structure/noticeboard/ntc
+	name = "Nanotrasen Consultant's Notice Board"
+	desc = "Important notices from the Nanotrasen Consultant."
+	req_access = list(ACCESS_CENT_CAPTAIN)
+
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant
+	name = "The Nanotrasen Distinguished Service and Representation Award"
+	desc = "A corporation is only as strong as the individuals entrusted to represent it. Through unwavering dedication, sound judgment, and an intimate understanding of corporate law, one ensures that Nanotrasen's interests remain protected, its employees remain accountable, and its name remains untarnished. To represent Nanotrasen is to carry the authority of an entire institution. Wear that responsibility with pride, and remember: the law is not merely something we follow, but something we uphold."
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"

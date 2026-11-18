@@ -19,12 +19,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
-"b" = (
-/obj/machinery/digital_clock{
-	pixel_y = 5
-	},
-/turf/closed/wall/r_wall,
-/area/station/command/heads_quarters/nt_rep)
 "c" = (
 /obj/structure/cable,
 /obj/structure/chair/office{
@@ -70,8 +64,14 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "h" = (
-/obj/structure/noticeboard/directional/south{
-	name = "Nanotrasen Consultant's Notice Board"
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
+	pixel_x = -6
+	},
+/obj/machinery/button/curtain{
+	id = "ntc_privatecurtains";
+	pixel_x = 7;
+	req_access = list("cent_general");
+	pixel_y = -26
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -168,17 +168,8 @@
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/keycard_auth/wall_mounted/directional/south{
-	pixel_x = -6
-	},
 /obj/structure/safe/floor/ntc,
 /obj/item/folder/ntc_documents,
-/obj/machinery/button/curtain{
-	id = "ntc_privatecurtains";
-	pixel_x = 7;
-	req_access = list("cent_captain");
-	pixel_y = -26
-	},
 /obj/item/reagent_containers/cup/glass/flask/gold,
 /obj/item/reagent_containers/applicator/pill/cyanide,
 /obj/item/photo{
@@ -191,6 +182,9 @@
 /obj/item/coin/adamantine,
 /obj/item/encryptionkey/headset_cent,
 /obj/item/storage/belt/sheath/sabre/ntc,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = -32
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
@@ -271,11 +265,13 @@
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
 /obj/effect/turf_decal/siding/wood/end,
-/obj/structure/sign/poster/official/enlist/directional/south,
 /obj/machinery/vending/boozeomat{
 	density = 0;
 	req_access = list("cent_general");
 	pixel_x = -32
+	},
+/obj/structure/noticeboard/ntc{
+	pixel_y = -32
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
@@ -368,6 +364,7 @@
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/sign/clock/directional/north,
+/obj/machinery/digital_clock/directional/east,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
@@ -597,7 +594,7 @@ M
 "}
 (9,1,1) = {"
 f
-b
+f
 f
 O
 f

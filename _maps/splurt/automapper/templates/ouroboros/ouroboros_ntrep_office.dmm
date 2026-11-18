@@ -23,12 +23,12 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "c" = (
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/chair/sofa/right/brown{
 	dir = 1;
 	color = "#462f1c"
 	},
 /obj/effect/landmark/start/nanotrasen_crew_trainer,
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
@@ -197,8 +197,10 @@
 "o" = (
 /obj/effect/turf_decal/siding/wood/end,
 /obj/structure/hedge,
-/obj/structure/sign/clock/directional/east,
 /obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/structure/noticeboard/ntc{
+	pixel_x = 32
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "p" = (
@@ -289,8 +291,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/structure/noticeboard/directional/east,
 /obj/structure/table/wood/fancy/cyan,
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_x = 32
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
@@ -331,6 +335,7 @@
 	},
 /obj/item/radio/intercom/directional/west,
 /obj/effect/landmark/start/nanotrasen_consultant,
+/obj/structure/sign/clock/directional/north,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "B" = (
@@ -386,12 +391,12 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "G" = (
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/chair/sofa/left/brown{
 	dir = 1;
 	color = "#462f1c"
 	},
 /obj/structure/sign/poster/official/enlist/directional/west,
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/nt_rep)
 "H" = (

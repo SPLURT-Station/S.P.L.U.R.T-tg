@@ -90,12 +90,6 @@
 /obj/item/food/meat/slab/chicken,
 /turf/open/floor/iron/cafeteria,
 /area/station/command/heads_quarters/nt_rep)
-"ev" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/parquet,
-/area/station/command/heads_quarters/nt_rep)
 "gc" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
@@ -309,7 +303,7 @@
 	id = "ntc_privatecurtains";
 	pixel_x = -6;
 	pixel_y = -24;
-	req_access = list("cent_captain");
+	req_access = list("cent_general");
 	name = "curtain control"
 	},
 /turf/open/floor/carpet/executive,
@@ -485,8 +479,7 @@
 	dir = 8
 	},
 /obj/structure/sign/calendar/directional/south,
-/obj/structure/noticeboard/directional/west{
-	name = "Nanotrasen Consultant's Notice Board";
+/obj/structure/noticeboard/ntc{
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/executive,
@@ -548,17 +541,7 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
-"xk" = (
-/obj/structure/plaque/static_plaque/golden{
-	pixel_y = 32
-	},
-/turf/template_noop,
-/area/template_noop)
 "ya" = (
-/obj/structure/plaque/static_plaque/golden/captain{
-	pixel_y = -32;
-	name = "The Most Robust Consultant Award for Robustness"
-	},
 /obj/machinery/modular_computer/preset/command{
 	dir = 1
 	},
@@ -568,6 +551,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
+	},
+/obj/structure/plaque/static_plaque/golden/nanotrasen_consultant{
+	pixel_y = -32
 	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
@@ -876,7 +862,11 @@
 /area/station/command/heads_quarters/nt_rep)
 "NH" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/curtain/bounty,
+/obj/structure/curtain/cloth{
+	color = "#2E7DA5";
+	desc = "An expensive set of excellent cloth drapes.";
+	name = "expensive curtain"
+	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "NN" = (
@@ -1161,7 +1151,7 @@ FS
 rB
 MR
 Ne
-ev
+tb
 zN
 FO
 Lb
@@ -1263,7 +1253,7 @@ Uv
 hb
 ya
 KM
-xk
+tw
 tw
 "}
 (19,1,1) = {"
