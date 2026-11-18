@@ -30,6 +30,23 @@
 	min_pop = 3
 	blacklisted_roles = list(
 		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
 	)
 
 /datum/dynamic_ruleset/latejoin/traitor/assign_role(datum/mind/candidate)
@@ -45,6 +62,23 @@
 	min_pop = 15
 	blacklisted_roles = list(
 		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
 	)
 
 /datum/dynamic_ruleset/latejoin/changeling/assign_role(datum/mind/candidate)
@@ -60,6 +94,18 @@
 	weight = 1
 	min_pop = 30
 	repeatable = FALSE
+	// SPLURT EDIT START
+	blacklisted_roles = list(
+		JOB_BLUESHIELD,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+	)
+	// SPLURT EDIT END
 	/// How many heads of staff are required to be on the station for this to be selected
 	var/heads_necessary = 3
 

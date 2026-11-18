@@ -8,6 +8,10 @@
 /datum/dynamic_ruleset/roundstart/is_valid_candidate(mob/candidate, client/candidate_client)
 	if(isnull(candidate.mind))
 		return FALSE
+	// SPLURT EDIT START
+	if(candidate.mind.assigned_role.title in get_blacklisted_roles())
+		return FALSE
+	// SPLURT EDIT END
 	// Checks that any other roundstart ruleset hasn't already picked this guy
 	for(var/datum/dynamic_ruleset/roundstart/ruleset as anything in SSdynamic.queued_rulesets)
 		if(candidate.mind in ruleset.selected_minds)
@@ -39,6 +43,26 @@
 	weight = 10
 	min_pop = 3
 	max_antag_cap = list("denominator" = 24)
+	blacklisted_roles = list(
+		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
+	)
 
 /datum/dynamic_ruleset/roundstart/traitor/assign_role(datum/mind/candidate)
 	candidate.add_antag_datum(/datum/antagonist/traitor)
@@ -82,6 +106,26 @@
 	weight = 5
 	max_antag_cap = list("denominator" = 29)
 	min_pop = 10
+	blacklisted_roles = list(
+		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
+	)
 
 /datum/dynamic_ruleset/roundstart/blood_brother/assign_role(datum/mind/candidate)
 	candidate.add_antag_datum(/datum/antagonist/brother)
@@ -94,6 +138,26 @@
 	weight = 3
 	min_pop = 15
 	max_antag_cap = list("denominator" = 29)
+	blacklisted_roles = list(
+		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
+	)
 
 /datum/dynamic_ruleset/roundstart/changeling/assign_role(datum/mind/candidate)
 	candidate.add_antag_datum(/datum/antagonist/changeling)
@@ -140,6 +204,26 @@
 	weight = 3
 	max_antag_cap = list("denominator" = 24)
 	min_pop = 30 // Ensures good spread of sacrifice targets
+	blacklisted_roles = list(
+		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
+	)
 
 /datum/dynamic_ruleset/roundstart/heretic/assign_role(datum/mind/candidate)
 	candidate.add_antag_datum(/datum/antagonist/heretic)
@@ -190,6 +274,23 @@
 	min_pop = 30
 	blacklisted_roles = list(
 		JOB_HEAD_OF_PERSONNEL,
+		// SPLURT EDIT START / Antag security and heads are a nightmare.
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_BLUESHIELD,
+		JOB_NT_REP,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+		// SPLURT EDIT END
 	)
 	min_antag_cap = list("denominator" = 20, "offset" = 1)
 	repeatable = FALSE
@@ -405,6 +506,18 @@
 	min_antag_cap = 1
 	max_antag_cap = 3
 	repeatable = FALSE
+	// SPLURT EDIT START
+	blacklisted_roles = list(
+		JOB_BLUESHIELD,
+		JOB_NT_TRN,
+		JOB_BRIDGE_ASSISTANT,
+		JOB_WARDEN,
+		JOB_SECURITY_MEDIC,
+		JOB_SECURITY_OFFICER,
+		JOB_DETECTIVE,
+		JOB_CORRECTIONS_OFFICER,
+	)
+	// SPLURT EDIT END
 	/// If we have fewer heads of staff than this 7 minutes into the round, we'll cancel the revolution
 	var/heads_necessary = 2
 
