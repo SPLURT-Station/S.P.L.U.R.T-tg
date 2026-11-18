@@ -159,7 +159,7 @@
 	description = "Penetrate yourself with your tail."
 	usage = INTERACTION_SELF
 	target_required_parts = list()
-	user_required_parts = list(ORGAN_SLOT_TAIL = REQUIRE_GENITAL_ANY, ORGAN_SLOT_PENIS = REQUIRE_GENITAL_EXPOSED)
+	user_required_parts = list(ORGAN_SLOT_TAIL = REQUIRE_GENITAL_ANY) // Not requiring exposed penis or vagina since the required_parts is 'and' instead of 'or'. A tail can probably worm its way into clothes anyway.
 	sound_possible = list('modular_zzplurt/sound/interactions/bang1.ogg',
 						'modular_zzplurt/sound/interactions/bang2.ogg',
 						'modular_zzplurt/sound/interactions/bang3.ogg',

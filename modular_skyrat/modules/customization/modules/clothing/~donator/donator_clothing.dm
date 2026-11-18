@@ -1377,6 +1377,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "oldmarine_whites"
 	worn_icon = 'modular_skyrat/master_files/icons/donator/mob/clothing/uniform.dmi'
 	worn_icon_digi = null
+	can_adjust = FALSE
 
 //Donation reward for Tetrako
 /obj/item/clothing/under/nt_idol_skirt
@@ -1450,6 +1451,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_teshari = 'modular_skyrat/master_files/icons/donator/mob/clothing/uniform_teshari.dmi'
 	icon_state = "tactichill"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	can_adjust = FALSE
 
 // Donation reward for thedragmeme
 /obj/item/clothing/shoes/fancy_heels/drag

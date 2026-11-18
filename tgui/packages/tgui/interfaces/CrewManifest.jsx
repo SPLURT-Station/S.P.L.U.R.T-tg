@@ -31,7 +31,7 @@ export const CrewManifest = (props) => {
             style={{'--department-color': positions[dept].color}}
             title={
               dept +
-              (dept !== 'Misc'
+              (dept !== 'Misc' && positions[dept].open >= 0 // SPLURT EDIT - Check open is >= 0
                 ? ` (${positions[dept].open} positions open)`
                 : '')
             }

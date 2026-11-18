@@ -42,3 +42,6 @@
 	suffix = "abandoned_pirate_ship.dmm"
 	name = "Abandoned Pirate Ship"
 	description = "A derelict pirate vessel that has been abandoned and left to rot. Seems to be free of threats."
+
+/datum/map_template/ruin/space/asteroid1
+	prefix = "_maps/RandomRuins/SpaceRuins/splurt/" // Skyrat Map edit.

@@ -17,7 +17,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
 			players_to_log[readied_player.ckey] = readied_player.new_character
-		if(ishuman(readied_player.new_character))
+			// if(ishuman(readied_player.new_character)) SPLURT EDIT - Inject works for more than carbon humans now
 			inject(readied_player.new_character, null, readied_player.client) // SKYRAT EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
 	if(length(players_to_log))
@@ -169,6 +169,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
 		// SKYRAT EDIT START - RP Records
+		security_note = person.get_quirk_security_string(CAT_QUIRK_NOTES),
 		past_general_records = person_client?.prefs.read_preference(/datum/preference/text/general) || "",
 		past_medical_records = person_client?.prefs.read_preference(/datum/preference/text/medical) || "",
 		past_security_records = person_client?.prefs.read_preference(/datum/preference/text/security) || "",

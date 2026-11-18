@@ -68,3 +68,4 @@
 	required_temp = 322 // Kind of warmed up
 	mix_message = "The musky mixture foams into a warm pink froth..."
 	erp_reaction = TRUE
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_HARD | REACTION_TAG_DRUG

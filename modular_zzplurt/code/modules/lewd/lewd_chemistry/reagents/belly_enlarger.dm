@@ -76,3 +76,4 @@
 							/datum/reagent/drug/aphrodisiac/crocin = 2)
 	mix_message = "the reaction gives off a sweet aroma."
 	erp_reaction = TRUE
+	reaction_tags = REACTION_TAG_CHEMICAL | REACTION_TAG_HARD | REACTION_TAG_ORGAN

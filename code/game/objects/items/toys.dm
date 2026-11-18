@@ -1220,10 +1220,12 @@
 	var/toysay = "What the fuck did you do?"
 	var/toysound = 'sound/machines/click.ogg'
 
+/* SPLURT REMOVAL, MODULAR DESCRIPTIONS
 /obj/item/toy/figure/Initialize(mapload)
 	. = ..()
 	desc = "A \"Space Life\" brand [src]."
 	AddElement(/datum/element/toy_talk)
+*/
 
 /obj/item/toy/figure/attack_self(mob/user as mob)
 	if(cooldown <= world.time)

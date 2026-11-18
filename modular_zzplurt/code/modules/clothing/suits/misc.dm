@@ -74,6 +74,7 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/oversized_hood
+	auto_deploy_hood_on_outfit_equip = FALSE
 	cold_protection = CHEST|GROIN|ARMS
 	body_parts_covered = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -86,6 +87,19 @@
 	icon = 'modular_zzplurt/icons/obj/clothing/head.dmi'
 	worn_icon = 'modular_zzplurt/icons/mob/clothing/head.dmi'
 	flags_inv = HIDEHAIR
+
+// Theoretically these are the only loadout hoodies that need to have the hood auto deploy disabled.
+/obj/item/clothing/suit/hooded/big_hoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
+
+/obj/item/clothing/suit/hooded/twee_hoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
+
+/obj/item/clothing/suit/hooded/colorblockhoodie
+	auto_deploy_hood_on_outfit_equip = FALSE
+
+/obj/item/clothing/suit/hooded/leather
+	auto_deploy_hood_on_outfit_equip = FALSE
 
 /obj/item/clothing/suit/urban/shoulder_sweater
 	name = "off shoulder sweater"
@@ -330,3 +344,14 @@ GAME_VERB_SRC(/obj/item/clothing/suit/storage/fluff/fedcoat, toggle, usr, "Toggl
 		/obj/item/knife/kitchen,
 		/obj/item/storage/bag/tray,
 	)
+
+/obj/item/clothing/suit/hazardvest/centcom
+	name = "CentCom hazard vest"
+	desc = "A durable dark green hazard vest issued to Central Command inspection and engineering personnel. High-visibility \
+		reflective trim and reinforced construction provide safety without sacrificing mobility, while embroidered Nanotrasen \
+		markings denote official corporate authority during inspections, maintenance, and emergency response operations."
+	icon = 'modular_zzplurt/icons/obj/clothing/suit/utility.dmi'
+	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit/utility.dmi'
+	icon_state = "cc_hazard_vest"
+	body_parts_covered = CHEST
+	armor_type = /datum/armor/armor_centcom_formal_nt_consultant

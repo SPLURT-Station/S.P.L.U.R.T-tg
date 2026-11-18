@@ -377,6 +377,7 @@
 		balloon_alert(user, active ? "activated" : "deactivated")
 	playsound(src, active ? 'sound/items/weapons/saberon.ogg' : 'sound/items/weapons/saberoff.ogg', 35, TRUE)
 	is_bashable = !is_bashable
+	set_light_on(active) // SPLURT ADDITION
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/shield/energy/proc/can_disarm_attack(datum/source, mob/living/victim, mob/living/user, send_message = TRUE)

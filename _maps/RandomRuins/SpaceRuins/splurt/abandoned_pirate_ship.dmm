@@ -346,6 +346,10 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/item/clothing/head/costume/pirate/armored{
+	pixel_x = -6;
+	pixel_y = 7
+	},
 /turf/open/floor/wood/airless,
 /area/ruin/space/has_grav/galloway_ship)
 "kh" = (
@@ -906,11 +910,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/galloway_ship)
 "vu" = (
-/obj/structure/table/wood,
-/obj/item/clothing/head/costume/pirate/armored{
-	pixel_x = 4;
-	pixel_y = 7
-	},
+/obj/item/claymore/cutlass_enchanted,
 /turf/open/floor/wood/airless,
 /area/ruin/space/has_grav/galloway_ship)
 "vx" = (
@@ -962,7 +962,6 @@
 /area/ruin/space/has_grav/galloway_ship)
 "xe" = (
 /obj/structure/table/wood,
-/obj/item/claymore/cutlass/old,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -1566,6 +1565,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/galloway_ship)
+"Ku" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/wood/airless,
 /area/ruin/space/has_grav/galloway_ship)
 "Kw" = (
 /obj/structure/cable,
@@ -3115,7 +3118,7 @@ Zx
 DL
 DL
 wo
-vu
+Nh
 kh
 hX
 ZM
@@ -3365,7 +3368,7 @@ DL
 ki
 kc
 Dm
-CU
+Ku
 Zo
 Ni
 je
@@ -3426,7 +3429,7 @@ Zx
 DL
 ki
 Nh
-CU
+vu
 Vi
 JA
 Ni
