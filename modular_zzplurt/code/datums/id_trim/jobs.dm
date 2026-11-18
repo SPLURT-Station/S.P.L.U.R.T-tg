@@ -86,8 +86,8 @@
 	intern_alt_name = "Junior Blueshield"
 	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
 	trim_state = "trim_blueshield"
-	department_color = COLOR_CENTCOM_BLUE
-	subdepartment_color = COLOR_COMMAND_BLUE
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_CENTCOM_BLUE
 	sechud_icon_state = SECHUD_BLUESHIELD
 	extra_wildcard_access = list()
 	minimal_access = list(
