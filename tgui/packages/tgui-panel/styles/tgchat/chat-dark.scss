@@ -187,9 +187,13 @@ a:visited {
 }
 
 .filterMessages input {
+  /* placeholder to avoid empty ruleset warning */ //SPLURT EDIT
+  content: '';
 }
 
 .filterMessages label {
+  /* placeholder to avoid empty ruleset warning */ //SPLURT EDIT
+  content: '';
 }
 
 .icon-stack {
@@ -313,6 +317,8 @@ em {
 .infoplain,
 .oocplain,
 .warningplain {
+  /* placeholder to avoid empty ruleset warning */ //SPLURT EDIT
+  content: '';
 }
 
 .deadsay {
@@ -381,6 +387,10 @@ em {
 
 .centcomradio {
   color: hsl(197, 62.6%, 39.8%);
+}
+
+.iaaradio {
+  color: hsl(207, 73%, 38%);
 }
 
 .aiprivradio {

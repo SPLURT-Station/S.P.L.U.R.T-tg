@@ -3,6 +3,20 @@
 @use '../colors.scss';
 @use '../base.scss';
 
+$department_map: (
+  'Assistant': var(--color-gray),
+  'Captain': colors.fg(var(--color-blue)),
+  'Cargo': var(--color-brown),
+  'Command': var(--color-yellow),
+  'Security': var(--color-red),
+  'Engineering': hsl(from var(--color-orange) h s calc(l + 7.5)),
+  'Medical': var(--color-teal),
+  'Science': colors.fg(var(--color-purple)),
+  'Service': var(--color-green),
+  'Silicon': var(--color-pink),
+  'InternalAffairs': var(--color-olive), // SPLURT EDIT
+);
+
 .ChoicedSelection {
   padding: var(--space-m);
   background-color: var(--color-base);

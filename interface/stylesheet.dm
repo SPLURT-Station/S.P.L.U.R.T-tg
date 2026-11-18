@@ -48,6 +48,7 @@ em						{font-style: normal;	font-weight: bold;}
 .greenteamradio			{color: #00ff00;}
 .yellowteamradio		{color: #d1ba22;}
 .captaincast			{color: #00ff99;}
+.iaaradio				{color: #3e55a1;}
 
 .yell					{					font-weight: bold;}
 

@@ -23,8 +23,7 @@
 "d" = (
 /obj/effect/turf_decal/tile/dark_blue/diagonal_centre,
 /obj/machinery/status_display/ai/directional/south,
-/obj/machinery/light/small/blacklight/directional/south,
-/obj/effect/spawner/random/loot/dignitary/blueshield,
+/obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/blueshield)
 "e" = (
@@ -58,6 +57,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/blueshield)
 "i" = (
@@ -72,7 +72,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/tac{
-	req_access = list("captain")
+	req_access = list("cent_officer")
 	},
 /obj/item/screwdriver,
 /obj/item/mod/module/pepper_shoulders,
@@ -85,7 +85,6 @@
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = -32
 	},
-/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "k" = (
@@ -106,11 +105,24 @@
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
-/obj/machinery/requests_console/auto_name/directional/east,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/machinery/requests_console/directional/east{
+	name = "Blueshield's Requests Console";
+	department = "Blueshield's Desk"
+	},
 /turf/open/floor/wood/large,
+/area/station/command/heads_quarters/blueshield)
+"m" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "bs_priv";
+	name = "Privacy Shutters";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "n" = (
 /obj/effect/landmark/start/blueshield,
@@ -137,7 +149,9 @@
 /obj/structure/rack/shelf,
 /obj/item/storage/medkit/combat_surgeon/stocked,
 /obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 /obj/item/storage/medkit/tactical/blueshield,
+/obj/machinery/vending/wallmed/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "r" = (
@@ -200,8 +214,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blueshield's Quarters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
-/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/blueshield,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -227,7 +240,6 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/blueshield,
-/obj/machinery/vending/wallmed/directional/west,
 /obj/machinery/camera/directional/west{
 	c_tag = "Bridge - Blueshield's Armory"
 	},
@@ -235,6 +247,7 @@
 /obj/item/taperecorder{
 	name = "Captain's Log"
 	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/blueshield)
 "z" = (
@@ -291,7 +304,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/blueshield)
 "I" = (
-/obj/machinery/newscaster/directional/south,
 /obj/machinery/computer/security{
 	dir = 1
 	},
@@ -299,6 +311,7 @@
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/radio/intercom/command/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/blueshield)
 "J" = (
@@ -392,11 +405,12 @@
 /area/station/command/heads_quarters/blueshield)
 "W" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "bs_priv";
-	name = "Privacy Shutters"
+	name = "Privacy Shutters";
+	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "Y" = (
@@ -416,15 +430,15 @@
 /obj/structure/bed/dogbed{
 	name = "Walter's Dogbed"
 	},
-/mob/living/basic/pet/dog/dobermann/walter{
-	gender = "male"
-	},
 /obj/item/toy/figure/syndie{
 	pixel_x = 9;
 	pixel_y = -2;
 	name = "\improper chewed up Redsuit action figure"
 	},
 /obj/item/radio/intercom/command/directional/west,
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/blueshield)
 
@@ -497,7 +511,7 @@ f
 (7,1,1) = {"
 N
 p
-W
+m
 u
 T
 J

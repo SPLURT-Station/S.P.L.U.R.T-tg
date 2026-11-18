@@ -1,3 +1,4 @@
+/* SPLURT REMOVAL
 /datum/job/blueshield
 	title = JOB_BLUESHIELD
 	rpg_title = "Guild Protectorate"
@@ -22,8 +23,6 @@
 	akula_outfit = /datum/outfit/akula
 	display_order = JOB_DISPLAY_ORDER_BLUESHIELD
 	bounty_types = CIV_JOB_SEC
-
-	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
 		/datum/job_department/command,
@@ -95,3 +94,4 @@
 		/datum/computer_file/program/radar/lifeline,
 		/datum/computer_file/program/faxbond,
 	)
+*/

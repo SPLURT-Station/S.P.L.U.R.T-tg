@@ -1,7 +1,7 @@
-/obj/item/encryptionkey/heads/blueshield
+/obj/item/encryptionkey/blueshield // SPLURT EDIT
 	name = "\proper the blueshield's encryption key"
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
-	icon_state = "/obj/item/encryptionkey/heads/blueshield"
+	icon_state = "/obj/item/encryptionkey/blueshield"
 	post_init_icon_state = "cypherkey_centcom"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom

@@ -65,6 +65,7 @@ GLOBAL_LIST_INIT(spanname_to_formatting, list(
 	"Big Bold" = "big bold",
 	"Captain-Cast" = "captaincast",
 	"Centcom Radio" = "centcomradio",
+	"Internal Affairs Radio" = "iaaradio",
 	"Changeling" = "changeling",
 	"Clown" = "clown",
 	"Colossus" = "colossus",
