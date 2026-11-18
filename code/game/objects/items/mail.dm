@@ -243,7 +243,7 @@
 
 /obj/item/mail/proc/disposal_handling(disposal_source, obj/structure/disposalholder/disposal_holder, obj/machinery/disposal/disposal_machine, hasmob)
 	SIGNAL_HANDLER
-	if(!hasmob)
+	if(!hasmob && sort_tag!=0) // SPLURT EDIT - fix mail tagged as 'trash' overriding the destinationTag which made trash piles always loop back to cargo instead of going to disposals
 		disposal_holder.destinationTag = sort_tag
 
 /// Subtype that's always junkmail
