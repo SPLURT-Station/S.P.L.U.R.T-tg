@@ -1,7 +1,6 @@
 /datum/design/implant_gfluid
 	name = "Genital Fluid Implant Case"
 	desc = "A glass case containing a Genital Fluid Infuser implant."
-	id = "implant_gfluid"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 5)
 	build_path = /obj/item/implantcase/genital_fluid
@@ -13,7 +12,6 @@
 /datum/design/cybernetic_brain_cortical
 	name = "Cortical Cybernetic Brain"
 	desc = "An advanced cybernetic brain with enhanced cortical capabilities."
-	id = "cybernetic_brain_cortical"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 15 SECONDS
 	materials = list(
