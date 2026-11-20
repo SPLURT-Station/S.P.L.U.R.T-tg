@@ -7,5 +7,5 @@
 	food_reagents = list(/datum/reagent/consumable/cum = 5)
 	is_decorated = TRUE
 
-/obj/item/food/donut/proc/in_box_sprite()
+/obj/item/food/donut/cum/in_box_sprite()
 	return "donut_inbox"
