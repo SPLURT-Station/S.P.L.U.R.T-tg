@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"map_name": "Flumfstation",
+	"map_path": "map_files/Flumfstation",
+	"map_file": "Flumfstation.dmm",
+	"shuttles": {
+		"emergency": "emergency_explorer",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_flumf",
+		"whiteship": "whiteship_meta"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/kitchen/diner"]
+		}
+	}
+}
