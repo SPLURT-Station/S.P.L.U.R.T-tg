@@ -7,3 +7,9 @@
 	prefix = "_maps/shuttles/zzplurt/"
 	port_id = "cargo"
 	suffix = "cardinal"
+
+/datum/map_template/shuttle/cargo/flumf
+	prefix = "_maps/shuttles/zzplurt/"
+	port_id = "cargo"
+	suffix = "flumf"
+	name = "supply shuttle (Flumf)"
