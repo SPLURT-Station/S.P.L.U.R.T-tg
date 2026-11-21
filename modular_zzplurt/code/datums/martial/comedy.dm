@@ -52,12 +52,12 @@
 
 /datum/martial_art/cqc/comedy/check_block(mob/living/cqc_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
 	var/mob/living/attacker = GET_ASSAILANT(hitby)
-	if (!attacker ||!can_use(cqc_user, attacker))
+	if (!attacker || !can_use(cqc_user, attacker))
 		return NONE
 	return ..()
 
 /datum/martial_art/cqc/comedy/on_attackby(mob/living/cqc_user, obj/item/attack_weapon, mob/attacker, list/modifiers)
-	if (!attacker ||!can_use(cqc_user, attacker))
+	if (!attacker || !can_use(cqc_user, attacker))
 		return NONE
 	return ..()
 
