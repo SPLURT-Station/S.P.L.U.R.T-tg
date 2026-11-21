@@ -17,7 +17,7 @@
 	INVOKE_ASYNC(src, PROC_REF(fade_out))
 
 /obj/effect/temp_visual/dir_setting/miner_death/proc/fade_out()
-	var/matrix/our_matrix = new
+	var/matrix/our_matrix = matrix()
 	our_matrix.Turn(pick(90, 270))
 	var/final_dir = dir
 	if(dir & (EAST|WEST)) //Facing east or west

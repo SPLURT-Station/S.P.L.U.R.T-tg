@@ -54,9 +54,7 @@
 	START_PROCESSING(SSfastprocess, src)
 	update_appearance()
 	if(scale_x || scale_y)
-		var/matrix/our_matrix = matrix()
-		our_matrix.Scale(scale_x, scale_y)
-		transform = our_matrix
+		transform = matrix().Scale(scale_x, scale_y)
 	notify_ghosts("An ICARUS sunbeam has been launched! [target_atom ? "Towards: [target_atom.name]" : ""]",
 		source = src,
 		header = "Somethings burning!",

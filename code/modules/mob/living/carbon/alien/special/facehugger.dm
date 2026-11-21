@@ -115,7 +115,7 @@
 	if(CanHug(AM) && Adjacent(AM))
 		return leap_to(AM)
 
-/obj/item/clothing/mask/facehugger/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, gentle, quickstart = TRUE, throw_type_path = /datum/thrownthing)
+/obj/item/clothing/mask/facehugger/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE, throw_type_path = /datum/thrownthing)
 	. = ..()
 	if(!.)
 		return
