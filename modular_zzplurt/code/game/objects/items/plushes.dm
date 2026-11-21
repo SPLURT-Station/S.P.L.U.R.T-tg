@@ -273,3 +273,13 @@
 	attack_verb_simple = list("beep", "boop", "ping")
 	attack_verb_continuous = list("beeps", "boops", "pings")
 	squeak_override = list('modular_zzplurt/sound/machines/beep.ogg' = 1)
+
+/obj/item/toy/plush/jamletplush
+	name = "\improper Republic Jamlet Commander"
+	desc = "Despite being from the far reaches of the galaxy, this thing--this CREATURE--has made it here somehow. Made by Iriadni Industries, it's a plushie that mimics a republic hero! What hero? I dunno... It's probably a jamn?- Jammy?- JAMLET! It's oddly weighted in the head..."
+	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
+	icon_state = "jamletplush"
+	gender = FEMALE
+	attack_verb_simple = list("commend", "salute", "honor")
+	attack_verb_continuous = list("commends", "salutes", "honors")
+	squeak_override = list('modular_zzplurt/sound/items/jamletplush.ogg' = 1)
