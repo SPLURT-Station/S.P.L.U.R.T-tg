@@ -109,7 +109,7 @@
 	return ..()
 
 // Keep the exact vent chosen by the admin: destruction ends this event.
-/datum/round_event/vent_clog/custom/vent_move(datum/source)
+/datum/round_event/vent_clog/custom/proc/vent_move(datum/source)
 	SIGNAL_HANDLER
 	kill()
 
