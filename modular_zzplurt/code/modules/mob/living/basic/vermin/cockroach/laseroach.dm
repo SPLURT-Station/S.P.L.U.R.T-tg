@@ -42,14 +42,7 @@
 
 /// Keep ranged protection/attack commands when recruited by a regal rat.
 /mob/living/basic/cockroach/laseroach/set_pet_commands()
-	var/static/list/laseroach_commands = list(
-		/datum/pet_command/idle,
-		/datum/pet_command/free,
-		/datum/pet_command/protect_owner/glockroach,
-		/datum/pet_command/follow,
-		/datum/pet_command/attack/glockroach,
-	)
-	minion_commands = laseroach_commands
+	minion_commands = GLOB.glockroach_minion_commands
 
 /// Alternate shell palette with the usual two HP; factions are unchanged.
 /mob/living/basic/cockroach/laseroach/space_police
