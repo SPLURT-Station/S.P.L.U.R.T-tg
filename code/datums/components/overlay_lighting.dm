@@ -396,6 +396,9 @@
 		return
 	if(new_range == 0)
 		turn_off()
+	else if(overlay_lighting_flags & LIGHTING_ON)
+		// Remove registrations using the previous radius before lumcount_range changes.
+		clean_old_cells(current_holder)
 	range = clamp(CEILING(new_range, 0.5), 1, 6)
 	var/pixel_bounds = ((range - 1) * 64) + 32
 	lumcount_range = ceil(range)
@@ -417,7 +420,7 @@
 		else
 			cast_range = clamp(round(new_range * 0.5), 1, 3)
 	if(overlay_lighting_flags & LIGHTING_ON)
-		make_luminosity_update(current_holder)
+		make_luminosity_update()
 
 /// Changes the intensity/brightness of the light by altering the visual object's alpha.
 /datum/component/overlay_lighting/proc/set_power(atom/source, old_power)
