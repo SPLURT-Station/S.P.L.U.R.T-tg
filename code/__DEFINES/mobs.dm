@@ -1182,6 +1182,15 @@ GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/attack/mouse
 ))
 
+/// Shared command list for glockroach and laseroach minions.
+GLOBAL_LIST_INIT(glockroach_minion_commands, list(
+	/datum/pet_command/idle,
+	/datum/pet_command/free,
+	/datum/pet_command/protect_owner/glockroach,
+	/datum/pet_command/follow,
+	/datum/pet_command/attack/glockroach
+))
+
 /// Checks if the mob is unconscious (or in other words, has [TRAIT_KNOCKEDOUT]) - note dead mobs are considered unconscious
 #define IS_UNCONSCIOUS(mob) (HAS_TRAIT(mob, TRAIT_KNOCKEDOUT))
 /// Checks if the mob is in soft crit, hard crit, dead, or is otherwise unconscious (which hard crit and death apply anyways)
