@@ -8,6 +8,6 @@
 		if(!confirmation == "Confirm" || loc != this_sleeper)
 			return
 		// Ejecting the sleeper's occupant. There you go buddy cham pal friend bucko friend pal chum
-		this_sleeper.go_out(src)
+		this_sleeper.go_out(src, this_sleeper.get_host())
 		message_admins("[src] 'OOC Escape'-d from a dogborg sleeper.")
 		log_ooc("[src] 'OOC Escape'-d from a dogborg sleeper.")

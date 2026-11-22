@@ -91,6 +91,18 @@
 	else if(iscyborg(loc.loc))
 		return loc.loc // cursed cyborg code
 
+// Both clients must have mechanical vore on, and the cyborg sleeper toggle on. Either side being false blocks the swallow.
+/obj/item/dogborg/sleeper/proc/allows_sleeper_vore(mob/living/prey, mob/living/silicon/robot/hound)
+	if(!prey?.client || !hound?.client)
+		return FALSE
+	if(!prey.GetComponent(/datum/component/vore))
+		return FALSE
+	if(!check_preference(prey, /datum/preference/toggle/erp/vore_enable) || !check_preference(hound, /datum/preference/toggle/erp/vore_enable))
+		return FALSE
+	if(!check_preference(prey, /datum/vore_pref/toggle/cyborg_sleepers) || !check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
+		return FALSE
+	return TRUE
+
 /obj/item/dogborg/sleeper/interact_with_atom(mob/living/carbon/target, mob/living/silicon/user, proximity)
 	var/mob/living/silicon/robot/hound = get_host()
 	if(!hound)
@@ -109,14 +121,13 @@
 		to_chat(user, "<span class='warning'>Your [src.name] is already occupied.</span>")
 		return
 
-	var/datum/component/vore/vore = target.GetComponent(/datum/component/vore)
-	if(!vore)
+	if(!target.GetComponent(/datum/component/vore))
 		to_chat(user, "<span class='warning'>The target registers an error code. Unable to insert into [src.name].</span>")
-		return ..()
-
+		return ITEM_INTERACT_BLOCKING
+	if(!allows_sleeper_vore(target, hound))
+		to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
+		return ITEM_INTERACT_BLOCKING
 	var/voracious = TRUE
-	if(!target.client || !hound.client || !check_preference(target, /datum/preference/toggle/erp/vore_enable) || !check_vore_preference(target, /datum/vore_pref/toggle/cyborg_sleepers) || !check_preference(hound, /datum/preference/toggle/erp/vore_enable) || !check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
-		voracious = FALSE
 
 	user.visible_message("<span class='warning'>[hound.name] is carefully inserting [target.name] into their [src.name].</span>", "<span class='notice'>You start placing [target] into your [src.name]...</span>")
 	if(do_after(user, 10 SECONDS, target) && !target.buckled && !target.anchored && !patient)
@@ -221,7 +232,28 @@
 
 	if(cleaning)
 		data["items"] = "Self-cleaning mode active: [length(contents - items_preserved)] object(s) remaining."
-	data["cleaning"] = cleaning
+		data["cleaning"] = cleaning
+		data["max_items"] = null
+		data["stuffed_at"] = null
+	data["item_count"] = length(contents)
+	data["held"] = list()
+	if(istype(src, /obj/item/dogborg/sleeper/compactor))
+		var/obj/item/dogborg/sleeper/compactor/bin = src
+		data["max_items"] = bin.max_item_count
+		data["stuffed_at"] = 12
+	for(var/atom/movable/thing in contents)
+		if(thing == patient)
+			continue
+		var/list/entry = list(
+			"name" = thing.name,
+			"icon" = thing.icon,
+			"icon_state" = thing.icon_state,
+			"kept" = (thing in items_preserved),
+		)
+		if(istype(thing, /obj/item/stack))
+			var/obj/item/stack/pile = thing
+			entry["amount"] = pile.amount
+		data["held"] += list(entry)
 	data["medical_scanner"] = medical_scanner
 	data["chems"] = list()
 	for(var/chem in injection_chems)
@@ -287,66 +319,68 @@
 			cleaning = TRUE
 			clean_cycle(usr)
 			. = TRUE
+		if("stop_cleaning")
+			if(!cleaning)
+				return
+			cleaning = FALSE
+			cleaning_cycles = initial(cleaning_cycles)
+			to_chat(usr, "<span class='notice'>You halt the cleaning cycle.</span>")
+			update_gut(usr)
+			. = TRUE
+
 
 /obj/item/dogborg/sleeper/proc/update_gut(mob/living/silicon/robot/hound)
-	// Well, we HAD one, what happened to them?
 	var/prociconupdate = FALSE
 	var/currentenvy = hound.sleeper_enviroment
 	hound.sleeper_enviroment = FALSE
 	if(patient in contents)
-		if(patient_laststat != patient.stat)
-			if(patient.stat & DEAD)
-				hound.sleeper_occupant = 1
-				hound.sleeper_garbage = 0
-				patient_laststat = patient.stat
-			else
-				hound.sleeper_occupant = 0
-				hound.sleeper_garbage = 1
-				patient_laststat = patient.stat
-			prociconupdate = TRUE
-
 		if(!patient.client || !check_preference(patient, /datum/preference/toggle/erp/vore_enable) || !check_vore_preference(patient, /datum/vore_pref/toggle/cyborg_sleepers))
 			hound.sleeper_enviroment = TRUE
 		else
 			hound.sleeper_enviroment = FALSE
 		if(hound.sleeper_enviroment != currentenvy)
 			prociconupdate = TRUE
-
-		// Update icon
-		if(prociconupdate)
-			hound.update_icons()
-		//R eturn original patient
-		return
-	// Check for a new patient
 	else
 		for(var/mob/living/carbon/human/C in contents)
 			patient = C
-			if(patient.stat & DEAD)
-				hound.sleeper_occupant = 1
-				hound.sleeper_garbage = 0
-				patient_laststat = patient.stat
-			else
-				hound.sleeper_occupant = 0
-				hound.sleeper_garbage = 1
-				patient_laststat = patient.stat
+			break
 
-				hound.sleeper_enviroment = FALSE
-			// Update icon and return new patient
-			hound.update_icons()
-			return
-
-	// Cleaning looks better with red on, even with nobody in it
-	if(cleaning)
-		hound.sleeper_occupant = 1
-		hound.sleeper_garbage = 0
-	// Couldn't find anyone, and not cleaning
+	// Cleaning outranks a living patient. Dead is stat == DEAD. A conscious patient is green.
+	if(cleaning || (patient && patient.stat == DEAD))
+		if(!hound.sleeper_occupant || hound.sleeper_garbage)
+			hound.sleeper_occupant = TRUE
+			hound.sleeper_garbage = FALSE
+			prociconupdate = TRUE
+	else if(patient)
+		if(hound.sleeper_occupant || !hound.sleeper_garbage)
+			hound.sleeper_occupant = FALSE
+			hound.sleeper_garbage = TRUE
+			prociconupdate = TRUE
+	else if(istype(src, /obj/item/dogborg/sleeper/compactor) && length(contents) > 11)
+		// Recycle ended, or never started, and the compactor is still stuffed
+		if(!hound.sleeper_occupant || hound.sleeper_garbage)
+			hound.sleeper_occupant = TRUE
+			hound.sleeper_garbage = FALSE
+			prociconupdate = TRUE
 	else
-		hound.sleeper_occupant = 0
-		hound.sleeper_garbage = 0
+		if(hound.sleeper_occupant || hound.sleeper_garbage)
+			prociconupdate = TRUE
+		hound.sleeper_occupant = FALSE
+		hound.sleeper_garbage = FALSE
+		patient_laststat = null
+		patient = null
 
-	patient_laststat = null
-	patient = null
-	hound.update_icons()
+	if(patient)
+		patient_laststat = patient.stat
+	if(prociconupdate)
+		hound.update_icons()
+
+/obj/item/dogborg/sleeper/process(seconds_per_tick)
+	if(!patient)
+		return
+	var/mob/living/silicon/robot/hound = get_host()
+	if(hound)
+		update_gut(hound)
 
 // Gurgleborg process
 /obj/item/dogborg/sleeper/proc/clean_cycle(mob/living/silicon/robot/hound)
@@ -395,10 +429,10 @@
 								thing.forceMove(src)
 								if(ismob(thing))
 									to_chat(thing, "As [this_target] melts away around you, you find yourself in [hound]'s [name]")
-					for(var/obj/item/W in this_target)
-						if(!this_target.dropItemToGround(W))
-							qdel(W)
-					qdel(this_target)
+					// Organs and limbs are items, old code was gibbing. dropItemToGround throws them on the turf.
+					if(patient == this_target)
+						patient = null
+					remove_player_from_round_safely(this_target)
 			// Handle the target being anything but a mob
 			else if(isobj(target))
 				var/obj/target_obj = target
@@ -497,10 +531,11 @@
 		to_chat(user, "<span class='warning'>Your [src.name] is already occupied.</span>")
 		return
 
-	var/datum/component/vore/vore = target.GetComponent(/datum/component/vore)
-	if(!vore)
+	if(!target.GetComponent(/datum/component/vore))
 		to_chat(user, "The target registers an error code. Unable to insert into [src.name].")
 		return
+	if(!allows_sleeper_vore(target, hound))
+		to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
 
 	var/voracious = TRUE
 	if(!check_vore_preference(target, /datum/vore_pref/toggle/cyborg_sleepers) || !check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
@@ -525,6 +560,7 @@
 /obj/item/dogborg/sleeper/K9/flavour
 	name = "Recreational Sleeper"
 	desc = "A mounted, underslung sleeper, intended for holding willing occupants for leisurely purposes."
+	icon_state = "servicer"
 	injection_chems = list() //So they don't have all the same chems as the medihound!
 	medical_scanner = FALSE
 
@@ -541,7 +577,7 @@
 	icon_state = "compactor"
 	min_health = -100
 	injection_chems = null //So they don't have all the same chems as the medihound!
-	var/max_item_count = 30
+	var/max_item_count = 20
 
 /obj/item/storage/interact_with_atom(obj/item/dogborg/sleeper/compactor, mob/user, proximity) //GIT CIRCUMVENTED YO!
 	if(istype(compactor))
@@ -549,53 +585,57 @@
 	else
 		. = ..()
 
-/obj/item/dogborg/sleeper/compactor/attack(atom/movable/target, mob/living/silicon/user, proximity)//GARBO NOMS
+/obj/item/dogborg/sleeper/compactor/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/mob/living/silicon/robot/hound = get_host()
-	if(!hound || !istype(target) || !proximity || target.anchored)
-		return
+	if(!hound || !istype(interacting_with) || !user.Adjacent(interacting_with))
+		return NONE
+	var/atom/movable/movable_target = interacting_with
+	if(istype(movable_target) && movable_target.anchored)
+		return ITEM_INTERACT_BLOCKING
 	if(length(contents) > (max_item_count - 1))
-		to_chat(user,"<span class='warning'>Your [src] is full. Eject or process contents to continue.</span>")
-		return
-	if(isitem(target))
-		var/obj/item/this_item = target
+		to_chat(user, span_warning("Your [src] is full. Eject or process contents to continue."))
+		return ITEM_INTERACT_BLOCKING
+	if(isitem(interacting_with))
+		var/obj/item/this_item = interacting_with
 		if(is_item_accepted(this_item))
-			to_chat(user,"<span class='warning'>[this_item] registers an error code to your [src]!</span>")
-			return
+			to_chat(user, span_warning("[this_item] registers an error code to your [src]!"))
+			return ITEM_INTERACT_BLOCKING
 		if(this_item.w_class > WEIGHT_CLASS_NORMAL)
-			to_chat(user,"<span class='warning'>[this_item] is too large to fit into your [src]!</span>")
-			return
+			to_chat(user, span_warning("[this_item] is too large to fit into your [src]!"))
+			return ITEM_INTERACT_BLOCKING
 		user.visible_message(span_warning("[hound.name] is ingesting [this_item] into their [src.name]."), span_notice("You start ingesting [this_item] into your [src.name]..."))
-		if(do_after(user, 1.5 SECONDS, target) && length(contents) < max_item_count)
+		if(do_after(user, 1.5 SECONDS, interacting_with) && length(contents) < max_item_count)
 			this_item.forceMove(src)
-			this_item.visible_message("<span class='warning'>[hound.name]'s garbage processor groans lightly as [this_item] slips inside.</span>", "<span class='notice'>Your garbage compactor groans lightly as [this_item] slips inside.</span>")
+			this_item.visible_message(span_warning("[hound.name]'s garbage processor groans lightly as [this_item] slips inside."), span_notice("Your garbage compactor groans lightly as [this_item] slips inside."))
 			playsound(hound, 'sound/machines/disposalflush.ogg', 50, 1)
-			if(length(contents) > 11) // grow that tum after a certain junk amount
-				hound.sleeper_occupant = 1
-				hound.update_icons()
+			if(length(contents) > 11)
+				hound.sleeper_occupant = TRUE
 			else
-				hound.sleeper_occupant = 0
-				hound.update_icons()
-		return
+				hound.sleeper_occupant = FALSE
+			hound.update_icons()
+		return ITEM_INTERACT_SUCCESS
 
-	if(iscarbon(target) || issilicon(target))
-		var/mob/living/trashman = target
-		var/datum/component/vore/vore = target.GetComponent(/datum/component/vore)
-		if(!vore)
-			to_chat(user, "<span class='warning'>[target] registers an error code to your [src]</span>")
-			return
+	if(iscarbon(interacting_with) || issilicon(interacting_with))
+		var/mob/living/trashman = interacting_with
+		if(!allows_sleeper_vore(trashman, hound))
+			to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
+			return ITEM_INTERACT_BLOCKING
 		if(patient)
-			to_chat(user,"<span class='warning'>Your [src] is already occupied.</span>")
-			return
+			to_chat(user, span_warning("Your [src] is already occupied."))
+			return ITEM_INTERACT_BLOCKING
 		if(trashman.buckled)
-			to_chat(user,"<span class='warning'>[trashman] is buckled and can not be put into your [src].</span>")
-			return
+			to_chat(user, span_warning("[trashman] is buckled and can not be put into your [src]."))
+			return ITEM_INTERACT_BLOCKING
 		user.visible_message(span_warning("[hound.name] is ingesting [trashman] into their [src]."), span_notice("You start ingesting [trashman] into your [src.name]..."))
 		if(do_after(user, 3 SECONDS, trashman) && !patient && !trashman.buckled && length(contents) < max_item_count)
 			trashman.forceMove(src)
 			trashman.reset_perspective(src)
-			update_gut(user)
-			user.visible_message("<span class='warning'>[hound.name]'s garbage processor groans lightly as [trashman] slips inside.</span>", "<span class='notice'>Your garbage compactor groans lightly as [trashman] slips inside.</span>")
+			update_gut(hound)
+			user.visible_message(span_warning("[hound.name]'s garbage processor groans lightly as [trashman] slips inside."), span_notice("Your garbage compactor groans lightly as [trashman] slips inside."))
 			playsound(hound, 'sound/effects/bin/bin_close.ogg', 80, 1)
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
 
 #undef INJECTION_AMOUNT
 #undef INJECTION_COST
