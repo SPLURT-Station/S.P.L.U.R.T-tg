@@ -42,7 +42,7 @@
 
 	family_heirlooms = list(/obj/item/bedsheet/captain, /obj/item/clothing/head/beret/blueshield)
 	rpg_title = "Guild Protectorate"
-	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_BLACKLISTED | JOB_CANNOT_OPEN_SLOTS
+	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS | JOB_ANTAG_BLACKLISTED
 
 /datum/outfit/job/blueshield
 	name = "Blueshield"
