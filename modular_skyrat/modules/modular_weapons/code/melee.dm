@@ -23,7 +23,7 @@
 	force = 15
 
 // NTC sabre
-/*
+/* // SPLURT REMOVAL, adding a non-customizeable NTC sabre. NEW: "/obj/item/storage/belt/sheath/sabre/ntc"
 /obj/item/storage/belt/sheath/sabre/ntc_commander
 	name = "consultant's commander sabre sheath"
 	desc = "An ornate sheathe bestowed to Nanotrasen officials, decorated in fine green-dyed leather, with ornate gold plating, engraved with the Nanotrasen logo. A weapon from a more elegant age, but no less deadly. While it may not have the same cutting power as the Captain's own sabre, this one practically exudes an aura of authority in and of itself. To wield this is to understand your role as an intimidating presence, but not a casual combatant."
