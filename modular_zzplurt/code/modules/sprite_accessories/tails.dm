@@ -74,9 +74,13 @@ Tails
 	name = "Leopard (Splurt)"
 	icon_state = "leopard"
 
-/datum/sprite_accessory/tails/splurt/experiment
-	name = "Experiment"
-	icon_state = "experiment"
+/datum/sprite_accessory/tails/splurt/stunfat
+	name = "Stunningly fat tail"
+	icon_state = "stunfat"
+
+/datum/sprite_accessory/tails/splurt/stunfat2
+	name = "Stunningly fat tail (Undertail color)"
+	icon_state = "stunfat2"
 
 /*
 Teshari // BRUH
