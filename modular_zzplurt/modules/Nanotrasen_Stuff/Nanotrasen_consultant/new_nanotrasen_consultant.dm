@@ -138,6 +138,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	new /obj/item/inspector(src)
 	new /obj/item/laser_pointer/blue(src)
 
+/obj/structure/closet/secure_closet/nanotrasen_consultant/populate_contents_immediate()
+	new /obj/item/clothing/glasses/hud/security/sunglasses/guard/command(src)
+
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen Consultant."
@@ -281,7 +284,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	name = "Nanotrasen Consultant"
 	jobtype = /datum/job/nanotrasen_consultant
 
-	glasses = /obj/item/clothing/glasses/hud/civilian/sunglasses
+	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/ntc
 	gloves = /obj/item/clothing/gloves/combat
 	uniform =  /obj/item/clothing/under/rank/nanotrasen/commander

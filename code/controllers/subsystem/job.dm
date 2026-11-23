@@ -309,13 +309,13 @@ SUBSYSTEM_DEF(job)
 			job_debug("GRJ: Skipping command role, Player: [player], Job: [job]")
 			continue
 
-		//SKYRAT EDIT ADDITION
+		//SPLURT EDIT ADDITION
 		/*
 		if(job.departments_bitflags & DEPARTMENT_BITFLAG_CENTRAL_COMMAND) //If you want a CC position, select it!
 			job_debug("GRJ skipping Central Command role, Player: [player], Job: [job]")
 			continue
 		*/
-		//SKYRAT EDIT END
+		//SPLURT EDIT END
 
 		// This check handles its own output to job_debug.
 		if(check_job_eligibility(player, job, "GRJ", add_job_to_log = TRUE) != JOB_AVAILABLE)

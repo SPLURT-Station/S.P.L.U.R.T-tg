@@ -14,9 +14,9 @@
 	return istype(thing, /obj/item/clothing/gloves/kaza_ruk/sec/warden)
 
 /datum/objective_item/steal/executive_hudsunglasses
-	name = "the captain's executive HUDsunglasses"
+	name = "executive HUDsunglasses" // SPLURT EDIT, ORIGINAL: name = "the captain's executive HUDsunglasses"
 	targetitem = /obj/item/clothing/glasses/hud/security/sunglasses/guard/command
-	excludefromjob = list(JOB_CAPTAIN)
+	excludefromjob = list(JOB_CAPTAIN, JOB_NT_REP) // SPLURT EDIT, ORIGINAL: excludefromjob = list(JOB_CAPTAIN)
 	exists_on_map = TRUE
 	difficulty = 3
-	steal_hint = "Gold-plated sunglasses, worn by the Captain. Eleven sensor suites, two of which find booze and money."
+	steal_hint = "Gold-plated sunglasses, worn by the Captain and Nanotrasen Consultant. Eleven sensor suites, two of which find booze and money." // SPLURT EDIT

@@ -1,7 +1,7 @@
 // AN ACTUALLY balanced fucking blueshield gun
 /obj/item/gun/energy/e_gun/stun/blueshield/balanced
 	name = "NT-EG \"Defender\" Energy Rifle"
-	desc = "A decommissioned Nanotrasen security rifle, the NT-EG \"Defender\" is a heavy energy weapon designed for non-lethal enforcement. \
+	desc = "A decommissioned Nanotrasen security rifle, the NT-EG \"Defender\" is a heavy energy weapon designed for non-lethal defense. \
 		Capable of firing standard energy bolts, alongside some stun electrodes, it prioritizes control over lethality. This particular model is \
 		a downgraded production variant of the original Tactical Energy Gun, assembled with lower-grade components, resulting in notably slow \
 		recharge times and reduced efficiency. While reliable enough for basic use, it struggles to keep pace in prolonged engagements."

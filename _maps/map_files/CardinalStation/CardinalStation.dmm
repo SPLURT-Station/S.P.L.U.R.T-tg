@@ -2007,13 +2007,19 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
-/obj/structure/aquarium/prefilled,
-/obj/item/reagent_containers/cup/fish_feed{
-	pixel_y = 17;
-	pixel_x = -3
-	},
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/west,
 /obj/machinery/status_display/evac/directional/north,
+/obj/structure/bed/dogbed{
+	name = "Walter's Dogbed"
+	},
+/obj/item/toy/figure/syndie{
+	pixel_x = 9;
+	pixel_y = -2;
+	name = "\improper chewed up Redsuit action figure"
+	},
+/mob/living/basic/pet/dog/dobermann/walter{
+	gender = "male"
+	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/blueshield)
 "ayq" = (

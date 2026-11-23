@@ -7,8 +7,8 @@
 			JOB_CHIEF_ENGINEER = 5,
 			JOB_QUARTERMASTER = 6,
 			JOB_HEAD_OF_SECURITY = 7, // SPLURT EDIT
-			JOB_BLUESHIELD = 9,
-			JOB_NT_REP = 8, //SPLURT EDIT, bruh, literally even blueshield and bridge assistant get it.
+			JOB_BLUESHIELD = 8,
+			JOB_NT_REP = 9, //SPLURT EDIT, bruh, literally even blueshield and bridge assistant get it.
 			JOB_BRIDGE_ASSISTANT = 10
 		)
 
@@ -113,7 +113,7 @@
 
 /**
  * Handles giving out the mobs alternate job title to their items
- * 
+ *
  * Arguments:
  * * equipping - /mob/living/carbon/human on whom we're working
  * * job - /datum/job of the mob

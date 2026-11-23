@@ -1,4 +1,4 @@
-/*
+/* // SPLURT REMOVAL, MODULAR NTIA DEPARTMENT
 /datum/job/nanotrasen_consultant
 	title = JOB_NT_REP
 	rpg_title = "Guild Adviser"
