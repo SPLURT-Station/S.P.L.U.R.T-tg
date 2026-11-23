@@ -77,7 +77,7 @@
 // In an ideal scenario, you want an absolute trust in your firearm or at the very least find it not as much a burden to carry.
 /datum/design/m9x17mm_pmag
 	name = "9x17mm Handgun Magazine (Lethal)"
-	desc = "A standard magazine for all 9mm security pistol, holds 17 rounds of 9x17mm."
+	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm."
 	id = "m9x17mm_pmag"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -91,7 +91,7 @@
 
 /datum/design/m9x17mm_pmag_rubber
 	name = "9x17mm Rubber Handgun Magazine (Less-Lethal)"
-	desc = "A standard magazine for all 9mm security pistol, holds 17 rounds of 9x17mm, this one is full of rubber-capped bullets \
+	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of rubber-capped bullets \
 	For use of disabling targets, while also breaking a few ribs. For those officers who have no issue with lawsuits."
 	id = "m9x17mm_pmag_rubber"
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -106,7 +106,7 @@
 
 /datum/design/m9x17mm_pmag_ihdf
 	name = "9x17mm Intelligent Dispersal Foam Handgun Magazine (Non-Lethal)"
-	desc = "A standard magazine for all 9mm security pistol, holds 17 rounds of 9x17mm, this one is full of advanced bullets full of \
+	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of advanced bullets full of \
 	foam-capped bullets that expand the foam on impact, making the impact padded, however hitting them like a beanbag, knocking the air out of them."
 	id = "m9x17mm_pmag_ihdf"
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -120,8 +120,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/m9x17mm_pmag_hp
-	name = "9x17mm Hollow-Point MP-S5 Magazine (Very Lethal)"
-	desc = "A standard magazine for all 9mm security pistol, holds 17 rounds of 9x17mm, this one is full of bullets meant to shred unarmored personnel \
+	name = "9x17mm Hollow-Point Pistol Magazine (Very Lethal)"
+	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of bullets meant to shred unarmored personnel \
 	better, NOT advised for security brutality!"
 	id = "m9x17mm_pmag_hp"
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -136,7 +136,7 @@
 
 /datum/design/m9x17mm_pmag_ap
 	name = "9x17mm Armor Piercing Pistol Magazine (Lethal)"
-	desc = "A standard magazine for all 9mm security pistol, holds 17 rounds of 9x17mm, this one is full of bullets that are meant for armored targets, \
+	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of bullets that are meant for armored targets, \
 	as they ignore as much armor of the target as it can, shredding right through. Nearly useless against unarmored targets though."
 	id = "m9x17mm_pmag_ap"
 	build_type = PROTOLATHE | AWAY_LATHE
