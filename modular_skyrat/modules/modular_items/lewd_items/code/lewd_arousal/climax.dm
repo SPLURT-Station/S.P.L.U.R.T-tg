@@ -26,8 +26,11 @@
 	var/nonhuman_bypass_self = !ishuman(src) && !src.client && !SSinteractions.is_blacklisted(src) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 	var/nonhuman_bypass_partner = !ishuman(partner) && !partner?.client && !SSinteractions.is_blacklisted(partner) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 
+	#ifndef TESTING
 	if(!(client?.prefs?.read_preference(/datum/preference/toggle/erp/autocum) || nonhuman_bypass_self) && !manual)
 		return
+	#endif
+
 	if(refractory_period > REALTIMEOFDAY)
 		return
 	//SPLURT ADDITION START
@@ -37,8 +40,11 @@
 		return FALSE
 	//SPLURT ADDITION END
 	refractory_period = REALTIMEOFDAY + 30 SECONDS
+
+	#ifndef TESTING
 	if(has_status_effect(/datum/status_effect/climax_cooldown) || !(client?.prefs?.read_preference(/datum/preference/toggle/erp) || nonhuman_bypass_self))
 		return
+	#endif
 
 	if(HAS_TRAIT(src, TRAIT_NEVERBONER) || has_status_effect(/datum/status_effect/climax_cooldown) || (!has_vagina() && !has_penis()))
 		visible_message(span_purple("[src] twitches, trying to cum, but with no result."), \
@@ -82,6 +88,11 @@
 	var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
 	testicles?.calculate_cumshot()
 
+	var/list/organ_portals = list()
+	for(var/obj/item/clothing/sextoy/portal_panties/panties in get_equipped_items())
+		if(panties.current_target)
+			organ_portals[panties.current_target] = panties
+
 	if(climax_choice == CLIMAX_PENIS || climax_choice == CLIMAX_BOTH)
 		var/obj/item/organ/genital/penis/penis = get_organ_slot(ORGAN_SLOT_PENIS)
 		if(!(testicles || testicles?.reagents.total_volume < MIN_CUM_THRESHOLD) && ishuman(src)) //If we have no god damn balls, we can't cum anywhere... GET BALLS! , OR theres so little in your balls that nothing comes out... // SPLURT EDIT - Interactions
@@ -95,7 +106,7 @@
 				span_userlove("You shoot your thick load into the [condom] and it catches it all!"))
 			testicles?.reagents.remove_all(testicles.cumshot_size)
 
-		else if(!is_bottomless() && penis.visibility_preference != GENITAL_ALWAYS_SHOW)
+		else if(!is_bottomless() && penis.visibility_preference != GENITAL_ALWAYS_SHOW && !organ_portals[ORGAN_SLOT_PENIS])
 			visible_message(span_userlove("[src] cums inside [self_their] clothes!"), \
 				span_userlove("You shoot your load, but you weren't naked, so you mess up your clothes!"))
 			self_orgasm = TRUE
@@ -317,7 +328,7 @@
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
 		var/obj/item/organ/genital/vagina/vagina = get_organ_slot(ORGAN_SLOT_VAGINA)
 		//SPLURT EDIT CHANGE BEGIN - Interactions
-		if(!is_bottomless() && vagina?.visibility_preference != GENITAL_ALWAYS_SHOW)
+		if(!is_bottomless() && vagina?.visibility_preference != GENITAL_ALWAYS_SHOW && !organ_portals[ORGAN_SLOT_VAGINA])
 			if(vagina?.reagents.total_volume >= MIN_VAGINA_WETNESS_THRESHOLD)
 				visible_message(
 					span_userlove("[src] cums in [self_their] underwear from [self_their] vagina!"),

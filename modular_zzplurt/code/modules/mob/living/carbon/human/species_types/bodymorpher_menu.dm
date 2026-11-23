@@ -93,6 +93,12 @@
 			log_bodymorph_if_changed(alterer, before_state, "changed their markings")
 			SStgui.update_uis(src)
 			return TRUE
+		if("begin_character_alteration")
+			before_state = capture_bodymorpher_snapshot(alterer)
+			begin_character_alteration(alterer)
+			log_bodymorph_if_changed(alterer, before_state, "changed their character")
+			SStgui.update_uis(src)
+			return TRUE
 		if("save_preset")
 			return prompt_save_bodymorpher_preset(alterer)
 		if("load_preset")
