@@ -5,6 +5,8 @@
 	new /obj/item/gun/ballistic/automatic/mps5(src)
 	new /obj/item/ammo_box/magazine/mps5(src)
 	new /obj/item/ammo_box/magazine/mps5(src)
+	new /obj/item/ammo_box/magazine/mps5(src)
+	new /obj/item/storage/pouch/ammo(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m1911_gold
 	name = "Gold-Trimmed M1911 Pistol gun case"
@@ -14,6 +16,7 @@
 	new /obj/item/ammo_box/magazine/m45(src)
 	new /obj/item/ammo_box/magazine/m45(src)
 	new /obj/item/ammo_box/magazine/m45(src)
+	new /obj/item/storage/pouch/ammo(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/m45a5
 	name = "M45A5 \"Goliath\" Heavy Service Pistol gun case"
@@ -23,6 +26,7 @@
 	new /obj/item/ammo_box/magazine/m45a5(src)
 	new /obj/item/ammo_box/magazine/m45a5(src)
 	new /obj/item/ammo_box/magazine/m45a5(src)
+	new /obj/item/storage/pouch/ammo(src)
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/viceroy
 	name = "NTX-12 \"Viceroy\" Executive Pistol gun case"
@@ -32,3 +36,4 @@
 	new /obj/item/ammo_box/magazine/viceroy(src)
 	new /obj/item/ammo_box/magazine/viceroy(src)
 	new /obj/item/ammo_box/magazine/viceroy(src)
+	new /obj/item/storage/pouch/ammo(src)
