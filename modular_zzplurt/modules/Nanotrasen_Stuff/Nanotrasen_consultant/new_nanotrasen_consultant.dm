@@ -20,9 +20,9 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	supervisors = "the Nanotrasen High Command"
 	req_admin_notify = 1
 	minimal_player_age = 14
-	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_INTERNAL
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_COMMAND
+	exp_required_type_department = EXP_TYPE_ADMIN //Temporary Original is EXP_TYPE_INTERNAL
 	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "NANOTRASEN_CONSULTANT"
 	alt_titles = list(
@@ -78,6 +78,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law,/obj/item/sign/flag/nanotrasen)
 	rpg_title = "Guild Advisor"
 	job_flags = JOB_ANTAG_PROTECTED | STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | HEAD_OF_STAFF_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
+
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	is_hand_required = TRUE
 
