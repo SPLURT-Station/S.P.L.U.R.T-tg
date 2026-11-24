@@ -9,6 +9,7 @@ Tails
 /datum/sprite_accessory/tails/splurt/deer
 	name = "Deer (Splurt)"
 	icon_state = "deer"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/spade
 	name = "Spade (Splurt)"
@@ -17,6 +18,7 @@ Tails
 /datum/sprite_accessory/tails/splurt/tailmaw
 	name = "Tailmaw (Splurt)"
 	icon_state = "tailmaw"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/snaketail
 	name = "Snake Tail (Splurt)"
@@ -57,6 +59,7 @@ Tails
 /datum/sprite_accessory/tails/splurt/easterndragon
 	name = "Eastern Dragon (Splurt)"
 	icon_state = "easternd"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/succubus
 	name = "Succubus (Splurt)"
@@ -69,10 +72,12 @@ Tails
 /datum/sprite_accessory/tails/splurt/nightstalker
 	name = "Nightstalker (Splurt)"
 	icon_state = "nightstalker"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/leopard
 	name = "Leopard (Splurt)"
 	icon_state = "leopard"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/experiment
 	name = "Experiment"
@@ -81,10 +86,12 @@ Tails
 /datum/sprite_accessory/tails/splurt/stunfat
 	name = "Stunningly fat tail"
 	icon_state = "stunfat"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/splurt/stunfat2
 	name = "Stunningly fat tail (Undertail color)"
 	icon_state = "stunfat2"
+	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /*
 Teshari // BRUH
