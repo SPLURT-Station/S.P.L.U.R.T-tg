@@ -76,7 +76,7 @@ export const DogborgSleeper = (props, context) => {
   });
 
   return (
-    <Window width={375} height={560}>
+    <Window width={550} height={800}>
       <Window.Content scrollable>
         <Section
           title={occupant.name ? occupant.name : 'No Occupant'}

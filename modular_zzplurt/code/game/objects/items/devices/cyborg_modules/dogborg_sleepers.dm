@@ -91,17 +91,31 @@
 	else if(iscyborg(loc.loc))
 		return loc.loc // cursed cyborg code
 
-// Both clients must have mechanical vore on, and the cyborg sleeper toggle on. Either side being false blocks the swallow.
-/obj/item/dogborg/sleeper/proc/allows_sleeper_vore(mob/living/prey, mob/living/silicon/robot/hound)
+// Pref check; cyborg must have pred/sleepers enabled, and mob placed in sleeper must have prey/sleepers enabled. Null when the swallow may proceed.
+/obj/item/dogborg/sleeper/proc/sleeper_vore_failure(mob/living/prey, mob/living/silicon/robot/hound)
 	if(!prey?.client || !hound?.client)
-		return FALSE
-	if(!prey.GetComponent(/datum/component/vore))
-		return FALSE
-	if(!check_preference(prey, /datum/preference/toggle/erp/vore_enable) || !check_preference(hound, /datum/preference/toggle/erp/vore_enable))
-		return FALSE
-	if(!check_preference(prey, /datum/vore_pref/toggle/cyborg_sleepers) || !check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
-		return FALSE
-	return TRUE
+		return "[prey] registers an error code. Unable to insert into [src.name]"
+	if(!check_vore_preference(prey, /datum/vore_pref/toggle/cyborg_sleepers))
+		return "[prey] registers an error code. Unable to insert into [src.name]"
+	if(!check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
+		return "You have cyborg sleepers turned off."
+
+	var/datum/vore_preferences/prey_prefs = prey.get_vore_prefs()
+	var/datum/vore_preferences/pred_prefs = hound.get_vore_prefs()
+	if(!prey_prefs || !pred_prefs)
+		return "[prey] registers an error code. Unable to insert into [src.name]"
+
+	var/prey_choice = prey_prefs.read_preference(/datum/vore_pref/trinary/prey)
+	if(prey_choice == 0)
+		return "[prey] registers an error code. Unable to insert into [src.name]"
+	if(prey_choice == 1)
+		if(tgui_alert(prey, "[hound] is trying to ingest you into [hound.p_their()] sleeper. Are you okay with this?", "Prey Pref", list("Yes", "No")) != "Yes")
+			return "[prey] registers an error code. Unable to insert into [src.name]"
+
+	var/pred_choice = pred_prefs.read_preference(/datum/vore_pref/trinary/pred)
+	if(pred_choice == 0)
+		return "You have pred turned off."
+	return null
 
 /obj/item/dogborg/sleeper/interact_with_atom(mob/living/carbon/target, mob/living/silicon/user, proximity)
 	var/mob/living/silicon/robot/hound = get_host()
@@ -124,11 +138,11 @@
 	if(!target.GetComponent(/datum/component/vore))
 		to_chat(user, "<span class='warning'>The target registers an error code. Unable to insert into [src.name].</span>")
 		return ITEM_INTERACT_BLOCKING
-	if(!allows_sleeper_vore(target, hound))
-		to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
+	var/fail = sleeper_vore_failure(target, hound)
+	if(fail)
+		to_chat(user, span_warning(fail))
 		return ITEM_INTERACT_BLOCKING
 	var/voracious = TRUE
-
 	user.visible_message("<span class='warning'>[hound.name] is carefully inserting [target.name] into their [src.name].</span>", "<span class='notice'>You start placing [target] into your [src.name]...</span>")
 	if(do_after(user, 10 SECONDS, target) && !target.buckled && !target.anchored && !patient)
 		if(!in_range(src, target)) // Proximity is probably old news by now, do a new check.
@@ -149,7 +163,7 @@
 		user.visible_message("<span class='warning'>[voracious ? "[hound]'s [src.name] lights up and expands as [target] slips inside into their [src.name]." : "[hound]'s sleeper indicator lights up as [target] is scooped up into [src.name]."]</span>", \
 			"<span class='notice'>Your [voracious ? "[src.name] lights up as [target] slips into" : "sleeper indicator light shines brightly as [target] is scooped inside"] your [src.name]. Life support functions engaged.</span>")
 		message_admins("[key_name(hound)] has sleeper'd [key_name(patient)] as a dogborg. [ADMIN_JMP(src)]")
-		playsound(hound, voracious ? 'modular_zubbers/sound/vore/insertion1.ogg' : 'sound/effects/bin/bin_close.ogg', 100, 1)
+		playsound(hound, voracious ? 'sound/effects/bin/bin_close.ogg' : 'sound/effects/bin/bin_close.ogg', 100, 1)
 
 /obj/item/dogborg/sleeper/container_resist_act(mob/living/user)
 	var/mob/living/silicon/robot/hound = get_host()
@@ -534,13 +548,11 @@
 	if(!target.GetComponent(/datum/component/vore))
 		to_chat(user, "The target registers an error code. Unable to insert into [src.name].")
 		return
-	if(!allows_sleeper_vore(target, hound))
-		to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
-
+	var/fail = sleeper_vore_failure(target, hound)
+	if(fail)
+		to_chat(user, span_warning(fail))
+		return
 	var/voracious = TRUE
-	if(!check_vore_preference(target, /datum/vore_pref/toggle/cyborg_sleepers) || !check_vore_preference(hound, /datum/vore_pref/toggle/cyborg_sleepers))
-		voracious = FALSE
-
 	user.visible_message("<span class='warning'>[hound.name] is ingesting [target] into their [src.name].</span>", "<span class='notice'>You start ingesting [target] into your [src.name]...</span>")
 	if(do_after(user, 3 SECONDS, target) && !patient && !target.buckled)
 
@@ -555,7 +567,7 @@
 		target.reset_perspective(src)
 		update_gut(hound)
 		user.visible_message("<span class='warning'>[hound.name]'s mobile brig clunks in series as [target] slips inside.</span>", "<span class='notice'>Your mobile brig groans lightly as [target] slips inside.</span>")
-		playsound(hound, voracious ? 'modular_zubbers/sound/vore/insertion1.ogg' : 'sound/effects/bin/bin_close.ogg', 80, 1)
+		playsound(hound, voracious ? 'sound/effects/bin/bin_close.ogg' : 'sound/effects/bin/bin_close.ogg', 80, 1)
 
 /obj/item/dogborg/sleeper/K9/flavour
 	name = "Recreational Sleeper"
@@ -617,14 +629,9 @@
 
 	if(iscarbon(interacting_with) || issilicon(interacting_with))
 		var/mob/living/trashman = interacting_with
-		if(!allows_sleeper_vore(trashman, hound))
-			to_chat(user, "<span class='warning'>Your [src.name] is currently disabled.</span>")
-			return ITEM_INTERACT_BLOCKING
-		if(patient)
-			to_chat(user, span_warning("Your [src] is already occupied."))
-			return ITEM_INTERACT_BLOCKING
-		if(trashman.buckled)
-			to_chat(user, span_warning("[trashman] is buckled and can not be put into your [src]."))
+		var/fail = sleeper_vore_failure(trashman, hound)
+		if(fail)
+			to_chat(user, span_warning(fail))
 			return ITEM_INTERACT_BLOCKING
 		user.visible_message(span_warning("[hound.name] is ingesting [trashman] into their [src]."), span_notice("You start ingesting [trashman] into your [src.name]..."))
 		if(do_after(user, 3 SECONDS, trashman) && !patient && !trashman.buckled && length(contents) < max_item_count)
