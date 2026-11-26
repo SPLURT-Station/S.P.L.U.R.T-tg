@@ -37,7 +37,7 @@
 		if(JOB_NT_REP)
 			return new /obj/item/modular_computer/pda/crew/nanotrasen_consultant
 		if(JOB_NT_TRN)
-			return new /obj/item/modular_computer/pda/nanotrasen_trainer // SPLURT ADDITION
+			return new /obj/item/modular_computer/pda/crew/nanotrasen_trainer // SPLURT ADDITION
 		if(JOB_WARDEN) // SEC
 			return new /obj/item/modular_computer/pda/crew/warden
 		if(JOB_DETECTIVE)

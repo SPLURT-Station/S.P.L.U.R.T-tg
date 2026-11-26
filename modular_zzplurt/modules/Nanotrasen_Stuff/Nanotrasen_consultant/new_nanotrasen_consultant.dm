@@ -77,14 +77,11 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law,/obj/item/sign/flag/nanotrasen)
 	rpg_title = "Guild Advisor"
-<<<<<<< HEAD
+
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_ANTAG_BLACKLISTED
 
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	is_hand_required = TRUE
-=======
-	job_flags = JOB_ANTAG_PROTECTED | STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
->>>>>>> master
 
 	human_authority = JOB_AUTHORITY_HUMANS_ONLY
 
@@ -258,13 +255,15 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	post_init_icon_state = "ntpin"
 	greyscale_colors = "#FFD351#E09100"
 
-/obj/item/modular_computer/pda/heads/nanotrasen_consultant
+/obj/item/modular_computer/pda/crew/heads/nanotrasen_consultant
 	name = "nanotrasen executive PDA"
-	icon_state = "/obj/item/modular_computer/pda/heads/nanotrasen_consultant"
+	icon_state = "/obj/item/modular_computer/pda/crew/heads/nanotrasen_consultant"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#42B5A6#0C9900#FAFAFA"
+	painting_region = REGION_CENTCOM
 	inserted_disk = /obj/item/disk/computer/command/consultant
 	inserted_item = /obj/item/pen/fountain/nanotrasen
+	fax_type = /obj/machinery/fax/heads/ntc
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/records/medical,

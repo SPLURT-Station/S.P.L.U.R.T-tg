@@ -61,7 +61,7 @@
 	messenger = /obj/item/storage/backpack/messenger/blueshield
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
-	belt = /obj/item/modular_computer/pda/blueshield
+	belt = /obj/item/modular_computer/pda/crew/blueshield
 	suit_store = null
 	accessory = /obj/item/clothing/accessory/bubber/acc_medal/neckpin/centcom
 	backpack_contents = list(
@@ -76,11 +76,12 @@
 	head = /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
 
-/obj/item/modular_computer/pda/blueshield
+/obj/item/modular_computer/pda/crew/blueshield
 	name = "blueshield PDA"
-	icon_state = "/obj/item/modular_computer/pda/blueshield"
+	icon_state = "/obj/item/modular_computer/pda/crew/blueshield"
 	greyscale_colors = "#2B356D#1E1E1E"
 	inserted_item = /obj/item/pen/red/security
+	painting_region = REGION_CENTCOM
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/crew_manifest,

@@ -46,7 +46,7 @@
 	name = "Nanotrasen Crew Trainer"
 	jobtype = /datum/job/nanotrasen_crew_trainer
 
-	belt = /obj/item/modular_computer/pda/nanotrasen_trainer
+	belt = /obj/item/modular_computer/pda/crew/nanotrasen_trainer
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/nanotrasen
 	gloves = /obj/item/clothing/gloves/color/black
@@ -123,17 +123,18 @@
 	new /obj/item/clipboard(src)
 	new /obj/item/clipboard(src)
 
-/obj/item/modular_computer/pda/nanotrasen_trainer
+/obj/item/modular_computer/pda/crew/nanotrasen_trainer
 	name = "Nanotrasen PDA"
-	icon_state = "/obj/item/modular_computer/pda/nanotrasen_trainer"
+	icon_state = "/obj/item/modular_computer/pda/crew/nanotrasen_trainer"
 	greyscale_colors = "#42B5A6#B4B9C6"
 	inserted_item = /obj/item/pen/fountain
+	painting_region = REGION_CENTCOM
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/records/medical,
 	)
 
-/obj/item/modular_computer/pda/nanotrasen_trainer/Initialize(mapload)
+/obj/item/modular_computer/pda/crew/nanotrasen_trainer/Initialize(mapload)
 	. = ..()
 	for(var/datum/computer_file/program/messenger/messenger_app in stored_files)
 		messenger_app.spam_mode = TRUE
