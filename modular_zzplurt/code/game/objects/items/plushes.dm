@@ -278,8 +278,11 @@
 	name = "\improper Republic Jamlet Commander"
 	desc = "Despite being from the far reaches of the galaxy, this thing--this CREATURE--has made it here somehow. Made by Iriadni Industries, it's a plushie that mimics a republic hero! What hero? I dunno... It's probably a jamn?- Jammy?- JAMLET! It's oddly weighted in the head..."
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
-	icon_state = "jamletplush"
+	icon_state = "jammer"
+	lefthand_file = 'modular_zzplurt/icons/mob/inhands/misc/plushes_lefthand.dmi'
+	righthand_file = 'modular_zzplurt/icons/mob/inhands/misc/plushes_righthand.dmi'
+	inhand_icon_state = "jammer"
 	gender = FEMALE
 	attack_verb_simple = list("commend", "salute", "honor")
 	attack_verb_continuous = list("commends", "salutes", "honors")
-	squeak_override = list('modular_zzplurt/sound/items/jamletplush.ogg' = 1)
+	squeak_override = list('modular_skyrat/modules/mounted_machine_gun/sound/cock_bolt.ogg' = 1)
