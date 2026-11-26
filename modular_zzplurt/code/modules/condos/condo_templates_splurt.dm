@@ -345,6 +345,29 @@
 	landing_zone_y_offset = 10
 	category = GHC_SPECIAL
 
+/// Ports of legacy SPLURT hilbertshotel rooms that never made the condos migration.
+
+/datum/map_template/condo/splurt_apartment_one
+	name = "Apartment 1"
+	mappath = "_maps/splurt/templates/apartment_1.dmm"
+	landing_zone_x_offset = 2
+	landing_zone_y_offset = 8
+	category = GHC_APARTMENT
+
+/datum/map_template/condo/splurt_apartment_four
+	name = "Apartment 4"
+	mappath = "_maps/splurt/templates/apartment_4.dmm"
+	landing_zone_x_offset = 1
+	landing_zone_y_offset = 10
+	category = GHC_APARTMENT
+
+/datum/map_template/condo/splurt_apartment_beach
+	name = "Beach Apartment"
+	mappath = "_maps/splurt/templates/apartment_beach.dmm"
+	landing_zone_x_offset = 4
+	landing_zone_y_offset = 1
+	category = GHC_BEACH
+
 #undef GHC_APARTMENT
 #undef GHC_BEACH
 #undef GHC_MISC
