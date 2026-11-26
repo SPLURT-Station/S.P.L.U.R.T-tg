@@ -5,7 +5,7 @@
 	var/datum/action/cooldown/sonar_ping/sonar_ping = new(new_teshari)
 	sonar_ping.Grant(new_teshari)
 
-	new_teshari.physiology.hunger_mod *= 2
+	MODIFY_PHYSIOLOGY(new_teshari, PHYS_COEFF_HUNGER_MOD, 2)
 
 /datum/action/cooldown/sonar_ping
 	name = "Listen In"

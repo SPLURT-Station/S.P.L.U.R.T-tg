@@ -26,7 +26,7 @@
 	if(!istype(thirst))
 		return
 
-	if(!ishuman(thirst) || CONFIG_GET(flag/disable_human_mood))
+	if(!ishuman(thirst))
 		screen_loc = ui_mood
 
 	food_image = image(icon = food_icon, icon_state = food_icon_state, pixel_x = -5)

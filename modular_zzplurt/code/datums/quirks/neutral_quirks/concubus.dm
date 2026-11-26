@@ -26,7 +26,7 @@
 		return
 
 	// Increase hunger rate
-	quirk_mob.physiology.hunger_mod *= QUIRK_HUNGER_CONCUBUS
+	MODIFY_PHYSIOLOGY(quirk_mob, PHYS_COEFF_HUNGER_MOD, QUIRK_HUNGER_CONCUBUS)
 
 	/* REWORK
 	// Prevent consuming normal food
@@ -46,7 +46,7 @@
 		return
 
 	// Revert hunger rate change
-	quirk_mob.physiology.hunger_mod /= QUIRK_HUNGER_CONCUBUS
+	MODIFY_PHYSIOLOGY(quirk_mob, PHYS_COEFF_HUNGER_MOD, 1/QUIRK_HUNGER_CONCUBUS)
 
 	/* REWORK
 	// Revert quirk traits

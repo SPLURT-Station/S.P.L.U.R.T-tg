@@ -4,6 +4,7 @@
 	More frequent events than Low Chaos, but less frequent events than High Chaos. Best for an average, varied experience."
 	welcome_text = "If I chopped you up in a meat grinder..."
 	antag_divisor = 8
+	votable = TRUE
 
 	tag_multipliers = list(
 		TAG_LOW = 1,
@@ -17,6 +18,7 @@
 	desc = "Random events come at a moderate pace and antagonists come from space or player generation (OPFORs) rather than from random generation."
 	welcome_text = "Crew-based antagonists will not be randomly rolled this round, use the Opposing Force verb to work out an idea with online event admins."
 	antag_divisor = 0
+	votable = TRUE
 
 	track_data = /datum/storyteller_data/tracks/medium/opfor
 

@@ -37,7 +37,7 @@
 	death_message = "quickly withers and crumples over, dead."
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	combat_mode = TRUE
-	damage_coeff = list(BRUTE = 0.7, BURN = 1, TOX = 0.7, STAMINA = 0, OXY = 0)
+	physiology = list(BRUTE = 0.7, BURN = 1, TOX = 0.7, STAMINA = 0, OXY = 0)
 
 	basic_mob_flags = FLAMMABLE_MOB
 	faction = list(FACTION_CARP)
