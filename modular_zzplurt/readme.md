@@ -160,17 +160,15 @@ When editing maps, especially those that exist in the upstream codebase, the fir
 There are two main ways to use the automapper: the simple area automapper for small changes and the template automapper for larger changes.
 
 1. **Simple Area Automapper:**
-
-	- Use this for small changes, such as adding a single item to an area.
-	- Define the item and its location in the automapper configuration.
-	- This will place the specified item at the given coordinates in the specified area.
+   - Use this for small changes, such as adding a single item to an area.
+   - Define the item and its location in the automapper configuration.
+   - This will place the specified item at the given coordinates in the specified area.
 
 2. **Template Automapper:**
-
-	- Use this for larger changes, such as modifying entire rooms or sections of the map.
-	- Create a template file that defines the changes you want to make.
-	- Add entries to the automapper_config.toml file to specify where and how the template should be applied.
-	- This will apply the changes defined in the template file at the given coordinates.
+   - Use this for larger changes, such as modifying entire rooms or sections of the map.
+   - Create a template file that defines the changes you want to make.
+   - Add entries to the automapper_config.toml file to specify where and how the template should be applied.
+   - This will apply the changes defined in the template file at the given coordinates.
 
 Direct edits to the map files should only be made if the automapper is not sufficient for the intended edits. This ensures that our map changes remain modular and easier to manage.
 
