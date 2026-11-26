@@ -61,7 +61,7 @@
 	ears = /obj/item/radio/headset/headset_cent
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	gloves = /obj/item/clothing/gloves/color/black
-	l_pocket = /obj/item/modular_computer/pda/heads
+	l_pocket = /obj/item/modular_computer/pda/crew/heads
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/bartender
 

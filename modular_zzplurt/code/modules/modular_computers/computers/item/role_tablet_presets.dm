@@ -1,6 +1,6 @@
 /obj/item/modular_computer/pda/crew/heads/centcom
 	name = "central command PDA"
-	icon_state = "/obj/item/modular_computer/pda/heads/centcom"
+	icon_state = "/obj/item/modular_computer/pda/crew/heads/centcom"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#227A26#000099#C19B2D"
 	painting_region = REGION_CENTCOM

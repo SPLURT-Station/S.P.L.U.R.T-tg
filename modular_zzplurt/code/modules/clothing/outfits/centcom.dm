@@ -41,13 +41,13 @@
 	mask = null
 	shoes = /obj/item/clothing/shoes/combat/swat
 	l_pocket = /obj/item/melee/baton/telescopic/gold
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/heads/centcom
 
 /datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -76,13 +76,13 @@
 	mask = null
 	shoes = /obj/item/clothing/shoes/combat/swat
 	l_pocket = /obj/item/melee/baton/telescopic/gold
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/heads/centcom
 
 /datum/outfit/centcom/admiral/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Admiral")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -131,7 +131,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Lieutenant")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -168,7 +168,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Official")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -216,7 +216,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Inspector")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -316,7 +316,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Emergency Response Team Commander")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -358,7 +358,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Security Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -404,7 +404,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Medical Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -450,7 +450,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "Engineering Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)

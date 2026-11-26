@@ -295,7 +295,7 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 	suit = /obj/item/clothing/suit/armor/nanotrasen_greatcoat
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/hats/nanotrasen_cap
-	belt = /obj/item/modular_computer/pda/heads/nanotrasen_consultant
+	belt = /obj/item/modular_computer/pda/crew/heads/nanotrasen_consultant
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic/silver = 1,
 		/obj/item/folder/biscuit/confidential/ntc_safe_code = 1,
