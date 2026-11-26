@@ -84,3 +84,9 @@
 	name = "Gilded Synth plushie"
 	item_path = /obj/item/toy/plush/aurumplush
 	ckeywhitelist = null
+
+
+/datum/loadout_item/toys/jamletplush
+	name = "\improper Republic Jamlet Commander plushie"
+	item_path = /obj/item/toy/plush/jamletplush
+	ckeywhitelist = null
