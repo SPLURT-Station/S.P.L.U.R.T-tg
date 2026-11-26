@@ -22,14 +22,18 @@
 	. = ..()
 
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(W, /obj/item/mmi))
+	if(!istype(W, /obj/item/brain_processor))
 		return ..()
 
-	var/obj/item/mmi/mmi = W
+	var/obj/item/brain_processor/mmi = W
 	var/datum/mind/borging_mind = mmi.brainmob?.mind
+	var/should_be_security_borg = (borging_mind?.assigned_role?.title == JOB_SECURITY_CYBORG) && !borging_mind?.was_fired_from_security_cyborg_role
 	var/should_be_iaa_borg = (borging_mind?.assigned_role?.title == JOB_IAA_CYBORG)
 
 	. = ..()
+	if(!should_be_security_borg)
+		return .
+
 	if(!should_be_iaa_borg)
 		return .
 
@@ -37,6 +41,7 @@
 		return .
 
 	var/mob/living/silicon/robot/new_borg = loc
+	new_borg.setup_security_borg()
 	new_borg.setup_iaa_borg()
 	new_borg.show_laws()
 	new_borg.log_current_laws()
