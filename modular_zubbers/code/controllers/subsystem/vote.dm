@@ -32,8 +32,10 @@
 	current_vote.reminder_fired = TRUE
 
 	for(var/client/late_voter as anything in GLOB.clients)
-		if(LAZYFIND(voted, late_voter.ckey)) // Skip people who already voted
+		if(!late_voter || LAZYFIND(voted, late_voter.ckey)) // Skip people who already voted
 			continue
+		if(!current_vote)
+			return
 
 		if(current_vote.vote_sound && (late_voter.prefs.read_preference(/datum/preference/toggle/sound_announcements)))
 			SEND_SOUND(late_voter, sound(current_vote.vote_sound))
