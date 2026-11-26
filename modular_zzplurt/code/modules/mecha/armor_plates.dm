@@ -2,7 +2,6 @@
 /datum/design/general_purpose_armor
 	name = "General Purpose Metal Armor"
 	desc = "Special armoured ablative plate of metal, designed to increase survivability. Standard issue for military-grade exosuits."
-	id = "mech_armor"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/armor/roundstart
 	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5,/datum/material/glass=SHEET_MATERIAL_AMOUNT * 2)
@@ -21,19 +20,19 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/techweb_node/mech_assembly
-	design_ids = list(
-		"mechapower",
-		"mech_recharger",
-		"ripley_chassis",
-		"ripley_torso",
-		"ripley_left_arm",
-		"ripley_right_arm",
-		"ripley_left_leg",
-		"ripley_right_leg",
-		"ripley_main",
-		"ripley_peri",
-		"mech_hydraulic_clamp",
-		"mech_armor",
+	unlocked_designs = list(
+		/datum/design/board/mechapower,
+		/datum/design/board/mech_recharger,
+		/datum/design/ripley_chassis,
+		/datum/design/ripley_torso,
+		/datum/design/ripley_left_arm,
+		/datum/design/ripley_right_arm,
+		/datum/design/ripley_left_leg,
+		/datum/design/ripley_right_leg,
+		/datum/design/board/ripley_main,
+		/datum/design/board/ripley_peri,
+		/datum/design/mech_hydraulic_clamp,
+		/datum/design/general_purpose_armor,
 	)
 
 /obj/item/mecha_parts/mecha_equipment/armor

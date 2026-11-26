@@ -77,10 +77,14 @@ GLOBAL_VAR_INIT(ntc_safe_combo, generate_safe_combo())
 
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law,/obj/item/sign/flag/nanotrasen)
 	rpg_title = "Guild Advisor"
+<<<<<<< HEAD
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_ANTAG_BLACKLISTED
 
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	is_hand_required = TRUE
+=======
+	job_flags = JOB_ANTAG_PROTECTED | STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+>>>>>>> master
 
 	human_authority = JOB_AUTHORITY_HUMANS_ONLY
 
