@@ -10,6 +10,7 @@
 	medical_record_text = "Patient suffers from acute Reality Dissociation Syndrome and experiences vivid hallucinations, and may have trouble speaking."
 	hardcore_value = 6
 	mail_goodies = list(/obj/item/storage/pill_bottle/lsdpsych)
+	species_blacklist = list(SPECIES_SYNTH, SPECIES_PROTEAN) // SPLURT EDIT
 	/// Weakref to the trauma we give out
 	var/datum/weakref/added_trama_ref
 

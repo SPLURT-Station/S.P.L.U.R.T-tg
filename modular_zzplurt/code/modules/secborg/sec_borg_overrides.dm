@@ -53,10 +53,10 @@
 		return
 
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(W, /obj/item/mmi))
+	if(!istype(W, /obj/item/brain_processor))
 		return ..()
 
-	var/obj/item/mmi/mmi = W
+	var/obj/item/brain_processor/mmi = W
 	var/datum/mind/borging_mind = mmi.brainmob?.mind
 	var/should_be_security_borg = (borging_mind?.assigned_role?.title == JOB_SECURITY_CYBORG) && !borging_mind?.was_fired_from_security_cyborg_role
 
@@ -221,7 +221,6 @@
 
 /datum/design/borg_upgrade_detective_kit
 	name = "Detective Kit Module"
-	id = "borg_upgrade_detective_kit"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/detective_kit
 	materials = list(
@@ -235,7 +234,7 @@
 
 /datum/techweb_node/sec_equip/New()
 	. = ..()
-	design_ids += "borg_upgrade_detective_kit"
+	unlocked_designs += /datum/design/borg_upgrade_detective_kit
 
 
 // Armor Values derived from /datum/armor/hazardvest_security_medic
@@ -290,7 +289,7 @@
 		updatehealth()
 	return delta
 
-/mob/living/silicon/robot/received_stamina_damage(current_level, amount_actual, amount)
+/mob/living/silicon/robot/proc/received_stamina_damage(current_level, amount_actual, amount)
 	if(!is_security_cyborg_role())
 		return
 	addtimer(CALLBACK(src, PROC_REF(set_stamina_loss), 0, TRUE, TRUE), stamina_regen_time, TIMER_UNIQUE | TIMER_OVERRIDE)

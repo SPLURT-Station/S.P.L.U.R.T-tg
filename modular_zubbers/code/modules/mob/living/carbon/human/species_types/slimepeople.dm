@@ -649,8 +649,8 @@
 		"Who do you want to transform?",
 		"Visible mobs",
 		viable_targets,
-		alterer,
-		5 SECONDS,
+		alterer
+		//5 SECONDS, [Splurt Edit - Give People Time to Pick]
 	)
 	if (isnull(target) || !is_valid_char_alteration_target(target))
 		alterer.balloon_alert(alterer, "invalid selection!")
@@ -661,7 +661,7 @@
 		"Do you want to use your characters, or theirs?",
 		"Character Source",
 		list("Yours", "Theirs", "Cancel"),
-		5 SECONDS,
+		//5 SECONDS, [Splurt Edit - Give People Time to Pick]
 		FALSE
 	)
 	var/client/target_client
@@ -689,8 +689,8 @@
 		target_mob,
 		target_char_tgui_title,
 		"Character",
-		prefdata_names,
-		timeout = 5 SECONDS
+		prefdata_names
+		//timeout = 5 SECONDS [Splurt Edit - Give People Time to Pick]
 	)
 	if (isnull(target_char_name))
 		alterer.balloon_alert(alterer, "no selection!")

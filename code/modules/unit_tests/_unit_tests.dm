@@ -222,6 +222,7 @@
 #include "interaction_silicon.dm"
 #include "interaction_structures.dm"
 #include "job_display_order.dm"
+#include "job_icons.dm"
 #include "json_savefile_importing.dm"
 #include "keybinding_init.dm"
 #include "kinetic_crusher.dm"
@@ -230,6 +231,7 @@
 #include "language_transfer.dm"
 #include "leash.dm"
 #include "lesserform.dm"
+#include "light_replacer.dm"
 #include "limbsanity.dm"
 #include "ling_decap.dm"
 #include "liver.dm"
@@ -383,6 +385,7 @@
 // SKYRAT EDIT END
 // SPLURT EDIT START
 #include "~splurt\underwear_items.dm"
+#include "~zubbers\antag_prompt_timing.dm"
 #include "~zubbers\vitezstvi_turret_flags.dm"
 // SPLURT EDIT END
 // END_INCLUDE
