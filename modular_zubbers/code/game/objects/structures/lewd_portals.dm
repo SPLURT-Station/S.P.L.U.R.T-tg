@@ -176,6 +176,7 @@
 
 	affected_penis.visibility_preference = GENITAL_NEVER_SHOW
 	current_mob.update_body()
+	affected_penis.visibility_preference = initial_genital_visibility
 
 /// Renders only the head and its associated overlays for wallstuck mode.
 /obj/structure/lewd_portal/proc/head_only()
