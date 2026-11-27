@@ -198,14 +198,7 @@
 		AddComponent(/datum/component/ranged_mob_full_auto)
 
 /mob/living/basic/cockroach/glockroach/set_pet_commands()
-	var/static/list/glockroach_commands = list(
-		/datum/pet_command/idle,
-		/datum/pet_command/free,
-		/datum/pet_command/protect_owner/glockroach,
-		/datum/pet_command/follow,
-		/datum/pet_command/attack/glockroach
-	)
-	minion_commands = glockroach_commands
+	minion_commands = GLOB.glockroach_minion_commands
 
 /mob/living/basic/cockroach/glockroach/gang
 	name = "gangroach"
