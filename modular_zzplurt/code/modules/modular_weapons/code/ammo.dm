@@ -226,6 +226,7 @@
 /obj/item/ammo_box/speedloader/c45rt
 	name = "speed loader (.45 RT)"
 	desc = "Designed to quickly reload six-chamber .45 Romulus Technology revolver."
+	icon = 'modular_zzplurt/icons/obj/weapons/guns/misc_ammo.dmi'
 	icon_state = "45"
 	base_icon_state = "45"
 	ammo_type = /obj/item/ammo_casing/c45rt
