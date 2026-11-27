@@ -177,7 +177,6 @@
 				pick(trash_targets),
 				range = 9,
 				speed = 4,
-				force = MOVE_FORCE_STRONG,
 			)
 
 	// One guaranteed wild fireshark

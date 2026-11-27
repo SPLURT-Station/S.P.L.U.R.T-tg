@@ -21,7 +21,6 @@
 
 /datum/design/borg_hypnotic
 	name = "Cyborg Hypnotic Optics Module"
-	id = "hypnoticmodule"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/hypnoticmodule
 	materials = list(

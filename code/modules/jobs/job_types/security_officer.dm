@@ -46,6 +46,7 @@
 		JOB_SECURITY_OFFICER_SERVICE, // SPLURT EDIT ADD
 	)
 	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
+	tgui_icon = FA_ICON_SHIELD_HALVED
 
 
 GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY, SEC_DEPT_SERVICE)) // SPLURT EDIT ADD
@@ -257,7 +258,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	backpack_contents = list(
 		/obj/item/evidencebag = 1,
 		)
-	belt = /obj/item/modular_computer/pda/security
+	belt = /obj/item/modular_computer/pda/crew/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black/security
 	head = /obj/item/clothing/head/helmet/sec

@@ -2,7 +2,6 @@
 	name = "Bane Syndrome"
 	desc = "You don't feel right without wearing some kind of gas mask."
 	value = 0
-	quirk_flags = QUIRK_MOODLET_BASED
 	gain_text = span_danger("You start feeling the need to keep a gas mask on.")
 	lose_text = span_notice("You no longer feel the need to wear a gas mask.")
 	medical_record_text = "Patient feels a strong psychological attachment to gas masks."

@@ -156,6 +156,7 @@
 	icon_state = "toaste_plush"
 	gender = MALE
 	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
+	plappable = FALSE // Doesn't want
 
 /obj/item/toy/plush/glitchy_protogen
 	name = "Glitchy Protogen Plush"
