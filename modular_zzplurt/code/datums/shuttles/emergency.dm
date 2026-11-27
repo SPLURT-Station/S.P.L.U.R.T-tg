@@ -18,3 +18,12 @@
 	credit_cost = 4000
 	description =  "A standard pattern exfiltration shuttle, equipped with a medbay, brig and an aft engineering section. It's upgraded engines ensure the smoothest and quickest ride."
 	occupancy_limit = "48"
+
+/datum/map_template/shuttle/emergency/explorer
+	suffix = "explorer"
+	name = "SFS Explorer"
+	description = "Previously an exploratory vessel, retrofitted for evacuation duties."
+	admin_notes = "Really big. Will not fit on Pubbystation. Bridge is publically accessible. Reference to the Enterprise from Star Trek. Price is a reference to awards the series received."
+	credit_cost = CARGO_CRATE_VALUE * 14
+	who_can_purchase = list(ACCESS_CAPTAIN)
+	occupancy_limit = 75
