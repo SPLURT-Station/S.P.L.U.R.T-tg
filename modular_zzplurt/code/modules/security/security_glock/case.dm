@@ -29,3 +29,6 @@
 	new /obj/item/clothing/gloves/tackler/security(src)
 	new /obj/item/splurtweaponspawner_case(src)
 */
+
+/obj/structure/closet/secure_closet/warden/PopulateContents()
+	new /obj/item/splurtweaponspawner_case(src)
