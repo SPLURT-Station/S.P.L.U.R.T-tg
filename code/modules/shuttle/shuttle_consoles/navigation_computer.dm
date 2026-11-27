@@ -26,6 +26,7 @@
 	///y offset for where the camera eye will spawn. Starts from the shuttle's docking port
 	var/y_offset = 0
 	//modular splurt edit starts
+	//adds /turf/open/floor/iron/dark/smooth_large to list
 	var/list/whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/open/openspace, /turf/open/misc, /turf/open/floor/iron/dark/smooth_large)
 	//modular splurt edit ends!
 	var/see_hidden = FALSE
