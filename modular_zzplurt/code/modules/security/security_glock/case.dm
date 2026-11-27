@@ -31,4 +31,5 @@
 */
 
 /obj/structure/closet/secure_closet/warden/PopulateContents()
+	. = ..()
 	new /obj/item/splurtweaponspawner_case(src)
