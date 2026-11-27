@@ -1,8 +1,5 @@
 /datum/techweb_node/hud/New()
-	var/list/extra_design_ids = list(
-		"nifsoft_storage_concealment",
-		"nifsoft_rapid_disrobe",
-		"nifsoft_gfluid",
-	)
-	LAZYADD(design_ids, extra_design_ids)
+	unlocked_designs += /datum/design/nifsoft_hud/nifsoft_storage_concealment
+	unlocked_designs += /datum/design/nifsoft_hud/nifsoft_rapid_disrobe
+	unlocked_designs += /datum/design/nifsoft_hud/nifsoft_gfluid
 	. = ..()

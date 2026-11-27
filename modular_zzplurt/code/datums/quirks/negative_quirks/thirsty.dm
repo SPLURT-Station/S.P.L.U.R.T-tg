@@ -20,7 +20,7 @@
 
 	// Set hunger multiplier
 	if(istype(H))
-		H.physiology?.thirst_mod *= 2
+		MODIFY_PHYSIOLOGY(H, "thirst_mod", 2)
 
 /datum/quirk/thirsty/remove()
 	// Define quirk mob
@@ -28,5 +28,5 @@
 
 	// Revert hunger multiplier
 	if(istype(H))
-		H.physiology?.thirst_mod /= 2
+		MODIFY_PHYSIOLOGY(H, "thirst_mod", 1/2)
 

@@ -8,12 +8,14 @@
 	slot_flags = ITEM_SLOT_MASK
 	extra_slot_flags = ITEM_SLOT_UNDERWEAR
 	lewd_slot_flags = LEWD_SLOT_PENIS | LEWD_SLOT_VAGINA | LEWD_SLOT_ANUS
-	clothing_flags = INEDIBLE_CLOTHING
 	var/obj/item/clothing/sextoy/portal_fleshlight/linked_fleshlight = null
 	var/current_target = null
 	var/equipped_slot = null
 	/// Whether the panties' wearer is anonymous
 	var/anonymous = FALSE
+
+/obj/item/clothing/sextoy/portal_panties/create_moth_snack()
+	return null
 
 /obj/item/clothing/sextoy/portal_panties/Initialize(mapload)
 	. = ..()
