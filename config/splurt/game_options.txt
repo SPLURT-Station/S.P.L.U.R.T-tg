@@ -26,3 +26,11 @@ HILBERTSHOTEL_ENABLED
 # Toggle on to disallow ghost cafe rooms from being accessed through the station and viceversa
 # Enabled by default
 HILBERTSHOTEL_GHOST_CAFE_RESTRICTED
+
+## Rough player position updates for external map tools (e.g. the SPLURT atlas)
+# Every ATLAS_POSITION_INTERVAL seconds, while a client's optional websocket relay (chat settings -> Websocket) is connected,
+# its tgui panel receives the client's own mob position and forwards it to that relay. Clients without a relay get nothing.
+# The reported tile is randomly offset by up to ATLAS_POSITION_FUZZ_RADIUS tiles so only a rough estimate leaves the server.
+# Set the interval to 0 to disable the updates.
+#ATLAS_POSITION_INTERVAL 5
+#ATLAS_POSITION_FUZZ_RADIUS 1
