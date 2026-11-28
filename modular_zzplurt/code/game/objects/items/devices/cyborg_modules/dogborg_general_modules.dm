@@ -210,7 +210,6 @@
 
 /obj/item/robot_model/proc/dogborg_equip()
 	cyborg_pixel_offset = -16
-	hat_offset = INFINITY
 	basic_modules += new /obj/item/dogborg/dogborg_nose(src)
 	basic_modules += new /obj/item/storage/bag/borgdelivery(src)
 
@@ -225,43 +224,27 @@
 	else
 		basic_modules += new /obj/item/dogborg/jaws/small(src)
 
-	var/obj/item/dogborg/sleeper/this_sleeper = /obj/item/dogborg/sleeper
+	var/obj/item/dogborg/sleeper/this_sleeper
 
-	var/mechanics = CONFIG_GET(flag/enable_dogborg_sleepers)
-	if (mechanics)
-		// Normal sleepers
-		if(istype(src, /obj/item/robot_model/security))
-			this_sleeper = new /obj/item/dogborg/sleeper/K9(src)
+	if(istype(src, /obj/item/robot_model/security))
+		this_sleeper = new /obj/item/dogborg/sleeper/K9(src)
 
-		if(istype(src, /obj/item/robot_model/medical))
-			this_sleeper = new /obj/item/dogborg/sleeper(src)
+	else if(istype(src, /obj/item/robot_model/medical))
+		this_sleeper = new/obj/item/dogborg/sleeper(src)
 
-		// "Unimplemented sleepers"
-		if(istype(src, /obj/item/robot_model/engineering))
-			this_sleeper = new /obj/item/dogborg/sleeper/compactor(src)
-			this_sleeper.icon_state = "decompiler"
-		if(istype(src, /obj/item/robot_model/janitor))
-			this_sleeper = new /obj/item/dogborg/sleeper/compactor(src)
-			this_sleeper.icon_state = "servicer"
-			if(cyborg_base_icon in list("scrubpup", "drakejanit"))
-				this_sleeper.icon_state = "compactor"
-	else
+	else if(istype(src, /obj/item/robot_model/engineering))
+		this_sleeper = new /obj/item/dogborg/sleeper/compactor(src)
+		this_sleeper.icon_state = "decompiler"
+
+	else if(istype(src, /obj/item/robot_model/janitor))
+		this_sleeper = new /obj/item/dogborg/sleeper/compactor(src)
+		this_sleeper.icon_state = "compactor"
+
+	else if(istype(src, /obj/item/robot_model/cargo) || istype(src, /obj/item/robot_model/service) || istype(src, /obj/item/robot_model/miner) || istype(src, /obj/item/robot_model/peacekeeper))
 		this_sleeper = new /obj/item/dogborg/sleeper/K9/flavour(src)
-		// Recreational sleepers
-		if(istype(src, /obj/item/robot_model/security))
-			this_sleeper.icon_state = "sleeperb"
-		if(istype(src, /obj/item/robot_model/medical))
-			this_sleeper.icon_state = "sleeper"
 
-		// Unimplemented sleepers
-		if(istype(src, /obj/item/robot_model/engineering))
-			this_sleeper.icon_state = "decompiler"
-		if(istype(src, /obj/item/robot_model/janitor))
-			this_sleeper.icon_state = "servicer"
-			if(cyborg_base_icon in list("scrubpup", "drakejanit"))
-				this_sleeper.icon_state = "compactor"
-
-	basic_modules += this_sleeper
+	if(this_sleeper)
+		basic_modules += this_sleeper
 	rebuild_modules()
 
 /obj/item/dogborg/jaws
