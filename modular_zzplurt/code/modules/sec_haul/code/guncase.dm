@@ -60,7 +60,7 @@
 	switch(selection)
 		if("Ladon 9x17mm Handgun")
 			spawn_path = /obj/item/storage/toolbox/guncase/skyrat/pistol/security/splurt/ladon
-		if("Protector .40 Revolver")
+		if("Protector .45 Revolver")
 			spawn_path = /obj/item/storage/toolbox/guncase/skyrat/pistol/security/splurt/protector
 		if("Laser Pistol")
 			spawn_path = /obj/item/storage/belt/holster/energy/laser_pistol
@@ -102,6 +102,7 @@
 	name = "protector gunset"
 
 	weapon_to_spawn = /obj/item/gun/ballistic/revolver/protector_revolver
+	extra_to_spawn = /obj/item/ammo_box/speedloader/c45rt
 
 /obj/item/storage/toolbox/guncase/skyrat/pistol/security/splurt/energy_pack
 	name = "Hardlight energy pack"
