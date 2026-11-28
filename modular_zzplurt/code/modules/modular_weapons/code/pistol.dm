@@ -16,7 +16,7 @@
 //I think there's nothing more harmful than the clique that lead to the murphy becoming a thing, even more so it was allowed to exist in this state for so long.
 /obj/item/gun/ballistic/automatic/pistol/sec_glock
 	name = "\improper 'Ladon' Security Pistol"
-	desc = "A well built all rounder standard sidearm of NanoTrasen station security force chambered in 9x17mm. It comes with a revolutionary quick-reload system."
+	desc = "A well built all rounder standard sidearm of Nanotrasen station security force chambered in 9x17mm. It comes with a revolutionary quick-reload system."
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic_40x32.dmi'
 	icon_state = "ladon"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/security
