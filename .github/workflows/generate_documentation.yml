@@ -9,9 +9,18 @@ jobs:
   generate_documentation:
     permissions:
       contents: write # for JamesIves/github-pages-deploy-action to push changes in repo
+      pages: write # for actions/deploy-pages
+      id-token: write # for actions/deploy-pages
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     runs-on: ubuntu-24.04
-    concurrency: gen-docs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Shared with the map diff viewer, which publishes to the same branch.
+    concurrency:
+      group: gen-docs
+      cancel-in-progress: false
+      queue: max
     steps:
       - uses: actions/checkout@v7
       - name: Setup cache
@@ -31,5 +40,29 @@ jobs:
         with:
           branch: gh-pages
           clean: true
+          # Map diffs of open pull requests, published by atlas_map_diff.yml.
+          clean-exclude: atlas-diff
           single-commit: true
           folder: dmdoc
+      - name: Read the complete site, including the map diffs
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: published
+          persist-credentials: false
+      # Pages is deployed from this artifact (Settings > Pages > Source: GitHub
+      # Actions). The automatic build of a branch source times out after ten
+      # minutes on a site with this many files.
+      - uses: actions/configure-pages@v6
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: published
+          include-hidden-files: true
+      - name: Deploy the complete gh-pages branch to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 2400000
+          error_count: 10
