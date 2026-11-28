@@ -7,7 +7,7 @@
 			JOB_CHIEF_ENGINEER = 5,
 			JOB_QUARTERMASTER = 6,
 			JOB_HEAD_OF_SECURITY = 7, // SPLURT EDIT
-			//JOB_NT_REP = 8, SPLURT EDIT requested by kate
+			JOB_NT_REP = 8, //SPLURT EDIT, bruh, literally even blueshield and bridge assistant get it.
 			JOB_BLUESHIELD = 9,
 			JOB_BRIDGE_ASSISTANT = 10
 		)
@@ -35,9 +35,9 @@
 		if(JOB_BLUESHIELD)
 			return new /obj/item/modular_computer/pda/crew/blueshield
 		if(JOB_NT_REP)
-			return new /obj/item/modular_computer/pda/crew/nanotrasen_consultant
+			return new /obj/item/modular_computer/pda/crew/heads/nanotrasen_consultant
 		if(JOB_NT_TRN)
-			return new /obj/item/modular_computer/pda/nanotrasen_trainer // SPLURT ADDITION
+			return new /obj/item/modular_computer/pda/crew/nanotrasen_trainer // SPLURT ADDITION
 		if(JOB_WARDEN) // SEC
 			return new /obj/item/modular_computer/pda/crew/warden
 		if(JOB_DETECTIVE)

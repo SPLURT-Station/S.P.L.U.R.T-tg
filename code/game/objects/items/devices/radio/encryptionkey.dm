@@ -272,6 +272,7 @@
 		RADIO_CHANNEL_SERVICE = 1,
 		RADIO_CHANNEL_AI_PRIVATE = 1,
 		RADIO_CHANNEL_ENTERTAINMENT = 1,
+		RADIO_CHANNEL_IAA = 1, // SPLURT EDIT, the only way to announce when the NTC arrives.
 	)
 
 /obj/item/encryptionkey/ai_with_binary

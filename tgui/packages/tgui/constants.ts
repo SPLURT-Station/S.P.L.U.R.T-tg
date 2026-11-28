@@ -165,6 +165,13 @@ export const RADIO_CHANNELS = [
     freq: 1459,
     color: '#1ecc43',
   },
+  // SPLURT EDIT START
+  {
+    name: 'Internal Affairs',
+    freq: 1361,
+    color: '#3e55a1',
+  },
+  // SPLURT EDIT END
 ] as const;
 
 const GASES = [

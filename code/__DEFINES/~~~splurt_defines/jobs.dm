@@ -9,6 +9,7 @@
 #define JOB_CENTCOM_ENGINEERING_OFFICER "Technical Officer"
 #define JOB_TRADEPOST_COORDINATOR "Tradepost Coordinator"
 #define JOB_NANOTRASEN_LIEUTENANT "Nanotrasen Lieutenant"
+#define JOB_NANOTRASEN_CYBORG "Internal Affairs Cyborg"
 
 #define JOB_ASSET_PROTECTION "Asset Protection Specialist"
 #define JOB_ASSET_PROTECTION_OFFICER "Asset Protection Officer"

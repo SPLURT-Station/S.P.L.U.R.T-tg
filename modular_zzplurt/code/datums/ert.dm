@@ -279,7 +279,6 @@
 		/obj/item/gun/ballistic/automatic/bulwark/loyalpin,
 		/obj/item/gun/ballistic/automatic/bulwark/loyalpin,
 		/obj/item/gun/ballistic/automatic/bulwark/suppressed/loyalpin,
-		/obj/item/gun/ballistic/automatic/bulwark/taser/loyalpin
 	))
 
 	head = pick(list(
@@ -461,7 +460,4 @@
 	install_suppressor(S)
 
 /obj/item/gun/ballistic/automatic/bulwark/suppressed/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
-
-/obj/item/gun/ballistic/automatic/bulwark/taser/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield

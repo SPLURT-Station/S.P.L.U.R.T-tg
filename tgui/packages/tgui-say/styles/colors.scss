@@ -31,6 +31,8 @@ $_channel_map: (
   // BUBBER EDIT - START
   'LOOC': hsl(48, 41%, 49%),
   'Whis': hsl(336, 41%, 65%), // BUBBER EDIT - END
+  // SPLURT EDIT - START
+  'IA': hsl(223, 70%, 27%), // SPLURT EDIT - END
 );
 
 $channel_keys: map.keys($_channel_map) !default;

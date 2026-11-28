@@ -78,4 +78,9 @@ export const RADIO_PREFIXES = {
     id: 'centcom',
     label: 'CCom',
   },
+  // SPLURT EDIT START
+  ':i ': {
+    id: 'affairs',
+    label: 'IA', // SPLURT EDIT END
+  },
 } as const;

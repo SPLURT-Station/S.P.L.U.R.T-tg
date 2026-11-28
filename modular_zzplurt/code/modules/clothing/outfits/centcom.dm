@@ -41,13 +41,13 @@
 	mask = null
 	shoes = /obj/item/clothing/shoes/combat/swat
 	l_pocket = /obj/item/melee/baton/telescopic/gold
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/heads/centcom
 
 /datum/outfit/centcom/commander/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Commander")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -76,13 +76,13 @@
 	mask = null
 	shoes = /obj/item/clothing/shoes/combat/swat
 	l_pocket = /obj/item/melee/baton/telescopic/gold
-	r_pocket = /obj/item/modular_computer/pda/heads/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/heads/centcom
 
 /datum/outfit/centcom/admiral/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/heads/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Admiral")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -125,13 +125,13 @@
 	head = /obj/item/clothing/head/beret/centcom_officer
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/melee/baton/telescopic/silver
-	r_pocket = /obj/item/modular_computer/pda/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom
 
 /datum/outfit/centcom/lieutenant/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Lieutenant")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -162,13 +162,13 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	l_pocket = /obj/item/melee/baton/telescopic/bronze
 	l_hand = /obj/item/clipboard/centcom
-	r_pocket = /obj/item/modular_computer/pda/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom
 
 /datum/outfit/centcom/centcom_official/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Official")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -210,13 +210,13 @@
 	gloves = /obj/item/clothing/gloves/combat
 	l_pocket = /obj/item/melee/baton/telescopic/silver
 	l_hand = /obj/item/clipboard/centcom
-	r_pocket = /obj/item/modular_computer/pda/centcom
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom
 
 /datum/outfit/centcom/centcom_inspector/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "CentCom Inspector")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -299,7 +299,7 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	l_pocket = /obj/item/switchblade
 	additional_radio = /obj/item/encryptionkey/heads/captain
-	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom/ert
 
 /datum/outfit/centcom/ert/commander/post_equip(mob/living/carbon/human/ertcomm, visuals_only = FALSE)
 	. = ..()
@@ -316,7 +316,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "Emergency Response Team Commander")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -352,13 +352,13 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	additional_radio = /obj/item/encryptionkey/heads/hos
-	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom/ert
 
 /datum/outfit/centcom/ert/security/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "Security Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -396,7 +396,7 @@
 	r_hand = /obj/item/gun/energy/modular_laser_rifle/carbine/recharging/ert
 	l_pocket = /obj/item/healthanalyzer/advanced
 	additional_radio = /obj/item/encryptionkey/heads/cmo
-	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom/ert
 
 	skillchips = list(/obj/item/skillchip/entrails_reader)
 
@@ -404,7 +404,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "Medical Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -442,7 +442,7 @@
 	glasses = /obj/item/clothing/glasses/meson/engine
 	l_pocket = /obj/item/rcd_ammo/large
 	additional_radio = /obj/item/encryptionkey/heads/ce
-	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom/ert
 
 	skillchips = list(/obj/item/skillchip/job/engineer)
 
@@ -450,7 +450,7 @@
 	if(visuals_only)
 		return
 
-	var/obj/item/modular_computer/pda/heads/pda = H.r_store
+	var/obj/item/modular_computer/pda/crew/pda = H.r_store
 	pda.imprint_id(H.real_name, "Engineering Response Officer")
 	var/obj/item/card/id/W = H.wear_id
 	if(W)
@@ -538,7 +538,7 @@
 	belt = /obj/item/storage/belt/janitor/full
 	glasses = /obj/item/clothing/glasses/night
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
-	r_pocket = /obj/item/modular_computer/pda/centcom/ert
+	r_pocket = /obj/item/modular_computer/pda/crew/centcom/ert
 	l_hand = /obj/item/storage/bag/trash/bluespace
 	additional_radio = /obj/item/encryptionkey/heads/hop
 
