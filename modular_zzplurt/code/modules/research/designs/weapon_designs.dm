@@ -74,7 +74,6 @@
 /datum/design/m9x17mm_pmag
 	name = "9x17mm Handgun Magazine (Lethal)"
 	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm."
-	id = "m9x17mm_pmag"
 
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -90,7 +89,6 @@
 	name = "9x17mm Rubber Handgun Magazine (Less-Lethal)"
 	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of rubber-capped bullets \
 	For use of disabling targets, while also breaking a few ribs. For those officers who have no issue with lawsuits."
-	id = "m9x17mm_pmag_rubber"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 2
@@ -105,7 +103,6 @@
 	name = "9x17mm Intelligent Dispersal Foam Handgun Magazine (Non-Lethal)"
 	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of advanced bullets full of \
 	foam-capped bullets that expand the foam on impact, making the impact padded, however hitting them like a beanbag, knocking the air out of them."
-	id = "m9x17mm_pmag_ihdf"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 1
@@ -120,7 +117,6 @@
 	name = "9x17mm Hollow-Point Pistol Magazine (Very Lethal)"
 	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of bullets meant to shred unarmored personnel \
 	better, NOT advised for security brutality!"
-	id = "m9x17mm_pmag_hp"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 6, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 6, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 4
@@ -135,7 +131,6 @@
 	name = "9x17mm Armor Piercing Pistol Magazine (Lethal)"
 	desc = "A standard magazine for all 9mm security pistol, holds 16 rounds of 9x17mm, this one is full of bullets that are meant for armored targets, \
 	as they ignore as much armor of the target as it can, shredding right through. Nearly useless against unarmored targets though."
-	id = "m9x17mm_pmag_ap"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 4, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT * 6
@@ -149,7 +144,6 @@
 /datum/design/rt45c
 	name = ".45 Romulus Heavy Revolver Cartridge (Lethal)"
 	desc = "A cartridge for the all pistols chambered in .45 RT, You almost wish they'd make a speedloader of these things."
-	id = "rt45c"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 4
@@ -163,7 +157,6 @@
 /datum/design/rt45c_hv
 	name = ".45 Romulus Heavy Revolver Cartridge (Lethal)"
 	desc = "A cartridge for the all pistols chambered in .45 RT, High velocity projectile yield higher penetration but has reduced stopping power"
-	id = "rt45c_hv"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 4
@@ -177,7 +170,6 @@
 /datum/design/rt45c_sl
 	name = ".45 Heavy Speedloader (Lethal)"
 	desc = "A speed loader for .45 Romulus Technology Cartridges. For when you really need to fulfill a promise"
-	id = "rt45c_sl"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 6
@@ -191,7 +183,6 @@
 /datum/design/rt45c_sl
 	name = ".45 Heavy Speedloader (Lethal)"
 	desc = "A speed loader for .45 Romulus Technology Cartridges. For when you really need to fulfill a promise"
-	id = "rt45c_hv_sl"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 6, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 6

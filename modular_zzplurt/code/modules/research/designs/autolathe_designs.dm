@@ -1,6 +1,5 @@
 /datum/design/splurt_surplus_c45rt
 	name = ".45 Romulus Heavy Revolver Cartridge (Lethal)"
-	id = "surplus_c45rt"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 4
