@@ -11,15 +11,6 @@
 //Taken from https://github.com/ParadiseSS13/Paradise/blob/51e176654c3d86d61707689c9ab218edd36153c3/sound/weapons/gunshots/gunshot_strong.ogg
 //No attribution available for authorship
 
-/obj/item/gun/ballistic/revolver/protector_revolver/add_seclight_point()
-	.=..()
-	AddComponent(/datum/component/seclite_attachable, \
-		starting_light = new /obj/item/flashlight/seclite(src), \
-		is_light_removable = FALSE, \
-		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
-		light_overlay = "flight", \
-		overlay_x = 2, \
-		overlay_y = 5)
 //Hey, so if you ever read this and wondered, Why this rework? Well, because I couldn't stand the idea of someone who can go on and crush other people's dreams.
 // When me and anne worked together on all sorts of PR, primarily anything that involve sec balances. We remind ourselves who are we coding for
 //I think there's nothing more harmful than the clique that lead to the murphy becoming a thing, even more so it was allowed to exist in this state for so long.
