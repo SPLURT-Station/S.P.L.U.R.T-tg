@@ -16,7 +16,7 @@
 //I think there's nothing more harmful than the clique that lead to the murphy becoming a thing, even more so it was allowed to exist in this state for so long.
 /obj/item/gun/ballistic/automatic/pistol/sec_glock
 	name = "\improper 'Ladon' Security Pistol"
-	desc = "A well built all rounder standard sidearm of Nanotrasen station security force chambered in 9x17mm. It comes with a revolutionary quick-reload system."
+	desc = "A well built all rounder standard sidearm of Nanotrasen station security force chambered in 9x17mm. It comes with a revolutionary quick-reload system. Now in high capacity"
 	icon = 'modular_zzplurt/icons/obj/weapons/guns/ballistic_40x32.dmi'
 	icon_state = "ladon"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/security
@@ -40,7 +40,7 @@ as opposed to "I literally do not have anything else and I cannot melee it" I do
 Because the majority of the antagonist ran on this server can be shoved down or stunned.
 Which make the murphy paradoxically awful for security
 Because it make them do things they shouldn't while also being a gun that is objectively worse than nothing.
-This is netiher, this is actually better than nothing. While being balanced around mid to late round antagonist with the weaker starting ammo (That you switch out to HP or AP)
+This is neither, this is actually better than nothing. While being balanced around mid to late round antagonist with the weaker starting ammo (That you switch out to HP or AP)
 Less Damage, more Ammo. It keeps armour actually relevant for antagonist, HP ammo for simple mob and unarmoured target. AP Ammo for mid to late round against armoured thraet (But with notably less damage per hit)
 This is fair and nice.
 */
